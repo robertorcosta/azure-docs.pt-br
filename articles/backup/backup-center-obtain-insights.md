@@ -3,16 +3,16 @@ title: Obtenha informações usando o centro de backup
 description: Saiba como analisar tendências históricas e obter informações mais aprofundadas sobre seus backups com o centro de backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 5964f285089feea721a0b452efed884e905b89cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f687ee123abe2f95ad0d23a6fe302f4a5c22e1
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993894"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173751"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Obtenha informações usando o centro de backup
 
-Para analisar tendências históricas e obter informações mais aprofundadas sobre seus backups, o centro de backup fornece uma interface para [fazer backup de relatórios](configure-reports.md), que usa [logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) e [pastas de trabalho do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Os relatórios de backup oferecem os seguintes recursos:
+Para analisar tendências históricas e obter informações mais aprofundadas sobre seus backups, o centro de backup fornece uma interface para [fazer backup de relatórios](configure-reports.md), que usa [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) e [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md). Os relatórios de backup oferecem os seguintes recursos:
 
 - Alocação e previsão do armazenamento em nuvem consumido.
 
@@ -32,7 +32,7 @@ Para analisar tendências históricas e obter informações mais aprofundadas so
 
 ### <a name="configure-your-vaults-to-send-data-to-a-log-analytics-workspace"></a>Configurar seus cofres para enviar dados para um espaço de trabalho Log Analytics
 
-[Saiba como definir as configurações de diagnóstico em escala para seus cofres](https://docs.microsoft.com/azure/backup/configure-reports#get-started)
+[Saiba como definir as configurações de diagnóstico em escala para seus cofres](./configure-reports.md#get-started)
 
 ### <a name="view-backup-reports-in-the-backup-center-portal"></a>Exibir relatórios de backup no portal do centro de backup
 
@@ -42,17 +42,17 @@ A seleção do item de menu **relatórios de backup** no centro de backup abre o
 
 A seguir estão as exibições disponíveis:
 
-1. **Resumo** – Use esta guia para obter uma visão geral de alto nível do seu espaço de backup. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#summary)
+1. **Resumo** – Use esta guia para obter uma visão geral de alto nível do seu espaço de backup. [Saiba mais](./configure-reports.md#summary)
 
-1. **Itens de backup** -Use esta guia para ver informações e tendências sobre o armazenamento em nuvem consumidos em um nível de item de backup. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#backup-items)
+1. **Itens de backup** -Use esta guia para ver informações e tendências sobre o armazenamento em nuvem consumidos em um nível de item de backup. [Saiba mais](./configure-reports.md#backup-items)
 
-1. **Uso** -Use essa guia para exibir os parâmetros de cobrança de chave para seus backups. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#usage)
+1. **Uso** -Use essa guia para exibir os parâmetros de cobrança de chave para seus backups. [Saiba mais](./configure-reports.md#usage)
 
-1. **Trabalhos** – Use essa guia para exibir tendências de longa execução em trabalhos, como o número de trabalhos com falha por dia e as principais causas de falha do trabalho. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#jobs)
+1. **Trabalhos** – Use essa guia para exibir tendências de longa execução em trabalhos, como o número de trabalhos com falha por dia e as principais causas de falha do trabalho. [Saiba mais](./configure-reports.md#jobs)
 
-1. **Políticas** – Use essa guia para exibir informações sobre todas as suas políticas ativas, como o número de itens associados e o armazenamento em nuvem total consumido por itens de backup em uma determinada política. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#policies)
+1. **Políticas** – Use essa guia para exibir informações sobre todas as suas políticas ativas, como o número de itens associados e o armazenamento em nuvem total consumido por itens de backup em uma determinada política. [Saiba mais](./configure-reports.md#policies)
 
-1. **Otimizar** – Use essa guia para obter visibilidade de possíveis oportunidades de otimização de custos para seus backups. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#optimize)
+1. **Otimizar** – Use essa guia para obter visibilidade de possíveis oportunidades de otimização de custos para seus backups. [Saiba mais](./configure-reports.md#optimize)
 
 ## <a name="next-steps"></a>Próximas etapas
 

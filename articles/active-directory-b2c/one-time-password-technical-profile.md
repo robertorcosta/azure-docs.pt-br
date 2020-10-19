@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418901"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172656"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico de senha de uso único em uma política personalizada de Azure AD B2C
 
@@ -73,13 +73,15 @@ As configurações a seguir podem ser usadas para configurar o modo de geração
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Não | Tempo em segundos até a expiração do código. Mínimo: `60` ; Máximo: `1200` ; Padrão: `600` . |
+| CodeExpirationInSeconds | Não | Tempo em segundos até a expiração do código. Mínimo: `60` ; Máximo: `1200` ; Padrão: `600` . Toda vez que um código é fornecido (mesmo código usando `ReuseSameCode` ou um novo código), a expiração do código é estendida.  |
 | CodeLength | Não | Comprimento do código. O valor padrão é `6`. |
 | CharacterSet | Não | O conjunto de caracteres para o código formatado para uso em uma expressão regular. Por exemplo, `a-z0-9A-Z`. O valor padrão é `0-9`. O conjunto de caracteres deve incluir um mínimo de 10 caracteres diferentes no conjunto especificado. |
 | NumRetryAttempts | Não | O número de tentativas de verificação antes de o código ser considerado inválido. O valor padrão é `5`. |
 | NumCodeGenerationAttempts | Não | O número de tentativas de geração de código máximo por identificador. O valor padrão é 10, se não especificado. |
 | Operação | Sim | A operação a ser executada. Valor possível: `GenerateCode` . |
-| ReuseSameCode | Não | Se um código duplicado deve ser fornecido em vez de gerar um novo código quando determinado código não tiver expirado e ainda for válido. O valor padrão é `false`. |
+| ReuseSameCode | Não | Se o mesmo código deve ser fornecido em vez de gerar um novo código quando determinado código não tiver expirado e ainda for válido. O valor padrão é `false`.  |
+
+
 
 ### <a name="example"></a>Exemplo
 

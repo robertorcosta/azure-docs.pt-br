@@ -3,12 +3,12 @@ title: Visão geral do centro de backup
 description: Este artigo fornece uma visão geral do centro de backup do Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614268"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173727"
 ---
 # <a name="overview-of-backup-center"></a>Visão geral do centro de backup
 
@@ -16,9 +16,9 @@ O centro de backup fornece uma **única experiência de gerenciamento unificada*
 
 Alguns dos principais benefícios do centro de backup incluem:
 
-* **Painel único de vidro para gerenciar backups** – o centro de backup foi projetado para funcionar bem em um ambiente grande e distribuído do Azure. Você pode usar o centro de backup para gerenciar com eficiência os backups que abrangem vários tipos de carga de trabalho, cofres, assinaturas, regiões e locatários [Lighthouse do Azure](https://docs.microsoft.com/azure/lighthouse/overview) .
+* **Painel único de vidro para gerenciar backups** – o centro de backup foi projetado para funcionar bem em um ambiente grande e distribuído do Azure. Você pode usar o centro de backup para gerenciar com eficiência os backups que abrangem vários tipos de carga de trabalho, cofres, assinaturas, regiões e locatários [Lighthouse do Azure](../lighthouse/overview.md) .
 * **Gerenciamento centrado em fonte de** dados – o centro de backup fornece exibições e filtros que são centralizados nas fontes de dados das quais você está fazendo backup (por exemplo, VMS e bancos de dados). Isso permite que um proprietário de recurso ou um administrador de backup monitore e opere backups de itens sem a necessidade de se concentrar em qual cofre um item é submetido a backup. Um recurso importante desse design é a capacidade de filtrar modos de exibição por propriedades específicas de DataSource, como assinatura de DataSource, grupo de recursos DataSource e marcas DataSource. Por exemplo, se a sua organização seguir uma prática de atribuir marcas diferentes a VMs que pertencem a departamentos diferentes, você poderá usar o centro de backup para filtrar as informações de backup com base nas marcas das VMs subjacentes cujo backup está sendo feito sem a necessidade de se concentrar na marca do cofre.
-* **Experiências conectadas** – o centro de backup fornece integrações nativas aos serviços existentes do Azure que habilitam o gerenciamento em escala. Por exemplo, o centro de backup usa a experiência de [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) para ajudá-lo a governar seus backups. Ele também aproveita [pastas de trabalho do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) e [logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) para ajudá-lo a exibir relatórios detalhados sobre backups. Portanto, você não precisa aprender novos princípios para usar os diversos recursos oferecidos pelo centro de backup.
+* **Experiências conectadas** – o centro de backup fornece integrações nativas aos serviços existentes do Azure que habilitam o gerenciamento em escala. Por exemplo, o centro de backup usa a experiência de [Azure Policy](../governance/policy/overview.md) para ajudá-lo a governar seus backups. Ele também aproveita [pastas de trabalho do Azure](../azure-monitor/platform/workbooks-overview.md) e [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) para ajudá-lo a exibir relatórios detalhados sobre backups. Portanto, você não precisa aprender novos princípios para usar os diversos recursos oferecidos pelo centro de backup.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 

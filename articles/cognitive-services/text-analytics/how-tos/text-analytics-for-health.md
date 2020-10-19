@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309193"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173950"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
 
@@ -47,7 +47,7 @@ A extração de relações identifica conexões significativas entre os conceito
 > ![Renovar integridade](../media/ta-for-health/health-relation-extraction.png)
 
 
-#### <a name="entity-linking"></a>[Vinculação de entidade](#tab/entity-linking)
+#### <a name="entity-linking"></a>[Vinculação de Identidade](#tab/entity-linking)
 
 A vinculação de entidade ambiguidade entidades distintas associando entidades nomeadas mencionadas em texto a conceitos encontrados em um banco de dados predefinido de conceitos. Por exemplo, o sistema de idiomas médicos unificados (UMLS).
 
@@ -227,7 +227,11 @@ Para obter mais informações, consulte a documentação do NGINX na [terminaç�
 
 
 ## <a name="example-api-request"></a>Solicitação de API de exemplo
-O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST.
+O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST.  Também fornecemos uma ferramenta de visualização no contêiner que é acessível acrescentando a **demonstração** ao ponto de extremidade do contêiner, por exemplo:
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 Use a solicitação de ondulação de exemplo abaixo para enviar uma consulta ao contêiner que você implantou, substituindo a `serverURL` variável pelo valor apropriado.
 

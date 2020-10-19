@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044191"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171909"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar logs de implantações IoT Edge
 
@@ -63,18 +63,18 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 |-|-|-|
-| schemaVersion | cadeia de caracteres | Definida como `1.0` |
+| schemaVersion | string | Definida como `1.0` |
 | itens | Matriz JSON | Uma matriz com `id` e `filter` tuplas. |
-| ID | cadeia de caracteres | Uma expressão regular que fornece o nome do módulo. Ele pode corresponder a vários módulos em um dispositivo de borda. O formato de [expressões regulares do .net](/dotnet/standard/base-types/regular-expressions) é esperado. |
+| ID | string | Uma expressão regular que fornece o nome do módulo. Ele pode corresponder a vários módulos em um dispositivo de borda. O formato de [expressões regulares do .net](/dotnet/standard/base-types/regular-expressions) é esperado. |
 | filter | Seção JSON | Filtros de log a serem aplicados aos módulos que correspondem à `id` expressão regular na tupla. |
 | engloba | Número inteiro | Número de linhas de log no passado para recuperar a partir da versão mais recente. OPCIONAL. |
 | since | Número inteiro | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX.  Se ambos `tail` e `since` forem especificados, os logs serão recuperados usando o `since` valor primeiro. Em seguida, o `tail` valor é aplicado ao resultado e o resultado final é retornado. OPCIONAL. |
 | until | Número inteiro | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
 | nível de log | Número inteiro | Filtrar linhas de log menores ou iguais ao nível de log especificado. As linhas de log devem seguir o formato de log recomendado e usar o padrão de [nível de severidade de syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPCIONAL. |
-| regex | cadeia de caracteres | Filtre as linhas de log que têm conteúdo que corresponde à expressão regular especificada usando o formato de [expressões regulares .net](/dotnet/standard/base-types/regular-expressions) . OPCIONAL. |
-| codificando | cadeia de caracteres | `gzip` ou `none`. O padrão é `none`. |
+| regex | string | Filtre as linhas de log que têm conteúdo que corresponde à expressão regular especificada usando o formato de [expressões regulares .net](/dotnet/standard/base-types/regular-expressions) . OPCIONAL. |
+| codificando | string | `gzip` ou `none`. O padrão é `none`. |
 | contentType | string | `json` ou `text`. O padrão é `text`. |
 
 > [!NOTE]
@@ -164,7 +164,7 @@ Esse método aceita um conteúdo JSON semelhante a **GetModuleLogs**, com a adi�
     }
 ```
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 |-|-|-|
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -273,9 +273,9 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 |-|-|-|
-| schemaVersion | cadeia de caracteres | Definida como `1.0` |
+| schemaVersion | string | Definida como `1.0` |
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
 | since | Número inteiro | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX. OPCIONAL. |
 | until | Número inteiro | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
@@ -370,7 +370,7 @@ az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <
 '
 ```
 
-Na portal do Azure, invoque o método com o nome do método `UploadModuleLogs` e o seguinte conteúdo JSON depois de preencher o GUID com suas informações:
+Na portal do Azure, invoque o método com o nome do método `GetTaskStatus` e o seguinte conteúdo JSON depois de preencher o GUID com suas informações:
 
 ```json
     {

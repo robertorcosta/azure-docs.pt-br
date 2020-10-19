@@ -4,12 +4,12 @@ description: Neste artigo, saiba como criar e configurar cofres de serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981511"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171625"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos serviços de recuperação
 
@@ -35,7 +35,7 @@ O backup do Azure manipula automaticamente o armazenamento para o cofre. Você p
    - Recomendamos que, se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup primário, continue a usar a configuração padrão **com redundância geográfica** .
    - Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure.
    - Saiba mais sobre a redundância [geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) e [local](../storage/common/storage-redundancy.md#locally-redundant-storage) .
-   - Se você precisar de disponibilidade de dados sem tempo de inatividade em uma região, garantindo a residência de dados e, em seguida, escolha [armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
+   - Se você precisar de disponibilidade de dados sem tempo de inatividade em uma região, garantindo a residência de dados e, em seguida, escolha [armazenamento com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >As configurações de replicação de armazenamento para o cofre não são relevantes para o backup do compartilhamento de arquivos do Azure, pois a solução atual é baseada em instantâneo e não há dados transferidos para o cofre. Os instantâneos são armazenados na mesma conta de armazenamento que o compartilhamento de arquivos de backup.

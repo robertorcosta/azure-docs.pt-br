@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057885"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173562"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -137,6 +137,7 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 - Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter o ponto de caracteres imprimíveis (.), colchete esquerdo ([) ou colchete direito (]).
 - Não há suporte para a autenticação Azure Active Directory.
 - Se houver tabelas com o mesmo nome, mas um esquema diferente (por exemplo, dbo. Customers e Sales. Customers), somente uma das tabelas poderá ser adicionada à sincronização.
+- Um nome de tabela não pode ter caracteres que tenham um valor ASCII menor ou igual a '-'.
 - Não há suporte para colunas com tipos de dados User-Defined
 - Não há suporte para a movimentação de servidores entre assinaturas diferentes. 
 

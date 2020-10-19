@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 50b0324be8da8024dcbda140eff062f3ff712225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087964ab64c94d5dfe223ce4e47355784003b627
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371177"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173343"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral de Proteção contra DDoS do Azure Standard
 
@@ -26,7 +26,7 @@ A Proteção contra DDoS do Azure, combinada com as práticas recomendadas de de
 
 A Proteção contra DDoS Standard é simples de habilitar e não exige nenhuma alteração no aplicativo. As políticas de proteção são ajustadas por meio do monitoramento de tráfego dedicado e de algoritmos de aprendizado de máquina. As políticas são aplicadas a endereços IP públicos associados a recursos implantados em redes virtuais, como as instâncias do Azure Load Balancer, do Azure Application Gateway e do Azure Service Fabric, mas essa proteção não se aplica a Ambientes do Serviço de Aplicativo.A telemetria em tempo real está disponível por meio de exibições do Azure Monitor durante um ataque e para fins de histórico. A análise avançada de mitigação de ataque está disponível por meio das configurações de diagnóstico. A proteção da camada de aplicativo pode ser adicionada por meio do [Firewall do aplicativo Web do Gateway de Aplicativo do Azure](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou instalando um firewall de terceiros do Azure Marketplace. A proteção é fornecida para [endereços IP públicos](virtual-network-public-ip-address.md) IPv4 e IPv6 do Azure.
 
-![Proteção contra DDoS básica vs Standard](./media/ddos-protection-overview/ddoscomparison.png)
+![Proteção contra DDoS básica vs Standard](./media/ddos-protection-overview/ddosfeatures.png)
 
 A proteção contra DDoS do Azure não armazena dados do cliente.
 
@@ -41,8 +41,6 @@ A Proteção contra DDoS Standard pode mitigar os tipos de ataques a seguir:
 A Proteção contra DDoS Standard protege os recursos em uma rede virtual, incluindo endereços IP públicos associados a máquinas virtuais, balanceadores de carga e gateways de aplicativo. Quando combinado com o Firewall do aplicativo Web do gateway de aplicativo ou um firewall de aplicativo Web de terceiros implantado em uma rede virtual com um IP público, a proteção contra DDoS Standard pode fornecer a capacidade de mitigação completa da camada 3 para a camada 7.
 
 ## <a name="ddos-protection-standard-features"></a>Recursos da Proteção contra DDoS do Azure Standard
-
-![Funcionalidade de DDoS](./media/ddos-protection-overview/ddosfeatures.png)
 
 Os recursos da Proteção contra DDoS do Azure Standard:
 

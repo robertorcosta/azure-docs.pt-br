@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações ao 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5126159f2f9e5761b5f6a073972935101bc03210
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946341"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174054"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup SQL Server em VMs do Azure
 
@@ -41,7 +41,7 @@ Você pode usar o backup do Azure para fazer backup de bancos de dados SQL Serve
 * Há suporte para todos os tipos de backup (completo/diferencial/log) e modelos de recuperação (simples/completo/bulk-logged).
 * Os tipos de backup completo e somente cópia são compatíveis com bancos de dados **somente leitura** .
 * A compactação nativa do SQL tem suporte se habilitada explicitamente pelo usuário na política de backup. O backup do Azure substitui os padrões em nível de instância pela cláusula COMPRESSION/NO_COMPRESSION, dependendo do valor desse controle, conforme definido pelo usuário.
-* Há suporte para backup de banco de dados habilitado para TDE. Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). A compactação de backup para bancos de dados habilitados para TDE para o SQL Server 2016 e versões mais recentes está disponível, mas com tamanho de transferência mais baixo, conforme explicado [aqui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
+* Há suporte para backup de banco de dados habilitado para TDE. Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). A compactação de backup para bancos de dados habilitados para TDE para o SQL Server 2016 e versões mais recentes está disponível, mas com tamanho de transferência mais baixo, conforme explicado [aqui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Não há suporte para operações de backup e restauração para bancos de dados de espelho e instantâneos do banco de dados.
 * Não há suporte para SQL Server **FCI (instância de cluster de failover)** .
 * Usar mais de uma solução de backup para fazer backup da instância SQL Server autônoma ou do grupo de disponibilidade AlwaysOn do SQL pode levar a uma falha de backup. Evite fazer isso. Fazer backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes, também poderá levar à falha de backup.

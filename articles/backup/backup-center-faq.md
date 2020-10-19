@@ -3,12 +3,12 @@ title: Centro de backup-perguntas frequentes
 description: Este artigo responde às perguntas frequentes sobre o centro de backup
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 7e227eb6a14d06791e52ec33e090afdcb01bab61
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c5b23a32b60f651cd3ff91819155d83a7465491a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094034"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173825"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Centro de backup-perguntas frequentes
 
@@ -16,11 +16,11 @@ ms.locfileid: "92094034"
 
 ### <a name="can-backup-center-be-used-across-tenants"></a>O centro de backup pode ser usado em locatários?
 
-Sim, se você estiver usando o [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) e tiver delegado acesso a assinaturas em diferentes locatários, você poderá usar o centro de backup como um único painel para gerenciar backups entre locatários.
+Sim, se você estiver usando o [Azure Lighthouse](../lighthouse/overview.md) e tiver delegado acesso a assinaturas em diferentes locatários, você poderá usar o centro de backup como um único painel para gerenciar backups entre locatários.
 
 ### <a name="can-backup-center-be-used-to-manage-both-recovery-services-vaults-and-backup-vaults"></a>O centro de backup pode ser usado para gerenciar cofres de serviços de recuperação e cofres de backup?
 
-Sim, o centro de backup pode gerenciar os [cofres dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) e os [cofres de backup](backup-vault-overview.md).
+Sim, o centro de backup pode gerenciar os [cofres dos serviços de recuperação](./backup-azure-recovery-services-vault-overview.md) e os [cofres de backup](backup-vault-overview.md).
 
 ### <a name="is-there-a-delay-before-data-surfaces-in-backup-center"></a>Há um atraso antes das superfícies de dados no centro de backup?
 
@@ -30,21 +30,21 @@ O centro de backup tem como objetivo fornecer informações em tempo real. Pode 
 
 ### <a name="do-i-need-to-configure-anything-to-see-data-in-backup-center"></a>Preciso configurar qualquer coisa para ver os dados no centro de backup?
 
-Não. O centro de backup vem pronto para uso. No entanto, para exibir [relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports) no centro de backup, você precisa configurar relatórios para seus cofres.
+Não. O centro de backup vem pronto para uso. No entanto, para exibir [relatórios de backup](./configure-reports.md) no centro de backup, você precisa configurar relatórios para seus cofres.
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>Preciso ter permissões especiais para usar o centro de backup?
 
-O centro de backup, como tal, não precisa de nenhuma nova permissão. Contanto que você tenha o nível certo de acesso do RBAC do Azure para os recursos que você está gerenciando, você pode usar o centro de backup para esses recursos. Por exemplo, para exibir informações sobre seus backups, você precisará de acesso de **leitor** aos seus cofres. Para configurar o backup e executar outras ações relacionadas ao backup, você precisará de funções de **operador de backup** ou colaborador de **backup** . Saiba mais sobre as [funções do Azure para o backup do Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+O centro de backup, como tal, não precisa de nenhuma nova permissão. Contanto que você tenha o nível certo de acesso do RBAC do Azure para os recursos que você está gerenciando, você pode usar o centro de backup para esses recursos. Por exemplo, para exibir informações sobre seus backups, você precisará de acesso de **leitor** aos seus cofres. Para configurar o backup e executar outras ações relacionadas ao backup, você precisará de funções de **operador de backup** ou colaborador de **backup** . Saiba mais sobre as [funções do Azure para o backup do Azure](./backup-rbac-rs-vault.md).
 
 ## <a name="pricing"></a>Preços
 
 ### <a name="do-i-need-to-pay-anything-extra-to-use-backup-explorer"></a>Preciso pagar algo extra para usar o Gerenciador de backup?
 
-Atualmente, não há custos adicionais (além dos custos de backup) para usar o centro de backup. No entanto, se você estiver usando [relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports) no centro de backup, haverá um [custo envolvido](https://azure.microsoft.com/pricing/details/monitor/) no uso de logs de Azure monitor para relatórios de backup.
+Atualmente, não há custos adicionais (além dos custos de backup) para usar o centro de backup. No entanto, se você estiver usando [relatórios de backup](./configure-reports.md) no centro de backup, haverá um [custo envolvido](https://azure.microsoft.com/pricing/details/monitor/) no uso de logs de Azure monitor para relatórios de backup.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Leia as outras perguntas frequentes:
 
-* [Perguntas comuns sobre os cofres dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq)
-* [Perguntas comuns sobre backups de VM do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq)
+* [Perguntas comuns sobre os cofres dos serviços de recuperação](./backup-azure-backup-faq.md)
+* [Perguntas comuns sobre backups de VM do Azure](./backup-azure-vm-backup-faq.md)

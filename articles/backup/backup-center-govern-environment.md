@@ -3,12 +3,12 @@ title: Administrar seu espaço de backup usando o Centro de Backup
 description: Saiba como controlar seu ambiente do Azure para garantir que todos os seus recursos estejam em conformidade de uma perspectiva de backup com o centro de backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614301"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173808"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Administrar seu espaço de backup usando o Centro de Backup
 
@@ -26,15 +26,15 @@ O centro de backup ajuda você a governar seu ambiente do Azure para garantir qu
 
 ## <a name="azure-policies-for-backup"></a>Políticas do Azure para backup
 
-Para exibir todas as [políticas do Azure](https://docs.microsoft.com/azure/governance/policy/overview) que estão disponíveis para backup, selecione o item de menu **políticas do Azure para backup** . Isso exibirá todas as definições de política do Azure internas e personalizadas [para backup](policy-reference.md) que estão disponíveis para atribuição para suas assinaturas e grupos de recursos.
+Para exibir todas as [políticas do Azure](../governance/policy/overview.md) que estão disponíveis para backup, selecione o item de menu **políticas do Azure para backup** . Isso exibirá todas as definições de política do Azure internas e personalizadas [para backup](policy-reference.md) que estão disponíveis para atribuição para suas assinaturas e grupos de recursos.
 
-A seleção de qualquer uma das definições permite [atribuir a política](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) a um escopo.
+A seleção de qualquer uma das definições permite [atribuir a política](../governance/policy/tutorials/create-and-manage.md#assign-a-policy) a um escopo.
 
 ![Selecionar definições de Azure Policy](./media/backup-center-govern-environment/azure-policy-definitions.png)
 
 ## <a name="backup-compliance"></a>Conformidade de backup
 
-Clicar no item de menu conformidade de backup ajuda a exibir a [conformidade](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) de seus recursos de acordo com as várias políticas internas que você atribuiu ao seu ambiente do Azure. Você pode exibir a porcentagem de recursos que estão em conformidade em todas as políticas, bem como as políticas que têm um ou mais recursos não compatíveis.
+Clicar no item de menu conformidade de backup ajuda a exibir a [conformidade](../governance/policy/how-to/get-compliance-data.md) de seus recursos de acordo com as várias políticas internas que você atribuiu ao seu ambiente do Azure. Você pode exibir a porcentagem de recursos que estão em conformidade em todas as políticas, bem como as políticas que têm um ou mais recursos não compatíveis.
 
 ![Exibir conformidade de backup](./media/backup-center-govern-environment/azure-policy-compliance.png)
 

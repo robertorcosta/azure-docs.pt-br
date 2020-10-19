@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fd48ff8dd0f4fa44206f6636f869d4ea3f959ae5
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132509"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174170"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -59,10 +59,10 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
 
     Navegue até o arquivo de _**deploy.ps1**_ em seu computador (em _Azure_Digital_Twins_end_to_end_samples scripts de > > **deploy.ps1** _) e pressione "abrir". Isso carregará o arquivo para Cloud Shell para que você possa executá-lo na janela Cloud Shell.
 
-4. Execute o script enviando o `./deploy.ps1` comando na janela Cloud Shell. (Lembre-se de que para colar em Cloud Shell, você pode usar **Ctrl + Shift + v** no Windows e Linux ou **cmd + shift + v** no MacOS. Você também pode usar o menu de clique com o botão direito do mouse.)
+4. Execute o script enviando o `./deploy.ps1` comando na janela Cloud shell com a opção que inclui a configuração de registro do aplicativo. Você pode copiar o comando abaixo (Lembre-se de que para colar em Cloud Shell, você pode usar **Ctrl + Shift + v** no Windows e Linux ou **cmd + shift + v** no MacOS. Você também pode usar o menu do botão direito do mouse.
 
     ```azurecli
-    ./deploy.ps1
+    ./deploy.ps1 -RegisterAadApp
     ```
 
     À medida que o script é executado por meio das etapas de configuração automatizada, você será solicitado a passar os seguintes valores:

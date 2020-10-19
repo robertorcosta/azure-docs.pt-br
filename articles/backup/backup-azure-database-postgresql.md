@@ -4,12 +4,12 @@ description: Saiba mais sobre o backup do banco de dados do Azure para PostgreSQ
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093881"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173584"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Banco de dados do Azure para PostgreSQL backup com retenção de longo prazo (versão prévia)
 
@@ -244,7 +244,7 @@ Esta seção fornece informações de solução de problemas para fazer backup d
 
 Forneça acesso de **leitura** ao msi do cofre de backup no servidor PG do qual você deseja fazer backup ou restaurar:
 
-Para estabelecer uma conexão segura com o banco de dados PostgreSQL, o backup do Azure usa o modelo de autenticação [identidade de serviço gerenciada (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) . Isso significa que o cofre de backup terá acesso apenas aos recursos que receberam permissão explícita pelo usuário.
+Para estabelecer uma conexão segura com o banco de dados PostgreSQL, o backup do Azure usa o modelo de autenticação [identidade de serviço gerenciada (MSI)](../active-directory/managed-identities-azure-resources/overview.md) . Isso significa que o cofre de backup terá acesso apenas aos recursos que receberam permissão explícita pelo usuário.
 
 Um sistema MSI é atribuído automaticamente ao cofre no momento da criação. Você precisa dar a esse cofre o MSI o acesso aos servidores PostgreSQL dos quais você pretende fazer backup dos bancos de dados.
 
@@ -308,7 +308,7 @@ Estabeleça a linha de visão da rede habilitando o sinalizador **permitir acess
 
     ![Atribuir função de colaborador de dados de blob de armazenamento](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
 
-1. Como alternativa, forneça permissões granulares para o contêiner específico para o qual você está restaurando usando o comando CLI do Azure [AZ role Assignment Create](https://docs.microsoft.com/cli/azure/role/assignment) .
+1. Como alternativa, forneça permissões granulares para o contêiner específico para o qual você está restaurando usando o comando CLI do Azure [AZ role Assignment Create](/cli/azure/role/assignment) .
 
     ```azurecli
     az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id

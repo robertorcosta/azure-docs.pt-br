@@ -3,12 +3,12 @@ title: Fazer backup do servidor MABS
 description: Saiba como fazer backup do servidor de Backup do Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: de62f0f57273ad7bd77df917d909627819165adb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946613"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172115"
 ---
 # <a name="back-up-the-mabs-server"></a>Fazer backup do servidor MABS
 
@@ -184,9 +184,9 @@ Se o servidor MABS ainda estiver operacional e o pool de armazenamento estiver i
 
 Você pode fazer backup do banco de dados MABS em um disco local com o backup de SQL Server nativo, independente do MABS.
 
-- Obtenha uma [visão geral](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) do backup do SQL Server.
+- Obtenha uma [visão geral](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) do backup do SQL Server.
 
-- [Saiba mais](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre como fazer backup do SQL Server para a nuvem.
+- [Saiba mais](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre como fazer backup do SQL Server para a nuvem.
 
 ## <a name="back-up-to-a-share-protected-by-mabs"></a>Fazer backup em um compartilhamento protegido por MABS
 
@@ -238,9 +238,9 @@ Essa opção de backup usa o SQL nativo para fazer backup do banco de dados MABS
 
 Você pode fazer backup do banco de dados MABS como faria com qualquer outro banco de dados SQL Server usando SQL Server Backup nativo.
 
-- Obtenha uma [visão geral](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) do backup do SQL Server.
+- Obtenha uma [visão geral](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) do backup do SQL Server.
 
-- [Saiba mais](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre como fazer backup do SQL Server para a nuvem.
+- [Saiba mais](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre como fazer backup do SQL Server para a nuvem.
 
 ### <a name="recover-the-mabs-database"></a>Recuperar o banco de dados MABS
 

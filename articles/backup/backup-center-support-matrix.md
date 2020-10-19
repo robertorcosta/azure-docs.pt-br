@@ -3,12 +3,12 @@ title: Matriz de suporte para o centro de backup
 description: Este artigo resume os cenários aos quais o centro de backup dá suporte para cada tipo de carga de trabalho
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 8effc2514abf1cac55abc28b625b869810536baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40582ddc1187082230e2887edcd24b3716811be2
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994048"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173982"
 ---
 # <a name="support-matrix-for-backup-center"></a>Matriz de suporte para o centro de backup
 
@@ -22,13 +22,13 @@ O centro de backup fornece um único painel de vidro para que as empresas [admin
 | Monitoramento | Exibir todas as instâncias de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | O mesmo que o descrito acima |
 | Monitoramento | Exibir todas as políticas de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | O mesmo que o descrito acima |
 | Monitoramento | Exibir todos os cofres | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | O mesmo que o descrito acima |
-| Ações | Configurar backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para backup de [VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) e [banco de dados do Azure para backup de servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
-| Ações | Restaurar instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para backup de [VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) e [banco de dados do Azure para backup de servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
-| Ações | Criar cofre | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para o [cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support) |
-| Ações | Criar política de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para o [cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support) |
-| Ações | Executar backup sob demanda para uma instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para backup de [VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) e [banco de dados do Azure para backup de servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
-| Ações | Parar o backup de uma instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para backup de [VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) e [banco de dados do Azure para backup de servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
-| Insights | Exibir relatórios de backup | <li> Máquina Virtual do Azure <br><br> <li> SQL na máquina virtual do Azure <br><br> <li> SAP HANA na máquina virtual do Azure <br><br> <li> Arquivos do Azure <br><br> <li> System Center Data Protection Manager <br><br> <li> Agente de backup do Azure (MARS) <br><br> <li> Servidor de Backup do Azure (MABS) | Consulte [cenários com suporte para relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports#supported-scenarios) |
+| Ações | Configurar backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para backup de [VM do Azure](./backup-support-matrix-iaas.md) e [banco de dados do Azure para backup de servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
+| Ações | Restaurar instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para backup de [VM do Azure](./backup-support-matrix-iaas.md) e [banco de dados do Azure para backup de servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
+| Ações | Criar cofre | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para o [cofre dos serviços de recuperação](./backup-support-matrix.md#vault-support) |
+| Ações | Criar política de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para o [cofre dos serviços de recuperação](./backup-support-matrix.md#vault-support) |
+| Ações | Executar backup sob demanda para uma instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para backup de [VM do Azure](./backup-support-matrix-iaas.md) e [banco de dados do Azure para backup de servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
+| Ações | Parar o backup de uma instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | Consulte matrizes de suporte para backup de [VM do Azure](./backup-support-matrix-iaas.md) e [banco de dados do Azure para backup de servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
+| Insights | Exibir relatórios de backup | <li> Máquina Virtual do Azure <br><br> <li> SQL na máquina virtual do Azure <br><br> <li> SAP HANA na máquina virtual do Azure <br><br> <li> Arquivos do Azure <br><br> <li> System Center Data Protection Manager <br><br> <li> Agente de backup do Azure (MARS) <br><br> <li> Servidor de Backup do Azure (MABS) | Consulte [cenários com suporte para relatórios de backup](./configure-reports.md#supported-scenarios) |
 | Governança | Exibir e atribuir políticas internas e personalizadas do Azure na categoria ' backup ' | N/D | N/D |
 | Governança | Exibir fontes de fonte não configuradas para backup | <li> Máquina Virtual do Azure <br><br> <li> Banco de dados do Azure para servidor PostgreSQL | N/D |
 
@@ -42,6 +42,6 @@ O centro de backup fornece um único painel de vidro para que as empresas [admin
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Examinar a matriz de suporte para o backup do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix)
-* [Examinar a matriz de suporte para o backup de VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)
+* [Examinar a matriz de suporte para o backup do Azure](./backup-support-matrix.md)
+* [Examinar a matriz de suporte para o backup de VM do Azure](./backup-support-matrix-iaas.md)
 * [Examine a matriz de suporte para o banco de dados do Azure para backup do servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix)

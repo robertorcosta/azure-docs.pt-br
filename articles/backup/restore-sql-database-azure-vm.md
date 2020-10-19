@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SQL Server em uma VM do Azure
 description: Este artigo descreve como restaurar SQL Server bancos de dados que estão em execução em uma VM do Azure e cujo backup é feito com o backup do Azure. Você também pode usar a restauração entre regiões para restaurar seus bancos de dados para uma região secundária.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985398"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172177"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados do SQL Server em VMs do Azure
 
@@ -30,7 +30,7 @@ Antes de restaurar um banco de dados, observe o seguinte:
 - Você pode restaurar o banco de dados para uma instância de um SQL Server na mesma região do Azure.
 - O servidor de destino precisa ser registrado no mesmo cofre que a fonte.
 - Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- Bancos de dados habilitados para [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) devem ser restaurados usando a opção [restaurar como arquivos](#restore-as-files) .
+- Bancos de dados habilitados para [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) devem ser restaurados usando a opção [restaurar como arquivos](#restore-as-files) .
 - Antes de restaurar o banco de dados "mestre", inicie a instância de SQL Server no modo de usuário único usando a opção de inicialização **-m AzureWorkloadBackup**.
   - O valor de **-m** é o nome do cliente.
   - Somente o nome do cliente especificado pode abrir a conexão.

@@ -4,12 +4,12 @@ description: Encontre respostas para perguntas comuns sobre como fazer backup de
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461216"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172368"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -104,7 +104,7 @@ Um banco de dados que você [adiciona a uma instância autoprotegida](backup-sql
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Posso proteger os bancos de dados que têm o TDE (Transparent Data Encryption) ativado e que ele continuará criptografado por todo o processo de backup?
 
-Sim, o backup do Azure dá suporte ao backup de bancos de dados SQL Server ou servidor com TDE habilitado. O backup dá suporte a [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) com chaves gerenciadas pelo Azure ou com chaves gerenciadas pelo cliente (BYOK).  O backup não executa nenhuma criptografia SQL como parte do processo de backup, de modo que o banco de dados permanecerá criptografado quando o backup for feito.
+Sim, o backup do Azure dá suporte ao backup de bancos de dados SQL Server ou servidor com TDE habilitado. O backup dá suporte a [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) com chaves gerenciadas pelo Azure ou com chaves gerenciadas pelo cliente (BYOK).  O backup não executa nenhuma criptografia SQL como parte do processo de backup, de modo que o banco de dados permanecerá criptografado quando o backup for feito.
 
 ## <a name="next-steps"></a>Próximas etapas
 

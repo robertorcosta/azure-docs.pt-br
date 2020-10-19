@@ -4,12 +4,12 @@ description: Funcionalidade de restauração instantânea do Azure e perguntas f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000372"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173928"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
@@ -61,11 +61,13 @@ Os instantâneos incrementais são armazenados na conta de armazenamento da VM, 
 
 ### <a name="using-azure-portal"></a>Usando o Portal do Azure
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 No portal do Azure, você pode ver um campo adicionado no painel **política de backup de VM** na seção **restauração instantânea** . Você pode alterar a duração da retenção de instantâneo no painel **política de backup de VM** para todas as VMs associadas à política de backup específica.
 
 ![Funcionalidade de restauração instantânea](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Usando o PowerShell
+### <a name="using-powershell"></a>Usar o PowerShell
 
 >[!NOTE]
 > Em AZ PowerShell Version 1.6.0 em diante, você pode atualizar o período de retenção do instantâneo de restauração instantânea na política usando o PowerShell

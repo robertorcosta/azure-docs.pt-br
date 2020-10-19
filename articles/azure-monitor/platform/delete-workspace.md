@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448534"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174167"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Excluir e recuperar um espaço de trabalho do Azure Log Analytics
 
@@ -112,6 +112,9 @@ Você deve ter, no mínimo, permissões de *Colaborador do Log Analytics* para e
 * Se você receber uma mensagem de erro *Esse nome de espaço de trabalho já está em uso* ou *conflito* ao criar um espaço de trabalho, o motivo pode ser:
   * O nome do espaço de trabalho não está disponível e está sendo usado por alguém em sua organização ou por outro cliente.
   * O espaço de trabalho foi excluído durante os últimos 14 dias e seu nome mantido reservado para o período de exclusão reversível. Para substituir a exclusão reversível e excluir permanentemente o espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estas etapas para recuperar o espaço de trabalho primeiro e executar a exclusão permanente:<br>
-     1. [Recuperar](#recover-workspace) o espaço de trabalho.
-     2. [Excluir permanentemente](#permanent-workspace-delete) o espaço de trabalho.
-     3. Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.
+    1. [Recuperar](#recover-workspace) o espaço de trabalho.
+    2. [Excluir permanentemente](#permanent-workspace-delete) o espaço de trabalho.
+    3. Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.
+* Se você vir um código de resposta 204 que mostra o *recurso não encontrado*, a causa poderá ser consecutiva tenta usar a operação excluir espaço de trabalho. 204 é uma resposta vazia, o que geralmente significa que o recurso não existe, portanto, a exclusão foi concluída sem fazer nada.
+  Depois que a chamada de exclusão for concluída com êxito no back-end, você poderá restaurar o espaço de trabalho e concluir a operação de exclusão permanente em um dos métodos sugeridos anteriormente.
+

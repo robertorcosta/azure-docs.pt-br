@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613995"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173283"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -45,7 +45,7 @@ Os cofres têm os seguintes recursos:
 - Você especifica como os dados no cofre são replicados para redundância:
   - **LRS (armazenamento com redundância local)**: para se proteger contra falhas em um datacenter, você pode usar o lRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
   - **Armazenamento com redundância geográfica (GRS)**: para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **ZRS (armazenamento com redundância de zona)**: Replica seus dados em [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantindo a resiliência e a resistência dos dados na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **ZRS (armazenamento com redundância de zona)**: Replica seus dados em [zonas de disponibilidade](../availability-zones/az-overview.md#availability-zones), garantindo a resiliência e a resistência dos dados na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Por padrão, os cofres dos serviços de recuperação usam GRS.
 
 Os cofres dos serviços de recuperação têm os seguintes recursos adicionais:

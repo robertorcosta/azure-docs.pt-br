@@ -3,12 +3,12 @@ title: Modelo de dados para eventos de diagnóstico de backup do Azure
 description: Esse modelo de dados está em referência ao modo específico de recurso de envio de eventos de diagnóstico para Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569600"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173978"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup do Azure
 
@@ -239,7 +239,7 @@ Cada registro nas tabelas acima tem um nome de **operação**associado. Um nome 
 | AddonAzureBackupPolicy | Política |  Representa um registro que contém todos os detalhes de uma política de backup e retenção. Por exemplo, ID, nome, configurações de retenção, etc. |
 | AddonAzureBackupPolicy | PolicyAssociation | Representa um mapeamento entre um item de backup e a política de backup aplicada a ele. |   
 
-Geralmente, você precisará executar junções entre tabelas diferentes, bem como conjuntos diferentes de registros que fazem parte da mesma tabela (diferenciada pelo nome da operação) para obter todos os campos necessários para sua análise. Consulte as [consultas de exemplo](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) para começar. 
+Geralmente, você precisará executar junções entre tabelas diferentes, bem como conjuntos diferentes de registros que fazem parte da mesma tabela (diferenciada pelo nome da operação) para obter todos os campos necessários para sua análise. Consulte as [consultas de exemplo](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) para começar. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
