@@ -141,6 +141,9 @@
           displayName: 'secure, ssl'
         - name: Linha de base de segurança
           href: security-baseline.md
+    - name: Monitoramento
+      href: functions-monitoring.md
+      displayName: 'App Insights, Application Insights, logs, logging'
     - name: Diagnósticos
       href: functions-diagnostics.md
     - name: Custos de plano de consumo
@@ -282,11 +285,18 @@
           href: functions-geo-disaster-recovery.md
     - name: Monitoramento
       items:
-        - name: Monitorar funções
-          href: functions-monitoring.md
+        - name: Configurar monitoramento
+          href: configure-monitoring.md
           displayName: 'App Insights, Application Insights, logs, logging'
-        - name: Analisar logs
+        - name: Analisar dados de telemetria
+          href: analyze-telemetry-data.md
+          displayName: 'App Insights, Application Insights, Kusto'
+        - name: Logs de streaming
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: Logs de diagnóstico
           href: functions-monitor-log-analytics.md
+          displayName: 'Azure Monitor, Kusto, Log Analytics, metrics'
     - name: Seguro
       items:
         - name: Adicionar certificado SSL

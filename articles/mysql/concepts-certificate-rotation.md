@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: d36fe791e34544a4d6132a49fc5ec3f2aa334654
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: cc32a67ab681341fd8320b9445f4e00013f2aa51
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127277"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170266"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Compreendendo as alterações na autoridade de certificação raiz para o banco de dados do Azure para MySQL
 
@@ -104,7 +104,7 @@ Se você não atualizar o certificado raiz antes de 15 de fevereiro de 2021 (02/
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. qual é o impacto se estiver usando o serviço de aplicativo com o banco de dados do Azure para MySQL?
 Para os serviços de aplicativos do Azure, conectando-se ao banco de dados do Azure para MySQL, podemos ter dois cenários possíveis e depende de como você está usando SSL com seu aplicativo.
 *   Este novo certificado foi adicionado ao serviço de aplicativo no nível da plataforma. Se você estiver usando os certificados SSL incluídos na plataforma do serviço de aplicativo em seu aplicativo, nenhuma ação será necessária.
-*   Se você estiver incluindo explicitamente o caminho para o arquivo de certificado SSL em seu código, precisará baixar o novo certificado e atualizar o código para usar o novo certificado.
+*   Se você estiver incluindo explicitamente o caminho para o arquivo de certificado SSL em seu código, precisará baixar o novo certificado e atualizar o código para usar o novo certificado. Um bom exemplo desse cenário é quando você usa contêineres personalizados no serviço de aplicativo como compartilhado na [documentação do serviço de aplicativo](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>5. qual é o impacto se estiver usando o AKS (serviços Kubernetess do Azure) com o banco de dados do Azure para MySQL?
 Se você estiver tentando se conectar ao banco de dados do Azure para MySQL usando os AKS (serviços Kubernetess do Azure), ele será semelhante ao acesso de um ambiente de host de clientes dedicados. Consulte as etapas [aqui](../aks/ingress-own-tls.md).

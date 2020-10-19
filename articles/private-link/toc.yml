@@ -1,4 +1,4 @@
-- name: Documentação do Link Privado do Azure
+- name: Documentação do Link Privado
   href: index.yml
 - name: Visão geral
   items:
@@ -24,6 +24,7 @@
     - name: Criar um serviço de Link Privado – Modelo do ARM
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
 - name: Tutoriais
   items:
     - name: Conectar-se a uma conta de armazenamento
@@ -42,7 +43,7 @@
       items:
         - name: Linha de base de segurança
           href: security-baseline.md
-- name: Como
+- name: Como fazer
   items:
     - name: Conectar-se de modo privado a um aplicativo Web
       href: create-private-endpoint-webapp-portal.md

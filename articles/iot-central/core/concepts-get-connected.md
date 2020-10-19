@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126834"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170044"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -113,7 +113,7 @@ Caso ocorra uma violação de segurança ou caso seu certificado principal estej
 
 ### <a name="register-and-connect-devices"></a>Registrar e conectar dispositivos
 
-Para conectar dispositivos em massa usando certificados X. 509, primeiro registre os dispositivos em seu aplicativo usando um arquivo CSV para [importar os nomes de dispositivo e as IDs de dispositivo](howto-manage-devices.md#import-devices). Todas as IDs de dispositivo devem estar em letras minúsculas.
+Para conectar dispositivos em massa usando certificados X. 509, primeiro registre os dispositivos em seu aplicativo usando um arquivo CSV para [importar os nomes de dispositivo e as IDs de dispositivo](howto-manage-devices.md#import-devices). Uma ID de dispositivo pode conter letras, números e o `-` caractere.
 
 Gere certificados de folha X. 509 para seus dispositivos usando o certificado raiz ou intermediário que você carregou no grupo de registro X. 509. Use a **ID do dispositivo** como o valor `CNAME` nos certificados de folha. Seu código do dispositivo precisa do valor do **escopo da ID** do aplicativo, a **ID do dispositivo** e o certificado de dispositivo correspondente.
 
@@ -149,7 +149,7 @@ O fluxo é ligeiramente diferente dependendo de se os dispositivos usam tokens S
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Adicionar uma captura de tela do grupo de registro X. 509":::
 
-1. Use o `az iot central device compute-device-key` comando para gerar as chaves SAS do dispositivo. Use a chave primária do grupo da etapa anterior. As IDs do dispositivo devem estar em letras minúsculas:
+1. Use o `az iot central device compute-device-key` comando para gerar as chaves SAS do dispositivo. Use a chave primária do grupo da etapa anterior. A ID do dispositivo pode conter letras, números e o `-` caractere:
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
@@ -170,7 +170,7 @@ O fluxo é ligeiramente diferente dependendo de se os dispositivos usam tokens S
 
 1. [Crie um grupo de registro](#create-an-enrollment-group) e, em seguida, [adicione e verifique um certificado X. 509 intermediário ou raiz](#add-and-verify-a-root-or-intermediate-x509-certificate) para seu aplicativo IOT central.
 
-1. Gere os certificados de folha para seus dispositivos usando o certificado raiz ou intermediário que você adicionou ao seu aplicativo IoT Central. Use IDs de dispositivo em letras minúsculas como o `CNAME` nos certificados de folha.
+1. Gere os certificados de folha para seus dispositivos usando o certificado raiz ou intermediário que você adicionou ao seu aplicativo IoT Central. Use as IDs de dispositivo como o `CNAME` nos certificados de folha. Uma ID de dispositivo pode conter letras, números e o `-` caractere.
 
 1. O OEM fornece a cada dispositivo uma ID de dispositivo, um certificado X.509 de folha gerado e o valor do **escopo de ID** do aplicativo.
 
@@ -185,7 +185,7 @@ O fluxo é ligeiramente diferente dependendo de se os dispositivos usam tokens S
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Conectividade de dispositivo baseada em registros individuais
 
-Para clientes que conectam dispositivos com suas próprias credenciais de autenticação, use registros individuais. Um registro individual é uma entrada para um único dispositivo que tem permissão para se conectar. Os registros individuais podem usar certificados X.509 de folha ou tokens SAS (de um Trusted Platform Module físico ou virtual) como mecanismos de certificação. A ID do dispositivo (também conhecida como ID de registro) em um registro individual é alfanumérica, com letras minúsculas, e pode conter hifens. Para obter mais informações, consulte [Registro individual do DPS](../../iot-dps/concepts-service.md#individual-enrollment).
+Para clientes que conectam dispositivos com suas próprias credenciais de autenticação, use registros individuais. Um registro individual é uma entrada para um único dispositivo que tem permissão para se conectar. Os registros individuais podem usar certificados X.509 de folha ou tokens SAS (de um Trusted Platform Module físico ou virtual) como mecanismos de certificação. A ID do dispositivo (também conhecida como ID de registro) em um registro individual, uma ID de dispositivo pode conter letras, números e o `-` caractere. Para obter mais informações, consulte [Registro individual do DPS](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > Ao criar um registro individual para um dispositivo, ele tem precedência sobre as opções de registro de grupo padrão em seu aplicativo IoT Central.

@@ -24,26 +24,14 @@
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Criar um bot de perguntas frequentes com o Serviço de Bot do Azure
       href: Tutorials/create-faq-bot-with-azure-bot-service.md
-    - name: Testar com arquivo em lotes
-      href: Quickstarts/batch-testing.md
 - name: Conceitos
   items:
     - name: Planejar sua base de dados de conhecimento
       href: Concepts/plan.md
     - name: Planejar recursos do QnA Maker
       href: Concepts/azure-resources.md
-    - name: Criar uma base de dados de conhecimento
-      items:
-        - name: Para linguagens de programação
-          href: Concepts/design-language-culture.md
-        - name: Para aplicativos cliente
-          href: Concepts/integration-with-other-applications.md
     - name: Fontes de dados e conteúdo
-      items:
-        - name: Importar de fontes de dados
-          href: Concepts/knowledge-base.md
-        - name: Tipos de conteúdo importados
-          href: Concepts/content-types.md
+      href: Concepts/data-sources-and-content.md
     - name: Processo do classificador
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
@@ -58,22 +46,14 @@
 - name: Guias de instruções
   items:
     - name: Gerenciar recursos do Azure
-      items:
-        - name: Gerenciar recursos
-          href: How-To/set-up-qnamaker-service-azure.md
-          displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Colaborar
-          href: How-To/collaborate-knowledge-base.md
-        - name: Ativar o aprendizado ativo
-          href: How-To/use-active-learning.md
-        - name: Alterar a resposta padrão
-          href: How-To/change-default-answer.md
+      href: How-To/set-up-qnamaker-service-azure.md
+      displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: Gerenciar o aplicativo QnA Maker
+      href: How-To/manage-qna-maker-app.md
     - name: Gerenciar base de conhecimento
       items:
         - name: Criar base de dados de conhecimento
           href: How-To/manage-knowledge-bases.md
-        - name: Seleção de idioma
-          href: How-To/language-knowledge-base.md
         - name: Adicionar bate-papo
           href: How-to/chit-chat-knowledge-base.md
         - name: Migrar para nova base de dados de conhecimento
@@ -102,7 +82,7 @@
       href: Overview/language-support.md
     - name: limites
       href: limits.md
-    - name: RBAC (Controle de Acesso Baseado em Função)
+    - name: RBAC do Azure (controle de acesso baseado em função do Azure)
       href: Concepts/role-based-access-control.md
     - name: Aprendizado ativo
       href: Concepts/active-learning-suggestions.md
@@ -115,6 +95,8 @@
     - name: Adicionar arquivos protegidos do SharePoint
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
+    - name: Alterar a resposta padrão
+      href: How-To/change-default-answer.md
     - name: Configuração de serviço
       href: reference-app-service.md
     - name: Formatos de dados e de conteúdo

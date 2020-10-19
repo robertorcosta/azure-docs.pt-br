@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 9f64d6da399285b82d1222a768b344dfdf6a317b
-  ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+  ms.openlocfilehash: 546cde760946c2cd63bef539180395160acf3608
+  ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92047035"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92131659"
 landingContent:
 - title: Sobre os Gêmeos Digitais do Azure
   linkLists:
@@ -71,7 +71,7 @@ landingContent:
     links:
     - text: Escrever código de autenticação do aplicativo
       url: how-to-authenticate-client.md
-- title: Referência de API
+- title: Exibir referência de API
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -85,3 +85,29 @@ landingContent:
     links:
     - text: APIs REST
       url: /rest/api/azure-digitaltwins/
+- title: Explorar exemplos de código
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Exemplos de ponta a ponta
+      url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
+  - linkListType: sample
+    links:
+    - text: Gerenciador de Gêmeos Digitais do Azure (exemplo)
+      url: /samples/azure-samples/digital-twins-explorer/digital-twins-explore
+  - linkListType: sample
+    links:
+    - text: Validador DTDL (exemplo)
+      url: /samples/azure-samples/dtdl-validator/dtdl-validator/
+  - linkListType: sample
+    links:
+    - text: Exemplo de integração do DPS e do Hub IoT
+      url: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
+  - linkListType: sample
+    links:
+    - text: Exemplo de integração do SignalR
+      url: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+  - linkListType: sample
+    links:
+    - text: Swaggers personalizados para o conector de Aplicativos Lógicos
+      url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/

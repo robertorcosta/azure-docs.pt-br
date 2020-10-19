@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções para falhas do Backup do Azure rela
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182030"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170293"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -103,7 +103,6 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 
 Esse erro ocorre quando uma das falhas de extensão coloca a VM em estado de falha no provisionamento.<br>**Abra portal do Azure > VM > configurações > extensões > status de extensões** e verifique se todas as extensões estão em estado de **provisionamento bem-sucedido** . Para saber mais, confira [Estados de provisionamento](../virtual-machines/states-lifecycle.md#provisioning-states).
 
-- Se a extensão VMSnapshot estiver em um estado de falha, clique com o botão direito do mouse na extensão com falha e remova-a. Disparar um backup sob demanda. Essa ação reinstalará as extensões e executará o trabalho de backup.  <br>
 - Se qualquer outra extensão estiver em um estado de falha, ela poderá interferir no backup. Verifique se esses problemas de extensão foram resolvidos e repita a operação de backup.
 - Se o estado de provisionamento da VM estiver em um estado de atualização, ele poderá interferir no backup. Verifique se ele está íntegro e repita a operação de backup.
 

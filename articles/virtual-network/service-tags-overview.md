@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: fd6894ea90dc6cb3cc721438ba73a94b43c36a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863ab9b600b81006cdeb670811c61ed961e8c623
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983694"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170252"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -46,7 +46,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **ApiManagement** | Tráfego do gerenciamento de implantações dedicadas do Gerenciamento de API do Azure. <br/><br/>*Observação:* essa marca representa o ponto de extremidade do serviço de Gerenciamento de API do Azure para o plano de controle por região. Isso permite que os clientes executem operações de gerenciamento nas APIs, Operações, Políticas, NamedValues configurados no serviço de Gerenciamento de API.  | Entrada | Sim | Sim |
 | **ApplicationInsightsAvailability** | Disponibilidade do Application Insights. | Entrada | Não | Não |
 | **AppConfiguration** | Configuração de Aplicativos. | Saída | Não | Não |
-| **AppService**    | Serviço de Aplicativo do Azure. Essa marca é recomendada para regras de segurança de saída para front-ends do aplicativo Web. | Saída | Sim | Sim |
+| **AppService**    | Serviço de Aplicativo do Azure. Essa marca é recomendada para regras de segurança de saída para aplicativos Web e aplicativos de funções.  | Saída | Sim | Sim |
 | **AppServiceManagement** | Tráfego de gerenciamento para implantações dedicadas ao Ambiente do Serviço de Aplicativo. | Ambos | Não | Sim |
 | **AzureActiveDirectory** | Azure Active Directory. | Saída | Não | Sim |
 | **AzureActiveDirectoryDomainServices** | Tráfego de gerenciamento para implantações dedicadas ao Azure Active Directory Domain Services. | Ambos | Não | Sim |
