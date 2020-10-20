@@ -3,18 +3,18 @@ title: Gerenciamento do ciclo de vida de VMs da solução Azure VMware
 description: Saiba como gerenciar todos os aspectos do ciclo de vida de suas VMs de solução do Azure VMware com Microsoft Azure ferramentas nativas.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 928a632a34dd31272c7c3bf92f6dc6dda97cb6cc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950356"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216242"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gerenciamento do ciclo de vida de VMs da solução Azure VMware
 
 Microsoft Azure ferramentas nativas permitem que você monitore e gerencie suas VMs (máquinas virtuais) no ambiente do Azure. Ainda assim, eles também permitem que você monitore e gerencie suas VMs na solução VMware do Azure e suas VMs locais. Nesta visão geral, veremos a arquitetura de monitoramento integrado que o Azure oferece e como você pode usar suas ferramentas nativas para gerenciar suas VMs de solução do Azure VMware em todo o ciclo de vida.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 - Os serviços nativos do Azure podem ser usados para gerenciar suas VMs em um ambiente híbrido (Azure, solução do Azure VMware e local).
 - Monitoramento e visibilidade integrados de seu Azure, solução Azure VMware e VMs locais.
@@ -53,8 +53,8 @@ As VMs da solução Azure VMware podem ser monitoradas por meio do MMA (também 
 O **azure gerenciamento de atualizações** na automação do Azure gerencia atualizações do sistema operacional para seus computadores Windows e Linux em um ambiente híbrido. Ele monitora a conformidade de patches e encaminha alertas de desvio de aplicação de patch para Azure Monitor para correção. O Azure Gerenciamento de Atualizações deve se conectar ao seu espaço de trabalho do Log Analytics para usar dados armazenados para avaliar o status das atualizações em suas VMs.
 - Para adicionar Log Analytics ao Gerenciamento de Atualizações do Azure, primeiro você precisa [criar uma conta de automação do Azure](../automation/automation-create-standalone-account.md).
 - Para vincular seu espaço de trabalho do Log Analytics à sua conta de automação, confira [log Analytics espaço de trabalho e conta de automação](../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
-- Para habilitar o Azure Gerenciamento de Atualizações para suas VMs, consulte [habilitar gerenciamento de atualizações de uma conta de automação](../automation/update-management/update-mgmt-enable-automation-account.md).
-- Depois de adicionar VMs ao Gerenciamento de Atualizações do Azure, você pode [implantar atualizações em VMs e examinar os resultados](../automation/update-management/update-mgmt-deploy-updates.md). 
+- Para habilitar o Azure Gerenciamento de Atualizações para suas VMs, consulte [habilitar gerenciamento de atualizações de uma conta de automação](../automation/update-management/enable-from-automation-account.md).
+- Depois de adicionar VMs ao Gerenciamento de Atualizações do Azure, você pode [implantar atualizações em VMs e examinar os resultados](../automation/update-management/deploy-updates.md). 
 
 A **central de segurança do Azure** fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas na nuvem e localmente. Ele avaliará a vulnerabilidade das VMs de solução do Azure VMware e emitirá alertas conforme necessário. Esses alertas de segurança podem ser encaminhados para Azure Monitor para resolução.
 - A central de segurança do Azure não requer implantação. Para obter mais informações, consulte uma lista de [recursos com suporte para máquinas virtuais](../security-center/security-center-services.md).

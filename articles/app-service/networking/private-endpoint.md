@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873091"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217058"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure
 
@@ -68,7 +68,7 @@ Quando você usa o ponto de extremidade privado para o aplicativo Web, a URL sol
 Por padrão, sem o ponto de extremidade privado, o nome público do seu aplicativo Web é um nome canônico para o cluster.
 Por exemplo, a resolução de nome será:
 
-|Nome |Type |Valor |
+|Nome |Tipo |Valor |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -78,7 +78,7 @@ Por exemplo, a resolução de nome será:
 Quando você implanta um ponto de extremidade privado, atualizamos a entrada DNS para apontar para o nome canônico mywebapp.privatelink.azurewebsites.net.
 Por exemplo, a resolução de nome será:
 
-|Nome |Type |Valor |Comentário |
+|Nome |Tipo |Valor |Comentário |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -89,9 +89,9 @@ Você deve configurar um servidor DNS privado ou uma zona privada de DNS do Azur
 A zona DNS que você precisa criar é: **privatelink.azurewebsites.net**. Registre o registro para seu aplicativo Web com um registro a e o IP do ponto de extremidade privado.
 Por exemplo, a resolução de nome será:
 
-|Nome |Type |Valor |Comentário |
+|Nome |Tipo |Valor |Comentário |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--o Azure cria essa entrada no DNS público do Azure para apontar o serviço de aplicativo para o privatelink e isso é gerenciado por nós|
 |mywebapp.privatelink.azurewebsites.net|Um|10.10.10.8|<--você gerencia essa entrada em seu sistema DNS para apontar para seu endereço IP do ponto de extremidade privado|
 
 Após essa configuração de DNS, você pode acessar seu aplicativo Web de forma privada com o nome padrão mywebappname.azurewebsites.net. Você deve usar esse nome, pois o certificado padrão é emitido para *. azurewebsites.net.
@@ -101,7 +101,7 @@ Se você precisar usar um nome DNS personalizado, deverá adicionar o nome perso
 
 Para o console do kudu ou a API REST do kudu (implantação com agentes do Azure DevOps auto-hospedados, por exemplo), você deve criar dois registros em sua zona privada do DNS do Azure ou seu servidor DNS personalizado. 
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 

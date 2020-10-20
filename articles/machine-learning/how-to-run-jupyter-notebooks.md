@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 94c67be39ddd9f52087fa4632e239a8e85930886
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171478"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221410"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks em seu workspace
 
@@ -108,6 +108,16 @@ Você pode editar o bloco de anotações sem se conectar a uma instância de com
 Quando uma instância de computação está em execução, você também pode usar auto-completar de código, da plataforma [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), em qualquer notebook Python.
 
 Você também pode iniciar o Jupyter ou o JupyterLab na barra de ferramentas Notebook.  O Azure Machine Learning não fornece atualizações nem corrige bugs do Jupyter ou do JupyterLab, pois são produtos de software livre fora do limite do Suporte da Microsoft.
+
+### <a name="focus-mode"></a>Modo de foco
+
+Use o modo de foco para expandir sua exibição atual para que você possa se concentrar nas guias ativas. O modo de foco oculta o explorador de arquivos dos blocos de anotações.
+
+1. Na barra de ferramentas da janela do terminal, selecione **modo de foco**   para ativar o modo de foco. Dependendo da largura da janela, isso pode estar localizado no item de menu **...** na barra de ferramentas.
+1. No modo de foco, retorne ao modo de exibição padrão selecionando **exibição padrão**.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Criar arquivo":::
+
 
 ### <a name="use-intellisense"></a>Usar o IntelliSense
 

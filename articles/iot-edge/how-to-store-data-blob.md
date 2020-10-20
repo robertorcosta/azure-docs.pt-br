@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048144"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219727"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na borda com o Armazenamento de Blobs do Azure no IoT Edge
 
@@ -92,7 +92,7 @@ O nome dessa configuração é `deviceAutoDeleteProperties` . Se você estiver u
 | Propriedade | Valores possíveis | Explicação |
 | ----- | ----- | ---- |
 | excluir | verdadeiro, falso | Defina como `false` por padrão. Se você quiser ativar o recurso, defina esse campo como `true` . <br><br> Variável de ambiente: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo excluirá automaticamente os BLOBs do armazenamento local quando esse valor expirar. <br><br> Variável de ambiente: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo excluirá automaticamente os BLOBs do armazenamento local quando esse valor expirar. Os minutos máximos atuais permitidos são 35791. <br><br> Variável de ambiente: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | verdadeiro, falso | Por padrão, ele é definido como `true` e manterá o blob enquanto estiver carregando para armazenamento em nuvem se deleteAfterMinutes expirar. Você pode defini-lo como `false` e ele excluirá os dados assim que deleteAfterMinutes expirar. Observação: para que essa propriedade funcione, o upload deve ser definido como true.  <br><br> **Cuidado**: se você estiver usando blobs de acréscimo, essa configuração excluirá blobs de acréscimo do armazenamento local quando o valor expirar e quaisquer operações futuras de bloco de acréscimo a esses BLOBs falharão. Talvez você queira garantir que o valor de expiração seja grande o suficiente para a frequência esperada de operações de acréscimo executadas pelo seu aplicativo.<br><br> Variável de ambiente: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Usando o compartilhamento SMB como seu armazenamento local
@@ -195,7 +195,7 @@ Os exemplos de início rápido a seguir usam idiomas que também são suportados
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Conecte-se ao seu armazenamento local com Gerenciador de Armazenamento do Azure
 
-Você pode usar [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para se conectar à sua conta de armazenamento local.
+Você pode usar [Gerenciador de armazenamento do Azure](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) para se conectar à sua conta de armazenamento local.
 
 1. Baixar e instalar o Gerenciador de Armazenamento do Azure
 

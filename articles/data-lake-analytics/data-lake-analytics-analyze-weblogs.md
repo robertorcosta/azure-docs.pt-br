@@ -1,18 +1,16 @@
 ---
 title: Analisar logs de site usando o Azure Data Lake Analytics
 description: Saiba como analisar os logs do site usando Azure Data Lake Analytics para executar funções e consultas do U-SQL.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2764e5e3994eb7b80a8e7cf62fb7f437323c97e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132629"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219387"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar logs de site usando o Azure Data Lake Analytics
 Saiba como analisar os logs do site usando a Análise Data Lake, principalmente para descobrir quais referenciadores resultaram em erros ao tentar visitar o site.
@@ -185,4 +183,4 @@ Para começar a usar a Análise Data Lake com ferramentas diferentes, consulte:
 
 * [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
 * [Introdução à Análise Data Lake usando o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Introdução à Análise Data Lake usando o SDK do .NET](data-lake-analytics-get-started-net-sdk.md)
+* [Introdução à Análise Data Lake usando o SDK do .NET](./data-lake-analytics-get-started-cli.md)

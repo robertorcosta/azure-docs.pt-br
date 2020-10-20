@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281184"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216667"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com o gateway de aplicativo
 
@@ -50,7 +50,7 @@ Com a capacidade de regravação de URL no gateway de aplicativo, você pode:
 
 Para saber como reescrever a URL com o gateway de aplicativo usando portal do Azure, consulte [aqui](rewrite-url-portal.md).
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![Diagrama que descreve o processo de regravação de uma URL com o gateway de aplicativo.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > O recurso de regravação de URL está em visualização e está disponível somente para Standard_v2 e WAF_v2 SKU do gateway de aplicativo. Não é recomendável para uso no ambiente de produção. Para saber mais sobre visualizações, confira [termos de uso aqui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

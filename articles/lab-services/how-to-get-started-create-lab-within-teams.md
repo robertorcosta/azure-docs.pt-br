@@ -3,12 +3,12 @@ title: Comece e crie um laboratório de Azure Lab Services dentro das equipes
 description: Saiba como começar e criar um laboratório de Azure Lab Services dentro das equipes.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092130"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217075"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Comece e crie um laboratório de serviços de laboratório dentro das equipes
 
@@ -24,6 +24,9 @@ Este é o fluxo de trabalho típico ao usar Azure Lab Services nas equipes
 1. Um [criador de conta de laboratório adiciona outros usuários](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) à função de **criador de laboratório** . Por exemplo, o criador/administrador da conta de laboratório adiciona educadores à função **Criador de Laboratório** para que eles possam criar laboratórios para suas aulas.
 1. Em seguida, os educadores criam laboratórios, predefinem a VM de modelo e publica o laboratório para provisionar VMs para todos na equipe.
 1. Depois que o laboratório for publicado, uma VM será atribuída a todos na lista de membros da equipe em seu primeiro logon para Azure Lab Services, clicando na guia que contém **Azure Lab Services** aplicativo dentro de equipes (SSO) ou acessando o [site do Labs](https://labs.azure.com). Os usuários podem usar a VM para fazer a classe funcionar e de casa.
+
+> [!IMPORTANT]
+> Azure Lab Services só poderá ser usada em equipes se as contas de laboratório forem criadas no mesmo locatário que as equipes.
 
 ## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>Adicionar Azure Lab Services aplicativo como uma guia a uma equipe
 
@@ -60,7 +63,7 @@ Quando um laboratório é criado dentro das equipes, a lista de usuários do lab
 
 [Gerenciar listas de usuários do Lab Services dentro das equipes](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Confira também
 
 Consulte também os seguintes artigos:
 

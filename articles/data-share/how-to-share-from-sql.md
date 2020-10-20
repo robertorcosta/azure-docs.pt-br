@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150374"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217534"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Compartilhar e receber dados do Banco de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -39,7 +39,7 @@ Abaixo está a lista de pré-requisitos para o compartilhamento de dados da font
 * Permissão para gravar em bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função Colaborador.
 * Permissão para o compartilhamento de dados acessar o data warehouse. Isso pode ser feito executando as seguintes etapas: 
     1. Em portal do Azure, navegue até o SQL Server e defina-o como administrador de Azure Active Directory.
-    1. Conecte-se ao banco de dados SQL/data warehouse do Azure usando o [Editor de consultas](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) ou SQL Server Management Studio com a autenticação Azure Active Directory. 
+    1. Conecte-se ao banco de dados SQL/data warehouse do Azure usando o [Editor de consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) ou SQL Server Management Studio com a autenticação Azure Active Directory. 
     1. Execute o script a seguir para adicionar a identidade gerenciada do recurso de compartilhamento de dados como um db_datareader. Você deve se conectar usando o Active Directory e não a autenticação do SQL Server. 
     
         ```sql
@@ -144,7 +144,7 @@ Cumpra todos os pré-requisitos antes de aceitar um convite de compartilhamento 
 ### <a name="prerequisites-for-target-storage-account"></a>Pré-requisitos para a conta de armazenamento de destino
 Se você optar por receber dados no armazenamento do Azure, abaixo está a lista de pré-requisitos.
 
-* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](../storage/common/storage-account-create.md). 
 * Permissão para gravar na conta de armazenamento, que está presente em *Microsoft.Storage/storageAccounts/write*. Essa permissão existe na função Colaborador. 
 * Permissão para adicionar uma atribuição de função à conta de armazenamento, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função Proprietário.  
 
@@ -154,7 +154,7 @@ Se você optar por receber dados para o Azure SQL Database, a análise de Synaps
 * Permissão para gravar nos bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função Colaborador. 
 * Permissão para que a identidade gerenciada do recurso do compartilhamento de dados acesse o Banco de Dados SQL do Azure ou o Azure Synapse Analytics. Isso pode ser feito executando as seguintes etapas: 
     1. Em portal do Azure, navegue até o SQL Server e defina-o como administrador de Azure Active Directory.
-    1. Conecte-se ao banco de dados SQL/data warehouse do Azure usando o [Editor de consultas](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) ou SQL Server Management Studio com a autenticação Azure Active Directory. 
+    1. Conecte-se ao banco de dados SQL/data warehouse do Azure usando o [Editor de consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) ou SQL Server Management Studio com a autenticação Azure Active Directory. 
     1. Execute o script a seguir para adicionar a identidade gerenciada do compartilhamento de dados como um ' db_datareader, db_datawriter, db_ddladmin '. Você deve se conectar usando o Active Directory e não a autenticação do SQL Server. 
 
         ```sql
@@ -275,7 +275,7 @@ Quando você compartilha dados da fonte SQL, o mapeamento a seguir é usado de S
 
 >[!NOTE]
 > 1. Para tipos de dados que são mapeados para o tipo provisório decimal, o instantâneo atualmente dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres. 
-> 1.  Se você estiver compartilhando dados de um banco de dados SQL do Azure para o Azure Synapse Analytics, nem todos os tipos de dado têm suporte. Consulte [tipos de dados de tabela no pool SQL do Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) para obter detalhes. 
+> 1.  Se você estiver compartilhando dados de um banco de dados SQL do Azure para o Azure Synapse Analytics, nem todos os tipos de dado têm suporte. Consulte [tipos de dados de tabela no pool SQL do Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) para obter detalhes. 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted ou Máscara de Dados Dinâmicos
 Atualmente, o compartilhamento de dados do Azure não oferece suporte a bancos de dados SQL do Azure com Always Encrypted configurado. 
@@ -294,6 +294,3 @@ A causa mais comum de falha de instantâneo é que o compartilhamento de dados n
 
 ## <a name="next-steps"></a>Próximas etapas
 Você aprendeu a compartilhar e receber dados de fontes SQL usando o serviço de compartilhamento de dados do Azure. Para saber mais sobre o compartilhamento de outras fontes de dados, continue com [os armazenamentos de dados com suporte](supported-data-stores.md).
-
-
-

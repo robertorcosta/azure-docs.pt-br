@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801913"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217381"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
@@ -30,6 +30,12 @@ Quando a conectividade do Load Balancer não estiver disponível, os sintomas ma
 - VMs por trás do Load Balancer não estão respondendo ao tráfego na porta configurada
 
 Quando os clientes externos para as VMs de back-end passarem pelo balanceador de carga, o endereço IP dos clientes será usado para a comunicação. Garanta que o endereço IP dos clientes foi adicionado à lista de permissões do NSG. 
+
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>Sintoma: nenhuma conectividade de saída dos balanceadores de carga internos padrão (ILB)
+
+**Validação e resolução**
+
+Os ILBs padrão são **seguros por padrão**. O ILBs básico permitia conectar-se à Internet por meio de um endereço IP público *oculto* . Isso não é recomendados para cargas de trabalho de produção, pois o endereço IP não é estático nem bloqueado por meio de NSGs que você possui. Se você passou recentemente de um ILB básico para um ILB padrão, deve criar um IP público explicitamente por meio da configuração de [saída](egress-only.md) que bloqueia o IP por meio de NSGs. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: VMs por trás do Load Balancer não estão respondendo às investigações de integridade
 Para que os servidores back-end participem do conjunto de balanceadores de carga, eles devem passar na verificação de investigação. Para saber mais sobre investigações de integridade, confira [Noções básicas sobre investigações do Load Balancer](load-balancer-custom-probe-overview.md). 
