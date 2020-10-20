@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f3cd5c3280308f6da15a52361857fa02567d595
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9b2c5b24b88dd51596dfb5bd8b5f397419ca6e4
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88505454"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215188"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerenciar a personalização de SSO e de token usando políticas personalizadas no Azure Active Directory B2C
 
@@ -87,6 +87,9 @@ Os seguintes valores são definidos no exemplo anterior:
     ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
+
+> [!NOTE]
+> Aplicativos de página única usando o fluxo de código de autorização com PKCE sempre têm um tempo de vida de token de atualização de 24 horas. [Saiba mais sobre as implicações de segurança de tokens de atualização no navegador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## <a name="next-steps"></a>Próximas etapas
 

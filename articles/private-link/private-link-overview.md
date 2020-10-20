@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 7c647ba9a89fedf0d43bd8b10460fed101d166b9
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1ce0368bb86134bd52473b80eabbfaf87e36148d
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801388"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939640"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -62,7 +62,7 @@ O Link Privado do Azure fornece os seguintes benefícios:
 |Barramento de Serviço do Azure | Todas as regiões públicas<br/>Todas as regiões do Governo  | Com suporte com a camada Premium do Barramento de Serviço do Azure. [Selecione para camadas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Barramento de Serviço do Azure.](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Retransmissão do Azure | Todas as regiões públicas      |  | Visualização <br/> [Saiba como criar um ponto de extremidade privado para a Retransmissão do Azure.](https://docs.microsoft.com/azure/azure-relay/private-link-service)  |
 |Grade de Eventos do Azure| Todas as regiões públicas<br/> Todas as regiões do Governo       |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para a Grade de Eventos do Azure.](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Aplicativos Web do Azure | Todas as regiões públicas      | Com suporte com as funções PremiumV2 Windows e Linux e Elástico Premium  | Visualização   <br/> [Saiba como criar um ponto de extremidade privado para Aplicativos Web do Azure.](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
+|Aplicativos Web do Azure | Todas as regiões públicas      | Com suporte com o plano PremiumV2, PremiumV3 ou Function Premium  | GA   <br/> [Saiba como criar um ponto de extremidade privado para Aplicativos Web do Azure.](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
 |Azure Machine Learning | Todas as regiões públicas    |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Machine Learning.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Automação do Azure  | Todas as regiões públicas |  | Visualização </br> [Saiba como criar um ponto de extremidade privado para a Automação do Azure.](https://docs.microsoft.com/azure/automation/how-to/private-link-security)| |
 | Hub IoT do Azure | Todas as regiões públicas    |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Hub IoT do Azure.](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |

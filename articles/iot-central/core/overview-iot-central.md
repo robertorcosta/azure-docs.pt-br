@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ad1bcabc2e30e9e636883219d42f96335e32e78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987359"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812430"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -50,14 +50,21 @@ Como construtor se solução, você usa o IoT Central para criar uma solução d
 
 Como construtor de soluções, você usa as ferramentas baseadas na Web para criar um _modelo de dispositivo_ para os dispositivos que se conectam ao seu aplicativo. Um modelo de dispositivo é um blueprint que define as características e o comportamento de um tipo de dispositivo, como:
 
-- A telemetria que ele envia.
-- As propriedades de negócios que um operador pode modificar.
-- As propriedades do dispositivo que são definidas por um dispositivo e são somente leitura no aplicativo.
-- Propriedades, definidas por um operador, que determinam o comportamento do dispositivo.
+- A telemetria que ele envia. Os exemplos incluem temperatura e umidade. A telemetria está transmitindo dados.
+- As propriedades de negócios que um operador pode modificar. Os exemplos incluem um endereço de cliente e uma data em que ele foi atendido pela última vez.
+- As propriedades do dispositivo que são definidas por um dispositivo e são somente leitura no aplicativo. Por exemplo, o estado de uma válvula como aberta ou fechada.
+- Propriedades, definidas por um operador, que determinam o comportamento do dispositivo. Por exemplo, uma temperatura de destino para o dispositivo.
+- Comandos, que um operador pode chamar, que são executados em um dispositivo. Por exemplo, um comando para reinicializar um dispositivo remotamente.
 
 Este [modelo de dispositivo](howto-set-up-template.md) inclui:
 
-- Um _modelo de funcionalidade de dispositivo_ que descreve as funcionalidades que um dispositivo deve implementar, tais como a telemetria que ele envia e as propriedades que ele relata.
+- Um _modelo de funcionalidade do dispositivo_ que descreve as funcionalidades um dispositivo deve implementar. As funcionalidades do dispositivo incluem:
+
+  - A telemetria que ele transmite para o IoT Central.
+  - As propriedades somente leitura que ele usa para relatar o estado para o IoT Central.
+  - As propriedades graváveis que ele recebe do IoT Central para definir o estado do dispositivo.
+  - Os comandos chamados do IoT Central.
+
 - Propriedades de nuvem que não são armazenadas no dispositivo.
 - Personalizações, painéis e formulários que fazem parte do aplicativo do IoT Central.
 
@@ -144,7 +151,6 @@ Cada assinatura do Azure tem cota padrão que podem afetar o escopo de sua solu�
 - Não há compatibilidade com tipos de esquema de matriz.
 - Somente o SDK do dispositivo C e os SDKs do serviço e do dispositivo Node.js são compatíveis.
 - No momento, o IoT Central está disponível nos Estados Unidos, na Europa, no Pacífico Asiático, na Austrália, no Reino Unido e no Japão.
-- Você não pode usar o modelo de aplicativo **Aplicativo personalizado (herdado)** no Reino Unido e no Japão.
 - Os modelos de funcionalidade do dispositivo precisam ter todas as interfaces definidas embutidas no mesmo arquivo.
 
 ## <a name="next-steps"></a>Próximas etapas

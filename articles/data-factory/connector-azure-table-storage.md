@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
-ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417488"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220441"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados para e do Armazenamento de Tabelas do Azure usando o Azure Data Factory
 
@@ -222,7 +222,7 @@ Para copiar dados para e da Tabela do Azure, defina a propriedade type do conjun
 
 Para armazenamentos de dados sem esquema, como a Tabela do Azure, o Data Factory infere o esquema usando uma das seguintes maneiras:
 
-* Se você especificar o mapeamento de coluna na atividade de cópia, o Data Factory usará a lista de colunas do lado da origem para recuperar os dados. Nesse caso, se uma linha não contiver um valor de uma coluna, um valor nulo será fornecido para ele.
+* Se você especificar o mapeamento de coluna na atividade de cópia, Data Factory usará a lista de colunas do lado de origem para recuperar dados. Nesse caso, se uma linha não contiver um valor de uma coluna, um valor nulo será fornecido para ele.
 * Se você não especificar o mapeamento de coluna na atividade de cópia, o Data Factory vai inferir o esquema usando a primeira linha nos dados. Nesse caso, se a primeira linha não contiver o esquema completo (por exemplo, algumas colunas têm valor nulo), algumas colunas estarão ausentes do resultado da operação de cópia.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -236,7 +236,7 @@ Para copiar dados da Tabela do Azure, defina o tipo de fonte na atividade de có
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type da fonte da atividade de cópia deve ser definida como **AzureTableSource**. |Sim |
-| AzureTableSourceQuery |Utiliza a consulta personalizada de armazenamento de tabelas para ler os dados. Veja os exemplos na seção a seguir. |Não |
+| AzureTableSourceQuery |Utiliza a consulta personalizada de armazenamento de tabelas para ler os dados.<br/>A consulta de origem é um mapa direto da `$filter` opção de consulta com suporte do armazenamento de tabelas do Azure, saiba mais sobre a sintaxe deste [documento](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options)e veja os exemplos na [seção exemplos de azureTableSourceQuery](#azuretablesourcequery-examples)a seguir. |Não |
 | azureTableSourceIgnoreTableNotFound |Indica se deve permitir que exceção da tabela não exista.<br/>Os valores permitidos são **True** e **False** (padrão). |Não |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemplos do azureTableSourceQuery

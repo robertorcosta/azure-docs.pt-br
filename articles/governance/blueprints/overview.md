@@ -3,12 +3,12 @@ title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
 ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91614250"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892720"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -25,7 +25,7 @@ O serviço do Azure BluePrint é apoiado pelo [Azure Cosmos DB](../../cosmos-db/
 
 ## <a name="how-its-different-from-arm-templates"></a>Como ele difere dos modelos do ARM
 
-O serviço foi projetado para ajudá-lo na _configuração do ambiente_. Essa configuração geralmente consiste em um conjunto de grupos de recursos, políticas, atribuições de função e implantações de modelo do ARM. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote, inclusive por meio de um pipeline de CI/CD. Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
+O serviço foi projetado para ajudá-lo na _configuração do ambiente_. Essa configuração geralmente consiste em um conjunto de grupos de recursos, políticas, atribuições de função e implantações de modelo do ARM. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote, inclusive por meio de um pipeline de CI/CD (integração contínua e entrega contínua). Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
 
 Quase tudo o que você deseja incluir na implantação no Azure Blueprints pode ser feito com um modelo do ARM. No entanto, um modelo do ARM é um documento que não existe nativamente no Azure. Cada um está armazenado localmente ou no controle do código-fonte. O modelo é usado para implantações de um ou mais recursos do Azure, mas, quando esses recursos são implantados, não há relação ou conexão ativa com o modelo.
 

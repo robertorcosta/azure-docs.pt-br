@@ -94,25 +94,24 @@
     - name: Monitoramento
     - name: Criar funções e permissões
       href: spring-cloud-howto-permissions.md
-      items:
-        - name: Rastreamento distribuído e insights do aplicativo
-          href: spring-cloud-tutorial-distributed-tracing.md
-        - name: Analisar logs e métricas
-          href: diagnostic-services.md
-        - name: Transmitir logs em tempo real
-          href: spring-cloud-howto-log-streaming.md
-    - name: Implantação do DevOps
-      items:
-        - name: CI/CD com o Azure DevOps
-          href: spring-cloud-howto-cicd.md
-        - name: CI/CD com GitHub Actions
-          href: spring-cloud-howto-github-actions.md
-        - name: Autenticação com Key Vault no GitHub Actions
-          href: spring-cloud-github-actions-key-vault.md
-    - name: Solucionar problemas
-      items:
-        - name: Guia de solução de problemas
-          href: spring-cloud-troubleshoot.md
+    - name: Rastreamento distribuído e insights do aplicativo
+      href: spring-cloud-tutorial-distributed-tracing.md
+    - name: Analisar logs e métricas
+      href: diagnostic-services.md
+    - name: Transmitir logs em tempo real
+      href: spring-cloud-howto-log-streaming.md
+- name: Implantação do DevOps
+  items:
+    - name: CI/CD com o Azure DevOps
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD com GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Autenticação com Key Vault no GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Solucionar problemas
+  items:
+    - name: Guia de solução de problemas
+      href: spring-cloud-troubleshoot.md
 - name: Referência
   items:
     - name: Plug-in da CLI do Azure

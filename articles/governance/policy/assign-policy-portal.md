@@ -1,14 +1,14 @@
 ---
 title: Nova atribuição de política com o portal
 description: Neste início rápido, use o portal do Azure para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
-ms.openlocfilehash: 956ec05b5a7fac862eeea86cf96a2db37f1c0536
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 51ca2f9e5d3f3df9304804ba3da2c5c5ceb0c19b
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651967"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875301"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Criar uma atribuição de política para identificar recursos fora de conformidade.
 
@@ -58,7 +58,7 @@ Neste guia de início rápido, crie uma atribuição de política e atribua a de
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política selecionada, mas você pode alterá-lo. Neste exemplo, deixe _Auditar VMs que não usam discos gerenciados_. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre essa atribuição de política.
    **Atribuído por** preencherá automaticamente com base em quem está conectado. Esse campo é opcional, portanto, valores personalizados podem ser inseridos.
 
-1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Esta caixa _precisa_ ser marcada quando a política ou iniciativa inclui uma política com o efeito [deployIfNotExists](./concepts/effects.md#deployifnotexists). Já que esse não é o caso da política usada para este início rápido, deixe essa opção em branco. Para obter mais informações, confira [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Esta caixa _precisa_ ser marcada quando a política ou iniciativa inclui uma política com o efeito [deployIfNotExists](./concepts/effects.md#deployifnotexists) ou [modify](./concepts/effects.md#modify). Já que esse não é o caso da política usada para este início rápido, deixe essa opção em branco. Para obter mais informações, confira [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Selecione **Atribuir**.
 
@@ -74,15 +74,15 @@ Se houver recursos sem conformidade com essa nova atribuição, eles aparecerão
 
 Quando uma condição é avaliada em relação a seus recursos existentes e resulta ser verdadeira, então esses recursos são marcados como em não conformidade com a política. A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante: Embora você não veja a lógica de avaliação no portal do Azure, os resultados do estado de conformidade são mostrados. O resultado do estado de conformidade pode ser ou compatível ou incompatível.
 
-| **Estado do recurso** | **Efeito** | **Avaliação da política** | **Estado de conformidade** |
+| Estado do Recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Sem conformidade |
-| Exists | Negar, Auditoria, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Em conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
-| Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
+| Novo ou atualizado | Audit, Modify, AuditIfNotExist | True | Sem conformidade |
+| Novo ou atualizado | Audit, Modify, AuditIfNotExist | Falso | Em conformidade |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Sem conformidade |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | Falso | Em conformidade |
 
-\* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE.
-Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
+> [!NOTE]
+> Os efeitos DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE e a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

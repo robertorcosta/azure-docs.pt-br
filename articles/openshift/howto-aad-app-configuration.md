@@ -6,14 +6,20 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee8613d0300a941f80577c98be106173d5d3ced1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470078"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220696"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Active Directory para o Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> O Azure Red Hat OpenShift 3,11 será desativado em 30 de junho de 2022. O suporte para a criação de novos clusters do Azure Red Hat OpenShift 3,11 continua até 30 de novembro de 2020. Após a aposentadoria, os clusters restantes do Azure Red Hat OpenShift 3,11 serão desligados para evitar vulnerabilidades de segurança.
+> 
+> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Se você tiver dúvidas específicas, [entre em contato conosco](mailto:arofeedback@microsoft.com).
 
 Se você ainda não criou um locatário do Azure Active Directory (Azure AD), siga as instruções em [criar um locatário do Azure ad para o Azure Red Hat OpenShift](howto-create-tenant.md) antes de continuar com estas instruções.
 

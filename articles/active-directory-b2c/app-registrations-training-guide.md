@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433901"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214916"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de Registros de aplicativo para Azure Active Directory B2C
 
@@ -53,13 +53,13 @@ A experiência de Registros de aplicativo Azure AD B2C é baseada na experiênci
 ## <a name="new-supported-account-types"></a>Novos tipos de conta com suporte
 
 Na nova experiência, você seleciona um tipo de conta de suporte das seguintes opções:
-- Contas somente neste diretório organizacional.
-- Contas em qualquer diretório organizacional (qualquer diretório do Azure AD – multilocatário).
-- Contas em qualquer diretório organizacional ou qualquer provedor de identidade. Para autenticar usuários com Azure AD B2C.
+- Contas somente neste diretório organizacional
+- Contas em qualquer diretório organizacional (qualquer diretório do Azure AD – multilocatário)
+- Contas em qualquer provedor de identidade ou diretório organizacional (para autenticar usuários com fluxos de usuário)
 
 Para entender os tipos de conta diferentes, selecione **ajude-me a escolher** na experiência de criação.
 
-Na experiência herdada, os aplicativos eram sempre criados como aplicativos voltados para o cliente. Para esses aplicativos, o tipo de conta é definido como **contas em qualquer diretório organizacional ou qualquer provedor de identidade. Para autenticar usuários com Azure AD B2C**.
+Na experiência herdada, os aplicativos eram sempre criados como aplicativos voltados para o cliente. Para esses aplicativos, o tipo de conta é definido como **contas em qualquer provedor de identidade ou diretório organizacional (para autenticar usuários com fluxos de usuário)**.
 > [!NOTE]
 > Essa opção é necessária para poder executar Azure AD B2C fluxos de usuário para autenticar usuários para este aplicativo. Saiba [como registrar um aplicativo para uso com fluxos de usuário.](tutorial-register-applications.md)
 
@@ -96,13 +96,12 @@ Na nova experiência, em vez de **chaves**, você usa a folha **certificados & s
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Recursos não aplicáveis em locatários Azure AD B2C
 Os seguintes recursos de registro de aplicativo do Azure AD não são aplicáveis ou estão disponíveis em locatários Azure AD B2C:
-- **Funções e administradores** – isso requer uma licença Azure ad Premium P1 ou P2 que não está disponível no momento para Azure ad B2C.
+- **Funções e administradores** – não disponíveis no momento para Azure ad B2C.
 - **Identidade visual** – a personalização da interface do usuário/UX é configurada na experiência de **identidade visual da empresa** ou como parte de um fluxo de usuário. Saiba como [Personalizar a interface do usuário no Azure Active Directory B2C](customize-ui-overview.md).
 - **Verificação de domínio do Publicador** -seu aplicativo está registrado em *. onmicrosoft.com*, que não é um domínio verificado. Além disso, o domínio do Publicador é usado principalmente para conceder o consentimento do usuário, que não se aplica a aplicativos Azure AD B2C para autenticação de usuário. [Saiba mais sobre o domínio do Publicador](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
 - **Configuração de token** -o token é configurado como parte de um fluxo de usuário em vez de um aplicativo.
 - A experiência de **guias de início rápido** não está disponível atualmente para locatários Azure ad B2C.
-- A folha do **Assistente de integração** não está disponível atualmente para locatários Azure ad B2C.
-
+<!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
 ## <a name="limitations"></a>Limitações
 A nova experiência tem as seguintes limitações:

@@ -1,16 +1,15 @@
 ---
 title: Habilitar e exibir logs de diagnóstico para o Azure Data Lake Analytics
 description: Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Analytics
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd339729f2300ff7e13e7422bf73373b4ce4658e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331923"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221002"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -126,7 +125,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| Nome | Type | DESCRIÇÃO |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |O identificador do recurso em que a operação ocorreu |
@@ -140,7 +139,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| Nome | Type | DESCRIÇÃO |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | HttpMethod |String |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |String |O caminho em que a operação foi executada |
@@ -176,7 +175,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| Nome | Type | DESCRIÇÃO |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |O identificador do recurso em que a operação ocorreu |
@@ -194,7 +193,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Nome | Type | DESCRIÇÃO |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | JobId |String |A ID atribuída ao trabalho |
 | JobName |String |O nome fornecido para o trabalho |

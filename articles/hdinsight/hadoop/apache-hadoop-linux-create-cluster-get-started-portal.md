@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
-ms.openlocfilehash: 8939d9b342094342d576c00cf02e622286c8fc0f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 02990ce287aa423481c1bfe8ec5e2a8a4cfdb555
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80130540"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858482"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Início Rápido: Criar cluster do Apache Hadoop no Azure HDInsight usando o portal do Azure
 
@@ -67,7 +67,7 @@ Nesta seção, você criará um cluster Hadoop no HDInsight usando o portal do A
 
     ![Introdução ao HDInsight Linux, fornecer valores de armazenamento de cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png "Fornecer valores de armazenamento para criar um cluster do HDInsight")
 
-    Cada cluster tem uma dependência na [conta de Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Ela é conhecida como a conta de armazenamento padrão. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento.
+    Cada cluster tem uma dependência de uma [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md), um [Azure Data Lake Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md) ou do [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md). Ela é conhecida como a conta de armazenamento padrão. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento.
 
     Selecione a guia **Examinar + criar**.
 

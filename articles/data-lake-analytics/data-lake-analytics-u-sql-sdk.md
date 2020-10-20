@@ -1,18 +1,17 @@
 ---
 title: Executar trabalhos do U-SQL localmente-Azure Data Lake o SDK U-SQL
 description: Saiba como executar e testar trabalhos de U-SQL localmente usando a linha de comando e as interfaces de programação na estação de trabalho local.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132408"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215528"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
 
@@ -157,7 +156,7 @@ Estes são os argumentos opcionais para **run**:
 |-ScopeCEPTempPath|temp|Caminho temporário a ser usado para transmissão de dados|
 |-OptFlags| |Lista separada por vírgula de sinalizadores do otimizador|
 
-Este é um exemplo:
+Aqui está um exemplo:
 
 `LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose`
 
@@ -331,13 +330,13 @@ LocalRunHelper.exe fornece as interfaces de programação para compilação loca
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parâmetro|Type|Descrição|
+|Parâmetro|Tipo|Descrição|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para usar o Console|
 
 ### <a name="properties"></a>Propriedades
 
-|Propriedade|Type|Descrição|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
 |CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|

@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: c44be63e4d69f6603df76147329981bd82e6e50d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1b2ddb4d5f9c6e0e927c5249ada8dc061141a00
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833837"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858278"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Ruby
 
 Neste início rápido, você usará a API REST de Detecção Facial do Azure com o Ruby para detectar faces em uma imagem.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Crie um recurso da Detecção Facial"  target="_blank">crie um recurso da Detecção Facial <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
@@ -33,35 +33,7 @@ Neste início rápido, você usará a API REST de Detecção Facial do Azure com
 
 Crie um arquivo, _faceDetection.rb_ e adicione o código a seguir. Esse código chama a API de Detecção Facial para uma URL de imagem especificada.
 
-```ruby
-require 'net/http'
-
-# replace <My Endpoint String> in the URL below with the string from your endpoint.
-uri = URI('https://<My Endpoint String>.com/face/v1.0/detect')
-uri.query = URI.encode_www_form({
-    # Request parameters
-    'returnFaceId' => 'true',
-    'returnFaceLandmarks' => 'false',
-    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,' +
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-})
-
-request = Net::HTTP::Post.new(uri.request_uri)
-
-# Request headers
-# Replace <Subscription Key> with your valid subscription key.
-request['Ocp-Apim-Subscription-Key'] = '<Subscription Key>'
-request['Content-Type'] = 'application/json'
-
-imageUri = "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
-request.body = "{\"url\": \"" + imageUri + "\"}"
-
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
-
-puts response.body
-```
+:::code language="ruby" source="~/cognitive-services-quickstart-code/ruby/face/rest/detect.rb":::
 
 Você precisará atualizar o valor `request['Ocp-Apim-Subscription-Key']` com sua chave de assinatura e alterar a cadeia de caracteres `uri` para que ela contenha o ponto de extremidade correto.
 
@@ -78,6 +50,35 @@ ruby faceDetection.rb
 ```
 
 Você deverá ver uma cadeia de caracteres JSON dos dados faciais detectados impressos no console. O texto a seguir é um exemplo de uma resposta JSON bem-sucedida.
+
+```json
+[
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Extrair Atributos Faciais
+ 
+Para extrair os atributos de face, use o modelo de detecção 1 e adicione o parâmetro de consulta `returnFaceAttributes`.
+
+```ruby
+uri.query = URI.encode_www_form({
+    # Request parameters
+    'detectionModel' => 'detection_01',
+    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceId' => 'true'
+})
+```
+
+A resposta agora inclui atributos de face. Por exemplo:
 
 ```json
 [
