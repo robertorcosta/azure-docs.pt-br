@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 595977635937ec5dcf4a45a1d57524c1d3f41a6e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3be17c672eb918c715602c7576c7d682badd925
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554366"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940993"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Azure Active Directory com o Nimblex
 
@@ -132,19 +132,19 @@ Para configurar o logon único do Azure AD com o Nimblex, realize as seguintes e
 
 2. No canto superior direito da página, clique no logotipo de **Configurações**.
 
-    ![Configurações do Nimblex](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
+    ![A captura de tela mostra o ícone de configurações.](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
 3. Na página **Painel de Controle**, na seção **Segurança** clique em **Logon Único**.
 
-    ![Configurações do Nimblex](./media/nimblex-tutorial/tutorial_nimblex_single.png)
+    ![A captura de tela mostra a opção Logon Único selecionada no menu Segurança.](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
 4. Na página **Gerenciar Logon Único**, selecione o nome da instância e clique em **Editar**.
 
-    ![SAML do Nimblex](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
+    ![A captura de tela mostra a opção Gerenciar Logon Único em que você pode selecionar Editar.](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
 5. Na página **Editar Configurações de SSO**, execute as seguintes etapas:
 
-    ![SAML do Nimblex](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
+    ![A captura de tela mostra a opção Editar Provedor de SSO em que você pode inserir os valores descritos.](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
     a. Na caixa de texto **Descrição**, digite o nome da instância.
 

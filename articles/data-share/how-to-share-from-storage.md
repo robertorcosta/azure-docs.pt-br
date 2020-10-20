@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.openlocfilehash: a54a9d4c50852fe78fd245723dd29f487d58f4b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1683ec48fcae10ff74163a7db089c30ddd7aad
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269982"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219897"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Compartilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 
@@ -33,7 +33,7 @@ Quando os sistemas de arquivos, contêineres ou pastas são compartilhados no co
 
 ### <a name="prerequisites-for-source-storage-account"></a>Pré-requisitos para a conta de armazenamento de origem
 
-* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](../storage/common/storage-account-create.md)
 * Permissão para gravar na conta de armazenamento, que está presente em *Microsoft.Storage/storageAccounts/write*. Essa permissão existe na função Colaborador.
 * Permissão para adicionar uma atribuição de função à conta de armazenamento, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função Proprietário. 
 
@@ -124,7 +124,7 @@ Cumpra todos os pré-requisitos antes de aceitar um convite de compartilhamento 
 
 ### <a name="prerequisites-for-target-storage-account"></a>Pré-requisitos para a conta de armazenamento de destino
 
-* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](../storage/common/storage-account-create.md). 
 * Permissão para gravar na conta de armazenamento, que está presente em *Microsoft.Storage/storageAccounts/write*. Essa permissão existe na função Colaborador. 
 * Permissão para adicionar uma atribuição de função à conta de armazenamento, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função Proprietário.  
 
@@ -194,4 +194,3 @@ Esta etapa só se aplica ao compartilhamento baseado em instantâneo. Para ver o
 
 ## <a name="next-steps"></a>Próximas etapas
 Você aprendeu como compartilhar e receber dados da conta de armazenamento usando o serviço de compartilhamento de dados do Azure. Para saber mais sobre o compartilhamento de outras fontes de dados, continue com [os armazenamentos de dados com suporte](supported-data-stores.md).
-

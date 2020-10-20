@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554620"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: integração do Azure Active Directory com o MobileIron
 
@@ -99,7 +99,7 @@ Para configurar o logon único do Azure AD com o MobileIron, execute as seguinte
 
 4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único em Domínio e URLs do MobileIron](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.mobileiron.com/<key>`
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o MobileIron, execute as seguinte
 
     c. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único em Domínio e URLs do MobileIron](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<host>.mobileiron.com/user/login.html`
 
@@ -124,11 +124,11 @@ Para configurar o logon único do Azure AD com o MobileIron, execute as seguinte
 
 2. Acesse **Administrador** > **Identidade** e selecione a opção **AAD** no campo **Informações sobre a Configuração do IDP de Nuvem**.
 
-    ![Botão Configurar administrador de logon único](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![A captura de tela mostra a guia Administrador do site do MobileIron com a opção Identidade selecionada.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. Copie os valores de **Chave** e **Host** e cole-os para completar as URLs na seção **Configuração Básica do SAML** no portal do Azure.
 
-    ![Botão Configurar administrador de logon único](./media/mobileiron-tutorial/key.png)
+    ![A captura de tela mostra a opção Configurar o SAML com um valor de chave e host.](./media/mobileiron-tutorial/key.png)
 
 4. Em **Exportar arquivo de metadados do AAD e importar para o Campo de Nuvem MobileIron**, clique **Escolher Arquivo** para carregar os metadados baixados do portal do Azure. Clique em **Concluído** depois de carregar.
 

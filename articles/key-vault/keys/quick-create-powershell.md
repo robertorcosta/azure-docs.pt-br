@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4ebd3cc605b396f72d063f3fc506df9020ec3a5f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3cea28fa278bb699a7fb5aaa0c79bf1e71f59ac1
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87061004"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940488"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Início Rápido: Definir e recuperar uma chave do Azure Key Vault usando o Azure PowerShell
 
@@ -69,7 +69,7 @@ Digite os comandos abaixo para criar um chamado **ExampleKey**:
 Add-AzKeyVaultKey -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
 ```
 
-Agora, você pode referenciar essa chave que foi adicionada ao Azure Key Vault usando o respectivo URI. Use **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** para obter a versão atual. 
+Agora, você pode referenciar essa chave que foi adicionada ao Azure Key Vault usando o respectivo URI. Use **'https://Contoso-Vault2.vault.azure.net/keys/ExampleKey '** para obter a versão atual. 
 
 Para ver a chave armazenada anteriormente:
 

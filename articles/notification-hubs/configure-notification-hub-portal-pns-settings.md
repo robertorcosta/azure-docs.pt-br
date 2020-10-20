@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c8e2372e22c9db3aa5ea8b0bd953f18a2c01fbe2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67e90667df2b62ec2c37d865fe431a2be6f81b9e
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87761018"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876559"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Início Rápido: Configurar notificações por push em um hub de notificação
 
@@ -67,14 +67,11 @@ Quando você concluir essas etapas, um alerta indica que o hub de notificação 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-### <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Antes de começar, você deverá ter o seguinte:
+- Os Hubs de Notificação exigem a versão 2.0.67 ou posterior da CLI do Azure. Execute [az version](/cli/azure/reference-index?#az_version) para localizar a versão e as bibliotecas dependentes que estão instaladas. Para fazer a atualização para a versão mais recente, execute [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
-* A [CLI do Azure](/cli/azure/install-azure-cli) versão 2.0.67 ou posterior.
-
-* A extensão da [CLI do Azure para Hubs de Notificação](/cli/azure/ext/notification-hub/notification-hub).
-* A **chave de API** para um projeto do Google FCM (Firebase Cloud Messaging).
+- Você precisará da **Chave de API** para seu projeto do Google FCM (Firebase Cloud Messaging).
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Configurar notificações por push para o Google FCM
 

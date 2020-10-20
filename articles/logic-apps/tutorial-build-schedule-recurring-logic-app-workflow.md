@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: 3bf4ad12bab3e71675ff35203bf69526b3b8614f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574486"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842556"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Tutorial: criar fluxos de trabalho de automação recorrentes e com base em agendamento com os Aplicativos Lógicos do Azure
 
@@ -360,18 +360,18 @@ Seu aplicativo lógico continuará sendo executado até que você o desabilite o
 
 1. Na caixa de pesquisa do portal do Azure, digite o nome do grupo de recursos que você criou. Nos resultados, em **Grupos de Recursos**, selecione o grupo de recursos.
 
-   Este exemplo cria o grupo de recursos chamado `LA-TravelTime-RG`. 
+   Este exemplo cria o grupo de recursos chamado `LA-TravelTime-RG`.
 
    ![Captura de tela que mostra a caixa de pesquisa do Azure com "la-travel-time-rg" inserido e **LA-TravelTime-RG** selecionado.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
    > [!TIP]
    > Se a página inicial do Azure mostrar o grupo de recursos em **Recursos recentes**, você poderá selecionar o grupo na página inicial.
 
-1. No menu do grupo de recursos, verifique se a **Visão Geral** está selecionada. Na barra de ferramentas do painel **Visão Geral**, selecione **Excluir grupo de recursos**. 
+1. No menu do grupo de recursos, verifique se a **Visão Geral** está selecionada. Na barra de ferramentas do painel **Visão Geral**, selecione **Excluir grupo de recursos**.
 
    ![Captura de tela que mostra o painel "Visão Geral" do grupo de recursos e, na barra de ferramentas do painel, a opção "Excluir grupo de recursos" está selecionada.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. No painel de confirmação, insira o nome do grupo de recursos e selecione **Excluir**.
+1. No painel de confirmação exibido, insira o nome do grupo de recursos e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

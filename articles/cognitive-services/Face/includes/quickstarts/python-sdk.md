@@ -1,20 +1,20 @@
 ---
 title: Início rápido da biblioteca de clientes Python de Detecção Facial
-description: Use a biblioteca de clientes de Detecção Facial para o Python para detectar rostos, localizar semelhantes (pesquisa de rosto por imagem), identificar rostos (pesquisa de reconhecimento facial) e migrar os dados de rosto.
+description: Use a biblioteca de clientes de Detecção Facial para o Python para detectar rostos, localizar semelhantes (pesquisa de rosto por imagem) e identificar rostos (pesquisa de reconhecimento facial).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/07/2020
 ms.author: pafarley
-ms.openlocfilehash: f746a61850567014ce216c47df472d035f1ae123
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322932"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859493"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -25,7 +25,6 @@ Use a biblioteca de clientes de Detecção Facial para Python para:
 * Criar e treinar um grupo de pessoas
 * Identificar um rosto
 * Verificar rostos
-* Tirar um instantâneo para migração de dados
 
 [Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Exemplos](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -85,7 +84,6 @@ Estes snippets de código mostram como realizar as seguintes tarefas com a bibli
 * [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
 * [Identificar um rosto](#identify-a-face)
 * [Verificar rostos](#verify-faces)
-* [Tirar um instantâneo para migração de dados](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -207,52 +205,6 @@ O código a seguir compara cada uma das imagens de origem com a imagem de destin
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>Tirar um instantâneo para migração de dados
-
-O recurso Instantâneos permite que você mova os dados salvos da Detecção Facial, como um **PersonGroup** treinado, para uma assinatura de Detecção Facial dos Serviços Cognitivos do Azure diferente. Talvez você queira usar esse recurso se, por exemplo, tiver criado um objeto **PersonGroup** usando uma assinatura gratuita e agora quiser migrá-lo para uma assinatura paga. Confira [Migrar os dados de rosto](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) para ter uma visão geral ampla do recurso de instantâneos.
-
-Neste exemplo, você migrará o **PersonGroup** que criou em [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group). Você pode concluir essa seção primeiro ou usar seus próprios constructos de dados de Detecção Facial.
-
-### <a name="set-up-target-subscription"></a>Configurar a assinatura de destino
-
-Primeiro, você precisa obter uma segunda assinatura do Azure com um recurso de Detecção Facial; você pode fazer isso seguindo as etapas na seção [Configuração](#setting-up). 
-
-Em seguida, crie as variáveis a seguir próximo da parte superior do seu script. Você também precisará criar variáveis de ambiente para a ID da assinatura da conta do Azure, bem como a chave, o ponto de extremidade e a ID da assinatura da nova conta (de destino). 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
-
-### <a name="authenticate-target-client"></a>Autenticar o cliente de destino
-
-Posteriormente, no script, salve o objeto de cliente atual como o cliente de origem e, em seguida, autentique um novo objeto de cliente para a assinatura de destino. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
-
-### <a name="use-a-snapshot"></a>Usar um instantâneo
-
-O restante das operações de instantâneo ocorre em uma função assíncrona. 
-
-1. A primeira etapa é **tirar** o instantâneo, que salva os dados de rosto da assinatura original em um local de nuvem temporário. Esse método retorna uma ID que você usa para consultar o status da operação.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
-
-1. Em seguida, consulte a ID até que a operação seja concluída.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
-
-    Esse código usa a função `wait_for_operation`, que você deve definir separadamente:
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
-
-1. Volte para a função assíncrona. Use a operação **aplicar** para gravar os dados de rosto na assinatura de destino. Esse método também retorna uma ID.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
-
-1. Novamente, use a função `wait_for_operation` para consultar a ID até que a operação seja concluída.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
-
-Depois de concluir essas etapas, você poderá acessar os constructos de dados de rosto da nova assinatura (de destino).
-
 ## <a name="run-the-application"></a>Executar o aplicativo
 
 Execute o aplicativo de reconhecimento facial no diretório do aplicativo com o comando `python`.
@@ -271,10 +223,6 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 Se você criou um **PersonGroup** neste início rápido e deseja excluí-lo, execute o seguinte código no script:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
-Se você migrou dados usando o recurso de instantâneo neste guia de início rápido, também precisará excluir o **PersonGroup** salvo na assinatura de destino.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

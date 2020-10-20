@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 8afb6f018e9c01ee42a9e43cc726a442fa4c8965
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cd7d1a476f09a2fbfffa687a28616c8faeaae22c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88539331"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858261"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e cURL
 
@@ -34,9 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
  
 Você usará um comando semelhante ao mostrado a seguir para chamar a API de Detecção Facial e obter dados de atributo de rosto de uma imagem. Primeiro, copie o código para um editor de texto&mdash;você precisará fazer alterações em determinadas partes do comando antes de você poder executá-lo.
 
-```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
-```
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_2":::
 
 ### <a name="subscription-key"></a>Chave de assinatura
 Substitua `<Subscription Key>` pela sua chave de assinatura de Detecção Facial válida.
@@ -46,14 +44,6 @@ Substitua `<Subscription Key>` pela sua chave de assinatura de Detecção Facial
 A URL `https://<My Endpoint String>.com/face/v1.0/detect` indica o ponto de extremidade da Detecção Facial do Azure para consulta. Talvez você precise alterar a primeira parte dessa URL para que ela corresponda ao ponto de extremidade referente à sua chave de assinatura.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-### <a name="url-query-string"></a>Cadeia de consulta de URL
-
-A cadeia de consulta da URL de ponto de extremidade de Detecção Facial especifica quais atributos de detecção facial devem ser recuperados. Talvez você queira alterar essa cadeia de caracteres, dependendo de sua intenção.
-
-```
-?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
-```
 
 ### <a name="image-source-url"></a>URL de origem da imagem
 A URL de origem indica que a imagem a ser usada como entrada. Você pode alterar isso para que ele aponte para qualquer imagem que deseje analisar.
@@ -65,6 +55,28 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 ## <a name="run-the-command"></a>Executar o comando
 
 Depois de fazer suas alterações, abra um prompt de comando e digite o novo comando. Você verá as informações faciais exibidas como dados JSON na janela do console. Por exemplo:
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]  
+```
+
+## <a name="extract-face-attributes"></a>Extrair Atributos Faciais
+ 
+Para extrair os atributos de face, use o modelo de detecção 1 e adicione o parâmetro de consulta `returnFaceAttributes`. Agora o comando deve ter a aparência a seguir. Como antes, insira sua chave de assinatura e o ponto de extremidade de Detecção Facial.
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+
+As informações de face retornadas agora incluem atributos de face. Por exemplo:
 
 ```json
 [

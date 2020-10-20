@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9541f2c5f8ee1aac45b6f659547a3ee34c093181
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 47ecf00b608121271e98ca5abbbd5e69ca811fd2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535090"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Active Directory do Azure com o LearnUpon
 
@@ -130,15 +130,15 @@ Para configurar o logon único do Azure AD com o LearnUpon, execute as seguintes
 
 1. Clique na guia **Configurações** .
 
-    ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![A captura de tela mostra a guia Configurações.](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 1. Clique em **Logon Único - SAML** e em **Configurações Gerais** para definir configurações de SAML.
    
-    ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![A captura de tela mostra a opção Logon Único – SAML selecionada com a opção Configurações Gerais selecionada.](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 1. Na seção **Configurações Gerais** , execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![A captura de tela mostra a seção Configurações Gerais em que você pode inserir os valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
     a. Selecione **Habilitado**.
 
@@ -158,7 +158,7 @@ Para configurar o logon único do Azure AD com o LearnUpon, execute as seguintes
 
 1. Clique em **Configurações de Usuário**e execute as seguintes etapas:
 
-     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![A captura de tela mostra a seção Configurações de Usuário em que você pode inserir os valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
     a. Na caixa de texto **Formato do Identificador de Nome**, digite o valor que indica onde na instrução de sua declaração do SAML reside o nome dos usuários. Por exemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0557ef45f1a18d3e51be5df3f28d35f421c3981d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c7aa4b90d52ac52a9f879d9e5cc16ec93818b70d
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540411"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939708"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Início Rápido: criar um aplicativo Unity para HoloLens que usa as Âncoras Espaciais do Azure
 
@@ -34,7 +34,7 @@ Você aprenderá a:
 Para concluir este guia de início rápido:
 
 - É necessário ter um computador Windows com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a> e o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> ou posterior instalados. A instalação do Visual Studio deverá incluir a carga de trabalho de **Desenvolvimento com a Plataforma Universal do Windows** e o componente **SDK do Windows 10 (10.0.18362.0 ou mais recente)** . Além disso, será necessário instalar o <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> e o <a href="https://git-lfs.github.com/">Git LFS</a>.
-- Você precisará de um dispositivo do HoloLens com o [modo de desenvolvedor](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) habilitado. A [Atualização de outubro de 2018 para o Windows 10](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (também conhecida como RS5) deverá ser instalada no dispositivo. Para atualizar para a versão mais recente do HoloLens, abra o aplicativo de **Configurações**, acesse **Atualização e Segurança** e, em seguida, selecione **Verificar atualizações**.
+- Você precisará de um dispositivo do HoloLens com o [modo de desenvolvedor](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) habilitado. A [Atualização do Windows de 10 de maio de 2020](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020) precisa estar instalada no dispositivo. Para atualizar para a versão mais recente do HoloLens, abra o aplicativo de **Configurações**, acesse **Atualização e Segurança** e, em seguida, selecione **Verificar atualizações**.
 - No aplicativo, é necessário habilitar o recurso **SpatialPerception**. Essa configuração está em **Configurações de Build** > **Configurações do Player** > **Configurações de Publicação** > **Recursos**.
 - No seu aplicativo, é necessário habilitar **Realidade Virtual com Suporte** com **SDK de Realidade Misturada do Windows**. Esta configuração está em **Configurações de Build** > **Configurações do Player** > **Configurações XR**.
 

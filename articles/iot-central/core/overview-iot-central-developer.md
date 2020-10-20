@@ -1,6 +1,6 @@
 ---
 title: Desenvolvimento de dispositivos para o Azure IoT Central | Microsoft Docs
-description: O Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções de IoT. Este artigo fornece uma visão geral do desenvolvimento de dispositivos para se conectar ao seu aplicativo do IoT Central.
+description: O Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções de IoT. Este artigo fornece uma visão geral do desenvolvimento de dispositivos para se conectar ao seu aplicativo do IoT Central. Os dispositivos usam a telemetria para enviar propriedades e dados de streaming para relatar o estado do dispositivo. O IoT Central pode definir o estado do dispositivo usando propriedades graváveis e chamar comandos em um dispositivo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 6fabd7d8cf5c19f05bd31c2d0b12863fd6e25382
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 39ce436cd59447b2b6f8d9f88deaab80b00dd639
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90017516"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812345"
 ---
 # <a name="iot-central-device-development-overview"></a>Visão geral do desenvolvimento de dispositivos para o IoT Central
 
@@ -26,7 +26,7 @@ Um aplicativo do IoT Central permite que você monitore e gerencie milhões de d
 Os dispositivos interagem com um aplicativo do IoT Central usando os seguintes primitivos:
 
 - _Telemetria_ são dados que um dispositivo envia para o IoT Central. Por exemplo, um fluxo de valores de temperatura de um sensor integrado.
-- _Propriedades_ são valores de estado que um dispositivo relata para o IoT Central. Por exemplo, a versão atual do firmware do dispositivo. Você também pode ter propriedades graváveis que o IoT Central pode atualizar no dispositivo.
+- _Propriedades_ são valores de estado que um dispositivo relata para o IoT Central. Por exemplo, a versão atual do firmware do dispositivo. Você também pode ter propriedades graváveis que o IoT Central pode atualizar no dispositivo como uma temperatura de destino.
 - _Comandos_ são chamados do IoT Central para controlar o comportamento de um dispositivo. Por exemplo, seu aplicativo do IoT Central pode chamar um comando para reinicializar um dispositivo.
 
 Um construtor de soluções é responsável por configurar painéis e exibições na interface do usuário Web do IoT Central para visualizar a telemetria, gerenciar propriedades e chamar comandos.

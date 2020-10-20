@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631063"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930706"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Simular respostas de API
 
@@ -107,7 +107,7 @@ Embora não seja necessário para este exemplo, configurações adicionais de um
 1. Clique em **Salvar**.
 
     > [!TIP]
-    > Uma barra amarela com o texto **A simulação está habilitada** para sua API indica que as respostas retornadas do Gerenciamento de API enviam uma política fictícia e não uma resposta de back-end real.
+    > Uma barra amarela com o texto **A simulação está habilitada** para sua API indica que as respostas retornadas do Gerenciamento de API são simuladas pela [política de simulação](api-management-advanced-policies.md#mock-response) e não são produzidas pelo back-end.
 
 ## <a name="test-the-mocked-api"></a>Testar a API fictícia
 

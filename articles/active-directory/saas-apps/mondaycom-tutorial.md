@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 2128559d8074281c1019d99e1316da34c7ec6797
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed3d5de27a2d9ce5060ff4bfe71c595512658e58
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554593"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940609"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao monday.com
 
@@ -88,14 +88,14 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     c. Depois que o arquivo de metadados for carregado com êxito, os valores de **Identificador** e **URL de Resposta** serão preenchidos automaticamente na seção "Configuração Básica do SAML".
 
-    ![image](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     > [!Note]
     > Se os valores de **Identificador** e **URL de Resposta** não forem preenchidos automaticamente, preencha-os manualmente. O **Identificador** e a **URL de Resposta** são os mesmos e o valor está no seguinte padrão: `https://<your-domain>.monday.com/saml/saml_callback`
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<YOUR_DOMAIN>.monday.com`
 
@@ -104,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo monday.com espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/default-attributes.png)
+    ![Captura de tela que mostra Atributos e Declarações do Usuário com valores padrão, como Givenname user.givenname e Emailaddress User.mail.](common/default-attributes.png)
 
 1. Além do indicado acima, o aplicativo monday.com espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
@@ -166,15 +166,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Vá até **Perfil** no canto superior direito da página e clique em **Administrador**.
 
-    ![Configuração do monday.com](./media/mondaycom-tutorial/configuration01.png)
+    ![A captura de tela mostra o Perfil de administrador selecionado.](./media/mondaycom-tutorial/configuration01.png)
 
 1. Selecione **Segurança** e clique em **Abrir** ao lado de SAML.
 
-    ![Configuração do monday.com](./media/mondaycom-tutorial/configuration02.png)
+    ![A captura de tela mostra a guia Segurança com a opção de Abrir ao lado de SAML.](./media/mondaycom-tutorial/configuration02.png)
 
 1. Preencha os detalhes abaixo de seu IDP.
 
-    ![Configuração do monday.com](./media/mondaycom-tutorial/configuration03.png)
+    ![A captura de tela mostra o provedor SAML em que você pode inserir informações de seu IdP.](./media/mondaycom-tutorial/configuration03.png)
 
     > [!NOTE]
     > Para saber mais, confira [este](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) artigo

@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Policy
 description: O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91538949"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873906"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -72,16 +72,16 @@ O Azure Policy tem diversas permissões, conhecidas como operações, em dois pr
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da Política de Recursos** inclui a maioria das operações do Azure Policy. O **proprietário** tem direitos totais. Tanto o **Colaborador** quanto o **Leitor** têm acesso a todas as operações de _ler_ do Azure Policy. O **colaborador** pode disparar a correção de recursos, mas não pode _criar_ definições nem atribuições.
+Muitas funções internas concedem permissão aos recursos do Azure Policy. A função **Colaborador da Política de Recursos** inclui a maioria das operações do Azure Policy. O **proprietário** tem direitos totais. Tanto o **Colaborador** quanto o **Leitor** têm acesso a todas as operações de _ler_ do Azure Policy. O **colaborador** pode disparar a correção de recursos, mas não pode _criar_ definições nem atribuições. O **Administrador de Acesso do Usuário** é necessário para conceder a identidade gerenciada nas permissões necessárias de atribuições **deployIfNotExists** ou **modify**.
 
 Se nenhuma das funções internas possui as permissões necessárias, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> A identidade gerenciada de uma atribuição de política **deployIfNotExists** precisa de permissões suficientes para criar ou atualizar os recursos incluídos no modelo. Para saber mais, confira [Configurar as definições de política para correção](./how-to/remediate-resources.md#configure-policy-definition).
+> A identidade gerenciada de uma atribuição de política **deployIfNotExists** ou **modify** precisa de permissões suficientes para criar ou atualizar os recursos direcionados. Para saber mais, confira [Configurar as definições de política para correção](./how-to/remediate-resources.md#configure-policy-definition).
 
 ### <a name="resources-covered-by-azure-policy"></a>Recursos cobertos pelo Azure Policy
 
-O Azure Policy avalia todos os recursos no Azure. Para determinados provedores de recursos, como [Configuração de Convidado](./concepts/guest-configuration.md), [Serviço de Kubernetes do Azure](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), há uma integração mais profunda para o gerenciamento de configurações e objetos. Para obter mais informações, confira [Modos de provedor de recursos](./concepts/definition-structure.md).
+O Azure Policy avalia todos os recursos no Azure e os recursos habilitados para Arc. Para determinados provedores de recursos, como [Configuração de Convidado](./concepts/guest-configuration.md), [Serviço de Kubernetes do Azure](../../aks/intro-kubernetes.md) e [Azure Key Vault](../../key-vault/general/overview.md), há uma integração mais profunda para o gerenciamento de configurações e objetos. Para obter mais informações, confira [Modos de provedor de recursos](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Recomendações para o gerenciamento de políticas
 
@@ -112,7 +112,6 @@ No Azure Policy, oferecemos algumas políticas internas que estão disponíveis 
 - **Locais permitidos** (Negar): Restringe os locais disponíveis para novos recursos. O efeito é usado para impor seus requisitos de conformidade de área geográfica.
 - **SKUs de Máquinas Virtuais Permitidas** (Negar): Especifica um conjunto de SKUs de máquina virtual que você pode implantar.
 - **Adicionar uma marca aos recursos** (Modificar): Aplica uma tag necessária e seu valor padrão se ele não é especificado pela solicitação de implantação.
-- **Acrescentar a marca e o seu valor padrão** (Acrescentar): Impõe uma tag necessária e seu valor a um recurso.
 - **Não são tipos de recurso permitidos** (Negar): Impede que uma lista de tipos de recurso seja implantada.
 
 Para implementar essas definições de política (definições internas e personalizadas), você precisará atribuí-las. Você pode atribuir qualquer uma dessas políticas usando o portal do Azure, o PowerShell ou a CLI do Azure.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 18814d23c634dc58148c26b67c2f669e22a136ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b84cbe57c40b12ae01952963b324b8bcfdcfd2e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554284"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945474"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Nuclino
 
@@ -155,15 +155,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 4. Clique no **ÍCONE**.
 
-    ![Configuração do Nuclino](./media/nuclino-tutorial/configure1.png)
+    ![Captura de tela que mostra o ícone "Menu" selecionado ao lado de "SSO do Azure AD".](./media/nuclino-tutorial/configure1.png)
 
 5. Clique em **SSO do Azure AD** e selecione **Configurações de equipe** na lista suspensa.
 
-    ![Configuração do Nuclino](./media/nuclino-tutorial/configure2.png)
+    ![Captura de tela que mostra a lista suspensa "SSO do Azure AD" com a opção "Configurações de equipe" selecionada.](./media/nuclino-tutorial/configure2.png)
 
 6. Selecione **Autenticação** no painel de navegação à esquerda.
 
-    ![Configuração do Nuclino](./media/nuclino-tutorial/configure3.png)
+    ![Captura de tela que mostra a opção "Autenticação" selecionada.](./media/nuclino-tutorial/configure3.png)
 
 7. Na seção **Autenticação**, execute as seguintes etapas:
 

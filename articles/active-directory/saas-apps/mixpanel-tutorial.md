@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: eecd7281c925fa26ade3aa140df310e69f3385c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 123b85905a5c56949a0c1d35bb1e37215ed8097c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554700"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940677"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integração do Active Directory do Azure com o Mixpanel
 
@@ -130,15 +130,15 @@ Para configurar o logon único do Azure AD com o Mixpanel, execute as seguintes 
 
 3. Clique na guia **Segurança de acesso** e clique em **Alterar configurações**.
    
-    ![Configurações do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![A captura de tela mostra a guia Segurança de acesso em que você pode alterar as configurações.](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. Na página de diálogo **Alterar seu certificado**, clique em **Escolher arquivo** para carregar o certificado baixado e, em seguida, clique em **AVANÇAR**.
    
-    ![Configurações do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![Captura de tela mostra o caixa de diálogo Alterar seu certificado em que você pode escolher um arquivo de certificado.](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  Na caixa de texto da URL de autenticação na página de diálogo **Alterar a URL de autenticação**, cole o valor da **URL de Logon** que você copiou do portal do Azure e, em seguida, clique em **AVANÇAR**.
    
-    ![Configurações do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+    ![Captura de tela mostra o painel Alterar sua autenticação URL em que você pode copiar sua URL de Logon.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. Clique em **Concluído**.
 
@@ -205,7 +205,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Mixpan
 
 4. Na caixa de texto **membro da equipe** , digite o endereço de email de Brenda no Azure.
    
-    ![Configurações do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![A captura de tela mostra a guia Equipe em que você adiciona um endereço a Convidar.](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Clique em **Convidar**. 
 
