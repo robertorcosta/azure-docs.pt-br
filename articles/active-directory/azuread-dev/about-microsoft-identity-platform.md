@@ -12,16 +12,16 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a631a80e7ac5eed3c3239cb79e35b87c70ab1b0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88117763"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055453"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma de desenvolvedor do Azure AD (Azure Active Directory). Ela permite que os desenvolvedores criem aplicativos que conectam usuários e obtêm tokens para chamar APIs, como o Microsoft Graph, ou APIs criadas pelos desenvolvedores. Consiste em um serviço de autenticação, bibliotecas open-source, registro de aplicativo e configuração (por meio de um portal de desenvolvedor e de uma API de aplicativo), documentação completa do desenvolvedor, exemplos de início rápido, exemplos de código, tutoriais, guias de instruções e outros tipos de conteúdo do desenvolvedor. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2.0 e OpenID Connect.
+A [plataforma de identidade da Microsoft](../develop/index.yml) é uma evolução da plataforma de desenvolvedor do Azure AD (Azure Active Directory). Ela permite que os desenvolvedores criem aplicativos que conectam usuários e obtêm tokens para chamar APIs, como o Microsoft Graph, ou APIs criadas pelos desenvolvedores. Consiste em um serviço de autenticação, bibliotecas open-source, registro de aplicativo e configuração (por meio de um portal de desenvolvedor e de uma API de aplicativo), documentação completa do desenvolvedor, exemplos de início rápido, exemplos de código, tutoriais, guias de instruções e outros tipos de conteúdo do desenvolvedor. A plataforma de identidade da Microsoft dá suporte a protocolos padrão do setor, como OAuth 2.0 e OpenID Connect.
 
 Muitos desenvolvedores trabalharam anteriormente com a plataforma Azure AD v1.0 para autenticar contas corporativas e de estudante (provisionadas pelo Azure AD) solicitando tokens do ponto de extremidade do Azure AD v1.0, usando a ADAL (Biblioteca de Autenticação do Azure AD), o portal do Azure para registro de aplicativo e configuração e a API do Microsoft Graph para configuração programática de aplicativo.
 
@@ -49,7 +49,7 @@ A experiência de **[Registros de aplicativo](https://go.microsoft.com/fwlink/?l
 
 Para integração ao Azure AD B2C (na autenticação de identidades sociais ou locais), você precisará registrar seu aplicativo em um locatário do Azure AD B2C. Essa experiência também faz parte do portal do Azure.
 
-Use a [API de aplicativo](/graph/api/resources/application?view=graph-rest-1.0) para configurar de maneira programática os aplicativos integrados à plataforma de identidade da Microsoft a fim de autenticar qualquer identidade da Microsoft.
+Use a [API de aplicativo](/graph/api/resources/application) para configurar de maneira programática os aplicativos integrados à plataforma de identidade da Microsoft a fim de autenticar qualquer identidade da Microsoft.
 
 ### <a name="msal-libraries"></a>Bibliotecas MSAL
 
@@ -57,15 +57,10 @@ Você pode usar a biblioteca MSAL para criar aplicativos que autenticam todas as
 
 Use também as bibliotecas MSAL para integrar seu aplicativo ao Azure AD B2C.
 
-As bibliotecas do servidor para a criação de aplicativos Web e APIs Web estão em disponibilidade geral: [ASP.NET](/aspnet/overview) e [ASP.NET Core](/aspnet/core/?view=aspnetcore-2.2)
-
 ### <a name="microsoft-identity-platform-endpoint"></a>ponto de extremidade da plataforma de identidade da Microsoft
 
-O ponto de extremidade da plataforma de identidade da Microsoft (v2.0) agora tem certificação OIDC. Ele funciona com a MSAL (Bibliotecas de Autenticação da Microsoft) ou qualquer outra biblioteca em conformidade com os padrões. Ele implementa escopos legíveis por humanos, de acordo com os padrões do setor.
+O ponto de extremidade da plataforma de identidade da Microsoft (v2.0) tem certificação OIDC. Ele funciona com a MSAL (Bibliotecas de Autenticação da Microsoft) ou qualquer outra biblioteca em conformidade com os padrões. Ele implementa escopos legíveis por humanos, de acordo com os padrões do setor.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o v1.0 e o v2.0.
-
-* Visão geral da [plataforma de identidade da Microsoft (v2.0)](../develop/v2-overview.md)
-* Visão geral do [Azure Active Directory para desenvolvedores (v1.0)](v1-overview.md)
+Saiba mais na [documentação da plataforma de identidade da Microsoft](../develop/index.yml).

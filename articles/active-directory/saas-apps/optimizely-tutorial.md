@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b963e0b4797af8269b87f704edca231f000c9372
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543968"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory ao Optimizely
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
 5. Seu aplicativo Optimizely espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados para a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
-    ![image](common/edit-attribute.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Atributos de Usuário" com o ícone "Editar" no canto superior direito selecionado.](common/edit-attribute.png)
 
 6. Além do indicado acima, o aplicativo Optimizely espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
@@ -120,7 +120,7 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
     
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](common/new-save-attribute.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Declarações de Usuário" com as ações "Adicionar nova declaração" e "Salvar" realçadas.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -164,7 +164,7 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
 4. Clique no nome da sua conta no canto superior direito e em **Configurações da Conta**.
 
-    ![Logon Único do AD do Azure](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![Uma captura de tela que mostra o nome da conta selecionado no canto superior direito com a opção "Configurações da Conta" selecionada no menu.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. Na guia Conta, marque a caixa **Habilitar SSO** em Logon Único na seção **Visão geral**.
   
@@ -231,7 +231,7 @@ Nesta seção, você cria um usuário chamado Brenda Fernandes no Optimizely.
 
 2. Clique em **Novo Colaborador** para adicionar um novo colaborador ao projeto.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/optimizely-tutorial/create_aaduser_10.png)
+    ![Uma captura de tela que mostra a home page do Optimizely com a guia "Colaboradores" e o botão "Novo Colaborador" selecionados.](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. Preencha o endereço de email e atribua a ele uma função. Clique em **Convidar**.
 

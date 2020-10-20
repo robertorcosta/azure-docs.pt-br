@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cab4cd34458e6107c653859c97dfda12486a38a1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32b856a80209c015c9fc96029bdf8d540b340c25
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549733"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858159"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao LinkedIn Sales Navigator
 
@@ -145,11 +145,11 @@ Nesta seção, ao conceder acesso ao LinkedIn Sales Navigator a B.Fernandes, voc
 
 1. Em **Centro de Contas**, clique em **Configurações Globais** em **Configurações**. Além disso, selecione **Sales Navigator** na lista suspensa.
 
-    ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
+    ![A captura de tela mostra as Configurações de Autenticação em que você pode selecionar Sales Navigator.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Clique em **OU Clique aqui para carregar e copiar campos individuais do formulário** e execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
+    ![A captura de tela mostra o Logon Único em que você pode inserir os valores descritos.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
     a. Copie a **ID da Entidade** e cole-a na caixa de texto **Identificador** na **Configuração Básica de SAML** no portal do Azure.
 
@@ -157,11 +157,11 @@ Nesta seção, ao conceder acesso ao LinkedIn Sales Navigator a B.Fernandes, voc
 
 1. Vá para a seção **Configurações de administração do LinkedIn**. Carregue o arquivo XML que você baixou do portal do Azure clicando na opção **Carregar arquivo XML**.
 
-    ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
+    ![A captura de tela mostra Definir as configurações de SSO do provedor de serviços do LinkedIn em que você pode carregar um arquivo XML.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Clique em **Ativar** para habilitar o SSO. O status do SSO é alterado de **Não Conectado** para **Conectado**
 
-    ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
+    ![A captura de tela mostra o Logon Único em que você pode habilitar Autenticar usuários com SSO.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-sales-navigator-test-user"></a>Criar um usuário de teste do LinkedIn Sales Navigator
 

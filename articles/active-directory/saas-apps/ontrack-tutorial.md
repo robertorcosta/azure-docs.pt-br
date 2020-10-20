@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544053"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: integração do Azure Active Directory com o OnTrack
 
@@ -118,7 +118,7 @@ Para configurar o logon único do Azure AD com o OnTrack, realize as seguintes e
 
 5. O aplicativo OnTrack espera as declarações SAML em um formato específico, o que requer que você inclua mapeamentos de atributos personalizados na configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
-    ![image](common/edit-attribute.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Atributos de Usuário" com o ícone "Editar" selecionado no canto superior direito.](common/edit-attribute.png)
 
 6. Além do indicado acima, o aplicativo OnTrack espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
@@ -132,7 +132,7 @@ Para configurar o logon único do Azure AD com o OnTrack, realize as seguintes e
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](common/new-save-attribute.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Declarações de usuário" com as ações "Adicionar nova declaração" e "Salvar" selecionadas.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

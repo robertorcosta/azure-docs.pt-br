@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297650"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048484"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
@@ -79,7 +79,7 @@ Salve o arquivo antes de continuar.
 > Se quiser tentar criar seu próprio modelo, cole o código do modelo *Room* em um novo arquivo que você salvará com a extensão *.json* na pasta *AdtSampleApp\SampleClientApp\Models*. Em seguida, experimente adicionar propriedades e relações para representar o que você quiser. Você também pode examinar os outros modelos de exemplo nesta pasta para ter ideias.
 
 > [!TIP] 
-> Há uma [amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-parse-models.md).
+> Há uma [amostra de Validador DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-parse-models.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Introdução ao aplicativo de linha de comando
 

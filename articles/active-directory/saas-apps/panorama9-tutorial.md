@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bf3afef81c70355326ed9341f2dd8a39d542b54
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1e2cb00f4b8228b3587930fc5b237d308c532c8c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554071"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996071"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integração do Active Directory do Azure com o Panorama9
 
@@ -210,7 +210,7 @@ No caso do Panorama9, o provisionamento é uma tarefa manual.
 
 2. No menu na parte superior, clique em **Gerenciar** e em **Usuários**.
    
-    ![Usuários](./media/panorama9-tutorial/ic790027.png "Usuários")
+    ![Uma captura de tela que mostra as guias "Gerenciar" e "Usuários" selecionadas.](./media/panorama9-tutorial/ic790027.png "Usuários")
 
 3. Na seção Usuários, clique em **+** para adicionar um novo usuário.
 

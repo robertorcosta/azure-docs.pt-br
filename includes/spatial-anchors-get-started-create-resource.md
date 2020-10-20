@@ -4,48 +4,52 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b83951cd743afc7e249e3ee37182007bbe40cb5c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83638980"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971245"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Criar um recurso Âncoras Espaciais
 
 Vá para o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
 
-No painel de navegação esquerdo do portal do Azure, clique em **Criar um recurso**.
+No painel esquerdo, clique em **Criar um recurso**.
 
 Use a caixa de pesquisa para **Âncoras Espaciais**.
 
-   ![Pesquisar Âncoras Espaciais](./media/spatial-anchors-get-started-create-resource/portal-search.png)
+![Uma captura de tela mostrando os resultados de uma pesquisa de Âncoras Espaciais.](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-Selecione **Âncoras Espaciais**. Na caixa de diálogo, selecione **Criar**.
+Selecione **Âncoras Espaciais** e clique em **Criar**.
 
-No caixa de diálogo **Conta de Âncoras Espaciais**:
+No painel **Conta de Âncoras Espaciais**, faça o seguinte:
 
-- Insira um nome de recurso exclusivos, usando caracteres alfanuméricos regulares.
-- Selecione a assinatura que você deseja anexar o recurso.
-- Crie um grupo de recursos, selecionando **Criar novo**. Denomine-o como **myResourceGroup** e selecione **OK**.
-      [!INCLUDE [resource group intro text](resource-group.md)]
-- Selecione um local (região) para criar o recurso.
-- Selecione **Novo** para começar a criar o recurso.
+* Insira um nome de recurso exclusivo usando caracteres alfanuméricos normais.  
+* Selecione a assinatura que você deseja anexar o recurso.  
+* Crie um grupo de recursos, selecionando **Criar novo**. Nomeie-o **myResourceGroup** e clique em **OK**.  
 
-   ![Criar um recurso](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
+  [!INCLUDE [resource group intro text](resource-group.md)]
+  
+* Selecione um local (região) para criar o recurso.  
+* Selecione **Novo** para começar a criar o recurso.
 
-Depois que o recurso é criado, o portal do Azure mostra que a implantação foi concluída. Clique em **Ir para o recurso**.
+![Uma captura de tela do painel de Âncoras Espaciais para a criação de um recurso.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-![Implantação concluída](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+Depois que o recurso for criado, o portal do Azure mostrará que a implantação foi concluída. 
+   
+![Uma captura de tela mostrando que a implantação do recurso foi concluída.](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
 
-Em seguida, você pode exibir as propriedades do recurso. Copiar o valor de **ID da conta** em um editor de texto, pois você precisará dele mais tarde.
+Selecione **Ir para o recurso**. Agora você pode ver as propriedades do recurso. 
+   
+Copie o valor da **ID da Conta** do recurso em um editor de texto para usar posteriormente.
 
-   ![Propriedades de recurso](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![Uma captura de tela do painel de propriedades do recurso.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-Copie também o valor do **Domínio da Conta** do recurso em um editor de texto, pois você precisará dele mais tarde.
+Copie também o valor do **Domínio de Contas** do recurso em um editor de texto para usar posteriormente.
 
-   ![Domínio da conta](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
+![Uma captura de tela mostrando o valor do domínio de contas do recurso.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
-Em **Configurações**, selecione **Chave**. Cópia do valor de **Chave primária** em um editor de texto. Esse valor é o `Account Key`. Você precisará dela mais tarde.
+Em **Configurações**, selecione **Chave**. Copie o valor da **Chave primária**, **Chave de Conta**, em um editor de texto para usar posteriormente.
 
-   ![Chave de conta](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Uma captura de tela do painel Chaves da conta.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

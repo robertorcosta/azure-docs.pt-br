@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: ae8a1fa68e61e160ce08b93bf66776a050b45613
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e05a2a4ba12d5fc665090d5bf078da520000f43b
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554151"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945355"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Tutorial: Integração de SSO (logon único) do Azure Active Directory ao OfficeSpace Software
 
@@ -150,11 +150,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. Acesse **Configurações** e clique em **Conectores**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/officespace-tutorial/tutorial_officespace_002.png)
+    ![Captura de tela que mostra a lista suspensa "Configurações" com a opção "Conectores" selecionada.](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Clique em **Autenticação SAML**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/officespace-tutorial/tutorial_officespace_003.png)
+    ![Captura de tela que mostra a seção "Autenticação" com ação "Autenticação SAML" selecionada.](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. Na seção **Autenticação SAML** , realize as seguintes etapas:
 

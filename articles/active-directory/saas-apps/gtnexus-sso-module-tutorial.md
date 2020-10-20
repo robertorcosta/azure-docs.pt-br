@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b40a124c9cee05e8d06df3de6539c566bb2ac76a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544278"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutorial: Integração do Azure Active Directory ao GTNexus SSO System
 
@@ -101,11 +101,11 @@ Para configurar o logon único do Azure AD com o GTNexus SSO System, execute as 
 
     a. Clique em **Carregar arquivo de metadados**.
 
-    ![image](common/upload-metadata.png)
+    ![Captura de tela que mostra a página "Configuração Básica do SAML" com a ação "Carregar arquivo de metadados" selecionada.](common/upload-metadata.png)
 
     b. Clique no **logotipo da pasta** para selecionar o arquivo de metadados e depois em **Carregar**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Captura de tela que mostra o campo "Selecionar um arquivo" com o logotipo "pasta" e o botão "Carregar" selecionado.](common/browse-upload-metadata.png)
 
     c. Depois que o arquivo de metadados for carregado com êxito, os valores de **Identificador** e **URL de Resposta** serão populados automaticamente na caixa de texto da seção do GTNexus SSO System:
 

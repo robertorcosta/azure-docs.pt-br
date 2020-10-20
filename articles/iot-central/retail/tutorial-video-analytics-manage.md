@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575190"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874791"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerenciar um aplicativo de detecção de objetos e movimentos e análise de vídeo
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprende a:
 
 Antes de começar, você deverá concluir:
 
-* O tutorial [Criar um aplicativo da Análise Dinâmica de Vídeo no Azure IoT Central](./tutorial-video-analytics-create-app.md).
+* Um dos tutoriais anteriores [Criar um aplicativo da Análise Dinâmica de Vídeo no Azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) ou [Criar uma análise de vídeo no Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md).
 * Um dos tutoriais anteriores [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (VM do Linux)](tutorial-video-analytics-iot-edge-vm.md) ou [Criar uma instância do IoT Edge da Análise Dinâmica de Vídeo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md).
 
 Você deverá ter o [Docker](https://www.docker.com/products/docker-desktop) instalado no computador local para executar o aplicativo de exibição de vídeo.

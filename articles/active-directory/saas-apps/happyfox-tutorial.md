@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 032f35fcf5ff661f5a0bfb59be191ffae93272a0
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550683"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutorial: Integração do Azure Active Directory com o HappyFox
 
@@ -132,19 +132,19 @@ Para configurar o logon único do Azure AD com o HappyFox, execute as seguintes 
 
 2. Navegue para **Gerenciar** e clique na guia **Integrações**.
 
-    ![Configurar o logon único](./media/happyfox-tutorial/header.png) 
+    ![Captura de tela que mostra a página "Gerenciar" com a guia "Integrações" selecionada.](./media/happyfox-tutorial/header.png) 
 
 3. Na guia Integrações, clique em **Configurar** em **Integração SAML** para abrir as configurações de logon único.
 
-    ![Configurar o logon único](./media/happyfox-tutorial/configure.png)
+    ![Captura de tela que mostra a configuração "Integração do SAML" com a ação "configurar" selecionada.](./media/happyfox-tutorial/configure.png)
 
 4. Na seção de configuração do SAML, cole o valor da **URL de Logon** copiado do portal do Azure na caixa de texto **URL de Destino de SSO**.
 
-    ![Configurar o logon único](./media/happyfox-tutorial/targeturl.png)
+    ![Captura de tela que mostra a seção "Configuração do SAML" com a caixa de texto "URL de Destino do SSO" realçada.](./media/happyfox-tutorial/targeturl.png)
 
 5. Abra o certificado baixado do Portal do Azure no bloco de notas e cole seu conteúdo na seção **Assinatura IdP**.
 
-    ![Configurar o logon único](./media/happyfox-tutorial/cert.png)
+    ![Captura de tela que mostra a seção "Assinatura IdP" realçada.](./media/happyfox-tutorial/cert.png)
 
 6. Clique no botão **Salvar Configurações**.
 

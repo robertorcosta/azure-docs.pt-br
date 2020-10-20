@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8958e16ef4b1b7033fa0757e2a70eb053896b143
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543900"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996559"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao OpsGenie
 
@@ -133,15 +133,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 3. Para habilitar o SSO, selecione **Habilitado**.
    
-    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![Uma captura de tela que mostra a caixa de seleção "Habilitado" selecionada.](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. Na seção **Provedor**, clique na guia **Azure Active Directory**.
    
-    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![Uma captura de tela que mostra a seção "Provedor" com a guia "Azure Active Directory" selecionada.](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. Na página de diálogo Azure Active Directory, execute as seguintes etapas:
    
-    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![Uma captura de tela que mostra a seção "Logon único" com a alternância "Habilitar logon único", além de "Ponto de extremidade do SAML 2.0" e "URL de metadados".](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
     a. Copie o valor do **URI da ID do Aplicativo** e cole-o na caixa de texto **Identificador (ID da Entidade)** da seção **Configuração Básica do SAML** no portal do Azure.
 
@@ -169,7 +169,7 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no OpsGenie.
 
 4. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
    
-    ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Adicionar Usuário" com as caixas de texto "Email" e "Nome completo" realçadas, bem como o botão "Salvar" selecionado.](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. Na caixa de texto **Email**, digite o endereço de email de B.Fernandes endereçado no Azure Active Directory.
    

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 07ac0ac4d7b86b644ca5d1876b1332fee7358cac
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 826ce780fd9196d67adba5bb148a795d3fe4f0f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552591"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850346"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Tutorial: Integre o JFrog Artifactory com o Azure Active Directory
 
@@ -92,15 +92,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. O aplicativo JFrog Artifactory espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados em sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo Atributos de usuário.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra Atributos do Usuário com o controle de edição em destaque.](common/edit-attribute.png)
 
 1. Além do indicado acima, o aplicativo JFrog Artifactory espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção**Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo (Versão Prévia)** , execute as seguintes etapas:
 
     a. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
 
-    ![image](./media/jfrog-artifactory-tutorial/config04.png)
+    ![Captura de tela que mostra Atributos e Declarações do Usuário, com o ícone Editar selecionado.](./media/jfrog-artifactory-tutorial/config04.png)
 
-    ![image](./media/jfrog-artifactory-tutorial/config05.png)
+    ![A captura de tela mostra a seção Declarações de Grupo com a opção Todos os grupos selecionada.](./media/jfrog-artifactory-tutorial/config05.png)
 
     b. Selecione **Todos os Grupos** na lista de opções.
 

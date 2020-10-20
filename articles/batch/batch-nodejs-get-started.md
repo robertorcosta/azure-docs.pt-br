@@ -2,17 +2,17 @@
 title: Tutorial – Usar a biblioteca de clientes do Lote do Azure para Node.js
 description: Aprenda os conceitos básicos do Lote do Azure e crie uma solução simples usando o Node.js.
 ms.topic: tutorial
-ms.date: 05/22/2017
-ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 10/08/2020
+ms.openlocfilehash: 33ca65421802cdbe31497f3a19ba5992961daa12
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780170"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850601"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do lote para o Node.js
 
-Aprenda as noções básicas da criação de cliente em lote no Node.js usando [SDK do Node.js do lote do Azure ](/javascript/api/overview/azure/batch). Podemos adotar uma abordagem passo a passo de compressão de um cenário para um aplicativo de lote e, em seguida, configurá-lo usando um cliente do Node.js.  
+Aprenda as noções básicas da criação de cliente em lote no Node.js usando [SDK do Node.js do lote do Azure ](/javascript/api/overview/azure/batch). Podemos adotar uma abordagem passo a passo de compressão de um cenário para um aplicativo de lote e, em seguida, configurá-lo usando um cliente do Node.js.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você tem um conhecimento prático do Node.js e que esteja familiarizado com o Linux. Ele também pressupõe que você tenha uma configuração de conta do Azure com direitos de acesso para criar serviços de armazenamento e de lote.
@@ -174,7 +174,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
         {
             if(error.statusCode==404)
             {
-                console.log("Pool not found yet returned 404...");    
+                console.log("Pool not found yet returned 404...");
 
             }
             else
@@ -241,7 +241,7 @@ A seguir temos um objeto de resultado de exemplo retornado pela função pool.ge
   targetDedicated: 4,
   enableAutoScale: false,
   enableInterNodeCommunication: false,
-  maxTasksPerNode: 1,
+  taskSlotsPerNode: 1,
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
 
@@ -252,7 +252,7 @@ Um trabalho de lote do Azure é um grupo lógico de tarefas semelhantes. No noss
 Essas tarefas seriam executadas em paralelo e implantadas em vários nós, orquestrados pelo serviço de lote do Azure.
 
 > [!Tip]
-> Você pode usar a propriedade [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar o número máximo de tarefas que podem ser executadas simultaneamente em um único nó.
+> Você pode usar a propriedade [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar o número máximo de tarefas que podem ser executadas simultaneamente em um único nó.
 >
 >
 
@@ -317,7 +317,7 @@ Supondo que temos quatro contêineres "con1", "con2", "con3" e "con4", o código
 ```nodejs
 // storing container names in an array
 var container_list = ["con1","con2","con3","con4"]
-    container_list.forEach(function(val,index){           
+    container_list.forEach(function(val,index){
 
            var container_name = val;
            var taskID = container_name + "_process";
@@ -325,7 +325,7 @@ var container_list = ["con1","con2","con3","con4"]
            var task = batch_client.task.add(poolid,task_config,function(error,result){
                 if(error != null)
                 {
-                    console.log(error.response);     
+                    console.log(error.response);
                 }
                 else
                 {
@@ -339,7 +339,7 @@ var container_list = ["con1","con2","con3","con4"]
     });
 ```
 
-O código adiciona várias tarefas ao pool. E cada uma das tarefas é executada em um nó no pool de VMs criadas. Se o número de tarefas exceder o número de VMs em um pool ou na propriedade maxTasksPerNode, as tarefas esperam até que um nó seja disponibilizado. O lote do Azure lida com a orquestração automaticamente.
+O código adiciona várias tarefas ao pool. E cada uma das tarefas é executada em um nó no pool de VMs criadas. Se o número de tarefas exceder o número de VMs em um pool ou na propriedade taskSlotsPerNode, as tarefas aguardarão até que um nó seja disponibilizado. O lote do Azure lida com a orquestração automaticamente.
 
 O portal tem exibições detalhadas nas tarefas e nos status do trabalho. Você também pode usar a lista e obter funções no SDK do nó do Azure. Os detalhes são fornecidos no [link](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) de documentação.
 

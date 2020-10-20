@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91265265"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996535"
 ---
 # <a name="what-is-identity-protection"></a>O que é proteção de identidade?
 
@@ -113,6 +113,8 @@ Os administradores do Acesso Condicional também podem criar políticas que cons
 | Notificações | Alertas de usuários em risco detectados  | Não | Não |Sim |
 | Notificações | Resumo semanal| Não | Não | Sim | 
 | | Política de registro de MFA | Não | Não | Sim |
+
+Mais informações sobre esses relatórios avançados podem ser encontradas no artigo [Instruções: investigar o risco](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 
 ## <a name="next-steps"></a>Próximas etapas
 

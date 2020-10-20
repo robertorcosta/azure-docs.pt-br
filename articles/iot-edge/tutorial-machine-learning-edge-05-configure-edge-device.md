@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448504"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974542"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -96,7 +96,7 @@ Para armazenar nossos certificados com segurança e para torná-los acessíveis 
 
 Para conectar um dispositivo Azure IoT Edge a um hub IoT, primeiro criamos uma identidade para o dispositivo no hub. Extraímos a cadeia de conexão da identidade do dispositivo na nuvem e a usamos para configurar o runtime em seu dispositivo IoT Edge. Depois que o dispositivo configurado se conectar ao hub, podemos implantar módulos e enviar mensagens. Também podemos alterar a configuração do dispositivo IoT Edge físico alterando a identidade do dispositivo correspondente no hub IoT.
 
-Para este tutorial, criamos a identidade do dispositivo usando o Visual Studio Code. Também é possível concluir essas etapas usando o [portal do Azure](how-to-register-device.md#register-in-the-azure-portal) ou a [CLI do Azure](how-to-register-device.md#register-with-the-azure-cli).
+Para este tutorial, criamos a identidade do dispositivo usando o Visual Studio Code. Também é possível realizar essas etapas usando o portal do Azure ou a CLI do Azure.
 
 1. Em seu computador de desenvolvimento, abra o Visual Studio Code.
 
@@ -294,12 +294,9 @@ Em seguida, atualizaremos os certificados e o nome do host editando diretamente 
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Acabamos de concluir a configuração de uma VM do Azure como Gateway Transparente do Azure IoT Edge. Começamos gerando certificados de teste, que carregamos para o Azure Key Vault. Em seguida, usamos um script e um modelo do Resource Manager para implantar a VM com a imagem "runtime do Azure IoT Edge + Ubuntu Server 16.04 LTS" do Azure Marketplace. Com a VM ativa e em execução, conectamos por meio de SSH, entramos no Azure e baixamos certificados do Key Vault. Fizemos várias atualizações na configuração do runtime do IoT Edge atualizando o arquivo config.yaml.
-
-Para obter mais informações, consulte [Como um dispositivo IoT Edge pode ser usado como um gateway](iot-edge-as-gateway.md) e [Configurar um dispositivo IoT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md).
 
 Passe para o próximo artigo para criar módulos do IoT Edge.
 

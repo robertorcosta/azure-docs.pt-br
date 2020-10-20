@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f3029acd791e7c45eb5943d298189430ac308e99
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6a9599c20905168b425675d0b028545143c7d19f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528447"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941068"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Mimecast Admin Console
 
@@ -155,23 +155,23 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Navegue até **Administração** > **Serviços** > **Aplicativos**.
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/services.png)
+    ![A captura de tela mostra a janela Mimecast com a opção Aplicativos selecionada.](./media/mimecast-admin-console-tutorial/services.png)
 
 1. Clique na guia **Perfis de Autenticação**.
     
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
+    ![A captura de tela mostra a guia Aplicativo com a opção Perfis de Autenticação selecionada.](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
 
 1. Clique na guia **Novo Perfil de Autenticação**.
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
+    ![A captura de tela mostra a opção Novo Perfil de Autenticação selecionada.](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
 
 1. Forneça uma descrição válida na caixa de texto **Descrição** e marque a caixa de seleção **Impor Autenticação SAML para o Console de Administração**.
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
+    ![A captura de tela mostra onde selecionar Impor Autenticação SAML para o Console de Administração.](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
 
 1. Na página **Configuração do SAML para o Console de Administração**, realize as seguintes etapas:
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/sso-settings.png)
+    ![A captura de tela mostra a página Configuração do SAML para o Console de Administração em que você pode inserir os valores descritos.](./media/mimecast-admin-console-tutorial/sso-settings.png)
 
     a. Para **Provedor**, selecione **Azure Active Directory** na lista suspensa.
 
@@ -189,19 +189,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Navegue até **Administração** > **Diretórios** > **Diretórios Internos**.
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/internal-directories.png)
+    ![A captura de tela mostra a janela Mimecast com a opção Diretórios Internos selecionada.](./media/mimecast-admin-console-tutorial/internal-directories.png)
 
 1. Selecione em seu domínio, se o domínio for mencionado abaixo, caso contrário, crie um domínio clicando em **Novo Domínio**.
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/domain-name.png)
+    ![A captura de tela mostra o domínio selecionado.](./media/mimecast-admin-console-tutorial/domain-name.png)
 
 1. Clique na guia **Novo Endereço**.
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/new-address.png)
+    ![A captura de tela mostra a guia Novo Endereço selecionada.](./media/mimecast-admin-console-tutorial/new-address.png)
 
 1. Forneça as informações de usuário necessárias na seguinte página:
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/user-information.png)
+    ![A captura de tela mostra a página em que você pode inserir os valores descritos.](./media/mimecast-admin-console-tutorial/user-information.png)
 
     a. Na caixa de texto **Endereço de Email**, insira o endereço de email do usuário como `B.Simon@yourdomainname.com`.
 
@@ -215,7 +215,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     f. Para atribuir funções ao usuário, clique em **Editar Função** e atribua a função necessária ao usuário de acordo com o requisito da sua organização.
 
-    ![Configuração do Mimecast Admin Console](./media/mimecast-admin-console-tutorial/assign-role.png)
+    ![A captura de tela mostra as Configurações de Endereço em que você pode selecionar Edição de Função.](./media/mimecast-admin-console-tutorial/assign-role.png)
 
 ## <a name="test-sso"></a>Testar o SSO 
 

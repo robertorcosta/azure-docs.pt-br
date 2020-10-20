@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: fc60552fadf10dde88c0e6d8c6f46bd25c68cf2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da8ae35ce85ca9ffb031511e81270afd8529681d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543934"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994185"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao OpenAthens
 
@@ -134,15 +134,15 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
 1. Selecione **Conexões** na lista na guia **Gerenciamento**.
 
-    ![Configurar o logon único](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    ![Uma captura de tela que mostra a página do site da empresa "OpenAthens" com a opção "Conexões" selecionada na guia "Gerenciamento".](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. Selecione **SAML 1.1/2.0**e, em seguida, selecione o botão **Configurar**.
 
-    ![Configurar o logon único](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    ![Uma captura de tela que mostra a opção "Selecionar um tipo de sistema de autenticação local". Um caixa de diálogo com a opção "SAML 1.1/2.0" e o botão "Configurar" selecionados.](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
 1. Para adicionar a configuração, selecione o botão **Procurar** para carregar o arquivo .xml de metadados que você baixou do portal do Azure e, em seguida, selecione **Adicionar**.
 
-    ![Configurar o logon único](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    ![Uma captura de tela que mostra a opção "Adicionar um sistema de autenticação de SAML". Uma caixa de diálogo com a ação "Procurar" e o botão "Adicionar" selecionados.](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
 1. Execute as seguintes etapas na guia **Detalhes**.
 
@@ -164,7 +164,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
     h. Na guia **</> Terceira Parte Confiável**, copie a **URL de Metadados** e abra isso no navegador para baixar o arquivo **XML de metadados do SP**. Carregue esse arquivo de metadados do SP na seção **Configuração Básica do SAML** no Azure AD.
 
-    ![Configurar o logon único](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Uma captura de tela que mostra a guia "Terceira parte confiável" selecionada e a opção "URL de metadados" realçada.](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### <a name="create-openathens-test-user"></a>Criar um usuário de teste do OpenAthens
 

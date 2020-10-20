@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554508"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940779"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integrar o SSO (logon único) do Azure AD ao NetSuite
 
@@ -96,7 +96,7 @@ Para habilitar o SSO do Azure AD no portal do Azure, faça o seguinte:
 
     * Você obterá o valor **<`Instance ID`>** na seção de configuração do NetSuite, que é explicada mais adiante no tutorial na etapa 8 em Configuração do NetSuite. Você encontrará o domínio exato (como system.na0.netsuite.com, nesse caso).
 
-        ![Configurar o logon único](./media/NetSuite-tutorial/domain-value.png)
+        ![A captura de tela mostra a página Configuração do SAML em que você pode obter o domínio.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > Os valores nas URLs anteriores não são reais. Atualize-os com a URL de Resposta real. Para obter o valor, contate a [equipe de suporte ao cliente do NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Veja também os formatos mostrados na seção **Configuração Básica do SAML** no portal do Azure.
@@ -164,31 +164,31 @@ Nesta seção, você permitirá que o usuário B.Fernandes use o logon único do
 
 2. Na barra de navegação superior, selecione **Configuração** e, em seguida, **Empresa** > **Habilitar Recursos**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![A captura de tela mostra a opção Habilitar Recursos selecionada em Empresa.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. Na barra de ferramentas no meio da página, selecione **SuiteCloud**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![A captura de tela mostra a opção SuiteCloud selecionada.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. Em **Gerenciar Autenticação**, marque a caixa de seleção **Logon Único do SAML** para habilitar a opção de logon único do SAML no NetSuite.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![A captura de tela mostra Gerenciar Autenticação em que você pode selecionar Logon Único do SAML.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. Na barra de navegação superior, selecione **Configuração**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-setup.png)
+    ![A captura de tela mostra a opção Configuração selecionada na barra de navegação do NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. Na lista **Tarefas de Configuração**, selecione **Integração**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-integration.png)
+    ![A captura de tela mostra a opção Integração selecionada em TAREFAS DE CONFIGURAÇÃO.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. Em **Gerenciar Autenticação**, selecione **Logon Único do SAML**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-saml.png)
+    ![A captura de tela mostrar a opção Logon Único do SAML selecionada no item Integração em TAREFAS DE CONFIGURAÇÃO.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. No painel **Configuração do SAML**, em **Configuração do NetSuite**, faça o seguinte:
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![A captura de tela mostra a opção Configuração do SAML em que você pode inserir os valores descritos.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. Marque a caixa de seleção **Método de Autenticação Principal**.
 
@@ -198,9 +198,9 @@ Nesta seção, você permitirá que o usuário B.Fernandes use o logon único do
 
 9. Na barra de navegação superior do NetSuite, selecione **Configuração** e, em seguida, selecione **Empresa** > **Dados da Empresa**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-com.png)
+    ![A captura de tela mostra a opção Informações da Empresa selecionada em Empresa.](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-account-id.png)
+    ![A captura de tela mostra o painel em que você pode inserir os valores descritos.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. No painel **Dados da Empresa**, na coluna à direita, copie o valor da **ID da Conta**.
 
@@ -210,23 +210,23 @@ Nesta seção, você permitirá que o usuário B.Fernandes use o logon único do
 
     a. Na barra de navegação superior, selecione **Configuração**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-setup.png)
+    ![A captura de tela mostra a opção Configuração selecionada na barra de navegação do NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. No painel esquerdo, selecione **Usuários/Funções** e, em seguida, **Gerenciar Funções**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![A captura de tela mostra o painel Gerenciar Funções em que você pode selecionar Nova Função.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. Selecione **Nova Função**.
 
     d. Insira um **Nome** para a nova função.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-new-role.png)
+    ![A captura de tela mostra o Gerenciador de Configuração em que você pode inserir um nome para a função.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. Clique em **Salvar**.
 
     f. Na barra de navegação superior, selecione **Permissões**. Em seguida, selecione **Configuração**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-sso.png)
+    ![A captura de tela mostra a guia Configuração em que você pode inserir os valores descritos.](./media/NetSuite-tutorial/ns-sso.png)
 
     g. Selecione **Logon Único do SAML** e, em seguida, **Adicionar**.
 
@@ -234,19 +234,19 @@ Nesta seção, você permitirá que o usuário B.Fernandes use o logon único do
 
     i. Na barra de navegação superior, selecione **Configuração** e, em seguida, **Gerenciador de Configuração**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-setup.png)
+    ![A captura de tela mostra a opção Configuração selecionada na barra de navegação do NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. No painel esquerdo, selecione **Usuários/Funções** e, em seguida, **Gerenciar Usuários**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![A captura de tela mostra o painel Gerenciar Usuários em que você pode selecionar Equipe de Demonstração do Pacote.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. Selecione um usuário de teste, selecione **Editar** e, em seguida, a guia **Acesso**.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![A captura de tela mostra o painel Gerenciar Usuários em que você pode selecionar Editar.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. No painel **Funções**, atribua a função apropriada que você criou.
 
-    ![Configurar o logon único](./media/NetSuite-tutorial/ns-add-role.png)
+    ![A captura de tela mostra a opção Administrador selecionada em Funcionário.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. Clique em **Salvar**.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552778"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Active Directory com o ITRP
 
@@ -94,7 +94,7 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
 3. Na página **Configurar logon único com SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML**:
 
-    ![Ícone Editar](common/edit-urls.png)
+    ![A captura de tela mostra a página Configurar Logon Único com SAML com o ícone Editar selecionado.](common/edit-urls.png)
 
 4. Na caixa de diálogo **Configuração Básica do SAML**, execute as etapas a seguir.
 
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
 5. Na seção **Certificado de Autenticação SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**:
 
-    ![Ícone Editar](common/edit-certificate.png)
+    ![A captura de tela mostra a página Certificado de Autenticação SAML com o ícone Editar selecionado.](common/edit-certificate.png)
 
 6. Na caixa de diálogo **Certificado de Autenticação SAML**, copie o valor da **Impressão Digital** e salve-o:
 
@@ -143,9 +143,9 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
 1. Na seção de configuração de **Logon único**, execute as seguintes etapas.
 
-    ![Seção Logon Único](./media/itrp-tutorial/ic775572.png "Seção Logon Único")
+    ![A captura de tela mostra a seção Logon Único com a opção Habilitado selecionada.](./media/itrp-tutorial/ic775572.png "Seção Logon Único")
 
-    ![Seção Logon Único](./media/itrp-tutorial/ic775573.png "Seção Logon Único")
+    ![A captura de tela mostra a seção Logon Único em que você pode adicionar as informações descritas nesta etapa.](./media/itrp-tutorial/ic775573.png "Seção Logon Único")
 
     1. Selecione **Habilitado**.
 

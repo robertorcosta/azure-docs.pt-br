@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540024"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração do Azure Active Directory com o Lifesize Cloud
 
@@ -137,15 +137,15 @@ Para configurar o logon único do Azure AD com o Lifesize Cloud, execute as segu
 
 2. No canto superior direito, clique em seu nome e, em seguida, clique em **Configurações Avançadas**.
 
-    ![Configurar o logon único](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![A captura de tela mostra o item de menu Configurações Avançadas.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. Nas configurações de adiantamento agora, clique em de **configuração de SSO** link. Isso abrirá a página de configuração de SSO para sua instância.
 
-    ![Configurar o logon único](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![A captura de tela mostra as Configurações Avançadas em que você pode selecionar a Configuração do SSO.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Agora, configure os seguintes valores na interface do usuário de configuração de SSO.
 
-    ![Configurar o logon único](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![A captura de tela mostra a página Configuração do SSO em que você pode inserir os valores descritos.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. Na caixa de texto **Emissor do Provedor de Identidade**, cole o valor de **Identificador do Azure AD** copiado do portal do Azure.
 

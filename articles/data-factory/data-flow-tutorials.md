@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: d16285d6ba21c04e35f4bd5e334ac62ea83b8c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/13/2020
+ms.openlocfilehash: 90b0791387e8b4966f8f2c56d3838f54457beef5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252867"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044013"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -83,7 +83,9 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Mesclar transformação](https://youtu.be/VY2tFQJoAXE)
 
-[Transformar Dados Hierárquicos](https://youtu.be/oAEh21NFgWQ)
+[Transformar dados hierárquicos](https://youtu.be/oAEh21NFgWQ)
+
+[Classificar a transformação](https://youtu.be/6XvgkbMtws0)
 
 ## <a name="source-and-sink"></a>Fonte e coletor
 

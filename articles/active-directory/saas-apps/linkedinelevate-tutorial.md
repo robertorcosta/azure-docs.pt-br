@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f4569a45b9ed0eee7c375e660df97925335313b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5dcd705719510cce3a113c5b0fdc46d016313b6d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549787"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856380"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-elevate"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao LinkedIn Elevate
 
@@ -144,11 +144,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Em **Centro de Contas**, clique em **Configurações Globais** em **Configurações**. Além disso, selecione **Elevar – Elevar teste do AAD** na lista suspensa.
 
-    ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
+    ![A captura de tela mostra as Configurações Globais, nas quais você pode selecionar Elevar Teste do AAD.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Clique em **OU Clique aqui para carregar e copiar campos individuais do formulário** e execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
+    ![A captura de tela mostra o Logon Único em que você pode inserir os valores descritos.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
     a. Copie a **ID da Entidade** e cole-a na caixa de texto **Identificador** na **Configuração Básica de SAML** no portal do Azure.
 
@@ -156,11 +156,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Vá para a seção **Configurações de administração do LinkedIn**. Carregue o arquivo XML que você baixou do portal do Azure clicando na opção Carregar arquivo XML.
 
-    ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
+    ![A captura de tela mostra Definir as configurações de SSO do provedor de serviços do LinkedIn em que você pode carregar um arquivo XML.](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Clique em **Ativar** para habilitar o SSO. O status do SSO será alterado de **Não conectado** para **Conectado**
 
-    ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
+    ![A captura de tela mostra o Logon Único em que você pode selecionar Atribuir licenças automaticamente.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-elevate-test-user"></a>Criar usuário de teste do LinkedIn Elevate
 

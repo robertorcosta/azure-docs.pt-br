@@ -1,14 +1,14 @@
 ---
 title: Visão geral do exemplo de blueprint do Azure Security Benchmark
 description: Visão geral do exemplo de blueprint do Azure Security Benchmark. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651894"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057579"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Exemplo de blueprint do Azure Security Benchmark
 
@@ -46,7 +46,7 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Avançar: Artefatos** na parte inferior da página.
 
-1. Examine a lista de artefatos que compõem o exemplo de blueprint. Muitos dos artefatos têm parâmetros que definiremos mais tarde. Selecione **Salvar Rascunho** quando terminar de examinar o exemplo de blueprint.
+1. Examine a lista de artefatos que estão incluídos no exemplo de blueprint. Muitos dos artefatos têm parâmetros que definiremos mais tarde. Selecione **Salvar Rascunho** quando terminar de examinar o exemplo de blueprint.
 
 ### <a name="publish-the-sample-copy"></a>Publicar a cópia do exemplo
 

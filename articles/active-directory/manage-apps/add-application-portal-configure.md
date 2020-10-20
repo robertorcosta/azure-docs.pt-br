@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91448238"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044455"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)
 
@@ -41,10 +41,7 @@ Para editar as propriedades do aplicativo:
 
 1. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo que você deseja configurar.
 2. Na seção **Gerenciar**, selecione **Propriedades** para abrir o painel **Propriedades** para edição.
-
-    ![Captura de tela da tela Propriedades que mostra as propriedades editáveis do aplicativo.](media/add-application-portal/edit-properties.png)
-
-3. Reserve um tempo para entender as opções disponíveis para configurar:
+3. Reserve um tempo para entender as opções disponíveis. As opções disponíveis dependerão de como o aplicativo está integrado ao Azure AD. Por exemplo, um aplicativo que usa o logon único baseado em SAML terá campos como *URL de acesso do usuário*, enquanto um aplicativo que usa o logon único baseado em OIDC não terá isso. Observe também que os aplicativos adicionados por meio de **Azure Active Directory > Registros de aplicativo** são, por padrão, aplicativos baseados em OIDC. Já os aplicativos adicionados por meio de **Azure Active Directory > Aplicativos empresariais** podem usar qualquer um dos vários padrões de logon único. Todos os aplicativos terão campos para configuração quando um aplicativo for exibido e puder ser usado. Esses campos são:
     - **Habilitado para que os usuários entrem?** determina se os usuários atribuídos ao aplicativo podem entrar nele.
     - **Atribuição do usuário obrigatória?** determina se os usuários não atribuídos ao aplicativo podem entrar nele.
     - A opção **Visível para os usuários?** determina se os usuários atribuídos a um aplicativo podem vê-lo em [Meus Aplicativos](https://myapps.microsoft.com) e no inicializador de aplicativos do Microsoft 365. (Confira o menu do waffle no canto superior esquerdo de um site do Microsoft 365.)

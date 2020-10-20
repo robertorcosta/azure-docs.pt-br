@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migrar um aplicativo Web dos Bing Mapas | Microsoft Azure Mapas'
-description: Como migrar um aplicativo Web dos Bing Mapas para os Microsoft Azure Mapas.
+description: Tutorial sobre como migrar um aplicativo Web do Bing Mapas para o Microsoft Azure Mapas.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 469565385ce4b3ee4b1589f105216213d584c8c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319721"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876508"
 ---
-# <a name="migrate-a-web-app-from-bing-maps"></a>Migrar um aplicativo Web dos Bing Mapas
+# <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Tutorial – Migrar um aplicativo Web dos Bing Mapas
 
 Os aplicativos Web que usam os Bing Mapas geralmente usam o SDK do JavaScript V8 dos Bing Mapas. O SDK da Web do Azure Mapas é o SDK baseado no Azure adequado para o qual migrar. O SDK da Web do Azure Mapas lhe permite personalizar mapas interativos com seu próprio conteúdo e imagens para exibição em seus aplicativos móveis ou Web. Esse controle utiliza WebGL, permitindo que você processe grandes conjuntos de dados com alto desempenho. Desenvolva com esse SDK usando JavaScript ou TypeScript.
 

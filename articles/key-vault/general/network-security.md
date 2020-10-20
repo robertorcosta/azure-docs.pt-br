@@ -7,19 +7,63 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c375defe5fd8356d64879a65d6f09f40ea30271d
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087382"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042449"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
-Este guia fornece instruções passo a passo para configurar redes virtuais e firewalls do Azure Key Vault para restringir acesso ao cofre de chaves. Os [pontos de extremidade de serviço de rede virtual para Key Vault](overview-vnet-service-endpoints.md) permitem restringir o acesso a uma rede virtual especificada e um conjunto de intervalos de endereços IPv4 (protocolo de internet versão 4).
+Este artigo fornece diretrizes sobre como configurar o firewall do Azure Key Vault. Este documento aborda as diferentes configurações do firewall do Key Vault com detalhes e fornece instruções passo a passo de como configurar o Azure Key Vault para trabalhar com outros aplicativos e serviços do Azure.
+
+## <a name="firewall-settings"></a>Configurações do Firewall
+
+Esta seção aborda as diferentes maneiras como o firewall do Azure Key Vault pode ser configurado.
+
+### <a name="key-vault-firewall-disabled-default"></a>Firewall do Key Vault desabilitado (padrão)
+
+Por padrão, quando você cria um cofre de chaves, o firewall do Azure Key Vault está desabilitado. Todos os aplicativos e serviços do Azure podem acessar o cofre de chaves e enviar solicitações para ele. Observe que essa configuração não significa que qualquer usuário poderá executar operações em seu cofre de chaves. O cofre de chaves ainda restringe os segredos, as chaves e os certificados armazenados nele exigindo as permissões de autenticação e de política de acesso do Azure Active Directory. Para entender a autenticação do cofre de chaves com mais detalhes, confira o documento de conceitos básicos sobre a autenticação do cofre de chaves [aqui](https://docs.microsoft.com/azure/key-vault/general/authentication-fundamentals).
+
+### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Firewall do Key Vault habilitado (somente serviços confiáveis)
+
+Quando habilitar o Firewall do Key Vault, você terá a opção de "Permitir que Serviços Confiáveis da Microsoft ignorem este firewall". A lista de serviços confiáveis não abrange todos os serviços do Azure. Por exemplo, o Azure DevOps não está na lista de serviços confiáveis. **Isso não significa que os serviços que não aparecem na lista de serviços confiáveis não sejam confiáveis ou seguros.** A lista de serviços confiáveis abrange os serviços em que a Microsoft controla todo o código executado no serviço. Como os usuários podem escrever código personalizado em serviços do Azure como o Azure DevOps, a Microsoft não fornece a opção de criar uma aprovação ampla para o serviço. Além disso, só porque um serviço aparece na lista de serviços confiáveis, não significa que ele seja permitido em todos os cenários.
+
+Para determinar se um serviço que você está tentando usar está na lista de serviços confiáveis, confira o documento a seguir [aqui](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services).
+
+### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall do Key Vault habilitado (intervalos e endereços IPv4 – IPs estáticos)
+
+Se quiser autorizar um serviço específico a acessar o cofre de chaves por meio do Firewall do Key Vault, você poderá adicionar o endereço IP dele à lista de permissões do firewall do cofre de chaves. Essa configuração é melhor para serviços que usam endereços IP estáticos ou intervalos bem conhecidos.
+
+Para permitir um intervalo ou um endereço IP de um recurso do Azure, como um Aplicativo Web ou Aplicativo Lógico, execute as etapas a seguir.
+
+1. Faça logon no Portal do Azure
+1. Selecione o recurso (instância específica do serviço)
+1. Clique na folha 'Propriedades' em 'Configurações'
+1. Procure o campo "Endereço IP".
+1. Copie esse valor ou intervalo e insira-o na lista de permissões do firewall do cofre de chaves.
+
+Para permitir que todo um serviço do Azure passe pelo firewall do Key Vault, use a lista de endereços IP de data centers documentados publicamente para o Azure [aqui](https://www.microsoft.com/download/details.aspx?id=41653). Localize os endereços IP associados ao serviço que deseja na região que deseja e adicione-os ao firewall do cofre de chaves usando as etapas acima.
+
+### <a name="key-vault-firewall-enabled-virtual-networks---dynamic-ips"></a>Firewall do Key Vault habilitado (redes virtuais – IPs dinâmicos)
+
+Se estiver tentando permitir que um recurso do Azure, como uma máquina virtual, passe pelo cofre de chaves, você não poderá usar endereços IP estáticos e talvez não queira permitir que todos os endereços IP das Máquinas Virtuais do Azure acessem o cofre de chaves.
+
+Nesse caso, você deve criar o recurso em uma rede virtual e permitir que o tráfego da rede virtual específica e da sub-rede acesse o cofre de chaves. Para fazer isso, execute as seguintes etapas.
+
+1. Faça logon no Portal do Azure
+1. Selecione o cofre de chaves que deseja configurar
+1. Selecione a folha "Rede"
+1. Selecione '+ Adicionar rede virtual existente'
+1. Selecione a rede virtual e a sub-rede que deseja permitir que passem pelo firewall do cofre de chaves.
+
+### <a name="key-vault-firewall-enabled-private-link"></a>Firewall do Key Vault habilitado (Link Privado)
+
+Para saber como configurar uma conexão de link privado em seu cofre de chaves, confira o documento [aqui](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
 
 > [!IMPORTANT]
 > Depois que as regras de firewall estiverem ativas, os usuários podem realizar apenas operações de [plano de dados](secure-your-key-vault.md#data-plane-access-control) do Key Vault quando as solicitações deles originarem-se de redes virtuais ou intervalos de endereços IPv4 permitidos. Isso também aplica-se ao acessar o Key Vault a partir do portal do Azure. Embora os usuários possam navegar em um cofre de chaves a partir do portal do Azure, eles talvez não consigam listar chaves, segredos ou certificados se o computador cliente deles não estiver na lista permitida. Isso também afeta o Seletor do Cofre de Chaves de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.

@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Criar uma consulta compartilhada com modelos'
 description: Neste guia de início rápido, você usa um modelo do ARM (modelo do Azure Resource Manager) para criar uma consulta compartilhada do Resource Graph que conta máquinas virtuais por SO.
-ms.date: 07/06/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88685520"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057001"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Início Rápido: Criar uma consulta compartilhada usando um modelo do ARM
 
@@ -53,9 +53,9 @@ O recurso definido no modelo inclui:
    | Subscription | Selecione sua assinatura do Azure. |
    | Resource group | Selecione **Criar**, especifique um nome e, em seguida, selecione **OK**. |
    | Location | Selecione uma região. Por exemplo, **Centro dos EUA**. |
-   | Nome da consulta | Deixe o valor padrão **Contar de VMs por SO**. |
-   | Código da consulta | Deixar o valor padrão `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
-   | Descrição da consulta | Deixe o valor padrão **Esta consulta compartilhada conta todos os recursos de máquina virtual e os resume pelo tipo de SO.** |
+   | Nome da consulta | Deixar o valor padrão: **Contar VMs por sistema operacional**. |
+   | Código da consulta | Deixar o valor padrão: `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Descrição da consulta | Deixar o valor padrão: **Esta consulta compartilhada conta todos os recursos de máquina virtual e os resume por tipo de sistema operacional.** |
    | Concordo com os termos e condições acima | (Selecionar) |
 
 1. Selecione **Comprar**.
@@ -75,7 +75,7 @@ Para executar a nova consulta compartilhada, siga estas etapas:
 
 1. Selecione a consulta compartilhada denominada **Contar VMs por SO** e selecione a guia **Resultados** na página **Visão geral**.
 
-Como alternativa, a consulta compartilhada pode ser aberta no Resource Graph Explorer:
+A consulta compartilhada também pode ser aberta no Resource Graph Explorer:
 
 1. Na barra de pesquisa do portal, pesquise **Consultas do Resource Graph Explorer** e selecione.
 
@@ -83,7 +83,7 @@ Como alternativa, a consulta compartilhada pode ser aberta no Resource Graph Exp
 
 1. Altere **Tipo** para _Consultas compartilhadas_. Se você não vir **Contar VMs por SO** na lista, use a caixa de filtro para limitar os resultados. Depois que a consulta compartilhada **Contar VMs por SO** estiver visível, selecione seu nome.
 
-1. Depois que a consulta for carregada, selecione o botão **Executar consulta**. Os resultados são exibidos na guia **Resultados** abaixo.
+1. Depois que a consulta for carregada, selecione o botão **Executar consulta**. Os resultados são exibidos na guia **Resultados**.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

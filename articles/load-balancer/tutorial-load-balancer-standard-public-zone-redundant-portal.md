@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446097"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048348"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 
@@ -40,6 +40,10 @@ Para obter mais informações sobre o uso de Zonas de Disponibilidade com o Load
 Se preferir, você pode concluir este tutorial usando a [CLI do Azure](load-balancer-standard-public-zone-redundant-cli.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -231,8 +235,10 @@ Para ver o balanceador de carga distribuir o tráfego entre as VMs distribuídas
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para isso, selecione o grupo de recursos que contém o balanceador de carga e clique em **Excluir**.
+Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos que contém o balanceador de carga e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
+Saiba mais sobre como realizar o balanceamento de carga de uma VM em uma zona de disponibilidade específica.
+> [!div class="nextstepaction"]
+> [Balanceie a carga de VMs em uma zona de disponibilidade específica](tutorial-load-balancer-standard-public-zonal-portal.md)

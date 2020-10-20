@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fe7e0d43050120daa017669a96e90f96b873530
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 39f2f592601f60f060cce8ded2b5303dc6b10e8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543781"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995814"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory ao Origami
 
@@ -126,11 +126,11 @@ Para configurar o logon único do Azure AD com o Origami, realize as seguintes e
 
 2. No menu na parte superior, clique em **Administrador**.
    
-    ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Uma captura de tela que mostra a home page do Origami com a opção "Administrador" selecionada.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. Na página do diálogo Configuração de Logon Único, realize as seguintes etapas:
    
-    ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_531.png)
+    ![Uma captura de tela que mostra a página "Configuração de Logon Único" com a opção "Habilitar Logon Único" selecionada, bem como as caixas de texto realçadas.](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. Selecione **Habilitar Logon Único**.
 
@@ -201,19 +201,19 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Origami.
 
 2. No menu na parte superior, clique em **Administrador**.
    
-    ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Uma captura de tela que mostra a home page da conta do Origami com a opção "Administrador" selecionada.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. No diálogo **Usuários e Segurança**, clique em **Usuários**.
    
-    ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_54.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Usuários e Segurança" com a opção "Usuários" selecionada.](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. Clique em **Adicionar Novo Usuário**.
    
-    ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_55.png)
+    ![Uma captura de tela que mostra o botão "Adicionar Novo Usuário" selecionado.](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. Na caixa de diálogo Adicionar Novo Usuário, execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_56.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Adicionar Novo Usuário" com as caixas de texto "Nome de Usuário", "Primeiro Nome" e "Sobrenome" realçadas.](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. Na caixa de texto **Nome de Usuário**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
@@ -227,7 +227,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Origami.
 
     f. Clique em **Save** (Salvar).
    
-    ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_57.png)
+    ![Uma captura de tela que mostra o botão "Salvar" selecionado.](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. Atribua **Funções de Usuário** e **Acesso para Cliente** ao usuário. 
    

@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Extraia texto usando a operação de Leitura da API REST da Pesquisa Visual Computacional 3.0 e o C#'
+title: 'Início Rápido: Extraia texto usando a operação de Leitura da API REST da Pesquisa Visual Computacional 3.1 e o C#'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, aplique OCR a uma imagem usando as operações de Leitura da API REST da Pesquisa Visual Computacional 3.0 e a linguagem C#.
+description: Neste guia de início rápido, aplique OCR a uma imagem usando as operações de Leitura da API REST da Pesquisa Visual Computacional 3.1 e a linguagem C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2f7678e2dd9f04f7aa930271c69c2d4ccf1e692b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 603a002b4d9088295f7050afc47e643290818e0b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88928234"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969476"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Início Rápido: Extraia texto usando a operação de Leitura da API REST da Pesquisa Visual Computacional 3.0 e o C#
+# <a name="quickstart-extract-text-using-the-computer-vision-31-rest-api-read-operation-and-c"></a>Início Rápido: Extraia texto usando a operação de Leitura da API REST da Pesquisa Visual Computacional 3.1 e o C#
 
-Neste guia de início rápido, você extrairá texto impresso e manuscrito de uma imagem usando a nova tecnologia de OCR disponível como parte da API REST da Pesquisa Visual Computacional 3.0. Com os novos métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750), você pode detectar um texto em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres legível por computador. 
+Neste guia de início rápido, você extrairá texto impresso e manuscrito de uma imagem usando a nova tecnologia de OCR disponível que faz parte da API REST da Pesquisa Visual Computacional 3.1. Com os novos métodos [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) e [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750), você pode detectar um texto em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres legível por computador. 
 
 > [!IMPORTANT]
-> O método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) é executado de maneira assíncrona. Esse método não retorna todas as informações no corpo de uma resposta bem-sucedida. Em vez disso, o método Batch Read retorna um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, você poderá chamar esse URI, que representa a API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o status e retornar os resultados da chamada do método Read.
+> O método [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) é executado de maneira assíncrona. Esse método não retorna todas as informações no corpo de uma resposta bem-sucedida. Em vez disso, o método Batch Read retorna um URI no valor do campo de cabeçalho de resposta `Operation-Location`. Em seguida, você poderá chamar esse URI, que representa a API [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) para verificar o status e retornar os resultados da chamada do método Read.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -68,7 +68,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
+        static string uriBase = endpoint + "/vision/v3.1/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";
@@ -213,7 +213,7 @@ Uma resposta com êxito é retornada em JSON. O aplicativo de exemplo analisa e 
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

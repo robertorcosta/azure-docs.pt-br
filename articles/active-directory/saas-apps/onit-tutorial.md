@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0a04b893af41f15d0757b781716909535f43239e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8caf136c43f40458634316da4b4002386f1419da
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544002"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997037"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Onit
 
@@ -132,7 +132,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. No menu na parte superior, clique em **Administração**.
    
-    ![Administração](./media/onit-tutorial/IC791174.png "Administração")
+    ![Uma captura de tela que mostra o menu na parte superior da página "Testar o MS SSO" com a ação "Administração" selecionada.](./media/onit-tutorial/IC791174.png "Administração")
 
 3. Clique em **Editar Empresa**.
    

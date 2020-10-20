@@ -9,24 +9,23 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bbed5899a860f3ba8ac7047a283966536f6c8a87
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee267bda44cde77cf5d3434cd75eecaf34bd5264
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328608"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978842"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Início Rápido: Implantar seu primeiro módulo do IoT Edge em um dispositivo virtual Linux
 
 Teste o Azure IoT Edge neste início rápido implantando um código em contêineres em um dispositivo virtual Linux do IoT Edge. O IoT Edge permite que você gerencie remotamente o código em seus dispositivos para que você possa enviar mais cargas de trabalho para a borda. Para este início rápido, recomendamos o uso de uma máquina virtual do Azure para o dispositivo do IoT Edge, o que permitirá criar rapidamente um computador de teste com o serviço IoT Edge instalado e excluí-lo quando você terminar.
 
 Neste guia de início rápido, você aprende a:
-> [!div class="checklist"]
->
-> * Crie um Hub IoT.
-> * Registrar um dispositivo IoT Edge em seu Hub IoT.
-> * Instale e inicie o runtime do IoT Edge no dispositivo virtual.
-> * Implantar um módulo em um dispositivo IoT Edge remotamente.
+
+* Crie um Hub IoT.
+* Registrar um dispositivo IoT Edge em seu Hub IoT.
+* Instale e inicie o runtime do IoT Edge no dispositivo virtual.
+* Implantar um módulo em um dispositivo IoT Edge remotamente.
 
 ![Diagrama – Início Rápido da arquitetura para dispositivo e nuvem](./media/quickstart-linux/install-edge-full.png)
 
@@ -110,7 +109,7 @@ Durante a configuração do runtime, você precisa fornecer uma cadeia de conex�
 
 ### <a name="deploy-the-iot-edge-device"></a>Implantar o dispositivo do IoT Edge
 
-Esta seção usa um modelo do Azure Resource Manager para criar uma máquina virtual e instalar o runtime do IoT Edge nela. Se você quiser usar seu dispositivo Linux, poderá seguir as etapas de instalação em [Instalar o runtime do IoT Edge do Azure no Linux](how-to-install-iot-edge-linux.md) e retornar a este início rápido.
+Esta seção usa um modelo do Azure Resource Manager para criar uma máquina virtual e instalar o runtime do IoT Edge nela. Se você quiser usar seu dispositivo Linux, poderá seguir as etapas de instalação em [Instalar o runtime do Azure IoT Edge](how-to-install-iot-edge.md) e retornar a este início rápido.
 
 Use o comando da CLI a seguir para criar seu dispositivo do IoT Edge com base no modelo predefinido [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy).
 

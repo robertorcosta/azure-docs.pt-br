@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a050f7a7d86ef8586cab3e90d9c1bac310a7f18b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823020"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854504"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Litmus
 
@@ -129,11 +129,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique em **Segurança** do painel de navegação esquerdo.
 
-    ![Configuração do Litmus](./media/litmus-tutorial/security-img.png)
+    ![A captura de tela mostra o item Segurança selecionado.](./media/litmus-tutorial/security-img.png)
 
 1. Na seção **Configurar Autenticação SAML**, siga estas etapas:
 
-    ![Configuração do Litmus](./media/litmus-tutorial/configure1.png)
+    ![A captura de tela mostra a seção Configurar Autenticação SAML em que você pode inserir os valores descritos.](./media/litmus-tutorial/configure1.png)
 
     a. Ative a opção **Habilitar SAML**.
 
@@ -143,7 +143,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Execute as seguintes etapas:
 
-    ![Configuração do Litmus](./media/litmus-tutorial/configure3.png)
+    ![A captura de tela mostra a seção em que você pode inserir os valores descritos.](./media/litmus-tutorial/configure3.png)
 
     a. Na caixa de texto **Ponto de Extremidade do SAML 2.0 (HTTP)** , cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -157,15 +157,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique nas **Contas** no painel de navegação esquerdo.
 
-    ![Configuração do Litmus](./media/litmus-tutorial/accounts-img.png)
+    ![A captura de tela mostra o item Conta selecionado.](./media/litmus-tutorial/accounts-img.png)
 
 1. Clique na guia **Adicionar Novo Usuário**.
 
-    ![Configuração do Litmus](./media/litmus-tutorial/add-new-user.png)
+    ![A captura de tela mostra o item Adicionar Novo Usuário selecionado.](./media/litmus-tutorial/add-new-user.png)
 
 1. Na seção **Adicionar Usuário**, siga estas etapas:
 
-    ![Configuração do Litmus](./media/litmus-tutorial/user-profile.png)
+    ![A captura de tela mostra a seção Adicionar Usuário em que você pode inserir os valores descritos.](./media/litmus-tutorial/user-profile.png)
 
     a. Na caixa de texto **Email**, insira o endereço de email do usuário como **B.Fernandes\@contoso.com**
 

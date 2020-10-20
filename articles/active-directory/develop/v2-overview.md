@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627118"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056405"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>O que é a plataforma de identidade da Microsoft?
 
@@ -74,8 +74,7 @@ Saiba como os principais conceitos de autenticação do Azure AD se aplicam à p
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) – convide usuários externos em seu locatário do Azure AD como usuários "convidados" aos quais você pode atribuir permissões para autorização, enquanto eles usam as respectivas credenciais existentes para autenticação.
 
-> [!TIP]
-> Procurando documentação sobre a *plataforma de desenvolvedor do Azure Active Directory (v1.0)* ? Confira a [Visão geral do Azure Active Directory para desenvolvedores (v1.0)](../azuread-dev/v1-overview.md).
+[Azure Active Directory para desenvolvedores (v1.0)](../azuread-dev/v1-overview.md) – Mostrado aqui para desenvolvedores com aplicativos existentes que usam o ponto de extremidade v1.0 mais antigo. **Não** use a v1.0 em novos projetos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

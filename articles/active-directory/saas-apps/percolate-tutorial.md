@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553963"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Azure Active Directory ao Percolate
 
@@ -103,7 +103,7 @@ Para configurar o logon único do Azure AD com o Percolate, siga estas etapas:
 
 5. Se quiser configurar o aplicativo no modo iniciado por SP, selecione **Definir URLs adicionais** e, na caixa **URL de logon**, digite **https://percolate.com/app/login** :
 
-   ![Informações de logon único de URLs e Domínio do Percolate](common/metadata-upload-additional-signon.png)
+   ![Uma captura de tela que mostra a opção "Definir URLs adicionais" selecionada com a caixa de texto "URL de Entrada" realçada.](common/metadata-upload-additional-signon.png)
 6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o ícone **Copiar** para a **URL de metadados de federação de aplicativos**. Salve essa URL.
 
     ![Copiar a URL de metadados de federação de aplicativos](common/copy-metadataurl.png)
@@ -184,7 +184,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 3. No painel esquerdo, selecione **Usuários e grupos**:
 
-    ![Selecionar Usuários e grupos](common/users-groups-blade.png)
+    ![Uma captura de tela que mostra a opção "Usuários e grupos" selecionada no painel esquerdo.](common/users-groups-blade.png)
 
 4. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 

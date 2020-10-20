@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Gerenciar consultas no portal do Azure'
 description: Neste tutorial, você cria uma consulta do Resource Graph e compartilha a nova consulta com outras pessoas no portal do Azure.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: tutorial
-ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005184"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057919"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e compartilhar uma consulta do Azure Resource Graph no portal do Azure
 
-O Azure Resource Graph Explorer permite salvar consultas do Resource Graph diretamente no portal do Azure. Há dois tipos de consultas: _Privada_ e _compartilhada_. Uma consulta privada é salva em suas configurações do portal do Azure. Já uma consulta compartilhada é um recurso do Azure Resource Manager que pode ser gerenciado com o Azure RBAC (controle de acesso baseado em função do Azure) e protegido com bloqueios de recurso. Os dois tipos de consultas são criptografados em repouso.
+O Azure Resource Graph Explorer permite salvar consultas do Resource Graph diretamente no portal do Azure. Há dois tipos de consultas: _Privada_ e _compartilhada_. Uma consulta privada é salva em suas configurações do portal do Azure. Já uma consulta compartilhada é um recurso do Azure Resource Manager que pode ser gerenciado com o RBAC (controle de acesso baseado em função) do Azure e protegido com bloqueios de recurso. Os dois tipos de consultas são criptografados em repouso.
 
 Ao salvar consultas no portal do Azure, você economiza tempo que, de outro modo, poderia ter que gastar procurando suas consultas favoritas ou frequentemente usadas. Ao compartilhar consultas, você ajuda sua equipe a perceber as metas de consistência e eficiência por meio de repetição.
 
@@ -60,8 +60,7 @@ As consultas particulares são acessíveis e visíveis somente para a conta que 
 
 ## <a name="create-a-shared-query"></a>Criar uma consulta compartilhada
 
-Ao contrário de uma consulta privada, uma consulta compartilhada é um recurso do Resource Manager. Esse fato significa que a consulta é salva em um grupo de recursos, pode ser gerenciada e controlada com RBAC do Azure e pode até mesmo ser protegida com bloqueios de recursos. Por ser um recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo.
-Para criar uma nova consulta compartilhada, siga estas etapas:
+Ao contrário de uma consulta privada, uma consulta compartilhada é um recurso do Resource Manager. Esse fato significa que a consulta é salva em um grupo de recursos, pode ser gerenciada e controlada com RBAC do Azure e pode até mesmo ser protegida com bloqueios de recursos. Por ser um recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo. Para criar uma nova consulta compartilhada, siga estas etapas:
 
 1. No menu do portal, selecione **Todos os serviços** ou use a caixa do Azure Search na parte superior de todas as páginas para pesquisar pelo **Azure Resource Graph Explorer** e selecioná-lo.
 
@@ -89,7 +88,7 @@ Para criar uma nova consulta compartilhada, siga estas etapas:
 
 1. Selecione **Salvar** na parte inferior do painel **Salvar consulta**. O título da guia muda de **Consulta 1** para **Contar VMs por SO**. Na primeira vez que o grupo de recursos **Resource-Graph-queries** é usado, o salvamento demora mais do que o esperado à medida que o grupo de recursos é criado.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Salvar a nova consulta como uma consulta compartilhada" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Salvar a nova consulta usando o botão Salvar" border="false":::
 
    > [!NOTE] 
    > Se desejar fornecer o nome de um grupo de recursos existente no qual salvar a consulta compartilhada, você poderá desmarcar a caixa de seleção **Publicar no grupo de recursos resource-graph-queries**. Usar o grupo de recursos com o nome padrão para consultas torna as consultas compartilhadas mais fáceis de descobrir. Essa escolha também torna a finalidade desse grupo de recursos mais aparente. No entanto, você pode optar por selecionar um grupo de recursos existente por motivos de segurança, com base em permissões existentes.
@@ -98,7 +97,7 @@ Para criar uma nova consulta compartilhada, siga estas etapas:
 
 1. Selecione **Abrir uma consulta**. Verifique se o tipo está definido como **Consulta compartilhada** e a combinação de **Assinatura** e **Grupo de recursos** corresponde ao local em que você salvou a consulta. O item salvo **Contar VMs por sistema operacional** agora aparece na lista **Nome da Consulta**. Selecione o link de título da consulta salva para carregá-la em uma nova guia com o nome dessa consulta. Como uma consulta compartilhada, ela exibe um ícone na guia ao lado do título, o qual indica que ela é compartilhada.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Mostrar a consulta compartilhada com o ícone" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Salvar a nova consulta usando o botão Salvar" border="false":::
 
    > [!NOTE] 
    > Quando uma consulta salva estiver aberta e a guia mostrar o nome dela, o botão **Salvar** atualizará a consulta com as alterações feitas. Para criar uma nova consulta salva, selecione **Salvar como** e prossiga como se você estivesse salvando uma consulta totalmente nova.
@@ -141,7 +140,7 @@ Uma consulta compartilhada do Resource Graph pode ser executada com a sintaxe `{
 
 ## <a name="delete-a-shared-query"></a>Excluir uma consulta compartilhada
 
-Se uma consulta compartilhada não for mais necessária, exclua-a. Ao excluir uma consulta compartilhada, você remove o recurso do Resource Manager correspondente. Todos os painéis aos quais o gráfico de resultados foi fixado agora exibem uma mensagem de erro. Quando essa mensagem de erro é exibida, use o botão **Remover do painel** para limpar o painel.
+Se uma consulta compartilhada não for mais necessária, exclua-a. Ao excluir uma consulta compartilhada, você remove o recurso do Resource Manager correspondente. Todos os painéis aos quais o gráfico de resultados foi fixado agora exibem uma mensagem de erro. Quando essa mensagem de erro for exibida, use o botão **Remover do painel** para limpar o painel.
 
 Você pode excluir uma Consulta compartilhada por meio das seguintes interfaces:
 - Página de consultas do Resource Graph

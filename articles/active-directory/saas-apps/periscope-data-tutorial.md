@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f808cff5bddf6566276df2f707232bde1ecca8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553899"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Azure Active Directory com Periscope Data
 
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
 
 2. Abra o menu de engrenagem no canto inferior esquerdo e abra o menu **Cobrança** > **Segurança** e execute as seguintes etapas. Somente administradores têm acesso a essas configurações.
 
-    ![Informações de Configuração de Dados de Periscópio](./media/periscope-data-tutorial/configure01.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Segurança" com as configurações selecionadas.](./media/periscope-data-tutorial/configure01.png)
 
     a. Copie a **URL de Metadados de Federação do Aplicativo** da etapa 5 **Certificado de Assinatura SAML** e abra-o em um navegador. Isso abrirá um documento XML.
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
 
     i. Por fim, clique em **Salvar** e **confirme** a alteração de configurações de SSO digitando **Logout**.
 
-    ![Informações de Configuração de Dados de Periscópio](./media/periscope-data-tutorial/configure02.png)
+    ![Uma captura de tela que mostra a caixa de diálogo "Atualizar a Configuração de SSO" com "logout" digitado na caixa de texto e o botão "Confirmar" selecionado.](./media/periscope-data-tutorial/configure02.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -206,7 +206,7 @@ Para habilitar que os usuários do Azure AD façam logon no Periscope Data, eles
 
 2. Clique no ícone **Configurações** no canto inferior esquerdo do menu e navegue até **Permissões**.
 
-    ![Informações de Configuração de Dados de Periscópio](./media/periscope-data-tutorial/configure03.png)
+    ![Uma captura de tela que mostra o menu de "Configurações" com a opção "Permissões" selecionada.](./media/periscope-data-tutorial/configure03.png)
 
 3. Clique em **ADICIONAR USUÁRIO** e execute as seguintes etapas:
 

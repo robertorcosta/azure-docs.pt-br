@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d74c3e42317b954a510f3276db38c0dcdf5e2362
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812311"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850372"
 ---
 # <a name="creating-a-synapse-workspace"></a>Como criar um workspace do Azure Synapse
 
@@ -29,8 +29,9 @@ Para completar todas as etapas deste tutorial, você precisa ter acesso a um gru
 1. Abra o [portal do Azure](https://portal.azure.com) e, na parte superior, procure por **Synapse**.
 1. Nos resultados da pesquisa em **Serviços**, selecione **Azure Synapse Analytics (versão prévia de workspaces)** .
 1. Selecione **Adicionar** para criar um workspace.
-1. Em **Noções Básicas**, insira os campos obrigatórios e escolha um nome de workspace. Neste tutorial, usaremos **myworkspace**.
-1. Você precisa de uma conta do ADLSGEN2 para criar um workspace. A opção mais simples é criar uma conta. Se você quiser reutilizar uma existente, será necessário executar algumas configurações adicionais. 
+1. Em **Conceitos básicos**, insira a **Assinatura**, o **Grupo de recursos**, a **Região** preferenciais e escolha um nome para o workspace. Neste tutorial, usaremos **myworkspace**.
+1. Você precisa de uma conta ADLSGEN2 e um contêiner nessa conta para criar um workspace. A opção mais simples é criar uma conta. Se você quiser reutilizar uma existente, será necessário executar algumas configurações adicionais. 
+    1. O workspace do Azure Synapse usará esse contêiner como o local padrão para armazenar logs e dados do Spark para tabelas do Spark.
 1. OPÇÃO 1 Criação de uma conta do ADLSGEN2 
     1. Navegue até **Selecionar Data Lake Storage Gen 2**. 
     1. Clique em **Criar Novo** e nomeie a conta como **contosolake**.

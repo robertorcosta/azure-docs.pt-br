@@ -3,7 +3,7 @@ title: 'Tutorial: Implantar um aplicativo Python Django com Postgres'
 description: Crie um aplicativo Web Python com um banco de dados PostgreSQL e implante-o no Azure. O tutorial usa a estrutura Django e o aplicativo é hospedado no Serviço de Aplicativo do Azure no Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: a630387a41b6def67141a423249c3347ff034e2e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e171ce1ab7d2b9d4a78399ee639945bde16b71ca
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369613"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019402"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implantar um aplicativo Web Django com o PostgreSQL no Serviço de Aplicativo do Azure
 
@@ -114,7 +114,7 @@ O exemplo também é modificado para ser executado em um ambiente de produção,
 - As configurações de produção estão no arquivo *azuresite/production.py*. Os detalhes de desenvolvimento estão em *azuresite/settings.py*.
 - O aplicativo usa as configurações de produção quando a variável de ambiente `DJANGO_ENV` é definida como "produção". Você criará essa variável de ambiente posteriormente no tutorial junto com outras usadas para a configuração do banco de dados PostgreSQL.
 
-Essas alterações são específicas para configurar o Django para execução em qualquer ambiente de produção, e não são específicas para o Serviço de Aplicativo. Para saber mais, confira a [Lista de verificação de implantação do Django](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/).
+Essas alterações são específicas para configurar o Django para execução em qualquer ambiente de produção, e não são específicas para o Serviço de Aplicativo. Para saber mais, confira a [Lista de verificação de implantação do Django](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Confira também [Configurações de produção para o Django no Azure](configure-language-python.md#production-settings-for-django-apps) para obter detalhes sobre algumas das alterações.
 
 [Está com problemas? Fale conosco.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -134,19 +134,19 @@ Se o comando `az` não for reconhecido, verifique se você tem a CLI do Azure in
 Em seguida, crie o banco de dados Postgres no Azure com o comando [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up):
 
 ```azurecli
-az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-- Substitua *\<postgres-server-name>* por um nome exclusivo em todo o Azure (o ponto de extremidade do servidor é `https://<postgres-server-name>.postgres.database.azure.com`). Um bom padrão é usar uma combinação do nome da empresa e outro valor exclusivo.
+- Substitua *\<postgres-server-name>* por um nome exclusivo em todo o Azure (o ponto de extremidade do servidor se torna `https://<postgres-server-name>.postgres.database.azure.com`). Um bom padrão é usar uma combinação do nome da empresa e outro valor exclusivo.
 - Em *\<admin-username>* e *\<admin-password>* , especifique as credenciais para criar um usuário administrador para esse servidor Postgres.
 - O [tipo de preço](../postgresql/concepts-pricing-tiers.md) B_Gen5_1 (Básico, Geração 5, 1 núcleo) usado aqui é o mais barato. Para bancos de dados de produção, omita o argumento `--sku-name` para usar o nível GP_Gen5_2 (Uso Geral, Geração 5, 2 núcleos) em vez disso.
 
 Esse comando executa as seguintes ações, que podem levar alguns minutos:
 
 - Criar um [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) chamado `DjangoPostgres-tutorial-rg` se ele não existir.
-- Criar um servidor Postgres.
-- Crie uma conta de administrador padrão com um nome de usuário e senha exclusivos. (Para especificar suas credenciais, use os argumentos `--admin-user` e `--admin-password` com o comando `az postgres up`.)
-- Criar um banco de dados `pollsdb`.
+- Crie um servidor do Postgres nomeado de acordo com o argumento `--server-name`.
+- Crie uma conta de administrador usando os argumentos `--admin-user` e `--admin-password`. Você pode omitir esses argumentos para permitir que o comando gere credenciais exclusivas.
+- Crie um banco de dados `pollsdb`, nomeado de acordo com o argumento `--database-name`.
 - Habilitar o acesso do endereço IP local.
 - Habilitar o acesso dos serviços do Azure.
 - Criando um usuário de banco de dados com acesso a um banco de dados `pollsdb`.
@@ -203,17 +203,19 @@ Após a implantação bem-sucedida, o comando gera uma saída JSON como o seguin
 
 Com o código implantado no Serviço de Aplicativo, a próxima etapa é conectar o aplicativo ao banco de dados Postgres no Azure.
 
-O código do aplicativo espera encontrar informações sobre o banco de dados em diversas variáveis de ambiente. Para definir as variáveis de ambiente no Serviço de Aplicativo, crie "configurações do aplicativo" usando o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
+O código do aplicativo espera encontrar informações sobre o banco de dados em quatro variáveis de ambiente chamadas `DBHOST`, `DBNAME`, `DBUSER` e `DBPASS`. Para usar as configurações de produção, ele também precisa da variável de ambiente `DJANGO_ENV` definida como `production`.
+
+Para definir variáveis de ambiente no Serviço de Aplicativo, crie "configurações do aplicativo" usando o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) a seguir.
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>@<postgres-server-name>" DBPASS="<password>"
+az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Substitua *\<postgres-server-name>* pelo nome usado anteriormente com o comando `az postgres up`.
-- Substitua *\<username>* e *\<password>* pelas credenciais que o comando também gerou para você. O argumento `DBUSER` precisa estar no formato `<username>@<postgres-server-name>`.
-- O grupo de recursos e o nome do aplicativo são extraídos dos valores armazenados em cache no arquivo *.azure/config*.
-- O comando cria configurações chamadas `DJANGO_ENV`, `DBHOST`, `DBNAME`, `DBUSER` e `DBPASS`, conforme esperado pelo código do aplicativo.
-- Em seu código Python, você acessa essas configurações como variáveis de ambiente com instruções como `os.environ.get('DJANGO_ENV')`. Para saber mais, confira [Acessar variáveis do ambiente](configure-language-python.md#access-environment-variables).
+- Substitua *\<postgres-server-name>* pelo nome usado anteriormente com o comando `az postgres up`. O código em *azuresite/production.py* acrescenta automaticamente `.postgres.database.azure.com` para criar a URL completa do servidor Postgres.
+- Substitua *\<username>* e *\<password>* pelas credenciais de administrador que você usou com o comando `az postgres up` anterior ou por aquelas que `az postgres up` gerou para você. O código em *azuresite/production.py* constrói automaticamente o nome de usuário do Postgres completo com base em `DBUSER` e `DBHOST`.
+- O grupo de recursos e os nomes do aplicativo são extraídos dos valores armazenados em cache no arquivo *.azure/config*.
+
+Em seu código Python, você acessa essas configurações como variáveis de ambiente com instruções como `os.environ.get('DJANGO_ENV')`. Para saber mais, confira [Acessar variáveis do ambiente](configure-language-python.md#access-environment-variables).
 
 [Está com problemas? Fale conosco.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -230,6 +232,8 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
     Substitua `<app-name>` pelo nome usado anteriormente no comando `az webapp up`.
 
     No macOS e no Linux, você pode se conectar de modo alternativo a uma sessão SSH com o comando [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh).
+
+    Se você não puder se conectar à sessão SSH, o aplicativo não terá sido iniciado. [Confira os logs de diagnóstico](#stream-diagnostic-logs) para obter detalhes. Por exemplo, se você não tiver criado as configurações de aplicativo necessárias na seção anterior, os logs indicarão `KeyError: 'DBNAME'`.
 
 1. Na sessão SSH, execute os seguintes comandos (você pode colar os comandos usando **CTRL**+**Shift**+**V**):
 
@@ -249,7 +253,7 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
-    
+
 1. O comando `createsuperuser` solicita suas credenciais de superusuário. Para este tutorial, use o nome de usuário padrão `root`, pressione **Enter** para o endereço de email ser deixado em branco e digite `Pollsdb1` para a senha.
 
 1. Se for exibido um erro informando que o banco de dados está bloqueado, verifique se você executou o comando `az webapp settings` na seção anterior. Sem essas configurações, o comando migrate não pode se comunicar com o banco de dados, resultando no erro.
@@ -259,6 +263,10 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
 ### <a name="create-a-poll-question-in-the-app"></a>Criar uma pergunta de enquete no aplicativo
 
 1. Em um navegador, abra a URL `http://<app-name>.azurewebsites.net`. O aplicativo deve exibir a mensagem "Não há enquetes disponíveis" porque ainda não há enquetes específicas no banco de dados.
+
+    Se você vir "Erro de Aplicativo", é provável que não tenha criado as configurações necessárias na etapa anterior, [Configurar as variáveis de ambiente para conexão com o banco de dados](#configure-environment-variables-to-connect-the-database) ou que esses valores contenham erros. Execute o comando `az webapp config appsettings list` para verificar as configurações. Você também pode [verificar os logs de diagnóstico](#stream-diagnostic-logs) para ver erros específicos durante a inicialização do aplicativo. Por exemplo, se você não tiver criado as configurações, os logs mostrarão o erro `KeyError: 'DBNAME'`.
+
+    Após atualizar as configurações para corrigir os erros, aguarde um minuto para que o aplicativo seja reiniciado e atualize o navegador.
 
 1. Navegue até `http://<app-name>.azurewebsites.net/admin`. Entre usando as credenciais de superusuário da seção anterior (`root` e `Pollsdb1`). Em **Enquetes**, selecione **Adicionar** ao lado de **Perguntas** e crie uma enquete com algumas opções.
 
@@ -446,7 +454,7 @@ Por padrão, o portal mostra a página de **Visão geral** do aplicativo, que fo
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você quiser manter o aplicativo ou prosseguir para o próximo tutorial, pule para as [Próximas etapas](#next-steps). Caso contrário, para evitar incorrer em encargos contínuos, você pode excluir o grupo de recursos criado para este tutorial:
+Se quiser manter o aplicativo ou prosseguir para os tutoriais adicionais, pule para as [Próximas etapas](#next-steps). Caso contrário, para evitar incorrer em encargos contínuos, você pode excluir o grupo de recursos criado para este tutorial:
 
 ```azurecli
 az group delete --no-wait

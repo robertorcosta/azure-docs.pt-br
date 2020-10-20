@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ed2f2cd9fc10017619937cfd6b5644934f7631f1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7581dd52cb9affa3295bfbc00c14535ee72de5be
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553931"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995461"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Azure Active Directory ao Perception United States (não UltiPro)
 
@@ -133,7 +133,7 @@ Para configurar o logon único do Azure AD com o Perception United States (não 
 
 2. Na barra de ferramentas principal, clique em **Configurações de conta**.
 
-    ![Usuário do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Uma captura de tela que mostra a opção "Configurações de Conta" selecionada na barra de ferramentas principal.](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
 3. Na página **Configurações de conta**, execute as seguintes etapas:
 

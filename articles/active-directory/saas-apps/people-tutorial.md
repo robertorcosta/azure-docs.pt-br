@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93b418a2bc4e1b03370b1bb86bd7da95255db0b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fb8374802e7ec2596dc5f65a2acaf739b12dc164
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552378"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o People
 
@@ -142,11 +142,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
    
 4. No menu à esquerda, clique em **Configurações**.
 
-    ![Configurar o logon único](./media/people-tutorial/tutorial_people_001.png)
+    ![Uma captura de tela que mostra o menu do lado esquerdo com a opção "Configurações" selecionada.](./media/people-tutorial/tutorial_people_001.png)
 
 5. Clique em **Empresa**.
 
-    ![Configurar o logon único](./media/people-tutorial/tutorial_people_002.png)
+    ![Uma captura de tela que mostra a opção "Empresa" selecionada no menu "Configurações".](./media/people-tutorial/tutorial_people_002.png)
 
 6. Em **Carregar arquivo de metadados SAML de ‘Logon Único’** , clique em **Procurar** para carregar o arquivo de metadados baixado.
 

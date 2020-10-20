@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e831fd561b7c8dcf78e9203ec6d38c60c22a5bf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e1e966595422f353067d66483defa0b880874415
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535298"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: integração do Azure Active Directory com o Kintone
 
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o Kintone, execute as seguintes e
 
 1. Selecione **Habilitar a autenticação do SAML**.
 
-    ![Autenticação SAML](./media/kintone-tutorial/ic785882.png "Autenticação do SAML")
+    ![Captura de tela que mostra a opção "Usuários e Administração do Sistema" selecionada.](./media/kintone-tutorial/ic785882.png "Autenticação do SAML")
 
 1. Na seção Autenticação do SAML, execute as seguintes etapas:
 
@@ -232,7 +232,7 @@ Para permitir que os usuários do Azure AD entrem no Kintone, eles precisam ser 
 
 1. Clique em **Novo Usuário**.
 
-    ![Novos usuários](./media/kintone-tutorial/ic785889.png "Novos usuários")
+    ![Captura de tela que mostra a seção "Usuários" com a ação "Novo Usuário" selecionada.](./media/kintone-tutorial/ic785889.png "Novos usuários")
 
 1. Na seção **Novo Usuário** , realize as seguintes etapas:
 

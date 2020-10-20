@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 954215f04525e850151fdad93af6e7272b41b3df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 58460dffad3d44090644a544f4082b7727ece3f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498456"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840329"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemplos da CLI do Azure para o Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Esses exemplos se aplicam a todas as APIs do Azure Cosmos DB
 |---|---|
 | [Crie uma conta, um banco de dados e um contêiner do Azure Cosmos](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, um banco de dados e um contêiner do Azure Cosmos DB para a API do Core (SQL). |
 | [Criar uma conta, um banco de dados e um contêiner do Azure Cosmos com dimensionamento automático](scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, um banco de dados e um contêiner do Azure Cosmos DB com dimensionamento automático para a API do Core (SQL). |
-| [Alterar taxa de transferência](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualizar a RU/s em um banco de dados e em um contêiner.|
+| [Operações de taxa de transferência](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migre entre o dimensionamento automático e a taxa de transferência padrão em um banco de dados e um contêiner.|
 | [Bloquear recursos da exclusão](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos.|
 |||
 
@@ -50,7 +50,7 @@ Esses exemplos se aplicam a todas as APIs do Azure Cosmos DB
 |---|---|
 | [Criar uma conta, um banco de dados e uma coleção do Azure Cosmos](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, um banco de dados e uma coleção do Azure Cosmos DB para API do MongoDB. |
 | [Criar uma conta do Azure Cosmos, um banco de dados com dimensionamento automático e duas coleções com taxa de transferência compartilhada](scripts/cli/mongodb/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Criar uma conta do Azure Cosmos DB, um banco de dados com dimensionamento automático e duas coleções com taxa de transferência compartilhada para a API do MongoDB. |
-| [Alterar taxa de transferência](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualizar a RU/s em um banco de dados e em uma coleção.|
+| [Operações de taxa de transferência](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migre entre o dimensionamento automático e a taxa de transferência padrão em um banco de dados e uma coleção.|
 | [Bloquear recursos da exclusão](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos.|
 |||
 
@@ -60,7 +60,7 @@ Esses exemplos se aplicam a todas as APIs do Azure Cosmos DB
 |---|---|
 | [Criar uma conta, um keyspace e uma tabela do Azure Cosmos](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, um keyspace e uma tabela do Azure Cosmos DB para a API do Cassandra. |
 | [Criar uma conta, um keyspace e uma tabela do Azure Cosmos com dimensionamento automático](scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, um keyspace e uma tabela do Azure Cosmos DB com dimensionamento automático para a API do Cassandra. |
-| [Alterar taxa de transferência](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualizar a RU/s em um keyspace e em uma tabela.|
+| [Operações de taxa de transferência](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migre entre o dimensionamento automático e a taxa de transferência padrão em um keyspace e uma tabela.|
 | [Bloquear recursos da exclusão](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos.|
 |||
 
@@ -70,7 +70,7 @@ Esses exemplos se aplicam a todas as APIs do Azure Cosmos DB
 |---|---|
 | [Criar uma conta, um banco de dados e um grafo do Azure Cosmos](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, um banco de dados e um grafo do Azure Cosmos DB para a API do Gremlin. |
 | [Criar uma conta, um banco de dados e um grafo do Azure Cosmos com dimensionamento automático](scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta, um banco de dados e um grafo do Azure Cosmos DB com dimensionamento automático para a API do Gremlin. |
-| [Alterar taxa de transferência](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualizar a RU/s em um banco de dados e em um grafo.|
+| [Operações de taxa de transferência](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migre entre o dimensionamento automático e a taxa de transferência padrão em um banco de dados e um grafo.|
 | [Bloquear recursos da exclusão](scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos.|
 |||
 
@@ -80,6 +80,6 @@ Esses exemplos se aplicam a todas as APIs do Azure Cosmos DB
 |---|---|
 | [Criar uma conta e uma tabela do Azure Cosmos](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta e uma tabela do Azure Cosmos DB para a API de Tabela. |
 | [Criar uma conta e uma tabela do Azure Cosmos com dimensionamento automático](scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma conta e uma tabela do Azure Cosmos DB com dimensionamento automático para a API de Tabela. |
-| [Alterar taxa de transferência](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Atualize a RU/s em uma tabela.|
+| [Operações de taxa de transferência](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Leia, atualize e migre entre o dimensionamento automático e a taxa de transferência padrão em uma tabela.|
 | [Bloquear recursos da exclusão](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos.|
 |||

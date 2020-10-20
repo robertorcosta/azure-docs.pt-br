@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553930"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integração do Active Directory do Azure com o PerformanceCentre
 
@@ -128,19 +128,19 @@ Para configurar o logon único do Azure AD com o PerformanceCentre, execute as s
 
 2. Na guia à esquerda, clique em **Configurar**.
    
-    ![Logon Único do AD do Azure][10]
+    ![Uma captura de tela que mostra o menu "PerformanceCenter" com a opção "Configurar" selecionada.][10]
 
 3. Na guia à esquerda, clique em **Diversos** e em **Logon Único**.
    
-    ![Logon Único do AD do Azure][11]
+    ![Uma captura de tela que mostra a guia "Configurar" com a opção "Logon Único" selecionada no menu "Diversos".][11]
 
 4. Para o **Protocolo**, escolha **SAML**.
    
-    ![Logon Único do AD do Azure][12]
+    ![Uma captura de tela que mostra a seção "Configuração de Logon Único" com a opção "SAML" selecionada no menu "Protocolo".][12]
 
 5. Abra o arquivo de metadados baixado no bloco de notas, copie o conteúdo e cole-o na caixa de texto **Metadados do Provedor de Identidade** e clique em **Salvar**.
    
-    ![Logon Único do AD do Azure][13]
+    ![Uma captura de tela que mostra a caixa de texto "Metadados do Provedor de Identidade".][13]
 
 6. Verifique se os valores para **URL Base da Entidade** e **URL da ID da Entidade** estão corretos.
     
@@ -207,7 +207,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Perfor
 
 2. No menu à esquerda, clique em **Inter-relacionado**, e clique em **Criar Participante**.
    
-    ![Criar Usuário][400]
+    ![Uma captura de tela que mostra a página "Inter-relacionar Participantes" do site da empresa "PerformanceCenter" com o botão "Criar Participante" selecionado.][400]
 
 3. No diálogo **Inter-relacionado – Criar Participante** , execute as seguintes etapas:
    

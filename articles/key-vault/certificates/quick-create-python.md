@@ -8,58 +8,95 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b9ff7397ad29ac681e21c32608ade9c6ce557c37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d06d7b328525f9d6329f17a10dea9c89a753d533
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89488619"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017260"
 ---
-# <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de certificados do Azure Key Vault para Python
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do certificado do Azure Key Vault para Python
 
-Introdução à biblioteca de clientes do Azure Key Vault para Python. Siga as etapas abaixo para instalar o pacote e testar o código de exemplo para tarefas básicas. Usando o Key Vault para armazenar certificados, você evita armazenar certificados no código, o que aumenta a segurança do aplicativo.
+Comece a usar a biblioteca de clientes do certificado do Azure Key Vault para Python. Siga as etapas abaixo para instalar o pacote e testar o código de exemplo para tarefas básicas. Usando o Key Vault para armazenar certificados, você evita armazenar certificados no código, o que aumenta a segurança do aplicativo.
 
-[Documentação de referência da API](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates) | [Pacote (Índice de Pacote do Python)](https://pypi.org/project/azure-keyvault-certificates)
+[Documentação de referência da API](/python/api/overview/azure/keyvault-certificates-readme) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates) | [Pacote (Índice de Pacote do Python)](https://pypi.org/project/azure-keyvault-certificates)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Python 2.7+ ou 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [CLI do Azure](/cli/azure/install-azure-cli)
+
+Este início rápido pressupõe que você está executando a [CLI do Azure](/cli/azure/install-azure-cli) em uma janela de terminal do Linux.
 
 ## <a name="set-up-your-local-environment"></a>Configurar o ambiente local
 
-[!INCLUDE [Set up your local environment](../../../includes/key-vault-python-qs-setup.md)]
+Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para obter mais informações, confira [Autenticar o cliente na biblioteca de clientes de identidades do Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
-7. Instale a biblioteca de certificados do Key Vault:
+### <a name="sign-in-to-azure"></a>Entrar no Azure
+
+1. Execute o comando `login`.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    Se a CLI puder abrir o navegador padrão, ela o fará e carregará uma página de entrada do Azure.
+
+    Caso contrário, abra uma página de navegador em [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e insira o código de autorização exibido no terminal.
+
+2. Entre com suas credenciais de conta no navegador.
+
+### <a name="install-the-packages"></a>Instalar os pacotes
+
+1. Em um terminal ou prompt de comando, crie uma pasta de projeto adequada e depois crie e ative um ambiente virtual do Python conforme descrito em [Usar ambientes virtuais do Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)
+
+1. Instale a biblioteca de identidades do Azure Active Directory:
+
+    ```terminal
+    pip install azure.identity
+    ```
+
+
+1. Instale a biblioteca de clientes do certificado do Key Vault:
 
     ```terminal
     pip install azure-keyvault-certificates
     ```
 
-## <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
+### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
-## <a name="give-the-service-principal-access-to-your-key-vault"></a>Fornecer acesso à entidade de serviço ao seu cofre de chaves
+### <a name="grant-access-to-your-key-vault"></a>Permitir acesso ao cofre de chaves
 
-Execute o seguinte comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) para autorizar sua entidade de serviço para operações de obtenção, lista e criação em certificados.
+Criar uma política de acesso para o cofre de chaves que conceda a permissão de segredos à sua conta de usuário
 
-# <a name="cmd"></a>[cmd](#tab/cmd)
-
-```azurecli
-az keyvault set-policy --name %KEY_VAULT_NAME% --spn %AZURE_CLIENT_ID% --resource-group KeyVault-PythonQS-rg --certificate-permissions delete get list create
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
 ```
 
-# <a name="bash"></a>[Bash](#tab/bash)
+#### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-```azurecli
-az keyvault set-policy --name $KEY_VAULT_NAME --spn $AZURE_CLIENT_ID --resource-group KeyVault-PythonQS-rg --certificate-permissions delete get list create 
+Este aplicativo usa o nome do cofre de chaves como uma variável de ambiente chamada `KEY_VAULT_NAME`.
+
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
----
-
-Esse comando depende das variáveis de ambiente `KEY_VAULT_NAME` e `AZURE_CLIENT_ID` criadas nas etapas anteriores.
-
-Para obter mais informações, confira [Atribuir uma política de acesso – CLI](../general/assign-access-policy-cli.md)
+macOS ou Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## <a name="create-the-sample-code"></a>Criar o código de exemplo
 
-A biblioteca de clientes do Azure Key Vault para Python permite gerenciar certificados e ativos relacionados, como segredos e chaves criptográficas. O exemplo de código a seguir demonstra como criar um cliente, definir um segredo, recuperar um segredo e excluir um segredo.
+A biblioteca de clientes do certificado do Azure Key Vault para Python permite gerenciar certificados. O exemplo de código a seguir demonstrará como criar um cliente, além de definir, recuperar e excluir um certificado.
 
 Crie um arquivo chamado *kv_certificates.py* que contenha esse código.
 
@@ -105,14 +142,16 @@ Verifique se o código na seção anterior está em um arquivo chamado *kv_certi
 python kv_certificates.py
 ```
 
-- Se você encontrar erros de permissões, verifique se executou o [comando `az keyvault set-policy`](#give-the-service-principal-access-to-your-key-vault).
+- Se você encontrar erros de permissões, verifique se executou o [comando `az keyvault set-policy`](#grant-access-to-your-key-vault).
 - Executar novamente o código com o mesmo nome de chave pode produzir este erro: "O Certificado (Conflito) <name> está em um estado excluído, mas recuperável". Use um nome de chave diferente.
 
 ## <a name="code-details"></a>Detalhes do código
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
 
-No código anterior, o objeto [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) usa as variáveis de ambiente que você criou para a entidade de serviço. Você fornece essa credencial sempre que cria um objeto de cliente de uma biblioteca do Azure, como [`CertificateClient`](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python), juntamente com o URI do recurso com o qual você deseja trabalhar por meio desse cliente:
+Neste guia de início rápido, o usuário conectado é usado para se autenticar no cofre de chaves, que é o método preferencial para o desenvolvimento local. Para os aplicativos implantados no Azure, a identidade gerenciada deve ser atribuída ao Serviço de Aplicativo ou à Máquina Virtual. Para obter mais informações, confira [Visão geral da identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+
+No exemplo abaixo, o nome do cofre de chaves é expandido para o URI do cofre de chaves, no formato "https://\<your-key-vault-name\>.vault.azure.net". Este exemplo usa a classe ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential), que permite usar o mesmo código em diferentes ambientes com outras opções para fornecer a identidade. Para obter mais informações, confira [Autenticação de credenciais do Azure padrão](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
 
 ```python
 credential = DefaultAzureCredential()
@@ -121,7 +160,7 @@ client = CertificateClient(vault_url=KVUri, credential=credential)
 
 ### <a name="save-a-certificate"></a>Salvar um certificado
 
-Depois de obter o objeto de cliente para o cofre de chaves, você pode criar um certificado usando o método [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#begin-create-certificate-certificate-name--policy----kwargs-): 
+Depois de obter o objeto de cliente para o cofre de chaves, você pode criar um certificado usando o método [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-create-certificate-certificate-name--policy----kwargs-): 
 
 ```python
 policy = CertificatePolicy.get_default()
@@ -129,27 +168,26 @@ poller = client.begin_create_certificate(certificate_name=certificateName, polic
 certificate = poller.result()
 ```
 
-Aqui, o certificado requer uma política obtida com o método [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?view=azure-python#get-default--).
+Aqui, o certificado requer uma política obtida com o método [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?#get-default--).
 
 Chamar um método `begin_create_certificate` gera uma chamada assíncrona à API REST do Azure para o cofre de chaves. A chamada assíncrona retorna um objeto do instrumento de sondagem. Para aguardar o resultado da operação, chame o método `result` do instrumentos de sondagem.
 
 Ao processar a solicitação, o Azure autentica a identidade do chamador (a entidade de serviço) usando o objeto de credencial fornecido ao cliente.
 
-Ele também verifica se o chamador está autorizado a executar a ação solicitada. Você concedeu essa autorização à entidade de serviço anteriormente usando o [comando `az keyvault set-policy`](#give-the-service-principal-access-to-your-key-vault).
 
 ### <a name="retrieve-a-certificate"></a>Recuperar um certificado
 
-Para ler um certificado do Key Vault, use o método [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#get-certificate-certificate-name----kwargs-):
+Para ler um certificado do Key Vault, use o método [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#get-certificate-certificate-name----kwargs-):
 
 ```python
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-Verifique também se o certificado foi definido com o comando [az keyvault certificate show](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show) da CLI do Azure.
+Verifique também se o certificado foi definido com o comando [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show) da CLI do Azure.
 
 ### <a name="delete-a-certificate"></a>Excluir um certificado
 
-Para excluir um certificado, use o método [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#begin-delete-certificate-certificate-name----kwargs-):
+Para excluir um certificado, use o método [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-delete-certificate-certificate-name----kwargs-):
 
 ```python
 poller = client.begin_delete_certificate(certificateName)
@@ -158,7 +196,7 @@ deleted_certificate = poller.result()
 
 O método `begin_delete_certificate` é assíncrono e retorna um objeto do instrumento de sondagem. Chamar o método `result` do instrumento de sondagem aguarda sua conclusão.
 
-Você pode verificar se o certificado foi excluído com o comando da CLI do Azure [az keyvault certificate show](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show).
+Você pode verificar se o certificado foi excluído com o comando da CLI do Azure [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
 
 Depois de excluído, um certificado permanece em um estado excluído, mas recuperável, por algum tempo. Se você executar o código novamente, use outro nome de certificado.
 
@@ -175,6 +213,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da o Cofre da Chave do Azure](../general/overview.md)
+- [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
 - [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - [Melhores práticas do Azure Key Vault](../general/best-practices.md)
 - [Autenticar com o Key Vault](../general/authentication.md)

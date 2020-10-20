@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Sua primeira consulta JavaScript'
 description: Neste guia de início rápido, você seguirá as etapas necessárias para habilitar a biblioteca do Resource Graph para JavaScript e executará sua primeira consulta.
-ms.date: 06/23/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 194097594340e2f34433c07185c6132f8a13c845
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91251959"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057409"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Início Rápido: Executar sua primeira consulta do Resource Graph usando JavaScript
 
@@ -23,11 +23,11 @@ Ao final desse processo, você terá adicionado as bibliotecas à instalação d
 
 - **Node.js**: o [Node.js](https://nodejs.org/) versão 12 ou superior é necessário.
 
-## <a name="application-setup"></a>Instalação do aplicativo
+## <a name="application-initialization"></a>Inicialização de aplicativo
 
 A fim de habilitar o JavaScript para consultar o Azure Resource Graph, o ambiente precisa ser configurado. Essa configuração funciona sempre que o JavaScript pode ser usado, incluindo o [Bash no Windows 10](/windows/wsl/install-win10).
 
-1. Configure um novo projeto Node.js executando o comando a seguir.
+1. Inicialize um novo projeto Node.js executando o comando a seguir.
 
    ```bash
    npm init -y

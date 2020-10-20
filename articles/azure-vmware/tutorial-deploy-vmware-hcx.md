@@ -3,29 +3,29 @@ title: Tutorial – Implantar e configurar o VMware HCX
 description: Saiba como implantar e configurar a solução VMware HCX para sua nuvem privada da Solução VMware no Azure.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 69832d1537f0f1be95d3283f543ef6e54187b58d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 58fd8b4518f60f1f736d8c19ddcf62729353f251
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578625"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057988"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implantar e configurar o VMware HCX
 
-Neste artigo, percorreremos os procedimentos para implantar e configurar o VMware HCX para sua nuvem privada da Solução VMware no Azure. O VMware HCX permite a migração das suas cargas de trabalho do VMware para a Solução VMware no Azure e para outros sites conectados por meio de vários tipos de migração.
+Neste artigo, percorreremos os procedimentos para implantar e configurar o "Conector" VMware HCX local na sua nuvem privada da Solução VMware no Azure. O VMware HCX permite a migração das suas cargas de trabalho do VMware para a Solução VMware no Azure e para outros sites conectados por meio de vários tipos de migração. A Solução VMware no Azure já implantou e configurou o "Cloud Manager". Portanto, baixar, ativar e configurar o "Connector" é exigido pelo cliente no datacenter do VMware local dele.
 
-O VMware HCX Advanced (pré-implantado na Solução VMware no Azure) dá suporte a até três conexões de site (local para nuvem ou nuvem para nuvem). Se mais de três conexões de site para o VMware HCX Enterprise forem necessárias, você terá a opção de habilitar o complemento [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) (que está em *Versão prévia* no momento) enviando uma [solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support). O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora o VMware HCX EE para a Solução VMware no Azure esteja em *Versão prévia*, ele é uma função ou um serviço gratuito e está sujeito aos termos e condições do serviço de Versão prévia. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você também terá a opção de desativar ou recusar o serviço.
+O VMware HCX Advanced Connector (pré-implantado na Solução VMware no Azure) dá suporte a até três conexões de site (local para nuvem ou nuvem para nuvem). Se mais de três conexões de site forem necessárias, os clientes terão opção de habilitar o complemento [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) (que está em *Versão prévia* no momento) enviando uma [solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support). O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora o VMware HCX EE para a Solução VMware no Azure esteja em *Versão prévia*, ele é uma função ou um serviço gratuito e está sujeito aos termos e condições do serviço de Versão prévia. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você também terá a opção de desativar ou recusar o serviço.
 
 Antes de começar, examine detalhadamente as seções [Antes de começar](#before-you-begin), [Requisitos de versão do software](#software-version-requirements) e [Pré-requisitos](#prerequisites). 
 
 Em seguida, percorreremos todos os procedimentos necessários para:
 
 > [!div class="checklist"]
-> * Implantar o OVA do VMware HCX (Conector) local
-> * Ativar o VMware HCX
-> * Emparelhar o ambiente local com o ambiente da Solução VMware no Azure.
-> * Configurar a interconexão (perfil de computação, perfis de rede e malha de serviço)
-> * Concluir a instalação verificando o status do dispositivo.
+> * Implantar o OVA do VMware HCX (HCX Connector) local
+> * Ativar o VMware HCX Connector
+> * Emparelhe o seu HCX Connector local com o HCX Cloud Manager da Solução VMware no Azure
+> * Configurar a interconexão (perfil de rede, perfil de computação e malha de serviço)
+> * Concluir a instalação verificando o status do dispositivo e validando a migração é possível
 
 Após a conclusão, você poderá seguir as próximas etapas recomendadas no final deste artigo.  
 
@@ -37,7 +37,8 @@ Após a conclusão, você poderá seguir as próximas etapas recomendadas no fin
 * Opcionalmente, examine as [Considerações sobre a implantação do VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Opcionalmente, examine os materiais sobre o VMware relacionados à HCX, como a [série de blogs](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) sobre VMware vSphere na HCX. 
 * Opcionalmente, solicite uma ativação do HCX Enterprise da Solução VMware no Azure por meio dos canais de suporte da Solução VMware no Azure.
-* Para implantar o dispositivo de Interconexão de WAN, intervalos CIDR específicos já estão alocados do `\22` fornecido pelo cliente para a criação da nuvem privada.
+* Opcionalmente, [examine as portas de rede necessárias para o HCX](https://ports.vmware.com/home/VMware-HCX).
+* Enquanto o HCX Cloud Manager da Solução VMware no Azure vem pré-configurada no /22 fornecido para a nuvem privada da Solução VMware no Azure, o HCX Connector local exige que os intervalos de rede sejam alocados pelo cliente na rede local. Essas redes e intervalos são descritos mais detalhadamente no documento.
 
 O dimensionamento de cargas de trabalho em relação aos recursos de computação e de armazenamento é uma etapa de planejamento essencial. Resolva a etapa de dimensionamento como parte do planejamento inicial do ambiente de nuvem privada. 
 
@@ -62,32 +63,31 @@ Os componentes de infraestrutura devem estar executando a versão mínima necess
 
 * Todas as portas necessárias devem estar abertas para a comunicação entre os componentes locais e entre o ambiente local e o SDDC da Solução VMware no Azure (confira a [Documentação do VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 
-* Os dispositivos HCX IX e NE locais devem ser capazes de alcançar a infraestrutura do vCenter e do ESXi.
 
 ### <a name="ip-addresses"></a>Endereços IP
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
    
-## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Implantar o VMware HCX OVA no local
+## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Implantar o OVA do VMware HCX Connector localmente
 
 >[!NOTE]
->Antes de implantar o dispositivo virtual no vCenter local, baixe o OVA do VMware HCX. 
+>Antes de implantar o dispositivo virtual no vCenter local, baixe o OVA do VMware HCX Connector. 
 
-1. Entre no HCX Manager da Solução VMware no Azure na porta `https://x.x.x.9` 443 com as credenciais do usuário **cloudadmin** e acesse o **Suporte**.
+1. Abra uma janela do navegador, entre no HCX Manager da Solução VMware no Azure na porta `https://x.x.x.9` 443 com as credenciais do usuário **cloudadmin** e acesse o **Suporte**.
 
    >[!TIP]
-   >Para identificar o endereço IP do HCX Manager, na folha da Solução VMware no Azure, acesse **Gerenciar** > **Conectividade** e selecione a guia **HCX**. 
+   >Anote o IP do HCX Cloud Manager na Solução VMware no Azure. Para identificar o endereço IP do HCX Cloud Manager, na folha da Solução VMware no Azure, acesse **Gerenciar** > **Conectividade** e selecione a guia **HCX**. 
    >
    >A senha do vCenter foi definida quando você configurou a nuvem privada.
 
-1. Clique no link **Baixar** para baixar o arquivo OVA VMware HCX.
+1. Selecione o link **Baixar** para baixar o arquivo OVA do VMware HCX Connector.
 
-1. Acesse o vCenter local e selecione um modelo OVF, que é o arquivo OVA que você baixou para a implantação no vCenter local.  
+1. Acesse o seu vCenter local e selecione um modelo OVF, que é o arquivo OVA que você baixou para a implantar o HCX Connector no vCenter local.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Acesse o vCenter local e selecione um modelo OVF a ser implantado no vCenter local." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Selecione um nome e uma localização, o recurso ou o cluster no qual você está implantando o HCX e examine os detalhes e os recursos necessários.  
+1. Selecione um nome e uma localização, o recurso ou o cluster no qual você está implantando o HCX Connector e examine os detalhes e os recursos necessários.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Acesse o vCenter local e selecione um modelo OVF a ser implantado no vCenter local." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
@@ -97,10 +97,10 @@ Os componentes de infraestrutura devem estar executando a versão mínima necess
 
    :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Acesse o vCenter local e selecione um modelo OVF a ser implantado no vCenter local." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
-1. Selecione **Avançar**, verifique a configuração e escolha **Concluir** para implantar o OVA do HCX.
+1. Selecione **Avançar**, verifique a configuração e escolha **Concluir** para implantar o OVA do HCX Connector.
      
    >[!NOTE]
-   >Em geral, o VMware HCX Manager que você está implantando agora é implantado na rede de gerenciamento do cluster.  
+   >Em geral, o VMware HCX Connector que você está implantando agora é implantado na rede de gerenciamento do cluster.  
    
    > [!IMPORTANT]
    > Após a conclusão da implantação, talvez seja necessário ligar o dispositivo virtual manualmente.
@@ -111,9 +111,9 @@ Para obter uma visão geral de ponta a ponta desta etapa, assista ao vídeo [Sol
 
 ## <a name="activate-vmware-hcx"></a>Ativar o VMware HCX
 
-Depois de implantar o OVA do VMware HCX local, você estará pronto para ativar o VMware HCX. Para ativar o VMware HCX, recupere uma licença.
+Depois de implantar OVA do VMware HCX Connector local e iniciar o dispositivo, você estará pronto para ativar, mas primeiro precisará recuperar uma chave de licença no portal da Solução VMware no Azure.
 
-1. Na Solução VMware no Azure, acesse **Gerenciar** > **Conectividade**, selecione a guia **HCX** e clique em **Adicionar**.
+1. No portal da Solução VMware no Azure, acesse **Gerenciar** > **Conectividade**, selecione a guia **HCX** e clique em **Adicionar**.
 
 1. Entre no VMware HCX Manager local em `https://HCXManagerIP:9443` e entre com as credenciais do usuário **administrador**. 
 
@@ -150,13 +150,13 @@ Depois de implantar o OVA do VMware HCX local, você estará pronto para ativar 
 Para obter uma visão geral de ponta a ponta desta etapa, assista ao vídeo [Solução VMware no Azure – Ativação do VMware HCX](https://www.youtube.com/embed/BkAV_TNYxdE).
 
 
-## <a name="configure-vmware-hcx"></a>Configurar o VMware HCX
+## <a name="configure-vmware-hcx-connector"></a>Configurar o VMware HCX Connector
 
 Agora você está pronto para adicionar um emparelhamento de site, criar um perfil de rede e de computação e habilitar serviços, como migração, extensão de rede ou recuperação de desastre. 
 
 ### <a name="add-a-site-pairing"></a>Adicionar um emparelhamento de site
 
-Você pode conectar (emparelhar) o VMware HCX Manager na Solução VMware no Azure com o VMware HCX Manager no datacenter. 
+Você pode conectar (emparelhar) o VMware HCX Cloud Manager na Solução VMware no Azure com o VMware HCX Connector no datacenter. 
 
 1. Entre no vCenter local e, na **Página Inicial**, selecione **HCX**.
 
@@ -166,14 +166,14 @@ Você pode conectar (emparelhar) o VMware HCX Manager na Solução VMware no Azu
 
    :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Acesse o vCenter local e selecione um modelo OVF a ser implantado no vCenter local." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
-1. Insira a **URL ou o endereço IP do HCX remoto**, o nome de usuário cloudadmin@vsphere.local e a **senha** da Solução VMware no Azure e selecione **Conectar**.
+1. Insira a **URL ou o endereço IP do HCX remoto** que você anotou anteriormente, o nome de usuário cloudadmin@vsphere.local e a **senha** da Solução VMware no Azure e selecione **Conectar**.
 
    > [!NOTE]
-   > A **URL do HCX remoto** é o HCX Manager de nuvem privada da Solução VMware no Azure, normalmente o endereço ".9" da rede de gerenciamento.  Por exemplo, se o vCenter for 192.168.4.2, a URL do HCX será 192.168.4.9.
+   > A **URL do HCX remoto** é o IP do HCX Cloud Manager de nuvem privada da Solução VMware no Azure, normalmente o endereço ".9" da rede de gerenciamento.  Por exemplo, se o vCenter for 192.168.4.2, a URL do HCX será 192.168.4.9.
    >
    > A **senha** será a mesma senha que a usada para entrar no vCenter. Você definiu essa senha na tela inicial de implantação.
 
-   Uma tela é exibida com o HCX Manager na Solução VMware no Azure e o HCX Manager local conectado (emparelhados).
+   Uma tela é exibida com o HCX Cloud Manager na Solução VMware no Azure e o HCX Connector local conectados (emparelhados).
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Acesse o vCenter local e selecione um modelo OVF a ser implantado no vCenter local.":::
 
@@ -183,7 +183,7 @@ Para obter uma visão geral de ponta a ponta desta etapa, assista ao vídeo [Sol
 
 ### <a name="create-network-profiles"></a>Criar perfis de rede
 
-O VMware HCX implanta alguns dispositivos virtuais (automatizados), mas precisa de vários segmentos de IP.  Ao criar seus perfis de rede, você define os segmentos de IP, que são identificados durante a [fase de preparação e planejamento de pré-implantação de segmentos de rede do VMware HCX](production-ready-deployment-steps.md#vmware-hcx-network-segments).
+O VMware HCX implanta um subconjunto de dispositivos virtuais (automatizados), que exige vários segmentos de IP.  Ao criar seus perfis de rede, você define os segmentos de IP, que são identificados durante a [fase de preparação e planejamento de pré-implantação de segmentos de rede do VMware HCX](production-ready-deployment-steps.md#vmware-hcx-network-segments).
 
 Você criará quatro perfis de rede:
 

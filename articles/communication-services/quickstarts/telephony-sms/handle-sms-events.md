@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756731"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976922"
 ---
 # <a name="quickstart-handle-sms-events"></a>Início Rápido: Manipular eventos de SMS
 
@@ -92,13 +92,13 @@ Confira a lista completa de [eventos com suporte dos Serviços de Comunicação 
 
 ### <a name="receiving-sms-events"></a>Receber eventos de SMS
 
-Depois de realizar uma das ações acima, você observará que os eventos `SMS Received` e `SMS Delivery Report Received` são enviados para seu ponto de extremidade. Esses eventos aparecerão no [Exemplo do Visualizador da Grade de Eventos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado no início. Você pode pressionar o ícone de olho ao lado do evento para ver todo o conteúdo. Os eventos terão a seguinte aparência:
+Depois de realizar uma das ações acima, você observará que os eventos `SMS Received` e `SMS Delivery Report Received` são enviados para seu ponto de extremidade. Esses eventos aparecerão no [Exemplo do Visualizador da Grade de Eventos do Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) configurado no início. Você pode pressionar o ícone de olho ao lado do evento para ver todo o conteúdo. Os eventos terão esta aparência:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Captura de tela mostrando a seleção do botão de assinatura de evento na página de eventos de um recurso.":::
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Captura de tela mostrando a seleção do botão de assinatura de evento na página de eventos de um recurso.":::
 
-Saiba mais sobre os [esquemas de evento e outros conceitos de eventos](../../concepts/event-handling.md)
+Saiba mais sobre os [esquemas de evento e outros conceitos de eventos](../../concepts/event-handling.md).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

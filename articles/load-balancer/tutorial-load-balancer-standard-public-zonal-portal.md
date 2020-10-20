@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251901"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044948"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: balancear carga de VMs em uma zona de disponibilidade com Standard Load Balancer usando o portal do Azure
 
@@ -38,6 +38,10 @@ Este tutorial cria uma [instância pública do Standard Load Balancer do Azure](
 Para obter mais informações sobre o uso de zonas de disponibilidade com Standard Load Balancer, consulte [Zonas de disponibilidade e Standard Load Balancer](load-balancer-standard-availability-zones.md).
 
 Se preferir, utilize a [CLI do Azure](load-balancer-standard-public-zonal-cli.md) para concluir este tutorial.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -228,5 +232,6 @@ Quando não forem mais necessários, exclua o grupo de recursos, o balanceador d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
-- [Balancear carga de VMs em zonas de disponibilidade](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Vá para o próximo artigo para aprender a balancear a carga de VMs entre zonas de disponibilidade.
+> [!div class="nextstepaction"]
+> [VMs com balanceamento de carga entre zonas de disponibilidade](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

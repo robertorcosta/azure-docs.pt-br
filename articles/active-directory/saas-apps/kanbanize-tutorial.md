@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546824"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850703"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Kanbanize
 
@@ -153,7 +153,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 5. Na página do painel de Administração do lado esquerdo do menu, clique em **Integrações** e, em seguida, habilite o **Logon Único**.
 
-    ![Integrações do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![A captura de tela mostra o painel Administração com a opção Integração selecionada.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
 6. Na seção Integrações, clique em **CONFIGURAR** para abrir a página **Integração de Logon Único**.
 
@@ -161,7 +161,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 7. Na página **Integração de Logon Único**, em **Configurações**, execute as seguintes etapas:
 
-    ![Integrações do Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![A captura de tela mostra a página Integração de Logon Único em que você insere os valores nesta etapa.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. Na caixa de texto **ID da Entidade de IdP**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
 

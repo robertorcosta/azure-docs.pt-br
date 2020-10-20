@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
-ms.date: 06/16/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649828"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876287"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -66,12 +66,15 @@ A [extensão do VS Code](../how-to/extension-for-vscode.md#search-for-and-view-r
 
 ### <a name="arm-templates"></a>Modelos de ARM
 
-Há várias maneiras de examinar um [modelo do Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que inclui a propriedade que você deseja gerenciar.
+Há várias maneiras de examinar um [ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que inclui a propriedade que você deseja gerenciar.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente no portal
 
 A maneira mais simples de encontrar propriedades é examinar um recurso existente do mesmo tipo. Os recursos já definidos com a configuração que você deseja impor também fornecem o valor para comparação.
 Examine a página **Exportar modelo** (em **Configurações**) no portal do Azure desse recurso específico.
+
+> [!WARNING]
+> O modelo ARM exportado pelo portal do Azure não pode ser conectado diretamente à propriedade `deployment` para um modelo do ARM em uma definição de política de [deployIfNotExists](../concepts/effects.md#deployifnotexists).
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Captura de tela da página Exportar modelo em um recurso existente do portal do Azure." border="false":::
 

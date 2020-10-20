@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 507298f323fe14e3b114afebed5f2f258145a76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bc820eb282d08c248b588aa926eb3fd837fe51c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549925"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858108"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutorial: Integração do Knowledge Anywhere LMS ao Azure Active Directory
 
@@ -111,19 +111,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 4. Selecione a guia **Site**.
 
-    ![Configuração do Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![A captura de tela mostra a guia Site.](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
 5. Selecione a guia **Configurações do SAML**.
 
-    ![Configuração do Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![A captura de tela mostra a página Conhecimento em qualquer lugar com a opção Configurações do SAML selecionada.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
 6. Clique em **Adicionar Novo**.
 
-    ![Configuração do Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![A captura de tela mostra o botão Adicionar Novo nas Configurações do Provedor de Serviços.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
 7. Na página **Adicionar/Atualizar Configurações do SAML**, execute as seguintes etapas:
 
-    ![Configuração do Knowledge Anywhere LMS](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![A captura de tela mostra a página Adicionar/Atualizar Configurações do SAML em que você pode fazer as alterações descritas aqui.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. Insira o nome do IdP de acordo com sua organização. Por exemplo: `Azure`.
 

@@ -6,18 +6,18 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 10/13/2020
 ms.author: banders
-ms.openlocfilehash: 1df60eedfb776164be7e78f2994027b8d111828b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 054641d8136d121e611182c8d8b104aefcbc6481
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681950"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057868"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Como um desconto de reserva é aplicado ao Banco de Dados SQL do Azure
 
-Depois que você compra uma capacidade reservada do Banco de Dados SQL do Azure, o desconto de reserva é aplicado automaticamente aos bancos de dados SQL que correspondem aos atributos e à quantidade da reserva. Uma reserva abrange os custos de computação de banco de dados SQL. Você é cobrado por software, armazenamento e rede às taxas normais. Você pode cobrir os custos de licenciamento para o Banco de Dados SQL com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Depois que você compra uma capacidade reservada do Banco de Dados SQL do Azure, o desconto de reserva é aplicado automaticamente aos bancos de dados SQL que correspondem aos atributos e à quantidade da reserva. Uma reserva se aplica aos custos de computação do Banco de Dados SQL, incluindo a réplica primária e todas as réplicas secundárias faturáveis. Você é cobrado por software, armazenamento e rede às taxas normais. Você pode cobrir os custos de licenciamento para o Banco de Dados SQL com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Observe que os descontos de reserva não se aplicam ao Banco de Dados SQL do Azure sem servidor.
 
@@ -31,17 +31,18 @@ Quando você desliga um recurso, o desconto de reserva se aplica automaticamente
 
 ## <a name="discount-applied-to-running-sql-databases"></a>Desconto aplicado aos bancos de dados SQL em execução
 
- O desconto de capacidade reservada do Banco de Dados SQL é aplicado aos bancos de dados SQL em execução por hora. A reserva que você compra é correspondida ao uso de computação emitido pelos bancos de dados SQL em execução. Para os bancos de dados SQL que não são executados durante uma hora inteira, a reserva é aplicada automaticamente a outros bancos de dados SQL que correspondem aos atributos de reserva. O desconto pode ser aplicado aos bancos de dados SQL que estão sendo executados simultaneamente. Se você não tiver bancos de dados SQL que sejam executados durante uma hora inteira que correspondam aos atributos de reserva, não obterá o benefício total do desconto de reserva para essa hora.
+O desconto de capacidade reservada do Banco de Dados SQL é aplicado aos bancos de dados SQL em execução por hora. A reserva que você compra é correspondida ao uso de computação emitido pelos bancos de dados SQL em execução. Para os bancos de dados SQL que não são executados durante uma hora inteira, a reserva é aplicada automaticamente a outros bancos de dados SQL que correspondem aos atributos de reserva. O desconto pode ser aplicado aos bancos de dados SQL que estão sendo executados simultaneamente. Se você não tiver bancos de dados SQL que sejam executados durante uma hora inteira que correspondam aos atributos de reserva, não obterá o benefício total do desconto de reserva para essa hora.
 
 Os exemplos a seguir mostram como o desconto de capacidade reservada do Banco de Dados SQL se aplica, dependendo do número de núcleos que você comprou e quando está sendo executado.
 
-- Cenário 1: Você compra um Banco de Dados SQL com capacidade reservada para um Banco de Dados SQL de 8 núcleos. Você executa um banco de dados SQL de 16 núcleos que corresponde ao restante dos atributos da reserva. Você é cobrado pelo preço pré-pago de 8 núcleos de uso de computação do Banco de Dados SQL. Você recebe o desconto de reserva para uma hora de uso de computação do Banco de Dados SQL principal de 8.
+- Cenário 1: Você compra um Banco de Dados SQL com capacidade reservada para um Banco de Dados SQL de 8 núcleos. Você executa um Banco de Dados SQL de 16 núcleos que corresponde ao restante dos atributos da reserva. Você é cobrado pelo preço pré-pago de 8 núcleos de uso de computação do Banco de Dados SQL. Você recebe o desconto de reserva para uma hora de uso de computação do Banco de Dados SQL principal de 8.
 
 Para o restante destes exemplos, suponha que a capacidade reservada do Banco de Dados do SQL que você comprar seja destinada a um Banco de Dados SQL de 16 núcleos e o restante dos atributos de reserva correspondam aos bancos de dados SQL em execução.
 
 - Cenário 2: Você executa dois bancos de dados SQL com 8 núcleos cada por uma hora. O desconto de reserva de 16 núcleos é aplicado ao uso de computação para os dois bancos de dados SQL de 8 núcleos.
 - Cenário 3: você executa um Banco de Dados SQL de 16 núcleos das 13h às 13h30. Você pode executar outro núcleo 16 banco de dados SQL de 1:30 às 2 horas. Ambos são cobertas pelo desconto de reserva.
 - Cenário 4: você executa um Banco de Dados SQL de 16 núcleos das 13h às 13h45. Você pode executar outro núcleo 16 banco de dados SQL de 1:30 às 2 horas. Você será cobrado o preço pago conforme o uso para a sobreposição de 15 minutos. O desconto de reserva se aplica ao uso de computação para o restante do tempo.
+- Cenário 5: Você executa o banco de dados de Hiperescala do SQL de quatro núcleos com três réplicas secundárias, cada uma com quatro núcleos. A reserva aplica-se ao uso de computação para as réplicas primárias e para todas as réplicas secundárias.
 
 Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](understand-reserved-instance-usage-ea.md).
 

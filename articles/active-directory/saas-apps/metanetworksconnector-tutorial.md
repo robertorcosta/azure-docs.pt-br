@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 71aaaeec174611a86b037b693187cc4f49fe1a0c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 941218f9a35a0a242612ae1d6230c642129c8259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528838"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Active Directory do Azure com o Meta Networks Connector
 
@@ -101,7 +101,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Meta Networks Connector Domain e informações de conexão única de URLs](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
@@ -109,7 +109,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Meta Networks Connector Domain e informações de conexão única de URLs](common/both-advanced-urls.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/both-advanced-urls.png)
 
     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
@@ -120,7 +120,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
 
 6. O aplicativo Meta Networks Connector espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra Atributos de usuário com o ícone Editar selecionado.](common/edit-attribute.png)
     
 7. Além do indicado acima, o aplicativo Meta Networks Connector espera que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
     
@@ -134,9 +134,9 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](common/new-save-attribute.png)
+    ![Captura de tela que mostra Declarações de usuário com a opção de Adicionar declaração.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Captura de tela que mostra a caixa de diálogo Gerenciar declarações do usuário, na qual você pode inserir os valores descritos.](common/new-attribute-details.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -173,19 +173,19 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
     
 2. Vá para **Administrator** e selecione **configurações**.
     
-    ![Configurar o logon único](./media/metanetworksconnector-tutorial/configure3.png)
+    ![A captura de tela mostra as Configurações selecionadas no menu Administração.](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. Certifique-se **Log de tráfego da Internet** e **força VPN MFA** estiver definida como off.
     
-    ![Configurar o logon único](./media/metanetworksconnector-tutorial/configure1.png)
+    ![A captura de tela mostra a desativação dessas configurações.](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. Vá para **Administrator** e selecione **SAML**.
     
-    ![Configurar o logon único](./media/metanetworksconnector-tutorial/configure4.png)
+    ![A captura de tela mostra o SAML selecionado no menu Administração.](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. Execute as seguintes etapas na **detalhes** página:
     
-    ![Configurar o logon único](./media/metanetworksconnector-tutorial/configure2.png)
+    ![A captura de tela mostra a página DETALHES em que você pode inserir os valores descritos.](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. Copie o valor de **SSO URL** e cole-o na caixa de texto **URL de login** na seção **Domínio do conector de Meta Networks e URLs**.
     
@@ -197,7 +197,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
     
 6. Sobre o **geral** guia execute as seguintes etapas:
 
-    ![Configurar o logon único](./media/metanetworksconnector-tutorial/configure5.png)
+    ![A captura de tela mostra a página GERAL em que você pode inserir os valores descritos.](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. Na **URL de Logon único do Provedor de identidade**, cole o valor da **URL de logon**, que você copiou do portal do Azure.
 

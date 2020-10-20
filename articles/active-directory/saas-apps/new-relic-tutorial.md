@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554444"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940949"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao New Relic by Account
 
@@ -134,7 +134,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![Configurações da Conta](./media/new-relic-tutorial/ic797036.png "Configurações da Conta")
+    ![A captura de tela mostra a página inicial com a opção Configurações de Conta selecionada.](./media/new-relic-tutorial/ic797036.png "Configurações da Conta")
 
 3. Clique na guia **Segurança e autenticação** e na guia **Logon único**.
    
@@ -158,11 +158,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![Configurações da Conta](./media/new-relic-tutorial/ic797040.png "Configurações da Conta")
+    ![A captura de tela mostra a opção Configurações de conta selecionada na página inicial.](./media/new-relic-tutorial/ic797040.png "Configurações da Conta")
 
 3. No painel **Conta** no lado esquerdo, clique em **Resumo** e em **Adicionar usuário**.
    
-    ![Configurações da Conta](./media/new-relic-tutorial/ic797041.png "Configurações da Conta")
+    ![A captura de tela mostra o painel Resumo em que você pode selecionar Adicionar usuário.](./media/new-relic-tutorial/ic797041.png "Configurações da Conta")
 
 4. No diálogo **Usuários ativos** , realize as seguintes etapas:
    

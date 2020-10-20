@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c1b8874d8813d6200c915778841c26e77b02e434
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 764f01fa5966a6620612405b4df37fc5ff44f33a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554844"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Azure Active Directory com o Marketo
 
@@ -130,15 +130,15 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
    
     b. Clique no botão **Admin** no painel de navegação superior.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![A captura de tela mostra Administrador selecionado no painel de navegação.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Navegue até o menu Integração e clique no link do **Munchkin**.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_11.png)
+    ![A captura de tela mostra o Munchkin selecionado em Integração.](./media/marketo-tutorial/tutorial_marketo_11.png)
    
     d. Copie a identificação do Munchkin mostrada na tela e conclua sua URL de resposta no assistente de configuração do Azure AD.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_12.png) 
+    ![A captura de tela mostra a página Munchkin em que você pode copiar a ID da Conta.](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
 2. Para configurar o SSO no aplicativo, siga estas etapas:
    
@@ -146,15 +146,15 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
    
     b. Clique no botão **Admin** no painel de navegação superior.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![A captura de tela mostra Administrador selecionado no painel de navegação.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Navegue até o menu Integração e clique em **Logon Único**.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_07.png) 
+    ![A captura de tela mostra o Logon Único selecionado em Integração.](./media/marketo-tutorial/tutorial_marketo_07.png) 
    
     d. Para habilitar as configurações de SAML, clique no botão **Editar**.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_08.png) 
+    ![A captura de tela mostra as Configurações de SSO em que você pode selecionar EDITAR.](./media/marketo-tutorial/tutorial_marketo_08.png) 
    
     e. Configurações de logon único **habilitadas**.
    
@@ -164,7 +164,7 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
    
     h. Selecione o local da ID de usuário como **elemento do Identificador de Nome**.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_09.png)
+    ![A captura de tela mostra Editar Configurações do SAML em que você pode inserir os valores descritos.](./media/marketo-tutorial/tutorial_marketo_09.png)
    
     > [!NOTE]
     > Se o identificador de usuário não for um valor de UPN, altere o valor na guia Atributo.
@@ -179,7 +179,7 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
    
     m. Na **URL de erro**, copie a **URL da instância do Marketo** e clique no botão **Salvar** para salvar as configurações.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_10.png)
+    ![A captura de tela mostra a caixa de diálogo Editar Páginas de Redirecionamento em que você pode inserir os valores descritos.](./media/marketo-tutorial/tutorial_marketo_10.png)
 
 3. Para habilitar o SSO para usuários, conclua as seguintes ações:
    
@@ -187,15 +187,15 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
    
     b. Clique no botão **Admin** no painel de navegação superior.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![A captura de tela mostra Administrador selecionado no painel de navegação.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     c. Navegue até o menu **Segurança** e clique em **Configurações de Logon**.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_13.png)
+    ![A captura de tela mostra a opção Configurações de Logon selecionada em Segurança.](./media/marketo-tutorial/tutorial_marketo_13.png)
    
     d. Marque a opção **Exigir SSO** e **salve** as configurações.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_14.png)
+    ![A captura de tela mostra as Configurações de Força de Senha em que você pode selecionar Exigir SSO.](./media/marketo-tutorial/tutorial_marketo_14.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -256,21 +256,21 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Marketo. s
 
 2. Clique no botão **Admin** no painel de navegação superior.
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![A captura de tela mostra Administrador selecionado no painel de navegação.](./media/marketo-tutorial/tutorial_marketo_06.png) 
 
 3. Navegue até o menu **Segurança** e clique em **Usuários e Funções**
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_19.png)  
+    ![A captura de tela mostra a opção Usuários e Funções selecionada em Segurança.](./media/marketo-tutorial/tutorial_marketo_19.png)  
 
 4. Clique no link **Convidar Novo Usuário** na guia Usuários
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_15.png) 
+    ![A captura de tela mostra Convidar Novo Usuário na guia Usuários.](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
 5. No assistente para Convidar Novo Usuário, preencha as informações a seguir
    
     a. Insira o endereço de **Email** do usuário na caixa de texto
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_16.png)
+    ![A captura de tela mostra a primeira etapa do assistente Convidar Novo Usuário em que você insere as informações do usuário.](./media/marketo-tutorial/tutorial_marketo_16.png)
    
     b. Insira o **Nome** na caixa de texto
    
@@ -280,10 +280,10 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Marketo. s
 
 6. Na guia **Permissões**, selecione **userRoles** e clique em **Avançar**
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_17.png)
+    ![A captura de tela mostra a primeira etapa do assistente Convidar Novo Usuário em que você insere permissões.](./media/marketo-tutorial/tutorial_marketo_17.png)
 7. Clique no botão **Enviar** para enviar o convite de usuário
    
-    ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_18.png)
+    ![A captura de tela mostra a primeira etapa do assistente Convidar Novo Usuário em que você insere sua mensagem.](./media/marketo-tutorial/tutorial_marketo_18.png)
 
 8. Os usuários receberão a notificação de email e precisarão clicar no link e alterar a senha para ativar a conta. 
 

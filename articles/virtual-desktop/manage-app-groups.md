@@ -3,15 +3,15 @@ title: Gerenciar grupos de aplicativos para o portal da Área de Trabalho Virtua
 description: Como gerenciar grupos de aplicativos da Área de Trabalho Virtual do Windows com o portal do Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beac9f64b12a07d2fc900099ee1f107e4981f17e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ec26f021ffa581b0713973904c97349df83a08ef
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320210"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930264"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerenciar grupos de aplicativos com o portal do Azure
 
@@ -124,7 +124,7 @@ O processo de implantação fará o seguinte para você:
 - Criar um link para um modelo de Azure Resource Manager com base em sua configuração que você pode baixar e salvar para mais tarde.
 
 >[!IMPORTANT]
->Você só pode criar 50 grupos de aplicativos para cada locatário do Azure Active Directory. Adicionamos esse limite devido a limitações de serviço para recuperar feeds para nossos usuários. Esse limite não se aplica a grupos de aplicativos criados na Área de Trabalho Virtual do Windows (clássico).
+>Você só pode criar 200 grupos de aplicativos para cada locatário do Azure Active Directory. Adicionamos esse limite devido a limitações de serviço para recuperar feeds para nossos usuários. Esse limite não se aplica a grupos de aplicativos criados na Área de Trabalho Virtual do Windows (clássico).
 
 ## <a name="next-steps"></a>Próximas etapas
 

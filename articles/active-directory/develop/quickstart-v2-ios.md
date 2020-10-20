@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 6ab826b6816c8f1b71a28c6bf501b651baa2cfff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b171688fa4dbff8d05b3ba03e4e4bd29028983be
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613451"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016137"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |Em que: | Descrição |
 > |---------|---------|
 > | `clientId` | A ID do aplicativo registrado em *portal.azure.com* |
-> | `authority` | O ponto de extremidade da plataforma de identidade da Microsoft. Na maioria dos casos ele será *https<span/>://login.microsoftonline.com/common* |
+> | `authority` | O ponto de extremidade da plataforma de identidade da Microsoft. Na maioria dos casos, ele estará em `https://login.microsoftonline.com/common` |
 > | `redirectUri` | O URI de redirecionamento do aplicativo. Você pode passar “nulo” para usar o valor padrão ou o URI de redirecionamento personalizado. |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>Somente para o iOS, requisitos adicionais do aplicativo
@@ -274,3 +274,4 @@ Prossiga para o tutorial passo a passo, em que você criará um aplicativo iOS o
 
 > [!div class="nextstepaction"]
 > [Tutorial: Conectar usuários e chamar o Microsoft Graph em um aplicativo iOS ou macOS](tutorial-v2-ios.md)
+

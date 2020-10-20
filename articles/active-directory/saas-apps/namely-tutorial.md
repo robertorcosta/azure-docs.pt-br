@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be48e4bb4f8364e9fafff69e2dc9eb6aa8db223c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552453"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutorial: Integração do Active Directory do Azure com o Namely
 
@@ -128,19 +128,19 @@ Para configurar o logon único do Azure AD com o Namely, execute as seguintes et
 
 2. Na barra de ferramentas na parte superior, clique em **Empresa**.
    
-    ![Configurar o logon único](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![A captura de tela mostra o valor Empresa selecionado.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Clique na guia **Configurações** .
    
-    ![Configurar o logon único](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![A captura de tela mostra a guia Configurações da Empresa selecionada.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Clique em **SAML**.
    
-    ![Configurar o logon único](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![A captura de tela mostra o SAML selecionado.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. Na página **Configurações de SAML** , execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/namely-tutorial/tutorial_namely_09.png)
+    ![A captura de tela mostra Configurações do SAML em que você pode inserir os valores descritos.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Clique em **Habilitar SAML**. 
 
@@ -211,15 +211,15 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Namely
 
 2. Na barra de ferramentas na parte superior, clique em **Pessoas**.
    
-    ![Configurar o logon único](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![A captura de tela mostra o valor Pessoas selecionado.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Clique na guia **Diretório** .
    
-    ![Configurar o logon único](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![A captura de tela mostra a guia Diretório de Pessoas selecionada.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Clique em **Adicionar Nova Pessoa**.
 
-    ![Configurar o logon único](./media/namely-tutorial/tutorial_namely_12.png)
+    ![A captura de tela mostra a opção Adicionar Nova Pessoa.](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. Na caixa de diálogo **Adicionar Nova Pessoa** , execute as seguintes etapas:
 

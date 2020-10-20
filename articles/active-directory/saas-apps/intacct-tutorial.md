@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a77d3c55ee4ac545712329f0054123bec8fcae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535776"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850567"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutorial: Integrar o Sage Intacct ao Azure Active Directory
 
@@ -189,7 +189,7 @@ Para configurar os usuários do Azure AD para que possam entrar no Sage Intacct,
 
 1. Na seção **Informações do Usuário** , realize as seguintes etapas:
 
-    ![Informações do usuário](./media/intacct-tutorial/ic790043.png "Informações do Usuário")
+    ![A captura de tela mostra a seção Informações do usuário em que você pode inserir as informações nesta etapa.](./media/intacct-tutorial/ic790043.png "Informações do Usuário")
 
     a. Insira a **ID de Usuário**, o **Sobrenome**, o **Nome**, o **Endereço de email**, o **Título** e o **Telefone** de uma conta do Azure AD que você deseja provisionar na seção **Informações do Usuário**.
 
@@ -204,7 +204,7 @@ Para configurar os usuários do Azure AD para que possam entrar no Sage Intacct,
 
 1. Clique na guia **Logon único** e verifique se a **ID de usuário do SSO Federado** na captura de tela abaixo e o valor do **Atributo de Origem** mapeado para o `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` na seção **Atributos do Usuário** no portal do Azure são os mesmos.
 
-    ![Informações do usuário](./media/intacct-tutorial/ic790044.png "Informações do Usuário")
+    ![A captura de tela mostra a seção Informações do Usuário em que você pode inserir a ID do usuário de SSO Federado.](./media/intacct-tutorial/ic790044.png "Informações do Usuário")
 
 > [!NOTE]
 > Para provisionar as contas de usuário do Azure AD, é possível usar qualquer outra ferramenta de criação da conta de usuário do Sage Intacct ou APIs fornecidas pelo Sage Intacct.

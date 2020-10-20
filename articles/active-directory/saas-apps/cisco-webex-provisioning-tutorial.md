@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 2500a22d4d3775f7cfea7afbf4e8d106ec2da139
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 069c8a8e2a595248afe45bbb90de877b3b6fc87d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647973"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849278"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cisco Webex para provisionamento automático de usuários
 
@@ -87,25 +87,25 @@ Esta seção o guia pelas etapas para configurar o serviço de provisionamento d
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Provisionamento do Cisco Webex](common/provisioning.png)
+    :::image type="content" source="common/provisioning.png" alt-text="Captura de tela de um menu no portal do Azure. Em Gerenciar, o Provisionamento é realçado." border="false":::
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Provisionamento do Cisco Webex](common/provisioning-automatic.png)
+    :::image type="content" source="common/provisioning-automatic.png" alt-text="Captura de tela de um menu no portal do Azure. Em Gerenciar, o Provisionamento é realçado." border="false":::
 
 5. Na seção **Credenciais de administrador**, insira o **URL do locatário** e **Token secreto** da conta do seu Cisco Webex.
 
-    ![Provisionamento do Cisco Webex](./media/cisco-webex-provisioning-tutorial/secrettoken1.png)
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/secrettoken1.png" alt-text="Captura de tela de um menu no portal do Azure. Em Gerenciar, o Provisionamento é realçado." border="false":::
 
 6.  No campo **URL do Locatário**, insira um valor na forma de `https://api.ciscospark.com/v1/scim/[OrgId]`. Para obter `[OrgId]`, entre em seu [Hub de Controle do Cisco Webex](https://admin.webex.com/login). Clique no nome de sua organização na parte inferior esquerda e copie o valor de **ID da Organização**. 
 
     * Para obter o valor do **Token Secreto**, navegue até esta [URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose). Na página de entrada do WebEx que aparece, entre com a conta do administrador completa do Cisco WebEx para sua organização. Uma página de erro aparece dizendo que o site não pode ser acessado, mas isso é normal.
 
-        ![Provisionamento do Cisco Webex](./media/cisco-webex-provisioning-tutorial/test.png)
+        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test.png" alt-text="Captura de tela de um menu no portal do Azure. Em Gerenciar, o Provisionamento é realçado." border="false":::
  
     * Copie o valor do token de portador gerado da URL, conforme realçado abaixo. Esse token é válido por 365 dias.
         
-        ![Provisionamento do Cisco Webex](./media/cisco-webex-provisioning-tutorial/test1.png)
+        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test1.png" alt-text="Captura de tela de um menu no portal do Azure. Em Gerenciar, o Provisionamento é realçado." border="false":::
 
 7. Ao preencher os campos mostrados na Etapa 5, clique em **Testar Conexão** para garantir que o Microsoft Azure Active Directory possa se conectar ao Cisco Webex. Se a conexão falhar, certifique-se de que sua conta do Cisco Webex tenha permissões de administrador e tente novamente.
 
@@ -119,11 +119,11 @@ Esta seção o guia pelas etapas para configurar o serviço de provisionamento d
 
 10. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Microsoft Azure Active Directory para o Cisco Webex**.
 
-    ![Provisionamento do Cisco Webex](./media/cisco-webex-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Captura de tela de um menu no portal do Azure. Em Gerenciar, o Provisionamento é realçado." border="false":::
 
 11. Revise os atributos do usuário sincronizados do Microsoft Azure Active Directory para o Cisco Webex na seção **Mapeamento de Atributos**. Os atributos selecionados como **Matching** são usados para corresponder às contas de usuário no Cisco Webex para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Provisionamento do Cisco Webex](./media/cisco-webex-provisioning-tutorial/usermappingattributes.png)
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermappingattributes.png" alt-text="Captura de tela de um menu no portal do Azure. Em Gerenciar, o Provisionamento é realçado." border="false":::
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

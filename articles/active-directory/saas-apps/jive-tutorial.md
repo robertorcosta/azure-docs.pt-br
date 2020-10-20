@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 432ca72a667caa9c2a78b08396884d957b4c650b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da0e042664d6ca90c53b83bb38770a97d4e97498
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547096"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850720"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Jive
 
@@ -140,7 +140,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. No menu na parte superior, clique em **SAML**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_002.png)
+    ![A captura de tela mostra a guia SAML com a opção Habilitado selecionada.](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. Selecione **Habilitado** na guia **Geral**.
 
@@ -148,7 +148,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Navegue até a guia **METADADOS IDP**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_003.png)
+    ![A captura de tela mostra a guia SAML com a opção METADADOS IDP selecionada.](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Copie o conteúdo do arquivo XML de metadados baixado e cole-o na caixa de texto **Metadados do IDP (Provedor de Identidade)** .
 
@@ -156,7 +156,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Selecione a guia **MAPEAMENTO DE ATRIBUTO DE USUÁRIO**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_004.png)
+    ![A captura de tela mostra a guia SAML com a opção MAPEAMENTO DE ATRIBUTOS DO USUÁRIO selecionada.](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. Na caixa de texto **Email**, copie e cole o nome de atributo do valor **email**.
 

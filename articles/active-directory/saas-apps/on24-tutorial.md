@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554241"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Azure Active Directory ao ON24 Virtual Environment SAML Connection
 
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o ON24 Virtual Environment SAML C
 
 5.  Se quiser configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
-    ![Informações de logon único de URLs e Domínio de Conexão SAML do Ambiente Virtual ON24](common/both-signonurl.png)
+    ![Captura de tela que mostra a seção "Definir URLs adicionais" com a caixa de texto "URL de Logon" realçada.](common/both-signonurl.png)
 
     Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://vshow.on24.com/vshow/<INSTANCENAME>`
 

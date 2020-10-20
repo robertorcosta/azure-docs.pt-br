@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77c83e82577cb1d6d07c90a0260a5fa006fd8625
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8cf4df682a5c141e39a3860547a5b6130e2a3002
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554814"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: integração do Azure Active Directory com o M-Files
 
@@ -133,11 +133,11 @@ Para configurar o logon único do Azure AD com o M-Files, execute as seguintes e
 
 1. Abra a janela **Configurações da área de trabalho do M-Files**. Em seguida, clique em **Adicionar**.
    
-    ![Configurar o logon único](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![A captura de tela mostra as Configurações da Área de Trabalho do M-Files em que você pode selecionar Adicionar.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. Na janela **Propriedades de Conexão do Cofre de Documentos**, execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![A captura de tela mostra as Propriedades de Conexão do Cofre de Documentos em que você pode inserir os valores descritos.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     No tipo de seção Servidor, os valores são os seguintes:  
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar conexões do ExpressRoute usando a WAN Virtual do Azure
+title: 'Tutorial: Criar conexões do ExpressRoute usando a WAN Virtual do Azure'
 description: Neste tutorial, saiba como usar a WAN Virtual do Azure para criar conexões do ExpressRoute com o Azure e com ambientes locais.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821881"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054807"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação do ExpressRoute usando a WAN Virtual do Azure
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Alterar o tamanho do gateway
 > * Anunciar uma rota padrão
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
@@ -40,7 +40,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 * Obtenha um intervalo de endereços IP para sua região de hub. O hub é uma rede virtual criada e usada pela WAN Virtual. O intervalo de endereços especificado para o hub não pode se sobrepor a nenhuma das redes virtuais existentes às quais você se conecta. Ele também não pode se sobrepor aos intervalos de endereços aos quais você se conecta localmente. Se não estiver familiarizado com os intervalos de endereços IP da sua configuração de rede local, trabalhe com alguém que possa lhe fornecer esses detalhes.
 
-* O circuito do ExpressRoute precisa ser um circuito Premium/Standard para se conectar ao gateway do hub.
+* O circuito do ExpressRoute precisa ser um circuito Premium ou Standard para se conectar ao gateway do hub.
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -153,6 +153,17 @@ Se você quiser que o hub virtual do Azure anuncie a rota padrão 0.0.0.0/0 aos 
 
    ![Propagar rota padrão](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagar rota padrão")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+
+Quando não precisar mais desses recursos, você poderá utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a WAN Virtual, consulte a página [Visão geral de WAN Virtual](virtual-wan-about.md).
+Em seguida, para saber mais sobre a WAN Virtual, confira:
+
+> [!div class="nextstepaction"]
+> * [Perguntas frequentes sobre a WAN Virtual](virtual-wan-faq.md)

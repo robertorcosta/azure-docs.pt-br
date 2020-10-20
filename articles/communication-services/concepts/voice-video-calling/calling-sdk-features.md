@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8216bb8c30448e7e91ec9a1bcc531b720eca30c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665184"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977860"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
 
@@ -34,7 +34,8 @@ A lista a seguir apresenta o conjunto de recursos que estão disponíveis atualm
 |                   | Fazer uma chamada de grupo com mais de dois usuários (até 350 usuários)                                                       | ✔️   | ✔️            | ✔️ 
 |                   | Promover uma chamada de um-para-um com dois usuários em uma chamada de grupo com mais de dois usuários                                 | ✔️   | ✔️            | ✔️ 
 |                   | Ingressar em uma chamada de grupo depois que ela for iniciada                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | Convidar outro participante de VoIP para ingressar em uma chamada de grupo em andamento                                                       | ✔️   | ✔️            | ✔️ 
+|                   | Convidar outro participante de VoIP para ingressar em uma chamada de grupo em andamento                                                       | ✔️   | ✔️            | ✔️
+|                   | Ativar/desativar seu vídeo                                                         | ✔️   | ✔️            | ✔️ 
 |                   | Ativar/desativar mudo do microfone                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | Alternar entre câmeras                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | Ativar/desativar colocação em espera local                                                                                                  | ✔️   | ✔️            | ✔️           

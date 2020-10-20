@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0832fe9ba65ac0df5dbff60b01b7a5eb91a2c3a2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535740"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração do Azure Active Directory ao LockPath Keylight
 
@@ -133,15 +133,15 @@ Para configurar o logon único do Azure AD com o LockPath Keylight, execute as s
 
     b. No menu na parte superior, clique em **Pessoa** e escolha **Instalação do Keylight**.
 
-    ![Configurar o logon único](./media/keylight-tutorial/401.png)
+    ![Captura de tela que mostra o ícone de "Pessoa" selecionado e a opção "Configuração do Keylight" selecionada na lista suspensa.](./media/keylight-tutorial/401.png)
 
     c. No modo de exibição de árvore à esquerda, clique em **SAML**.
 
-    ![Configurar o logon único](./media/keylight-tutorial/402.png)
+    ![Captura de tela que mostra a opção "SAML" selecionada no modo de exibição de árvore.](./media/keylight-tutorial/402.png)
 
     d. Na caixa de diálogo **Configurações de SAML**, clique em **Editar**.
 
-    ![Configurar o logon único](./media/keylight-tutorial/404.png)
+    ![Captura de tela que mostra a janela "Configurações do SAML" com o botão "Editar" selecionado.](./media/keylight-tutorial/404.png)
 
 1. Na página de caixa de diálogo **Editar Configurações de SAML** , execute as seguintes etapas:
 

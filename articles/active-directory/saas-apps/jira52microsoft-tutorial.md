@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e0198fdcfea1656e3aec5179358e69fb6fb55723
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 331d9df6059c8af54857d05d2d6373e48e127eac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547521"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft (V5.2)
 
@@ -146,23 +146,23 @@ Para configurar o logon único do Azure AD com o SSO de SAML para o JIRA da Micr
 
 2. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon1.png)
+    ![A captura de tela mostra os Complementos selecionados no menu Configurações.](./media/jira52microsoft-tutorial/addon1.png)
 
 3. Na seção da guia Complementos, clique em **Gerenciar complementos**.
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon7.png)
+    ![A captura de tela mostra a opção Gerenciar complementos selecionada na guia Complementos.](./media/jira52microsoft-tutorial/addon7.png)
 
 4. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56521). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon12.png)
+    ![A captura de tela mostra Gerenciar complementos com o link Carregar complemento destacado.](./media/jira52microsoft-tutorial/addon12.png)
 
 5. Depois que o plug-in for instalado, ele aparecerá na seção de complementos **Instalado pelo Usuário**. Clique em **Configurar** para configurar o novo plug-in.
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon13.png)
+    ![A captura de tela mostra a seção Logon Único do SAML do Azure AD para Jira com Configurar selecionado.](./media/jira52microsoft-tutorial/addon13.png)
 
 6. Realize as seguintes etapas na página de configuração:
 
-    ![Configurar o logon único](./media/jira52microsoft-tutorial/addon52.png)
+    ![A captura de tela mostra a página de configuração do Conector de SSO do Jira da Microsoft.](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
@@ -251,19 +251,19 @@ Para permitir que os usuários do Azure AD entrem no servidor local do JIRA, ele
 
 2. Passe o cursor do mouse sobre a engrenagem e clique em **Gerenciamento de usuário**.
 
-    ![Adicionar Funcionário](./media/jira52microsoft-tutorial/user1.png)
+    ![A captura de tela mostra o Gerenciamento do usuário selecionado no menu Configurações.](./media/jira52microsoft-tutorial/user1.png)
 
 3. Você será redirecionado à página de acesso de administrador para inserir a **Senha** e clicar no botão **Confirmar**.
 
-    ![Adicionar Funcionário](./media/jira52microsoft-tutorial/user2.png)
+    ![A captura de tela mostra a página Acesso de Administrador em que você insere suas credenciais.](./media/jira52microsoft-tutorial/user2.png)
 
 4. Na seção da guia **Gerenciamento de usuário**, clique em **criar usuário**.
 
-    ![Adicionar Funcionário](./media/jira52microsoft-tutorial/user3.png) 
+    ![A captura de tela mostra a guia Gerenciamento de usuário em que você pode criar um usuário.](./media/jira52microsoft-tutorial/user3.png) 
 
 5. Na página da caixa de diálogo **"Criar novo usuário"** , execute as seguintes etapas:
 
-    ![Adicionar Funcionário](./media/jira52microsoft-tutorial/user4.png)
+    ![A captura de tela mostra a caixa de diálogo Criar usuário em que você pode inserir as informações nesta etapa.](./media/jira52microsoft-tutorial/user4.png)
 
     a. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
 

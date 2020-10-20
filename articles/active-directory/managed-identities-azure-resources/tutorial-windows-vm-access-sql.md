@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Usar uma identidade gerenciada para acessar o Banco de Dados SQL do Azure – Windows – Azure AD
+title: 'Tutorial: Usar uma identidade gerenciada para acessar o Banco de Dados SQL do Azure – Windows – Azure AD'
 description: Um tutorial que descreve o processo de usar uma identidade gerenciada atribuída ao sistema em uma VM do Windows para acessar o Banco de Dados SQL do Azure.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d576fb4f5dea10a2adf0d7488aa422e1397fd6d1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9f4f56ce9fa86dc27b77ad6b463479d13c8e4e7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255742"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856504"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o SQL Azure
 

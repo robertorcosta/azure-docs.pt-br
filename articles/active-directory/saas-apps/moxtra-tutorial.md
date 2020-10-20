@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544036"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940898"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Moxtra
 
@@ -156,11 +156,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. Na barra de ferramentas à esquerda, clique em **Console do Administrador > Logon Único do SAML** e clique em **Novo**.
    
-    ![Configurar o logon único](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![A captura de tela mostra a página de Logon Único do SAML com a opção de criar um Logon Único do SAML.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. Na página **SAML** , execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![A captura de tela mostra a página do SAML em que você pode inserir os valores descritos.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo, *SAML*). 
   
@@ -191,7 +191,7 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no Moxtra.
 
 1. Na barra de ferramentas à esquerda, clique em **Console do Administrador > Gerenciamento de Usuário** e em **Adicionar Usuário**.
    
-    ![Configurar o logon único](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![A captura de tela mostra a página Gerenciamento do Usuário com a opção Adicionar Usuário selecionada.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
   

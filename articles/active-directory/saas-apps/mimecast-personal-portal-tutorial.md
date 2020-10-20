@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: c14a519be112e61ed7055debe7a1a454e465bd9b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c006e38d30e4e32645024a8c307a18767e8a1090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549085"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941051"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Mimecast Personal Portal
 
@@ -155,23 +155,23 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Navegue até **Administração** > **Serviços** > **Aplicativos**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/services.png)
+    ![A captura de tela mostra a janela Mimecast com a opção Aplicativos selecionada.](./media/mimecast-personal-portal-tutorial/services.png)
 
 1. Clique na guia **Perfis de Autenticação**.
     
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
+    ![A captura de tela mostra a guia Aplicativo com a opção Perfis de Autenticação selecionada.](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
 
 1. Clique na guia **Novo Perfil de Autenticação**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
+    ![A captura de tela mostra a opção Novo Perfil de Autenticação selecionada.](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
 
 1. Forneça uma descrição válida na caixa de texto **Descrição** e marque a caixa de seleção **Impor Autenticação SAML para o Mimecast Personal Portal**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
+    ![A captura de tela mostra a opção Novo Perfil de Autenticação selecionada.](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
 
 1. Na página **Configuração do SAML para o Mimecast Personal Portal**, realize as seguintes etapas:
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/sso-settings.png)
+    ![A captura de tela mostra onde selecionar Impor Autenticação SAML para o Console de Administração.](./media/mimecast-personal-portal-tutorial/sso-settings.png)
 
     a. Para **Provedor**, selecione **Azure Active Directory** na lista suspensa.
 
@@ -189,19 +189,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Navegue até **Administração** > **Diretórios** > **Diretórios Internos**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/internal-directories.png)
+    ![A captura de tela mostra a Configuração do SAML para o portal Mimecast Personal em que você pode inserir os valores descritos.](./media/mimecast-personal-portal-tutorial/internal-directories.png)
 
 1. Selecione em seu domínio, se o domínio for mencionado abaixo, caso contrário, crie um domínio clicando em **Novo Domínio**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/domain-name.png)
+    ![A captura de tela mostra a janela Mimecast com a opção Diretórios Internos selecionada.](./media/mimecast-personal-portal-tutorial/domain-name.png)
 
 1. Clique na guia **Novo Endereço**.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/new-address.png)
+    ![A captura de tela mostra o domínio selecionado.](./media/mimecast-personal-portal-tutorial/new-address.png)
 
 1. Forneça as informações de usuário necessárias na seguinte página:
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/user-information.png)
+    ![A captura de tela mostra a página em que você pode inserir os valores descritos.](./media/mimecast-personal-portal-tutorial/user-information.png)
 
     a. Na caixa de texto **Endereço de Email**, insira o endereço de email do usuário como `B.Simon@yourdomainname.com`.
 
@@ -215,7 +215,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     f. Para atribuir funções ao usuário, clique em **Editar Função** e atribua a função necessária ao usuário de acordo com o requisito da sua organização.
 
-    ![Configuração do Mimecast Personal Portal](./media/mimecast-personal-portal-tutorial/assign-role.png)
+    ![A captura de tela mostra as Configurações de Endereço em que você pode selecionar Edição de Função.](./media/mimecast-personal-portal-tutorial/assign-role.png)
 
 
 ## <a name="test-sso"></a>Testar o SSO 

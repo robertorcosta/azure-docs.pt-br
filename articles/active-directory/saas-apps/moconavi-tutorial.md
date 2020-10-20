@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d2355b26fc6a946e47a3d2c135b7c23729b186c7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1f7ff20dbdd0dac5b56d0f746733b14dfe44803e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554624"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940626"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integração do Azure Active Directory ao moconavi
 
@@ -191,15 +191,15 @@ Nesta seção, você criará uma usuária chamada Britta Simon no moconavi. Trab
 
 3. Clique no botão **Configuração de conexão**.
 
-    ![Teste do logon único](./media/moconavi-tutorial/testing1.png)
+    ![A captura de tela mostra moconavi com o botão de configuração Conexão.](./media/moconavi-tutorial/testing1.png)
 
 4. Digite `https://mcs-admin.moconavi.biz/gateway` na caixa de texto **Conectar-se à URL** e clique no botão **Concluído**.
 
-    ![Teste do logon único](./media/moconavi-tutorial/testing2.png)
+    ![A captura de tela mostra a caixa Conectar-se à URL e o botão Concluído.](./media/moconavi-tutorial/testing2.png)
 
 5. Na captura de tela a seguir, execute as seguintes etapas:
 
-    ![Teste do logon único](./media/moconavi-tutorial/testing3.png)
+    ![A captura de tela mostra a página moconavi em que você pode inserir os valores descritos.](./media/moconavi-tutorial/testing3.png)
 
     a. Digite **Chave de Autenticação de Entrada**:`azureAD` na caixa de texto **Chave de Autenticação de Entrada**.
 
@@ -209,11 +209,11 @@ Nesta seção, você criará uma usuária chamada Britta Simon no moconavi. Trab
 
 6. Insira sua senha do Azure AD n caixa de texto **Senha** e clique no botão **Logon**.
 
-    ![Teste do logon único](./media/moconavi-tutorial/testing4.png)
+    ![A captura de tela mostra onde inserir sua senha do Azure AD.](./media/moconavi-tutorial/testing4.png)
 
 7. A autenticação do Azure AD tem êxito quando o menu é exibido.
 
-    ![Teste do logon único](./media/moconavi-tutorial/testing5.png)
+    ![A captura de tela mostra o ícone de telefone no moconavi.](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

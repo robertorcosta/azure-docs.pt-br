@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 71bfff1b2ef75a13a3898d2fd9760dd60b83e3a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318306"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839530"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta usando o Azure AD
 
@@ -129,11 +129,11 @@ A tela para conexão, aquisição de token, renovação de token e exibição de
 
 A tela para analisar tokens JWT (access_token ou id_token):
 
-![tela para análise de tokens JWT](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![Captura de tela que mostra a análise de tokens JWT.](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 A tela para testar o conteúdo protegido com diferentes combinações de DRM/AES vs. Protocolos de Streaming vs. Formato de Contêiner:
 
-![tela para análise de tokens JWT](media/aad-ams-content-protection/testing-protected-content.png)
+![Captura de tela que mostra o teste de conteúdo protegido com diferentes combinações de DRM ou AES versus Protocolos de Streaming versus Formato de Contêiner](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->

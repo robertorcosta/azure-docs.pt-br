@@ -4,14 +4,14 @@ description: Obtenha os exemplos de Azure PowerShell para executar tarefas comun
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/30/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 678e9490fe52a329365174e1a2283a475f3312e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505009"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842964"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemplos do Azure PowerShell para o BD Cosmos do Azure
 
@@ -37,8 +37,7 @@ A tabela a seguir inclui links para scripts do Azure PowerShell comumente usados
 |[Criar um contêiner com uma chave de partição grande](scripts/powershell/sql/create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie um contêiner com uma chave de partição grande. |
 |[Criar um contêiner sem a política de índice](scripts/powershell/sql/create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um contêiner do Azure Cosmos com uma política de índice desativada.|
 |[Listar ou obter bancos de dados ou contêineres](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha um banco de dados ou contêineres. |
-|[Obter taxa de transferência](scripts/powershell/sql/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha a taxa de transferência de um banco de dados ou contêiner. |
-|[Atualizar a taxa de transferência](scripts/powershell/sql/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize a taxa de transferência de um banco de dados ou contêiner. |
+|[Operações de taxa de transferência](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de taxa de transferência para um banco de dados ou contêiner, incluindo obter, atualizar e migrar entre o dimensionamento automático e a taxa de transferência padrão. |
 |[Bloquear recursos da exclusão](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos. |
 |||
 
@@ -49,8 +48,7 @@ A tabela a seguir inclui links para scripts do Azure PowerShell comumente usados
 |[Criar uma conta, um keyspace e uma tabela](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, um keyspace e uma tabela do Azure Cosmos. |
 |[Criar uma conta, um keyspace e uma tabela com dimensionamento automático](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta, um keyspace e uma tabela do Azure Cosmos com dimensionamento automático. |
 |[Listar ou obter keyspaces ou tabelas](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha keyspaces ou tabelas. |
-|[Obter taxa de transferência](scripts/powershell/cassandra/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha a taxa de transferência de um keyspace ou uma tabela. |
-|[Atualizar a taxa de transferência](scripts/powershell/cassandra/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize a taxa de transferência de um keyspace ou uma tabela. |
+|[Operações de taxa de transferência](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de taxa de transferência para um keyspace ou uma tabela, incluindo obter, atualizar e migrar entre o dimensionamento automático e a taxa de transferência padrão. |
 |[Bloquear recursos da exclusão](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos. |
 |||
 
@@ -61,8 +59,7 @@ A tabela a seguir inclui links para scripts do Azure PowerShell comumente usados
 |[Criar uma conta, um banco de dados e uma coleção](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, um banco de dados e uma coleção do Azure Cosmos. |
 |[Criar uma conta, um banco de dados e uma coleção com dimensionamento automático](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta, um banco de dados e uma coleção do Azure Cosmos com dimensionamento automático. |
 |[Listar ou obter bancos de dados ou coleções](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha um banco de dados ou uma coleção. |
-|[Obter taxa de transferência](scripts/powershell/mongodb/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha a taxa de transferência de um banco de dados ou coleção. |
-|[Atualizar a taxa de transferência](scripts/powershell/mongodb/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize a taxa de transferência de um banco de dados ou coleção. |
+|[Operações de taxa de transferência](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de taxa de transferência para um banco de dados ou uma coleção, incluindo obter, atualizar e migrar entre o dimensionamento automático e a taxa de transferência padrão. |
 |[Bloquear recursos da exclusão](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos. |
 |||
 
@@ -73,8 +70,7 @@ A tabela a seguir inclui links para scripts do Azure PowerShell comumente usados
 |[Criar uma conta, um banco de dados e um grafo](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, um banco de dados e um grafo do Azure Cosmos. |
 |[Criar uma conta, um banco de dados e um grafo com dimensionamento automático](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta, um banco de dados e um grafo do Azure Cosmos com dimensionamento automático. |
 |[Listar ou obter bancos de dados ou grafos](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha um banco de dados ou um grafo. |
-|[Obter taxa de transferência](scripts/powershell/gremlin/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha a taxa de transferência de um banco de dados ou grafo. |
-|[Atualizar a taxa de transferência](scripts/powershell/gremlin/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize a taxa de transferência de um banco de dados ou grafo. |
+|[Operações de taxa de transferência](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de taxa de transferência para um banco de dados ou grafo, incluindo obter, atualizar e migrar entre o dimensionamento automático e a taxa de transferência padrão. |
 |[Bloquear recursos da exclusão](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos. |
 |||
 
@@ -85,7 +81,6 @@ A tabela a seguir inclui links para scripts do Azure PowerShell comumente usados
 |[Criar uma conta e uma tabela](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta e uma tabela do Azure Cosmos. |
 |[Criar uma conta e uma tabela com dimensionamento automático](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma conta e uma tabela do Azure Cosmos com dimensionamento automático. |
 |[Listar ou obter tabelas](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha tabelas. |
-|[Obter taxa de transferência](scripts/powershell/table/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha a taxa de transferência de uma tabela. |
-|[Atualizar a taxa de transferência](scripts/powershell/table/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize a taxa de transferência de uma tabela. |
+|[Operações de taxa de transferência](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de taxa de transferência para uma tabela, incluindo obter, atualizar e migrar entre o dimensionamento automático e a taxa de transferência padrão. |
 |[Bloquear recursos da exclusão](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedir que os recursos sejam excluídos com bloqueios de recursos. |
 |||

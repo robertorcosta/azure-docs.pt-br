@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6a63df282cadf86668e69d2422a6c791e86010b6
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767127"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048212"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planejar sua solução de telefonia e SMS
 
@@ -74,7 +74,9 @@ A tabela a seguir mostra em que localização você pode adquirir diferentes tip
 
 ## <a name="azure-subscriptions-eligibility"></a>Qualificação das assinaturas do Azure
 
-Para adquirir um número de telefone, você precisa ter uma assinatura paga do Azure. Os números de telefone não podem ser adquiridos em contas de avaliação. 
+Para adquirir um número de telefone, você precisa ter uma assinatura paga do Azure. Os números de telefone não podem ser adquiridos em contas de avaliação ou por créditos gratuitos do Azure. 
+
+Atualmente, a disponibilidade do número de telefone é restrita às assinaturas do Azure que têm um endereço para cobrança nos Estados Unidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

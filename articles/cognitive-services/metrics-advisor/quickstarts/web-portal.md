@@ -3,19 +3,19 @@ title: 'Início Rápido: Portal da Web do Assistente de Métricas'
 titleSuffix: Azure Cognitive Services
 description: Saiba como começar a usar o portal da Web do Assistente de Métricas.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631352"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048229"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Início Rápido: Monitore sua primeira métrica usando o portal da Web
 
@@ -41,7 +41,7 @@ Este documento usa um Banco de Dados SQL como exemplo para criar seu primeiro mo
 
 ## <a name="sign-in-to-your-workspace"></a>Entrar no seu workspace
 
-Depois que o recurso for implantado e criado, entre no [portal do Assistente de Métricas](https://go.microsoft.com/fwlink/?linkid=2143774). Selecione seu workspace para começar a monitorar as métricas. 
+Depois que o recurso for criado, entre no [portal do Assistente de Métricas](https://go.microsoft.com/fwlink/?linkid=2143774). Selecione seu workspace para começar a monitorar as métricas. 
  
 No momento, é possível criar um recurso do Assistente de Métricas em cada região disponível. Você pode alternar os workspaces no portal do Assistente de Métricas a qualquer momento.
 

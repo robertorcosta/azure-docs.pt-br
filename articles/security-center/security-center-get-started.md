@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447170"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946008"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Início Rápido: configurando a Central de Segurança do Azure
 
@@ -33,7 +33,7 @@ Para começar a usar a Central de Segurança, você deve ter uma assinatura do M
 Para poder habilitar o Azure Defender em uma assinatura, é preciso que lhe seja atribuída a função de Proprietário da Assinatura, de Colaborador da Assinatura ou de Administrador de Segurança.
 
 
-## <a name="open-security-center-for-the-first-time"></a>Abrir a Central de Segurança pela primeira vez
+## <a name="enable-security-center-on-your-azure-subscription"></a>Habilitar a Central de Segurança na sua assinatura do Azure
 
 1. Faça logon no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
@@ -54,6 +54,8 @@ Em poucos minutos após iniciar a Central de Segurança pela primeira vez, você
 
 Para aproveitar ao máximo a Central de Segurança, você precisará concluir as etapas abaixo para habilitar o Azure Defender e instalar o agente do Log Analytics.
 
+> [!TIP]
+> Para habilitar a Central de Segurança em todas as assinaturas de um grupo de gerenciamento, confira [Habilitar a Central de Segurança em várias assinaturas do Azure](onboard-management-group.md).
 
 ## <a name="enable-azure-defender"></a>Habilitar o Azure Defender
 

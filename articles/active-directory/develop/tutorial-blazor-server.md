@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611464"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873176"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Criar um aplicativo Blazor Server que usa a plataforma de identidade da Microsoft para autenticação
 
@@ -84,7 +84,7 @@ No navegador, navegue até `https://localhost:5001` e faça logon usando uma con
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Recuperar dados do Microsoft Graph
 
-O [Microsoft Graph](/graph/overview) oferece uma variedade de APIs que fornecem acesso aos dados do Microsoft 365 dos seus usuários. Usando a plataforma de identidade da Microsoft como o provedor de identidade para seu aplicativo, você tem acesso mais fácil a essas informações porque o Microsoft Graph dá suporte direto aos tokens emitidos pela plataforma de identidade da Microsoft. Nesta seção, você adicionará código que pode exibir os emails do usuário conectado na página "buscar dados" do aplicativo.
+O [Microsoft Graph](/graph/overview) oferece uma variedade de APIs que fornecem acesso aos dados do Microsoft 365 dos seus usuários. Usando a plataforma de identidade da Microsoft como o provedor de identidade para seu aplicativo, você tem acesso mais fácil a essas informações porque o Microsoft Graph dá suporte direto aos tokens emitidos pela plataforma de identidade da Microsoft. Nesta seção, você adicionará código para exibir os emails do usuário conectado na página "buscar dados" do aplicativo.
 
 Antes de começar, faça logoff do seu aplicativo, pois você fará alterações nas permissões necessárias e seu token atual não funcionará. Se você ainda não fez isso, execute o aplicativo novamente e selecione **Fazer logoff** antes de atualizar o código abaixo.
 

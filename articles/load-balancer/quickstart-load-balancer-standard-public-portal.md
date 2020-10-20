@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88607205"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047736"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Portal do Azure
 
@@ -626,6 +626,6 @@ Neste início rápido, você:
 * Anexou três VMs ao balanceador de carga.
 * Configurou a regra de tráfego do balanceador de carga e a investigação de integridade e testou o balanceador de carga. 
 
-Para saber mais sobre o Azure Load Balancer, prossiga para [O que é Azure Load Balancer?](load-balancer-overview.md) e [Perguntas frequentes sobre o Load Balancer](load-balancer-faqs.md).
-
-Saiba mais sobre o [Load Balancer e as Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).
+Para saber mais sobre o Azure Load Balancer, vá para...
+> [!div class="nextstepaction"]
+> [O que é o Azure Load Balancer?](load-balancer-overview.md)

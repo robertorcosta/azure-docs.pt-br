@@ -3,17 +3,17 @@ title: Interagir com um dispositivo do IoT Plug and Play conectado à sua soluç
 description: Use o Python para se conectar a um dispositivo do IoT Plug and Play conectado à sua solução de IoT do Azure e interagir com ele.
 author: elhorton
 ms.author: elhorton
-ms.date: 7/13/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: be5ff3e863752dfc187bd91257425af5e8de85c4
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574952"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946069"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Início Rápido: Interagir com um dispositivo IoT Plug and Play conectado à sua solução (Python)
 
@@ -73,13 +73,16 @@ Neste início rápido, você usará um dispositivo de termostato gravado em Pyth
 
 Neste início rápido, você usará uma solução de IoT de exemplo em Python para interagir com o dispositivo de exemplo que acabou de configurar.
 
-1. Abra outra janela de terminal para usar como o seu terminal de **serviço**. 
+1. Abra outra janela de terminal para usar como o seu terminal de **serviço**.
 
 1. Navegue até a pasta */azure-iot-sdk-python/azure-iot-hub/samples* do repositório clonado do SDK do Python.
 
-1. Lá existem quatro arquivos de exemplo que demonstram as operações com a classe do Gerenciador dos Gêmeos Digitais: *get_digital_twin_sample.py, update_digitial_twin_sample.py, invoke_command_sample.py e invoke_component_command_sample-.py*.  Estes exemplos mostram como usar cada API para interagir com dispositivos IoT Plug and Play:
+1. Abra o arquivo *registry_manager_pnp_sample.py* e examine o código. Este exemplo mostra como usar a classe **IoTHubRegistryManager** para interagir com o dispositivo do IoT Plug and Play.
 
-### <a name="get-digital-twin"></a>Obter o gêmeo digital
+> [!NOTE]
+> Esses exemplos de serviço usam a classe **IoTHubRegistryManager** do **cliente do serviço do Hub IoT**. Para saber mais sobre as APIs, incluindo a API de gêmeos digitais, confira o [guia do desenvolvedor do serviço](concepts-developer-guide-service.md).
+
+### <a name="get-the-device-twin"></a>Obter o dispositivo gêmeo
 
 Em [Configurar o ambiente para os inícios rápidos e os tutoriais do IoT Plug and Play](set-up-environment.md), você criou duas variáveis de ambiente para configurar o exemplo a ser conectado ao hub IoT e ao dispositivo:
 
@@ -89,79 +92,77 @@ Em [Configurar o ambiente para os inícios rápidos e os tutoriais do IoT Plug a
 Use o seguinte comando no terminal do **serviço** para executar este exemplo:
 
 ```cmd/sh
-python get_digital_twin_sample.py
+set IOTHUB_METHOD_NAME="getMaxMinReport"
+set IOTHUB_METHOD_PAYLOAD="hello world"
+python registry_manager_pnp_sample.py
 ```
 
-A saída mostra o gêmeo digital do dispositivo e imprime a sua ID de modelo:
+> [!NOTE]
+> Se você estiver executando esse exemplo no Linux, use `export` no lugar de `set`.
+
+A saída mostra o dispositivo gêmeo e imprime a sua ID de modelo:
 
 ```cmd/sh
-{'$dtId': 'mySimpleThermostat', '$metadata': {'$model': 'dtmi:com:example:Thermostat;1'}}
-Model Id: dtmi:com:example:Thermostat;1
+The Model ID for this device is:
+dtmi:com:example:Thermostat;1
 ```
 
-O seguinte snippet mostra o código de exemplo de *get_digital_twin_sample.py*:
+O seguinte snippet mostra o código de exemplo de *registry_manager_pnp_sample.py*:
 
 ```python
-    # Get digital twin and retrieve the modelId from it
-    digital_twin = iothub_digital_twin_manager.get_digital_twin(device_id)
-    if digital_twin:
-        print(digital_twin)
-        print("Model Id: " + digital_twin["$metadata"]["$model"])
-    else:
-        print("No digital_twin found")
+    # Create IoTHubRegistryManager
+    iothub_registry_manager = IoTHubRegistryManager(iothub_connection_str)
+
+    # Get device twin
+    twin = iothub_registry_manager.get_twin(device_id)
+    print("The device twin is: ")
+    print("")
+    print(twin)
+    print("")
+
+    # Print the device's model ID
+    additional_props = twin.additional_properties
+    if "modelId" in additional_props:
+        print("The Model ID for this device is:")
+        print(additional_props["modelId"])
+        print("")
 ```
 
-### <a name="update-a-digital-twin"></a>Atualizar um gêmeo digital
+### <a name="update-a-device-twin"></a>Atualizar um dispositivo gêmeo
 
-Este exemplo mostra como usar um *patch* para atualizar as propriedades por meio do seu gêmeo digital do dispositivo. O seguinte snippet do *update_digital_twin_sample.py* mostra como construir o patch:
+Este exemplo mostra como atualizar a propriedade `targetTemperature` gravável no dispositivo:
 
 ```python
-# If you already have a component thermostat1:
-# patch = [{"op": "replace", "path": "/thermostat1/targetTemperature", "value": 42}]
-patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
-iothub_digital_twin_manager.update_digital_twin(device_id, patch)
-print("Patch has been succesfully applied")
-```
-
-Use o seguinte comando no terminal do **serviço** para executar este exemplo:
-
-```cmd/sh
-python update_digital_twin_sample.py
+    # Update twin
+    twin_patch = Twin()
+    twin_patch.properties = TwinProperties(
+        desired={"targetTemperature": 42}
+    )  # this is relevant for the thermostat device sample
+    updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.etag)
+    print("The twin patch has been successfully applied")
+    print("")
 ```
 
 Você pode verificar se a atualização é aplicada no terminal do **dispositivo** que mostra a saída seguir:
 
 ```cmd/sh
 the data in the desired properties patch was: {'targetTemperature': 42, '$version': 2}
-previous values
-42
 ```
 
 O terminal do **serviço** confirma que o patch foi bem-sucedido:
 
 ```cmd/sh
-Patch has been successfully applied
+The twin patch has been successfully applied
 ```
 
 ### <a name="invoke-a-command"></a>Invocar um comando
 
-Para invocar um comando, execute o exemplo *invoke_command_sample.py*. Este exemplo mostra como invocar um comando em um dispositivo de termostato simples. Antes de executar este exemplo, defina as variáveis de ambiente `IOTHUB_COMMAND_NAME` e `IOTHUB_COMMAND_PAYLOAD` no terminal do **serviço**:
-
-```cmd/sh
-set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
-set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this sample
-```
-
-Use o comando seguir no terminal do **serviço** para executar o exemplo:
-  
-```cmd/sh
-python invoke_command_sample.py
-```
+Em seguida, o exemplo invoca um comando:
 
 O terminal do **serviço** mostra uma mensagem de confirmação do dispositivo:
 
 ```cmd/sh
-{"tempReport": {"avgTemp": 34.5, "endTime": "13/07/2020 16:03:38", "maxTemp": 49, "minTemp": 11, "startTime": "13/07/2020 16:02:18"}}
+The device method has been successfully invoked
 ```
 
 No terminal do **dispositivo**, você vê que o dispositivo recebe o comando:
@@ -172,7 +173,6 @@ hello world
 Will return the max, min and average temperature from the specified time hello to the current time
 Done generating
 {"tempReport": {"avgTemp": 34.2, "endTime": "09/07/2020 09:58:11", "maxTemp": 49, "minTemp": 10, "startTime": "09/07/2020 09:56:51"}}
-Sent message
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

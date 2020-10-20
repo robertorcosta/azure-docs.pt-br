@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d55f461205ceecad098319d7b4b41c175390abfd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891582"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850488"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft
 
@@ -156,11 +156,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
 
-    ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon1.png)
+    ![A captura de tela mostra os Complementos selecionados no menu Configurações.](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56506). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon12.png)
+    ![A captura de tela mostra Gerenciar complementos com o link Carregar complemento destacado.](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. Para executar o cenário do proxy reverso do JIRA ou o cenário do balanceador de carga, execute as seguintes etapas:
 
@@ -171,19 +171,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurar o logon único](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+    ![A captura de tela mostra o arquivo dot xml de servidor em um editor com a nova linha adicionada.](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
     b. Altere o **URL base** em **Configurações do sistema** de acordo com o balanceador de proxy/carga.
 
-    ![Configurar o logon único](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+    ![A captura de tela mostra as Configurações de Administração em que você pode alterar a URL Base.](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. Depois que o plug-in for instalado, ele será exibido na seção de complementos **Instalados pelo Usuário** da seção **Gerenciar Complemento**. Clique em **Configurar** para configurar o novo plug-in.
 
-    ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon14.png)
+    ![A captura de tela mostra a seção Logon Único do SAML do Azure AD para Jira com Configurar selecionado.](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Realize as seguintes etapas na página de configuração:
 
-    ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon54.png)
+    ![A captura de tela mostra a página de configuração de logon único do Microsoft Azure Active Directory para Jira.](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
@@ -230,19 +230,19 @@ Para permitir que os usuários do Azure AD entrem no servidor local do JIRA, ele
 
 2. Passe o cursor do mouse sobre a engrenagem e clique em **Gerenciamento de usuário**.
 
-    ![Adicionar Funcionário](./media/jiramicrosoft-tutorial/user1.png)
+    ![A captura de tela mostra o Gerenciamento do usuário selecionado no menu Configurações.](./media/jiramicrosoft-tutorial/user1.png)
 
 3. Você será redirecionado à página de acesso de administrador para inserir a **Senha** e clicar no botão **Confirmar**.
 
-    ![Adicionar Funcionário](./media/jiramicrosoft-tutorial/user2.png)
+    ![A captura de tela mostra a página Acesso de Administrador em que você insere suas credenciais.](./media/jiramicrosoft-tutorial/user2.png)
 
 4. Na seção da guia **Gerenciamento de usuário**, clique em **criar usuário**.
 
-    ![Adicionar Funcionário](./media/jiramicrosoft-tutorial/user3.png) 
+    ![A captura de tela mostra a guia Gerenciamento de usuário em que você pode criar um usuário.](./media/jiramicrosoft-tutorial/user3.png) 
 
 5. Na página da caixa de diálogo **"Criar novo usuário"** , execute as seguintes etapas:
 
-    ![Adicionar Funcionário](./media/jiramicrosoft-tutorial/user4.png) 
+    ![A captura de tela mostra a caixa de diálogo Criar usuário em que você pode inserir as informações nesta etapa.](./media/jiramicrosoft-tutorial/user4.png) 
 
     a. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário, como B.simon@contoso.com.
 

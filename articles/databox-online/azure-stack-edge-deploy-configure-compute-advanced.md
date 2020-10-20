@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903694"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951784"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com o Azure Stack Edge Pro para o fluxo de implantação avançada
 
@@ -58,7 +58,7 @@ Para configurar a computação no Azure Stack Edge Pro, você criará um recurso
 
 2. No bloco **Configurar computação de borda**, selecione **Configurar computação**.
 
-    ![Introdução à computação](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
+    ![Introdução à computação 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
 3. Na folha **Configurar computação de borda**, insira o seguinte:
 
@@ -68,11 +68,11 @@ Para configurar a computação no Azure Stack Edge Pro, você criará um recurso
     |Hub IoT     | Escolha **Novo** ou **Existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT usa a mesma assinatura e o mesmo grupo de recursos usados pelo recurso do Azure Stack Edge.     |
     |Nome     |Insira um nome para o recurso do Hub IoT.         |
 
-    ![Introdução à computação](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
+    ![Introdução à computação 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
 4. Selecione **Criar**. A criação do recurso do Hub IoT leva alguns minutos. Depois que o recurso do Hub IoT for criado, o bloco **Configurar computação de borda** será atualizado para mostrar a configuração de computação. Para confirmar que a função de computação de borda foi configurada, selecione **Exibir configuração** no bloco **Configurar computação**.
     
-    ![Introdução à computação](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
+    ![Introdução à computação 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
     Quando a função de computação de borda está configurada no dispositivo de borda, são criados dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Os dois dispositivos podem ser exibidos no recurso do Hub IoT. Um runtime do IoT Edge também está em execução no dispositivo do IoT Edge.
 
@@ -136,17 +136,17 @@ Para a implantação avançada neste tutorial, você precisará de dois comparti
     |Tipo de gatilho     | Selecione o gatilho **Arquivo**. Um gatilho de arquivo é acionado sempre que ocorre um evento de arquivo, como uma gravação de arquivo no compartilhamento de entrada. Um gatilho agendado, por sua vez, é acionado de acordo com um agendamento definido por você. Neste exemplo, precisamos de um gatilho de arquivo.    |
     |Compartilhamento de entrada     | Selecione um compartilhamento de entrada. O compartilhamento local do Microsoft Edge é o compartilhamento de entrada, nesse caso. O módulo usado aqui move os arquivos do compartilhamento local do Microsoft Edge para um compartilhamento do Microsoft Edge, em que são carregados para a nuvem.        |
 
-    ![Adicionar gatilho](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
+    ![Adicionar gatilho 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
 
 3. Você será notificado depois que o gatilho for criado. A lista de gatilhos é atualizada para exibir o gatilho criado recentemente. Selecione o gatilho que você acabou de criar.
 
-    ![Adicionar gatilho](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
+    ![Adicionar gatilho 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
 
 4. Copie e salve a rota de exemplo. Você modificará essa rota de exemplo e a usará mais tarde no Hub IoT.
 
     `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
-    ![Adicionar gatilho](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
+    ![Adicionar gatilho 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
 ## <a name="add-a-module"></a>Adicionar um módulo
 
@@ -213,7 +213,7 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
  
     4. Se necessário, defina as configurações avançadas de runtime do Edge e, em seguida, clique em **Avançar**.
 
-        ![Adicionar módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Adicionar módulo personalizado 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5. Em **Especificar Rotas**, defina rotas entre módulos.  
    
@@ -229,11 +229,11 @@ Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edg
 
 6. Em **Examinar implantação**, examine todas as configurações e, em seguida, selecione **Enviar** para enviar o módulo para implantação.
 
-   ![A página Definir Módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![A página Definir Módulos 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Essa ação inicia a implantação do módulo. Depois que a implantação for concluída, o **Status de runtime** do módulo será **em execução**.
 
-    ![Adicionar módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
+    ![Adicionar módulo personalizado 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
 
 ## <a name="verify-data-transform-transfer"></a>Verificar a transformação e a transferência de dados
 
@@ -247,15 +247,15 @@ Execute as etapas a seguir para verificar a transformação e transferência de 
  
 1. Adicione dados ao compartilhamento de local.
 
-   ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Verificar a transformação de dados 2](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Os dados são movidos para o compartilhamento em nuvem.
 
-    ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
+    ![Verificar a transformação de dados 3](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
     Os dados são então enviados por push do compartilhamento em nuvem para a conta de armazenamento. Para exibir os dados, vá para sua conta de armazenamento e, em seguida, selecione **Gerenciador de Armazenamento**. Você pode exibir os dados carregados em sua conta de armazenamento.
 
-    ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
+    ![Verificar a transformação de dados 4](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 Você concluiu o processo de validação.
 

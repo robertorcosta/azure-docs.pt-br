@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372605"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048501"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Início Rápido – Explorar um cenário de exemplo dos Gêmeos Digitais do Azure usando o ADT Explorer
 
 Com os Gêmeos Digitais do Azure, você pode criar modelos dinâmicos de seus ambientes do mundo real e interagir com eles. Isso é feito modelando elementos individuais como **gêmeos digitais** e conectando-os a um **grafo** de conhecimento que pode responder a eventos ao vivo e ser consultado para obter informações.
 
-Neste guia de início rápido, você explorará um grafo dos Gêmeos Digitais do Azure predefinido, com a ajuda de um aplicativo de exemplo chamado [**ADT (Gêmeos Digitais do Azure) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O ADT Explorer permite carregar um cenário, exibir representações visuais dos seus gêmeos e do grafo e executar outras atividades de gerenciamento por meio de uma experiência visual baseada em navegador.
+Neste guia de início rápido, você explorará um grafo dos Gêmeos Digitais do Azure predefinido, com a ajuda de um aplicativo de exemplo chamado [**ADT (Gêmeos Digitais do Azure) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O ADT Explorer permite que você carregue uma representação digital de um ambiente, exiba imagens visuais dos gêmeos e do grafo que são criadas para representar o ambiente nos Gêmeos Digitais do Azure e execute outras atividades de gerenciamento por meio de uma experiência visual baseada em navegador.
 
 O guia de início rápido contém as seguintes etapas principais:
 
@@ -38,8 +38,8 @@ Você precisará de uma assinatura do Azure para concluir este guia de início r
 Você também precisará do **Node.js** em seu computador. Você pode obter a versão mais recente neste link: [Node.js](https://nodejs.org/).
 
 Por fim, você também precisará baixar dois exemplos para serem usados durante o guia de início rápido:
-* O aplicativo de exemplo do **ADT Explorer**. Este exemplo contém o aplicativo principal que você usa no guia de início rápido para carregar e explorar um cenário dos Gêmeos Digitais do Azure. Para obter o aplicativo, navegue até aqui: [ADT (Gêmeos Digitais do Azure) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Clique no botão *Baixar o ZIP* para baixar um arquivo *.ZIP* desse código de exemplo em seu computador como _**Azure_Digital_Twins__ADT__explorer.zip**_. Descompacte a pasta e extraia os arquivos.
-* O **cenário de exemplo dos Gêmeos Digitais do Azure**. Isso inclui um grafo dos Gêmeos Digitais do Azure predefinido que você carregará no ADT Explorer com o qual trabalhar. Para obter o cenário, navegue até: [Exemplos dos Gêmeos Digitais do Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Clique no botão *Baixar o ZIP* para baixar um arquivo *.ZIP* deste código de exemplo em seu computador porque isso baixará uma pasta .ZIP para seu computador como **Azure_Digital_Twins_samples.zip**. Descompacte a pasta e extraia os arquivos.
+* O aplicativo de exemplo do **ADT Explorer**. Este exemplo contém o aplicativo principal que você usa no guia de início rápido para carregar e explorar um cenário dos Gêmeos Digitais do Azure. Para obter o aplicativo, navegue até aqui: [ADT (Gêmeos Digitais do Azure) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Clique no botão *Baixar ZIP* para baixar um arquivo *.ZIP* deste código de exemplo no seu computador. Isso baixa uma pasta .ZIP no seu computador como _**Azure_Digital_Twins__ADT__explorer.zip**_. Descompacte a pasta e extraia os arquivos.
+* O **cenário de exemplo dos Gêmeos Digitais do Azure**. Isso inclui um grafo dos Gêmeos Digitais do Azure predefinido que você carregará no ADT Explorer com o qual trabalhar. Para obter o cenário, navegue até: [Exemplos dos Gêmeos Digitais do Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Clique no botão *Baixar ZIP* para baixar um arquivo *.ZIP* deste código de exemplo no seu computador. Isso baixa uma pasta .ZIP no seu computador como _**Azure_Digital_Twins_samples.zip**_. Descompacte a pasta e extraia os arquivos.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurar os Gêmeos Digitais do Azure e o ADT Explorer
 
@@ -205,7 +205,7 @@ O ADT Explorer agora usará o arquivo carregado para criar os gêmeos e as rela�
     :::column-end:::
 :::row-end:::
 
-O grafo agora foi carregado para o ADT Explorer. Para ver o grafo, clique no botão *Executar Consulta* na caixa *GERENCIADOR DE GRAFOS*, próximo à parte superior da janela do ADT Explorer. 
+O grafo agora foi carregado para o ADT Explorer. Para ver o grafo, clique no botão *Executar Consulta* na caixa *EXPLORADOR DO GRAPH*, próximo à parte superior da janela do ADT Explorer. 
 
 :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Exibição de um grafo formado por quatro nós circulares conectados por setas. Um círculo rotulado como 'Floor1' está conectado por uma seta rotulada como 'contains' a um círculo rotulado como 'Room1'. Um círculo rotulado como 'Floor0' está conectado por uma seta rotulada como 'contains' a um círculo rotulado como 'Room0'. 'Floor1' e 'Floor0' não estão conectados." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
@@ -305,7 +305,7 @@ Neste guia de início rápido, você criou uma instância dos Gêmeos Digitais d
 Depois, você explorou o grafo...
 1. Usando uma consulta para responder a uma pergunta sobre o cenário.
 2. Editando uma propriedade em um gêmeo digital.
-    * Executando a consulta novamente para ver como a resposta foi alterada em decorrência da sua atualização.
+3. Executando a consulta novamente para ver como a resposta foi alterada em decorrência da sua atualização.
 
 A intenção deste exercício é demonstrar como você pode usar o grafo dos Gêmeos Digitais do Azure para responder a perguntas sobre seu ambiente, mesmo conforme o ambiente continue mudando. 
 

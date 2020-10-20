@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b8bf8ef1affc42027ef0bec149f8e7c9eb9b2b90
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b1034454bbdee32b33222321ded2421b83bfd0d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546901"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850771"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o Bamboo
 
@@ -99,7 +99,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Informações de logon único para domínio e URLs de SSO do Kantega para o Bamboo](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único para domínio e URLs de SSO do Kantega para o Bamboo](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,39 +134,39 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 1. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon1.png)
+    ![A captura de tela mostra os Complementos selecionados no menu Configurações.](./media/kantegassoforbamboo-tutorial/addon1.png)
 
 1. Na seção da guia Complementos, clique em **Localizar novos complementos**. Pesquise **SSO do Kantega para o Bamboo (SAML e Kerberos)** e clique no botão **Instalar** para instalar o novo plug-in do SAML.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon2.png)
+    ![A captura de tela mostra a Administração do Bamboo com a opção SSO do Kantega para Bamboo selecionada.](./media/kantegassoforbamboo-tutorial/addon2.png)
 
 1. A instalação do plug-in será iniciada.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon21.png)
+    ![A captura de tela mostra o progresso da instalação para o SSO do Kantega para Bamboo.](./media/kantegassoforbamboo-tutorial/addon21.png)
 
 1. Quando a instalação for concluída. Clique em **fechar**
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon33.png)
+    ![A captura de tela mostra o botão Fechar.](./media/kantegassoforbamboo-tutorial/addon33.png)
 
 1. Clique em **Gerenciar**.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon34.png)
+    ![A captura de tela mostra o botão Gerenciar.](./media/kantegassoforbamboo-tutorial/addon34.png)
 
 1. Clique em **Configurar** para configurar o novo plug-in.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon3.png)
+    ![A captura de tela mostra Complementos instalados pelo usuário com Configurar selecionado.](./media/kantegassoforbamboo-tutorial/addon3.png)
 
 1. Na seção **SAML**. Selecione **Azure AD (Azure Active Directory)** na lista suspensa **Adicionar provedor de identidade**.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon4.png)
+    ![A captura de tela mostra o Logon Único do Kantega com Azure AD selecionado como o provedor de identidade.](./media/kantegassoforbamboo-tutorial/addon4.png)
 
 1. Selecione o nível de assinatura como **Básico**.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon5.png)
+    ![A captura de tela mostra Preparar o Azure AD com Básico selecionado.](./media/kantegassoforbamboo-tutorial/addon5.png)
 
 1. Na seção **Propriedades do aplicativo**, realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon6.png)
+    ![A captura de tela mostra a seção Propriedades do aplicativo em que você pode fornecer as informações nesta etapa.](./media/kantegassoforbamboo-tutorial/addon6.png)
 
     a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Configuração básica do SAML** do portal do Azure.
 
@@ -174,7 +174,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 1. Na seção **Importação de metadados**, realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon7.png)
+    ![A captura de tela mostra a seção Importação de metadados em que você pode navegar até um arquivo de metadados.](./media/kantegassoforbamboo-tutorial/addon7.png)
 
     a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
 
@@ -182,7 +182,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 1. Na seção **Nome e localização de SSO**, realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon8.png)
+    ![A captura de tela mostra o Nome e o Local do SSO em que o Azure AD é o nome do provedor de identidade.](./media/kantegassoforbamboo-tutorial/addon8.png)
 
     a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
 
@@ -190,11 +190,11 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 1. Verifique o Certificado de autenticação e clique em **Avançar**.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon9.png)
+    ![A captura de tela mostra a Verificação da assinatura.](./media/kantegassoforbamboo-tutorial/addon9.png)
 
 1. Na seção **Contas de usuário do Bamboo**, realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon10.png)
+    ![A captura de tela mostra as contas de usuário do Bamboo em que você tem a opção de criar usuários.](./media/kantegassoforbamboo-tutorial/addon10.png)
 
     a. Selecione **Criar usuários no Diretório interno do Bamboo, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
 
@@ -202,11 +202,11 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 1. Clique em **Concluir**.
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon11.png)
+    ![A captura de tela mostra a página Resumo.](./media/kantegassoforbamboo-tutorial/addon11.png)
 
 1. Na seção **Domínios conhecidos do Azure AD**, realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon12.png)
+    ![A captura de tela mostra os domínios conhecidos para o Azure AD em que você pode executar essas etapas.](./media/kantegassoforbamboo-tutorial/addon12.png)
 
     a. Selecione **Domínios conhecidos** no painel esquerdo da página.
 
@@ -275,11 +275,11 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
 1. Passe o cursor do mouse sobre a engrenagem e clique em **Gerenciamento de usuário**.
 
-    ![Adicionar Funcionário](./media/kantegassoforbamboo-tutorial/user1.png)
+    ![A captura de tela mostra o Gerenciamento do Usuário selecionado no menu Configurações.](./media/kantegassoforbamboo-tutorial/user1.png)
 
 1. Clique em **Usuários**. Na seção **Adicionar usuário**, execute as seguintes etapas:
 
-    ![Adicionar Funcionário](./media/kantegassoforbamboo-tutorial/user2.png)
+    ![A captura de tela mostra o painel Adicionar usuário em que você pode executar essas etapas.](./media/kantegassoforbamboo-tutorial/user2.png)
 
     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
 

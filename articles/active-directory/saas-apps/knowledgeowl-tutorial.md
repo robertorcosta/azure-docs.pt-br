@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a35fb30ca19e08c68c99c9c9524231706b066e11
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc6cb5d992d4c961e23034560a688c7090622359
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549884"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858086"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao KnowledgeOwl
 
@@ -167,11 +167,11 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
 1. Clique em **Configurações** e, em seguida, selecione **Segurança**.
 
-    ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
+    ![A captura de tela mostra a opção Segurança selecionada no menu Configurações.](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Role até a **Integração de SSO do SAML** e execute as seguintes etapas:
 
-    ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
+    ![A captura de tela mostra a seção Integração de SSO do SAML em que você pode fazer as alterações descritas aqui.](./media/knowledgeowl-tutorial/configure2.png)
 
     a. Selecione **Habilitar SSO do SAML**.
 
@@ -189,7 +189,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
     h. Clique em **Mapa de atributos SAML** para mapear atributos e executar as seguintes etapas:
 
-    ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
+    ![A captura de tela mostra Mapear Atributos SAML em que você pode fazer as alterações descritas aqui.](./media/knowledgeowl-tutorial/configure3.png)
 
     * Digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` na caixa de texto **ID do SSO**
     * Digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` na caixa de texto **Email/Nome de usuário**.
@@ -199,7 +199,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
     i. Na parte inferior da página, clique em **Salvar** .
 
-    ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
+    ![Captura de tela que mostra o botão Salvar.](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>Criar um usuário de teste do KnowledgeOwl
 

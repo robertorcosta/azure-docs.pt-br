@@ -1,14 +1,14 @@
 ---
 title: Exemplos de consulta avançada
 description: Use o Azure Resource Graph para executar algumas consultas avançadas, incluindo o trabalho com colunas, a listagem das marcas usadas e a correspondência de recursos com expressões regulares.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425287"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057137"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exemplos de consultas avançadas do Resource Graph
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>Consultar detalhes de relatórios de atribuição de Configuração de Convidado
 
-Exiba o relatório dos detalhes do [motivo de atribuição de Configuração de Convidado](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
-No exemplo abaixo, a consulta retorna apenas os resultados em que o nome da Atribuição de Convidado é `installed_application_linux` e a saída contém a cadeia de caracteres `Python` para listar todos os computadores Linux em que um pacote está instalado, incluindo o nome **Python**.
-Para consultar a conformidade de todos os computadores para uma atribuição específica, remova a segunda cláusula `where`.
+Exiba o relatório dos detalhes do [motivo de atribuição de Configuração de Convidado](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). No exemplo a seguir, a consulta retorna apenas os resultados em que o nome da Atribuição de Convidado é `installed_application_linux` e a saída contém a cadeia de caracteres `Python` para listar todos os computadores Linux em que um pacote está instalado, incluindo o nome **Python**. Para consultar a conformidade de todos os computadores para uma atribuição específica, remova a segunda cláusula `where`.
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>Localizar todos os motivos pelos quais um computador não está em conformidade para atribuições de Configuração de Convidado
 
-Exiba todos os [motivos de atribuição de Configuração de Convidado](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) para um computador específico.
-Remova a primeira cláusula `where` para também incluir auditorias em que o computador está em conformidade.
+Exiba todos os [motivos de atribuição de Configuração de Convidado](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) para um computador específico. Remova a primeira cláusula `where` para também incluir auditorias em que o computador está em conformidade.
 
 ```kusto
 GuestConfigurationResources
