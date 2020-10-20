@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92b5685722b8a37de3945caa1305a76b3cabb8a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252622"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206230"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoramento, alertas e métricas do ExpressRoute
 
@@ -35,15 +35,15 @@ Depois que uma métrica for selecionada, a agregação padrão será aplicada. O
 |Disponibilidade do ARP|Disponibilidade|<ui><li>Par (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> Tipo de emparelhamento (privado/público/Microsoft)</ui></li>|ExpressRoute|
 |Disponibilidade de BGP|Disponibilidade|<ui><li> Par (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> Tipo de emparelhamento</ui></li>|ExpressRoute|
 |BitsInPerSecond|Tráfego|<ui><li> Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute direto)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Tráfego| <ui><li>Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute direto) |<ui><li>ExpressRoute<ui><li>ExpressRoute direto</ui></li> |
+|BitsOutPerSecond|Tráfego| <ui><li>Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute direto) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
 |Utilização da CPU|Desempenho| <ui><li>Instância</ui></li>|Gateway de rede virtual do ExpressRoute|
 |Pacotes por segundo|Desempenho| <ui><li>Instância</ui></li>|Gateway de rede virtual do ExpressRoute|
 |GlobalReachBitsInPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
 |GlobalReachBitsOutPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
 |AdminState|Conectividade física|Link|ExpressRoute Direct|
 |LineProtocol|Conectividade física|Link|ExpressRoute Direct|
-|RxLightLevel|Conectividade física|<ui><li>Criar</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Conectividade física|<ui><li>Criar</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
+|RxLightLevel|Conectividade física|<ui><li>Link</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
+|TxLightLevel|Conectividade física|<ui><li>Link</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >Usar *GlobalGlobalReachBitsInPerSecond* e *GlobalGlobalReachBitsOutPerSecond* só será visível se pelo menos uma conexão alcance global for estabelecida.
 >
@@ -70,7 +70,7 @@ Você pode exibir quase a disponibilidade em tempo real do BGP entre emparelhame
 
 ### <a name="arp-availability---split-by-peering"></a>Disponibilidade ARP-divisão por emparelhamento  
 
-Você pode exibir quase a disponibilidade em tempo real do [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) entre emparelhamentos e pares (roteadores de ExpressRoute primários e secundários). Este painel mostra a sessão ARP de emparelhamento privado em ambos os pares, mas é concluída para o emparelhamento da Microsoft entre emparelhamentos. A agregação padrão (média) foi utilizada em ambos os pares.  
+Você pode exibir quase a disponibilidade em tempo real do [ARP](./expressroute-troubleshooting-arp-resource-manager.md) entre emparelhamentos e pares (roteadores de ExpressRoute primários e secundários). Este painel mostra a sessão ARP de emparelhamento privado em ambos os pares, mas é concluída para o emparelhamento da Microsoft entre emparelhamentos. A agregação padrão (média) foi utilizada em ambos os pares.  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="métricas de circuito":::
 

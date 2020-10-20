@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84f168104be4ba4cb8af2e31be82eed0e2ae83a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776265"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205177"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -28,7 +28,7 @@ A função Hybrid Runbook Worker depende de um espaço de trabalho de Log Analyt
 
 Se você não tiver um Azure Monitor Log Analytics espaço de trabalho, examine as [diretrizes de design do Azure monitor log](../azure-monitor/platform/design-logs-deployment.md) antes de criar o espaço de trabalho.
 
-Se você tiver um espaço de trabalho, mas ele não estiver vinculado à sua conta de automação, a habilitação de um recurso de automação adicionará funcionalidade para a automação do Azure, incluindo suporte para o Hybrid Runbook Worker. Quando você habilita um dos recursos de automação do Azure em seu espaço de trabalho Log Analytics, especificamente [Gerenciamento de atualizações](update-management/update-mgmt-overview.md) ou [controle de alterações e inventário](change-tracking.md), os componentes de trabalho são enviados automaticamente para o computador do agente.
+Se você tiver um espaço de trabalho, mas ele não estiver vinculado à sua conta de automação, a habilitação de um recurso de automação adicionará funcionalidade para a automação do Azure, incluindo suporte para o Hybrid Runbook Worker. Quando você habilita um dos recursos de automação do Azure em seu espaço de trabalho Log Analytics, especificamente [Gerenciamento de atualizações](update-management/update-mgmt-overview.md) ou [controle de alterações e inventário](change-tracking/overview.md), os componentes de trabalho são enviados automaticamente para o computador do agente.
 
 Para adicionar o recurso Gerenciamento de Atualizações ao seu espaço de trabalho, execute o seguinte cmdlet do PowerShell:
 

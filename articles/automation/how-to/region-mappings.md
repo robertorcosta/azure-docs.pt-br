@@ -1,16 +1,16 @@
 ---
 title: Regiões compatíveis com o workspace do Log Analytics vinculado
 description: Este artigo descreve os mapeamentos de região com suporte entre uma conta de automação e um Log Analytics espaço de trabalho, pois ele se relaciona a determinados recursos da automação do Azure.
-ms.date: 09/03/2020
+ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440653"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207318"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões compatíveis com o workspace do Log Analytics vinculado
 
@@ -32,6 +32,7 @@ A tabela abaixo mostra os mapeamentos com suporte:
 |**EUA**||
 |EastUS<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
+|SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
 |**Canadá**||
 |Canadá Central|Canadá Central|
@@ -44,6 +45,7 @@ A tabela abaixo mostra os mapeamentos com suporte:
 |**Europa**||
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
+|SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>2</sup>|USGovArizona|
@@ -86,5 +88,5 @@ Como alternativa, desvincule o workspace da sua conta da Automação no workspac
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre o Gerenciamento de Atualizações, veja [Visão geral do recurso Gerenciamento de Atualizações](../update-management/update-mgmt-overview.md).
-* Para obter informações sobre os recursos Controle de Alterações e Inventário, veja [Visão geral do recurso Controle de Alterações e Inventário](../change-tracking.md).
+* Para obter informações sobre os recursos Controle de Alterações e Inventário, veja [Visão geral do recurso Controle de Alterações e Inventário](../change-tracking/overview.md).
 * Saiba mais sobre o recurso Iniciar/Parar VMs fora do horário comercial em [Visão geral do recurso Iniciar/Parar VMs fora do horário comercial](../automation-solution-vm-management.md).

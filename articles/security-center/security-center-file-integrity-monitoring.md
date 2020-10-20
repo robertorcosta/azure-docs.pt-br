@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 45e173f87559368244ab7b0f90af1dbb6fc739d4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946086"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205380"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
 Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central de segurança do Azure usando este passo a passos.
@@ -31,7 +31,7 @@ Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|Requer o [Azure defender para servidores](defender-for-servers-introduction.md).<br>O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.|
 |Funções e permissões necessárias:|O **proprietário do espaço de trabalho** pode habilitar/desabilitar o fim (para obter mais informações, consulte [funções do Azure para log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>O **leitor** pode exibir os resultados.|
-|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) US gov<br>![Nenhuma ](./media/icons/no-icon.png) China gov, outros gov<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking.md).|
+|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) US gov<br>![Nenhuma ](./media/icons/no-icon.png) China gov, outros gov<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>O que é FIM na Central de Segurança?
@@ -56,7 +56,7 @@ Neste tutorial, você aprenderá a:
 
 Ao comparar o estado atual desses itens com o estado durante a verificação anterior, o FIM alertará se forem feitas modificações suspeitas.
 
-O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade de arquivo estiver habilitado, você terá um recurso de **controle de alterações** do tipo **solução**. Para obter detalhes de frequência de coleta de dados, consulte [Detalhes de coleta de dados do Controle de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para Controle de Alterações do Azure.
+O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade de arquivo estiver habilitado, você terá um recurso de **controle de alterações** do tipo **solução**. Para obter detalhes de frequência de coleta de dados, consulte [controle de alterações detalhes da coleta de dados](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
 > Se você remover o recurso de **controle de alterações** , desabilitará também o recurso de monitoramento de integridade de arquivo na central de segurança.

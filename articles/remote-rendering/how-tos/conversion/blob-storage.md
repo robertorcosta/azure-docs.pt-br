@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a2fde3e510c6eb7146da9c92d93f69111e8c80
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80681643"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206536"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usar o armazenamento de Blobs do Azure para conversão de modelo
 
@@ -27,8 +27,8 @@ O serviço de [conversão de modelo](model-conversion.md) requer acesso ao armaz
 
 A criação da conta de armazenamento e os contêineres de blob podem ser feitos com uma das seguintes ferramentas:
 
-- [Azure portal](https://portal.azure.com)
-- [linha de comando AZ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Portal do Azure](https://portal.azure.com)
+- [linha de comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python...)
 
@@ -46,13 +46,13 @@ Siga as etapas fornecidas na seção [criar uma conta](../create-an-account.md#l
 
 As assinaturas de acesso armazenadas (SAS) são usadas para conceder acesso de leitura para entrada e acesso de gravação para saída. É recomendável gerar novos URIs cada vez que um modelo é convertido. Como os URIs expiram depois de algum tempo, mantê-los por uma duração maior pode arriscar a dividir seu aplicativo inesperadamente.
 
-Detalhes sobre SAS podem ser encontrados na [documentação da SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Detalhes sobre SAS podem ser encontrados na [documentação da SAS](../../../storage/common/storage-sas-overview.md).
 
 Um URI SAS pode ser gerado usando um dos:
 
 - módulo AZ PowerShell
   - consulte o [exemplo de scripts do PowerShell](../../samples/powershell-example-scripts.md)
-- [linha de comando AZ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
   - Clique com o botão direito do mouse no contêiner "obter assinatura de acesso compartilhado" (leitura, acesso à lista para o contêiner de entrada, acesso de gravação para o contêiner de saída)
 - SDKs (C#, Python...)
@@ -64,11 +64,11 @@ Um exemplo de uso de assinaturas de acesso compartilhado na conversão de ativos
 Para iniciar a conversão de um modelo, você precisa carregá-lo usando uma das seguintes opções:
 
 - [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) -uma interface do usuário conveniente para carregar/baixar/gerenciar arquivos no armazenamento de BLOBs do Azure
-- [Linha de comando do Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
-- [Módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Linha de comando do Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
+- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.2.0)
   - consulte o [exemplo de scripts do PowerShell](../../samples/powershell-example-scripts.md)
-- [Usando um SDK de armazenamento (Python, C#...)](https://docs.microsoft.com/azure/storage/)
-- [Usando as APIs REST do armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
+- [Usando um SDK de armazenamento (Python, C#...)](../../../storage/index.yml)
+- [Usando as APIs REST do armazenamento do Azure](/rest/api/storageservices/blob-service-rest-api)
 
 Para obter um exemplo de como carregar dados para conversão, consulte Conversion.ps1 dos [scripts de exemplo do PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
 

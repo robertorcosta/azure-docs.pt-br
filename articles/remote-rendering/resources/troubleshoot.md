@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803816"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203663"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -88,7 +88,7 @@ A qualidade do vídeo pode ser comprometida pela qualidade da rede ou pela ausê
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>O vídeo gravado com a MRC não reflete a qualidade da experiência ao vivo
 
-Um vídeo pode ser registrado no HoloLens por meio da [MRC (captura de realidade misturada)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem uma qualidade pior do que a experiência ao vivo por dois motivos:
+Um vídeo pode ser registrado no HoloLens por meio da [MRC (captura de realidade misturada)](/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem uma qualidade pior do que a experiência ao vivo por dois motivos:
 * A taxa de quadros de vídeo é limitada a 30 Hz em vez de 60 Hz.
 * As imagens de vídeo não passam pela etapa de processamento de [reprojeção de fase tardia](../overview/features/late-stage-reprojection.md), portanto, o vídeo tem menos fluidez.
 

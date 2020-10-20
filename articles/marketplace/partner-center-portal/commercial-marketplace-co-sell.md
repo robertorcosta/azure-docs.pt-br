@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 05/12/2020
-ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: ec076567d06a8237db2a708a5276a358f64a8388
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033244"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204904"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta na Central de Parceiros
 
@@ -36,7 +36,7 @@ A opção de venda conjunta no Partner Center está disponível no momento para 
 
 ## <a name="listing"></a>Listando
 
-As listagens de venda conjuntas ajudarão as equipes de vendas da Microsoft a comercializar sua solução para um público mais amplo.
+As listagens de venda conjuntas ajudarão as equipes de vendas da Microsoft a comercializar sua solução para um público mais amplo. *(Todos os campos necessários.)*
 
 - Escolha as plataformas da Microsoft com as quais sua oferta é criada, se estende ou se integra com.
 - Selecione os segmentos de mercado aos quais sua oferta está direcionada.
@@ -58,26 +58,26 @@ Os tipos de solução ajudam a definir os cenários para os quais sua oferta foi
 
 As áreas de solução ajudam a definir ainda mais sua solução.
 
-Você pode adicionar até três áreas de solução para sua oferta. Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use a `Ctrl` chave (no Windows) ou a tecla de comando (em Mac os).
+Você pode adicionar até três áreas de solução para sua oferta. Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use a `Ctrl` chave (no Windows) ou a chave de comando (no MacOS).
 
 ## <a name="documents"></a>Documentos
 
-Você tem a opção de fornecer documentos de material de apoio que a Microsoft usará para saber mais sobre sua oferta e avaliar seu ajuste para suas necessidades de cliente. Todos os documentos listados na tabela abaixo são opcionais.
+Você tem a opção de fornecer documentos de material de apoio que a Microsoft usará para saber mais sobre sua oferta e avaliar seu ajuste para suas necessidades de cliente.
 
 | **Documentos**    | **Descrição**  |
 | :------------------- | :-------------------|
-| *Cliente One-pager* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Microsoft Azure modelo de um pager </li> <li> Modelo do Microsoft Dynamics 365 1-pager </li> <li> Modelo Microsoft 365 1-pager </li> <li> Windows 10 1-modelo de pager </li> </ul> |
-| *Apresentação do cliente* | Deslize a apresentação para pitch sua solução e sua proposta de valor. Depois de garantir que sua oferta esteja pronta para o cliente, as equipes de vendas da Microsoft podem compartilhar a apresentação com os clientes para articular o valor que ambas as empresas trazem ao implantar uma solução conjunta. A apresentação deve cobrir o que a sua solução faz, como ela pode ajudar os clientes, em que setores a solução se destina e como ela se compara às soluções concorrentes. <br> <br> Use o modelo disponível no Partner Center.|
+| *Cliente One-pager (obrigatório)* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Microsoft Azure modelo de um pager </li> <li> Modelo do Microsoft Dynamics 365 1-pager </li> <li> Modelo Microsoft 365 1-pager </li> <li> Windows 10 1-modelo de pager </li> </ul> |
+| *Apresentação do cliente (obrigatória)* | Deslize a apresentação para pitch sua solução e sua proposta de valor. Depois de garantir que sua oferta esteja pronta para o cliente, as equipes de vendas da Microsoft podem compartilhar a apresentação com os clientes para articular o valor que ambas as empresas trazem ao implantar uma solução conjunta. A apresentação deve cobrir o que a sua solução faz, como ela pode ajudar os clientes, em que setores a solução se destina e como ela se compara às soluções concorrentes. <br> <br> Use o modelo disponível no Partner Center.|
 | *Estudo de caso de cliente* | Essas informações mostram um cliente potencial como você e a Microsoft implantaram com êxito essa solução em casos anteriores. <br> <br> Use o modelo disponível no Partner Center. |
-| *Cliente verificável ganha (opcional)* | Exemplos específicos de sucessos do cliente depois que sua solução foi implantada. |
-| *Baralho com densidade de canal (opcional)* | Um deck de slides com informações que ajudarão os revendedores de canal a aprender mais sobre sua solução e a preparar suas equipes de vendas para vender sua oferta. Ele normalmente inclui uma inclinação do elevador, informações sobre clientes alvo, perguntas a serem feitas aos clientes, pontos de discussão e links para vídeos, documentação e informações de suporte. |
+| *Cliente verificável ganha* | Exemplos específicos de sucessos do cliente depois que sua solução foi implantada. |
+| *Baralho da distância do canal* | Um deck de slides com informações que ajudarão os revendedores de canal a aprender mais sobre sua solução e a preparar suas equipes de vendas para vender sua oferta. Ele normalmente inclui uma inclinação do elevador, informações sobre clientes alvo, perguntas a serem feitas aos clientes, pontos de discussão e links para vídeos, documentação e informações de suporte. |
 | *Diagramas de arquitetura de referência* | Um documento que mostra o modelo que representa o IP criado pelo parceiro, juntamente com sua relação com os serviços de nuvem da Microsoft, e como ele atende aos requisitos técnicos do programa de venda conjunta de IP. |
 | *Outros documentos* | Opcionalmente, você pode carregar até cinco documentos ou vídeos adicionais para ajudar as equipes de vendas da Microsoft e revendedores de canal a aprender mais sobre sua solução, organização e/ou diferenciais. |
 | *URL de referência externa* | O link para o site do seu produto, onde as equipes de vendas da Microsoft e os revendedores de canal podem aprender mais sobre sua solução. |
 
 ## <a name="contacts"></a>Contatos
 
-Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft. Se você optar por tornar sua oferta disponível no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal.
+Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft. *(Um contato para cada geografia no qual sua oferta está disponível é necessário para o programa de venda conjunta.)* Se você optar por tornar sua oferta disponível no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal.
 
 Você pode fornecer seus contatos baixando o modelo CSV do Partner Center, preenchendo cada linha com informações sobre o contato e importando esse arquivo CSV. A importação de um arquivo CSV substituirá os contatos existentes.
 

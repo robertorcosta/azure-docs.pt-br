@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019385"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203034"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com o Azure Machine Learning
 
@@ -178,11 +178,13 @@ Para solicitar uma concessão para esses cenários, use as seguintes etapas:
     | Tipo de problema | Técnicos |
     | Serviço | Meus serviços. Selecione __Machine Learning__ na lista suspensa. |
     | Tipo de problema | Instalação, SDK e CLI do espaço de trabalho |
-    | Subtipo de problema | Problema ao provisionar ou gerenciar o workspace |
+    | Subtipo de problema | Ponto de extremidade particular e solicitação de concessão de zona de DNS privado |
 
 2. Na seção __detalhes__ , use o campo __Descrição__ para fornecer a região do Azure que você deseja usar e o cenário que você planeja usar. Se você precisar solicitar aumentos de cota para várias assinaturas, liste também as IDs de assinatura neste campo.
 
 3. Selecione __criar__ para criar a solicitação.
+
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Captura de tela de um ponto de extremidade privado e uma solicitação de aumento de cota de DNS particular":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 015bd48060f47023877d8c48601770228b1500fe
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c09b50272ce73fe084e84d49be7d9d81cbe725aa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104335"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207131"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do Agente do Log Analytics
 O agente de Log Analytics do Azure coleta a telemetria de máquinas virtuais Windows e Linux em qualquer nuvem, máquinas locais e aquelas monitoradas pelo [System Center Operations Manager](/system-center/scom/) e envia dados coletados para o espaço de trabalho Log Analytics no Azure monitor. O Agente do Log Analytics também dá suporte a informações e outros serviços no Azure Monitor, por exemplo, [Azure Monitor para VMs](../insights/vminsights-enable-overview.md), [Central de Segurança do Azure](../../security-center/index.yml) e [Automação do Azure](../../automation/automation-intro.md). Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede e dos métodos de implantação.
@@ -51,7 +51,7 @@ A tabela a seguir lista os tipos de dados que você pode configurar para um work
 O Agente do Log Analytics envia dados para um workspace do Log Analytics no Azure Monitor. O agente do Windows pode ser de hospedagem múltipla a fim de enviar dados para vários espaços de trabalho e grupos de gerenciamento do System Center Operations Manager. O agente do Linux pode enviar para um único destino, um espaço de trabalho ou um grupo de gerenciamento.
 
 ## <a name="other-services"></a>Outros serviços
-O agente para Linux e Windows não é apenas para se conectar a Azure Monitor. Outros serviços, como a central de segurança do Azure e o Azure Sentinel, contam com o agente e seu espaço de trabalho Log Analytics conectado. O agente também dá suporte à automação do Azure para hospedar a função de Hybrid runbook Worker e outros serviços, como [controle de alterações](../../automation/change-tracking.md), [Gerenciamento de atualizações](../../automation/update-management/update-mgmt-overview.md)e a [central de segurança do Azure](../../security-center/security-center-introduction.md). Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../../automation/automation-hybrid-runbook-worker.md).  
+O agente para Linux e Windows não é apenas para se conectar a Azure Monitor. Outros serviços, como a central de segurança do Azure e o Azure Sentinel, contam com o agente e seu espaço de trabalho Log Analytics conectado. O agente também dá suporte à automação do Azure para hospedar a função de Hybrid runbook Worker e outros serviços, como [controle de alterações](../../automation/change-tracking/overview.md), [Gerenciamento de atualizações](../../automation/update-management/update-mgmt-overview.md)e a [central de segurança do Azure](../../security-center/security-center-intro.md). Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="workspace-and-management-group-limitations"></a>Limitações do grupo de gerenciamento e do espaço de trabalho
 

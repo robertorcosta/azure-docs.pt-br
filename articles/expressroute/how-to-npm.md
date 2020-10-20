@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 7810afffd5da6d46439ff27ddb3f5b0aafdc2341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981328"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201045"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
 
@@ -54,7 +54,7 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 1. No [Portal do Azure](https://portal.azure.com), selecione a Assinatura que tem as VNETs emparelhadas com o seu circuito do ExpressRoute. Em seguida, pesquise a lista de serviços no **Marketplace** para ' monitor de desempenho de rede '. Na volta, clique para abrir a página **Monitor de Desempenho de Rede**.
 
    >[!NOTE]
-   >Você pode criar um novo workspace ou usar um existente. Se você quiser usar um workspace existente, certifique-se de que o workspace tenha sido migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Você pode criar um novo workspace ou usar um existente. Se você quiser usar um workspace existente, certifique-se de que o workspace tenha sido migrado para a nova linguagem de consulta. [Mais informações...](../azure-monitor/log-query/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -92,7 +92,7 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 É recomendável que você instale pelo menos dois agentes em cada lado da conexão de ExpressRoute para redundância (por exemplo, no local, VNETs do Azure). O agente deve ser instalado em um servidor Windows (2008 SP1 ou posterior). Não há suporte para o monitoramento de circuitos do ExpressRoute usando o sistema operacional de área de trabalho do Windows e o sistema operacional Linux. Use as etapas a seguir para instalar os agentes:
    
   >[!NOTE]
-  >Os agentes enviados pelo SCOM (incluindo [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) podem não ser capazes de detectar consistentemente seu local se estiverem hospedados no Azure. É recomendável não utilizar esses agentes em VNETs do Azure para monitorar o ExpressRoute.
+  >Os agentes enviados pelo SCOM (incluindo [MMA](/previous-versions/system-center/system-center-2012-R2/dn465154(v=sc.12))) podem não ser capazes de detectar consistentemente seu local se estiverem hospedados no Azure. É recomendável não utilizar esses agentes em VNETs do Azure para monitorar o ExpressRoute.
   >
 
 1. Execute a **Instalação** para instalar o agente em cada servidor que deseja usar para o monitoramento de ExpressRoute. O servidor utilizado no monitoramento pode ser uma VM ou local e deve ter acesso à Internet. É necessário instalar pelo menos um agente local e um agente em cada segmento de rede que você deseja monitorar no Azure.
@@ -101,13 +101,13 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 4. Na página **pasta de destino** , altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
 5. Na página **Opções de instalação do agente** , você pode optar por conectar o agente a Azure monitor logs ou Operations Manager. Ou, você poderá deixar as opções em branco se quiser configurar o agente mais tarde. Após fazer suas seleções, clique em **Avançar**.
 
-   * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Próximo**.
+   * Se você optar por conectar-se ao **Azure Log Analytics**, cole a **ID do Workspace** e a **Chave do Workspace** (Chave Primária) que você copiou para o Bloco de Notas na seção anterior. Em seguida, clique em **Avançar**.
 
      ![ID e a Chave](./media/how-to-npm/8.png)
-   * Se você optar por conectar-se ao **Operations Manager**, na página **Configuração de Grupo de Gerenciamento**, digite o **Nome do Grupo de Gerenciamento**, **Servidor de Gerenciamento** e **Porta do Servidor de Gerenciamento**. Em seguida, clique em **Próximo**.
+   * Se você optar por conectar-se ao **Operations Manager**, na página **Configuração de Grupo de Gerenciamento**, digite o **Nome do Grupo de Gerenciamento**, **Servidor de Gerenciamento** e **Porta do Servidor de Gerenciamento**. Em seguida, clique em **Avançar**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * Na página **Conta de Ação de Agente**, escolha a conta **Sistema Local** ou a **Conta de Computador Local ou Domínio**. Em seguida, clique em **Próximo**.
+   * Na página **Conta de Ação de Agente**, escolha a conta **Sistema Local** ou a **Conta de Computador Local ou Domínio**. Em seguida, clique em **Avançar**.
 
      ![Conta](./media/how-to-npm/10.png)
 6. Na página **pronto para instalar** , examine suas escolhas e clique em **instalar**.
@@ -118,7 +118,7 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3: definir configurações de proxy (opcional)
 
-Caso esteja usando um proxy da Web para acessar a Internet, utilize as etapas a seguir para definir configurações de proxy para o Microsoft Monitoring Agent. Execute essas etapas para cada servidor. Se você tiver vários servidores que precisa configurar, talvez seja mais fácil usar um script para automatizar esse processo. Se tiver, consulte [Definir configurações de proxy para o Microsoft Monitoring Agent usando um script](../log-analytics/log-analytics-windows-agent.md).
+Caso esteja usando um proxy da Web para acessar a Internet, utilize as etapas a seguir para definir configurações de proxy para o Microsoft Monitoring Agent. Execute essas etapas para cada servidor. Se você tiver vários servidores que precisa configurar, talvez seja mais fácil usar um script para automatizar esse processo. Se tiver, consulte [Definir configurações de proxy para o Microsoft Monitoring Agent usando um script](../azure-monitor/platform/agent-windows.md).
 
 Para definir configurações de proxy para o Microsoft Monitoring Agent usando o Painel de Controle:
 
@@ -161,7 +161,7 @@ Nos servidores do agente, abra uma janela do PowerShell com privilégios adminis
 
 Para monitorar servidores do agente que estão no Azure, você deve configurar regras do NSG (grupo de segurança de rede) para permitir o tráfego TCP em uma porta usada pelo NPM para transações sintéticas. A porta padrão é 8084. Isso permite que um agente de monitoramento instalado na VM do Azure se comunique com um agente de monitoramento local.
 
-Para obter mais informações sobre os NSG, consulte [Grupos de Segurança de Rede](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
+Para obter mais informações sobre os NSG, consulte [Grupos de Segurança de Rede](../virtual-network/tutorial-filter-network-traffic.md).
 
 >[!NOTE]
 >Certifique-se de que você instalou os agentes (o agente do servidor local e o agente do servidor do Azure) e executou o script do PowerShell antes de continuar com esta etapa.

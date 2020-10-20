@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: bc4fbbc265bef00be27c890c3f090a49591dc415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562733"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201402"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Falha na solicitação de serviço. Status: 403 (proibido)
 
@@ -29,9 +29,9 @@ Geralmente, esse erro indica que suas permissões de RBAC (controle de acesso ba
 
 ### <a name="cause-2"></a>Causa #2
 
-Se você estiver usando um aplicativo cliente para se comunicar com o gêmeos digital do Azure, esse erro poderá ocorrer porque seu registro de aplicativo [Azure Active Directory (AD do Azure)](../active-directory/fundamentals/active-directory-whatis.md) não tem permissões configuradas para o serviço gêmeos do Azure digital.
+Se você estiver usando um aplicativo cliente para se comunicar com o Azure digital gêmeos que está se Autenticando com um [registro de aplicativo](how-to-create-app-registration.md), esse erro pode acontecer porque o registro do aplicativo não tem permissões configuradas para o serviço gêmeos do Azure digital.
 
-O registro do aplicativo é necessário para ter permissões de acesso configuradas para as APIs do Azure digital gêmeos. Em seguida, quando o aplicativo cliente for autenticado no registro do aplicativo, ele receberá as permissões configuradas pelo registro do aplicativo.
+O registro do aplicativo deve ter permissões de acesso configuradas para as APIs do Azure digital gêmeos. Em seguida, quando o aplicativo cliente for autenticado no registro do aplicativo, ele receberá as permissões configuradas pelo registro do aplicativo.
 
 ## <a name="solutions"></a>Soluções
 
@@ -59,23 +59,33 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Para obter mais detalhes sobre esse requisito de função e o processo de atribuição, consulte a [seção *configurar permissões de acesso do usuário* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de *como: configurar uma instância e autenticação (CLI ou Portal)*.
 
-Se você já tiver essa atribuição de função e ainda encontrar o problema 403, vá para a próxima solução.
+Se você já tiver essa atribuição de função *e* estiver usando um registro de aplicativo do Azure ad para autenticar um aplicativo cliente, poderá continuar para a próxima solução se essa solução não resolver o problema 403.
 
 ### <a name="solution-2"></a>#2 da solução
 
-A segunda solução é verificar se o registro do aplicativo do Azure AD tem permissões configuradas para o serviço gêmeos do Azure digital. Se isso não estiver configurado, configure-o.
+Se você estiver usando um registro de aplicativo do Azure AD para autenticar um aplicativo cliente, a segunda solução possível é verificar se o registro do aplicativo tem permissões configuradas para o serviço gêmeos digital do Azure. Se eles não estiverem configurados, configure-os.
 
 #### <a name="check-current-setup"></a>Verificar a configuração atual
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+Para verificar se as permissões foram configuradas corretamente, navegue até a [página Visão geral do registro de aplicativo do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) na portal do Azure. Você mesmo pode acessar essa página procurando *registros de aplicativo* na barra de pesquisa do Portal.
+
+Alterne para a guia *todos os aplicativos* para ver todos os registros de aplicativo que foram criados em sua assinatura.
+
+Você deve ver o registro do aplicativo que acabou de criar na lista. Selecione-o para abrir seus detalhes.
+
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Registros de aplicativo página no portal do Azure":::
 
 Primeiro, verifique se as configurações de permissões do gêmeos digital do Azure foram definidas corretamente no registro. Para fazer isso, selecione *manifesto* na barra de menus para exibir o código do manifesto do registro do aplicativo. Role até a parte inferior da janela de código e procure esses campos em `requiredResourceAccess` . Os valores devem corresponder aos da captura de tela abaixo:
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Registros de aplicativo página no portal do Azure":::
+
+Em seguida, selecione *permissões de API* na barra de menus para verificar se este registro de aplicativo contém permissões de leitura/gravação para o gêmeos digital do Azure. Você deverá ver uma entrada como esta:
+
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Registros de aplicativo página no portal do Azure":::
 
 #### <a name="fix-issues"></a>Corrigir problemas
 
-Se qualquer um deles for exibido de maneira diferente do descrito, siga as instruções sobre como configurar um registro de aplicativo na [seção *configurar permissões de acesso para aplicativos cliente* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) de *como: configurar uma instância e autenticação (CLI ou Portal)*.
+Se qualquer um deles aparecer de forma diferente do descrito, siga as instruções sobre como configurar um registro de aplicativo em [*como criar um registro de aplicativo*](how-to-create-app-registration.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

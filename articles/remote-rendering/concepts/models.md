@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9c8c4a1209b8bb5be7af87ef22aeab0ffd90b79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff69486ab24c999e40b0afc13c91d6f729c352a0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023764"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206553"
 ---
 # <a name="models"></a>Modelos
 
@@ -120,10 +120,10 @@ Posteriormente, é possível percorrer a hierarquia de entidade e mudar as entid
 
 ## <a name="api-documentation"></a>Documentação da API
 
-* [C# Remotemanager. LoadModelAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
-* [C# Remotemanager. LoadModelFromSASAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
-* [C++ Remotomanager:: LoadModelAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
-* [C++ Remotomanager:: LoadModelFromSASAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
+* [C# Remotemanager. LoadModelAsync ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C# Remotemanager. LoadModelFromSASAsync ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C++ Remotomanager:: LoadModelAsync ()](/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C++ Remotomanager:: LoadModelFromSASAsync ()](/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
 
 ## <a name="next-steps"></a>Próximas etapas
 

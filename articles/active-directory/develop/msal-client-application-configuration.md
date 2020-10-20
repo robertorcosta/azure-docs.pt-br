@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 910007109e4751cf2fd509d1d568c66ae2a22cd2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81534458"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200824"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicativo
 
@@ -126,7 +126,7 @@ Você pode substituir o URI de redirecionamento usando a `RedirectUri` Proprieda
 - `RedirectUriOnIos` = $ "msauth. {Bundle. ID}://auth ";
 
 Para obter detalhes adicionais do iOS, consulte [migrar aplicativos Ios que usam Microsoft Authenticator de Adal.net para MSAL.net](msal-net-migration-ios-broker.md) e [aproveitando o agente no Ios](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
-Para obter detalhes adicionais do Android, consulte [autenticação orientada no Android](brokered-auth.md).
+Para obter detalhes adicionais do Android, consulte [autenticação orientada no Android](msal-android-single-sign-on.md).
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>URI de redirecionamento para aplicativos cliente confidenciais
 

@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0678b2c36d341b2bc2bd9be755b9a6213acdd462
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977554"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206077"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>Quais tecnologias e serviços do Azure você pode usar para criar soluções de IoT?
 
@@ -61,7 +61,7 @@ Você pode simplificar ainda mais a forma como cria o código de inserção para
 
 O [Azure IoT Edge](../iot-edge/about-iot-edge.md) permite que você descarregue partes da carga de trabalho de IoT dos Serviços de Nuvem do Azure para seus dispositivos. O IoT Edge pode reduzir a latência em sua solução, reduzir a quantidade de dados que seus dispositivos trocam com a nuvem e habilitar cenários offline. Você pode gerenciar os dispositivos do IoT Edge do IoT Central e alguns aceleradores de solução.
 
-O [Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) é uma plataforma de aplicativos segura e de alto nível com recursos de comunicação e segurança internos para dispositivos conectados à Internet. Ele inclui unidade de microcontrolador segura, um sistema operacional baseado em Linux personalizado e um serviço de segurança baseado em nuvem que fornece segurança contínua e renovável.
+O [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) é uma plataforma de aplicativos segura e de alto nível com recursos de comunicação e segurança internos para dispositivos conectados à Internet. Ele inclui unidade de microcontrolador segura, um sistema operacional baseado em Linux personalizado e um serviço de segurança baseado em nuvem que fornece segurança contínua e renovável.
 
 ### <a name="cloud-connectivity"></a>Conectividade de nuvem
 
@@ -76,7 +76,7 @@ O Hub IoT é um componente central dos aceleradores de solução e você pode us
 
 ### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>Transpondo a lacuna entre o mundo físico e o digital
 
-[Gêmeos Digitais do Azure](../digital-twins/about-digital-twins.md) é um serviço de IoT que permite que você modele um ambiente físico. Ele usa um gráfico de inteligência espacial para modelar as relações entre pessoas, espaços e dispositivos. Ao correlacionar dados entre o mundo digital e o físico, você pode criar soluções de reconhecimento de contexto.
+[Gêmeos Digitais do Azure](../digital-twins/overview.md) é um serviço de IoT que permite que você modele um ambiente físico. Ele usa um gráfico de inteligência espacial para modelar as relações entre pessoas, espaços e dispositivos. Ao correlacionar dados entre o mundo digital e o físico, você pode criar soluções de reconhecimento de contexto.
 
 A IoT Central usa os gêmeos digitais para sincronizar dispositivos e dados no mundo real com os modelos digitais que permitem aos usuários monitorar e gerenciar esses dispositivos conectados.
 
@@ -84,7 +84,7 @@ A IoT Central usa os gêmeos digitais para sincronizar dispositivos e dados no 
 
 Os dispositivos IoT normalmente geram grandes quantidades de dados de série temporal, como leituras de temperatura de sensores. O [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) pode se conectar a um Hub IoT, ler o fluxo de telemetria de seus dispositivos, armazenar esses dados e permitir que você os consulte e os visualize.
 
-Os [Azure Mapas](/azure/azure-maps) são uma coleção de serviços geoespaciais que usam novos dados de mapeamento para fornecer um contexto geográfico preciso para aplicativos Web e móveis. Você pode usar uma API REST, um controle JavaScript baseado na Web ou um SDK do Android para criar seus aplicativos.
+Os [Azure Mapas](../azure-maps/index.yml) são uma coleção de serviços geoespaciais que usam novos dados de mapeamento para fornecer um contexto geográfico preciso para aplicativos Web e móveis. Você pode usar uma API REST, um controle JavaScript baseado na Web ou um SDK do Android para criar seus aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

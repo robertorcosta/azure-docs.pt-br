@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756612"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207080"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerenciar uma instância de computação Azure Machine Learning
 
@@ -256,6 +256,7 @@ Você pode instalar pacotes diretamente em Jupyter Notebook ou RStudio:
 * Python: Adicione o código de instalação e execute em uma célula Jupyter Notebook.
 
 Ou você pode instalar a partir de uma janela de terminal. Instale os pacotes do Python no ambiente **python 3,6-AzureML** .  Instale os pacotes do R no ambiente do **R**.
+as funções mágicos% Pip e% Conda instalam automaticamente pacotes no kernel em execução no momento na sessão do Jupyter notebook.
 
 ## <a name="add-new-kernels"></a>Adicionar novos kernels
 

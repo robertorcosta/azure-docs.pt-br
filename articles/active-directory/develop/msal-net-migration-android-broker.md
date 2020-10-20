@@ -12,16 +12,16 @@ ms.date: 08/31/2020
 ms.author: aiwang
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 47902b29da1dfe20fb54d633a0559e6a337fd771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01af0e620ecb100839f7b1101e5ff9fcfc874eea
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89183543"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206662"
 ---
 # <a name="migrate-android-applications-that-use-a-broker-from-adalnet-to-msalnet"></a>Migrar aplicativos Android que usam um agente de ADAL.NET para MSAL.NET
 
-Se você tiver um aplicativo Xamarin Android usando atualmente o Azure Active Directory ADAL.NET (biblioteca de autenticação para .NET) e um [agente de autenticação](brokered-auth.md), é hora de migrar para o MSAL.net ( [Microsoft Authentication library for .net ](msal-overview.md) ).
+Se você tiver um aplicativo Xamarin Android usando atualmente o Azure Active Directory ADAL.NET (biblioteca de autenticação para .NET) e um [agente de autenticação](msal-android-single-sign-on.md), é hora de migrar para o MSAL.net ( [Microsoft Authentication library for .net ](msal-overview.md) ).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -113,7 +113,7 @@ No MSAL.NET, faça duas coisas para definir a atividade para Android:
 
 1. Na chamada AcquireTokenInteractive, use `.WithParentActivityOrWindow(App.RootViewController)` e passe a referência para a atividade que será usada. Este exemplo usará o MainActivity.
 
-**Por exemplo:**
+**Por exemplo: **
 
 Em *app.cs*:
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802983"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204020"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -163,7 +163,7 @@ Quando você estiver trabalhando no Azure Functions, as instâncias também deve
 Para cargas de trabalho que têm cargas de criação pesadas, defina a `EnableContentResponseOnWrite` opção de solicitação como `false` . O serviço não retornará mais o recurso criado ou atualizado para o SDK. Normalmente, como o aplicativo tem o objeto que está sendo criado, ele não precisa que o serviço o retorne. Os valores de cabeçalho ainda são acessíveis, como um encargo de solicitação. Desabilitar a resposta de conteúdo pode ajudar a melhorar o desempenho, pois o SDK não precisa mais alocar memória ou serializar o corpo da resposta. Ele também reduz o uso de largura de banda da rede para ajudar ainda mais o desempenho.  
 
 ```csharp
-ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemRequestOptions requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
 ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
 // Resource will be null
 itemResponse.Resource

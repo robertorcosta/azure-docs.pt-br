@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c8cf84aa697512b6d1147bf853d30761792370b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318549"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207301"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Comparar o Active Directory ao Azure Active Directory
 
@@ -39,9 +39,9 @@ A maioria dos administradores de ti está familiarizada com os conceitos de Acti
 | Aplicativos tradicionais e herdados| A maioria dos aplicativos locais usa LDAP, autenticação Windows-Integrated (NTLM e Kerberos) ou autenticação baseada em cabeçalho para controlar o acesso aos usuários.| O Azure AD pode fornecer acesso a esses tipos de aplicativos locais usando agentes de [proxy de aplicativo do Azure ad](../manage-apps/application-proxy.md) em execução no local. Usando esse método, o Azure AD pode autenticar Active Directory usuários locais usando o Kerberos enquanto você migra ou precisa coexistir com aplicativos herdados. |
 | Aplicativos SaaS|Active Directory não dá suporte a aplicativos SaaS nativamente e requer o sistema de Federação, como AD FS.|Aplicativos SaaS com suporte a OAuth2, SAML e WS- \* Authentication podem ser integrados para usar o Azure ad para autenticação. |
 | Aplicativos LOB (linha de negócios) com autenticação moderna|As organizações podem usar AD FS com Active Directory para dar suporte a aplicativos LOB que exigem autenticação moderna.| Os aplicativos LOB que exigem autenticação moderna podem ser configurados para usar o Azure AD para autenticação. |
-| Serviços de camada intermediária/daemon|Os serviços em execução em ambientes locais normalmente usam contas de serviço do AD ou contas de serviço gerenciado de grupo (gMSA) para serem executados. Esses aplicativos herdarão as permissões da conta de serviço.| O Azure AD fornece [identidades gerenciadas](../managed-identities-azure-resources/index.yml) para executar outras cargas de trabalho na nuvem. O ciclo de vida dessas identidades é gerenciado pelo Azure AD e está vinculado ao provedor de recursos não pode ser usado para outras finalidades para obter acesso ao Backdoor.|
+| Serviços de camada intermediária/daemon|Os serviços em execução em ambientes locais normalmente usam contas de serviço do AD ou contas de serviço gerenciado de grupo (gMSA) para serem executados. Esses aplicativos herdarão as permissões da conta de serviço.| O Azure AD fornece [identidades gerenciadas](../managed-identities-azure-resources/index.yml) para executar outras cargas de trabalho na nuvem. O ciclo de vida dessas identidades é gerenciado pelo Azure AD e está vinculado ao provedor de recursos, portanto, não pode ser usado para outras finalidades para obter acesso ao Backdoor.|
 | **Dispositivos**|||
-| Móvel|Active Directory não oferece suporte nativo a dispositivos móveis sem soluções de terceiros.| A solução de gerenciamento de dispositivo móvel da Microsoft, Microsoft Intune, é integrada ao Azure AD. Microsoft Intune fornece informações de estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
+| Dispositivos móveis|Active Directory não oferece suporte nativo a dispositivos móveis sem soluções de terceiros.| A solução de gerenciamento de dispositivo móvel da Microsoft, Microsoft Intune, é integrada ao Azure AD. Microsoft Intune fornece informações de estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
 | Áreas de trabalho do Windows|Active Directory fornece a capacidade de ingressar no domínio em dispositivos Windows para gerenciá-los usando Política de Grupo, System Center Configuration Manager ou outras soluções de terceiros.|Os dispositivos Windows podem ser [ingressados no Azure ad](../devices/index.yml). O acesso condicional pode verificar se um dispositivo é ingressado no Azure AD como parte do processo de autenticação. Os dispositivos Windows também podem ser gerenciados com [Microsoft Intune](/intune/what-is-intune). Nesse caso, o acesso condicional, considerará se um dispositivo está em conformidade (por exemplo, patches de segurança atualizados e assinaturas de vírus) antes de permitir o acesso aos aplicativos.|
 | Servidores Windows| O Active Directory fornece recursos de gerenciamento robustos para servidores Windows locais usando Política de Grupo ou outras soluções de gerenciamento.| As máquinas virtuais do Windows Server no Azure podem ser gerenciadas com [Azure AD Domain Services](../../active-directory-domain-services/index.yml). [Identidades gerenciadas](../managed-identities-azure-resources/index.yml) podem ser usadas quando as VMs precisam acessar os recursos ou o diretório do sistema de identidade.|
 | Cargas de trabalho do Linux/Unix|O Active Directory não oferece suporte nativo a não-Windows sem soluções de terceiros, embora os computadores Linux possam ser configurados para autenticar com Active Directory como um realm do Kerberos.|As VMs Linux/Unix podem usar [identidades gerenciadas](../managed-identities-azure-resources/index.yml) para acessar o sistema de identidade ou os recursos. Algumas organizações, migram essas cargas de trabalho para tecnologias de contêiner de nuvem, que também podem usar identidades gerenciadas.|

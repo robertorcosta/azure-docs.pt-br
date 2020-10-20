@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327707"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203476"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -110,7 +110,7 @@ Syslog
 | count 
 ```
 
-Em alguns casos, a coluna avaliada é criada implicitamente pelo enine de processamento de consulta, já que a filtragem é feita não apenas no campo:
+Em alguns casos, a coluna avaliada é criada implicitamente pelo mecanismo de processamento de consulta, já que a filtragem é feita não apenas no campo:
 ```Kusto
 //less efficient
 SecurityEvent
@@ -342,7 +342,7 @@ Perf
 ) on Computer
 ```
 
-Um caso comum em que esse erro ocorre é quando [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) é usado para localizar a ocorrência mais recente. Por exemplo:
+Um caso comum em que esse erro ocorre é quando [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) é usado para localizar a ocorrência mais recente. Por exemplo: 
 
 ```Kusto
 Perf

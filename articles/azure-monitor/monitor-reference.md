@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435398"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206026"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -176,7 +176,7 @@ Os serviços e as soluções na tabela a seguir armazenam seus dados em um works
 
 | Produto/Serviço | Descrição |
 |:---|:---|
-| [Automação do Azure](../automation/index.yml) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Confira [Controle de Alterações](../automation/change-tracking.md) e [Gerenciamento de Atualizações](../automation/update-management/update-mgmt-overview.md). |
+| [Automação do Azure](../automation/index.yml) | Gerenciar atualizações do sistema operacional e controlar alterações em computadores Windows e Linux. Confira [Controle de Alterações](../automation/change-tracking/overview.md) e [Gerenciamento de Atualizações](../automation/update-management/update-mgmt-overview.md). |
 | [Proteção de Informações do Azure ](/azure/information-protection/) | Classifique e, opcionalmente, proteja documentos e emails. Confira [Relatórios centrais para a Proteção de Informações do Azure](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Central de Segurança do Azure](../security-center/index.yml) | Colete e analise eventos de segurança e execute a análise de ameaças. Confira [Coleta de dados na Central de Segurança do Azure](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Conecta-se a fontes diferentes, incluindo o Office 365 e o Amazon Web Services CloudTrail. Confira [Conectar fontes de dados](../sentinel/connect-data-sources.md). |

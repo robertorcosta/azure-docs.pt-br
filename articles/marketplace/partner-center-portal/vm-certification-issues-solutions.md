@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
-ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/16/2020
+ms.openlocfilehash: 48a044e53602b330e43b35ce2425b4b7a90582bf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044489"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206570"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemas comuns ao certificar imagens de máquina virtual para o Azure Marketplace
 
@@ -35,7 +35,7 @@ Para corrigir esse problema, recupere a imagem do Azure Marketplace e faça alte
 - [Imagens do Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 > [!Note]
-> Se você estiver usando uma imagem base do Linux não extraída do Marketplace, poderá deslocar a primeira partição de 2048 KB. Isso permite que o espaço não formatado seja usado para adicionar novas informações de cobrança e permite que o Azure vá em frente com a publicação da sua VM no Marketplace.  
+> Se você estiver usando uma imagem base do Linux não extraída do Azure Marketplace, poderá deslocar a primeira partição de 2048 KB. Isso permite que o espaço não formatado seja usado para adicionar novas informações de cobrança e permite que o Azure vá em frente com a publicação da sua VM no Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Falha na extensão da VM
 
@@ -46,7 +46,7 @@ Para habilitar as extensões de VM, faça o seguinte:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    ![Habilitar o monitoramento no nível do convidado](./media/vm-certification-issues-solutions-1.png)
 
@@ -66,7 +66,7 @@ Verifique se você seguiu rigorosamente o processo de provisionamento da VM ante
 
 Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro do|Motivo|Solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
 |1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
 |2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
@@ -87,7 +87,7 @@ Se você estiver tentando instalar o Visual Studio ou qualquer produto licenciad
 
 Para obter mais informações sobre como selecionar uma base aprovada, consulte [criar seus ativos técnicos de máquina virtual do Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Falha na execução do caso de teste do kit de ferramentas 
+## <a name="tool-kit-test-case-execution-failed"></a>Falha na execução do caso de teste do kit de ferramentas
 
 O Microsoft Certification Toolkit pode ajudá-lo a executar casos de teste e verificar se o VHD ou a imagem é compatível com o ambiente do Azure.
 
@@ -132,7 +132,7 @@ A tabela a seguir lista os casos de teste do Windows que o kit de ferramentas ex
 |3|Cluster de failover|Ainda não há suporte para o recurso Windows Server failover clustering. O aplicativo não deve depender desse recurso.|
 |4|IPV6|O IPv6 ainda não tem suporte no ambiente do Azure. O aplicativo não deve depender desse recurso.|
 |5|DHCP|A função de servidor do protocolo de configuração de host dinâmico ainda não tem suporte. O aplicativo não deve depender desse recurso.|
-|6|Hyper-V|A função de servidor Hyper-V ainda não tem suporte. O aplicativo não deve depender desse recurso.|
+|6|Hyper-v|A função de servidor Hyper-V ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |7|Acesso remoto|A função de servidor acesso remoto (acesso direto) ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |8|Rights Management Services|Serviços Rights Managements. A função de servidor ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |9|Windows Deployment Services|Serviços de implantação do Windows. A função de servidor ainda não tem suporte. O aplicativo não deve depender desse recurso.|
@@ -145,7 +145,7 @@ A tabela a seguir lista os casos de teste do Windows que o kit de ferramentas ex
 |16|Serviço de Cadastramento na Internet do Windows|Serviço de cadastramento na Internet do Windows. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
 |17|Serviço de LAN sem fio|Serviço de LAN sem fio. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
 
-Se você entrar em qualquer falha com os casos de teste anteriores, consulte a coluna **Descrição** na tabela da solução. Se você precisar de mais informações, entre em contato com a equipe de suporte. 
+Se você entrar em qualquer falha com os casos de teste anteriores, consulte a coluna **Descrição** na tabela da solução. Se você precisar de mais informações, entre em contato com a equipe de suporte.
 
 ## <a name="data-disk-size-verification"></a>Verificação do tamanho do disco de dados
 
@@ -199,8 +199,8 @@ Atualize o kernel com uma versão aprovada e envie a solicitação novamente. Vo
 
 Se a imagem não estiver instalada com uma das seguintes versões de kernel, atualize-a com os patches corretos. Solicite a aprovação necessária da equipe de suporte depois que a imagem for atualizada com estes patches necessários:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Família de sistema operacional|Versão|Kernel|
@@ -261,12 +261,12 @@ Se você entrar nos problemas de acesso negado enquanto estiver executando os ca
 Verifique se o acesso adequado está habilitado para a conta na qual os casos de teste automático estão em execução. Se o acesso não estiver habilitado, habilite-o para executar os casos de teste. Se não quiser habilitar o acesso, você poderá compartilhar os resultados do caso de teste automático com a equipe de suporte.
 
 ## <a name="download-failure"></a>Falha no download
-    
+
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM usando uma URL de assinatura de acesso compartilhado (SAS).
 
-|Cenário|Erro do|Motivo|Solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
-|1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
+|1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.||
 |2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa usando uma URL SAS.|
 |3|URL SAS inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
 |4|Assinatura inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
@@ -310,14 +310,14 @@ Para obter mais informações sobre essa ferramenta, consulte [visão geral do S
 
 Para obter soluções para erros relacionados ao disco de dados, use a seguinte tabela:
 
-|Erro do|Motivo|Solução|
+|Erro|Motivo|Solução|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Esse erro pode ocorrer devido a um número inválido especificado para o LUN (número de unidade lógica) quando a oferta é enviada.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
 |`DataDisk- NotFound:`|Esse erro pode ocorrer devido a um disco de dados não estar localizado em uma URL SAS especificada.|Verifique se o disco de dados está localizado na URL SAS especificada na solicitação.|
 
 ## <a name="remote-access-issue"></a>Problema de acesso remoto
 
-Se a opção protocolo RDP (RDP) não estiver habilitada para a imagem do Windows, você receberá esse erro. 
+Se a opção protocolo RDP (RDP) não estiver habilitada para a imagem do Windows, você receberá esse erro.
 
 Habilite o acesso RDP para imagens do Windows antes de enviá-las.
 
@@ -334,11 +334,11 @@ Etapa 2. Selecione a primeira opção "RunShellScript" e execute o comando abaix
 
 Comando: "Cat/dev/null > ~/.bash_history histórico de && -c" ![ comando bash History on portal do Azure](./media/vm-certification-issues-solutions-4.png)
 
-Etapa 3. Após executar o comando com êxito, reinicie a VM.
+Etapa 3. após executar com êxito o comando, reinicie a VM.
 
-Etapa 4. Generalizar a VM, pegar o VHD da imagem e parar a VM.
+Etapa 4. generalizar a VM, pegar o VHD da imagem e parar a VM.
 
-Etapa 5.     Re-Submit a imagem generalizada.
+Etapa 5. Re-Submit a imagem generalizada.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Solicitando exceções (modelos personalizados) em imagens de VM para testes seletivos
 
@@ -349,7 +349,7 @@ Nas seções a seguir, falaremos sobre os principais cenários em que as exceç�
 
 Cenários para exceção
 
-Há três cenários/casos em que os editores geralmente solicitam essas exceções. 
+Há três cenários/casos em que os editores geralmente solicitam essas exceções.
 
 * **Exceção para um ou mais casos de teste:** Os editores podem acessar as exceções de solicitação de [suporte do Publicador do Marketplace](https://aka.ms/marketplacepublishersupport) para casos de teste. 
 
@@ -357,20 +357,22 @@ Há três cenários/casos em que os editores geralmente solicitam essas exceçõ
        Nesse caso, os editores podem baixar a [ferramenta de teste certificada](https://aka.ms/AzureCertificationTestTool) aqui e fornecer o relatório no [suporte ao editor do Marketplace](https://aka.ms/marketplacepublishersupport)
 
 
-* **Modelos personalizados:** Alguns Publicadores publicam imagens de VM que exigem um modelo de ARM personalizado para implantar as VMs. Nesse caso, os editores são solicitados a fornecer os modelos personalizados no [suporte de Publicador do Marketplace](https://aka.ms/marketplacepublishersupport) para que o mesmo possa ser usado pela equipe de certificação para validação. 
+* **Modelos personalizados:** Alguns Publicadores publicam imagens de VM que exigem um modelo de ARM personalizado para implantar as VMs.
+
+Nesse caso, os editores são solicitados a fornecer os modelos personalizados no [suporte de Publicador do Marketplace](https://aka.ms/marketplacepublishersupport) para que o mesmo possa ser usado pela equipe de certificação para validação.
 
 ### <a name="information-to-provide-for-exception-scenarios"></a>Informações a serem fornecidas para cenários de exceção
 
 Os editores devem entrar em contato com o suporte ao [Editor do Marketplace](https://aka.ms/marketplacepublishersupport) para solicitar exceções para o cenário acima com as informações adicionais a seguir:
 
-   1.   ID do editor – a ID do editor no portal do Partner Center
-   2.   ID da oferta/nome – a ID da oferta/nome para o qual a exceção é solicitada 
-   3.   ID do plano/SKU – a ID do plano/SKU da oferta da VM para a qual a exceção é solicitada
-   4.    Versão – a versão da oferta de VM para a qual a exceção é solicitada
-   5.   Tipo de exceção – testes, VM bloqueada, modelos personalizados
-   6.   Motivo da solicitação – motivo para essa exceção e informações sobre os testes a serem isentos 
-   7. Linha do tempo-data até a qual esta exceção foi solicitada 
-   8.   Anexo-anexe qualquer documento de evidência de importância. Para VMs bloqueadas, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como anexo. Falha ao anexar o relatório para VMs bloqueadas e o modelo ARM personalizado para modelos personalizados resultará em negação de solicitação
+   1. ID do editor – a ID do editor no portal do Partner Center
+   1. ID da oferta/nome – a ID da oferta/nome para o qual a exceção é solicitada 
+   1. ID do plano/SKU – a ID do plano/SKU da oferta da VM para a qual a exceção é solicitada
+   1. Versão – a versão da oferta de VM para a qual a exceção é solicitada
+   1. Tipo de exceção – testes, VM bloqueada, modelos personalizados
+   1. Motivo da solicitação – motivo para essa exceção e informações sobre os testes a serem isentos 
+   1. Linha do tempo-data até a qual esta exceção foi solicitada 
+   1. Anexo-anexe qualquer documento de evidência de importância. Para VMs bloqueadas, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como anexo. Falha ao anexar o relatório para VMs bloqueadas e o modelo ARM personalizado para modelos personalizados resultará em negação de solicitação
 
 ## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Como tratar uma vulnerabilidade ou exploração em uma oferta de VM
 
@@ -403,7 +405,7 @@ Para concluir essas etapas, você precisará preparar o ativo técnico para a im
 1. Na guia **visão geral do plano** , na coluna **nome** , selecione o plano ao qual você deseja adicionar a VM.
 1. Na guia **configuração técnica** , em **imagens de VM**, selecione **+ Adicionar imagem de VM**.
    > [!NOTE]
-   > Você pode adicionar apenas uma imagem de VM a um plano de cada vez. Para adicionar várias imagens de VM, publique a primeira e aguarde até atingir o estágio de _aprovação do Publicador_ antes de adicionar a próxima imagem de VM.
+   > Você pode adicionar apenas uma imagem de VM a um plano de cada vez. Para adicionar várias imagens de VM, publique cada uma ao vivo antes de adicionar a próxima imagem de VM.
 1. Nas caixas que aparecem, forneça uma nova versão de disco e a imagem de máquina virtual.
 1. Selecione **Salvar rascunho**.
 1. Continue na próxima seção para remover a imagem da VM com a vulnerabilidade de segurança.
@@ -425,6 +427,7 @@ Depois de remover ou substituir a imagem da VM, você precisará republicar a of
 1. Selecione **revisar e publicar**.
 1. Se você precisar fornecer informações à equipe de certificação, adicione-as à caixa **notas de certificação** .
 1. Selecione **Publicar**.
+1. Quando o status de publicação atingir a fase de publicação, selecione **Go Live**.
 
 Para obter mais detalhes sobre o processo de publicação, consulte [como examinar e publicar uma oferta no Marketplace comercial](../review-publish-offer.md).
 

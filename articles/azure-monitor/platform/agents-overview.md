@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 8ca6794024d3a6327b918eb1c369a627837e0bd0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ec7b776f7d573ea07f010eeab81d98222102be41
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131013"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201997"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -32,7 +32,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="windows-agents"></a>Agentes do Windows
 
-| | Agente de Azure Monitor (versão prévia) | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
+| | Agente de Azure Monitor (versão prévia) | Diagnósticos<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|
 | **Ambientes com suporte** | Azure | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
@@ -42,7 +42,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
-| | Agente de Azure Monitor (versão prévia) | Diagnóstico<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
+| | Agente de Azure Monitor (versão prévia) | Diagnósticos<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|:---|
 | **Ambientes com suporte** | Azure | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
@@ -81,8 +81,8 @@ Use o agente de Log Analytics se você precisar:
 * Colete logs e dados de desempenho de máquinas virtuais ou físicas dentro ou fora do Azure. 
 * Envie dados para um espaço de trabalho Log Analytics para aproveitar os recursos com suporte dos [logs de Azure monitor](data-platform-logs.md) , como [consultas de log](../log-query/log-query-overview.md).
 * Use [Azure monitor para VMs](../insights/vminsights-overview.md) que permite monitorar suas máquinas virtuais em escala e monitora seus processos e dependências em outros recursos e processos externos.  
-* Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-introduction.md)  ou o [Azure Sentinel](../../sentinel/overview.md).
-* Use o [Gerenciamento de atualizações da automação do Azure](../../automation/update-management/update-mgmt-overview.md), a [configuração de estado da automação do azure](../../automation/automation-dsc-overview.md)ou a [controle de alterações de automação do Azure e o inventário](../../automation/change-tracking.md) para fornecer gerenciamento abrangente de suas VMs do Azure
+* Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-intro.md)  ou o [Azure Sentinel](../../sentinel/overview.md).
+* Use o [Gerenciamento de atualizações da automação do Azure](../../automation/update-management/update-mgmt-overview.md), a [configuração de estado da automação do azure](../../automation/automation-dsc-overview.md)ou a [controle de alterações de automação do Azure e o inventário](../../automation/change-tracking/overview.md) para fornecer gerenciamento abrangente de suas VMs do Azure
 * Use [soluções](../monitor-reference.md#insights-and-core-solutions) diferentes para monitorar um determinado serviço ou aplicativo.
 
 As limitações do agente de Log Analytics incluem:
