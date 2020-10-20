@@ -2,15 +2,15 @@
 title: Habilitar o Gerenciamento de Atualizações da Automação do Azure a partir da conta de Automação
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações a partir de uma conta de Automação.
 services: automation
-ms.date: 09/09/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b46bd1e30efff81748389ef62c46410479fb4b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669508"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206621"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Habilitar o Gerenciamento de Atualizações de uma conta de Automação
 
@@ -65,14 +65,14 @@ Máquinas ou máquinas instaladas manualmente que já estão se reportando ao se
 
     ![Pesquisas salvas](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. Para habilitar o Gerenciamento de Atualizações para todos os computadores disponíveis relatando para o espaço de trabalho, selecione **habilitar em todos os computadores disponíveis** na página Gerenciar computadores. Esta ação desabilita o controle para adicionar máquinas individualmente. Essa tarefa adiciona todos os nomes dos computadores que se reportam ao espaço de trabalho para a consulta de pesquisa salva do grupo de computadores `MicrosoftDefaultComputerGroup` . Quando selecionada, esta ação desabilita o botão **Gerenciar Máquinas**.
+3. Para habilitar o Gerenciamento de Atualizações para todos os computadores disponíveis relatando para o espaço de trabalho, selecione **habilitar em todos os computadores disponíveis** na página Gerenciar computadores. Essa ação desabilita o controle para adicionar computadores individualmente e adiciona todos os computadores relatando ao espaço de trabalho para a consulta de pesquisa salva do grupo de computadores `MicrosoftDefaultComputerGroup` . Quando selecionada, essa ação desabilita a opção **gerenciar computadores** .
 
-4. Para ativar o recurso para todos os computadores disponíveis e futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui a pesquisa salva e a configuração de escopo do espaço de trabalho e permite que o recurso inclua todos os computadores Azure e não Azure que estejam no momento ou no futuro, relate ao espaço de trabalho. Quando selecionada, essa ação desabilita o botão **gerenciar computadores** permanentemente, pois não há nenhuma configuração de escopo disponível.
+4. Para ativar o recurso para todos os computadores disponíveis e futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui a pesquisa salva e a configuração de escopo do espaço de trabalho e permite que o recurso inclua todos os computadores Azure e não Azure que estejam no momento ou no futuro, relate ao espaço de trabalho. Quando selecionada, essa ação desabilita a opção **gerenciar computadores** permanentemente, pois não há nenhuma configuração de escopo disponível.
 
     > [!NOTE]
-    > Como essa opção exclui as pesquisas salvas e as configurações de escopo dentro de Log Analytics, é importante remover quaisquer bloqueios de exclusão no espaço de trabalho Log Analytics antes de selecionar essa opção. Se você não fizer isso, a opção falhará ao remover as configurações e você deverá removê-las manualmente.
+    > Como essa opção exclui a pesquisa salva e a configuração de escopo dentro de Log Analytics, é importante remover quaisquer bloqueios de exclusão no espaço de trabalho Log Analytics antes de selecionar essa opção. Se você não fizer isso, a opção falhará ao remover as configurações e você deverá removê-las manualmente.
 
-5. Se necessário, você pode adicionar as configurações de escopo novamente, adicionando novamente a consulta de pesquisa inicial salva. Para obter mais informações, confira [Limitar o escopo de implantação do Gerenciamento de Atualizações](update-mgmt-scope-configuration.md).
+5. Se necessário, você pode adicionar a configuração de escopo novamente, adicionando novamente a consulta de pesquisa inicial salva. Para obter mais informações, confira [Limitar o escopo de implantação do Gerenciamento de Atualizações](update-mgmt-scope-configuration.md).
 
 6. Para habilitar o recurso para um ou mais computadores, selecione **habilitar em computadores selecionados** e selecione **Adicionar** ao lado de cada computador. Essa tarefa adiciona os nomes dos computadores selecionados à consulta de pesquisa salva do grupo de computadores para o recurso.
 

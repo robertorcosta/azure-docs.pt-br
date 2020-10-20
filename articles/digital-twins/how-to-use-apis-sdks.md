@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bfeafdea149cd41ea35562c2ff4b9e67a99b95d0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 6aa8d08dde3cf2dbfb5cb1e819ba9941aea4e387
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058515"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203697"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -95,8 +95,9 @@ Autentique no serviço:
 
 ```csharp
 // Authenticate against the service and create a client
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 ```
 
 Carregar um modelo e modelos de lista:

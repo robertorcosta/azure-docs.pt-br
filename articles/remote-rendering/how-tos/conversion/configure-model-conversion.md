@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575173"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205312"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelo
 
@@ -258,7 +258,7 @@ Conforme discutido na seção [práticas recomendadas para alterações de forma
 ### <a name="texture-sizes"></a>Tamanhos de textura
 
 Dependendo do tipo de cenário, a quantidade de dados de textura pode exceder a memória usada para dados de malha. Os modelos Photogrammetry são candidatos.
-A configuração de conversão não fornece uma maneira de reduzir verticalmente as texturas automaticamente. Se necessário, o dimensionamento de textura deve ser feito como uma etapa de pré-processamento do lado do cliente. No entanto, a etapa de conversão escolhe um [formato de compactação de textura](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)adequado:
+A configuração de conversão não fornece uma maneira de reduzir verticalmente as texturas automaticamente. Se necessário, o dimensionamento de textura deve ser feito como uma etapa de pré-processamento do lado do cliente. No entanto, a etapa de conversão escolhe um [formato de compactação de textura](/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)adequado:
 
 * `BC1` para texturas de cores opacas
 * `BC7` para texturas de cores de origem com canal alfa

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 17e3e8dca1c03f9783c0ca94350bb8a4ba5aca64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 737c7e61a7ae0573ca6de0d6daa8288313f70741
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933112"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201895"
 ---
 # <a name="securing-azure-sql-edge"></a>Protegendo o Azure SQL Edge
 
@@ -86,14 +86,14 @@ A criptografia não resolve problemas de controle de acesso. Porém, aumenta a s
 Semelhante ao Azure SQL e Microsoft SQL Server, o Azure SQL Edge fornece o mesmo mecanismo para criar e usar certificados para aprimorar a segurança do objeto e da conexão. Para obter mais informações, consulte [criar certificado (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql).
 
 
-## <a name="application-security"></a>Segurança do aplicativo
+## <a name="application-security"></a>Segurança de aplicativos
 
 ### <a name="client-programs"></a>Programas clientes
 
 As práticas recomendadas de segurança do Azure SQL Edge incluem a gravação de aplicativos cliente seguros. Para obter mais informações sobre como ajudar a proteger aplicativos cliente na camada de rede, consulte [Configuração de Rede Cliente](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration).
 
-### <a name="sql-server-security-catalog-views-and-functions"></a>SQL Server exibições e funções do catálogo de segurança  
- As informações de segurança são expostas em várias exibições e funções que são otimizadas para desempenho e utilitário. A tabela a seguir contém informações sobre as exibições e funções de segurança.  
+### <a name="security-catalog-views-and-functions"></a>Exibições e funções do catálogo de segurança  
+As informações de segurança são expostas em várias exibições e funções que são otimizadas para desempenho e utilitário. A tabela a seguir contém informações sobre as exibições e funções de segurança no Azure SQL Edge.  
   
 |Funções e exibições|Links|  
 |---------------------------|---------|  

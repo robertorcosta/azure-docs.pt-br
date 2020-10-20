@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264f0e59e2c43ca92fc5209b8613282a0b0fca37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822390"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203765"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure
 
@@ -22,8 +22,9 @@ Conjuntos de dados têm ciclos de vida exclusivos. No início do ciclo de vida, 
 
 A política de gerenciamento do ciclo de vida permite:
 
-- Fazer a transição dos blobs para uma camada de armazenamento mais esporádico (frequente para esporádico, frequente para arquivos ou esporádico para arquivos), a fim de otimizar o desempenho e os custos
-- Excluir os blobs no final dos respectivos ciclos de vida
+- Transição de blobs de fria para quente imediatamente se acessado para otimizar o desempenho 
+- Blobs de transição, versões de BLOB e instantâneos de BLOB para uma camada de armazenamento mais fria (quente para fria, quente para arquivo morto ou fria para arquivo) se não forem acessados ou modificados por um período de tempo para otimizar o custo
+- Excluir BLOBs, versões de BLOB e instantâneos de blob ao final de seus ciclos de vida
 - Definir regras a serem executadas uma vez por dia no nível da conta de armazenamento
 - Aplicar regras a contêineres ou a um subconjunto de BLOBs (usando prefixos de nome ou [marcas de índice de blob](storage-manage-find-blobs.md) como filtros)
 
@@ -33,7 +34,7 @@ Considere um cenário em que os dados recebem acesso frequente durante os estág
 
 ## <a name="availability-and-pricing"></a>Disponibilidade e preços
 
-O recurso gerenciamento de ciclo de vida está disponível em todas as regiões do Azure para contas Uso Geral v2 (GPv2), contas de armazenamento de BLOBs e contas de armazenamento de blob de blocos Premium. No portal do Azure, você pode atualizar uma conta de Uso Geral (GPv1) existente para uma conta do GPv2. Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+O recurso gerenciamento de ciclo de vida está disponível em todas as regiões do Azure para contas Uso Geral v2 (GPv2), contas de armazenamento de BLOBs, contas de armazenamento de blob de blocos Premium e contas de Azure Data Lake Storage Gen2. No portal do Azure, você pode atualizar uma conta de Uso Geral (GPv1) existente para uma conta do GPv2. Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 O recurso de gerenciamento do ciclo de vida é gratuito. Os clientes são cobrados pelo custo de operação regular para as chamadas Set API da [camada de blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) . A operação de exclusão é gratuita. Para obter mais informações sobre preços, confira [Preços do Blob de Blocos](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -243,10 +244,10 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. | True |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. | Verdadeiro |
 | `enabled`      | Boolean | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
-| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle` . | True |
-| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
+| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle` . | Verdadeiro |
+| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | Verdadeiro |
 
 ## <a name="rules"></a>Regras
 
@@ -263,29 +264,41 @@ A regra de exemplo a seguir filtra a conta para executar as ações em objetos q
 - Colocar o blob na camada esporádica 30 dias após a última modificação
 - Colocar o blob na camada de arquivos 90 dias após a última modificação
 - Excluir o blob 2.555 dias (sete anos) após a última modificação
-- Excluir instantâneos de blob 90 dias após a criação do instantâneo
+- Excluir versões anteriores de blob 90 dias após a criação
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -312,24 +325,24 @@ Filtros incluem:
 
 As ações são aplicadas aos BLOBs filtrados quando a condição de execução é atendida.
 
-O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs e exclusão de instantâneos de BLOB. Defina, pelo menos, uma ação para cada regra em blobs ou instantâneos de blob.
+O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs, versões de blob anteriores e instantâneos de BLOB. Defina pelo menos uma ação para cada regra em blobs de base, versões de blob anteriores ou instantâneos de BLOB.
 
-| Ação                      | Blob base                                   | Instantâneo      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | Dá suporte aos blobs atualmente presentes na camada frequente         | Sem suporte |
-| enableAutoTierToHotFromCool | Suporte a BLOBs atualmente na camada fria        | Sem suporte |
-| tierToArchive               | Dá suporte aos blobs atualmente presentes na camada frequente ou esporádica | Sem suporte |
-| excluir                      | Com suporte para `blockBlob` e `appendBlob`  | Com suporte     |
+| Ação                      | Blob base                                  | Instantâneo      | Versão
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | Suporte para `blockBlob`                  | Com suporte     | Com suporte     |
+| enableAutoTierToHotFromCool | Suporte para `blockBlob`                  | Sem suporte | Sem suporte |
+| tierToArchive               | Suporte para `blockBlob`                  | Com suporte     | Com suporte     |
+| excluir                      | Com suporte para `blockBlob` e `appendBlob` | Com suporte     | Com suporte     |
 
 >[!NOTE]
 >Se você definir mais de uma ação no mesmo blob, o gerenciamento do ciclo de vida aplicará a ação mais barata ao blob. Por exemplo, a ação `delete` é mais barata do que a ação `tierToArchive`. A ação `tierToArchive` é mais barata do que a ação `tierToCool`.
 
-As condições de execução se baseiam na idade. Os blobs base usam a hora da última modificação para acompanhar a idade, enquanto os instantâneos de blob usam a hora de criação do instantâneo para executar a mesma tarefa.
+As condições de execução se baseiam na idade. Os blobs de base usam a hora da última modificação, as versões de blob usam a hora de criação da versão e os instantâneos de blob usam o tempo de criação do instantâneo para controlar a idade.
 
 | Condição de execução de ação               | Valor de condição                          | Descrição                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Valor inteiro que indica a idade em dias | A condição para ações de blob de base                                              |
-| daysAfterCreationGreaterThan       | Valor inteiro que indica a idade em dias | A condição para ações de instantâneo de BLOB                                          |
+| daysAfterCreationGreaterThan       | Valor inteiro que indica a idade em dias | A condição para a versão do blob e ações de instantâneo de BLOB                         |
 | daysAfterLastAccessTimeGreaterThan | Valor inteiro que indica a idade em dias | apresentação A condição para ações de blob de base quando a hora do último acesso é habilitada |
 
 ## <a name="examples"></a>Exemplos
@@ -522,26 +535,35 @@ Alguns dados só devem ser expirados se explicitamente marcados para exclusão. 
 }
 ```
 
-### <a name="delete-old-snapshots"></a>Excluir instantâneos antigos
+### <a name="manage-versions"></a>Gerenciar versões
 
-Para dados que são modificados e acessados regularmente durante seu ciclo de vida, instantâneos geralmente são usados para controlar versões mais antigas dos dados. Você pode criar uma política que exclui os instantâneos antigos com base na idade do instantâneo. A idade de instantâneo é determinada avaliando-se a hora de criação do instantâneo. Esta regra de política exclui instantâneos blobs de blocos no contêiner `activedata` com 90 dias ou mais após a criação do instantâneo.
+Para dados que são modificados e acessados regularmente durante todo o seu tempo de vida, você pode habilitar o controle de versão do armazenamento de BLOBs para manter automaticamente as versões anteriores de um objeto. Você pode criar uma política para camada ou excluir versões anteriores. A idade da versão é determinada pela avaliação da hora de criação da versão. Essa política regra camadas versões anteriores no contêiner `activedata` que são 90 dias ou mais antigas após a criação da versão para a camada fria e exclui as versões anteriores que são 365 dias ou mais.
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }

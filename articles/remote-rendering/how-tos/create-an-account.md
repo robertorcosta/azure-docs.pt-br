@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb321aeeae1f0ef5aaadce22e228024895176143
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318085"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202643"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
 
@@ -101,7 +101,7 @@ As outras listas suspensas são selecionadas como na primeira etapa.
 
 Se você tiver adicionado todas as três funções, sua conta do Azure Remote Rendering terá acesso à sua conta de armazenamento usando as identidades de serviço gerenciadas atribuídas pelo sistema.
 > [!IMPORTANT]
-> As atribuições de função do Azure são armazenadas em cache pelo armazenamento do Azure, portanto, pode haver um atraso de até 30 minutos entre quando você concede acesso à sua conta de renderização remota e quando ela pode ser usada para acessar sua conta de armazenamento. Consulte a [documentação controle de acesso de base de função](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) para obter detalhes.
+> As atribuições de função do Azure são armazenadas em cache pelo armazenamento do Azure, portanto, pode haver um atraso de até 30 minutos entre quando você concede acesso à sua conta de renderização remota e quando ela pode ser usada para acessar sua conta de armazenamento. Consulte a [documentação controle de acesso de base de função](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) para obter detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

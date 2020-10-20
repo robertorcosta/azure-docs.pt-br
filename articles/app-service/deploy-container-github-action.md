@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: d6f66993b0fb7f97c551f4fbcb305111cfb2097e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150275"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203187"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no serviço de aplicativo usando as ações do GitHub
 
@@ -84,7 +84,7 @@ No [GitHub](https://github.com/), procure seu repositório, selecione **configur
 
 Cole o conteúdo da saída JSON como o valor da variável secreta. Dê ao segredo o nome como `AZURE_CREDENTIALS` .
 
-Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para a entrada `creds` da ação de logon do Azure. Por exemplo:
+Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para a entrada `creds` da ação de logon do Azure. Por exemplo: 
 
 ```yaml
 - uses: azure/login@v1
@@ -100,7 +100,7 @@ No [GitHub](https://github.com/), procure seu repositório, selecione **configur
 
 Para usar [credenciais de nível de aplicativo](#generate-deployment-credentials), Cole o conteúdo do arquivo de perfil de publicação baixado no campo valor do segredo. Nomeie o segredo `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-Ao configurar o fluxo de trabalho do GitHub, você usa o `AZURE_WEBAPP_PUBLISH_PROFILE` na ação implantar aplicativo Web do Azure. Por exemplo:
+Ao configurar o fluxo de trabalho do GitHub, você usa o `AZURE_WEBAPP_PUBLISH_PROFILE` na ação implantar aplicativo Web do Azure. Por exemplo: 
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -114,7 +114,7 @@ No [GitHub](https://github.com/), procure seu repositório, selecione **configur
 
 Para usar [credenciais de nível de usuário](#generate-deployment-credentials), Cole toda a saída JSON do comando CLI do Azure no campo valor do segredo. Dê ao segredo o nome como `AZURE_CREDENTIALS` .
 
-Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para a entrada `creds` da ação de logon do Azure. Por exemplo:
+Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para a entrada `creds` da ação de logon do Azure. Por exemplo: 
 
 ```yaml
 - uses: azure/login@v1
@@ -190,15 +190,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Implantar em um contêiner do serviço de aplicativo
 
-Para implantar a imagem em um contêiner personalizado no serviço de aplicativo, use a `azure/webapps-deploy@v2` ação. Esta ação tem cinco parâmetros:
+Para implantar a imagem em um contêiner personalizado no serviço de aplicativo, use a `azure/webapps-deploy@v2` ação. Esta ação tem sete parâmetros:
 
 | **Parâmetro**  | **Explicação**  |
 |---------|---------|
 | **app-name** | (Obrigatório) Nome do aplicativo do Serviço de Aplicativo | 
-| **publish-profile** | (Opcional) Publique o conteúdo do arquivo de perfil com os segredos da Implantação da Web |
-| **images** | Nome da (s) imagem (ns) do contêiner totalmente qualificado. Por exemplo, ' myregistry.azurecr.io/nginx:latest ' ou ' Python: 3.7.2-Alpine/'. Para cenários de vários contêineres, vários nomes de imagem de contêiner podem ser fornecidos (separados por várias linhas) |
+| **publish-profile** | Adicional Aplica-se a aplicativos Web (Windows e Linux) e contêineres de aplicativos Web (Linux). Cenário de vários contêineres sem suporte. Publicar conteúdo do arquivo de perfil ( \* . publishsettings) com segredos de implantação da Web | 
 | **slot-name** | (Opcional) Insira um slot existente que não seja o slot de produção |
-| **arquivo de configuração** | Adicional Caminho do arquivo de Docker-Compose |
+| **package** | Adicional Aplica-se somente ao aplicativo Web: caminho para pacote ou pasta. \*. zip, \* . War, \* . jar ou uma pasta a ser implantada |
+| **images** | Necessária Aplica-se somente a contêineres do aplicativo Web: especifique o nome da (s) imagem (ns) do contêiner totalmente qualificado. Por exemplo, ' myregistry.azurecr.io/nginx:latest ' ou ' Python: 3.7.2-Alpine/'. Para um aplicativo de vários contêineres, vários nomes de imagem de contêiner podem ser fornecidos (separados por várias linhas) |
+| **arquivo de configuração** | Adicional Aplica-se somente a contêineres de aplicativo Web: caminho do arquivo de Docker-Compose. Deve ser um caminho totalmente qualificado ou relativo ao diretório de trabalho padrão. Necessário para aplicativos de vários contêineres. |
+| **inicialização-comando** | Adicional Insira o comando de inicialização. Por exemplo, filename.dll de execução de dotnet ou dotnet |
 
 # <a name="publish-profile"></a>[Perfil de publicação](#tab/publish-profile)
 

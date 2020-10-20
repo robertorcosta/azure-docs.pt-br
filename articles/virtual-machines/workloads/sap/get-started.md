@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/05/2020
+ms.date: 10/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4a21300872e98a35ea27835385b4045921f4657
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ea5d291f372485da714104eaa7df19ed3a153423
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969561"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206179"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -82,6 +82,8 @@ Nesta seção, você pode encontrar informações sobre como configurar o SSO co
 
 ## <a name="change-log"></a>Log de alterações
 
+- 10/16/2020: alteração na [ha do IBM DB2 LUW em VMs do Azure no SLES com pacemaker](./dbms-guide-ha-ibm.md), [ha para SAP NW em VMs do Azure no RHEL for SAP Applications](./high-availability-guide-rhel.md), [ha do IBM DB2 LUW em VMs do Azure no RHEL](./high-availability-guide-rhel-ibm-db2-luw.md), [ha para SAP NW em VMs do Azure no RHEL multi-Sid](./high-availability-guide-rhel-multi-sid.md), [ha para SAP NW em VMs do Azure no RHEL com seja](./high-availability-guide-rhel-netapp-files.md), [ha para SAP NW em VMs do Azure no SLES para aplicativos SAP](./high-availability-guide-suse.md), [ha para SAP NNW em VMs do Azure no guia de vários SID do SLES](./high-availability-guide-suse-multi-sid.md), [ha para SAP NW em VMs do Azure no SLES com seja para aplicativos SAP](./high-availability-guide-suse-netapp-files.md), [ha para NFS em VMs do](./high-availability-guide-suse-nfs.md)Azure em SLES, [ha de SAP Hana em VMs do Azure no SLES](./sap-hana-high-availability.md), [ha para SAP Hana escalar verticalmente com seja no RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) , [Ha de SAP Hana em VMs do Azure no RHEL](./sap-hana-high-availability-rhel.md), [SAP Hana escalar horizontalmente HSR com pacemaker em VMs do Azure no RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [Prepare a infraestrutura do Azure para o SAP ASCS/SCS com WSFC e disco compartilhado](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [Guia de alta disponibilidade multisid para SAP ASCS/SCS com WSFC e disco compartilhado do Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) e [Guia de alta disponibilidade de multisid para SAP ASCS/SCS com WSFC e disco compartilhado](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) para adicionar uma instrução que o IP flutuante não tem suporte em cenários  
+- 10/15/2020: lançamento da plataforma de BI SAP BusinessObjects na documentação do Azure, [Guia de planejamento e implementação da plataforma de BI do SAP BusinessObjects no Azure](businessobjects-deployment-guide.md) e [Guia de implantação da plataforma BI do SAP BusinessObjects para Linux no Azure](businessobjects-deployment-guide-linux.md)
 - 10/05/2020: versão de [SAP Hana escalar horizontalmente HSR com pacemaker no guia de configuração de VMs do Azure no RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md)
 - 09/30/2020: alterar a [alta disponibilidade de SAP Hana em VMs do Azure no RHEL](./sap-hana-high-availability-rhel.md), [ha para SAP Hana escalar verticalmente com seja no RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) e [Configurando o pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para adaptar as instruções para RHEL 8,1
 - 09/29/2020: fazendo restrições e recomendações sobre o uso de PPG mais óbvio no artigo [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](./sap-proximity-placement-scenarios.md) 

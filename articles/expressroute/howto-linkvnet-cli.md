@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 41bb72ba4c220a0dd2ebb93f2bd313a15d108faa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9dda384e2ef30808559d10012dea2909b2af0fd
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856272"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206927"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Tutorial: Conectar uma rede virtual a um circuito de ExpressRoute usando a CLI
 
@@ -35,13 +35,13 @@ Neste tutorial, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você precisa da versão mais recente da CLI (interface de linha de comando). Para obter mais informações, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Você precisa da versão mais recente da CLI (interface de linha de comando). Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 * Analise os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Você deve ter um circuito do ExpressRoute ativo. 
   * Siga as instruções para [criar um circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja habilitado pelo provedor de conectividade. 
   * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Veja o artigo [Configurar roteamento](howto-routing-cli.md) para obter instruções sobre roteamento. 
   * Verifique se o emparelhamento particular do Azure está configurado. O emparelhamento via protocolo BGP entre sua rede e a Microsoft precisa estar estabelecido para que você possa habilitar a conectividade de ponta a ponta.
-  * Verifique se tem uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [Configurar um gateway de rede virtual para ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Certifique-se de usar `--gateway-type ExpressRoute`.
+  * Verifique se tem uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [Configurar um gateway de rede virtual para ExpressRoute](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md). Certifique-se de usar `--gateway-type ExpressRoute`.
 * Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute padrão. Todas as redes virtuais deverão estar na mesma região geopolítica ao usar um circuito de ExpressRoute padrão. 
 * Uma única rede virtual pode ser vinculada a até quatro circuitos de ExpressRoute. Use o processo a seguir para criar um objeto de conexão para cada circuito do ExpressRoute ao qual você está se conectando. Os circuitos de ExpressRoute podem estar na mesma assinatura, assinaturas diferentes ou uma mistura de ambos.
 * Se habilitar o complemento premium do ExpressRoute, você poderá vincular redes virtuais fora da região geopolítica do circuito do ExpressRoute. O complemento premium também permitirá que você conecte mais de 10 redes virtuais ao circuito do ExpressRoute, dependendo da largura de banda escolhida. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.

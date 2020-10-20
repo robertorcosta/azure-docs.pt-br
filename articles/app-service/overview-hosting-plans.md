@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742965"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200841"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
@@ -37,7 +37,7 @@ Cada tipo também fornece um subconjunto específico de recursos do serviço de 
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> O novo tipo de preço **PremiumV3** garante [VMs da série Dv3](../virtual-machines/dv3-dsv3-series.md) com processadores mais rápidos, armazenamento SSD e taxa quádrupla de memória para núcleo em comparação com a camada **Standard** . O **PremiumV3** também dá suporte à escala maior por meio de maior contagem de instâncias e ainda fornece todos os recursos avançados encontrados na camada **Standard** . Todos os recursos disponíveis na camada **PremiumV2** existente estão incluídos no **PremiumV3**.
+> O novo tipo de preço **PremiumV3** garante que computadores com processadores mais rápidos ( [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) mínimo de 195 por CPU virtual), armazenamento de SSD e proporção de memória para núcleo quádruplo em comparação com a camada **Standard** . O **PremiumV3** também dá suporte à escala maior por meio de maior contagem de instâncias e ainda fornece todos os recursos avançados encontrados na camada **Standard** . Todos os recursos disponíveis na camada **PremiumV2** existente estão incluídos no **PremiumV3**.
 >
 > Semelhante a outros tipos de preço dedicados, três tamanhos de VM estão disponíveis para esse tipo de preço:
 >

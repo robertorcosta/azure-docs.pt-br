@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d33af7a9c2d48ded84bd675364469dab09a79d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711138"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207114"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de computação do Azure Machine Learning
 
@@ -51,6 +51,8 @@ Os clusters de computação podem executar trabalhos com segurança em um [ambie
 * Alguns dos cenários listados neste documento são marcados como __Visualização__. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * A Computação do Machine Learning do Azure tem limites padrão como o número de núcleos que podem ser alocados. Para obter mais informações, consulte [Gerenciar e solicitar cotas para recursos do Azure](how-to-manage-quotas.md).
+
+* O Azure permite que você coloque _bloqueios_ em recursos, para que eles não possam ser excluídos ou sejam somente leitura. __Não aplique bloqueios de recurso ao grupo de recursos que contém seu espaço de trabalho__. Aplicar um bloqueio ao grupo de recursos que contém o espaço de trabalho impedirá operações de dimensionamento para clusters de computação do Azure ML. Para obter mais informações sobre como bloquear recursos, consulte [Bloquear recursos para evitar alterações inesperadas](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
 > Os clusters geralmente podem ser escalados verticalmente para até 100 nós, desde que você tenha cota suficiente para o número de núcleos necessários. Por padrão, os clusters são configurados com a comunicação entre nós habilitada entre os nós do cluster para dar suporte a trabalhos de MPI, por exemplo. No entanto, você pode dimensionar seus clusters para milhares de nós simplesmente [gerando um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)e solicitando que o liste sua assinatura, ou espaço de trabalho, ou um cluster específico para desabilitar a comunicação entre nós. 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b812a727a555f8c4c95389f2ba0cc5ccea2f608a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766676"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205550"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorar rotas anunciadas
 
@@ -42,7 +42,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 * Você está familiarizado com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md).
 
-* Você está familiarizado com o uso de Azure PowerShell. Azure PowerShell é necessário para coletar os prefixos de rede no gateway do ExpressRoute. Para obter mais informações sobre Azure PowerShell em geral, consulte a [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0).
+* Você está familiarizado com o uso de Azure PowerShell. Azure PowerShell é necessário para coletar os prefixos de rede no gateway do ExpressRoute. Para obter mais informações sobre Azure PowerShell em geral, consulte a [documentação do Azure PowerShell](/powershell/azure/?view=azps-4.1.0).
 
 ### <a name="notes-and-limitations"></a><a name="limitations"></a>Notas e limitações
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 Quando você executa o script do PowerShell, uma lista de valores é coletada:
  
-* Resource group
+* Grupo de recursos
 
 * Nome do gateway de ExpressRoute
 
@@ -257,7 +257,7 @@ Quando você executa o script do PowerShell, uma lista de valores é coletada:
 
 * Mensagem de alerta, para obter uma descrição detalhada do status (OK, alerta, aviso)
 
-O script do PowerShell converte as informações coletadas em uma saída JSON. O runbook usa o cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  do PowerShell como fluxo de saída para comunicar informações ao cliente.
+O script do PowerShell converte as informações coletadas em uma saída JSON. O runbook usa o cmdlet [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  do PowerShell como fluxo de saída para comunicar informações ao cliente.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. validar o runbook
 

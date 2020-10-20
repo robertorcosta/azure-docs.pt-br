@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 14edc97115735f8b6763171a07b5f739fc745e9f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5d0956634289713f691feb1a9182233e6795e319
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151247"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201726"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -29,7 +29,7 @@ Eles também podem ser gerenciados por meio do [portal do Azure](https://portal.
 * Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Resource group
+    - Grupo de recursos
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -180,7 +180,7 @@ Uma rota deve permitir que várias notificações e tipos de eventos sejam selec
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
+er.Filter = "true"; //Filter allows all messages
 await client.CreateEventRoute("routeName", er);
 ```
 
@@ -202,7 +202,7 @@ try
     Pageable <EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointId} with filter {r.Filter} ");
+        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
     foreach (EventRoute r in result)
@@ -227,7 +227,7 @@ Sem a filtragem, os pontos de extremidade recebem uma variedade de eventos do Az
 
 Você pode restringir os eventos que estão sendo enviados adicionando um **filtro** para um ponto de extremidade à sua rota de eventos.
 
-Para adicionar um filtro, você pode usar uma solicitação PUT para *https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-05 -31-Preview* com o seguinte corpo:
+Para adicionar um filtro, você pode usar uma solicitação PUT para *https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-10-31* com o seguinte corpo:
 
 ```json  
 {

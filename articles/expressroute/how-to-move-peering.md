@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: duau
-ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401411"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206281"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um emparelhamento público para o emparelhamento da Microsoft
 
@@ -31,7 +31,7 @@ Para se conectar ao emparelhamento da Microsoft, você precisa configurar e gere
 > [!Warning]
 > O pool de IPs de NAT anunciado à Microsoft não deve ser anunciado na Internet. Isso interromperá a conectividade com outros serviços da Microsoft.
 
-Consulte [Roteamento Assimétrico com vários caminhos de rede](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) para obter as advertências de roteamento assimétrico antes de configurar o emparelhamento da Microsoft.
+Consulte [Roteamento Assimétrico com vários caminhos de rede](./expressroute-asymmetric-routing.md) para obter as advertências de roteamento assimétrico antes de configurar o emparelhamento da Microsoft.
 
 * Se você estiver usando o emparelhamento público e tiver regras de rede IP para endereços IP públicos que são usados para acessar o [armazenamento do Azure](../storage/common/storage-network-security.md) ou o [banco de dados SQL do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md), você precisará certificar-se de que o pool de IP de NAT configurado com o emparelhamento da Microsoft esteja incluído na lista de endereços IP públicos para a conta de armazenamento do Azure ou conta SQL do Azure.<br>
 * Para fazer uma movimentação para o emparelhamento da Microsoft sem tempo de inatividade, use as etapas deste artigo na ordem em que são apresentadas.

@@ -3,12 +3,12 @@ title: Linha de base de segurança do Azure para Azure DevTest Labs
 description: Linha de base de segurança do Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151880"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207284"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de base de segurança do Azure para Azure DevTest Labs
 
@@ -493,7 +493,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 **Diretrizes:** A automação do Azure fornece controle total durante a implantação, operações e encerramento de cargas de trabalho e recursos. Como administrador de assinatura, você pode usar Controle de Alterações para identificar todos os softwares instalados em VMs hospedadas no DevTest Labs. Você pode implementar seu próprio processo ou usar a configuração de estado da automação do Azure para remover software não autorizado.
 
 - [Uma introdução à Automação do Azure](../automation/automation-intro.md)
-- [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/change-tracking.md)
+- [Controlar alterações no ambiente com a solução Controle de Alterações](../automation/change-tracking/overview.md)
 - [Visão geral da configuração do estado de automação do Azure](../automation/automation-dsc-overview.md)
 
 **Monitoramento da central de segurança do Azure:** Não disponível

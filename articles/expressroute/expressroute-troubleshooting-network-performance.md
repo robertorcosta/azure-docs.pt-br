@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a021d658711e77c3e3be0df722223cefe506abba
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566068"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204581"
 ---
 # <a name="troubleshooting-network-performance"></a>Solução de problemas de desempenho de rede
 ## <a name="overview"></a>Visão geral
@@ -160,7 +160,7 @@ Configuração do teste:
  - Um circuito Premium do ExpressRoute de 10 Gbps no local identificado, com o Emparelhamento privado habilitado.
  - Uma Rede Virtual do Azure com um gateway UltraPerformance na região especificada.
  - Uma VM DS5v2 executando o Windows Server 2016 na Rede Virtual. A VM era não ingressada no domínio, criada com base na imagem padrão do Azure (sem otimização ou personalização), com o AzureCT instalado.
- - Todos os testes usaram o comando Get-LinkPerformance do AzureCT com um teste de carga de 5 minutos para cada uma das seis execuções de teste. Por exemplo:
+ - Todos os testes usaram o comando Get-LinkPerformance do AzureCT com um teste de carga de 5 minutos para cada uma das seis execuções de teste. Por exemplo: 
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -177,7 +177,7 @@ Configuração do teste:
 >
 >
 
-| ExpressRoute<br/>Localização|Azure<br/>Região | Estimada (km)<br/>Distância | Latency|Sessão 1<br/>Largura de banda | Máximo<br/>Largura de banda |
+| ExpressRoute<br/>Localização|Azure<br/>Região | Estimada (km)<br/>Distância | Latência|Sessão 1<br/>Largura de banda | Máximo<br/>Largura de banda |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | Oeste dos EUA 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | Oeste dos EUA          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
@@ -209,6 +209,6 @@ Configuração do teste:
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
-[Network Docs]: https://docs.microsoft.com/azure/index
+[Network Docs]: ../index.yml
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT

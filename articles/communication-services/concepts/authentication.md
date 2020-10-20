@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933302"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202949"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticar nos serviços de comunicação do Azure
 
@@ -33,7 +33,7 @@ A tabela a seguir descreve quais opções de autenticação têm suporte nas bib
 
 Cada opção de autorização é descrita brevemente abaixo:
 
-- Autenticação de **chave de acesso** para operações de administração e SMS. A autenticação de chave de acesso é adequada para aplicativos em execução em um ambiente de serviço confiável. Para autenticar com uma chave de acesso, um cliente gera um [HMAC (código de autenticação de método) baseado em hash](https://en.wikipedia.org/wiki/HMAC) e o inclui dentro do `Authorization` cabeçalho de cada solicitação HTTP. Para obter mais informações, consulte [autenticar com uma chave de acesso](#authenticate-with-an-access-key).
+- Autenticação de **chave de acesso** para operações de administração e SMS. A autenticação de chave de acesso é adequada para aplicativos em execução em um ambiente de serviço confiável. Para autenticar com uma chave de acesso, um cliente gera um [código de autenticação de mensagem baseado em hash (HMAC)](https://en.wikipedia.org/wiki/HMAC) e o inclui dentro do `Authorization` cabeçalho de cada solicitação HTTP. Para obter mais informações, consulte [autenticar com uma chave de acesso](#authenticate-with-an-access-key).
 - Autenticação de **token de acesso do usuário** para chat e chamada. Os tokens de acesso do usuário permitem que os aplicativos cliente sejam autenticados diretamente nos serviços de comunicação do Azure. Esses tokens são gerados em um serviço de provisionamento de token no servidor que você cria. Em seguida, eles são fornecidos aos dispositivos cliente que usam o token para inicializar o chat e chamar as bibliotecas de cliente. Para obter mais informações, consulte [autenticar com um token de acesso do usuário](#authenticate-with-a-user-access-token).
 
 ## <a name="authenticate-with-an-access-key"></a>Autenticar com uma chave de acesso

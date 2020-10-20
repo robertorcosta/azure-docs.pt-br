@@ -3,12 +3,12 @@ title: Obter alterações de recurso
 description: Entenda como localizar quando um recurso foi alterado, obter uma lista das propriedades que foram alteradas e avaliar as diferenças.
 ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057562"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203459"
 ---
 # <a name="get-resource-changes"></a>Obter alterações de recurso
 
@@ -28,7 +28,7 @@ A detecção de alterações e os detalhes são importantes para os seguintes ce
 Este artigo mostra como reunir essas informações por meio do SDK do Resource Graph. Para ver essas informações na portal do Azure, consulte [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history) de Azure Policy ou o [histórico de alterações](../../../azure-monitor/platform/activity-log.md#view-the-activity-log) do log de atividades do Azure. Para obter detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [Usar a Análise de Alterações de Aplicativo (versão prévia)](../../../azure-monitor/app/change-analysis.md) no Azure Monitor.
 
 > [!NOTE]
-> Os detalhes de alteração no Resource Graph para as propriedades do Resource Manager. Para controlar as alterações dentro de uma máquina virtual, consulte [Controlar alterações](../../../automation/change-tracking.md) da Automação do Azure ou [Configuração de convidado para VMs](../../policy/concepts/guest-configuration.md) de Azure Policy.
+> Os detalhes de alteração no Resource Graph para as propriedades do Resource Manager. Para controlar as alterações dentro de uma máquina virtual, consulte [Controlar alterações](../../../automation/change-tracking/overview.md) da Automação do Azure ou [Configuração de convidado para VMs](../../policy/concepts/guest-configuration.md) de Azure Policy.
 
 > [!IMPORTANT]
 > O histórico de alterações no Azure Resource Graph está em visualização pública.

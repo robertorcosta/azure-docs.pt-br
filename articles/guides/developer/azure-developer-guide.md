@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17474b4f38ccc6f43e664042b1218a8c253718e5
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120568"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203408"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -64,7 +64,7 @@ O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a 
 
 > **Quando usar**: Use o serviço de aplicativo quando estiver migrando aplicativos Web existentes para o Azure e quando precisar de uma plataforma de hospedagem totalmente gerenciada para seus aplicativos Web. Al´me disso, é possível utilizar o Serviço de Aplicativo quando precisar dar suporte a clientes móveis ou expor APIs REST com seu aplicativo.
 >
-> **Introdução**: O Serviço de Aplicativo facilita a criação e implantação de seu primeiro [aplicativo Web](../../app-service/quickstart-dotnetcore.md), [aplicativo móvel](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [aplicativo de API](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Introdução**: O Serviço de Aplicativo facilita a criação e implantação de seu primeiro [aplicativo Web](../../app-service/quickstart-dotnetcore.md), [aplicativo móvel](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started) ou [aplicativo de API](../../app-service/app-service-web-tutorial-rest-api.md).
 >
 > **Experimente agora**: o Serviço de Aplicativo permite que você forneça um aplicativo de curta duração para experimentar a plataforma sem precisar inscrever-se em uma conta do Azure. Experimente a plataforma e [crie seu aplicativo do Serviço de Aplicativo do Azure](https://tryappservice.azure.com/).
 
@@ -72,7 +72,7 @@ O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a 
 
 Como um provedor da IaaS (Infraestrutura como Serviço), o Azure permite implantar ou migrar seu aplicativo para VMs Linux ou Windows. Juntamente com a Rede Virtual do Azure, as Máquinas Virtuais do Azure dão suporte para a implantação de VMs Linux ou Windows para o Azure. Com VMs, você tem total controle sobre a configuração da máquina. Ao utilizar VMs, você será responsável por toda a instalação de software para servidores, configuração, manutenção e patches do sistema operacional.
 
-Devido ao nível de controle que você possui com VMs, será possível executar uma ampla gama de cargas de trabalho do servidor no Azure que não se ajustam em um modelo de PaaS. Essas cargas de trabalho incluem servidores de banco de dados, Windows Server Active Directory e Microsoft SharePoint. Para obter mais informações, consulte a documentação sobre Máquinas Virtuais para [Linux](/azure/virtual-machines/linux/) ou [Windows](/azure/virtual-machines/windows/).
+Devido ao nível de controle que você possui com VMs, será possível executar uma ampla gama de cargas de trabalho do servidor no Azure que não se ajustam em um modelo de PaaS. Essas cargas de trabalho incluem servidores de banco de dados, Windows Server Active Directory e Microsoft SharePoint. Para obter mais informações, consulte a documentação sobre Máquinas Virtuais para [Linux](../../virtual-machines/linux/index.yml) ou [Windows](../../virtual-machines/windows/index.yml).
 
 > **Quando utilizar**: utilize Máquinas Virtuais quando quiser ter um controle total sobre a infraestrutura do aplicativo ou migrar cargas de trabalho do aplicativo local para o Azure sem precisar fazer alterações.
 >
@@ -100,11 +100,11 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos. Essa platafo
 
 Os aplicativos executados em um pool compartilhado de máquinas podem começar pequenos e escalar para centenas ou milhares de máquinas, conforme necessário.
 
-O Service Fabric dá suporte para WebAPI com Open Web Interface para .NET (OWIN) e ASP.NET Core. Ele fornece SDKs para a construção de serviços no Linux em tanto em .NET Core como Java. Para saber mais sobre o Service Fabric, consulte a documentação do [Service Fabric](https://docs.microsoft.com/azure/service-fabric/).
+O Service Fabric dá suporte para WebAPI com Open Web Interface para .NET (OWIN) e ASP.NET Core. Ele fornece SDKs para a construção de serviços no Linux em tanto em .NET Core como Java. Para saber mais sobre o Service Fabric, consulte a documentação do [Service Fabric](../../service-fabric/index.yml).
 
 > **Quando utilizar:** o Service Fabric é uma boa escolha quando você está criando um aplicativo ou reescrevendo um aplicativo existente para utilizar uma arquitetura de microsserviço. Utilize o Service Fabric quando precisar de mais controle ou acesso direto à infraestrutura subjacente.
 >
-> **Introdução:** [Criar seu primeiro aplicativo Azure Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+> **Introdução:** [Criar seu primeiro aplicativo Azure Service Fabric](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Aprimore seus aplicativos com os serviços do Azure
 
@@ -124,13 +124,13 @@ A maioria dos aplicativos deve armazenar dados, portanto, você decide hospedar 
 
   > **Quando utilizar**: quando seu aplicativo armazena dados não relacionais, como pares chave-valor (tabelas), blobs, compartilhamentos de arquivos ou mensagens (filas).
   >
-  > **Introdução**: escolha um desses tipos de armazenamento: [BLOBs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabelas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [filas](../../storage/queues/storage-dotnet-how-to-use-queues.md)ou [arquivos](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Introdução**: escolha um desses tipos de armazenamento: [BLOBs](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tabelas](../../cosmos-db/tutorial-develop-table-dotnet.md), [filas](../../storage/queues/storage-dotnet-how-to-use-queues.md)ou [arquivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 - **Banco de Dados SQL do Azure**: uma versão baseada no Azure do mecanismo do Microsoft SQL Server para armazenar dados tabulares relacionais na nuvem. O Banco de Dados SQL fornece desempenho previsível, escalabilidade sem tempo de inatividade, continuidade dos negócios e proteção de dados.
 
   > **Quando utilizar**: quando seu aplicativo requer armazenamento de dados com integridade referencial, suporte transacional e suporte para consultas TSQL.
   >
-  > **Introdução**: [crie um banco de dados no banco de dados SQL do Azure em minutos usando o portal do Azure](../../sql-database/sql-database-get-started.md).
+  > **Introdução**: [crie um banco de dados no banco de dados SQL do Azure em minutos usando o portal do Azure](../../azure-sql/database/single-database-create-quickstart.md).
 
 
 É possível utilizar o [Azure Data Factory](../../data-factory/introduction.md) para mover dados locais existentes para o Azure. Se você não estiver pronto para mover dados para a nuvem, [conexões híbridas](../../app-service/app-service-hybrid-connections.md) no serviço Azure App permite que você conecte seu aplicativo hospedado do serviço de aplicativo a recursos locais. Além disso, é possível conectar-se aos dados do Azure e aos serviços de armazenamento a partir de seus aplicativos locais.
@@ -156,7 +156,7 @@ O Azure fornece várias maneiras de utilizar contêineres em seus aplicativos.
 
   > **Quando utilizar**: ao implantar um aplicativo Web no Linux para uma imagem de Docker.
   >
-  > **Introdução**: [Utilizar uma imagem de Docker personalizada para Serviço de Aplicativo no Linux](../../app-service/containers/quickstart-docker-go.md).
+  > **Introdução**: [Utilizar uma imagem de Docker personalizada para Serviço de Aplicativo no Linux](../../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux).
 
 ### <a name="authentication"></a>Autenticação
 
@@ -186,7 +186,7 @@ Com seu aplicativo em funcionamento no Azure, você precisa monitorar o desempen
 
 -   **Azure monitor**: um serviço que ajuda você a Visualizar, consultar, rotear, arquivar e agir sobre as métricas e os logs que você gera com a infraestrutura e os recursos do Azure. O monitor é uma fonte única para monitorar recursos do Azure e fornece as exibições de dados que você vê no portal do Azure.
 
-    >**Introdução**: [Introdução ao Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
+    >**Introdução**: [Introdução ao Azure Monitor](../../azure-monitor/overview.md).
 
 ### <a name="devops-integration"></a>Integração de DevOps
 
@@ -217,7 +217,7 @@ Um dos benefícios de utilizar o Azure é que você pode implantar seus aplicati
 
 Embora seja improvável, não é impossível que todo um datacenter fique offline devido a um evento como um desastre natural ou uma falha na Internet. Uma melhor prática é hospedar aplicativos de negócios vitais em mais de um datacenter para fornecer a máxima disponibilidade. Utilizar várias regiões também pode reduzir a latência para usuários globais e oferecer oportunidades adicionais de flexibilidade ao atualizar aplicativos.
 
-Alguns serviços, como Máquina Virtual e Serviços de Aplicativos utilizam o [Gerenciador de Tráfego do Azure](../../traffic-manager/traffic-manager-overview.md) para habilitar o suporte de várias regiões com failover entre regiões para suportar aplicativos empresariais de alta disponibilidade. Por exemplo, consulte [Arquitetura de referência do Azure: executar um aplicativo Web em várias regiões](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+Alguns serviços, como Máquina Virtual e Serviços de Aplicativos utilizam o [Gerenciador de Tráfego do Azure](../../traffic-manager/traffic-manager-overview.md) para habilitar o suporte de várias regiões com failover entre regiões para suportar aplicativos empresariais de alta disponibilidade. Por exemplo, consulte [Arquitetura de referência do Azure: executar um aplicativo Web em várias regiões](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**Quando utilizar**: quando você tiver aplicativos empresariais de alta disponibilidade que beneficiam-se de failover e replicação.
 
@@ -229,9 +229,9 @@ O Azure fornece um avançado conjunto de experiências para você criar e gerenc
 
 O Azure fornece duas maneiras de gerenciar seus aplicativos e serviços na linha de comando. Você pode usar ferramentas como bash, terminal, prompt de comando ou sua ferramenta de linha de comando de sua escolha. Normalmente, você pode fazer as mesmas tarefas na linha de comando como no portal do Azure — como criar e configurar máquinas virtuais, redes virtuais, aplicativos Web e outros serviços.
 
--   [CLI do Azure](../../xplat-cli-install.md): permite conectar-se a uma assinatura do Azure e programar várias tarefas em relação aos recursos do Azure a partir da linha de comando.
+-   [CLI do Azure](/cli/azure/install-azure-cli): permite conectar-se a uma assinatura do Azure e programar várias tarefas em relação aos recursos do Azure a partir da linha de comando.
 
--   [Azure PowerShell](../../powershell-install-configure.md): fornece um conjunto de módulos com cmdlets que permitem gerenciar recursos do Azure utilizando o Windows PowerShell.
+-   [Azure PowerShell](/powershell/azure/): fornece um conjunto de módulos com cmdlets que permitem gerenciar recursos do Azure utilizando o Windows PowerShell.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -239,25 +239,25 @@ O [portal do Azure](https://portal.azure.com) é um aplicativo baseado na Web. V
 
 * Um painel configurável
 * Ferramentas de gerenciamento de recursos do Azure
-* Acesso a configurações de assinatura e informações de cobrança. Para obter mais informações, consulte a [Visão geral do portal do Azure](../../azure-portal-overview.md).
+* Acesso a configurações de assinatura e informações de cobrança. Para obter mais informações, consulte a [Visão geral do portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
 ### <a name="rest-apis"></a>APIs REST
 
-O Azure é desenvolvido em um conjunto de APIs REST que suportam a interface do usuário do Portal do Azure. A maioria dessas APIs REST também é suportada para permitir que você programa e gerencie seus recursos e aplicativos do Azure a partir de qualquer dispositivo habilitado para Internet. Para o conjunto completo da documentação de API REST, consulte a [Referência de SDK do REST do Azure](https://docs.microsoft.com/rest/api/).
+O Azure é desenvolvido em um conjunto de APIs REST que suportam a interface do usuário do Portal do Azure. A maioria dessas APIs REST também é suportada para permitir que você programa e gerencie seus recursos e aplicativos do Azure a partir de qualquer dispositivo habilitado para Internet. Para o conjunto completo da documentação de API REST, consulte a [Referência de SDK do REST do Azure](/rest/api/).
 
 ### <a name="apis"></a>APIs
 
 Juntamente com as APIs REST, muitos serviços do Azure também permitem que você gerencie programaticamente recursos de seus aplicativos usando SDKs do Azure específicos da plataforma, incluindo SDKs para as seguintes plataformas de desenvolvimento:
 
--   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/azure/developer/javascript/)
--   [Java](https://docs.microsoft.com/java/azure)
+-   [.NET](/dotnet/api/)
+-   [Node.js](/azure/developer/javascript/)
+-   [Java](/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](https://docs.microsoft.com/azure/go)
+-   [Go](/azure/go)
 
-Serviços como [Aplicativos Móveis](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [Serviços de Mídia do Azure](../../media-services/previous/media-services-dotnet-how-to-use.md) fornecem SDKs do lado do cliente para permitir que você acesse serviços dos aplicativos Web e clientes móveis.
+Serviços como [Aplicativos Móveis](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library) e [Serviços de Mídia do Azure](../../media-services/previous/media-services-dotnet-how-to-use.md) fornecem SDKs do lado do cliente para permitir que você acesse serviços dos aplicativos Web e clientes móveis.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -269,7 +269,7 @@ Essas implantações são desenvolvidas utilizando um modelo do Azure Resource M
 
 > **Quando utilizar**: utilize modelos do Resource Manager quando quiser uma implantação baseada em modelo para seu aplicativo, de modo que você possa gerenciar programaticamente utilizando APIs REST, a CLI do Azure e o Azure PowerShell.
 >
-> **Introdução**: Para a introdução ao modelo, consulte [Criando modelos do Azure Resource Manager](../../resource-group-authoring-templates.md).
+> **Introdução**: Para a introdução ao modelo, consulte [Criando modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Compreendendo contas, assinaturas e cobrança
 
@@ -291,7 +291,7 @@ Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma
 
 Ao fornecer novos serviços do Azure, isso é feito em uma determinada assinatura. Os serviços do Azure individuais, que também são chamados de recursos, são criados no contexto de um grupo de recursos. Os grupos de recursos facilitam a implantação e o gerenciamento dos recursos de seu aplicativo. Um grupo de recursos deve conter todos os recursos para o aplicativo que você quer trabalhar como uma unidade. É possível mover recursos entre grupos de recursos e até diferentes assinaturas. Para saber mais sobre como mover recursos, consulte [Mover recursos para o novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-O Azure Resource Explorer é uma ótima ferramenta para visualizar os recursos já criados em sua assinatura. Para saber mais, consulte [Utilizar o Azure Resource Explorer para visualizar e modificar recursos](../../resource-manager-resource-explorer.md).
+O Azure Resource Explorer é uma ótima ferramenta para visualizar os recursos já criados em sua assinatura. Para saber mais, consulte [Utilizar o Azure Resource Explorer para visualizar e modificar recursos](/rest/api/).
 
 #### <a name="grant-access-to-resources"></a>Conceder acesso aos recursos
 
@@ -315,9 +315,9 @@ O Azure Resource Manager permite atribuir marcas personalizadas para recursos in
 * No modelo de Azure Resource Manager
 * Usando a API REST
 * Usando a CLI do Azure
-* Usando o PowerShell
+* Usar o PowerShell
 
-Além disso, é possível atribuir várias marcas para cada recurso. Para saber mais, consulte [Usando marcas para organizar os recursos do Azure](../../resource-group-using-tags.md).
+Além disso, é possível atribuir várias marcas para cada recurso. Para saber mais, consulte [Usando marcas para organizar os recursos do Azure](../../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="billing"></a>Cobrança
 

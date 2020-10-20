@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ecd4330381db1f63a40e9ba5ff63108c6fa78fe
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187227"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205601"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Solucionar problemas do Controle de Alterações e do Inventário
 
-Este artigo descreve como solucionar problemas e resolver dúvidas de Controle de Alterações e Inventário de Automação do Azure. Para obter informações gerais sobre Controle de Alterações e Inventário, confira [Visão Geral de Controle de Alterações e Inventário](../change-tracking.md).
+Este artigo descreve como solucionar problemas e resolver dúvidas de Controle de Alterações e Inventário de Automação do Azure. Para obter informações gerais sobre Controle de Alterações e Inventário, confira [Visão Geral de Controle de Alterações e Inventário](../change-tracking/overview.md).
 
 ## <a name="windows"></a>Windows
 
@@ -108,11 +108,11 @@ Para obter mais soluções para esse problema, confira [Problema: Você não vê
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>O agente do Log Analytics para Linux não foi configurado corretamente
 
-O agente do Log Analytics para Linux pode não estar configurado corretamente para a coleção de saída de linha de comando e de log, usando a ferramenta do Coletor de logs do OMS. Confira [Visão Geral do Controle de Alterações e Inventário](../change-tracking.md).
+O agente do Log Analytics para Linux pode não estar configurado corretamente para a coleção de saída de linha de comando e de log, usando a ferramenta do Coletor de logs do OMS. Confira [Visão Geral do Controle de Alterações e Inventário](../change-tracking/overview.md).
 
 ##### <a name="fim-conflicts"></a>Conflitos do FIM
 
-O recurso FIM da Central de Segurança do Azure pode estar validando incorretamente a integridade dos arquivos Linux. Verifique se o FIM está funcionando e se foi configurado corretamente para o monitoramento de arquivos Linux. Confira [Visão Geral do Controle de Alterações e Inventário](../change-tracking.md).
+O recurso FIM da Central de Segurança do Azure pode estar validando incorretamente a integridade dos arquivos Linux. Verifique se o FIM está funcionando e se foi configurado corretamente para o monitoramento de arquivos Linux. Confira [Visão Geral do Controle de Alterações e Inventário](../change-tracking/overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

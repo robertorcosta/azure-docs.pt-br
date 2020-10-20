@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106307"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204666"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -138,7 +138,7 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 * Você usa o roteamento definido pelo usuário para permitir a conectividade da Internet para cada sub-rede que requer conectividade com a Internet.
 
 > [!NOTE]
-> Anunciar rotas padrão irá interromper o Windows e outra ativação de licença da VM. Siga as instruções [aqui](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) para solucionar esse problema.
+> Anunciar rotas padrão irá interromper o Windows e outra ativação de licença da VM. Siga as instruções [aqui](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) para solucionar esse problema.
 > 
 > 
 

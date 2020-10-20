@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072281"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201674"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de Key Vault para Windows
 
@@ -97,8 +97,8 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | certificateStoreLocation  | LocalMachine ou CurrentUser (diferencia maiúsculas de minúsculas) | string |
 | requiredInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
-| msiEndpoint | http://169.254.169.254/metadata/identity | cadeia de caracteres |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | cadeia de caracteres |
+| msiEndpoint | http://169.254.169.254/metadata/identity | string |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
@@ -222,6 +222,11 @@ Por favor esteja ciente das seguintes restrições/exigências:
 ### <a name="troubleshoot"></a>Solucionar problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o Azure PowerShell.
+
+### <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+* Há um limite no número de observedCertificates que você pode configurar?
+  Não, Key Vault extensão de VM não tem limite no número de observedCertificates.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell

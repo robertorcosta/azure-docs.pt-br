@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097517"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207539"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
@@ -40,16 +40,15 @@ Você também precisará concluir os seguintes itens como parte da configuraçã
 
 Para conectar uma instância do gêmeos digital do Azure a aplicativos lógicos neste artigo, você precisará ter a **instância do gêmeos digital do Azure** já configurada. 
 
-Primeiro, configure uma instância de Gêmeos Digitais do Azure e a autenticação necessária para poder trabalhar com ela. Para fazer isso, siga as instruções em [*Como configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de instalação é oferecido para o [portal do Azure](how-to-set-up-instance-portal.md), a [CLI](how-to-set-up-instance-cli.md) ou o [exemplo de script de implantação do Cloud Shell automatizada](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm etapas para confirmar se você concluiu cada etapa com êxito e está pronto para passar a usar sua nova instância.
+Primeiro, **Configure uma instância de gêmeos digital do Azure** e a autenticação necessária para poder trabalhar com ela. Para fazer isso, siga as instruções em [*Como configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de instalação é oferecido para o [portal do Azure](how-to-set-up-instance-portal.md), a [CLI](how-to-set-up-instance-cli.md) ou o [exemplo de script de implantação do Cloud Shell automatizada](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm etapas para confirmar se você concluiu cada etapa com êxito e está pronto para passar a usar sua nova instância.
+* Depois de configurar sua instância do gêmeos digital do Azure, você precisará do **_nome do host_** da instância ([localize na portal do Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-Neste tutorial, você precisará de vários valores de quando configurar sua instância do. Se você precisar reunir esses valores novamente, use os links abaixo para as seções correspondentes no artigo de instalação para localizá-los no [portal do Azure](https://portal.azure.com).
-* A instância de Gêmeos Digitais do Azure **_nome do host_** ([localizar no portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Registro de aplicativo do Azure AD **_ID do aplicativo (cliente)_** ([localizar no portal](how-to-set-up-instance-portal.md#collect-important-values))
-* O registro de aplicativo do Azure AD **_ID do diretório (locatário)_** ([localizar no portal](how-to-set-up-instance-portal.md#collect-important-values))
+Para autenticar o aplicativo ADT Explorer, você também precisará configurar um **registro de aplicativo**. Siga as instruções em [*como criar um registro de aplicativo*](how-to-create-app-registration.md) para configurá-lo. 
+* Depois de ter um registro de aplicativo, você precisará da **_ID do aplicativo (cliente)_** do registro e da **_ID do diretório (locatário)_** ([localize no portal do Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Obter segredo do cliente de registro de aplicativo
 
-Você também precisará criar um **_segredo do cliente_** para o registro do aplicativo do Azure AD. Para fazer isso, navegue até a página de [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure (você pode usar este link ou procurá-lo na barra de pesquisa do Portal). Selecione seu registro na lista para abrir seus detalhes. 
+Você também precisará criar um **_segredo do cliente_** para o registro do aplicativo do Azure AD. Para fazer isso, navegue até a página de [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure (você pode usar este link ou procurá-lo na barra de pesquisa do Portal). Selecione o registro que você criou na seção anterior na lista para abrir seus detalhes. 
 
 Clique em *certificados e segredos* no menu do registro e selecione *+ novo segredo do cliente*.
 
