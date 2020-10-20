@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151375"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220451"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solucionar problemas comuns no Azure Data Share 
 
@@ -34,7 +34,7 @@ Isso pode ocorrer devido aos seguintes motivos:
     1. Pesquise **Microsoft.DataShare**
     1. Clique em **Registrar** 
 
-    Você precisará ter a [função de colaborador do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para a assinatura do Azure para concluir essas etapas. 
+    Você precisará ter a [função de colaborador do Azure](../role-based-access-control/built-in-roles.md#contributor) para a assinatura do Azure para concluir essas etapas. 
 
 * **O convite foi enviado para o alias de email, em vez do email de logon do Azure.** Se você registrou o serviço Azure Data Share ou já criou um recurso Data Share no locatário do Azure, mas ainda não consegue ver o convite, talvez seja porque o provedor inseriu o alias de email como destinatário, em vez do endereço de email de logon do Azure. Entre em contato com o provedor de dados e verifique se ele enviou o convite para o endereço de email de logon do Azure, não para o alias de email.
 
@@ -81,4 +81,3 @@ Para fontes SQL, veja a seguir as causas adicionais de falhas de instantâneo.
 Para saber como iniciar o compartilhamento de dados, continue com o tutorial sobre como [compartilhar seus dados](share-your-data.md). 
 
 Para saber como receber dados, continue no tutorial [aceitar e receber dados](subscribe-to-data-share.md) .
-

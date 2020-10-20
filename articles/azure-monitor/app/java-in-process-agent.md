@@ -3,12 +3,12 @@ title: Monitorar aplicativos Java em qualquer ambiente-Azure Monitor Application
 description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente, sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370027"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215273"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights-visualização pública
 
@@ -114,8 +114,8 @@ Confira detalhes em [Visualização pública 3,0: opções de configuração](./
 ### <a name="logs"></a>Logs
 
 * Java. util. Logging
-* Log4J
-* SLF4J/Logback
+* Log4J (incluindo propriedades MDC)
+* SLF4J/Logback (incluindo propriedades MDC)
 
 ### <a name="metrics"></a>Métricas
 

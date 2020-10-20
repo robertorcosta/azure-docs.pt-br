@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537979"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220866"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar workspace e projetos do Hub para o Tradutor Personalizado
 
@@ -55,7 +55,7 @@ Para migrar um projeto:
 
 3. Clique no link "Migrar" do projeto apropriado.
 
-    ![Como migrar do Hub](media/how-to/how-to-migrate-from-hub.png)
+    ![Captura de tela que realça o botão migrar do projeto selecionado.](media/how-to/how-to-migrate-from-hub.png)
 
 4. Ao pressionar o link de migração, você verá um formulário permitindo:
    * Especificar o workspace que deseja transferir para o Tradutor Personalizado
@@ -76,7 +76,7 @@ Para migrar um workspace:
 
 3. Na página &quot;Configurações&quot;, clique em &quot;Migrar dados do workspace para o Tradutor Personalizado&quot;.
 
-    ![Como migrar do Hub](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Captura de tela que realça a opção migrar dados do espaço de trabalho para o tradutor personalizado.](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. Na próxima página, selecione uma destas duas opções:
 

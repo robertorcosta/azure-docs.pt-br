@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509615"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220849"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
@@ -70,12 +70,12 @@ Para solicitar uma implantação:
 
 2. Para um modelo treinado com êxito, ela mostra o botão "Implantar", se não for implantado.
 
-    ![Implantar modelo](media/how-to/how-to-deploy-model.png)
+    ![Captura de tela que realça o botão implantar para implantar um modelo.](media/how-to/how-to-deploy-model.png)
 
 3.  Clique em implantar.
 4.  Selecione a região onde você deseja que seu modelo seja **implantado** e clique em Salvar. Você pode selecionar **Implantado** para várias regiões.
 
-    ![Implantar modelo](media/how-to/how-to-deploy-model-regions.png)
+    ![Captura de tela que mostra onde você pode implantar ou Desimplantar um modelo.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Você pode ver o status do seu modelo na coluna "Status".
 
@@ -90,7 +90,7 @@ Para atualizar configurações de implantação:
 
 2. Para um modelo implantado com êxito, ele mostra um botão **Atualização**.
 
-    ![Implantar modelo](media/how-to/how-to-update-undeploy-model.png)
+    ![Captura de tela que realça o botão de atualização para atualizar as configurações de implantação.](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Selecione **Atualizar**.
 4.  Selecione **Implantado** ou **Não Implantado** para as regiões onde você deseja seu modelo implantado ou não implantando, em seguida, clique em **Salvar**.

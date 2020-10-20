@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258428"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215953"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Os tokens a seguir são usados na comunicação com o Azure AD B2C:
 
 - *Token de ID* - um JWT que contém declarações que você pode usar para identificar usuários em seu aplicativo. Esse token é enviado com segurança em solicitações HTTP para a comunicação entre dois componentes do mesmo aplicativo ou serviço. Você pode usar as declarações em um token de ID como desejar. Elas são comumente usadas para exibir informações de conta ou para tomar decisões de controle de acesso em um aplicativo. Os tokens de ID são assinados, mas não são criptografados. Quando seu aplicativo ou a API recebe um token de ID, deve validar a assinatura para provar que o token é autêntico. Seu aplicativo ou a API também deve validar algumas declarações no token para provar que ele é válido. Dependendo dos requisitos do cenário, as declarações validadas por um aplicativo podem variar, mas seu aplicativo deve executar algumas validações de declaração comuns em cada cenário.
 - *Token de acesso* - um JWT que contém declarações que você pode usar para identificar as permissões concedidas para suas APIs. Os tokens de acesso são assinados, mas não são criptografados. Os tokens de acesso são usados para fornecer acesso aos servidores de APIs e recursos.  Quando sua API recebe um token de acesso, deve validar a assinatura para provar que o token é autêntico. Sua API também deve validar algumas declarações no token para provar que ele é válido. Dependendo dos requisitos do cenário, as declarações validadas por um aplicativo podem variar, mas seu aplicativo deve executar algumas validações de declaração comuns em cada cenário.
-- *Tokens de atualização* - os tokens de atualização são usados para adquirir novos tokens de ID e tokens de acesso em um fluxo OAuth 2.0. Eles fornecem ao aplicativo acesso de longo prazo aos recursos em nome dos usuários sem a necessidade de interação com os usuários. Os tokens de atualização são opacos para seu aplicativo. Eles são emitidos pelo Azure AD B2C e só podem ser inspecionados e interpretados por ele. Eles têm longa duração, mas o aplicativo não deve ser escrito com a expectativa de que um token de atualização durará por um período de tempo específico. Os tokens de atualização podem ser invalidados a qualquer momento por vários motivos. A única maneira de o aplicativo saber se um token de atualização é válido, é tentando resgatá-lo fazendo uma solicitação de token ao Azure AD B2C. Ao resgatar um token de atualização para um novo token, você receberá um novo token de atualização na resposta de token. Salve o novo token de atualização. Ele substitui o token de atualização que você usou anteriormente na solicitação. Isso ajuda a garantir que seus tokens de atualização permaneçam válidos pelo máximo tempo possível.
+- *Tokens de atualização* - os tokens de atualização são usados para adquirir novos tokens de ID e tokens de acesso em um fluxo OAuth 2.0. Eles fornecem ao aplicativo acesso de longo prazo aos recursos em nome dos usuários sem a necessidade de interação com os usuários. Os tokens de atualização são opacos para seu aplicativo. Eles são emitidos pelo Azure AD B2C e só podem ser inspecionados e interpretados por ele. Eles têm longa duração, mas o aplicativo não deve ser escrito com a expectativa de que um token de atualização durará por um período de tempo específico. Os tokens de atualização podem ser invalidados a qualquer momento por vários motivos. A única maneira de o aplicativo saber se um token de atualização é válido, é tentando resgatá-lo fazendo uma solicitação de token ao Azure AD B2C. Ao resgatar um token de atualização para um novo token, você receberá um novo token de atualização na resposta de token. Salve o novo token de atualização. Ele substitui o token de atualização que você usou anteriormente na solicitação. Isso ajuda a garantir que seus tokens de atualização permaneçam válidos pelo máximo tempo possível. Observe que os aplicativos de página única que usam o fluxo de código de autorização com PKCE sempre têm um tempo de vida de token de atualização de 24 horas. [Saiba mais sobre as implicações de segurança de tokens de atualização no navegador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## <a name="endpoints"></a>Pontos de extremidade
 
