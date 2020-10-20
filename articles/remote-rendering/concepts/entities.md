@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfcfa4c5ed57489c56ebf845d238198944150a96
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613929"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202881"
 ---
 # <a name="entities"></a>Entidades
 
@@ -139,10 +139,10 @@ A consulta será realizada mesmo se o objeto não tiver nenhum metadado.
 
 ## <a name="api-documentation"></a>Documentação da API
 
-* [Classe de entidade C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
-* [C# remotamente. CreateEntity ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
-* [Classe de entidade C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
-* [C++ Remotemanager:: CreateEntity ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
+* [Classe de entidade C#](/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C# remotamente. CreateEntity ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [Classe de entidade C++](/cpp/api/remote-rendering/entity)
+* [C++ Remotemanager:: CreateEntity ()](/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## <a name="next-steps"></a>Próximas etapas
 

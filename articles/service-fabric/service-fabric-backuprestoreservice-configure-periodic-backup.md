@@ -3,12 +3,12 @@ title: Noções básicas sobre a configuração de backup periódico
 description: Use o recurso backup e restauração periódicos do Service Fabric para configurar o backup periódico de seus serviços confiáveis com estado ou Reliable Actors.
 ms.topic: article
 ms.date: 2/01/2019
-ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633b13104ecc1697685f49a42b2a9c76b43b81d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538612"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205686"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
 
@@ -23,6 +23,9 @@ A configuração do backup periódico dos seus serviços com estado confiáveis 
 Uma política de backup é composta pelas seguintes configurações:
 
 * **Restauração automática na perda de dados**: especifica se você deve disparar a restauração automaticamente usando o último backup disponível caso a partição passe por um evento de perda de dados.
+> [!NOTE]
+> É recomendável não definir a restauração automática em clusters de produção
+>
 
 * **Máx. de backups incrementais**: define o número máximo de backups incrementais a serem executados entre dois backups completos. O máximo de backups incrementais especifica o limite superior. Um backup completo pode ser executado antes que um número especificado de backups incrementais seja concluído em uma das seguintes condições
 
@@ -86,6 +89,9 @@ Uma política de backup é composta pelas seguintes configurações:
             "ContainerName": "BackupContainer"
         }
         ```
+> [!NOTE]
+> O serviço de restauração de backup não funciona com o armazenamento v1 do Azure
+>
 
     2. **Compartilhamento de arquivos**: esse tipo de armazenamento deve ser selecionado para clusters _autônomos_ quando a necessidade é armazenar o backup de dados no local. Uma descrição desse tipo de armazenamento requer um caminho de compartilhamento de arquivos para o qual os backups precisam ser carregados. O acesso ao compartilhamento de arquivos pode ser configurado usando uma das seguintes opções
         1. _Autenticação Integrada do Windows_, em que o acesso ao compartilhamento de arquivos é fornecido a todos os computadores que pertencem ao cluster do Service Fabric. Nesse caso, defina os campos a seguir para configurar o armazenamento de backup baseado no _compartilhamento de arquivos_.
@@ -129,6 +135,10 @@ Uma política de backup é composta pelas seguintes configurações:
 
 ## <a name="enable-periodic-backup"></a>Habilitar backup periódico
 Após definir a política de backup para atender aos requisitos de backup de dados, a política de backup deverá ser devidamente associada a um _aplicativo_ ou a um _serviço_ ou a uma _partição_.
+
+> [!NOTE]
+> Verifique se não há atualizações de aplicativo em andamento antes de habilitar o backup
+>
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Propagação hierárquica da política de backup
 No Service Fabric, a relação entre aplicativo, serviço e partições é hierárquica, conforme explicado no [Modelo de aplicativo](./service-fabric-application-model.md). A política de backup pode ser associada a um _aplicativo_, _serviço_ ou uma _partição_ na hierarquia. A política de backup propaga-se hierarquicamente até o próximo nível. Supondo que haja apenas uma política de backup criada e associada a um _aplicativo_, o backup de todas as partições com estado que pertencem a todos os _serviços com estado confiáveis_ e _Reliable Actors_ do _aplicativo_ será realizado usando a política de backup. Ou, se a política de backup estiver associada a um _Serviço com estado confiável_, o backup de todas as suas partições será realizado usando a política de backup.
@@ -186,6 +196,9 @@ As políticas de backup poderão ser desabilitadas quando não houver necessidad
         "CleanBackup": true 
     }
     ```
+> [!NOTE]
+> Verifique se não há atualizações de aplicativo em andamento antes de desabilitar o backup
+>
 
 ## <a name="suspend--resume-backup"></a>Suspender e retomar o backup
 Uma determinada situação pode demandar a suspensão temporária do backup periódico de dados. Nessa situação, dependendo do requisito, a suspensão da API de backup pode ser usada em um _aplicativo_, em um _serviço_ ou em uma _partição_. A suspensão do backup periódico é transitiva na subárvore da hierarquia do aplicativo do ponto em que é aplicada. 
@@ -213,6 +226,10 @@ Embora a desabilitação possa ser invocada apenas em um nível no qual tenha si
 A partição do serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco de duas entre três réplicas de uma partição (incluindo a réplica primária) é corrompido ou apagado.
 
 Quando o Service Fabric detecta que a partição está na perda de dados, ele invoca o método de interface `OnDataLossAsync` na partição e espera que ela execute a ação necessária para sair da perda de dados. Nessa situação, se a política de backup em vigor na partição tiver um sinalizador `AutoRestoreOnDataLoss` definido como `true`, então a restauração é será automaticamente usando o backup disponível mais recente para essa partição.
+
+> [!NOTE]
+> É recomendável não definir a restauração automática em clusters de produção
+>
 
 ## <a name="get-backup-configuration"></a>Obter configuração de backup
 As APIs separadas são disponibilizadas para obter informações de configuração de backup em um escopo do _aplicativo_, do _serviço_ e da _partição_. [Obter informações de configuração de backup de aplicativo](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Obter informações de configuração de backup de serviço](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo) e [Obter informações de configuração de backup de partição](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) são essas APIs, respectivamente. Principalmente, essas APIs retornam a política de backup aplicável, escopo no qual a política de backup é aplicada e a suspensão de backup é detalhada. A seguir, há uma breve descrição sobre os resultados retornados dessas APIs.

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108143"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206445"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Carregar dados de cobrança no Azure e exibi-los no portal do Azure
 
@@ -117,7 +117,7 @@ Siga estas etapas para exibir dados de cobrança no portal do Azure:
 1. Clique no botão **custo por recurso** na parte superior da exibição.
 1. Verifique se o escopo está definido para a assinatura na qual os recursos do serviço de dados foram criados.
 1. Selecione **custo por recurso** na lista suspensa de exibição ao lado do seletor de escopo próximo à parte superior da exibição.
-1. Verifique se o filtro de data está definido para **este mês** ou algum outro intervalo de tempo que faça sentido Considerando o tempo de quando você criou seus recursos de serviço de dados.
+1. Verifique se o filtro de data está definido para **este mês** ou outro intervalo de tempo que faz sentido dado o tempo de quando você criou os recursos do serviço de dados.
 1. Clique em **Adicionar filtro** para adicionar um filtro por **tipo de recurso**  =  `microsoft.azuredata/<data service type>` se você quiser filtrar para apenas um tipo de serviço de dados habilitado para Arc do Azure.
 1. Agora, você verá uma lista de todos os recursos que foram criados e carregados no Azure. Como o medidor de cobrança é $0, você verá que o custo é sempre $0.
 
@@ -135,11 +135,11 @@ Você também pode periodicamente exportar automaticamente dados **detalhados** 
 
 Siga estas etapas para configurar um trabalho de exportação de cobrança:
 
-1. Clique em exportações à esquerda.
-1. Clique em Adicionar.
+1. Clique em **exportações** à esquerda.
+1. Clique em **Adicionar**.
 1. Insira um nome e uma frequência de exportação e clique em Avançar.
-1. Escolha criar uma nova conta de armazenamento ou crie uma nova e preencha o formulário para especificar a conta de armazenamento, o contêiner e o caminho do diretório para exportar os arquivos de dados de cobrança e clique em Avançar.
-1. Clique em Criar.
+1. Escolha criar uma nova conta de armazenamento ou use uma existente e preencha o formulário para especificar a conta de armazenamento, o contêiner e o caminho do diretório para exportar os arquivos de dados de cobrança e clique em Avançar.
+1. Clique em **Criar**.
 
 Os arquivos de exportação de dados de cobrança estarão disponíveis em aproximadamente 4 horas e serão exportados no agendamento especificado durante a criação do trabalho de exportação de cobrança.
 
@@ -156,7 +156,7 @@ Você pode validar os arquivos de dados de cobrança no portal do Azure.
 5. Clique no contêiner que você especificou ao criar o trabalho de exportação de cobrança acima.
 6. Clique na pasta que você especificou ao criar o trabalho de exportação de cobrança acima.
 7. Faça uma busca detalhada nas pastas e nos arquivos gerados e clique em um dos arquivos. csv gerados.
-8. Clique no botão baixar, que salvará o arquivo em sua pasta de downloads local.
+8. Clique no botão **baixar** , que salvará o arquivo em sua pasta de downloads local.
 9. Abra o arquivo usando um visualizador de arquivos. csv, como o Excel.
 10. Filtre os resultados para mostrar apenas as linhas com o **tipo de recurso**  =  `Microsoft.AzureData/<data service resource type` .
 11. Você verá o número de horas que a instância foi usada no período de 24 horas atual na coluna UsageQuantity.

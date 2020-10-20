@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595981"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125245"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solucionar problemas de política de acesso do Azure Key Vault
 
@@ -52,6 +52,8 @@ O aplicativo também precisa de pelo menos uma função de IAM (Gerenciamento de
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Como reimplantar o Key Vault com o modelo do ARM sem excluir as políticas de acesso existentes?
 
 Atualmente, a reimplantação do Key Vault exclui as políticas de acesso no Key Vault e as substitui pela política de acesso no modelo do ARM. Não há opção incremental para políticas de acesso do Key Vault. Para preservar as políticas de acesso no Key Vault, você precisa ler as políticas de acesso existentes nele e popular o modelo do ARM com essas políticas para evitar interrupções de acesso.
+
+Outra opção que pode ajudar nesse cenário é usar funções RBAC como uma alternativa às políticas de acesso. Com o RBAC, você pode implantar novamente o cofre de chaves sem especificar a política novamente. Você pode ler mais sobre essa solução [aqui](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Etapas de solução de problemas recomendadas para os seguintes tipos de erro
 

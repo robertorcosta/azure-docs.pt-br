@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 306b70fb08622d161ab8f150dc5eec3fdbacaeeb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072859"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201691"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de base de segurança do Azure para o serviço kubernetes do Azure
 
@@ -854,7 +854,7 @@ Acompanhe as configurações de seus computadores para ajudar a identificar prob
 
 - [Como usar o monitoramento de integridade de arquivo](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Entender Controle de Alterações do Azure](../automation/change-tracking.md)
+- [Entender Controle de Alterações do Azure](../automation/change-tracking/overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1235,7 +1235,7 @@ Remova o estado de seus aplicativos antes do backup. Nos casos em que isso não 
 
 Execute backups automatizados regulares de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell. 
 
-Por exemplo:
+Por exemplo: 
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 Execute periodicamente a restauração de dados de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell. 
 
-Por exemplo:
+Por exemplo: 
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 

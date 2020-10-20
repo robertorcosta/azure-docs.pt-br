@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0dfc86503f1b3aa648cb8c7cefe14fbd123f1459
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047498"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207760"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
 
@@ -24,7 +24,9 @@ Esta versão deste artigo percorre essas etapas manualmente, uma a uma, usando a
 * Para percorrer essas etapas manualmente usando o portal do Azure, consulte a versão do portal deste artigo: [*como configurar uma instância e autenticação (Portal)*](how-to-set-up-instance-portal.md).
 * Para executar uma configuração automatizada usando um exemplo de script de implantação, consulte a versão com script deste artigo: [*como: configurar uma instância e autenticação (script)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-cloud-shell-session"></a>Configurar uma sessão do Cloud Shell
@@ -86,67 +88,7 @@ O resultado desse comando são informações de saída sobre a atribuição de f
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
 
-Agora você tem uma instância de gêmeos digital do Azure pronta para uso e atribuiu permissões para gerenciá-la. Em seguida, você configurará permissões para um aplicativo cliente acessá-lo.
-
-## <a name="set-up-access-permissions-for-client-applications"></a>Configurar permissões de acesso para aplicativos cliente
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-Para criar um registro de aplicativo, você precisa fornecer as IDs de recurso para as APIs do gêmeos digital do Azure e as permissões de linha de base para a API.
-
-Em seu diretório de trabalho, crie um novo arquivo e insira o seguinte trecho de código JSON para configurar esses detalhes: 
-
-```json
-[{
-    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-    "resourceAccess": [
-     {
-       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-       "type": "Scope"
-     }
-    ]
-}]
-``` 
-
-Salve este arquivo como _**manifest.jsem**_.
-
-> [!NOTE] 
-> Há alguns lugares em que uma cadeia de caracteres "amigável", legível `https://digitaltwins.azure.net` por humanos, pode ser usada para a ID do aplicativo de recurso gêmeos digital do Azure em vez do GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` . Por exemplo, muitos exemplos em todo esse conjunto de documentação usam a autenticação com a biblioteca MSAL, e a cadeia de caracteres amigável pode ser usada para isso. No entanto, durante essa etapa da criação do registro do aplicativo, a forma de GUID da ID é necessária, como mostrado acima. 
-
-Em seguida, você carregará esse arquivo para Cloud Shell. Na janela Cloud Shell, clique no ícone "carregar/baixar arquivos" e escolha "carregar".
-
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure":::
-Navegue até o *manifest.jsem* que você acabou de criar e pressione "abrir".
-
-Em seguida, execute o seguinte comando para criar um registro de aplicativo, com uma URL de resposta *cliente público/nativo (mobile & Desktop)* de `http://localhost` . Substitua os espaços reservados conforme necessário:
-
-```azurecli
-az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
-```
-
-Aqui está um trecho da saída deste comando, mostrando informações sobre o registro que você criou:
-
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure":::
-
-### <a name="verify-success"></a>Verificar êxito
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
-
-Em seguida, verifique se as configurações de seu *manifest.jscarregado em* foram definidas corretamente no registro. Para fazer isso, selecione *manifesto* na barra de menus para exibir o código do manifesto do registro do aplicativo. Role até a parte inferior da janela de código e procure os campos de sua *manifest.jsem* `requiredResourceAccess` :
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
-
-### <a name="collect-important-values"></a>Coletar valores importantes
-
-Em seguida, selecione *visão geral* na barra de menus para ver os detalhes do registro do aplicativo:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="janela Comando com a criação bem-sucedida do grupo de recursos e a instância do gêmeos digital do Azure":::
-
-Anote a ID do *aplicativo (cliente)* e a *ID do diretório (locatário)* mostradas **na página.** Esses valores serão necessários posteriormente para [autenticar um aplicativo cliente em relação às APIs do gêmeos digital do Azure](how-to-authenticate-client.md). Se você não for a pessoa que vai escrever código para tais aplicativos, precisará compartilhar esses valores com a pessoa que será.
-
-### <a name="other-possible-steps-for-your-organization"></a>Outras etapas possíveis para sua organização
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
+Agora você tem uma instância de gêmeos digital do Azure pronta para uso e atribuiu permissões para gerenciá-la.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -154,5 +96,5 @@ Teste as chamadas de API REST individuais em sua instância usando os comandos d
 * [referência de AZ DT](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
 
-Ou então, consulte Como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:
+Ou então, consulte Como conectar um aplicativo cliente à sua instância com o código de autenticação:
 * [*Como: escrever código de autenticação do aplicativo*](how-to-authenticate-client.md)
