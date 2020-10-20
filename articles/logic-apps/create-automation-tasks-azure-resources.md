@@ -6,17 +6,17 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269719"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201113"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gerenciar recursos do Azure e monitorar custos Criando tarefas de automação (versão prévia)
 
 > [!IMPORTANT]
-> Esse recurso está em visualização pública, é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão preliminar está na versão prévia pública, e é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho em produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Para ajudá-lo a gerenciar os [recursos do Azure](../azure-resource-manager/management/overview.md#terminology) com mais facilidade, você pode criar tarefas de gerenciamento automatizadas para um recurso ou grupo de recursos específico usando modelos de tarefa de automação, que variam em disponibilidade com base no tipo de recurso. Por exemplo, para uma [conta de armazenamento do Azure](../storage/common/storage-account-overview.md), você pode configurar uma tarefa de automação que envia o custo mensal para essa conta de armazenamento. Para uma [máquina virtual do Azure](https://azure.microsoft.com/services/virtual-machines/), você pode criar uma tarefa de automação que ativa ou desativa essa máquina virtual em um agendamento predefinido.
 
@@ -47,7 +47,7 @@ Este artigo mostra como concluir as seguintes tarefas:
 
 No momento, você pode criar uma tarefa de automação somente no nível de recurso, exibir o histórico de execuções da tarefa e editar o fluxo de trabalho do aplicativo lógico subjacente da tarefa, que é alimentado pelo serviço de [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) . As tarefas de automação são mais básicas e leves do que a [automação do Azure](../automation/automation-intro.md).
 
-Por comparação, a automação do Azure é um serviço de configuração e automação baseado em nuvem que dá suporte ao gerenciamento consistente em seus ambientes Azure e não Azure. O serviço consiste [em automação de processo para orquestrar processos](../automation/automation-intro.md#process-automation) usando [runbooks](../automation/automation-runbook-execution.md), gerenciamento de configuração com [controle de alterações e inventário](../automation/change-tracking.md), gerenciamento de atualizações, recursos compartilhados e recursos heterogêneos. A Automação oferece controle completo durante a implantação, operações e o encerramento de cargas de trabalho e de recursos.
+Por comparação, a automação do Azure é um serviço de configuração e automação baseado em nuvem que dá suporte ao gerenciamento consistente em seus ambientes Azure e não Azure. O serviço consiste [em automação de processo para orquestrar processos](../automation/automation-intro.md#process-automation) usando [runbooks](../automation/automation-runbook-execution.md), gerenciamento de configuração com [controle de alterações e inventário](../automation/change-tracking/overview.md), gerenciamento de atualizações, recursos compartilhados e recursos heterogêneos. A Automação oferece controle completo durante a implantação, operações e o encerramento de cargas de trabalho e de recursos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
