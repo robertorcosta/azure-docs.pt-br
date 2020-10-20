@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187244"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219438"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime em um agendamento
 
@@ -149,7 +149,7 @@ Agora que os pipelines funcionam conforme o esperado, você pode criar gatilhos 
 
 1. Na barra de ferramentas do pipeline, selecione **Disparar** e selecione **Novo/Editar**. 
 
-   ![Disparar -> Novo/Editar](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   ![Captura de tela que realça o gatilho – > opção de menu novo/editar.](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
 
 2. No painel **Adicionar Gatilhos**, selecione **+ Novo**.
 
@@ -220,7 +220,7 @@ Se você ainda não tiver uma conta de Automação do Azure, crie uma seguindo a
 2. Entre no [Portal do Azure](https://portal.azure.com/).    
 3. Selecione **Novo** no menu esquerdo, selecione **Monitoramento + Gerenciamento** e selecione **Automação**. 
 
-   ![Novo -> Monitoramento + Gerenciamento -> Automação](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   ![Captura de tela que realça o Monitoramento + Gerenciamento > opção de automação.](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
     
 2. No painel **Adicionar Conta de Automação**, execute as seguintes ações.
 
@@ -262,7 +262,7 @@ A seção a seguir fornece as etapas para criar um runbook do PowerShell. O scri
 
 1. Alterne para a guia **Runbooks** e selecione **+ Adicionar um runbook** na barra de ferramentas. 
 
-   ![Botão Adicionar um runbook](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![Captura de tela que realça o botão + Adicionar um runbook.](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
    
 2. Selecione **Criar um novo runbook** e realize as seguintes ações: 
 
@@ -345,7 +345,7 @@ A seção a seguir fornece as etapas para criar um runbook do PowerShell. O scri
    
 6. Na janela de trabalho, selecione o bloco **Saída**. Na janela de saída, aguarde a mensagem **##### Concluído #####** depois de ver **##### Iniciando #####**. Iniciar o Azure-SSIS IR leva aproximadamente 20 minutos. Feche a janela **Trabalho** e volte à janela **Runbook**.
 
-   ![IR do Azure-SSIS - iniciado](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   ![Captura de tela que realça o bloco de saída.](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. Repita as duas etapas anteriores usando **STOP** como o valor para a **OPERATION**. Inicie seu runbook outra vez selecionando o botão **Iniciar** na barra de ferramentas. Insira os nomes de grupo de recursos, ADF e Azure-SSIS IR. Para **OPERAÇÃO**, insira **PARAR**. Na janela de saída, aguarde a mensagem **##### Concluído #####** depois de ver **##### Parando #####**. Parar o Azure-SSIS IR não leva tanto tempo quanto iniciá-lo. Feche a janela **Trabalho** e volte à janela **Runbook**.
 
@@ -373,7 +373,7 @@ Na seção anterior, você criou um runbook de Automação do Azure que pode ini
     
 3. Alterne para a guia **parâmetros e configurações de execução** . Especifique o grupo de recursos, o ADF e os nomes de Azure-SSIS IR. Para **OPERATION**, insira **START** e selecione **OK**. Selecione **OK** novamente para visualizar o agendamento na página **Agendamentos** de seu runbook. 
 
-   ![Agendar para iniciar o IR do Azure-SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   ![Captura de tela que realça o campo de operação.](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
 4. Repita as duas etapas anteriores para criar um agendamento chamado **Parar IR diariamente**. Insira uma hora que seja pelo menos 30 minutos após a hora especificada para o agendamento **Iniciar IR diariamente**. Para **OPERATION**, insira **STOP** e selecione **OK**. Selecione **OK** novamente para visualizar o agendamento na página **Agendamentos** de seu runbook. 
 

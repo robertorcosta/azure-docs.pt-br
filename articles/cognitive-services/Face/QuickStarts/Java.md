@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 8aaf0b25a20f24739bb556583cd020d8f11eaf2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fbe62cf00422710e18a6b112adc08f19ea03177b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88549517"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858346"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Java
 
@@ -49,23 +49,7 @@ Abra a classe main de seu projeto. Aqui, você adicionará o código necessário
 
 Adicione as seguintes instruções `import` à parte superior do arquivo.
 
-```java
-// This sample uses Apache HttpComponents:
-// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/
-// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/
-
-import java.net.URI;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-```
+:::code language="java" source="~/cognitive-services-quickstart-code/java/Face/rest/detect.java" id="dependencies":::
 
 ### <a name="add-essential-fields"></a>Adicionar campos essenciais
 
@@ -75,90 +59,45 @@ Substitua a classe **Main** pelo código a seguir. Esses dados especificam como 
 
 O campo `faceAttributes` é simplesmente uma lista de certos tipos de atributos. Ele especificará quais informações devem ser recuperadas sobre as faces detectadas.
 
-```Java
-public class Main {
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
-
-    private static final String uriBase =
-        "https://<My Endpoint String>.com/face/v1.0/detect";
-
-    private static final String imageWithFaces =
-        "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}";
-
-    private static final String faceAttributes =
-        "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
-```
+:::code language="java" source="~/cognitive-services-quickstart-code/java/Face/rest/detect.java" id="environment":::
 
 ### <a name="call-the-face-detection-rest-api"></a>Chamar a API REST de detecção facial
 
 Adicione o método **main** pelo código a seguir. Ele constrói uma chamada REST para a API de Detecção Facial para detectar informações sobre a face na imagem remota (a cadeia de caracteres `faceAttributes` especifica quais atributos de face recuperar). Em seguida, ele grava os dados de saída em uma cadeia de caracteres JSON.
 
-```Java
-    public static void main(String[] args) {
-        HttpClient httpclient = HttpClientBuilder.create().build();
-
-        try
-        {
-            URIBuilder builder = new URIBuilder(uriBase);
-
-            // Request parameters. All of them are optional.
-            builder.setParameter("returnFaceId", "true");
-            builder.setParameter("returnFaceLandmarks", "false");
-            builder.setParameter("returnFaceAttributes", faceAttributes);
-
-            // Prepare the URI for the REST API call.
-            URI uri = builder.build();
-            HttpPost request = new HttpPost(uri);
-
-            // Request headers.
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            // Request body.
-            StringEntity reqEntity = new StringEntity(imageWithFaces);
-            request.setEntity(reqEntity);
-
-            // Execute the REST API call and get the response entity.
-            HttpResponse response = httpclient.execute(request);
-            HttpEntity entity = response.getEntity();
-```
+:::code language="java" source="~/cognitive-services-quickstart-code/java/Face/rest/detect.java" id="main":::
 
 ### <a name="parse-the-json-response"></a>Analisar a resposta JSON
 
 Diretamente abaixo do código anterior, adicione o seguinte bloco, que converte os dados JSON retornados em um formato mais legível antes de imprimi-lo no console. Por fim, feche o bloco try-catch, o método **main** e a classe **Main**.
 
-```Java
-            if (entity != null)
-            {
-                // Format and display the JSON response.
-                System.out.println("REST Response:\n");
-
-                String jsonString = EntityUtils.toString(entity).trim();
-                if (jsonString.charAt(0) == '[') {
-                    JSONArray jsonArray = new JSONArray(jsonString);
-                    System.out.println(jsonArray.toString(2));
-                }
-                else if (jsonString.charAt(0) == '{') {
-                    JSONObject jsonObject = new JSONObject(jsonString);
-                    System.out.println(jsonObject.toString(2));
-                } else {
-                    System.out.println(jsonString);
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            // Display error message.
-            System.out.println(e.getMessage());
-        }
-    }
-}
-```
+:::code language="java" source="~/cognitive-services-quickstart-code/java/Face/rest/detect.java" id="print":::
 
 ## <a name="run-the-app"></a>Executar o aplicativo
 
 Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de Detecção Facial em um formato JSON legível na janela do console. Por exemplo:
+
+```json
+[{
+  "faceRectangle": {
+    "top": 131,
+    "left": 177,
+    "width": 162,
+    "height": 162
+  }
+}]
+```
+
+## <a name="extract-face-attributes"></a>Extrair Atributos Faciais
+ 
+Para extrair os atributos de face, use o modelo de detecção 1 e adicione o parâmetro de consulta `returnFaceAttributes`.
+
+```java
+builder.setParameter("detectionModel", "detection_01");
+builder.setParameter("returnFaceAttributes", "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise");
+```
+
+A resposta agora inclui atributos de face. Por exemplo:
 
 ```json
 [{

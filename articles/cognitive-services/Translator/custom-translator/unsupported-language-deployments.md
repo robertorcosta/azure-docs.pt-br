@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964678"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221189"
 ---
 # <a name="unsupported-language-deployments"></a>Implantações de linguagem sem suporte
 
@@ -35,11 +35,11 @@ Para que seus modelos sejam candidatos à implantação, eles devem atender aos 
 ## <a name="process"></a>Processo
 Depois de migrar os modelos do Hub que são candidatos à implantação, você poderá encontrá-los acessando a página de **configurações** do seu espaço de trabalho e rolando até o final da página em que você verá uma seção de **treinamentos do Hub do tradutor sem suporte** .  Esta seção só aparecerá se você tiver projetos que atendam aos pré-requisitos mencionados acima.
 
-![Como migrar do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![Captura de tela que realça a seção de treinamentos do Hub do tradutor sem suporte.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 Na página seleção de **treinamentos do Hub do tradutor sem suporte** , a guia **treinamentos não solicitados** contém modelos qualificados para implantação.  Selecione os modelos que você deseja implantar e envie uma solicitação.   Antes do prazo de implantação de 30 de abril, você pode selecionar quantos modelos desejar para a implantação.
  
-![Como migrar do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![Captura de tela que mostra a guia treinamentos não solicitados.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 Depois de enviado, o modelo não estará mais disponível na guia **treinamentos não solicitados** e, em vez disso, aparecerá na guia **treinamentos solicitados** .  Você pode exibir os treinamentos solicitados a qualquer momento.
 

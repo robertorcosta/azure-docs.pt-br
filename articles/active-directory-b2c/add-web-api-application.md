@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385953"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214950"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar um aplicativo de API Web ao locatário do Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a no
 1. Selecione **Registrar**.
 1. Registre a **ID do aplicativo (cliente)** para uso no código da sua API Web.
 
-Se você tiver um aplicativo que implementa o fluxo de concessão implícita, por exemplo, um aplicativo de página única (SPA) baseado em JavaScript, você poderá habilitar o fluxo seguindo estas etapas:
+Se você tiver um aplicativo que implementa o fluxo de concessão implícita, por exemplo, um [aplicativo de página única (Spa) baseado em JavaScript](tutorial-register-spa.md), você poderá habilitar o fluxo seguindo estas etapas:
 
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Em **Concessão implícita**, selecione ambas as caixas de seleção **Tokens de acesso** e **Tokens de ID**.

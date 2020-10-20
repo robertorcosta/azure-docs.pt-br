@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: toa, openshift, aquasec, Twistlock, Red Hat
-ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78271370"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218860"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contêineres privilegiados em um cluster do Red Hat OpenShift no Azure
+
+> [!IMPORTANT]
+> O Azure Red Hat OpenShift 3,11 será desativado em 30 de junho de 2022. O suporte para a criação de novos clusters do Azure Red Hat OpenShift 3,11 continua até 30 de novembro de 2020. Após a aposentadoria, os clusters restantes do Azure Red Hat OpenShift 3,11 serão desligados para evitar vulnerabilidades de segurança.
+> 
+> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Se você tiver dúvidas específicas, [entre em contato conosco](mailto:arofeedback@microsoft.com).
 
 Não é possível executar contêineres com privilégios arbitrários em clusters do Azure Red Hat OpenShift.
 Duas soluções de monitoramento e conformidade de segurança podem ser executadas em clusters de toa.
@@ -115,7 +121,7 @@ Defina os seguintes campos ao implantar os imforçadores:
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | água-conta  |
-| Projeto        | água-segurança |
+| Project        | água-segurança |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Etapas específicas do produto para prisma Cloud/Twistlock
 
@@ -128,7 +134,7 @@ Criar um novo projeto OpenShift
 oc new-project twistlock
 ```
 
-Ignore a seção opcional "enviar por push as imagens de nuvem prisma para um registro privado". Ele não funcionará no Azure Red Hat Openshift. Em vez disso, use o registro online.
+Ignore a seção opcional "enviar por push as imagens de nuvem prisma para um registro privado". Ele não funcionará no Azure Red Hat OpenShift. Em vez disso, use o registro online.
 
 Você pode seguir a documentação oficial ao aplicar as correções descritas abaixo.
 Comece com a seção "instalar console".

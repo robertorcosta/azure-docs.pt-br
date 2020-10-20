@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8559e0adf1adf549d5bf3933dbb243c02a6d3ad9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 61907c53e0b0b0a58ea8a167583f02af35572f6f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87494597"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940456"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure
 
@@ -74,7 +74,7 @@ Digite os comandos abaixo para criar um segredo no Key Vault chamado **ExamplePa
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-Agora, você pode fazer referência a essa senha que foi adicionada ao Azure Key Vault usando seu URI. Use **https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword** para obter a versão atual. 
+Agora, você pode fazer referência a essa senha que foi adicionada ao Azure Key Vault usando seu URI. Use **'https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword '** para obter a versão atual. 
 
 Para exibir o valor contido no segredo como texto sem formatação:
 

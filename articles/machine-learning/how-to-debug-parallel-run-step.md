@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 602babb3544093b7cd7c5b30ce4f4612148591cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315568"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216905"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Como depurar e solucionar problemas de ParallelRunStep
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá a depurar e solucionar problemas da classe [Paral
 
 ## <a name="testing-scripts-locally"></a>Testar scripts localmente
 
-Consulte a seção [Testar scripts localmente](how-to-debug-pipelines.md#debug-scripts-locally) para pipelines do Machine Learning. Seu ParallelRunStep é executado como uma etapa em pipelines de ML para que a mesma resposta se aplique a ambos.
+Consulte a seção [Testar scripts localmente](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) para pipelines do Machine Learning. Seu ParallelRunStep é executado como uma etapa em pipelines de ML para que a mesma resposta se aplique a ambos.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depurar scripts do contexto remoto
 
@@ -141,6 +141,8 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
+* Veja esses [blocos de anotações do Jupyter que demonstram pipelines Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
 * Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipeline-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) . Exiba a [documentação](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) de referência para a classe ParallelRunStep.
 

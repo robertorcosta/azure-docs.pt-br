@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b8bed9233073e629ee3bce2630fd373c87663b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058760"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215868"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](./itsmc-overview.md).
@@ -44,7 +44,8 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 
 > [!NOTE]
 > 
-> O Conector ITSM pode se conectar apenas a instâncias do ServiceNow baseadas em nuvem. No momento, não há suporte para instâncias locais do ServiceNow.
+> - O Conector ITSM pode se conectar apenas a instâncias do ServiceNow baseadas em nuvem. No momento, não há suporte para instâncias locais do ServiceNow.
+> - Para usar modelos personalizados como parte das ações, o parâmetro "geometertype" no SCSM deve ser mapeado para "IncidentManagement! System. WorkItem. Incident. Projetype "
 
 ### <a name="connection-procedure"></a>Procedimento de conexão
 

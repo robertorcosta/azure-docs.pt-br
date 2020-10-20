@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 05ec19fd2351b3a9ac1f383ce4747404eeead936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2bad99a836da7aab64e8cc0d454423fd56ffce1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067817"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217772"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote SSIS usando a atividade de Procedimento Armazenado no Azure Data Factory
 
@@ -95,7 +95,7 @@ Nesta etapa, você usa a interface do usuário do Data Factory para criar um pip
     7. Teste a conexão com o banco de dados, clicando no botão **Testar conexão**.
     8. Salve o serviço vinculado. clicando no botão **Salvar**. 
 
-        ![Serviço vinculado para o Banco de Dados SQL do Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![Captura de tela que mostra o processo de adição de um novo serviço vinculado.](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Na janela Propriedades, alterne para a guia **procedimento armazenado** da guia **conta SQL** e execute as seguintes etapas: 
 
     1. Selecione **Editar**. 

@@ -2,7 +2,6 @@
 title: Esquemas para os alertas da central de segurança do Azure
 description: Este artigo descreve os esquemas diferentes usados pela central de segurança do Azure para alertas de segurança.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901343"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220662"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alertas de segurança
 
@@ -173,7 +172,7 @@ Você pode exibir os eventos de alertas de segurança no log de atividades pesqu
 
 Microsoft Graph é o gateway para dados e inteligência em Microsoft 365. Ele fornece um modelo de programação unificado que você pode usar para acessar a enorme quantidade de dados em Microsoft 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados em Microsoft Graph para criar aplicativos para organizações e consumidores que interagem com milhões de usuários.
 
-O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
+O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true).
 
 ---
 

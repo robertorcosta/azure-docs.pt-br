@@ -2,15 +2,14 @@
 title: Usar o navegador de trabalhos & exibição de trabalho-Azure Data Lake Analytics
 description: Este artigo descrever como usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics.
 ms.service: data-lake-analytics
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282605"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218673"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar o Navegador de Trabalhos e a Exibição de Trabalho para o Azure Data Lake Analytics
 O serviço Azure Data Lake Analytics arquiva trabalhos enviados em um repositório de consultas. Neste artigo, você aprende como usar o Navegador de Trabalhos e Exibição de Trabalho nas Ferramentas do Azure Data Lake para Visual Studio para localizar as informações de histórico do trabalho. 
@@ -153,7 +152,7 @@ Detalhes do Trabalho mostra as informações detalhadas do trabalho, incluindo o
 
 ![Detalhes do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
 
-* script
+* Script
   
     O script U-SQL do trabalho é armazenado no repositório de consultas. Você pode exibir o script U-SQL original e reenviá-lo se necessário.
 * Recursos

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b35268cd8d36901f750225713407c5392e5c429e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759162"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945369"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Início Rápido: interagir com um dispositivo IoT Plug and Play conectado à sua solução (C#)
 
@@ -34,7 +34,7 @@ Para concluir este início rápido no Windows, você precisará do seguinte soft
 
 Se você concluiu o [Início Rápido: Conecte um aplicativo de exemplo de dispositivo do IoT Plug and Play em execução no Windows ao Hub IoT (C#)](quickstart-connect-device-csharp.md). Você já clonou o repositório.
 
-Clone os exemplos do repositório GitHub do SDK do IoT do Microsoft Azure para .NET. Abra um prompt de comando em uma pasta de sua escolha. Execute o seguinte comando para clonar o repositório GitHub [Exemplos de IoT do Microsoft Azure para .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp):
+Clone os exemplos dos Exemplos de IoT do Azure para o repositório GitHub em C#. Abra um prompt de comando em uma pasta de sua escolha. Execute o seguinte comando para clonar o repositório GitHub [Exemplos de IoT do Microsoft Azure para .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp):
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -55,7 +55,6 @@ Neste início rápido, você usa um dispositivo de termostato de exemplo escrito
     | IOTHUB_DEVICE_DPS_ID_SCOPE | O valor anotado quando você concluiu [Configurar seu ambiente](set-up-environment.md) |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | O valor anotado quando você concluiu [Configurar seu ambiente](set-up-environment.md) |
-
 
 1. Agora você pode compilar o exemplo no Visual Studio e executá-lo no modo de depuração.
 
@@ -81,9 +80,9 @@ Neste guia de início rápido, você usa uma solução de IoT de exemplo em C# p
 
 1. Agora você pode compilar o exemplo no Visual Studio e executá-lo no modo de depuração.
 
-### <a name="get-digital-twin"></a>Obter o gêmeo digital
+### <a name="get-device-twin"></a>Obter dispositivo gêmeo
 
-O seguinte snippet de código mostra como o aplicativo de serviço recupera o gêmeo digital:
+O seguinte snippet de código mostra como o aplicativo de serviço recupera o dispositivo gêmeo:
 
 ```C#
 // Get a Twin and retrieves model Id set by Device client
@@ -92,7 +91,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> Este exemplo usa o namespace **Microsoft.Azure.Devices.Client;** do **cliente do serviço Hub IoT**. Para saber mais sobre como recuperar a ID do modelo, confira o [guia do desenvolvedor](concepts-developer-guide-service.md).
+> Este exemplo usa o namespace **Microsoft.Azure.Devices.Client** do **cliente do serviço Hub IoT**. Para saber mais sobre as APIs, incluindo a API de gêmeos digitais, confira o [guia de desenvolvedor do serviço](concepts-developer-guide-service.md).
 
 Esse código gera a seguinte saída:
 
@@ -101,7 +100,7 @@ Esse código gera a seguinte saída:
       Model Id of this Twin is: dtmi:com:example:Thermostat;1
 ```
 
-O seguinte snippet de código mostra como usar um *patch* para atualizar as propriedades por meio do gêmeo digital:
+O seguinte snippet de código mostra como usar um *patch* para atualizar as propriedades por meio do dispositivo gêmeo:
 
 ```C#
 // Update the twin

@@ -1,18 +1,16 @@
 ---
 title: Depurar trabalhos do U-SQL-código de Ferramentas do Azure Data Lake para Visual Studio
 description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio Code para executar e depurar trabalhos U-SQL localmente.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 07/14/2017
-ms.openlocfilehash: 4b8285281119121b509c62b11bf48a5f70a9f0f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef32372cbaa70f7bca609c2ed1db118f33237e2b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125693"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216191"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Executar U-SQL e depurar localmente no Visual Studio Code
 Este artigo descreve como executar trabalhos U-SQL em um computador de desenvolvimento local para acelerar as fases iniciais de codificação ou para depurar o código localmente no Visual Studio Code. Para obter instruções sobre como usar as Ferramentas do Azure Data Lake para Visual Studio Code, confira [Usar as Ferramentas do Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -87,4 +85,4 @@ Siga as etapas abaixo para executar a depuração local:
 * [Introdução à Análise Data Lake usando o PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introdução à Análise Data Lake usando o portal do Azure](data-lake-analytics-get-started-portal.md)
 * [Usar as Ferramentas do Data Lake para Visual Studio para desenvolver aplicativos do U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
-* [Usar o catálogo do Data Lake Analytics (U-SQL)](data-lake-analytics-use-u-sql-catalog.md)
+* [Usar o catálogo do Data Lake Analytics (U-SQL)](./data-lake-analytics-u-sql-get-started.md)

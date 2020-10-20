@@ -2,14 +2,14 @@
 title: Visão geral de servidores habilitados para Azure Arc
 description: Saiba como usar servidores habilitados para Azure Arc para gerenciar servidores hospedados fora do Azure como um recurso do Azure.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: overview
-ms.openlocfilehash: 9fcac35f943eefb15a200e9b148b22ce67cc3941
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 881445b19baef4e025cf3bd32dc3b55b2d170ec3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90887539"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818741"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores habilitados para Azure Arc?
 
@@ -21,7 +21,7 @@ Para oferecer essa experiência com seus computadores híbridos hospedados fora 
 
 Quando você conecta seu computador a servidores habilitados para Azure Arc, ele habilita a capacidade de execução das seguintes tarefas de monitoramento e gerenciamento de configuração:
 
-- Atribua [configurações de convidado do Azure Policy](../../governance/policy/concepts/guest-configuration.md) usando a mesma experiência que a atribuição de política para máquinas virtuais do Azure.
+- Atribua [configurações de convidado do Azure Policy](../../governance/policy/concepts/guest-configuration.md) usando a mesma experiência que a atribuição de política para máquinas virtuais do Azure. Hoje, a maioria das políticas de Configuração de Convidado não aplicam configurações, elas só auditam as configurações dentro do computador. Para entender o custo de usar políticas de Configuração de Convidado do Azure Policy com servidores habilitados para Arc, confira o [guia de preços](https://azure.microsoft.com/pricing/details/azure-policy/) do Azure Policy.
 
 - Relatar alterações de configuração sobre software instalado, serviços da Microsoft, Registro e arquivos do Windows e daemons do Linux em servidores monitorados usando a Automação do Azure [Controle de Alterações e Inventário](../../automation/change-tracking.md).
 

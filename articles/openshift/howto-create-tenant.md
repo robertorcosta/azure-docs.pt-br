@@ -6,16 +6,22 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469976"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221155"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Criar um locatário do Azure AD para o Azure Red Hat OpenShift
 
-Microsoft Azure o Red Hat OpenShift requer um locatário do [Azure Active Directory (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md) no qual criar o cluster. Um *locatário* é uma instância dedicada do Azure AD que um desenvolvedor de organização ou de aplicativo recebe quando cria uma relação com a Microsoft inscrevendo-se no Azure, Microsoft Intune ou Microsoft 365. Cada locatário do Azure AD é distinto e separado de outros locatários do Azure AD e tem suas próprias identidades corporativas e de estudante e registros de aplicativo.
+> [!IMPORTANT]
+> O Azure Red Hat OpenShift 3,11 será desativado em 30 de junho de 2022. O suporte para a criação de novos clusters do Azure Red Hat OpenShift 3,11 continua até 30 de novembro de 2020. Após a aposentadoria, os clusters restantes do Azure Red Hat OpenShift 3,11 serão desligados para evitar vulnerabilidades de segurança.
+> 
+> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Se você tiver dúvidas específicas, [entre em contato conosco](mailto:arofeedback@microsoft.com).
+
+Microsoft Azure o Red Hat OpenShift requer um locatário do [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) no qual criar o cluster. Um *locatário* é uma instância dedicada do Azure AD que um desenvolvedor de organização ou de aplicativo recebe quando cria uma relação com a Microsoft inscrevendo-se no Azure, Microsoft Intune ou Microsoft 365. Cada locatário do Azure AD é distinto e separado de outros locatários do Azure AD e tem suas próprias identidades corporativas e de estudante e registros de aplicativo.
 
 Se você ainda não tiver um locatário do Azure AD, siga estas instruções para criar um.
 
