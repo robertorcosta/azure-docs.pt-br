@@ -9,19 +9,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: dad1f9f232cb9d713af81f6aea57a4ffe651da19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65dc9f556a9b7c257273349c056cf997973e942f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331957"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328276"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato do Excel no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Siga este artigo quando desejar **analisar os arquivos do Excel**. Azure Data Factory dá suporte a ". xls" e ". xlsx".
 
-Há suporte para o formato do Excel para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [blob do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [armazenamento de arquivos do Azure](connector-azure-file-storage.md), [sistema de arquivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md). Há suporte como origem, mas não coletor.
+Há suporte para o formato do Excel para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [blob do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [armazenamento de arquivos do Azure](connector-azure-file-storage.md), [sistema de arquivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md). Há suporte como origem, mas não coletor. 
+
+**Observação**: não há suporte para o formato ". xls" ao usar [http](connector-http.md). 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -71,7 +73,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="excel-as-source"></a>Excel como fonte 
 
-As propriedades a seguir têm suporte na seção *** \* origem \* *** da atividade de cópia.
+As propriedades a seguir têm suporte na seção atividade de cópia **_ \_ origem \* ***.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -108,13 +110,13 @@ A tabela abaixo lista as propriedades com suporte por uma origem do Excel. Você
 
 | Nome                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
-| Caminhos curinga           | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não       | String[]                                                  | wildcardPaths                     |
-| Caminho raiz da partição       | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não       | String                                                    | partitionRootPath                 |
-| Lista de arquivos             | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | não       | `true` ou `false`                                         | File                          |
-| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem       | não       | String                                                    | rowUrlColumn                      |
-| Após a conclusão          | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não       | Excluir: `true` ou `false` <br> Prosseguir `['<from>', '<to>']` | purgeFiles <br> MoveFile         |
-| Filtrar por última modificação   | Escolher filtrar arquivos com base na última alteração | não       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
-| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
+| Caminhos curinga           | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no       | String[]                                                  | wildcardPaths                     |
+| Caminho raiz da partição       | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | no       | String                                                    | partitionRootPath                 |
+| Lista de arquivos             | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | no       | `true` ou `false`                                         | File                          |
+| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem       | no       | String                                                    | rowUrlColumn                      |
+| Após a conclusão          | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | no       | Excluir: `true` ou `false` <br> Prosseguir `['<from>', '<to>']` | purgeFiles <br> MoveFile         |
+| Filtrar por última modificação   | Escolher filtrar arquivos com base na última alteração | no       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | no | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemplo de origem
 

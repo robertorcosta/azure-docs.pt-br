@@ -3,15 +3,15 @@ title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre como autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f69c3e5136ab47de4683cc65c32054d067dde13
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566254"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332392"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory
-Os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
+Os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Visão geral
 Quando uma entidade de segurança (um usuário ou um aplicativo) tenta acessar um recurso de hubs de eventos, a solicitação deve ser autorizada. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. 
@@ -39,7 +39,7 @@ O Azure fornece as seguintes funções internas do Azure para autorizar o acesso
 | [Remetente de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Use essa função para fornecer acesso de envio aos recursos dos hubs de eventos. |
 | [Receptor de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Use essa função para fornecer o acesso de consumo/recebimento aos recursos dos hubs de eventos. |
 
-Para funções internas do registro de esquema, consulte [funções de registro de esquema](schema-registry-overview.md#role-based-access-control).
+Para funções internas do registro de esquema, consulte [funções de registro de esquema](schema-registry-overview.md#azure-role-based-access-control).
 
 ## <a name="resource-scope"></a>Escopo do recurso 
 Antes de atribuir uma função do Azure a uma entidade de segurança, determine o escopo do acesso que essa entidade de segurança deve ter. De acordo com as melhores práticas, sempre é melhor conceder o escopo mais estreito possível.
@@ -73,7 +73,7 @@ Para obter mais informações sobre como as funções internas são definidas, c
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como atribuir uma função interna do Azure a uma entidade de segurança, consulte [autenticar o acesso aos recursos dos hubs de eventos usando Azure Active Directory](authenticate-application.md).
-- Saiba [como criar funções personalizadas com o RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
+- Saiba [como criar funções personalizadas com o RBAC do Azure](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
 - Saiba [como usar Azure Active Directory com eh](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 Consulte os seguintes artigos relacionados:

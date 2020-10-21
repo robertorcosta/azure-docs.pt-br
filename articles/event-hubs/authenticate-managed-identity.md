@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como autenticar uma identid
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23fc0a59f9accc70c69c1096c1a15f1313ee2e0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010011"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332443"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos
 Os hubs de eventos do Azure dão suporte à autenticação Azure Active Directory (Azure AD) com [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades gerenciadas para recursos do Azure podem autorizar o acesso a recursos de hubs de eventos usando as credenciais do Azure AD de aplicativos em execução em VMs (máquinas virtuais) do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.
@@ -26,7 +26,7 @@ Antes de poder usar identidades gerenciadas para recursos do Azure para autoriza
 - [Bibliotecas de cliente Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerenciada no Azure AD
-Para autorizar uma solicitação ao serviço de hubs de eventos de uma identidade gerenciada em seu aplicativo, primeiro configure as configurações de RBAC (controle de acesso baseado em função) para essa identidade gerenciada. Os hubs de eventos do Azure definem funções do Azure que abrangem permissões para enviar e ler de hubs de eventos. Quando a função do Azure é atribuída a uma identidade gerenciada, a identidade gerenciada recebe acesso aos dados dos hubs de eventos no escopo apropriado.
+Para autorizar uma solicitação ao serviço de hubs de eventos de uma identidade gerenciada em seu aplicativo, primeiro configure as configurações do Azure RBAC (controle de acesso baseado em função) para essa identidade gerenciada. Os hubs de eventos do Azure definem funções do Azure que abrangem permissões para enviar e ler de hubs de eventos. Quando a função do Azure é atribuída a uma identidade gerenciada, a identidade gerenciada recebe acesso aos dados dos hubs de eventos no escopo apropriado.
 
 Para obter mais informações sobre como atribuir funções do Azure, consulte [autenticar com Azure Active Directory para acessar os recursos dos hubs de eventos](authorize-access-azure-active-directory.md).
 
@@ -60,7 +60,7 @@ Para atribuir uma função aos recursos dos hubs de eventos, navegue até esse r
 4.  Na página **Adicionar atribuição de função** , selecione as funções de hubs de eventos que você deseja atribuir. Em seguida, pesquise para localizar a identidade do serviço que você registrou para atribuir a função.
     
     ![Página Adicionar atribuição de função](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Selecione **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que a identidade de serviço tem proprietário de dados de hubs de eventos.
+5.  Clique em **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que a identidade de serviço tem proprietário de dados de hubs de eventos.
     
     ![Identidade atribuída a uma função](./media/authenticate-managed-identity/role-assigned.png)
 

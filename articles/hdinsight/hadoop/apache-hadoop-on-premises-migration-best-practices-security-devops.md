@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751287"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329416"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 
@@ -69,7 +69,7 @@ A segurança empresarial de ponta a ponta pode ser alcançada usando os seguinte
 
 **Autenticação e autorização acesso a dados**
     - Criar clusters do HDInsight ingressados no domínio usando o Azure Active Directory Domain Services. (Enterprise Security Package).
-    - Usar o Ambari para fornecer acesso baseado em função para recursos de cluster a usuários do AD.
+    - Use o Ambari para fornecer acesso baseado em função aos recursos de cluster para usuários do AD.
     - Usar o Apache Ranger para definir políticas de controle de acesso para o Hive no nível da tabela/coluna/linha.
     - O acesso a SSH no cluster pode ser restringido somente ao administrador.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217381"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314808"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
@@ -157,6 +157,17 @@ Se você optar por abrir um caso de suporte, colete as informações a seguir pa
 - Use Psping em uma das VMs de back-end na VNet para testar a resposta da porta de investigação (exemplo: psping 10.0.0.4:3389) e registrar resultados. 
 - Se nenhuma resposta for recebida nesses testes de ping, execute um rastreamento Netsh simultâneo na VM de back-end e na VM de teste da VNet enquanto executa PsPing. Em seguida, interrompa o rastreamento Netsh. 
  
+## <a name="symptom-load-balancer-in-failed-state"></a>Sintoma: Load Balancer em estado de falha 
+
+**Resolução**
+
+- Depois de identificar o recurso que está em um estado de falha, vá para [Azure Resource Explorer](https://resources.azure.com/) e identifique o recurso nesse estado. 
+- Atualize a alternância no canto superior direito para leitura/gravação.
+- Clique em Editar para o recurso em estado de falha.
+- Clique em PUT seguido por GET para garantir que o estado de provisionamento foi atualizado para êxito.
+- Em seguida, você pode continuar com outras ações, pois o estado do recurso está fora de falha.
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Se as etapas anteriores não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).

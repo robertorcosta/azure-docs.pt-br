@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542281"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330386"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -194,11 +194,11 @@ Os conjuntos de dados armazenados no designer são convertidos automaticamente e
     > [!NOTE]
     > O código R existente pode precisar de alterações secundárias para ser executado em um pipeline de designer. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados no designer.
 
-    Se o seu script for maior que 16 KB, use a porta do **pacote de script** para evitar erros como *CommandLine excede o limite de 16597 caracteres*. 
+1. Se o seu script for maior que 16 KB, use a porta do **pacote de script** para evitar erros como *CommandLine excede o limite de 16597 caracteres*. 
     
     1. Agrupe o script e outros recursos personalizados em um arquivo zip.
     1. Carregue o arquivo zip como um **conjunto** de um arquivo para o estúdio. 
-    1. Arraste o módulo DataSet da lista *meus conjuntos de valores* no painel do módulo à esquerda na página criação do designer. 
+    1. Arraste o módulo DataSet da lista *DataSets* no painel do módulo à esquerda na página criação do designer. 
     1. Conecte o módulo DataSet à porta do **pacote de script** do módulo **Executar script R** .
     
     Veja a seguir o código de exemplo para consumir o script no pacote de script:

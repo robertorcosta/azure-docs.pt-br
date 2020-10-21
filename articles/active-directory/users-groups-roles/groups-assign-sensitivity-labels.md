@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab257cee199050dcc444e9e3acf43370bd062e5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056261"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313170"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir rótulos de sensibilidade a grupos de Microsoft 365 no Azure Active Directory
 
@@ -68,7 +68,7 @@ Para aplicar rótulos publicados a grupos, você deve primeiro habilitar o recur
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Você também precisará sincronizar seus rótulos de sensibilidade com o Azure AD. Para obter instruções, consulte [como habilitar rótulos de sensibilidade para contêineres e sincronizar rótulos](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+Você também precisará sincronizar seus rótulos de sensibilidade com o Azure AD. Para obter instruções, consulte [como habilitar rótulos de sensibilidade para contêineres e sincronizar rótulos](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribuir um rótulo a um novo grupo no portal do Azure
 
@@ -136,7 +136,7 @@ Os rótulos podem ser trocados a qualquer momento usando as mesmas etapas que at
 1. Selecione **Grupos**.
 1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
 1. Na página do grupo selecionado, selecione **Propriedades** e selecione um novo rótulo de sensibilidade na lista.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>As alterações de configuração de grupo em rótulos publicados não são atualizadas nos grupos
 

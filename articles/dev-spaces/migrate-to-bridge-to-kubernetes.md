@@ -1,16 +1,16 @@
 ---
 title: Migração para o Bridge to Kubernetes
 services: azure-dev-spaces
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 description: Descreve o processo de migração do Azure Dev Spaces para a ponte para o kubernetes
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ponte para kubernetes
-ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044693"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329791"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migração para o Bridge to Kubernetes
 
@@ -44,16 +44,16 @@ Azure Dev Spaces e Bridge para kubernetes têm recursos semelhantes, eles també
 | Requisito  | Azure Dev Spaces  | Bridge to Kubernetes  |
 |---------------|-------------------|--------------------------------|
 | Serviço de Kubernetes do Azure | Em 15 regiões do Azure | Qualquer região de serviço do AKS    |
-| **Segurança** |
+| **Security** |
 | Acesso de segurança necessário no cluster  | Colaborador de cluster AKS  | Kubernetes RBAC – atualização de implantação   |
 | Acesso de segurança necessário no seu computador de desenvolvimento  | N/D  | Administrador local/sudo   |
 | **Usabilidade** |
 | Independente dos artefatos do kubernetes e do Docker  | Não  | Sim   |
 | Reversão automática de alterações, pós-depuração  | Não  | Sim   |
-| **Ambientes** |
+| **Ferramentas de cliente com suporte** |
 | Funciona com o Visual Studio 2019  | Sim  | Sim   |
 | Funciona com Visual Studio Code  | Sim  | Sim   |
-| Funciona com a CLI  | Sim  | Não   |
+| Funciona com uma CLI  | Sim  | Não   |
 | **Compatibilidade do sistema operacional** |
 | Funciona no Windows 10  | Sim  | Sim  |
 | Funciona no Linux  | Sim  | Sim  |

@@ -3,12 +3,12 @@ title: Suporte para avaliação do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte à avaliação do Hyper-V com a avaliação do servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311322"
+ms.locfileid: "92331967"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
@@ -23,7 +23,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 VMs do Hyper-V em um único [projeto de migrações para Azure](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Além das VMs do Hyper-V, um projeto pode incluir VMs VMware e servidores físicos, até os limites de avaliação de cada um.
-**Discovery** | O dispositivo de migrações para Azure pode descobrir até 5000 VMs do Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
+**Descoberta** | O dispositivo de migrações para Azure pode descobrir até 5000 VMs do Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
 **Avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.<br/><br/> Você pode avaliar até 35.000 VMs em uma única avaliação para um grupo.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre as avaliações.
@@ -63,7 +63,7 @@ A tabela a seguir resume os requisitos de porta para avaliação.
 **Dispositivo** | **Conexão**
 --- | ---
 **Dispositivo** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivos usando a URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Conexões de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para migrações para Azure.
-**Host/cluster do Hyper-V** | Conexão de entrada na porta do WinRM 5985 (HTTP) para efetuar pull de metadados e dados de desempenho para VMs do Hyper-V usando uma sessão de modelo CIM (CIM).
+**Host/cluster do Hyper-V** | Conexão de entrada na porta do WinRM 5985 (HTTP) ou 5986 (HTTPS) para extrair metadados e dados de desempenho para VMs do Hyper-V usando uma sessão modelo CIM (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos da análise de dependência baseada em agente
 

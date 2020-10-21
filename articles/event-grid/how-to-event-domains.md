@@ -4,12 +4,12 @@ description: Mostra como gerenciar grandes conjuntos de tópicos na Grade de Eve
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277db97211b196c9853470c2d12cc2246a4005b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502028"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330065"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerenciar tópicos e publicar eventos usando domínios de eventos
 
@@ -79,7 +79,7 @@ Observe que `endpoint` e `id` são necessários para gerenciar o domínio e publ
 
 ## <a name="manage-access-to-topics"></a>Gerenciar o acesso aos tópicos
 
-O gerenciamento de acesso aos tópicos é feito por meio da [atribuição de função](../role-based-access-control/role-assignments-cli.md). A atribuição de função usa o controle de acesso baseado em função para limitar as operações nos recursos do Azure a usuários autorizados em um determinado escopo.
+O gerenciamento de acesso aos tópicos é feito por meio da [atribuição de função](../role-based-access-control/role-assignments-cli.md). A atribuição de função usa o controle de acesso baseado em função do Azure para limitar as operações nos recursos do Azure a usuários autorizados em um determinado escopo.
 
 A Grade de Eventos possui duas funções internas que podem ser utilizadas para atribuir acesso de usuários específicos a vários tópicos em um domínio. Essas funções são `EventGrid EventSubscription Contributor (Preview)`, o que permite a criação e exclusão de assinaturas, e `EventGrid EventSubscription Reader (Preview)`, que permite apenas a listagem de assinaturas de eventos.
 

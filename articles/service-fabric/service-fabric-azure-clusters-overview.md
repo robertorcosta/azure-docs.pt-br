@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843304"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320502"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
@@ -78,7 +78,7 @@ Para saber mais, confira o item sobre o [Controle de Acesso Baseado em Função 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede 
 Grupos de segurança de rede (NSGs) controlam o tráfego de entrada e de saída de uma sub-rede, VM ou NIC específica.  Por padrão, quando várias VMs são colocadas na mesma rede virtual, elas podem se comunicar entre si por meio de qualquer porta.  Se quiser restringir a comunicação entre as máquinas, é possível definir os NSGs para segmentar a rede ou isolar as VMs umas das outras.  Se tiver vários tipos de nó em um cluster, é possível aplicar os NSGs a sub-redes para impedir que as máquinas que pertencem a diferentes tipos de nó se comuniquem entre si.  
 
-Para saber mais, confira o artigo sobre os [Grupos de segurança](../virtual-network/security-overview.md)
+Para saber mais, confira o artigo sobre os [Grupos de segurança](../virtual-network/network-security-groups-overview.md)
 
 ## <a name="scaling"></a>Scaling
 
@@ -98,11 +98,11 @@ Para saber mais, leia [Upgrade de clusters](service-fabric-cluster-upgrade.md).
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6,0 |
+| Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6,0 |
+| Linux Ubuntu 16.04 | 6.0 |
 | Linux Ubuntu 18, 4 | 7.1 |
 
 Para obter informações adicionais, consulte [versões de cluster com suporte no Azure](./service-fabric-versions.md#supported-operating-systems)

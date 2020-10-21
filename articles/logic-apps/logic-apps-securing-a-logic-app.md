@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: b25cac502a4e9a0cc5582134cb9601b75672ffd1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 159f4b2ea0cafb0b2c883cde76ddce7ddd3f1fc6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168487"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317563"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -1065,7 +1065,7 @@ Você pode usar os aplicativos lógicos do Azure no [Azure governamental](../azu
 
   * [Azure App planos de serviço](../app-service/overview-hosting-plans.md)
   * [Opções de rede do Azure Functions](../azure-functions/functions-networking-options.md)
-  * [Hosts dedicados do Azure para máquinas virtuais](../virtual-machines/windows/dedicated-hosts.md)
+  * [Hosts dedicados do Azure para máquinas virtuais](../virtual-machines/dedicated-hosts.md)
   * [Isolamento de máquina virtual no Azure](../virtual-machines/isolation.md)
   * [Implantar serviços dedicados do Azure em redes virtuais](../virtual-network/virtual-network-for-azure-services.md)
 

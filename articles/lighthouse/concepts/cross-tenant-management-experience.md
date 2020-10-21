@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 10/12/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970632"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315941"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -69,6 +69,10 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 - Fazer backup e restaurar dados [do cliente de cargas de trabalho locais, VMS do Azure, compartilhamentos de arquivos do Azure e muito mais](../..//backup/backup-overview.md#what-can-i-back-up)
 - Use o [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) para ajudar a ver informações operacionais de itens de backup (incluindo recursos do Azure ainda não configurados para backup) e informações de monitoramento (trabalhos e alertas) para assinaturas delegadas. O Backup Explorer está disponível no momento apenas para dados de VM do Azure.
 - Use [Relatórios de Backup](../../backup/configure-reports.md) entre assinaturas delegadas para acompanhar tendências históricas, analisar o consumo de armazenamento de backup e auditar backups e restaurações.
+
+[Plantas do Azure](../../governance/blueprints/index.yml):
+
+- Use plantas do Azure para orquestrar a implantação de modelos de recursos e outros artefatos (requer [acesso adicional](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) para preparar a assinatura do cliente)
 
 [Gerenciamento de custos do Azure + cobrança](../../cost-management-billing/index.yml):
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 94a84220b276edf8eaf539151964715675693dec
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131370"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332018"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -42,11 +42,11 @@ Use os links a seguir para obter instruções detalhadas sobre como criar cluste
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>O Data Lake Storage Gen2 dá suporte a quais tipos de permissões?
 
-O Data Lake Storage Gen2 usa um modelo de controle de acesso que dá suporte a RBAC (controle de acesso baseado em função) e ACLs (listas de controle de acesso) semelhantes a POSIX. Data Lake Storage Gen1 dá suporte a listas de controle de acesso somente para controlar o acesso aos dados.
+Data Lake Storage Gen2 usa um modelo de controle de acesso que dá suporte ao controle de acesso baseado em função do Azure (RBAC do Azure) e às ACLs (listas de controle de acesso) semelhantes a POSIX. Data Lake Storage Gen1 dá suporte a listas de controle de acesso somente para controlar o acesso aos dados.
 
-O RBAC usa atribuições de função para aplicar efetivamente conjuntos de permissões a usuários, grupos e entidades de serviço para recursos do Azure. Normalmente, esses recursos do Azure são restritos a recursos de nível superior (por exemplo, contas de armazenamento de BLOBs do Azure). Para o armazenamento de BLOBs do Azure, e também Data Lake Storage Gen2, esse mecanismo foi estendido para o recurso do sistema de arquivos.
+O RBAC do Azure usa atribuições de função para aplicar efetivamente conjuntos de permissões a usuários, grupos e entidades de serviço para recursos do Azure. Normalmente, esses recursos do Azure são restritos a recursos de nível superior (por exemplo, contas de armazenamento de BLOBs do Azure). Para o armazenamento de BLOBs do Azure, e também Data Lake Storage Gen2, esse mecanismo foi estendido para o recurso do sistema de arquivos.
 
-Para obter mais informações sobre permissões de arquivo com o RBAC, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Para obter mais informações sobre permissões de arquivo com o RBAC do Azure, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Para obter mais informações sobre permissões de arquivo com ACLs, consulte [listas de controle de acesso em arquivos e diretórios](../storage/blobs/data-lake-storage-access-control.md).
 

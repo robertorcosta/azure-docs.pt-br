@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80e04ec06edc7169f0a4318c2c94de34dda9d96a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87425206"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331049"
 ---
 Nesta etapa, você está avaliando Quantos compartilhamentos de arquivos do Azure são necessários. Uma única instância do Windows Server (ou cluster) pode sincronizar até 30 compartilhamentos de arquivos do Azure.
 
@@ -28,11 +28,15 @@ Se o seu departamento de RH (por exemplo) tiver um total de 15 compartilhamentos
 
 O Sincronização de Arquivos do Azure dá suporte à sincronização da raiz de um volume para um compartilhamento de arquivos do Azure. Se você sincronizar a pasta raiz, todas as subpastas e arquivos vão para o mesmo compartilhamento de arquivos do Azure.
 
-A sincronização da raiz do volume nem sempre é a melhor resposta. Há benefícios na sincronização de vários locais. Por exemplo, isso ajuda a manter o número de itens menores por escopo de sincronização. Configurar Sincronização de Arquivos do Azure com um número menor de itens não é apenas benéfico para a sincronização de arquivos. Um número menor de itens também beneficia cenários como estes:
+A sincronização da raiz do volume nem sempre é a melhor resposta. Há benefícios na sincronização de vários locais. Por exemplo, isso ajuda a manter o número de itens menores por escopo de sincronização. Enquanto testamos os compartilhamentos de arquivos do Azure e Sincronização de Arquivos do Azure com 100 milhões itens (arquivos e pastas) por compartilhamento, uma prática recomendada é tentar manter o número abaixo de 20 ou 30 milhões em um único compartilhamento. Configurar Sincronização de Arquivos do Azure com um número menor de itens não é apenas benéfico para a sincronização de arquivos. Um número menor de itens também beneficia cenários como estes:
 
-* A restauração do lado da nuvem de um instantâneo de compartilhamento de arquivos do Azure pode ser realizada como um backup.
+* Verificação inicial do conteúdo da nuvem antes que o namespace possa começar a aparecer em um servidor Sincronização de Arquivos do Azure habilitado pode ser concluído mais rapidamente.
+* A restauração do lado da nuvem de um instantâneo de compartilhamento de arquivos do Azure será mais rápida.
 * A recuperação de desastres de um servidor local pode acelerar significativamente.
 * As alterações feitas diretamente em um compartilhamento de arquivos do Azure (fora da sincronização) podem ser detectadas e sincronizadas mais rapidamente.
+
+> [!TIP]
+> Se você não tiver certeza de quantos arquivos e pastas você tem, poderá conferir a ferramenta Treeize da OBSTRUção da Software GmbH.
 
 #### <a name="a-structured-approach-to-a-deployment-map"></a>Uma abordagem estruturada para um mapa de implantação
 
@@ -53,14 +57,12 @@ Para tomar a decisão sobre quantos compartilhamentos de arquivos do Azure você
 >
 > Esse agrupamento sob uma raiz comum não tem impacto sobre o acesso aos seus dados. Suas ACLs permanecem como estão. Você precisaria apenas ajustar os caminhos de compartilhamento (como compartilhamentos SMB ou NFS) que você pode ter nas pastas de servidor que você alterou em uma raiz comum. Nada mais muda.
 
-Outro aspecto importante do Sincronização de Arquivos do Azure e de um desempenho e experiência balanceada é compreender os fatores de escala para o desempenho de Sincronização de Arquivos do Azure. Obviamente, quando os arquivos são sincronizados pela Internet, os arquivos maiores levam mais tempo e largura de banda para sincronização.
-
 > [!IMPORTANT]
 > O vetor de escala mais importante para Sincronização de Arquivos do Azure é o número de itens (arquivos e pastas) que precisam ser sincronizados.
 
 O Sincronização de Arquivos do Azure dá suporte à sincronização de até 100 milhões itens para um único compartilhamento de arquivos do Azure. Esse limite pode ser excedido e mostra apenas o que a equipe de Sincronização de Arquivos do Azure testa regularmente.
 
-É uma prática recomendada manter o número de itens por escopo de sincronização baixo. Esse é um fator importante a ser considerado no mapeamento de pastas para compartilhamentos de arquivos do Azure.
+É uma prática recomendada manter o número de itens por escopo de sincronização baixo. Esse é um fator importante a ser considerado no mapeamento de pastas para compartilhamentos de arquivos do Azure. Enquanto testamos os compartilhamentos de arquivos do Azure e Sincronização de Arquivos do Azure com 100 milhões itens (arquivos e pastas) por compartilhamento, uma prática recomendada é tentar manter o número abaixo de 20 ou 30 milhões em um único compartilhamento. Divida o namespace em vários compartilhamentos se você começar a exceder esses números. Você pode continuar a agrupar vários compartilhamentos locais no mesmo compartilhamento de arquivos do Azure, desde que permaneça aproximadamente abaixo desses números. Isso lhe dará espaço para crescer.
 
 Em sua situação, é possível que um conjunto de pastas possa ser sincronizado logicamente com o mesmo compartilhamento de arquivos do Azure (usando a nova abordagem de pasta raiz comum mencionada anteriormente). Mas talvez ainda seja melhor reagrupar pastas de forma que elas sincronizem com duas, em vez de um compartilhamento de arquivos do Azure. Você pode usar essa abordagem para manter o número de arquivos e pastas por compartilhamento de arquivos balanceados pelo servidor.
 
@@ -73,7 +75,7 @@ Em sua situação, é possível que um conjunto de pastas possa ser sincronizado
     :::column:::
         Use uma combinação dos conceitos anteriores para ajudar a determinar quantos compartilhamentos de arquivos do Azure são necessários e quais partes dos dados existentes acabarão com o compartilhamento de arquivos do Azure.
         
-        Crie uma tabela que registra suas ideias, para que você possa consultá-las na próxima etapa. Manter-se organizado é importante, pois pode ser fácil perder detalhes do seu plano de mapeamento quando você estiver Provisionando muitos recursos do Azure de uma vez. Para ajudá-lo a criar um mapeamento completo, você pode baixar um arquivo do Microsoft Excel como um modelo.
+        Crie uma tabela que registra suas ideias, para que você possa consultá-las quando necessário. Manter-se organizado é importante, pois pode ser fácil perder detalhes do seu plano de mapeamento quando você estiver Provisionando muitos recursos do Azure de uma vez. Para ajudá-lo a criar um mapeamento completo, você pode baixar um arquivo do Microsoft Excel como um modelo.
 
 [//]: # (O HTML é exibido como a única maneira de realizar a adição de uma tabela aninhada de duas colunas com análise de imagem de trabalho e texto/hiperlink na mesma linha.)
 
