@@ -101,8 +101,10 @@
   items:
     - name: Integração de aplicativo
       items:
-        - name: Registrar um aplicativo
+        - name: Registrar um aplicativo Web
           href: tutorial-register-applications.md
+        - name: Registrar um SPA (aplicativo de página única)
+          href: tutorial-register-spa.md
         - name: Registrar um provedor de serviços SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'

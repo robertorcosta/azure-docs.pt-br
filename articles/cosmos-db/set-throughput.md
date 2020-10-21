@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282577"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331814"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um 
 
 Depois de criar um contêiner Cosmos do Azure ou um banco de dados, você pode atualizar a taxa de transferência provisionada. Não há limite para a taxa de transferência máxima provisionada que você pode configurar no banco de dados ou no contêiner.
 
-### <a name="current-provisioned-throughput"></a>Taxa de transferência provisionada atual
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> Taxa de transferência provisionada atual
 
 Você pode recuperar a taxa de transferência provisionada de um contêiner ou de um banco de dados no portal do Azure ou usando os SDKs:
 
@@ -135,6 +135,14 @@ Você pode verificar o progresso do dimensionamento programaticamente lendo a [t
 * [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) no SDK do Java.
 
 Você pode usar [Azure monitor métricas](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para exibir o histórico de taxa de transferência provisionada (ru/s) e o armazenamento em um recurso.
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> Alto programa de armazenamento/baixa taxa de transferência
+
+Conforme descrito na seção [atual de taxa de transferência provisionada](#current-provisioned-throughput) acima, a taxa de transferência mínima que você pode provisionar em um contêiner ou banco de dados depende de vários fatores. Uma delas é a quantidade de dados atualmente armazenados, pois Azure Cosmos DB impõe uma taxa de transferência mínima de 10 RU/s por GB de armazenamento.
+
+Isso pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas têm requisitos de baixa taxa de transferência em comparação. Para acomodar melhor esses cenários, Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixa taxa de transferência"** que diminui a restrição de ru/s por GB de 10 para 1 em contas qualificadas.
+
+No momento, você precisa ter pelo menos 1 banco de dados de contêiner ou de taxa de transferência compartilhada que contenha mais de 1 TB de dado em sua conta para ser elegível. Para participar deste programa e avaliar sua qualificação completa, tudo o que você precisa fazer é preencher [essa pesquisa](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Em seguida, a equipe de Azure Cosmos DB acompanhará e continuará a integração.
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
 Esta tabela mostra uma comparação entre a taxa de transferência padrão de provisionamento (manual) em um banco de dados em relação a um contêiner. 

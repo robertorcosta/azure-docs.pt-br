@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708944"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329365"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Este artigo oferece uma visão geral das cotas padrão oferecidas a diferentes r
 
 ## <a name="storage-and-database-operations"></a>Operações de armazenamento e banco de dados
 
-Após a criação de uma conta do Azure Cosmos na sua assinatura, é possível gerenciar dados em sua conta [criando bancos de dados, contêineres e itens](databases-containers-items.md).
+Após a criação de uma conta do Azure Cosmos na sua assinatura, é possível gerenciar dados em sua conta [criando bancos de dados, contêineres e itens](account-databases-containers-items.md).
 
 ### <a name="provisioned-throughput"></a>Taxa de transferência provisionada
 
@@ -27,15 +27,15 @@ Você pode provisionar a taxa de transferência em um nível de contêiner ou em
 
 | Recurso | Limite padrão |
 | --- | --- |
-| Máximo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md) |
-| Máximo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md) |
+| Máximo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](account-databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md) |
+| Máximo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](account-databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md) |
 | RUs máxima por partição (lógica) | 10.000 |
 | Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
 | Número máximo de chaves de partição (lógica) distintas | Ilimitado |
 | Armazenamento máximo por contêiner | Ilimitado |
 | Armazenamento máximo por banco de dados | Ilimitado |
 | Tamanho máximo de anexo por conta (o recurso de anexo está sendo preterido) | 2 GB |
-| Mínimo de RUs necessárias por 1 GB | 10 RU/s |
+| Mínimo de RU/s exigidos por 1 GB | 10 RU/s<br>**Observação:** se seu contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > Para saber mais sobre as práticas recomendadas para o gerenciamento de cargas de trabalho que têm chaves de partição que exigem limites mais altos para armazenamento ou taxa de transferência, confira [Criar uma chave de partição sintética](synthetic-partition-keys.md).
@@ -55,8 +55,8 @@ Em resumo, aqui estão os limites mínimos de RU provisionadas.
 
 | Recurso | Limite padrão |
 | --- | --- |
-| Mínimo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Mínimo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Mínimo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Mínimo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Mínimo de RUs por contêiner em um banco de dados de taxa de transferência compartilhada | 100 |
 
 O Cosmos DB dá suporte à escala elástica da taxa de transferência (RUs) por contêiner ou banco de dados por meio de SDKs ou portal. Cada contêiner pode ser dimensionado de modo síncrono e imediatamente dentro de um intervalo de escala de 10 a 100 vezes entre os valores mínimo e máximo. Se o valor da taxa de transferência solicitado estiver fora do intervalo, a colocação em escala será executada de modo assíncrono. A colocação em escala assíncrona pode levar de minutos a horas para ser concluída, dependendo da taxa de transferência e do tamanho de armazenamento de dados solicitados no contêiner.  

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279357"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332086"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
@@ -72,7 +72,7 @@ Você também pode exibir o ponto de extremidade que foi criado de volta na pág
 
 Se a criação do ponto de extremidade falhar, observe a mensagem de erro e tente novamente após alguns minutos.
 
-Agora, o tópico da grade de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#event-routes).
+Agora, o tópico da grade de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
 
 ### <a name="create-an-event-hubs-endpoint"></a>Criar um ponto de extremidade de hubs de eventos
 
@@ -94,7 +94,7 @@ Você pode verificar se o ponto de extremidade foi criado com êxito verificando
 
 Se a criação do ponto de extremidade falhar, observe a mensagem de erro e tente novamente após alguns minutos.
 
-Agora, o Hub de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#event-routes).
+Agora, o Hub de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
 
 ### <a name="create-a-service-bus-endpoint"></a>Criar um ponto de extremidade do barramento de serviço
 
@@ -116,7 +116,7 @@ Você pode verificar se o ponto de extremidade foi criado com êxito verificando
 
 Se a criação do ponto de extremidade falhar, observe a mensagem de erro e tente novamente após alguns minutos.
 
-Agora, o tópico do barramento de serviço está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#event-routes).
+Agora, o tópico do barramento de serviço está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto de extremidade com mensagens mortas
 
@@ -126,7 +126,7 @@ Para criar um ponto de extremidade com mensagens mortas habilitadas, você deve 
 
 Para obter instruções sobre como fazer isso com as APIs, consulte a versão de [*APIs e CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) deste artigo.
 
-## <a name="event-routes"></a>Rotas de eventos
+## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
 Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidade, você precisará definir uma **rota de evento**. Essas rotas permitem que os desenvolvedores conectem o fluxo de eventos, em todo o sistema e em serviços downstream. Leia mais sobre as rotas de eventos em [*conceitos: roteamento de eventos do gêmeos digital do Azure*](concepts-route-events.md).
 
@@ -135,7 +135,7 @@ Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidad
 >[!NOTE]
 >Se você tiver implantado seus pontos de extremidade recentemente, valide que eles concluíram a implantação **antes** de tentar usá-los para uma nova rota de evento. Se não for possível configurar a rota porque os pontos de extremidade não estão prontos, aguarde alguns minutos e tente novamente.
 
-### <a name="create-an-event-route"></a>Criar uma rota de eventos 
+### <a name="creation-steps-with-the-azure-portal"></a>Etapas de criação com o portal do Azure
 
 Uma definição de rota de evento contém estes elementos:
 * O nome da rota que você deseja usar
@@ -161,7 +161,7 @@ Para que a rota seja habilitada, você também deve **Adicionar um filtro de rot
 
 Quando terminar, pressione o botão _salvar_ para criar a rota de eventos.
 
-### <a name="filter-events"></a>Filtrar eventos
+## <a name="filter-events"></a>Filtrar eventos
 
 Conforme descrito acima, as rotas têm um campo de **filtro** . Se o valor do filtro em sua rota for `false` , nenhum evento será enviado ao seu ponto de extremidade. 
 

@@ -4,12 +4,12 @@ description: Este artigo mostra como autenticar o acesso a recursos de hubs de e
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f0cdf37963e40d871ad1079e9ccd5d0eb61fa2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270093"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332426"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos de hubs de eventos usando SAS (assinaturas de acesso compartilhado)
 A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tipo de acesso que você concede aos clientes que têm a assinatura de acesso compartilhado. Aqui estão alguns dos controles que você pode definir em uma SAS: 
@@ -222,7 +222,7 @@ Para autenticar aplicativos de back-end que consomem dos dados gerados por produ
 Veja os artigos a seguir:
 
 - [Autorizar usando SAS](authenticate-shared-access-signature.md)
-- [Autorizar usando o RBAC (controle de acesso de base de função)](authenticate-shared-access-signature.md)
+- [Autorizar usando o controle de acesso baseado em função do Azure (RBAC do Azure)](authenticate-shared-access-signature.md)
 - [Saiba mais sobre os hubs de eventos](event-hubs-about.md)
 
 Consulte os seguintes artigos relacionados:

@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 09/29/2020
-ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450129"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330352"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -120,9 +120,47 @@ O módulo executar script Python contém o código Python de exemplo que você p
 
     ![Executar mapa de entrada do Python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou códigos do Python, adicione o arquivo compactado que contém esses recursos personalizados no **pacote de script**. A entrada para o **grupo de script** deve ser um arquivo compactado carregado em seu espaço de trabalho como um tipo de arquivo de conjunto de dados. Você pode carregar o conjunto de recursos na página de ativos de **conjuntos de valores** . Você pode arrastar o módulo DataSet da lista **My** DataSets na árvore de módulo à esquerda na página criação do designer. 
+4. Para incluir novos pacotes ou códigos do Python, conecte o arquivo compactado que contém esses recursos personalizados à porta do **pacote de script** . Ou, se o seu script tiver mais de 16 KB, use a porta de **pacote de script** para evitar erros como *CommandLine excede o limite de 16597 caracteres*. 
 
-    Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada, mas você deverá preceder um diretório chamado **src** para o caminho.
+    
+    1. Agrupe o script e outros recursos personalizados em um arquivo zip.
+    1. Carregue o arquivo zip como um **conjunto** de um arquivo para o estúdio. 
+    1. Arraste o módulo DataSet da lista *DataSets* no painel do módulo à esquerda na página criação do designer. 
+    1. Conecte o módulo DataSet à porta do **pacote de script** do módulo **Executar script R** .
+    
+    Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada.
+    
+    Veja a seguir um exemplo de pacote de script, que contém um arquivo de script Python e um arquivo txt:
+      
+    > [!div class="mx-imgBorder"]
+    > ![Exemplo de pacote de script](media/module/python-script-bundle.png)  
+
+    Veja a seguir o conteúdo de `my_script.py` :
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    Veja a seguir um código de exemplo que mostra como consumir os arquivos no pacote de script:    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. Na caixa de texto **script do Python** , digite ou cole script Python válido.
 

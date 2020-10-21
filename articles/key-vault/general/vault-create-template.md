@@ -1,6 +1,6 @@
 ---
-title: Guia do Azure-criar um cofre de chaves do Azure e uma política de acesso de cofre usando o modelo de Azure Resource Manager | Microsoft Docs
-description: Mostra como criar cofres de chaves do Azure e políticas de acesso do cofre usando Azure Resource Manager modelo.
+title: Criar um cofre de chaves do Azure e uma política de acesso de cofre usando o modelo ARM
+description: Este artigo mostra como criar cofres de chaves do Azure e políticas de acesso do cofre usando um modelo de Azure Resource Manager.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,29 +10,29 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cf19561005fe2e98b7b5cf6812ff9224fd9474dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804293"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282327"
 ---
-# <a name="how-to-create-azure-key-vault-and-vault-access-policy-using-a-resource-manager-template"></a>Como criar Azure Key Vault e política de acesso do cofre usando um modelo do Resource Manager
+# <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Como criar um cofre de chaves do Azure e uma política de acesso do cofre usando um modelo do Resource Manager
 
-[O Azure Key Vault](../general/overview.md) é um serviço de nuvem que fornece um armazenamento seguro de segredos, como chaves, senhas e certificados, entre outros. Este guia se concentra no processo de implantação de um modelo de Azure Resource Manager (modelo ARM) para criar um cofre de chaves.
+[Azure Key Vault](../general/overview.md) é um serviço de nuvem que fornece um repositório seguro para segredos como chaves, senhas e certificados. Este artigo descreve o processo de implantação de um modelo de Azure Resource Manager (modelo ARM) para criar um cofre de chaves.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este artigo, será preciso:
+Para completar as etapas neste artigo:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
-## <a name="create-key-vault-resource-manager-template"></a>Criar Key Vault modelo do Resource Manager
+## <a name="create-a-key-vault-resource-manager-template"></a>Criar um modelo do Key Vault Resource Manager
 
-O modelo a seguir mostra uma maneira básica de criar o cofre de chaves. Alguns valores são especificados no modelo.
+O modelo a seguir mostra uma maneira básica de criar um cofre de chaves. Alguns valores são especificados no modelo.
 
 ```json
 {
@@ -87,11 +87,11 @@ O modelo a seguir mostra uma maneira básica de criar o cofre de chaves. Alguns 
 Para obter mais informações sobre Key Vault configurações de modelo, consulte [referência de modelo do ARM Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
-> Se o modelo for reimplantado, ele substituirá as políticas de acesso existentes no cofre de chaves. É recomendável popular a `accessPolicies` propriedade com políticas de acesso existentes para evitar o acesso perder ao cofre de chaves. 
+> Se um modelo for reimplantado, todas as políticas de acesso existentes no cofre de chaves serão substituídas. Recomendamos que você preencha a `accessPolicies` propriedade com as políticas de acesso existentes para evitar perder o acesso ao cofre de chaves. 
 
-## <a name="add-access-policy-to-key-vault-resource-manager-template"></a>Adicionar política de acesso a Key Vault modelo do Resource Manager
+## <a name="add-an-access-policy-to-a-key-vault-resource-manager-template"></a>Adicionar uma política de acesso a um modelo do Key Vault Resource Manager
 
-Você pode implantar políticas de acesso ao cofre de chaves existente sem reimplantação de todo o modelo do cofre de chaves. O modelo a seguir mostra uma maneira básica de criar políticas de acesso.
+Você pode implantar políticas de acesso a um cofre de chaves existente sem reimplantar o modelo inteiro do cofre de chaves. O modelo a seguir mostra uma maneira básica de criar políticas de acesso:
 
 ```json
 {
@@ -162,21 +162,21 @@ Você pode implantar políticas de acesso ao cofre de chaves existente sem reimp
 ```
 Para obter mais informações sobre Key Vault configurações de modelo, consulte [referência de modelo do ARM Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
-## <a name="other-available-key-vault-resource-manager-templates"></a>Outros modelos do Key Vault Resource Manager disponíveis
+## <a name="more-key-vault-resource-manager-templates"></a>Mais modelos do Key Vault Resource Manager
 
 Há outros modelos do Resource Manager disponíveis para objetos de Key Vault:
 
 | Segredos | simétricas | Certificados |
 |--|--|--|
-|[Início rápido](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[Referência](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
+|<ul><li>[Início rápido](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Referência](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
 
-Mais modelos de Key Vault que você pode encontrar aqui: [referência do Key Vault Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
+Você pode encontrar mais modelos de Key Vault aqui: [Key Vault referência do Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Implantar os modelos
 
-Você pode usar o portal do Azure para implantar modelos acima usando a opção "criar seu próprio modelo no editor" no guia abaixo: [implantar recursos do modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
+Você pode usar o portal do Azure para implantar os modelos anteriores usando a opção **criar seu próprio modelo no editor** , conforme descrito aqui: [implantar recursos de um modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
 
-Você também pode salvar modelos acima em arquivos e usar os seguintes comandos:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
+Você também pode salvar os modelos anteriores em arquivos e usar estes comandos:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
@@ -186,9 +186,9 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-
 az group deployment create --resource-group ExampleGroup --template-file key-vault-template.json
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você planeja continuar e trabalhar nos guias de início rápido e tutoriais subsequentes, você pode deixar esses recursos em vigor. Quando os recursos não forem mais necessários, exclua o grupo de recursos, que exclui o cofre de chaves e os recursos relacionados. Para excluir o grupo de recursos usando o CLI do Azure ou Azure PowerShell, use as etapas a seguir.
+Se você planeja continuar com os tutoriais e guias de início rápido subsequentes, poderá deixar esses recursos em vigor. Quando você não precisar mais dos recursos, exclua o grupo de recursos. Se você excluir o grupo, o cofre de chaves e os recursos relacionados também serão excluídos. Para excluir o grupo de recursos usando o CLI do Azure ou Azure PowerShell, conclua estas etapas:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -211,9 +211,9 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="resources"></a>Recursos
 
-- Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
-- Saiba mais sobre o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Examine as [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Leia uma [visão geral do Azure Key Vault](../general/overview.md).
+- Saiba mais sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Examine [Azure Key Vault práticas recomendadas](../general/best-practices.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

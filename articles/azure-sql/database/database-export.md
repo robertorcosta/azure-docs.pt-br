@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
-ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e62a7d9b9beb8ecdfaabdd44fdd547dd78d38f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443808"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328164"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportar para um arquivo BACPAC – banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -48,7 +48,7 @@ Atualmente, não há suporte para a exportação de um BACPAC de um banco de dad
 
 1. Para exportar um banco de dados usando o [Portal do Azure](https://portal.azure.com), abra a página do banco de dados e clique em **Exportar** na barra de ferramentas.
 
-   ![Exportação de banco de dados](./media/database-export/database-export1.png)
+   ![Captura de tela que realça o botão Exportar.](./media/database-export/database-export1.png)
 
 2. Especifique o nome do arquivo BACPAC, selecione uma conta de armazenamento do Azure existente e um contêiner para a exportação, em seguida, forneça as credenciais apropriadas para acessar o banco de dados de origem. Um **logon de administrador** do SQL Server é necessário aqui mesmo se você for o administrador do Azure, pois ser um administrador do Azure não equivale a ter permissões de administrador no banco de dados SQL do Azure ou no azure SQL instância gerenciada.
 

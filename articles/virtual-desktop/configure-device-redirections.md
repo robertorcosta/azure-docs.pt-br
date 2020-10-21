@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876897"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328872"
 ---
 # <a name="configure-device-redirections"></a>Configurar redirecionamentos de dispositivo
 
@@ -50,7 +50,10 @@ Defina a seguinte Propriedade RDP para configurar o redirecionamento de câmera:
 - `camerastoredirect:s:*` redireciona todas as câmeras.
 - `camerastoredirect:s:` desabilita o redirecionamento de câmera.
 
-Você também pode redirecionar câmeras específicas usando uma lista delimitada por ponto-e-vírgula de interfaces de KSCATEGORY_VIDEO_CAMERA, como `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` .
+>[!NOTE]
+>Mesmo que a `camerastoredirect:s:` Propriedade esteja desabilitada, as câmeras locais podem ser redirecionadas por meio da `devicestoredirect:s:` propriedade. Para desabilitar completamente o conjunto de redirecionamento `camerastoredirect:s:` de câmera e definir `devicestoredirect:s:` ou definir algum subconjunto de dispositivos plug and Play que não incluam nenhuma câmera.
+
+Você também pode redirecionar câmeras específicas usando uma lista delimitada por ponto-e-vírgula de interfaces de KSCATEGORY_VIDEO_CAMERA, como `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` . 
 
 ### <a name="clipboard-redirection"></a>Redirecionamento de área de transferência
 

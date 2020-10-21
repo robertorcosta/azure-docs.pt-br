@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87920493"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330148"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Proteger registros e zonas DNS
 
@@ -22,9 +22,9 @@ Registros e zonas DNS são recursos críticos. Excluir uma zona DNS ou um único
 
 Este artigo explica como o DNS do Azure permite que você proteja suas zonas e registros DNS privados contra essas alterações.  Aplicamos dois recursos de valores mobiliários avançados fornecidos pelo Azure Resource Manager: [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) e [bloqueios de recursos](../azure-resource-manager/management/lock-resources.md).
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
-O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para usuários, grupos e recursos do Azure. Com o RBAC, você pode conceder o nível de acesso que os usuários precisam. Para obter mais informações sobre como o RBAC ajuda você a gerenciar o acesso, consulte [o que é o Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md).
+O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para usuários, grupos e recursos do Azure. Com o RBAC do Azure, você pode conceder o nível de acesso que os usuários precisam. Para obter mais informações sobre como o RBAC do Azure ajuda você a gerenciar o acesso, consulte [o que é o Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md).
 
 ### <a name="the-dns-zone-contributor-role"></a>A função Colaborador de Zona de DNS
 
@@ -32,11 +32,11 @@ A função colaborador de zona DNS é uma função interna para gerenciar recurs
 
 O grupo de recursos *MyResource* Group contém cinco zonas para a Contoso Corporation. A concessão das permissões de Colaborador de Zona DNS do administrador de DNS a esse grupo de recursos permite controle total sobre essas zonas DNS. Ele evita a concessão de permissões desnecessárias. O administrador de DNS não pode criar ou parar máquinas virtuais.
 
-A maneira mais simples de atribuir permissões de RBAC é [por meio do Portal do Azure](../role-based-access-control/role-assignments-portal.md).  
+A maneira mais simples de atribuir permissões de RBAC do Azure é [por meio do portal do Azure](../role-based-access-control/role-assignments-portal.md).  
 
 Abra o **controle de acesso (iam)** para o grupo de recursos, selecione **Adicionar**e, em seguida, selecione a função **colaborador de zona DNS** . Selecione os usuários ou grupos necessários para conceder permissões.
 
-![RBAC de nível do grupo de recursos por meio do Portal do Azure](./media/dns-protect-zones-recordsets/rbac1.png)
+![Azure RBAC no nível do grupo de recursos por meio do portal do Azure](./media/dns-protect-zones-recordsets/rbac1.png)
 
 As permissões também podem ser [concedidas usando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -61,15 +61,15 @@ az role assignment create \
 --resource-group "<resource group name>"
 ```
 
-### <a name="zone-level-rbac"></a>RBAC de nível de zona
+### <a name="zone-level-azure-rbac"></a>RBAC do Azure no nível da zona
 
 É possível aplicar regras de RBAC do Azure a uma assinatura, grupo de recursos ou a um recurso individual. Esse recurso pode ser uma zona DNS individual ou um conjunto de registros individual.
 
 Por exemplo, o grupo de recursos *MyResource* Group contém a zona *contoso.com* e uma subzona *Customers.contoso.com*. Os registros CNAME são criados para cada conta de cliente. A conta de administrador usada para gerenciar registros CNAME recebe permissões para criar registros na zona *Customers.contoso.com* . A conta pode gerenciar somente *Customers.contoso.com* .
 
-É possível conceder permissões de nível da zona RBAC por meio do Portal do Azure.  Abra o **controle de acesso (iam)** para a zona, selecione **Adicionar**, depois selecione a função **colaborador de zona DNS** e selecione os usuários ou grupos necessários para conceder permissões.
+As permissões do RBAC do Azure no nível de zona podem ser concedidas por meio do portal do Azure.  Abra o **controle de acesso (iam)** para a zona, selecione **Adicionar**, depois selecione a função **colaborador de zona DNS** e selecione os usuários ou grupos necessários para conceder permissões.
 
-![RBAC de nível da Zona DNS por meio do Portal do Azure](./media/dns-protect-zones-recordsets/rbac2.png)
+![Nível de zona DNS RBAC do Azure por meio do portal do Azure](./media/dns-protect-zones-recordsets/rbac2.png)
 
 As permissões também podem ser [concedidas usando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -96,15 +96,15 @@ az role assignment create \
 --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/DnsZones/<zone name>/"
 ```
 
-### <a name="record-set-level-rbac"></a>RBAC de nível do conjunto de registros
+### <a name="record-set-level-azure-rbac"></a>Azure RBAC de nível de conjunto de registros
 
 As permissões são aplicadas no nível do conjunto de registros.  O usuário recebe o controle das entradas necessárias e não consegue fazer nenhuma outra alteração.
 
-As permissões RBAC de nível de conjunto de registros podem ser configuradas por meio do portal do Azure, usando o botão **controle de acesso (iam)** na página conjunto de registros:
+Nível de conjunto de registros as permissões RBAC do Azure podem ser configuradas por meio do portal do Azure, usando o botão **controle de acesso (iam)** na página conjunto de registros:
 
-![RBAC de nível do conjunto de registros por meio do Portal do Azure](./media/dns-protect-zones-recordsets/rbac3.png)
+![Nível do conjunto de registros Azure RBAC via portal do Azure](./media/dns-protect-zones-recordsets/rbac3.png)
 
-As permissões RBAC de nível do conjunto de registros também podem ser [concedidas usando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+Nível de conjunto de registros as permissões RBAC do Azure também podem ser [concedidas usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```azurepowershell
 # Grant permissions to a specific record set
@@ -186,7 +186,7 @@ az role create -inputfile <file path>
 
 A função pode então ser atribuída da mesma forma que as funções internas, conforme descrito anteriormente neste artigo.
 
-Para obter mais informações sobre como criar, gerenciar e atribuir funções personalizadas, veja [Funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md).
+Para obter mais informações sobre como criar, gerenciar e atribuir funções personalizadas, consulte [funções personalizadas do Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="resource-locks"></a>Bloqueios de recurso
 
@@ -286,5 +286,5 @@ A função personalizada funciona para todas as zonas acessadas por essas contas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre como trabalhar com o RBAC, veja [Introdução ao gerenciamento de acesso no Portal do Azure](../role-based-access-control/overview.md).
+* Para obter mais informações sobre como trabalhar com o RBAC do Azure, consulte [o que é o Azure RBAC (controle de acesso baseado em função do Azure)](../role-based-access-control/overview.md).
 * Para obter mais informações sobre trabalho com bloqueios de recurso, confira [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

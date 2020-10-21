@@ -9,16 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e53c29c41b3c4a5a2dd1f421e128231aa5eec3
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706125"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327542"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento do Azure Active Directory
 
@@ -64,5 +63,4 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Veja [como converter um aplicativo em multilocatário](howto-convert-app-to-be-multi-tenant.md)
-* Para se aprofundar, veja [como o consentimento tem suporte na camada de protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
+Veja [como converter um aplicativo em multilocatário](howto-convert-app-to-be-multi-tenant.md)

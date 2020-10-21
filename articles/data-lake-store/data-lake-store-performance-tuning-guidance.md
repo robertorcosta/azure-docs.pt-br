@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 4c9cb1d0496fe05c208cfd446a51cbf4ef8e8d4e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108602"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332511"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ajustar Azure Data Lake Storage Gen1 para desempenho
 
@@ -25,7 +25,7 @@ O Data Lake Storage Gen1 pode ser dimensionado para fornecer o throughput necess
 
 Ao ingerir dados de um sistema de origem para Data Lake Storage Gen1, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede para Data Lake Storage Gen1 podem ser o afunilamento.
 
-![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Diagrama que mostra que o hardware de origem, o hardware de rede de origem e a conectividade de rede para Data Lake Storage Gen1 podem ser o afunilamento.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 É importante garantir que a movimentação de dados não seja afetada por esses fatores.
 
@@ -100,7 +100,7 @@ Há três camadas em um cluster HDInsight que podem ser ajustadas para aumentar 
 
 **Execute o cluster com mais nós e/ou VMs de tamanhos maior.** Um cluster maior permite executar mais contêineres YARN, conforme mostrado na figura abaixo.
 
-![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Diagrama que mostra o uso de mais contêineres YARN.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **Use VMs com mais largura de banda de rede.** A quantidade de largura de banda da rede pode ser um gargalo se houver menos largura de banda de rede do que a taxa de transferência do Data Lake Storage Gen1. Diferentes VMs terão diversos tamanhos de largura de banda de rede. Escolha um tipo de VM com a maior largura de banda de rede possível.
 
@@ -108,7 +108,7 @@ Há três camadas em um cluster HDInsight que podem ser ajustadas para aumentar 
 
 **Use contêineres YARN menores.** Reduza o tamanho de cada contêiner YARN para criar mais contêineres com a mesma quantidade de recursos.
 
-![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Diagrama que mostra o uso de contêineres YARN menores.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YARN mínimo necessário. Se você selecionar um contêiner muito pequeno, os trabalhos encontrarão problemas de falta de memória. Normalmente, os contêineres YARN não devem ser menores que 1 GB. É comum ver contêineres YARN de 3 GB. Para algumas cargas de trabalho, talvez contêineres YARN maiores sejam necessários.
 
@@ -118,7 +118,7 @@ Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YAR
 
 **Use todos os contêineres disponíveis.** Defina o número de tarefas como igual ou maior que o número de contêineres disponíveis para que todos os recursos sejam usados.
 
-![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Diagrama que mostra o uso de todos os contêineres disponíveis.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Tarefas com falha têm alto custo.** Se cada tarefa tem uma grande quantidade de dados a serem processados, a falha de uma tarefa resulta em uma repetição cara. Portanto, é melhor criar mais tarefas, cada uma delas processa uma pequena quantidade de dados.
 
@@ -131,7 +131,7 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [MapReduce no HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

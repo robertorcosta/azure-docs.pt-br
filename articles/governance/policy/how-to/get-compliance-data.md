@@ -3,12 +3,12 @@ title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873618"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320416"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -157,19 +157,24 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>Varredura de avaliação sob demanda-Visual Studio Code
+
+A extensão de Azure Policy para o Visual Studio Code é capaz de executar uma verificação de avaliação para um recurso específico. Essa verificação é um processo síncrono, ao contrário dos métodos Azure PowerShell e REST.
+Para obter detalhes e etapas, consulte [avaliação sob demanda com a extensão vs Code](./extension-for-vscode.md#on-demand-evaluation-scan).
+
 ## <a name="how-compliance-works"></a>Como funciona a conformidade
 
 Em uma atribuição, um recurso não é **compatível** se não seguir as regras de política ou de iniciativa e não estiver _isento_. A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
 
 | Estado do Recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
-| Novo ou atualizado | Auditar, modificar, AuditIfNotExist | True | Sem conformidade |
-| Novo ou atualizado | Auditar, modificar, AuditIfNotExist | Falso | Em conformidade |
-| Exists | Negar, auditar, acrescentar, modificar, DeployIfNotExist, AuditIfNotExist | True | Sem conformidade |
-| Exists | Negar, auditar, acrescentar, modificar, DeployIfNotExist, AuditIfNotExist | Falso | Em conformidade |
+| Novo ou atualizado | Audit, Modify, AuditIfNotExist | True | Sem conformidade |
+| Novo ou atualizado | Audit, Modify, AuditIfNotExist | Falso | Em conformidade |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Sem conformidade |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | Falso | Em conformidade |
 
 > [!NOTE]
-> Os efeitos DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja verdadeira e a condição de existência seja falsa para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
+> Os efeitos DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE e a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
 
 Por exemplo, suponha que você tenha um grupo de recursos – ContsoRG, com algumas contas de armazenamento (realçadas em vermelho) que são expostas para redes públicas.
 

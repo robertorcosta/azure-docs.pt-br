@@ -193,29 +193,33 @@
         - name: Controle de alterações e inventário
           items:
             - name: Visão geral
-              href: change-tracking.md
+              href: change-tracking/overview.md
             - name: Regiões com suporte para o workspace do Log Analytics vinculado
               href: how-to/region-mappings.md
             - name: Habilitar
               items:
-                - name: Habilitar Controle de Alterações e Inventário do portal do Azure
-                  href: automation-enable-changes-from-browse.md
-                - name: Habilitar Controle de Alterações e Inventário de uma VM do Azure
-                  href: automation-enable-changes-from-vm.md
-                - name: Habilitar Controle de Alterações e Inventário de uma conta de Automação
-                  href: automation-enable-changes-from-auto-acct.md
-                - name: Habilitar Controle de Alterações e Inventário de um runbook
-                  href: automation-enable-changes-from-runbook.md
+                - name: Habilitar por meio do portal do Azure
+                  href: change-tracking/enable-from-portal.md
+                - name: Habilitar por meio de uma VM do Azure
+                  href: change-tracking/enable-from-vm.md
+                - name: Habilitar por meio de uma conta da Automação
+                  href: change-tracking/enable-from-automation-account.md
+                - name: Habilitar por meio de um runbook
+                  href: change-tracking/enable-from-runbook.md
             - name: Gerenciar controle de alterações e inventário
-              href: change-tracking-file-contents.md
+              href: change-tracking/manage-change-tracking.md
             - name: Gerenciar coleção de inventário de VMs
-              href: automation-vm-inventory.md
+              href: change-tracking/manage-inventory-vms.md
             - name: Trabalhar com as configurações de escopo
-              href: automation-scope-configurations-change-tracking.md
-            - name: Desvincular o workspace da conta de Automação
-              href: automation-unlink-workspace-change-tracking.md
-            - name: Remover VMs do Controle de Alterações e do Inventário
-              href: automation-remove-vms-from-change-tracking.md
+              href: change-tracking/manage-scope-configurations.md
+            - name: Configurar alertas
+              href: change-tracking/configure-alerts.md
+            - name: Desabilitar
+              items:
+                - name: Remover o Controle de Alterações e Inventário
+                  href: change-tracking/remove-feature.md
+                - name: Remover VMs do Controle de Alterações e do Inventário
+                  href: change-tracking/remove-vms-from-change-tracking.md
             - name: Solucionar problemas
               items:
                 - name: Solucionar problemas de implantação de recurso
@@ -239,49 +243,49 @@
     - name: Gerenciamento de atualizações
       items:
         - name: Visão geral
-          href: update-management/update-mgmt-overview.md
+          href: update-management/overview.md
         - name: Regiões compatíveis com o workspace do Log Analytics vinculado
           href: how-to/region-mappings.md
         - name: Habilitar
           items:
-            - name: Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
-              href: update-management/update-mgmt-enable-template.md
-            - name: Habilitar o Gerenciamento de Atualizações do portal do Azure
-              href: update-management/update-mgmt-enable-portal.md
-            - name: Habilitar o Gerenciamento de Atualizações de uma VM do Azure
-              href: update-management/update-mgmt-enable-vm.md
-            - name: Habilitar o Gerenciamento de Atualizações de uma conta de Automação
-              href: update-management/update-mgmt-enable-automation-account.md
-            - name: Habilitar o Gerenciamento de Atualizações de um runbook
-              href: update-management/update-mgmt-enable-runbook.md
+            - name: Habilitar usando modelo do Azure Resource Manager
+              href: update-management/enable-from-template.md
+            - name: Habilitar por meio do portal do Azure
+              href: update-management/enable-from-portal.md
+            - name: Habilitar por meio de uma VM do Azure
+              href: update-management/enable-from-vm.md
+            - name: Habilitar por meio de uma conta da Automação
+              href: update-management/enable-from-automation-account.md
+            - name: Habilitar por meio de um runbook
+              href: update-management/enable-from-runbook.md
         - name: Gerenciar as atualizações de suas VMs
           items:
             - name: Introdução
-              href: update-management/update-mgmt-manage-updates-for-vm.md
+              href: update-management/manage-updates-for-vm.md
             - name: Avaliar a conformidade
-              href: update-management/update-mgmt-view-update-assessments.md
+              href: update-management/view-update-assessments.md
             - name: Implantar atualizações e status da revisão
-              href: update-management/update-mgmt-deploy-updates.md
+              href: update-management/deploy-updates.md
             - name: Usar pré-scripts e pós-scripts
-              href: update-management/update-mgmt-pre-post-scripts.md
+              href: update-management/pre-post-scripts.md
             - name: Configurar alertas
-              href: update-management/update-mgmt-configure-alerts.md
+              href: update-management/configure-alerts.md
         - name: Integrar com o Configuration Manager
-          href: update-management/update-mgmt-mecmintegration.md
+          href: update-management/mecmintegration.md
         - name: Configurar cliente Windows Update
-          href: update-management/update-mgmt-configure-wuagent.md
+          href: update-management/configure-wuagent.md
         - name: Usar grupos dinâmicos
-          href: update-management/update-mgmt-groups.md
+          href: update-management/configure-groups.md
         - name: Consultar os logs do Gerenciamento de Atualizações
-          href: update-management/update-mgmt-query-logs.md
+          href: update-management/query-logs.md
         - name: Trabalhar com as configurações de escopo
-          href: update-management/update-mgmt-scope-configuration.md
+          href: update-management/scope-configuration.md
         - name: Desabilitar
           items:
             - name: Remover Gerenciamento de Atualizações
-              href: update-management/update-mgmt-remove-feature.md
+              href: update-management/remove-feature.md
             - name: Remover VMs do Gerenciamento de Atualizações
-              href: update-management/update-mgmt-remove-vms.md
+              href: update-management/remove-vms.md
         - name: Solucionar problemas
           items:
             - name: Solucionar problemas de implantação de recurso

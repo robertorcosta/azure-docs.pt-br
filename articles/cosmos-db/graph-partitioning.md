@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89615f53f62329ca37ae4a4dde301a9fae6b1202
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400495"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279729"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Usando um gráfico particionado no Azure Cosmos DB
 
 Um dos principais recursos da API do Gremlin no Azure Cosmos DB é a capacidade de lidar com gráficos em grande escala por meio de dimensionamento horizontal. Os contêineres podem ser dimensionados independentemente em termos de armazenamento e taxa de transferência. É possível criar contêineres no Azure Cosmos DB que podem ser dimensionados automaticamente para armazenar dados de gráfico. Os dados são balanceados automaticamente com base na **chave de partição** especificada.
 
-O **particionamento será necessário** se o contêiner for para armazenar mais de 20 GB de tamanho ou se você quiser alocar mais de 10.000 unidades de solicitação por segundo (RUs). Os mesmos princípios gerais do [Azure Cosmos DB mecanismo de particionamento](partition-data.md) se aplicam a algumas otimizações específicas de grafo descritas abaixo.
+O **particionamento será necessário** se o contêiner for para armazenar mais de 20 GB de tamanho ou se você quiser alocar mais de 10.000 unidades de solicitação por segundo (RUs). Os mesmos princípios gerais do [Azure Cosmos DB mecanismo de particionamento](partitioning-overview.md) se aplicam a algumas otimizações específicas de grafo descritas abaixo.
 
 :::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Particionamento de grafo." border="false":::
 
@@ -78,7 +78,7 @@ Use as diretrizes a seguir para garantir o desempenho e a escalabilidade ao usar
 
 - **Use a direção de saída ao consultar as bordas sempre que possível**. Conforme mencionado acima, as bordas são armazenadas com seus vértices de origem na direção de saída. Dessa forma, as chances de reclassificação para consultas entre partições são minimizadas quando os dados e as consultas são criadas com esse padrão em mente. Ao contrário, a `in()` consulta será sempre uma consulta de Fan-out cara.
 
-- **Escolha uma chave de partição que distribuirá de forma uniforme os dados entre partições**. Essa decisão depende muito do modelo de dados da solução. Leia mais sobre a criação de uma chave de partição apropriada em [Particionamento e escala no Azure Cosmos DB](partition-data.md).
+- **Escolha uma chave de partição que distribuirá de forma uniforme os dados entre partições**. Essa decisão depende muito do modelo de dados da solução. Leia mais sobre a criação de uma chave de partição apropriada em [Particionamento e escala no Azure Cosmos DB](partitioning-overview.md).
 
 - **Otimize as consultas para obter dados dentro dos limites de uma partição**. Uma estratégia de particionamento ideal seria alinhada com os padrões de consulta. Consultas que obtêm dados de uma única partição fornecem o melhor desempenho possível.
 
@@ -86,6 +86,6 @@ Use as diretrizes a seguir para garantir o desempenho e a escalabilidade ao usar
 
 Em seguida, você poderá ler os artigos a seguir:
 
-* Saiba [Como particionar e dimensionar no Azure Cosmos DB](partition-data.md).
+* Saiba [Como particionar e dimensionar no Azure Cosmos DB](partitioning-overview.md).
 * Saiba mais sobre o [Suporte do Gremlin na API do Gremlin](gremlin-support.md).
 * Saiba mais sobre [Introdução à API do Gremlin](graph-introduction.md).

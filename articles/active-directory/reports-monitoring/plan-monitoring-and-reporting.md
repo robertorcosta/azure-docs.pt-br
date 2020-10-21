@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331192"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311234"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planejar uma Azure Active Directory a implantação de relatórios e monitoramento
 
@@ -73,7 +73,7 @@ Neste projeto, você definirá as audiências que consumirão e monitorarão rel
 
 ### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](https://aka.ms/deploymentplans). Além disso, certifique-se de que as funções de Stakeholder no projeto sejam bem compreendidas documentando os participantes e suas entradas de projeto e responsabilidades.
+Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](../fundamentals/active-directory-deployment-plans.md). Além disso, certifique-se de que as funções de Stakeholder no projeto sejam bem compreendidas documentando os participantes e suas entradas de projeto e responsabilidades.
 
 ### <a name="plan-communications"></a>Planejar comunicações
 
@@ -133,7 +133,7 @@ Saiba como [instalar e usar as exibições do Log Analytics para logs de ativida
 
 Os logs de roteamento para um hub de eventos do Azure permitem a integração com ferramentas SIEM de terceiros. Essa integração permite combinar dados de log de atividades do Azure AD com outros dados gerenciados pelo seu SIEM para fornecer em informações mais avançadas sobre seu ambiente. 
 
-Saiba como [enviar seus logs para um hub de eventos](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Saiba como [enviar seus logs para um hub de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planejar operações e segurança para relatórios e monitoramento do Azure AD
 

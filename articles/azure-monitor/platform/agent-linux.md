@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013739"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332494"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o Agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em computadores Linux usando os seguintes métodos:
@@ -43,9 +43,11 @@ Começando com versões lançadas depois de agosto de 2018, estamos fazendo as s
 >[!NOTE]
 >Se você estiver usando uma distribuição ou versão que não é suportada no momento e não se alinha ao nosso modelo de suporte, recomendamos que você distribua esse repositório, reconhecendo que o suporte da Microsoft não fornecerá assistência com as versões do agente bifurcado.
 
-### <a name="python-2-requirement"></a>Requisito do Python 2
+### <a name="python-requirement"></a>Requisito do Python
 
- O agente de Log Analytics requer o Python 2. Se sua máquina virtual estiver usando um distribuição que não inclua o Python 2 por padrão, você deverá instalá-lo. Os comandos de exemplo a seguir instalarão o Python 2 em distribuições diferentes.
+A partir do Agent versão 1.13.27, o agente do Linux dará suporte a Python 2 e 3. É sempre recomendável usar o agente mais recente. 
+
+Se você estiver usando uma versão mais antiga do agente, deverá ter a máquina virtual usar o Python 2 por padrão. Se sua máquina virtual estiver usando um distribuição que não inclua o Python 2 por padrão, você deverá instalá-lo. Os comandos de exemplo a seguir instalarão o Python 2 em distribuições diferentes.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -71,7 +73,7 @@ O agente do OMS tem suporte limitado para personalização para Linux.
 No momento, há suporte para os seguintes: 
 - FIPs
 
-Os itens a seguir estão planejados, mas ainda não têm suporte:
+A seguir está em consideração, mas ainda não há suporte para isso:
 - ICS
 - SELINUX
 

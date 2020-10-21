@@ -7,24 +7,26 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8c971168add1aa63599a22f81a3b517d6cc561a1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281308"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329110"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Treinar um modelo usando uma imagem personalizada do Docker
 
 Neste artigo, saiba como usar uma imagem personalizada do Docker quando você estiver treinando modelos com Azure Machine Learning. Você usará os scripts de exemplo neste artigo para classificar imagens de animais de estimação criando uma rede neural de convolução. 
 
-Azure Machine Learning fornece uma imagem base padrão do Docker. Você também pode usar ambientes de Azure Machine Learning para especificar uma imagem de base diferente, como uma das [imagens de base Azure Machine Learning](https://github.com/Azure/AzureML-Containers) mantidas ou sua própria [imagem personalizada](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). As imagens de base personalizadas permitem que você gerencie de perto suas dependências e mantenha um controle mais rígido sobre as versões de componentes ao executar trabalhos de treinamento. 
+Azure Machine Learning fornece uma imagem base padrão do Docker. Você também pode usar ambientes de Azure Machine Learning para especificar uma imagem de base diferente, como uma das [imagens de base Azure Machine Learning](https://github.com/Azure/AzureML-Containers) mantidas ou sua própria [imagem personalizada](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). As imagens de base personalizadas permitem que você gerencie de perto suas dependências e mantenha um controle mais rígido sobre as versões de componentes ao executar trabalhos de treinamento.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Execute o código em qualquer um desses ambientes:
+
 * Azure Machine Learning instância de computação (sem downloads ou instalação necessária):
   * Conclua o tutorial de [configuração de ambiente e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
   * No repositório de [exemplos](https://github.com/Azure/azureml-examples)de Azure Machine Learning, encontre um notebook concluído acessando o diretório **notebooks**  >  **fastai**  >  **Train-pets-resnet34. ipynb** . 
@@ -33,10 +35,12 @@ Execute o código em qualquer um desses ambientes:
   * Instale o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
   * Crie um [registro de contêiner do Azure](/azure/container-registry) ou outro registro do Docker que esteja disponível na Internet.
 
-## <a name="set-up-the-experiment"></a>Configurar o experimento 
-Nesta seção, você configura o teste de treinamento inicializando um espaço de trabalho, criando um experimento e carregando os dados de treinamento e os scripts de treinamento.
+## <a name="set-up-a-training-experiment"></a>Configurar um teste de treinamento
+
+Nesta seção, você configura o teste de treinamento inicializando um espaço de trabalho, definindo seu ambiente e configurando um destino de computação.
 
 ### <a name="initialize-a-workspace"></a>Inicializar um workspace
+
 O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele oferece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de trabalho criando um [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) objeto.
 
 Crie um `Workspace` objeto do config.jsno arquivo que você criou como um [pré-requisito](#prerequisites).
@@ -47,11 +51,9 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="prepare-scripts"></a>Preparar scripts
-Para este tutorial, use o script de treinamento *Train.py* no [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py). Na prática, você pode usar qualquer script de treinamento personalizado e executá-lo, como está, com Azure Machine Learning.
-
 ### <a name="define-your-environment"></a>Definir seu ambiente
-Crie um `Environment` objeto e habilite o Docker. 
+
+Crie um `Environment` objeto e habilite o Docker.
 
 ```python
 from azureml.core import Environment
@@ -69,6 +71,8 @@ fastai_env.docker.base_image = "fastdotai/fastai2:latest"
 fastai_env.python.user_managed_dependencies = True
 ```
 
+#### <a name="use-a-private-container-registry-optional"></a>Usar um registro de contêiner privado (opcional)
+
 Para usar uma imagem de um registro de contêiner privado que não está em seu espaço de trabalho, use `docker.base_image_registry` para especificar o endereço do repositório e um nome de usuário e senha:
 
 ```python
@@ -77,6 +81,8 @@ fastai_env.docker.base_image_registry.address = "myregistry.azurecr.io"
 fastai_env.docker.base_image_registry.username = "username"
 fastai_env.docker.base_image_registry.password = "password"
 ```
+
+#### <a name="use-a-custom-dockerfile-optional"></a>Usar um Dockerfile personalizado (opcional)
 
 Também é possível usar um Dockerfile personalizado. Use essa abordagem se você precisar instalar pacotes não Python como dependências. Lembre-se de definir a imagem base como `None` .
 
@@ -98,12 +104,13 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 
 Para obter mais informações sobre como criar e gerenciar ambientes de Azure Machine Learning, consulte [criar e usar ambientes de software](how-to-use-environments.md). 
 
-### <a name="create-or-attach-an-amlcompute-resource"></a>Criar ou anexar um recurso AmlCompute
+### <a name="create-or-attach-a-compute-target"></a>Criar ou anexar um destino de computação
+
 Você precisa criar um [destino de computação](concept-azure-machine-learning-architecture.md#compute-targets) para treinar seu modelo. Neste tutorial, você criará `AmlCompute` como seu recurso de computação de treinamento.
 
-A criação de `AmlCompute` demora cerca de cinco minutos. Se o `AmlCompute` recurso já estiver em seu espaço de trabalho, esse código ignorará o processo de criação.
+A criação de `AmlCompute` demora alguns minutos. Se o `AmlCompute` recurso já estiver em seu espaço de trabalho, esse código ignorará o processo de criação.
 
-Assim como ocorre com outros serviços do Azure, há limites em determinados recursos (por exemplo, `AmlCompute` ) associados ao serviço de Azure Machine Learning. Para obter mais informações, consulte [limites padrão e como solicitar uma cota mais alta](how-to-manage-quotas.md). 
+Assim como ocorre com outros serviços do Azure, há limites em determinados recursos (por exemplo, `AmlCompute` ) associados ao serviço de Azure Machine Learning. Para obter mais informações, consulte [limites padrão e como solicitar uma cota mais alta](how-to-manage-quotas.md).
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -129,7 +136,10 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
-### <a name="create-a-scriptrunconfig-resource"></a>Criar um recurso ScriptRunConfig
+## <a name="configure-your-training-job"></a>Configurar seu trabalho de treinamento
+
+Para este tutorial, use o script de treinamento *Train.py* no [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py). Na prática, você pode usar qualquer script de treinamento personalizado e executá-lo, como está, com Azure Machine Learning.
+
 Crie um `ScriptRunConfig` recurso para configurar seu trabalho para execução no destino de [computação](how-to-set-up-training-targets.md)desejado.
 
 ```python
@@ -141,7 +151,8 @@ src = ScriptRunConfig(source_directory='fastai-example',
                       environment=fastai_env)
 ```
 
-### <a name="submit-your-run"></a>Envie sua execução
+## <a name="submit-your-training-job"></a>Enviar o trabalho de treinamento
+
 Quando você envia uma execução de treinamento usando um `ScriptRunConfig` objeto, o `submit` método retorna um objeto do tipo `ScriptRun` . O `ScriptRun` objeto retornado fornece acesso programático a informações sobre a execução do treinamento. 
 
 ```python

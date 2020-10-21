@@ -1,24 +1,24 @@
 ---
 title: Crie uma oferta de máquina virtual no Azure Marketplace.
-description: Saiba como criar uma oferta de máquina virtual no Azure Marketplace.
+description: Saiba como criar uma oferta de máquina virtual no Microsoft Commercial Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
-ms.openlocfilehash: 9395b607f235ab606c9013f9273c4162b8c953d7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.date: 10/20/2020
+ms.openlocfilehash: 5964292d7037465456efe22283a5552a2bfc7ad8
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283554"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331253"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Como criar uma oferta de máquina virtual no Azure Marketplace
 
-Este artigo descreve como criar e publicar uma oferta de máquina virtual do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/). Ele aborda máquinas virtuais que contêm um sistema operacional e um VHD (disco rígido virtual), tanto baseadas em Windows quanto em Linux, além de até 16 discos de dados.
+Este artigo descreve como criar uma oferta de máquina virtual do Azure para o [Azure Marketplace](https://azuremarketplace.microsoft.com/). Ele aborda máquinas virtuais que contêm um sistema operacional e um VHD (disco rígido virtual), tanto baseadas em Windows quanto em Linux, além de até 16 discos de dados.
 
-Antes de você começar, confira [Criar uma conta do marketplace comercial no Partner Center](partner-center-portal/create-account.md). Verifique se sua conta está inscrita no programa do marketplace comercial.
+Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](partner-center-portal/create-account.md). Verifique se sua conta está inscrita no programa do marketplace comercial.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
