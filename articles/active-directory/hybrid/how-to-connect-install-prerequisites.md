@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662157"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276955"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure Active Directory (Azure AD) Connect.
@@ -46,6 +46,14 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 * O controlador de domínio usado pelo Azure AD deve ser gravável. *Não há suporte para*o uso de um RODC (controlador de domínio somente leitura) e Azure ad Connect não segue redirecionamentos de gravação.
 * Usando florestas ou domínios locais usando "pontilhado" (o nome contém um ponto ".") *Não há suporte para*nomes NetBIOS.
 * Recomendamos que você [habilite a lixeira Active Directory](how-to-connect-sync-recycle-bin.md).
+
+### <a name="powershell-execution-policy"></a>Política de execução do PowerShell
+Azure Active Directory Connect executa scripts do PowerShell assinados como parte da instalação do. Verifique se a política de execução do PowerShell permitirá a execução de scripts.
+
+A política de execução recomendada durante a instalação é "RemoteSigned".
+
+Para obter mais informações sobre como definir a política de execução do PowerShell, consulte [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
 
 ### <a name="azure-ad-connect-server"></a>Servidor do Azure AD Connect
 O servidor de Azure AD Connect contém dados de identidade críticos. É importante que o acesso administrativo a esse servidor seja devidamente protegido. Siga as diretrizes em [protegendo o acesso privilegiado](/windows-server/identity/securing-privileged-access/securing-privileged-access). 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810c38397981a100c2d5a68492f8a15b75cd79bd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650100"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276050"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace comercial
 
@@ -67,7 +67,7 @@ Agora que você ocultou o plano com o preço antigo, crie uma cópia desse plano
 
 1. No Partner Center, volte para o **plano visão geral**.
 2. Selecione **Criar novo plano**. Insira uma **ID de plano** e um **nome de plano**e, em seguida, selecione **criar**.
-1. Para reutilizar a configuração técnica do plano que você ocultou, marque a caixa de seleção **reutilizar a configuração técnica** . Leia [visão geral do plano](azure-vm-create-offer.md#plan-overview) para saber mais.
+1. Para reutilizar a configuração técnica do plano que você ocultou, marque a caixa de seleção **reutilizar a configuração técnica** . Leia [criar planos para uma oferta de VM](../azure-vm-create-plans.md) para saber mais.
     > [!IMPORTANT]
     > Se você selecionar **este plano reutiliza a configuração técnica de outro plano**, não será possível parar de vender o plano pai posteriormente. Não use essa opção se desejar parar de vender o plano pai.
 3. Conclua todas as seções necessárias para o novo plano, incluindo o novo preço.

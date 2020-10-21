@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639827"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277515"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto de Extremidade Privado do Azure?
 
@@ -77,7 +77,7 @@ Um recurso do link privado é o destino pretendido de determinado ponto de extre
 |**Retransmissão do Azure** | Microsoft.Relay/namespaces | namespace |
 |**Grade de Eventos do Azure** | Microsoft.EventGrid/topics    | topic |
 |**Grade de Eventos do Azure** | Microsoft.EventGrid/domains    | domínio |
-|**Azure WebApps** | Microsoft.Web/sites    | sites |
+|**Serviço de Aplicativo do Azure** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | workspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft. insights/privateLinkScopes    | azuremonitor |

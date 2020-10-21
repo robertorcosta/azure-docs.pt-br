@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203034"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275550"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com o Azure Machine Learning
 
@@ -177,7 +177,7 @@ Para solicitar uma concessão para esses cenários, use as seguintes etapas:
     | ----- | ----- |
     | Tipo de problema | Técnicos |
     | Serviço | Meus serviços. Selecione __Machine Learning__ na lista suspensa. |
-    | Tipo de problema | Instalação, SDK e CLI do espaço de trabalho |
+    | Tipo de problema | Configuração e segurança do espaço de trabalho |
     | Subtipo de problema | Ponto de extremidade particular e solicitação de concessão de zona de DNS privado |
 
 2. Na seção __detalhes__ , use o campo __Descrição__ para fornecer a região do Azure que você deseja usar e o cenário que você planeja usar. Se você precisar solicitar aumentos de cota para várias assinaturas, liste também as IDs de assinatura neste campo.

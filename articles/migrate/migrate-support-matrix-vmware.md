@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas Migrações para Azure
 description: Saiba mais sobre o suporte para a avaliação de VM DO VMware com a Avaliação do Servidor de Migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667785"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315805"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -40,7 +40,7 @@ Se você quiser migrar as VMs do VMware para o Azure, examine a [matriz de supor
 **VMware** | **Detalhes**
 --- | ---
 **VMs VMware** | Todos os sistemas operacionais podem ser avaliados quanto à migração. 
-**Storage** | Há suporte para discos anexados a controladores SCSI, IDE e SATA.
+**Armazenamento** | Há suporte para discos anexados a controladores SCSI, IDE e SATA.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure
@@ -117,4 +117,4 @@ A [análise de dependência](concepts-dependency-visualization.md) ajuda a ident
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Examine](best-practices-assessment.md) as melhores práticas para a criação de avaliações.
-- [Prepare-se para a avaliação do VMware](tutorial-prepare-vmware.md).
+- [Prepare-se para a avaliação do VMware](./tutorial-discover-vmware.md).

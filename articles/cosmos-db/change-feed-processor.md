@@ -6,15 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a802cc3d6178302445e0c31c52785d00207d0bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998536"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277034"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
@@ -68,15 +68,15 @@ O ciclo de vida normal de uma instância de host é:
 
 O processador do feed de alterações é resiliente aos erros de código do usuário. Isso significa que, se sua implementação delegada tiver uma exceção sem tratamento (etapa 4), o processamento de threads que o lote de alterações específico será interrompido e um novo thread será criado. O novo thread verificará qual foi o último ponto no tempo que o repositório de concessão tem para esse intervalo de valores de chave de partição e reiniciará a partir de lá, enviando efetivamente o mesmo lote de alterações para o delegado. Esse comportamento continuará até que o delegado processe as alterações corretamente e seja o motivo pelo qual o processador do feed de alterações tem uma garantia "pelo menos uma vez", porque se o código delegado lançar uma exceção, ele tentará novamente esse lote.
 
-Para impedir que o processador do feed de alterações fique "preso" repetindo continuamente o mesmo lote de alterações, adicione lógica ao código delegado para gravar documentos, mediante exceção, em uma fila de mensagens mortas. Esse design garante o controle das alterações não processadas enquanto ainda pode continuar a processar alterações futuras. A fila de mensagens mortas pode ser simplesmente outro contêiner do Cosmos. O armazenamento de dados exato não importa, basta que as alterações não processadas sejam persistidas.
+Para impedir que o processador do feed de alterações fique "preso" repetindo continuamente o mesmo lote de alterações, adicione lógica ao código delegado para gravar documentos, mediante exceção, em uma fila de mensagens mortas. Esse design garante o controle das alterações não processadas enquanto ainda pode continuar a processar alterações futuras. A fila de mensagens mortas pode ser outro contêiner Cosmos. O armazenamento de dados exato não importa, basta que as alterações não processadas sejam persistidas.
 
-Além disso, use o [avaliador do feed de alterações](how-to-use-change-feed-estimator.md) para monitorar o progresso das instâncias do processador do feed de alterações ao ler o feed. Além de monitorar se o processador do feed de alterações fica "preso" repetindo continuamente o mesmo lote de alterações, também é possível entender se o processador do feed de alterações está atrasado devido a recursos disponíveis, como CPU, memória e largura de banda da rede.
+Além disso, use o [avaliador do feed de alterações](how-to-use-change-feed-estimator.md) para monitorar o progresso das instâncias do processador do feed de alterações ao ler o feed. Você pode usar essa estimativa para entender se o processador do feed de alterações está "preso" ou atrasado devido a recursos disponíveis, como CPU, memória e largura de banda da rede.
 
 ## <a name="deployment-unit"></a>Unidade de implantação
 
 Uma única unidade de implantação do processador do feed de alterações consiste em uma ou mais instâncias com a mesma `processorName` e configuração de contêiner de concessão. Você pode ter várias unidades de implantação em que cada uma tem um fluxo de negócios diferente para as alterações e cada unidade de implantação que consiste em uma ou mais instâncias. 
 
-Por exemplo, você pode ter uma unidade de implantação que aciona uma API externa sempre que houver uma alteração no contêiner. Outra unidade de implantação pode mover dados em tempo real, cada vez que houver uma alteração. Quando ocorrer uma alteração no contêiner monitorado, todas as unidades de implantação serão notificadas.
+Por exemplo, você pode ter uma unidade de implantação que aciona uma API externa sempre que houver uma alteração no contêiner. Outra unidade de implantação pode mover dados, em tempo real, a cada vez que houver uma alteração. Quando ocorrer uma alteração no contêiner monitorado, todas as unidades de implantação serão notificadas.
 
 ## <a name="dynamic-scaling"></a>Escala dinâmica
 
@@ -94,7 +94,32 @@ Além disso, o processador do feed de alterações pode se ajustar dinamicamente
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Feed de alterações e taxa de transferência provisionada
 
-Você é cobrado pelas RUs consumidas, pois a movimentação de dados para dentro e para fora dos contêineres do Cosmos sempre consome RUs. Você é cobrado pelas RUs consumidas pelo contêiner de concessão.
+As operações de leitura do feed de alterações no contêiner monitorado consumirão RUs. 
+
+As operações no contêiner de concessão consomem RUs. Quanto maior o número de instâncias usando o mesmo contêiner de concessão, maior será o consumo potencial de RU. Lembre-se de monitorar seu consumo de RU no contêiner de concessões se você decidir dimensionar e incrementar o número de instâncias.
+
+## <a name="starting-time"></a>Hora de início
+
+Por padrão, quando um processador do feed de alterações é iniciado pela primeira vez, ele inicializa o contêiner de concessões e inicia seu [ciclo de vida de processamento](#processing-life-cycle). As alterações ocorridas no contêiner monitorado antes do processador do feed de alterações ter sido inicializado pela primeira vez não serão detectadas.
+
+### <a name="reading-from-a-previous-date-and-time"></a>Lendo de uma data e hora anteriores
+
+É possível inicializar o processador do feed de alterações para ler as alterações de uma **data e hora específicas**, passando uma instância de um `DateTime` para a extensão do construtor `WithStartTime`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+
+O processador do feed de alterações será inicializado para essa data e hora específicas e começará a ler as alterações ocorridas após isso.
+
+### <a name="reading-from-the-beginning"></a>Lendo desde o início
+
+Em outros cenários como a migração de dados ou a análise de todo o histórico de um contêiner, precisamos ler o feed de alterações desde **o início do tempo de vida desse contêiner**. Para fazer isso, podemos usar `WithStartTime` na extensão do construtor, mas passando `DateTime.MinValue.ToUniversalTime()`, o que geraria a representação UTC do valor mínimo `DateTime`, desta forma:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+
+O processador do feed de alterações será inicializado e começará a ler as alterações desde o início do tempo de vida do contêiner.
+
+> [!NOTE]
+> Essas opções de personalização só funcionam para configurar o ponto inicial no tempo do processador do feed de alterações. Depois que o contêiner de concessões for inicializado pela primeira vez, alterá-las não têm nenhum efeito.
 
 ## <a name="where-to-host-the-change-feed-processor"></a>Onde hospedar o processador do feed de alterações
 
@@ -105,7 +130,7 @@ O processador do feed de alterações pode ser hospedado em qualquer plataforma 
 * Um trabalho em segundo plano no [serviço kubernetes do Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * Um [serviço hospedado ASP.net](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
-Embora o processador do feed de alterações possa ser executado em ambientes de vida curta, porque o contêiner de concessão mantém o estado, o ciclo de início e parada desses ambientes adicionará atraso para receber as notificações (devido à sobrecarga de iniciar o processador sempre que o ambiente for iniciado).
+Embora o processador do feed de alterações possa ser executado em ambientes de vida curta, porque o contêiner de concessão mantém o estado, o ciclo de inicialização desses ambientes adicionará atraso para receber as notificações (devido à sobrecarga de iniciar o processador sempre que o ambiente for iniciado).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

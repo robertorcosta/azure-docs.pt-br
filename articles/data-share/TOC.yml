@@ -44,10 +44,6 @@
         - name: Compartilhar do Azure Data Explorer
           href: /azure/data-explorer/data-share
           maintainContext: true
-    - name: Monitoramento
-      href: how-to-monitor.md
-    - name: Solucionar problemas
-      href: data-share-troubleshoot.md
     - name: Adicionar conjuntos de dados
       href: how-to-add-datasets.md
     - name: Configurar mapeamentos de conjuntos de dados
@@ -58,10 +54,14 @@
       href: how-to-delete-invitation.md
     - name: Revogar uma assinatura de compartilhamento
       href: how-to-revoke-share-subscription.md
+    - name: Monitoramento
+      href: how-to-monitor.md
     - name: Segurança
       href: security.md
     - name: Recuperação de desastre
       href: disaster-recovery.md
+    - name: Solucionar problemas
+      href: data-share-troubleshoot.md
 - name: Referência
   items:
     - name: .NET

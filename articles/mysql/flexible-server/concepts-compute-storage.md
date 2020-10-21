@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708672"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315168"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento no banco de dados do Azure para MySQL – servidor flexível (visualização)
 
@@ -49,25 +49,25 @@ As especificações detalhadas dos tipos de servidor disponíveis são as seguin
 | Tamanho da computação         | vCores | Tamanho da memória (GiB) | 
 |----------------------|--------|-------------------|
 | **Expansíveis**        |        |                   | 
-| B1s                  | 1      | 1                 |  
-| B1ms                 | 1      | 2                 | 
-| B2S                  | 2      | 4                 |  
+| Standard_B1s         | 1      | 1                 |  
+| Standard_B1ms        | 1      | 2                 | 
+| Standard_B2s         | 2      | 4                 |  
 | **Uso Geral**  |        |                   | 
-| D2ds_v4              | 2      | 8                 |  
-| D4ds_v4              | 4      | 16                | 
-| D8ds_v4              | 8      | 32                | 
-| D16ds_v4             | 16     | 64                | 
-| D32ds_v4             | 32     | 128               |  
-| D48ds_v4             | 48     | 192               |  
-| D64ds_v4             | 64     | 256               | 
+| Standard_D2ds_v4     | 2      | 8                 |  
+| Standard_D4ds_v4     | 4      | 16                | 
+| Standard_D8ds_v4     | 8      | 32                | 
+| Standard_D16ds_v4    | 16     | 64                | 
+| Standard_D32ds_v4    | 32     | 128               |  
+| Standard_D48ds_v4    | 48     | 192               |  
+| Standard_D64ds_v4    | 64     | 256               | 
 | **Otimizado para memória** |        |                   |
-| E2ds_v4              | 2      | 16                |
-| E4ds_v4              | 4      | 32                |
-| E8ds_v4              | 8      | 64                |
-| E16ds_v4             | 16     | 128               |
-| E32ds_v4             | 32     | 256               |
-| E48ds_v4             | 48     | 384               |
-| E64ds_v4             | 64     | 504               |
+| Standard_E2ds_v4     | 2      | 16                |
+| Standard_E4ds_v4     | 4      | 32                |
+| Standard_E8ds_v4     | 8      | 64                |
+| Standard_E16ds_v4    | 16     | 128               |
+| Standard_E32ds_v4    | 32     | 256               |
+| Standard_E48ds_v4    | 48     | 384               |
+| Standard_E64ds_v4    | 64     | 504               |
 
 Para obter mais detalhes sobre a série de computação disponível, consulte a documentação da VM do Azure para [intermitência (série B)](../../virtual-machines/sizes-b-series-burstable.md), [uso geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [otimizado para memória (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
@@ -110,25 +110,25 @@ Para saber mais sobre o máximo de IOPS efetivo por tamanho de computação, usa
 | Tamanho da computação         | IOPS máximo efetivo  | 
 |----------------------|---------------------|
 | **Expansíveis**        |                     |
-| B1s                  | 320                 |
-| B1ms                 | 640                 |
-| B2S                  | 1280                | 
+| Standard_B1s         | 320                 |
+| Standard_B1ms        | 640                 |
+| Standard_B2s         | 1280                | 
 | **Uso Geral**  |                     |
-| D2ds_v4              | 3200                |
-| D4ds_v4              | 6400                |
-| D8ds_v4              | 12800               |
-| D16ds_v4             | 20000               |
-| D32ds_v4             | 20000               |
-| D48ds_v4             | 20000               | 
-| D64ds_v4             | 20000               | 
+| Standard_D2ds_v4     | 3200                |
+| Standard_D4ds_v4     | 6400                |
+| Standard_D8ds_v4     | 12800               |
+| Standard_D16ds_v4    | 20000               |
+| Standard_D32ds_v4    | 20000               |
+| Standard_D48ds_v4    | 20000               | 
+| Standard_D64ds_v4    | 20000               | 
 | **Otimizado para memória** |                     | 
-| E2ds_v4              | 3200                | 
-| E4ds_v4              | 6400                | 
-| E8ds_v4              | 12800               | 
-| E16ds_v4             | 20000               | 
-| E32ds_v4             | 20000               | 
-| E48ds_v4             | 20000               | 
-| E64ds_v4             | 20000               |  
+| Standard_E2ds_v4     | 3200                | 
+| Standard_E4ds_v4     | 6400                | 
+| Standard_ E8ds_v4    | 12800               | 
+| Standard_ E16ds_v4   | 20000               | 
+| Standard_E32ds_v4    | 20000               | 
+| Standard_E48ds_v4    | 20000               | 
+| Standard_E64ds_v4    | 20000               |  
 
 O IOPS máximo efetivo depende do máximo de IOPS disponível por tamanho de computação. Consulte a fórmula abaixo e consulte a coluna máximo de *taxa de transferência do disco não armazenado em cache: IOPS/Mbps* na documentação da série [B](../../virtual-machines/sizes-b-series-burstable.md), da [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e da [série Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
 

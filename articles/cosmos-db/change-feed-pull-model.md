@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b056c12f51c6e36a806f2bba0f5efe9ea9498798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59f1231e2edf3277898ff57d8e6f8da42ee057ca
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015629"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276977"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar o modelo de pull do feed de alterações no Azure Cosmos DB
 
@@ -112,7 +112,7 @@ Aqui está um exemplo que mostra como obter uma lista de intervalos para o cont�
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
 
-Ao obter a lista de FeedRanges para seu contêiner, você obterá um `FeedRange` por [partição física](partition-data.md#physical-partitions).
+Ao obter a lista de FeedRanges para seu contêiner, você obterá um `FeedRange` por [partição física](partitioning-overview.md#physical-partitions).
 
 Usando um `FeedRange`, você pode criar um `FeedIterator` para paralelizar o processamento do feed de alterações em vários computadores ou threads. Ao contrário do exemplo anterior que mostrou como obter um `FeedIterator` para o contêiner inteiro ou uma única chave de partição, você pode usar FeedRanges para obter vários FeedIterators que podem processar o feed de alterações em paralelo.
 

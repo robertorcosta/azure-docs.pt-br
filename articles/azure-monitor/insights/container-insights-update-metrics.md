@@ -2,14 +2,14 @@
 title: Como atualizar Azure Monitor para contêineres para métricas | Microsoft Docs
 description: Este artigo descreve como você atualiza Azure Monitor para contêineres para habilitar o recurso de métricas personalizadas que dá suporte à exploração e aos alertas em métricas agregadas.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a94f250c83fbd2779620376087a83b8851e583e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618138"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309445"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Como atualizar o Azure Monitor para contêineres para habilitar as métricas
 
@@ -26,6 +26,7 @@ As seguintes métricas são habilitadas como parte desse recurso:
 | Informações. contêiner/nós | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Como as métricas de *nó* , elas incluem o *host* como uma dimensão. Eles também incluem o<br> nome do nó como valor para a dimensão do *host* . |
 | Percepções. Container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Como métricas de *Pod* , eles incluem o seguinte como Dimensions-ControllerName, namespace kubernetes, nome, fase. |
 | Informações. contêiner/contêineres | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
+| Percepções. Container/persistentvolumes | pvUsageExceededPercentage | |
 
 Para dar suporte a esses novos recursos, um novo agente em contêineres está incluído na versão **Microsoft/OMS: ciprod05262020** para AKs e versão **Microsoft/OMS: ciprod09252020** para clusters kubernetes habilitados para Arc do Azure. As novas implantações do AKS incluem automaticamente essa alteração e recursos de configuração. A atualização do cluster para dar suporte a esse recurso pode ser executada no portal do Azure, Azure PowerShell ou com CLI do Azure. Com Azure PowerShell e CLI. Você pode habilitar esse por cluster ou para todos os clusters em sua assinatura.
 

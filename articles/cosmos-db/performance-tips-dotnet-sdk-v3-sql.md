@@ -4,15 +4,15 @@ description: Aprenda as opções de configuração do cliente para ajudar a melh
 author: j82w
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204020"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277311"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -67,32 +67,7 @@ Se você estiver testando em níveis de taxa de transferência alta ou em taxas 
 
 **Política de conexão: usar o modo de conexão direta**
 
-Como um cliente se conecta a Azure Cosmos DB tem implicações de desempenho importantes, especialmente para latência observada no lado do cliente. Duas definições de configuração principais estão disponíveis para configurar a política de conexão do cliente: o *modo* de conexão e o *protocolo*de conexão. Os dois modos de conexão disponíveis são:
-
-   * Modo direto (padrão)
-
-     O modo direto dá suporte à conectividade por meio do protocolo TCP e é o modo de conectividade padrão se você estiver usando o [SDK Microsoft. Azure. Cosmos/. net v3](https://github.com/Azure/azure-cosmos-dotnet-v3). O modo direto oferece melhor desempenho e requer menos saltos de rede do que o modo de gateway.
-
-   * Modo Gateway
-      
-     Se seu aplicativo for executado em uma rede corporativa que tenha restrições de firewall estritas, o modo de gateway será a melhor opção, pois ele usa a porta HTTPS padrão e um único ponto de extremidade. 
-     
-     No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados em Azure Cosmos DB. Portanto, o modo direto oferece melhor desempenho porque há menos saltos de rede. Também recomendamos o modo de conexão de gateway quando você executa aplicativos em ambientes que têm um número limitado de conexões de soquete.
-
-     Ao usar o SDK no Azure Functions, especialmente no plano de [consumo](../azure-functions/functions-scale.md#consumption-plan), esteja ciente dos limites atuais das [conexões](../azure-functions/manage-connections.md). Nesse caso, o modo de gateway poderá ser melhor se você também estiver trabalhando com outros clientes baseados em HTTP em seu aplicativo Azure Functions.
-     
-Ao usar o protocolo TCP no modo direto, além das portas de gateway, você precisa garantir que o intervalo de portas de 10000 a 20000 esteja aberto, pois Azure Cosmos DB usa portas TCP dinâmicas. Quando você usa o modo direto em [pontos de extremidade privados](./how-to-configure-private-endpoints.md), o intervalo completo de portas TCP de 0 a 65535 deve ser aberto. As portas são abertas por padrão para a configuração de VM do Azure padrão. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá um erro "503 Serviço indisponível". 
-
-A tabela a seguir mostra os modos de conectividade disponíveis para várias APIs e as portas de serviço que são usadas para cada API:
-
-|Modo da conexão  |Protocolo com Suporte  |SDKs com suporte  |Porta/serviço de API  |
-|---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443) <br><br> A porta 10250 é mapeada para uma API de Azure Cosmos DB padrão para a instância do MongoDB sem replicação geográfica, e as portas 10255 e 10256 são mapeadas para a instância com replicação geográfica.   |
-|Direto    |     TCP    |  SDK .NET    | Quando você usa pontos de extremidade de serviço/público: portas no intervalo de 10000 a 20000<br><br>Quando você usa pontos de extremidade privados: portas no intervalo de 0 a 65535 |
-
-O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O protocolo TCP usa TLS (segurança de camada de transporte) para autenticação inicial e criptografia de tráfego. Para ter um melhor desempenho, use o protocolo TCP quando possível.
-
-Para o SDK v3, você configura o modo de conexão ao criar a `CosmosClient` instância no `CosmosClientOptions` . Lembre-se de que o modo direto é o padrão.
+O modo de conexão padrão do SDK do .NET v3 é direto. Você configura o modo de conexão ao criar a `CosmosClient` instância no `CosmosClientOptions` .  Para saber mais sobre as diferentes opções de conectividade, consulte o artigo [modos de conectividade](sql-sdk-connection-modes.md) .
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -102,10 +77,6 @@ new CosmosClientOptions
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
 });
 ```
-
-Como o TCP tem suporte apenas no modo direto, se você usar o modo de gateway, o protocolo HTTPS sempre será usado para se comunicar com o gateway.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Estabeleça conexão com Azure Cosmos DB com diferentes modos de conexão e protocolos." border="false":::
 
 **Esgotamento de porta efêmera**
 
@@ -126,7 +97,7 @@ Quando possível, coloque todos os aplicativos que chamam Azure Cosmos DB na mes
 
 Você pode obter a menor latência possível garantindo que o aplicativo de chamada esteja localizado na mesma região do Azure que o ponto de extremidade de Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Estabeleça conexão com Azure Cosmos DB com diferentes modos de conexão e protocolos." border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Colocar clientes na mesma região." border="false":::
 
    <a id="increase-threads"></a>
 
@@ -287,4 +258,4 @@ O encargo da solicitação (ou seja, o custo de processamento da solicitação) 
 ## <a name="next-steps"></a>Próximas etapas
 Para um aplicativo de exemplo que é usado para avaliar Azure Cosmos DB para cenários de alto desempenho em alguns computadores cliente, consulte [teste de desempenho e escala com Azure Cosmos DB](performance-testing.md).
 
-Para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partition-data.md).
+Para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partitioning-overview.md).

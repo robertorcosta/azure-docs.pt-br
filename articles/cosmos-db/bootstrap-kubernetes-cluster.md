@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbfa780269f28e269fed51a25ec4255d18d8ab39
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570126"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277882"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como usar o Kubernetes do Azure com o Azure Cosmos DB (versão prévia)
 
@@ -181,6 +181,6 @@ O nome da conta do Cosmos do Azure será compatível com seu prefixo de DNS espe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [trabalhar com banco de dados, contêineres e itens do Azure Cosmos](databases-containers-items.md)
+* Saiba como [trabalhar com banco de dados, contêineres e itens do Azure Cosmos](account-databases-containers-items.md)
 * Aprenda a [Otimizar o custo da taxa de transferência provisionada](optimize-cost-throughput.md)
 
