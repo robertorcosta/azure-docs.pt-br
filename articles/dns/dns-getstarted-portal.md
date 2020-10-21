@@ -6,14 +6,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 93d9ce50a451221c86f5336107dba30695af159f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91355356"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282146"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Início Rápido: Criar uma zona DNS do Azure e registrar usando o portal do Azure
 
@@ -31,6 +31,14 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Em todas as etapas do portal, entre no [portal do Azure](https://portal.azure.com).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
+
+Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
@@ -89,7 +97,7 @@ Agora que você tem uma zona DNS de teste com um registro 'A' de teste, é poss�
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Por exemplo: 
+   Por exemplo:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

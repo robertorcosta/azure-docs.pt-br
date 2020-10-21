@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448471"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342086"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Suprimir alertas do Azure Defender
 
@@ -47,7 +47,7 @@ As regras de supressão definem os critérios para os quais os alertas devem ser
 
 :::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Criar regra de supressão de alerta":::
 
-## <a name="create-a-suppression-rule"></a>Criar uma regra de supressão
+## <a name="create-a-suppression-rule"></a>Criar regra de supressão
 
 Há algumas maneiras de criar regras para suprimir alertas de segurança indesejados:
 
@@ -139,7 +139,7 @@ Os métodos HTTP relevantes para regras de supressão na API REST são:
 
 - **DELETE**: Exclui uma regra existente (mas não altera o status dos alertas já ignorados por ela).
 
-Para obter os detalhes completos e exemplos de uso, confira a [documentação da API](https://docs.microsoft.com/rest/api/securitycenter/). 
+Para obter os detalhes completos e exemplos de uso, confira a [documentação da API](/rest/api/securitycenter/). 
 
 
 ## <a name="next-steps"></a>Próximas etapas

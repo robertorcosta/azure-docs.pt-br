@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, state configuration, update managem
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715964"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205329"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -35,7 +35,7 @@ O Gerenciamento de Configuração na Automação do Azure permite o acesso a doi
 
 ### <a name="change-tracking-and-inventory"></a>Controle de Alterações e Inventário
 
-O Controle de Alterações e Inventário combinam as funções de controle de alterações e inventário para permitir que você rastreie as alterações de infraestrutura de máquina virtual e de servidor. O serviço dá suporte ao controle de alterações entre serviços, daemons, software, Registro e arquivos em seu ambiente para ajudar a diagnosticar alterações indesejadas e a gerar alertas. O suporte a inventário permite consultar recursos no convidado para obter visibilidade sobre aplicativos instalados e outros itens de configuração. Para obter detalhes desse recurso, consulte [Controle de Alterações e Inventário](change-tracking.md).
+O Controle de Alterações e Inventário combinam as funções de controle de alterações e inventário para permitir que você rastreie as alterações de infraestrutura de máquina virtual e de servidor. O serviço dá suporte ao controle de alterações entre serviços, daemons, software, Registro e arquivos em seu ambiente para ajudar a diagnosticar alterações indesejadas e a gerar alertas. O suporte a inventário permite consultar recursos no convidado para obter visibilidade sobre aplicativos instalados e outros itens de configuração. Para obter detalhes desse recurso, consulte [Controle de Alterações e Inventário](change-tracking/overview.md).
 
 ### <a name="azure-automation-state-configuration"></a>State Configuration da Automação do Azure
 

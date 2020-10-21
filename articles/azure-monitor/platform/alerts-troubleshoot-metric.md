@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102146"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342120"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
 
@@ -228,7 +228,7 @@ Verifique se você está usando os comandos da CLI corretos para alertas de mét
 Para criar uma regra de alerta de métrica, você precisará ter as seguintes permissões:
 
 - Permissão de leitura no recurso de destino da regra de alerta
-- Permissão de gravação no grupo de recursos no qual a regra de alerta é criada (se você estiver criando a regra de alerta do portal do Azure, a regra de alerta será criada no mesmo grupo de recursos em que reside o recurso de destino)
+- Permissão de gravação no grupo de recursos no qual a regra de alerta é criada (se você estiver criando a regra de alerta do portal do Azure, a regra de alerta será criada por padrão no mesmo grupo de recursos em que reside o recurso de destino)
 - Permissão de leitura em qualquer grupo de ações associado à regra de alerta (se aplicável)
 
 

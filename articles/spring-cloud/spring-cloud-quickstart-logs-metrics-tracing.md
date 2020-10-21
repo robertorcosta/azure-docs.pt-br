@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326245"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093048"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Início Rápido: Monitoramento de aplicativos do Azure Spring Cloud com logs, métricas e rastreamento
 
 ::: zone pivot="programming-language-csharp"
-Com a funcionalidade de monitoramento integrado no Azure Spring Cloud, você pode depurar e monitorar problemas complexos. O Azure Spring Cloud integra o [rastreamento distribuído](https://steeltoe.io/docs/3/tracing/distributed-tracing) do Steeltoe ao [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) do Azure. Essa integração fornece uma funcionalidade avançada de logs, métricas e rastreamento distribuído no portal do Azure.
+Com a funcionalidade de monitoramento integrado no Azure Spring Cloud, você pode depurar e monitorar problemas complexos. O Azure Spring Cloud integra o [rastreamento distribuído](https://steeltoe.io/docs/3/tracing/distributed-tracing) do Steeltoe ao [Application Insights](../azure-monitor/app/app-insights-overview.md) do Azure. Essa integração fornece uma funcionalidade avançada de logs, métricas e rastreamento distribuído no portal do Azure.
 
 Os procedimentos a seguir explicam como usar o streaming de log, o Log Analytics, as métricas e o rastreamento distribuído com o aplicativo de exemplo que você implantou nos guias de início rápido anteriores.
 
@@ -69,7 +69,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
     
 1. Edite a consulta para remover as cláusulas Where que limitam a exibição a logs de aviso e de erro.
 
-1. Em seguida, selecione `Run` e você verá logs. Confira os [documentos do Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) para obter mais diretrizes sobre como escrever consultas.
+1. Em seguida, selecione `Run` e você verá logs. Confira os [documentos do Azure Log Analytics](../azure-monitor/log-query/get-started-queries.md) para obter mais diretrizes sobre como escrever consultas.
 
    [ ![Consulta do Log Analytics – Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
@@ -107,7 +107,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Com a funcionalidade de monitoramento integrado no Azure Spring Cloud, você pode depurar e monitorar problemas complexos. O Azure Spring Cloud integra o [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) ao [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) do Azure. Essa integração fornece uma funcionalidade avançada de logs, métricas e rastreamento distribuído no portal do Azure. Os procedimentos a seguir explicam como usar o Streaming de Log, o Log Analytics, as Métricas e o rastreamento distribuído com aplicativos PiggyMetrics implantados.
+Com a funcionalidade de monitoramento integrado no Azure Spring Cloud, você pode depurar e monitorar problemas complexos. O Azure Spring Cloud integra o [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) ao [Application Insights](../azure-monitor/app/app-insights-overview.md) do Azure. Essa integração fornece uma funcionalidade avançada de logs, métricas e rastreamento distribuído no portal do Azure. Os procedimentos a seguir explicam como usar o Streaming de Log, o Log Analytics, as Métricas e o rastreamento distribuído com aplicativos PiggyMetrics implantados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -165,7 +165,7 @@ Para obter os logs usando o Azure Toolkit for IntelliJ:
 
    [ ![Entrada do Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
-1. Em seguida, você verá logs filtrados. Confira os [documentos do Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) para obter mais diretrizes sobre como escrever consultas.
+1. Em seguida, você verá logs filtrados. Confira os [documentos do Azure Log Analytics](../azure-monitor/log-query/get-started-queries.md) para obter mais diretrizes sobre como escrever consultas.
 
    [ ![Consulta do Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 

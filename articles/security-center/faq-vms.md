@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d91f8242e31aa1efdf9301101307d5bad39a459
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436002"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342205"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Perguntas frequentes-perguntas sobre máquinas virtuais
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Quais tipos de máquinas virtuais têm suporte?
 
-O monitoramento e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Resource Manager](../azure-classic-rm.md).
+O monitoramento e as recomendações estão disponíveis para VMs (máquinas virtuais) criadas usando os [modelos de implantação clássico e do Resource Manager](/azure/security-center/./azure-resource-manager/management/deployment-models).
 
 Consulte [Plataformas com suporte na Central de Segurança do Azure](security-center-os-coverage.md) para obter uma lista de plataformas com suporte.
 
@@ -51,7 +51,7 @@ Abaixo estão os tempos de latência para verificações de vulnerabilidades, at
 A Central de segurança normalmente procura novos dados a cada hora e atualiza as recomendações de forma adequada. 
 
 > [!NOTE]
-> A Central de Segurança usa o agente do Log Analytics para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md).
+> A Central de Segurança usa o agente do Log Analytics para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](./security-center-enable-data-collection.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "O Agente de VM está ausente?"

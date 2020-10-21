@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 5e32aa8491e18a66a3e8b90f065e6b785d1e3bd9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106256"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342188"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Como personalizar o conjunto de padrões em seu painel de conformidade regulatória
 
@@ -41,7 +41,7 @@ A Microsoft também acompanha os padrões regulatórios e aprimora automaticamen
 
 Você pode adicionar padrões como NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official e UK NHS, PBMM Federal do Canadá e Azure CIS 1.1.0 (novo) – uma representação mais completa do Azure CIS 1.1.0. 
 
-Além disso, você pode adicionar o **Azure Security Benchmark**, as diretrizes específicas do Azure criadas pela Microsoft para melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. ([Saiba mais sobre o Parâmetro de Segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
+Além disso, você pode adicionar o **Azure Security Benchmark**, as diretrizes específicas do Azure criadas pela Microsoft para melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. ([Saiba mais sobre o Parâmetro de Segurança do Azure](../security/benchmarks/introduction.md).)
 
 Outros padrões se tornarão compatíveis com o painel à medida que forem disponibilizados. 
 
@@ -116,6 +116,6 @@ Neste artigo, você aprendeu a **adicionar pacotes de conformidade** para monito
 
 Para obter outros materiais relacionados, confira os seguintes artigos: 
 
-- [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Painel de conformidade regulatória da Central de Segurança](security-center-compliance-dashboard.md)
 - [Trabalhar com políticas de segurança](tutorial-security-policy.md)

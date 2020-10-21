@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 026425c78934209a2d258d50a5c7f51feeebd63b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275331"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342137"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -81,7 +81,7 @@ Depois de configurar o local, você não poderá alterá-lo. Se você precisar m
     > [!NOTE]
     > Para proteger suas máquinas habilitadas para o Arc do Azure, use as instruções em [início rápido: conectar máquina híbrida com servidores habilitados para Arc do Azure](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-1. Se você já tiver licenciado e implantado o Microsoft defender para pontos de extremidade em seus servidores, remova-o usando o procedimento descrito em [transferir Windows Servers](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
+1. Se você já tiver licenciado e implantado o Microsoft defender para pontos de extremidade em seus servidores, remova-o usando o procedimento descrito em [transferir Windows Servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. No menu da Central de Segurança, selecione **Preço e configurações**.
 1. Selecione a assinatura que deseja alterar.
 1. Selecione **Detecção de ameaças**.
@@ -94,11 +94,11 @@ Depois de configurar o local, você não poderá alterá-lo. Se você precisar m
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Acessar o Microsoft defender para o portal de ponto de extremidade
 
-1. Verifique se a conta de usuário tem as permissões necessárias. [Saiba mais](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Verifique se a conta de usuário tem as permissões necessárias. [Saiba mais](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-1. Verifique se você tem um proxy ou firewall que está bloqueando o tráfego anônimo. O sensor do defender for Endpoint conecta-se do contexto do sistema; portanto, o tráfego anônimo deve ser permitido. Para garantir o acesso sem impedimento ao defender para o portal de ponto de extremidade, siga as instruções em [habilitar o acesso a URLs de serviço no servidor proxy](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+1. Verifique se você tem um proxy ou firewall que está bloqueando o tráfego anônimo. O sensor do defender for Endpoint conecta-se do contexto do sistema; portanto, o tráfego anônimo deve ser permitido. Para garantir o acesso sem impedimento ao defender para o portal de ponto de extremidade, siga as instruções em [habilitar o acesso a URLs de serviço no servidor proxy](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
-1. Abra o [portal da central de segurança do Microsoft defender](https://securitycenter.windows.com/). Saiba mais sobre os recursos e ícones do portal, na [visão geral do portal da central de segurança do Microsoft defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
+1. Abra o [portal da central de segurança do Microsoft defender](https://securitycenter.windows.com/). Saiba mais sobre os recursos e ícones do portal, na [visão geral do portal da central de segurança do Microsoft defender](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
 ## <a name="send-a-test-alert"></a>Enviar um alerta de teste
 
@@ -128,7 +128,7 @@ O defender for Endpoint está incluído sem custo adicional com o **Azure defend
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Como fazer mudar de uma ferramenta de EDR de terceiros?
 
-As instruções completas para alternar de uma solução de ponto de extremidade não Microsoft estão disponíveis na documentação do Microsoft defender para ponto de extremidade: [visão geral da migração](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+As instruções completas para alternar de uma solução de ponto de extremidade não Microsoft estão disponíveis na documentação do Microsoft defender para ponto de extremidade: [visão geral da migração](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 
 

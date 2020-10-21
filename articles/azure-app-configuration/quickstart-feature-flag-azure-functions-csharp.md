@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: d1dc843ff676429f202c0b9077057d067294f738
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767713"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076157"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Início Rápido: Adicionar sinalizadores de recurso a um aplicativo Azure Functions
 
@@ -149,7 +149,7 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um sinalizador de recurso e o usou com um aplicativo do Azure Functions por meio do [Provedor de Configuração de Aplicativos](https://go.microsoft.com/fwlink/?linkid=2074664).
+Neste início rápido, você criou um sinalizador de recurso e o usou com um aplicativo do Azure Functions por meio do [Provedor de Configuração de Aplicativos](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 - Saiba mais sobre o [gerenciamento de recursos](./concept-feature-management.md).
 - [Gerenciar sinalizadores de recursos](./manage-feature-flags.md).

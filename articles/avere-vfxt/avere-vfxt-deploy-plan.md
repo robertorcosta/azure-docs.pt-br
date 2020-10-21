@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f852ec056f3252005bba0bc142c05a9cfbe6c20
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272783"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342392"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planejar seu sistema Avere vFXT
 
@@ -109,7 +109,7 @@ Cada nó vFXT será idêntico. Ou seja, se você criar um cluster de três nós,
 
 O cache de disco por nó é configurável e pode variar de 1.000 GB a 8.000 GB. 4 TB por nó é o tamanho de cache recomendado para nós de Standard_E32s_v3.
 
-Para obter informações adicionais sobre essas VMs, leia a documentação do Microsoft Azure: [tamanhos de máquina virtual com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+Para obter informações adicionais sobre essas VMs, leia a documentação do Microsoft Azure: [tamanhos de máquina virtual com otimização de memória](../virtual-machines/sizes-memory.md)
 
 ## <a name="account-quota"></a>Cota da conta
 

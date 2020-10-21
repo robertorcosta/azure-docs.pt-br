@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84763917"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072383"
 ---
 # <a name="azure-portal-overview"></a>Visão geral do portal do Azure
 
@@ -54,7 +54,7 @@ Os painéis fornecem uma exibição com foco nos recursos da assinatura que são
 
 ## <a name="getting-around-the-portal"></a>Conhecendo o portal
 
-É útil entender o layout básico do portal e como interagir com ele. Aqui, apresentaremos os componentes da interface do usuário e parte da terminologia que usamos para fornecer instruções. Para fazer um tour mais detalhado do portal, confira a lição do curso [Navegar pelo portal](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
+É útil entender o layout básico do portal e como interagir com ele. Aqui, apresentaremos os componentes da interface do usuário e parte da terminologia que usamos para fornecer instruções. Para fazer um tour mais detalhado do portal, confira a lição do curso [Navegar pelo portal](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
 O menu do portal do Azure e o cabeçalho da página são elementos globais que sempre estão presentes. Esses recursos persistentes são o "shell" da interface do usuário associada a cada serviço ou recurso individual, e o cabeçalho fornece acesso a controles globais. A página de configuração (às vezes chamada de "folha") de um recurso também pode ter um menu de recursos para ajudar você a se movimentar entre os recursos.
 
