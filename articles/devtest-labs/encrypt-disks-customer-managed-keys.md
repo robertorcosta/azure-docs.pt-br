@@ -3,12 +3,12 @@ title: Criptografar discos do sistema operacional usando chaves gerenciadas pelo
 description: Saiba como criptografar discos de sistema operacional (SO) usando chaves gerenciadas pelo cliente no Azure DevTest Labs.
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc29f8cf924bca6c757843ae8b7062757ff61bf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489793"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329535"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Criptografar discos do sistema operacional (SO) usando chaves gerenciadas pelo cliente no Azure DevTest Labs
 A criptografia do lado do servidor (SSE) ajuda a proteger os dados e atender aos compromissos de conformidade e segurança de sua organização. A SSE criptografa automaticamente os dados armazenados em discos gerenciados no Azure (so e discos de dados) em repouso, por padrão, ao mantê-los para a nuvem. Saiba mais sobre a [criptografia de disco](../virtual-machines/windows/disk-encryption.md) no Azure. 
@@ -35,7 +35,7 @@ A seção a seguir mostra como um proprietário de laboratório pode configurar 
 1. Para que o laboratório manipule a criptografia para todos os discos do sistema operacional do laboratório, o proprietário do laboratório precisa conceder explicitamente a função de leitor de **identidade atribuída pelo sistema** do laboratório no conjunto de criptografia de disco, bem como a função colaborador de máquina virtual na assinatura subjacente do Azure. O proprietário do laboratório pode fazer isso concluindo as seguintes etapas:
 
    
-    1. Verifique se você é membro da [função de administrador de acesso do usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) no nível de assinatura do Azure para poder gerenciar o acesso do usuário aos recursos do Azure. 
+    1. Verifique se você é membro da [função Administrador de acesso do usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) no nível de assinatura do Azure para poder gerenciar o acesso do usuário aos recursos do Azure. 
     1. Na página **conjunto de criptografia de disco** , selecione **controle de acesso (iam)** no menu à esquerda. 
     1. Selecione **+ Adicionar** na barra de ferramentas e selecione **Adicionar uma atribuição de função**.  
 

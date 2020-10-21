@@ -7,24 +7,24 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014997"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331746"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
-Por segurança, o Azure digital gêmeos permite o controle de acesso preciso sobre dados, recursos e ações específicos em sua implantação. Ele faz isso por meio de uma função granular e uma estratégia de gerenciamento de permissões chamada **de RBAC (controle de acesso baseado em função)**. Você pode ler sobre os princípios gerais do RBAC para o Azure [aqui](../role-based-access-control/overview.md).
+Por segurança, o Azure digital gêmeos permite o controle de acesso preciso sobre dados, recursos e ações específicos em sua implantação. Ele faz isso por meio de uma função granular e uma estratégia de gerenciamento de permissão chamada **controle de acesso baseado em função do Azure (RBAC do Azure)**. Você pode ler sobre os princípios gerais do RBAC do Azure [aqui](../role-based-access-control/overview.md).
 
 O Azure digital gêmeos também dá suporte à criptografia de dados em repouso.
 
-## <a name="granting-permissions-with-rbac"></a>Concedendo permissões com o RBAC
+## <a name="granting-permissions-with-azure-rbac"></a>Concedendo permissões com o RBAC do Azure
 
-O RBAC é fornecido ao Azure digital gêmeos por meio da integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+O RBAC do Azure é fornecido para o gêmeos digital do Azure por meio da integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Você pode usar o RBAC para conceder permissões a uma *entidade de segurança*, que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo Azure AD e recebe um token 2,0 do OAuth em retorno. Esse token pode ser usado para autorizar uma solicitação de acesso a uma instância do gêmeos digital do Azure.
+Você pode usar o Azure RBAC para conceder permissões a uma *entidade de segurança*, que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo Azure AD e recebe um token 2,0 do OAuth em retorno. Esse token pode ser usado para autorizar uma solicitação de acesso a uma instância do gêmeos digital do Azure.
 
 ### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
@@ -57,7 +57,7 @@ O Azure fornece as funções internas do Azure abaixo para autorizar o acesso a 
 Para obter mais informações sobre como as funções internas são definidas, consulte [*entender as definições de função*](../role-based-access-control/role-definitions.md) na documentação do RBAC do Azure. Para obter informações sobre como criar funções personalizadas do Azure, consulte [*funções personalizadas do Azure*](../role-based-access-control/custom-roles.md).
 
 Você pode atribuir funções de duas maneiras:
-* por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure*](../role-based-access-control/role-assignments-portal.md))
+* por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*Adicionar ou remover atribuições de função do Azure usando o portal do Azure*](../role-based-access-control/role-assignments-portal.md))
 * por meio de comandos da CLI para adicionar ou remover uma função
 
 Para obter etapas mais detalhadas sobre como fazer isso, experimente no tutorial do gêmeos digital do Azure [*: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md).
@@ -95,4 +95,4 @@ Para resolver esse erro, você pode fazer um dos seguintes:
 
 * Veja como interagir com esses conceitos do código do aplicativo cliente em [*como: escrever o código de autenticação do aplicativo*](how-to-authenticate-client.md).
 
-* Leia mais sobre o [RBAC para Azure](../role-based-access-control/overview.md).
+* Leia mais sobre o [RBAC do Azure](../role-based-access-control/overview.md).

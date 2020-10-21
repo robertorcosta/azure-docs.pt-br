@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201402"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331491"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Falha na solicitação de serviço. Status: 403 (proibido)
 
@@ -25,7 +25,7 @@ Esse erro pode ocorrer em muitos tipos de solicitações de serviço que exigem 
 
 ### <a name="cause-1"></a>Causa #1
 
-Geralmente, esse erro indica que suas permissões de RBAC (controle de acesso baseado em função) para o serviço não estão configuradas corretamente. Muitas ações para uma instância do gêmeos digital do Azure exigem que você tenha a função de *proprietário do gêmeos digital do Azure (versão prévia)* **na instância que você está tentando gerenciar**. 
+Geralmente, esse erro indica que as permissões do controle de acesso baseado em função do Azure (RBAC do Azure) para o serviço não estão configuradas corretamente. Muitas ações para uma instância do gêmeos digital do Azure exigem que você tenha a função de *proprietário do gêmeos digital do Azure (versão prévia)* **na instância que você está tentando gerenciar**. 
 
 ### <a name="cause-2"></a>Causa #2
 

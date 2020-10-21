@@ -3,12 +3,12 @@ title: Solucionar problemas de autenticação e autorização-hubs de eventos do
 description: Este artigo fornece informações sobre como solucionar problemas de autenticação e autorização com os hubs de eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566220"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329603"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Solucionar problemas de autenticação e autorização-hubs de eventos do Azure
 O artigo [solucionar problemas de conectividade](troubleshooting-guide.md) fornece dicas para solucionar problemas de conectividade com os hubs de eventos do Azure. Este artigo fornece dicas e recomendações para solucionar problemas de autenticação e autorização com os hubs de eventos do Azure. 
@@ -21,7 +21,7 @@ Se você estiver usando Azure Active Directory (Azure AD) para autenticar e auto
 - [Remetente de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) para o acesso de envio.
 - [Receptor de dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) para o acesso de recebimento.
 
-Para funções internas do registro de esquema, consulte [funções de registro de esquema](schema-registry-overview.md#role-based-access-control).
+Para funções internas do registro de esquema, consulte [funções de registro de esquema](schema-registry-overview.md#azure-role-based-access-control).
 
 ### <a name="resource-scopes"></a>Escopos de recursos
 - **Grupo de consumidores**: nesse escopo, a atribuição de função se aplica somente a essa entidade. Atualmente, o portal do Azure não dá suporte à atribuição de uma função do Azure a uma entidade de segurança nesse nível. 

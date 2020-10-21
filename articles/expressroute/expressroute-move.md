@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
-ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649174e59c3e58b4675393ce665cf765016d5551
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395155"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331542"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos do ExpressRoute do clássico para o modelo de implantação do Gerenciador de Recursos
 Este artigo fornece uma visão geral do que significa mover um circuito do ExpressRoute do clássico para o modelo de implantação do Azure Resource Manager.
@@ -85,7 +85,7 @@ Esta seção descreve o que tem suporte para os circuitos do ExpressRoute:
 Esta seção descreve o que não tem suporte para os circuitos do ExpressRoute:
 
 * Gerenciar o ciclo de vida de um circuito do ExpressRoute a partir do modelo de implantação clássico.
-* Suporte RBAC (Controle de Acesso Baseado em Funções) para o modelo de implantação clássico. Não é possível executar os controles RBAC para um circuito no modelo de implantação clássico. Nenhum administrador/coadministrator da assinatura pode vincular ou desvincular as redes virtuais para o circuito.
+* Suporte do Azure RBAC (controle de acesso baseado em função) para o modelo de implantação clássico. Você não pode executar controles RBAC do Azure para um circuito no modelo de implantação clássico. Nenhum administrador/coadministrator da assinatura pode vincular ou desvincular as redes virtuais para o circuito.
 
 ## <a name="configuration"></a>Configuração
 Siga as instruções descritas em [Mover um circuito do ExpressRoute do clássico para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-move-arm.md).
@@ -97,5 +97,5 @@ Siga as instruções descritas em [Mover um circuito do ExpressRoute do clássic
   
   * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Configurar o roteamento](expressroute-howto-routing-arm.md)
-  * [Vincular uma rede virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-arm.md)
+  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
 

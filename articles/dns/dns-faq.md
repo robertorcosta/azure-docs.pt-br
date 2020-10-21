@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa03e9a9bbbc7f8eefc1e0ba57a0a8b18da6e29
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77121728"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328752"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
 
@@ -24,7 +24,7 @@ O Sistema de Nomes de Domínio (DNS) traduz ou resolve um nome de site ou servi�
 
 Domínios DNS no DNS do Azure estão hospedados na rede global do Azure de servidores de nomes DNS. Esse sistema usa a rede Anycast para que cada consulta DNS seja respondida pelo servidor DNS mais próximo disponível. O DNS do Azure fornece desempenho rápido e alta disponibilidade para seu domínio.
 
-O DNS do Azure é baseado no Azure Resource Manager. O DNS do Azure se beneficia dos recursos do Resource Manager, como controle de acesso baseado em função, logs de auditoria e bloqueio de recursos. Você pode gerenciar domínios e registros por meio do portal do Azure, dos cmdlets do Azure PowerShell e da CLI do Azure de plataforma cruzada. Os aplicativos que exigem gerenciamento automático de DNS podem se integrar ao serviço por meio da API REST e dos SDKs.
+O DNS do Azure é baseado no Azure Resource Manager. O Azure DNS beneficia-se dos recursos do Resource Manager, como o controle de acesso baseado em função do Azure, os logs de auditoria e o bloqueio de recursos. Você pode gerenciar domínios e registros por meio do portal do Azure, dos cmdlets do Azure PowerShell e da CLI do Azure de plataforma cruzada. Os aplicativos que exigem gerenciamento automático de DNS podem se integrar ao serviço por meio da API REST e dos SDKs.
 
 ### <a name="how-much-does-azure-dns-cost"></a>Quanto custa o DNS do Azure?
 
@@ -177,7 +177,7 @@ Alterações nos registros DNS existentes podem demorar um pouco mais. Eles gera
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>Como posso proteger minhas zonas DNS contra exclusão acidental?
 
-O DNS do Azure é gerenciado usando o Azure Resource Manager. O DNS do Azure se beneficia dos recursos de controle de acesso fornecidos pelo Azure Resource Manager. O controle de acesso baseado em função controla quais usuários têm acesso de leitura ou gravação a zonas DNS e conjuntos de registros. Bloqueios de recursos impedem a modificação acidental ou a exclusão de zonas DNS e conjuntos de registros.
+O DNS do Azure é gerenciado usando o Azure Resource Manager. O DNS do Azure se beneficia dos recursos de controle de acesso fornecidos pelo Azure Resource Manager. O controle de acesso baseado em função do Azure pode ser usado para controlar quais usuários têm acesso de leitura ou de gravação a zonas DNS e conjuntos de registros. Bloqueios de recursos impedem a modificação acidental ou a exclusão de zonas DNS e conjuntos de registros.
 
 Para obter mais informações, consulte [Proteger zonas DNS e registros](dns-protect-zones-recordsets.md).
 

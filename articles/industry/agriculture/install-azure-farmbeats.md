@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479552"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330471"
 ---
 # <a name="install-azure-farmbeats"></a>Instalar o Azure FarmBeats
 
@@ -42,7 +42,7 @@ Quando você instala o Azure FarmBeats, os seguintes recursos são provisionados
 | Conta do Azure Maps       |     Acelerador    |
 | Namespace do hub de eventos    |     Datahub      |
 | Aplicativo Lógico      |  Datahub       |
-| Conta de Armazenamento      |     Acelerador de & Datahub      |
+| Conta de armazenamento      |     Acelerador de & Datahub      |
 | Time Series Insights     |    Datahub    |
 
 ### <a name="costs-incurred"></a>Custos incorridos
@@ -87,7 +87,7 @@ As duas primeiras permissões são necessárias para [criar a etapa do aplicativ
 
 A pessoa que executa a instalação do FarmBeats do Marketplace precisa ser um proprietário do grupo de recursos no qual o FarmBeats está sendo instalado. Para proprietários de assinatura, isso ocorre automaticamente quando o grupo de recursos é criado. Para outros, crie previamente o grupo de recursos e peça ao proprietário da assinatura para torná-lo um proprietário do grupo de recursos.
 
-Você pode verificar suas permissões de acesso no portal do Azure seguindo as instruções em [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+Você pode verificar suas permissões de acesso no portal do Azure seguindo as instruções no [controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### <a name="decide-subscription-and-region"></a>Decidir assinatura e região
 

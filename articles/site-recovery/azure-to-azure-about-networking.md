@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 525ab34bb9edff737686a88d7a8e664500282555
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320520"
+ms.locfileid: "92332035"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
@@ -29,7 +29,7 @@ Saiba como o Site Recovery fornece recuperação de desastre para [esse cenário
 
 O diagrama a seguir ilustra um ambiente típico do Azure para aplicativos em execução em VMs do Azure:
 
-![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Diagrama que descreve um ambiente típico do Azure para aplicativos em execução em VMs do Azure.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Caso você esteja usando o Azure ExpressRoute ou uma conexão VPN na rede local com o Azure, o ambiente terá a seguinte aparência:
 

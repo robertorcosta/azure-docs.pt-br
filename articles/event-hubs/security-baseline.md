@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401122"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329620"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança do Azure para hubs de eventos
 
@@ -397,7 +397,7 @@ Como configurar localizações nomeadas no Azure: https://docs.microsoft.com/azu
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Use o Azure Active Directory Domain Services
 
-**Diretrizes**: Use o Azure Active Directory (AD) como o sistema de autenticação e autorização central para recursos do Azure, como hubs de eventos. Isso permite o controle de acesso baseado em função (RBAC) para recursos confidenciais administrativos.
+**Diretrizes**: Use o Azure Active Directory (AD) como o sistema de autenticação e autorização central para recursos do Azure, como hubs de eventos. Isso permite o controle de acesso baseado em função do Azure (RBAC do Azure) para recursos confidenciais administrativos.
 
  Como criar e configurar uma instância do Azure AD: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
@@ -539,9 +539,9 @@ Entender a proteção de dados do cliente no Azure: https://docs.microsoft.com/a
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Diretrizes**: os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo.
+**Diretrizes**: os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo.
 
-Entender o RBAC do Azure AD e as funções disponíveis para os hubs de eventos do Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Entenda as funções do RBAC do Azure e disponíveis para os hubs de eventos do Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

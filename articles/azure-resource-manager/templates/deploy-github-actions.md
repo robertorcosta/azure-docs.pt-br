@@ -4,12 +4,12 @@ description: Descreve como implantar modelos do Azure Resource Manager usando Gi
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: b5852a65b4ed3c7cc73352fed37eeff035f8563c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106783"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282848"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implantar modelos do Azure Resource Manager usando GitHub Actions
 
@@ -40,13 +40,19 @@ O arquivo tem duas seções:
 
 Você pode criar uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute este comando com [Azure cloud Shell](https://shell.azure.com/) na portal do Azure ou selecionando o botão **experimentar** .
 
+Crie um grupo de recursos se você ainda não tiver um. 
+
+```azurecli-interactive
+    az group create -n {MyResourceGroup}
+```
+
 Substitua o espaço reservado `myApp` pelo nome do seu aplicativo. 
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-No exemplo acima, substitua os espaços reservados por sua ID de assinatura e o nome do grupo de recursos. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao seu aplicativo do serviço de aplicativo semelhante ao mostrado abaixo. Copie este objeto JSON para mais tarde.
+No exemplo acima, substitua os espaços reservados por sua ID de assinatura e o nome do grupo de recursos. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso ao seu aplicativo do serviço de aplicativo semelhante ao mostrado abaixo. Copie este objeto JSON para mais tarde. Você só precisará das seções com os `clientId` `clientSecret` valores,, `subscriptionId` e `tenantId` . 
 
 ```output 
   {
@@ -73,9 +79,9 @@ Você precisa criar segredos para suas credenciais, grupo de recursos e assinatu
 
 1. Cole toda a saída JSON do comando CLI do Azure no campo valor do segredo. Dê ao segredo o nome `AZURE_CREDENTIALS` .
 
-1. Crie outro segredo chamado `AZURE_RG` . Adicione o nome do grupo de recursos ao campo valor do segredo. 
+1. Crie outro segredo chamado `AZURE_RG` . Adicione o nome do grupo de recursos ao campo valor do segredo (exemplo: `myResourceGroup` ). 
 
-1. Crie um segredo adicional chamado `AZURE_SUBSCRIPTION` . Adicione sua ID de assinatura ao campo valor do segredo. 
+1. Crie um segredo adicional chamado `AZURE_SUBSCRIPTION` . Adicione sua ID de assinatura ao campo valor do segredo (exemplo: `90fd3f9d-4c61-432d-99ba-1273f236afa2` ). 
 
 ## <a name="add-resource-manager-template"></a>Adicionar modelo do Resource Manager
 
@@ -114,17 +120,19 @@ O arquivo de fluxo de trabalho deve ser armazenado na pasta **. github/fluxos de
             creds: ${{ secrets.AZURE_CREDENTIALS }}
      
           # Deploy ARM template
-        - uses: azure/arm-deploy@v1
         - name: Run ARM deploy
+          uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.json
-            parameters: storageAccountType=Standard_LRS
+            parameters: storageAccountType=Standard_LRS 
         
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
+    > [!NOTE]
+    > Você pode especificar um arquivo de parâmetros de formato JSON na ação de implantação do ARM (exemplo: `.azuredeploy.parameters.json` ).  
 
     A primeira seção do arquivo de fluxo de trabalho inclui:
 

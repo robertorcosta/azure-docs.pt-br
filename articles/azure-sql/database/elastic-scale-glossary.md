@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 166e365a4ead8ad6d0f7e543c081161ebff5f027
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362607"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330454"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas do banco de dados elástico
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Esses termos são usados em [Adicionando um fragmento usando ferramentas de Banc
 
 **Multilocatário** e **Locatário único**: mostra um banco de dados com locatário único e um banco de dados multilocatário:
 
-![Bancos de dados de único locatário e multilocatário](./media/elastic-scale-glossary/multi-single-simple.png)
+![Captura de tela que mostra um banco de dados de locatário único e um banco de dados de vários locatários.](./media/elastic-scale-glossary/multi-single-simple.png)
 
 Esta é uma representação de bancos de dados de único locatário e multilocatário **fragmentados** . 
 
