@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334422"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279726"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurar o Link Privado do Azure para uma conta do Azure Cosmos
 
@@ -684,7 +684,7 @@ Se você não limpar os registros DNS, poderão ocorrer problemas inesperados no
 
 Para saber mais sobre os recursos de segurança do Azure Cosmos DB, confira os seguintes artigos:
 
-* Para configurar um firewall para o Azure Cosmos DB, confira o [Suporte de firewall](firewall-support.md).
+* Para configurar um firewall para o Azure Cosmos DB, confira o [Suporte de firewall](how-to-configure-firewall.md).
 
 * Para saber como configurar um ponto de extremidade de serviço de rede virtual para sua conta do Azure Cosmos, confira [Configurar o acesso de redes virtuais](how-to-configure-vnet-service-endpoint.md).
 

@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355374"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278736"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Controle de transações e simultaneidade otimista
 
 As transações do banco de dados oferecem um modelo de programação seguro e previsível para lidar com alterações simultâneas aos dados. Os bancos de dados relacionais tradicionais, como SQL Server, permitem que você grave a lógica de negócios usando procedimentos armazenados e/ou gatilhos, envie-o para o servidor para execução diretamente no mecanismo de banco de dados. Com os bancos de dados relacionais tradicionais, você precisa lidar com duas linguagens de programação diferentes a linguagem de programação de aplicativo (não transacional), como JavaScript, Python, C#, Java, etc., e a linguagem de programação transacional (como o T-SQL) que é executada nativamente pelo banco de dados.
 
-O mecanismo de banco de dados no Azure Cosmos DB dá suporte completo a transações em conformidade ACID (atomicidade, consistência, isolamento, durabilidade) com isolamento de instantâneo. Todas as operações de banco de dados no escopo da [partição lógica](partition-data.md) de um contêiner são executadas de forma transacional no mecanismo de banco de dados hospedado pela réplica da partição. Essas operações incluem operações de gravação (atualização de um ou mais itens dentro da partição lógica) e de leitura. A tabela a seguir ilustra diferentes operações e tipos de transação:
+O mecanismo de banco de dados no Azure Cosmos DB dá suporte completo a transações em conformidade ACID (atomicidade, consistência, isolamento, durabilidade) com isolamento de instantâneo. Todas as operações de banco de dados no escopo da [partição lógica](partitioning-overview.md) de um contêiner são executadas de forma transacional no mecanismo de banco de dados hospedado pela réplica da partição. Essas operações incluem operações de gravação (atualização de um ou mais itens dentro da partição lógica) e de leitura. A tabela a seguir ilustra diferentes operações e tipos de transação:
 
 | **Operação**  | **Tipo de operação** | **Transação de item único ou de vários itens** |
 |---------|---------|---------|
@@ -51,7 +51,7 @@ A capacidade de executar JavaScript diretamente dentro do mecanismo de banco de 
 
 O controle de simultaneidade otimista permite que você evite a perda de atualizações e exclusões. Operações simultâneas e conflitantes estão sujeitas ao bloqueio pessimista regular do mecanismo de banco de dados hospedado pela partição lógica da qual o item faz parte. Quando duas operações simultâneas tentarem atualizar a última versão de um item em uma partição lógica, uma delas vencerá e a outra falhará. No entanto, se uma ou duas operações tentando atualizar simultaneamente o mesmo item tivessem lido anteriormente um valor mais antigo do item, o banco de dados não saberia se o valor lido anteriormente por qualquer uma ou por ambas as operações conflitantes era de fato o valor mais recente do item. Felizmente, essa situação pode ser detectada com o **controle de simultaneidade otimista (OCC)** antes de permitir que as duas operações insiram o limite da transação dentro do mecanismo de banco de dados. O OCC protege seus dados contra alterações de substituição acidental feitas por outras pessoas. Ele também impede outras pessoas de substituir acidentalmente suas próprias alterações.
 
-As atualizações simultâneas de um item estão sujeitas ao OCC pela camada de protocolo de comunicação do Azure Cosmos DB. O banco de dados do Azure Cosmos garante que a versão do lado do cliente do item que você está atualizando (ou excluindo) é a mesma que a versão do item no contêiner do Azure Cosmos. Isso garante que suas gravações sejam protegidas contra substituições acidentais realizadas pelas gravações de outras pessoas e vice-versa. Em um ambiente multiusuário, o controle de simultaneidade otimista protege você contra a exclusão ou a atualização acidental da versão incorreta de um item. Como tal, os itens são protegidos contra problemas infames de "atualização perdida" ou "exclusão perdida".
+As atualizações simultâneas de um item estão sujeitas ao OCC pela camada de protocolo de comunicação do Azure Cosmos DB. O banco de dados do Azure Cosmos garante que a versão do lado do cliente do item que você está atualizando (ou excluindo) é a mesma que a versão do item no contêiner do Azure Cosmos. Isso garante que suas gravações sejam protegidas acidentalmente por gravações de outros e vice-versa. Em um ambiente multiusuário, o controle de simultaneidade otimista protege você contra a exclusão ou a atualização acidental da versão incorreta de um item. Como tal, os itens são protegidos contra problemas infames de "atualização perdida" ou "exclusão perdida".
 
 Cada item armazenado em um contêiner do Azure Cosmos tem uma propriedade `_etag` definida por sistema. O valor do `_etag` é gerado e atualizado automaticamente pelo servidor toda vez que o item é atualizado. `_etag` pode ser usado com o cabeçalho de solicitação fornecido pelo cliente `if-match` para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor do `if-match` cabeçalho corresponde ao valor de `_etag` no servidor, o item é atualizado. Se o valor do `if-match` cabeçalho de solicitação não for mais atual, o servidor rejeitará a operação com uma mensagem de resposta "falha na pré-condição HTTP 412". Em seguida, o cliente pode buscar novamente o item para adquirir a versão atual do item no servidor ou substituir a versão do item no servidor pelo seu próprio `_etag` valor para o item. Além disso, `_etag` o pode ser usado com o `if-none-match` cabeçalho para determinar se uma rebusca de um recurso é necessária.
 
@@ -61,7 +61,7 @@ O valor do item `_etag` é alterado toda vez que o item é atualizado. Para oper
 
 Saiba mais sobre controle de transações e simultaneidade otimista do banco de dados nos seguintes artigos:
 
-- [Trabalhando com bancos de dados, contêineres e itens do Azure Cosmos](databases-containers-items.md)
+- [Trabalhando com bancos de dados, contêineres e itens do Azure Cosmos](account-databases-containers-items.md)
 - [Níveis de consistência](consistency-levels.md)
 - [Tipos e políticas de resolução de conflitos](conflict-resolution-policies.md)
 - [Procedimentos armazenados, gatilhos e funções definidas pelo usuário](stored-procedures-triggers-udfs.md)

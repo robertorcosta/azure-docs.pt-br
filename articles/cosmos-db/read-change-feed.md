@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018962"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282065"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lendo o Azure Cosmos DB alterar feed
 
@@ -39,7 +39,7 @@ Usar um modelo push é a maneira mais fácil de ler no feed de alterações. Há
 
 ### <a name="azure-functions"></a>Funções do Azure
 
-O Azure Functions é a opção mais simples, se você estiver apenas começando a usar o feed de alterações. Devido à sua simplicidade, também é a opção recomendada para a maioria dos casos de uso do feed de alterações. Quando você cria um gatilho do Azure Functions para Azure Cosmos DB, selecione o contêiner para se conectar, e o Azure Functions será acionado sempre que houver uma alteração no contêiner. Como o Azure Functions usa o processador do feed de alterações nos bastidores, ele paraleliza automaticamente o processamento de alterações nas [partições](partition-data.md) do contêiner.
+O Azure Functions é a opção mais simples, se você estiver apenas começando a usar o feed de alterações. Devido à sua simplicidade, também é a opção recomendada para a maioria dos casos de uso do feed de alterações. Quando você cria um gatilho do Azure Functions para Azure Cosmos DB, selecione o contêiner para se conectar, e o Azure Functions será acionado sempre que houver uma alteração no contêiner. Como o Azure Functions usa o processador do feed de alterações nos bastidores, ele paraleliza automaticamente o processamento de alterações nas [partições](partitioning-overview.md) do contêiner.
 
 Desenvolver com o Azure Functions é uma experiência fácil e pode ser mais rápido do que implantar o processador do feed de alterações por conta própria. Os gatilhos podem ser criados no portal do Azure Functions ou programaticamente usando SDKs. O Visual Studio e o VS Code fornecem suporte para escrever as Funções do Azure e você pode até mesmo usar a CLI do Azure Functions para o desenvolvimento de plataforma cruzada. Você pode gravar e depurar o código em sua área de trabalho e, em seguida, implantar a função com um clique. Para saber mais, consulte os artigos [Computação de banco de dados sem servidor usando o Azure Functions](serverless-computing-database.md) e [Usar o feed de alterações com o Azure Functions](change-feed-functions.md).
 

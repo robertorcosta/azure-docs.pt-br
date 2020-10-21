@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252826"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279357"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
@@ -117,6 +117,14 @@ Você pode verificar se o ponto de extremidade foi criado com êxito verificando
 Se a criação do ponto de extremidade falhar, observe a mensagem de erro e tente novamente após alguns minutos.
 
 Agora, o tópico do barramento de serviço está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado no campo _nome_ . Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#event-routes).
+
+### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto de extremidade com mensagens mortas
+
+Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**.
+
+Para criar um ponto de extremidade com mensagens mortas habilitadas, você deve usar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar seu ponto de extremidade, em vez de portal do Azure.
+
+Para obter instruções sobre como fazer isso com as APIs, consulte a versão de [*APIs e CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) deste artigo.
 
 ## <a name="event-routes"></a>Rotas de eventos
 

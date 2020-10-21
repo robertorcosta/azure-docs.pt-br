@@ -1,24 +1,24 @@
 ---
 title: Definir chaves exclusivas para um contêiner do Azure Cosmos
-description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .net, Java e vários outros SDKs.
+description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .NET, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b275703e0f5952be9ab052a789b64d2ea171922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330529"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279543"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner do Azure Cosmos
 
 Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](unique-keys.md) durante a criação de um contêiner do Azure Cosmos. Atualmente é possível executar essa operação usando o portal do Azure ou por meio de um dos SDKs.
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -36,7 +36,7 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
     :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Captura de tela de entrada de restrição de chave exclusiva no portal do Azure":::
 
-## <a name="use-powershell"></a>Usar o Powershell
+## <a name="use-powershell"></a>Usar o PowerShell
 
 Para criar um contêiner com chaves exclusivas, consulte [criar um contêiner Cosmos do Azure com chave exclusiva e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
@@ -151,5 +151,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [particionamento](partition-data.md)
+- Saiba mais sobre o [particionamento](partitioning-overview.md)
 - Explore [como funciona a indexação](index-overview.md)

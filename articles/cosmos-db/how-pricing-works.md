@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605256"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281545"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB
 
@@ -19,7 +19,7 @@ O modelo de preços do Azure Cosmos DB simplifica o planejamento e o gerenciamen
 
 - **Operações de banco de dados**: a maneira como você é cobrado pelas operações de banco de dados depende do tipo de conta do Azure cosmos que você está usando.
 
-  - **Taxa de transferência provisionada**: a [taxa de transferência provisionada](set-throughput.md) (também chamada de taxa de transferência reservada) garante alto desempenho em qualquer escala. Você especifica a taxa de transferência de que precisa em [unidades de solicitação](request-units.md) por segundo (ru/s) e Azure Cosmos DB dedica os recursos necessários para garantir a taxa de transferência configurada. Você pode [provisionar a taxa de transferência em um banco de dados ou em um contêiner](set-throughput.md). Com base nas suas necessidades de carga de trabalho, você pode dimensionar a taxa de transferência para cima/para baixo a qualquer momento ou usar o [dimensionamento automático](provision-throughput-autoscale.md) (embora haja uma taxa de transferência mínima necessária em um banco de dados ou um contêiner para garantir os SLAs). Você será cobrado por hora pela taxa de transferência máxima provisionada para determinada hora.
+  - **Taxa de transferência provisionada**: a [taxa de transferência provisionada](set-throughput.md) (também chamada de taxa de transferência reservada) fornece alto desempenho em qualquer escala. Você especifica a taxa de transferência de que precisa em [unidades de solicitação](request-units.md) por segundo (ru/s) e Azure Cosmos DB dedica os recursos necessários para fornecer a taxa de transferência configurada. Você pode [provisionar a taxa de transferência em um banco de dados ou em um contêiner](set-throughput.md). Com base nas suas necessidades de carga de trabalho, você pode dimensionar a taxa de transferência para cima/para baixo a qualquer momento ou usar o [dimensionamento automático](provision-throughput-autoscale.md) (embora haja uma taxa de transferência mínima necessária em um banco de dados ou um contêiner para garantir os SLAs). Você será cobrado por hora pela taxa de transferência máxima provisionada para determinada hora.
 
    > [!NOTE]
    > Como o modelo de taxa de transferência provisionado dedica recursos ao contêiner ou banco de dados, você será cobrado pela taxa de transferência que você provisionou mesmo se não executar nenhuma carga de trabalho.

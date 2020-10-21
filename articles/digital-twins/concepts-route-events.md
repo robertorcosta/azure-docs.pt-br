@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145981"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282248"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
@@ -83,7 +83,7 @@ await client.CreateEventRoute("routeName", er);
 
 1. Primeiro, um `EventRoute` objeto é criado e o construtor usa o nome de um ponto de extremidade. Este `endpointName` campo identifica um ponto de extremidade como um hub de eventos, uma grade de eventos ou um barramento de serviço. Esses pontos de extremidade devem ser criados em sua assinatura e anexados ao Azure digital gêmeos usando as APIs do plano de controle antes de fazer essa chamada de registro.
 
-2. O objeto de rota de evento também tem um campo de [**filtro**](./how-to-manage-routes-apis-cli.md#filter-events) , que pode ser usado para restringir os tipos de eventos que seguem essa rota. Um filtro de `true` habilita a rota sem filtragem adicional (um filtro de `false` desabilita a rota). 
+2. O objeto de rota de evento também tem um campo de [**filtro**](how-to-manage-routes-apis-cli.md#filter-events) , que pode ser usado para restringir os tipos de eventos que seguem essa rota. Um filtro de `true` habilita a rota sem filtragem adicional (um filtro de `false` desabilita a rota). 
 
 3. Esse objeto de rota de evento é passado para `CreateEventRoute` , junto com um nome para a rota.
 
@@ -93,18 +93,19 @@ await client.CreateEventRoute("routeName", er);
 As rotas também podem ser criadas usando a [CLI do Azure digital gêmeos](how-to-use-cli.md).
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
+
 Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. O gêmeos digital do Azure enviará um evento inativo quando **uma das condições a seguir** for atendida. 
 
-- O evento não é entregue dentro do período de vida útil
-- O número de tentativas para entregar o evento excedeu o limite
+* O evento não é entregue dentro do período de vida útil
+* O número de tentativas para entregar o evento excedeu o limite
 
-Se qualquer uma das condições for atendida, o evento será descartado ou inativo.  Por padrão, cada ponto de extremidade **não** ativa as mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para manter os eventos não entregues ao criar o ponto de extremidade. Você aciona eventos dessa conta de armazenamento para resolver as entregas.
+Se qualquer uma das condições for atendida, o evento será descartado ou inativo. Por padrão, cada ponto de extremidade **não** ativa as mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para manter os eventos não entregues ao criar o ponto de extremidade. Em seguida, você pode efetuar pull de eventos dessa conta de armazenamento para resolver as entregas.
 
 Antes de configurar o local de mensagens mortas, você deve ter uma conta de armazenamento com um contêiner. Você fornece a URL para esse contêiner ao criar o ponto de extremidade. A letra de inatividade é fornecida como uma URL de contêiner com um token SAS. Esse token precisa apenas `write` de permissão para o contêiner de destino dentro da conta de armazenamento. A URL totalmente formada estará no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 Para saber mais sobre tokens SAS, confira: [ *conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-Para saber como configurar uma mensagens mortas, consulte [*como gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+Para saber como configurar um ponto de extremidade com mensagens mortas, consulte [*como gerenciar pontos de extremidades e rotas no gêmeos digital do Azure (APIs e CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Tipos de mensagens de evento
 

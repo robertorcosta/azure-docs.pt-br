@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448372"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275955"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
@@ -66,7 +66,7 @@ A Central de Segurança filtra e classifica as descobertas do verificador. Quand
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Posso obter os resultados da verificação por meio da API REST?
 Sim. Os resultados ficam na [API REST de Subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, você pode usar o ARG (Azure Resource Graph), a API semelhante ao Kusto para todos os seus recursos: uma consulta pode buscar uma verificação específica.
- 
+
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quais tipos de registro são verificados? Quais tipos são cobrados?
 Para obter uma lista dos tipos de registros de contêiner compatíveis com o Azure Defender para registros de contêiner, confira [Disponibilidade](defender-for-container-registries-usage.md#availability).
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: d3eda4694decb74912cc125ef0a33de04838be2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66314155a8de5036009b8e42bf84a8ae8860d0ea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260620"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278953"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados do Cassandra para a conta de API do Cassandra Azure Cosmos DB usando o Blitzz
 
@@ -34,7 +34,7 @@ A solução de migração do Blitzz segue uma abordagem passo a passo para migra
 
 * O Blitzz oferece replicação de banco de dados paralela e de alto volume. Ele permite que as plataformas de origem e de destino estejam em sincronia durante a migração usando uma técnica chamada de captura de dados de alteração (CDC). Usando o CDC, o Blitzz Obtém continuamente um fluxo de alterações do banco de dados de origem (Apache Cassandra) e a aplica ao banco de dados de destino (Azure Cosmos DB).
 
-* Ele é tolerante a falhas e garante a entrega de dados exatamente uma vez, mesmo durante uma falha de hardware ou software no sistema.
+* Ele é tolerante a falhas e fornece uma entrega de dados exatamente uma vez, mesmo durante uma falha de hardware ou software no sistema.
 
 * Ele protege os dados durante o trânsito usando uma variedade de metodologias de segurança como TLS, criptografia.
 

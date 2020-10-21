@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167599"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278196"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB
 
@@ -79,11 +79,11 @@ Logs de diagnóstico são explicados no artigo [Logs de diagnóstico do Azure Co
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>A chave primária mapeia para o conceito de chave de partição do Azure Cosmos DB?
 
-Sim, a chave de partição é usada para posicionar a entidade no local certo. No Azure Cosmos DB, ele é usado para localizar a partição lógica correta que é armazenada em uma partição física. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partition-data.md). A vantagem essencial aqui é que uma partição lógica não deve passar pelo limite de 20 GB.
+Sim, a chave de partição é usada para posicionar a entidade no local certo. No Azure Cosmos DB, ele é usado para localizar a partição lógica correta que é armazenada em uma partição física. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partitioning-overview.md). A vantagem essencial aqui é que uma partição lógica não deve passar pelo limite de 20 GB.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>O que acontece quando recebo uma notificação de que uma partição está cheia?
 
-Azure Cosmos DB é um sistema baseado no SLA (contrato de nível de serviço). Ele fornece escala ilimitada, com garantias de latência, taxa de transferência, disponibilidade e consistência. Esse armazenamento ilimitado é baseado na escala horizontal dos dados, usando o particionamento como o conceito-chave. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partition-data.md).
+Azure Cosmos DB é um sistema baseado no SLA (contrato de nível de serviço). Ele fornece escala ilimitada, com garantias de latência, taxa de transferência, disponibilidade e consistência. Esse armazenamento ilimitado é baseado na escala horizontal dos dados, usando o particionamento como o conceito-chave. O conceito de particionamento também é explicado no artigo [Partição e escala no Azure Cosmos DB](partitioning-overview.md).
 
 Você deve aderir ao limite de 20 GB no número de entidades ou itens por partição lógica. Para garantir que seu aplicativo dimensiona bem, recomendamos que você *não* crie uma partição ativa armazenando todas as informações em uma partição e consultando-a. Esse erro pode vir somente se os dados estiverem distorcidos: ou seja, você tem muitos dados para uma chave de partição (mais de 20 GB). Você pode encontrar a distribuição de dados usando o portal de armazenamento. A maneira de corrigir esse erro é recriar a tabela e escolher uma primária granular (chave de partição), o que permite uma melhor distribuição dos dados.
 

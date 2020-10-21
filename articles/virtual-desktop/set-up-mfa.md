@@ -1,28 +1,28 @@
 ---
-title: Configurar a autenticação multifator do Azure para área de trabalho virtual do Windows-Azure
+title: Configurar a autenticação multifator do Azure para a área de trabalho virtual do Windows-Azure
 description: Como configurar a autenticação multifator do Azure para aumentar a segurança na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108976"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312661"
 ---
-# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitar a Autenticação Multifator do Azure para a Área de Trabalho Virtual do Windows
+# <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Habilitar a autenticação multifator do Azure para área de trabalho virtual do Windows
 
 >[!IMPORTANT]
 > Se você estiver visitando esta página na documentação da área de trabalho virtual do Windows (clássico), certifique-se de [retornar à documentação da área de trabalho virtual do Windows (clássica)](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) quando tiver terminado.
 
 O cliente do Windows para área de trabalho virtual do Windows é uma excelente opção para integrar a área de trabalho virtual do Windows com seu computador local. No entanto, quando você configura sua conta da área de trabalho virtual do Windows no cliente do Windows, há certas medidas que você precisará tomar para manter seus usuários seguros.
 
-Quando você entra pela primeira vez, o cliente solicita seu nome de usuário, senha e MFA do Azure. Depois disso, na próxima vez que você entrar, o cliente lembrará seu token do seu aplicativo empresarial Azure Active Directory (AD). Quando você seleciona **lembrar**, os usuários podem entrar depois de reiniciar o cliente sem a necessidade de inserir novamente suas credenciais.
+Quando você entra pela primeira vez, o cliente solicita seu nome de usuário, senha e autenticação multifator do Azure. Depois disso, na próxima vez que você entrar, o cliente lembrará seu token do seu aplicativo empresarial Azure Active Directory (AD). Quando você seleciona **lembrar-me** no prompt de credenciais para o host de sessão, os usuários podem entrar depois de reiniciar o cliente sem a necessidade de inserir novamente suas credenciais.
 
-Embora a memorização de credenciais seja conveniente, ela também pode tornar implantações em cenários empresariais ou dispositivos pessoais menos seguros. Para proteger seus usuários, você precisará garantir que o cliente continue solicitando as credenciais da MFA (autenticação multifator) do Azure. Este artigo mostrará como configurar a política de acesso condicional para a área de trabalho virtual do Windows para habilitar essa configuração.
+Embora a memorização de credenciais seja conveniente, ela também pode tornar implantações em cenários empresariais ou dispositivos pessoais menos seguros. Para proteger seus usuários, você pode garantir que o cliente continue solicitando as credenciais de autenticação multifator do Azure com mais frequência. Este artigo mostrará como configurar a política de acesso condicional para a área de trabalho virtual do Windows para habilitar essa configuração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,10 +30,10 @@ Veja o que você precisará para começar:
 
 - Atribua aos usuários uma licença que inclui Azure Active Directory Premium P1 ou P2.
 - Um grupo de Azure Active Directory com os usuários atribuídos como membros do grupo.
-- Habilite o Azure MFA para todos os seus usuários. Para obter mais informações sobre como fazer isso, consulte [como exigir a verificação em duas etapas para um usuário](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
+- Habilite a autenticação multifator do Azure para todos os seus usuários. Para obter mais informações sobre como fazer isso, consulte [como exigir a verificação em duas etapas para um usuário](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 > [!NOTE]
-> A configuração a seguir também se aplica ao [cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> A configuração a seguir também se aplica ao [cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/arm/webclient/index.html).
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
@@ -63,7 +63,7 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
         Depois disso, vá para a etapa 10.
 
    >[!IMPORTANT]
-   > Não selecione o aplicativo chamado provedor de Azure Resource Manager de área de trabalho virtual do Windows (50e95039-B200-4007-bc97-8d5790743a63). Este aplicativo é usado somente para recuperar o feed do usuário e não deve ter MFA.
+   > Não selecione o aplicativo chamado provedor de Azure Resource Manager de área de trabalho virtual do Windows (50e95039-B200-4007-bc97-8d5790743a63). Esse aplicativo é usado somente para recuperar o feed do usuário e não deve ter autenticação multifator.
    > 
    > Se você estiver usando a área de trabalho virtual do Windows (clássico), se a política de acesso condicional bloquear todo o acesso e excluir somente as IDs do aplicativo de área de trabalho virtual do Windows, você poderá corrigir isso adicionando a ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07 à política. Não adicionar essa ID de aplicativo bloqueará a descoberta de feed de recursos de área de trabalho virtual do Windows (clássico).
 
@@ -85,7 +85,7 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
     >Para localizar a ID do aplicativo que você deseja selecionar, vá para **aplicativos empresariais** e selecione aplicativos da **Microsoft** no menu suspenso tipo de aplicativo.
 
 12. Em **Access controls**  >  **concessão**de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator**e, em seguida, **selecione**.
-13. Em **Access controls**  >  **sessão**de controles de acesso, selecione **frequência de entrada**, defina o valor como **1** e a unidade para **horas**e selecione **selecionar**.
+13. Em **Access controls**  >  **sessão**de controles de acesso, selecione **frequência de entrada**, defina o valor para a hora desejada entre os prompts e selecione **selecionar**. Por exemplo, definir o valor como **1** e a unidade para **horas**, exigirá autenticação multifator se uma conexão for iniciada uma hora após a última.
 14. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 15. Selecione **criar** para habilitar sua política.
 

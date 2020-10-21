@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319976"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278021"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de cobrança limitada do Marketplace
 
@@ -273,7 +273,7 @@ Você também pode usar o plano privado para uma oferta dinâmica existente para
 
 ## <a name="get-support"></a>Obter suporte
 
-Siga a instrução em [suporte para o programa do Marketplace comercial no Partner Center](./support.md) para entender as opções de suporte do Publicador e abrir um tíquete de suporte com a Microsoft.
+Siga a instrução em [suporte para o programa do Marketplace comercial no Partner Center](../support.md) para entender as opções de suporte do Publicador e abrir um tíquete de suporte com a Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bda72a72e8ac0adf48fd8981a6eccf40385469d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369902"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281410"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Cloud Partner para o Partner Center
 
@@ -78,7 +78,7 @@ Para os tipos de oferta com suporte no Partner Center, todas as ofertas foram mo
 | Tipo de oferta <img src="" width=150px>| Mudou para o Partner Center? <img src="" width=100px>| Próximas etapas |
 | --- | --- | --- |
 | SaaS | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma nova oferta de SaaS no Marketplace comercial](partner-center-portal/create-new-saas-offer.md). |
-| Máquina Virtual | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de máquina virtual do Azure no Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
+| Máquina Virtual | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de máquina virtual do Azure no Azure Marketplace](azure-vm-create.md). |
 | Aplicativo do Azure | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta de aplicativo do Azure](partner-center-portal/create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar uma oferta do Dynamics 365 Business central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 para compromisso com o cliente & PowerApps | Sim | Entre no Partner Center para criar novas ofertas e gerenciar ofertas que foram criadas no Portal do Cloud Partner. Saiba mais em [criar um Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
@@ -155,16 +155,16 @@ Você observará algumas alterações de identidade visual. Por exemplo, as *SKU
 
 Além disso, as informações fornecidas anteriormente nas páginas de detalhes do **Marketplace** ou da **vitrine**  (serviço de consultoria, Power BI aplicativo) na portal do Cloud Partner agora são coletadas na página de **listagem de ofertas** no Partner Center:
 
-[![Captura de tela mostra a página de listagem da oferta do Partner Center.](media/cpp-pc-faq/offer-listing.png "Mostra a página de listagem da oferta do Partner Center")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[! [Captura de tela mostra a página de listagem da oferta do Partner Center.] (mídia/cpp-PC-perguntas frequentes/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 As informações fornecidas anteriormente para SKUs em uma única página no Portal do Cloud Partner podem agora ser coletadas em várias páginas no Partner Center:
 
-- Página Configurar plano
+- Página de configuração do plano
 - Página Listagem de planos
 - Página de disponibilidade do plano
 - Página planejar configuração técnica, conforme mostrado aqui:
 
-![! [Captura de tela mostra a página de configuração técnica do Partner Center.] (Media/cpp-PC-FAQ/technical-configuration.png "mostra a página de configuração técnica do Partner Center")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+[![Mostra a página de configuração técnica do Partner Center.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Sua ID de oferta agora é mostrada na barra de navegação à esquerda da oferta:
 

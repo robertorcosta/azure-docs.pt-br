@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931794"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275532"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>APIs de preenchimento de SaaS versão 2 no Marketplace comercial
 
@@ -953,11 +953,11 @@ O Publicador deve implementar um webhook no serviço SaaS para manter o status d
 
 Para iniciar o processo de desenvolvimento, é recomendável criar respostas de API fictícias no lado do Publicador.  Essas respostas podem ser baseadas em respostas de exemplo fornecidas neste documento.
 
-Quando o Publicador estiver pronto para o teste de ponta a ponta: 
+Quando o Publicador estiver pronto para o teste de ponta a ponta:
 
 * Publicar uma oferta de SaaS em um público de visualização limitado e mantê-la no estágio de visualização.
-* Esta oferta deve ter um plano com preço 0, portanto, não disparar despesas de cobrança reais durante o teste.  Outra opção é definir um preço diferente de zero e cancelar todas as compras de teste dentro de 24 horas. 
-* Verifique se todos os fluxos são invocados de ponta a ponta, assim como um cliente compraria a oferta. 
+* Esta oferta deve ter um plano com preço 0, portanto, não disparar despesas de cobrança reais durante o teste.  Outra opção é definir um preço diferente de zero e cancelar todas as compras de teste dentro de 24 horas.
+* Verifique se todos os fluxos são invocados de ponta a ponta, assim como um cliente compraria a oferta.
 * Se o parceiro quiser testar a compra completa e o fluxo de cobrança, faça isso com a oferta que tem o preço acima de $0.  A compra será cobrada e uma fatura será gerada.
 
 Um fluxo de compra pode ser disparado a partir do portal do Azure ou Microsoft AppSource sites, dependendo de onde a oferta está sendo publicada.
@@ -966,8 +966,7 @@ As ações *Alterar plano*, *Alterar quantidade*e *cancelar assinatura* são tes
 
 ## <a name="get-support"></a>Obter suporte
 
-Consulte [suporte para o programa do Marketplace comercial no Partner Center](support.md) para obter opções de suporte do Publicador.
-
+Consulte [suporte para o programa do Marketplace comercial no Partner Center](../support.md) para obter opções de suporte do Publicador.
 
 ## <a name="next-steps"></a>Próximas etapas
 

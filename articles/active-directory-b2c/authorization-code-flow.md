@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9ae5632f2495ac5916ac8c86666e973c34d1b789
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 10444974cf31b95fccd2d11aef20bfd57fab7939
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215222"
+ms.locfileid: "92275289"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização do OAuth 2.0 no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Você pode usar a concessão de código de autorização OAuth 2.0 em aplicativo
 
 O fluxo do código de autorização do OAuth 2.0 é descrito na [seção 4.1 da especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749). Você pode usá-lo para autenticação e autorização na maioria dos [tipos de aplicativos](application-types.md), incluindo aplicativos Web, aplicativos de página única e aplicativos instalados nativamente. Você pode usar o fluxo do código de autorização OAuth 2.0 para adquirir com segurança tokens de acesso e atualizar tokens para os aplicativos, que podem ser usados para acessar recursos protegidos por um [servidor de autorização](protocols-overview.md).  O token de atualização permite que o cliente adquirir novo acesso (e atualizar) tokens depois que o token de acesso expira, normalmente após uma hora.
 
-<!-- This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes single-page applications, mobile apps, desktop applications, and essentially any application that runs on a device and needs to get access tokens. -->
+Este artigo concentra-se no fluxo de código de autorização do OAuth 2.0 de **clientes públicos**. Um cliente público é qualquer aplicativo cliente que não é confiável para manter a integridade de uma senha secreta com segurança. Isso inclui aplicativos de página única, aplicativos móveis, aplicativos de área de trabalho e, essencialmente, qualquer aplicativo que não seja executado em um servidor.
 
 > [!NOTE]
 > Para adicionar o gerenciamento de identidade em um aplicativo Web usando o Azure AD B2C, use o [OpenID Connect](openid-connect.md) em vez do OAuth 2.0.
@@ -39,15 +39,9 @@ Para experimentar as solicitações HTTP neste artigo:
 
 ## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Redirecionar a instalação do URI necessária para aplicativos de página única
 
-O fluxo de código de autorização para aplicativos de página única requer umas configurações adicionais.  Siga as instruções para [criar seu aplicativo de página única](tutorial-register-spa.md) para marcar corretamente o URI de redirecionamento como habilitado para CORS. Para atualizar um URI de redirecionamento existente para habilitar o CORS, abra o editor de manifesto e defina o `type` campo para o URI de redirecionamento para `spa` na `replyUrlsWithType` seção. Você também pode clicar no URI de redirecionamento na seção "Web" da guia Autenticação e selecionar os URIs que você deseja migrar usando o fluxo de código de autorização.
+O fluxo de código de autorização para aplicativos de página única requer umas configurações adicionais.  Siga as instruções para [criar seu aplicativo de página única](tutorial-register-spa.md) para marcar corretamente o URI de redirecionamento como habilitado para CORS. Para atualizar um URI de redirecionamento existente para habilitar o CORS, você pode clicar no prompt migrar na seção "Web" da guia **autenticação** do **registro do aplicativo**. Como alternativa, você pode abrir o **Editor de manifesto registros de aplicativo** e definir o `type` campo para o URI de redirecionamento para `spa` na `replyUrlsWithType` seção.
 
 O `spa` tipo de redirecionamento é compatível com versões anteriores com o fluxo implícito. Os aplicativos que atualmente usam o fluxo implícito para obter tokens podem mudar para o `spa` tipo de URI de redirecionamento sem problemas e continuar usando o fluxo implícito.
-
-Se você tentar usar o fluxo de código de autorização e vir este erro:
-
-`access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
-
-Então, você precisa visitar o registro do aplicativo e atualizar o URI de redirecionamento do seu aplicativo para tipo `spa`.
 
 ## <a name="1-get-an-authorization-code"></a>1. obter um código de autorização
 O fluxo do código de autorização começa com o cliente direcionando o usuário para o ponto de extremidade `/authorize` . Essa é a parte interativa do fluxo, na qual o usuário entra em ação. Nessa solicitação, o cliente indica no parâmetro `scope` as permissões que ele precisa adquirir do usuário. Cada um dos três exemplos a seguir (com quebras de linha para facilitar a leitura) usam um fluxo de usuário diferente.

@@ -4,27 +4,27 @@ description: Saiba como identificar, diagnosticar e solucionar problemas de cons
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089982"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277176"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
 
-Este artigo percorre uma abordagem geral recomendada para a solução de problemas de consultas no Azure Cosmos DB. Embora você não deva considerar as etapas descritas neste artigo uma defesa completa contra possíveis problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este artigo como um local de início para solucionar problemas de consultas lentas ou dispendiosas na API de núcleo do Azure Cosmos DB Core (SQL). Você também pode usar os [logs de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que são lentas ou que consomem quantidades significativas de taxa de transferência.
+Este artigo percorre uma abordagem geral recomendada para a solução de problemas de consultas no Azure Cosmos DB. Embora você não deva considerar as etapas descritas neste artigo uma defesa completa contra possíveis problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este artigo como um local de início para solucionar problemas de consultas lentas ou dispendiosas na API de núcleo do Azure Cosmos DB Core (SQL). Você também pode usar os [logs de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que são lentas ou que consomem quantidades significativas de taxa de transferência. Se você estiver usando a API do Azure Cosmos DB para MongoDB, deverá usar [a API do Azure Cosmos DB para o guia de solução de problemas de consulta do MongoDB](mongodb-troubleshoot-query.md)
 
-Você pode categorizar amplamente as otimizações de consulta no Azure Cosmos DB:
+As otimizações de consulta no Azure Cosmos DB são amplamente categorizadas da seguinte maneira:
 
 - Otimizações que reduzem o preço de RU (unidade de solicitação) da consulta
 - Otimizações que apenas reduzem a latência
 
-Se você reduzir o preço de RU de uma consulta, certamente diminuirá a latência também.
+Se você reduzir a carga de RU de uma consulta, normalmente diminuirá a latência também.
 
 Este artigo fornece exemplos que você pode recriar usando o conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
@@ -191,7 +191,7 @@ Política de indexação atualizada:
 
 **Preço da RU:** 2,98 RUs
 
-Você pode adicionar propriedades à política de indexação a qualquer momento, sem nenhum efeito na disponibilidade de gravação ou no desempenho. Se você adicionar uma nova propriedade ao índice, as consultas que usam a propriedade usarão imediatamente o novo índice disponível. A consulta usará o novo índice enquanto ele estiver sendo compilado. Portanto, os resultados da consulta podem ser inconsistentes enquanto a recompilação do índice está em andamento. Se uma nova propriedade for indexada, as consultas que usam apenas índices existentes não serão afetadas durante a recompilação do índice. Você pode [acompanhar o progresso da transformação do índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Você pode adicionar propriedades à política de indexação a qualquer momento, sem efeito na disponibilidade de gravação ou leitura. Você pode [acompanhar o progresso da transformação do índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Entender quais funções do sistema usam o índice
 
@@ -469,7 +469,7 @@ Este é o índice composto relevante:
 
 ## <a name="optimizations-that-reduce-query-latency"></a>Otimizações que reduzem a latência da consulta
 
-Em muitos casos, o preço de RU pode ser aceitável quando a latência de consulta ainda é muito alta. As seções a seguir fornecem uma visão geral das dicas para reduzir a latência da consulta. Se você executar a mesma consulta várias vezes no mesmo conjunto de dados, ela sempre terá o mesmo preço de RU. Mas a latência de consulta pode variar entre as execuções de consulta.
+Em muitos casos, o preço de RU pode ser aceitável quando a latência de consulta ainda é muito alta. As seções a seguir fornecem uma visão geral das dicas para reduzir a latência da consulta. Se você executar a mesma consulta várias vezes no mesmo conjunto de mesmos, ele normalmente terá a mesma cobrança de RU a cada vez. Mas a latência de consulta pode variar entre as execuções de consulta.
 
 ### <a name="improve-proximity"></a>Aprimora a proximidade
 

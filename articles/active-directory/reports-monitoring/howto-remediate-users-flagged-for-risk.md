@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600493"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308955"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Corrigir usuários sinalizados como de risco no portal do Azure Active Directory
 
@@ -60,7 +60,7 @@ Para acessar os **usuários sinalizados para** relatórios de risco no centro de
 Execute as seguintes ações para ajudar a corrigir as contas afetadas e proteger seu ambiente:
 
 1.  [Valide as informações corretas](https://aka.ms/MFAValid) para autenticação de vários fatores e redefinição de senha de autoatendimento. 
-2.  [Habilite a autenticação multifator](https://aka.ms/MFAuth) para todos os usuários. 
+2.  [Habilite a autenticação multifator](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication) para todos os usuários. 
 3.  Use esta [script de correção](https://aka.ms/remediate) para cada conta afetada, para executar automaticamente as etapas a seguir: 
 
     a. Redefina a senha para proteger a conta e elimine as sessões ativas.
@@ -85,8 +85,8 @@ Execute as seguintes ações para ajudar a corrigir as contas afetadas e protege
 
 Além disso, você deve:
 
-- Leia e implemente essas [diretrizes sobre como lidar com atividades incomuns](https://aka.ms/fixaccount). 
-- [ Ative o pipeline de auditoria ](https://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade em seu locatário. Depois de concluído, seu armazenamento de auditoria começa a ser preenchido com logs de atividades. Nesse ponto, você também pode aproveitar o recurso de pesquisa e investigação do [Security e Compliance Center](https://aka.ms/sccsearch). 
+- Leia e implemente essas [diretrizes sobre como lidar com atividades incomuns](/archive/blogs/office365security/how-to-fix-a-compromised-hacked-microsoft-office-365-account). 
+- [ Ative o pipeline de auditoria ](/archive/blogs/office365security/using-office-365-activity-data-to-improve-your-cybersecurity-stance-and-capability) para ajudá-lo a analisar a atividade em seu locatário. Depois de concluído, seu armazenamento de auditoria começa a ser preenchido com logs de atividades. Nesse ponto, você também pode aproveitar o recurso de pesquisa e investigação do [Security e Compliance Center](https://aka.ms/sccsearch). 
 - Examine as permissões de representante e as regras de encaminhamento para todas as suas caixas de correio de email. Você pode usar este [script do PowerShell](https://aka.ms/delegateforwardrules) para executar a tarefa. 
 
 ## <a name="next-steps"></a>Próximas etapas
