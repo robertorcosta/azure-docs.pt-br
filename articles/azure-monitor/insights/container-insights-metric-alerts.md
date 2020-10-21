@@ -2,13 +2,13 @@
 title: Alertas de métrica de Azure Monitor para contêineres
 description: Este artigo revisa os alertas de métrica recomendados disponíveis em Azure Monitor para contêineres em visualização pública.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619943"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308637"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas de métrica recomendados (versão prévia) de Azure Monitor para contêineres
 
@@ -45,6 +45,7 @@ Para alertar sobre o que importa, Azure Monitor para contêineres inclui os segu
 |% De memória do conjunto de trabalho de contêiner médio |Calcula a média de memória do conjunto de trabalho usada por contêiner.|Quando o uso médio de memória do conjunto de trabalho por contêiner é maior que 95%. |
 |% de CPU Média |Calcula a média de CPU usada por nó. |Quando a utilização média da CPU do nó for maior que 80% |
 |% De uso médio do disco |Calcula a média de uso do disco para um nó.|Quando o uso do disco para um nó for maior que 80%. |
+|% De uso de volume persistente médio |Calcula o uso médio de VP por Pod. |Quando o uso médio de VP por pod é maior que 80%.|
 |% De memória de conjunto de trabalho média |Calcula a média de memória do conjunto de trabalho para um nó. |Quando a memória do conjunto de trabalho médio para um nó é maior que 80%. |
 |Reiniciando a contagem de contêineres |Calcula o número de contêineres de reinicialização. | Quando as reinicializações de contêiner forem maiores que 0. |
 |Contagens de Pod com falha |Calcula se algum pod no estado de falha.|Quando um número de pods no estado de falha for maior que 0. |
@@ -75,6 +76,8 @@ As seguintes métricas baseadas em alerta têm características de comportamento
 
 * as métricas *cpuExceededPercentage*, *memoryRssExceededPercentage*e *memoryWorkingSetExceededPercentage* são enviadas quando os valores de conjunto de trabalho CPU, memória RSS e memória excedem o limite configurado (o limite padrão é 95%). Esses limites são exclusivos do limite de condição de alerta especificado para a regra de alerta correspondente. Ou seja, se você quiser coletar essas métricas e analisá-las do [Metrics Explorer](../platform/metrics-getting-started.md), recomendamos que configure o limite para um valor inferior ao limite de alertas. A configuração relacionada às configurações de coleção para seus limites de utilização de recursos de contêiner pode ser substituída no arquivo ConfigMaps na seção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Consulte a seção [Configurar métricas realertáveis ConfigMaps](#configure-alertable-metrics-in-configmaps) para obter detalhes relacionados à configuração do arquivo de configuração do ConfigMap.
 
+* a métrica *pvUsageExceededPercentage* é enviada quando a porcentagem de uso de volume persistente excede o limite configurado (o limite padrão é 60%). Esse limite é exclusivo do limite de condição de alerta especificado para a regra de alerta correspondente. Ou seja, se você quiser coletar essas métricas e analisá-las do [Metrics Explorer](../platform/metrics-getting-started.md), recomendamos que configure o limite para um valor inferior ao limite de alertas. A configuração relacionada às configurações de coleta para limites de utilização de volume persistente pode ser substituída no arquivo ConfigMaps na seção `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Consulte a seção [Configurar métricas realertáveis ConfigMaps](#configure-alertable-metrics-in-configmaps) para obter detalhes relacionados à configuração do arquivo de configuração do ConfigMap. A coleta de métricas de volume persistente com declarações no namespace *Kube-System* são excluídas por padrão. Para habilitar a coleta nesse namespace, use a seção `[metric_collection_settings.collect_kube_system_pv_metrics]` no arquivo ConfigMap. Consulte [configurações de coleta de métrica](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) para obter detalhes.
+
 ## <a name="metrics-collected"></a>Métricas coletadas
 
 As métricas a seguir são habilitadas e coletadas, a menos que especificado de outra forma, como parte desse recurso:
@@ -97,6 +100,7 @@ As métricas a seguir são habilitadas e coletadas, a menos que especificado de 
 |Informações. contêiner/contêineres |cpuExceededPercentage |Porcentagem de utilização da CPU para contêineres que excedem o limite configurável pelo usuário (o padrão é 95,0) pelo nome do contêiner, nome do controlador, namespace kubernetes, nome do pod.<br> Coleta  |
 |Informações. contêiner/contêineres |memoryRssExceededPercentage |Porcentagem de RSS de memória para contêineres excedendo o limite configurável pelo usuário (o padrão é 95,0) pelo nome do contêiner, nome do controlador, namespace kubernetes, nome do pod.|
 |Informações. contêiner/contêineres |memoryWorkingSetExceededPercentage |Porcentagem do conjunto de trabalho de memória para contêineres que excedem o limite configurável pelo usuário (o padrão é 95,0) pelo nome do contêiner, nome do controlador, namespace kubernetes, nome do pod.|
+|Percepções. Container/persistentvolumes |pvUsageExceededPercentage |Porcentagem de utilização de PV para volumes persistentes que excedem o limite configurável pelo usuário (o padrão é 60,0) pelo nome da declaração, namespace kubernetes, nome do volume, nome do pod e nome do nó.
 
 ## <a name="enable-alert-rules"></a>Habilitar regras de alerta
 
@@ -207,29 +211,40 @@ Para exibir alertas criados para as regras habilitadas, no painel **alertas reco
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configurar métricas de alerta no ConfigMaps
 
-Execute as etapas a seguir para configurar o arquivo de configuração do ConfigMap para substituir os limites de utilização de recursos de contêiner padrão. Essas etapas são aplicáveis somente para as seguintes métricas de alerta.
+Execute as etapas a seguir para configurar o arquivo de configuração do ConfigMap para substituir os limites de utilização padrão. Essas etapas são aplicáveis somente para as seguintes métricas de alerta:
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage*
+* *pvUsageExceededPercentage*
 
-1. Edite o arquivo ConfigMap YAML na seção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` .
+1. Edite o arquivo ConfigMap YAML na seção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` ou `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` .
 
-2. Para modificar o limite de *cpuExceededPercentage* para 90% e iniciar a coleta dessa métrica quando esse limite for atingido e excedido, configure o arquivo ConfigMap usando o exemplo a seguir.
+   - Para modificar o limite de *cpuExceededPercentage* para 90% e iniciar a coleta dessa métrica quando esse limite for atingido e excedido, configure o arquivo ConfigMap usando o exemplo a seguir:
 
-    ```
-    container_cpu_threshold_percentage = 90.0
-    # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
-    container_memory_rss_threshold_percentage = 95.0
-    # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
-    container_memory_working_set_threshold_percentage = 95.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
+         # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
+         container_cpu_threshold_percentage = 90.0
+         # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+         container_memory_rss_threshold_percentage = 95.0
+         # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+         container_memory_working_set_threshold_percentage = 95.0
+     ```
 
-3. Execute o seguinte comando kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
+   - Para modificar o limite de *pvUsageExceededPercentage* para 80% e iniciar a coleta dessa métrica quando esse limite for atingido e excedido, configure o arquivo ConfigMap usando o exemplo a seguir:
+
+     ```
+     [alertable_metrics_configuration_settings.pv_utilization_thresholds]
+         # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
+         pv_usage_threshold_percentage = 80.0
+     ```
+
+2. Execute o seguinte comando kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
 
     Exemplo: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagent, nem todas as reinicializações ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" created` .
+A alteração de configuração pode levar alguns minutos para ser concluída antes de entrar em vigor, e todos os pods de omsagent no cluster serão reiniciados. A reinicialização é uma reinicialização sem interrupção para todos os pods omsagents; Eles nem todos reiniciam ao mesmo tempo. Quando as reinicializações forem concluídas, será exibida uma mensagem semelhante ao exemplo a seguir e inclui o resultado: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

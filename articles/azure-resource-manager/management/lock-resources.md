@@ -2,14 +2,14 @@
 title: Bloqueio de recursos para prevenir alterações
 description: Impeça que os usuários atualizem ou excluam recursos críticos do Azure ao aplicar um bloqueio a todos os usuários e funções.
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 10/20/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3830c7e78cf3cc607c7abfca63e6ae74f89b7aff
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87827275"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281739"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas
 
@@ -66,11 +66,13 @@ Para excluir tudo para o serviço, incluindo o grupo de recursos de infraestrutu
 
 ![Excluir serviço](./media/lock-resources/delete-service.png)
 
-## <a name="portal"></a>Portal
+## <a name="configure-locks"></a>Configurar bloqueios
+
+### <a name="portal"></a>Portal
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
-## <a name="template"></a>Modelo
+### <a name="arm-template"></a>Modelo de ARM
 
 Quando usar um modelo do Resource Manager para implantar um bloqueio, use valores diferentes para o nome e tipo, dependendo do escopo do bloqueio.
 
@@ -143,7 +145,7 @@ O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicativo,
 
 Para obter um exemplo de como definir um bloqueio em um grupo de recursos, veja [Criação e bloqueio de um grupo de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
-## <a name="powershell"></a>PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Bloqueie recursos implantados com o Azure PowerShell usando o comando [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
 
@@ -184,7 +186,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceN
 Remove-AzResourceLock -LockId $lockId
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>CLI do Azure
 
 Bloqueie recursos implantados com a CLI do Azure usando o comando [az lock create](/cli/azure/lock#az-lock-create).
 
@@ -225,7 +227,7 @@ lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --re
 az lock delete --ids $lockid
 ```
 
-## <a name="rest-api"></a>API REST
+### <a name="rest-api"></a>API REST
 
 Você pode bloquear os recursos implantados com a [API REST para bloqueios de gerenciamento](/rest/api/resources/managementlocks). A API REST permite que você crie e exclua bloqueios e recupere informações sobre bloqueios existentes.
 

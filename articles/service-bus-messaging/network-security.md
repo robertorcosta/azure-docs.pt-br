@@ -3,12 +3,12 @@ title: Segurança de rede para o barramento de serviço do Azure
 description: Este artigo descreve os recursos de segurança de rede, como marcas de serviço, regras de firewall de IP, pontos de extremidade de serviço e pontos de extremidade privados.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db0dd89d1f902699c27b724609505ba681757454
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766394"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310454"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Segurança de rede para o barramento de serviço do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com o barramento de serviço do Azure: 
@@ -22,7 +22,7 @@ Este artigo descreve como usar os seguintes recursos de segurança com o barrame
 ## <a name="service-tags"></a>Marcas de serviço
 Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. Para obter mais informações sobre marcas de serviço, consulte [visão geral das marcas de serviço](../virtual-network/service-tags-overview.md).
 
-Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **ServiceBus**) no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
+Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **ServiceBus**) no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
 
 | Marca de serviço | Finalidade | É possível usar entrada ou saída? | Pode ser regional? | É possível usar com o Firewall do Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: jasonh
-ms.openlocfilehash: 01bfff6db7827218dafa539b8bc2c7ce0a7869f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad56bf0295efca45ee958e1ce135d79ed850d62
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409639"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277587"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para a migração de dados do MongoDB para a API do Azure Cosmos DB para o MongoDB
 
@@ -36,7 +36,7 @@ Veja a seguir características específicas sobre a API do Azure Cosmos DB para 
 
 - **Capacidade elástica**: A capacidade de uma determinada coleção ou banco de dados pode ser alterada a qualquer momento. Isso permite que o banco de dados se adapte de forma elástica aos requisitos de taxa de transferência da sua carga de trabalho.
 
-- **Fragmentação automática**: O Azure Cosmos DB fornece um sistema de particionamento automático que requer somente um fragmento (ou uma chave de partição). O [mecanismo de particionamento automático](partition-data.md) é compartilhado entre todas as APIs do Azure Cosmos DB e permite dimensionamento de taxa de transferência e dados contínuos através da distribuição horizontal.
+- **Fragmentação automática**: O Azure Cosmos DB fornece um sistema de particionamento automático que requer somente um fragmento (ou uma chave de partição). O [mecanismo de particionamento automático](partitioning-overview.md) é compartilhado entre todas as APIs do Azure Cosmos DB e permite dimensionamento de taxa de transferência e dados contínuos através da distribuição horizontal.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Opções de migração da API do Azure Cosmos DB para o MongoDB
 
@@ -88,7 +88,7 @@ Os recursos de indexação fornecidos pelo Azure Cosmos DB incluem a adição de
 ## <a name="next-steps"></a>Próximas etapas
 * [Migre seus dados do MongoDB para o Azure Cosmos DB usando o Serviço de Migração de Banco de Dados do Azure.](../dms/tutorial-mongodb-cosmos-db.md) 
 * [Taxa de transferência de provisionamento nos contêineres e bancos de dados do Azure Cosmos](set-throughput.md)
-* [Particionamento no Azure Cosmos DB](partition-data.md)
+* [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 * [A distribuição global no Azure Cosmos DB](distribute-data-globally.md)
 * [Indexação no Azure Cosmos DB](index-overview.md)
 * [Unidades de Solicitação no Azure Cosmos DB](request-units.md)

@@ -5,23 +5,23 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061675"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318512"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrar o suporte do Apache Kafka Connect nos hubs de eventos do Azure (versão prévia) com o Debezium para captura de dados de alterações
 
 A **captura de dados de alteração (CDC)** é uma técnica usada para rastrear alterações em nível de linha em tabelas de banco de dado em resposta a operações de criação, atualização e exclusão. O [Debezium](https://debezium.io/) é uma plataforma distribuída que se baseia em recursos de captura de dados de alteração disponíveis em diferentes bancos (por exemplo, [decodificação lógica no PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Ele fornece um conjunto de [conectores do Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) que tocam em alterações em nível de linha em tabelas de banco de dados e os convertem em fluxos de eventos que são enviados para [Apache Kafka](https://kafka.apache.org/).
 
-Este tutorial orienta você sobre como configurar um sistema baseado na captura de dados de alterações no Azure usando os [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (para Kafka), o [BD do Azure para PostgreSQL](../postgresql/overview.md) e o Debezium. Ele usará o [conector Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificações de banco de dados do PostgreSQL para tópicos do Kafka nos hubs de eventos do Azure
+Este tutorial orienta você sobre como configurar um sistema baseado na captura de dados de alterações no Azure usando os [hubs de eventos do Azure](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (para Kafka), o [BD do Azure para PostgreSQL](../postgresql/overview.md) e o Debezium. Ele usará o [conector Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificações de banco de dados do PostgreSQL para tópicos do Kafka nos hubs de eventos do Azure
 
 Neste tutorial, você deve executar as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar um namespace de Hubs de Eventos
+> * Criar um namespace dos hubs de eventos
 > * Instalar e configurar o banco de dados do Azure para PostgreSQL
 > * Configurar e executar o Kafka Connect com o conector do Debezium PostgreSQL
 > * Testar captura de dados de alterações
@@ -35,7 +35,7 @@ Para concluir essa orientação, você precisará de:
 - Kafka (versão 1.1.1, versão do Scala 2.11), disponível em [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Leia o artigo introdutório [Hubs de Eventos para o Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Obtenha a cadeia de conexão dos Hubs de Eventos e o FQDN (nome de domínio totalmente qualificado) para uso posterior. Para obter instruções, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md). 
 
 ## <a name="setup-and-configure-azure-database-for-postgresql"></a>Instalar e configurar o banco de dados do Azure para PostgreSQL

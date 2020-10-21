@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871166"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314723"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solucionando problemas de replicação na migração de VM do VMware sem agente
 
@@ -90,7 +90,7 @@ O componente que está tentando replicar os dados para o Azure está inoperante 
     
     **Etapas para executar o teste de benchmark de desempenho:**
     
-      1. [Baixar](https://go.microsoft.com/fwlink/?linkid=2138966) o azcopy
+      1. [Baixar](../storage/common/storage-use-azcopy-v10.md) o azcopy
         
       2. Procure a conta de armazenamento do dispositivo no grupo de recursos. A conta de armazenamento tem um nome que se assemelha a migrategwsa \* \* \* \* \* \* \* \* \* \* . Esse é o valor do parâmetro [Account] no comando acima.
         
@@ -170,7 +170,7 @@ As possíveis causas incluem:
     
     **Etapas para executar o teste de benchmark de desempenho:**
     
-      1. [Baixar](https://go.microsoft.com/fwlink/?linkid=2138966) o azcopy
+      1. [Baixar](../storage/common/storage-use-azcopy-v10.md) o azcopy
         
       2. Procure a conta de armazenamento do dispositivo no grupo de recursos. A conta de armazenamento tem um nome que se assemelha a migratelsa \* \* \* \* \* \* \* \* \* \* . Esse é o valor do parâmetro [Account] no comando acima.
         
@@ -295,4 +295,4 @@ Isso acontece quando o buffer de host NFC está sem memória. Para resolver esse
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Continue a replicação de VM e execute a [migração de teste](https://go.microsoft.com/fwlink/?linkid=2139333).
+Continue a replicação de VM e execute a [migração de teste](./tutorial-migrate-vmware.md#run-a-test-migration).

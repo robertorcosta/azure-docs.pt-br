@@ -3,12 +3,12 @@ title: Suporte para avaliação do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte à avaliação do Hyper-V com a avaliação do servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318170"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311322"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
@@ -46,7 +46,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 | :----------------------------- | :------------------- |
 | **Sistema operacional** | Todos os sistemas operacionais podem ser avaliados quanto à migração.  |
 | **Serviços de Integração**       | Os [Integration Services do Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) devem estar em execução em VMs que você avaliar, a fim de capturar informações do sistema operacional. |
-| **Storage** | Disco local, DAS, JBOD, espaços de armazenamento, CSV, SMB. Há suporte para esse armazenamento de host Hyper-V no qual VHD/VHDX são armazenados. <br/> Há suporte para os controladores virtuais IDE e SCSI| 
+| **Armazenamento** | Disco local, DAS, JBOD, espaços de armazenamento, CSV, SMB. Há suporte para esse armazenamento de host Hyper-V no qual VHD/VHDX são armazenados. <br/> Há suporte para os controladores virtuais IDE e SCSI| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure
 
@@ -83,4 +83,4 @@ A [análise de dependência](concepts-dependency-visualization.md) ajuda a ident
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Preparar a avaliação de VM do Hyper-V](tutorial-prepare-hyper-v.md)
+[Preparar a avaliação de VM do Hyper-V](./tutorial-discover-hyper-v.md)

@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804190"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276099"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginação no Azure Cosmos DB
 
@@ -21,7 +21,7 @@ No Azure Cosmos DB, as consultas podem ter várias páginas de resultados. Este 
 
 Às vezes, os resultados da consulta serão divididos em várias páginas. Os resultados de cada página são gerados por uma execução de consulta separada. Quando os resultados da consulta não podem ser retornados em uma única execução, Azure Cosmos DB irá dividir os resultados automaticamente em várias páginas.
 
-Você pode especificar o número máximo de itens retornados por uma consulta definindo o `MaxItemCount` . O `MaxItemCount` é especificado por solicitação e garante que o mecanismo de consulta retornará esse número de itens ou menos. Você pode definir `MaxItemCount` como `-1` se não quiser inserir um limite no número de resultados por execução de consulta.
+Você pode especificar o número máximo de itens retornados por uma consulta definindo o `MaxItemCount` . O `MaxItemCount` é especificado por solicitação e informa ao mecanismo de consulta que retornará esse número de itens ou menos. Você pode definir `MaxItemCount` como `-1` se não quiser inserir um limite no número de resultados por execução de consulta.
 
 Além disso, há outros motivos pelos quais o mecanismo de consulta pode precisar dividir os resultados da consulta em várias páginas. Elas incluem:
 

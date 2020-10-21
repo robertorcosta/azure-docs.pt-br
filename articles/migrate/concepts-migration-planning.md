@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce6f0ff97b1dfa8757b05b13dff653a1d34f4531
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090086"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315284"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Criar um plano de migração com as Migrações para Azure
 
@@ -166,4 +166,4 @@ Quando você estiver pronto para migrar, use a *ferramenta de migração de serv
 
 - Investigue a [jornada de migração na nuvem](/azure/architecture/cloud-adoption/getting-started/migrate)   na estrutura de adoção de nuvem do Azure.
 - [Introdução](https://youtu.be/wFfq3YPxYHE) às migrações para Azure.
-- Crie uma avaliação para VMs [VMware](tutorial-assess-vmware.md) ou [VMs do Hyper-V](tutorial-assess-hyper-v.md).
+- Crie uma avaliação para VMs [VMware](./tutorial-assess-vmware-azure-vm.md) ou [VMs do Hyper-V](tutorial-assess-hyper-v.md).

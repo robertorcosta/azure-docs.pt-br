@@ -3,12 +3,12 @@ title: Atualizar nós de cluster para usar o Azure Managed disks
 description: Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717516"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316157"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar nós de cluster para usar o Azure Managed disks
 
@@ -25,7 +25,7 @@ A estratégia geral para atualizar um Service Fabric nó de cluster para usar di
 Este artigo orientará você pelas etapas de atualização do tipo de nó primário de um cluster de exemplo para usar discos gerenciados, ao mesmo tempo em que evita qualquer tempo de inatividade do cluster (consulte a observação abaixo). O estado inicial do exemplo de cluster de teste consiste em um tipo de nó de [durabilidade prateada](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), apoiado por um único conjunto de dimensionamento com cinco nós.
 
 > [!NOTE]
-> As limitações de um balanceador de carga de SKU básico impedem que um conjunto de dimensionamento adicional seja adicionado. É recomendável usar o balanceador de carga SKU padrão em vez disso. Para obter mais informações, consulte [uma comparação entre as duas SKUs](/azure/load-balancer/skus).
+> As limitações de um balanceador de carga de SKU básico impedem que um conjunto de dimensionamento adicional seja adicionado. É recomendável usar o balanceador de carga SKU padrão em vez disso. Para obter mais informações, consulte [uma comparação entre as duas SKUs](../load-balancer/skus.md).
 
 > [!CAUTION]
 > Você terá uma interrupção com esse procedimento somente se tiver dependências no DNS do cluster (por exemplo, ao acessar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). A [prática recomendada de arquitetura para serviços de front-end](/azure/architecture/microservices/design/gateway) é ter algum tipo de [balanceador de carga](/azure/architecture/guide/technology-choices/load-balancing-overview) na frente de seus tipos de nó para tornar a troca de nó possível sem uma interrupção.

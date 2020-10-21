@@ -3,18 +3,18 @@ title: Adicionar uma extensão de conjunto de dimensionamento de máquinas virtu
 description: Veja como adicionar uma extensão de conjunto de dimensionamento de máquinas virtuais a Service Fabric tipo de nó de cluster gerenciado
 ms.topic: article
 ms.date: 09/28/2020
-ms.openlocfilehash: 10487bad4fce41c68b4e2cb90c311b986d709eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be51a03494c90ba91cddb383b62b2477fabc8fc3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410289"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309288"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Adicionar uma extensão de conjunto de dimensionamento de máquinas virtuais a um Service Fabric tipo de nó de cluster gerenciado (versão prévia)
 
 Cada tipo de nó em um Cluster Service Fabric gerenciado é apoiado por um conjunto de dimensionamento de máquinas virtuais. Isso permite que você adicione [extensões do conjunto de dimensionamento de máquinas virtuais](../virtual-machines/extensions/overview.md) a seus Service Fabric tipos de nó de cluster gerenciados.
 
-Você pode adicionar uma extensão de conjunto de dimensionamento de máquinas virtuais a um tipo de nó usando o comando do PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](https://docs.microsoft.com/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?view=azps-4.7.0&preserve-view=true) .
+Você pode adicionar uma extensão de conjunto de dimensionamento de máquinas virtuais a um tipo de nó usando o comando do PowerShell [Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?preserve-view=true&view=azps-4.7.0) .
 
 Como alternativa, você pode uma extensão de conjunto de dimensionamento de máquinas virtuais em um Service Fabric tipo de nó de cluster gerenciado em seu modelo de Azure Resource Manager, por exemplo:
 
@@ -51,7 +51,7 @@ Como alternativa, você pode uma extensão de conjunto de dimensionamento de má
 }
 ```
 
-Para obter mais informações sobre como configurar Service Fabric tipos de nó de cluster gerenciado, consulte [tipo de nó de cluster gerenciado](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes).
+Para obter mais informações sobre como configurar Service Fabric tipos de nó de cluster gerenciado, consulte [tipo de nó de cluster gerenciado](/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,17 +3,17 @@ title: Diagnosticar e solucionar problemas de disponibilidade de SDKs do Azure C
 description: Saiba tudo sobre o comportamento de disponibilidade do SDK do Azure Cosmos ao operar em ambientes de várias regiões.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743957"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319377"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticar e solucionar problemas de disponibilidade de SDKs do Azure Cosmos em ambientes multiregiãois
 
@@ -34,7 +34,7 @@ Quando você definir a preferência regional, o cliente se conectará a uma regi
 | Região de gravação única | Região preferencial | Região primária  |
 | Várias regiões de gravação | Região preferencial | Região preferencial  |
 
-Se você não definir uma região preferencial:
+Se você **não definir uma região preferida**, o cliente SDK usa como padrão a região primária:
 
 |Tipo de conta |Leituras |Gravações |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ Se você não definir uma região preferencial:
 > [!NOTE]
 > A região primária refere-se à primeira região na [lista de regiões da conta do Azure Cosmos](distribute-data-globally.md)
 
-Quando qualquer um dos cenários a seguir ocorre, o cliente que usa o SDK do cosmos do Azure expõe logs e inclui as informações de repetição como parte das **informações de diagnóstico da operação**:
+Em circunstâncias normais, o cliente do SDK se conectará à região preferida (se uma preferência regional estiver definida) ou à região primária (se nenhuma preferência estiver definida) e as operações serão limitadas a essa região, a menos que qualquer um dos cenários a seguir ocorra.
+
+Nesses casos, o cliente que usa o SDK do cosmos do Azure expõe logs e inclui as informações de repetição como parte das **informações de diagnóstico da operação**:
 
 * A propriedade *RequestDiagnosticsString* em respostas no SDK do .net v2.
 * A propriedade de *diagnóstico* em respostas e exceções no SDK do .net v3.
@@ -66,7 +68,7 @@ Se você remover uma região e posteriormente adicioná-la de volta à conta, se
 
 Se você configurar o cliente para se conectar preferencialmente a uma região que a conta do Azure Cosmos não tem, a região preferida será ignorada. Se você adicionar essa região posteriormente, o cliente a detectará e será alternado permanentemente para essa região.
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Failover da região de gravação em uma única conta de região de gravação
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Fazer failover da região de gravação em uma única conta de região de gravação
 
 Se você iniciar um failover da região de gravação atual, a próxima solicitação de gravação falhará com uma resposta de back-end conhecida. Quando essa resposta for detectada, o cliente consultará a conta para aprender a nova região de gravação e prosseguirá para repetir a operação atual e roteará permanentemente todas as operações de gravação futuras para a nova região.
 
@@ -76,7 +78,7 @@ Se a conta for uma região de gravação única e a interrupção regional ocorr
 
 ## <a name="session-consistency-guarantees"></a>Garantias de consistência de sessão
 
-Ao usar a [consistência de sessão](consistency-levels.md#guarantees-associated-with-consistency-levels), o cliente precisa garantir que ele possa ler suas próprias gravações. Em contas de região de gravação única em que a preferência de região de leitura é diferente da região de gravação, pode haver casos em que o usuário emite uma gravação e, ao fazer uma leitura de uma região local, a região local ainda não recebeu a replicação de dados (velocidade de restrição de luz). Nesses casos, o SDK detecta a falha específica na operação de leitura e repete a leitura na região do hub para garantir a consistência da sessão.
+Ao usar a [consistência de sessão](consistency-levels.md#guarantees-associated-with-consistency-levels), o cliente precisa garantir que ele possa ler suas próprias gravações. Em contas de região de gravação única em que a preferência de região de leitura é diferente da região de gravação, pode haver casos em que o usuário emite uma gravação e, ao fazer uma leitura de uma região local, a região local ainda não recebeu a replicação de dados (velocidade de restrição de luz). Nesses casos, o SDK detecta a falha específica na operação de leitura e repete a leitura na região primária para garantir a consistência da sessão.
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problemas de conectividade transitórios no protocolo TCP
 

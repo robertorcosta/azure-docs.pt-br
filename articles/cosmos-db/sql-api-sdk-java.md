@@ -9,31 +9,31 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1061cd7a37cbe9ce5ea360de22594d6eb4c0c2f5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569937"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275306"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
 > * [SDK v3 do .NET](sql-api-sdk-dotnet-standard.md)
 > * [SDK do .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
-> * [SDK v2 do feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK do Feed de Alterações do .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
-> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API do SQL compatível com operações síncronas.
@@ -232,7 +232,7 @@ Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API
 * Adicionado suporte a TTL (tempo de vida) para documentos.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* Implementação de [coleções particionadas](partition-data.md) e [níveis de desempenho definidos pelo usuário](performance-levels.md).
+* Implementação de [coleções particionadas](partitioning-overview.md) e [níveis de desempenho definidos pelo usuário](performance-levels.md).
 
 ### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * Foi corrigido um bug no HashPartitionResolver para gerar valores de hash em little-endian para ser consistente com outros SDKs.
@@ -263,7 +263,7 @@ Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API
 A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte. Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
 
 > [!WARNING]
-> Depois de 30 de maio de 2020, o Azure Cosmos DB não fará mais correções de bug, adicionará novos recursos e dará suporte às versões 1. x do SDK do Java do Azure Cosmos DB para a API do SQL. Se você preferir não atualizar, as solicitações enviadas da versão 1. x do SDK continuarão a ser servidas pelo serviço de Azure Cosmos DB.
+> Depois de 30 de maio de 2020, o Azure Cosmos DB não fará mais correções de bug, adicionará novos recursos e dará suporte às versões 1. x do SDK do Java do Azure Cosmos DB para a API do SQL. Se você preferir não fazer a atualização, as solicitações enviadas da versão 1.x do SDK continuarão a ser atendidas pelo serviço Azure Cosmos DB.
 >
 > Depois de 29 de fevereiro de 2016, a Azure Cosmos DB não fará mais correções de bugs, adicionará novos recursos e dará suporte às versões 0. x do SDK do Java do Azure Cosmos DB para a API do SQL. Se você preferir não atualizar, as solicitações enviadas da versão 0. x do SDK continuarão a ser servidas pelo serviço de Azure Cosmos DB.
 

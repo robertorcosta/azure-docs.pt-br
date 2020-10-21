@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8d9740e05bf4236f1b2b722c9a91b3644533fce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a3c5274a1b63d486bb7eb48b89560d5684db2e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707893"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317002"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para funções do Azure AD no Privileged Identity Management
 
@@ -54,7 +54,7 @@ Este artigo contém instruções para usar os cmdlets do PowerShell do Azure Act
     ![Localizar a ID da organização nas propriedades da organização do Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> As seções a seguir são exemplos simples que podem ajudar você a colocar em funcionamento. Você pode encontrar uma documentação mais detalhada sobre os seguintes cmdlets em [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . No entanto, você deve substituir "azureResources" no parâmetro ProviderID por "aadRoles". Você também precisará se lembrar de usar a ID de locatário para sua organização do Azure AD como o parâmetro ResourceId.
+> As seções a seguir são exemplos simples que podem ajudar você a colocar em funcionamento. Você pode encontrar uma documentação mais detalhada sobre os seguintes cmdlets em [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . No entanto, você deve substituir "azureResources" no parâmetro ProviderID por "aadRoles". Você também precisará se lembrar de usar a ID de locatário para sua organização do Azure AD como o parâmetro ResourceId.
 
 ## <a name="retrieving-role-definitions"></a>Recuperando definições de função
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/06/2020
+ms.date: 10/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840550"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309674"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Residência de dados e disponibilidade de região
 
@@ -59,6 +59,14 @@ Os seguintes países/regiões estão no processo de serem adicionados à lista. 
 
 > Argentina, Austrália, Brasil, Chile, Colômbia, Equador, Iraque, Nova Zelândia, Paraguai, Peru, Uruguai e Venezuela.
 
+## <a name="remote-profile-solution"></a>Solução de perfil remoto
+
+Com Azure AD B2C [políticas personalizadas](custom-policy-overview.md), você pode integrar os [serviços de API RESTful](custom-policy-rest-api-intro.md), que permitem armazenar e ler perfis de usuário de um banco de dados remoto (como um banco de dados de marketing, um sistema CRM ou qualquer aplicativo de linha de negócios).  
+- Durante os fluxos de inscrição e de edição de perfil, Azure AD B2C chama uma API REST personalizada para manter o perfil do usuário para a fonte de dados remota. As credenciais do usuário são armazenadas no diretório Azure AD B2C. 
+- Após a entrada, após a validação das credenciais com uma conta local ou social, Azure AD B2C invoca a API REST, que envia o identificador exclusivo do usuário como uma chave primária do usuário (endereço de email ou objectId do usuário). A API REST lê os dados do banco de dado remoto e retorna o perfil do usuário.  
+
+Após a inscrição, a edição de perfil ou a entrada ser concluída, Azure AD B2C inclui o perfil de usuário no token de acesso que é retornado para o aplicativo. Para obter mais informações, consulte a [solução Azure ad B2C de exemplo de perfil remoto](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) no github.
+
 ## <a name="preview-tenant"></a>Locatário de visualização
 
 Se você tiver criado um locatário B2C durante o período de visualização do Azure AD B2C, é provável que o **tipo de locatário** informe o **locatário de visualização**.
@@ -70,3 +78,7 @@ Não **há nenhum caminho de migração** de um locatário do B2C de visualizaç
 Há problemas conhecidos quando você exclui um locatário do B2C de visualização e cria um locatário B2C de escala de produção com o mesmo nome de domínio. *Você deve criar um locatário B2C de escala de produção com um nome de domínio diferente*.
 
 ![Captura de tela de um tipo de locatário, como locatário de visualização.](./media/data-residency/preview-b2c-tenant.png)
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Criar um locatário Azure ad B2C](tutorial-create-tenant.md).

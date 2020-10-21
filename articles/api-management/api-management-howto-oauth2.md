@@ -11,21 +11,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 08/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f2673bd181bc24d821b41ae1466c05a9593f154
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87902250"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315723"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
 
 Muitas APIs dão suporte ao [OAuth 2.0](https://oauth.net/2/) para proteger a API e garantir que apenas usuários válidos tenham acesso e possam acessar apenas os recursos para os quais eles estão qualificados. Para usar o Console de desenvolvedor interativo do Gerenciamento de API do Azure com essas APIs, o serviço permite que você configure sua instância de serviço para funcionar com sua API habilitada para o OAuth 2.0.
-
-> [!IMPORTANT]
-> A autorização do OAuth 2,0 ainda não está disponível no console interativo do novo portal do desenvolvedor.
 
 ## <a name="prerequisites"></a><a name="prerequisites"> </a>Pré-requisitos
 

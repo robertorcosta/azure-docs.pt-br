@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69bc58e7d217bbd902a82a15333eee6df40a21c9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570107"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276343"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflito e políticas de resolução ao usar várias regiões de gravação
 
@@ -32,7 +32,7 @@ O Azure Cosmos DB oferece um mecanismo flexível orientado por políticas para r
 
 * **Última gravação vence (LWW)**: essa política de resolução, por padrão, usa uma propriedade Timestamp definida pelo sistema. Ele se baseia no protocolo de sincronização de hora de relógio. Se você usar a API do SQL, poderá especificar qualquer outra propriedade numérica personalizada (por exemplo, sua própria noção de um carimbo de data/hora) a ser usada na resolução de conflitos. Uma propriedade numérica personalizada também é conhecida como o caminho de *resolução de conflito*. 
 
-  Se dois ou mais itens entram em conflito ou substituem operações, o item com o valor mais alto para o "caminho de resolução de conflitos" torna-se o "vencedor". O sistema determina o ganhador se vários itens tiverem o mesmo valor numérico para o caminho de resolução de conflito. Todas as regiões têm a garantia de convergir para um único vencedor e terminarão com a versão igual do item confirmado. Ao excluir conflitos que estão envolvidos, a versão excluída sempre supera o inserir ou substituir os conflitos. Esse resultado ocorre independentemente do valor do caminho de resolução de conflito.
+  Se dois ou mais itens entram em conflito ou substituem operações, o item com o valor mais alto para o "caminho de resolução de conflitos" torna-se o "vencedor". O sistema determina o ganhador se vários itens tiverem o mesmo valor numérico para o caminho de resolução de conflito. Todas as regiões irão convergir para um único vencedor e terminarão com a mesma versão do item confirmado. Ao excluir conflitos que estão envolvidos, a versão excluída sempre supera o inserir ou substituir os conflitos. Esse resultado ocorre independentemente do valor do caminho de resolução de conflito.
 
   > [!NOTE]
   > A última gravação vence é a política de resolução de conflitos padrão e usa o carimbo de data/hora `_ts` para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e Table. A propriedade numérica personalizada está disponível somente para a API do SQL.

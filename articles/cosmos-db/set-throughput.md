@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777782"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282577"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
 
@@ -34,9 +34,9 @@ A taxa de transferência provisionada para um contêiner é distribuída uniform
 
 Se a carga de trabalho em execução em uma partição lógica consumir mais do que a taxa de transferência alocada para a partição física subjacente, será possível que suas operações sejam limitadas por taxa. O que é conhecido como uma _partição ativa_ ocorre quando uma partição lógica tem, desproporcionalmente, mais solicitações do que outros valores de chave de partição.
 
-Quando ocorrer uma limitação da taxa, você poderá aumentar a taxa de transferência provisionada de todo o contêiner ou tentar novamente as operações. Você também deve se certificar de escolher uma chave de partição que distribua uniformemente o armazenamento e o volume de solicitação. Para obter mais informações sobre particionamento, consulte [particionamento e dimensionamento horizontal em Azure Cosmos DB](partition-data.md).
+Quando ocorrer uma limitação da taxa, você poderá aumentar a taxa de transferência provisionada de todo o contêiner ou tentar novamente as operações. Você também deve se certificar de escolher uma chave de partição que distribua uniformemente o armazenamento e o volume de solicitação. Para obter mais informações sobre particionamento, consulte [particionamento e dimensionamento horizontal em Azure Cosmos DB](partitioning-overview.md).
 
-É recomendável configurar a taxa de transferência na granularidade do contêiner quando você quiser desempenho garantido para o contêiner.
+Recomendamos que você configure a taxa de transferência na granularidade do contêiner quando desejar um desempenho previsível para o contêiner.
 
 A imagem a seguir mostra como uma partição física hospeda uma ou mais partições lógicas de um contêiner:
 
@@ -49,7 +49,7 @@ A imagem a seguir mostra como uma partição física hospeda uma ou mais partiç
 
 Ao provisionar a taxa de transferência em um banco de dados do Azure Cosmos, a taxa de transferência será compartilhada entre todos os contêineres (denominados contêineres de banco de dados compartilhados) no banco de dados. Uma exceção é se você especificou uma taxa de transferência provisionada em contêineres específicos no banco de dados. O compartilhamento da taxa de transferência provisionada no banco de dados entre seus contêineres é análogo à hospedagem de um banco de dados em um cluster de computadores. Como todos os contêineres de um banco de dados compartilham os recursos disponíveis em um computador, evidentemente você não obtém o desempenho previsível em qualquer contêiner específico. Para saber como configurar a taxa de transferência provisionada em um banco de dados, consulte [Configurar taxa de transferência provisionada em um banco de dados do Azure Cosmos](how-to-provision-database-throughput.md). Para saber como configurar a taxa de transferência de dimensionamento automático em um banco de dados, consulte [Provisionar taxa de transferência de dimensionamento automático](how-to-provision-autoscale-throughput.md).
 
-Definir a taxa de transferência em um banco de dados do Azure Cosmos garante que você receba a taxa de transferência provisionada para esse banco de dados o tempo todo. Como todos os contêineres do banco de dados compartilham a taxa de transferência provisionada, o Azure Cosmos DB não fornece nenhuma garantia de taxa de transferência previsível para um contêiner específico nesse banco de dados. A parte da taxa de transferência que um contêiner específico pode receber depende do seguinte:
+Como todos os contêineres do banco de dados compartilham a taxa de transferência provisionada, o Azure Cosmos DB não fornece nenhuma garantia de taxa de transferência previsível para um contêiner específico nesse banco de dados. A parte da taxa de transferência que um contêiner específico pode receber depende do seguinte:
 
 * Número de contêineres.
 * Escolha de chaves de partição para vários contêineres.
@@ -63,9 +63,9 @@ Os exemplos a seguir demonstram onde é preferível provisionar a taxa de transf
 
 * Compartilhar a taxa de transferência provisionada de um banco de dados em um conjunto de contêineres é útil quando você migra um banco de dados NoSQL, como MongoDB ou Cassandra, hospedado em um cluster de VMs ou de servidores físicos locais para o Azure Cosmos DB. Pense na taxa de transferência provisionada configurada no banco de dados do Azure Cosmos como um equivalente lógico, porém mais econômico e elástico, ao da capacidade de computação do cluster do MongoDB ou Cassandra.  
 
-Todos os contêineres criados em um banco de dados com taxa de transferência provisionada devem ser criados com uma [chave de partição](partition-data.md). A qualquer momento, a taxa de transferência alocada a um contêiner dentro de um banco de dados será distribuída entre todas as partições lógicas desse contêiner. Quando houver contêineres compartilhando a taxa de transferência provisionada configurada em um banco de dados, não será possível aplicar seletivamente a taxa de transferência a um contêiner específico ou a uma partição lógica. 
+Todos os contêineres criados em um banco de dados com taxa de transferência provisionada devem ser criados com uma [chave de partição](partitioning-overview.md). A qualquer momento, a taxa de transferência alocada a um contêiner dentro de um banco de dados será distribuída entre todas as partições lógicas desse contêiner. Quando houver contêineres compartilhando a taxa de transferência provisionada configurada em um banco de dados, não será possível aplicar seletivamente a taxa de transferência a um contêiner específico ou a uma partição lógica. 
 
-Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada para uma partição lógica específica, suas operações serão limitadas por taxa. Quando ocorrer uma limitação da taxa, você poderá aumentar a taxa de transferência de todo o banco de dados ou tentar novamente as operações. Para saber mais sobre particionamento, confira [Partições lógicas](partition-data.md).
+Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada para uma partição lógica específica, suas operações serão limitadas por taxa. Quando ocorrer uma limitação da taxa, você poderá aumentar a taxa de transferência de todo o banco de dados ou tentar novamente as operações. Para saber mais sobre particionamento, confira [Partições lógicas](partitioning-overview.md).
 
 Os contêineres em um banco de dados de produtividade compartilhado também compartilham a taxa de transferência (RU/s) alocada para esse banco de dados. Você pode ter até quatro contêineres com um mínimo de 400 RU/s no banco de dados. Com a taxa de transferência provisionada padrão (manual), após os quatro primeiros, cada novo contêiner precisará de mais 100 RU/s, no mínimo. Por exemplo, se você tiver um banco de dados de produtividade compartilhado com oito contêineres, as RU/s mínimas no banco de dados serão 800 RU/s. Com a taxa de transferência provisionada de dimensionamento automático, você pode ter até 25 contêineres em um banco de dados com dimensionamento automático de 4000 RU/s (escalas entre 400-4000 RU/s).
 
@@ -82,7 +82,7 @@ Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um 
 É possível combinar os dois modelos. É permitido provisionar a taxa de transferência tanto no banco de dados como no contêiner. O exemplo a seguir mostra como provisionar a taxa de transferência provisionada padrão (manual) em um banco de dados do Azure Cosmos e em um contêiner:
 
 * Você pode criar um banco de dados do Azure Cosmos *Z* com a taxa de transferência provisionada padrão (manual) de RUs *"K"* . 
-* Em seguida, crie cinco contêineres chamados *A*, *B*, *C*, *D* e *E* no banco de dados. Ao criar o contêiner B, habilite a opção **Provisionar taxa de transferência dedicada para esse contêiner** e configure explicitamente RUs *"P"* de taxa de transferência provisionada neste contêiner. Observe que você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
+* Em seguida, crie cinco contêineres chamados *A*, *B*, *C*, *D* e *E* no banco de dados. Ao criar o contêiner B, habilite a opção **Provisionar taxa de transferência dedicada para esse contêiner** e configure explicitamente RUs *"P"* de taxa de transferência provisionada neste contêiner. Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partição física que hospeda uma ou mais partições lógicas de um contêiner":::
 
@@ -94,22 +94,47 @@ Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um 
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Atualizar a taxa de transferência em um banco de dados ou um contêiner
 
-Depois de criar um contêiner Cosmos do Azure ou um banco de dados, você pode atualizar a taxa de transferência provisionada. Não há limite para a taxa de transferência máxima provisionada que você pode configurar no banco de dados ou no contêiner. 
+Depois de criar um contêiner Cosmos do Azure ou um banco de dados, você pode atualizar a taxa de transferência provisionada. Não há limite para a taxa de transferência máxima provisionada que você pode configurar no banco de dados ou no contêiner.
 
-Para estimar a [taxa de transferência mínima provisionada](concepts-limits.md#storage-and-database-operations) de um banco de dados ou contêiner, encontre o máximo de:
+### <a name="current-provisioned-throughput"></a>Taxa de transferência provisionada atual
+
+Você pode recuperar a taxa de transferência provisionada de um contêiner ou de um banco de dados no portal do Azure ou usando os SDKs:
+
+* [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) no SDK do .net.
+* [CosmosContainer. readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) no SDK do Java.
+
+A resposta desses métodos também contém a [taxa de transferência mínima provisionada](concepts-limits.md#storage-and-database-operations) para o contêiner ou banco de dados:
+
+* [ThroughputResponse. MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) no SDK do .net.
+* [ThroughputResponse. getMinThroughput ()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) no SDK do Java.
+
+O mínimo de RU/s real pode variar dependendo da configuração da sua conta. Mas, em geral, é o máximo de:
 
 * 400 RU/s 
 * Armazenamento atual em GB * 10 RU/s
 * RU/s mais alto provisionado no banco de dados ou contêiner/100
 * Contagem de contêineres * 100 RU/s (somente banco de dados de taxa de transferência compartilhada)
 
-O mínimo de RU/s real pode variar dependendo da configuração da sua conta. Você pode usar [Azure monitor métricas](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para exibir o histórico de taxa de transferência provisionada (ru/s) e o armazenamento em um recurso.
+### <a name="changing-the-provisioned-throughput"></a>Alterando a taxa de transferência provisionada
 
-Você pode recuperar a taxa de transferência mínima de um contêiner ou de um banco de dados programaticamente usando os SDKs ou exibir o valor no portal do Azure. Ao usar o SDK do .NET, o [contêiner. ](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) O método ReplaceThroughputAsync permite dimensionar o valor de taxa de transferência provisionado. Ao usar o SDK do Java, o método [CosmosContainer. replaceProvisionedThroughput](sql-api-java-sdk-samples.md) permite que você dimensione o valor da taxa de transferência provisionada.
+Você pode dimensionar a taxa de transferência provisionada de um contêiner ou de um banco de dados por meio do portal do Azure ou usando os SDKs:
 
-Ao usar o SDK do .NET, o método [container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) permite que você recupere a taxa de transferência mínima de um contêiner ou de um banco de dados. 
+* [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) no SDK do .net.
+* [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) no SDK do Java.
 
-Você pode dimensionar a taxa de transferência provisionada de um contêiner ou de um banco de dados a qualquer momento. Quando uma operação de dimensionamento é executada para aumentar a taxa de transferência, ela pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Você pode verificar o status da operação de dimensionamento em portal do Azure ou programaticamente usando os SDKs. Ao usar o .NET SDK, você pode obter o status da operação de dimensionamento usando o método `Container.ReadThroughputAsync`.
+Se você estiver **reduzindo a taxa de transferência provisionada**, poderá fazer isso até o [mínimo](#current-provisioned-throughput).
+
+Se você estiver **aumentando a taxa de transferência provisionada**, na maioria das vezes, a operação será instantânea. No entanto, há casos em que a operação pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Nesse caso, uma tentativa de modificar a taxa de transferência provisionada enquanto essa operação está em andamento produzirá uma resposta HTTP 423 com uma mensagem de erro explicando que outra operação de dimensionamento está em andamento.
+
+> [!NOTE]
+> Se você estiver planejando uma carga de trabalho de ingestão muito grande que exigirá um grande aumento na taxa de transferência provisionada, tenha em mente que a operação de dimensionamento não tem SLA e, como mencionado no parágrafo anterior, pode levar muito tempo quando o aumento for grande. Talvez você queira planejar com antecedência e iniciar o dimensionamento antes que a carga de trabalho comece e use os métodos abaixo para verificar o progresso.
+
+Você pode verificar o progresso do dimensionamento programaticamente lendo a [taxa de transferência provisionada atual](#current-provisioned-throughput) e usando:
+
+* [ThroughputResponse. IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) no SDK do .net.
+* [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) no SDK do Java.
+
+Você pode usar [Azure monitor métricas](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para exibir o histórico de taxa de transferência provisionada (ru/s) e o armazenamento em um recurso.
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
 Esta tabela mostra uma comparação entre a taxa de transferência padrão de provisionamento (manual) em um banco de dados em relação a um contêiner. 
@@ -126,7 +151,7 @@ Esta tabela mostra uma comparação entre a taxa de transferência padrão de pr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [partições lógicas](partition-data.md).
+* Saiba mais sobre [partições lógicas](partitioning-overview.md).
 * Saiba como [provisionar a taxa de transferência padrão (manual) em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
 * Saiba como [provisionar a taxa de transferência padrão (manual) em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).
 * Saiba como [provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner do Azure Cosmos](how-to-provision-autoscale-throughput.md).

@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f8b1129c94ecf80efb60a13a0b80b1cc1817ff3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 905560094afa9338d44ba73120d316b3c81b5580
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871081"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277154"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnosticar e solucionar problemas de Azure Cosmos DB taxa de solicitação de exceções muito grandes
 Uma mensagem de "taxa de solicitação muito grande" ou código de erro 429 indica que suas solicitações estão sendo limitadas.
@@ -24,7 +24,7 @@ A seção a seguir contém causas conhecidas e soluções para muitas solicitaç
 Verifique [Azure Cosmos DB monitoramento](monitor-cosmos-db.md) para ver o número de exceções de 429.
 
 #### <a name="cause"></a>Causa:
-A taxa de transferência consumida (unidades de solicitação por segundo) excedeu a [taxa de transferência provisionada](set-throughput.md). O SDK repete solicitações automaticamente com base na política de repetição especificada. Se você receber essa falha com frequência, considere aumentar a taxa de transferência na coleção. Verifique as métricas do portal para ver se você está recebendo erros 429. Examine sua chave de partição para garantir que ela resulte em uma [distribuição uniforme do armazenamento e do volume de solicitação](partition-data.md).
+A taxa de transferência consumida (unidades de solicitação por segundo) excedeu a [taxa de transferência provisionada](set-throughput.md). O SDK repete solicitações automaticamente com base na política de repetição especificada. Se você receber essa falha com frequência, considere aumentar a taxa de transferência na coleção. Verifique as métricas do portal para ver se você está recebendo erros 429. Examine sua chave de partição para garantir que ela resulte em uma [distribuição uniforme do armazenamento e do volume de solicitação](partitioning-overview.md).
 
 #### <a name="solution"></a>Solução:
 1. Use o [portal ou o SDK](set-throughput.md) para aumentar a taxa de transferência provisionada.
