@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 26f635525afea289e2e791b802478040a7851eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87486503"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277678"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Como escalar de forma elástica uma conta da API do Cassandra do Azure Cosmos DB
 
@@ -62,7 +62,7 @@ A vantagem dessa abordagem é que ela permite que você responda às necessidade
 
 Além da maneira padrão (manual) ou programática de provisionar a taxa de transferência, você também pode configurar contêineres do Azure Cosmos na taxa de transferência provisionada de dimensionamento automático. O dimensionamento automático será escalado de forma automática e instantânea para suas necessidades de consumo dentro dos intervalos de RU especificados sem comprometer os SLAs. Para saber mais, consulte o artigo [Criar contêineres e bancos de dados do Azure Cosmos no dimensionamento automático](provision-throughput-autoscale.md).
 
-A vantagem dessa abordagem é que ela é a maneira mais fácil de gerenciar as necessidades de dimensionamento em seu sistema. Ela garante que a limitação de taxa são seja aplicada **dentro dos intervalos de RU configurados**. A desvantagem é que, se as necessidades de dimensionamento em seu sistema forem previsíveis, o dimensionamento automático poderá ser uma maneira menos econômica de lidar com suas necessidades de dimensionamento do que usar as abordagens de nível personalizadas do painel de controle ou do SDK mencionadas acima.
+A vantagem dessa abordagem é que ela é a maneira mais fácil de gerenciar as necessidades de dimensionamento em seu sistema. Ele não aplicará a limitação de taxa **dentro dos intervalos de ru configurados**. A desvantagem é que, se as necessidades de dimensionamento em seu sistema forem previsíveis, o dimensionamento automático poderá ser uma maneira menos econômica de lidar com suas necessidades de dimensionamento do que usar as abordagens de nível personalizadas do painel de controle ou do SDK mencionadas acima.
 
 Para definir ou alterar a taxa de transferência máxima (RUs) para dimensionamento automático usando CQL, use o seguinte (substituindo adequadamente o nome de keyspace/tabela):
 

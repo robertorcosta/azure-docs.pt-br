@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d0956634289713f691feb1a9182233e6795e319
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201726"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279095"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -29,7 +29,7 @@ Eles também podem ser gerenciados por meio do [portal do Azure](https://portal.
 * Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Grupo de recursos
+    - Resource group
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -90,13 +90,13 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**.
 
-Para criar um ponto de extremidade com mensagens mortas habilitadas, você deve usar as [APIs ARM](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar seu ponto de extremidade. 
+Para criar um ponto de extremidade com mensagens mortas habilitadas, você deve usar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar seu ponto de extremidade. 
 
 Antes de configurar o local de mensagens mortas, você deve ter uma conta de armazenamento com um contêiner. Você fornece a URL para esse contêiner ao criar o ponto de extremidade. A letra de inatividade é fornecida como uma URL de contêiner com um token SAS. Esse token precisa apenas `write` de permissão para o contêiner de destino dentro da conta de armazenamento. A URL totalmente formada estará no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Para saber mais sobre tokens SAS, confira: [conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Para saber mais sobre tokens SAS, confira: [conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)](/azure/storage/common/storage-sas-overview)
 
-Para saber mais sobre mensagens mortas, consulte [conceitos: rotas de eventos](./concepts-route-events.md#dead-letter-events)
+Para saber mais sobre mensagens mortas, consulte [*conceitos: rotas de eventos*](concepts-route-events.md#dead-letter-events).
 
 #### <a name="configuring-the-endpoint"></a>Configurando o ponto de extremidade
 
@@ -114,7 +114,7 @@ Ao criar um ponto de extremidade, adicione um `deadLetterSecret` ao `properties`
 }
 ```
 
-Para obter mais informações, consulte a documentação da API REST do Azure digital gêmeos: [pontos de extremidade – DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Para obter mais informações, consulte a documentação da API REST do Azure digital gêmeos: [pontos de extremidade – DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
 
@@ -124,7 +124,7 @@ Mensagens mortas serão armazenadas no seguinte formato em sua conta de armazena
 
 As mensagens inativas corresponderão ao esquema do evento original que deveria ser entregue ao seu ponto de extremidade original.
 
-Aqui está um exemplo de uma mensagem de mensagens mortas para uma [notificação de criação](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)de papel:
+Aqui está um exemplo de uma mensagem de mensagens mortas para uma [notificação de criação](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)de papel:
 
 ```json
 {

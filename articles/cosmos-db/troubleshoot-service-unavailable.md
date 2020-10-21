@@ -7,12 +7,12 @@ ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 749592b778612c6903c9c15e336de3fb00978199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40787e1b7c40e5c238b2e400f6b449ad8963dd1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870860"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277141"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>Diagnosticar e solucionar problemas de exceções do serviço Azure Cosmos DB indisponíveis
 O SDK não foi capaz de se conectar ao Azure Cosmos DB.
@@ -21,7 +21,7 @@ O SDK não foi capaz de se conectar ao Azure Cosmos DB.
 A lista a seguir contém causas conhecidas e soluções para exceções de serviço indisponíveis.
 
 ### <a name="the-required-ports-are-being-blocked"></a>As portas necessárias estão sendo bloqueadas
-Verifique se todas as [portas necessárias](performance-tips-dotnet-sdk-v3-sql.md#networking) estão habilitadas.
+Verifique se todas as [portas necessárias](sql-sdk-connection-modes.md#service-port-ranges) estão habilitadas.
 
 ### <a name="client-side-transient-connectivity-issues"></a>Problemas de conectividade transitório do lado do cliente
 As exceções de serviço indisponíveis podem surgir quando há problemas de conectividade transitórios que estão causando tempos limite. Normalmente, o rastreamento de pilha relacionado a esse cenário conterá um `TransportException` erro. Por exemplo:

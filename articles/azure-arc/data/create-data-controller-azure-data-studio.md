@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273136"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310960"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Criar controlador de dados no Azure Data Studio
 
@@ -25,7 +25,7 @@ Você pode criar um controlador de dados usando Azure Data Studio por meio do as
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Você precisa ter acesso a um cluster kubernetes e ter o arquivo kubeconfig configurado para apontar para o cluster kubernetes no qual você deseja implantar.
-- Você precisa [instalar as ferramentas de cliente](install-client-tools.md) , **incluindo Azure Data Studio** as extensões de Azure Data Studio chamadas **Azure Arc** e a **CLI de dados do Azure**.
+- Você precisa [instalar as ferramentas de cliente](install-client-tools.md) , incluindo **Azure Data Studio** as extensões de Azure Data Studio chamadas **Azure Arc** e **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** .
 - Você precisa fazer logon no Azure em Azure Data Studio.  Para fazer isso: digite CTRL/Command + SHIFT + P para abrir a janela de texto do comando e digite **Azure**.  Escolha **Azure: entrar**.   No painel, que aparece, clique no ícone + no canto superior direito para adicionar uma conta do Azure.
 
 ## <a name="use-the-deployment-wizard-to-create-azure-arc-data-controller"></a>Usar o assistente de implantação para criar o controlador de dados de arco do Azure
@@ -35,8 +35,8 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
 1. Em Azure Data Studio, clique na guia conexões no painel de navegação esquerdo.
 2. Clique no botão **...** na parte superior do painel conexões e escolha **nova implantação...**
 3. No Assistente para nova implantação, escolha **controlador de dados de arco do Azure**, marque a caixa de seleção aceitação da licença e clique no botão **selecionar** na parte inferior.
-4. Use o arquivo kubeconfig padrão ou selecione outro.  Clique em **Avançar**.
-5. Escolha um contexto de cluster kubernetes. Clique em **Avançar**.
+4. Use o arquivo kubeconfig padrão ou selecione outro.  Clique em **Próximo**.
+5. Escolha um contexto de cluster kubernetes. Clique em **Próximo**.
 6. Escolha um arquivo de perfil de configuração de implantação dependendo do cluster kubernetes de destino. **Clique em Avançar**.
 8. Escolha a assinatura e o grupo de recursos desejados.
 9. Insira um nome para o controlador de dados e para o namespace no qual o controlador de dados será criado.  
@@ -57,7 +57,7 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
 > [!NOTE]
 > A senha deve ter pelo menos oito caracteres.
 
-1.  Clique em **Avançar**.
+1.  Clique em **Próximo**.
 2.  Examine e clique em **script para notebook**.
 3.  **Examine o bloco de anotações gerado**.  Faça as alterações necessárias, como nomes de classe de armazenamento ou tipos de serviço.
 4.  Clique em **executar tudo** na parte superior do bloco de anotações.

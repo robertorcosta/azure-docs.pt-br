@@ -17,12 +17,12 @@ ms.date: 09/23/2020
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341743"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319770"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividade de entrada Azure Active Directory-visualização
 
@@ -32,8 +32,8 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
     - **Entradas** – informações sobre quando usuários, aplicativos e recursos gerenciados entram no Azure AD e acessam recursos.
     - **Logs**  -  de auditoria [Os logs de auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
 - **Segurança** 
-    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
-    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
+    - **Entradas arriscadas** -uma [entrada arriscada](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
+    - **Usuários sinalizados para risco** – um [usuário arriscado](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
 O relatório de entradas clássicas no Azure Active Directory fornece uma visão geral das entradas interativas do usuário. Além disso, agora você tem acesso a três relatórios de entrada adicionais que agora estão em visualização:
 
@@ -86,7 +86,7 @@ Na folha relatório de entradas, você pode alternar entre:
 
 - **Entradas de entidade de serviço** -entradas por aplicativos e entidades de serviço que não envolvem nenhum usuário. Nessas entradas, o aplicativo ou serviço fornece uma credencial em seu próprio nome para autenticar ou acessar recursos.
 
-- **Identidades gerenciadas para entradas de recursos do Azure** -entradas por recursos do Azure que têm segredos gerenciados pelo Azure. Para obter mais informações, consulte [o que são identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+- **Identidades gerenciadas para entradas de recursos do Azure** -entradas por recursos do Azure que têm segredos gerenciados pelo Azure. Para obter mais informações, consulte [o que são identidades gerenciadas para recursos do Azure?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Tipos de relatório de entradas](./media/concept-all-sign-ins/sign-ins-report-types.png)

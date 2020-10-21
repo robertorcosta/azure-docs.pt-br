@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dc41d2c13c834657534971041440bb744cfca38
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728991"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319834"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Perguntas mais frequentes sobre os clusters gerenciados do Service Fabric
 
@@ -41,7 +41,7 @@ O SLA não muda do modelo de recurso de Service Fabric atual.
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>Qual é a diferença entre um cluster SKU básico e Standard?
 
-Um cluster de SKU básico significa que a maioria das configurações é fornecida pelo provedor de recursos Service Fabric. Os clusters de SKU básicos devem ser usados para ambientes de teste e pré produção. Um cluster SKU padrão permite que os usuários configurem o cluster para atender especificamente às suas necessidades. Para obter mais informações, consulte [Service Fabric SKUs de cluster gerenciado](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus) para obter mais detalhes.
+Um cluster de SKU básico significa que a maioria das configurações é fornecida pelo provedor de recursos Service Fabric. Os clusters de SKU básicos devem ser usados para ambientes de teste e pré produção. Um cluster SKU padrão permite que os usuários configurem o cluster para atender especificamente às suas necessidades. Para obter mais informações, consulte [Service Fabric SKUs de cluster gerenciado](./overview-managed-cluster.md#service-fabric-managed-cluster-skus) para obter mais detalhes.
 
 ## <a name="cluster-deployment-and-management"></a>Implantação e gerenciamento de cluster
 
@@ -66,7 +66,7 @@ Na visualização, todas as atualizações de tempo de execução serão conclu�
 
 ### <a name="is-there-a-local-development-experience-for-service-fabric-managed-clusters"></a>Há uma experiência de desenvolvimento local para Service Fabric clusters gerenciados?
 
-A experiência de desenvolvimento local permanece inalterada de clusters de Service Fabric existentes. Para obter mais informações, consulte [criar um aplicativo .net](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) para obter mais detalhes sobre a experiência de desenvolvimento local.
+A experiência de desenvolvimento local permanece inalterada de clusters de Service Fabric existentes. Para obter mais informações, consulte [criar um aplicativo .net](./service-fabric-quickstart-dotnet.md) para obter mais detalhes sobre a experiência de desenvolvimento local.
 
 ### <a name="can-i-deploy-my-applications-as-an-azure-resource-manager-resource"></a>Posso implantar meus aplicativos como um recurso Azure Resource Manager?
 

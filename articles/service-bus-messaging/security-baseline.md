@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e844904f236e9d81404a3481af9349ac8881085
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761151"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310447"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Linha de base de segurança do Azure para o barramento de serviço
 
@@ -62,7 +62,7 @@ Use a central de segurança do Azure e siga as recomendações de proteção de 
 
 - [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
 
-- [Inteligência de ameaças integrada da central de segurança do Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Inteligência de ameaças integrada da central de segurança do Azure](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -111,7 +111,7 @@ Você também poderá construir definições de política personalizadas se as d
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Política interna do Azure para namespace do barramento de serviço](/azure/service-bus-messaging/policy-samples#azure-service-bus-messaging)
+- [Política interna do Azure para namespace do barramento de serviço](./policy-reference.md#azure-service-bus-messaging)
 
 - [Exemplos de Azure Policy para rede](../governance/policy/samples/built-in-policies.md#network)
 
@@ -129,7 +129,7 @@ Use qualquer uma das definições de política internas do Azure relacionadas à
 
 Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas. 
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md) 
 
 - [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md) 
 
@@ -143,7 +143,7 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados ao barramento de serviço do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -177,7 +177,7 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 - [Como habilitar as configurações de diagnóstico para o barramento de serviço do Azure](service-bus-diagnostic-logs.md)
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -231,9 +231,9 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 - [Funções internas para o barramento de serviço do Azure](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -311,7 +311,7 @@ Você também poderá construir definições de política personalizadas se as d
 
 **Diretrizes**: Use Azure Active Directory relatórios de segurança e monitoramento para detectar quando uma atividade suspeita ou insegura ocorre no ambiente. Use a Central de Segurança do Azure para monitorar a atividade de identidade e acesso.
 
-- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
@@ -347,7 +347,7 @@ Você também poderá construir definições de política personalizadas se as d
 
 Em outras, gire regularmente a assinatura de acesso compartilhado do seu namespace do barramento de serviço.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -363,7 +363,7 @@ Em outras, gire regularmente a assinatura de acesso compartilhado do seu namespa
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Em seguida, no Azure Monitor você pode configurar os alertas de log desejados para determinadas ações que ocorrem nos logs.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Autorizar o acesso aos recursos do barramento de serviço usando Azure Active Directory](authenticate-application.md)
 
@@ -375,7 +375,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use a proteção de identidade e os recursos de detecção de riscos do Azure Active Directory para configurar respostas automatizadas para detectar ações suspeitas relacionadas aos recursos habilitados para o barramento de serviço. Você deve habilitar respostas automatizadas por meio do Azure Sentinel para implementar as respostas de segurança da sua organização.
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -403,7 +403,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Orientação**: use marcas em recursos relacionados ao seu barramento de serviço para auxiliar no rastreamento de recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -413,11 +413,11 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: implemente assinaturas e grupos de gerenciamento separados para desenvolvimento, teste e produção. Os namespaces do barramento de serviço devem ser separados por redes virtuais com pontos de extremidade privados configurados e marcados adequadamente.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e utilizar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e utilizar marcas](../azure-resource-manager/management/tag-resources.md)
 
 - [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
@@ -437,7 +437,7 @@ A Microsoft gerencia a infraestrutura subjacente para o barramento de serviço d
 
 - [Permitir acesso aos namespaces do barramento de serviço do Azure por meio de pontos de extremidade privados](private-link-service.md)
 
-- [Entender os grupos de segurança de rede e as marcas de serviço](/azure/virtual-network/security-overview)
+- [Entender os grupos de segurança de rede e as marcas de serviço](../virtual-network/network-security-groups-overview.md)
 
 - [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -507,7 +507,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 - [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -527,11 +527,11 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: use marcação, grupos de gerenciamento e assinaturas separadas, quando apropriado, para organizar e rastrear namespaces do barramento de serviço do Azure e recursos relacionados. Reconcilie o inventário regularmente e garanta que os recursos não autorizados sejam excluídos da assinatura em tempo hábil.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -574,7 +574,7 @@ Você também poderá construir definições de política personalizadas se as d
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -603,9 +603,9 @@ Você também poderá construir definições de política personalizadas se as d
 
 Use Azure Policy aliases no namespace "Microsoft. ServiceBus" para criar políticas personalizadas para auditar ou impor configurações.
 
-- [Políticas internas do Azure para o barramento de serviço ](/azure/service-bus-messaging/policy-samples)
+- [Políticas internas do Azure para o barramento de serviço ](./policy-reference.md)
 
-- [Como exibir os aliases de Azure Policy disponíveis](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -653,7 +653,7 @@ Use Azure Policy aliases no namespace "Microsoft. ServiceBus" para criar políti
 
 - [Configurar chaves gerenciadas pelo cliente para o barramento de serviço](configure-customer-managed-key.md)
 
-- [Como criar um Key Vault](/azure/key-vault/quick-create-portal)
+- [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -731,7 +731,7 @@ Garanta backups automatizados regulares de seus segredos de Key Vault com o segu
 
 - [Como configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso](configure-customer-managed-key.md)
 
-- [Como restaurar chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -741,7 +741,7 @@ Garanta backups automatizados regulares de seus segredos de Key Vault com o segu
 
 **Diretrizes**: habilite a exclusão reversível em Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada. O barramento de serviço do Azure requer que as chaves gerenciadas pelo cliente tenham exclusão reversível e não sejam limpas configuradas.
 
-- [Como habilitar a exclusão reversível no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Configurar um cofre de chaves com chaves](../event-hubs/configure-customer-managed-key.md)
 
@@ -775,7 +775,7 @@ Além disso, marque as assinaturas usando marcas e crie um sistema de nomeação
 
 - [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -843,5 +843,5 @@ Use o recurso de automação de fluxo de trabalho central de segurança do Azure
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

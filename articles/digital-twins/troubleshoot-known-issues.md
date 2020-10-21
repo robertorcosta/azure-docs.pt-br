@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047634"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311665"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conhecidos no Azure digital gêmeos
 
@@ -19,7 +19,7 @@ Este artigo fornece informações sobre problemas conhecidos associados ao Azure
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"erro de cliente 400: solicitação inadequada" em Cloud Shell
 
-Os comandos no Cloud Shell podem falhar intermitentemente com o erro "erro de cliente 400: solicitação inadequada para URL: http://localhost:50342/oauth2/token " seguido por rastreamento de pilha completo.
+Os comandos no Cloud Shell em execução em *https://shell.azure.com* podem falhar intermitentemente com o erro "erro de cliente 400: solicitação inadequada para URL: http://localhost:50342/oauth2/token ", seguido por rastreamento de pilha completo.
 
 Para o Azure digital gêmeos especificamente, isso afeta os seguintes grupos de comandos:
 * `az dt route`
@@ -30,7 +30,11 @@ Para o Azure digital gêmeos especificamente, isso afeta os seguintes grupos de 
 
 Isso pode ser resolvido com a reexecução do `az login` comando no Cloud Shell e a conclusão das etapas de logon subsequentes. Depois disso, você deve ser capaz de executar novamente o comando.
 
-Uma solução alternativa é [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) em seu computador para que você possa executar CLI do Azure comandos localmente. A CLI local não enfrenta esse problema.
+Como alternativa, você pode abrir o painel de Cloud Shell no portal do Azure e concluir seu Cloud Shell trabalhar a partir daí:
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Exibição do portal do Azure com o ícone ' Cloud Shell ' realçado e o Cloud Shell aparecendo na parte inferior da janela do portal":::
+
+Por fim, outra solução é [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) em seu computador para que você possa executar CLI do Azure comandos localmente. A CLI local não enfrenta esse problema.
 
 ### <a name="possible-causes"></a>Possíveis causas
 

@@ -3,12 +3,12 @@ title: Usar o Apache Flink para o Apache Kafka – Hubs de Eventos do Azure | Mi
 description: Este artigo fornece informações sobre como conectar o Apache Flink a um hub de eventos do Azure
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f2e6eeb74c5a334d1692357edec0fd363349c7c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40efd15e56d0b74459aefb4d88972df293b48c26
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061641"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308433"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Usar o Apache Flink com Hubs de Eventos do Azure para o Apache Kafka
 Este tutorial mostra como conectar o Apache Flink a um hub de eventos sem alterar seus clientes de protocolo ou executar seus próprios clusters. Para obter mais informações sobre o suporte de hubs de eventos para o protocolo de consumidor Apache Kafka, consulte [hubs de eventos para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
@@ -30,7 +30,7 @@ Para concluir este tutorial, é necessário atender aos seguintes pré-requisito
 
 * Leia o artigo [Hubs de Eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-* [Java Development Kit (JDK) 1.7 +](https://aka.ms/azure-jdks)
+* [Java Development Kit (JDK) 1.7 +](/azure/developer/java/fundamentals/java-jdk-long-term-support)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
 * [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário Maven
@@ -38,7 +38,7 @@ Para concluir este tutorial, é necessário atender aos seguintes pré-requisito
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 
 É necessário um namespace dos Hubs de Eventos para enviar ou receber de qualquer serviço de Hubs de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Certifique-se de copiar a cadeia de caracteres de conexão dos Hubs de Eventos para uso posterior.
 

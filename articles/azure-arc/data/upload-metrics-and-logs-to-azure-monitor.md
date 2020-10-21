@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: cda123adb667b4c857e05ce53d603e328e995766
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108160"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320174"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Carregar dados de uso, métricas e logs para Azure Monitor
 
@@ -25,7 +25,7 @@ Periodicamente, você pode exportar informações de uso para fins de cobrança,
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do CLI do Azure (AZ) e da CLI de dados do Azure (azdata) instalada.  [Instalar ferramentas](./install-client-tools.md).
+Você precisará do CLI do Azure (AZ) e do [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] instalado.  [Instalar ferramentas](./install-client-tools.md).
 
 Antes de carregar dados no Azure, você precisa garantir que sua assinatura do Azure tenha o provedor de recursos Microsoft. AzureData registrado.
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 Informações de uso, como inventário e uso de recursos, podem ser carregadas no Azure na seguinte maneira de duas etapas:
 
-1. Exporte os dados de uso usando o ```azdata export``` comando, da seguinte maneira:
+1. Exporte os dados de uso usando o `azdata export` comando, da seguinte maneira:
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ Informações de uso, como inventário e uso de recursos, podem ser carregadas n
    ```
    Este comando cria um `usage.json` arquivo com todos os recursos de dados habilitados para o Azure Arc, como instâncias gerenciadas do SQL e instâncias de hiperescala do PostgreSQL, etc. que são criados no controlador de dados.
 
-2. Carregar os dados de uso usando o ```azdata upload``` comando
+2. Carregar os dados de uso usando o `azdata upload` comando
 
    > [!NOTE]
    > Aguarde pelo menos 24 horas depois de criar o controlador de dados de arco do Azure antes de executar o carregamento

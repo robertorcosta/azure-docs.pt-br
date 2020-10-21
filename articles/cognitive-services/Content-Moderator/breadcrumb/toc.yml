@@ -6,6 +6,6 @@
       tocHref: /azure/cognitive-services/
       topicHref: /azure/cognitive-services/index
       items:
-        - name: Serviço de Fala
+        - name: Content Moderator
           tocHref: /azure/cognitive-services/
-          topicHref: /azure/cognitive-services/speech-service/index
+          topicHref: /azure/cognitive-services/content-moderator/index
