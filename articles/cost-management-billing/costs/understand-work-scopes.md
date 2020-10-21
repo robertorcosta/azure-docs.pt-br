@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372350"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132288"
 ---
 # <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com escopos
 
@@ -180,7 +180,7 @@ Os seguintes escopos são compatíveis com CSPs com clientes em um Contrato de C
 
 Somente os usuários com as funções *Administrador global* e *Agente administrativo* podem gerenciar e ver os custos de contas de cobrança, perfis de cobrança e clientes diretamente no locatário do Azure do parceiro. Para obter mais informações sobre as funções do Partner Center, confira [Atribuir funções e permissões de usuários](/partner-center/permissions-overview).
 
-O Gerenciamento de Custos do Azure só dará suporte a clientes de parceiros CSP se os clientes tiverem um Contrato de Cliente da Microsoft. Para clientes com suporte do CSP que ainda não estão em um Contrato de Cliente da Microsoft, confira [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+O Gerenciamento de Custos do Azure só dará suporte a clientes de parceiros CSP se os clientes tiverem um Contrato de Cliente da Microsoft. Para clientes com suporte do CSP que ainda não estão em um Contrato de Cliente da Microsoft, confira [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Os grupos de gerenciamento em escopos do CSP não têm suporte do Gerenciamento de Custos. Se você tiver uma assinatura do CSP e definir o escopo para um grupo de gerenciamento na análise de custo, você verá um erro semelhante a:
 

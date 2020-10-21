@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: matjazl
-ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cavoeg
+ms.openlocfilehash: ea9a47676b8294b2541c27d361b0dc2fa1ae3627
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007563"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339496"
 ---
 # <a name="features"></a>Recursos
 
@@ -37,6 +37,7 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 | distribuído                          | Não        | Não        | Não        |                                                     |
 | excluir                         | Sim       | Sim       | Sim       |                                                     |
 | excluir (condicional)           | Não        | Não        | Não        |                                                     |
+| history                        | Sim       | Sim       | Sim       |                                                     |
 | create                         | Sim       | Sim       | Sim       | Suporte para POST/PUT                               |
 | criar (condicional)           | Sim       | Sim       | Sim       |                                                     |
 | pequisa                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
@@ -45,7 +46,6 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 | funcionalidades                   | Sim       | Sim       | Sim       |                                                     |
 | lote                          | Sim       | Sim       | Sim       |                                                     |
 | transaction                    | Não        | Sim       | Não        |                                                     |
-| history                        | Sim       | Sim       | Sim       |                                                     |
 | paginação                         | Parcial   | Parcial   | Parcial   | `self` e `next` têm suporte                     |
 | intermediários                 | Não        | Não        | Não        |                                                     |
 
@@ -94,28 +94,30 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 | `_has`                  | Não        | Não        | Não        |         |
 | `_type`                 | Sim       | Sim       | Sim       |         |
 | `_query`                | Não        | Não        | Não        |         |
-
-| Operações de pesquisa       | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
-|-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | Não        | Não        | Não        |         |
+
+| Parâmetros de resultado da pesquisa | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
+|-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` é compatível       |
-| `_score`                | Não        | Não        | Não        |         |
-| `_count`                | Sim       | Sim       | Sim       |         |
-| `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é compatível |
+| `_count`                | Sim       | Sim       | Sim       | `_count` é limitado a 100 caracteres. Se definido como maior que 100, somente 100 será retornado e um aviso será retornado no grupo. |
 | `_include`              | Não        | Sim       | Não        |         |
 | `_revinclude`           | Não        | Sim       | Não        | Os itens incluídos são limitados a 100. |
+| `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é compatível |
+| `_total`                | Parcial   | Parcial   | Parcial   | _total = não e _total = preciso      |
+| `_elements`             | Sim       | Sim       | Sim       |         |
 | `_contained`            | Não        | Não        | Não        |         |
-| `_elements`             | Sim        | Sim        | Sim        |         |
+| `containedType`         | Não        | Não        | Não        |         |
+| `_score`                | Não        | Não        | Não        |         |
 
 ## <a name="extended-operations"></a>Operações estendidas
 
 Todas as operações com suporte que estendem a API RESTful.
 
 | Tipo de parâmetro de pesquisa | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
-|-----------------------|-----------|-----------|-----------|---------|
-| $export (sistema inteiro)                | Sim       | Sim       | Sim       |         |
-| Paciente/$export         | Sim       | Sim       | Sim       |         |
-| Grupo/$export               | Sim       | Sim       | Sim       |         |
+|------------------------|-----------|-----------|-----------|---------|
+| $export (sistema inteiro) | Sim       | Sim       | Sim       |         |
+| Paciente/$export        | Sim       | Sim       | Sim       |         |
+| Grupo/$export          | Sim       | Sim       | Sim       |         |
 
 ## <a name="persistence"></a>Persistência
 

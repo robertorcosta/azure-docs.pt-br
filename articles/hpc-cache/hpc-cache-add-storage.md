@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611258"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340301"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -74,9 +74,9 @@ Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Adicionar as funções de controle de acesso à sua conta
 
-O cache HPC do Azure usa o [Azure RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar o serviço de cache a acessar sua conta de armazenamento para destinos do armazenamento de BLOBs do Azure.
+O cache HPC do Azure usa o [Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/index.yml) para autorizar o serviço de cache a acessar sua conta de armazenamento para destinos do armazenamento de BLOBs do Azure.
 
-O proprietário da conta de armazenamento deve adicionar explicitamente o colaborador da [conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) de funções e o colaborador de dados do [blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para o usuário "provedor de recursos de cache do HPC".
+O proprietário da conta de armazenamento deve adicionar explicitamente o colaborador da [conta de armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor) de funções e o colaborador de dados do [blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) para o usuário "provedor de recursos de cache do HPC".
 
 Você pode fazer isso antecipadamente ou clicando em um link na página em que você adiciona um destino de armazenamento de BLOBs. Tenha em mente que pode levar até cinco minutos para que as configurações de função se propaguem por meio do ambiente do Azure, portanto, você deve aguardar alguns minutos depois de adicionar as funções antes de criar um destino de armazenamento.
 

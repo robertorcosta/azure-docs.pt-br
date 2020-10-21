@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018263"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339468"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de dados da Central de Segurança do Azure
 
@@ -51,7 +51,7 @@ a Microsoft usa os padrões e a inteligência de ameaças vistos em vários loca
 ## <a name="manage-data-collection-from-machines"></a>Gerenciar a coleta de dados dos computadores
 Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode habilitar a coleta de dados para suas assinaturas na Central de Segurança. Quando a coleta de dados é habilitada, a Central de Segurança provisiona o agente do Log Analytics em todas as máquinas virtuais do Azure existentes com suporte e nas que são criadas.
 
-O agente do Log Analytics examina várias configurações e eventos relacionados à segurança nos rastreamentos [ETW](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal) (Rastreamento de Eventos para Windows). Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O agente di Log Analytics lê as entradas do registro de eventos e os vestígios de ETW e os copia para seus workspaces para análise. O agente do Log Analytics também permite eventos de criação de processos e auditoria de linha de comando.
+O agente do Log Analytics examina várias configurações e eventos relacionados à segurança nos rastreamentos [ETW](/windows/win32/etw/event-tracing-portal) (Rastreamento de Eventos para Windows). Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O agente di Log Analytics lê as entradas do registro de eventos e os vestígios de ETW e os copia para seus workspaces para análise. O agente do Log Analytics também permite eventos de criação de processos e auditoria de linha de comando.
 
 Se você não estiver usando o Azure Defender, desabilite também a coleta de dados das máquinas virtuais na política de segurança. A coleta de dados é necessária para as assinaturas protegidas pelo Azure Defender. Os instantâneos de disco da VM e a coleção de artefatos ainda serão habilitados mesmo que a coleta de dados tenha sido desabilitada.
 
@@ -85,7 +85,7 @@ Os clientes podem acessar os dados relacionados à Central de Segurança dos seg
 | [Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)                       | Todos os alertas de segurança, as solicitações de acesso [just-in-time](security-center-just-in-time.md) da Central de Segurança aprovadas e todos os alertas gerados pelos [controles de aplicativos adaptáveis](security-center-adaptive-application.md).|
 | [Logs do Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Todos os alertas de segurança.                                                                                                                                                                                                |
 | [Gráfico de Recursos do Azure](../governance/resource-graph/overview.md)                      | Alertas de segurança, recomendações de segurança, resultados da avaliação de vulnerabilidade, informações de classificação de segurança, status de verificações de conformidade e muito mais.                                                                       |
-| [API REST da Central de Segurança do Azure](https://docs.microsoft.com/rest/api/securitycenter/) | Alertas de segurança, recomendações de segurança e muito mais.                                                                                                                                                                |
+| [API REST da Central de Segurança do Azure](/rest/api/securitycenter/) | Alertas de segurança, recomendações de segurança e muito mais.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2a205daeffb659ce0dd5756066d11691a89c166e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91664946"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072111"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Manipulação de Eventos nos Serviços de Comunicação do Azure
 
@@ -36,9 +36,9 @@ Os Serviços de Comunicação do Azure emitem os seguintes tipos de evento:
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft.Communication.SMSReceived                         | Publicado quando um SMS é recebido por um número de telefone associado ao Serviço de Comunicação. |
 | Microsoft.Communication.SMSDeliveryReportReceived           | Publicado quando um relatório de entrega é recebido para um SMS enviado pelo Serviço de Comunicação.     |
-| Microsoft.Communication.ChatMessageReceived*                | Publicado quando uma mensagem é recebida para uma usuária em uma conversa de chat da qual ela é membro.        |
-| Microsoft.Communication.ChatMessageEdited*                   | Publicado quando uma mensagem é editada em uma conversa de chat da qual o usuário é membro.                |
-| Microsoft.Communication.ChatMessageDeleted*                  | Publicado quando uma mensagem é excluída em uma conversa de chat da qual o usuário é membro.               |
+| Microsoft.Communication.ChatMessageReceived                | Publicado quando uma mensagem é recebida para uma usuária em uma conversa de chat da qual ela é membro.        |
+| Microsoft.Communication.ChatMessageEdited                   | Publicado quando uma mensagem é editada em uma conversa de chat da qual o usuário é membro.                |
+| Microsoft.Communication.ChatMessageDeleted                  | Publicado quando uma mensagem é excluída em uma conversa de chat da qual o usuário é membro.               |
 | Microsoft.Communication.ChatThreadCreatedWithUser           | Publicado quando o usuário é adicionado como membro no momento da criação de uma conversa de chat.           |
 | Microsoft.Communication.ChatThreadWithUserDeleted           | Publicado quando uma conversa de chat da qual o usuário é membro é excluída.                           |
 | Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | Publicado quando as propriedades de uma conversa de chat da qual o usuário é membro são atualizadas.              |
@@ -47,7 +47,6 @@ Os Serviços de Comunicação do Azure emitem os seguintes tipos de evento:
 
 Você pode usar o portal do Azure ou a CLI do Azure para assinar eventos emitidos pelo recurso dos Serviços de Comunicação. Introdução à manipulação de eventos examinando [Como manipular Eventos de SMS nos Serviços de Comunicação](../quickstarts/telephony-sms/handle-sms-events.md)
 
-\* Forneça o "nome do remetente" em suas chamadas à API de "enviar mensagem" para que esses eventos sejam disparados.
 
 ## <a name="event-subjects"></a>Assuntos do evento
 

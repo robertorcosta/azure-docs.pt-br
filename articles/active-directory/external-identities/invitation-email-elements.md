@@ -5,28 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439838"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340574"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
 
 Emails de convite são um componente essencial para ingressar parceiros como usuários de colaboração B2B no Azure AD. Embora não seja [necessário que você envie um email para convidar alguém usando a colaboração B2B](add-user-without-invite.md), isso dá ao usuário todas as informações necessárias para tomar uma decisão sobre a aceitação de seu convite. Ele também dá a eles um link que eles sempre podem fazer referência no futuro quando precisarem retornar aos seus recursos.
 
 ![Captura de tela mostrando o email do convite B2B](media/invitation-email-elements/invitation-email.png)
-
-> [!NOTE]
-> Esse novo modelo de email ainda está sendo distribuído para todos os locatários, de modo que alguns locatários ainda estão usando um design mais antigo. No final de maio de 2020, os convites de todos os locatários usarão esse modelo.
 
 ## <a name="explaining-the-email"></a>Explicação do email
 
@@ -52,17 +49,11 @@ O email começa com um breve aviso ao usuário sobre phishing, alertando-os de q
 
 ![Imagem do aviso de phishing no email](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Informações sobre o emissor do convite
+### <a name="inviters-information-and-invitation-message"></a>Informações e mensagem de convite do convite
 
-O email inclui informações sobre o emissor e a organização da qual ele está enviando o convite. Isso inclui o nome do remetente e o endereço de email, bem como o nome e o domínio primário associados à organização. Todas essas informações devem ajudar o convidado a tomar uma decisão informada sobre a aceitação do convite.
+O email inclui o nome e o domínio primário associado à organização que envia o convite. Essas informações devem ajudar o convidado a tomar uma decisão informada sobre a aceitação do convite. Se o emissor incluir uma mensagem como parte de seu convite ao [convidar um usuário convidado para o diretório, grupo ou aplicativo](add-users-administrator.md) ou quando ele [usar a API de convite](customize-invitation-api.md), a mensagem será realçada na seção principal do email. Também estão incluídas as imagens de nome e perfil do emissor, caso tenham definido uma. A própria mensagem é uma área de texto, por isso, por motivos de segurança, ela não processa marcas HTML.
 
-![Imagem das informações do emissor do convite no email](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>Mensagem de convite
-
-Se o emissor incluir uma mensagem como parte de seu convite ao [convidar um usuário convidado para o diretório, grupo ou aplicativo](add-users-administrator.md) ou quando ele [usar a API de convite](customize-invitation-api.md), a mensagem será realçada na seção principal do email. Também estão incluídas as imagens de nome e perfil do emissor, caso tenham definido uma. A própria mensagem é uma área de texto, por isso, por motivos de segurança, ela não processa marcas HTML.
-
-![Imagem da mensagem de convite no email](media/invitation-email-elements/invitation-message.png)
+![Imagem da mensagem de convite no email](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>Aceitar botão e URL de redirecionamento
 

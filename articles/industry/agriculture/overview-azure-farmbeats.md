@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87439565"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331916"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Visão geral do Azure FarmBeats (versão prévia)
 
@@ -43,7 +43,7 @@ O Datahub é projetado como uma plataforma de API extensível. Estamos trabalhan
 
 O Acelerador do Azure FarmBeats é um aplicativo Web de exemplo criado com base no Datahub. O Acelerador impulsiona seu desenvolvimento de modelo e interface do usuário. O Acelerador do Azure FarmBeats usa as APIs do Azure FarmBeats. Ele visualiza os dados de sensor ingeridos como gráficos e saídas de modelo como mapas. Por exemplo, você pode usar o Acelerador para criar rapidamente uma fazenda e obter facilmente um mapa de índice da vegetação ou um mapa de posicionamento de sensores para essa fazenda.
 
-## <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
+## <a name="azure-role-based-access-control-azure-rbac"></a>RBAC do Azure (controle de acesso baseado em função do Azure)
 
 Um administrador pode definir regras de acesso para o Azure FarmBeats usando uma das funções predefinidas. As funções determinam a quais áreas do aplicativo um usuário tem acesso e quais ações ele pode executar. Há dois tipos de funções no Azure FarmBeats – para usuários e parceiros.
 
