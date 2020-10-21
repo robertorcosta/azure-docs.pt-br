@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d113ad7d3de3478fbbdcce32363e048b7a8a75ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681729"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149365"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Noções básicas sobre os termos em seu arquivo de uso e encargos do Azure
 
@@ -90,8 +90,8 @@ PublisherType | Todos | Tipo de editor (valores: **Azure**, **AWS**, **Marketpla
 Quantidade | Todos | O número de unidades compradas ou consumidas.
 ReservationId | EA, MCA | Identificador exclusivo da instância de reserva comprada.
 ReservationName | EA, MCA | Nome da instância de reserva comprada.
-ResourceGroup | Todos | Nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) no qual o recurso está. Nem todos os encargos são provenientes de recursos implantados em grupos de recursos. Os encargos que não têm um grupo de recursos serão mostrados como nulo/vazio, **Outros** ou **Não aplicável**.
-ResourceId<sup>1</sup> | Todos | Identificador exclusivo do recurso [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceGroup | Todos | Nome do [grupo de recursos](../../azure-resource-manager/management/overview.md) no qual o recurso está. Nem todos os encargos são provenientes de recursos implantados em grupos de recursos. Os encargos que não têm um grupo de recursos serão mostrados como nulo/vazio, **Outros** ou **Não aplicável**.
+ResourceId<sup>1</sup> | Todos | Identificador exclusivo do recurso [Azure Resource Manager](/rest/api/resources/resources).
 ResourceLocation | Todos | Localização do datacenter em que o recurso está sendo executado. Confira Localização.
 ResourceName | EA, PAYG | Nome do recurso. Nem todos os encargos são provenientes de recursos implantados. Os encargos que não têm um tipo de recurso serão mostrados como nulo/vazio, **Outros** ou **Não aplicável**.
 ResourceType | MCA | Tipo de instância do recurso. Nem todos os encargos são provenientes de recursos implantados. Os encargos que não têm um tipo de recurso serão mostrados como nulo/vazio, **Outros** ou **Não aplicável**.

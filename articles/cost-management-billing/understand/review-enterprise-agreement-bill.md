@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5340d6124ae4fdc669a30458b9e58cf4c86d6746
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684653"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150080"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entender sua fatura do Contrato Enterprise do Azure
 
@@ -438,7 +438,7 @@ Para problemas com o Power BI, registre um tíquete com a [equipe de suporte do 
 
 ### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>Por que as minhas marcas de recurso não aparecem em meus relatórios?
 
-As marcas de recurso são gerenciadas no portal do Azure. Entre em contato com a equipe de assinatura do Azure no [portal do Azure](https://portal.azure.com). Siga as etapas no artigo [Como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+As marcas de recurso são gerenciadas no portal do Azure. Entre em contato com a equipe de assinatura do Azure no [portal do Azure](https://portal.azure.com). Siga as etapas no artigo [Como criar uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="why-does-my-resource-rate-change-every-day"></a>Por que minha taxa de recursos muda todos os dias?
 

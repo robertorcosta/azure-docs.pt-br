@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91301441"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341678"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Perguntas frequentes-perguntas gerais sobre a central de segurança do Azure
 
@@ -62,7 +62,7 @@ Para saber como configurar uma política de segurança, consulte a seção [Como
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando possíveis vulnerabilidades de segurança são identificadas, são criadas recomendações. As recomendações guiam você pelo processo de configuração do controle necessário. São exemplos:
 
 * Provisionamento de antimalware para ajudar a identificar e remover software mal-intencionado
-* [Grupos de segurança de rede](../virtual-network/security-overview.md) e regras para controlar o tráfego para máquinas virtuais
+* [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md) e regras para controlar o tráfego para máquinas virtuais
 * Provisionamento de um Firewall do Aplicativo Web para ajudar a proteger contra ataques direcionados aos seus aplicativos Web
 * Como implantar atualizações de sistema ausentes
 * Endereçamento de configurações do sistema operacional que não coincidem com as linhas de base recomendadas

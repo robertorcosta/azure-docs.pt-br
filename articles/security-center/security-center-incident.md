@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: c31d3136ec4bcdf6da7680d41de078f8bd03d256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447095"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341339"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerenciar incidentes de segurança na central de segurança do Azure
 
 A triagem e a investigação de alertas de segurança podem ser demoradas para até mesmo os analistas de segurança mais qualificados. Para muitos, é difícil saber por onde começar. 
 
-A central de segurança usa a [análise](security-center-detection-capabilities.md) para conectar as informações entre [alertas de segurança](security-center-managing-and-responding-alerts.md)distintos. Usando essas conexões, a central de segurança pode fornecer uma única exibição de uma campanha de ataque e seus alertas relacionados para ajudá-lo a entender as ações do invasor e os recursos afetados.
+A central de segurança usa a [análise](./security-center-alerts-overview.md) para conectar as informações entre [alertas de segurança](security-center-managing-and-responding-alerts.md)distintos. Usando essas conexões, a central de segurança pode fornecer uma única exibição de uma campanha de ataque e seus alertas relacionados para ajudá-lo a entender as ações do invasor e os recursos afetados.
 
 Esta página fornece uma visão geral dos incidentes na central de segurança.
 

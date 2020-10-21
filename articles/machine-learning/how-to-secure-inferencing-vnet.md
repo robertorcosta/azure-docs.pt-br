@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e778538efe97266eb73f85e8548a9cd5ca1f53c4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972502"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341304"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
 
@@ -119,11 +119,11 @@ Quando o processo de criação for concluído, você pode executar inferência o
 
 Há duas abordagens para isolar o tráfego de e para o cluster AKS para a rede virtual:
 
-* __Cluster AKs privado__: essa abordagem usa o link privado do Azure para criar um ponto de extremidade privado para o cluster AKs na VNet.
-* __Balanceador de carga AKs interno__: essa abordagem configura o balanceador de carga para que o cluster use um endereço IP interno na VNet.
+* __Cluster AKs privado__: essa abordagem usa o link privado do Azure para proteger as comunicações com o cluster para operações de implantação/gerenciamento.
+* __Balanceador de carga AKs interno__: essa abordagem configura o ponto de extremidade para suas implantações para AKs usar um IP privado dentro da rede virtual.
 
 > [!WARNING]
-> Ambas as configurações são maneiras diferentes de atingir o mesmo objetivo (proteger o tráfego para o cluster AKS dentro da VNet). **Use um ou outro, mas não ambos**.
+> **Use o AKs particular ou o balanceador de carga interno, mas não ambos**.
 
 ### <a name="private-aks-cluster"></a>Cluster AKS privado
 

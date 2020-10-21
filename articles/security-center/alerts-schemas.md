@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220662"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341933"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alertas de segurança
 
@@ -24,9 +24,9 @@ Se sua assinatura tiver o Azure defender habilitado, você receberá alertas de 
 
 Você pode exibir esses alertas de segurança nas páginas de **proteção contra ameaças** da central de segurança do Azure ou por meio de ferramentas externas, como:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) – Siem nativo de nuvem da Microsoft. O conector do Sentinel Obtém alertas da central de segurança do Azure e os envia para o [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) para o Azure Sentinel.
-- SIEMs de terceiros – use as ferramentas de [exportação contínua](continuous-export.md) da central de segurança para enviar dados para os [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/). Em seguida, integre os dados do hub de eventos a um SIEM de terceiros.
-- [A API REST](https://docs.microsoft.com/rest/api/securitycenter/) -se você estiver usando a API REST para acessar alertas, consulte a [documentação da API de alertas online](https://docs.microsoft.com/rest/api/securitycenter/alerts).
+- [Azure Sentinel](../sentinel/index.yml) – Siem nativo de nuvem da Microsoft. O conector do Sentinel Obtém alertas da central de segurança do Azure e os envia para o [espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md) para o Azure Sentinel.
+- SIEMs de terceiros – use as ferramentas de [exportação contínua](continuous-export.md) da central de segurança para enviar dados para os [hubs de eventos do Azure](../event-hubs/index.yml). Em seguida, integre os dados do hub de eventos a um SIEM de terceiros.
+- [A API REST](/rest/api/securitycenter/) -se você estiver usando a API REST para acessar alertas, consulte a [documentação da API de alertas online](/rest/api/securitycenter/alerts).
 
 Se você estiver usando qualquer método programático para consumir os alertas, precisará do esquema correto para localizar os campos que são relevantes para você. Além disso, se você estiver exportando para um hub de eventos ou tentar disparar a automação de fluxo de trabalho com conectores HTTP genéricos, use os esquemas para analisar corretamente os objetos JSON.
 
@@ -60,7 +60,7 @@ O conector do Sentinel Obtém alertas da central de segurança do Azure e os env
 
 Para criar um caso ou um incidente Sentinel usando alertas da central de segurança, você precisará do esquema para esses alertas mostrados abaixo. 
 
-Para obter mais informações sobre o Azure Sentinel, consulte [a documentação](https://docs.microsoft.com/azure/sentinel/).
+Para obter mais informações sobre o Azure Sentinel, consulte [a documentação](../sentinel/index.yml).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
@@ -172,7 +172,7 @@ Você pode exibir os eventos de alertas de segurança no log de atividades pesqu
 
 Microsoft Graph é o gateway para dados e inteligência em Microsoft 365. Ele fornece um modelo de programação unificado que você pode usar para acessar a enorme quantidade de dados em Microsoft 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados em Microsoft Graph para criar aplicativos para organizações e consumidores que interagem com milhões de usuários.
 
-O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true).
+O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
 
 ---
 
@@ -183,7 +183,7 @@ Este artigo descreveu os esquemas que as ferramentas de proteção contra ameaç
 
 Para obter mais informações sobre as maneiras de acessar alertas de segurança de fora da central de segurança, consulte as seguintes páginas:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) -Siem nativo de nuvem da Microsoft
-- [Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/) -serviço de ingestão de dados em tempo real, totalmente gerenciado pela Microsoft
+- [Azure Sentinel](../sentinel/index.yml) -Siem nativo de nuvem da Microsoft
+- [Hubs de eventos do Azure](../event-hubs/index.yml) -serviço de ingestão de dados em tempo real, totalmente gerenciado pela Microsoft
 - [Recurso de exportação contínua](continuous-export.md) da central de segurança
-- [Espaços de trabalho do log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) -Azure monitor armazena dados de log em um espaço de trabalho log Analytics, um contêiner que inclui informações de dados e configuração
+- [Espaços de trabalho do log Analytics](../azure-monitor/learn/quick-create-workspace.md) -Azure monitor armazena dados de log em um espaço de trabalho log Analytics, um contêiner que inclui informações de dados e configuração

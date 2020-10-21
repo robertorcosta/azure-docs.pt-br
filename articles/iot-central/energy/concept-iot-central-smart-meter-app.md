@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9f5e1ba52390191409d8da4bc4c41faaa859a4a8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001835"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125604"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central – Arquitetura de aplicativo de medidor inteligente
 
@@ -28,7 +28,7 @@ Essa arquitetura é formada pelos componentes a seguir. Algumas soluções não 
 
 ## <a name="smart-meters-and-connectivity"></a>Medidores inteligentes e conectividade 
 
-Um medidor inteligente é um dos dispositivos mais importantes entre todos os ativos de energia. Ele registra e comunica os dados de consumo de energia aos serviços públicos para monitoramento e outros casos de uso, como cobrança e resposta de demanda. Com base no tipo de medidor, ele pode se conectar ao IoT Central usando gateways ou outros dispositivos ou sistemas intermediários, como dispositivos de borda e sistemas de cabeceira de rede. Crie uma ponte de dispositivo do IoT Central para conectar dispositivos que não podem ser conectados diretamente. A ponte de dispositivo do IoT Central é uma solução de código aberto e você pode encontrar todos os detalhes [aqui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Um medidor inteligente é um dos dispositivos mais importantes entre todos os ativos de energia. Ele registra e comunica os dados de consumo de energia aos serviços públicos para monitoramento e outros casos de uso, como cobrança e resposta de demanda. Com base no tipo de medidor, ele pode se conectar ao IoT Central usando gateways ou outros dispositivos ou sistemas intermediários, como dispositivos de borda e sistemas de cabeceira de rede. Crie uma ponte de dispositivo do IoT Central para conectar dispositivos que não podem ser conectados diretamente. A ponte de dispositivo do IoT Central é uma solução de código aberto e você pode encontrar todos os detalhes [aqui](../core/howto-build-iotc-device-bridge.md). 
 
 
 ## <a name="iot-central-platform"></a>Plataforma do IoT Central
@@ -42,4 +42,4 @@ A plataforma do IoT Central fornece duas opções de extensibilidade: CDE (Expor
 ## <a name="next-steps"></a>Próximas etapas
 
 * Agora que você aprendeu sobre a arquitetura, [Crie um aplicativo de medidor inteligente gratuitamente](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](../index.yml)

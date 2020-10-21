@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946206"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341255"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorar a identidade e acesso
 
@@ -30,7 +30,7 @@ Ao monitorar as atividades e as definições de configuração relacionadas à i
 
 A central de segurança do Azure tem dois controles de segurança dedicados para garantir que você esteja atendendo aos requisitos de segurança e identidade da sua organização: 
 
- - **Gerenciar acesso e permissões** – incentivamos você a adotar o [modelo de acesso de privilégios mínimos](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que os usuários só acessem o acesso necessário para que eles realizem seus trabalhos. Esse controle também inclui recomendações para implementar o [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
+ - **Gerenciar acesso e permissões** – incentivamos você a adotar o [modelo de acesso de privilégios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que os usuários só acessem o acesso necessário para que eles realizem seus trabalhos. Esse controle também inclui recomendações para implementar o [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
  
  - **Habilitar MFA** -com a [MFA](https://www.microsoft.com/security/business/identity/mfa) habilitada, suas contas são mais seguras e os usuários ainda podem se autenticar em quase todos os aplicativos com logon único.
 
@@ -84,7 +84,7 @@ Para ver quais contas não têm a MFA habilitada, use a seguinte consulta do gra
     > As contas são mostradas como IDs de objeto em vez de nomes de conta para proteger a privacidade dos detentores de conta.
 
 > [!TIP]
-> Como alternativa, você pode usar as avaliações de método da API REST da central [de segurança-Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
+> Como alternativa, você pode usar as avaliações de método da API REST da central [de segurança-Get](/rest/api/securitycenter/assessments/get).
 
 
 ## <a name="next-steps"></a>Próximas etapas

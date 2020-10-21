@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10f86d194c5c70f2de0ab6502893e228800b1bdf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 67bc9d6b35d4841999721a00592a6bbe23bff10f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215460"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340216"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
@@ -54,6 +54,17 @@ Você pode configurar o tempo de vida do token em qualquer fluxo de usuários.
     ![Configurações da propriedade de compatibilidade de token no portal do Azure](./media/configure-tokens/token-compatibility.png)
 
 5. Clique em **Save** (Salvar).
+
+## <a name="provide-optional-claims-to-your-app"></a>Fornecer declarações opcionais para seu aplicativo
+
+As declarações de aplicativo são valores que são retornados para o aplicativo. Atualize seu fluxo de usuário para conter as declarações desejadas.
+
+1. Selecione **Fluxos de usuários (políticas)** .
+1. Abra o fluxo de usuários criado anteriormente.
+1. Selecione **Declarações do aplicativo**.
+1. Escolha as declarações e os atributos que você deseja enviar de volta para seu aplicativo.
+1. Clique em **Save** (Salvar).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

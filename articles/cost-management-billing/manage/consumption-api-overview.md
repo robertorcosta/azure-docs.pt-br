@@ -8,12 +8,12 @@ ms.subservice: cost-management
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 07595eed70850ce5270a261d588a33b68ff964fe
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: b00b5a46a0cdeb95c357da521326fe2bb678490b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371925"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132611"
 ---
 # <a name="azure-consumption-api-overview"></a>Visão geral da API de consumo do Azure
 
@@ -38,7 +38,7 @@ Use a API de detalhes de uso para obter dados de uso e cobrança do Azure para t
 A API inclui:
 
 -   **Nível de consumo de dados do medidor** – consulte dados, incluindo o custo de uso, o medidor emitindo o encargo e a qual recurso do Azure o encargo se refere. Todos os registros de detalhes de uso são mapeados para um bucket diário.
--   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou nos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+-   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 -   **Filtragem** – corte seu conjunto de resultados da API para um conjunto menor de registros de detalhes de uso usando os seguintes filtros:
     - Fim do uso/início do uso
     - Grupo de recursos
@@ -46,7 +46,7 @@ A API inclui:
 -   **Agregação de dados** – use OData para aplicar expressões a detalhes de uso agregado por marcas ou propriedades de filtro
 -   **Uso para tipos diferentes de oferta** – informações de detalhes de uso estão disponíveis atualmente para clientes Enterprise e Web Direct.
 
-Para obter mais informações, consulte a especificação técnica para a [API de detalhes de uso](https://docs.microsoft.com/rest/api/consumption/usagedetails).
+Para obter mais informações, consulte a especificação técnica para a [API de detalhes de uso](/rest/api/consumption/usagedetails).
 
 ## <a name="marketplace-charges-api"></a>API de encargos do Marketplace
 
@@ -55,14 +55,14 @@ Use a API de encargos do Marketplace para obter dados de uso e de cobrança em t
 A API inclui:
 
 -   **Nível de consumo de dados do medidor** – consulte dados, incluindo o custo de uso do Marketplace, o medidor emitindo o encargo e a qual recurso o encargo se refere. Todos os registros de detalhes de uso são mapeados para um bucket diário.
--   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou nos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+-   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 -   **Filtragem** – corte seu conjunto de resultados da API para um conjunto menor de registros do Marketplace usando os seguintes filtros:
     - Início do uso/fim do uso
     - Grupo de recursos
     - Nome do Recurso
 -   **Uso para tipos diferentes de oferta** – informações do Marketplace estão disponíveis atualmente para clientes Enterprise e Web Direct.
 
-Para obter mais informações, consulte a especificação técnica para a [API de encargos do Marketplace](https://docs.microsoft.com/rest/api/consumption/marketplaces).
+Para obter mais informações, consulte a especificação técnica para a [API de encargos do Marketplace](/rest/api/consumption/marketplaces).
 
 ## <a name="balances-api"></a>API de saldos
 
@@ -70,11 +70,11 @@ Os clientes Enterprise podem usar a API de saldos para obter um resumo mensal de
 
 A API inclui:
 
--   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou nos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+-   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 -   **Somente para clientes Enterprise** Essa API só está disponível para clientes EA.
     - Os clientes devem ter permissões de admin corporativo para chamar esta API
 
-Para obter mais informações, consulte a especificação técnica para a [API de saldos](https://docs.microsoft.com/rest/api/consumption/balances).
+Para obter mais informações, consulte a especificação técnica para a [API de saldos](/rest/api/consumption/balances).
 
 ## <a name="budgets-api"></a>API de orçamentos
 
@@ -82,7 +82,7 @@ Clientes Enterprise podem usar essa API para criar os orçamentos de custo ou de
 
 A API inclui:
 
--   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou nos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+-   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 -   **Somente para clientes Enterprise** – essa API só está disponível para clientes EA.
 -   **Notificações configuráveis** – especifique os usuários a serem notificados quando o orçamento for excedido.
 -   **Orçamentos com base em uso ou custo** – crie seu orçamento com base no consumo ou custo conforme necessário para seu cenário.
@@ -92,7 +92,7 @@ A API inclui:
     - Medidor
 -   **Períodos de tempo configurável orçamento** – especifique com que frequência o orçamento deve ser redefinido e por quanto tempo o orçamento é válido.
 
-Para obter mais informações, consulte a especificação técnica para a [API de orçamentos](https://docs.microsoft.com/rest/api/consumption/budgets).
+Para obter mais informações, consulte a especificação técnica para a [API de orçamentos](/rest/api/consumption/budgets).
 
 ## <a name="reservation-recommendations-api"></a>API de recomendações de reserva
 
@@ -100,13 +100,13 @@ Use esta API para obter recomendações para a compra de instâncias de VMs rese
 
 A API inclui:
 
--   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou nos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+-   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 -   **Filtragem** – personalize os resultados de recomendação usando os seguintes filtros:
     - Escopo
     - Período de retrospectiva
 -   **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão disponíveis atualmente para clientes Enterprise e Web Direct.
 
-Para obter mais informações, consulte a especificação técnica para a [API de recomendações de reserva](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations).
+Para obter mais informações, consulte a especificação técnica para a [API de recomendações de reserva](/rest/api/consumption/reservationrecommendations).
 
 ## <a name="reservation-details-api"></a>API de detalhes de reserva
 
@@ -114,12 +114,12 @@ Use a API de detalhes de reserva para ver informações sobre reservas de VM adq
 
 A API inclui:
 
--   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou nos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+-   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 -   **Filtragem** – corte seu conjunto de resultados da API para um conjunto menor de reservas usando os seguintes filtros:
     - Intervalo de datas
 -   **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão disponíveis atualmente para clientes Enterprise e Web Direct.
 
-Para obter mais informações, consulte a especificação técnica para a [API de detalhes de reserva](https://docs.microsoft.com/rest/api/consumption/reservationsdetails).
+Para obter mais informações, consulte a especificação técnica para a [API de detalhes de reserva](/rest/api/consumption/reservationsdetails).
 
 ## <a name="reservation-summaries-api"></a>API de resumos de reserva
 
@@ -127,23 +127,23 @@ Use essa API para ver informações agregadas sobre reservas de VM adquiridas an
 
 A API inclui:
 
--   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou nos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+-   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 -   **Filtragem** – personalize os resultados ao usar a agregação diária com o seguinte filtro:
     - Data de Uso
 -   **Informações de reserva para diferentes tipos de oferta** – as informações de reserva estão disponíveis atualmente para clientes Enterprise e Web Direct.
 -   **Agregações diárias ou mensais** – chamadores podem especificar se desejam que seus dados de resumo de reserva na agregação diária ou mensal.
 
-Para obter mais informações, consulte a especificação técnica para a [API de resumo de reserva](https://docs.microsoft.com/rest/api/consumption/reservationssummaries).
+Para obter mais informações, consulte a especificação técnica para a [API de resumo de reserva](/rest/api/consumption/reservationssummaries).
 
 ## <a name="price-sheet-api"></a>API de folha de preço
 Um cliente Enterprise pode usar essa API para recuperar seus preços personalizados para todos os medidores. As empresas podem usar isso em combinação com detalhes de uso e informações de uso do Marketplace para executar cálculos de custo usando dados de uso e do Marketplace.
 
 A API inclui:
 
--   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou nos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+-   **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com), na [CLI do Azure](../../role-based-access-control/role-assignments-cli.md) ou nos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 -   **Somente para clientes Enterprise** – essa API só está disponível para clientes EA. Clientes Web Direct devem usar a API RateCard para obter os preços.
 
-Para obter mais informações, consulte a especificação técnica para a [API de tabela de preços](https://docs.microsoft.com/rest/api/consumption/pricesheet).
+Para obter mais informações, consulte a especificação técnica para a [API de tabela de preços](/rest/api/consumption/pricesheet).
 
 ## <a name="scenarios"></a>Cenários
 

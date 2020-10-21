@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: da657fdf2545b585ccd5ec83a7f86897b67c4fe2
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: b3ae2b8323c9f278dcec432dfaac05e9fcfb4b49
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370242"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132101"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Usar APIs de Cobrança do Azure para obter informações programaticamente sobre o uso do Azure
 Use APIs de cobrança do Azure para efetuar pull de dados de uso e de recurso em suas ferramentas de análise de dados preferidas. As APIs RateCard e de Uso de Recursos do Azure e podem ajudá-lo a prever e gerenciar seus custos com precisão. As APIs são implementadas como um Provedor de Recursos e como parte da família de APIs expostas pelo Azure Resource Manager.  
@@ -36,13 +36,13 @@ Use as [API de Uso de Recursos](/previous-versions/azure/reference/mt219003(v=az
 * **Agregações diárias ou por hora** - os chamadores podem especificar se eles desejam seus dados de uso do Azure em buckets por hora ou buckets diários. O padrão é diário.
 * **Metadados da instância (inclui as marcas do recurso)** – obtenha detalhes no nível da instância, como o URI de recurso totalmente qualificado (/subscriptions/{subscription-id}/..), as informações do grupo de recursos e marcas do recurso. Esses metadados ajudam você a alocar de forma determinista e programática o uso por marcas, para casos de uso como cobrança cruzada.
 * **Metadados de recurso** – detalhes de recurso como nome do medidor, categoria do medidor, subcategoria do medidor, unidade e região proporcionam ao chamador um melhor entendimento do que foi consumido. Também estamos trabalhando para alinhar a terminologia de metadados de recursos entre o portal do Azure, o CSV de uso do Azure, o CSV de cobrança EA e outras experiências públicas, para permitir que você correlacione dados entre as experiências.
-* **Uso para diferentes tipos de oferta** – os dados de uso estão disponíveis para os tipos de oferta, assim como pré-pago, MSDN, investimento e crédito monetário e EA, exceto [CSP](https://docs.microsoft.com/partner-center).
+* **Uso para diferentes tipos de oferta** – os dados de uso estão disponíveis para os tipos de oferta, assim como pré-pago, MSDN, investimento e crédito monetário e EA, exceto [CSP](/partner-center).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>API RateCard de Recursos do Azure (visualização)
 Use a [API RateCard de Recursos do Azure](/previous-versions/azure/reference/mt219005(v=azure.100)) para obter a lista de recursos do Azure disponíveis, juntamente com as informações estimadas de preço para cada um deles. A API inclui:
 
 * **Azure RBAC (controle de acesso baseado em função)** – configure suas políticas de acesso no [portal do Azure](https://portal.azure.com) ou por meio dos [cmdlets do Azure PowerShell](/powershell/azure/) para especificar quais usuários ou aplicativos podem ter acesso aos dados do RateCard. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura particular do Azure.
-* **Suporte para pré-pago, MSDN, ofertas de investimento e crédito monetário (EA e [CSP](https://docs.microsoft.com/partner-center) não têm suporte)** – Esta API fornece informações de taxa no nível da oferta do Azure.  O chamador dessa API deve passar as informações de oferta para obter taxas e detalhes do recurso. Já que as ofertas de EA têm taxas personalizadas por registro, não seremos capazes de fornecer as taxas de EA neste momento.
+* **Suporte para pré-pago, MSDN, ofertas de investimento e crédito monetário (EA e [CSP](/partner-center) não têm suporte)** – Esta API fornece informações de taxa no nível da oferta do Azure.  O chamador dessa API deve passar as informações de oferta para obter taxas e detalhes do recurso. Já que as ofertas de EA têm taxas personalizadas por registro, não seremos capazes de fornecer as taxas de EA neste momento.
 
 ## <a name="scenarios"></a>Cenários
 Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e RateCard:

@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950730"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341916"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explorar e gerenciar os recursos com as ferramentas de gerenciamento e estoque de ativos
+# <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore e gerencie seus recursos com as ferramentas de gerenciamento e inventário de ativos
 
 A página de inventário de ativos da Central de Segurança do Azure fornece uma só página para exibição da postura de segurança dos recursos que você conectou à Central de Segurança. 
 
@@ -68,22 +68,22 @@ A página inventário fornece as seguintes ferramentas:
     ![Opções de exportação do inventário](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a &quot;sensação" da linguagem. [Saiba mais neste tutorial de KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > A documentação do KQL fornece um banco de dados com algumas consultas de exemplo junto com algumas simples para obter a &quot;sensação" da linguagem. [Saiba mais neste tutorial de KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - **Opções de gerenciamento de ativos** – o inventário permite que você execute consultas de descoberta complexas. Quando você encontrar os recursos que correspondem às suas consultas, o inventário fornecerá atalhos para operações como:
 
     - Atribuir marcas aos recursos filtrados – marque as caixas de seleção ao lado dos recursos que você deseja marcar.
     - Carregar novos servidores para a central de segurança-Use o botão de barra de ferramentas **adicionar servidores não Azure** .
-    - Automatizar cargas de trabalho com aplicativos lógicos do Azure – use o botão **disparar aplicativo lógico** para executar um aplicativo lógico em um ou mais recursos. Seus aplicativos lógicos precisam ser preparados antecipadamente e aceitam o tipo de gatilho relevante (solicitação HTTP). [Saiba mais sobre os aplicativos lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Automatizar cargas de trabalho com aplicativos lógicos do Azure – use o botão **disparar aplicativo lógico** para executar um aplicativo lógico em um ou mais recursos. Seus aplicativos lógicos precisam ser preparados antecipadamente e aceitam o tipo de gatilho relevante (solicitação HTTP). [Saiba mais sobre os aplicativos lógicos](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Como funciona o inventário de ativos?
 
-O inventário de ativos utiliza o [grafo de recursos do Azure (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), um serviço do Azure que fornece a capacidade de consultar dados de postura de segurança da central de segurança em várias assinaturas.
+O inventário de ativos utiliza o [grafo de recursos do Azure (ARG)](../governance/resource-graph/index.yml), um serviço do Azure que fornece a capacidade de consultar dados de postura de segurança da central de segurança em várias assinaturas.
 
 ARG foi projetado para fornecer uma exploração eficiente de recursos com a capacidade de consultar em escala.
 
-Usando a [linguagem de consulta Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), o inventário de ativos pode produzir rapidamente percepções aprofundadas por meio da referência cruzada de dados ASC com outras propriedades de recurso.
+Usando a [linguagem de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/), o inventário de ativos pode produzir rapidamente percepções aprofundadas por meio da referência cruzada de dados ASC com outras propriedades de recurso.
 
 
 ## <a name="how-to-use-asset-inventory"></a>Como usar o inventário de ativos
@@ -201,5 +201,5 @@ Este artigo descreveu a página inventário de ativos da central de segurança d
 
 Para obter mais informações sobre as ferramentas relacionadas, consulte as seguintes páginas:
 
-- [Grafo de recursos do Azure (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Grafo de recursos do Azure (ARG)](../governance/resource-graph/index.yml)
+- [KQL (Kusto Query Language)](/azure/data-explorer/kusto/query/)

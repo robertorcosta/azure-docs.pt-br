@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: bed158fb99654bd48184073b1266ae630255558b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613162"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341373"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar um Azure HPC Cache
 
@@ -81,7 +81,7 @@ Depois de criar o cache, você deve autorizá-lo a usar o serviço de cofre de c
 
 ## <a name="add-resource-tags-optional"></a>Adicionar marcas de recurso (opcional)
 
-A página **Marcas** permite que você adicione [tags de recurso](https://go.microsoft.com/fwlink/?linkid=873112) à sua instância do Azure HPC Cache.
+A página **Marcas** permite que você adicione [tags de recurso](../azure-resource-manager/management/tag-resources.md) à sua instância do Azure HPC Cache.
 
 ## <a name="finish-creating-the-cache"></a>Concluir a criação do cache
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Tamanho do cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sim         | não          | não          |
-  | 6144 GB    | sim         | sim         | não          |
+  | 3072 GB    | sim         | no          | no          |
+  | 6144 GB    | sim         | sim         | no          |
   | 12288 GB   | sim         | sim         | sim         |
-  | 24576 GB   | não          | sim         | sim         |
-  | 49152 GB   | não          | não          | sim         |
+  | 24576 GB   | no          | sim         | sim         |
+  | 49152 GB   | no          | no          | sim         |
 
   Leia a seção **definir capacidade de cache** na guia instruções do portal para obter informações importantes sobre preços, taxa de transferência e como dimensionar o cache adequadamente para seu fluxo de trabalho.
 
@@ -196,7 +196,7 @@ A mensagem inclui algumas informações úteis, incluindo estes itens:
 
 ## <a name="requirements"></a>Requisitos
 
-Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Se você optar por usar o Cloud Shell, confira [Visão geral do Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para obter mais informações.
+Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Se você optar por usar o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../cloud-shell/overview.md) para obter mais informações.
 
 > [!IMPORTANT]
 > Enquanto o módulo **AZ. HPCCache** do PowerShell está em versão prévia, você deve instalá-lo separadamente usando o `Install-Module` cmdlet. Depois que esse módulo do PowerShell estiver disponível para o público geral, ele fará parte das versões futuras do módulo do PowerShell AZ e estará disponível nativamente em Azure Cloud Shell.
@@ -235,11 +235,11 @@ nets/<cache_subnet_name>"`
 
   | Tamanho do cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sim         | não          | não          |
-  | 6144 GB    | sim         | sim         | não          |
+  | 3072 GB    | sim         | no          | no          |
+  | 6144 GB    | sim         | sim         | no          |
   | 12.288 GB   | sim         | sim         | sim         |
-  | 24.576 GB   | não          | sim         | sim         |
-  | 49.152 GB   | não          | não          | sim         |
+  | 24.576 GB   | no          | sim         | sim         |
+  | 49.152 GB   | no          | no          | sim         |
 
   Leia a seção **definir capacidade de cache** na guia instruções do portal para obter informações importantes sobre preços, taxa de transferência e como dimensionar o cache adequadamente para seu fluxo de trabalho.
 

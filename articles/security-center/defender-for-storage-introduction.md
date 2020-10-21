@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4677426337a48d4fde74f61b8a4ad6fcb695f420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2855f82927b6f1707fd748f097dd357818ac4b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577808"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341967"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introdução ao Azure Defender para Armazenamento
 
@@ -27,7 +27,7 @@ Essa camada de proteção permite que você resolva as ameaças *sem* que precis
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|O **Azure Defender para Armazenamento** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Tipos de armazenamento protegidos:|[Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/)<br>[Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
+|Tipos de armazenamento protegidos:|[Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/)<br>[Arquivos do Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos|
 |||
 
@@ -66,6 +66,6 @@ Neste artigo, você aprendeu sobre o Azure Defender para Armazenamento.
 Para obter material relacionado, consulte os seguintes artigos: 
 
 - Seja um alerta for gerado pela Central de Segurança ou recebido pela Central de Segurança de um produto de segurança diferente, você poderá exportá-lo. Para exportar seus alertas para o Azure Sentinel, qualquer SIEM de terceiros ou qualquer outra ferramenta externa, siga as instruções em [Exportar alertas para um SIEM](continuous-export.md).
-- [Como habilitar o Defender Avançado para Armazenamento](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+- [Como habilitar o Defender Avançado para Armazenamento](../storage/common/azure-defender-storage-configure.md)
 - [A lista de alertas do Azure Defender para Armazenamento](alerts-reference.md#alerts-azurestorage)
 - [Funcionalidades da Inteligência contra Ameaças da Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684)

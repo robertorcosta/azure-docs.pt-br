@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441485"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341831"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
 
@@ -43,7 +43,7 @@ Para saber mais sobre preços, confira [preços da Central de Segurança](https:
 
 ## <a name="what-is-the-log-analytics-agent"></a>O que é o agente de Log Analytics?
 
-Para monitorar vulnerabilidades de segurança e ameaças, a central de segurança do Azure depende do [agente de log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) – esse é o mesmo agente usado pelo serviço de Azure monitor. 
+Para monitorar vulnerabilidades de segurança e ameaças, a central de segurança do Azure depende do [agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md) – esse é o mesmo agente usado pelo serviço de Azure monitor. 
 
 O agente, às vezes, é chamado de Microsoft Monitoring Agent (ou "MMA"). 
 
@@ -66,7 +66,7 @@ As VMs Windows ou Linux IaaS se qualificam se:
 
 - Atualmente, a extensão do agente do Log Analytics não está instalada na máquina virtual.
 - A VM está em estado de execução.
-- O [Agente de Máquina Virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) do Windows ou Linux está instalado.
+- O [Agente de Máquina Virtual do Azure](../virtual-machines/extensions/agent-windows.md) do Windows ou Linux está instalado.
 - A máquina virtual não é usada como um dispositivo, como o firewall de aplicativo Web ou o firewall mais recente.
 
 
@@ -88,7 +88,7 @@ O local do workspace padrão depende da região do Azure:
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quais dados são coletados pelo agente de Log Analytics?
 
-Para obter uma lista completa dos aplicativos e serviços monitorados pelo agente, consulte [o que é monitorado pelo Azure monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+Para obter uma lista completa dos aplicativos e serviços monitorados pelo agente, consulte [o que é monitorado pelo Azure monitor?](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
 > Observe que, para alguns serviços, como o Firewall do Azure, se você tiver habilitado o registro em log e escolhido um recurso informativo para registrar (por exemplo, definir o log como *detalhado*), poderá encontrar impactos significativos em suas necessidades de armazenamento log Analytics espaço de trabalho. 
