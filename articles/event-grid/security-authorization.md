@@ -3,18 +3,18 @@ title: Segurança e autenticação da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8220e0f913a16cc32b4598ecb3836cc892ea83fd
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318546"
+ms.locfileid: "92328718"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizando o acesso aos recursos da grade de eventos
-A grade de eventos do Azure permite que você controle o nível de acesso fornecido a diferentes usuários para realizar várias **operações de gerenciamento** , como listar assinaturas de evento, criar novos e gerar chaves. O Event Grid usa o controle de acesso baseado em função (RBAC) do Azure.
+A grade de eventos do Azure permite que você controle o nível de acesso fornecido a diferentes usuários para realizar várias **operações de gerenciamento** , como listar assinaturas de evento, criar novos e gerar chaves. A grade de eventos usa o controle de acesso baseado em função do Azure (RBAC do Azure).
 
 > [!NOTE]
-> EventGrid não dá suporte a RBAC para publicar eventos em domínios ou tópicos de grade de eventos. Use uma chave de SAS (assinatura de acesso compartilhado) ou um token para autenticar clientes que publicam eventos. Para obter mais informações, consulte [autenticar clientes de publicação](security-authenticate-publishing-clients.md). 
+> EventGrid não dá suporte ao RBAC do Azure para publicar eventos em domínios ou tópicos da grade de eventos. Use uma chave de SAS (assinatura de acesso compartilhado) ou um token para autenticar clientes que publicam eventos. Para obter mais informações, consulte [autenticar clientes de publicação](security-authenticate-publishing-clients.md). 
 
 ## <a name="operation-types"></a>Tipos de operação
 

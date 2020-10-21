@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421451"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275753"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -167,7 +167,7 @@ Para adicionar uma condição de declaração:
 3. Selecione os grupos aos quais o usuário deve pertencer. Você pode selecionar até 50 grupos exclusivos em todas as declarações para um determinado aplicativo. 
 4. Selecione a **Origem** em que a declaração vai recuperar o valor dela. Você pode selecionar um atributo de usuário na lista suspensa de atributo de origem ou aplicar uma transformação ao atributo de usuário antes de emiti-lo como uma declaração.
 
-A ordem na qual você adiciona as condições é importante. O Azure AD avalia as condições de cima para baixo para decidir qual valor emitir na declaração. 
+A ordem na qual você adiciona as condições é importante. O Azure AD avalia as condições de cima para baixo para decidir qual valor emitir na declaração. O último valor que corresponde à expressão será emitido na declaração.
 
 Por exemplo, Brenda Fernandes é um usuário convidado no locatário da Contoso. Ela pertence a outra organização que também usa o Azure AD. Dada a configuração abaixo para o aplicativo Fabrikam, quando o Brenda tenta entrar na Fabrikam, a plataforma de identidade da Microsoft avaliará as condições como segue.
 

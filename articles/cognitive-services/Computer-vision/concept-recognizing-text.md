@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 32759ed59e280980abdced46c29390e00ee7229c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973267"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331695"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -37,7 +37,7 @@ A chamada de **leitura** leva imagens e documentos como sua entrada. Eles têm o
 * As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondendo a tamanhos de papel ofício ou a3 e menores.
 
 ### <a name="read-32-preview-allows-selecting-pages"></a>Ler 3,2 visualização permite selecionar página (s)
-Com a [API de visualização de leitura 3,2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005), para grandes documentos de várias páginas, você pode fornecer números de página ou intervalos de página específicos como um parâmetro de entrada para extrair texto apenas dessas páginas. Esse é um novo parâmetro de entrada além do parâmetro de idioma opcional.
+Com a [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005), para grandes documentos de várias páginas, você pode fornecer números de página ou intervalos de página específicos como um parâmetro de entrada para extrair texto apenas dessas páginas. Esse é um novo parâmetro de entrada além do parâmetro de idioma opcional.
 
 > [!NOTE]
 > **Entrada de idioma** 
@@ -50,7 +50,7 @@ A [chamada de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 |Cabeçalho de resposta| URL do resultado |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.2/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.1/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 > [!NOTE]
 > **Billing** 
@@ -129,23 +129,17 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida:
 }
 ```
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Ler 3,2 visualização adiciona estilo de linha de texto (somente idiomas latinos)
-A [API de visualização de leitura 3,2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) gera um objeto de **aparência** que classifica se cada linha de texto é um estilo de impressão ou de manuscrito, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
+A [API de visualização de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) gera um objeto de **aparência** que classifica se cada linha de texto é um estilo de impressão ou de manuscrito, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
 
-```json
-  "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.836
-            }
-```
-Comece a usar o [Pesquisa Visual computacional início rápido do SDK do OCR](./quickstarts-sdk/client-library.md) e os [guias de início rápido da API REST de leitura](./QuickStarts/CSharp-hand-text.md) para começar a integrar os recursos de OCR em seus aplicativos.
+Comece a usar os [guias de início rápido do SDK de OCR pesquisa Visual computacional](./quickstarts-sdk/client-library.md) e leia os guias de início [rápido da API REST](./QuickStarts/CSharp-hand-text.md) para começar a integrar os recursos de OCR em seus aplicativos.
 
 ## <a name="supported-languages-for-print-text"></a>Idiomas com suporte para imprimir texto
-A [API Read 3,2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) dá suporte à extração de texto impresso em idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês.
+A [API de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) dá suporte à extração de texto impresso nos idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês.
 
 Consulte os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) para obter a lista completa de idiomas com suporte para OCR.
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Leia 3,2 visualização adiciona chinês simplificado e japonês
-A [Visualização pública da API de leitura 3,2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado e japonês. Se o seu cenário exigir suporte a mais idiomas, consulte a seção [API de OCR](#ocr-api) . 
+A [Visualização pública da API de leitura 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado e japonês. Se o seu cenário exigir suporte a mais idiomas, consulte a seção [API de OCR](#ocr-api) . 
 
 ## <a name="supported-languages-for-handwritten-text"></a>Idiomas com suporte para texto manuscrito
 Atualmente, a operação de leitura dá suporte à extração de texto manuscrito exclusivamente em inglês.
@@ -154,7 +148,7 @@ Atualmente, a operação de leitura dá suporte à extração de texto manuscrit
 A [API REST de leitura 3. x](./QuickStarts/CSharp-hand-text.md) é a opção preferida para a maioria dos clientes devido à facilidade de integração e produtividade rápida pronta para uso. O Azure e o serviço de Pesquisa Visual Computacional tratam das necessidades de escala, desempenho, segurança de dados e conformidade enquanto você se concentra em atender às necessidades dos seus clientes.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Implantar no local com contêineres do Docker
-O [contêiner do docker 2,0 de leitura (versão prévia)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) permite que você implante os novos recursos de OCR em seu próprio ambiente local. Contêineres são excelentes para especificar requisitos de segurança e governança de dados.
+O [contêiner do Docker de leitura (versão prévia)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) permite que você implante os novos recursos de OCR em seu próprio ambiente local. Contêineres são excelentes para especificar requisitos de segurança e governança de dados.
 
 ## <a name="example-outputs"></a>Saídas de exemplo
 
@@ -201,7 +195,7 @@ Assim como acontece com todos os serviços cognitivas, os desenvolvedores que us
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Introdução ao [Pesquisa Visual computacional Leia os guias de início rápido do SDK do 3,0](./quickstarts-sdk/client-library.md) em C#, Java, JavaScript ou Python.
-- Use os [guias de início rápido da API REST de leitura 3,1](./QuickStarts/CSharp-hand-text.md) em C#, Java, JavaScript ou Python para saber como usar as APIs REST.
-- Saiba mais sobre a [API REST de leitura 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Saiba mais sobre a [API REST de visualização pública 3,2 de leitura](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado e japonês.
+- Introdução aos guias de [início rápido do SDK do pesquisa Visual computacional Read](./quickstarts-sdk/client-library.md) em C#, Java, JavaScript ou Python.
+- Use os [guias de início rápido da API REST de leitura](./QuickStarts/CSharp-hand-text.md) em C#, Java, JavaScript ou Python para saber como usar as APIs REST.
+- Saiba mais sobre a [API REST de leitura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Saiba mais sobre a [API REST de visualização pública 3,2 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado e japonês.

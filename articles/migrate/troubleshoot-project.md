@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121632"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314637"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Solucionar problemas nos projetos de Migrações para Azure
 
@@ -52,7 +52,7 @@ Se você tentar criar um projeto e encontrar um erro de implantação:
 - Se você receber o erro "as solicitações devem conter cabeçalhos de identidade do usuário", isso pode indicar que você não tem acesso ao locatário do Azure Active Directory (Azure AD) da organização. Nesse caso:
     - Quando você é adicionado a um locatário do Azure AD pela primeira vez, você recebe um convite por email para ingressar no locatário.
     - Aceite o convite a ser adicionado ao locatário.
-    - Se você não conseguir ver o email, entre em contato com um usuário com acesso ao locatário e peça para [reenviar o convite](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) para você.
+    - Se você não conseguir ver o email, entre em contato com um usuário com acesso ao locatário e peça para [reenviar o convite](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) para você.
     - Depois de receber o email de convite, abra-o e selecione o link para aceitar o convite. Em seguida, saia do portal do Azure e entre novamente. (a atualização do navegador não funcionará.) Em seguida, você pode começar a criar o projeto de migração.
 
 ## <a name="how-do-i-delete-a-project"></a>Como fazer excluir um projeto

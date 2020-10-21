@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 227e27d25ad5d0c61ed4f36c234222a079315619
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85081080"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317149"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar grandes números de servidores físicos para migração para o Azure
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá como:
 
 
 > [!NOTE]
-> Se você quiser experimentar uma prova de conceito para avaliar alguns servidores antes de avaliar em escala, siga nossa [série de tutoriais](tutorial-prepare-physical.md).
+> Se você quiser experimentar uma prova de conceito para avaliar alguns servidores antes de avaliar em escala, siga nossa [série de tutoriais](./tutorial-discover-physical.md).
 
 ## <a name="plan-for-assessment"></a>Planejar a avaliação
 
@@ -64,7 +64,7 @@ Prepare servidores físicos e do Azure para avaliação do servidor.
 2. Configure as permissões para sua conta do Azure para interagir com as migrações para Azure.
 3. Prepare os servidores físicos.
 
-Siga as instruções neste [tutorial](tutorial-prepare-physical.md) para definir essas configurações.
+Siga as instruções neste [tutorial](./tutorial-discover-physical.md) para definir essas configurações.
 
 ## <a name="create-a-project"></a>Criar um projeto
 

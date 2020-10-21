@@ -647,6 +647,8 @@
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: Usar Apache Kafka com o Hub IoT
               href: ./kafka/apache-kafka-connector-iot-hub.md
+            - name: Registro de Esquema Confluente
+              href: ./kafka/schema-registry.md
             - name: Criar pipelines de transmissão
               items:
                 - name: 'Apache Spark, Apache Kafka e Azure Cosmos DB'
@@ -845,6 +847,8 @@
               href: ./hdinsight-troubleshoot-hive.md
             - name: Os logs do Apache Hive ocupam todo o espaço em disco no nó de cabeçalho
               href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
+            - name: Opções de segurança para o Hive
+              href: ./interactive-query/hdinsight-security-options-for-hive.md
 - name: ML Services
   items:
     - name: Visão geral

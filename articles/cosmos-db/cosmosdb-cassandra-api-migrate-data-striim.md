@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7590d40085c3963a95fd251dd1291cf34fbaf4a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c9ec20ffe52c23c2dec5a624fc157da7ebd4a41
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262082"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330930"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrar dados para Azure Cosmos DB conta de API do Cassandra usando o Striim
 
@@ -41,7 +41,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
 1. No painel **configurações de cluster do Striim** , escolha o tipo de implantação Striim e o tamanho da máquina virtual.
 
-   |Configuração | Valor | Descrição |
+   |Setting | Valor | Descrição |
    | ---| ---| ---|
    |Tipo de implantação Striim |Autônomo | Striim pode ser executado em tipos de implantação **autônomos** ou de **cluster** . O modo autônomo implantará o servidor Striim em uma única máquina virtual e você poderá selecionar o tamanho das VMs dependendo do volume de dados. O modo de cluster implantará o servidor Striim em duas ou mais VMs com o tamanho selecionado. Ambientes de cluster com mais de 2 nós oferecem alta disponibilidade e failover automáticos.</br></br> Neste tutorial, você pode selecionar a opção autônomo. Use a VM de tamanho padrão "Standard_F4s". | 
    | Nome do cluster Striim|    <Striim_cluster_Name>|  Nome do cluster Striim.|

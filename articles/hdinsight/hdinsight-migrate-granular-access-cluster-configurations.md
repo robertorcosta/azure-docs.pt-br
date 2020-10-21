@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67d705f8e878cff6934c2e8a172148fab3f1d71
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82598463"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328991"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para acesso baseado em função granular para configurações de cluster
 
@@ -20,7 +20,7 @@ Estamos introduzindo algumas alterações importantes para dar suporte ao acesso
 
 ## <a name="what-is-changing"></a>O que está mudando?
 
-Anteriormente, os segredos poderiam ser obtidos por meio da API do HDInsight por usuários de cluster que possuam as funções de proprietário, colaborador ou de [RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)do leitor, pois estavam disponíveis para qualquer pessoa com a `*/read` permissão. Os segredos são definidos como valores que podem ser usados para obter acesso mais elevado do que a função de um usuário deve permitir. Isso inclui valores como credenciais HTTP de gateway de cluster, chaves de conta de armazenamento e credenciais de banco de dados.
+Anteriormente, os segredos poderiam ser obtidos por meio da API do HDInsight por usuários de cluster que possuam as funções de proprietário, colaborador ou leitor [do Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), pois estavam disponíveis para qualquer pessoa com a `*/read` permissão. Os segredos são definidos como valores que podem ser usados para obter acesso mais elevado do que a função de um usuário deve permitir. Isso inclui valores como credenciais HTTP de gateway de cluster, chaves de conta de armazenamento e credenciais de banco de dados.
 
 A partir de 3 de setembro de 2019, o acesso a esses segredos exigirá a `Microsoft.HDInsight/clusters/configurations/action` permissão, o que significa que eles não podem mais ser acessados por usuários com a função leitor. As funções que têm essa permissão são colaborador, proprietário e a nova função de operador de cluster HDInsight (mais informações sobre isso abaixo).
 
@@ -183,7 +183,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-Como alternativa, você pode usar o portal do Azure para adicionar a atribuição de função de operador de cluster HDInsight a um usuário. Consulte a documentação, [gerenciar o acesso aos recursos do Azure usando o RBAC e a Portal do Azure-adicionar uma atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+Como alternativa, você pode usar o portal do Azure para adicionar a atribuição de função de operador de cluster HDInsight a um usuário. Consulte a documentação, [Adicionar ou remover atribuições de função do Azure usando a Portal do Azure-adicionar uma atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
 ## <a name="faq"></a>Perguntas frequentes
 

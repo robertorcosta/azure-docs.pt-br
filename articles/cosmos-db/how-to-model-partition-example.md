@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 91589a88712b093acfbb88df146074ad91ba0ea2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168368"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277980"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
 
@@ -327,7 +327,7 @@ Esse procedimento armazenado usa a ID do post e o corpo do novo comentário como
 - substitui o post
 - adiciona o novo comentário
 
-Já que os procedimentos armazenados são executados como transações atômicas, é certo que o valor de `commentCount` e o número real de comentários permanecerão sempre em sincronia.
+Como os procedimentos armazenados são executados como transações atômicas, o valor de `commentCount` e o número real de comentários sempre permanecerão em sincronia.
 
 Obviamente, chamamos um procedimento armazenado semelhante ao adicionar novas curtidas para incrementar o `likeCount`.
 
@@ -586,6 +586,6 @@ O feed de alterações que usamos para distribuir atualizações para outros con
 
 Após esta introdução ao particionamento e à modelagem de dados de caráter prático, você talvez queira verificar os artigos a seguir para analisar os conceitos abordados:
 
-- [Como trabalhar com bancos de dados, contêineres e itens](databases-containers-items.md)
+- [Como trabalhar com bancos de dados, contêineres e itens](account-databases-containers-items.md)
 - [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 - [Alterar feed no Azure Cosmos DB](change-feed.md)

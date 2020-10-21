@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089506"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277791"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -271,7 +271,7 @@ Não há nenhum impacto na disponibilidade de gravação durante as transformaç
 
 Não há nenhum impacto na disponibilidade de leitura ao adicionar um novo índice. As consultas só utilizarão novos índices depois que a transformação do índice for concluída. Durante a transformação do índice, o mecanismo de consulta continuará a usar índices existentes, portanto, você observará um desempenho de leitura semelhante durante a transformação de indexação para o que você observou antes de iniciar a alteração de indexação. Ao adicionar novos índices, também não há nenhum risco de resultados de consulta incompletos ou inconsistentes.
 
-Ao remover índices e executar imediatamente consultas que filtram os índices descartados, não há uma garantia de resultados de consulta consistentes ou completos. Se você remover vários índices e fizer isso em uma única alteração de política de indexação, o mecanismo de consulta garantirá resultados consistentes e completos em toda a transformação do índice. No entanto, se você remover índices por meio de várias alterações de política de indexação, o mecanismo de consulta não garantirá resultados consistentes ou completos até que todas as transformações de índice sejam concluídas. A maioria dos desenvolvedores não remove índices e tenta imediatamente executar consultas que utilizam esses índices, de modo que, na prática, essa situação é improvável.
+Ao remover índices e executar imediatamente consultas que filtram os índices descartados, não há uma garantia de resultados de consulta consistentes ou completos. Se você remover vários índices e fizer isso em uma única alteração de política de indexação, o mecanismo de consulta fornecerá resultados consistentes e completos em toda a transformação de índice. No entanto, se você remover índices por meio de várias alterações de política de indexação, o mecanismo de consulta não fornecerá resultados consistentes ou completos até que todas as transformações de índice sejam concluídas. A maioria dos desenvolvedores não remove índices e tenta imediatamente executar consultas que utilizam esses índices, de modo que, na prática, essa situação é improvável.
 
 > [!NOTE]
 > Quando possível, você sempre deve tentar agrupar várias alterações de indexação em uma única modificação de política de indexação

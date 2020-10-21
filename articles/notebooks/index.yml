@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação do Azure Notebooks Preview
-summary: Em 9 de outubro de 2020, o site da versão prévia pública do Azure Notebooks será desativado e substituído por serviços integrados do Visual Studio, do Azure e do GitHub. Saiba mais sobre suas opções e outras experiências de notebook da Microsoft em https://notebooks.azure.com/Content/alternatives.html.
+summary: Em 15 de janeiro de 2021, o site de versão prévia pública do Azure Notebooks será desativado e substituído por serviços integrados do Visual Studio, do Azure e do GitHub. Saiba mais sobre suas opções e outras experiências de notebook da Microsoft em https://notebooks.azure.com/Content/alternatives.html.
 metadata:
   title: Documentação do Azure Notebooks Preview
   description: Saiba como criar, executar e compartilhar Notebooks do Jupyter por meio do serviço hospedado do Azure Notebooks Preview.
@@ -9,12 +9,12 @@ metadata:
   author: JoshuaPartlow
   ms.author: joshuapa
   ms.date: 06/17/2020
-  ms.openlocfilehash: cdc98d01a4fae5e4b09af001ec65dd7a29c34c0f
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3f89d249e126cfeb65b141e39d6a6a998e4d1758
+  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88640269"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92207743"
 landingContent:
 - title: Sobre o Azure Notebooks
   linkLists:

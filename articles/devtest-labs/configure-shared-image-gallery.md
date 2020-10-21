@@ -3,12 +3,12 @@ title: Configurar uma galeria de imagens compartilhada no Azure DevTest Labs | M
 description: Saiba como configurar uma galeria de imagens compartilhada no Azure DevTest Labs, que permite que os usuários acessem imagens de um local compartilhado durante a criação de recursos de laboratório.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271032"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327970"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurar uma galeria de imagem compartilhada no Azure DevTest Labs
 O DevTest Labs agora dá suporte ao recurso da [Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md) . Ele permite que os usuários do laboratório acessem imagens de um local compartilhado durante a criação de recursos de laboratório. Ele também ajuda a criar estrutura e organização em suas imagens de VM gerenciadas por personalização. O recurso da Galeria de imagens compartilhadas dá suporte a:
@@ -16,7 +16,7 @@ O DevTest Labs agora dá suporte ao recurso da [Galeria de imagens compartilhada
 - Replicação global gerenciada de imagens
 - Controle de versão e agrupamento de imagens para facilitar o gerenciamento
 - Torne suas imagens altamente disponíveis com contas de ZRS (armazenamento com redundância de zona) em regiões que dão suporte a zonas de disponibilidade. O ZRS oferece maior resiliência contra falhas em zonas.
-- Compartilhamento entre assinaturas e até mesmo entre locatários, usando o RBAC (controle de acesso baseado em função).
+- Compartilhamento entre assinaturas e até mesmo entre locatários, usando o controle de acesso baseado em função do Azure (RBAC do Azure).
 
 Para obter mais informações, consulte a [documentação da Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md). 
  
