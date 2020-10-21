@@ -191,6 +191,9 @@
             - name: Gerenciar o acesso Just-In-Time
               displayName: 'jit, management'
               href: security-center-just-in-time.md
+        - name: Usar a licença integrada do Microsoft Defender para Ponto de Extremidade
+          displayName: 'ATP, mdatp, wdatp'
+          href: security-center-wdatp.md
         - name: Gerenciar controles de aplicativos adaptáveis
           href: security-center-adaptive-application.md
         - name: Usar o monitoramento de integridade de arquivo
@@ -201,8 +204,6 @@
               href: security-center-file-integrity-monitoring-baselines.md
         - name: Gerenciar a proteção de rede adaptável
           href: security-center-adaptive-network-hardening.md
-        - name: Integrar o Microsoft Defender ATP
-          href: security-center-wdatp.md
         - name: Proteger os hosts do Docker
           displayName: containers
           href: harden-docker-hosts.md

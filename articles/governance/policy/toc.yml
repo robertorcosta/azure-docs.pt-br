@@ -43,6 +43,12 @@
     - name: Gerenciar a governança de marcas
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Implementar o Azure Policy como código com o GitHub
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
+    - name: 'Aprenda: Controlar e auditar seus recursos usando o Azure Policy'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: Exemplos
   items:
     - name: Índice
@@ -113,7 +119,7 @@
     - name: Conformidade normativa
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
-    - name: Projetar os fluxos de trabalho da Política como código
+    - name: Projetar os fluxos de trabalho do Azure Policy como código
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Integração do Kubernetes
