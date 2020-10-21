@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371398"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132356"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
@@ -26,7 +26,7 @@ Os parceiros CSP de cobrança direta certificados como um [Provedor de Serviços
 Quando a solicitação é aprovada, o CSP pode fornecer uma fatura combinada para seus clientes. Para saber mais sobre a transferência de assinaturas por CSPs, confira [Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA](mpa-request-ownership.md).
 
 >[!IMPORTANT]
-> Depois de transferir uma assinatura do EA para um parceiro CSP, qualquer aumento na cota aplicado anteriormente à assinatura do EA será redefinido para o valor padrão. Se uma cota adicional for necessária após a transferência da assinatura, peça ao provedor do CSP para enviar uma solicitação de [aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
+> Depois de transferir uma assinatura do EA para um parceiro CSP, qualquer aumento na cota aplicado anteriormente à assinatura do EA será redefinido para o valor padrão. Se uma cota adicional for necessária após a transferência da assinatura, peça ao provedor do CSP para enviar uma solicitação de [aumento de cota](../../azure-portal/supportability/regional-quota-requests.md). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Outras transferências de assinatura para um parceiro CSP
 
@@ -42,7 +42,7 @@ Para transferir qualquer outra assinatura do Azure para um parceiro CSP, o assin
 1. Antes de começar, [valide](/rest/api/resources/resources/validatemoveresources) que todos os recursos do Azure podem ser movidos da assinatura de origem para a assinatura de destino.  
     Alguns recursos do Azure não podem ser movidos entre assinaturas. Para exibir a lista completa de recursos do Azure que podem ser movidos, confira [Suporte à operação de mover para recursos](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
-    >  - O CSP do Azure oferece suporte apenas aos recursos do Azure Resource Manager. Se algum recurso do Azure Resource Manager na assinatura de origem tiver sido criado usando o modelo de implantação clássico do Azure, você precisará migrá-los para o [Azure Resource Manager](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) antes da migração. Você precisa ser um parceiro para exibir a página da Web.
+    >  - O CSP do Azure oferece suporte apenas aos recursos do Azure Resource Manager. Se algum recurso do Azure Resource Manager na assinatura de origem tiver sido criado usando o modelo de implantação clássico do Azure, você precisará migrá-los para o [Azure Resource Manager](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) antes da migração. Você precisa ser um parceiro para exibir a página da Web.
 
 1. Verifique se todos os serviços da assinatura de origem usam o modelo do Azure Resource Manager. Em seguida, transfira recursos da assinatura de origem para a assinatura de destino usando o [Azure Resource Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
     > [!IMPORTANT]

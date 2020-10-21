@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: b62bf900e3e7859437b10b7b45801ee0dc575282
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 24620351cdd831ec5079e1f37726b2aa65339205
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767781"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075851"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo do Azure Functions com a Configuração de Aplicativos do Azure
 
@@ -120,7 +120,7 @@ Neste guia de início rápido, você incorpora o serviço de Configuração de A
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um repositório de Configuração de Aplicativos e o usou com um aplicativo do Azure Functions por meio do [Provedor de Configuração de Aplicativos](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber como configurar seu aplicativo do Azure Functions para atualizar dinamicamente as configurações, passe para o próximo tutorial.
+Neste início rápido, você criou um repositório de Configuração de Aplicativos e o usou com um aplicativo do Azure Functions por meio do [Provedor de Configuração de Aplicativos](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). Para saber como configurar seu aplicativo do Azure Functions para atualizar dinamicamente as configurações, passe para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Habilitar configuração dinâmica](./enable-dynamic-configuration-azure-functions-csharp.md)

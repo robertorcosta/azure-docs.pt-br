@@ -8,32 +8,32 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b81d3f74c20f42620ceeae08bec5d484909377a7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167467"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340046"
 ---
-# <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Conexões do indexador por meio de um ponto de extremidade privado (Azure Pesquisa Cognitiva)
+# <a name="make-indexer-connections-through-a-private-endpoint"></a>Fazer conexões do indexador por meio de um ponto de extremidade privado
 
-Muitos recursos do Azure (como contas de armazenamento do Azure) podem ser configurados para aceitar conexões de uma lista específica de redes virtuais e recusar conexões externas que se originam de uma rede pública. Se você estiver usando um indexador para indexar dados no Azure Pesquisa Cognitiva e sua fonte de dados estiver em uma rede privada, você poderá criar uma conexão de [ponto de extremidade privada](../private-link/private-endpoint-overview.md) (de saída) para alcançar os dados.
+Muitos recursos do Azure, como contas de armazenamento do Azure, podem ser configurados para aceitar conexões de uma lista de redes virtuais e recusar conexões externas que se originam de uma rede pública. Se você estiver usando um indexador para indexar dados no Azure Pesquisa Cognitiva e sua fonte de dados estiver em uma rede privada, você poderá criar uma [conexão de ponto de extremidade privada](../private-link/private-endpoint-overview.md) de saída para alcançar os dados.
 
-Para usar esse método de conexão do indexador, há dois requisitos:
+Esse método de conexão do indexador está sujeito aos dois requisitos a seguir:
 
 + O recurso do Azure que fornece conteúdo ou código deve ser registrado anteriormente com o [serviço de link privado do Azure](https://azure.microsoft.com/services/private-link/).
 
-+ O serviço de Pesquisa Cognitiva do Azure deve ser básico ou superior (não disponível na camada gratuita). Além disso, se o indexador tiver um tipo de habilidade, a camada deverá ser Standard 2 (S2) ou superior. Para obter mais informações, consulte [limites de serviço](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
++ O serviço de Pesquisa Cognitiva do Azure deve estar na camada básica ou superior. O recurso não está disponível na camada gratuita. Além disso, se o indexador tiver um tipo de habilidade, a camada deverá ser Standard 2 (S2) ou superior. Para obter mais informações, consulte [limites de serviço](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## <a name="shared-private-link-resources-management-apis"></a>APIs de gerenciamento de recursos de link privado compartilhado
 
-Pontos de extremidade privados de recursos protegidos que são criados por meio de APIs de Pesquisa Cognitiva do Azure são chamados de *recursos de link privado compartilhado* porque você está "compartilhando" o acesso a um recurso (como uma conta de armazenamento) que foi integrado ao [serviço de link privado do Azure](https://azure.microsoft.com/services/private-link/).
+Pontos de extremidade privados de recursos protegidos que são criados por meio de APIs de Pesquisa Cognitiva do Azure são chamados de *recursos de link privado compartilhado*. Isso ocorre porque você está "compartilhando" o acesso a um recurso, como uma conta de armazenamento, que foi integrado com o [serviço de link privado do Azure](https://azure.microsoft.com/services/private-link/).
 
 Por meio de sua API REST de gerenciamento, o Azure Pesquisa Cognitiva fornece uma operação [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) que você pode usar para configurar o acesso de um indexador de pesquisa cognitiva do Azure.
 
-As conexões de ponto de extremidade privado para alguns recursos só podem ser criadas com a versão de visualização da API de gerenciamento de pesquisa ( `2020-08-01-Preview` ou posterior), indicada com a marca "Preview" na tabela a seguir. Recursos sem a marca "visualização" podem ser criados usando a versão de API de visualização ou de disponibilidade geral ( `2020-08-01` ou posterior).
+Você pode criar conexões de ponto de extremidade privadas para alguns recursos usando a versão de visualização da API de gerenciamento de pesquisa (versão *2020-08-01-Preview* ou posterior), que é designada de *Visualização* na tabela a seguir. Recursos sem uma designação de *Visualização* podem ser criados com a versão de API de visualização ou de disponibilidade geral (*2020-08-01* ou posterior).
 
-Veja a seguir a lista de recursos do Azure para os quais os pontos de extremidade privados de saída podem ser criados a partir do Azure Pesquisa Cognitiva. Os `groupId` valores listados na tabela a seguir precisam ser usados exatamente como gravados (diferenciando maiúsculas de minúsculas) na API para criar um recurso de link privado compartilhado.
+A tabela a seguir lista os recursos do Azure para os quais você pode criar pontos de extremidade privados de saída do Azure Pesquisa Cognitiva. Para criar um recurso de link privado compartilhado, insira os valores de **ID de grupo** exatamente como eles são gravados na API. Os valores diferenciam maiúsculas de minúsculas.
 
 | Recursos do Azure | ID do Grupo |
 | --- | --- |
@@ -45,31 +45,35 @@ Veja a seguir a lista de recursos do Azure para os quais os pontos de extremidad
 | Cofre de Chave do Azure | `vault` |
 | Azure Functions (versão prévia) | `sites` |
 
-A lista de recursos do Azure para os quais há suporte para conexões de ponto de extremidade privadas de saída também pode ser consultada usando a [API de lista com suporte](/rest/api/searchmanagement/privatelinkresources/listsupported).
+Você também pode consultar os recursos do Azure para os quais há suporte para conexões de ponto de extremidade privadas de saída usando a [lista de APIs com suporte](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-No restante deste artigo, uma combinação de [ARMClient](https://github.com/projectkudu/ARMClient) e [postmaster](https://www.postman.com/) é usada para demonstrar as chamadas à API REST.
-
-> [!NOTE]
-> Ao longo deste artigo, suponha que o nome do serviço de pesquisa é __contoso-Search,__ que existe no grupo de recursos __contoso__ de uma assinatura com a ID de assinatura __00000000-0000-0000-0000-000000000000__. A ID de recurso deste serviço de pesquisa será `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
-
-O restante dos exemplos mostrará como o serviço de __pesquisa da Contoso__ pode ser configurado para que seus indexadores possam acessar dados da conta de armazenamento seguro `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
-
-## <a name="securing-your-storage-account"></a>Protegendo sua conta de armazenamento
-
-Configure a conta de armazenamento para [permitir o acesso somente de sub-redes específicas](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Na portal do Azure, se você marcar essa opção e deixar o conjunto vazio, significa que nenhum tráfego de qualquer rede virtual é permitido.
-
-   ![Acesso à Rede Virtual](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png "Acesso à Rede Virtual")
+No restante deste artigo, uma combinação de APIs [ARMClient](https://github.com/projectkudu/ARMClient) e [postmaster](https://www.postman.com/) é usada para demonstrar as chamadas à API REST.
 
 > [!NOTE]
-> A [abordagem de serviço confiável da Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services) pode ser usada para ignorar as restrições de rede virtual ou IP nessa conta de armazenamento e pode permitir que o serviço de pesquisa acesse dados na conta de armazenamento, conforme descrito em [acesso do indexador ao armazenamento do Azure usando a exceção de serviço confiável ](search-indexer-howto-access-trusted-service-exception.md). No entanto, ao usar essa abordagem de comunicação entre o Azure Pesquisa Cognitiva e a conta de armazenamento ocorre por meio do endereço IP público da conta de armazenamento, na rede de backbone seguro da Microsoft.
+> Os exemplos neste artigo baseiam-se nas seguintes suposições:
+> * O nome do serviço de pesquisa é _contoso-Search_, que existe no grupo de recursos da _contoso_ de uma assinatura com a ID de assinatura _00000000-0000-0000-0000-000000000000_. 
+> * A ID de recurso deste serviço de pesquisa é _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/Providers/Microsoft.Search/searchServices/contoso-Search_.
 
-## <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Etapa 1: criar um recurso de link privado compartilhado para a conta de armazenamento
+O restante dos exemplos mostra como o serviço de _pesquisa da Contoso_ pode ser configurado para que seus indexadores possam acessar dados da conta de armazenamento seguro _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/Providers/Microsoft.Storage/storageAccounts/contoso-Storage_.
 
-Faça a seguinte chamada à API para solicitar que o Azure Pesquisa Cognitiva crie uma conexão de ponto de extremidade privada de saída para a conta de armazenamento
+## <a name="secure-your-storage-account"></a>Proteger sua conta de armazenamento
+
+Configure a conta de armazenamento para [permitir o acesso somente de sub-redes específicas](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Na portal do Azure, se você selecionar essa opção e deixar o conjunto vazio, significa que nenhum tráfego de redes virtuais é permitido.
+
+   ![Captura de tela do painel "firewalls e redes virtuais", mostrando a opção de permitir o acesso a redes selecionadas. ](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
+
+> [!NOTE]
+> Você pode usar a [abordagem de serviço confiável da Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services) para ignorar a rede virtual ou restrições de IP em uma conta de armazenamento. Você também pode habilitar o serviço de pesquisa para acessar dados na conta de armazenamento. Para fazer isso, consulte [acesso do indexador ao armazenamento do Azure com a exceção de serviço confiável](search-indexer-howto-access-trusted-service-exception.md). 
+>
+> No entanto, quando você usa essa abordagem, a comunicação entre o Azure Pesquisa Cognitiva e sua conta de armazenamento ocorre por meio do endereço IP público da conta de armazenamento, por meio da rede de backbone segura da Microsoft.
+
+### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Etapa 1: criar um recurso de link privado compartilhado para a conta de armazenamento
+
+Para solicitar que o Azure Pesquisa Cognitiva crie uma conexão de ponto de extremidade privada de saída para a conta de armazenamento, faça a seguinte chamada de API: 
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
-O conteúdo do `create-pe.json` arquivo (que representa o corpo da solicitação para a API) são os seguintes:
+O conteúdo do *create-pe.jsno* arquivo, que representa o corpo da solicitação para a API, é o seguinte:
 
 ```json
 {
@@ -82,18 +86,19 @@ O conteúdo do `create-pe.json` arquivo (que representa o corpo da solicitação
 }
 ```
 
-Uma `202 Accepted` resposta é retornada em caso de êxito – o processo de criação de um ponto de extremidade privado de saída é uma operação de execução longa (assíncrona). Ele envolve a implantação dos seguintes recursos-
+Uma `202 Accepted` resposta é retornada em caso de êxito. O processo de criação de um ponto de extremidade de saída particular é uma operação de execução longa (assíncrona). Ele envolve a implantação dos seguintes recursos:
 
-1. Um ponto de extremidade privado alocado com um endereço IP privado em um `"Pending"` estado. O endereço IP privado é obtido do espaço de endereço alocado para a rede virtual do ambiente de execução do indexador particular específico do serviço de pesquisa. Após a aprovação do ponto de extremidade privado, qualquer comunicação do Azure Pesquisa Cognitiva à conta de armazenamento é originada do endereço IP privado e de um canal de link privado seguro.
-2. Uma zona DNS privada para o tipo de recurso, com base no `groupId` . Isso garantirá que qualquer pesquisa de DNS para o recurso privado utilize o endereço IP associado ao ponto de extremidade privado.
+* Um ponto de extremidade privado, alocado com um endereço IP privado em um `"Pending"` estado. O endereço IP privado é obtido do espaço de endereço alocado para a rede virtual do ambiente de execução para o indexador particular específico do serviço de pesquisa. Após a aprovação do ponto de extremidade privado, qualquer comunicação do Azure Pesquisa Cognitiva à conta de armazenamento é originada do endereço IP privado e de um canal de link privado seguro.
+
+* Uma zona DNS privada para o tipo de recurso, com base no `groupId` . Ao implantar esse recurso, você garante que qualquer pesquisa de DNS para o recurso privado utiliza o endereço IP associado ao ponto de extremidade privado.
 
 Certifique-se de especificar o correto `groupId` para o tipo de recurso para o qual você está criando o ponto de extremidade privado. Qualquer incompatibilidade resultará em uma mensagem de resposta não bem-sucedida.
 
-Como todas as operações assíncronas do Azure, a `PUT` chamada retorna um `Azure-AsyncOperation` valor de cabeçalho que terá a seguinte aparência:
+Como em todas as operações assíncronas do Azure, a `PUT` chamada retorna um `Azure-AsyncOperation` valor de cabeçalho semelhante ao seguinte:
 
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
-Esse URI pode ser sondado periodicamente para obter o status da operação. Recomendamos aguardar até que o status da operação de recurso de link privado compartilhado tenha atingido um estado de terminal (ou seja, `succeeded` ) antes de continuar.
+Você pode sondar esse URI periodicamente para obter o status da operação. Antes de prosseguir, recomendamos que você aguarde até que o status da operação de recurso de vínculo privado compartilhado tenha atingido um estado de terminal (ou seja, o status da operação seja *bem-sucedido*).
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
@@ -103,30 +108,32 @@ Esse URI pode ser sondado periodicamente para obter o status da operação. Reco
 }
 ```
 
-## <a name="step-2a-approve-the-private-endpoint-connection-for-the-storage-account"></a>Etapa 2a: aprovar a conexão de ponto de extremidade particular para a conta de armazenamento
+### <a name="step-2a-approve-the-private-endpoint-connection-for-the-storage-account"></a>Etapa 2a: aprovar a conexão de ponto de extremidade particular para a conta de armazenamento
 
 > [!NOTE]
-> Esta seção usa portal do Azure para percorrer o fluxo de aprovação de um ponto de extremidade privado para o armazenamento. A [API REST](/rest/api/storagerp/privateendpointconnections) disponível por meio do RP (provedor de recursos de armazenamento) também pode ser usada.
+> Nesta seção, você usa o portal do Azure para percorrer o fluxo de aprovação de um ponto de extremidade privado para o armazenamento. Como alternativa, você pode usar a [API REST](/rest/api/storagerp/privateendpointconnections) que está disponível por meio do provedor de recursos de armazenamento.
 >
-> Outros provedores, como o CosmosDB, o SQL Server do Azure, etc., também oferecem APIs RP semelhantes para gerenciar conexões de ponto de extremidade privadas.
+> Outros provedores, como Azure Cosmos DB ou SQL Server do Azure, oferecem APIs de provedor de recursos de armazenamento semelhantes para gerenciar conexões de ponto de extremidade privadas.
 
-Navegue até a guia "**conexões de ponto de extremidade privado**" da conta de armazenamento em portal do Azure. Deve haver uma solicitação para uma conexão de ponto de extremidade privada, com a mensagem de solicitação da chamada à API anterior (quando a operação assíncrona tiver sido __bem-sucedida__).
+1. Na portal do Azure, selecione a guia **conexões de ponto de extremidade privado** da sua conta de armazenamento. Após a operação assíncrona ter sido bem-sucedida, deve haver uma solicitação para uma conexão de ponto de extremidade privada com a mensagem de solicitação da chamada à API anterior.
 
-   ![Aprovação de ponto de extremidade particular](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png "Aprovação de ponto de extremidade particular")
+   ![Captura de tela da portal do Azure, mostrando o painel "conexões de ponto de extremidade privado".](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
-Selecione o ponto de extremidade privado que foi criado pelo Azure Pesquisa Cognitiva (use a coluna "ponto de extremidade privado" para identificar a conexão de ponto de extremidade particular pelo nome especificado na API anterior) e escolha "aprovar", com uma mensagem apropriada (a mensagem não é significativa). Verifique se a conexão de ponto de extremidade privada aparece da seguinte maneira (pode em qualquer lugar de 1-2 minutos para que o status seja atualizado no Portal)
+1. Selecione o ponto de extremidade privado que o Azure Pesquisa Cognitiva criado. Na coluna **ponto de extremidade privado** , identifique a conexão de ponto de extremidade particular pelo nome especificado na API anterior, selecione **aprovar**e, em seguida, insira uma mensagem apropriada. O conteúdo da mensagem não é significativo. 
 
-![Ponto de extremidade privado aprovado](media\search-indexer-howto-secure-access\storage-privateendpoint-after-approval.png "Ponto de extremidade privado aprovado")
+   Certifique-se de que a conexão de ponto de extremidade particular apareça conforme mostrado na captura de tela a seguir. Pode levar de um a dois minutos para que o status seja atualizado no Portal.
 
-Depois que a solicitação de conexão de ponto de extremidade particular é aprovada, isso significa que o tráfego é *capaz* de fluir pelo ponto de extremidade privado. Depois que o ponto de extremidade privado for aprovado, o Azure Pesquisa Cognitiva criará os mapeamentos de zona DNS necessários na zona DNS criada para ele.
+   ![Captura de tela da portal do Azure, mostrando um status "aprovado" no painel "conexões de ponto de extremidade privado".](media\search-indexer-howto-secure-access\storage-privateendpoint-after-approval.png)
 
-## <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Etapa 2B: consultar o status do recurso de link privado compartilhado
+Depois que a solicitação de conexão de ponto de extremidade particular é aprovada, o tráfego é *capaz* de fluir pelo ponto de extremidade privado. Depois que o ponto de extremidade privado for aprovado, o Azure Pesquisa Cognitiva criará os mapeamentos de zona DNS necessários na zona DNS que é criada para ele.
 
- Para confirmar se o recurso de link privado compartilhado foi atualizado após a aprovação, obtenha seu status usando a [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Etapa 2B: consultar o status do recurso de link privado compartilhado
+
+Para confirmar se o recurso de link privado compartilhado foi atualizado após a aprovação, obtenha seu status usando a [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get).
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
-Se o `properties.provisioningState` do recurso for `Succeeded` e `properties.status` for `Approved` , significa que o recurso de link privado compartilhado é funcional e indexadores podem ser configurados para se comunicarem por meio do ponto de extremidade privado.
+Se o `properties.provisioningState` do recurso for `Succeeded` e `properties.status` for `Approved` , significa que o recurso de link privado compartilhado é funcional e o indexador pode ser configurado para se comunicar por meio do ponto de extremidade privado.
 
 ```json
 {
@@ -143,31 +150,38 @@ Se o `properties.provisioningState` do recurso for `Succeeded` e `properties.sta
 
 ```
 
-## <a name="step-3-configure-indexer-to-run-in-the-private-environment"></a>Etapa 3: configurar o indexador para ser executado no ambiente privado
+### <a name="step-3-configure-the-indexer-to-run-in-the-private-environment"></a>Etapa 3: configurar o indexador para ser executado no ambiente privado
 
 > [!NOTE]
-> Esta etapa pode ser executada mesmo antes que a conexão de ponto de extremidade particular seja aprovada. Até que a conexão de ponto de extremidade particular seja aprovada, qualquer indexador que tentar se comunicar com um recurso seguro (como a conta de armazenamento) acabará em um estado de falha transitória. Novos indexadores não serão criados. Assim que a conexão de ponto de extremidade particular for aprovada, os indexadores poderão acessar a conta de armazenamento particular.
+> Você pode executar essa etapa antes que a conexão de ponto de extremidade particular seja aprovada. Até que a conexão de ponto de extremidade particular seja aprovada, qualquer indexador que tentar se comunicar com um recurso seguro (como a conta de armazenamento) terminará em um estado de falha transitória. Novos indexadores não serão criados. Assim que a conexão de ponto de extremidade particular for aprovada, os indexadores poderão acessar a conta de armazenamento particular.
 
-1. [Crie uma fonte de dados](/rest/api/searchservice/create-data-source) que aponte para a conta de armazenamento seguro e um contêiner apropriado dentro da conta de armazenamento. O seguinte mostra essa solicitação no postmaster.
-![Criar fonte de dados](media\search-indexer-howto-secure-access\create-ds.png "Criação da fonte de dados")
+1. [Crie uma fonte de dados](/rest/api/searchservice/create-data-source) que aponte para a conta de armazenamento seguro e um contêiner apropriado dentro da conta de armazenamento. A captura de tela a seguir mostra essa solicitação no postmaster.
 
-1. Da mesma forma, [crie um índice](/rest/api/searchservice/create-index) e, opcionalmente, [crie um conconhecimentor](/rest/api/searchservice/create-skillset) usando a API REST.
+   ![Captura de tela mostrando a criação de uma fonte de dados na interface do usuário do postmaster.](media\search-indexer-howto-secure-access\create-ds.png )
 
-1. [Crie um indexador](/rest/api/searchservice/create-indexer) que aponte para a fonte de dados, o índice e o skillset criados acima. Além disso, Force o indexador a ser executado no ambiente de execução particular, definindo a propriedade de configuração do indexador `executionEnvironment` como `"Private"` .
-![Criar indexador](media\search-indexer-howto-secure-access\create-idr.png "Criação do indexador")
+1. Da mesma forma, [crie um índice](/rest/api/searchservice/create-index) e, opcionalmente, [crie um](/rest/api/searchservice/create-skillset) configurador de habilidades usando a API REST.
 
-O indexador deve ser criado com êxito e deve estar fazendo o andamento da indexação do conteúdo da conta de armazenamento na conexão de ponto de extremidade privada. O status do indexador pode ser monitorado usando a [API de status do indexador](/rest/api/searchservice/get-indexer-status).
+1. [Crie um indexador](/rest/api/searchservice/create-indexer) que aponte para a fonte de dados, o índice e o skillset que você criou na etapa anterior. Além disso, Force o indexador a ser executado no ambiente de execução particular definindo a propriedade de configuração do indexador `executionEnvironment` como `private` .
+
+   ![Captura de tela mostrando a criação de um indexador na interface do usuário do postmaster.](media\search-indexer-howto-secure-access\create-idr.png)
+
+   Depois que o indexador for criado com êxito, ele deverá começar a indexar o conteúdo da conta de armazenamento pela conexão de ponto de extremidade privada. Você pode monitorar o status do indexador usando a API de [status do indexador](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
-> Se você já tiver indexadores existentes, poderá simplesmente atualizá-los por meio da [API Put](/rest/api/searchservice/create-indexer) para definir `executionEnvironment` como `"Private"` .
+> Se você já tiver indexadores existentes, poderá atualizá-los por meio da [API Put](/rest/api/searchservice/create-indexer) definindo o `executionEnvironment` para `private` .
 
-## <a name="troubleshooting-issues"></a>Solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
-- Ao criar um indexador, se a criação falhar com uma mensagem de erro semelhante a "as credenciais de fonte de dados são inválidas", isso significa que a conexão de ponto de extremidade particular não foi *aprovada* ou não está funcionando.
-Obtenha o status do recurso de link privado compartilhado usando a [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get). Se tiver sido *aprovado* , verifique o `properties.provisioningState` do recurso. Se for `Incomplete` , isso significa que algumas das dependências subjacentes do recurso falharam ao provisionar – emita novamente a `PUT` solicitação para "recriar" o recurso de link privado compartilhado que deve corrigir o problema. Uma nova aprovação pode ser necessária-Verifique o status do recurso mais uma vez para verificar.
-- Se o indexador for criado sem definir seu `executionEnvironment` , a criação do indexador poderá ser bem-sucedida, mas seu histórico de execução mostrará que as execuções do indexador não são bem-sucedidas. Você deve [atualizar o indexador](/rest/api/searchservice/update-indexer) para especificar o ambiente de execução.
-- Se o indexador for criado sem definir o `executionEnvironment` e ele for executado com êxito, significa que o Azure pesquisa cognitiva decidiu que seu ambiente de execução é o ambiente "privado" específico do serviço de pesquisa. No entanto, isso pode ser alterado com base em uma variedade de fatores (recursos consumidos pelo indexador, a carga no serviço de pesquisa e assim por diante) e pode falhar em um ponto posterior – é altamente recomendável que você defina o `executionEnvironment` como `"Private"` para garantir que ele não falhará no futuro.
-- [Cotas e limites](search-limits-quotas-capacity.md) determinam quantos recursos de vínculo privado compartilhado podem ser criados e dependem do SKU do serviço de pesquisa.
+- Se a criação do indexador falhar com uma mensagem de erro como "as credenciais da fonte de dados são inválidas", isso significa que o status da conexão de ponto de extremidade particular ainda não foi *aprovado* ou a conexão não está funcionando. Para corrigir o problema: 
+  * Obtenha o status do recurso de link privado compartilhado usando a [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get). Se o status for *aprovado*, verifique o `properties.provisioningState` do recurso. Se o status for aqui `Incomplete` , isso significa que algumas das dependências subjacentes para o recurso não foram configuradas. Emitir `PUT` novamente a solicitação para recriar o recurso de link privado compartilhado deve corrigir o problema. Uma reaprovação pode ser necessária. Verifique novamente o status do recurso para verificar se o problema foi corrigido.
+
+- Se você criar o indexador sem definir sua `executionEnvironment` propriedade, a criação poderá ser bem-sucedida, mas seu histórico de execução mostrará que as execuções do indexador não são bem-sucedidas. Para corrigir o problema:
+   * [Atualize o indexador](/rest/api/searchservice/update-indexer) para especificar o ambiente de execução.
+
+- Se você criou o indexador sem definir a `executionEnvironment` propriedade e ele é executado com êxito, isso significa que o Azure pesquisa cognitiva decidiu que seu ambiente de execução é o ambiente *particular* específico do serviço de pesquisa. Isso pode mudar, dependendo dos recursos consumidos pelo indexador, da carga no serviço de pesquisa e de outros fatores, e pode falhar mais tarde. Para corrigir o problema:
+  * É altamente recomendável que você defina a `executionEnvironment` propriedade como `private` para garantir que ela não falhe no futuro.
+
+[Cotas e limites](search-limits-quotas-capacity.md) determinam quantos recursos de vínculo privado compartilhado podem ser criados e dependem do SKU do serviço de pesquisa.
 
 ## <a name="next-steps"></a>Próximas etapas
 

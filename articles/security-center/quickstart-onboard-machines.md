@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993605"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340862"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Conectar os computadores não Azure à Central de Segurança
 
@@ -86,7 +86,7 @@ Para adicionar as VMs do Azure Stack, você precisará de informações da pági
 1. Faça logon no portal do **Azure Stack** e abra a página **Máquinas virtuais**.
 1. Selecione a máquina virtual que você deseja proteger com a Central de Segurança.
     >[!TIP]
-    > Para saber mais sobre como criar uma máquina virtual no Azure Stack, confira [este início rápido para Máquinas Virtuais do Windows](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) ou [este início rápido para Máquinas Virtuais do Linux](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+    > Para saber mais sobre como criar uma máquina virtual no Azure Stack, confira [este início rápido para Máquinas Virtuais do Windows](/azure-stack/user/azure-stack-quick-windows-portal) ou [este início rápido para Máquinas Virtuais do Linux](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Selecione **Extensões**. A lista de extensões da máquina virtual instaladas nesta máquina virtual é mostrada.
 1. Selecione a guia **Adicionar**. O menu **Novo Recurso** mostra a lista de extensões da máquina virtual disponíveis.
 1. Selecione a extensão **Azure Monitor, atualização e gerenciamento de configuração** e selecione **Criar**. A página de configuração **Instalar extensão** é aberta.

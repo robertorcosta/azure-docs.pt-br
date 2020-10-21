@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440775"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339723"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo explica como gerenciar a postura de segurança de sua organização em escala aplicando políticas de segurança a todas as assinaturas do Azure vinculadas ao seu locatário de Azure Active Directory.
@@ -33,10 +33,10 @@ O grupo de gerenciamento raiz é criado automaticamente quando você faz qualque
 2. Cria um grupo de gerenciamento via uma chamada API.
 3. Cria um grupo de gerenciamento com PowerShell.
 
-Para obter mais informações sobre grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md).
+Para obter mais informações sobre grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md).
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Criar um Grupo de gerenciamento no Portal do Azure
-Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as políticas aplicadas ao grupo de gerenciamento. Embora os grupos de gerenciamento não precisem integrar a Central de Segurança, é altamente recomendável criar pelo menos um grupo de gerenciamento para que o grupo de gerenciamento raiz seja criado. Depois que o grupo é criado, todas as assinaturas sob o seu locatário Azure AD serão conectadas a ele. Para obter instruções sobre o PowerShell e mais informações, consulte [Criar grupos de gerenciamento para gerenciamento de recursos e organização](../azure-resource-manager/management-groups-create.md).
+Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as políticas aplicadas ao grupo de gerenciamento. Embora os grupos de gerenciamento não precisem integrar a Central de Segurança, é altamente recomendável criar pelo menos um grupo de gerenciamento para que o grupo de gerenciamento raiz seja criado. Depois que o grupo é criado, todas as assinaturas sob o seu locatário Azure AD serão conectadas a ele. Para obter instruções sobre o PowerShell e mais informações, consulte [Criar grupos de gerenciamento para gerenciamento de recursos e organização](../governance/management-groups/create-management-group-portal.md).
 
  
 1. Entre no [portal do Azure](https://portal.azure.com).
@@ -113,7 +113,7 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. Instale o [Azure PowerShell](/powershell/azure/install-az-ps).
-2. Execute os comandos a seguir: 
+2. Execute os seguintes comandos: 
 
     ```azurepowershell
     # Login to Azure as a Global Administrator user

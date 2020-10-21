@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 904ea7a50e4546d2721a9e701c78b6b77ed2d43a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683174"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132305"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -110,7 +110,7 @@ O Gerenciamento de Custos do Azure recebe marcas como parte de cada registro de 
 
 - As marcas devem ser aplicadas diretamente aos recursos e não são herdadas implicitamente do grupo de recursos pai.
 - As marcas de recurso só têm suporte em recursos implantados em grupos de recursos.
-- Talvez alguns recursos implantados não deem suporte a marcas ou não incluam marcas em dados de uso. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/tag-support.md).
+- Talvez alguns recursos implantados não deem suporte a marcas ou não incluam marcas em dados de uso. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/management/tag-support.md).
 - As marcas de recurso só são incluídas nos dados de uso enquanto a marca estiver aplicada. As marcas não são aplicadas aos dados históricos.
 - As marcas de recurso só estão disponíveis no Gerenciamento de Custos após a atualização dos dados. Confira [Atualizações de dados de custo e de uso e retenção](#cost-and-usage-data-updates-and-retention).
 - As marcas de recurso só ficam disponíveis no Gerenciamento de Custos quando o recurso está ativo/em execução e produzindo registros de uso (por exemplo, não quando uma VM é desalocada).
@@ -121,7 +121,7 @@ Se você não vir uma marca específica em Gerenciamento de Custos, considere o 
 
 - A marca foi aplicada diretamente ao recurso?
 - A marca foi aplicada há mais de 24 horas? Confira [Atualizações de dados de custo e de uso e retenção](#cost-and-usage-data-updates-and-retention)
-- O tipo de recurso dá suporte a marcas? Os tipos de recurso a seguir não dão suporte a marcas em dados de uso desde 1º de dezembro de 2019. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/tag-support.md) para obter a lista completa do que tem suporte.
+- O tipo de recurso dá suporte a marcas? Os tipos de recurso a seguir não dão suporte a marcas em dados de uso desde 1º de dezembro de 2019. Confira [Suporte a marcas para recursos do Azure](../../azure-resource-manager/management/tag-support.md) para obter a lista completa do que tem suporte.
     - Diretórios do Azure Active Directory B2C
     - Azure Bastion
     - Firewalls do Azure
@@ -185,4 +185,4 @@ Os dados históricos para ofertas com base em crédito e de pagamento antecipado
 
 ## <a name="see-also"></a>Confira também
 
-- Se você ainda não concluiu o primeiro início rápido de Gerenciamento de Custos, leia-o em [Iniciar a análise dos custos](../../cost-management/quick-acm-cost-analysis.md).
+- Se você ainda não concluiu o primeiro início rápido de Gerenciamento de Custos, leia-o em [Iniciar a análise dos custos](./quick-acm-cost-analysis.md).

@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840431"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125962"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implantar e seguir passo a passo o modelo de aplicativo de microcentral de atendimento
 
@@ -47,7 +47,7 @@ Para criar um aplicativo de microcentral de atendimento que usa versão prévia 
 
 1. Caso você tenha uma assinatura do Azure, insira o diretório, a assinatura do Azure e a região. Caso não tenha uma assinatura, habilite a avaliação gratuita de 7 dias e preencha as informações de contato solicitadas.  
 
-    Para obter mais informações sobre assinaturas e diretórios, consulte o início rápido [Criar um aplicativo](../preview/quick-deploy-iot-central.md).
+    Para obter mais informações sobre assinaturas e diretórios, consulte o início rápido [Criar um aplicativo](../core/quick-deploy-iot-central.md).
 
 1. Selecione **Criar**.
 
@@ -96,4 +96,4 @@ Saiba mais sobre
 > [!div class="nextstepaction"]
 > [arquitetura da solução da microcentral de atendimento](./architecture-micro-fulfillment-center.md)
 * Saiba mais sobre os [Modelos de varejo do Azure IoT Central](./overview-iot-central-retail.md)
-* Saiba mais sobre o [Azure IoT Central](../preview/overview-iot-central.md)
+* Saiba mais sobre o [Azure IoT Central](../core/overview-iot-central.md)

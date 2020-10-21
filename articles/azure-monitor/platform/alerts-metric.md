@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065855"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342154"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 
@@ -43,11 +43,11 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 8. Se a métrica tiver dimensões, você verá uma tabela de dimensões apresentada. Selecione um ou mais valores por dimensão.
     - Os valores de dimensão exibidos se baseiam nos dados de métrica dos últimos três dias.
     - Se o valor de dimensão que você está procurando não for exibido, clique em "+" para adicionar um valor personalizado.
-    - Também é possível **Selecionar \*** para qualquer uma das dimensões. **Selecionar \*** dimensionará dinamicamente a seleção para todos os valores atuais e futuros de uma dimensão.
+    - Você também pode **selecionar \* *_ para qualquer uma das dimensões. _*Selecione \* *_ dimensionará dinamicamente a seleção para todos os valores atuais e futuros de uma dimensão.
 
     A regra de alerta de métrica avaliará a condição para todas as combinações de valores selecionados. [Saiba mais sobre como os alertas de métricas multidimensionais funcionam](alerts-metric-overview.md).
 
-9. Selecione o tipo de **limite** , o **operador**e o **tipo de agregação**. Isso determinará a lógica que será avaliada pela regra de alerta de métrica.
+9. Selecione o tipo _*Threshold**, o **operador**e o **tipo de agregação**. Isso determinará a lógica que será avaliada pela regra de alerta de métrica.
     - Se você estiver usando um limite **estático** , continue a definir um **valor de limite**. O gráfico de métrica pode ajudar a determinar o que pode ser um limite razoável.
     - Se você estiver usando um limite **dinâmico** , continue a definir a **sensibilidade do limite**. O gráfico de métricas exibirá os limites calculados com base nos dados recentes. [Saiba mais sobre as opções de sensibilidade e o tipo de condição de Limites Dinâmicos](alerts-dynamic-thresholds.md).
 
@@ -154,8 +154,8 @@ As regras de alerta de métrica têm cmdlets dedicados do PowerShell disponívei
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar alertas de métrica usando modelos do Azure Resource Manager](./alerts-metric-create-templates.md).
-- [Compreender como os alertas de métrica funcionam](alerts-metric-overview.md).
-- [Entender como funcionam os alertas de métrica com a condição de Limites Dinâmicos](alerts-dynamic-thresholds.md).
+- [Criar alertas de métrica usando modelos de Azure Resource Manager](./alerts-metric-create-templates.md)
+- [Entenda como funcionam os alertas de métrica](alerts-metric-overview.md)
+- [Entender como funcionam os alertas de métrica com condição de limites dinâmicos](alerts-dynamic-thresholds.md)
 - [Compreender o esquema de web hook para alertas de métrica](./alerts-metric-near-real-time.md#payload-schema)
-
+- [Solucionando problemas em alertas de métricas](alerts-troubleshoot-metric.md)

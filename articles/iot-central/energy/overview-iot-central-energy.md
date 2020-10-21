@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 1a7502a77f8dca526c95e92302f0ca0a06a1dd32
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0cc9fd5836371a925be531de773ea9c2e276c0eb
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90970443"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127345"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Criar soluções de energia com o IoT Central 
 
@@ -66,6 +66,6 @@ Depois de implantar o aplicativo, você verá os dados do painel solar simulado 
 ## <a name="next-steps"></a>Próximas etapas
 Para começar a criar uma solução de energia:
 * Crie modelos de aplicativos gratuitamente: [aplicativo de medidor inteligente](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), [aplicativo de painel solar](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Saiba mais sobre os [conceitos do aplicativo de monitoramento de medidor inteligente](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
-* Saiba mais sobre os [conceitos do aplicativo de monitoramento de painel solar](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
-* Saiba mais sobre a [Plataforma do IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Saiba mais sobre os [conceitos do aplicativo de monitoramento de medidor inteligente](./concept-iot-central-smart-meter-app.md)
+* Saiba mais sobre os [conceitos do aplicativo de monitoramento de painel solar](./concept-iot-central-solar-panel-app.md)
+* Saiba mais sobre a [Plataforma do IoT Central](../index.yml)

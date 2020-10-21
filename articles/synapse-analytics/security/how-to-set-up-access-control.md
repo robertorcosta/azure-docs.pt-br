@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260148"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341542"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Proteger seu workspace do Synapse (versão prévia)
+# <a name="secure-your-synapse-workspace-preview"></a>Proteger seu workspace do Synapse (versão prévia) 
 
 Este artigo ensinará como usar funções e o controle de acesso para controlar as atividades e o acesso a dados. Seguindo essas instruções, o controle de acesso no Azure Synapse Analytics é simplificado. Você só precisa adicionar usuários a um dos três grupos de segurança e removê-los de lá.
 
@@ -31,7 +31,7 @@ Para proteger um workspace do Synapse (versão prévia), você seguirá um padr�
   - Administrador do Apache Spark para Azure Synapse Analytics
 - Controle de acesso para dados no Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Controle de acesso para bancos de dados do SQL do Synapse e Spark
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Etapas para proteger um workspace do Synapse
 
 Este documento usa nomes padrão para simplificar as instruções. Substitua-os pelos nomes de sua escolha.
@@ -71,11 +71,12 @@ Identifique estas informações sobre seu armazenamento:
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>ETAPA 3: Criar e configurar o workspace do Synapse
 
-No portal do Azure, crie um workspace do Synapse:
+ No portal do Azure, crie um workspace do Synapse:
 
+- Selecionar sua assinatura
+- Selecione seu grupo de recursos-você precisa ter acesso a um grupo de recursos para o qual você recebeu a função **proprietário** .
 - Dê ao workspace o nome WS1
-- Escolha STG1 para a Conta de armazenamento
-- Escolha CNT1 para o contêiner que está sendo usado como "filesystem".
+- Escolha STG1 para a conta de armazenamento-. Escolha CNT1 para o contêiner que está sendo usado como "filesystem".
 - Abra WS1 no Synapse Studio
 - Selecione **Gerenciar** > **Controle de Acesso** e atribua os grupos de segurança às funções do Synapse a seguir.
   - Atribua **WS1\_WSAdmins** a administradores do workspace do Synapse

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434093df3465e363d95fb79342d1854b99583d08
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001409"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091416"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Início Rápido: Biblioteca de clientes do Armazenamento do Blob v11 para .NET
 
@@ -33,7 +33,7 @@ Use a biblioteca de clientes do Armazenamento de Blobs do Azure para .NET para:
 
 Recursos adicionais:
 
-* [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Código-fonte da biblioteca](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [Amostras](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -205,7 +205,7 @@ Esses snippets de código de exemplo mostram como executar o seguinte com a bibl
 
 ### <a name="authenticate-the-client"></a>Autenticar o cliente
 
-O código abaixo verifica se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, use o método [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet). Se `TryParse` for bem-sucedido, ele inicializará a variável `storageAccount` e retornará `true`.
+O código abaixo verifica se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, use o método [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse). Se `TryParse` for bem-sucedido, ele inicializará a variável `storageAccount` e retornará `true`.
 
 Adicione esse código dentro do método `ProcessAsync`:
 

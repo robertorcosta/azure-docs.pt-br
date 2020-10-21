@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 51b2f4964c01efbfc82008134d47f09648a772ff
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d6b32df7264066daa0bc7298a04453dad4fc9937
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681967"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147250"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Como um desconto de reserva é aplicado a um servidor individual do Banco de Dados do Azure para PostgreSQL
 
@@ -30,7 +30,7 @@ O desconto de capacidade reservado ao servidor individual do Banco de Dados do A
 
 Os exemplos a seguir mostram como o desconto de capacidade reservada do servidor individual do Banco de Dados do Azure para PostgreSQL se aplica, dependendo do número de núcleos que você comprou e quando está em execução.
 
-* **Exemplo 1**: Você comprou uma capacidade reservada para um servidor individual do Banco de Dados do Azure para PostgreSQL para oito vCore. Se você estiver executando um servidor individual de 16 vCore de Banco de Dados do Azure para PostgreSQL que corresponda ao restante dos atributos da reserva, será cobrado de acordo com o preço pago conforme o uso de oito vCore para essa sua utilização de computação no servidor individual do PostgreSQL e obterá o desconto de reserva por uma hora do uso de computação de oito vCore no servidor individual do PostgreSQL.</br>
+**Exemplo 1**: Você comprou uma capacidade reservada para um servidor individual do Banco de Dados do Azure para PostgreSQL para oito vCore. Se você estiver executando um servidor individual de 16 vCore de Banco de Dados do Azure para PostgreSQL que corresponda ao restante dos atributos da reserva, será cobrado de acordo com o preço pago conforme o uso de oito vCore para essa sua utilização de computação no servidor individual do PostgreSQL e obterá o desconto de reserva por uma hora do uso de computação de oito vCore no servidor individual do PostgreSQL.</br>
 
 Para o restante desses exemplos, suponha que a capacidade reservada do Banco de Dados do Azure para PostgreSQL que você comprou seja para um servidor individual de 16 vCore do Banco de Dados do Azure para PostgreSQL e o restante dos atributos de reserva correspondem aos servidores individuais do PostgreSQL em execução.
 
@@ -40,7 +40,7 @@ Para o restante desses exemplos, suponha que a capacidade reservada do Banco de 
 
 * **Exemplo 4**: Você executa um servidor individual de 16 vCore do Banco de Dados do Azure para PostgreSQL das 13h às 13h45. Você executa um servidor individual de 16 vCore do Banco de Dados do Azure para PostgreSQL das 13h30 às 14h. Você será cobrado o preço pago conforme o uso para a sobreposição de 15 minutos. O desconto de reserva se aplica ao uso de computação para o restante do tempo.
 
-Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

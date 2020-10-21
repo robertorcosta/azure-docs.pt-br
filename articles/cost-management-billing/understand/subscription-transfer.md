@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 237565a7b72c3317e2c443f86965634ed7c9942c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336830"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149380"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Sobre a transferência da propriedade da cobrança para uma assinatura do Azure
 
@@ -63,7 +63,7 @@ A transferência de assinatura no portal do Azure está disponível para os tipo
 
 ## <a name="resources-transferred-with-subscriptions"></a>Recursos transferidos com assinaturas
 
-Todos os recursos – como VMs, discos e sites – são transferidos para a nova conta. No entanto, se você transferir uma assinatura para uma conta em outro locatário do Azure AD, as [funções de administrador](../manage/add-change-subscription-administrator.md) e as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) na assinatura não serão transferidas. Além disso, os [Registros de aplicativo](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e outros serviços específicos do locatário também não serão transferidos juntamente com a assinatura.
+Todos os recursos – como VMs, discos e sites – são transferidos para a nova conta. No entanto, se você transferir uma assinatura para uma conta em outro locatário do Azure AD, as [funções de administrador](../manage/add-change-subscription-administrator.md) e as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) na assinatura não serão transferidas. Além disso, os [Registros de aplicativo](../../active-directory/develop/quickstart-register-app.md) e outros serviços específicos do locatário também não serão transferidos juntamente com a assinatura.
 
 ## <a name="transfer-account-ownership-to-another-countryregion"></a>Transferir a propriedade da conta para outro país/região
 
@@ -99,7 +99,7 @@ Você pode exibir os usuários que têm atribuições de função do Azure para 
 Mesmo que as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os usuários da conta do proprietário original continuarão tendo acesso à assinatura por meio de outros mecanismos de segurança, incluindo:
 
 * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md).
-* Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
+* Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../../storage/common/storage-account-create.md).
 * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
 Se o destinatário precisar restringir o acesso aos recursos, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada. Entre no [portal do Azure](https://portal.azure.com) e, no menu Hub, selecione **Todos os recursos**. Em seguida, selecione o recurso. Depois, na página de recursos, selecione **Configurações**. Aqui você pode exibir e atualizar os segredos existentes.

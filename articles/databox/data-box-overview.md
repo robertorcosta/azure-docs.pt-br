@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86206222"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123555"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -144,7 +144,7 @@ O Data Box pode transferir dados de acordo com a região na qual o serviço foi 
 
 - **Disponibilidade de serviço** – Ao usar o Data Box para ordens de importação ou exportação, para obter mais informações sobre a disponibilidade da região, acesse [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). O recurso de exportação no Data Box está atualmente em versão prévia. 
 
-    Para ordens de importação, o Data Box também pode ser implantado na Nuvem do Azure Government. Para obter mais informações, confira [O que é o Azure Governamental?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). 
+    Para ordens de importação, o Data Box também pode ser implantado na Nuvem do Azure Government. Para obter mais informações, confira [O que é o Azure Governamental?](../azure-government/documentation-government-welcome.md). 
 
 - **Contas de armazenamento de Destino** – as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure nas quais o serviço está disponível.
 
@@ -154,7 +154,3 @@ O Data Box pode transferir dados de acordo com a região na qual o serviço foi 
 - Reveja os [requisitos de sistema do Data Box](data-box-system-requirements.md).
 - Entenda os [limites do Data Box](data-box-limits.md).
 - Implante rapidamente o [Azure Data Box](data-box-quickstart-portal.md) no portal do Azure.
-
-
-
-

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371732"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149395"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introdução à sua conta de cobrança do Azure atualizada
 
@@ -104,8 +104,8 @@ Se você estiver usando APIs de Cobrança ou Gerenciamento de Custos para consul
 
 |API | Alterações  |
 |---------|---------|
-|[Contas de cobrança – Lista](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Na API de Contas de Cobrança – Lista, sua conta de cobrança antiga tem agreementType **MicrosoftOnlineServiceProgram**, sua nova conta de cobrança terá agreementType **MicrosoftCustomerAgreement**. Se você assumir uma dependência de agreementType, atualize-a. |
-|[Faturas – lista por assinatura para cobrança](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Essa API retornará apenas as faturas geradas antes da atualização da sua conta. Você precisar usar a API [Faturas – lista por conta de cobrança](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) para obter faturas geradas em sua nova conta de cobrança. |
+|[Contas de cobrança – Lista](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Na API de Contas de Cobrança – Lista, sua conta de cobrança antiga tem agreementType **MicrosoftOnlineServiceProgram**, sua nova conta de cobrança terá agreementType **MicrosoftCustomerAgreement**. Se você assumir uma dependência de agreementType, atualize-a. |
+|[Faturas – lista por assinatura para cobrança](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Essa API retornará apenas as faturas geradas antes da atualização da sua conta. Você precisar usar a API [Faturas – lista por conta de cobrança](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) para obter faturas geradas em sua nova conta de cobrança. |
 
 ## <a name="additional-information"></a>Informações adicionais
 
