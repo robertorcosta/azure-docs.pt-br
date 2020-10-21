@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366714"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282472"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar do CouchBase para a API do SQL do Azure Cosmos DB
 
@@ -33,7 +33,7 @@ A seguir estão os principais recursos que funcionam de maneira diferente no Azu
 
 * O Azure Cosmos DB tem um campo “ID” dentro do documento, enquanto o Couchbase tem a ID como parte do bucket. O campo “ID” é exclusivo na partição.
 
-* O Azure Cosmos DB é dimensionado usando a técnica de particionamento ou fragmentação. Isso significa que ele divide os dados em vários fragmentos/partições. Essas partições/fragmentos são criados com base na propriedade da chave de partição que você fornece. Você pode selecionar a chave de partição para otimizar as operações de leitura e gravação ou também a leitura/gravação otimizada. Para saber mais, consulte o artigo [particionamento](./partition-data.md).
+* O Azure Cosmos DB é dimensionado usando a técnica de particionamento ou fragmentação. Isso significa que ele divide os dados em vários fragmentos/partições. Essas partições/fragmentos são criados com base na propriedade da chave de partição que você fornece. Você pode selecionar a chave de partição para otimizar as operações de leitura e gravação ou também a leitura/gravação otimizada. Para saber mais, consulte o artigo [particionamento](./partitioning-overview.md).
 
 * No Azure Cosmos DB, não é necessário que a hierarquia de nível superior denote a coleção porque o nome da coleção já existe. Esse recurso torna a estrutura JSON muito mais simples. Veja a seguir um exemplo que mostra as diferenças no modelo de dados entre o Couchbase e o Azure Cosmos DB:
 

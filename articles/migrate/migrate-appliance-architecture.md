@@ -3,12 +3,12 @@ title: Arquitetura do dispositivo de Migrações para Azure
 description: Fornece uma visão geral do dispositivo de Migrações para Azure usado na avaliação e migração de servidor.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a01932a9e4f72d7ce6747214b53f124d54942894
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322250"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312903"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura do dispositivo de Migrações para Azure
 
@@ -51,8 +51,8 @@ Durante a configuração do dispositivo, você registra o dispositivo com as mig
 **Ação** | **Detalhes** | **Permissões**
 --- | --- | ---
 **Registrar provedores de origem** | Esses provedores de recursos são registrados na assinatura que você escolhe durante a instalação do dispositivo: Microsoft. OffAzure, Microsoft. migrar e Microsoft. keyvault.<br/><br/> O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. | Para registrar os provedores de recursos, você precisa de uma função de Colaborador ou Proprietário na assinatura.
-**Criar aplicativo do Azure AD – comunicação** | As migrações para Azure criam um aplicativo Azure Active Directory (Azure AD) para comunicação (autenticação e autorização) entre os agentes em execução no dispositivo e seus respectivos serviços em execução no Azure.<br/><br/> Este aplicativo não tem privilégios para fazer chamadas de Azure Resource Manager ou acesso de RBAC em qualquer recurso. | Você precisa [dessas permissões](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) para a migração do Azure para criar o aplicativo.
-**Criar aplicativos do Azure AD – cofre de chaves** | Esse aplicativo é criado somente para a migração sem agente de VMs do VMware para o Azure.<br/><br/> Ele é usado exclusivamente para acessar o cofre de chaves criado na assinatura do usuário para a migração sem agente.<br/><br/> Ele tem acesso de RBAC no cofre de chaves do Azure (criado no locatário do cliente) quando a descoberta é iniciada a partir do dispositivo. | Você precisa [dessas permissões](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) para a migração do Azure para criar o aplicativo.
+**Criar aplicativo do Azure AD – comunicação** | As migrações para Azure criam um aplicativo Azure Active Directory (Azure AD) para comunicação (autenticação e autorização) entre os agentes em execução no dispositivo e seus respectivos serviços em execução no Azure.<br/><br/> Este aplicativo não tem privilégios para fazer chamadas de Azure Resource Manager ou acesso de RBAC em qualquer recurso. | Você precisa [dessas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para a migração do Azure para criar o aplicativo.
+**Criar aplicativos do Azure AD – cofre de chaves** | Esse aplicativo é criado somente para a migração sem agente de VMs do VMware para o Azure.<br/><br/> Ele é usado exclusivamente para acessar o cofre de chaves criado na assinatura do usuário para a migração sem agente.<br/><br/> Ele tem acesso de RBAC no cofre de chaves do Azure (criado no locatário do cliente) quando a descoberta é iniciada a partir do dispositivo. | Você precisa [dessas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para a migração do Azure para criar o aplicativo.
 
 
 
@@ -91,4 +91,3 @@ Desative a atualização automática no registro definindo a chave "AutoUpdate" 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Examine](migrate-appliance.md) a matriz de suporte do dispositivo.
-

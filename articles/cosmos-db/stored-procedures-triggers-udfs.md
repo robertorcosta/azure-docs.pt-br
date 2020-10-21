@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82509662"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279907"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo usuário
 
@@ -24,7 +24,7 @@ A escrita de procedimentos armazenados, gatilhos e UDFs (funções definidas pel
 
 * **Lógica de procedimento:** JavaScript como uma linguagem de programação de alto nível que fornece uma interface rica e familiar para expressar a lógica de negócios. Você pode executar uma sequência de operações complexas nos dados.
 
-* **Transações atômicas:** Azure Cosmos DB garante que as operações de banco de dados executadas em um único procedimento armazenado ou um gatilho sejam atômicas. Essa funcionalidade atômica permite que um aplicativo combine operações relacionadas em um único lote, de modo que todas as operações ou nenhuma delas seja bem-sucedida.
+* **Transações atômicas:** Azure Cosmos DB operações de banco de dados executadas em um único procedimento armazenado ou um gatilho são atômicas. Essa funcionalidade atômica permite que um aplicativo combine operações relacionadas em um único lote, de modo que todas as operações ou nenhuma delas seja bem-sucedida.
 
 * **Desempenho:** Os dados JSON são mapeados intrinsecamente para o sistema de tipos de linguagem JavaScript. Esse mapeamento permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda para o código em execução. Há outros benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados, que incluem:
 
@@ -55,13 +55,13 @@ No Azure Cosmos DB, o runtime do JavaScript é hospedado dentro do mecanismo de 
 
 ### <a name="scope-of-a-transaction"></a>Escopo de uma transação
 
-Os procedimentos armazenados são associados a um contêiner Cosmos do Azure e a execução do procedimento armazenado é delimitada a uma chave de partição lógica. Os procedimentos armazenados devem incluir um valor de chave de partição lógica durante a execução que define a partição lógica para o escopo da transação. Para obter mais informações, confira o artigo [Particionamento do Azure Cosmos DB](partition-data.md).
+Os procedimentos armazenados são associados a um contêiner Cosmos do Azure e a execução do procedimento armazenado é delimitada a uma chave de partição lógica. Os procedimentos armazenados devem incluir um valor de chave de partição lógica durante a execução que define a partição lógica para o escopo da transação. Para obter mais informações, confira o artigo [Particionamento do Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="commit-and-rollback"></a>Confirmação e reversão
 
 As transações são nativamente integradas ao modelo de programação do JavaScript do Azure Cosmos DB. Dentro de uma função do JavaScript, todas as operações são encapsuladas automaticamente em uma única transação. Se a lógica do JavaScript em um procedimento armazenado for concluída sem exceções, todas as operações dentro da transação serão confirmadas no banco de dados. Instruções como `BEGIN TRANSACTION` e `COMMIT TRANSACTION` (conhecidas por bancos de dados relacionais) são implícitas no Azure Cosmos DB. Se houver exceções do script, o runtime do JavaScript do Azure Cosmos DB reverterá a transação inteira. Dessa forma, gerar uma exceção é efetivamente equivalente a um `ROLLBACK TRANSACTION` no Azure Cosmos DB.
 
-### <a name="data-consistency"></a>Coerência de dados
+### <a name="data-consistency"></a>Consistência de dados
 
 Os procedimentos armazenados e os gatilhos são sempre executados na réplica primária de um contêiner do Azure Cosmos. Esse recurso garante que as leituras dos procedimentos armazenados ofereçam [coerência forte](consistency-levels-tradeoffs.md). As consultas que usam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária. Os procedimentos armazenados e os gatilhos se destinam a dar suporte a gravações transacionais – enquanto a lógica somente leitura é melhor implementada como a lógica do lado do aplicativo – e consultas usando os [SDKs da API do SQL do Azure Cosmos DB](sql-api-dotnet-samples.md) e isso ajudará você a saturar a taxa de transferência de banco de dados. 
 

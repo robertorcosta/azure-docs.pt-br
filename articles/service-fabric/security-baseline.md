@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227705"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309147"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança do Azure para Service Fabric
 
@@ -78,7 +78,7 @@ Considere implantar o WAF (firewall do aplicativo Web) do Azure na frente de apl
 
 * [Como configurar a proteção contra DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/threat-protection.md)
+* [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -488,7 +488,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -572,7 +572,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 * [Entender a criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Como configurar chaves de criptografia gerenciadas pelo cliente](../storage/common/storage-encryption-keys-portal.md)
+* [Como configurar chaves de criptografia gerenciadas pelo cliente](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Habilitar a criptografia de disco para nós de Cluster Service Fabric do Azure no Windows](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -608,7 +608,7 @@ Use uma solução de terceiros para executar avaliações de vulnerabilidade em 
 
 * [Induzir caos controlado em clusters de Service Fabric](./service-fabric-controlled-chaos.md)
 
-* [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -698,7 +698,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 * [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
+* [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -1042,7 +1042,7 @@ Se você estiver usando chaves gerenciadas pelo cliente, verifique se Soft-Delet
 
 * [Criptografia do Armazenamento do Azure em repouso](../storage/common/storage-service-encryption.md)
 
-* [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

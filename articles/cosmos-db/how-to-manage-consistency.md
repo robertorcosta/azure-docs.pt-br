@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330546"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279602"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerenciar os níveis de coerência no Azure Cosmos DB
 
@@ -288,8 +288,9 @@ Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer
 Saiba mais sobre como gerenciar conflitos de dados ou passar para o próximo conceito fundamental no Azure Cosmos DB. Confira os seguintes artigos:
 
 * [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
-* [Gerenciar conflitos entre regiões](how-to-manage-conflicts.md)
 * [Particionamento e distribuição de dados](partition-data.md)
+* [Gerenciar conflitos entre regiões](how-to-manage-conflicts.md)
+* [Particionamento e distribuição de dados](partitioning-overview.md)
 * [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos)
 * [Alta disponibilidade](high-availability.md)
 * [SLA do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

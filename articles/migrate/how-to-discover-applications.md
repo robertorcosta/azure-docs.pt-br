@@ -3,12 +3,12 @@ title: Descobrir aplicativos, funções e recursos em servidores locais com as m
 description: Saiba como descobrir aplicativos, funções e recursos em servidores locais com a avaliação de servidor de migrações para Azure.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118640"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315204"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 
@@ -46,7 +46,7 @@ Depois que o dispositivo é implantado e você forneceu credenciais, o dispositi
 
 ## <a name="verify-permissions"></a>Verificar permissões
 
-Você [criou um vCenter Server conta somente leitura](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) para descoberta e avaliação. A conta somente leitura precisa de privilégios habilitados para operações de convidado de **máquinas virtuais**  >  **Guest Operations**, a fim de interagir com a VM para a descoberta de aplicativos.
+Você [criou um vCenter Server conta somente leitura](./tutorial-discover-vmware.md#prepare-vmware) para descoberta e avaliação. A conta somente leitura precisa de privilégios habilitados para operações de convidado de **máquinas virtuais**  >  **Guest Operations**, a fim de interagir com a VM para a descoberta de aplicativos.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Adicionar a conta de usuário ao dispositivo
 
@@ -56,7 +56,7 @@ Adicione a conta de usuário da seguinte maneira:
 2. Navegue até o painel **fornecer detalhes do vCenter** .
 3. Em **descobrir aplicativo e dependências em VMs**, clique em **Adicionar credenciais**
 3. Escolha o **sistema operacional**, forneça um nome amigável para a conta e a senha do **nome de usuário** / **Password**
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 7. Clique em **salvar e iniciar descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)

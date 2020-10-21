@@ -84,6 +84,8 @@
           href: request-limits.md
     - name: Recursos
       items:
+        - name: Opções de Ajuda e suporte
+          href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
         - name: Exemplo de código no GitHub
           href: 'https://aka.ms/TranslatorGitHub'
         - name: Perguntas frequentes
@@ -94,8 +96,6 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
 - name: Tradutor personalizado
   items:
     - name: Visão geral
@@ -148,6 +148,8 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Recursos
       items:
+        - name: Opções de Ajuda e suporte
+          href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
         - name: Glossário
           href: custom-translator/glossary.md
         - name: Perguntas frequentes
@@ -158,5 +160,3 @@
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Criptografia
           href: translator-encryption-of-data-at-rest.md
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

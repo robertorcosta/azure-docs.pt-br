@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570728"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282092"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contêineres e bancos de dados do Azure Cosmos com taxa de transferência de dimensionamento automático
 
@@ -85,6 +85,6 @@ Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md)
 * Examine as [Perguntas frequentes sobre dimensionamento automático](autoscale-faq.md).
 * Saiba como [escolher entre taxa de transferência manual e de dimensionamento automático](how-to-choose-offer.md).
 * Saiba como [provisionar a taxa de transferência de dimensionamento automático em um banco de dados ou contêiner do Azure Cosmos](how-to-provision-autoscale-throughput.md).
-* Saiba mais sobre [particionamento](partition-data.md) no Azure Cosmos DB.
+* Saiba mais sobre [particionamento](partitioning-overview.md) no Azure Cosmos DB.
 
 

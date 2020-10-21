@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8df913234be1f3e07677520e41b699fe6d503204
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570810"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314513"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acessar o painel da Web do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
@@ -102,7 +102,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Entrar no painel (kubernetes 1.16 +)
 
 > [!IMPORTANT]
-> A partir de [v 1.10.1 do painel do kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) ou do kubernetes v 1.16 + a conta de serviço "kubernetes-Dashboard" não pode mais ser usada para recuperar recursos devido a uma [correção de segurança nessa versão](https://github.com/kubernetes/dashboard/pull/3400). Como resultado, as solicitações sem informações de autenticação retornam um erro não autorizado 401. Um token de portador recuperado de uma conta de serviço ainda pode ser usado como neste [exemplo de painel do kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), mas isso afeta o fluxo de logon do complemento do painel em comparação com as versões mais antigas.
+> A partir de [v 1.10.1 do painel do kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) ou do kubernetes v 1.16 + a conta de serviço "kubernetes-Dashboard" não pode mais ser usada para recuperar recursos devido a uma [correção de segurança nessa versão](https://github.com/kubernetes/dashboard/pull/3400). Como resultado, as solicitações sem informações de autenticação retornam um [erro não autorizado 401](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998). Um token de portador recuperado de uma conta de serviço ainda pode ser usado como neste [exemplo de painel do kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), mas isso afeta o fluxo de logon do complemento do painel em comparação com as versões mais antigas.
 >
 >Se você ainda executar uma versão anterior a 1,16, ainda poderá conceder permissões para a conta de serviço "kubernetes-Dashboard", mas isso **não é recomendado**:
 > ```console

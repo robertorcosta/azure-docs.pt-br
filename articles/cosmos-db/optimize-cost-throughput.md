@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801317"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281067"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Você pode provisionar a taxa de transferência em bancos de dados ou contêiner
 
 * Se você provisionar a taxa de transferência em um banco de dados, todos os contêineres, por exemplo, coleções/tabelas/gráficos dentro desse banco de dados, poderão compartilhar a taxa de transferência com base na carga. A taxa de transferência reservada no nível do banco de dados é compartilhada sem uniformidade, dependendo da carga de trabalho em um conjunto específico de contêineres.
 
-* Se você provisionar a taxa de transferência em um contêiner, ela será garantida para esse contêiner, com suporte do SLA. A escolha de uma chave de partição lógica é crucial para a distribuição uniforme de carga entre todas as partições lógicas de um contêiner. Consulte os artigos [Particionamento](partitioning-overview.md) e [Dimensionamento horizontal](partition-data.md) para obter mais detalhes.
+* Se você provisionar a taxa de transferência em um contêiner, ela será garantida para esse contêiner, com suporte do SLA. A escolha de uma chave de partição lógica é crucial para a distribuição uniforme de carga entre todas as partições lógicas de um contêiner. Consulte os artigos [Particionamento](partitioning-overview.md) e [Dimensionamento horizontal](partitioning-overview.md) para obter mais detalhes.
 
 Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de transferência provisionada:
 

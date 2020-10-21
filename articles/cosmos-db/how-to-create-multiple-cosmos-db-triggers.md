@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019973"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279629"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos do Azure Functions para o Cosmos DB
 
@@ -24,7 +24,7 @@ Este artigo descreve como você pode configurar vários gatilhos do Azure Functi
 
 Ao criar arquiteturas sem servidor com o [Azure Functions](../azure-functions/functions-overview.md), é [recomendado](../azure-functions/functions-best-practices.md#avoid-long-running-functions) criar pequenos conjuntos de função que funcionam juntos, em vez de funções grandes de execução prolongada.
 
-Conforme criar fluxos sem servidor com base em eventos usando o [Gatilho do Azure Functions para o Cosmos DB](./change-feed-functions.md), você executará o cenário em que deseja realizar várias ações sempre que houver um novo evento em um [contêiner do Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers) em particular. Se as ações que você deseja disparar são independentes umas das outras, a solução ideal é **criar um gatilho do Azure Functions para o Cosmos DB por ação** que você deseja realizar, tudo isso escutando as alterações no mesmo contêiner do Azure Cosmos.
+Conforme criar fluxos sem servidor com base em eventos usando o [Gatilho do Azure Functions para o Cosmos DB](./change-feed-functions.md), você executará o cenário em que deseja realizar várias ações sempre que houver um novo evento em um [contêiner do Azure Cosmos](./account-databases-containers-items.md#azure-cosmos-containers) em particular. Se as ações que você deseja disparar são independentes umas das outras, a solução ideal é **criar um gatilho do Azure Functions para o Cosmos DB por ação** que você deseja realizar, tudo isso escutando as alterações no mesmo contêiner do Azure Cosmos.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Otimizando contêineres para vários gatilhos
 

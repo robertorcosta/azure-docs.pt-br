@@ -1,20 +1,20 @@
 ---
 title: Extensão do Azure Policy para Visual Studio Code
 description: Saiba como usar a extensão de Azure Policy para Visual Studio Code para procurar Azure Resource Manager aliases.
-ms.date: 10/14/2020
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077925"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317624"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usar extensão de Azure Policy para Visual Studio Code
 
-> Aplica-se a Azure Policy versão de extensão **0.0.21** e mais recente
+> Aplica-se a Azure Policy versão de extensão **0.1.0** e mais recente
 
-Saiba como usar a extensão de Azure Policy para Visual Studio Code para pesquisar [aliases](../concepts/definition-structure.md#aliases) e examinar recursos e políticas. Primeiro, descreveremos como instalar a extensão de Azure Policy no Visual Studio Code. Em seguida, vamos examinar como Pesquisar aliases.
+Saiba como usar a extensão de Azure Policy para Visual Studio Code para pesquisar [aliases](../concepts/definition-structure.md#aliases), examinar recursos e políticas, exportar objetos e avaliar definições de políticas. Primeiro, descreveremos como instalar a extensão de Azure Policy no Visual Studio Code. Em seguida, vamos examinar como Pesquisar aliases.
 
 A extensão de Azure Policy para Visual Studio Code pode ser instalada em todas as plataformas com suporte no Visual Studio Code. Esse suporte inclui Windows, Linux e macOS.
 
@@ -151,6 +151,51 @@ A extensão Azure Policy lista os tipos de política e as atribuições de polí
 1. Use o filtro para selecionar qual política ou exibir. O filtro funciona para _DisplayName_ para a definição de política ou atribuição de política.
 
 Ao selecionar uma política ou atribuição, seja por meio da interface de pesquisa ou selecionando-a no modo de exibição de árvore, a extensão de Azure Policy abre o JSON que representa a política ou atribuição e todos os seus valores de Propriedade do Resource Manager. A extensão pode validar o esquema do Azure Policy JSON aberto.
+
+## <a name="export-objects"></a>Exportar objetos
+
+Os objetos de suas assinaturas podem ser exportados para um arquivo JSON local. No painel **recursos** ou **políticas** , passe o mouse sobre ou selecione um objeto exportável. No final da linha realçada, selecione o ícone salvar e selecione uma pasta para salvar os recursos JSON.
+
+Os seguintes objetos podem ser exportados localmente:
+
+- Painel de recursos
+  - Grupos de recursos
+  - Recursos individuais (em um grupo de recursos ou em um provedor de recursos)
+- Painel de políticas
+  - Atribuições de política
+  - Definições de política internas
+  - Definições de política personalizadas
+  - Iniciativas
+
+## <a name="on-demand-evaluation-scan"></a>Exame de avaliação sob demanda
+
+Uma verificação de avaliação pode ser iniciada com a extensão de Azure Policy para Visual Studio Code. Para iniciar uma avaliação, selecione e fixe cada um dos seguintes objetos: um recurso, uma definição de política e uma atribuição de política.
+
+1. Para fixar cada objeto, localize-o no painel **recursos** ou no painel **políticas** e selecione o ícone fixar em uma guia Editar. A fixação de um objeto o adiciona ao painel de **avaliação** da extensão.
+1. No painel **avaliação** , selecione um de cada objeto e use o ícone selecionar para avaliação para marcá-lo como incluído na avaliação.
+1. Na parte superior do painel de **avaliação** , selecione o ícone executar avaliação. Um novo painel no Visual Studio Code é aberto com os detalhes de avaliação resultantes no formato JSON.
+
+> [!NOTE]
+> Se a definição de política selecionada for um [AuditIfNotExists](../concepts/effects.md#auditifnotexists) ou [DeployIfNotExists](../concepts/effects.md#deployifnotexists), no painel **avaliação** , use o ícone de adição para selecionar um recurso _relacionado_ para a verificação de existência.
+
+Os resultados da avaliação fornecem informações sobre a definição de política e a atribuição de política junto com a propriedade **policyEvaluations. evaluationResult** . O resultado é semelhante ao exemplo a seguir:
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="sign-out"></a>Sair
 

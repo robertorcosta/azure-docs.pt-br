@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: a40be5212fb1335482ec5011d24c8eaf5f3d9a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409672"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282463"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para MongoDB 
 
-O documento a seguir contém os comandos de ação personalizada que são específicos para a API do Azure Cosmos DB para MongoDB. Esses comandos podem ser usados para criar e obter recursos de banco de dados específicos para o [modelo de capacidade de Azure Cosmos DB](databases-containers-items.md).
+O documento a seguir contém os comandos de ação personalizada que são específicos para a API do Azure Cosmos DB para MongoDB. Esses comandos podem ser usados para criar e obter recursos de banco de dados específicos para o [modelo de capacidade de Azure Cosmos DB](account-databases-containers-items.md).
 
 Usando a API do Azure Cosmos DB para MongoDB, você pode aproveitar os benefícios Cosmos DB como distribuição global, fragmentação automática, alta disponibilidade, garantias de latência, automático, criptografia em repouso, backups e muito mais, preservando seus investimentos em seu aplicativo MongoDB. Você pode se comunicar com a API do Azure Cosmos DB para MongoDB usando qualquer um dos [drivers de cliente do MongoDB](https://docs.mongodb.org/ecosystem/drivers)de software livre. A API do Azure Cosmos DB para MongoDB permite o uso de drivers de cliente existentes ao aderir ao [protocolo de transmissão do MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
