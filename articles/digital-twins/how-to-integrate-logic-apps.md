@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207539"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280857"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
@@ -200,7 +200,7 @@ Talvez seja solicitado que você entre com suas credenciais do Azure para se con
 Na caixa novo *DigitalTwinsAdd* , preencha os campos da seguinte maneira:
 * _ID_: Preencha a *ID* do cópia do cópia digital em sua instância que você deseja que o aplicativo lógico atualize.
 * texto _: este_campo é onde você inserirá o corpo que a solicitação de API escolhida requer. Para *DigitalTwinsUpdate*, esse corpo está na forma de código de patch JSON. Para obter mais informações sobre como estruturar um patch JSON para atualizar seu número de atualizações, consulte a seção [atualizar uma atualização digital](how-to-manage-twin.md#update-a-digital-twin) de informações de *como: gerenciar gêmeos digitais*.
-* _versão_da API: a versão mais recente da API. Na visualização pública atual, esse valor é *2020-05-31-Preview*
+* _versão_da API: a versão mais recente da API. Atualmente, esse valor é *2020-10-31*.
 
 Clique em *salvar* no designer de aplicativos lógicos.
 

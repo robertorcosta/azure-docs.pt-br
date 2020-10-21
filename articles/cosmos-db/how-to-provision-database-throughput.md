@@ -1,26 +1,26 @@
 ---
-title: Provisionar taxa de transferência de banco de dados no Azure Cosmos DB
-description: Saiba como provisionar a taxa de transferência no nível de banco de dados no Azure Cosmos DB com o portal do Azure, a CLI, o PowerShell e vários outros SDKs.
+title: Provisionar taxa de transferência de banco de dados na API Azure Cosmos DB do SQL
+description: Saiba como provisionar a taxa de transferência no nível do banco de dados em Azure Cosmos DB API do SQL usando portal do Azure, CLI, PowerShell e vários outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/28/2019
+ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 668aa51bdb57dc4bcde0e3a95c481bb60e3d8ed3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a67a062c06950294ec9e49e2ec69552edc4ee77a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997363"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278599"
 ---
-# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Provisionar taxa de transferência padrão (manual) em um banco de dados no Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Provisionar taxa de transferência padrão (manual) em um banco de dados na API Azure Cosmos DB-SQL
 
-Este artigo explica como provisionar a taxa de transferência padrão (manual) em um banco de dados no Azure Cosmos DB. Você pode provisionar a taxa de transferência para um único [contêiner](how-to-provision-container-throughput.md) ou para um banco de dados e compartilhá-la entre os contêineres dentro dele. Para saber quando usar taxa de transferência no nível de banco de dados e de contêiner, consulte o artigo [Casos de uso para provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md). É possível provisionar a taxa de transferência no nível do banco de dados usando o portal do Azure ou os SDKs do Azure Cosmos DB.
+Este artigo explica como provisionar a taxa de transferência padrão (manual) em um banco de dados no Azure Cosmos DB API do SQL. Você pode provisionar a taxa de transferência para um único [contêiner](how-to-provision-container-throughput.md) ou para um banco de dados e compartilhá-la entre os contêineres dentro dele. Para saber quando usar taxa de transferência no nível de banco de dados e de contêiner, consulte o artigo [Casos de uso para provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md). É possível provisionar a taxa de transferência no nível do banco de dados usando o portal do Azure ou os SDKs do Azure Cosmos DB.
+
+Se você estiver usando uma API diferente, confira [API para MongoDB](how-to-provision-throughput-mongodb.md), [API do Cassandra](how-to-provision-throughput-cassandra.md), artigos da [API Gremlin](how-to-provision-throughput-gremlin.md) para provisionar a taxa de transferência.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Provisionar a taxa de transferência usando o portal do Azure
-
-### <a name="sql-core-api"></a><a id="portal-sql"></a>API de SQL (Core)
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -29,11 +29,11 @@ Este artigo explica como provisionar a taxa de transferência padrão (manual) e
 1. Abra o painel **Data Explorer** e selecione **Novo Banco de Dados**. Forneça os seguintes detalhes:
 
    * Insira uma ID do banco de dados.
-   * Selecione **Provisionar taxa de transferência**.
+   * Selecione a opção **provisionar taxa de transferência do banco de dados** .
    * Insira uma taxa de transferência (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Captura de tela da caixa de diálogo Novo Banco de Dados":::
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Captura de tela da caixa de diálogo Novo Banco de Dados":::
 
 ## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Provisionar taxa de transferência com a CLI do Azure ou o PowerShell
 
@@ -45,9 +45,7 @@ Para criar um banco de dados com taxa de transferência compartilhada, consulte:
 ## <a name="provision-throughput-using-net-sdk"></a>Provisionar a taxa de transferência usando o SDK .NET
 
 > [!Note]
-> Você pode usar os SDKs do Cosmos para a API de SQL para provisionar a taxa de transferência de todas as APIs. Opcionalmente, você pode usar o exemplo a seguir para a API do Cassandra também.
-
-### <a name="all-apis"></a><a id="dotnet-all"></a>Todas as APIs
+> Você pode usar os SDKs do Azure Cosmos para a API do SQL para provisionar a taxa de transferência para todas as APIs. Opcionalmente, você pode usar o exemplo a seguir para a API do Cassandra também.
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -70,15 +68,6 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ---
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API do Cassandra
-
-Um comando semelhante pode ser executado por qualquer driver compatível com CQL.
-
-```csharp
-// Create a Cassandra keyspace and provision throughput of 400 RU/s
-session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
-```
- 
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte os seguintes artigos para saber mais sobre taxa de transferência provisionada no Azure Cosmos DB:

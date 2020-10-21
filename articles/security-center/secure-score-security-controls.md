@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4897c1b54eff5eb06e0ef49f0c74e261f5a9687e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268257"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281281"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação segura na Central de Segurança do Azure
 
@@ -57,7 +57,7 @@ A central de segurança exibe sua pontuação de forma proeminente no Portal: é
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenha sua pontuação segura da API REST
 
-Você pode acessar sua pontuação por meio da [API de Pontuação segura](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (atualmente em visualização). Os métodos de API oferecem a flexibilidade para consultar os dados e criar seu mecanismo de relatório das suas classificações de segurança ao longo do tempo. Por exemplo, você pode usar a API **Classificações de Segurança** para obter a classificação de uma assinatura específica. Além disso, você pode usar a API **Controles de Classificação de Segurança** para listar os controles de segurança e a classificação atual das suas assinaturas.
+Você pode acessar sua pontuação por meio da API de Pontuação segura (atualmente em visualização). Os métodos de API oferecem a flexibilidade para consultar os dados e criar seu mecanismo de relatório das suas classificações de segurança ao longo do tempo. Por exemplo, você pode usar a [API de pontuações seguras](https://docs.microsoft.com/rest/api/securitycenter/securescores) para obter a pontuação de uma assinatura específica. Além disso, você pode usar a [API de controles de Pontuação segura](https://docs.microsoft.com/rest/api/securitycenter/securescorecontrols) para listar os controles de segurança e a pontuação atual de suas assinaturas.
 
 ![Recuperando uma única Pontuação segura por meio da API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -156,7 +156,7 @@ A tabela a seguir lista os controles de segurança na Central de Segurança do A
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Restringir o acesso não autorizado à rede (pontuação máxima de 4)</p></strong>Os pontos de extremidade em uma organização fornecem uma conexão direta de sua rede virtual com os serviços do Azure permitidos. As máquinas virtuais em uma sub-rede podem se comunicar com todos os recursos. Para limitar a comunicação de e para recursos em uma sub-rede, crie um grupo de segurança de rede e associe-o à sub-rede. As organizações podem limitar e proteger contra tráfego não autorizado criando regras de entrada e saída.</td>
-    <td class="tg-lboi"; width=55%>- O encaminhamento de IP na máquina virtual deve ser desabilitado<br>- Os intervalos de IP autorizados devem ser definidos nos Serviços do Kubernetes (Versão Prévia)<br>- (PRETERIDO) O acesso aos Serviços de Aplicativos deve ser restrito (Versão Prévia)<br>- (PRETERIDO) As regras de aplicativos Web nos NSGs de IaaS devem ser fortalecidas<br>- Máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede<br>- O CORS não deve permitir que todos os recursos tenham acesso ao seu Aplicativo de API<br>- O CORS não deve permitir que todos os recursos acessem seu Aplicativo de Funções<br>- O CORS não deve permitir que todos os recursos acessem seu Aplicativo Web<br>- A depuração remota deve ser desativada para o Aplicativo de API<br>- A depuração remota deve ser desativada para o Aplicativo de Funções<br>- A depuração remota deve ser desativada para o Aplicativo Web<br>- O acesso deve ser restrito para os Grupos de Segurança de Rede permissivos com VMs para a Internet<br>- As Regras do Grupo de Segurança de Rede nas máquinas virtuais para a Internet devem ser protegidas<br>- Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters (visualização)<br>- Os contêineres devem escutar somente em portas permitidas (versão prévia)<br>- Os serviços devem escutar somente em portas permitidas (versão prévia)<br>- O uso de rede e portas do host deve ser restrito (versão prévia)</td>
+    <td class="tg-lboi"; width=55%>- O encaminhamento de IP na máquina virtual deve ser desabilitado<br>- Os intervalos de IP autorizados devem ser definidos nos Serviços do Kubernetes (Versão Prévia)<br>- (PRETERIDO) O acesso aos Serviços de Aplicativos deve ser restrito (Versão Prévia)<br>- (PRETERIDO) As regras de aplicativos Web nos NSGs de IaaS devem ser fortalecidas<br>- Máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede<br>- O CORS não deve permitir que todos os recursos tenham acesso ao seu Aplicativo de API<br>- O CORS não deve permitir que todos os recursos acessem seu Aplicativo de Funções<br>- O CORS não deve permitir que todos os recursos acessem seu Aplicativo Web<br>- A depuração remota deve ser desativada para o Aplicativo de API<br>- A depuração remota deve ser desativada para o Aplicativo de Funções<br>- A depuração remota deve ser desativada para o Aplicativo Web<br>- O acesso deve ser restrito para os Grupos de Segurança de Rede permissivos com VMs para a Internet<br>- As Regras do Grupo de Segurança de Rede nas máquinas virtuais para a Internet devem ser protegidas<br>- Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters (visualização)<br>- Os contêineres devem escutar somente em portas permitidas (versão prévia)<br>- Os serviços devem escutar somente em portas permitidas (versão prévia)<br>- O uso de rede e portas do host deve ser restrito (versão prévia)<br>- As redes virtuais devem ser protegidas pelo firewall do Azure (versão prévia)</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar controle de aplicativo adaptável (pontuação máxima de 3)</p></strong>O AAC (controle de aplicativo adaptável) é uma solução inteligente, automatizada e de ponta a ponta, que permite controlar quais aplicativos podem ser executados em seus computadores Azure e não Azure. Ele também ajuda a proteger seus computadores contra malware.<br>A central de segurança usa o aprendizado de máquina para criar uma lista de aplicativos conhecidos confiáveis para um grupo de computadores.<br>Essa abordagem inovadora para a listagem de aplicativos aprovados fornece os benefícios de segurança sem a complexidade do gerenciamento.<br>O AAC é particularmente relevante para servidores com finalidade específica que precisam executar um conjunto específico de aplicativos.</td>

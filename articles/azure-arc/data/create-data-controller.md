@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273034"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310912"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados de arco do Azure
 
@@ -65,7 +65,7 @@ Há várias opções para criar o controlador de dados de arco do Azure:
 > **Quer apenas experimentar as novidades?**  
 > Comece rapidamente com o [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure kubernetes Service (AKs), AWS elástico kubernetes Service (EKS), Google Cloud kubernetes Engine (GKE) ou em uma VM do Azure!
 > 
-- [Criar um controlador de dados com a CLI de dados do Azure (azdata)](create-data-controller-using-azdata.md)
+- [Criar um controlador de dados com [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Criar um controlador de dados com Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Criar um controlador de dados do portal do Azure por meio de um notebook Jupyter no Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Criar um controlador de dados com ferramentas de kubernetes como kubectl ou OC](create-data-controller-using-kubernetes-native-tools.md)

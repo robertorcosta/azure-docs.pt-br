@@ -97,8 +97,6 @@
               href: howto-v1-enable-sso-android.md
             - name: Habilitar SSO em iOS
               href: howto-v1-enable-sso-ios.md
-            - name: Depurar o SSO baseado em SAML
-              href: howto-v1-debug-saml-sso-issues.md
         - name: Configurar declarações
           items:
             - name: Configurar declarações de função

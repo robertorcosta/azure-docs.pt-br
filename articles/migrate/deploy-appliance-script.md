@@ -3,12 +3,12 @@ title: Configurar um dispositivo de migrações para Azure com um script
 description: Saiba como configurar um dispositivo de migrações para Azure com um script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438918"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317324"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um dispositivo com um script
 
@@ -16,7 +16,7 @@ Siga este artigo para criar um [dispositivo de migrações para Azure](./migrate
 
 Você pode implantar o dispositivo para VMs do VMware e do Hyper-V usando um script ou usando um modelo que você baixa do portal do Azure. Usar um script será útil se você não conseguir criar uma VM usando o modelo baixado.
 
-- Para usar um modelo, siga os tutoriais para [VMware](tutorial-prepare-vmware.md) ou [Hyper-V](tutorial-prepare-hyper-v.md).
+- Para usar um modelo, siga os tutoriais para [VMware](./tutorial-discover-vmware.md) ou [Hyper-V](./tutorial-discover-hyper-v.md).
 - Para configurar um dispositivo para servidores físicos, você só pode usar um script. Siga [Este artigo](how-to-set-up-appliance-physical.md).
 - Para configurar um dispositivo em uma nuvem do Azure governamental, siga [Este artigo](deploy-appliance-script-government.md).
 
@@ -29,7 +29,7 @@ O script configura o dispositivo migrações para Azure em uma VM ou máquina f�
 Cenário | Requisitos
 --- | ---
 VMware | Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento em disco
-Hyper-V | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento em disco
+Hyper-v | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento em disco
 - O computador também precisa de um comutador virtual externo. Ele requer um endereço IP estático ou dinâmico e o acesso à Internet.
 - Antes de implantar o dispositivo, examine os requisitos de dispositivo detalhados para [VMs do VMware](migrate-appliance.md#appliance---vmware), [VMs do Hyper-V](migrate-appliance.md#appliance---hyper-v).
 - Não execute o script em um dispositivo de migrações do Azure existente.

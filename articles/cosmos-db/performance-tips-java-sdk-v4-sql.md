@@ -5,15 +5,15 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43206fbc956602ddaf189f45648cf8a44a3dd143
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258319"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277328"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para o SDK do Java v4 do Azure Cosmos DB
 
@@ -38,14 +38,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 * **Modo de Conexão: Usar o modo Direto**
 <a id="direct-connection"></a>
     
-    Como um cliente se conecta ao Azure Cosmos DB tem implicações importantes sobre o desempenho, especialmente em termos da latência do lado do cliente. O modo de conexão é uma configuração de chave disponível para configurar o cliente do. Para Azure Cosmos DB SDK do Java v4, os dois modos de conexão disponíveis são:  
-
-    * Modo direto (padrão)      
-    * Modo Gateway
-
-    Essencialmente, esses modos de conexão são condicionados à rota que o plano de dados solicita – leituras e gravações de documentos do computador cliente para partições no back-end de Azure Cosmos DB. Geralmente, o modo direto é a opção preferencial para o melhor desempenho-ele permite que o cliente abra conexões TCP diretamente em partições nas Azure Cosmos DB back-end e solicitações de envio *diretos*, sem intermediário. Por outro lado, no modo de gateway, as solicitações feitas pelo cliente são encaminhadas para um servidor chamado de "gateway" no front-end do Azure Cosmos DB, que, por sua vez, encaminha suas solicitações para as partições apropriadas no back-end do Azure Cosmos DB. Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o modo Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo gateway envolve um salto de rede adicional (cliente para Gateway mais Gateway para partição) sempre que os dados são lidos ou gravados no Azure Cosmos DB. Por isso, o modo Direto oferece um melhor desempenho devido a menos saltos de rede.
-
-    O modo de conexão para solicitações de plano de dados é configurado no construtor de cliente Azure Cosmos DB usando os métodos *directmode ()* ou *gatewaymode ()* , como mostrado abaixo. Para configurar qualquer modo com as configurações padrão, chame um dos métodos sem argumentos. Caso contrário, passe uma instância de classe de definições de configuração como o argumento (*DirectConnectionConfig* para *directmode ()*,  *GatewayConnectionConfig* para *gatewaymode ()*.)
+    O modo de conexão padrão do SDK do Java é direto. Você pode configurar o modo de conexão no construtor de cliente usando os métodos *directmode ()* ou *gatewaymode ()* , conforme mostrado abaixo. Para configurar qualquer modo com as configurações padrão, chame um dos métodos sem argumentos. Caso contrário, passe uma instância de classe de definições de configuração como o argumento (*DirectConnectionConfig* para *directmode ()*,  *GatewayConnectionConfig* para *gatewaymode ()*.). Para saber mais sobre as diferentes opções de conectividade, consulte o artigo [modos de conectividade](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK do Java v4
 
@@ -372,4 +365,4 @@ Confira as instruções do [Windows](https://docs.microsoft.com/azure/virtual-ne
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partition-data.md).
+Para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partitioning-overview.md).

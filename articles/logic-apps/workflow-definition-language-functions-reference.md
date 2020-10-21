@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488296"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279026"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -1136,20 +1136,20 @@ Se você estiver usando `bool()` com um objeto, o valor do objeto deverá ser um
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| `true` ou `false` | Booliano | A versão booliana do valor especificado. |
+| `true` ou `false` | Boolean | A versão booliana do valor especificado. |
 ||||
 
 *Saídas*
 
 Estes exemplos mostram os diferentes tipos de entrada com suporte para `bool()` :
 
-| Valor de entrada | Tipo | Valor retornado |
+| Valor de entrada | Type | Valor retornado |
 | ----------- | ---------- | ---------------------- |
-| `bool(1)` | Inteiro | `true` |
-| `bool(0)` | Inteiro    | `false` |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
 | `bool(-1)` | Integer | `true` |
 | `bool('true')` | String | `true` |
-| `bool('false')` | Cadeia de caracteres | `false` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 
@@ -4767,7 +4767,21 @@ xpath('<xml>', '<xpath>')
 
 Suponha que você tenha essa `'items'` cadeia de caracteres XML: 
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo passa a expressão XPath, `'/produce/item/name'` , para localizar os nós que correspondem ao `<name></name>` nó na cadeia de `'items'` caracteres XML e retorna uma matriz com esses valores de nó:
 
@@ -4799,7 +4813,21 @@ Aqui está o resultado: `Honeycrisp`
 
 Neste exemplo, suponha que a `items` cadeia de caracteres XML também contenha os atributos `expired='true'` e `expired='false'` :
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo passa a expressão XPath, `'//name[@expired]'` para localizar todos os `name` elementos que têm o `expired` atributo:
 
@@ -4811,7 +4839,21 @@ Aqui está o resultado: `[ Gala, Honeycrisp ]`
 
 Neste exemplo, suponha que a `items` cadeia de caracteres XML contenha apenas este atributo `expired = 'true'` :
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo passa a expressão XPath, `'//name[@expired = 'true']'` , para localizar todos os `name` elementos que têm o atributo, `expired = 'true'` :
 
@@ -4826,7 +4868,21 @@ Neste exemplo, suponha que a `items` cadeia de caracteres XML também contenha e
 * `expired='true' price='12'`
 * `expired='false' price='40'`
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true' price='12'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false' price='40'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo passa a expressão XPath, `'//name[price>35]'` para localizar todos os `name` elementos que têm `price > 35` :
 
@@ -4838,7 +4894,21 @@ Aqui está o resultado: `Honeycrisp`
 
 Neste exemplo, suponha que a `items` cadeia de caracteres XML seja a mesma do exemplo 1:
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo localiza os nós que correspondem ao `<count></count>` nó e adiciona esses valores de nó com a `sum()` função:
 
@@ -4850,7 +4920,9 @@ Aqui está o resultado: `30`
 
 Neste exemplo, suponha que você tenha essa cadeia de caracteres XML, que inclui o namespace do documento XML, `xmlns="http://contoso.com"` :
 
-`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+```xml
+<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+```
 
 Essas expressões usam a expressão XPath `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` , para localizar nós que correspondam ao `<location></location>` nó. Estes exemplos mostram a sintaxe que você usa no designer de aplicativo lógico ou no editor de expressão:
 

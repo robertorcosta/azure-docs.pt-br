@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: d0234ca04b772e4ff5127ef9dd896b49141febfb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f12919cd35441c6c198269e2f79c705c1d304acd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167552"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278813"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Particionamento no Azure Cosmos DB API do Cassandra
 
@@ -25,7 +25,7 @@ Da perspectiva do desenvolvedor, o particionamento se comporta da mesma maneira 
 
 ## <a name="differences-between-apache-cassandra-and-azure-cosmos-db"></a>Diferenças entre o Apache Cassandra e o Azure Cosmos DB
 
-No Azure Cosmos DB, cada máquina em que as partições são armazenadas é chamada de [partição física](partition-data.md#physical-partitions). A partição física é semelhante a uma máquina virtual; uma unidade de computação dedicada ou um conjunto de recursos físicos. Cada partição armazenada nessa unidade de computação é chamada de [partição lógica](partition-data.md#logical-partitions) no Azure Cosmos DB. Se você já estiver familiarizado com o Apache Cassandra, poderá considerar as partições lógicas da mesma maneira que considera partições regulares no Cassandra. 
+No Azure Cosmos DB, cada máquina em que as partições são armazenadas é chamada de [partição física](partitioning-overview.md#physical-partitions). A partição física é semelhante a uma máquina virtual; uma unidade de computação dedicada ou um conjunto de recursos físicos. Cada partição armazenada nessa unidade de computação é chamada de [partição lógica](partitioning-overview.md#logical-partitions) no Azure Cosmos DB. Se você já estiver familiarizado com o Apache Cassandra, poderá considerar as partições lógicas da mesma maneira que considera partições regulares no Cassandra. 
 
 O Apache Cassandra recomenda um limite de 100 MB no tamanho de dados que podem ser armazenados em uma partição. O API do Cassandra para Azure Cosmos DB permite até 20 GB por partição lógica e até 30 GB de dados por partição física. Em Azure Cosmos DB, diferentemente do Apache Cassandra, a capacidade de computação disponível na partição física é expressa usando uma única métrica chamada [unidades de solicitação](request-units.md), o que permite que você considere sua carga de trabalho em termos de solicitações (leituras ou gravações) por segundo, em vez de núcleos, memória ou IOPS. Isso pode tornar o planejamento de capacidade mais direto, uma vez que você entende o custo de cada solicitação. Cada partição física pode ter até 10000 RUs de computação disponíveis para ela. Você pode aprender mais sobre as opções de escalabilidade lendo nosso artigo sobre [escala elástica](manage-scale-cassandra.md) em API do Cassandra. 
 
@@ -112,6 +112,6 @@ CREATE TABLE uprofile.user (
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [particionamento e dimensionamento horizontal em Azure Cosmos DB](partition-data.md).
+* Saiba mais sobre [particionamento e dimensionamento horizontal em Azure Cosmos DB](partitioning-overview.md).
 * Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).
 * Saiba mais sobre a [distribuição global no Azure Cosmos DB](distribute-data-globally.md).
