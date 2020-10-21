@@ -3,12 +3,12 @@ title: Service Fabric do Azure – usando referências de keyvault de aplicativo
 description: Este artigo explica como usar o suporte do Service-Fabric KeyVaultReference para segredos do aplicativo.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261134"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313786"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
 
@@ -18,7 +18,7 @@ Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança 
 > O uso deste recurso de visualização não é recomendado em ambientes de produção.
 
 > [!NOTE]
-> O recurso de visualização de referência do keyvault dá suporte apenas a segredos com [controle de versão](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) . Não há suporte para segredos sem versão.
+> O recurso de visualização de referência do keyvault dá suporte apenas a segredos com [controle de versão](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) . Não há suporte para segredos sem versão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

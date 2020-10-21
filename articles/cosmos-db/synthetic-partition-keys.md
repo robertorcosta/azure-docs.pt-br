@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75441214"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279852"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Crie uma chave de partição sintética
 
@@ -58,7 +58,7 @@ Com essa estratégia, as gravações são distribuídas uniformemente pelos valo
 
 Você pode aprender mais sobre o conceito de particionamento nos seguintes artigos:
 
-* Saiba mais sobre [partições lógicas](partition-data.md).
+* Saiba mais sobre [partições lógicas](partitioning-overview.md).
 * Saiba mais sobre como [provisionar taxa de transferência para contêineres e bancos de dados do Azure Cosmos DB](set-throughput.md).
 * Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
 * Saiba como [provisionar taxa de transferência em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).

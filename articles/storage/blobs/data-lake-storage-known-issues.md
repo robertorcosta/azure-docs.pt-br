@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876117"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282201"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -92,7 +92,11 @@ Aplicativos de terceiros que usam APIs REST para funcionar continuarão a funcio
 
 Se o [acesso de leitura anônimo](storage-manage-access-to-resources.md) tiver sido concedido a um contêiner, as ACLs não terão nenhum efeito nesse contêiner nem nos arquivos desse contêiner.
 
-## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Contas de armazenamento de BlockBlobStorage de desempenho Premium
+### <a name="diagnostic-logs"></a>Logs de diagnóstico
+
+A configuração para dias de retenção ainda não tem suporte, mas você pode excluir logs manualmente usando qualquer ferramenta com suporte, como Gerenciador de Armazenamento do Azure, REST ou um SDK.
+
+## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problemas específicos para contas de armazenamento BlockBlobStorage de desempenho premium
 
 ### <a name="diagnostic-logs"></a>Logs de diagnóstico
 
@@ -108,8 +112,6 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
-
-A configuração para dias de retenção ainda não tem suporte, mas você pode excluir logs manualmente usando qualquer ferramenta com suporte, como Gerenciador de Armazenamento do Azure, REST ou um SDK.
 
 ### <a name="lifecycle-management-policies"></a>Políticas de gerenciamento do ciclo de vida
 

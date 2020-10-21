@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056150"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319719"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -61,7 +61,7 @@ Os logs de provisionamento fornecem respostas para as seguintes perguntas:
 
 Você pode acessar os logs de provisionamento selecionando **logs de provisionamento** na seção **monitoramento** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registros de provisionamento sejam exibidos no Portal.
 
-![Logs de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
+![Provisionando logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
 
 
 Um log de provisionamento tem uma exibição de lista padrão que mostra:
@@ -119,7 +119,7 @@ Ao selecionar um período de tempo personalizado, você pode configurar uma data
 
 O filtro **Status** permite que você selecione:
 
-- Tudo
+- Todos
 - Sucesso
 - Falha
 - Ignorado
@@ -132,7 +132,7 @@ O filtro de **ação** permite filtrar o:
 - Atualizar
 - Excluir
 - Desabilitar
-- Outro
+- Outros
 
 Além disso, para os filtros do modo de exibição padrão, você também pode definir os seguintes filtros:
 
@@ -176,7 +176,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Detalhes de provisionamento](./media/concept-provisioning-logs/provisioning-tabs.png "Tabulações")
+![Detalhes de provisionamento](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
 
 
 
@@ -215,7 +215,7 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 - Você pode usar o atributo ID de alteração como um identificador exclusivo. Isso é, por exemplo, útil ao interagir com o suporte ao produto.
 
-- Atualmente, não há nenhuma opção para baixar dados de provisionamento como um arquivo CSV, mas você pode exportar os dados usando [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
+- Atualmente, não há nenhuma opção para baixar dados de provisionamento como um arquivo CSV, mas você pode exportar os dados usando [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - Você pode ver eventos ignorados para usuários que não estão no escopo. Isso é esperado, especialmente quando o escopo de sincronização é definido como todos os usuários e grupos. Nosso serviço avaliará todos os objetos no locatário, mesmo aqueles que estão fora do escopo. 
 
@@ -245,10 +245,10 @@ Use a tabela a seguir para entender melhor como resolver erros que podem ser enc
 |DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um usuário foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando cada usuário é avaliado, tentamos importar o usuário do sistema de origem. Esse erro geralmente ocorre quando o usuário que está sendo importado não tem a propriedade correspondente definida em seus mapeamentos de atributo. Sem um valor presente no objeto de usuário para o atributo correspondente, não podemos avaliar as alterações de escopo, correspondência ou exportação. Observação: a presença desse erro não indica que o usuário está no escopo, pois ainda não avaliamos o escopo do usuário.|
 |EntrySynchronizationSkipped | O serviço de provisionamento consultou com êxito o sistema de origem e identificou o usuário. Nenhuma ação adicional foi realizada no usuário e elas foram ignoradas. O Skip pode ser devido ao usuário estar fora do escopo ou ao usuário já existente no sistema de destino sem nenhuma alteração adicional necessária.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Ao executar uma solicitação GET para recuperar um usuário ou grupo, recebemos vários usuários ou grupos na resposta. Esperávamos receber apenas um usuário ou grupo na resposta. Se, [por exemplo](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), fizermos uma solicitação get para recuperar um grupo e fornecer um filtro para excluir Membros e seu ponto de extremidade scim retornar os membros, lançaremos esse erro.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Ao executar uma solicitação GET para recuperar um usuário ou grupo, recebemos vários usuários ou grupos na resposta. Esperávamos receber apenas um usuário ou grupo na resposta. Se, [por exemplo](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), fizermos uma solicitação get para recuperar um grupo e fornecer um filtro para excluir Membros e seu ponto de extremidade scim retornar os membros, lançaremos esse erro.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Verificar o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD](../app-provisioning/application-provisioning-config-problem.md)
-* [API do grafo de logs de provisionamento](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [API do grafo de logs de provisionamento](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

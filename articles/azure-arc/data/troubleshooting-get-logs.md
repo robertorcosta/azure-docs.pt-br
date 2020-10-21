@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71c84b35c001be7fafdc2df53014050ae21dec63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933206"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320195"
 ---
 # <a name="get-azure-arc-enabled-data-services-logs"></a>Obter logs de serviços de dados habilitados para o Azure Arc
 
@@ -22,48 +22,60 @@ ms.locfileid: "90933206"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para recuperar os logs de serviços de dados habilitados para o Azure Arc, você precisará da ferramenta CLI de dados do Azure. [Instruções de instalação](./install-client-tools.md)
+Antes de continuar, você precisa:
 
-Você precisará ser capaz de fazer logon no serviço do controlador de serviços de dados habilitado para Arc do Azure como administrador.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instruções de instalação](./install-client-tools.md).
+* Uma conta de administrador para entrar no controlador de serviços de dados habilitado para Arc do Azure.
 
 ## <a name="get-azure-arc-enabled-data-services-logs"></a>Obter logs de serviços de dados habilitados para o Azure Arc
 
-Você pode obter os logs de serviços de dados habilitados para o Azure ARC em todos os pods ou pods específicos para fins de solução de problemas.  Você pode fazer isso usando ferramentas de kubernetes padrão, como o `kubectl logs` comando ou neste artigo, você usará a ferramenta CLI de dados do Azure, que facilita a obtenção de todos os logs de uma vez.
+Você pode obter os logs de serviços de dados habilitados para o Azure ARC em todos os pods ou pods específicos para fins de solução de problemas. Você pode fazer isso usando ferramentas de kubernetes padrão, como o `kubectl logs` comando ou neste artigo, você usará a [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] ferramenta, o que torna mais fácil obter todos os logs de uma vez.
 
-Primeiro, verifique se você está conectado ao controlador de dados.
+1. Entre no controlador de dados com uma conta de administrador.
 
-```console
-azdata login
-```
+   ```console
+   azdata login
+   ```
 
-Em seguida, execute o seguinte comando para despejar os logs:
-```console
-azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+2. Execute o seguinte comando para despejar os logs:
 
-#Example:
-#azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
-```
+   ```console
+   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```
 
-Os arquivos de log serão criados no diretório de trabalho atual por padrão em um subdiretório chamado ' logs '.  Você pode gerar os arquivos de log para um diretório diferente usando o `--target-folder` parâmetro.
+   Por exemplo:
 
-Você pode optar por compactar os arquivos omitindo o `--skip-compress` parâmetro.
+   ```console
+   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```
 
-Você pode disparar e incluir despejos de memória omitindo o `--exclude-dumps` , mas isso não é recomendado, a menos que suporte da Microsoft tenha solicitado os despejos de memória.  Fazer um despejo de memória requer que a configuração do controlador de dados `allowDumps` esteja definida como `true` a hora da criação do controlador de dados.
+O controlador de dados cria os arquivos de log no diretório de trabalho atual em um subdiretório chamado `logs` . 
 
-Opcionalmente, você pode optar por filtrar para coletar logs para apenas um pod ( `--pod` ) ou contêiner ( `--container` ) específico por nome.
+## <a name="options"></a>Opções
 
-Você também pode optar por filtrar para coletar logs de um recurso personalizado específico, passando o `--resource-kind` e o `--resource-name` parâmetro.  O `resource-kind` valor do parâmetro deve ser um dos nomes de definição de recurso personalizados que podem ser recuperados pelo comando `kubectl get customresourcedefinition` .
+`azdata arc dc debug copy-logs` fornece as opções a seguir para gerenciar a saída.
+
+* Gere os arquivos de log para um diretório diferente usando o `--target-folder` parâmetro.
+* Compacte os arquivos omitindo o `--skip-compress` parâmetro.
+* Dispare e inclua despejos de memória omitindo o `--exclude-dumps` . Esse método não é recomendado a menos que Suporte da Microsoft tenha solicitado os despejos de memória. Fazer um despejo de memória requer que a configuração do controlador de dados `allowDumps` esteja definida como `true` a hora da criação do controlador de dados.
+* Filtre para coletar logs para apenas um pod ( `--pod` ) ou contêiner ( `--container` ) específico por nome.
+* Filtre para coletar logs de um recurso personalizado específico passando o `--resource-kind` parâmetro e `--resource-name` . O `resource-kind` valor do parâmetro deve ser um dos nomes de definição de recurso personalizados, que podem ser recuperados pelo comando `kubectl get customresourcedefinition` .
+
+Com esses parâmetros, você pode substituir o `<parameters>` no exemplo a seguir. 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+```
 
-#Example
+Por exemplo
+
+```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Exemplo de hierarquia de pastas.  Observe que a hierarquia de pastas é organizada pelo nome do pod e, em seguida, pelo contêiner e pela hierarquia de diretório no contêiner.
+Exemplo de hierarquia de pastas. A hierarquia de pastas é organizada pelo nome do pod, pelo contêiner e, em seguida, pela hierarquia do diretório no contêiner.
 
-```console
+```output
 <export directory>
 ├───debuglogs-arc-20200827-180403
 │   ├───bootstrapper-vl8j2
@@ -181,3 +193,7 @@ Exemplo de hierarquia de pastas.  Observe que a hierarquia de pastas é organiza
             ├───journal
             └───openvpn
 ```
+
+## <a name="next-steps"></a>Próximas etapas
+
+[azdata arc dc debug copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

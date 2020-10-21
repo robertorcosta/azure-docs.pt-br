@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 525ab34bb9edff737686a88d7a8e664500282555
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096327"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320520"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
@@ -41,8 +41,8 @@ As redes geralmente são protegidas usando firewalls e NSGs (grupos de seguranç
 > O uso de um proxy autenticado para controlar a conectividade de rede não é compatível com o Site Recovery e a replicação não pode ser habilitada.
 
 >[!NOTE]
-> A filtragem baseada em endereço IP não deve ser executada para controlar a conectividade de saída.
-> Azure Site Recovery endereços IP não devem ser adicionados na tabela de roteamento do Azure para controlar a conectividade de saída.
+>- A filtragem baseada em endereço IP não deve ser executada para controlar a conectividade de saída.
+>- Azure Site Recovery endereços IP não devem ser adicionados na tabela de roteamento do Azure para controlar a conectividade de saída.
 
 ## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
 

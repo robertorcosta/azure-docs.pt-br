@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812821"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319766"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -31,7 +31,7 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
 - **Atividade** 
     - **Entradas** – Informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
     - **Logs**  -  de auditoria [Os logs de auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
-    - **Logs**  -  de provisionamento Os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) permitem que os clientes monitorem a atividade pelo serviço de provisionamento, como a criação de um grupo no ServiceNow ou um usuário importado do workday. 
+    - **Logs**  -  de provisionamento Os [logs de provisionamento](./concept-provisioning-logs.md) permitem que os clientes monitorem a atividade pelo serviço de provisionamento, como a criação de um grupo no ServiceNow ou um usuário importado do workday. 
 - **Segurança** 
     - **Entradas arriscadas** -uma [entrada arriscada](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
     - **Usuários sinalizados para risco** – um [usuário arriscado](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
@@ -195,7 +195,7 @@ O **local** -o local do qual a conexão foi iniciada:
 
 Clique na opção **baixar** para criar um arquivo CSV ou JSON dos registros 250.000 mais recentes. Comece com [baixar os dados de entradas](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure.  
 
-![Baixar](./media/concept-sign-ins/71.png "Baixar")
+![Download](./media/concept-sign-ins/71.png "Baixar")
 
 > [!IMPORTANT]
 > O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
@@ -233,7 +233,7 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Localização
+- Location
 - Endereço IP
 - Data
 - MFA obrigatório

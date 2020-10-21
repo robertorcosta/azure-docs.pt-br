@@ -3,12 +3,12 @@ title: Configurar um dispositivo de migrações para Azure para Hyper-V
 description: Saiba como configurar um dispositivo de migrações para Azure para avaliar e migrar VMs do Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a12785ea3791366badb907498796a73c2c993623
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448093"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314159"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um dispositivo para VMs do Hyper-V
 
@@ -118,7 +118,7 @@ Configure o dispositivo pela primeira vez.
    
    Não há suporte para a entrada com um PIN.
 3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
-4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](tutorial-prepare-hyper-v.md#prepare-azure) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
+4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 
 

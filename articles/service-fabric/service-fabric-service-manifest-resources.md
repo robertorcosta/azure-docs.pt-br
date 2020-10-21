@@ -4,12 +4,12 @@ description: Como descrever os recursos de ponto de extremidade em um manifesto 
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017583"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313579"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
@@ -158,7 +158,7 @@ Aqui está um exemplo de ApplicationManifest demonstrando a configuração neces
 
 Para clusters do Linux, o **MEU** armazenar padroniza para a pasta **/var/lib/sfcerts**.
 
-Para obter um exemplo de um aplicativo completo que utiliza um ponto de extremidade HTTPS, consulte [Adicionar um ponto de extremidade https a um serviço de front-end da API Web ASP.NET Core usando o Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+Para obter um exemplo de um aplicativo completo que utiliza um ponto de extremidade HTTPS, consulte [Adicionar um ponto de extremidade https a um serviço de front-end da API Web ASP.NET Core usando o Kestrel](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest).
 
 ## <a name="port-acling-for-http-endpoints"></a>Porta atuação para pontos de extremidade HTTP
 Service Fabric automaticamente os pontos de extremidade de HTTP (S) de ACL especificados por padrão. Ele **não** executará atuação automática se um ponto de extremidade não tiver um [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associado a ele e Service Fabric estiver configurado para ser executado usando uma conta com privilégios de administrador.

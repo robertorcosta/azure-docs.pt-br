@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a7b463394a6919dee56e0448997dbd6c59ac9cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576584"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314752"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -26,11 +26,11 @@ Corrija os problemas de preparação da avaliação da seguinte maneira:
 **Problema** | **Correção**
 --- | ---
 Tipo de inicialização sem suporte | O Azure não dá suporte a VMs com um tipo de inicialização EFI. Recomendamos que você converta o tipo de inicialização para BIOS antes de executar uma migração. <br/><br/>Você pode usar a migração de servidor de migrações para o Azure para lidar com a migração dessas VMs. Ele converterá o tipo de inicialização da VM para BIOS durante a migração.
-Sistema operacional Windows com suporte condicional | O sistema operacional passou pela data de fim do suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](https://aka.ms/WSosstatement). Considere a atualização antes de migrar para o Azure.
-Sistema operacional Windows sem suporte | O Azure dá suporte apenas a [versões selecionadas do sistema operacional Windows](https://aka.ms/WSosstatement). Considere atualizar o computador antes de migrar para o Azure.
-SO Linux condicionalmente endossado | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md). Considere atualizar o computador antes de migrar para o Azure. Consulte também [aqui](https://docs.microsoft.com/azure/migrate/troubleshoot-assessment#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) para obter mais detalhes.
+Sistema operacional Windows com suporte condicional | O sistema operacional passou pela data de fim do suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](/troubleshoot/azure/virtual-machines/server-software-support). Considere a atualização antes de migrar para o Azure.
+Sistema operacional Windows sem suporte | O Azure dá suporte apenas a [versões selecionadas do sistema operacional Windows](/troubleshoot/azure/virtual-machines/server-software-support). Considere atualizar o computador antes de migrar para o Azure.
+SO Linux condicionalmente endossado | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md). Considere atualizar o computador antes de migrar para o Azure. Consulte também [aqui](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) para obter mais detalhes.
 SO Linux não endossado | O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. Considere atualizar para uma [versão do Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure.
-Sistema operacional desconhecido | O sistema operacional da VM foi especificado como "other" em vCenter Server. Esse comportamento impede que as migrações para Azure verifiquem a prontidão do Azure da VM. Verifique se o sistema operacional tem [suporte](https://aka.ms/azureoslist) do Azure antes de migrar o computador.
+Sistema operacional desconhecido | O sistema operacional da VM foi especificado como "other" em vCenter Server. Esse comportamento impede que as migrações para Azure verifiquem a prontidão do Azure da VM. Verifique se o sistema operacional tem [suporte](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) do Azure antes de migrar o computador.
 Versão de bits sem suporte | As VMs com sistemas operacionais de 32 bits podem ser inicializadas no Azure, mas recomendamos que você atualize para 64 bits antes de migrar para o Azure.
 Requer uma assinatura Microsoft Visual Studio | O computador está executando um sistema operacional cliente Windows, que tem suporte apenas por meio de uma assinatura do Visual Studio.
 VM não encontrada para o desempenho de armazenamento necessário | O desempenho de armazenamento (operações de entrada/saída por segundo [IOPS] e taxa de transferência) necessários para o computador excede o suporte à VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
@@ -61,7 +61,7 @@ No caso de VMs do VMware e do Hyper-V, a avaliação do servidor marca as VMs do
 - A lacuna impede que ele detecte a versão secundária do sistema operacional Linux instalada nas VMs locais.
 - Por exemplo, para RHEL 6,10, atualmente a avaliação do servidor detecta apenas RHEL 6 como a versão do sistema operacional. Isso ocorre porque o vCenter Server ar o host Hyper-V não fornece a versão do kernel para sistemas operacionais de VM do Linux.
 -  Como o Azure endossa apenas versões específicas do Linux, as VMs do Linux estão atualmente marcadas como prontas para avaliação de servidor.
-- Você pode determinar se o SO Linux em execução na VM local é endossado no Azure examinando o [suporte do Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros).
+- Você pode determinar se o SO Linux em execução na VM local é endossado no Azure examinando o [suporte do Azure Linux](../virtual-machines/linux/endorsed-distros.md).
 -  Depois de verificar a distribuição endossada, você pode ignorar este aviso.
 
 Essa lacuna pode ser resolvida habilitando a [descoberta de aplicativos](./how-to-discover-applications.md) nas VMs VMware. A avaliação de servidor usa o sistema operacional que detecta da VM com as credenciais de convidado fornecidas. Esses dados do sistema operacional identificam as informações corretas do so no caso de VMs Windows e Linux.
@@ -107,7 +107,7 @@ Observação - se algum dos contadores de desempenho estiver ausente, as Migraç
 
 ## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Por que a confiança de classificação da minha avaliação é baixa?
 
-A classificação de confiança é calculada para avaliações de "baseadas em desempenho" com base na porcentagem de [pontos de dados disponíveis](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) necessária para computar a avaliação. Veja abaixo os motivos pelos quais uma avaliação poderia obter uma classificação de baixa confiança:
+A classificação de confiança é calculada para avaliações de "baseadas em desempenho" com base na porcentagem de [pontos de dados disponíveis](./concepts-assessment-calculation.md#ratings) necessária para computar a avaliação. Veja abaixo os motivos pelos quais uma avaliação poderia obter uma classificação de baixa confiança:
 
 - Você não criou o perfil do ambiente pelo tempo para o qual está criando a avaliação. Por exemplo, se você está criando uma avaliação com duração de desempenho definida como uma semana, precisa aguardar pelo menos uma semana após iniciar a descoberta para que todos os pontos de dados sejam coletados. Se não puder esperar tanto tempo, altere a execução para um período menor e “recalcule” a avaliação.
  
@@ -115,7 +115,7 @@ A classificação de confiança é calculada para avaliações de "baseadas em d
 
 - Algumas VMs foram criadas após o início da descoberta na Avaliação de Servidor. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
 
-[Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sobre a classificação de confiança.
+[Saiba mais](./concepts-assessment-calculation.md#confidence-ratings-performance-based) sobre a classificação de confiança.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>A licença do sistema operacional está incluída em uma avaliação de VM do Azure?
 
@@ -126,7 +126,7 @@ A avaliação de servidor de migrações para Azure atualmente considera o custo
 A Avaliação de Servidor coleta continuamente os dados de desempenho dos computadores locais e o utiliza para recomendar a SKU da VM e a SKU de disco no Azure. [Saiba como](concepts-assessment-calculation.md#calculate-sizing-performance-based) os dados baseados em desempenho são coletados.
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Por que minha avaliação mostra um aviso de que foi criada com uma combinação inválida de instâncias reservadas, tempo de atividade e desconto da VM (%)?
-Quando você seleciona ' instâncias reservadas ', o ' desconto (%) ' e as propriedades ' VM de tempo de atividade ' não são aplicáveis. À medida que sua avaliação foi criada com uma combinação inválida dessas propriedades, os botões editar e recalcular são desabilitados. Crie uma nova avaliação. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2131554).
+Quando você seleciona ' instâncias reservadas ', o ' desconto (%) ' e as propriedades ' VM de tempo de atividade ' não são aplicáveis. À medida que sua avaliação foi criada com uma combinação inválida dessas propriedades, os botões editar e recalcular são desabilitados. Crie uma nova avaliação. [Saiba mais](./concepts-assessment-calculation.md#whats-an-assessment).
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Não vejo dados de desempenho para alguns adaptadores de rede em meus servidores físicos
 
@@ -161,7 +161,7 @@ Para VMs do Windows:
 
     ![Status do MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o Dependency Agent tenham êxito. Consulte mais diretrizes para solução de problemas [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
+Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o Dependency Agent tenham êxito. Consulte mais diretrizes para solução de problemas [aqui](../azure-monitor/insights/service-map.md#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 

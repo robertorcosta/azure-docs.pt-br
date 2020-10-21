@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: ee45d2f489b23289e4f92a544590a510e77ece13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e693df8ce74d57ccbc52f5496517893a7d7be17b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627941"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317252"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
@@ -36,7 +36,7 @@ O suporte a ferramentas específicas é resumido na tabela.
 
 **Ferramenta** | **Avaliar** | **Migrar** 
 --- | --- | ---
-Avaliação de Servidor das Migrações para Azure | Avalie [VMs do VMware](tutorial-prepare-vmware.md), [VMs do Hyper-V](tutorial-prepare-hyper-v.md) e [servidores físicos](tutorial-prepare-physical.md). |  Não disponível (ND)
+Avaliação de Servidor das Migrações para Azure | Avalie [VMs do VMware](./tutorial-discover-vmware.md), [VMs do Hyper-V](./tutorial-discover-hyper-v.md) e [servidores físicos](./tutorial-discover-physical.md). |  Não disponível (ND)
 Migração de Servidor das Migrações para Azure | NA | Migre [VMs do VMware](tutorial-migrate-vmware.md), [VMs do Hyper-V](tutorial-migrate-hyper-v.md) e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
 [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | NA | Migrar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. 
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. | NA
@@ -69,9 +69,9 @@ Para que as Migrações para Azure funcionem com o Azure, você precisa dessas p
 
 **Tarefa** | **Permissões** | **Detalhes**
 --- | --- | ---
-Criar um projeto das Migrações para Azure | Sua conta do Azure precisa de permissões para criar um projeto. | Configurar para [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project) ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-create-project).
-Registrar o dispositivo de Migrações para Azure| As Migrações para Azure usam um [dispositivo leve de Migrações para Azure](migrate-appliance.md) para avaliar computadores com a avaliação de servidor de Migrações para Azure e executar a [migração sem agente](server-migrate-overview.md) de VMs do VMware com a migração de servidor das Migrações para Azure. Esse dispositivo executa a descoberta de computadores e envia os metadados e os dados de desempenho para as Migrações para Azure.<br/><br/> Durante o registro do dispositivo, os provedores de recursos (Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault) são registrados com a assinatura escolhida no dispositivo para que a assinatura funcione com o provedor de recursos. Para se registrar, você precisa de acesso de colaborador ou proprietário na assinatura.<br/><br/> **VMware** – Durante a integração, as Migrações para Azure criam dois aplicativos do Azure Active Directory. O primeiro aplicativo faz a comunicação entre os agentes do dispositivo e o serviço de Migrações para Azure. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso de RBAC para recursos. O segundo aplicativo acessa um Azure Key Vault criado na assinatura do usuário somente para a migração do VMware sem agente. Na migração sem agente, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação na sua assinatura. Ele tem acesso RBAC no Azure Key Vault (no locatário do cliente) quando a descoberta é iniciada no dispositivo.<br/><br/> **Hyper-V** - Durante a integração. As Migrações para Azure criam um aplicativo do Azure Active Directory. O aplicativo faz a comunicação entre os agentes do dispositivo e o serviço de Migrações para Azure. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso de RBAC para recursos. | Configurar para [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-azure-ad-apps) ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
-Criar um cofre de chaves para migração sem agente do VMware | Para migrar VMs do VMware usando a Migração de Servidor de Migrações para Azure sem agente, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação na sua assinatura. Para criar o cofre, defina as permissões (proprietário ou colaborador e o administrador de acesso de usuários) no grupo de recursos no qual o projeto de Migrações para Azure reside. | [Configurar](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) permissões.
+Criar um projeto das Migrações para Azure | Sua conta do Azure precisa de permissões para criar um projeto. | Configurar para [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) ou [servidores físicos](./tutorial-discover-physical.md#prepare-an-azure-user-account).
+Registrar o dispositivo de Migrações para Azure| As Migrações para Azure usam um [dispositivo leve de Migrações para Azure](migrate-appliance.md) para avaliar computadores com a avaliação de servidor de Migrações para Azure e executar a [migração sem agente](server-migrate-overview.md) de VMs do VMware com a migração de servidor das Migrações para Azure. Esse dispositivo executa a descoberta de computadores e envia os metadados e os dados de desempenho para as Migrações para Azure.<br/><br/> Durante o registro do dispositivo, os provedores de recursos (Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault) são registrados com a assinatura escolhida no dispositivo para que a assinatura funcione com o provedor de recursos. Para se registrar, você precisa de acesso de colaborador ou proprietário na assinatura.<br/><br/> **VMware** – Durante a integração, as Migrações para Azure criam dois aplicativos do Azure Active Directory. O primeiro aplicativo faz a comunicação entre os agentes do dispositivo e o serviço de Migrações para Azure. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso de RBAC para recursos. O segundo aplicativo acessa um Azure Key Vault criado na assinatura do usuário somente para a migração do VMware sem agente. Na migração sem agente, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação na sua assinatura. Ele tem acesso RBAC no Azure Key Vault (no locatário do cliente) quando a descoberta é iniciada no dispositivo.<br/><br/> **Hyper-V** - Durante a integração. As Migrações para Azure criam um aplicativo do Azure Active Directory. O aplicativo faz a comunicação entre os agentes do dispositivo e o serviço de Migrações para Azure. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso de RBAC para recursos. | Configurar para [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) ou [servidores físicos](./tutorial-discover-physical.md#prepare-an-azure-user-account).
+Criar um cofre de chaves para migração sem agente do VMware | Para migrar VMs do VMware usando a Migração de Servidor de Migrações para Azure sem agente, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de armazenamento de replicação na sua assinatura. Para criar o cofre, defina as permissões (proprietário ou colaborador e o administrador de acesso de usuários) no grupo de recursos no qual o projeto de Migrações para Azure reside. | [Configurar](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissões.
 
 ## <a name="supported-geographies-public-cloud"></a>Regiões geográficas com suporte (nuvem pública)
 
@@ -127,5 +127,5 @@ Há duas versões do serviço de Migrações para Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Avaliar VMs do VMware](tutorial-assess-vmware.md) para migração.
+- [Avaliar VMs do VMware](./tutorial-assess-vmware-azure-vm.md) para migração.
 - [Avaliar VMs do Hyper-V](tutorial-assess-hyper-v.md) para migração.

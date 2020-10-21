@@ -1,22 +1,25 @@
 ---
-title: Provisionar taxa de transferência de dimensionamento automático no Azure Cosmos DB
-description: Saiba como provisionar a taxa de transferência de dimensionamento automático no nível do contêiner e do banco de dados no Azure Cosmos DB usando o portal do Azure, CLI, PowerShell e vários outros SDKs.
+title: Provisionar taxa de transferência de autoescala na API do SQL Azure Cosmos DB
+description: Saiba como provisionar a taxa de transferência de dimensionamento automático no nível do contêiner e do banco de dados em Azure Cosmos DB API do SQL usando portal do Azure, CLI, PowerShell e vários outros SDKs.
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017134"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277828"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner no Azure Cosmos DB
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Provisionar taxa de transferência de autoescala no banco de dados ou contêiner na API Azure Cosmos DB-SQL
 
-Este artigo explica como provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner (coleção, grafo ou tabela) no Azure Cosmos DB. Você pode habilitar o dimensionamento automático em um único contêiner ou provisionar taxa de transferência de dimensionamento automático em um banco de dados e compartilhá-la entre todos os contêineres no banco de dados.
+Este artigo explica como provisionar a taxa de transferência de dimensionamento automático em um banco de dados ou contêiner (coleção, gráfico ou tabela) em Azure Cosmos DB API do SQL. Você pode habilitar o dimensionamento automático em um único contêiner ou provisionar taxa de transferência de dimensionamento automático em um banco de dados e compartilhá-la entre todos os contêineres no banco de dados.
+
+Se você estiver usando uma API diferente, confira [API para MongoDB](how-to-provision-throughput-mongodb.md), [API do Cassandra](how-to-provision-throughput-cassandra.md), artigos da [API Gremlin](how-to-provision-throughput-gremlin.md) para provisionar a taxa de transferência.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -52,7 +55,7 @@ Para provisionar o dimensionamento automático no banco de dados de taxa de tran
 > [!NOTE]
 > Quando você habilita o dimensionamento automático em um banco de dados ou contêiner existente, o valor inicial para o máximo de RU/s é determinado pelo sistema com base nas suas configurações e armazenamento de taxa de transferência provisionada manual atual. Após a operação ser concluída, você poderá alterar o máximo de RU/s, se necessário. [Saiba mais.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>SDK do .NET V3 do Azure Cosmos DB para a API do SQL
+## <a name="azure-cosmos-db-net-v3-sdk"></a>Azure Cosmos DB SDK do .NET v3
 
 Use a [versão 3.9 ou superior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do SDK do .NET do Azure Cosmos DB para a API do SQL para gerenciar recursos de dimensionamento automático. 
 
@@ -109,7 +112,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>SDK do Java V4 do Azure Cosmos DB para a API do SQL
+## <a name="azure-cosmos-db-java-v4-sdk"></a>SDK do Azure Cosmos DB Java v4
 
 Você pode usar a [versão 4.0 ou superior](https://mvnrepository.com/artifact/com.azure/azure-cosmos) do SDK do Java do Azure Cosmos DB para a API do SQL para gerenciar recursos de dimensionamento automático.
 
@@ -242,14 +245,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## <a name="cassandra-api"></a>API Cassandra
-
-Azure Cosmos DB contas para API do Cassandra podem ser provisionadas para dimensionamento automático usando [comandos CQL](manage-scale-cassandra.md#use-autoscale), [CLI do Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) ou [modelos de Azure Resource Manager](resource-manager-samples.md).
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
-
-Contas de Azure Cosmos DB para API do MongoDB podem ser provisionadas para dimensionamento automático usando [comandos de extensão do MongoDB](mongodb-custom-commands.md), [CLI do Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) ou [modelos Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

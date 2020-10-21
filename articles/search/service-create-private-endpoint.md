@@ -1,19 +1,19 @@
 ---
 title: Criar um ponto de extremidade privado para uma conexão segura
 titleSuffix: Azure Cognitive Search
-description: Configurar um ponto de extremidade privado em uma rede virtual para uma conexão segura com um serviço de Pesquisa Cognitiva do Azure
+description: Configure um ponto de extremidade privado em uma rede virtual para uma conexão segura com um serviço de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935748"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280406"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto de extremidade privado para uma conexão segura com o Azure Pesquisa Cognitiva
 
@@ -60,14 +60,14 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Em **novos serviço de pesquisa-noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
     | URL | Insira um nome exclusivo. |
-    | Localização | Selecione a região desejada. |
+    | Location | Selecione a região desejada. |
     | Tipo de preço | Selecione **alterar tipo de preço** e escolha a camada de serviço desejada. (Sem suporte na camada **gratuita** . Deve ser **básico** ou superior.) |
     |||
   
@@ -81,11 +81,11 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
 
 1. Em **criar ponto de extremidade privado**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    | Localização | Selecione **Oeste dos EUA**.|
+    | Location | Selecione **Oeste dos EUA**.|
     | Nome | Insira *myPrivateEndpoint*.  |
     | Sub-recurso de destino | Deixe o **searchService**padrão. |
     | **REDE** |  |
@@ -152,10 +152,16 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
     | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.|
     ||
 
+   > [!NOTE]
+   > Os endereços IPv4 podem ser expressos no formato [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Lembre-se de evitar o intervalo de IP reservado para rede privada, conforme descrito em [RFC 1918](https://tools.ietf.org/html/rfc1918):
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+
 1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração.
 
 1. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
-
 
 ## <a name="connect-to-the-vm"></a>Conectar-se à VM
 
@@ -181,7 +187,6 @@ Baixe e, em seguida, conecte-se à VM *myVm* da seguinte maneira:
 1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para sua área de trabalho local.  
-
 
 ## <a name="test-connections"></a>Conexões de teste
 

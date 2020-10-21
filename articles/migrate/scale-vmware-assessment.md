@@ -3,12 +3,12 @@ title: Avalie grandes números de VMs VMware para migração para o Azure com mi
 description: Descreve como avaliar grandes números de VMs VMware para migração para o Azure usando o serviço migrações para Azure. e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171909"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314110"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avalie grandes números de VMs VMware para migração para o Azure
 
@@ -26,7 +26,7 @@ Neste artigo, você aprenderá como:
 
 
 > [!NOTE]
-> Se você quiser experimentar uma prova de conceito para avaliar algumas VMs antes de avaliar em escala, siga nossa [série de tutoriais](tutorial-prepare-vmware.md)
+> Se você quiser experimentar uma prova de conceito para avaliar algumas VMs antes de avaliar em escala, siga nossa [série de tutoriais](./tutorial-discover-vmware.md)
 
 ## <a name="plan-for-assessment"></a>Planejar a avaliação
 
@@ -78,7 +78,7 @@ Prepare a avaliação do Azure e do VMware para o servidor.
 2. Configure as permissões para sua conta do Azure para interagir com as migrações para Azure.
 3. Prepare o VMware para avaliação.
 
-Siga as instruções neste [tutorial](tutorial-prepare-vmware.md) para definir essas configurações.
+Siga as instruções neste [tutorial](./tutorial-discover-vmware.md) para definir essas configurações.
 
 
 ## <a name="create-a-project"></a>Criar um projeto
@@ -96,7 +96,7 @@ De acordo com seus requisitos de planejamento, faça o seguinte:
 1. Examine as avaliações em preparação para o planejamento de migração.
 
 
-Siga as instruções neste [tutorial](tutorial-assess-vmware.md) para definir essas configurações.
+Siga as instruções neste [tutorial](./tutorial-assess-vmware-azure-vm.md) para definir essas configurações.
     
 
 ## <a name="next-steps"></a>Próximas etapas

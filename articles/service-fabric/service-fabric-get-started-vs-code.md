@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
-ms.openlocfilehash: a2ac8a84b4df4a241665e7f4269803908733ca82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a655199d854462285ca98a2d8f454c483c061f99
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249902"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316666"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
 
@@ -42,7 +42,7 @@ Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 
 Os pré-requisitos a seguir devem ser instalados em todos os ambientes:
 
-* [SDK Java](https://aka.ms/azure-jdks) para o Lote versão 1.8
+* [SDK Java](/azure/developer/java/fundamentals/java-jdk-long-term-support) para o Lote versão 1.8
 * [Gradle](https://gradle.org/install/)
 * [Depurador para a extensão do Visual Studio Code do Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) necessário para depurar serviços Java. A depuração dos serviços Java tem suporte somente no Linux. Você pode instalar clicando no ícone de extensões na **Barra de Atividade** no Visual Studio Code e pesquisa para a extensão ou do Marketplace do Visual Studio Code.
 

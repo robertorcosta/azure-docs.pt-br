@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296083"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315834"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança do Azure para aplicativos lógicos
 
@@ -24,7 +24,7 @@ Para obter mais informações, consulte [Visão geral sobre linhas de base de se
 
 ## <a name="network-security"></a>Segurança de rede
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança de rede](/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteger os recursos do Azure em redes virtuais
 
@@ -102,7 +102,7 @@ Use a proteção de rede adaptável da central de segurança do Azure para recom
 
 - [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 - [Entender a proteção de rede adaptável da central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -200,13 +200,13 @@ Use qualquer uma das definições de Azure Policy internas relacionadas à marca
 
 Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 - [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
 - [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Lista de definições de Azure Policy para aplicativos lógicos](/azure/logic-apps/policy-samples)
+- [Lista de definições de Azure Policy para aplicativos lógicos](./policy-reference.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -216,7 +216,7 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 **Diretrizes**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados às instâncias de aplicativos lógicos do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -226,7 +226,7 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 ## <a name="logging-and-monitoring"></a>Log e monitoramento
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: registro em log e monitoramento](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usar fontes de sincronização de tempo aprovadas
 
@@ -242,7 +242,7 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros. 
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
 
 - [Como configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure](monitor-logic-apps-log-analytics.md)
 
@@ -258,7 +258,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros. 
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
 
 - [Como configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure](monitor-logic-apps-log-analytics.md)
 
@@ -300,9 +300,9 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 - [Como configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure](monitor-logic-apps-log-analytics.md)
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
 
-- [Como coletar e analisar os logs de atividades do Azure em Log Analytics no Azure Monitor](/azure/azure-monitor/platform/activity-log-collect)
+- [Como coletar e analisar os logs de atividades do Azure em Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -352,7 +352,7 @@ Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
 ## <a name="identity-and-access-control"></a>Identidade e controle de acesso
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: identidade e controle de acesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: identidade e controle de acesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
@@ -362,11 +362,11 @@ Para acessar facilmente outros recursos protegidos pelo Azure AD (Azure Active D
 
 Cada ponto de extremidade de solicitação em um aplicativo lógico tem uma assinatura de acesso compartilhado (SAS) na URL do ponto de extremidade. Se você compartilhar a URL do ponto de extremidade para um gatilho baseado em solicitação com outras partes, poderá gerar URLs de retorno de chamada que usam chaves específicas e têm datas de validade. Dessa forma, você pode reverter tranquilamente as chaves ou restringir o acesso para disparar seu aplicativo lógico com base em um período específico.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 - [Autenticar o acesso a recursos do Azure usando identidades gerenciadas em Aplicativos Lógicos do Azure](create-managed-service-identity.md)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Como proteger o acesso e os dados nos aplicativos lógicos do Azure usando SAS](logic-apps-securing-a-logic-app.md#sas)
 
@@ -460,7 +460,7 @@ Além disso, use as detecções de risco do Azure Active Directory para ver aler
 
 - [Como implantar o Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Entenda as detecções de risco do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Entenda as detecções de risco do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -508,7 +508,7 @@ O aplicativo lógico do Azure dá suporte a identidades gerenciadas atribuídas 
 
 **Diretrizes**: o Azure Active Directory (AD) fornece logs para ajudá-lo a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo. 
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -524,7 +524,7 @@ Você tem acesso à atividade de entrada do Azure AD, às fontes de log de event
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas de log desejados no Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -536,7 +536,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use os recursos de proteção de identidade e proteção contra riscos do Azure AD para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuários. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada. 
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -558,13 +558,13 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: proteção de dados](/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informações confidenciais
 
 **Diretriz**: Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -584,11 +584,11 @@ Além disso, implemente o isolamento usando assinaturas e grupos de gerenciament
 
 - [Acessar recursos de rede virtual do Azure a partir dos Aplicativos Lógicos do Azure usando ISEs (Ambientes de Serviço de Integração)](connect-virtual-network-vnet-isolated-environment-overview.md)
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription) 
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md) 
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create) 
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md) 
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -693,7 +693,7 @@ Quando você cria um ambiente do serviço de integração (ISE) para hospedar se
 
 ## <a name="vulnerability-management"></a>Gerenciamento de vulnerabilidades
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: gerenciamento de vulnerabilidade](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: gerenciamento de vulnerabilidade](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: executar ferramentas automatizadas de verificação de vulnerabilidade
 
@@ -737,7 +737,7 @@ Quando você cria um ambiente do serviço de integração (ISE) para hospedar se
 
 ## <a name="inventory-and-asset-management"></a>Inventário e gerenciamento de ativos
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: inventário e gerenciamento de ativos](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: inventário e gerenciamento de ativos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usar solução de descoberta de ativos automatizada
 
@@ -747,7 +747,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -759,7 +759,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 **Diretriz**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -774,11 +774,11 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -847,7 +847,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/index.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -889,7 +889,7 @@ Aplicativos lógicos que são necessários para operações de negócios, mas po
 
 - [Como criar um NSG com uma configuração de segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create) 
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md) 
 
 - [Como proteger o acesso a aplicativos lógicos via RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
@@ -899,7 +899,7 @@ Aplicativos lógicos que são necessários para operações de negócios, mas po
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: configuração segura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: estabelecer configurações seguras para todos os recursos do Azure
 
@@ -909,7 +909,7 @@ Além disso, Azure Resource Manager tem a capacidade de exportar o modelo no Jav
 
 Além disso, use parâmetros protegidos para proteger dados confidenciais e segredos.
 
-- [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -979,9 +979,9 @@ Além disso, certifique-se de proteger os dados no histórico de execução usan
 
 Além disso, Azure Resource Manager tem a capacidade de exportar o modelo no JavaScript Object Notation (JSON), que deve ser revisado para garantir que as configurações atendam/excedam os requisitos de segurança para sua organização.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 - [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1092,7 +1092,7 @@ Você também pode implementar o verificador de credenciais para identificar as 
 
 ## <a name="malware-defense"></a>Defesa contra malware
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: defesa contra malware](/azure/security/benchmarks/security-control-malware-defense).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: defesa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: usar software antimalware gerenciado centralmente
 
@@ -1112,7 +1112,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 - [Entender o antimalware da Microsoft para serviços de nuvem e máquinas virtuais do Azure](../security/fundamentals/antimalware.md)
 
-- [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](/azure/security-center/security-center-alerts-data-services)
+- [Entender a detecção de ameaças da central de segurança do Azure para serviços de dados](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1128,7 +1128,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: recuperação de dados](/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: recuperação de dados](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: garantir back-ups automatizados regulares
 
@@ -1178,7 +1178,7 @@ Teste a restauração de chaves de backup gerenciadas pelo cliente. Observe que 
 
 - [Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure](customer-managed-keys-integration-service-environment.md)
 
-- [Como restaurar chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1196,7 +1196,7 @@ Habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as cha
 
 - [Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure](customer-managed-keys-integration-service-environment.md)
 
-- [Como habilitar a proteção de Soft-Delete e limpeza no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a proteção de Soft-Delete e limpeza no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1204,7 +1204,7 @@ Habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as cha
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: resposta a incidentes](/azure/security/benchmarks/security-control-incident-response).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: criar um guia de resposta a incidentes
 
@@ -1228,7 +1228,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 - [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1278,7 +1278,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios de Red Team
 
-*Para obter mais informações, consulte o [benchmark de segurança do Azure: testes de penetração e exercícios de equipe vermelho](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte o [benchmark de segurança do Azure: testes de penetração e exercícios de equipe vermelho](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: realize testes de penetração regulares de seus recursos do Azure e garanta a correção de todas as descobertas de segurança críticas
 
@@ -1294,5 +1294,5 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira o [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira o [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

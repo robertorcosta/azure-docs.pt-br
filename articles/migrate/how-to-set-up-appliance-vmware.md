@@ -3,12 +3,12 @@ title: Configurar um dispositivo de migrações para Azure para VMware
 description: Saiba como configurar um dispositivo de migrações para Azure para avaliar e migrar VMs VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448645"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318211"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
 
@@ -58,7 +58,7 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo.
 2. Execute o comando a seguir para gerar o hash para o OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
-3. Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas [configurações](./tutorial-assess-vmware.md#verify-security).
+3. Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas [configurações](./tutorial-discover-vmware.md#verify-security).
 
 
 
@@ -117,7 +117,7 @@ Configure o dispositivo pela primeira vez.
    
    Não há suporte para a entrada com um PIN.
 3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
-4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](tutorial-prepare-vmware.md#prepare-azure) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
+4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 
 
@@ -126,7 +126,7 @@ Configure o dispositivo pela primeira vez.
 O dispositivo precisa se conectar ao vCenter Server para descobrir a configuração e os dados de desempenho das VMs.
 
 1. Na **Etapa 1: Fornecer as credenciais do vCenter Server**, clique em **Adicionar credenciais** para especificar um nome amigável para as credenciais, adicionar o **Nome de usuário** e a **Senha** para a conta do vCenter Server que o dispositivo usará para descobrir as VMs na instância do vCenter Server.
-    - Você deve ter configurado uma conta com as permissões necessárias no [tutorial anterior](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Você deve ter configurado uma conta com as permissões necessárias no [tutorial anterior](./tutorial-discover-vmware.md#create-an-account-to-access-vcenter).
     - Se você quiser definir o escopo da descoberta para objetos específicos do VMware (data centers, clusters, uma pasta de clusters, hosts, uma pasta de hosts ou VMs individuais do vCenter Server), examine as instruções [neste artigo](set-discovery-scope.md) para restringir a conta usada por Migrações para Azure.
 1. Na **Etapa 2: Fornecer detalhes do vCenter Server**, clique em **Adicionar origem da descoberta** para selecionar o nome amigável de credenciais na lista suspensa e especifique o **Endereço IP/FQDN** da instância do vCenter Server. Você pode deixar a **Porta** como padrão (443) ou especificar uma porta personalizada na qual o vCenter Server escuta e clique em **Salvar**.
 1. Quando você clicar em Salvar, o dispositivo tentará validar a conexão com o vCenter Server com as credenciais fornecidas e mostrará o **Status de validação** na tabela com relação ao endereço IP/FQDN do vCenter Server.
@@ -145,4 +145,4 @@ A descoberta funciona da seguinte maneira:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine os tutoriais para [avaliação do VMware](tutorial-assess-vmware.md) e [migração sem agente](tutorial-migrate-vmware.md).
+Examine os tutoriais para [avaliação do VMware](./tutorial-assess-vmware-azure-vm.md) e [migração sem agente](tutorial-migrate-vmware.md).

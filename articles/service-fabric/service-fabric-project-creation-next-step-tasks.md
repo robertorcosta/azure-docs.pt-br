@@ -3,12 +3,12 @@ title: Próximas etapas de criação do projeto Service Fabric
 description: Saiba mais sobre o projeto de aplicativo que você acabou de criar no Visual Studio.  Saiba como criar serviços usando tutoriais e mais sobre como desenvolver serviços para o Service Fabric.
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01a69016e0c299fba0365fab5332b572fd2ca87a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75349406"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314466"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>O seu aplicativo do Service Fabric e as próximas etapas
 O seu aplicativo do Service Fabric do Azure foi criado. Este artigo descreve alguns tutoriais para experimentar, a composição do projeto, mais informações nas quais você possa estar interessado e as próximas etapas em potencial.
@@ -24,7 +24,7 @@ Ou tente um dos seguintes a passo a passo e crie o primeiro...
 - [Serviço executável de convidado no Windows](quickstart-guest-app.md) 
 - [Aplicativo de contêiner do Windows](service-fabric-get-started-containers.md) 
 
-Você também pode ter interesse em experimentar os [aplicativos de exemplo](https://aka.ms/servicefabricsamples).
+Você também pode ter interesse em experimentar os [aplicativos de exemplo](/samples/browse/?products=azure).
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>Dúvidas ou comentários?  Precisa relatar um problema?
 Leia [perguntas comuns](service-fabric-common-questions.md) e encontre respostas sobre o que o Service Fabric pode fazer e como ele deve ser usado.
@@ -62,5 +62,3 @@ Assim como acontece com outras plataformas, um aplicativo do Service Fabric gera
 - [Crie um cluster do Windows no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Visualize o cluster, inclusive aplicativos implantados e layout físico, com [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Versão e atualização de serviços](service-fabric-application-upgrade-tutorial.md)
-
-
