@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 526287feb93052d10428971dfd8f660d4265c831
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: acb4290a90532b38f44a957e33c69f7d2b3f11f8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89071221"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104811"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Início Rápido: Criar sua primeira função com o Kotlin e o Maven
 
@@ -24,7 +24,7 @@ Este artigo explicará como usar a ferramenta de linha de comando do Maven para 
 
 Para desenvolver funções usando Kotlin, você deve ter o seguinte instalado:
 
-- [Java Developer Kit](https://aka.ms/azure-jdks), versão 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior
 - [CLI do Azure](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou posterior

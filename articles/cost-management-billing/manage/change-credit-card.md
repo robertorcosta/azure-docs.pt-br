@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 6b4b5fe5d7dffbcacc804500cc1f3f8f07f0090d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758533"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131132"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Adicionar ou atualizar um cartão de crédito para o Azure
 
@@ -32,7 +32,7 @@ Com um Contrato de Cliente da Microsoft, as formas de pagamento serão associada
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Gerenciar cartões de crédito de uma assinatura do Azure
 
-As seções a seguir se aplicam a clientes que têm uma conta de cobrança do programa Microsoft Online Services. Saiba como [verificar o tipo de sua conta de cobrança](#check-the-type-of-your-account). Se o tipo de conta de cobrança for o programa Microsoft Online Services, os métodos de pagamento serão associados a assinaturas individuais do Azure. Se você receber um erro depois de adicionar o cartão de crédito, consulte [Cartão de crédito recusado na inscrição do Azure](/azure/cost-management-billing/manage/troubleshoot-declined-card).
+As seções a seguir se aplicam a clientes que têm uma conta de cobrança do programa Microsoft Online Services. Saiba como [verificar o tipo de sua conta de cobrança](#check-the-type-of-your-account). Se o tipo de conta de cobrança for o programa Microsoft Online Services, os métodos de pagamento serão associados a assinaturas individuais do Azure. Se você receber um erro depois de adicionar o cartão de crédito, consulte [Cartão de crédito recusado na inscrição do Azure](./troubleshoot-declined-card.md).
 
 ### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Alterar o cartão de crédito de uma assinatura adicionando um novo cartão de crédito
 

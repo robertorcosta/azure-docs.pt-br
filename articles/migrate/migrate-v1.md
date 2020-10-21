@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001630"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317215"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior das Migrações para Azure
 
@@ -121,7 +121,7 @@ Windows Server 2012 R2 e todos os SPs | O Azure fornece suporte total. | Pronto 
 Windows Server 2012 e todos os SPs | O Azure fornece suporte total. | Pronto para o Azure
 Windows Server 2008 R2 e todos os SPs | O Azure fornece suporte total.| Pronto para o Azure
 Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte total. | Pronto para o Azure
-Windows Server 2003, 2003 R2 | Sem suporte e precisa de um [CSA (contrato personalizado de suporte)](https://aka.ms/WSosstatement) para ter suporte no Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
+Windows Server 2003, 2003 R2 | Sem suporte e precisa de um [CSA (contrato personalizado de suporte)](/troubleshoot/azure/virtual-machines/server-software-support) para ter suporte no Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Sem suporte. O computador pode ser inicializado no Azure, mas não há suporte ao sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Cliente do Windows 7, 8 e 10 | O Azure oferece suporte apenas [com a Assinatura do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente pronta para o Azure
 Windows 10 Pro Desktop | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronta para o Azure

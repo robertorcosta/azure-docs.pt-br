@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7228368645023ffc7debbc84adb8e3b7c27b1bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728430"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340369"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
@@ -98,5 +98,4 @@ Você tem uma variedade de opções para exibir seus alertas fora da central de 
 
 Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na Central de Segurança. Para obter mais informações, consulte:
 
-- **Alertas de segurança no Log de Atividades do Azure** - além de estarem disponíveis no portal do Azure ou programaticamente, os alertas de segurança e incidentes são auditados como eventos no [Log de Atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para saber mais sobre o esquema de eventos, confira [Alertas de segurança no log de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
-
+- **Alertas de segurança no Log de Atividades do Azure** - além de estarem disponíveis no portal do Azure ou programaticamente, os alertas de segurança e incidentes são auditados como eventos no [Log de Atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log). Para saber mais sobre o esquema de eventos, confira [Alertas de segurança no log de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)

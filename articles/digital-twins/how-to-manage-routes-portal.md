@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ec23252883f928cfa6c1651afbfe88e413d55571
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332086"
+ms.locfileid: "92339587"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
@@ -169,7 +169,6 @@ Depois de habilitar o filtro mínimo do `true` , os pontos de extremidade recebe
 * Telemetria acionada por [gêmeos digital](concepts-twins-graph.md) usando a API do serviço gêmeos do Azure digital
 * Notificações de alteração de propriedade de cópia, disparadas em alterações de propriedade para qualquer cópia na instância de gêmeos digital do Azure
 * Eventos de ciclo de vida, acionados quando gêmeos ou relações são criados ou excluídos
-* Eventos de alteração de modelo, acionados quando [modelos](concepts-models.md) configurados em uma instância de gêmeos digital do Azure são adicionados ou excluídos
 
 Você pode restringir os tipos de eventos que estão sendo enviados definindo um filtro mais específico.
 

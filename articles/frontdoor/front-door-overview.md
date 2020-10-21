@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: e5b8e5059d4d7df8d7061698ea29d7a6785236f9
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ef7870363940a0db4ff09ae9ebd82eedb0e60495
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825639"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282270"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 
@@ -32,11 +32,11 @@ O Front Door funciona na Camada 7 (Camada HTTP/HTTPS) e usa o protocolo anycast 
 >[!NOTE]
 > O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. 
 > * Se você quiser realizar um roteamento global baseado em DNS e **não** tiver os requisitos para encerramento de protocolo TLS ("descarregamento de SSL") ou para processamento de camada de aplicativo por solicitação HTTP/HTTPS, examine [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md). 
-> * Se você quiser balancear a carga entre os servidores em uma região na camada de aplicativo, examine [Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
+> * Se você quiser balancear a carga entre os servidores em uma região na camada de aplicativo, examine [Gateway de Aplicativo](../application-gateway/overview.md)
 > * Para fazer o balanceamento de carga de camada de rede, examine [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
 > Os cenários de ponta a ponta podem se beneficiar da combinação dessas soluções, conforme necessário.
-> Para obter uma comparação das opções de balanceamento de carga do Azure, confira [Visão geral das opções de balanceamento de carga no Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> Para obter uma comparação das opções de balanceamento de carga do Azure, confira [Visão geral das opções de balanceamento de carga no Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-azure-front-door"></a>Por que usar o Azure Front Door?
 

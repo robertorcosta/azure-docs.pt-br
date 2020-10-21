@@ -1,15 +1,15 @@
 ---
 title: Atalhos de teclado no portal do Azure para o Gerenciador de gráficos de recursos do Azure
 description: O Gerenciador de grafo de recursos do Azure no portal do Azure dá suporte a atalhos de teclado para ajudá-lo a executar ações e navegar.
-ms.date: 08/25/2020
+ms.date: 10/21/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146429"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340114"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Atalhos de teclado para o Gerenciador de gráficos de recursos do Azure
 
@@ -24,7 +24,7 @@ Este artigo lista os atalhos de teclado que funcionam na página do Gerenciador 
 |Aumentar recuo |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
 |Mover a linha para baixo |<kbd>ALT</kbd> + <kbd>↓</kbd> |<kbd>Opção</kbd> + <kbd>↓</kbd> |
 |Mover a linha para cima |<kbd>ALT</kbd> + <kbd>↑</kbd> |<kbd>Opção</kbd> + <kbd>↑</kbd> |
-|Substitua |<kbd>CTRL</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |
+|Substitua |<kbd>CTRL</kbd>+<kbd>H</kbd> |<kbd>Cmd</kbd> + <kbd>H</kbd> |
 |Selecionar tudo |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd> + <kbd>Um</kbd> |
 |Selecionar para baixo |<kbd>Shift</kbd> + <kbd>↓</kbd> |<kbd>Shift</kbd> + <kbd>↓</kbd> |
 |Selecionar à direita |<kbd>Shift</kbd> + <kbd>→</kbd> |<kbd>Shift</kbd> + <kbd>→</kbd> |

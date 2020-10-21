@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076973"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339706"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -52,7 +52,7 @@ Definindo listas de aplicativos conhecidos e gerando alertas quando qualquer out
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
-|Computadores com suporte:|![Sim ](./media/icons/yes-icon.png) computadores Azure e não Azure executando Windows e Linux<br>![Sim, ](./media/icons/yes-icon.png) computadores [do Arc do Azure](https://docs.microsoft.com/azure/azure-arc/)|
+|Computadores com suporte:|![Sim ](./media/icons/yes-icon.png) computadores Azure e não Azure executando Windows e Linux<br>![Sim, ](./media/icons/yes-icon.png) computadores [do Arc do Azure](../azure-arc/index.yml)|
 |Funções e permissões necessárias:|O **leitor de segurança** e as funções de **leitor** podem exibir grupos e as listas de aplicativos conhecidos confiáveis<br>As funções de administrador de **colaborador** e de **segurança** podem editar grupos e as listas de aplicativos conhecidos confiáveis|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
@@ -85,7 +85,7 @@ Selecione a recomendação ou abra a página controles de aplicativo adaptáveis
     - **Nenhuma recomendação** – máquinas sem uma lista de permissões definida de aplicativos e que não dão suporte ao recurso. Seu computador pode estar nesta guia pelos seguintes motivos:
       - Falta um agente de Log Analytics
       - O agente de Log Analytics não está enviando eventos
-      - É um computador Windows com uma política [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) já existente habilitada por um GPO ou uma política de segurança local
+      - É um computador Windows com uma política [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) já existente habilitada por um GPO ou uma política de segurança local
 
       > [!TIP]
       > A central de segurança precisa de pelo menos duas semanas de dados para definir as recomendações exclusivas por grupo de computadores. As máquinas que foram criadas recentemente ou que pertencem a assinaturas que foram habilitadas recentemente com o Azure defender serão exibidas na guia **sem recomendação** .
@@ -224,7 +224,7 @@ Quando você move um computador de um grupo para outro, a política de controle 
 
 Para gerenciar seus controles de aplicativo adaptáveis de forma programática, use nossa API REST. 
 
-A documentação completa da API está [aqui](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+A documentação completa da API está [aqui](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Algumas das funções que estão disponíveis na API REST:
 

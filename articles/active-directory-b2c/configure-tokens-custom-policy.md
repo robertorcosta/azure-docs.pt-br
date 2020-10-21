@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9b2c5b24b88dd51596dfb5bd8b5f397419ca6e4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e72bd04bb41537546191b8ceb320c0722bd10146
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215188"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340284"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerenciar a personalização de SSO e de token usando políticas personalizadas no Azure Active Directory B2C
 
@@ -90,6 +90,45 @@ Os seguintes valores são definidos no exemplo anterior:
 
 > [!NOTE]
 > Aplicativos de página única usando o fluxo de código de autorização com PKCE sempre têm um tempo de vida de token de atualização de 24 horas. [Saiba mais sobre as implicações de segurança de tokens de atualização no navegador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
+## <a name="provide-optional-claims-to-your-app"></a>Fornecer declarações opcionais para seu aplicativo
+
+As declarações de saída do [perfil técnico da política de terceira parte confiável](relyingparty.md#technicalprofile) são valores retornados para um aplicativo. A adição de declarações de saída emitirá as declarações para o token após um percurso de usuário bem-sucedido e será enviada para o aplicativo. Modifique o elemento de perfil técnico na seção terceira parte confiável para adicionar as declarações desejadas como uma declaração de saída.
+
+1. Abra o arquivo de política personalizada. Por exemplo, SignUpOrSignin.xml.
+1. Localize o elemento OutputClaims. Adicione o OutputClaim que você deseja incluir no token. 
+1. Defina os atributos de declaração de saída. 
+
+O exemplo a seguir adiciona a `accountBalance` declaração. A declaração accountBalance é enviada para o aplicativo como um saldo. 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+O elemento OutputClaim contém os seguintes atributos:
+
+  - **ClaimTypeReferenceId** -o identificador de um tipo de declaração já definido na seção [ClaimsSchema](claimsschema.md) no arquivo de política ou no arquivo de política pai.
+  - **PartnerClaimType** -permite que você altere o nome da declaração no token. 
+  - **DefaultValue** -um valor padrão. Você também pode definir o valor padrão para um [resolvedor de declaração](claim-resolver-overview.md), como a ID do locatário.
+  - **AlwaysUseDefaultValue** -força o uso do valor padrão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

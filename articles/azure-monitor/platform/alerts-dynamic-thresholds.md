@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261067"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340080"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métrica com limites dinâmicos no Azure Monitor
 
@@ -98,7 +98,7 @@ Para recursos existentes com dados de métrica suficientes, os limites dinâmico
 
 ## <a name="dynamic-thresholds-best-practices"></a>Melhores práticas para Limites Dinâmicos
 
-Os Limites Dinâmicos podem ser aplicados a qualquer plataforma ou métrica personalizada no Azure Monitor e também foram ajustados para as métricas comuns de aplicativo e infraestrutura.
+Os limites dinâmicos podem ser aplicados à maioria das métricas de plataforma e personalizadas no Azure Monitor e também foram ajustados para as métricas comuns de aplicativo e infraestrutura.
 Os itens a seguir são melhores práticas sobre como configurar alertas em algumas dessas métricas usando Limites Dinâmicos.
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Limites dinâmicos em métricas de percentual de CPU da máquina virtual

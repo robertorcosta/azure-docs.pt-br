@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d4c3c8e2f8470d187156f0dd98fab2bd74eb33bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963101"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126319"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introdução ao exemplo de destaque de chamadas em grupo
 
@@ -30,7 +30,7 @@ O **Exemplo de Destaque de Chamadas em Grupo** dos Serviços de Comunicação do
 Neste guia de início rápido de Exemplo, aprenderemos como o exemplo funciona antes de o executarmos no computador local. Em seguida, implantaremos o exemplo no Azure usando seus próprios recursos de Serviços de Comunicação do Azure.
 
 > [!IMPORTANT]
-> [Baixar o exemplo do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+> [Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## <a name="overview"></a>Visão geral
 
@@ -103,7 +103,7 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 ## <a name="next-steps"></a>Próximas etapas
 
 >[!div class="nextstepaction"] 
->[Baixar o exemplo do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+>[Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Para obter mais informações, consulte os seguintes artigos:
 

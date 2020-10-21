@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 72e9fd0d5a178897cf84b2babe4c02f7ef920841
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531331"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131897"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usar alertas de custo para monitorar o uso e os gastos
 
@@ -21,7 +21,7 @@ Este artigo ajuda você a entender e a usar alertas de gerenciamento de custos p
 
 ## <a name="budget-alerts"></a>Alertas de orçamento
 
-Alertas de orçamento o notificam quando os gastos, com base em uso ou custos, atingem ou excedem o valor definido na [condição de alerta do orçamento](tutorial-acm-create-budgets.md). Orçamentos de gerenciamento de custos são criados usando o portal do Azure ou a [API de consumo do Azure](https://docs.microsoft.com/rest/api/consumption).
+Alertas de orçamento o notificam quando os gastos, com base em uso ou custos, atingem ou excedem o valor definido na [condição de alerta do orçamento](tutorial-acm-create-budgets.md). Orçamentos de gerenciamento de custos são criados usando o portal do Azure ou a [API de consumo do Azure](/rest/api/consumption).
 
 No portal do Azure, os orçamentos são definidos pelo custo. Usando a API de Consumo do Azure, os orçamentos são definidos pelo custo ou pelo uso de consumo. Alertas de orçamento dão suporte a orçamentos com base em custo e em uso. Alertas de orçamento são gerados automaticamente sempre que as condições de alerta de orçamento são atendidas. Você pode exibir todos os alertas de custo no portal do Azure. Sempre que um alerta é gerado, ele é mostrado em alertas de custo. Um email de alerta também é enviado para as pessoas na lista de destinatários de alerta do orçamento.
 

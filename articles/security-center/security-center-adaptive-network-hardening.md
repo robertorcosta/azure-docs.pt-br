@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851028"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341746"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
 Saiba como configurar a proteção de rede adaptável na central de segurança.
@@ -33,7 +33,7 @@ Saiba como configurar a proteção de rede adaptável na central de segurança.
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>O que é a proteção de rede adaptável?
-A aplicação de [NSG (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/security-overview) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui pelo NSG seja um subconjunto das regras NSG definidas. Nesses casos, é possível aprimorar ainda mais a postura de segurança protegendo as regras NSG, com base nos padrões reais de tráfego.
+A aplicação de [NSG (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui pelo NSG seja um subconjunto das regras NSG definidas. Nesses casos, é possível aprimorar ainda mais a postura de segurança protegendo as regras NSG, com base nos padrões reais de tráfego.
 
 A proteção de rede adaptável fornece recomendações para proteger ainda mais as regras de NSG. Ela usa um algoritmo de machine learning que inclui o tráfego real, a configuração confiável conhecida, a inteligência contra ameaças e outros indicadores de comprometimento e, em seguida, fornece recomendações para permitir o tráfego somente de tuplas de IP/porta específicas.
 
@@ -93,7 +93,7 @@ Algumas diretrizes importantes para modificar uma regra de proteção de rede ad
 * Você não pode alterar as regras "permitir" para se tornarem regras "Deny". 
 
   > [!NOTE]
-  > Criar e modificar regras "Deny" é feito diretamente no NSG. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > Criar e modificar regras "Deny" é feito diretamente no NSG. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](../virtual-network/manage-network-security-group.md).
 
 * Uma regra **negar todo o tráfego** é o único tipo de regra "negar" que seria listado aqui e não pode ser modificado. Você pode, no entanto, excluí-lo (consulte [excluir uma regra](#delete-rule)).
   > [!NOTE]
@@ -121,7 +121,7 @@ Algumas diretrizes importantes para modificar uma regra de proteção de rede ad
 Você pode adicionar uma regra "permitir" que não foi recomendada pela central de segurança.
 
 > [!NOTE]
-> Somente as regras "permitir" podem ser adicionadas aqui. Se você quiser adicionar regras "Deny", poderá fazer isso diretamente no NSG. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Somente as regras "permitir" podem ser adicionadas aqui. Se você quiser adicionar regras "Deny", poderá fazer isso diretamente no NSG. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](../virtual-network/manage-network-security-group.md).
 
 *Para adicionar uma regra de proteção de rede adaptável:*
 
