@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971248"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097279"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Compartilhar âncoras espaciais entre sessões e dispositivos
 
@@ -86,7 +86,7 @@ Selecione **OK**.
 
 Abra o Visual Studio Code e, depois, abra o projeto na pasta *Sharing\SharingServiceSample*. 
 
-Para implantar o serviço de compartilhamento por meio do Visual Studio Code, siga as instruções em <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publicar um aplicativo ASP.NET Core no Azure com Visual Studio Code</a>. Inicie na seção "Abrir com o Visual Studio Code". Não crie outro projeto ASP.NET, conforme explicado na etapa anterior, porque você já tem um projeto a ser implantado e publicado: SharingServiceSample.
+Para implantar o serviço de compartilhamento por meio do Visual Studio Code, siga as instruções em <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publicar um aplicativo ASP.NET Core no Azure com Visual Studio Code</a>. Inicie na seção "Abrir com o Visual Studio Code". Não crie outro projeto ASP.NET, conforme explicado na etapa anterior, porque você já tem um projeto a ser implantado e publicado: SharingServiceSample.
 
 ---
 
@@ -104,4 +104,3 @@ Você pode aprimorar o aplicativo Web ASP.NET Core para que ele use o Azure Cosm
 
 > [!div class="nextstepaction"]
 > [Usar o Azure Cosmos DB para armazenar âncoras](./tutorial-use-cosmos-db-to-store-anchors.md)
-

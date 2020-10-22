@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021061"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203238"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Tutorial: Refinar materiais, iluminação e efeitos
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Fornecer feedback visual para o usuário é uma parte importante da experiência do usuário em qualquer aplicativo. A Azure Remote Rendering oferece mecanismos de feedback visual por meio de [Substituições de estado hierárquicas](../../../overview/features/override-hierarchical-state.md). As substituições de estado hierárquicas são implementadas com componentes anexados a instâncias locais de modelos. Aprendemos a criar essas instâncias locais em [Sincronização do grafo de objetos remoto na hierarquia do Unity](../manipulate-models/manipulate-models.md#synchronizing-the-remote-object-graph-into-the-unity-hierarchy).
 
-Primeiro, criaremos um wrapper em torno do componente [**HierarchicalStateOverrideComponent**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent). O **HierarchicalStateOverrideComponent** é o script local que controla as substituições na entidade remota. Os [**Ativos do Tutorial**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) incluem uma classe base abstrata chamada **BaseEntityOverrideController**, que estenderemos para criar o wrapper.
+Primeiro, criaremos um wrapper em torno do componente [**HierarchicalStateOverrideComponent**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent). O **HierarchicalStateOverrideComponent** é o script local que controla as substituições na entidade remota. Os [**Ativos do Tutorial**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) incluem uma classe base abstrata chamada **BaseEntityOverrideController**, que estenderemos para criar o wrapper.
 
 1. Crie um script chamado **EntityOverrideController** e substitua seu conteúdo pelo seguinte código:
 

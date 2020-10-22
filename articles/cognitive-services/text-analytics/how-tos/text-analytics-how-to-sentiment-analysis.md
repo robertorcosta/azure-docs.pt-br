@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930281"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166923"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como fazer: Detectar o sentimento usando a API de Análise de Texto
 
@@ -36,7 +36,7 @@ A Análise de Sentimento dá suporte a uma ampla variedade de idiomas, com mais 
 | [Contêiner do Docker](text-analytics-how-to-install-containers.md) baseado em Linux | X  |  |
 | Mineração de opinião                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>Pontuação e rotulagem de sentimentos
+## <a name="sentiment-scoring-and-labeling"></a>Pontuação e rotulagem de sentimentos
 
 A Análise de Sentimento na v3 aplica rótulos de sentimento a um texto, que são retornados em um nível da frase e do documento, com uma pontuação de confiança para cada um. 
 
@@ -51,7 +51,7 @@ Os rótulos são *positivos*, *negativos* e *neutros*. No nível do documento, o
 
 As pontuações de confiança vão de 1 a 0. As pontuações mais próximas a 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações inferiores indicam uma menor confiança. Para cada documento ou cada frase, as pontuações previstas associadas aos rótulos (positivo, negativo e neutro) somam 1.
 
-### <a name="opinion-mining"></a>Mineração de opinião
+## <a name="opinion-mining"></a>Mineração de opinião
 
 A mineração de opinião é um recurso da Análise de Sentimento na versão 3.1-preview.1 em diante. Também conhecida como Análise de Sentimento baseada em aspecto no NLP (processamento de idioma natural), esse recurso fornece informações mais granulares sobre as opiniões relacionadas a aspectos (como os atributos de produtos ou serviços) no texto.
 

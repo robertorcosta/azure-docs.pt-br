@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92202406"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Criando para recuperação de desastre com o emparelhamento privado do ExpressRoute
@@ -76,11 +76,11 @@ Como/25 é mais específico, comparado a/24, o Azure enviaria o tráfego destina
 
 A captura de tela a seguir ilustra a configuração do peso de uma conexão do ExpressRoute por meio de portal do Azure.
 
-[![Beta]][3]
+[![3]][3]
 
 O diagrama a seguir ilustra a influência da seleção de caminho do ExpressRoute usando o peso da conexão. O peso de conexão padrão é 0. No exemplo a seguir, o peso da conexão para o ExpressRoute 1 é configurado como 100. Quando uma VNet recebe um prefixo de rota anunciado por mais de um circuito de ExpressRoute, a VNet prefere a conexão com o peso mais alto.
 
-[![quatro]][4]
+[![4]][4]
 
 Se ambas as conexões do ExpressRoute 1 ficarem inativas, a VNet veria o anúncio de rota 10.1.11.0/24 somente por meio do ExpressRoute 2; e, portanto, o circuito em espera é usado nesse estado de falha.
 
@@ -88,7 +88,7 @@ Se ambas as conexões do ExpressRoute 1 ficarem inativas, a VNet veria o anúnci
 
 O diagrama a seguir ilustra influência na seleção de caminho do ExpressRoute usando AS precedes de caminho. No diagrama, o anúncio de rota no ExpressRoute 1 indica o comportamento padrão do eBGP. No anúncio de rota no ExpressRoute 2, o ASN da rede local é anexado adicionalmente na rota como caminho. Quando a mesma rota é recebida por meio de vários circuitos de ExpressRoute, de acordo com o processo de seleção de rota eBGP, a VNet prefere a rota com o caminho mais curto. 
 
-[![05]][5]
+[![5]][5]
 
 Se ambas as conexões do ExpressRoute 1 ficarem inativas, a VNet veria o anúncio de rota 10.1.11.0/24 somente por meio do ExpressRoute 2. De modo seqüencial, o caminho mais longo como se tornaria irrelevante. Portanto, o circuito em espera seria usado nesse estado de falha.
 

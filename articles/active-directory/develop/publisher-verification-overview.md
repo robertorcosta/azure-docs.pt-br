@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258142"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363412"
 ---
 # <a name="publisher-verification"></a>Verificação do editor
 
@@ -49,7 +49,7 @@ Há alguns pré-requisitos para a verificação do editor, alguns dos quais já 
 
 -  O usuário que está realizando a verificação deve ser autorizado a fazer alterações no registro do aplicativo no Azure AD e na conta do MPN no Partner Center. 
 
-    -  No Azure AD, esse usuário deve ser um membro de uma das seguintes [funções](../users-groups-roles/directory-assign-admin-roles.md): administrador de aplicativos, administrador de aplicativos de nuvem ou administrador global. 
+    -  No Azure AD, esse usuário deve ser um membro de uma das seguintes [funções](../roles/permissions-reference.md): administrador de aplicativos, administrador de aplicativos de nuvem ou administrador global. 
 
     -  No Partner Center, esse usuário deve ter as seguintes [funções](/partner-center/permissions-overview): Administrador de MPN, administrador de contas ou um administrador global (essa é uma função compartilhada controlada no Azure Active Directory).
     
