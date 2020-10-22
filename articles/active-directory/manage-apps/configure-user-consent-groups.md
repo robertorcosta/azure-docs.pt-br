@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4203c572ed040b37a377e8d4a6b1bc82c883ebd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804284"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368495"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurar o consentimento do proprietário do grupo em aplicativos que acessam dados do grupo
 
@@ -30,7 +30,7 @@ Você pode configurar quais usuários têm permissão para consentir com os apli
 
 Siga estas etapas para gerenciar o consentimento do proprietário do grupo para os aplicativos que acessam os dados do Grupo:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um [Administrador Global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Entre no [portal do Azure](https://portal.azure.com) como um [Administrador Global](../roles/permissions-reference.md#global-administrator--company-administrator).
 2. Selecione **Azure Active Directory** > **Aplicativos empresariais** > **Consentimento e permissões** > **Configurações de consentimento do usuário**.
 3. Em **Consentimento do proprietário do grupo em aplicativos que acessam dados**, selecione a opção que deseja habilitar.
 4. Selecione **salvar** para salvar suas configurações.
@@ -73,7 +73,7 @@ Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureAD
 
 1. Entenda os valores de configuração. Há dois valores de configurações que definem quais usuários podem permitir que um aplicativo acesse os dados do seu grupo:
 
-    | Configuração       | Type         | Descrição  |
+    | Configuração       | Digite         | Descrição  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | Boolean | Sinalizador que indica se os proprietários de grupos têm permissão para conceder permissões específicas do grupo. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | Se _EnableGroupSpecificConsent_ for definido como "true" e esse valor for definido como a ID de objeto de um grupo, os membros do grupo identificado terão autorização para conceder permissões específicas do grupo aos grupos que eles possuem. |

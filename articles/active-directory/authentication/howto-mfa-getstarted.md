@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3d03f46e3948d1134c442f93af2e8f274dcd256
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964461"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366472"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planejar uma implantação da Autenticação Multifator do Azure
 
@@ -226,7 +226,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Para planejar sua estratégia de política de Acesso Condicional, que determinará quando a MFA e outros controles são necessários, confira [Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md).
 
-É importante que você impeça o bloqueio inadvertido do seu locatário do Azure Active Directory. Você pode reduzir o impacto da falta acidental de acesso administrativo ao [criar duas ou mais contas emergenciais de acesso para seu locatário](../users-groups-roles/directory-emergency-access.md) e excluí-las de sua política de Acesso Condicional.
+É importante que você impeça o bloqueio inadvertido do seu locatário do Azure Active Directory. Você pode reduzir o impacto da falta acidental de acesso administrativo ao [criar duas ou mais contas emergenciais de acesso para seu locatário](../roles/security-emergency-access.md) e excluí-las de sua política de Acesso Condicional.
 
 ### <a name="create-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 

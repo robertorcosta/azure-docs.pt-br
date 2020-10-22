@@ -9,12 +9,12 @@ ms.date: 08/05/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 20ed84a87486f1095a90e012368b1f56d6426c8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205645"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367424"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gerenciar configurações e preferências do portal do Azure
 
@@ -96,7 +96,7 @@ Se o administrador tiver habilitado uma política de tempo limite de inatividade
 
 ### <a name="change-the-directory-timeout-setting-admin"></a>Alterar a configuração de tempo limite do diretório (admin)
 
-Os administradores na [função de administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) podem impor o tempo ocioso máximo antes que uma sessão seja desconectada. A configuração de tempo limite de inatividade se aplica ao nível do diretório. A configuração entra em vigor para novas sessões. Ele não será aplicado imediatamente a nenhum usuário que já esteja conectado. Para obter mais informações sobre diretórios, consulte [Active Directory Domain Services visão geral](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Os administradores na [função de administrador global](../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) podem impor o tempo ocioso máximo antes que uma sessão seja desconectada. A configuração de tempo limite de inatividade se aplica ao nível do diretório. A configuração entra em vigor para novas sessões. Ele não será aplicado imediatamente a nenhum usuário que já esteja conectado. Para obter mais informações sobre diretórios, consulte [Active Directory Domain Services visão geral](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 Se você for um administrador global e quiser impor uma configuração de tempo limite de ociosidade para todos os usuários da portal do Azure, siga estas etapas:
 

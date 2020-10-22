@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397956"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368036"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar problemas de erros de replicação de VMs do Azure para o Azure
 
@@ -202,7 +202,7 @@ Uma conexão não pode ser estabelecida para Microsoft 365 pontos de extremidade
 #### <a name="fix-the-problem"></a>Corrigir o problema
 
 Azure Site Recovery acesso necessário para Microsoft 365 intervalos de IP para autenticação.
-Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de usar a NSG da [marca de serviço do AAD (Azure Active Directory)](../virtual-network/security-overview.md#service-tags) para permitir o acesso ao AAD. Não há mais suporte para regras NSG baseadas em endereço IP.
+Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de usar a NSG da [marca de serviço do AAD (Azure Active Directory)](../virtual-network/network-security-groups-overview.md#service-tags) para permitir o acesso ao AAD. Não há mais suporte para regras NSG baseadas em endereço IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: falha na configuração do Site Recovery (151197)
 

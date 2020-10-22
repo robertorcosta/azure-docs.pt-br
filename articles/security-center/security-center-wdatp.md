@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342137"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368071"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -85,7 +85,7 @@ Depois de configurar o local, você não poderá alterá-lo. Se você precisar m
 1. No menu da Central de Segurança, selecione **Preço e configurações**.
 1. Selecione a assinatura que deseja alterar.
 1. Selecione **Detecção de ameaças**.
-1. Selecione **permitir que o Windows Defender ATP acesse meus dados**e selecione **salvar**.
+1. Selecione **permitir que o Microsoft defender para ponto de extremidade acesse meus dados**e selecione **salvar**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Central de segurança da própria Microsoft defender para ponto de extremidade":::
 

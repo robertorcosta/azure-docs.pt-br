@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80878384"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368155"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
 
@@ -40,7 +40,7 @@ Em um alto nível, a API REST do Agendador expõe essas operações para gerenci
 
 ### <a name="job-management"></a>Gerenciamento de trabalho
 
-Compatível com operações para criar e editar trabalhos. Todos os trabalhos devem pertencer a uma coleção de trabalhos existente, para que não haja criação implícita. Para obter mais informações, veja [API REST do Agendador – Trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobs). Aqui está o endereço URI para essas operações:
+Compatível com operações para criar e editar trabalhos. Todos os trabalhos devem pertencer a uma coleção de trabalhos existente, para que não haja criação implícita. Para obter mais informações, veja [API REST do Agendador – Trabalhos](/rest/api/scheduler/jobs). Aqui está o endereço URI para essas operações:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -48,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Gerenciamento de coleção de trabalhos
 
-Compatível com operações para criar e editar trabalhos e coleções de trabalhos, que são mapeados para cotas e configurações compartilhadas. Por exemplo, as cotas especificam o número máximo de trabalhos e o menor intervalo de recorrência. Para obter mais informações, veja [API REST do Agendador – Coleções de trabalhos](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Aqui está o endereço URI para essas operações:
+Compatível com operações para criar e editar trabalhos e coleções de trabalhos, que são mapeados para cotas e configurações compartilhadas. Por exemplo, as cotas especificam o número máximo de trabalhos e o menor intervalo de recorrência. Para obter mais informações, veja [API REST do Agendador – Coleções de trabalhos](/rest/api/scheduler/jobcollections). Aqui está o endereço URI para essas operações:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -56,7 +56,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Gerenciamento de histórico de trabalhos
 
-Compatível com a operação GET para buscar 60 dias de histórico de execução do trabalho, por exemplo, o tempo decorrido do trabalho e os resultados da execução do trabalho. Inclui o suporte ao parâmetro de cadeia de caracteres consulta para filtrar com base no estado e status. Para obter mais informações, veja [API REST do Agendador – Trabalhos – Histórico de trabalhos de lista](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Aqui está o endereço URI para esta operação:
+Compatível com a operação GET para buscar 60 dias de histórico de execução do trabalho, por exemplo, o tempo decorrido do trabalho e os resultados da execução do trabalho. Inclui o suporte ao parâmetro de cadeia de caracteres consulta para filtrar com base no estado e status. Para obter mais informações, veja [API REST do Agendador – Trabalhos – Histórico de trabalhos de lista](/rest/api/scheduler/jobs/listjobhistory). Aqui está o endereço URI para esta operação:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -214,7 +214,7 @@ Aqui está um exemplo de uma ação de tópico do Barramento de Serviço:
 },
 ```
 
-Para obter mais informações sobre os tokens de SAS (Assinatura de Acesso Compartilhado), consulte [Autorizar com Assinaturas de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para obter mais informações sobre os tokens de SAS (Assinatura de Acesso Compartilhado), consulte [Autorizar com Assinaturas de Acesso Compartilhado](../storage/common/storage-sas-overview.md).
 
 <a name="error-action"></a>
 

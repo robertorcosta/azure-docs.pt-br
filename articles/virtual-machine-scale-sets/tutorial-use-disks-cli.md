@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 5dedee5e9ef4d036305a545201afc03d90750189
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7e9e1fa567ae282a4472fa728e53e720bf8ff6f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568298"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367917"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e usar discos com conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o sistema operacional da instância de VM, aplicativos e dados. Ao criar e gerenciar um conjunto de dimensionamento, é importante escolher um tamanho e uma configuração de disco apropriados para a carga de trabalho esperada. Este tutorial aborda como criar e gerenciar os discos de VM. Neste tutorial, você aprenderá a:
@@ -76,7 +76,7 @@ Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto 
 ## <a name="create-and-attach-disks"></a>Criar e anexar discos
 Você pode criar e anexar discos ao criar um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
-Desde a versão `2019-07-01` da API, é possível definir o tamanho do disco do sistema operacional em um conjunto de dimensionamento de máquinas virtuais com a propriedade [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Após o provisionamento, talvez seja necessário expandir ou reparticionar o disco para uso do espaço inteiro. Saiba mais sobre a [expansão de disco aqui](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
+Desde a versão `2019-07-01` da API, é possível definir o tamanho do disco do sistema operacional em um conjunto de dimensionamento de máquinas virtuais com a propriedade [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Após o provisionamento, talvez seja necessário expandir ou reparticionar o disco para uso do espaço inteiro. Saiba mais sobre a [expansão de disco aqui](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos na criação do conjunto de dimensionamento
 Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado na região *eastus*.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873271"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127021"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância do IoT Edge para análise de vídeo (VM do Linux)
 
@@ -94,7 +94,7 @@ A implantação configurou os seguintes cinco módulos do IoT Edge para execuç�
 
 A implantação criou um ambiente personalizado do IoT Edge com os módulos necessários para a Análise Dinâmica de Vídeo. A implantação atualizou o **config.yaml** padrão para verificar se o runtime do IoT Edge usou o Serviço de Provisionamento de Dispositivos IoT para se conectar ao IoT Central. A implantação também criou um arquivo chamado **state.json** na pasta **/data/storage** para fornecer dados de configuração adicionais aos módulos. Para obter mais informações, confira o tutorial [Criar uma instância do IoT Edge para análise de vídeo (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md).
 
-Para solucionar problemas do dispositivo do IoT Edge, confira [Solução de problemas do dispositivo do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+Para solucionar problemas do dispositivo do IoT Edge, confira [Solução de problemas do dispositivo do IoT Edge](../../iot-edge/troubleshoot.md)
 
 ## <a name="use-the-rtsp-simulator"></a>Usar o simulador RTSP
 

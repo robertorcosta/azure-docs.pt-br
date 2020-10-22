@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: bed66ab8f3dc3db47b94070cbbeb64fb91163f8c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d0dd7f71c21e223203fb0e695ba3139eaea0aa81
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014453"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368818"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Atualizando modelos de Azure Machine Learning Studio (clássico) usando atualizar atividade de recurso
 
@@ -44,7 +44,7 @@ Ao longo do tempo, os modelos de previsão nos experimentos de Pontuação Azure
 1. Crie um experimento no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
 2. Quando estiver satisfeito com o modelo, use Azure Machine Learning Studio (clássico) para publicar serviços Web para o teste de **treinamento** e a pontuação/**teste de previsão**.
 
-A tabela a seguir descreve os serviços Web usados neste exemplo.  Consulte [readaptação de modelos de Machine Learning Studio (clássico) programaticamente](../../machine-learning/studio/retrain-machine-learning-model.md) para obter detalhes.
+A tabela a seguir descreve os serviços Web usados neste exemplo.  Consulte [readaptação de modelos de Azure Machine Learning Studio (clássico) programaticamente](../../machine-learning/studio/retrain-machine-learning-model.md) para obter detalhes.
 
 - **Treinamento do serviço Web** - recebe dados de treinamento e produz modelos treinados. A saída do novo treinamento é um arquivo .ilearner em um Armazenamento de Blobs do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando o experimento de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão.
 - **Pontuação do serviço Web** - recebe exemplos de dados sem rótulo de e faz previsões. A saída da previsão pode ter várias formas, como um arquivo. csv ou linhas no banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. 

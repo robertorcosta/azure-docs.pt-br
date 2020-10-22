@@ -3,12 +3,12 @@ title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft 
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994769"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368750"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -72,17 +72,17 @@ A tabela a seguir fornece uma análise do cálculo que controla os Estados de in
 | |Íntegros |100% |
 | |Aviso |90 – 99% |
 | |Crítico |<90% |
-| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
 |**Pod do sistema**| | |
 | |Íntegros |100% |
 | |Aviso |N/D |
 | |Crítico |<100% |
-| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
 |**Nó** | | |
 | |Íntegros |>85% |
 | |Aviso |60 – 84% |
 | |Crítico |<60% |
-| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown (desconhecido) |Se não tiver sido relatado nos últimos 30 minutos |
 
 Na lista de clusters, você pode fazer uma busca detalhada na página do **cluster** selecionando o nome do cluster. Em seguida, vá para a página de desempenho de **nós** selecionando o acúmulo de nós na coluna **nós** para esse cluster específico. Ou, você pode fazer uma busca detalhada na página de desempenho de **controladores** selecionando o acúmulo da coluna **pods do usuário** ou pods do **sistema** .
 
@@ -290,6 +290,10 @@ Os ícones no campo status indicam os status online de pods, conforme descrito n
 | ![Ícone do status de execução informado pela última vez](./media/container-insights-analyze/containers-grey-icon.png) | Relatado pela última vez como em execução, mas sem responder por mais de 30 minutos|
 | ![Ícone de status encerrado](./media/container-insights-analyze/containers-terminated-icon.png) | Parou com sucesso ou houve falha ao parar|
 | ![Ícone de status com falha](./media/container-insights-analyze/containers-failed-icon.png) | Estado com falha |
+
+## <a name="monitor-and-visualize-network-configurations"></a>Monitorar e visualizar as configurações de rede
+O Gerenciador de políticas de rede do Azure inclui métricas Prometheus informativas que permitem monitorar e entender melhor suas configurações de rede. Ele fornece visualizações internas nos laboratórios portal do Azure ou Grafana. Para obter detalhes, consulte [monitorar e visualizar as configurações de rede com o Azure NPM](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+
 
 ## <a name="workbooks"></a>Pastas de trabalho
 

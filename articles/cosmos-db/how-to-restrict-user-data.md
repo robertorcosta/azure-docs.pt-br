@@ -6,19 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 44a62643c459fb61e7a2a95c2a9dd55ea4f19111
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 869513d5a668544b2aa8afb13bb56e8293788b06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570655"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368716"
 ---
 # <a name="restrict-user-access-to-data-operations-in-azure-cosmos-db"></a>Restringir o acesso do usuário a operações de dados no Azure Cosmos DB
 
 No Azure Cosmos DB, há duas maneiras de autenticar suas interações com o serviço de banco de dados:
 
 - usando sua identidade de Azure Active Directory ao interagir com o portal do Azure,
-- usar [chaves](secure-access-to-data.md#primary-keys) de Azure Cosmos DB ou [tokens de recurso](secure-access-to-data.md#resource-tokens) ao emitir chamadas de APIs e SDKs.
+- usar [chaves](database-security.md#primary-keys) de Azure Cosmos DB ou [tokens de recurso](secure-access-to-data.md#resource-tokens) ao emitir chamadas de APIs e SDKs.
 
 Cada método de autenticação dá acesso a diferentes conjuntos de operações, com alguma sobreposição:
 

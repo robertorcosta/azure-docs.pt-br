@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145285"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366319"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -67,7 +67,7 @@ Se forem necessários recursos adicionais, talvez você também precise obter li
 Os recursos a seguir podem ser úteis à medida que você aprende sobre o acesso condicional:
 
 
-#### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>vídeos
 
 * [O que é Acesso Condicional?](https://youtu.be/ffMAw2IVO7A)
 * [Como implantar acesso condicional?](https://youtu.be/c_izIRNJNuk)
@@ -220,7 +220,7 @@ A criação de uma política para cada aplicativo não é eficiente e leva a uma
 
 ### <a name="set-up-emergency-access-accounts"></a>Configurar contas de acesso de emergência
 
-Se você configurar uma política incorretamente, ela poderá bloquear as organizações do portal do Azure. Você pode reduzir o impacto da falta acidental de acesso administrativo ao armazenar duas ou mais [contas de acesso de emergência](../users-groups-roles/directory-emergency-access.md) em sua organização.
+Se você configurar uma política incorretamente, ela poderá bloquear as organizações do portal do Azure. Você pode reduzir o impacto da falta acidental de acesso administrativo ao armazenar duas ou mais [contas de acesso de emergência](../roles/security-emergency-access.md) em sua organização.
 
 * Crie uma conta de usuário dedicada à administração de política e excluída de todas as suas políticas.
 
