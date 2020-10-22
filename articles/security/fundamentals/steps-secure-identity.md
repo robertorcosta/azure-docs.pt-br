@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107803"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364109"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -135,7 +135,7 @@ O [Azure AD PIM (Privileged Identity Management)](../../active-directory/privile
 
 Habilite o Azure AD PIM e exiba os usuários que têm funções administrativas atribuídas e remova as contas desnecessárias nessas funções. Para os usuários com privilégios restantes, mova-os de permanentes para qualificados. Por fim, estabeleça políticas apropriadas para garantir que ao necessitarem do acesso a essas funções privilegiadas, possam fazer isso com segurança e controle de alterações necessários.
 
-Como parte da implantação do seu processo de conta com privilégios, siga as [melhores práticas para criar pelo menos duas contas de emergência](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) para garantir que você ainda tenha acesso ao Azure AD caso fique bloqueado.
+Como parte da implantação do seu processo de conta com privilégios, siga as [melhores práticas para criar pelo menos duas contas de emergência](../../active-directory/roles/security-planning.md) para garantir que você ainda tenha acesso ao Azure AD caso fique bloqueado.
 
 ## <a name="step-3---automate-threat-response"></a>Etapa 3: automatizar a resposta a ameaças
 
@@ -193,7 +193,7 @@ A [SSPR (redefinição de senha por autoatendimento)](../../active-directory/aut
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementar acesso self-service a aplicativos e grupos
 
-O Azure AD fornece a capacidade de não administradores gerenciarem o acesso a recursos, usando grupos de segurança, grupos de Microsoft 365, funções de aplicativo e catálogos de pacotes de acesso.  O [gerenciamento de grupos de autoatendimento](../../active-directory/users-groups-roles/groups-self-service-management.md) permite que os proprietários de grupos gerenciem os respectivos grupos sem a necessidade de uma função administrativa ser atribuída a eles. Os usuários também podem criar e gerenciar grupos de Microsoft 365 sem depender de administradores para lidar com suas solicitações e os grupos não utilizados expiram automaticamente.  O [gerenciamento de direitos do Azure AD](../../active-directory/governance/entitlement-management-overview.md) permite ainda mais delegação e visibilidade, com fluxos de trabalho de solicitação de acesso abrangentes e expiração automática.  Você pode delegar a não administradores a capacidade de configurar os respectivos pacotes de acesso para grupos, equipes, aplicativos e sites do SharePoint Online que eles têm, com políticas personalizadas para quem precisa aprovar o acesso, incluindo a configuração de patrocinadores de parceiros de negócios e gerentes de funcionários como aprovadores.
+O Azure AD fornece a capacidade de não administradores gerenciarem o acesso a recursos, usando grupos de segurança, grupos de Microsoft 365, funções de aplicativo e catálogos de pacotes de acesso.  O [gerenciamento de grupos de autoatendimento](../../active-directory/enterprise-users/groups-self-service-management.md) permite que os proprietários de grupos gerenciem os respectivos grupos sem a necessidade de uma função administrativa ser atribuída a eles. Os usuários também podem criar e gerenciar grupos de Microsoft 365 sem depender de administradores para lidar com suas solicitações e os grupos não utilizados expiram automaticamente.  O [gerenciamento de direitos do Azure AD](../../active-directory/governance/entitlement-management-overview.md) permite ainda mais delegação e visibilidade, com fluxos de trabalho de solicitação de acesso abrangentes e expiração automática.  Você pode delegar a não administradores a capacidade de configurar os respectivos pacotes de acesso para grupos, equipes, aplicativos e sites do SharePoint Online que eles têm, com políticas personalizadas para quem precisa aprovar o acesso, incluindo a configuração de patrocinadores de parceiros de negócios e gerentes de funcionários como aprovadores.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementar revisões de acesso do Azure AD
 

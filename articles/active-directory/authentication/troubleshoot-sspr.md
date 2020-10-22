@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef46cf0947f1ea31c74a6d189b5bdf00fea44fc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963815"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363531"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Solucionar problemas de redefinição de senha de autoatendimento no Azure Active Directory
 
@@ -32,7 +32,7 @@ Se você tiver problemas para ver ou configurar as opções de SSPR no portal do
 
 Você não verá se a opção de menu de **redefinição de senha** se não tiver uma licença do Azure ad atribuída ao administrador que executa a operação.
 
-Para atribuir uma licença à conta de administrador em questão, siga as etapas para [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Para atribuir uma licença à conta de administrador em questão, siga as etapas para [atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="i-dont-see-a-particular-configuration-option"></a>Não consigo ver determinada opção de configuração.
 
@@ -52,7 +52,7 @@ Se você tiver problemas com os relatórios do SSPR na portal do Azure, examine 
 
 Isso poderá ocorrer se você não tiver uma licença do Azure AD atribuída ao administrador que realiza a operação.
 
-Para atribuir uma licença à conta de administrador em questão, siga as etapas para [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Para atribuir uma licença à conta de administrador em questão, siga as etapas para [atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="user-registrations-show-multiple-times"></a>Os registros do usuário aparecem várias vezes.
 
@@ -74,7 +74,7 @@ No portal do Azure, altere a configuração **habilitada de redefinição de sen
 
 No momento, só é possível habilitar um grupo do Azure AD para SSPR usando o portal do Azure. Como parte de uma implantação mais ampla da SSPR, há suporte para grupos aninhados. Verifique se os usuários nos grupos que você escolher têm as licenças apropriadas atribuídas. Examine a etapa anterior de solução de problemas para habilitar o SSPR conforme necessário.
 
-Examine também as etapas de solução de problemas para garantir que o administrador que executa as opções de configuração tenha uma licença atribuída. Para atribuir uma licença à conta de administrador em questão, siga as etapas para [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Examine também as etapas de solução de problemas para garantir que o administrador que executa as opções de configuração tenha uma licença atribuída. Para atribuir uma licença à conta de administrador em questão, siga as etapas para [atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="theres-an-error-processing-the-request"></a>Há um erro ao processar a solicitação.
 
@@ -87,7 +87,7 @@ Se você ou seus usuários tiverem problemas ao usar o SSPR, examine os seguinte
 | Erro | Solução |
 | --- | --- |
 | O diretório não está habilitado para redefinição de senha. | No portal do Azure, altere a configuração **habilitada de redefinição de senha de autoatendimento** para *selecionado* ou *todos* e, em seguida, selecione **salvar**. |
-| O usuário não tem uma licença do Azure AD atribuída. | Isso pode acontecer se você não tiver uma licença do Azure AD atribuída ao usuário desejado. Para atribuir uma licença à conta de administrador em questão, siga as etapas para [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
+| O usuário não tem uma licença do Azure AD atribuída. | Isso pode acontecer se você não tiver uma licença do Azure AD atribuída ao usuário desejado. Para atribuir uma licença à conta de administrador em questão, siga as etapas para [atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | O diretório está habilitado para redefinição de senha, mas o usuário tem informações de autenticação ausentes ou incorretas. | Verifique se o usuário formou corretamente os dados de contato no arquivo no diretório. Para obter mais informações, consulte [Dados usados pelo autoatendimento de redefinição de senha do Azure AD](howto-sspr-authenticationdata.md). |
 | O diretório está habilitado para redefinição de senha, mas o usuário tem somente uma parte dos dados de contato no arquivo quando a política está definida para exigir dois métodos de verificação. | Certifique-se de que o usuário tenha pelo menos dois métodos de contato configurados corretamente. Um exemplo é ter um número de telefone celular *e* um número de telefone comercial. |
 | O diretório está habilitado para redefinição de senha e o usuário está configurado corretamente, mas não pode ser contatado. | Isso pode ser o resultado de um erro de serviço temporário ou de dados de contato incorretos que não podem ser detectados corretamente. <br> <br> Se o usuário aguardar 10 segundos, será exibido um link para "tentar novamente" e "Contate o administrador". Se o usuário selecionar "tentar novamente", ele tentará novamente a chamada. Se o usuário selecionar "entre em contato com seu administrador", ele enviará um email de formulário aos administradores solicitando que uma redefinição de senha seja executada para essa conta de usuário. |

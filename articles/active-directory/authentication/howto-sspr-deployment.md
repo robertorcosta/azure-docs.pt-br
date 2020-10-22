@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657220"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363718"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planejar uma implantação de redefinição de senha self-service do Azure Active Directory
 
@@ -313,7 +313,7 @@ O Azure AD pode fornecer informações adicionais sobre o desempenho do SSPR por
 Você pode usar relatórios predefinidos em portal do Azure para medir o desempenho do SSPR. Se você estiver licenciado adequadamente, também poderá criar consultas personalizadas. Para obter mais informações, consulte [Opções de relatório para gerenciamento de senhas do Azure AD](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  Você deve ser um [administrador global](../users-groups-roles/directory-assign-admin-roles.md) e deve aceitar que esses dados sejam coletados para sua organização. Para aceitar, você deve visitar a guia Relatório ou os logs de auditoria no portal do Azure pelo menos uma vez. Até lá, os dados não são coletados para sua organização.
+>  Você deve ser um [administrador global](../roles/permissions-reference.md) e deve aceitar que esses dados sejam coletados para sua organização. Para aceitar, você deve visitar a guia Relatório ou os logs de auditoria no portal do Azure pelo menos uma vez. Até lá, os dados não são coletados para sua organização.
 
 Os logs de auditoria para registro e redefinição de senha estão disponíveis por 30 dias. Se a auditoria de segurança dentro de sua empresa exigir maior retenção, os logs precisarão ser exportados e consumidos em uma ferramenta SIEM, como [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk ou ArcSight.
 

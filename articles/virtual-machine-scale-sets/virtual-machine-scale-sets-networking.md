@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c93f8e50b0437f9ac1569b8abe19bd0b5174ea8d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783715"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363956"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -43,7 +43,7 @@ A Rede Acelerada do Azure melhora o desempenho de rede habilitando a SR-IOV (vir
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de dimensionamento de máquinas virtuais do Azure com Azure Load Balancer
-Confira [Azure Load Balancer e conjuntos de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) para saber mais sobre como configurar seus Standard Load Balancer com conjuntos de dimensionamento de máquinas virtuais com base em seu cenário.
+Confira [Azure Load Balancer e conjuntos de dimensionamento de máquinas virtuais](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) para saber mais sobre como configurar seus Standard Load Balancer com conjuntos de dimensionamento de máquinas virtuais com base em seu cenário.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencia um Gateway de Aplicativo
 Para criar um conjunto de dimensionamento que usa um gateway de aplicativo, referencie o pool de endereços de back-end do gateway de aplicativo na seção ipConfigurations do conjunto de dimensionamento como nesta configuração de modelo ARM:
@@ -299,7 +299,7 @@ O exemplo a seguir é um perfil de rede do conjunto de dimensionamento mostrando
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>NSG e Grupos de Segurança do Aplicativo por conjunto de dimensionamento
-[Grupos de Segurança de Rede](../virtual-network/security-overview.md) permitem filtrar o tráfego de e para recursos do Azure em uma rede virtual do Azure usando regras de segurança. [Grupos de Segurança de Aplicativo](../virtual-network/security-overview.md#application-security-groups) permitem lidar com a segurança de rede de recursos do Azure e agrupá-los como uma extensão da estrutura de seu aplicativo.
+[Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md) permitem filtrar o tráfego de e para recursos do Azure em uma rede virtual do Azure usando regras de segurança. [Grupos de Segurança de Aplicativo](../virtual-network/network-security-groups-overview.md#application-security-groups) permitem lidar com a segurança de rede de recursos do Azure e agrupá-los como uma extensão da estrutura de seu aplicativo.
 
 Os Grupos de Segurança de Rede podem ser aplicados diretamente a um conjunto de dimensionamento referenciando-os na seção de configuração da interface de rede das propriedades de máquina virtual do conjunto de dimensionamento.
 

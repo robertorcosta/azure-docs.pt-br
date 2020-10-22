@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258329"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363446"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marcar seu aplicativo como “editor verificado”
 
@@ -42,7 +42,7 @@ Verifique se você atendeu aos [pré-requisitos](publisher-verification-overview
 
 1. Verifique se você está conectado usando a [autenticação multifator](../fundamentals/concept-fundamentals-mfa-get-started.md) a uma conta organizacional (Azure AD) que está autorizada a fazer alterações nos aplicativos que você deseja marcar como Publicador verificado e na conta MPN no Partner Center.
 
-    - No Azure AD, esse usuário deve ser um membro de uma das seguintes [funções](../users-groups-roles/directory-assign-admin-roles.md): administrador de aplicativos, administrador de aplicativos de nuvem, administrador global. 
+    - No Azure AD, esse usuário deve ser um membro de uma das seguintes [funções](../roles/permissions-reference.md): administrador de aplicativos, administrador de aplicativos de nuvem, administrador global. 
 
     - No Partner Center, esse usuário deve ter as seguintes [funções](/partner-center/permissions-overview): Administrador de MPN, administrador de contas ou um administrador global (essa é uma função compartilhada controlada no Azure Active Directory). 
 

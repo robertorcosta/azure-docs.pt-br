@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070377"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363650"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
@@ -52,7 +52,7 @@ A integração do aplicativo de RH de nuvem com o provisionamento de usuário do
 - Exigir ingressar, mover e deixar os usuários serem sincronizados com um ou mais Active Directory florestas, domínios e UOs com base apenas nas informações de alteração detectadas no aplicativo de RH de nuvem.
 - Use Microsoft 365 para email.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 O provisionamento de usuário cria uma base para a governança de identidade contínua. Ele aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -81,8 +81,8 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Administrador de [identidade híbrida](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  do Azure ad para configurar o agente de provisionamento do Azure ad Connect.
-- Função de [administrador de aplicativos](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) do Azure ad para configurar o aplicativo de provisionamento no portal do Azure
+- Administrador de [identidade híbrida](../roles/permissions-reference.md#hybrid-identity-administrator)  do Azure ad para configurar o agente de provisionamento do Azure ad Connect.
+- Função de [administrador de aplicativos](../roles/permissions-reference.md#application-administrator) do Azure ad para configurar o aplicativo de provisionamento no portal do Azure
 - Uma instância de teste e produção do aplicativo de RH de nuvem.
 - Permissões de administrador no aplicativo de RH de nuvem para criar um usuário de integração do sistema e fazer alterações para testar dados de funcionários para fins de teste.
 - Para o provisionamento de usuário para Active Directory, um servidor executando o Windows Server 2012 ou superior com o .NET 4.7.1 + Runtime é necessário para hospedar o agente de provisionamento de Azure AD Connect
@@ -92,7 +92,7 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 
 | **Recursos** | **Link e descrição** |
 |:-|:-|
-| Vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
+| vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Como implantar o provisionamento de usuário no Active Directory do Azure](https://youtu.be/pKzyts6kfrw) |
 | Tutoriais | [Lista de tutoriais sobre como integrar aplicativos SaaS ao Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutorial: Configurar o Workday para provisionamento automático do usuário](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -110,7 +110,7 @@ O exemplo a seguir descreve a arquitetura da solução de provisionamento de usu
 
 #### <a name="description-of-workflow"></a>Descrição do fluxo de trabalho
 
-As seguintes etapas principais são indicadas no diagrama:  
+As seguintes etapas principais são indicadas no diagrama:  
 
 1. A **equipe de RH** executa as transações no locatário do aplicativo de RH na nuvem.
 2. O **serviço de provisionamento do Azure ad** executa os ciclos agendados do locatário do aplicativo de RH na nuvem e identifica as alterações que precisam ser processadas para sincronização com Active Directory.
@@ -257,7 +257,7 @@ Por padrão, o aplicativo do conector de provisionamento mapeia o status do perf
 
 Ao iniciar o processo de Joiners-Leavers, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processar | Requisitos |
 | - | - |
 | **Entradas** | De uma perspectiva do ciclo de vida da identidade, como lidar com recontratações? As recontratações mantêm suas IDs de funcionário antigas? |
 | | Você processa contratações no futuro e cria Active Directory contas com antecedência? Essas contas são criadas em um estado habilitado ou desabilitado? |
@@ -276,7 +276,7 @@ Cada aplicativo de RH na nuvem é fornecido com o aplicativo de RH de nuvem padr
 
 Ao iniciar o processo de Complementos-movimentadores-periões, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processar | Requisitos |
 | - | - |
 | **Entradas** | O processo de criação de conta Active Directory manual, automatizado ou parcialmente automatizado? |
 | | Você planeja propagar atributos personalizados do aplicativo de RH de nuvem para Active Directory? |
