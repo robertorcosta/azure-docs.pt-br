@@ -4,12 +4,12 @@ description: Neste tutorial, você implantará um cluster gerenciado do Service 
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410179"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316179"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Tutorial: Implantar um cluster gerenciado do Service Fabric (versão prévia)
 
@@ -37,7 +37,7 @@ Antes de começar este tutorial:
 
 * Instale o [SDK do Service Fabric e o módulo do PowerShell](service-fabric-get-started.md).
 
-* Instale o [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) (ou posteriores).
+* Instale o [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (ou posteriores).
 
 ## <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 
@@ -73,7 +73,7 @@ Nessa etapa, forneça os próprios valores para os seguintes parâmetros:
 
 * **Nome do cluster**: Insira um nome exclusivo para o cluster, como *mysfcluster*.
 * **Senha do Administrador**: Insira uma senha para o administrador a ser usada para o RDP nas VMs subjacentes no cluster.
-* **Impressão Digital do Certificado do Cliente**: Forneça a impressão digital do certificado do cliente que você deseja usar para acessar o cluster. Se você não tiver um certificado, siga [definir e recuperar um certificado](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) para criar um certificado autoassinado.
+* **Impressão Digital do Certificado do Cliente**: Forneça a impressão digital do certificado do cliente que você deseja usar para acessar o cluster. Se você não tiver um certificado, siga [definir e recuperar um certificado](../key-vault/certificates/quick-create-portal.md) para criar um certificado autoassinado.
 * **SKU do cluster**: Especifique o [tipo de cluster gerenciado do Service Fabric](overview-managed-cluster.md#service-fabric-managed-cluster-skus) a ser implantado. Os clusters de SKU *básicos* destinam-se apenas a implantações de teste e não permitem a adição ou remoção de tipo de nó.
 
 ```powershell
