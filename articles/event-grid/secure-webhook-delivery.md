@@ -3,12 +3,12 @@ title: Entrega segura de webhook com o Azure AD na grade de eventos do Azure
 description: Descreve como entregar eventos a pontos de extremidade HTTPS protegidos por Azure Active Directory usando a grade de eventos do Azure
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.openlocfilehash: 0320e78e6b436f6ba1c0a6ca1bfec81eb974e106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd898fadf718509504d44df36572ac75050b02d6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812192"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371657"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para os pontos de extremidade protegidos do Azure Active Directory
 
@@ -26,7 +26,7 @@ Comece criando um aplicativo do Azure AD para seu ponto de extremidade protegido
 Esta seção mostra como habilitar a grade de eventos para usar seu aplicativo do Azure AD. 
 
 > [!NOTE]
-> Você deve ser membro da [função Administrador do aplicativo Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) para executar esse script.
+> Você deve ser membro da [função Administrador do aplicativo Azure AD](../active-directory/roles/permissions-reference.md#available-roles) para executar esse script.
 
 ### <a name="connect-to-your-azure-tenant"></a>Conectar-se ao seu locatário do Azure
 Primeiro, conecte-se ao seu locatário do Azure usando o `Connect-AzureAD` comando. 

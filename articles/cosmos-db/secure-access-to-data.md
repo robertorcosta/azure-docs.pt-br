@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760862"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371725"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 
@@ -29,20 +29,7 @@ O Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer 
 
 ## <a name="primary-keys"></a>Chaves primárias
 
-As chaves primárias fornecem acesso a todos os recursos administrativos da conta do banco de dados. Chaves primárias:
-
-- Fornecem acesso a contas, a bancos de dados, a usuários e a permissões. 
-- Não pode ser usado para fornecer acesso granular a contêineres e documentos.
-- São criadas durante a criação de uma conta.
-- Podem ser geradas novamente a qualquer momento.
-
-Cada conta consiste em duas chaves primárias: uma chave primária e uma chave secundária. A finalidade das chaves duplas é para que você possa gerar novamente, ou reverter as chaves, fornecendo acesso contínuo à sua conta e dados.
-
-Além das duas chaves primárias para a conta de Cosmos DB, há duas chaves somente leitura. Essas chaves somente leitura só permitem operações de leitura na conta. As chaves somente leitura não fornecem acesso a recursos com permissões de leitura.
-
-Chaves primárias primárias, secundárias, somente leitura e de leitura/gravação podem ser recuperadas e geradas novamente usando o portal do Azure. Para obter instruções, veja [Exibir, copiar e gerar novamente as chaves de acesso](manage-with-cli.md#regenerate-account-key).
-
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Controle de acesso (IAM) no Portal do Azure - demonstrando a segurança do banco de dados NoSQL":::
+As chaves primárias fornecem acesso a todos os recursos administrativos da conta do banco de dados. Cada conta consiste em duas chaves primárias: uma chave primária e uma chave secundária. A finalidade das chaves duplas é para que você possa gerar novamente, ou reverter as chaves, fornecendo acesso contínuo à sua conta e dados. Para saber mais sobre chaves primárias, consulte o artigo [segurança do banco de dados](database-security.md#primary-keys) .
 
 ### <a name="key-rotation"></a>Rotação de chaves<a id="key-rotation"></a>
 
@@ -51,10 +38,10 @@ O processo de rotação de sua chave primária é simples.
 1. Navegue até o portal do Azure para recuperar a chave secundária.
 2. Substitua sua chave primária pela sua chave secundária em seu aplicativo. Certifique-se de que todos os clientes Cosmos DB em todas as implantações sejam reiniciados imediatamente e começarão a usar a chave atualizada.
 3. Gire a chave primária no portal do Azure.
-4. Valide se a nova chave primária funciona em todos os recursos. O processo de rotação de chaves pode levar qualquer ponto abaixo de um minuto a horas, dependendo do tamanho da conta de Cosmos DB.
+4. Valide se a nova chave primária funciona em todos os recursos. O processo de rotação de chaves pode levar de menos de um minuto a horas, dependendo do tamanho da conta de Cosmos DB.
 5. Substitua a chave secundária pela nova chave primária.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Controle de acesso (IAM) no Portal do Azure - demonstrando a segurança do banco de dados NoSQL" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotação de chave primária no portal do Azure-demonstrando a segurança do banco de dados NoSQL" border="false":::
 
 ### <a name="code-sample-to-use-a-primary-key"></a>Exemplo de código para usar uma chave primária
 
@@ -102,9 +89,9 @@ Este é um padrão de design típico no qual tokens de recurso podem ser solicit
 7. O aplicativo de telefone pode continuar usando o token de recurso para acessar diretamente recursos do Cosmos DB com as permissões definidas pelo token de recurso e no intervalo permitido por ele.
 8. Quando o token de recurso expira, as solicitações seguintes recebem uma exceção 401 de não autorizado.  Nesse ponto, o aplicativo móvel restabelece a identidade e solicita um novo token de recurso.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Controle de acesso (IAM) no Portal do Azure - demonstrando a segurança do banco de dados NoSQL" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Rotação de chave primária no portal do Azure-demonstrando a segurança do banco de dados NoSQL" border="false":::
 
-A geração e o gerenciamento do token de recurso são manipulados pelas bibliotecas de cliente nativas do Cosmos DB; no entanto, se você usar a REST, deverá construir os cabeçalhos de solicitação/autenticação. Para obter mais informações sobre como criar cabeçalhos de autenticação para REST, consulte [controle de acesso em Cosmos DB recursos](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código-fonte para nosso [SDK do .net](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) ou [ SDK doNode.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+A geração e o gerenciamento de tokens de recurso são tratados pelas bibliotecas de cliente do Cosmos DB nativo; no entanto, se você usar o REST, deverá construir os cabeçalhos de solicitação/autenticação. Para obter mais informações sobre como criar cabeçalhos de autenticação para REST, consulte [controle de acesso em Cosmos DB recursos](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código-fonte para nosso [SDK do .net](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) ou [ SDK doNode.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Para obter um exemplo de um serviço de camada intermediária usado para gerar, ou tokens de recurso do agente, confira o [aplicativo ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
@@ -168,7 +155,7 @@ Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de us
 4. Na **caixa atribuir acesso a**, selecione **usuário, grupo ou aplicativo do Azure ad**.
 5. Selecione o usuário, o grupo ou o aplicativo no diretório ao qual você deseja conceder acesso.  Você pode pesquisar o diretório por nome para exibição, endereço de email ou identificadores de objeto.
     O usuário, grupo ou aplicativo selecionado aparece na lista de membros selecionados.
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
 A entidade agora poderá ler recursos do Azure Cosmos DB.
 

@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de bancos de dados do SAP HANA em VMs do Azure
 description: Neste tutorial, saiba o backup de bancos de dados SAP HANA executados em uma VM do Azure pode ser realizado no cofre dos Serviços de Recuperação do Backup do Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254340"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173776"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Fazer backup de bancos de dados do SAP HANA em uma VM do Azure
 
@@ -65,7 +65,7 @@ Os pontos de extremidade privados permitem que você se conecte com segurança d
 
 ### <a name="nsg-tags"></a>Marcas do NSG
 
-Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da marca do Backup do Azure, você também precisará permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/security-overview.md#service-tags) semelhantes para o Azure AD (*AzureActiveDirectory*) e o Armazenamento do Azure (*Armazenamento*). As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
+Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da marca do Backup do Azure, você também precisará permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/network-security-groups-overview.md#service-tags) semelhantes para o Azure AD (*AzureActiveDirectory*) e o Armazenamento do Azure (*Armazenamento*). As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
 
 1. Em **Todos os Serviços**, acesse **Grupos de segurança de rede** e selecione o grupo de segurança de rede.
 
@@ -75,7 +75,7 @@ Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureB
 
 1. Selecione **Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-De maneira semelhante, é possível criar [regras de segurança de saída de NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre as marcas de serviço, confira este [artigo](../virtual-network/service-tags-overview.md).
+De maneira semelhante, é possível criar [regras de segurança de saída de NSG](../virtual-network/network-security-groups-overview.md#service-tags) para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre as marcas de serviço, confira este [artigo](../virtual-network/service-tags-overview.md).
 
 ### <a name="azure-firewall-tags"></a>Marcas do Firewall do Azure
 

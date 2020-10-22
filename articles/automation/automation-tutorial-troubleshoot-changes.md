@@ -7,12 +7,12 @@ keywords: alteração, controle, controle de alterações, inventário, automaç
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530532"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204241"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Solucionar problemas com alterações em uma VM do Azure
 
@@ -238,4 +238,4 @@ Neste tutorial, você aprendeu a:
 Passe para a visão geral do recurso de Controle de Alterações e Inventário para saber mais sobre ela.
 
 > [!div class="nextstepaction"]
-> [Visão geral do Controle de Alterações e Inventário](./change-tracking.md)
+> [Visão geral do Controle de Alterações e Inventário](change-tracking/overview.md)

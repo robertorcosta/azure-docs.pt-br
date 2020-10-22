@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ba15047d04d3af25518e8c55a50c55bcacf9037
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372443"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103927"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Criar uma função em Java com um gatilho do Hub de Eventos e uma associação de saída do Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, você precisará ter os seguintes itens instalados:
 
-* [Java Developer Kit](https://aka.ms/azure-jdks), versão 8
+* [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versão 8
 * [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior
 * [CLI do Azure](/cli/azure/install-azure-cli) caso prefira não usar o Cloud Shell
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) versão 2.6.666 ou posterior
