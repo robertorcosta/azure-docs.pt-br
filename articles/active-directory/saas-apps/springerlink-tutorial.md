@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a203bbd65c07d21c7d96b59c57b441748ed5b9a9
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372452"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integração do Azure Active Directory ao Springer Link
 
@@ -97,7 +97,7 @@ Para configurar logon único do Azure AD com Springer Link, realize as seguintes
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon único em Domínio e URLs do Springer Link](common/idp-relay.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-relay.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL: `https://fsso.springer.com`
 
@@ -109,7 +109,7 @@ Para configurar logon único do Azure AD com Springer Link, realize as seguintes
 
 5. Se quiser configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
-    ![Informações de logon único em Domínio e URLs do Springer Link](common/both-signonurl.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/both-signonurl.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 

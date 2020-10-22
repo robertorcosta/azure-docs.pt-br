@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388673"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363922"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implantar políticas personalizadas com o Azure Pipelines
 
@@ -33,7 +33,7 @@ Há três etapas principais necessárias para habilitar Azure Pipelines gerencia
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Azure ad B2C locatário](tutorial-create-tenant.md)e credenciais para um usuário no diretório com a função de [administrador da política IEF B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Azure ad B2C locatário](tutorial-create-tenant.md)e credenciais para um usuário no diretório com a função de [administrador da política IEF B2C](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) carregadas para seu locatário
 * [Aplicativo de gerenciamento](microsoft-graph-get-started.md) registrado em seu locatário com a Microsoft Graph política de permissão de API *. ReadWrite. TrustFramework*
 * [Pipeline do Azure](https://azure.microsoft.com/services/devops/pipelines/)e acesso a um [projeto Azure DevOps Services][devops-create-project]
@@ -151,7 +151,7 @@ Em seguida, adicione uma tarefa para implantar um arquivo de política.
     * **Versão da tarefa**: 2. *
     * **Nome de exibição**: o nome da política que esta tarefa deve carregar. Por exemplo, *B2C_1A_TrustFrameworkBase*.
     * **Tipo**: caminho do arquivo
-    * **Caminho do script**: selecione as reticências (***...***), navegue até a pasta *scripts* e, em seguida, selecione o arquivo *DeployToB2C.ps1* .
+    * **Caminho do script**: selecione as reticências (**_..._* _), navegue até a pasta _Scripts * e, em seguida, selecione o arquivo *DeployToB2C.ps1* .
     * **Argumentos:**
 
         Insira os valores a seguir para **argumentos**. Substitua `{alias-name}` pelo alias especificado na seção anterior.
