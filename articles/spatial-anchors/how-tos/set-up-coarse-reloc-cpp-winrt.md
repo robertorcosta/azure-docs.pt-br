@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eace1ee1f97acaf04608d37c9edba482622bd59
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548281"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097364"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Como criar e localizar âncoras usando relocalização de alta granularidade em C++/WinRT
 
@@ -31,7 +31,7 @@ As Âncoras Espaciais do Azure podem associar dados de sensor de posicionamento 
 
 Para concluir este guia, verifique se você tem:
 
-- Conhecimento básico sobre o C++ e as <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">APIs do Windows Runtime</a>.
+- Conhecimento básico sobre o C++ e as <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">APIs do Windows Runtime</a>.
 - Leia a [Visão geral de Âncoras Espaciais do Azure](../overview.md).
 - Concluído um dos [Inícios Rápidos de 5 minutos](../index.yml).
 - Leia as [Instruções de criação e localização de âncoras](../create-locate-anchors-overview.md).

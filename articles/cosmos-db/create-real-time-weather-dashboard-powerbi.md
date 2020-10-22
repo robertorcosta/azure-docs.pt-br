@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 681929928e6e6b28c7950c8aeeadc8b181491f46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804122"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370756"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Criar um painel em tempo real usando Azure Cosmos DB e Power BI
 
@@ -46,7 +46,7 @@ O Azure Analysis Services fornece uma plataforma totalmente gerenciada como um s
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Ingerir dados meteorológicos em Azure Cosmos DB
 
-Configure um pipeline de ingestão para carregar [dados meteorológicos](https://catalog.data.gov/dataset/local-weather-archive) para Azure Cosmos DB. Você pode configurar um trabalho de [Azure data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) para carregar periodicamente os dados meteorológicos mais recentes em Azure Cosmos DB usando o coletor de Cosmos DB e de origem http.
+Configure um pipeline de ingestão para carregar [dados meteorológicos](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) para Azure Cosmos DB. Você pode configurar um trabalho de [Azure data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) para carregar periodicamente os dados meteorológicos mais recentes em Azure Cosmos DB usando o coletor de Cosmos DB e de origem http.
 
 
 ### <a name="connect-power-bi-to-azure-cosmos-db"></a>Conectar Power BI ao Azure Cosmos DB
@@ -87,7 +87,7 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Ingerir dados meteorológicos em Azure Cosmos DB 
 
-Configure um pipeline de ingestão para carregar [dados meteorológicos](https://catalog.data.gov/dataset/local-weather-archive) para Azure Cosmos DB. Você pode configurar um trabalho de Azure Data Factory (ADF) para carregar periodicamente os dados meteorológicos mais recentes em Azure Cosmos DB usando o coletor de Cosmos DB e de origem HTTP.
+Configure um pipeline de ingestão para carregar [dados meteorológicos](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) para Azure Cosmos DB. Você pode configurar um trabalho de Azure Data Factory (ADF) para carregar periodicamente os dados meteorológicos mais recentes em Azure Cosmos DB usando o coletor de Cosmos DB e de origem HTTP.
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Conectar Azure Analysis Services à conta do cosmos do Azure
 

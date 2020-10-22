@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905381"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091059"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configurar o dimensionamento automático para aplicativos de microsserviço
 
@@ -25,7 +25,7 @@ O dimensionamento automático é um recurso interno do Azure Spring Cloud que aj
 Para seguir estes procedimentos, você precisará:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Uma instância de serviço do Azure Spring Cloud implantada. Seguir o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) para obter uma introdução.
+* Uma instância de serviço do Azure Spring Cloud implantada. Seguir o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](./spring-cloud-quickstart.md) para obter uma introdução.
 * Pelo menos um aplicativo já criado na instância de serviço.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Navegue até a página Dimensionamento automático no portal do Azure
@@ -70,5 +70,5 @@ Se você estiver na camada básica e restringido por um ou mais desses limites, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral do dimensionamento automático no Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Monitoramento do dimensionamento automático na CLI do Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Visão geral do dimensionamento automático no Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Monitoramento do dimensionamento automático na CLI do Azure](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

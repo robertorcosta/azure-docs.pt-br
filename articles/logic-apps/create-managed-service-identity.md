@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 95d892bf7a0c0e395289d4a5535cd9b6b789b055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62f78ed9063d4736e541dda2b1763ffded8eab5d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88565920"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371470"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso a recursos do Azure usando identidades gerenciadas em Aplicativos Lógicos do Azure
 
@@ -35,7 +35,7 @@ Este artigo mostra como configurar os dois tipos de identidades gerenciadas para
 
 * Uma conta e uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). A identidade gerenciada e o recurso do Azure de destino em que você precisa de acesso devem usar a mesma assinatura do Azure.
 
-* Para conceder a uma identidade gerenciada acesso a um recurso do Azure, você precisa adicionar uma função ao recurso de destino para essa identidade. Para adicionar funções, você precisa de [permissões de administrador do Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) que podem atribuir funções a identidades no locatário do Azure AD correspondente.
+* Para conceder a uma identidade gerenciada acesso a um recurso do Azure, você precisa adicionar uma função ao recurso de destino para essa identidade. Para adicionar funções, você precisa de [permissões de administrador do Azure AD](../active-directory/roles/permissions-reference.md) que podem atribuir funções a identidades no locatário do Azure AD correspondente.
 
 * O recurso do Azure de destino que você deseja acessar. Nesse recurso, você adicionará uma função à identidade gerenciada, que ajuda o aplicativo lógico a autenticar o acesso ao recurso de destino.
 
@@ -301,7 +301,7 @@ Para usar a identidade gerenciada do aplicativo lógico para autenticação, con
    ![Selecione “Adicionar” > “Adicionar atribuição de função”](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
-   > Se a opção **Adicionar atribuição de função** estiver desabilitada, provavelmente você não terá permissões. Para obter mais informações sobre as permissões com as quais você pode gerenciar funções para recursos, confira [Permissões da função Administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > Se a opção **Adicionar atribuição de função** estiver desabilitada, provavelmente você não terá permissões. Para obter mais informações sobre as permissões com as quais você pode gerenciar funções para recursos, confira [Permissões da função Administrador no Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 1. Em **Adicionar atribuição de função**, selecione uma **Função** que forneça à sua identidade o acesso necessário ao recurso de destino.
 
@@ -462,7 +462,7 @@ No portal do Azure, primeiro remova o acesso da identidade ao [seu recurso de de
 1. Na lista de funções, selecione as identidades gerenciadas que você deseja remover. Na barra de ferramentas, selecione **Remover**.
 
    > [!TIP]
-   > Se a opção **Remover** estiver desabilitada, provavelmente você não terá permissões. Para obter mais informações sobre as permissões com as quais você pode gerenciar funções para recursos, confira [Permissões da função Administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > Se a opção **Remover** estiver desabilitada, provavelmente você não terá permissões. Para obter mais informações sobre as permissões com as quais você pode gerenciar funções para recursos, confira [Permissões da função Administrador no Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 A identidade gerenciada agora é removida e não tem mais acesso ao recurso de destino.
 

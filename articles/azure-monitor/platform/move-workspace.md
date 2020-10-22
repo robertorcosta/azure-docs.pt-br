@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282859"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372269"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para uma assinatura ou grupo de recursos diferente
 
@@ -40,11 +40,20 @@ Soluções que devem ser removidas para que você possa desvincular sua conta de
 
 >[!IMPORTANT]
 > **Clientes do Azure Sentinel**
-> - Após a implantação em um workspace, atualmente o Azure Sentinel **não dá suporte** para mover o workspace para outros grupos de recursos ou assinaturas. 
-> - Se você já tiver movido o workspace, desabilite todas as regras ativas em **Análise** e habilite-as novamente após cinco minutos. Isso deve ser eficaz na maioria dos casos, porém, para reiterar, não há suporte para esse procedimento e ele traz riscos.
+> - Atualmente, após o Azure Sentinel ser implantado em um espaço de trabalho, não há suporte para a movimentação do espaço de trabalho para outro grupo de recursos ou assinatura. 
+> - Se você já tiver movido o workspace, desabilite todas as regras ativas em **Análise** e habilite-as novamente após cinco minutos. Essa deve ser uma solução eficaz na maioria dos casos, porém, para reiterar, ela não tem suporte e é executada por sua conta e risco.
 > 
-> **Alertas**
-> - Todos os alertas precisam ser recriados após a movimentação, já que as permissões são baseadas na ID de recurso do Azure do espaço de trabalho e são alteradas com a movimentação do espaço de trabalho. 
+> **Recriar alertas**
+> - Todos os alertas devem ser recriados após uma movimentação porque as permissões são baseadas na ID de recurso do Azure do espaço de trabalho, que é alterada durante uma movimentação de espaço de trabalho.
+>
+> **Atualizar caminhos de recurso**
+> - Após a movimentação de um espaço de trabalho, qualquer recurso do Azure ou externo que aponte para o espaço de trabalho deve ser revisado e atualizado para apontar para o novo caminho de destino do recurso.
+> 
+>   *Exemplos:*
+>   - [Azure Monitor regras de alerta](alerts-resource-move.md)
+>   - Aplicativo de terceiros
+>   - Script personalizado
+>
 
 ### <a name="delete-solutions-in-azure-portal"></a>Excluir soluções no portal do Azure
 Use o procedimento a seguir para remover as soluções usando o portal do Azure:

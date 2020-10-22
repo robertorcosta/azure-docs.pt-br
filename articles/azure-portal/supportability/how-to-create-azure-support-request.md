@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f937b03b2f838f69f56a4b132d0ea7a7e298b532
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091433"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372116"
 ---
 # <a name="create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 
@@ -41,7 +41,7 @@ Você pode obter **Ajuda + suporte** no portal do Azure. Disponível no menu do 
 
 ### <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
-Para criar uma solicitação de suporte, você deverá ser um [Proprietário](../../role-based-access-control/built-in-roles.md#owner), [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou ser atribuído à função [Colaborador de solicitação de suporte](../../role-based-access-control/built-in-roles.md#support-request-contributor) no nível da assinatura. Para criar uma solicitação de suporte sem uma assinatura, por exemplo, um cenário de Azure Active Directory, você deve ser um [administrador](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para criar uma solicitação de suporte, você deverá ser um [Proprietário](../../role-based-access-control/built-in-roles.md#owner), [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou ser atribuído à função [Colaborador de solicitação de suporte](../../role-based-access-control/built-in-roles.md#support-request-contributor) no nível da assinatura. Para criar uma solicitação de suporte sem uma assinatura, por exemplo, um cenário de Azure Active Directory, você deve ser um [administrador](../../active-directory/roles/permissions-reference.md).
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Vá para Ajuda + suporte no cabeçalho global
 

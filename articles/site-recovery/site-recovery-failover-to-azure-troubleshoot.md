@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: e2ab52120e2a5db6648caac61f0228cb0be7e67b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355033"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371980"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
 
@@ -55,7 +55,7 @@ Para alterar manualmente o tipo de inicialização de drivers para o **sistema o
     Fornece o seguinte resultado se for necessária a hidratação:
 
     ```output
-    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
     This system doesn't meet no-hydration requirement.
     ```
@@ -168,7 +168,7 @@ Como resolver o problema:
 
 2. Se a saída dos comandos anteriores mostrar que as configurações http_proxy ou https_proxy estão definidas, use um dos seguintes métodos para desbloquear as comunicações de destino mestre com o servidor de configuração:
    
-   - Baixe a [ferramenta PsExec](https://aka.ms/PsExec).
+   - Baixe a [ferramenta PsExec](/sysinternals/downloads/psexec).
    - Use a ferramenta para acessar o contexto de usuário do sistema e determinar se o endereço do proxy está configurado. 
    - Se o proxy estiver configurado, abra o IE em um contexto de usuário do sistema usando a ferramenta PsExec.
   

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/22/2019
 ms.author: chrupa
-ms.openlocfilehash: edc337849b53cb8e818114d3dd100d30cf00b895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 556cc7fb5f735346a35903840501cf8f8e1be033
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84871376"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372167"
 ---
 # <a name="partner-ecosystem-for-azure-api-for-fhir"></a>Ecossistema de parceiros para a API do Azure para FHIR
 Estamos empolgados com a liberação da API do Azure para FHIR em disponibilidade geral para todos os clientes do Azure. Estamos ainda mais empolgados com as soluções que você criará com nosso serviço.  
@@ -25,7 +25,7 @@ Ao criar uma solução de ponta a ponta criada com base na API do Azure para FHI
 |------------------|--------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Medalha            | Desidentificação, conversão de FHIR herdada  | EUA                         | [Contact](http://www.medal.com/)                                                                                           |
 | Rhapsody         | Conversão de FHIR herdada                     | EUA, Austrália, Nova Zelândia | [Contact](https://rhapsody.health/contact-us)                                                                                          |
-| de interface    | Conversão de FHIR herdada                     | EUA, Canadá                 | [Contact](https://www.interfaceware.com/contact.html)                                                                                  |
+| de interface    | Conversão de FHIR herdada                     | EUA, Canadá                 | [Contact](https://www.interfaceware.com/contact)                                                                                  |
 | Soluções de Darena | Desenvolvimento de aplicativos, integrador de sistemas | EUA                         | [Contact](https://www.darenasolutions.com/contact)                                                                                     |
 | NewWave          | Desenvolvimento de aplicativos, integrador de sistemas | EUA                         | [Contact](https://newwave.io/get-in-touch/)                                                                                            |
 | Dapasoft         | Desenvolvimento de aplicativos, integrador de sistemas | EUA, Canadá                 | [Contact](https://www.dapasoft.com/contact-us/)                                                                                        |
