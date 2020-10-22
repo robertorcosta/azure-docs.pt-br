@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601357"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371045"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
 
@@ -42,13 +42,13 @@ O gerenciamento de Azure Active Directory requer a execução contínua das prin
 | Fazer triagem e investigar os usuários sinalizados para os relatórios de risco e vulnerabilidade de Azure AD Identity Protection | Equipe de operações do batalha |
 
 > [!NOTE]
-> Azure AD Identity Protection requer uma licença do Azure AD Premium P2. Para encontrar a licença certa para seus requisitos, consulte comparando [recursos disponíveis de forma geral das edições Azure ad gratuito e Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection requer uma licença do Azure AD Premium P2. Para encontrar a licença certa para seus requisitos, consulte comparando [recursos disponíveis de forma geral das edições Azure ad gratuito e Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Ao examinar sua lista, você pode achar necessário atribuir um proprietário para tarefas que não têm um proprietário ou ajustar a propriedade para tarefas com proprietários que não estão alinhadas com as recomendações acima.
 
 #### <a name="owner-recommended-reading"></a>Leitura recomendada pelo proprietário
 
-- [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Atribuindo funções de administrador no Azure Active Directory](../roles/permissions-reference.md)
 - [Governança no Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Gerenciamento de credenciais
@@ -119,7 +119,7 @@ A autenticação federada com autenticação integrada do Windows (IWA) ou auten
 
 ### <a name="device-trust-access-policies"></a>Políticas de acesso de confiança do dispositivo
 
-Como um usuário na sua organização, um dispositivo é uma identidade importante que você quer proteger. É possível usar uma identidade do dispositivo para proteger seus recursos a qualquer momento e de qualquer local.A autenticação do dispositivo e a contabilização de seu tipo de confiança aumenta sua postura e usabilidade de segurança:
+Como um usuário na sua organização, um dispositivo é uma identidade importante que você quer proteger. É possível usar uma identidade do dispositivo para proteger seus recursos a qualquer momento e de qualquer local. A autenticação do dispositivo e a contabilização de seu tipo de confiança aumenta sua postura e usabilidade de segurança:
 
 - Evitando o conflito, por exemplo, com a MFA, quando o dispositivo é confiável
 - Bloqueando o acesso de dispositivos não confiáveis
@@ -128,7 +128,7 @@ Como um usuário na sua organização, um dispositivo é uma identidade importan
 Você pode realizar essa meta colocando as identidades do dispositivo e gerenciando-as no Azure AD usando um dos seguintes métodos:
 
 - As organizações podem usar [Microsoft Intune](/intune/what-is-intune) para gerenciar o dispositivo e impor políticas de conformidade, a integridade do dispositivo atestar e definir políticas de acesso condicional com base no fato de o dispositivo estar em conformidade. Microsoft Intune pode gerenciar dispositivos iOS, desktops Mac (via integração do JAMF), áreas de trabalho do Windows (usando nativamente o gerenciamento de dispositivos móveis para Windows 10 e o cogerenciamento com o Microsoft Endpoint Configuration Manager) e dispositivos móveis Android.
-- O [ingresso no Azure ad híbrido](../devices/hybrid-azuread-join-managed-domains.md) fornece gerenciamento com políticas de grupo ou Configuration Manager de ponto de extremidade da Microsoft em um ambiente com Active Directory dispositivos de computadores ingressados no domínio. As organizações podem implantar um ambiente gerenciado por meio de PHS ou PTA com SSO contínuo. Trazer seus dispositivos para o Azure AD maximiza a produtividade do usuário por meio de SSO em seus recursos de nuvem e locais, permitindo que você proteja o acesso aos recursos de nuvem e locais com [acesso condicional](../conditional-access/overview.md)   ao mesmo tempo.
+- O [ingresso no Azure ad híbrido](../devices/hybrid-azuread-join-managed-domains.md) fornece gerenciamento com políticas de grupo ou Configuration Manager de ponto de extremidade da Microsoft em um ambiente com Active Directory dispositivos de computadores ingressados no domínio. As organizações podem implantar um ambiente gerenciado por meio de PHS ou PTA com SSO contínuo. Trazer seus dispositivos para o Azure AD maximiza a produtividade do usuário por meio de SSO em seus recursos de nuvem e locais, permitindo que você proteja o acesso aos recursos de nuvem e locais com [acesso condicional](../conditional-access/overview.md) ao mesmo tempo.
 
 Se você tiver dispositivos Windows ingressados no domínio que não estão registrados na nuvem ou dispositivos Windows ingressados no domínio que são registrados na nuvem, mas sem políticas de acesso condicional, você deve registrar os dispositivos não registrados e, em ambos os casos, [usar o ingresso do Azure ad híbrido como um controle](../conditional-access/require-managed-devices.md) em suas políticas de acesso condicional.
 
@@ -177,7 +177,7 @@ Por fim, se você tiver uma galeria de aplicativo do Azure AD e usar aplicativos
 
 ### <a name="assign-users-to-applications"></a>Atribuir usuários a aplicativos
 
-[A atribuição de usuários aos aplicativos](../manage-apps/assign-user-or-group-access-portal.md) é melhor mapeada usando grupos porque eles permitem maior flexibilidade e capacidade de gerenciar em escala. Os benefícios de usar grupos incluem [Associação de grupo dinâmico baseada em atributo](../users-groups-roles/groups-dynamic-membership.md) e [delegação a proprietários de aplicativo](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Portanto, se você já estiver usando e gerenciando grupos, recomendamos que execute as seguintes ações para melhorar o gerenciamento em escala:
+[A atribuição de usuários aos aplicativos](../manage-apps/assign-user-or-group-access-portal.md) é melhor mapeada usando grupos porque eles permitem maior flexibilidade e capacidade de gerenciar em escala. Os benefícios de usar grupos incluem [Associação de grupo dinâmico baseada em atributo](../enterprise-users/groups-dynamic-membership.md) e [delegação a proprietários de aplicativo](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Portanto, se você já estiver usando e gerenciando grupos, recomendamos que execute as seguintes ações para melhorar o gerenciamento em escala:
 
 - Delegue gerenciamento e governança de grupo para proprietários de aplicativos.
 - Permitir acesso de autoatendimento ao aplicativo.
@@ -189,8 +189,8 @@ Por outro lado, se você encontrar aplicativos que têm atribuição a usuários
 #### <a name="assign-users-to-applications-recommended-reading"></a>Atribuir usuários a aplicativos de leitura recomendada
 
 - [Atribuir usuários e grupos a um aplicativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegar permissões de registro de aplicativo no Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
-- [Associação dinâmica do Azure Active Directory para grupos](../users-groups-roles/groups-dynamic-membership.md)
+- [Delegar permissões de registro de aplicativo no Azure Active Directory](../roles/delegate-app-roles.md)
+- [Associação dinâmica do Azure Active Directory para grupos](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Políticas de acesso
 
@@ -248,7 +248,7 @@ O acesso condicional é uma ferramenta essencial para melhorar a postura de segu
 - Usar políticas de acesso condicional para [implementar a MFA](../conditional-access/plan-conditional-access.md), em vez de usar uma **MFA por usuário**
 - Ter um pequeno conjunto de políticas de núcleo que podem ser aplicadas a vários aplicativos
 - Definir grupos de exceções vazios e adicioná-los às políticas para ter uma estratégia de exceção
-- Planejar contas de [vidro](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sem controles de MFA
+- Planejar contas de [vidro](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) sem controles de MFA
 - Garanta uma experiência consistente em Microsoft 365 aplicativos cliente, por exemplo, equipes, OneDrive, Outlook, etc.) Implementando o mesmo conjunto de controles para serviços como o Exchange Online e o SharePoint Online
 - A atribuição às políticas deve ser implementada por meio de grupos, não por indivíduos
 - Faça revisões regulares dos grupos de exceções usados em políticas para limitar o tempo que os usuários estão fora da postura de segurança. Se você tiver o Azure AD P2, poderá usar as revisões de acesso para automatizar o processo
@@ -347,7 +347,7 @@ Abaixo estão as configurações de usuário e grupo que podem ser bloqueadas se
 - [Integrar aplicativos com Azure Active Directory](../develop/quickstart-register-app.md)
 - [Aplicativos, permissões e consentimento no Azure Active Directory.](../develop/quickstart-register-app.md)
 - [Use grupos para gerenciar o acesso a recursos no Azure Active Directory](./active-directory-manage-groups.md)
-- [Configurando o gerenciamento de acesso de aplicativo de autoatendimento no Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+- [Configurando o gerenciamento de acesso de aplicativo de autoatendimento no Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Tráfego de locais inesperados
 

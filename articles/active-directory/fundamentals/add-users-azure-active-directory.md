@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321082"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370807"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 
@@ -103,6 +103,6 @@ Depois de adicionar os usuários, você pode fazer os seguintes processos básic
 
 - [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-- [Trabalhar com usuários e grupos dinâmicos](../users-groups-roles/groups-create-rule.md)
+- [Trabalhar com usuários e grupos dinâmicos](../enterprise-users/groups-create-rule.md)
 
-Ou você pode fazer outras tarefas de gerenciamento de usuário, como [Adicionar usuários convidados de outro diretório](../external-identities/what-is-b2b.md) ou [restaurar um usuário excluído](active-directory-users-restore.md). Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).
+Ou você pode fazer outras tarefas de gerenciamento de usuário, como [Adicionar usuários convidados de outro diretório](../external-identities/what-is-b2b.md) ou [restaurar um usuário excluído](active-directory-users-restore.md). Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../enterprise-users/index.yml).

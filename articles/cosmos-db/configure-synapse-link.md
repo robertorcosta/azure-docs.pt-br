@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dee5a56f309dab8f09a598219f6302c88f4308e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757836"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370705"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurar e usar o Link do Azure Synapse para Azure Cosmos DB (versão prévia)
 
@@ -218,9 +218,6 @@ Use as instruções no artigo [Consultar o repositório analítico do Azure Cosm
 ## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> Consultar o armazenamento analítico usando o Synapse SQL Server
 
 O Synapse SQL Serverless (um recurso de visualização que, anteriormente conhecido como **SQL sob demanda**) permite consultar e analisar dados em seus contêineres de Azure Cosmos DB que são habilitados com o link Synapse do Azure. Você pode analisar dados quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe de T-SQL familiar para consultar dados do armazenamento analítico e conectividade integrada a uma ampla gama de ferramentas de consulta de BI e ad hoc por meio da interface T-SQL. Para saber mais, consulte o artigo [repositório analítico de consultas usando o Synapse SQL Server sem servidor](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
-
-> [!NOTE]
-> O uso do Azure Cosmos DB repositório analítico com o Synapse SQL Server sem servidor está atualmente em visualização restrita. Para solicitar acesso, acesse a [equipe de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Use o Synapse SQL Serverless para analisar e Visualizar dados no Power BI
 

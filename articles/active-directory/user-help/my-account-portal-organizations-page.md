@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005064"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370331"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gerenciar as organizações às quais você tem acesso no portal minha conta
 
@@ -30,7 +30,7 @@ A página **organizações** do portal **minha conta** ajuda você a gerenciar a
 - **Outras organizações.** Outras organizações incluem qualquer grupo que você tenha entrado anteriormente usando sua conta corporativa ou de estudante. Você pode sair de tais organizações a qualquer momento.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar as informações da organização acessadas por uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de grupos e usuários para seus funcionários ou outros usos, consulte a [Documentação de gerenciamento de usuário corporativo](../users-groups-roles/index.yml).
+>Este artigo destina-se a usuários que tentam atualizar as informações da organização acessadas por uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de grupos e usuários para seus funcionários ou outros usos, consulte a [Documentação de gerenciamento de usuário corporativo](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Exibir suas organizações
 

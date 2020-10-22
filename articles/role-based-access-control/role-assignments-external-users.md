@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361897"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368376"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Adicionar ou remover atribuições de função do Azure para usuários convidados externos usando o portal do Azure
 
@@ -183,7 +183,7 @@ Usuários convidados têm permissões de diretório restritas. Por exemplo, os u
 
 ![O usuário convidado não pode procurar usuários em um diretório](./media/role-assignments-external-users/directory-no-users.png)
 
-Se um usuário convidado precisar de privilégios adicionais no diretório, você poderá atribuir uma função de diretório ao usuário convidado. Se você realmente deseja que um usuário convidado tenha acesso de leitura total ao seu diretório, você pode adicionar o usuário convidado à função [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md) no Azure AD. Para obter mais informações, consulte [conceder permissões a usuários de organizações parceiras em seu locatário Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Se um usuário convidado precisar de privilégios adicionais no diretório, você poderá atribuir uma função de diretório ao usuário convidado. Se você realmente deseja que um usuário convidado tenha acesso de leitura total ao seu diretório, você pode adicionar o usuário convidado à função [leitores de diretório](../active-directory/roles/permissions-reference.md) no Azure AD. Para obter mais informações, consulte [conceder permissões a usuários de organizações parceiras em seu locatário Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![Atribuir função de leitores de diretório](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,11 +193,11 @@ Usuários convidados têm permissões de diretório restritas. Mesmo que um usu�
 
 ![O usuário convidado não pode procurar entidades de segurança para atribuir funções](./media/role-assignments-external-users/directory-no-browse.png)
 
-Se o usuário convidado souber o nome de entrada exato de alguém no diretório, ele poderá conceder acesso. Se você realmente deseja que um usuário convidado tenha acesso de leitura total ao seu diretório, você pode adicionar o usuário convidado à função [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md) no Azure AD. Para obter mais informações, consulte [conceder permissões a usuários de organizações parceiras em seu locatário Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Se o usuário convidado souber o nome de entrada exato de alguém no diretório, ele poderá conceder acesso. Se você realmente deseja que um usuário convidado tenha acesso de leitura total ao seu diretório, você pode adicionar o usuário convidado à função [leitores de diretório](../active-directory/roles/permissions-reference.md) no Azure AD. Para obter mais informações, consulte [conceder permissões a usuários de organizações parceiras em seu locatário Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>O usuário convidado não pode registrar aplicativos ou criar entidades de serviço
 
-Usuários convidados têm permissões de diretório restritas. Se um usuário convidado precisar registrar aplicativos ou criar entidades de serviço, você poderá adicionar o usuário convidado à função de [desenvolvedor do aplicativo](../active-directory/users-groups-roles/directory-assign-admin-roles.md) no Azure AD. Para obter mais informações, consulte [conceder permissões a usuários de organizações parceiras em seu locatário Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Usuários convidados têm permissões de diretório restritas. Se um usuário convidado precisar registrar aplicativos ou criar entidades de serviço, você poderá adicionar o usuário convidado à função de [desenvolvedor do aplicativo](../active-directory/roles/permissions-reference.md) no Azure AD. Para obter mais informações, consulte [conceder permissões a usuários de organizações parceiras em seu locatário Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![O usuário convidado não pode registrar aplicativos](./media/role-assignments-external-users/directory-access-denied.png)
 

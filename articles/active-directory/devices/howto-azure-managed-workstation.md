@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269549"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365809"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implantar uma estação de trabalho segura e gerenciada pelo Azure
 
@@ -51,11 +51,11 @@ Selecione um perfil antes de implantar a solução. Você pode usar vários perf
 
 Os conceitos abordados neste guia pressupõem que você tenha Microsoft 365 Enterprise E5 ou um SKU equivalente. Algumas das recomendações neste guia podem ser implementadas com SKUs inferiores. Para obter mais informações, consulte [Microsoft 365 Enterprise Licensing](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
-Para automatizar o provisionamento de licenças, considere o [Licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para seus usuários.
+Para automatizar o provisionamento de licenças, considere o [Licenciamento baseado em grupo](../enterprise-users/licensing-groups-assign.md) para seus usuários.
 
 ## <a name="azure-active-directory-configuration"></a>Configuração do Azure Active Directory
 
-O Azure Active Directory (AD do Azure) gerencia usuários, grupos e dispositivos para suas estações de trabalho de administrador. Habilite serviços de identidade e recursos com uma [conta de administrador](../users-groups-roles/directory-assign-admin-roles.md).
+O Azure Active Directory (AD do Azure) gerencia usuários, grupos e dispositivos para suas estações de trabalho de administrador. Habilite serviços de identidade e recursos com uma [conta de administrador](../roles/permissions-reference.md).
 
 Quando você cria a conta de administrador de estação de trabalho segura, você expõe a conta para sua estação de trabalho atual. Certifique-se de usar um dispositivo seguro conhecido para fazer essa configuração inicial e todas as configurações globais. Para reduzir a exposição do ataque à primeira experiência, considere seguir as [orientações para evitar infecções por malware](/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
@@ -65,7 +65,7 @@ Exigir autenticação multifator, pelo menos para seus administradores. Consulte
 
 1. No portal do Azure, navegue até **Azure Active Directory**  >  **usuários**  >  **novo usuário**.
 1. Crie o administrador do dispositivo seguindo as etapas no [tutorial criar usuário](/Intune/quickstart-create-user).
-1. Insira:
+1. Digite:
 
    * **Nome** -administrador de estação de trabalho segura
    * **Nome de usuário** - `secure-ws-admin@identityitpro.com`
@@ -77,7 +77,7 @@ Em seguida, crie dois grupos: usuários de estação de trabalho e dispositivos 
 
 No portal do Azure, navegue até **Azure Active Directory**  >  **grupos**  >  **grupo novo**.
 
-1. Para o grupo usuários da estação de trabalho, talvez você queira configurar o [Licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para automatizar o provisionamento de licenças para os usuários.
+1. Para o grupo usuários da estação de trabalho, talvez você queira configurar o [Licenciamento baseado em grupo](../enterprise-users/licensing-groups-assign.md) para automatizar o provisionamento de licenças para os usuários.
 1. Para o grupo usuários da estação de trabalho, digite:
 
    * **Tipo de grupo** -segurança
@@ -117,7 +117,7 @@ Para reforçar ainda mais o processo de unir dispositivos ao Azure AD:
 
 1. Vá para **Azure Active Directory** > **Dispositivos** > **Configurações do dispositivo**.
 1. Selecione **Sim** em **exigir autenticação multifator para ingressar em dispositivos**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 #### <a name="configure-mobile-device-management"></a>Configurar o gerenciamento de dispositivos móveis
 
@@ -125,13 +125,13 @@ No Portal do Azure:
 
 1. Navegue até **Azure Active Directory**  >  **mobilidade (MDM e MAM)**  >  **Microsoft Intune**.
 1. Altere a configuração de **escopo do usuário do MDM** para **All**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Essas etapas permitem que você gerencie qualquer dispositivo com o Intune. Para obter mais informações, consulte [início rápido do Intune: configurar o registro automático para dispositivos Windows 10](/Intune/quickstart-setup-auto-enrollment). Você cria políticas de conformidade e configuração do Intune em uma etapa futura.
 
 #### <a name="azure-ad-conditional-access"></a>Acesso Condicional do Azure AD
 
-O acesso condicional do Azure AD pode ajudar a restringir tarefas administrativas privilegiadas a dispositivos em conformidade. Membros predefinidos do grupo de **usuários de estação de trabalho segura** são necessários para executar a autenticação multifator ao entrar em aplicativos de nuvem. Uma prática recomendada é excluir contas de acesso de emergência da política. Para obter mais informações, consulte [gerenciar contas de acesso de emergência no Azure ad](../users-groups-roles/directory-emergency-access.md).
+O acesso condicional do Azure AD pode ajudar a restringir tarefas administrativas privilegiadas a dispositivos em conformidade. Membros predefinidos do grupo de **usuários de estação de trabalho segura** são necessários para executar a autenticação multifator ao entrar em aplicativos de nuvem. Uma prática recomendada é excluir contas de acesso de emergência da política. Para obter mais informações, consulte [gerenciar contas de acesso de emergência no Azure ad](../roles/security-emergency-access.md).
 
 ## <a name="intune-configuration"></a>Configuração do Intune
 
@@ -154,7 +154,7 @@ Depois de criar um grupo de dispositivos, você deve criar um perfil de implanta
 No Intune no portal do Azure:
 
 1. Selecione **registro de dispositivo**  >  **Windows registro**  >  **perfis de implantação**  >  **Criar perfil**.
-1. Insira:
+1. Digite:
 
    * Nome- **perfil de implantação de estação de trabalho segura**.
    * Descrição- **implantação de estações de trabalho seguras**.
@@ -186,7 +186,7 @@ Esta orientação recomenda que você crie um novo anel de atualização e alter
 No Portal do Azure:
 
 1. Vá para **Microsoft Intune**  >  **atualizações de software**os  >  **anéis de atualização do Windows 10**.
-1. Insira:
+1. Digite:
 
    * Nome- **atualizações de estação de trabalho gerenciadas pelo Azure**
    * Canal de manutenção- **Windows Insider-rápido**
@@ -221,7 +221,7 @@ Para configurar a integração do Windows Defender ATP e do Intune, vá para o p
 
 1. Depois que uma conexão for estabelecida, retorne ao Intune e selecione **Atualizar** na parte superior.
 1. Defina **Conectar dispositivos Windows versão 10.0.15063 e superiores ao Windows Defender ATP** como **Ligado**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Para obter mais informações, consulte [Proteção Avançada contra Ameaças do Windows Defender](/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection).
 
@@ -308,7 +308,7 @@ Talvez seja necessário instalar aplicativos do Windows de 32 bits ou outros apl
 
 ### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>Acesso condicional apenas permitindo que a capacidade de estação de trabalho protegida acesse portal do Azure
 
-O Azure AD oferece a capacidade de gerenciar e restringir, quem e o que pode acessar seu portal de gerenciamento de nuvem do Azure. Habilitar o [acesso condicional](../conditional-access/overview.md) garantirá que apenas sua estação de trabalho segura possa gerenciar ou alterar recursos. É essencial que, ao implantar esse recurso, você considere se a funcionalidade de [acesso de emergência](../users-groups-roles/directory-emergency-access.md) pode ou deve ser usada apenas para casos extremos e a conta gerenciada por meio da política.
+O Azure AD oferece a capacidade de gerenciar e restringir, quem e o que pode acessar seu portal de gerenciamento de nuvem do Azure. Habilitar o [acesso condicional](../conditional-access/overview.md) garantirá que apenas sua estação de trabalho segura possa gerenciar ou alterar recursos. É essencial que, ao implantar esse recurso, você considere se a funcionalidade de [acesso de emergência](../roles/security-emergency-access.md) pode ou deve ser usada apenas para casos extremos e a conta gerenciada por meio da política.
 
 > [!NOTE]
 > Será necessário criar um grupo de usuários e incluir o usuário de emergência que pode ignorar a política de acesso condicional. Para nosso exemplo, temos um grupo de segurança chamado **Emergency BreakGlass**
@@ -345,7 +345,7 @@ O script [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/script
 1. Selecione **Criar**.
 1. Selecione **atribuições**  >  **Selecionar grupos**.
    1. Adicione as estações de **trabalho seguras**do grupo de segurança.
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
 
 ## <a name="enroll-and-validate-your-first-device"></a>Registrar e validar seu primeiro dispositivo
 
@@ -387,7 +387,7 @@ O monitoramento do Sentinel exige que os conectores para suas fontes de dados, c
 
 1. Na **portal do Azure**, vá para **Azure Sentinel (visualização)** > selecione **Adicionar**
 1. Em **escolher um espaço de trabalho para adicionar ao Azure Sentinel** , selecione **criar um novo espaço de trabalho**
-1. Insira:
+1. Digite:
    * **Espaço de trabalho log Analytics** -' monitoramento de estação de trabalho segura '
    * **Assinatura** – selecione sua assinatura ativa
    * **Grupo de recursos** -selecione o * * criar novo * * > a estação de trabalho segura > **OK**
@@ -432,13 +432,13 @@ Implantar o agente MMA com o script do Intune PowerShell
 1. Selecione **Criar**.
 1. Selecione **atribuições**  >  **Selecionar grupos**.
    1. Adicione as estações de **trabalho seguras**do grupo de segurança.
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
 
 Em seguida, você deve configurar Log Analytics para receber os novos logs
 1. Na **portal do Azure**, vá para **log Analytics espaço de trabalho** > selecione-' monitoramento de estação de trabalho segura '
 1. Selecione **Configurações avançadas**  >  **Data**  >  **logs de eventos do Windows**
 1. Em **coletar eventos dos logs de eventos a seguir** 
-1. Insira:
+1. Digite:
    * ' Microsoft-Windows-AppLocker/EXE e DLL ' > desmarcar **informativo**
    * ' Microsoft-Windows-AppLocker/MSI e script ' > desmarcar **informativo**
    * ' Microsoft-Windows-AppLocker/empacotado app-Deployment ' > desmarcar **informativo**

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 06836673f1a567f64217d49cf8e0ca82e132111f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933053"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368801"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
@@ -34,7 +34,7 @@ Use as etapas a seguir para implantar um módulo de segurança do defender para 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. No Hub IoT, verifique se o dispositivo está [registrado como um dispositivo IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
+1. No Hub IoT, verifique se o dispositivo está [registrado como um dispositivo IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device).
 
 1. O módulo do defender for IoT Edge requer que a [estrutura auditada](https://linux.die.net/man/8/auditd) esteja instalada no dispositivo IOT Edge.
 
@@ -139,7 +139,7 @@ Conclua cada etapa para concluir a implantação do IoT Edge para o defender par
     }
     ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Selecione **Avançar**.
 
@@ -175,7 +175,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
 
 1. Verifique se os seguintes contêineres estão em execução:
 
-   | Nome | IMAGEM |
+   | Nome | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
