@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 46b764c9fcdb771f0a82fa47c0b1aa9112bb9e94
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f9dd69c147dff1bf0bd10ca070e023bb6f7692a5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150516"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368427"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gerenciar dispositivos automaticamente no gêmeos digital do Azure usando o DPS (serviço de provisionamento de dispositivos)
 
@@ -488,7 +488,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 Você verá que o cópia do dispositivo não pode mais ser encontrado na instância do gêmeos digital do Azure.
 :::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos.":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los.
 
@@ -500,12 +500,6 @@ Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os
 ```azurecli
 az group delete --name <your-resource-group>
 ```
-<!-- 
-Next, delete the Azure AD app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-``` -->
 
 Em seguida, exclua a pasta de exemplo do projeto que você baixou de seu computador local.
 

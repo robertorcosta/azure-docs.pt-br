@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 485e55d7a17027fa8b8ec1f313a326ddbc5f40eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0051deeef467fda93ca5e13221d391a15133403
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545175"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integração do Active Directory do Azure com o Snowflake
 
@@ -100,7 +100,7 @@ Para configurar o logon único do Azure AD com o Snowflake, execute as seguintes
 
 4. Na seção **Configuração Básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
-    ![Informações de logon de único de URLs e domínio do floco de neve](common/idp-intiated.png)
+    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Snowflake, execute as seguintes
 
     c. Clique em **Definir URLs adicionais** e execute a seguinte etapa caso deseje configurar o aplicativo no modo iniciado por SP:
 
-    ![Informações de logon de único de URLs e domínio do floco de neve](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
     

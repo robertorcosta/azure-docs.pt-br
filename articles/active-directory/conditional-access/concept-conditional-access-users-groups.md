@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145420"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366353"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso condicional: usuários e grupos
 
@@ -46,13 +46,13 @@ As opções a seguir estão disponíveis para inclusão ao criar uma política d
 > Se os usuários ou grupos forem membros de mais de 2048 grupos, seu acesso poderá ser bloqueado. Esse limite se aplica à associação de grupo direta e aninhada.
 
 > [!WARNING]
-> As políticas de acesso condicional não dão suporte a usuários atribuídos a uma função de diretório [com escopo para uma unidade administrativa](../users-groups-roles/roles-admin-units-assign-roles.md) ou funções de diretório com escopo definido diretamente para um objeto, como por meio de [funções personalizadas](../users-groups-roles/roles-create-custom.md).
+> As políticas de acesso condicional não dão suporte a usuários atribuídos a uma função de diretório [com escopo para uma unidade administrativa](../roles/admin-units-assign-roles.md) ou funções de diretório com escopo definido diretamente para um objeto, como por meio de [funções personalizadas](../roles/custom-create.md).
 
 ## <a name="exclude-users"></a>Excluir usuários
 
 Quando as organizações incluem e excluem um usuário ou grupo, o usuário ou grupo é excluído da política, uma vez que uma ação de exclusão substitui uma inclusão na política. As exclusões são geralmente usadas para contas de acesso de emergência ou de vidro. Mais informações sobre contas de acesso de emergência e por que elas são importantes podem ser encontradas nos seguintes artigos: 
 
-* [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](../users-groups-roles/directory-emergency-access.md)
+* [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](../roles/security-emergency-access.md)
 * [Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 As opções a seguir estão disponíveis para exclusão ao criar uma política de acesso condicional.

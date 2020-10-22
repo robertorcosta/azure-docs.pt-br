@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "86171849"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidade em recursos de conectividade de backend do Azure: detalhes da configuração do teste
@@ -36,7 +36,7 @@ A figura a seguir mostra os detalhes de emparelhamento VNet da VNet do hub. Se v
 Configure a conectividade VPN site a site entre as VNets de branch e hub, usando gateways de VPN no Gateway de VPN do Azure. Por padrão, os gateways de VPN e gateways do Azure ExpressRoute usam um valor de ASN (número do sistema autônomo) privado de **65515**. É possível alterar o valor do ASN no Gateway de VPN. Na configuração do teste, o valor do ASN do gateway de VPN da VNet de branch é alterado para **65516** para dar suporte ao roteamento de eBGP entre as VNets de branch e hub.
 
 
-[![Beta]][3]
+[![3]][3]
 
 
 ## <a name="on-premises-location-1-connectivity-by-using-expressroute-and-a-site-to-site-vpn"></a>Conectividade de Localização 1 local usando ExpressRoute e uma VPN site to site
@@ -49,7 +49,7 @@ A figura a seguir mostra a configuração do circuito do ExpressRoute da Região
 
 A figura a seguir mostra a configuração da conexão entre o circuito do ExpressRoute 1 e a VNet do hub:
 
-[![05]][5]
+[![5]][5]
 
 A lista a seguir mostra a configuração do roteador CE primário para conectividade de emparelhamento privado do ExpressRoute. (Roteadores Cisco ASR1000 são usados como roteadores CE na configuração do teste.) Quando os circuitos VPN site a site e ExpressRoute são configurados em paralelo para conectar uma rede local ao Azure, o Azure prioriza o circuito do ExpressRoute por padrão. Para evitar o roteamento assimétrico, a rede local também deverá priorizar a conectividade do ExpressRoute sobre conectividade VPN site a site. A configuração a seguir estabelece a priorização usando o atributo de BGP **local-preference**:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: a5e7e46041e339646e4813a4cce61046f2a57e5e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708791"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319060"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o 8x8
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o 8x8 ao Azure AD (Azure Active Dire
 * Permitir que os usuários sejam conectados automaticamente ao 8x8 com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O 8x8 é compatível com SSO iniciado por **SP e IDP**
 
-* Depois de configurar o 8x8, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o 8x8, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
@@ -213,18 +213,18 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no 8x8. Traba
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do 8x8 no Painel de Acesso, você deverá ser conectado automaticamente ao 8x8, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do 8x8 no Painel de Acesso, você deverá ser conectado automaticamente ao 8x8, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o 8x8 com o Azure AD](https://aad.portal.azure.com/)
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o 8x8 com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger o 8x8 com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)

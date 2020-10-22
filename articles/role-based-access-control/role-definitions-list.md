@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982485"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368240"
 ---
 # <a name="list-azure-role-definitions"></a>Listar definições de função do Azure
 
 Uma definição de função é uma coleção de permissões que podem ser executadas, como leitura, gravação e exclusão. Normalmente ela é chamada apenas de função. O Azure [RBAC (controle de acesso baseado em função)](overview.md) tem mais de 120 [funções internas](built-in-roles.md) ou você pode criar suas próprias funções personalizadas. Este artigo descreve como listar as funções internas e personalizadas que você pode usar para conceder acesso aos recursos do Azure.
 
-Para ver a lista de funções de administrador para Azure Active Directory, consulte [permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para ver a lista de funções de administrador para Azure Active Directory, consulte [permissões de função de administrador no Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -344,7 +344,7 @@ Para listar definições de função, use as [definições de função-lista](/r
 1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as definições de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Type |
+    > | Escopo | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |
@@ -429,7 +429,7 @@ Para listar os detalhes de uma função específica, use as [definições de fun
 1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar a definição de função.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Type |
+    > | Escopo | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |

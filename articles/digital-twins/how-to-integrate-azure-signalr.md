@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131540"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367645"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar o gêmeos digital do Azure ao serviço de Signaler do Azure
 
@@ -228,7 +228,7 @@ Isso abrirá uma janela do navegador que executa o aplicativo de exemplo, que ex
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los. 
 
@@ -244,12 +244,6 @@ Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Se você estiver excluindo sua instância de gêmeos digital do Azure, também poderá excluir o registro de aplicativo do Azure AD criado para ele no tutorial de ponta a ponta, usando este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Por fim, exclua as pastas de exemplo do projeto que você baixou para o computador local (*Azure_Digital_Twins_end_to_end_samples.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).

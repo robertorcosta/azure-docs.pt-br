@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f23efa8d0439422fef685480ed270dce6e78a204
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658805"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366846"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replicar computadores locais usando pontos de extremidade privados
 
@@ -123,7 +123,7 @@ Você pode usar um ponto de extremidade privado para o armazenamento do Azure. A
 > [!NOTE]
 > Pontos de extremidade privados para armazenamento podem ser criados somente em contas de armazenamento Uso Geral v2. Para obter informações sobre preços, consulte [preços de blobs de páginas do Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
-Siga as [diretrizes para criar o armazenamento privado](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint) para criar uma conta de armazenamento com um ponto de extremidade privado. Certifique-se de selecionar **Sim** em **integrar com a zona DNS privada**. Selecione uma zona DNS existente ou crie uma nova.
+Siga as [diretrizes para criar o armazenamento privado](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) para criar uma conta de armazenamento com um ponto de extremidade privado. Certifique-se de selecionar **Sim** em **integrar com a zona DNS privada**. Selecione uma zona DNS existente ou crie uma nova.
 
 ### <a name="grant-required-permissions-to-the-vault"></a>Conceder as permissões necessárias ao cofre
 

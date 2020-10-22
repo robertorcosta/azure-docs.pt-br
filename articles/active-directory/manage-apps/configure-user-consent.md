@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cfcd758390ff401c786c28d410c4d092a82c37f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819267"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368478"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar como os usuários finais consentem nos aplicativos
 
@@ -47,7 +47,7 @@ Ao escolher quais políticas de consentimento do aplicativo se aplicam a todos o
 
 Para definir as configurações de consentimento do usuário por meio do portal do Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com) como um [Administrador Global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Entre no [portal do Azure](https://portal.azure.com) como um [Administrador Global](../roles/permissions-reference.md#global-administrator--company-administrator).
 1. Selecione **Azure Active Directory** > **Aplicativos empresariais** > **Consentimento e permissões** > **Configurações de consentimento do usuário**.
 1. Em **Consentimento do usuário para aplicativos**, selecione a configuração de consentimento que você deseja configurar para todos os usuários.
 1. Selecione **salvar** para salvar suas configurações.
@@ -144,7 +144,7 @@ Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureAD
 
 1. Entenda o valor das configurações:
 
-    | Configuração       | Type         | Descrição  |
+    | Configuração       | Digite         | Descrição  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Boolean |  Sinalizador que indica se o consentimento do usuário será bloqueado quando uma solicitação arriscada for detectada. |
 

@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: bcd06ce879282ab9897d7e22006bac19a5c22b8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e995e88b80bf14f9c7784f465bcd3d89d0bed65
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565081"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367934"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: criar e usar discos com um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -88,7 +88,7 @@ Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto 
 ## <a name="create-and-attach-disks"></a>Criar e anexar discos
 Você pode criar e anexar discos ao criar um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
-Desde a versão `2019-07-01` da API, é possível definir o tamanho do disco do sistema operacional em um conjunto de dimensionamento de máquinas virtuais com a propriedade [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Após o provisionamento, talvez seja necessário expandir ou reparticionar o disco para uso do espaço inteiro. Saiba mais sobre a [expansão de disco aqui](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
+Desde a versão `2019-07-01` da API, é possível definir o tamanho do disco do sistema operacional em um conjunto de dimensionamento de máquinas virtuais com a propriedade [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk). Após o provisionamento, talvez seja necessário expandir ou reparticionar o disco para uso do espaço inteiro. Saiba mais sobre a [expansão de disco aqui](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos na criação do conjunto de dimensionamento
 Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando solicitado, forneça um nome de usuário e senha para as instâncias da VM. Para distribuir o tráfego para as instâncias de VM individuais, um balanceador de carga também é criado. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, além de permitir o tráfego de área de trabalho remota na porta TCP 3389 e comunicação remota do PowerShell na porta TCP 5985.

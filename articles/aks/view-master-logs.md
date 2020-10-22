@@ -4,12 +4,12 @@ description: Saiba como ativar e visualizar os logs do nó mestre do Kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076378"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368444"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitar e revisar os logs do nó mestre do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,11 @@ Os logs de Azure Monitor são habilitados e gerenciados no portal do Azure. Para
 
 Além das entradas escritas por kubernetes, os logs de auditoria do seu projeto também têm entradas de AKS.
 
-Os logs de auditoria são registrados em duas categorias, *Kube-Audit-admin* e *Kube-Audit*. A categoria *Kube-Audit* contém todos os dados de log de auditoria para cada evento de auditoria, incluindo *Get*, *lista*, *criação*, *atualização*, *exclusão*, *patch*e *post*.
+Os logs de auditoria são registrados em três categorias: *Kube-Audit*, *Kube-Audit-admin*e *Guard*.
 
-A categoria *Kube-Audit-admin* é um subconjunto da categoria *Kube-Audit* log. *Kube-Audit-admin* reduz o número de logs significativamente, excluindo os eventos de auditoria *Get* e *list* do log.
+- A categoria *Kube-Audit* contém todos os dados de log de auditoria para cada evento de auditoria, incluindo *Get*, *lista*, *criação*, *atualização*, *exclusão*, *patch*e *post*.
+- A categoria *Kube-Audit-admin* é um subconjunto da categoria *Kube-Audit* log. *Kube-Audit-admin* reduz o número de logs significativamente, excluindo os eventos de auditoria *Get* e *list* do log.
+- A categoria de *proteção* é uma auditoria gerenciada do Azure AD e RBAC do Azure. Para o Azure AD gerenciado: token in, informações do usuário out. Para o RBAC do Azure: revisões de acesso para dentro e fora.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agendar um pod de teste no cluster do AKS
 
@@ -75,7 +77,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Exibir logs coletados
 
-Pode levar alguns minutos para que os logs de diagnóstico sejam habilitados e apareçam.
+Pode levar até 10 minutos para que os logs de diagnóstico sejam habilitados e apareçam.
 
 > [!NOTE]
 > Se você precisar de todos os dados do log de auditoria para fins de conformidade ou outras finalidades, colete e armazene-os em um armazenamento barato, como o armazenamento de BLOB. Use a categoria de log *Kube-Audit-admin* para coletar e salvar um conjunto significativo de dados de log de auditoria para fins de monitoramento e alerta.

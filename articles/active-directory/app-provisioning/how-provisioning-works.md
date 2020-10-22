@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801793"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366676"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -65,15 +65,15 @@ Para o provisionamento de saída do Azure Active Directory para um aplicativo Sa
 
 * **Grupos.** Com um plano de licença Azure AD Premium, você pode usar grupos para atribuir acesso a um aplicativo SaaS. Em seguida, quando o escopo de provisionamento estiver definido como **Sincronizar somente usuários e grupos atribuídos**, o serviço de provisionamento do Azure Active Directory provisionará ou desprovisionará os usuários com base em sua associação a um grupo que é atribuído ao aplicativo. O objeto de grupo em si não é provisionado, a menos que o aplicativo dê suporte a objetos de grupo. Verifique se os grupos atribuídos ao seu aplicativo têm a propriedade "SecurityEnabled" definida como "True".
 
-* **Grupos dinâmicos.** O serviço de provisionamento de usuários do Azure Active Directory pode ler e provisionar usuários em [grupos dinâmicos](../users-groups-roles/groups-create-rule.md). Observe estas advertências e recomendações:
+* **Grupos dinâmicos.** O serviço de provisionamento de usuários do Azure Active Directory pode ler e provisionar usuários em [grupos dinâmicos](../enterprise-users/groups-create-rule.md). Observe estas advertências e recomendações:
 
   * Grupos dinâmicos podem afetar o desempenho do provisionamento de ponta a ponta do Azure Active Directory para aplicativos SaaS.
 
-  * A rapidez em que um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quanto tempo o grupo dinâmico pode avaliar as alterações de associação. Para informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [Verificar o status de processamento para uma regra de associação](../users-groups-roles/groups-create-rule.md).
+  * A rapidez em que um usuário em um grupo dinâmico é provisionado ou desprovisionado em um aplicativo SaaS depende de quanto tempo o grupo dinâmico pode avaliar as alterações de associação. Para informações sobre como verificar o status de processamento de um grupo dinâmico, consulte [Verificar o status de processamento para uma regra de associação](../enterprise-users/groups-create-rule.md).
 
   * Um usuário perder a associação no grupo dinâmico é considerado um evento de desprovisionamento. Considere este cenário ao criar regras para grupos dinâmicos.
 
-* **Grupos aninhados.** O serviço de provisionamento de usuário do Azure Active Directory não pode ler ou provisionar usuários em grupos aninhados. O serviço só pode ler e provisionar usuários que são membros imediatos de um grupo explicitamente atribuído. Essa limitação de "atribuições baseadas em grupo a aplicativos" também afeta o logon único (consulte [Usar um grupo para gerenciar o acesso a aplicativos SaaS](../users-groups-roles/groups-saasapps.md)). Em vez disso, atribua ou, de outra forma, [coloque em escopo](define-conditional-rules-for-provisioning-user-accounts.md) os grupos que contêm os usuários que precisam ser provisionados.
+* **Grupos aninhados.** O serviço de provisionamento de usuário do Azure Active Directory não pode ler ou provisionar usuários em grupos aninhados. O serviço só pode ler e provisionar usuários que são membros imediatos de um grupo explicitamente atribuído. Essa limitação de "atribuições baseadas em grupo a aplicativos" também afeta o logon único (consulte [Usar um grupo para gerenciar o acesso a aplicativos SaaS](../enterprise-users/groups-saasapps.md)). Em vez disso, atribua ou, de outra forma, [coloque em escopo](define-conditional-rules-for-provisioning-user-accounts.md) os grupos que contêm os usuários que precisam ser provisionados.
 
 ### <a name="attribute-based-scoping"></a>Escopo baseado em atributo 
 
@@ -184,12 +184,12 @@ Verifique se você tem o mapeamento para *ativo* para seu aplicativo. Se você e
 
 Os cenários a seguir dispararão uma desabilitação ou uma exclusão: 
 * Um usuário é excluído de maneira reversível no Azure AD (enviado para a propriedade da lixeira/AccountEnabled definida como false).
-    Trinta dias após a exclusão de um usuário no Azure Active Directory, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário no aplicativo. A qualquer momento durante o período de 30 dias, você pode [excluir manualmente um usuário permanentemente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão para o aplicativo.
+    Trinta dias após a exclusão de um usuário no Azure Active Directory, eles serão excluídos permanentemente do locatário. Neste ponto, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário no aplicativo. Durante o período de 30 dias, você pode [excluir manualmente um usuário de forma permanente](../fundamentals/active-directory-users-restore.md), o que envia uma solicitação de exclusão ao aplicativo.
 * Um usuário é excluído/removido permanentemente da lixeira no Azure AD.
 * Um usuário não é atribuído de um aplicativo.
 * Um usuário vai de um escopo para fora do escopo (o não passa mais um filtro de escopo).
     
-Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se você quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo.](skip-out-of-scope-deletions.md)
+Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se você quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo.](skip-out-of-scope-deletions.md)
 
 Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversíveis, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário do aplicativo.
 

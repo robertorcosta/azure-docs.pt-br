@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843100"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366999"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: investigar incidentes com o Azure Sentinel
 
@@ -42,7 +42,7 @@ Um incidente pode incluir vários alertas. É uma agregação de todas as evidê
 ## <a name="prerequisites"></a>Pré-requisitos
 - Você só poderá investigar o incidente se tiver usado os campos de mapeamento de entidade ao configurar sua regra de análise. O grafo de investigação requer que seu incidente original inclua entidades.
 
-- Se você tiver um usuário convidado que precisa atribuir incidentes, o usuário deverá ser atribuído à função de [leitor de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) em seu locatário do Azure AD. Usuários regulares (não convidados) têm essa função atribuída por padrão.
+- Se você tiver um usuário convidado que precisa atribuir incidentes, o usuário deverá ser atribuído à função de [leitor de diretório](../active-directory/roles/permissions-reference.md#directory-readers) em seu locatário do Azure AD. Usuários regulares (não convidados) têm essa função atribuída por padrão.
 
 ## <a name="how-to-investigate-incidents"></a>Como investigar incidentes
 

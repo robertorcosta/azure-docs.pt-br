@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 68fdff9444286a7f304c3a3361ad33a02e87a282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6676187f87cecb7f876150d1582cde9051dd251
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758363"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367475"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controle de segurança v2: acesso privilegiado
 
@@ -34,11 +34,11 @@ Observação: você pode ter outras funções críticas que precisam ser governa
 
 Você pode habilitar o acesso privilegiado JIT (just-in-time) aos recursos do Azure e ao Azure AD usando o Azure AD Privileged Identity Management (PIM). O JIT concede permissões temporárias para executar tarefas privilegiadas somente quando os usuários precisam dela. O PIM também pode gerar alertas de segurança quando há atividade suspeita ou não segura em sua organização do Azure AD.
 
-- [Permissões de função de administrador no Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Permissões de função de administrador no Azure AD](../../active-directory/roles/permissions-reference.md)
 
 - [Usar alertas de segurança do Azure Privileged Identity Management](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Protegendo o acesso privilegiado para implantações de nuvem e híbridos no Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+- [Protegendo o acesso privilegiado para implantações de nuvem e híbridos no Azure AD](../../active-directory/roles/security-planning.md)
 
 **Responsabilidade**: Cliente
 
@@ -114,7 +114,7 @@ Observação: alguns serviços do Azure dão suporte a usuários e funções loc
 Para evitar que seja bloqueado acidentalmente da sua organização do Azure AD, configure uma conta de acesso de emergência para acesso quando contas administrativas normais não puderem ser usadas. As contas de acesso de emergência geralmente são altamente privilegiadas e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas à emergência ou cenários de urgência em que as contas administrativas normais não podem ser usadas.
 Você deve garantir que as credenciais (como senha, certificado ou cartão inteligente) para contas de acesso de emergência sejam mantidas seguras e conhecidas apenas para indivíduos que estão autorizados a usá-las somente em uma emergência.
 
-- [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](../../active-directory/users-groups-roles/directory-emergency-access.md)
+- [Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory](../../active-directory/roles/security-emergency-access.md)
 
 **Responsabilidade**: Cliente
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: 4d5bb50d4fa34176da63c1305462903e9b62f010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d2d7b0e8d4a67b2ff67a780a71ea46ec54df1de
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504723"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280007"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-table-api-table-using-azure-powershell"></a>Criar um bloqueio de recurso para uma tabela de API de Tabela do Azure Cosmos usando o Azure PowerShell
 
@@ -50,5 +50,3 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/PowerShell/).
-
-Exemplos adicionais de scripts do PowerShell do Banco de Dados Cosmos do Azure podem ser encontrados nos [Scripts do PowerShell do Banco de Dados Cosmos do Azure](../../../PowerShell-samples.md).

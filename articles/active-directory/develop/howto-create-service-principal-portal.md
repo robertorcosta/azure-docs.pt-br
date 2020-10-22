@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265894"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366149"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -45,7 +45,7 @@ Você deve ter permissões suficientes para registrar um aplicativo com seu loca
 1. No painel esquerdo, selecione **configurações de usuário**.
 1. Verifique a configuração **Registros do Aplicativo**. Esse valor só pode ser definido por um administrador. Se for definido como **Sim**, qualquer usuário no locatário do Azure AD poderá registrar um aplicativo.
 
-Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e as [permissões de função](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta for atribuída à função de usuário, mas a configuração de registro do aplicativo for limitada a usuários administradores, peça ao administrador para atribuir a você uma das funções de administrador que podem criar e gerenciar todos os aspectos de registros do aplicativo ou para permitir que os usuários registrem aplicativos.
+Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../roles/permissions-reference.md#available-roles) e as [permissões de função](../roles/permissions-reference.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta for atribuída à função de usuário, mas a configuração de registro do aplicativo for limitada a usuários administradores, peça ao administrador para atribuir a você uma das funções de administrador que podem criar e gerenciar todos os aspectos de registros do aplicativo ou para permitir que os usuários registrem aplicativos.
 
 ### <a name="check-azure-subscription-permissions"></a>Verificar permissões de assinatura do Azure
 

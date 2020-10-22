@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528121"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365899"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo compartilhado para dispositivos iOS
 
@@ -43,7 +43,7 @@ Para criar um aplicativo de modo de dispositivo compartilhado, os desenvolvedore
 
 1. **Os administradores de dispositivo** preparam o dispositivo a ser compartilhado usando um provedor de MDM (gerenciamento de dispositivo móvel) como Microsoft Intune para gerenciar os dispositivos em sua organização. O MDM envia por push o aplicativo Microsoft Authenticator para os dispositivos e ativa o "modo compartilhado" para cada dispositivo por meio de uma atualização de perfil para o dispositivo. Essa configuração de modo compartilhado é o que altera o comportamento dos aplicativos com suporte no dispositivo. Essa configuração do provedor de MDM define o modo de dispositivo compartilhado para o dispositivo e habilita o [plug-in Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) que é necessário para o modo de dispositivo compartilhado.
 
-1. [**Necessário somente durante a visualização pública**] Um usuário com a função de [administrador de dispositivo de nuvem](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) deve iniciar o [aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e ingressar seu dispositivo na organização.
+1. [**Necessário somente durante a visualização pública**] Um usuário com a função de [administrador de dispositivo de nuvem](../roles/permissions-reference.md#cloud-device-administrator) deve iniciar o [aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e ingressar seu dispositivo na organização.
 
     Para configurar a associação de suas funções organizacionais no portal do Azure: **Azure Active Directory**  >  **funções e administradores**  >  **administrador do dispositivo de nuvem**
 

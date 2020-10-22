@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8dbd4d8deccd42d6fcc391eab1e57df7514401
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114050"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367849"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Sincronização de SCIM com Azure Active Directory
 
@@ -26,14 +26,14 @@ O sistema para SCIM (gerenciamento de identidade entre domínios) é um protocol
 
 SCIM é uma definição padronizada de dois pontos de extremidade: a '/user ' e um ponto de extremidade/groups. Ele usa verbos REST comuns para criar, atualizar e excluir objetos. Ele também usa um esquema predefinido para atributos comuns, como nome do grupo, nome de usuário, nome, sobrenome e email. Os aplicativos que oferecem uma API REST SCIM 2,0 podem reduzir ou eliminar o problema de trabalhar com APIs de gerenciamento de usuários ou produtos proprietários. Por exemplo, qualquer cliente compatível com SCIM pode fazer uma POSTAgem HTTP de um objeto JSON para o ponto de extremidade/Users para criar uma nova entrada de usuário. Em vez de precisar de uma API um pouco diferente para as mesmas ações básicas, os aplicativos que estão em conformidade com o padrão SCIM podem aproveitar instantaneamente os clientes, as ferramentas e o código preexistentes. 
 
-## <a name="use-when"></a>Use quando: 
+## <a name="use-when"></a>Use quando: 
 
 Você deseja provisionar automaticamente as informações do usuário de um sistema HCM para o Azure AD e o Windows Server Active Directory e, em seguida, para sistemas de destino, se necessário. 
 
 ![diagrama arquitetônico](./media/authentication-patterns/scim-auth.png)
 
 
-## <a name="components-ofsystem"></a>Componentes do sistema 
+## <a name="components-of-system"></a>Componentes do sistema 
 
 * **Sistema HCM**: aplicativos e tecnologias que permitem o processo de gerenciamento de capital humano e as práticas que dão suporte e automatizam processos de RH durante todo o ciclo de vida do funcionário. 
 
@@ -43,7 +43,7 @@ Você deseja provisionar automaticamente as informações do usuário de um sist
 
 * **Sistema de destino**: aplicativo ou sistema que tem ponto de extremidade scim e funciona com o provisionamento do Azure ad para habilitar o provisionamento automático de usuários e grupos.  
 
-## <a name="implementscimwith-azure-ad"></a>Implementar o SCIM com o Azure AD 
+## <a name="implement-scim-with-azure-ad"></a>Implementar o SCIM com o Azure AD 
 
 * [Como o provisionamento funciona no Azure AD ](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works)
 
@@ -51,5 +51,5 @@ Você deseja provisionar automaticamente as informações do usuário de um sist
 
 * [Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure AD  ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
 
-* [Conformidade do protocolo SCIM 2,0 do serviço de provisionamento do Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groupsapplication-provisioning-config-problem-scim-compatibility)
+* [Conformidade do protocolo SCIM 2,0 do serviço de provisionamento do Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331814"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367118"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
 
@@ -43,9 +43,6 @@ A imagem a seguir mostra como uma partição física hospeda uma ou mais partiç
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partição física que hospeda uma ou mais partições lógicas de um contêiner" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Definir taxa de transferência em um banco de dados
-
-> [!NOTE]
-> O provisionamento de taxa de transferência em um banco de dados Cosmos do Azure não é possível no momento em contas nas quais [as chaves gerenciadas pelo cliente](how-to-setup-cmk.md) estão habilitadas.
 
 Ao provisionar a taxa de transferência em um banco de dados do Azure Cosmos, a taxa de transferência será compartilhada entre todos os contêineres (denominados contêineres de banco de dados compartilhados) no banco de dados. Uma exceção é se você especificou uma taxa de transferência provisionada em contêineres específicos no banco de dados. O compartilhamento da taxa de transferência provisionada no banco de dados entre seus contêineres é análogo à hospedagem de um banco de dados em um cluster de computadores. Como todos os contêineres de um banco de dados compartilham os recursos disponíveis em um computador, evidentemente você não obtém o desempenho previsível em qualquer contêiner específico. Para saber como configurar a taxa de transferência provisionada em um banco de dados, consulte [Configurar taxa de transferência provisionada em um banco de dados do Azure Cosmos](how-to-provision-database-throughput.md). Para saber como configurar a taxa de transferência de dimensionamento automático em um banco de dados, consulte [Provisionar taxa de transferência de dimensionamento automático](how-to-provision-autoscale-throughput.md).
 
