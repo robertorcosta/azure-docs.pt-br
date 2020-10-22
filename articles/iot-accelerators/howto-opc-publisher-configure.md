@@ -9,12 +9,12 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b004bb4fbca768d782863f73d83ec5443bc66ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320602"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366948"
 ---
 # <a name="configure-opc-publisher"></a>Configurar o OPC Publisher
 
@@ -144,7 +144,7 @@ O OPC Publisher implementa as seguintes chamadas de método direto do Hub IoT:
 - ExitApplication
 - GetInfo
 
-O formato do conteúdo JSON da solicitação de método e as respostas são definidos em [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+O formato do conteúdo JSON da solicitação de método e as respostas são definidos em [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher).
 
 Se você chamar um método desconhecido no módulo, ele responderá com uma cadeia de caracteres que diz que o método não está implementado. Você pode chamar um método desconhecido como uma maneira de executar o ping do módulo.
 

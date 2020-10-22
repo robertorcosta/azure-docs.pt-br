@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd17e446766514fa90f8beaaab104bbbd2f389f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 239e49d287ebf6ad98d1a155219f0d59f6469292
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965022"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366506"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisitos de licenciamento para Azure Active Directory redefinição de senha de autoatendimento
 
@@ -49,7 +49,7 @@ Para obter informações adicionais sobre licenciamento, incluindo custos, consu
 
 ## <a name="enable-group-or-user-based-licensing"></a>Habilitar licenciamento com base em grupo ou usuário
 
-O Azure AD dá suporte ao licenciamento baseado em grupo. Os administradores podem atribuir licenças em massa a um grupo de usuários, em vez de atribuí-las uma por vez. Para obter mais informações, consulte [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+O Azure AD dá suporte ao licenciamento baseado em grupo. Os administradores podem atribuir licenças em massa a um grupo de usuários, em vez de atribuí-las uma por vez. Para obter mais informações, consulte [Atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para que uma licença possa ser atribuída a um usuário, o administrador deve especificar a propriedade **local de uso** no usuário. A atribuição de licenças pode ser feita na seção Configurações de perfil do **usuário**  >  **Profile**  >  **Settings** no portal do Azure. *Ao usar a atribuição de licença de grupo, qualquer usuário sem um local de uso especificado herda o local do diretório.*
 

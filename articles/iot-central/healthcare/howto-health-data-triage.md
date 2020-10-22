@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497039"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127073"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Criar um painel do provedor do Power BI
 
@@ -44,14 +44,14 @@ Neste tutorial, você aprenderá como:
 
 * Um modelo de aplicativo de monitoramento contínuo de pacientes do Azure IoT Central. Se você ainda não tiver um, poderá seguir as etapas para [Implantar um modelo de aplicativo](overview-iot-central-healthcare.md).
 
-* Um [namespace de Hubs de Eventos do Azure e um Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Um [namespace de Hubs de Eventos do Azure e um Hub de Eventos](../../event-hubs/event-hubs-create.md).
 
-* O Aplicativo Lógico que você deseja que acesse o Hub de Eventos. Para iniciar o Aplicativo Lógico com um gatilho dos Hubs de Eventos do Azure, será necessário um [Aplicativo Lógico em branco](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+* O Aplicativo Lógico que você deseja que acesse o Hub de Eventos. Para iniciar o Aplicativo Lógico com um gatilho dos Hubs de Eventos do Azure, será necessário um [Aplicativo Lógico em branco](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Uma conta de serviço do Power BI. Se você ainda não tiver uma, poderá [criar uma conta de avaliação gratuita para serviço do Power BI](https://app.powerbi.com/). Se você nunca usou o Power BI, pode ser útil ver a [Introdução ao Power BI](https://docs.microsoft.com/power-bi/service-get-started).
+* Uma conta de serviço do Power BI. Se você ainda não tiver uma, poderá [criar uma conta de avaliação gratuita para serviço do Power BI](https://app.powerbi.com/). Se você nunca usou o Power BI, pode ser útil ver a [Introdução ao Power BI](/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configurar uma exportação de dados contínua para os Hubs de Eventos do Azure
-Primeiro, você precisará configurar uma exportação de dados contínua de seu modelo de aplicativo Azure IoT Central para o Hub de Eventos do Azure em sua assinatura. Você pode fazer isso seguindo as etapas neste tutorial do Azure IoT Central para [Exportar para Hubs de Eventos](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). Você só precisará exportar para a telemetria para os fins deste tutorial.
+Primeiro, você precisará configurar uma exportação de dados contínua de seu modelo de aplicativo Azure IoT Central para o Hub de Eventos do Azure em sua assinatura. Você pode fazer isso seguindo as etapas neste tutorial do Azure IoT Central para [Exportar para Hubs de Eventos](../core/howto-export-data.md). Você só precisará exportar para a telemetria para os fins deste tutorial.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Criar um conjunto de dados de streaming do Power BI
 
@@ -72,10 +72,10 @@ Primeiro, você precisará configurar uma exportação de dados contínua de seu
     >[!div class="mx-imgBorder"] 
     >![Inserir valores do conjunto de dados](media/enter-dataset-values.png)
 
-Para saber mais sobre o streaming de conjuntos de dados no Power BI, leia este documento em [streaming em tempo real no Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+Para saber mais sobre o streaming de conjuntos de dados no Power BI, leia este documento em [streaming em tempo real no Power BI](/power-bi/service-real-time-streaming).
 
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Conectar seu Aplicativo Lógico aos Hubs de Eventos do Azure
-Para conectar seu Aplicativo Lógico aos hubs de eventos do Azure, siga as instruções descritas neste documento em [Como enviar eventos com os Hubs de Eventos do Azure e os Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Aqui estão alguns parâmetros sugeridos:
+Para conectar seu Aplicativo Lógico aos hubs de eventos do Azure, siga as instruções descritas neste documento em [Como enviar eventos com os Hubs de Eventos do Azure e os Aplicativos Lógicos do Azure](../../connectors/connectors-create-api-azure-event-hubs.md#add-event-hubs-action). Aqui estão alguns parâmetros sugeridos:
 
 |Parâmetro|Valor|
 |---|---|
@@ -91,7 +91,7 @@ No final desta etapa, o Designer de Aplicativo Lógico deve se parecer com isto:
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Transmitir dados para o Power BI de seu Aplicativo Lógico
 A próxima etapa será analisar os dados provenientes do seu Hub de Eventos para transmiti-los para os conjuntos de dados do Power BI criados anteriormente.
 
-1. Antes de fazer isso, você precisará entender o conteúdo JSON que está sendo enviado de seu dispositivo para o Hub de Eventos. Você pode fazer isso examinando este [esquema de exemplo](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) e modificando-o para corresponder a seu esquema ou usando o [gerenciador do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) para inspecionar as mensagens. Se você estiver usando os aplicativos de monitoramento contínuo do paciente, suas mensagens serão assim:
+1. Antes de fazer isso, você precisará entender o conteúdo JSON que está sendo enviado de seu dispositivo para o Hub de Eventos. Você pode fazer isso examinando este [esquema de exemplo](../core/howto-export-data.md#telemetry-format) e modificando-o para corresponder a seu esquema ou usando o [gerenciador do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) para inspecionar as mensagens. Se você estiver usando os aplicativos de monitoramento contínuo do paciente, suas mensagens serão assim:
 
 **Telemetria de Patch de Sinais Vitais Inteligente**
 

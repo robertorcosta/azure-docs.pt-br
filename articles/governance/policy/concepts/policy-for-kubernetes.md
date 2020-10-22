@@ -3,12 +3,12 @@ title: Saiba Azure Policy para kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 1747e770da420a3448e97628806733459fe07a49
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951529"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366982"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Noções básicas sobre clusters do Azure Policy para Kubernetes
 
@@ -80,7 +80,7 @@ A recomendação a seguir aplica-se somente ao AKS e ao complemento Azure Policy
 
 - Use o pool de nós do sistema com o `CriticalAddonsOnly` comparado para agendar pods de gatekeeper. Para obter mais informações, consulte [usando pools de nós do sistema](../../../aks/use-system-pools.md#system-and-user-node-pools).
 - Proteja o tráfego de saída de seus clusters AKS. Para obter mais informações, consulte [controlar o tráfego de saída para nós de cluster](../../../aks/limit-egress-traffic.md).
-- Se o cluster tiver `aad-pod-identity` habilitado, o pods de identidade gerenciada por nó (NMI) modificará os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados da instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que todas as solicitações para o ponto de extremidade de metadados provenientes de um pod que corresponda aos rótulos definidos em CRD devem ser proxies sem nenhum processamento em NMI. O pods do sistema com `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube-System_ deve ser excluído no `aad-pod-identity` Configurando o AzurePodIdentityException CRD. Para obter mais informações, consulte [desabilitar AAD-Pod-Identity para um pod ou aplicativo específico](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+- Se o cluster tiver `aad-pod-identity` habilitado, o pods de identidade gerenciada por nó (NMI) modificará os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados da instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que todas as solicitações para o ponto de extremidade de metadados provenientes de um pod que corresponda aos rótulos definidos em CRD devem ser proxies sem nenhum processamento em NMI. O pods do sistema com `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube-System_ deve ser excluído no `aad-pod-identity` Configurando o AzurePodIdentityException CRD. Para obter mais informações, consulte [desabilitar AAD-Pod-Identity para um pod ou aplicativo específico](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Para configurar uma exceção, instale o [YAML de exceção do MIC](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Instalar complemento do Azure Policy para AKS

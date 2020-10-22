@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82185584"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359944"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -26,8 +26,8 @@ ms.locfileid: "82185584"
 > * [MapReduce activity](data-factory-map-reduce.md) (Atividade do MapReduce)
 > * [Hadoop Streaming activity](data-factory-hadoop-streaming-activity.md) (Atividade de streaming do Hadoop)
 > * [Spark activity](data-factory-spark.md) (Atividade do Spark)
-> * [Machine Learning Batch Execution activity](data-factory-azure-ml-batch-execution-activity.md) (Atividade de execução em lotes do Machine Learning)
-> * [Machine Learning atualizar atividade de recurso](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de execução de lote Azure Machine Learning Studio (clássica)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de recurso de atualização Azure Machine Learning Studio (clássica)](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored procedure activity](data-factory-stored-proc-activity.md) (Atividade de procedimento armazenado)
 > * [Data Lake Analytics atividade U-SQL](data-factory-usql-activity.md)
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
@@ -273,7 +273,7 @@ Como getDebugInfo é definido como **Sempre**, você vê uma subpasta log na pas
 Para obter uma solução de problemas adicional, execute as seguintes etapas:
 
 
-1. Acesse `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+1. Ir para `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![Aplicativo de interface do usuário do YARN](media/data-factory-spark/yarnui-application.png)
 

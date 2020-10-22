@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329492"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319006"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Akamai
 
@@ -26,9 +26,9 @@ Neste tutorial, você aprenderá a integrar o Akamai ao Azure AD (Azure Active D
 * Permitir que seus usuários entrem automaticamente no Akamai com as contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-A integração de acesso a aplicativos empresariais do Azure Active Directory e do Akamai permite acesso contínuo a aplicativos herdados hospedados na nuvem ou localmente. A solução integrada aproveita as vantagens de todos os recursos modernos do Azure Active Directory, como [Acesso condicional do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) e [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview) para acesso de aplicativos herdados sem modificações de aplicativo ou instalação de agentes.
+A integração de acesso a aplicativos empresariais do Azure Active Directory e do Akamai permite acesso contínuo a aplicativos herdados hospedados na nuvem ou localmente. A solução integrada aproveita as vantagens de todos os recursos modernos do Azure Active Directory, como [Acesso condicional do Azure AD](../conditional-access/overview.md), [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) e [Azure AD Identity Governance](../governance/identity-governance-overview.md) para acesso de aplicativos herdados sem modificações de aplicativo ou instalação de agentes.
 
 A imagem abaixo descreve como o EAA do Akamai se encaixa no cenário de Acesso Seguro Híbrido mais amplo
 
@@ -589,14 +589,14 @@ Nesta seção, você criará um usuário chamado B.Fernandes no Akamai. Trabalhe
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Akamai no Painel de Acesso, você deverá ser conectado automaticamente ao Akamai no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Akamai no Painel de Acesso, você deverá ser conectado automaticamente ao Akamai no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o Akamai com o Azure AD](https://aad.portal.azure.com/)

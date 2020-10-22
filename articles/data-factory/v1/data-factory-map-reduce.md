@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98e352024ceea322f09947baf1bc759459a2af19
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74703147"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359961"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Chamar Programas MapReduce da Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -26,8 +26,8 @@ ms.locfileid: "74703147"
 > * [Atividade MapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de Execução em Lote de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade de Atualização de Recursos do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de execução de lote Azure Machine Learning Studio (clássica)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de recurso de atualização Azure Machine Learning Studio (clássica)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
@@ -183,7 +183,7 @@ O pipeline neste exemplo tem apenas uma atividade que seja do tipo: HDInsightMap
 
 | Propriedade | Observações |
 |:--- |:--- |
-| type |O tipo deve ser definido como **HDInsightMapReduce**. |
+| tipo |O tipo deve ser definido como **HDInsightMapReduce**. |
 | className |Nome da classe é: **wordcount** |
 | jarFilePath |Caminho para o arquivo jar que contém a classe. Se você copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço vinculado do Armazenamento do Azure que contém o arquivo jar. Esse serviço vinculado faz referência ao armazenamento que está associado ao cluster do HDInsight. |

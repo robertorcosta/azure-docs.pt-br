@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: c64c40e96c0ff5864e5b9c9d34bad896c0b03d91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55c884375372b3fea2ff3153aa936893cf668903
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441690"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359978"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -26,8 +26,8 @@ ms.locfileid: "89441690"
 > * [Atividade MapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de Execução em Lote de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade de Atualização de Recursos do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de execução de lote Azure Machine Learning Studio (clássica)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de recurso de atualização Azure Machine Learning Studio (clássica)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade do U-SQL da Análise Data Lake](data-factory-usql-activity.md)
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
@@ -86,7 +86,7 @@ A instrução a seguir usa a atividade de procedimento armazenado em um pipeline
    > [!IMPORTANT]
    > O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado no JSON do pipeline ou da atividade. Na definição do procedimento armazenado, certifique-se de que **\@** é usado como um prefixo para o parâmetro.
 
-### <a name="create-a-data-factory"></a>Criar um data factory
+### <a name="create-a-data-factory"></a>Criar uma data factory
 1. Faça logon no [portal do Azure](https://portal.azure.com/).
 2. Clique em **NOVO** no menu à esquerda, clique em **Inteligência + Análise** e em **Data Factory**.
 
