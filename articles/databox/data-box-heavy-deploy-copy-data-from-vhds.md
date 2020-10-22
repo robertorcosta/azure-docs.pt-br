@@ -9,12 +9,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 755d0077abcba71d705a14643f5c2b28001bfa13
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 335b564225bc2b7a4c2217c1d912f952239ecf24
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951427"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127192"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Usar o Data Box Heavy para importar dados como discos gerenciados no Azure
 
@@ -38,7 +38,7 @@ Antes de começar, verifique se:
 4. Você revisou:
 
     - [Tamanhos compatíveis de disco gerenciado nos limites de tamanho de objeto do Azure](data-box-heavy-limits.md#azure-object-size-limits).
-    - [Introdução aos discos gerenciados do Azure](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Introdução aos discos gerenciados do Azure](../virtual-machines/managed-disks-overview.md). 
 
 ## <a name="connect-to-data-box-heavy"></a>Conectar-se ao Data Box Heavy
 
@@ -182,4 +182,3 @@ Passe para o próximo tutorial para saber como enviar seu Data Box Heavy de volt
 
 > [!div class="nextstepaction"]
 > [Enviar o Azure Data Box Heavy para a Microsoft](./data-box-heavy-deploy-picked-up.md)
-

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efca190f3dad1c0a323aa56ffd68b8b2597b5862
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317505"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370212"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividade do Azure AD
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
@@ -93,7 +93,7 @@ Se você receber **não é possível se conectar ao servidor remoto, o**PowerShe
 Se o proxy não estiver configurado corretamente, você receberá um erro: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Erro do | Texto do erro | Comentário |
+| Erro | Texto do erro | Comentário |
 | --- | --- | --- |
 | 403 |Proibido |O proxy não foi aberto para a URL solicitada. Examine a configuração do proxy e verifique se as [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertas. |
 | 407 |Autenticação de proxy necessária |O servidor proxy solicitou uma entrada e nenhuma foi fornecida. Se o servidor proxy exigir autenticação, certifique-se de ter essa configuração definida na machine.config. Verifique também se você está usando contas de domínio para o usuário que está executando o assistente e para a conta de serviço. |
@@ -186,7 +186,7 @@ A autenticação foi bem-sucedida, mas o PowerShell do Azure AD tem um problema 
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Função de Administrador Global do Azure AD necessária
-O usuário foi autenticado com êxito. No entanto o usuário não está atribuído a função de administrador global. Isso é [como você pode atribuir a função de administrador global](../users-groups-roles/directory-assign-admin-roles.md) ao usuário.
+O usuário foi autenticado com êxito. No entanto o usuário não está atribuído a função de administrador global. Isso é [como você pode atribuir a função de administrador global](../roles/permissions-reference.md) ao usuário.
 
 <div id="privileged-identity-management">
 <!--

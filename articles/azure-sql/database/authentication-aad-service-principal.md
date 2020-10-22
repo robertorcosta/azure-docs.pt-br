@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d24c824782bdc6530b78450fc55a879a511ddc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88516615"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367679"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entidade de serviço do Azure Active Directory com o SQL do Azure
 
@@ -74,12 +74,12 @@ Para habilitar uma criação de objeto do Azure AD no banco de dados SQL e no Az
     > [!NOTE]
     > A identidade do servidor também pode ser atribuída usando comandos da CLI. Para obter mais informações, consulte [AZ SQL Server CREATE](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) and [AZ SQL Server Update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
 
-2. Conceda permissão de [**leitores de diretório**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) do Azure ad à identidade do servidor criada ou atribuída ao servidor.
+2. Conceda permissão de [**leitores de diretório**](../../active-directory/roles/permissions-reference.md#directory-readers) do Azure ad à identidade do servidor criada ou atribuída ao servidor.
     - Para conceder essa permissão, siga a descrição usada para o SQL Instância Gerenciada que está disponível no seguinte artigo: [provisionar administrador do Azure AD (SQL instância gerenciada)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
     - O usuário do Azure AD que está concedendo essa permissão deve fazer parte do **administrador global** do Azure ad ou da função de **administrador de funções privilegiadas** .
 
 > [!IMPORTANT]
-> As etapas 1 e 2 devem ser executadas na ordem acima. Primeiro, crie ou atribua a identidade do servidor, depois de conceder a permissão [**leitores de diretório**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Omitir uma dessas etapas ou ambas causará um erro de execução durante a criação de um objeto do Azure AD no Azure SQL em nome de um aplicativo do Azure AD. Para obter instruções passo a passo para criar um usuário do Azure AD em nome de um aplicativo do Azure AD, consulte [tutorial: criar usuários do Azure ad usando aplicativos do Azure ad](authentication-aad-service-principal-tutorial.md).
+> As etapas 1 e 2 devem ser executadas na ordem acima. Primeiro, crie ou atribua a identidade do servidor, depois de conceder a permissão [**leitores de diretório**](../../active-directory/roles/permissions-reference.md#directory-readers) . Omitir uma dessas etapas ou ambas causará um erro de execução durante a criação de um objeto do Azure AD no Azure SQL em nome de um aplicativo do Azure AD. Para obter instruções passo a passo para criar um usuário do Azure AD em nome de um aplicativo do Azure AD, consulte [tutorial: criar usuários do Azure ad usando aplicativos do Azure ad](authentication-aad-service-principal-tutorial.md).
 >
 > Em **Visualização pública**, você pode atribuir a função de **leitores de diretório** a um grupo no Azure AD. Os proprietários do grupo podem então adicionar a identidade gerenciada como um membro desse grupo, o que pode ignorar a necessidade de um administrador **global** ou de **funções com privilégios Administrator** para conceder a função de **leitores de diretório** . Para obter mais informações sobre esse recurso, confira [Função Leitores de Diretório no Azure Active Directory para o SQL do Azure](authentication-aad-directory-readers-role.md).
 

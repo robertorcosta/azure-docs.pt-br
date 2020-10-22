@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398299"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368002"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -60,7 +60,7 @@ Uma conexão não pode ser estabelecida para Microsoft 365 pontos de extremidade
 #### <a name="resolution"></a>Resolução
 
 - Azure Site Recovery requer acesso aos intervalos de IP de Microsoft 365 para autenticação.
-- Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de permitir a comunicação com os intervalos de IP Microsoft 365. Crie Azure Active Directory uma regra de NSG baseada em [marca de serviço (AD do Azure)](../virtual-network/security-overview.md#service-tags) que permita o acesso a todos os endereços IP correspondentes ao Azure AD.
+- Se você estiver usando regras de NSG (grupo de segurança de rede) do Azure/proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de permitir a comunicação com os intervalos de IP Microsoft 365. Crie Azure Active Directory uma regra de NSG baseada em [marca de serviço (AD do Azure)](../virtual-network/network-security-groups-overview.md#service-tags) que permita o acesso a todos os endereços IP correspondentes ao Azure AD.
 - Se novos endereços forem adicionados ao Azure AD no futuro, você precisará criar novas regras de NSG.
 
 ### <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG

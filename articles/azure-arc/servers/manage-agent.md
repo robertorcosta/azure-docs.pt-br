@@ -1,14 +1,14 @@
 ---
 title: Gerenciando o agente de servidores habilitados para Arc do Azure
 description: Este artigo descreve as diferentes tarefas de gerenciamento que você normalmente executará durante o ciclo de vida do agente de computador conectado de servidores habilitados para Arc do Azure.
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: af020d0ca586b950b444f2a3149ad207b5696050
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108925"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371419"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerenciando e mantendo o agente do Connected Machine
 
@@ -138,7 +138,7 @@ As ações do comando [yum](https://access.redhat.com/articles/yum-cheat-sheet),
     zypper update
     ```
 
-As ações do comando [zypper](https://en.opensuse.org/Portal:Zypper), como a instalação e a remoção de pacotes, são registradas no arquivo de log `/var/log/zypper.log`. 
+As ações do comando [zypper](https://en.opensuse.org/Portal:Zypper), como a instalação e a remoção de pacotes, são registradas no arquivo de log `/var/log/zypper.log`.
 
 ## <a name="about-the-azcmagent-tool"></a>Sobre a ferramenta Azcmagent
 
@@ -148,9 +148,11 @@ A ferramenta Azcmagent (Azcmagent.exe) é usada para configurar o agente de máq
 
 * **Disconnect**: para desconectar o computador do Azure Arc
 
-* **Reconnect**: para reconectar uma máquina desconectada do Azure Arc
+* **Show**: exiba o status do agente e suas propriedades de configuração (nome do grupo de recursos, ID da assinatura, versão, etc.), o que pode ajudar ao solucionar um problema com ele. Inclua o `-j` parâmetro para gerar os resultados no formato JSON.
 
-* **Show**: exiba o status do agente e suas propriedades de configuração (nome do grupo de recursos, ID da assinatura, versão, etc.), o que pode ajudar ao solucionar um problema com ele.
+* **Logs** – cria um arquivo. zip no diretório atual que contém os logs para ajudá-lo durante a solução de problemas.
+
+* **Versão** -mostra a versão do agente do computador conectado.
 
 * **-h ou --help**: mostra os parâmetros de linha de comando disponíveis
 
@@ -158,7 +160,7 @@ A ferramenta Azcmagent (Azcmagent.exe) é usada para configurar o agente de máq
 
 * **-v ou --verbose**: para habilitar o log detalhado
 
-Você poderá executar **Conectar**, **Desconectar** e **Reconectar** manualmente enquanto estiver conectado interativamente, ou automatizar usando a mesma entidade de serviço usada para carregar vários agentes ou um [token de acesso](../../active-directory/develop/access-tokens.md) da plataforma de identidade da Microsoft. Se você não usou uma entidade de serviço para registrar a máquina com os servidores habilitados para Arc do Azure, consulte o [artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) a seguir para criar uma entidade de serviço.
+Você pode executar uma **conexão** e **Desconectar** manualmente enquanto estiver conectado interativamente, ou automatizar usando a mesma entidade de serviço usada para carregar vários agentes ou com um [token de acesso](../../active-directory/develop/access-tokens.md)da plataforma de identidade da Microsoft. Se você não usou uma entidade de serviço para registrar a máquina com os servidores habilitados para Arc do Azure, consulte o [artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) a seguir para criar uma entidade de serviço.
 
 >[!NOTE]
 >Você deve ter permissões de acesso à *raiz* em computadores Linux para executar o **azcmagent**.
@@ -198,28 +200,7 @@ Para se desconectar usando um token de acesso, execute o seguinte comando:
 
 Para se desconectar com suas credenciais de logon com privilégios elevados (interativas), execute o seguinte comando:
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### <a name="reconnect"></a>Reconectar
-
-> [!WARNING]
-> O `reconnect` comando foi preterido e não deve ser usado. O comando será removido em uma versão futura do agente e os agentes existentes não poderão concluir a solicitação de reconexão. Em vez disso, [desconecte](#disconnect) seu computador e [Conecte](#connect) -o novamente.
-
-Esse parâmetro reconecta o computador já registrado ou conectado com os servidores habilitados para Arc do Azure. Isso pode ser necessário se o computador tiver sido desligado por pelo menos 45 dias até seu certificado expirar. Esse parâmetro usa as opções de autenticação fornecidas para recuperar novas credenciais correspondentes ao recurso do Azure Resource Manager que representa esse computador.
-
-Esse comando requer privilégios mais altos do que a função [Integração do Azure Connected Machine](agent-overview.md#required-permissions).
-
-Para se reconectar usando uma entidade de serviço, execute o seguinte comando:
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-Para se reconectar usando um token de acesso, execute o seguinte comando:
-
-`azcmagent reconnect --access-token <accessToken>`
-
-Para se reconectar com suas credenciais de logon com privilégios elevados (interativas), execute o seguinte comando:
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## <a name="remove-the-agent"></a>Remova o agente
 

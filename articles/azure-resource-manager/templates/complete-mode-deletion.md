@@ -2,13 +2,13 @@
 title: Exclusão completa de modo
 description: Mostra como os tipos de recurso lidam com a exclusão de modo completo em modelos do Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/06/2020
-ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766707"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370117"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações do modo completo
 
@@ -24,7 +24,6 @@ Os recursos são listados pelo namespace do provedor de recursos. Para correspon
 
 > [!NOTE]
 > Sempre use a [operação What-If](template-deploy-what-if.md) antes de implantar um modelo no modo completo. What-If mostra quais recursos serão criados, excluídos ou modificados. Use What-If para evitar a exclusão acidental de recursos.
-
 Pule para um namespace de provedor de recursos:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -47,6 +46,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft. BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -176,6 +176,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft. singularidade](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft. SQL](#microsoftsql)
@@ -364,6 +365,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | privateClouds | Sim |
+> | privateClouds/Complementos | Não |
 > | privateClouds/autorizações | Não |
 > | privateClouds/clusters | Não |
 > | privateClouds / globalReachConnections | Não |
@@ -426,12 +428,21 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- |
 > | clusters | Sim |
 
+## <a name="microsoftbaremetalinfrastructure"></a>Microsoft. BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Exclusão completa de modo |
+> | ------------- | ----------- |
+> | bareMetalInstances | Sim |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | batchAccounts | Sim |
+> | batchAccounts / certificates | Não |
+> | batchAccounts / pools | Não |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -973,7 +984,6 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- |
 > | workspaces | Sim |
 > | espaços de trabalho/dbWorkspaces | Não |
-> | espaços de trabalho/storageEncryption | Não |
 > | espaços de trabalho/virtualNetworkPeerings | Não |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1129,6 +1139,7 @@ Pule para um namespace de provedor de recursos:
 > | applicationgroups/desktops | Não |
 > | applicationgroups/startmenuitems | Não |
 > | hostpools | Sim |
+> | hostpools / msixpackages | Não |
 > | hostpools/sessionhosts | Não |
 > | hostpools/sessionhosts/usersessions | Não |
 > | hostpools/usersessions | Não |
@@ -1381,12 +1392,14 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | dispositivos | Sim |
+> | networkFunctions | Sim |
+> | networkFunctionVendors | Não |
 > | registeredSubscriptions | Não |
 > | selecionados | Não |
-> | fornecedores/vendorskus | Não |
-> | fornecedores/vendorskus/previewSubscriptions | Não |
-> | virtualnetworkfunctions | Sim |
-> | virtualnetworkfunctionvendors | Não |
+> | fornecedores/vendorSkus | Não |
+> | fornecedores/vendorSkus/previewSubscriptions | Não |
+> | virtualNetworkFunctions | Sim |
+> | virtualNetworkFunctionVendors | Não |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1507,9 +1520,20 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | workspaces | Sim |
+> | espaços de trabalho/batchEndpoints | Sim |
+> | espaços de trabalho/batchEndpoints/implantações | Sim |
+> | espaços de trabalho/códigos | Não |
+> | espaços de trabalho/códigos/versões | Não |
 > | workspaces/computes | Não |
+> | espaços de trabalho/repositórios de armazenamento | Não |
 > | espaços de trabalho/eventGridFilters | Não |
+> | espaços de trabalho/trabalhos | Não |
+> | espaços de trabalho/labelingJobs | Não |
 > | espaços de trabalho/linksservices | Não |
+> | espaços de trabalho/modelos | Não |
+> | espaços de trabalho/modelos/versões | Não |
+> | espaços de trabalho/onlineEndpoints | Sim |
+> | espaços de trabalho/onlineEndpoints/implantações | Sim |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2157,6 +2181,17 @@ Pule para um namespace de provedor de recursos:
 > | SignalR | Sim |
 > | Sinalização/eventGridFilters | Não |
 
+## <a name="microsoftsingularity"></a>Microsoft. singularidade
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Exclusão completa de modo |
+> | ------------- | ----------- |
+> | accounts | Sim |
+> | contas/accountQuotaPolicies | Não |
+> | contas/groupPolicies | Não |
+> | contas/trabalhos | Não |
+> | contas/storageContainers | Não |
+
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2289,6 +2324,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | clusters | Sim |
+> | clusters/privateEndpoints | Não |
 > | streamingjobs | Sim |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
@@ -2423,6 +2459,8 @@ Pule para um namespace de provedor de recursos:
 > | runtimes | Não |
 > | serverFarms | Sim |
 > | serverFarms/eventGridFilters | Não |
+> | serverFarms/firstPartyApps | Não |
+> | serverFarms/firstPartyApps/keyVaultSettings | Não |
 > | sites | Sim |
 > | sites/configuração  | Não |
 > | sites/eventGridFilters | Não |

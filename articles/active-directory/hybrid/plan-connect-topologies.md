@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146360"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359825"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -29,7 +29,7 @@ Este artigo descreve várias topologias locais e do Azure Active Directory (Azur
 
 Aqui está a legenda para imagens neste artigo:
 
-| Description | Símbolo |
+| Descrição | Símbolo |
 | --- | --- |
 | Floresta do Active Directory local |![Floresta do Active Directory local](./media/plan-connect-topologies/legendad1.png) |
 | Active Directory local com importação filtrada |![Active Directory com importação filtrada](./media/plan-connect-topologies/legendad2.png) |
@@ -142,7 +142,7 @@ Esse método também pode ser usado para substituir o servidor de sincronizaçã
 
 ## <a name="multiple-azure-ad-tenants"></a>Vários locatários do Azure AD
 Recomendamos ter um único locatário no Azure AD para uma organização.
-Antes de planejar usar vários locatários do AD do Azure, confira o artigo [Gerenciamento de unidades administrativas no Azure AD](../users-groups-roles/directory-administrative-units.md). Ele aborda cenários comuns em que você pode usar um único locatário.
+Antes de planejar usar vários locatários do AD do Azure, confira o artigo [Gerenciamento de unidades administrativas no Azure AD](../roles/administrative-units.md). Ele aborda cenários comuns em que você pode usar um único locatário.
 
 ![Topologia de várias florestas e vários locatários](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
