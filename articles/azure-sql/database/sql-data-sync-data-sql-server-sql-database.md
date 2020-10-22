@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173562"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371744"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -81,7 +81,7 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 | | Sincronização de Dados | Replicação transacional |
 |---|---|---|
 | **Vantagens** | – Suporte ativo-ativo<br/>– Bidirecional entre o Banco de Dados SQL do Azure e o local | – Menor latência<br/>– Consistência transacional<br/>– Reutilização da topologia existente após a migração <br/>-Suporte do Azure SQL Instância Gerenciada |
-| **Desvantagens** | – Latência de 5 minutos ou mais<br/>– Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
+| **Desvantagens** | -5 min mínimo de frequência entre sincronizações<br/>– Não há consistência transacional<br/>– Maior impacto do desempenho | -Não é possível publicar do banco de dados SQL do Azure <br/>– Alto custo de manutenção |
 
 ## <a name="get-started"></a>Introdução 
 
@@ -135,9 +135,9 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 - Uma chave primária não pode ter os seguintes tipos de dados: sql_variant, binary, varbinary, Image, XML.
 - Tenha cuidado ao usar os seguintes tipos de dados como uma chave primária, porque a precisão com suporte é apenas para o segundo: time, datatime, datetime2 e datetimeoffset.
 - Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter o ponto de caracteres imprimíveis (.), colchete esquerdo ([) ou colchete direito (]).
+- Um nome de tabela não pode conter caracteres imprimíveis:! " # $ % ' ( ) * + -
 - Não há suporte para a autenticação Azure Active Directory.
 - Se houver tabelas com o mesmo nome, mas um esquema diferente (por exemplo, dbo. Customers e Sales. Customers), somente uma das tabelas poderá ser adicionada à sincronização.
-- Um nome de tabela não pode ter caracteres que tenham um valor ASCII menor ou igual a '-'.
 - Não há suporte para colunas com tipos de dados User-Defined
 - Não há suporte para a movimentação de servidores entre assinaturas diferentes. 
 
@@ -166,7 +166,7 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 | Tabelas em um grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
 | Colunas em uma tabela em um grupo de sincronização                              | 1000                   |                             |
 | Tamanho da linha de dados em uma tabela                                        | 24 Mb                  |                             |
-| Intervalo de sincronização mínima                                           | 5 Minutos              |                             |
+| Intervalo de frequência de sincronização mínima                                 | 5 Minutos              |                             |
 
 > [!NOTE]
 > Pode haver até 30 pontos de extremidade em um único grupo de sincronização, se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos de extremidade em todos os grupos de sincronização não pode exceder 30. Se um banco de dados pertencer a vários grupos de sincronização, ele será contado como vários pontos de extremidade, não um.

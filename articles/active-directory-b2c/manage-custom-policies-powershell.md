@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387670"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363854"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gerenciar Azure AD B2C políticas personalizadas com Azure PowerShell
 
@@ -29,7 +29,7 @@ Azure PowerShell fornece vários cmdlets para o gerenciamento de políticas pers
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Azure ad B2C locatário](tutorial-create-tenant.md)e credenciais para um usuário no diretório com a função de [administrador da política IEF B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Azure ad B2C locatário](tutorial-create-tenant.md)e credenciais para um usuário no diretório com a função de [administrador da política IEF B2C](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) carregadas para seu locatário
 * [**Módulo de visualização** do PowerShell do Azure ad para Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -37,7 +37,7 @@ Azure PowerShell fornece vários cmdlets para o gerenciamento de políticas pers
 
 Para trabalhar com políticas personalizadas em seu locatário do Azure AD B2C, primeiro você precisa conectar a sessão do PowerShell ao locatário usando o comando [Connect-AzureAD][Connect-AzureAD] .
 
-Execute o comando a seguir, substituindo `{b2c-tenant-name}` pelo nome do seu locatário de Azure ad B2C. Entre com uma conta que tenha atribuído a função de [administrador de política IEF do B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) no diretório.
+Execute o comando a seguir, substituindo `{b2c-tenant-name}` pelo nome do seu locatário de Azure ad B2C. Entre com uma conta que tenha atribuído a função de [administrador de política IEF do B2C](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) no diretório.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"

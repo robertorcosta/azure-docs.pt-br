@@ -354,8 +354,6 @@
           href: ../security-controls-policy.md
         - name: Linha de base de segurança para o Azure Security Benchmark
           href: security-baseline.md
-        - name: Controles de segurança interna
-          href: virtual-machines-linux-security-controls.md
         - name: Bastion
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Estados e ciclo de vida

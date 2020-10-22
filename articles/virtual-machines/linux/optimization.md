@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654184"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370229"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar sua VM do Linux no Azure
 É fácil criar uma máquina virtual (VM) Linux desde a linha de comando ou do portal. Este tutorial mostra como garantir que você configurou uma VM para otimizar o desempenho na plataforma Microsoft Azure. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -47,7 +47,38 @@ Por padrão, quando você cria uma VM, o Azure fornece um disco de sistema opera
 ## <a name="linux-swap-partition"></a>Partição de permuta do Linux
 Se a sua VM do Azure for de uma imagem do Ubuntu ou CoreOS, você poderá usar o CustomData para enviar um cloud-config para cloud-init. Se você [carregou uma imagem do Linux personalizada](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que usa a inicialização de nuvem, configure também as partições de troca usando a inicialização de nuvem.
 
-Nas Imagens de nuvem do Ubuntu, use a inicialização de nuvem para configurar a partição de troca. Para obter mais informações, consulte [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+Você não pode usar o arquivo **/etc/waagent.conf** para gerenciar a troca de todas as imagens que são provisionadas e têm suporte do Cloud-init. Para obter a lista completa de imagens, consulte [usando Cloud-init](using-cloud-init.md). 
+
+A maneira mais fácil de gerenciar a troca dessas imagens é concluir estas etapas:
+
+1. Na pasta **/var/lib/Cloud/scripts/per-boot** , crie um arquivo chamado **create_swapfile. sh**:
+
+   **$ sudo Touch/var/lib/Cloud/scripts/per-boot/create_swapfile. sh**
+
+1. Adicione as seguintes linhas ao arquivo:
+
+   **$ sudo vi/var/lib/Cloud/scripts/per-boot/create_swapfile. sh**
+
+   ```
+   #!/bin/sh
+   if [ ! -f '/mnt/swapfile' ]; then
+   fallocate --length 2GiB /mnt/swapfile
+   chmod 600 /mnt/swapfile
+   mkswap /mnt/swapfile
+   swapon /mnt/swapfile
+   swapon -a ; fi
+   ```
+
+   > [!NOTE]
+   > Você pode alterar o valor de acordo com sua necessidade e com base no espaço disponível no disco de recursos, que varia com base no tamanho da VM que está sendo usado.
+
+1. Faça o arquivo executável:
+
+   **$ sudo chmod + x/var/lib/Cloud/scripts/per-boot/create_swapfile. sh**
+
+1. Para criar o Swapfile, execute o script logo após a última etapa:
+
+   **$ sudo/var/lib/Cloud/scripts/per-boot/./create_swapfile. sh**
 
 Para imagens sem suporte à inicialização de nuvem, as imagens de VM implantadas no Azure Marketplace têm um agente Linux de VM integrado com o sistema operacional. Esse agente permite que a VM interaja com vários serviços do Azure. Supondo que você implantou uma imagem padrão do Azure Marketplace, você precisaria fazer o seguinte para configurar corretamente as configurações de arquivo de permuta do Linux:
 
