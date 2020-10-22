@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601292"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370994"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de identidade e acesso do Azure Active Directory
 
@@ -45,7 +45,7 @@ Ao examinar sua lista, você pode achar necessário atribuir um proprietário pa
 
 #### <a name="assigning-owners-recommended-reading"></a>Atribuindo a leitura recomendada de proprietários
 
-- [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Atribuindo funções de administrador no Azure Active Directory](../roles/permissions-reference.md)
 - [Governança no Azure](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>Sincronização de identidade local
@@ -157,13 +157,13 @@ Use as diretrizes a seguir para definir os planos de serviço para os usuários:
 - Opcionalmente, um atributo pode ser definido para manter os pacotes para os usuários.
 
 > [!IMPORTANT]
-> O licenciamento baseado em grupo no Azure AD apresenta o conceito de usuários em um estado de erro de licenciamento. Se você observar quaisquer erros de licenciamento, deverá [identificar e resolver](../users-groups-roles/licensing-groups-resolve-problems.md) imediatamente quaisquer problemas de atribuição de licença.
+> O licenciamento baseado em grupo no Azure AD apresenta o conceito de usuários em um estado de erro de licenciamento. Se você observar quaisquer erros de licenciamento, deverá [identificar e resolver](../enterprise-users/licensing-groups-resolve-problems.md) imediatamente quaisquer problemas de atribuição de licença.
 
 ![Uma captura de tela de uma descrição do computador gerada automaticamente](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>Gerenciamento do ciclo de vida
 
-Se você estiver usando uma ferramenta, como [Microsoft Identity Manager](/microsoft-identity-manager/) ou sistema de terceiros, que se baseia em uma infraestrutura local, recomendamos que você descarregue a atribuição da ferramenta existente, implemente o licenciamento baseado em grupo e defina um gerenciamento de ciclo de vida de grupo com base em [grupos](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Da mesma forma, se o processo existente não considerar novos funcionários ou funcionários que deixam a organização, você deverá implantar o licenciamento baseado em grupo com base em grupos dinâmicos e definir um ciclo de vida de associação de grupo. Por fim, se o licenciamento baseado em grupo for implantado em grupos locais que não têm gerenciamento do ciclo de vida, considere o uso de grupos de nuvem para habilitar funcionalidades como Propriedade delegada ou associação dinâmica baseada em atributo.
+Se você estiver usando uma ferramenta, como [Microsoft Identity Manager](/microsoft-identity-manager/) ou sistema de terceiros, que se baseia em uma infraestrutura local, recomendamos que você descarregue a atribuição da ferramenta existente, implemente o licenciamento baseado em grupo e defina um gerenciamento de ciclo de vida de grupo com base em [grupos](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Da mesma forma, se o processo existente não considerar novos funcionários ou funcionários que deixam a organização, você deverá implantar o licenciamento baseado em grupo com base em grupos dinâmicos e definir um ciclo de vida de associação de grupo. Por fim, se o licenciamento baseado em grupo for implantado em grupos locais que não têm gerenciamento do ciclo de vida, considere o uso de grupos de nuvem para habilitar funcionalidades como Propriedade delegada ou associação dinâmica baseada em atributo.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Atribuição de aplicativos com o grupo "todos os usuários"
 

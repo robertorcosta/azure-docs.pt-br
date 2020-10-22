@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1922ea9afd69366e534049f5a7a350cf39e52dee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84760194"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371572"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Os links na página não funcionam para um aplicativo de Proxy de Aplicativo
 
@@ -37,7 +37,7 @@ Há três maneiras de resolver esse problema. As escolhas abaixo estão listadas
     Se você alterar a URL interna, mas não quiser alterar a página de aterrissagem para usuários, altere a URL da home page para a URL interna publicada anteriormente. Isso pode ser feito acessando "Azure Active Directory"- &gt; registros do aplicativo- &gt; Selecione a &gt; identidade visual do aplicativo. Na seção identidade visual, você vê o campo "URL da Home Page", que pode ser ajustado para ser a página de aterrissagem desejada. Se você ainda estiver usando a experiência de Registros de aplicativo herdada, a guia Propriedades mostrará os detalhes da "URL da Home Page". 
     
     > [!IMPORTANT]
-    > Para fazer as alterações acima, você precisa de direitos para modificar objetos de aplicativo no Azure AD. O usuário precisa ser atribuído à função de [administrador de aplicativos](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) que concede direitos de modificaion de aplicativo no Azure ad para o usuário.
+    > Para fazer as alterações acima, você precisa de direitos para modificar objetos de aplicativo no Azure AD. O usuário precisa ser atribuído à função de [administrador de aplicativos](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) que concede direitos de modificaion de aplicativo no Azure ad para o usuário.
     >
 
 2.  Se seus aplicativos usam nomes de domínio totalmente qualificados (FQDNs), use [domínios personalizados](application-proxy-configure-custom-domain.md) para publicar seus aplicativos. Esse recurso permite que a mesma URL seja usada internamente e externamente.

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310912"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372286"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados de arco do Azure
 
@@ -39,7 +39,7 @@ Atualmente, a lista de serviços e distribuições com suporte do kubernetes é 
 > * A versão mínima com suporte do kubernetes é v 1.14.
 > * Consulte os [requisitos de conectividade](connectivity.md) para entender qual conectividade é necessária entre seu ambiente e o Azure.
 > * Consulte as [diretrizes de configuração de armazenamento](storage-configuration.md) para entender os detalhes de como configurar o armazenamento persistente.
-> * Se você estiver usando o serviço kubernetes do Azure, o tamanho da VM do nó de trabalho do cluster deverá ser pelo menos **Standard_D8s_v3** e usar **discos Premium.** 
+> * Se você estiver usando o serviço kubernetes do Azure, o tamanho da VM do nó de trabalho do cluster deverá ser pelo menos **Standard_D8s_v3** e usar **discos Premium.** O cluster não deve abranger várias zonas de disponibilidade. 
 > * Se você estiver usando outra distribuição ou serviço do kubernetes, certifique-se de ter um tamanho mínimo de nó de 8 GB de RAM e 4 núcleos e uma capacidade total de soma de 32 GB de RAM disponível em todos os nós kubernetes. Por exemplo, você poderia ter 1 nó a 32 GB de RAM e 4 núcleos ou poderia ter 2 nós com 16 GB RAM e 4 núcleos cada.
 
 > [!NOTE]

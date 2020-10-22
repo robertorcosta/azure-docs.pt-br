@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665983"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368223"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -61,7 +61,7 @@ $ras.Count
 
     Se você receber o erro "privilégios insuficientes para concluir a operação", é provável que CLI do Azure esteja tentando Pesquisar a identidade do destinatário no Azure AD e a entidade de serviço não possa ler o Azure AD por padrão.
 
-    Há duas maneiras de resolver esse erro potencialmente. A primeira maneira é atribuir a função [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) à entidade de serviço para que possa ler dados no diretório.
+    Há duas maneiras de resolver esse erro potencialmente. A primeira maneira é atribuir a função [leitores de diretório](../active-directory/roles/permissions-reference.md#directory-readers) à entidade de serviço para que possa ler dados no diretório.
 
     A segunda maneira de resolver esse erro é criar a atribuição de função usando o `--assignee-object-id` parâmetro em vez de `--assignee` . Usando `--assignee-object-id` , CLI do Azure irá ignorar a pesquisa do Azure AD. Será necessário obter a ID de objeto do usuário, do grupo ou do aplicativo ao qual você deseja atribuir a função. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: a1fafdf1db29917982bbf136de45237459712bcd
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b833b45f5243e446ac507ee913abe256a12ac01d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073454"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368461"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Proteger pods com Azure Policy
 
@@ -76,7 +76,7 @@ A recomendação a seguir aplica-se somente ao AKS e ao complemento Azure Policy
 
 - Use o pool de nós do sistema com o `CriticalAddonsOnly` comparado para agendar pods de gatekeeper. Para obter mais informações, consulte [usando pools de nós do sistema](use-system-pools.md#system-and-user-node-pools).
 - Proteja o tráfego de saída de seus clusters AKS. Para obter mais informações, consulte [controlar o tráfego de saída para nós de cluster](limit-egress-traffic.md).
-- Se o cluster tiver `aad-pod-identity` habilitado, o pods de identidade gerenciada por nó (NMI) modificará os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados da instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que todas as solicitações para o ponto de extremidade de metadados provenientes de um pod que corresponda aos rótulos definidos em CRD devem ser proxies sem nenhum processamento em NMI. O pods do sistema com `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube-System_ deve ser excluído no `aad-pod-identity` Configurando o AzurePodIdentityException CRD. Para obter mais informações, consulte [desabilitar AAD-Pod-Identity para um pod ou aplicativo específico](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+- Se o cluster tiver `aad-pod-identity` habilitado, o pods de identidade gerenciada por nó (NMI) modificará os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados da instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que todas as solicitações para o ponto de extremidade de metadados provenientes de um pod que corresponda aos rótulos definidos em CRD devem ser proxies sem nenhum processamento em NMI. O pods do sistema com `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube-System_ deve ser excluído no `aad-pod-identity` Configurando o AzurePodIdentityException CRD. Para obter mais informações, consulte [desabilitar AAD-Pod-Identity para um pod ou aplicativo específico](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Para configurar uma exceção, instale o [YAML de exceção do MIC](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 O complemento Azure Policy requer recursos de CPU e memória para operar. Esses requisitos aumentam à medida que o tamanho de um cluster aumenta. Consulte [Azure Policy recomendações][policy-recommendations] para obter diretrizes gerais para usar o complemento Azure Policy.
@@ -330,7 +330,7 @@ Para obter mais informações sobre como limitar o tráfego de rede Pod, consult
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity
-[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
+[aad-pod-identity-exception]: https://azure.github.io/aad-pod-identity/docs/configure/application_exception
 
 <!-- LINKS - internal -->
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md

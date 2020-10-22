@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b680dbaead6e94aa955ebc0e0e720281a40389d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88565835"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369889"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
-O Azure Sentinel usa o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) para fornecer [funções internas](../role-based-access-control/built-in-roles.md)   que podem ser atribuídas a usuários, grupos e serviços no Azure.
+O Azure Sentinel usa o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) para fornecer [funções internas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
 
 Use o RBAC para criar e atribuir funções em sua equipe de operações de segurança para conceder acesso apropriado ao Azure Sentinel. As diferentes funções oferecem um controle refinado sobre o que os usuários do Azure Sentinel podem ver e fazer. As funções do Azure podem ser atribuídas diretamente no espaço de trabalho do Azure Sentinel (veja a observação abaixo), ou em uma assinatura ou grupo de recursos ao qual o espaço de trabalho pertence, que o Azure Sentinel herdará.
 
@@ -62,7 +62,7 @@ Os usuários com requisitos de trabalho específicos podem precisar receber fun�
 
 - Usuários convidados atribuindo incidentes
 
-    Se um usuário convidado precisar atribuir incidentes, além da função de respondente do Azure Sentinel, o usuário também precisará receber a função de [leitor de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Observe que essa função *não* é uma função RBAC do Azure, mas uma função **Azure Active Directory** , e que usuários regulares (não convidados) têm essa função atribuída por padrão. 
+    Se um usuário convidado precisar atribuir incidentes, além da função de respondente do Azure Sentinel, o usuário também precisará receber a função de [leitor de diretório](../active-directory/roles/permissions-reference.md#directory-readers). Observe que essa função *não* é uma função RBAC do Azure, mas uma função **Azure Active Directory** , e que usuários regulares (não convidados) têm essa função atribuída por padrão. 
 
 Para uma comparação lado a lado, consulte a [tabela abaixo](#roles-and-allowed-actions).
 
@@ -91,7 +91,7 @@ A tabela a seguir resume as funções e as ações permitidas no Azure Sentinel.
 
 - Além de, ou em vez de usar funções internas do Azure, você pode criar funções personalizadas do Azure para o Azure Sentinel. As funções personalizadas do Azure para o Azure Sentinel são criadas da mesma maneira que você cria outras funções [personalizadas do Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) , com base em [permissões específicas para o Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos de log Analytics do Azure](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Você pode usar o Log Analytics controle de acesso baseado em função avançado nos dados em seu espaço de trabalho do Azure Sentinel. Isso inclui o RBAC baseado em tipo de dados e o RBAC centrado em recursos. Para obter mais informações sobre Log Analytics funções, consulte [gerenciar dados de log e espaços de trabalho no Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Você pode usar o Log Analytics controle de acesso baseado em função avançado nos dados em seu espaço de trabalho do Azure Sentinel. Isso inclui o RBAC baseado em tipo de dados e o RBAC centrado em recursos. Para obter mais informações sobre Log Analytics funções, consulte [gerenciar dados de log e espaços de trabalho no Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Próximas etapas
 

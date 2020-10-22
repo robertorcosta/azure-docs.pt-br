@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705360"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370195"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Responder rapidamente a identidades seguras com o Azure AD
 
@@ -50,7 +50,7 @@ Há várias recomendações que Azure AD Gratuito, o Office 365 ou os clientes d
 - Microsoft 365 (Business Basic, aplicativos para empresas, Standard Business, Business Premium, a1)
 - Azure AD Gratuito (incluído no Azure, Dynamics 365, Intune e Power Platform)
 
-| Ação recomendada | Detalhes |
+| Ação recomendada | Detalhe |
 | --- | --- |
 | [Habilitar padrões de segurança](concept-fundamentals-security-defaults.md) | Proteger todas as identidades de usuário e aplicativos habilitando a MFA e bloqueando a autenticação herdada |
 | [Habilitar a sincronização de hash de senha](../hybrid/how-to-connect-password-hash-synchronization.md) (se estiver usando identidades híbridas) | Fornecer redundância para autenticação e melhorar a segurança (incluindo o bloqueio inteligente, o bloqueio de IP e a capacidade de descobrir credenciais vazadas.) |
@@ -61,7 +61,7 @@ Há várias recomendações que Azure AD Gratuito, o Office 365 ou os clientes d
 | [Automatizar o provisionamento e desprovisionamento de usuários de aplicativos SaaS](../app-provisioning/user-provisioning.md) (se aplicável) | Crie automaticamente identidades de usuário e funções nos aplicativos de nuvem (SaaS) aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam, aumentando a segurança da sua organização. |
 | [Habilitar acesso híbrido seguro: proteger aplicativos herdados com redes e controladores de entrega de aplicativos existentes](../manage-apps/secure-hybrid-access.md) (se aplicável) | Publique e proteja seus aplicativos de autenticação herdados locais e na nuvem conectando-os ao Azure AD com seu controlador de entrega de aplicativos ou rede existente. |
 | [Habilitar a redefinição de senha de autoatendimento](../authentication/tutorial-enable-sspr.md) (aplicável somente a contas em nuvem) | Essa capacidade reduz as chamadas de suporte técnico e a perda de produtividade quando um usuário não pode entrar no dispositivo ou em um aplicativo. |
-| [Usar funções administrativas não globais sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Dê aos administradores acesso apenas às áreas de que precisam. Nem todos os administradores precisam ser administradores globais. |
+| [Usar funções administrativas não globais sempre que possível](../roles/permissions-reference.md) | Dê aos administradores acesso apenas às áreas de que precisam. Nem todos os administradores precisam ser administradores globais. |
 | [Habilitar diretrizes de senha da Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Pare de exigir que os usuários alterem as respectivas senhas em um intervalo definido, desabilite os requisitos de complexidade e os usuários estarão mais propensos a lembrar de suas senhas e mantê-las em segurança. |
 
 
@@ -73,7 +73,7 @@ A tabela a seguir destina-se a destacar as principais ações para as seguintes 
 - Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3, a3, F1, F3)
 
-| Ação recomendada | Detalhes |
+| Ação recomendada | Detalhe |
 | --- | --- |
 | [Habilitar a experiência de registro combinado para o Azure MFA e o SSPR para simplificar a experiência de registro do usuário](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que os usuários se registrem de uma experiência comum na Autenticação Multifator do Microsoft Azure e no autoatendimento de redefinição de senha. |
 | [Definir configurações de MFA para sua organização](../authentication/howto-mfa-getstarted.md) | Verifique se as contas estão protegidas de serem comprometidas com a autenticação multifator |
@@ -90,8 +90,8 @@ A tabela a seguir destina-se a destacar as principais ações para as seguintes 
 | [Automatizar o provisionamento e desprovisionamento de usuários de aplicativos SaaS](../app-provisioning/user-provisioning.md) (se aplicável) | Crie automaticamente identidades de usuário e funções nos aplicativos de nuvem (SaaS) aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam, aumentando a segurança da sua organização. |
 | [Habilitar acesso condicional – baseado em dispositivo](../conditional-access/require-managed-devices.md) | Melhore as experiências de segurança e de usuário com acesso condicional baseado em dispositivo. Essa etapa garante que os usuários só possam acessar de dispositivos que atendam aos seus padrões de segurança e conformidade. Esses dispositivos também são conhecidos como dispositivos gerenciados. Os dispositivos gerenciados podem ser dispositivos ingressados no Azure AD híbrido ou em conformidade com o Intune. |
 | [Habilitar proteção por senha](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Proteja os usuários do uso de senhas fracas e fáceis de adivinhar. |
-| [Designar mais de um administrador global](../users-groups-roles/directory-emergency-access.md) | Atribua pelo menos duas contas de administrador global permanentes somente de nuvem para uso se houver uma emergência. Essas contas não são usadas diariamente e devem ter senhas longas e complexas. As contas de vidro garantem que você possa acessar o serviço em uma emergência. |
-| [Usar funções administrativas não globais sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Dê aos administradores acesso apenas às áreas de que precisam. Nem todos os administradores precisam ser administradores globais. |
+| [Designar mais de um administrador global](../roles/security-emergency-access.md) | Atribua pelo menos duas contas de administrador global permanentes somente de nuvem para uso se houver uma emergência. Essas contas não são usadas diariamente e devem ter senhas longas e complexas. As contas de vidro garantem que você possa acessar o serviço em uma emergência. |
+| [Usar funções administrativas não globais sempre que possível](../roles/permissions-reference.md) | Dê aos administradores acesso apenas às áreas de que precisam. Nem todos os administradores precisam ser administradores globais. |
 | [Habilitar diretrizes de senha da Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Pare de exigir que os usuários alterem as respectivas senhas em um intervalo definido, desabilite os requisitos de complexidade e os usuários estarão mais propensos a lembrar de suas senhas e mantê-las em segurança. |
 | [Criar um plano para acesso do usuário convidado](../external-identities/what-is-b2b.md) | Colabore com usuários convidados, permitindo que eles entrem em seus aplicativos e serviços com suas próprias identidades corporativas, de estudante ou sociais. |
 
@@ -103,7 +103,7 @@ A tabela a seguir destina-se a destacar as principais ações para as seguintes 
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 e5, a5)
 
-| Ação recomendada | Detalhes |
+| Ação recomendada | Detalhe |
 | --- | --- |
 | [Habilitar a experiência de registro combinado para o Azure MFA e o SSPR para simplificar a experiência de registro do usuário](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que os usuários se registrem de uma experiência comum na Autenticação Multifator do Microsoft Azure e no autoatendimento de redefinição de senha. |
 | [Definir configurações de MFA para sua organização](../authentication/howto-mfa-getstarted.md) | Verifique se as contas estão protegidas de serem comprometidas com a autenticação multifator |
@@ -122,8 +122,8 @@ A tabela a seguir destina-se a destacar as principais ações para as seguintes 
 | [Automatizar o provisionamento e desprovisionamento de usuários de aplicativos SaaS](../app-provisioning/user-provisioning.md) (se aplicável) | Crie automaticamente identidades de usuário e funções nos aplicativos de nuvem (SaaS) aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam, aumentando a segurança da sua organização. |
 | [Habilitar acesso condicional – baseado em dispositivo](../conditional-access/require-managed-devices.md) | Melhore as experiências de segurança e de usuário com acesso condicional baseado em dispositivo. Essa etapa garante que os usuários só possam acessar de dispositivos que atendam aos seus padrões de segurança e conformidade. Esses dispositivos também são conhecidos como dispositivos gerenciados. Os dispositivos gerenciados podem ser dispositivos ingressados no Azure AD híbrido ou em conformidade com o Intune. |
 | [Habilitar proteção por senha](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Proteja os usuários do uso de senhas fracas e fáceis de adivinhar. |
-| [Designar mais de um administrador global](../users-groups-roles/directory-emergency-access.md) | Atribua pelo menos duas contas de administrador global permanentes somente de nuvem para uso se houver uma emergência. Essas contas não são usadas diariamente e devem ter senhas longas e complexas. As contas de vidro garantem que você possa acessar o serviço em uma emergência. |
-| [Usar funções administrativas não globais sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Dê aos administradores acesso apenas às áreas de que precisam. Nem todos os administradores precisam ser administradores globais. |
+| [Designar mais de um administrador global](../roles/security-emergency-access.md) | Atribua pelo menos duas contas de administrador global permanentes somente de nuvem para uso se houver uma emergência. Essas contas não são usadas diariamente e devem ter senhas longas e complexas. As contas de vidro garantem que você possa acessar o serviço em uma emergência. |
+| [Usar funções administrativas não globais sempre que possível](../roles/permissions-reference.md) | Dê aos administradores acesso apenas às áreas de que precisam. Nem todos os administradores precisam ser administradores globais. |
 | [Habilitar diretrizes de senha da Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Pare de exigir que os usuários alterem as respectivas senhas em um intervalo definido, desabilite os requisitos de complexidade e os usuários estarão mais propensos a lembrar de suas senhas e mantê-las em segurança. |
 | [Criar um plano para acesso do usuário convidado](../external-identities/what-is-b2b.md) | Colabore com usuários convidados, permitindo que eles entrem em seus aplicativos e serviços com suas próprias identidades corporativas, de estudante ou sociais. |
 | [Habilitar Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Permite que você gerencie, controle e monitore o acesso a recursos importantes em sua organização, garantindo que os administradores tenham acesso apenas quando necessário e com aprovação |

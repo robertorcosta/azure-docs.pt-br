@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bdcfeeede8b16bf9a92a885364e4c8fef7ea5cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986563"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127124"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Criar e percorrer o modelo de aplicativo de monitoramento do medidor inteligente 
 
@@ -108,6 +108,6 @@ Se optar por não continuar usando este aplicativo, exclua-o seguindo estas etap
 
 Saiba mais sobre a arquitetura do aplicativo do medidor inteligente conferindo 
 > [!div class="nextstepaction"]
-> [o artigo conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+> [o artigo conceito](./concept-iot-central-smart-meter-app.md)
 * Crie modelos de aplicativo de medidor inteligente gratuitamente: [aplicativo de medidor inteligente](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Saiba mais sobre o IoT Central conferindo a [Visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Saiba mais sobre o IoT Central conferindo a [Visão geral do IoT Central](../index.yml)

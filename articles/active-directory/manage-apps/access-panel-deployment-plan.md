@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146616"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372473"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planejar uma implantação do Azure Active Directory meus aplicativos
 
@@ -97,7 +97,7 @@ A funcionalidade de meus aplicativos pode ser habilitada gradualmente. Recomenda
 1. Meus aplicativos
    * Inicializador de aplicativo
    * Gerenciamento de aplicativo de autoatendimento
-   * Integração do Microsoft 365
+   * integração do Microsoft 365
 
 1. Descoberta de aplicativo de autoatendimento
    * Redefinição de senha de autoatendimento
@@ -225,7 +225,7 @@ Os fluxos de trabalho de aprovação estão disponíveis para aprovação explí
 
 Você pode permitir que os usuários criem e gerenciem seus próprios grupos de segurança ou grupos de Microsoft 365 no Azure AD. O proprietário do grupo pode aprovar ou negar solicitações de associação e delegar o controle de associação de grupo. Os recursos de gerenciamento de grupo de autoatendimento não estão disponíveis para grupos de segurança ou listas de distribuição habilitadas para email.
 
-Para planejar a associação de grupo de autoatendimento, determine se você permitirá que todos os usuários em sua organização criem e gerenciem grupos ou apenas um subconjunto de usuários. Se você estiver permitindo um subconjunto de usuários, precisará configurar um grupo ao qual essas pessoas são adicionadas. Consulte [Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory](../users-groups-roles/groups-self-service-management.md) para obter detalhes sobre como habilitar esses cenários.
+Para planejar a associação de grupo de autoatendimento, determine se você permitirá que todos os usuários em sua organização criem e gerenciem grupos ou apenas um subconjunto de usuários. Se você estiver permitindo um subconjunto de usuários, precisará configurar um grupo ao qual essas pessoas são adicionadas. Consulte [Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory](../enterprise-users/groups-self-service-management.md) para obter detalhes sobre como habilitar esses cenários.
 
 ## <a name="plan-reporting-and-auditing"></a>Planejar relatórios e auditoria
 
@@ -299,7 +299,7 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 
 ## <a name="manage-your-implementation"></a>Gerenciar sua implementação
 
-Use a função menos privilegiada para realizar uma tarefa necessária dentro do Azure Active Directory. [Examine as diferentes funções que estão disponíveis](../users-groups-roles/directory-assign-admin-roles.md) e escolha a correta para resolver suas necessidades para cada pessoa para este aplicativo. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
+Use a função menos privilegiada para realizar uma tarefa necessária dentro do Azure Active Directory. [Examine as diferentes funções que estão disponíveis](../roles/permissions-reference.md) e escolha a correta para resolver suas necessidades para cada pessoa para este aplicativo. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
 
 | Personas| Funções| Função do Azure AD  |
 | - | -| -|

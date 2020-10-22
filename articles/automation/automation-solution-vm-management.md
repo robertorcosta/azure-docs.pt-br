@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317354"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372150"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
@@ -79,7 +79,7 @@ Para habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercia
 Você pode habilitar VMs para o recurso Iniciar/Parar VMs fora do horário comercial usando uma nova conta de Automação e um novo workspace do Log Analytics. Nesse caso, você precisa das permissões definidas na seção anterior, bem como das permissões definidas nesta seção. Você também precisa das seguintes funções:
 
 - Co-Administrator na assinatura. Essa função é necessária para criar a conta Executar como clássica se você pretende gerenciar VMs clássicas. [Contas Executar como clássicas](automation-create-standalone-account.md#create-a-classic-run-as-account) não são mais criadas por padrão.
-- Associação na função de Desenvolvedor de Aplicativo do [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Para obter mais informações sobre contas Executar como, confira [Permissões para configurar contas Executar como](manage-runas-account.md#permissions).
+- Associação na função de Desenvolvedor de Aplicativo do [Azure AD](../active-directory/roles/permissions-reference.md). Para obter mais informações sobre contas Executar como, confira [Permissões para configurar contas Executar como](manage-runas-account.md#permissions).
 - Colaborador na assinatura ou as permissões a seguir.
 
 | Permissão |Escopo|
@@ -154,16 +154,16 @@ Em todos os cenários, as variáveis `External_Start_ResourceGroupNames`, `Exter
 
 ### <a name="schedules"></a>Agendas
 
-A tabela a seguir lista cada uma das agendas padrão criadas em sua conta de Automação. É possível modificá-las ou criar suas próprias agendas personalizadas. Por padrão, todos os agendamentos são desabilitados, exceto **Scheduled_StartVM** e **Scheduled_StopVM**.
+A tabela a seguir lista cada uma das agendas padrão criadas em sua conta de Automação.  É possível modificá-las ou criar suas próprias agendas personalizadas.  Por padrão, todos os agendamentos são desabilitados, exceto **Scheduled_StartVM** e **Scheduled_StopVM**.
 
 Você não deve habilitar todos os agendamentos, pois isso poderá criar ações de agendamento sobrepostas. É melhor determinar quais otimizações você deseja executar e modificá-las da forma apropriada. Consulte os exemplos de cenários na seção Visão geral para obter explicações adicionais.
 
 |Nome da agenda | Frequência | Descrição|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o runbook **AutoStop_CreateAlert_Parent** a cada oito horas, o que, por sua vez, interrompe os valores baseados em VM nas variáveis `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` e `External_ExcludeVMNames`. Como alternativa, você pode especificar uma lista de VMs separadas por vírgula utilizando o parâmetro `VMList`.|
-|Scheduled_StopVM | Definido pelo usuário, diariamente | Executa o runbook **ScheduledStopStart_Parent** com um parâmetro de `Stop` todos os dias no horário especificado. Interrompe automaticamente todas as VMs que atendem às regras definidas por ativos variáveis. Habilite o agendamento relacionado, **Scheduled-StartVM**.|
-|Scheduled_StartVM | Definido pelo usuário, diariamente | Executa o runbook **ScheduledStopStart_Parent** com um valor de parâmetro `Start` todos os dias no horário especificado. Inicia automaticamente todas as VMs que atendem às regras definidas por ativos variáveis. Habilite o agendamento relacionado, **Sequenced-StopVM**.|
-|Sequenced-StopVM | 1h (UTC), toda sexta-feira | Executa o runbook **Sequenced_StopStop_Parent** com um valor de parâmetro `Stop` toda sexta-feira no horário especificado. Para sequencialmente (em ordem crescente) todas as VMs com uma marca de **SequenceStop** definida pelas variáveis adequadas. Para obter mais informações sobre valores de tags e variáveis de ativo, confira [Runbooks](#runbooks). Habilite o agendamento relacionado, **Sequenced-StartVM**.|
+|Scheduled_StopVM | Definido pelo usuário, diariamente | Executa o runbook **ScheduledStopStart_Parent** com um parâmetro de `Stop` todos os dias no horário especificado.  Interrompe automaticamente todas as VMs que atendem às regras definidas por ativos variáveis.  Habilite o agendamento relacionado, **Scheduled-StartVM**.|
+|Scheduled_StartVM | Definido pelo usuário, diariamente | Executa o runbook **ScheduledStopStart_Parent** com um valor de parâmetro `Start` todos os dias no horário especificado. Inicia automaticamente todas as VMs que atendem às regras definidas por ativos variáveis.  Habilite o agendamento relacionado, **Sequenced-StopVM**.|
+|Sequenced-StopVM | 1h (UTC), toda sexta-feira | Executa o runbook **Sequenced_StopStop_Parent** com um valor de parâmetro `Stop` toda sexta-feira no horário especificado.  Para sequencialmente (em ordem crescente) todas as VMs com uma marca de **SequenceStop** definida pelas variáveis adequadas. Para obter mais informações sobre valores de tags e variáveis de ativo, confira [Runbooks](#runbooks).  Habilite o agendamento relacionado, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 13h (UTC), toda segunda-feira | Executa o runbook **SequencedStopStart_Parent** com um valor de parâmetro `Start` toda segunda-feira no horário especificado. Inicia sequencialmente (em ordem decrescente) todas as VMs com uma marca de **SequenceStart** definida pelas variáveis adequadas. Para obter mais informações sobre valores de tags e ativos variáveis, confira [Runbooks](#runbooks). Habilite o agendamento relacionado, **Sequenced-StopVM**.
 
 ## <a name="use-the-feature-with-classic-vms"></a>Usar o recurso com VMs clássicas

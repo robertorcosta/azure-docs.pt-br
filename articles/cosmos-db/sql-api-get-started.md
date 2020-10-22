@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 912b4966312d8925f70deeed99042d2701641f49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801504"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278457"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Criar um aplicativo de console .NET para gerenciar dados na conta da API do SQL do Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que deseja usar
     ```
 
    > [!NOTE]
-   > Se estiver familiarizado com a versão anterior do SDK do .NET, você poderá estar familiarizado com os termos *coleção* e *documento*. Como o Azure Cosmos DB é compatível com vários modelos de API, a versão 3.0 do SDK do .NET usa os termos genéricos *contêiner* e *item*. Um *contêiner* pode ser uma coleção, um grafo ou uma tabela. Um *item* pode ser um documento, borda/vértice ou linha e é o conteúdo do contêiner. Para obter mais informações, confira [Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB](databases-containers-items.md).
+   > Se estiver familiarizado com a versão anterior do SDK do .NET, você poderá estar familiarizado com os termos *coleção* e *documento*. Como o Azure Cosmos DB é compatível com vários modelos de API, a versão 3.0 do SDK do .NET usa os termos genéricos *contêiner* e *item*. Um *contêiner* pode ser uma coleção, um grafo ou uma tabela. Um *item* pode ser um documento, borda/vértice ou linha e é o conteúdo do contêiner. Para obter mais informações, confira [Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB](account-databases-containers-items.md).
 
 1. Abra o [Portal do Azure](https://portal.azure.com). Encontre sua conta do Azure Cosmos DB e selecione **Chaves**.
 
@@ -260,7 +260,7 @@ Um banco de dados é o contêiner lógico de itens particionados em contêineres
 1. Selecione F5 para executar seu aplicativo.
 
    > [!NOTE]
-   > Caso você receba um erro "exceção 503 de serviço não disponível", é possível que as [portas](performance-tips.md#networking) exigidas para o modo de conectividade direto estejam bloqueadas por um firewall. Para corrigir esse problema, abra as portas necessárias ou use a conectividade do modo de gateway, conforme mostrado no código a seguir:
+   > Caso você receba um erro "exceção 503 de serviço não disponível", é possível que as [portas](sql-sdk-connection-modes.md#service-port-ranges) exigidas para o modo de conectividade direto estejam bloqueadas por um firewall. Para corrigir esse problema, abra as portas necessárias ou use a conectividade do modo de gateway, conforme mostrado no código a seguir:
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

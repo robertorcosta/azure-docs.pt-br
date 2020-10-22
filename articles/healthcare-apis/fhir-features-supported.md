@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: ea9a47676b8294b2541c27d361b0dc2fa1ae3627
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339496"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368274"
 ---
 # <a name="features"></a>Recursos
 
@@ -39,7 +39,7 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 | excluir (condicional)           | Não        | Não        | Não        |                                                     |
 | history                        | Sim       | Sim       | Sim       |                                                     |
 | create                         | Sim       | Sim       | Sim       | Suporte para POST/PUT                               |
-| criar (condicional)           | Sim       | Sim       | Sim       |                                                     |
+| criar (condicional)           | Sim       | Sim       | Sim       | Problema [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | pequisa                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
 | pesquisa encadeada                 | Não        | Sim       | Não        |                                           |
 | pesquisa encadeada inversa         | Não        | Não        | Não        |                                            |

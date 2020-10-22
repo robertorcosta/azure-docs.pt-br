@@ -2,13 +2,13 @@
 title: Azure Lab Services - guia do administrador | Microsoft Docs
 description: Este guia ajuda os administradores que criam e gerenciam contas de laboratório usando o Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444141"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371402"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - guia do administrador
 Os administradores de TI (tecnologia da informação) que gerenciam os recursos de nuvem de uma universidade normalmente são responsáveis por configurar a conta de laboratório da instituição. Quando uma conta de laboratório é configurada, os administradores ou educadores criam laboratórios de sala de aula que estão contidos na conta de laboratório. Este artigo fornece uma visão geral de alto nível dos recursos do Azure envolvidos e as diretrizes para criá-los.
@@ -117,7 +117,7 @@ Ao começar a usar o Azure Lab Services, recomendamos que você estabeleça conv
 | Resource group | Contém uma ou mais contas de laboratório e uma ou mais galerias de imagens compartilhadas | \<organization short name\>-\<environment\>-RG<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte</li><li>**Ambiente** identifica o ambiente para o recurso, como piloto ou produção</li><li>**Rg** significa o tipo de recurso: grupo de recursos.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | Conta de laboratório | Contém um ou mais laboratórios | \<organization short name\>-\<environment\>-la<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte</li><li>**Ambiente** identifica o ambiente para o recurso, como piloto ou produção</li><li>**La** significa o tipo de recurso: conta de laboratório.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | Laboratório de sala de aula | Contém uma ou mais VMs |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nome da classe** identifica o nome da classe à qual o laboratório dá suporte.</li><li>**Período de tempo** identifica o período no qual a classe é oferecida.</li>**Identificador do educador** identifica o educador que possui o laboratório.</li></ul> | CS1234-fall2019-diogomartins<br/>CS1234-spring2019-diogomartins |
-| Galeria de imagens compartilhadas | Contém uma ou mais versões da imagem da VM | \<organization short name\>clip | contosouniversitylabsgallery |
+| Galeria de imagens compartilhadas | Contém uma ou mais versões da imagem da VM | \<organization short name\>galeria | contosouniversitylabsgallery |
 
 Para saber mais sobre a nomenclatura de outros recursos do Azure, confira [Convenções de nomenclatura para os recursos do Azure](/azure/architecture/best-practices/naming-conventions).
 
@@ -144,11 +144,11 @@ A localização em que um laboratório de sala de aula existe varia com base nos
     > [!NOTE]
     > Quando uma conta de laboratório é emparelhada com uma VNet, a configuração para **Permitir que o criador do laboratório escolha a localização do laboratório** é desabilitada. Informações adicionais podem ser encontradas sobre essa configuração no artigo: [Permitir que o criador do laboratório escolha a localização do laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-  - **Nenhuma VNet está emparelhada***e***criadores de laboratórios não têm permissão para escolher a localização do laboratório**
+  - * * Nenhuma VNet é emparelhada **_e_* os criadores de laboratório não têm permissão para escolher o laboratório location_ *
   
     Quando **nenhuma** VNet está emparelhada com a conta de laboratório *e* [os criadores de laboratórios **não** têm permissão para escolher a localização do laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), os laboratórios de sala de aula serão criados automaticamente em uma região com capacidade de VM disponível.  Especificamente, o Azure Lab Services buscará disponibilidade em regiões [que estejam na mesma área geográfica que a conta de laboratório](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - **Nenhuma VNet está emparelhada ***e*** criadores de laboratórios têm permissão para escolher a localização do laboratório**
+  - * * Nenhuma VNet é emparelhada **_e_* os criadores de laboratório têm permissão para escolher o laboratório location_ *
        
     Quando **nenhuma** VNet está emparelhada e [os criadores de laboratório têm permissão para escolher a localização do laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), os locais que podem ser selecionados pelo criador do laboratório se baseiam na capacidade disponível.
 
@@ -171,7 +171,7 @@ Quando os administradores ou os criadores de laboratórios criam um laboratório
 | Médio | <ul><li>4 núcleos</li><li>7 GB de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado a bancos de dados relacionais, cache na memória e análise. |
 | Médio (Virtualização aninhada) | <ul><li>4 núcleos</li><li>16 GB de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamanho é mais adequado a bancos de dados relacionais, cache na memória e análise.
 | grande | <ul><li>8 núcleos</li><li>16 GB de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamanho é mais adequado a aplicativos que precisam de CPUs mais rápidas, melhor desempenho do disco local, bancos de dados grandes, caches de memória grandes.  Este tamanho também dá suporte à virtualização aninhada. |
-| Grande (Virtualização Aninhada) | <ul><li>8 núcleos</li><li>16 GB de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamanho é mais adequado a aplicativos que precisam de CPUs mais rápidas, melhor desempenho do disco local, bancos de dados grandes, caches de memória grandes. |
+| Grande (Virtualização Aninhada) | <ul><li>8 núcleos</li><li>32 GB RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamanho é mais adequado a aplicativos que precisam de CPUs mais rápidas, melhor desempenho do disco local, bancos de dados grandes, caches de memória grandes. |
 | GPU Pequena (Visualização) | <ul><li>6 núcleos</li><li>56 GB de RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamanho é mais adequado a visualização remota, streaming, jogos e codificação usando estruturas como OpenGL e DirectX. |
 | GPU Pequena (Computação) | <ul><li>6 núcleos</li><li>56 GB de RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Esse tamanho é mais adequado para aplicativos com uso intensivo de computação, como Inteligência Artificial e Aprendizado Profundo. |
 | GPU Média (Visualização) | <ul><li>12 núcleos</li><li>112 GB de RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado a visualização remota, streaming, jogos e codificação usando estruturas como OpenGL e DirectX. |

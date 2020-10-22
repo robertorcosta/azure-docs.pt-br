@@ -4,12 +4,12 @@ description: Saiba como descobrir VMs de VMware locais com a ferramenta de Avali
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e8f61c898b08cc0638597e77fd3260cb4593b2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442227"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311294"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descobrir VMs de VMware com a Avaliação de Servidor
 
@@ -238,7 +238,7 @@ Configure o dispositivo pela primeira vez.
    
    Não há suporte para a entrada com um PIN.
 3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
-4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](tutorial-prepare-vmware.md#prepare-azure) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
+4. Se a conta de usuário do Azure usada para o registro em log tiver as permissões corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 
 
@@ -248,7 +248,7 @@ Configure o dispositivo pela primeira vez.
 O dispositivo precisa se conectar ao vCenter Server para descobrir a configuração e os dados de desempenho das VMs.
 
 1. Na **Etapa 1: Fornecer as credenciais do vCenter Server**, clique em **Adicionar credenciais** para especificar um nome amigável para as credenciais, adicionar o **Nome de usuário** e a **Senha** para a conta do vCenter Server que o dispositivo usará para descobrir as VMs na instância do vCenter Server.
-    - Você deve ter configurado uma conta com as permissões necessárias no [tutorial anterior](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Você deve ter configurado uma conta com as permissões necessárias no tutorial anterior.
     - Se você quiser definir o escopo da descoberta para objetos específicos do VMware (data centers, clusters, uma pasta de clusters, hosts, uma pasta de hosts ou VMs individuais do vCenter Server), examine as instruções [neste artigo](set-discovery-scope.md) para restringir a conta usada por Migrações para Azure.
 1. Na **Etapa 2: Fornecer detalhes do vCenter Server**, clique em **Adicionar origem da descoberta** para selecionar o nome amigável de credenciais na lista suspensa e especifique o **Endereço IP/FQDN** da instância do vCenter Server. Você pode deixar a **Porta** como padrão (443) ou especificar uma porta personalizada na qual o vCenter Server escuta e clique em **Salvar**.
 1. Quando você clicar em Salvar, o dispositivo tentará validar a conexão com o vCenter Server com as credenciais fornecidas e mostrará o **Status de validação** na tabela com relação ao endereço IP/FQDN do vCenter Server.
@@ -268,5 +268,5 @@ A descoberta funciona da seguinte maneira:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Avaliar VMs de VMware](tutorial-assess-vmware.md) a fim de obter a migração para VMs do Azure.
+- [Avaliar VMs de VMware](./tutorial-assess-vmware-azure-vm.md) a fim de obter a migração para VMs do Azure.
 - [Examinar os dados](migrate-appliance.md#collected-data---vmware) que o dispositivo coleta durante a descoberta.

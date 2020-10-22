@@ -1,18 +1,18 @@
 ---
 title: Como usar o Azure defender para registros de contêiner
-description: Saiba mais sobre como usar o Azure defender para registros de contêiner para verificar imagens em seus registros
+description: Saiba como usar o Azure defender para registros de contêiner para verificar as imagens do Linux em seus registros hospedados no Linux
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342069"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370535"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
 
@@ -28,7 +28,8 @@ Quando o verificador relata vulnerabilidades à central de segurança, a central
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|O **Azure defender para registros de contêiner** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Registros e imagens com suporte:|![Sim ](./media/icons/yes-icon.png) registros de ACR hospedados pelo Linux que são acessíveis pela Internet pública e fornecem acesso ao shell.<br>![Não há ](./media/icons/no-icon.png) registros de ACR hospedados pelo Windows.<br>![Nenhum ](./media/icons/no-icon.png) registro ' particular '-a central de segurança exige que seus registros sejam acessíveis pela Internet pública. A central de segurança não pode se conectar ou verificar registros com acesso limitado com um firewall, um ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure.<br>![Não há imagens de super nada, como imagens de ](./media/icons/no-icon.png) [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.|
+|Registros e imagens com suporte:|Imagens do Linux em registros ACR acessíveis da Internet pública com acesso ao shell|
+|Imagens e registros sem suporte:|Imagens do Windows<br>Registros "privados"<br>Registros com acesso limitado com um firewall, ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure<br>Imagens de superplataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional|
 |Funções e permissões necessárias:|**Leitor de segurança** e [função de leitor do registro de contêiner do Azure](../container-registry/container-registry-roles.md)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
@@ -36,14 +37,12 @@ Quando o verificador relata vulnerabilidades à central de segurança, a central
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar as vulnerabilidades em imagens em registros de contêiner do Azure 
 
-1. Para habilitar verificações de vulnerabilidade de imagens armazenadas em seu registro de contêiner do Azure baseado em Azure Resource Manager:
+Para habilitar verificações de vulnerabilidade de imagens armazenadas em seu registro de contêiner do Azure baseado em Azure Resource Manager:
 
-    1. Habilite o **Azure defender para registros de contêiner** para sua assinatura.
+1. Habilite o **Azure defender para registros de contêiner** para sua assinatura. A central de segurança agora está pronta para verificar as imagens em seus registros.
 
-        A central de segurança agora está pronta para verificar as imagens em seus registros.
-
-        >[!NOTE]
-        > Esse recurso é cobrado por imagem.
+    >[!NOTE]
+    > Esse recurso é cobrado por imagem.
 
 1. As verificações de imagem são disparadas em cada Push ou importação e, se a imagem tiver sido retirada nos últimos 30 dias. 
 

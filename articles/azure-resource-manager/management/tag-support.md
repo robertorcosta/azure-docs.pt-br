@@ -2,13 +2,13 @@
 title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 27e25b1048bb759a3b38859788c27c03f1cf0447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371534"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370280"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/group-filter.md) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -37,6 +37,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft. BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -167,6 +168,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft. singularidade](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft. SQL](#microsoftsql)
@@ -361,6 +363,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | Sim | Sim |
+> | privateClouds/Complementos | Não | Não |
 > | privateClouds/autorizações | Não | Não |
 > | privateClouds/clusters | Não | Não |
 > | privateClouds / globalReachConnections | Não | Não |
@@ -423,12 +426,21 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | clusters | Sim | Sim |
 
+## <a name="microsoftbaremetalinfrastructure"></a>Microsoft. BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
+> | ------------- | ----------- | ----------- |
+> | bareMetalInstances | Sim | Sim |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | Sim | Sim |
+> | batchAccounts / certificates | Não | Não |
+> | batchAccounts / pools | Não | Não |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -737,7 +749,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | planos | Sim | Sim |
+> | planos | Sim | Não |
 > | registeredSubscriptions | Não | Não |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
@@ -973,7 +985,6 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | workspaces | Sim | Sim |
 > | espaços de trabalho/dbWorkspaces | Não | Não |
-> | espaços de trabalho/storageEncryption | Não | Não |
 > | espaços de trabalho/virtualNetworkPeerings | Não | Não |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1132,6 +1143,7 @@ Pule para um namespace de provedor de recursos:
 > | applicationgroups/desktops | Não | Não |
 > | applicationgroups/startmenuitems | Não | Não |
 > | hostpools | Sim | Sim |
+> | hostpools / msixpackages | Não | Não |
 > | hostpools/sessionhosts | Não | Não |
 > | hostpools/sessionhosts/usersessions | Não | Não |
 > | hostpools/usersessions | Não | Não |
@@ -1384,12 +1396,14 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | dispositivos | Sim | Sim |
+> | networkFunctions | Sim | Sim |
+> | networkFunctionVendors | Não | Não |
 > | registeredSubscriptions | Não | Não |
 > | selecionados | Não | Não |
-> | fornecedores/vendorskus | Não | Não |
-> | fornecedores/vendorskus/previewSubscriptions | Não | Não |
-> | virtualnetworkfunctions | Sim | Sim |
-> | virtualnetworkfunctionvendors | Não | Não |
+> | fornecedores/vendorSkus | Não | Não |
+> | fornecedores/vendorSkus/previewSubscriptions | Não | Não |
+> | virtualNetworkFunctions | Sim | Sim |
+> | virtualNetworkFunctionVendors | Não | Não |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1537,9 +1551,20 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | workspaces | Sim | Sim |
+> | espaços de trabalho/batchEndpoints | Sim | Sim |
+> | espaços de trabalho/batchEndpoints/implantações | Sim | Sim |
+> | espaços de trabalho/códigos | Não | Não |
+> | espaços de trabalho/códigos/versões | Não | Não |
 > | workspaces/computes | Não | Não |
+> | espaços de trabalho/repositórios de armazenamento | Não | Não |
 > | espaços de trabalho/eventGridFilters | Não | Não |
+> | espaços de trabalho/trabalhos | Não | Não |
+> | espaços de trabalho/labelingJobs | Não | Não |
 > | espaços de trabalho/linksservices | Não | Não |
+> | espaços de trabalho/modelos | Não | Não |
+> | espaços de trabalho/modelos/versões | Não | Não |
+> | espaços de trabalho/onlineEndpoints | Sim | Sim |
+> | espaços de trabalho/onlineEndpoints/implantações | Sim | Sim |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2194,6 +2219,17 @@ Pule para um namespace de provedor de recursos:
 > | SignalR | Sim | Sim |
 > | Sinalização/eventGridFilters | Não | Não |
 
+## <a name="microsoftsingularity"></a>Microsoft. singularidade
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
+> | ------------- | ----------- | ----------- |
+> | accounts | Sim | Sim |
+> | contas/accountQuotaPolicies | Não | Não |
+> | contas/groupPolicies | Não | Não |
+> | contas/trabalhos | Não | Não |
+> | contas/storageContainers | Não | Não |
+
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -2332,6 +2368,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | clusters | Sim | Sim |
+> | clusters/privateEndpoints | Não | Não |
 > | streamingjobs | Sim (veja a observação a seguir) | Sim |
 
 > [!NOTE]
@@ -2433,8 +2470,8 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | accounts | Sim | Sim |
-> | planos | Sim | Sim |
+> | accounts | Sim | Não |
+> | planos | Sim | Não |
 > | registeredSubscriptions | Não | Não |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2469,6 +2506,8 @@ Pule para um namespace de provedor de recursos:
 > | runtimes | Não | Não |
 > | serverFarms | Sim | Sim |
 > | serverFarms/eventGridFilters | Não | Não |
+> | serverFarms/firstPartyApps | Não | Não |
+> | serverFarms/firstPartyApps/keyVaultSettings | Não | Não |
 > | sites | Sim | Sim |
 > | sites/configuração  | Não | Não |
 > | sites/eventGridFilters | Não | Não |

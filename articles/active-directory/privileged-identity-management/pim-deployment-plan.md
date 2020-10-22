@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050192"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367798"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implantar o Azure AD Privileged Identity Management (PIM)
 
@@ -58,7 +58,7 @@ Esta seção fornece uma análise para fins de planejamento das partes relevante
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>Funções que podem ser gerenciadas pelo PIM
 
-As **funções do Azure ad** estão todas em Azure Active Directory (como administrador global, administrador do Exchange e administrador de segurança). Você pode ler mais sobre as funções e suas funcionalidades em [Permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obter ajuda sobre como determinar quais funções devem ser atribuídas aos administradores, confira [funções com menos privilégios por tarefa](../users-groups-roles/roles-delegate-by-task.md).
+As **funções do Azure ad** estão todas em Azure Active Directory (como administrador global, administrador do Exchange e administrador de segurança). Você pode ler mais sobre as funções e suas funcionalidades em [Permissões da função de administrador no Azure Active Directory](../roles/permissions-reference.md). Para obter ajuda sobre como determinar quais funções devem ser atribuídas aos administradores, confira [funções com menos privilégios por tarefa](../roles/delegate-by-task.md).
 
 As **funções do Azure** são funções vinculadas a um recurso do Azure, grupo de recursos, assinatura ou grupo de gerenciamento. Você pode usar o PIM para fornecer acesso just-in-time a funções internas do Azure, como proprietário, administrador de acesso do usuário e colaborador, e também para [funções personalizadas](../../role-based-access-control/custom-roles.md). Para obter mais informações sobre as funções do Azure, consulte [controle de acesso baseado em função do Azure](../../role-based-access-control/overview.md).
 
@@ -111,7 +111,7 @@ Para funções do Azure AD, é comum que as organizações atribuam a função d
 
 Siga estas etapas para implementar o princípio de privilégios mínimos para suas funções do Azure AD.
 
-1. Entenda a granularidade das funções lendo e compreendendo as [funções de administrador disponíveis do Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Você e sua equipe também devem fazer referência às [funções de administrador por tarefa de identidade no Azure AD](../users-groups-roles/roles-delegate-by-task.md), o que explica a função de privilégios mínimos de tarefas específicas.
+1. Entenda a granularidade das funções lendo e compreendendo as [funções de administrador disponíveis do Azure AD](../roles/permissions-reference.md#available-roles). Você e sua equipe também devem fazer referência às [funções de administrador por tarefa de identidade no Azure AD](../roles/delegate-by-task.md), o que explica a função de privilégios mínimos de tarefas específicas.
 
 1. Liste quem tem função com privilégios em sua organização. Você pode usar a descoberta de Privileged Identity Management [e informações (versão prévia)](pim-security-wizard.md) para reduzir sua exposição.
 
@@ -200,11 +200,11 @@ A atribuição de uma função a um grupo em vez de a usuários individuais é u
 
 #### <a name="many-users-are-assigned-to-a-role"></a>Muitos usuários são atribuídos a uma função
 
-Manter o controle de quem é atribuído a uma função e gerenciar suas atribuições com base em quando eles precisam de ti pode levar algum tempo quando feito manualmente. Para atribuir um grupo a uma função, primeiro [crie um grupo de funções atribuíveis](../users-groups-roles/roles-groups-create-eligible.md) e, em seguida, atribua o grupo como qualificado para uma função. Essa ação é sujeita a todos no grupo para o mesmo processo de ativação que os usuários individuais que estão qualificados a elevar a função. Os membros do grupo ativam suas atribuições ao grupo individualmente usando o processo de aprovação e solicitação de ativação Privileged Identity Management. O grupo não está ativado, apenas a associação de grupo do usuário.
+Manter o controle de quem é atribuído a uma função e gerenciar suas atribuições com base em quando eles precisam de ti pode levar algum tempo quando feito manualmente. Para atribuir um grupo a uma função, primeiro [crie um grupo de funções atribuíveis](../roles/groups-create-eligible.md) e, em seguida, atribua o grupo como qualificado para uma função. Essa ação é sujeita a todos no grupo para o mesmo processo de ativação que os usuários individuais que estão qualificados a elevar a função. Os membros do grupo ativam suas atribuições ao grupo individualmente usando o processo de aprovação e solicitação de ativação Privileged Identity Management. O grupo não está ativado, apenas a associação de grupo do usuário.
 
 #### <a name="you-want-to-delegate-assigning-the-role"></a>Você deseja delegar a atribuição da função
 
-Um proprietário de grupo pode gerenciar a associação de um grupo. Para grupos de funções do Azure AD atribuíveis, somente o administrador de função com privilégios, o administrador global e os proprietários do grupo podem gerenciar a associação de grupo. Ao adicionar novos membros ao grupo, o membro obtém acesso às funções às quais o grupo é atribuído, independentemente de a atribuição estar qualificada ou ativa. Use os proprietários do grupo para delegar o gerenciamento de associação de grupo para uma função atribuída a fim de reduzir a amplitude do privilégio necessário. Para obter mais informações sobre como atribuir um proprietário a um grupo ao criar o grupo, consulte [criar um grupo de funções atribuídas no Azure ad](../users-groups-roles/roles-groups-create-eligible.md).
+Um proprietário de grupo pode gerenciar a associação de um grupo. Para grupos de funções do Azure AD atribuíveis, somente o administrador de função com privilégios, o administrador global e os proprietários do grupo podem gerenciar a associação de grupo. Ao adicionar novos membros ao grupo, o membro obtém acesso às funções às quais o grupo é atribuído, independentemente de a atribuição estar qualificada ou ativa. Use os proprietários do grupo para delegar o gerenciamento de associação de grupo para uma função atribuída a fim de reduzir a amplitude do privilégio necessário. Para obter mais informações sobre como atribuir um proprietário a um grupo ao criar o grupo, consulte [criar um grupo de funções atribuídas no Azure ad](../roles/groups-create-eligible.md).
 
 > [!TIP]
 > : heavy_check_mark: a **Microsoft recomenda** que você coloque grupos de funções do Azure ad atribuíveis sob gerenciamento pelo Privileged Identity Management. Depois que um grupo de atribuição de função é trazido sob gerenciamento pelo PIM, ele é chamado de grupo de acesso privilegiado. Use o PIM para exigir que os proprietários do grupo ativem sua atribuição de função de proprietário antes de poderem gerenciar a associação de grupo. Para obter mais informações sobre como colocar grupos sob o gerenciamento do PIM, consulte [colocar grupos de acesso privilegiado (versão prévia) em Privileged Identity Management](groups-discover-groups.md).
@@ -214,7 +214,7 @@ Um proprietário de grupo pode gerenciar a associação de um grupo. Para grupos
 Depois de decidir a lista de funções a serem gerenciadas pelo Privileged Identity Management, você deve decidir quais usuários devem obter a função qualificada versus a função ativa permanentemente. Funções ativas permanentemente são as funções normais atribuídas por meio de Azure Active Directory e recursos do Azure, enquanto as funções qualificadas só podem ser atribuídas em Privileged Identity Management.
 
 > [!TIP]
-> : heavy_check_mark: a **Microsoft recomenda** que você tenha zero atribuições permanentemente ativas para funções do Azure AD e funções do Azure além das [duas contas de acesso de emergência de interrupção](../users-groups-roles/directory-emergency-access.md)recomendadas, que devem ter a função de administrador global permanente.
+> : heavy_check_mark: a **Microsoft recomenda** que você tenha zero atribuições permanentemente ativas para funções do Azure AD e funções do Azure além das [duas contas de acesso de emergência de interrupção](../roles/security-emergency-access.md)recomendadas, que devem ter a função de administrador global permanente.
 
 Apesar de recomendarmos um administrador permanente, às vezes é difícil para as organizações conseguirem isso imediatamente. Veja alguns pontos a considerar ao tomar esta decisão:
 

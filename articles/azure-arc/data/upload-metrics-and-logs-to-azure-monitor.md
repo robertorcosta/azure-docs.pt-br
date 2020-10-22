@@ -9,99 +9,78 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
+ms.openlocfilehash: c333b95ed762c905511ab1d4a84050d50f0e023c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320174"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371317"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Carregar dados de uso, métricas e logs para Azure Monitor
 
-Periodicamente, você pode exportar informações de uso para fins de cobrança, métricas de monitoramento e logs e, em seguida, carregá-las no Azure.  A exportação e o upload de qualquer um desses três tipos de dados também criarão e atualizarão o controlador de dados, a instância gerenciada do SQL e os recursos do grupo de servidores de hiperescala do PostgreSQL no Azure.
+Periodicamente, você pode exportar informações de uso para fins de cobrança, métricas de monitoramento e logs e, em seguida, carregá-las no Azure. A exportação e o upload de qualquer um desses três tipos de dados também criarão e atualizarão o controlador de dados, a instância gerenciada do SQL e os recursos do grupo de servidores de hiperescala do PostgreSQL no Azure.
 
 > [!NOTE] 
 > Durante o período de versão prévia, não há nenhum custo para usar os serviços de dados habilitados para Arc do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-Você precisará do CLI do Azure (AZ) e do [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] instalado.  [Instalar ferramentas](./install-client-tools.md).
+Antes de poder carregar dados de uso, métricas ou logs, você precisa:
 
-Antes de carregar dados no Azure, você precisa garantir que sua assinatura do Azure tenha o provedor de recursos Microsoft. AzureData registrado.
+* Instalar ferramentas 
+* [Registrar o `Microsoft.AzureData` provedor de recursos](#register-the-resource-provider) 
+* [Criar a entidade de serviço](#create-service-principal)
 
-Você pode verificar isso executando o seguinte comando:
+## <a name="install-tools"></a>Instalar ferramentas
 
-```console
+As ferramentas necessárias incluem: 
+* CLI do Azure (AZ) 
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 
+
+Consulte [instalar ferramentas](./install-client-tools.md).
+
+## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
+
+Antes de carregar as métricas ou os dados do usuário no Azure, você precisa garantir que sua assinatura do Azure tenha o `Microsoft.AzureData` provedor de recursos registrado.
+
+Para verificar o provedor de recursos, execute o seguinte comando:
+
+```azurecli
 az provider show -n Microsoft.AzureData -o table
 ```
 
-Se o provedor de recursos não estiver registrado em sua assinatura no momento, você poderá registrá-lo executando o comando a seguir.  Esse comando leva um minuto ou dois para ser concluído.
+Se o provedor de recursos não estiver registrado em sua assinatura no momento, você poderá registrá-lo. Para registrá-lo, execute o comando a seguir.  Este comando pode levar um minuto ou dois para ser concluído.
 
-```console
+```azurecli
 az provider register -n Microsoft.AzureData --wait
 ```
 
-## <a name="upload-usage-data"></a>Carregar dados de uso
+## <a name="create-service-principal"></a>Criar uma entidade de serviço
 
-Informações de uso, como inventário e uso de recursos, podem ser carregadas no Azure na seguinte maneira de duas etapas:
+A entidade de serviço é usada para carregar dados de uso e métricas.
 
-1. Exporte os dados de uso usando o `azdata export` comando, da seguinte maneira:
-
-   ```console
-   #login to the data controller and enter the values at the prompt
-   azdata login
-
-   #run the export command
-   azdata arc dc export --type usage --path usage.json
-   ```
-   Este comando cria um `usage.json` arquivo com todos os recursos de dados habilitados para o Azure Arc, como instâncias gerenciadas do SQL e instâncias de hiperescala do PostgreSQL, etc. que são criados no controlador de dados.
-
-2. Carregar os dados de uso usando o `azdata upload` comando
-
-   > [!NOTE]
-   > Aguarde pelo menos 24 horas depois de criar o controlador de dados de arco do Azure antes de executar o carregamento
-
-   ```console
-   #login to the data controller and enter the values at the prompt
-   azdata login
-
-   #run the upload command
-   azdata arc dc upload --path usage.json
-   ```
-
-## <a name="upload-metrics-and-logs"></a>Carregar métricas e logs
-
-Com os serviços de dados de arco do Azure, você pode, opcionalmente, carregar suas métricas e logs para Azure Monitor para que possa agregar e analisar métricas, logs, gerar alertas, enviar notificações ou disparar ações automatizadas. 
-
-Enviar seus dados para Azure Monitor também permite que você armazene dados de monitoramento e logs fora do local e em grande escala habilitando o armazenamento de longo prazo dos dados para análise avançada.
-
-Se você tiver vários sites que têm o Azure Arc Data Services, poderá usar Azure Monitor como um local central para coletar todos os seus logs e métricas em seus sites.
-
-### <a name="before-you-begin"></a>Antes de começar
-
-Há algumas etapas de configuração única necessárias para habilitar os cenários de upload de logs e métricas:
-
-1. Crie um aplicativo de Azure Active Directory/entidade de serviço, incluindo a criação de um segredo de acesso do cliente e a atribuição da entidade de serviço à função ' Editor de métricas de monitoramento ' nas assinaturas em que os recursos da instância do banco de dados estão localizados.
-2. Crie um espaço de trabalho do log Analytics e obtenha as chaves e defina as informações em variáveis de ambiente.
-
-O primeiro item é necessário para carregar as métricas e a segunda é necessária para carregar os logs.
-
-Siga estes comandos para criar sua entidade de serviço de carregamento de métricas e atribuí-la às funções ' Editor de métricas de monitoramento ' e ' colaborador ' para que a entidade de serviço possa carregar métricas e executar operações de criação e carregamento.
-
-## <a name="create-service-principal-and-assign-roles"></a>Criar entidade de serviço e atribuir funções
-
-Siga estes comandos para criar sua entidade de serviço carregar métricas e atribuí-la à função ' Editor de métricas de monitoramento ':
-
-Para criar uma entidade de serviço, execute este comando:
+Siga estes comandos para criar sua entidade de serviço de carregamento de métricas:
 
 > [!NOTE]
-> A criação de uma entidade de serviço requer [determinadas permissões no Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+> A criação de uma entidade de serviço requer [determinadas permissões no Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
 
-```console
-az ad sp create-for-rbac --name <a name you choose>
+Para criar uma entidade de serviço, atualize o exemplo a seguir. Substitua `<ServicePrincipalName>` pelo nome da entidade de serviço e execute o comando:
 
-#Example:
-#az ad sp create-for-rbac --name azure-arc-metrics
+```azurecli
+az ad sp create-for-rbac --name <ServicePrincipalName>
+``` 
+
+Se você criou a entidade de serviço anteriormente e precisa apenas obter as credenciais atuais, execute o comando a seguir para redefinir a credencial.
+
+```azurecli
+az ad sp credential reset --name <ServicePrincipalName>
+```
+
+Por exemplo, para criar uma entidade de serviço chamada `azure-arc-metrics` , execute o seguinte comando
+
+```
+az ad sp create-for-rbac --name azure-arc-metrics
 ```
 
 Saída de exemplo:
@@ -114,52 +93,76 @@ Saída de exemplo:
 "tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
 ```
 
-Salve os valores de appId e locatário em uma variável de ambiente para uso posterior. 
+Salve os `appId` `password` valores, e `tenant` em uma variável de ambiente para uso posterior. 
 
-Para salvar os valores de appId e locatário com o PowerShell, siga este exemplo:
+::: zone pivot="client-operating-system-windows-command"
 
-```powershell
-$Env:SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-$Env:SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-$Env:SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
+```console
+SET SPN_CLIENT_ID=<appId>
+SET SPN_CLIENT_SECRET=<password>
+SET SPN_TENANT_ID=<tenant>
 ```
 
-Como alternativa, no Linux ou no macOS, você pode salvar os valores de appId e locatário com este exemplo:
+::: zone-end
 
-   ```console
-   export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-   export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-   export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
+::: zone pivot="client-operating-system-macos-and-linux"
 
-   #Example (using Linux):
-   export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
-   export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
-   export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
-   ```
+```console
+export SPN_CLIENT_ID='<appId>'
+export SPN_CLIENT_SECRET='<password>'
+export SPN_TENANT_ID='<tenant>'
+```
 
-Execute este comando para atribuir a entidade de serviço à função ' Editor de métricas de monitoramento ' na assinatura em que os recursos da instância de banco de dados estão localizados:
+::: zone-end
 
+::: zone pivot="client-operating-system-powershell"
+
+```console
+$Env:SPN_CLIENT_ID="<appId>"
+$Env:SPN_CLIENT_SECRET="<password>"
+$Env:SPN_TENANT_ID="<tenant>"
+```
+
+::: zone-end
+
+Depois de criar a entidade de serviço, atribua a entidade de serviço à função apropriada. 
+
+## <a name="assign-roles-to-the-service-principal"></a>Atribuir funções à entidade de serviço
+
+Execute este comando para atribuir a entidade de serviço à `Monitoring Metrics Publisher` função na assinatura em que os recursos da instância do banco de dados estão localizados:
+
+::: zone pivot="client-operating-system-windows-command"
 
 > [!NOTE]
 > Você precisa usar aspas duplas para nomes de função ao executar de um ambiente do Windows.
 
-
-```console
-az role assignment create --assignee <appId value from output above> --role "Monitoring Metrics Publisher" --scope subscriptions/<sub ID>
-az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
-
-#Example:
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
-
-#On Windows environment
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Contributor" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+```azurecli
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
 ```
+::: zone-end
+
+::: zone pivot="client-operating-system-macos-and-linux"
+
+```azurecli
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+```
+
+::: zone-end
+
+::: zone pivot="client-operating-system-powershell"
+
+```powershell
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+```
+
+::: zone-end
 
 Saída de exemplo:
 
-```console
+```output
 {
   "canDelegate": null,
   "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
@@ -172,251 +175,17 @@ Saída de exemplo:
 }
 ```
 
-## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do log Analytics
+Com a entidade de serviço atribuída à função apropriada, você pode continuar a carregar as métricas ou os dados do usuário. 
 
-Em seguida, execute estes comandos para criar um espaço de trabalho Log Analytics e defina as informações de acesso em variáveis de ambiente.
+## <a name="upload-logs-metrics-or-user-data"></a>Carregar logs, métricas ou dados do usuário
 
-> [!NOTE]
-> Ignore esta etapa se você já tiver um espaço de trabalho.
+As etapas específicas para carregar logs, métricas ou dados de usuário variam de acordo com o tipo de informações que você está carregando. 
 
-```console
-az monitor log-analytics workspace create --resource-group <resource group name> --workspace-name <some name you choose>
+[Carregar logs para Azure Monitor](upload-logs.md)
 
-#Example:
-#az monitor log-analytics workspace create --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
-```
+[Carregar métricas para Azure Monitor](upload-metrics.md)
 
-Saída de exemplo:
-
-```output
-{
-  "customerId": "d6abb435-2626-4df1-b887-445fe44a4123",
-  "eTag": null,
-  "id": "/subscriptions/<Subscription ID>/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
-  "location": "eastus",
-  "name": "user-logworkspace",
-  "portalUrl": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "user-arc-demo",
-  "retentionInDays": 30,
-  "sku": {
-    "lastSkuUpdate": "Thu, 30 Jul 2020 22:37:53 GMT",
-    "maxCapacityReservationLevel": 3000,
-    "name": "pergb2018"
-  },
-  "source": "Azure",
-  "tags": null,
-  "type": "Microsoft.OperationalInsights/workspaces"
-}
-```
-
-## <a name="assign-id-and-shared-key-to-environment-variables"></a>Atribuir ID e chave compartilhada a variáveis de ambiente
-
-Salve o customerId (ID do espaço de trabalho) como uma variável de ambiente a ser usada posteriormente:
-
-```console
-#PowerShell
-$Env:WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' command output above>'
-
-#Linux/macOS
-export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' command output above>'
-
-#Example (using Linux)
-#export WORKSPACE_ID='d6abb435-2626-4df1-b887-445fe44a4123'
-```
-
-Este comando imprimirá as chaves de acesso necessárias para se conectar ao seu espaço de trabalho do log Analytics:
-
-```console
-az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
-```
-
-Saída de exemplo:
-
-```console
-{
-  "primarySharedKey": "JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXqaydpaj1ByWGvKoCghL8hL4BRoypXxkLr123==",
-  "secondarySharedKey": "p2XHSxLJ4o9IAqm2zINcEmx0UWU5Z5EZz8PQC0OHpFjdpuVaI0zsPbTv5VyPFgaCUlCZb2yEbkiR4eTuTSF123=="
-}
-```
-
-Salve a chave primária em uma variável de ambiente a ser usada mais tarde:
-
-```console
-#PowerShell:
-$Env:WORKSPACE_SHARED_KEY='<the primarySharedKey value from the 'get-shared-keys' command above'
-
-#Linux/macOS:
-export WORKSPACE_SHARED_KEY='<the primarySharedKey value from the 'get-shared-keys' command above'
-
-#Example (using Linux):
-export WORKSPACE_SHARED_KEY='JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXqaydpaj1ByWGvKoCghL8hL4BRoypXxkLr123=='
-
-```
-
-## <a name="set-final-environment-variables-and-confirm"></a>Definir variáveis de ambiente finais e confirmar
-
-Defina a URL da autoridade de SPN em uma variável de ambiente:
-
-```console
-#PowerShell
-$Env:SPN_AUTHORITY='https://login.microsoftonline.com'
-
-#Linux/macOS:
-export SPN_AUTHORITY='https://login.microsoftonline.com'
-```
-
-Certifique-se de que todas as variáveis de ambiente necessárias estejam definidas se você quiser:
-
-```console
-#PowerShell
-$Env:WORKSPACE_ID
-$Env:WORKSPACE_SHARED_KEY
-$Env:SPN_TENANT_ID
-$Env:SPN_CLIENT_ID
-$Env:SPN_CLIENT_SECRET
-$Env:SPN_AUTHORITY
-
-#Linux/macOS
-echo $WORKSPACE_ID
-echo $WORKSPACE_SHARED_KEY
-echo $SPN_TENANT_ID
-echo $SPN_CLIENT_ID
-echo $SPN_CLIENT_SECRET
-echo $SPN_AUTHORITY
-```
-
-## <a name="upload-metrics-to-azure-monitor"></a>Carregar métricas para Azure Monitor
-
-Para carregar as métricas para suas instâncias gerenciadas SQL habilitadas do Arc do Azure e os grupos de servidores de hiperescala PostgreSQL habilitados para o Azure Arc, os seguintes comandos da CLI:
-
-1. Exportar todas as métricas para o arquivo especificado:
-
-   ```console
-   #login to the data controller and enter the values at the prompt
-   azdata login
-
-   #export the metrics
-   azdata arc dc export --type metrics --path metrics.json
-   ```
-
-2. Carregar métricas no Azure monitor:
-
-   ```console
-   #login to the data controller and enter the values at the prompt
-   azdata login
-
-   #upload the metrics
-   azdata arc dc upload --path metrics.json
-   ```
-
-   >[!NOTE]
-   >Aguarde pelo menos 30 minutos após a criação das instâncias de dados habilitadas para o Arc do Azure para o primeiro upload
-   >
-   >Verifique se `upload` as métricas estão imediatamente após `export` as Azure monitor aceita apenas as métricas dos últimos 30 minutos. [Saiba mais](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
-
-
-Se você vir algum erro indicando "falha ao obter métricas" durante a exportação, verifique se a coleta de dados está definida como ```true``` executando o seguinte comando:
-
-```console
-azdata arc dc config show
-```
-
-e examine "seção de segurança"
-
-```output
- "security": {
-      "allowDumps": true,
-      "allowNodeMetricsCollection": true,
-      "allowPodMetricsCollection": true,
-      "allowRunAsRoot": false
-    },
-```
-
-Verifique se as `allowNodeMetricsCollection` `allowPodMetricsCollection` Propriedades e estão definidas como `true` .
-
-## <a name="view-the-metrics-in-the-portal"></a>Exibir as métricas no portal
-
-Depois que suas métricas forem carregadas, você poderá exibi-las no portal do Azure.
-> [!NOTE]
-> Observe que pode levar alguns minutos para que os dados carregados sejam processados antes que você possa exibir as métricas no Portal.
-
-
-Para exibir suas métricas no portal, use este link para abrir o portal: <https://portal.azure.com> em seguida, pesquise a instância do banco de dados por nome na barra de pesquisa:
-
-Você pode exibir a utilização da CPU na página Visão geral ou se quiser métricas mais detalhadas, nas quais você pode clicar em métricas no painel de navegação à esquerda
-
-Escolha o SQL Server como o namespace de métrica:
-
-Selecione a métrica que você deseja visualizar (você também pode selecionar várias):
-
-Altere a frequência para os últimos 30 minutos:
-
-> [!NOTE]
-> Só é possível carregar métricas para os últimos 30 minutos. Azure Monitor rejeita as métricas com mais de 30 minutos.
-
-## <a name="upload-logs-to-azure-monitor"></a>Carregar logs para o Azure Monitor
-
- Para carregar logs para suas instâncias gerenciadas SQL habilitadas do Arc do Azure e os grupos de servidores de hiperescala PostgreSQL habilitados para AzureArc, execute os seguintes comandos da CLI-
-
-1. Exportar todos os logs para o arquivo especificado:
-
-   ```console
-   #login to the data controller and enter the values at the prompt
-   azdata login
-
-   #export the logs
-   azdata arc dc export --type logs --path logs.json
-   ```
-
-2. Carregar logs em um espaço de trabalho do Azure monitor log Analytics:
-
-   ```console
-   #login to the data controller and enter the values at the prompt
-   azdata login
-
-   #Upload the logs
-   azdata arc dc upload --path logs.json
-   ```
-
-## <a name="view-your-logs-in-azure-portal"></a>Exibir seus logs no portal do Azure
-
-Depois que os logs forem carregados, você poderá consultá-los usando o gerenciador de consultas de log da seguinte maneira:
-
-1. Abra o portal do Azure e, em seguida, pesquise seu espaço de trabalho por nome na barra de pesquisa na parte superior e, em seguida, selecione-o
-2. Clique em Logs no painel esquerdo
-3. Clique em introdução (ou clique nos links na página Introdução para saber mais sobre Log Analytics se você for novo)
-4. Siga o tutorial para saber mais sobre Log Analytics se esta for a primeira vez que você usa Log Analytics
-5. Expanda os Logs Personalizados na parte inferior da lista de tabelas e você verá uma tabela chamada "sql_instance_logs_CL".
-6. Clique no ícone de "olho" ao lado do nome da tabela
-7. Clique no botão "Exibir no editor de consultas"
-8. Agora você terá uma consulta no editor de consultas que mostrará os 10 eventos mais recentes no log
-9. A partir daqui, você pode experimentar consultando os logs ao usar o editor de consultas, definir alertas etc.
-
-## <a name="automating-uploads-optional"></a>Automatizando carregamentos (opcional)
-
-Se você quiser carregar as métricas e os logs de forma agendada, poderá criar um script e executá-lo em um temporizador a cada poucos minutos. Veja abaixo um exemplo de como automatizar os carregamentos usando um script de shell do Linux.
-
-Em seu editor de texto/código favorito, adicione o script a seguir ao arquivo e salve como um arquivo executável de script, como. sh (Linux/Mac) ou. cmd,. bat,. ps1.
-
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
-```
-
-Tornar o arquivo de script executável
-
-```console
-chmod +x myuploadscript.sh
-```
-
-Executar o script a cada 20 minutos:
-
-```console
-watch -n 1200 ./myuploadscript.sh
-```
-
-Você também pode usar um Agendador de trabalho como cron ou Windows Agendador de Tarefas ou um orquestrador como Ansible, Puppet ou chefe.
+[Carregar dados de uso para Azure Monitor](upload-usage-data.md)
 
 ## <a name="general-guidance-on-exporting-and-uploading-usage-metrics"></a>Diretrizes gerais sobre como exportar e carregar o uso, métricas
 
@@ -427,6 +196,8 @@ Durante a visualização, esse processo ocorre à noite. As diretrizes gerais s�
 Para carregar métricas, o Azure monitor só aceita os últimos 30 minutos de dados ([saiba mais](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). As diretrizes para carregar métricas são carregar as métricas imediatamente após criar o arquivo de exportação para que você possa exibir o conjunto de dados inteiro em portal do Azure. Por exemplo, se você exportou as métricas às 2:00 PM e executou o comando upload às 2:50 PM. Como Azure Monitor só aceita dados nos últimos 30 minutos, talvez você não veja nenhum dado no Portal. 
 
 ## <a name="next-steps"></a>Próximas etapas
+
+[Saiba mais sobre entidades de serviço](/powershell/azure/azurerm/create-azure-service-principal-azureps#what-is-a-service-principal)
 
 [Carregar dados de cobrança no Azure e exibi-los no portal do Azure](view-billing-data-in-azure.md)
 

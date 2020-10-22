@@ -1,5 +1,5 @@
 ---
-title: O que é ML automatizado/AutoML
+title: O que é o ML automatizado? AutoML
 titleSuffix: Azure Machine Learning
 description: Saiba como o Azure Machine Learning pode escolher um algoritmo para você automaticamente e gerar um modelo proveniente para economizar tempo usando os parâmetros e os critérios que você fornecer ao selecionar o melhor algoritmo para seu modelo.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760962"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367509"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é AutoML (machine learning automatizado)?
 
@@ -158,15 +158,15 @@ A interface da Web para o ML automatizado sempre usa um [destino de computação
 Considere estes fatores ao escolher seu destino de computação:
 
  * **Escolher uma computação local**: se seu cenário for sobre explorações ou demonstrações iniciais que usam dados pequenos e treinamentos breves (por exemplo, segundos ou alguns minutos por execução filho), o treinamento em seu computador local poderá ser uma opção melhor.  Não há tempo de configuração e os recursos de infraestrutura (seu PC ou sua VM) estão diretamente disponíveis.
- * **Escolher um cluster de computação do ML remota**: se você estiver treinando com conjuntos de grandes maiores, como o treinamento em produção que cria modelos que precisam de treinamentos maiores, a computação remota fornecerá um desempenho de ponta a ponta muito melhor, pois `AutoML` vai paralelizar os treinamentos nos nós do cluster. Em uma computação remota, o tempo de inicialização para a infraestrutura interna será adicionado em cerca de 1,5 minuto por execução filho, além de minutos adicionais para a infraestrutura de cluster se as VMs ainda não estiverem em funcionamento.
+ * **Escolha um cluster de computação do ml remoto**: se você estiver treinando com grandes conjuntos de data, como em treinamento em produção criando modelos que precisam de treinamentos mais longos, a computação remota fornecerá um desempenho de ponta a ponta muito melhor, pois `AutoML` paralelizará as trens nos nós do cluster. Em uma computação remota, o tempo de inicialização para a infraestrutura interna será adicionado cerca de 1,5 minutos por execução de filho, além de minutos adicionais para a infraestrutura de cluster se as VMs ainda não estiverem em funcionamento.
 
 ### <a name="pros-and-cons"></a>Prós e contras
 Considere esses prós e contras ao optar por usar a computação local versus remota.
 
 |  | Prós (vantagens)  |Contras (desvantagens)  |
 |---------|---------|---------|---------|
-|**Destino de computação local** |  <li> Nenhum tempo de inicialização do ambiente   | <li>  Subconjunto de recursos<li>  Não é possível paralelizar execuções <li> Pior para dados grandes. <li>Não há streaming de dados durante o treinamento <li>  Nenhuma definição de recursos baseada em DNN <li> Somente SDK do Python |
-|**Clusters de computação do ML remota**|  <li> Conjunto completo de recursos <li> Paralelizar execuções filhas <li>   Suporte a dados grandes<li>  Definição de recursos baseada em DNN <li>  Escalabilidade dinâmica de cluster de computação sob demanda <li> Experiência sem código (interface do usuário da Web) também disponível  |  <li> Tempo de inicialização para nós de cluster <li> Tempo de inicialização para cada execução filho    |
+|**Destino de computação local** |  <li> Sem tempo de inicialização do ambiente   | <li>  Subconjunto de recursos<li>  Não é possível paralelizar execuções <li> Pior para dados grandes. <li>Não há streaming de dados durante o treinamento <li>  Nenhuma definição de recursos baseada em DNN <li> Somente SDK do Python |
+|**Clusters de computação do ML remota**|  <li> Conjunto completo de recursos <li> Paralelizar execuções filhas <li>   Suporte a dados grandes<li>  Definição de recursos baseada em DNN <li>  Escalabilidade dinâmica de cluster de computação sob demanda <li> Experiência sem código (interface do usuário da Web) também disponível  |  <li> Tempo de inicialização para nós de cluster <li> Hora de início para cada execução de filho    |
 
 ### <a name="feature-availability"></a>Disponibilidade de recursos 
 
@@ -219,7 +219,7 @@ As configurações a seguir permitem que você configure seu experimento de ML a
 |**Dividir dados em conjuntos de treinamento/validação**| ✓|✓
 |**Dá suporte a tarefas de ML: classificação, regressão e previsão**| ✓| ✓
 |**Otimiza com base na métrica primária**| ✓| ✓
-|**Dá suporte à computação do AML como destino de computação** | ✓|✓
+|**Dá suporte à computação do Azure ML como destino de computação** | ✓|✓
 |**Configurar horizonte de previsão, atraso de destino & janela sem interrupção**|✓|✓
 |**Definir critérios de saída** |✓|✓ 
 |**Definir iterações simultâneas**| ✓|✓

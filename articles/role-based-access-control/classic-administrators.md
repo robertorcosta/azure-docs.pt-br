@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076447"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370620"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
@@ -62,7 +62,7 @@ Para obter mais informações, sobre como adicionar um usuário convidado ao seu
 
 ### <a name="differences-for-guest-users"></a>Diferenças para usuários convidados
 
-Os usuários convidados aos quais foi atribuída a função Co-Administrator podem ver algumas diferenças em comparação com os usuários Membros com a função Co-Administrator. Considere o cenário a seguir.
+Os usuários convidados aos quais foi atribuída a função Co-Administrator podem ver algumas diferenças em comparação com os usuários Membros com a função Co-Administrator. Considere o seguinte cenário:
 
 - O usuário A com uma conta do Azure AD (conta corporativa ou de estudante) é um administrador de serviço para uma assinatura do Azure.
 - O usuário B tem uma conta da Microsoft.
@@ -71,9 +71,9 @@ Os usuários convidados aos quais foi atribuída a função Co-Administrator pod
 
 Você esperava que o usuário B pudesse gerenciar tudo. O motivo para essa diferença é que a conta da Microsoft é adicionada à assinatura como um usuário convidado, em vez de um usuário membro. Os usuários convidados têm permissões padrão diferentes no Azure AD em comparação com os usuários membros. Por exemplo, usuários membros podem ler outros usuários no Azure AD, e os usuários convidados não podem. Os usuários membros podem registrar novas entidades de serviço no Azure AD, e os usuários convidados não podem.
 
-Se um usuário convidado precisar executar essas tarefas, uma solução possível é atribuir as funções específicas do Azure AD de que o usuário convidado precisa. Por exemplo, no cenário anterior, você pode atribuir a função [Leitores de Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para ler outros usuários e atribuir a função [Desenvolvedor de Aplicativos](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para criar entidades de serviço. Para saber mais sobre os usuários membros e convidados e suas permissões, consulte [Quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Para obter mais informações sobre como conceder acesso para usuários convidados, consulte [Adicionar ou remover atribuições de função do Azure para usuários convidados externos usando o portal do Azure](role-assignments-external-users.md).
+Se um usuário convidado precisar executar essas tarefas, uma solução possível é atribuir as funções específicas do Azure AD de que o usuário convidado precisa. Por exemplo, no cenário anterior, você pode atribuir a função [Leitores de Diretório](../active-directory/roles/permissions-reference.md#directory-readers) para ler outros usuários e atribuir a função [Desenvolvedor de Aplicativos](../active-directory/roles/permissions-reference.md#application-developer) para criar entidades de serviço. Para saber mais sobre os usuários membros e convidados e suas permissões, consulte [Quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Para obter mais informações sobre como conceder acesso para usuários convidados, consulte [Adicionar ou remover atribuições de função do Azure para usuários convidados externos usando o portal do Azure](role-assignments-external-users.md).
 
-Observe que as [funções internas do Azure](../role-based-access-control/built-in-roles.md) são diferentes das funções do [Azure ad](../active-directory/users-groups-roles/directory-assign-admin-roles.md). As funções internas não concedem acesso ao Azure AD. Para saber mais, consulte [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Observe que as [funções internas do Azure](../role-based-access-control/built-in-roles.md) são diferentes das funções do [Azure ad](../active-directory/roles/permissions-reference.md). As funções internas não concedem acesso ao Azure AD. Para saber mais, consulte [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Para obter informações que comparam usuários Membros e usuários convidados, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 

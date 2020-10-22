@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 8983923a6ccc3b5462c3e9f00337763b225ed9ac
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330301"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369311"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -65,7 +65,7 @@ O Site Recovery dá suporte para replicação de qualquer carga de trabalho em e
 **Componente** | **Detalhes**
 --- | ---
 Configurações do computador | Os computadores que são replicados para o Azure precisam atender aos [requisitos do Azure](#azure-vm-requirements).
-Carga de trabalho do computador | O Site Recovery dá suporte para replicação de qualquer carga de trabalho em execução em um computador com suporte. [Saiba mais](https://aka.ms/asr_workload).
+Carga de trabalho do computador | O Site Recovery dá suporte para replicação de qualquer carga de trabalho em execução em um computador com suporte. [Saiba mais](./site-recovery-workload.md).
 Nome do computador | Verifique se o nome de exibição do computador não se enquadra nos [nomes de recursos reservados do Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Os nomes de volumes lógicos não diferenciam maiúsculas de minúsculas. Certifique-se de que dois volumes em um dispositivo tenham o mesmo nome. Por exemplo: volumes com nomes "voLUME1", "voLUME1" não podem ser protegidos por meio de Azure Site Recovery.
 
 ### <a name="for-windows"></a>Para Windows
@@ -235,7 +235,7 @@ Convidado/servidor - excluir disco | Sim
 MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
-Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 
