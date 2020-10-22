@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532136"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368257"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para Aplicativos Lógicos do Azure
 
@@ -133,7 +133,7 @@ Após enviar a chamada, a resposta do seu aplicativo lógico será exibida na ca
 
 ## <a name="cancel-a-one-time-job"></a>Cancelar um trabalho único
 
-Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância de execução de aplicativo lógico individual. Para cancelar um trabalho único, é possível usar [Execuções de fluxo de trabalho – Cancelar](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) na API REST dos Aplicativos Lógicos. Quando você envia uma chamada para o gatilho, forneça a [ID de execução do fluxo de trabalho](#workflow-run-id).
+Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância de execução de aplicativo lógico individual. Para cancelar um trabalho único, é possível usar [Execuções de fluxo de trabalho – Cancelar](/rest/api/logic/workflowruns/cancel) na API REST dos Aplicativos Lógicos. Quando você envia uma chamada para o gatilho, forneça a [ID de execução do fluxo de trabalho](#workflow-run-id).
 
 ## <a name="schedule-recurring-jobs"></a>Agendar trabalhos recorrentes
 
@@ -239,7 +239,7 @@ Se a assinatura do Azure tiver um plano de suporte pago, será possível criar u
 
 **Comunidade**
 
-* [Página de Perguntas e respostas da Microsoft para o serviço de Aplicativos Lógicos do Azure](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
+* [Página de Perguntas e respostas da Microsoft para o serviço de Aplicativos Lógicos do Azure](/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Próximas etapas

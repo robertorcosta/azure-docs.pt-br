@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83736493"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368784"
 ---
 # <a name="identity-protection-policies"></a>Políticas do Identity Protection
 
-O Azure Active Directory Identity Protection inclui três políticas padrão que os administradores podem habilitar. A personalização dessas políticas é limitada, mas são aplicáveis à maioria das organizações. Todas as políticas permitem a exclusão de usuários, como suas [contas de administrador de interrupção ou de acesso de emergência](../users-groups-roles/directory-emergency-access.md).
+O Azure Active Directory Identity Protection inclui três políticas padrão que os administradores podem habilitar. A personalização dessas políticas é limitada, mas são aplicáveis à maioria das organizações. Todas as políticas permitem a exclusão de usuários, como suas [contas de administrador de interrupção ou de acesso de emergência](../roles/security-emergency-access.md).
 
 ![Políticas do Identity Protection](./media/concept-identity-protection-policies/identity-protection-policies.png)
 

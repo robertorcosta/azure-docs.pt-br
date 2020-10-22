@@ -3,14 +3,14 @@ title: Como criar implantações de atualização para a automação do Azure Ge
 description: Este artigo descreve como agendar implantações de atualização e revisar seu status.
 services: automation
 ms.subservice: update-management
-ms.date: 10/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8b9b3df024839007a349d3a412de4a70ff3a1cd2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221958"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369685"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implantar atualizações e examinar os resultados
 
@@ -54,12 +54,12 @@ Para agendar uma nova implantação de atualização, execute as etapas a seguir
     > [!NOTE]
     > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O sistema operacional é identificado automaticamente.
 
-5. Na região **Grupos para atualizar (versão prévia)** , defina uma consulta que combina assinatura, grupos de recursos, locais e marcas para compilar um grupo dinâmico de VMs do Azure a ser incluído na implantação. Para saber mais, confira [Usar grupos dinâmicos com o Gerenciamento de Atualizações](configure-groups.md).
+5. Na região **grupos a serem atualizados** , defina uma consulta que combine assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure a serem incluídas na sua implantação. Para saber mais, confira [Usar grupos dinâmicos com o Gerenciamento de Atualizações](configure-groups.md).
 
     > [!NOTE]
     > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O computador é direcionado automaticamente para a implantação agendada.
 
-6. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md). Você pode incluir até um máximo de 500 computadores em uma implantação de atualização agendada.
+6. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md). Você pode incluir até um máximo de 1000 computadores em uma implantação de atualização agendada.
 
     > [!NOTE]
     > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O computador é direcionado automaticamente para a implantação agendada.
@@ -83,7 +83,7 @@ Para agendar uma nova implantação de atualização, execute as etapas a seguir
 
 10. Use a **recorrência** para especificar se a implantação ocorre uma vez ou usa um agendamento recorrente e, em seguida, selecione **OK**.
 
-11. Na região **Pré-scripts + pós-scripts (versão prévia)** , selecione os scripts a serem executados antes e após sua implantação. Para saber mais, confira [Gerenciar pré-scripts e pós-scripts](pre-post-scripts.md).
+11. Na região **pré-scripts + pós-scripts** , selecione os scripts a serem executados antes e depois da implantação. Para saber mais, confira [Gerenciar pré-scripts e pós-scripts](pre-post-scripts.md).
 
 12. Use o campo **Janelas de manutenção (minutos)** para especificar o tempo permitido para a instalação das atualizações. Considere os seguintes detalhes ao especificar uma janela de manutenção:
 
@@ -111,7 +111,7 @@ Para agendar uma nova implantação de atualização, execute as etapas a seguir
     > [!NOTE]
     > Quando você terminar de configurar a agenda de implantação para um servidor habilitado para Arc selecionado, selecione **examinar + criar**.
 
-15. Você é retornado ao painel de status. Selecione **agendamentos de implantação** para mostrar a agenda de implantação que você criou.
+15. Você é retornado ao painel de status. Selecione **agendamentos de implantação** para mostrar a agenda de implantação que você criou. São listados no máximo 500 agendamentos. Se você tiver mais de 500 agendas e desejar revisar a lista completa, consulte o método de API de [configuração de atualização de software – listar](/rest/api/automation/softwareupdateconfigurations/list) a versão 2019-06-01 ou superior.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Agendar uma implantação de atualização programaticamente
 

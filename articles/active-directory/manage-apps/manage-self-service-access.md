@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88640745"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362358"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicativo de autoatendimento
 
@@ -82,4 +82,4 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 Depois de concluir a configuração de aplicativo de autoatendimento, os usuários podem navegar para seus [meus aplicativos](https://myapps.microsoft.com/) e clicar no botão **adicionar aplicativos de autoatendimento** para localizar os aplicativos que são habilitados com acesso de autoatendimento. Os aprovadores de negócios também veem uma notificação em [meus aplicativos](https://myapps.microsoft.com/). Você pode habilitar um email que notifica a eles quando um usuário solicitar acesso a um aplicativo que requer sua aprovação.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](../users-groups-roles/groups-self-service-management.md)
+[Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](../enterprise-users/groups-self-service-management.md)

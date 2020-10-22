@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145408"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366489"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -44,7 +44,7 @@ Os termos de uso do Azure AD têm os seguintes recursos:
 - Exigir que os funcionários ou convidados aceitem seus termos de uso antes de registrar as informações de segurança na MFA (autenticação multifator do Azure).
 - Exigir que os funcionários aceitem seus termos de uso antes de registrar informações de segurança na redefinição de senha de autoatendimento (SSPR) do Azure AD.
 - Apresente os termos de uso gerais para todos os usuários em sua organização.
-- Apresentar termos de uso específicos com base em atributos de usuário (por exemplo, médicos, enfermeiras, funcionários locais ou internacionais, usando [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md)).
+- Apresentar termos de uso específicos com base em atributos de usuário (por exemplo, médicos, enfermeiras, funcionários locais ou internacionais, usando [grupos dinâmicos](../enterprise-users/groups-dynamic-membership.md)).
 - Apresente termos de uso específicos ao acessar aplicativos de alto impacto nos negócios, como o Salesforce.
 - Apresente os termos de uso em diferentes idiomas.
 - Liste quem tem ou não aceito para seus termos de uso.
@@ -253,7 +253,7 @@ A configuração **exigir que os usuários consentim em cada dispositivo** permi
 Segue uma lista dos softwares e plataformas com suporte.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outro |
+> |  | iOS | Android | Windows 10 | Outros |
 > | --- | --- | --- | --- | --- |
 > | **Aplicativo nativo** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |
