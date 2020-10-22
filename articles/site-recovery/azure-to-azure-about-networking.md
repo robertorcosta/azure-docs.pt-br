@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332035"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370433"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Necessário para autorização e autenticação para
 Ao usar o NSG para controlar a conectividade de saída, essas marcas de serviço precisam ser permitidas.
 
 - Para as contas de armazenamento na região de origem:
-    - Crie uma [marcação de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base na regra NSG para a região de origem.
+    - Crie uma [marcação de serviço de armazenamento](../virtual-network/network-security-groups-overview.md#service-tags) com base na regra NSG para a região de origem.
     - Permita esses endereços para que os dados possam ser gravados da VM para a conta de armazenamento de cache.
-- Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
+- Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
 - Crie uma regra de NSG baseada em marca de serviço EventsHub para a região de destino, permitindo o acesso ao monitoramento de Site Recovery.
 - Crie uma regra de NSG baseada em marca de serviço do AzureSiteRecovery para permitir acesso ao Site Recovery Service em qualquer região.
 - Crie uma regra de NSG baseada em marca de serviço do AzureKeyVault. Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal.

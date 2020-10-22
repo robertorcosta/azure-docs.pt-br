@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341255"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371062"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorar a identidade e acesso
 
@@ -56,7 +56,7 @@ Há algumas limitações para a identidade e as proteções de acesso da central
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Autenticação multifator (MFA) e Azure Active Directory 
 
-Habilitar a MFA requer [permissões de locatário do Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Habilitar a MFA requer [permissões de locatário do Azure AD](../active-directory/roles/permissions-reference.md).
 
 - Se você tiver uma edição Premium do AD, habilite a MFA com o [Acesso Condicional](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 - Se você estiver usando o AD Free Edition, habilite **os padrões de segurança** , conforme descrito na [documentação Azure Active Directory](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).

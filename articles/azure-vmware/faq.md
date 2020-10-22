@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 8868f86f0cf46ff82e37cd433d7b5bca0d69567d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bdc0bdb5966445fe98b2f65bce552fe6dca493ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078928"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368971"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -45,7 +45,7 @@ As integrações específicas e os casos de uso podem ser avaliados caso a caso.
 
 #### <a name="can-i-migrate-vsphere-vms-from-on-premises-environments-to-azure-vmware-solution-private-clouds"></a>Posso migrar VMs vSphere de ambientes locais para nuvens privadas da solução Azure VMware?
 
-Sim. A migração de VM e o vMotion podem ser usados para mover VMs para uma nuvem privada se [os requisitos](https://kb.vmware.com/s/article/210695) do vCenter VMotion padrão forem atendidos.
+Sim. A migração de VM e o vMotion podem ser usados para mover VMs para uma nuvem privada se [os requisitos](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) do vCenter VMotion padrão forem atendidos.
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>Uma versão específica do vSphere é necessária em ambientes locais?
 
@@ -80,7 +80,7 @@ Não, devido aos requisitos de largura de banda e latência.
 A bastiões do Azure é o serviço recomendado para se conectar à caixa de salto para evitar a exposição da solução Azure VMware à Internet. Você não pode usar a bastiões do Azure para se conectar às VMs da solução Azure VMware, pois elas não são objetos IaaS do Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Um gateway de ExpressRoute existente pode ser usado para se conectar à solução do Azure VMware?
-Sim, você pode usar um gateway de ExpressRoute existente para se conectar à solução do Azure VMware, desde que não exceda o limite de quatro circuitos de ExpressRoute por rede virtual.  No entanto, para acessar a solução Azure VMware do local por meio do ExpressRoute, você deve ter o ExpressRoute Alcance Global, pois o gateway de ExpressRoute não fornece roteamento transitivo entre seus circuitos conectados.
+Sim, você pode usar um gateway de ExpressRoute existente para se conectar à solução do Azure VMware, desde que não exceda o limite de quatro circuitos de ExpressRoute por rede virtual.  No entanto, para acessar a Solução VMware no Azure do local por meio do ExpressRoute, você precisa ter o Alcance Global do ExpressRoute, pois o gateway do ExpressRoute não fornece roteamento transitivo entre os circuitos conectados.
 
 ## <a name="compute-network-storage-and-backup"></a>Computação, rede, armazenamento e backup
 
@@ -277,7 +277,7 @@ Antes de criar o recurso da Solução VMware no Azure, você precisará enviar u
    Para conhecer outras maneiras de registrar o provedor de recursos, confira [Provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 <!-- LINKS - external -->
-[kb2106952]: https://kb.vmware.com/s/article/2106952
+[kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522
 
 <!-- LINKS - internal -->
 [Access and Identity Concepts]: concepts-identity.md

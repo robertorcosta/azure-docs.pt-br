@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usar o GitOps para configurar um cluster habilitado para Azure Arc (versão prévia)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Serviço de Kubernetes do Azure, contêineres
-ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714178"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371249"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implantar configurações usando o GitOps em um cluster kubernetes habilitado para Arc (visualização)
 
@@ -98,17 +98,16 @@ Confira a seguir os cenários que dão suporte para o valor do parâmetro reposi
 
 | Cenário | Formatar | Descrição |
 | ------------- | ------------- | ------------- |
-| Repositório GitHub privado – SSH | git@github.com:username/repo | Chaves SSH geradas pelo Flux.  O usuário deve adicionar a chave pública à conta do GitHub como chave de implantação. |
-| Repositório GitHub público | `http://github.com/username/repo` ou git://github.com/username/repo   | Repositório Git público  |
+| Repositório Git público | http [s]://Server/repo.git ou git://server/repo.git   | Repositório Git público  |
+| Repositório git privado – SSH – chaves criadas por fluxo | SSH://[user@] servidor/repositório. git ou [user@] servidor: repositório. git | A chave pública gerada pelo fluxo precisa ser adicionada à conta de usuário ou ao repositório em seu provedor de serviços do git. Encontre mais detalhes [aqui](#apply-configuration-from-a-private-git-repository) |
 
-Esses cenários têm suporte do Flux, mas ainda não do sourceControlConfiguration. 
+Esses cenários têm suporte pelo fluxo, mas ainda não pelo sourceControlConfiguration.
 
 | Cenário | Formatar | Descrição |
 | ------------- | ------------- | ------------- |
-| Repositório GitHub privado – HTTPS | `https://github.com/username/repo` | O Flux não gera chaves SSH.  [Instruções](https://docs.fluxcd.io/en/1.17.0/guides/use-git-https.html) |
-| Host do Git privado | user@githost:path/to/repo | [Instruções](https://docs.fluxcd.io/en/1.18.0/guides/use-private-git-host.html) |
-| Repositório GitHub privado – SSH (traga sua chave) | git@github.com:username/repo | [Usar suas chaves SSH](https://docs.fluxcd.io/en/1.17.0/guides/provide-own-ssh-key.html) |
-
+| Repositório git privado-HTTPS | https://server/repo.git | Em breve (dará suporte a nome de usuário/senha, nome de usuário/token, certificado) |
+| Repositório git privado-SSH – chaves fornecidas pelo usuário | SSH://[user@] servidor/repositório. git ou [user@] servidor: repositório. git | Em breve |
+| Host git privado – SSH – known_hosts personalizado | SSH://[user@] servidor/repositório. git ou [user@] servidor: repositório. git | Em breve |
 
 #### <a name="additional-parameters"></a>Parâmetros Adicionais
 
@@ -225,7 +224,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 **Adicionar a chave pública como uma chave de implantação ao repositório git**
 
-1. Abra o GitHub, navegue até o fork, abra **Configurações** e clique em **Implantar chaves**
+1. Abra o GitHub, navegue até seu repositório, para **configurações**e, em seguida, para **implantar chaves**
 2. Clique em **Adicionar chave de implantação**
 3. Forneça um título
 4. Marque **permitir acesso de gravação**

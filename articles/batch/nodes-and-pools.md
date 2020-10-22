@@ -2,13 +2,13 @@
 title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385748"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371436"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -26,7 +26,7 @@ Todos os nós de computação no Lote também incluem:
 
 - Uma [estrutura de pastas](files-and-directories.md) padrão e as [variáveis de ambiente](jobs-and-tasks.md) associadas disponíveis para a referência por tarefas.
 - **firewall** que são definidas para controlar o acesso.
-- [Acesso remoto](error-handling.md#connect-to-compute-nodes) para os nós do Windows (Remote Desktop Protocol (RDP)) e do Linux (Secure Shell (SSH)).
+- [Acesso remoto](error-handling.md#connect-to-compute-nodes) para os nós do Windows (protocolo RDP (RDP)) e do Linux (Secure Shell (SSH)) (a menos que você [crie seu pool com acesso remoto desabilitado](pool-endpoint-configuration.md)).
 
 Por padrão, os nós podem se comunicar entre si, mas não podem se comunicar com máquinas virtuais que não fazem parte do mesmo pool. Para permitir que os nós se comuniquem com segurança com outras máquinas virtuais, ou com uma rede local, você pode provisionar o pool [em uma sub-rede de uma VNet (rede virtual) do Azure](batch-virtual-network.md). Quando você fizer isso, os nós poderão ser acessados por meio de endereços IP públicos. Esses endereços IP públicos são criados pelo lote e podem ser alterados durante o tempo de vida do pool. Você também pode [criar um pool com endereços IP públicos estáticos](create-pool-public-ip.md) que você controla, o que garante que eles não serão alterados inesperadamente.
 

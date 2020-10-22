@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d794716fe1f4717acbabfd90643b72c682e475bc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400682"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370586"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerenciar sua conta do marketplace comercial no Partner Center
 
@@ -170,7 +170,7 @@ Para adicionar usuários à conta do Partner Center que já existe na [conta cor
 
 ### <a name="create-new-users"></a>Criar usuários
 
-Para criar contas de usuário totalmente novas, você deve ter uma conta com permissões de [**Administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para criar contas de usuário totalmente novas, você deve ter uma conta com permissões de [**Administrador global**](../../active-directory/roles/permissions-reference.md).
 
 1. Acesse **Usuários** (em **Configurações de conta**), selecione **Adicionar usuários** e, em seguida, escolha **Criar usuários**.
 1. Insira um nome, o sobrenome e o nome de usuário para cada novo usuário. 
@@ -184,7 +184,7 @@ A criação de um usuário no Partner Center também criará uma conta para esse
 
 ### <a name="invite-new-users-by-email"></a>Convidar novos usuários por email
 
-Para convidar usuários que atualmente não fazem parte de sua conta corporativa (locatário do Azure AD) por email, você deve ter uma conta com permissões de [**Administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para convidar usuários que atualmente não fazem parte de sua conta corporativa (locatário do Azure AD) por email, você deve ter uma conta com permissões de [**Administrador global**](../../active-directory/roles/permissions-reference.md).
 
 1. Acesse **Usuários** (em **Configurações de conta**), selecione **Adicionar usuários** e, em seguida, escolha **Convidar usuários por email**.
 2. Insira um ou mais endereços de email (até 10), separados por vírgulas ou pontos-e-vírgulas.
@@ -204,7 +204,7 @@ Para remover um usuário de sua conta corporativa (locatário do Azure AD), aces
 
 ### <a name="change-a-user-password"></a>Alterar uma senha de usuário
 
-Se um dos seus usuários precisar alterar a senha, ele poderá fazê-lo se você tiver fornecido um **Email de recuperação de senha** ao criar a conta de usuário. Você também pode atualizar a senha de um usuário seguindo as etapas abaixo. Para alterar a senha de um usuário em sua conta corporativa (locatário do Azure AD), você deve estar conectado em uma conta com permissões de [**Administrador global**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). Isso alterará a senha do usuário em seu locatário do Azure AD, juntamente com a senha que eles usam para acessar o Partner Center.
+Se um dos seus usuários precisar alterar a senha, ele poderá fazê-lo se você tiver fornecido um **Email de recuperação de senha** ao criar a conta de usuário. Você também pode atualizar a senha de um usuário seguindo as etapas abaixo. Para alterar a senha de um usuário em sua conta corporativa (locatário do Azure AD), você deve estar conectado em uma conta com permissões de [**Administrador global**](../../active-directory/roles/permissions-reference.md). Isso alterará a senha do usuário em seu locatário do Azure AD, juntamente com a senha que eles usam para acessar o Partner Center.
 
 1. Na página **Usuários** (em **Configurações de conta**), selecione o nome da conta de usuário que você deseja editar.
 2. Selecione o botão **Redefinir senha** na parte inferior da página.
@@ -237,7 +237,7 @@ Para adicionar um grupo totalmente novo à sua conta do Partner Center:
 4. Especifique as funções ou as permissões personalizadas para o grupo. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplicar aqui, independentemente das funções/permissões associadas a cada conta individual.
 5. Selecione usuário(s) para o novo grupo na lista que aparecerá. Você pode usar a caixa de pesquisa para procurar usuários específicos.
 6. Quando terminar de selecionar usuários, selecione **Adicionar selecionado** para adicioná-los ao novo grupo.
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 Esse novo grupo será criado na conta corporativa da sua organização (locatário do Azure AD) também, não apenas na sua conta do Partner Center.
 

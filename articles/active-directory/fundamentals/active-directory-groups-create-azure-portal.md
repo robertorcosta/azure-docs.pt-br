@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dcbd8618dc0f2bae2eacc9ced67869d8209286a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e4533334204a3a1cfd46ff27b04ff0c05350dfc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565517"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371844"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Criar um grupo básico e adicionar membros usando o Azure Active Directory
-Você pode criar um grupo básico usando o portal do Azure AD (Azure Active Directory). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam acessar o recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regra, confira a [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).
+Você pode criar um grupo básico usando o portal do Azure AD (Azure Active Directory). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam acessar o recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regra, confira a [documentação de gerenciamento de usuário do Azure Active Directory](../enterprise-users/index.yml).
 
 ## <a name="group-and-membership-types"></a>Tipos de grupo e associação
 Há vários tipos de grupo e associação. As informações a seguir explicam cada tipo de grupo e associação e por que eles são usados, para ajudar você a decidir quais opções usar ao criar um grupo.
@@ -36,7 +36,7 @@ Há vários tipos de grupo e associação. As informações a seguir explicam ca
 - **Dispositivo dinâmico.** Permite o uso de regras de grupo dinâmico para adicionar e remover dispositivos automaticamente. Se os atributos de um dispositivo mudarem, o sistema examinará suas regras de grupo dinâmico para que o diretório verifique se o dispositivo atende aos requisitos da regra (é adicionado) ou não mais atende aos requisitos de regras (é removido).
 
     > [!IMPORTANT]
-    > Você pode criar um grupo dinâmico para dispositivos ou usuários, mas não para ambos. Você também não pode criar um grupo de dispositivos com base em atributos dos proprietários do dispositivo. Regras de associação de dispositivo só podem fazer referência a atributos do dispositivo. Para obter mais informações sobre como criar um grupo dinâmico para usuários e dispositivos, confira [Criar um grupo dinâmico e verificar o status](../users-groups-roles/groups-create-rule.md)
+    > Você pode criar um grupo dinâmico para dispositivos ou usuários, mas não para ambos. Você também não pode criar um grupo de dispositivos com base em atributos dos proprietários do dispositivo. Regras de associação de dispositivo só podem fazer referência a atributos do dispositivo. Para obter mais informações sobre como criar um grupo dinâmico para usuários e dispositivos, confira [Criar um grupo dinâmico e verificar o status](../enterprise-users/groups-create-rule.md)
 
 ## <a name="create-a-basic-group-and-add-members"></a>Criar um grupo básico e adicionar membros
 Você pode criar um grupo básico e adicionar seus membros ao mesmo tempo. Para criar um grupo básico e adicionar membros, use o seguinte procedimento:
@@ -81,5 +81,5 @@ Quando qualquer novo grupo de Microsoft 365 é criado, seja com associação din
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gerenciar acesso a aplicativos SaaS usando grupos](../users-groups-roles/groups-saasapps.md)
-- [Gerenciar grupos usando comandos do PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Gerenciar acesso a aplicativos SaaS usando grupos](../enterprise-users/groups-saasapps.md)
+- [Gerenciar grupos usando comandos do PowerShell](../enterprise-users/groups-settings-v2-cmdlets.md)

@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e9eeca39dfbbefd36c9662aa0fc8b16d2c804158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ef3347b6f22d623571c8fe9cc8b156bfd92c411
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252979"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282560"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos do .NET para a API do SQL
 
@@ -53,7 +53,7 @@ Uma assinatura do Azure ou uma conta de avaliação gratuita do Cosmos DB
 > 
 
 ## <a name="database-examples"></a>Exemplos de banco de dados
-O método [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) do projeto *DatabaseManagement* de amostra mostra como executar as tarefas a seguir. Para saber mais sobre bancos de dados do Azure Cosmos antes de executar as amostras a seguir, confira [Trabalhar com bancos de dados, contêineres e itens](databases-containers-items.md). 
+O método [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) do projeto *DatabaseManagement* de amostra mostra como executar as tarefas a seguir. Para saber mais sobre bancos de dados do Azure Cosmos antes de executar as amostras a seguir, confira [Trabalhar com bancos de dados, contêineres e itens](account-databases-containers-items.md). 
 
 | Tarefa | Referência de API |
 | --- | --- |
@@ -63,7 +63,7 @@ O método [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blo
 | [Excluir um banco de dados](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L89) |[DocumentClient.DeleteDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## <a name="collection-examples"></a>Exemplos de coleção
-O método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) do projeto *CollectionManagement* de amostra mostra como executar as tarefas a seguir. Para saber mais sobre as coleções do Azure Cosmos antes de executar as amostras a seguir, confira [Trabalhar com bancos de dados, contêineres e itens](databases-containers-items.md). 
+O método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) do projeto *CollectionManagement* de amostra mostra como executar as tarefas a seguir. Para saber mais sobre as coleções do Azure Cosmos antes de executar as amostras a seguir, confira [Trabalhar com bancos de dados, contêineres e itens](account-databases-containers-items.md). 
 
 | Tarefa | Referência de API |
 | --- | --- |
@@ -74,7 +74,7 @@ O método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/b
 | [Excluir uma coleção](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## <a name="document-examples"></a>Exemplos de documento
-O método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) do projeto *DocumentManagement* de amostra mostra como executar as tarefas a seguir. Para saber mais sobre os documentos do Azure Cosmos antes de executar as amostras a seguir, confira [Trabalhar com bancos de dados, contêineres e itens](databases-containers-items.md). 
+O método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) do projeto *DocumentManagement* de amostra mostra como executar as tarefas a seguir. Para saber mais sobre os documentos do Azure Cosmos antes de executar as amostras a seguir, confira [Trabalhar com bancos de dados, contêineres e itens](account-databases-containers-items.md). 
 
 | Tarefa | Referência de API |
 | --- | --- |

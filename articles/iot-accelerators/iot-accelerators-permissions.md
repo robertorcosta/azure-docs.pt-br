@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447415"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370603"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Usar o site azureiotsolutions.com para implementar o acelerador de solução
 
@@ -38,7 +38,7 @@ Antes de poder implantar um acelerador de solução, você deverá entrar no Azu
 
 As permissões para implantar aceleradores de solução, gerenciar usuários e gerenciar serviços do Azure dependem da sua função no diretório selecionado. As funções comuns do Azure AD associadas aos aceleradores de solução incluem:
 
-* **Administrador global**: pode haver muitos [administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) por locatário do Azure AD:
+* **Administrador global**: pode haver muitos [administradores globais](../active-directory/roles/permissions-reference.md) por locatário do Azure AD:
 
   * Ao criar um locatário do Azure AD, você será, por padrão, o administrador global desse locatário.
   * O administrador global pode implantar aceleradores de solução padrão e básico.

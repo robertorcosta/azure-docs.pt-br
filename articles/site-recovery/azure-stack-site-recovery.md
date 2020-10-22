@@ -3,12 +3,12 @@ title: Replicar VMs do Azure Stack no Azure usando Azure Site Recovery | Microso
 description: Saiba como configurar a recuperação de desastre para VMs do Azure Stack com o serviço do Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448963"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370518"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
@@ -38,7 +38,7 @@ Com essas etapas concluídas, será possível executar um failover completo no A
 
 ![O diagrama mostra cofres dos serviços de recuperação para dois locatários em nuvens associadas a assinaturas de locatário em uma infraestrutura de Azure Stack comum.](./media/azure-stack-site-recovery/architecture.png)
 
-**Localidade** | **Componente** |**Detalhes**
+**Local** | **Componente** |**Detalhes**
 --- | --- | ---
 **Servidor de configuração** | Funciona em uma única VM do Azure Stack. | Em cada assinatura, você configura uma VM do servidor de configuração. Essa VM executa os seguintes componentes do Site Recovery:<br/><br/> - Servidor de configuração: coordena as comunicações entre o local e o Azure e gerencia a replicação de dados. - Servidor de processo: atua como um gateway de replicação. Ele recebe dados de replicação, otimiza com cache, compactação e criptografia e envia para o armazenamento do Azure.<br/><br/> Se as VMs que você quer replicar excederem os limites indicados abaixo, você poderá configurar um servidor de processo independente separado. [Saiba mais](vmware-azure-set-up-process-server-scale.md).
 **Serviço de mobilidade** | Instalado em cada VM que você quer replicar. | Nas etapas deste artigo, preparamos uma conta para que o serviço de Mobilidade seja instalado automaticamente em uma VM quando a replicação estiver habilitada. Se você não quiser instalar o serviço automaticamente, há vários outros métodos que poderão ser utilizados. [Saiba mais](vmware-azure-install-mobility-service.md).
@@ -186,7 +186,7 @@ Agora instale o servidor de configuração:
 > [!NOTE]
 > O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
 >
-> Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **Servidores de Configuração** > ***nome do servidor*** > **Atualizar Servidor**.
+> Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, selecione **servidores de configuração**  >  **_nome do servidor_*_ > _* atualizar servidor**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Etapa 4: Configurar o ambiente de origem
 
@@ -282,7 +282,7 @@ Quando você executar um failover de teste, acontecerá o seguinte:
 
 Execute um failover de teste para uma VM, conforme a seguir:
 
-1. Em **configurações**  >  **itens replicados**, clique na VM > **+ failover de teste**.
+1. Em **Configurações** > **Itens Replicados**, clique na VM > **+Failover de Teste**.
 2. Para este passo a passo, selecionaremos para usar o ponto de recuperação **Mais recente processado**.
 3. No **Failover de Teste**, selecione a rede do Azure de destino.
 4. Clique em **OK** para iniciar o failover.
@@ -314,7 +314,7 @@ Em seguida, execute um failover conforme a seguir:
 
 ### <a name="fail-back-to-azure-stack"></a>Failback do Azure Stack
 
-Quando o site primário estiver ativo e em execução novamente, será possível fazer o fail back do Azure para o Azure Stack. Para fazer isso, siga as etapas listadas [aqui](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
+Quando o site primário estiver ativo e em execução novamente, será possível fazer o fail back do Azure para o Azure Stack. Para fazer isso, siga as etapas listadas [aqui](/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Conclusão
 
@@ -323,4 +323,3 @@ Neste artigo, replicamos as VMs do Azure Stack no Azure. Com a replicação em v
 ## <a name="next-steps"></a>Próximas etapas
 
 Após o failback, será possível proteger novamente a VM e começar a replicá-la no Azure novamente e, para fazer isso, repita as etapas deste artigo.
-

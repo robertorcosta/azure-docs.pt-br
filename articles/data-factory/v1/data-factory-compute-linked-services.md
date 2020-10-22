@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f584ba1021e9cc66454e3aebd7f51b34e72885f5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438816"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369175"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes de computação com suporte do Azure Data Factory versão 1
 > [!NOTE]
@@ -30,7 +30,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Lote do Azure](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning Studio (clássico)](#azure-machine-learning-studio-classic-linked-service) | [Atividades de estúdio (clássicas): execução em lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
@@ -230,7 +230,7 @@ Esse tipo de configuração tem suporte para os ambientes de computação a segu
 
 * Azure HDInsight
 * Lote do Azure
-* Azure Machine Learning
+* Azure Machine Learning Studio (clássico)
 * Análise Azure Data Lake
 * Banco de dados SQL do Azure, Azure Synapse Analytics (anteriormente SQL Data Warehouse), SQL Server
 
@@ -311,8 +311,8 @@ Outra opção é fornecer a ponta de extremidade **batchUri**. Por exemplo:
 | poolName          | O nome do pool de máquinas virtuais.    | Sim      |
 | linkedServiceName | O nome do serviço vinculado de armazenamento associado a este Lote de serviço vinculado. Esse serviço vinculado é usado para arquivos de preparo que são necessários para executar a atividade e para armazenar logs de execução da atividade. | Sim      |
 
-## <a name="azure-machine-learning-linked-service"></a>Serviço vinculado do Azure Machine Learning
-Você pode criar um serviço vinculado do Machine Learning para registrar um ponto de extremidade de pontuação do lote do Machine Learning a uma fábrica de dados.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Serviço vinculado do Azure Machine Learning Studio (clássico)
+Você pode criar um serviço vinculado de Azure Machine Learning Studio (clássico) para registrar um ponto de extremidade de Pontuação de lote (clássico) de estúdio em um data factory.
 
 ### <a name="example"></a>Exemplo
 

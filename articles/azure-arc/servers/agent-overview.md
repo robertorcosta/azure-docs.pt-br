@@ -3,12 +3,12 @@ title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 344bd2c801cb21932b35bcdfdcc38cc3fa73783b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102975"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370161"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -118,21 +118,21 @@ Os servidores habilitados do Azure Arc dependem dos seguintes provedores de recu
 
 Se não estiverem registrados, você poderá registrá-los usando os seguintes comandos:
 
-Azure PowerShell:
+Azure PowerShell:
 
 ```azurepowershell-interactive
 Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
 ```
 
-CLI do Azure:
+CLI do Azure:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 Você também pode registrar os provedores de recursos no portal do Azure seguindo as etapas no [portal do Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
@@ -203,7 +203,7 @@ Após a instalação do agente do Connected Machine para Windows, serão aplicad
 
 * Durante a desinstalação do agente, os artefatos a seguir não são removidos.
 
-    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
+    * *%ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent e subdiretórios
     * %ProgramData%\GuestConfig
 
