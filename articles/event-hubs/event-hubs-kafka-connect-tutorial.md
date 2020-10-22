@@ -3,12 +3,12 @@ title: Integrar-se com o Apache Kafka Connect – Hubs de Eventos do Azure | Mic
 description: Este artigo fornece informações sobre como usar o Kafka Connect com os hubs de eventos do Azure para Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: b063bb36ec17c22c0f093f1b33f11597eed5ea68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37d2465d9389a0bcfaabdec32bad0c86846cfb2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061658"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369532"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrar o suporte do Apache Kafka Connect aos Hubs de Eventos do Azure (versão prévia)
 Conforme as necessidades de ingestão das empresas vai aumentando, também vai aumentando a necessidade de fazer a ingestão em vários coletores e fontes externas. O [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fornece essa estrutura para conectar e importar/exportar dados de ou para qualquer sistema externo, como o MySQL, o HDFS e o sistema de arquivos, por meio de um cluster do Kafka. Este tutorial orienta você pelo uso da estrutura do Kafka Connect com hubs de eventos.
@@ -90,6 +90,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para obter instruções sobre como obter a cadeia de conexão, consulte [obter uma cadeia de conexão de hubs de eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ## <a name="run-kafka-connect"></a>Executar o Kafka Connect
 

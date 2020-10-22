@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489894"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216582"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Compartilhar dados usando o Azure Data Share  
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 ### <a name="share-from-a-storage-account"></a>Compartilhar de uma conta de armazenamento:
 
-* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](../storage/common/storage-account-create.md)
 * Permissão para gravar na conta de armazenamento, que está presente em *Microsoft.Storage/storageAccounts/write*. Essa permissão existe na função Colaborador.
 * Permissão para adicionar uma atribuição de função à conta de armazenamento, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função Proprietário. 
 
@@ -141,4 +141,4 @@ O Azure Data Share agora foi criado e o destinatário de seu Compartilhamento de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar um Azure Data Share e convidar destinatários. Para saber mais sobre como um Consumidor de Dados pode aceitar e receber um compartilhamento de dados, prossiga para o tutorial [Aceitar e receber dados](subscribe-to-data-share.md). 
+Neste tutorial, você aprendeu a criar um Azure Data Share e convidar destinatários. Para saber mais sobre como um Consumidor de Dados pode aceitar e receber um compartilhamento de dados, prossiga para o tutorial [Aceitar e receber dados](subscribe-to-data-share.md).

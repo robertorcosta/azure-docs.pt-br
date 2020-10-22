@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f3e965b1141bb7cf49b191c828b7dd0f3ed3fba8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 623ad70572683103edb0a824830be6bbba6c8c35
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278355"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369039"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Amostras de modelo do Resource Manager para regras de alerta de log no Azure Monitor
 Este artigo inclui amostras de [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar alertas de consultas de log no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
@@ -36,7 +36,7 @@ A amostra a seguir cria uma [regra de alerta de número de resultados](../platfo
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Resource ID of the Log Analytisc workspace."
+                "description": "Resource ID of the Log Analytics workspace."
             }
         },
         "location": {

@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662515"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369787"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Como o Azure AD fornece gerenciamento regido na nuvem para cargas de trabalho locais
 
@@ -107,7 +107,7 @@ As organizações precisam de um processo para gerenciar o acesso que é escalon
 
 Em geral, a IT delega as decisões de aprovação de acesso aos tomadores de decisão empresariais. Além disso, a IT pode envolver os próprios usuários. Por exemplo, os usuários que acessam os dados confidenciais do cliente no aplicativo de marketing da empresa na Europa precisam conhecer as políticas da empresa. Os usuários convidados também podem estar cientes dos requisitos de manipulação de dados em uma organização para a qual foram convidados.
 
-As organizações podem automatizar o processo de ciclo de vida de acesso por meio de tecnologias como [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md), juntamente com o provisionamento de usuário para [aplicativos SaaS](../saas-apps/tutorial-list.md)ou [aplicativos integrados usando o sistema para o padrão scim (gerenciamento de identidade entre domínios](../app-provisioning/use-scim-to-provision-users-and-groups.md)). As organizações também podem controlar quais [usuários convidados têm acesso a aplicativos locais](../external-identities/hybrid-cloud-to-on-premises.md). Esses direitos de acesso podem então ser revisados regularmente usando [revisões de acesso do Azure AD](../governance/access-reviews-overview.md) recorrentes.
+As organizações podem automatizar o processo de ciclo de vida de acesso por meio de tecnologias como [grupos dinâmicos](../enterprise-users/groups-dynamic-membership.md), juntamente com o provisionamento de usuário para [aplicativos SaaS](../saas-apps/tutorial-list.md)ou [aplicativos integrados usando o sistema para o padrão scim (gerenciamento de identidade entre domínios](../app-provisioning/use-scim-to-provision-users-and-groups.md)). As organizações também podem controlar quais [usuários convidados têm acesso a aplicativos locais](../external-identities/hybrid-cloud-to-on-premises.md). Esses direitos de acesso podem então ser revisados regularmente usando [revisões de acesso do Azure AD](../governance/access-reviews-overview.md) recorrentes.
 
 ## <a name="future-directions"></a>Direções futuras
 

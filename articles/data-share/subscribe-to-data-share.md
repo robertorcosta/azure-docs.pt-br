@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489911"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216565"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando o Azure Data Share  
 
@@ -34,7 +34,7 @@ Cumpra todos os pré-requisitos antes de aceitar um convite de compartilhamento 
 
 ### <a name="receive-data-into-a-storage-account"></a>Receber dados para uma conta de armazenamento: 
 
-* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Uma conta de Armazenamento do Azure: Se você não tiver uma, poderá criar uma [conta de Armazenamento do Azure](../storage/common/storage-account-create.md). 
 * Permissão para gravar na conta de armazenamento, que está presente em *Microsoft.Storage/storageAccounts/write*. Essa permissão existe na função Colaborador. 
 * Permissão para adicionar uma atribuição de função à conta de armazenamento, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função Proprietário.  
 
@@ -62,7 +62,7 @@ Cumpra todos os pré-requisitos antes de aceitar um convite de compartilhamento 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Receba os dados em um cluster do Azure Data Explorer: 
 
-* Um cluster do Azure Data Explorer no mesmo data center do Azure que o cluster do Data Explorer do provedor de dados: Se você não tiver, poderá criar um [cluster do Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal). Se você não conhecer o data center do Azure do cluster do provedor de dados, poderá criá-lo posteriormente no processo.
+* Um cluster do Azure Data Explorer no mesmo data center do Azure que o cluster do Data Explorer do provedor de dados: Se você não tiver, poderá criar um [cluster do Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal). Se você não conhecer o data center do Azure do cluster do provedor de dados, poderá criá-lo posteriormente no processo.
 * Permissão para gravar no cluster do Azure Data Explorer, que está presente em *Microsoft.Kusto/clusters/write*. Essa permissão existe na função Colaborador. 
 * Permissão para adicionar uma atribuição de função ao cluster do Azure Data Explorer, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função Proprietário. 
 

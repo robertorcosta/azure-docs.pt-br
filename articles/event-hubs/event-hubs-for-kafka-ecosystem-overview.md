@@ -3,12 +3,12 @@ title: Usar um hub de eventos do aplicativo Apache Kafka – Hubs de Eventos do 
 description: Este artigo fornece informações sobre a compatibilidade do Apache Kafka com os Hubs de Eventos do Azure.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 2b101adf173f3d623bb85d811ba5832020313f14
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327290"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369583"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usar Hubs de Eventos do Azure de aplicativos Apache Kafka
 Os hubs de eventos fornecem um ponto de extremidade compatível com o Apache Kafka® as APIs de produtor e consumidor que podem ser usadas pela maioria dos aplicativos cliente Apache Kafka existentes como uma alternativa à execução de seu próprio cluster Apache Kafka. Os hubs de eventos dão suporte aos clientes de produtor e APIs de consumidor do Apache Kafka na versão 1,0 e posteriores.
@@ -62,7 +62,7 @@ Os hubs de eventos do Azure fornecem várias opções para autorizar o acesso ao
 #### <a name="oauth-20"></a>OAuth 2.0
 Os hubs de eventos se integram com o Azure Active Directory (Azure AD), que fornece um servidor de autorização centralizada compatível com **OAuth 2,0** . Com o Azure AD, você pode usar o Azure RBAC (controle de acesso baseado em função) para conceder permissões refinadas às suas identidades de cliente. Você pode usar esse recurso com os clientes do Kafka especificando **SASL_SSL** para o protocolo e  **OAUTHBEARER** para o mecanismo. Para obter detalhes sobre as funções e os níveis do Azure para o acesso ao escopo, consulte [autorizar o acesso com o Azure ad](authorize-access-azure-active-directory.md).
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=OAUTHBEARER
@@ -73,15 +73,19 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
 #### <a name="shared-access-signature-sas"></a>SAS (Assinatura de Acesso Compartilhado)
 Os hubs de eventos também fornecem as **SAS (assinaturas de acesso compartilhado)** para acesso delegado aos hubs de eventos para recursos Kafka. A autorização de acesso usando o mecanismo baseado em token do OAuth 2,0 fornece segurança superior e facilidade de uso sobre SAS. As funções internas também podem eliminar a necessidade de autorização baseada em ACL, que deve ser mantida e gerenciada pelo usuário. Você pode usar esse recurso com os clientes do Kafka especificando **SASL_SSL** para o protocolo e **sem formatação** para o mecanismo. 
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
+> [!IMPORTANT]
+> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para obter instruções sobre como obter a cadeia de conexão, consulte [obter uma cadeia de conexão de hubs de eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 > [!NOTE]
 > Ao usar a autenticação SAS com clientes Kafka, as conexões estabelecidas não são desconectadas quando a chave SAS é regenerada. 
+
 
 #### <a name="samples"></a>Exemplos 
 Para obter um **tutorial** com as instruções detalhadas para criar um hub de eventos e acessá-lo usando SAS ou OAuth, consulte [início rápido: streaming de dados com hubs de eventos usando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).

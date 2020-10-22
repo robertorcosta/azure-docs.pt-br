@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2222c1d5e434e1c51cb66c2c5943badd58f95af9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0b360b2c32de685124113da526461f53e52b7a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84013020"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369906"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Índice de artigos "controles de segurança internos" para serviços do Azure
 
@@ -23,19 +23,8 @@ Este índice fornece links para artigos de "controles de segurança internos". U
 
 Os artigos de controle de segurança internos estão disponíveis para os seguintes serviços:
 
-- [Gerenciamento da API](../../api-management/api-management-security-controls.md)
+
 - [Serviço de Aplicativo do Azure](../../app-service/app-service-security-controls.md)
 - [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
-- [Serviço de Backup do Azure](../../backup/backup-security-controls.md)
-- [Hubs de eventos do Azure](../../event-hubs/event-hubs-security-controls.md)
-- [Azure ExpressRoute](../../expressroute/expressroute-security-controls.md)
-- [Azure Load Balancer](../../load-balancer/load-balancer-security-controls.md)
-- [Messaging do Barramento de Serviço do Azure](../../service-bus-messaging/service-bus-messaging-security-controls.md)
 - [Retransmissão do Barramento de Serviço do Azure](../../service-bus-relay/service-bus-relay-security-controls.md)
-- [Azure Service Fabric](../../service-fabric/service-fabric-security-controls.md)
 - [Azure Spring Cloud](../../spring-cloud/spring-cloud-concept-security-controls.md)
-- [Banco de Dados SQL do Azure](../../azure-sql/database/security-controls.md)
-- [Conjuntos de dimensionamento de máquina virtual do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
-- [Máquinas Virtuais do Linux](../../virtual-machines/linux/virtual-machines-linux-security-controls.md)
-- [Máquinas Virtuais do Windows](../../virtual-machines/windows/virtual-machines-windows-security-controls.md)
-- [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-security-controls.md)

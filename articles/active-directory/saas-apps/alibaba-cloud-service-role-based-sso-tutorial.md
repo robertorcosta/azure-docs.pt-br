@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ffaad77a34be66d06f8f0033731d0496e444e52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9e4e45cdefc9342ec5727bae8ea10fe133df1627
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715878"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318835"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Alibaba Cloud Service (SSO baseado em função)
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Alibaba Cloud Service (SSO baseado
 * Permitir que os usuários sejam conectados automaticamente ao Alibaba Cloud Service (SSO baseado em função) com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,7 +94,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!Note]
     > Se os valores de **Identificador** e **URL de Resposta** não forem populados automaticamente, preencha-os manualmente de acordo com suas necessidades.
 
-1. O Alibaba Cloud Service (SSO baseado em função) exige que as funções sejam configuradas no Azure AD. A declaração de função é pré-configurada, portanto, você não precisa configurá-la, mas ainda precisará criá-la no Azure AD usando este [artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+1. O Alibaba Cloud Service (SSO baseado em função) exige que as funções sejam configuradas no Azure AD. A declaração de função é pré-configurada, portanto, você não precisa configurá-la, mas ainda precisará criá-la no Azure AD usando este [artigo](../develop/active-directory-enterprise-app-role-management.md).
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -250,11 +250,10 @@ Depois que as configurações anteriores forem concluídas, teste o Alibaba Clou
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o Alibaba Cloud Service (SSO baseado em função) com o Azure AD](https://aad.portal.azure.com/)
-

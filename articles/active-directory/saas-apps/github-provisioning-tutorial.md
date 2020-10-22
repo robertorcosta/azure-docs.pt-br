@@ -2,20 +2,20 @@
 title: 'Tutorial: provisionamento de usuário para GitHub-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o GitHub.
 services: active-directory
-author: ArvindHarinder1
+author: Zhchia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: article
-ms.date: 03/27/2019
-ms.author: arvinh
-ms.openlocfilehash: 847c69a18a73d67b9b994e72686a4073ddd6d27f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.author: Zhchia
+ms.openlocfilehash: 5f48cd0056d40ed7dc5c99c4260621533c1f71f0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857527"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369073"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para provisionamento automático de usuário
 
@@ -77,7 +77,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 8. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção “Enviar uma notificação por email quando ocorrer uma falha”.
 
-9. Clique em **Salvar**.
+9. Clique em **Save** (Salvar).
 
 10. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o GitHub**.
 
@@ -85,7 +85,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 12. Para habilitar o serviço de provisionamento do Azure AD no GitHub, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-13. Clique em **Salvar**.
+13. Clique em **Save** (Salvar).
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao GitHub na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento.
 

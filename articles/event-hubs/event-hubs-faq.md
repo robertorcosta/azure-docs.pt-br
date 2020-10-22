@@ -3,12 +3,12 @@ title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ddfbf0803ea7ab53b1b42b977a9ebdd2354bc5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729093"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369600"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -132,7 +132,7 @@ bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.p
 
 Exemplo:
 
-bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
+Bootstrap. Servers = dummynamespace. ServiceBus. Windows. net: 9093 solicitação. Timeout. ms = 60000 Security. Protocol = SASL_SSL SASL. mecanismo = PLAIN sasl.jaas.config= Web. Apache. Kafka. Common. Security. Plain. PlainLoginModule necessário username = "$ConnectionString" password = "Endpoint = SB://dummynamespace.ServiceBus.Windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = XXXXXXXXXXXXXXXXXXXXX ";
 
 Observação: Se sasl.jaas.config não for uma configuração compatível com sua estrutura, localize as configurações usadas para definir o nome de usuário e a senha SASL e use-os em vez disso. Defina o nome de usuário como $ConnectionString e a senha para sua cadeia de conexão de Hubs de Eventos.
 
@@ -274,9 +274,9 @@ Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Como é possível direcionar uma versão específica do SDK do armazenamento do Azure ao usar o armazenamento de BLOBs do Azure como um armazenamento de ponto de verificação?
-Se executar esse código no Azure Stack Hub, você verá erros de runtime, a menos que direcione uma versão de API de Armazenamento específica. Isso ocorre porque o SDK dos Hubs de Eventos usa a API do Armazenamento do Microsoft Azure mais recente disponível no Azure, que pode não estar disponível em sua plataforma do Azure Stack Hub. O Azure Stack Hub pode dar suporte a uma versão diferente do SDK do Armazenamento de Blobs do que aquelas normalmente disponíveis no Azure. Se estiver usando o Armazenamento de Blobs do Azure como um armazenamento de ponto de verificação, verifique a [versão da API do Armazenamento do Azure com suporte de seu build do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e tenha como destino essa versão em seu código. 
+Se você executar esse código no Azure Stack Hub, haverá erros de runtime, a menos que você direcione uma versão específica da API de Armazenamento. Isso ocorre porque o SDK dos Hubs de Eventos usa a última API de Armazenamento do Azure disponível no Azure que talvez não esteja disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub poderá dar suporte a uma versão diferente do SDK do Storage Blob do que aquelas normalmente disponíveis no Azure. Se estiver usando o Armazenamento de Blobs do Azure como um repositório de pontos de verificação, verifique a [versão da API do Armazenamento do Azure com suporte para o build do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e tenha como destino essa versão no código. 
 
-Por exemplo, se a execução estiver sendo feita no Azure Stack Hub versão 2005, a versão mais alta disponível para o serviço de Armazenamento será a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2019-02-02 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte os exemplos a seguir para C#, Java, Python e JavaScript/TypeScript.  
+Por exemplo, se a execução estiver sendo feita no Azure Stack Hub versão 2005, a versão mais recente disponível para o serviço de Armazenamento será a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais recente disponível no Azure (2019-07-07, no momento da liberação do SDK). Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2019-02-02 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte os exemplos a seguir para C#, Java, Python e JavaScript/TypeScript.  
 
 Para obter um exemplo de como direcionar uma versão de API de armazenamento específica do seu código, consulte os seguintes exemplos no GitHub: 
 

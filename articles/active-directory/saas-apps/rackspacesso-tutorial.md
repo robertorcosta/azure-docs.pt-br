@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 991201429bdc09a03ddc46c5beb9d0f4d6744ed5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548867"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Azure Active Directory ao Rackspace SSO
 
@@ -101,11 +101,11 @@ Para configurar o logon único do Microsoft Azure AD com o Rackspace SSO, siga a
 
     a. Clique em **Carregar arquivo de metadados**.
 
-    ![image](common/upload-metadata.png)
+    ![A captura de tela mostra a Configuração Básica do SAML com o link Carregar arquivo de metadados.](common/upload-metadata.png)
 
     b. Clique no **logotipo da pasta** para selecionar o arquivo de metadados e depois em **Carregar**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![A captura de tela mostra a caixa de diálogo em que você pode selecionar e carregar um arquivo.](common/browse-upload-metadata.png)
 
     c. Depois que o arquivo de metadados tiver sido carregado com êxito, as URLs necessárias são automaticamente preenchidas.
 
