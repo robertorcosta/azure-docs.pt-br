@@ -62,8 +62,6 @@
       items:
         - name: Linha de base de segurança
           href: security-baseline.md
-        - name: Controles de segurança interna
-          href: api-management-security-controls.md
     - name: Assinaturas
       href: api-management-subscriptions.md
     - name: Versões
@@ -160,6 +158,8 @@
       items:
         - name: Entender o portal do desenvolvedor
           href: api-management-howto-developer-portal.md
+        - name: Migrar do portal preterido para o novo portal do desenvolvedor
+          href: developer-portal-deprecated-migration.md
         - name: Autenticar com o Azure AD
           href: api-management-howto-aad.md
         - name: Autenticar com o Azure AD B2C
@@ -170,13 +170,13 @@
           href: api-management-howto-configure-notifications.md
         - name: Habilitar suporte ao console OAuth
           href: api-management-howto-oauth2.md
-        - name: Portal herdado – personalizar o portal
+        - name: Portal preterido ⁠– personalizar o portal
           href: api-management-customize-styles.md
-        - name: Portal herdado – modificar páginas e layouts
+        - name: Portal preterido ⁠– modificar páginas e layouts
           href: api-management-modify-content-layout.md
-        - name: Portal herdado – personalizar com modelos
+        - name: Portal preterido ⁠– personalizar com modelos
           href: api-management-developer-portal-templates.md
-    - name: Modelos de portal herdado
+    - name: Modelos do portal preterido
       items:
         - name: Referência de modelo de dados
           href: api-management-template-data-model-reference.md

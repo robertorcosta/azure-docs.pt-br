@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e5885e076222cd23ba127f3be41c1218f327ca0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971015"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92379753"
 ---
-- Cada identidade gerenciada é contabilizada com relação ao limite de cota de objeto em um locatário do Azure AD, conforme descrito em [Limites e restrições de serviço do Azure AD](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).
+- Cada identidade gerenciada é contabilizada com relação ao limite de cota de objeto em um locatário do Azure AD, conforme descrito em [Limites e restrições de serviço do Azure AD](../articles/active-directory/enterprise-users/directory-service-limits-restrictions.md).
 -   A taxa em que as identidades gerenciadas podem ser criadas tem os seguintes limites:
 
     1. Por Locatário do Azure AD por região do Azure: 200 operações de criação por 20 segundos.
