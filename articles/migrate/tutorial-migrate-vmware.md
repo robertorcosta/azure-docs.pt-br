@@ -4,12 +4,12 @@ description: Saiba como executar uma migração sem agente de VMs VMware com as 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530515"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310628"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMs VMware para o Azure (sem agente)
 
@@ -36,8 +36,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Antes de iniciar este tutorial, você deverá:
 
-1. [Concluir o primeiro tutorial](tutorial-prepare-vmware.md) para preparar o Azure e o VMware para migração.
-2. É recomendável que você conclua o segundo tutorial para [avaliar as VMs VMware](tutorial-assess-vmware.md) antes de migrá-las para o Azure, mas isso não é obrigatório. 
+1. [Concluir o primeiro tutorial](./tutorial-discover-vmware.md) para preparar o Azure e o VMware para migração.
+2. É recomendável que você conclua o segundo tutorial para [avaliar as VMs VMware](./tutorial-assess-vmware-azure-vm.md) antes de migrá-las para o Azure, mas isso não é obrigatório. 
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Adicionar a ferramenta Migração de Servidor das Migrações para Azure
@@ -59,7 +59,7 @@ Se você ainda não configurou um projeto das Migrações para Azure, [faça iss
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o dispositivo das Migrações para Azure
 
-A Migração de Servidor das Migrações para Azure executa um dispositivo de VM VMware leve que é usado para descoberta, avaliação e migração sem agente de VMs VMware. Se você tiver seguido o [tutorial de avaliação](tutorial-assess-vmware.md), já terá definido o dispositivo. Se você não tiver feito isso, configure-o agora, usando um destes métodos:
+A Migração de Servidor das Migrações para Azure executa um dispositivo de VM VMware leve que é usado para descoberta, avaliação e migração sem agente de VMs VMware. Se você tiver seguido o [tutorial de avaliação](./tutorial-assess-vmware-azure-vm.md), já terá definido o dispositivo. Se você não tiver feito isso, configure-o agora, usando um destes métodos:
 
 - **Modelo OVA**: [Configurar](how-to-set-up-appliance-vmware.md) em uma VM do VMware usando um modelo OVA baixado.
 - **Script**: [configurar](deploy-appliance-script.md) em uma VM do VMware ou computador físico usando um script do instalador do PowerShell. Esse método deverá ser usado se você não puder configurar uma VM usando um modelo OVA ou se você estiver no Azure Government.
@@ -210,7 +210,7 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar as VMs do Azure em uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para aumentar a segurança:
     - Bloqueie e limite o acesso ao tráfego de entrada com a [Central de Segurança do Azure – Administração just-in-time](../security-center/security-center-just-in-time.md).
-    - Restrinja o tráfego de rede a pontos de extremidade com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Restrinja o tráfego de rede a pontos de extremidade com os [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).
     - Implante o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para manter os discos em segurança e proteger os dados contra roubo e acesso não autorizado.
     - Leia mais sobre [como proteger recursos IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e acesse a [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitoramento e gerenciamento:

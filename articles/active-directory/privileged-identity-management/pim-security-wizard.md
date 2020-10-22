@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534430"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372422"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Descoberta e insights (visualização) para funções do Azure AD (anteriormente conhecido como assistente de segurança)
 
@@ -29,7 +29,7 @@ Se você estiver começando com o PIM (Privileged Identity Management) em sua or
 
 Antes que sua organização comece a usar Privileged Identity Management, todas as atribuições de função são permanentes. Os usuários sempre estão em suas funções atribuídas mesmo quando não precisam de seus privilégios. A descoberta e as informações (versão prévia), que substitui o antigo assistente de segurança, mostra uma lista de funções privilegiadas e quantos usuários estão atualmente nessas funções. Você pode listar as atribuições de uma função para saber mais sobre os usuários atribuídos se um ou mais deles não forem familiares.
 
-: heavy_check_mark: a **Microsoft recomenda** que você mantenha duas contas de vidro de interrupção que são atribuídas permanentemente à função de administrador global. Verifique se essas contas não exigem o mesmo mecanismo de autenticação multifator que suas contas administrativas normais para entrar, conforme descrito em [gerenciar contas de acesso de emergência no Azure ad](../users-groups-roles/directory-emergency-access.md).
+: heavy_check_mark: a **Microsoft recomenda** que você mantenha duas contas de vidro de interrupção que são atribuídas permanentemente à função de administrador global. Verifique se essas contas não exigem o mesmo mecanismo de autenticação multifator que suas contas administrativas normais para entrar, conforme descrito em [gerenciar contas de acesso de emergência no Azure ad](../roles/security-emergency-access.md).
 
 Além disso, mantenha as atribuições de função permanentes se um usuário tiver um conta Microsoft (em outras palavras, uma conta que use para entrar nos serviços da Microsoft, como o Skype ou Outlook.com). Se você precisar de autenticação multifator para um usuário com um conta Microsoft para ativar uma atribuição de função, o usuário será bloqueado.
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e13fe634db49dcc3f015eb90410c3b7753c8363
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: df1285145d0e8b04bf743a3967099d27d1195269
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318056"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362783"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar as Novidades no Azure Active Directory?
 
@@ -183,7 +183,7 @@ A partir de agora, os clientes que têm locatários gratuitos podem acessar os [
 **Categoria de serviço:** gerenciamento de grupo  
 **Recurso de produto:** colaboração
 
-Para fornecer uma maneira mais flexível para os clientes criarem grupos de todo o diretório que melhor atendam às suas necessidades, substituímos a opção **grupos de todo o diretório** das configurações gerais dos **grupos**  >  **General** na portal do Azure com um link para a [documentação do grupo dinâmico](../users-groups-roles/groups-dynamic-membership.md). Aperfeiçoamos nossa documentação para incluir mais instruções para que os administradores possam criar grupos de todos os usuários que incluem ou excluem usuários convidados.
+Para fornecer uma maneira mais flexível para os clientes criarem grupos de todo o diretório que melhor atendam às suas necessidades, substituímos a opção **grupos de todo o diretório** das configurações gerais dos **grupos**  >  **General** na portal do Azure com um link para a [documentação do grupo dinâmico](../enterprise-users/groups-dynamic-membership.md). Aperfeiçoamos nossa documentação para incluir mais instruções para que os administradores possam criar grupos de todos os usuários que incluem ou excluem usuários convidados.
 
 ---
 
@@ -739,7 +739,7 @@ Para obter mais informações, consulte [Atualizar para o modelo de cobrança de
 
 Em outubro de 2019, adicionamos estes 35 novos aplicativos com suporte de Federação à galeria de aplicativos:
 
-[Em caso de crise – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://prd.salestim.io/forms), [Learnster](../saas-apps/learnster-tutorial.md), [Dynatrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](../saas-apps/freshworks-tutorial.md), [eCornell](../saas-apps/ecornell-tutorial.md), [ShipHazmat](../saas-apps/shiphazmat-tutorial.md), [Netskope Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [Contentful](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US](https://www.hirevue.com/), [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org](../saas-apps/visitorg-tutorial.md), [Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](../saas-apps/paylocity-tutorial.md), [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speaking Email for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Speaking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
+[Em caso de crise – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://www.salestim.com/), [Learnster](../saas-apps/learnster-tutorial.md), [Dynatrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](../saas-apps/freshworks-tutorial.md), [eCornell](../saas-apps/ecornell-tutorial.md), [ShipHazmat](../saas-apps/shiphazmat-tutorial.md), [Netskope Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [Contentful](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US](https://www.hirevue.com/), [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org](../saas-apps/visitorg-tutorial.md), [Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](../saas-apps/paylocity-tutorial.md), [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speaking Email for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Speaking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
 
 Para obter mais informações sobre os aplicativos, consulte [integração de aplicativos SaaS com o Active Directory do Azure](../saas-apps/tutorial-list.md). Para obter mais informações sobre como listar seu aplicativo na galeria de aplicativos do Azure AD, consulte [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
@@ -774,7 +774,7 @@ A política de expiração dos grupos do Office 365 foi aprimorada para renovar 
 
 Esse aprimoramento ajuda a reduzir as notificações de expiração do grupo e garantir que os grupos ativos continuem disponíveis. Se já houver uma política de expiração ativa para seus grupos do Office 365, você não precisará fazer nada para ativar essa nova funcionalidade.
 
-Para obter mais informações, consulte [Configurar a política de expiração para grupos do Office 365](../users-groups-roles/groups-lifecycle.md).
+Para obter mais informações, consulte [Configurar a política de expiração para grupos do Office 365](../enterprise-users/groups-lifecycle.md).
 
 ---
 
@@ -822,7 +822,7 @@ Temos o prazer de anunciar a disponibilidade de visualização pública das expe
 
 - Baixar a lista de membros do grupo para um grupo específico.
 
-Para obter mais informações, consulte [Adicionar membros em massa](../users-groups-roles/groups-bulk-import-members.md), [Remover membros em massa](../users-groups-roles/groups-bulk-remove-members.md), [Lista de membros de download em massa](../users-groups-roles/groups-bulk-download-members.md)e [Lista de grupos de download em massa](../users-groups-roles/groups-bulk-download.md).
+Para obter mais informações, consulte [Adicionar membros em massa](../enterprise-users/groups-bulk-import-members.md), [Remover membros em massa](../enterprise-users/groups-bulk-remove-members.md), [Lista de membros de download em massa](../enterprise-users/groups-bulk-download-members.md)e [Lista de grupos de download em massa](../enterprise-users/groups-bulk-download.md).
 
 ---
 
@@ -861,7 +861,7 @@ A função Leitor global funciona com a Central do Administrador do Microsoft 36
 >[!NOTE]
 > No início da visualização pública, a função de Leitor global não funcionará com: SharePoint, Privileged Access Management, Sistema de Proteção de Dados do Cliente, rótulos de confidencialidade, Teams Lifecycle, Teams Reporting & Call Analytics, Teams IP Phone Device Management e Teams App Catalog.
 
-Para obter mais informações, consulte [Permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Para obter mais informações, consulte [Permissões da função de administrador no Azure Active Directory](../roles/permissions-reference.md).
 
 ---
 
@@ -941,7 +941,7 @@ Para obter mais informações, consulte [Gerenciar grupos no portal do Azure](./
 
 **Tipo:** Nova **categoria de serviço** de recursos: recurso de produto de funções do Azure ad **:** controle de acesso
 
-As funções personalizadas (disponíveis com uma assinatura P1 ou P2 do Azure Active Directory) agora podem ajudar a fornecer acesso detalhado, permitindo criar definições de função com permissões específicas e, em seguida, atribuir essas funções a recursos específicos. No momento, você cria funções personalizadas usando permissões para gerenciar registros de aplicativo e, em seguida, atribui a função a um aplicativo específico. Para obter mais informações sobre funções personalizadas, consulte [Funções Administrador personalizadas no Azure Active Directory (versão prévia)](../users-groups-roles/roles-custom-overview.md).
+As funções personalizadas (disponíveis com uma assinatura P1 ou P2 do Azure Active Directory) agora podem ajudar a fornecer acesso detalhado, permitindo criar definições de função com permissões específicas e, em seguida, atribuir essas funções a recursos específicos. No momento, você cria funções personalizadas usando permissões para gerenciar registros de aplicativo e, em seguida, atribui a função a um aplicativo específico. Para obter mais informações sobre funções personalizadas, consulte [Funções Administrador personalizadas no Azure Active Directory (versão prévia)](../roles/custom-overview.md).
 
 Se precisar de permissões ou recursos adicionais com suporte indisponíveis no momento, você poderá enviar comentários para nosso [site de comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) e adicionaremos sua solicitação ao nosso roteiro de atualização.
 
@@ -1044,7 +1044,7 @@ Novas atualizações para os módulos PowerShell AzureAD e AzureADPreview estão
 
 Fizemos algumas melhorias na interface do usuário no construtor de regras de grupo dinâmico, disponível na portal do Azure, para facilitar a configuração de uma nova regra ou a alteração das regras existentes. Essa melhoria de design permite criar regras com até cinco expressões, em vez de apenas uma. Também atualizamos a lista de propriedades do dispositivo para remover as que foram preteridas.
 
-Para obter mais informações, consulte [Gerenciar regras de associação dinâmica](../users-groups-roles/groups-dynamic-membership.md).
+Para obter mais informações, consulte [Gerenciar regras de associação dinâmica](../enterprise-users/groups-dynamic-membership.md).
 
 ---
 
@@ -1530,7 +1530,7 @@ Você pode configurar uma política de nomenclatura para grupos do Office 365 de
 
 - Carregar um conjunto personalizado de palavras bloqueadas para sua organização, que não são permitidas em nomes de grupos (por exemplo, "CEO, Folha de pagamento, RH").
 
-Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](../users-groups-roles/groups-naming-policy.md).
+Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1594,7 +1594,7 @@ Você pode configurar uma política de nomenclatura para grupos do Office 365 de
 
 - Carregar um conjunto personalizado de palavras bloqueadas para sua organização, que não são permitidas em nomes de grupos (por exemplo, "CEO, Folha de pagamento, RH").
 
-Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](../users-groups-roles/groups-naming-policy.md).
+Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1740,7 +1740,7 @@ Para obter mais informações para proteger melhor sua organização com o provi
 
 Agora você pode exibir e gerenciar seus grupos excluídos do Office 365 no portal do Azure Active Directory. Essa alteração ajuda a ver quais grupos estão disponíveis para restauração, além de permitir excluir permanentemente todos os grupos que não são necessários para sua organização.
 
-Para obter mais informações, consulte [Restaurar grupos expirados ou excluídos](../users-groups-roles/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
+Para obter mais informações, consulte [Restaurar grupos expirados ou excluídos](../enterprise-users/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
 
 ---
 
@@ -2097,7 +2097,7 @@ Para obter mais informações sobre como usar o aplicativo Microsoft Authenticat
 
 Os administradores podem atribuir usuários à nova função Administrador de Dispositivo de Nuvem para executar tarefas de administrador de dispositivo de nuvem. Os usuários que recebem a função Administradores de Dispositivo de Nuvem podem habilitar, desabilitar e excluir dispositivos no Azure AD, além de poder ler as chaves do BitLocker do Windows 10 (se houver) no portal do Azure.
 
-Para obter mais informações sobre funções e permissões, confira [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+Para obter mais informações sobre funções e permissões, confira [Atribuindo funções de administrador no Azure Active Directory](../roles/permissions-reference.md)
 
 ---
 
@@ -2226,7 +2226,7 @@ Temos o prazer de anunciar que agora você pode usar o domínio ForceDelete API 
 
 Essa alteração ajuda você a excluir mais rapidamente seus nomes de domínio personalizados se sua organização não usar mais o nome ou se você precisar usar o nome de domínio com outro AD do Azure.
 
-Para obter mais informações, consulte [Excluir um nome de domínio personalizado](../users-groups-roles/domains-manage.md#delete-a-custom-domain-name).
+Para obter mais informações, consulte [Excluir um nome de domínio personalizado](../enterprise-users/domains-manage.md#delete-a-custom-domain-name).
 
 ---
 
@@ -2246,7 +2246,7 @@ As funções são:
 
 - Administrador de usuários
 
-Para obter mais informações, consulte [Criar um grupo dinâmico e verificar o status](../users-groups-roles/groups-create-rule.md)
+Para obter mais informações, consulte [Criar um grupo dinâmico e verificar o status](../enterprise-users/groups-create-rule.md)
 
 ---
 
@@ -2303,7 +2303,7 @@ A nova guia **Solução de problemas e Suporte** na página **Entradas** do port
 
 Com essa atualização, agora você pode clicar no link **Obter propriedades de extensão personalizadas** no construtor de regra dinâmico de grupo dos usuários, inserir sua ID do aplicativo exclusiva e receber a lista completa das propriedades de extensão personalizadas para usar ao criar uma regra de associação dinâmica para usuários. Essa lista também pode ser atualizada para obter as novas propriedades de extensão personalizadas do aplicativo.
 
-Para obter mais informações sobre como usar propriedades de extensão personalizadas para regras de associação dinâmica, consulte [Propriedades de extensão e propriedades de extensão personalizadas](../users-groups-roles/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
+Para obter mais informações sobre como usar propriedades de extensão personalizadas para regras de associação dinâmica, consulte [Propriedades de extensão e propriedades de extensão personalizadas](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
 
 ---
 
@@ -2807,7 +2807,7 @@ Os administradores agora podem delegar tarefas de gerenciamento de aplicativos s
 
     - **Proprietário do aplicativo corporativo.** Concede a capacidade de gerenciar muitos aspectos de aplicativos corporativos próprios, incluindo configurações de SSO, designações de aplicativos e consentimento (exceto para recursos do Azure AD).
 
-Para obter mais informações sobre a visualização pública, consulte as [funções de gerenciamento de aplicativos delegados do Azure AD em pré-visualização pública!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. Para obter mais informações sobre funções e permissões, consulte [Atribuindo funções de administrador no Active Directory do Azure](../users-groups-roles/directory-assign-admin-roles.md).
+Para obter mais informações sobre a visualização pública, consulte as [funções de gerenciamento de aplicativos delegados do Azure AD em pré-visualização pública!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. Para obter mais informações sobre funções e permissões, consulte [Atribuindo funções de administrador no Active Directory do Azure](../roles/permissions-reference.md).
 
 ---
 
@@ -3254,7 +3254,7 @@ Para obter mais informações, consulte: [Personalizando a lista de atributos de
 É possível alterar como a associação é gerida em um grupo. Isso é útil quando você quer manter o mesmo ID e nome de grupo no sistema, então, todas as referências existentes no grupo ainda serão válidas; criar um novo grupo exigiria atualizar essas referências.
 Atualizamos o centro de administração do Azure AD para oferecer suporte a essa funcionalidade. Agora, os clientes podem converter grupos existentes de associação dinâmica para associação atribuída e vice-versa. Os cmdlets do PowerShell existentes também ainda estão disponíveis.
 
-Para obter mais informações, consulte [Regras de associação dinâmica para grupos no Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+Para obter mais informações, consulte [Regras de associação dinâmica para grupos no Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ---
 

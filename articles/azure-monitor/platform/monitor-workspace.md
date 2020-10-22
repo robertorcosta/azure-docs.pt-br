@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: a4f578ca2e9fc448fb85b803cce46974a8c2e4dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325966"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372252"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorar a integridade do espaço de trabalho de Log Analytics no Azure Monitor
 Para manter o desempenho e a disponibilidade do seu espaço de trabalho do Log Analytics no Azure Monitor, você precisa ser capaz de detectar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorar a integridade do seu espaço de trabalho do Log Analytics usando dados na tabela de [operações](/azure-monitor/reference/tables/operation) . Essa tabela está incluída em todos os Log Analytics espaço de trabalho e contém erros e avisos que ocorrem em seu espaço de trabalho. Você deve examinar esses dados regularmente e criar alertas para que sejam notificados proativamente quando houver incidentes importantes em seu espaço de trabalho.
@@ -55,19 +55,19 @@ As operações de ingestão são problemas ocorridos durante a ingestão de dado
 |:---|:---|:---|:---|
 | Log personalizado | Erro   | Limite de colunas de campos personalizados atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Log personalizado | Erro   | Falha na ingestão de logs personalizados. | |
-| Log personalizado | Erro   | Metadata. | |
-| Dados | Erro   | Os dados foram descartados porque a solicitação foi criada antes do número de dias definidos. | [Gerenciar o uso e os custos com logs do Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Metadata. | Erro | Erro de configuração detectado. | |
+| Coleta de dados | Erro   | Os dados foram descartados porque a solicitação foi criada antes do número de dias definidos. | [Gerenciar o uso e os custos com logs do Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Coleta de dados | Info    | A configuração da máquina de coleta foi detectada.| |
 | Coleta de dados | Info    | Coleta de dados iniciada devido ao novo dia. | [Gerenciar o uso e os custos com logs do Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Coleta de dados | Aviso | A coleta de dados foi interrompida devido a um limite diário atingido.| [Gerenciar o uso e os custos com logs do Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Processamento de dados | Erro   | Formato JSON inválido. | [Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)](data-collector-api.md#request-body) | 
+| Processamento de dados | Aviso | O valor foi cortado para o tamanho máximo permitido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Processamento de dados | Aviso | Valor de campo cortado como limite de tamanho atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Taxa de ingestão | Info | O limite de taxa de ingestão está se aproximando de 70%. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Taxa de ingestão | Aviso | Limite de taxa de ingestão que está se aproximando do limite. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Taxa de ingestão | Erro   | Limite de taxa atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Análise de JSON | Erro   | Formato JSON inválido. | [Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)](data-collector-api.md#request-body) | 
-| Análise de JSON | Aviso | O valor foi cortado para o tamanho máximo permitido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Limite máximo de tamanho de coluna | Aviso | Valor de campo cortado como limite de tamanho atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Armazenamento | Erro   | Não é possível acessar a conta de armazenamento porque as credenciais usadas são inválidas.  |
-| Tabela   | Erro   | Limite máximo de campo personalizado atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces)|
+
 
 
    
@@ -91,21 +91,32 @@ Para criar uma regra de alerta para uma operação específica, use uma consulta
 
 O exemplo a seguir cria um alerta de aviso quando a taxa de volume de ingestão atingiu 80% do limite.
 
-```kusto
-_LogsOperation
-| where Category == "Ingestion"
-| where Operation == "Ingestion rate"
-| where Level == "Warning"
-```
+- Destino: Selecione seu espaço de trabalho Log Analytics
+- Critérios:
+  - Nome do sinal: Pesquisa de logs personalizada
+  - Consulta de pesquisa: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+  - Baseado em: Número de resultados
+  - Condição: Maior que
+  - Limite: 0
+  - Período: 5 (minutos)
+  - Frequência: 5 (minutos)
+- Nome da regra de alerta: Limite diário de dados atingido
+- Gravidade: Aviso (Sev 1)
+
 
 O exemplo a seguir cria um alerta de aviso quando a coleta de dados atingiu o limite diário. 
-```kusto
-Operation 
-| where OperationCategory == "Ingestion" 
-|where OperationKey == "Data Collection" 
-| where OperationStatus == "Warning"
-```
 
+- Destino: Selecione seu espaço de trabalho Log Analytics
+- Critérios:
+  - Nome do sinal: Pesquisa de logs personalizada
+  - Consulta de pesquisa: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - Baseado em: Número de resultados
+  - Condição: Maior que
+  - Limite: 0
+  - Período: 5 (minutos)
+  - Frequência: 5 (minutos)
+- Nome da regra de alerta: Limite diário de dados atingido
+- Gravidade: Aviso (Sev 1)
 
 
 

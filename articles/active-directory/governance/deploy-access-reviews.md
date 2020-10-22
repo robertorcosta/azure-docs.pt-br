@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318123"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362692"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
 
@@ -198,7 +198,7 @@ A função administrativa necessária para criar, gerenciar ou ler uma revisão 
 | Pacote de acesso| Administrador global<p>Criador do pacote de acesso| Somente administrador global |
 
 
-Para obter mais informações, consulte [Permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Para obter mais informações, consulte [Permissões da função de administrador no Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>Quem vai revisar o acesso ao recurso?
 
@@ -343,7 +343,7 @@ Você pode [usar as revisões de acesso do Azure ad para gerenciar usuários exc
 
 ### <a name="review-external-users-group-memberships"></a>Examinar as associações de grupo do usuário externo
 
-Para minimizar o trabalho manual e os possíveis erros associados, considere o uso de [grupos dinâmicos](../users-groups-roles/groups-create-rule.md) para atribuir a associação de grupo com base nos atributos de um usuário. Talvez você queira criar um ou mais grupos dinâmicos para usuários externos. O patrocinador interno pode agir como um revisor para associação no grupo. 
+Para minimizar o trabalho manual e os possíveis erros associados, considere o uso de [grupos dinâmicos](../enterprise-users/groups-create-rule.md) para atribuir a associação de grupo com base nos atributos de um usuário. Talvez você queira criar um ou mais grupos dinâmicos para usuários externos. O patrocinador interno pode agir como um revisor para associação no grupo. 
 
 Observação: usuários externos que são removidos de um grupo como o resultado de uma revisão de acesso não são excluídos do locatário. 
 
@@ -389,7 +389,7 @@ As revisões de acesso podem ser de membros de um grupo ou usuários que foram a
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Revisão do plano do Azure AD e das funções de recurso do Azure
 
-O [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure AD. Isso mantém a lista de funções privilegiadas, tanto no [Azure ad](../users-groups-roles/directory-assign-admin-roles.md) quanto em [recursos do Azure](../../role-based-access-control/built-in-roles.md) muito menores e aumenta a segurança geral do diretório.
+O [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure AD. Isso mantém a lista de funções privilegiadas, tanto no [Azure ad](../roles/permissions-reference.md) quanto em [recursos do Azure](../../role-based-access-control/built-in-roles.md) muito menores e aumenta a segurança geral do diretório.
 
 As revisões de acesso permitem que os revisores atestam se os usuários ainda precisam estar em uma função. Assim como as revisões de acesso para pacotes de acesso, as revisões para funções do Azure AD e recursos do Azure são integradas à experiência do usuário de administrador do PIM. Recomendamos que você revise as seguintes atribuições de função regularmente:
 

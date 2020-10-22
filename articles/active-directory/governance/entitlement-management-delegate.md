@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75965fc9719c9ba16ee7fe24a23dfd4693f8afe0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979880"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362545"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções no gerenciamento de direitos do Azure AD
 
@@ -92,7 +92,7 @@ Além disso, um Aprovador designado e um solicitante de um pacote de acesso tamb
 
 A tabela a seguir lista as tarefas que as funções de gerenciamento de direitos podem executar.
 
-| Tarefa | Administrador | Criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso | Gerenciador de atribuição de pacotes de acesso |
+| Tarefa | Admin | Criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso | Gerenciador de atribuição de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Delegar a um criador de catálogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [Adicionar uma organização conectada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
@@ -124,20 +124,20 @@ Para um usuário que não seja um administrador global ou um administrador de us
 
 | Função do diretório do Azure Active Directory | Função de gerenciamento de direitos | Pode adicionar grupo de segurança | Pode adicionar Microsoft 365 grupo | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Administrador global](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Administrador do usuário](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Administrador do Intune](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Administrador do Exchange](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
-| [Administrador de serviços de equipes](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
-| [Administrador do SharePoint](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Administrador de aplicativos](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
-| [Administrador de aplicativos de nuvem](../users-groups-roles/directory-assign-admin-roles.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
+| [Administrador global](../roles/permissions-reference.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Administrador de usuários](../roles/permissions-reference.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Administrador do Intune](../roles/permissions-reference.md) | Proprietário do catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Administrador do Exchange](../roles/permissions-reference.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
+| [Administrador de serviços de equipes](../roles/permissions-reference.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
+| [Administrador do SharePoint](../roles/permissions-reference.md) | Proprietário do catálogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Administrador de aplicativos](../roles/permissions-reference.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
+| [Administrador de aplicativos de nuvem](../roles/permissions-reference.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
 | Usuário | Proprietário do catálogo | Somente se o proprietário do grupo | Somente se o proprietário do grupo | Somente se o proprietário do aplicativo |  |
 
 > [!NOTE]
-> Se um usuário adicionar um grupo de segurança ou grupo de Microsoft 365, o grupo não poderá ser atribuído à função. Se o usuário adicionar um grupo que é atribuído por função ao criar o pacote de acesso, ele também deverá ser o proprietário desse grupo de função atribuível. Para obter mais informações, consulte [criar um grupo de função-atribuível no Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
+> Se um usuário adicionar um grupo de segurança ou grupo de Microsoft 365, o grupo não poderá ser atribuído à função. Se o usuário adicionar um grupo que é atribuído por função ao criar o pacote de acesso, ele também deverá ser o proprietário desse grupo de função atribuível. Para obter mais informações, consulte [criar um grupo de função-atribuível no Azure Active Directory](../roles/groups-create-eligible.md).
 
-Para determinar a função com privilégios mínimos para uma tarefa, você também pode referenciar [funções de administrador por tarefa de administrador no Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
+Para determinar a função com privilégios mínimos para uma tarefa, você também pode referenciar [funções de administrador por tarefa de administrador no Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
 ## <a name="next-steps"></a>Próximas etapas
 

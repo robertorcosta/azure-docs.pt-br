@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181707"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372456"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como usar o acesso de aplicativo de autoatendimento
 
@@ -67,4 +67,4 @@ Essas aprovações dão suporte a fluxos de trabalho de aprovação únicos, o q
 -   Se o acesso ao aplicativo de autoatendimento foi configurado recentemente, tente entrar e sair novamente nos meus aplicativos do usuário após alguns minutos para ver se as alterações de acesso de autoatendimento foram exibidas.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](../users-groups-roles/groups-self-service-management.md)
+[Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](../enterprise-users/groups-self-service-management.md)

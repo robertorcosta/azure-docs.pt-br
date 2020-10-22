@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892885"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088662"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implantar o Azure Spring Cloud na rede virtual do Azure (injeção de VNet)
 
@@ -27,7 +27,7 @@ A implantação permite:
 * Autorização de clientes para controlar comunicações de rede de entrada e saída para o Azure Spring Cloud
 
 ## <a name="prerequisites"></a>Prerequisites
-Você deve registrar o provedor de recursos `Microsoft.AppPlatform` do Azure Spring Cloud de acordo com as instruções em [Registrar Provedor de Recursos no portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) ou executando o seguinte comando az da CLI:
+Você deve registrar o provedor de recursos `Microsoft.AppPlatform` do Azure Spring Cloud de acordo com as instruções em [Registrar Provedor de Recursos no portal do Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) ou executando o seguinte comando az da CLI:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908001"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362885"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (versão prévia)
 
@@ -45,7 +45,7 @@ Com a federação direta, os usuários convidados usam as respectivas contas org
 ## <a name="limitations"></a>Limitações
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domínios verificados por DNS no Azure AD
-O domínio com o qual você deseja federar ***não*** pode ser verificado por DNS no Azure AD. Você tem permissão para configurar a federação direta com locatários do Azure AD não gerenciados (com verificação por email ou "viral") porque eles não são verificados por DNS.
+O domínio com o qual você deseja federar deve ***não**_ ser verificado pelo DNS no Azure AD. Você tem permissão para configurar a federação direta com locatários do Azure AD não gerenciados (com verificação por email ou "viral") porque eles não são verificados por DNS.
 
 ### <a name="authentication-url"></a>URL de autenticação
 A federação direta só é permitida para políticas em que o domínio da URL de autenticação corresponde ao domínio de destino ou onde a URL de autenticação é um desses provedores de identidade permitidos (essa lista está sujeita a alterações):
@@ -60,7 +60,7 @@ A federação direta só é permitida para políticas em que o domínio da URL d
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Por exemplo, ao configurar a federação direta para **fabrikam.com**, a URL de autenticação `https://fabrikam.com/adfs` passará na validação. Um host no mesmo domínio também passará, por exemplo `https://sts.fabrikam.com/adfs`. No entanto, a URL de autenticação `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` para o mesmo domínio não passará.
+Por exemplo, ao configurar a Federação direta para _ * fabrikam. com * *, a URL de autenticação `https://fabrikam.com/adfs` passará a validação. Um host no mesmo domínio também passará, por exemplo `https://sts.fabrikam.com/adfs`. No entanto, a URL de autenticação `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` para o mesmo domínio não passará.
 
 ### <a name="signing-certificate-renewal"></a>Renovação de certificado de autenticação
 Se você especificar a URL de metadados nas configurações do provedor de identidade, o Azure AD renovará automaticamente o certificado de autenticação quando ele expirar. No entanto, se a rotação do certificado for realizada por qualquer motivo antes da hora de expiração ou se você não fornecer uma URL de metadados, o Azure AD não poderá renová-lo. Nesse caso, você precisará atualizar o certificado de autenticação manualmente.
@@ -73,7 +73,7 @@ Atualmente, a federação direta com vários domínios do mesmo locatário não 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Posso configurar a federação direta com um domínio para o qual existe um locatário não gerenciado (verificado por email)? 
-Sim. Se o domínio não tiver sido verificado e o locatário não tiver passado por uma [tomada de controle do administrador](../users-groups-roles/domains-admin-takeover.md), você poderá configurar a federação direta com esse domínio. Os locatários não gerenciados, ou verificados por email, são criados quando um usuário resgata um convite B2B ou executa uma inscrição por autoatendimento para o Azure AD usando um domínio que não existe atualmente. Você pode configurar a federação direta com esses domínios. Se você tentar configurar a federação direta com um domínio verificado por DNS, seja no portal do Azure ou por meio do PowerShell, você verá um erro.
+Sim. Se o domínio não tiver sido verificado e o locatário não tiver passado por uma [tomada de controle do administrador](../enterprise-users/domains-admin-takeover.md), você poderá configurar a federação direta com esse domínio. Os locatários não gerenciados, ou verificados por email, são criados quando um usuário resgata um convite B2B ou executa uma inscrição por autoatendimento para o Azure AD usando um domínio que não existe atualmente. Você pode configurar a federação direta com esses domínios. Se você tentar configurar a federação direta com um domínio verificado por DNS, seja no portal do Azure ou por meio do PowerShell, você verá um erro.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Se a federação direta e a autenticação de senha de uso único por email estiverem habilitadas, qual método terá precedência?
 Quando a federação direta é estabelecida com uma organização parceira, ela tem precedência sobre a autenticação de senha de uso único por email para novos usuários convidados dessa organização. Se um usuário convidado resgatar um convite usando a autenticação de senha de uso único antes de configurar a federação direta, ele continuará a usar a autenticação de senha de uso único. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>A federação direta resolve problemas de entrada devido a uma locação parcialmente sincronizada?

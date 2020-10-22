@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a983931bd372931eacff2f7b21f3358f536046
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278780"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362919"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a Colaboração B2B externa e gerenciar quem pode enviar convites
 
@@ -24,7 +24,7 @@ Este artigo descreve como habilitar a colaboração B2B do Azure Active Director
 
 Por padrão, todos os usuários e convidados em seu diretório podem enviar convites, mesmo que não sejam administradores. As configurações de colaboração externa permitem ativar ou desativar o envio de convites de diversos tipos de usuários em sua organização. Você também pode delegar convites a usuários individuais, atribuindo funções que lhes permitam enviar convites.
 
-O Azure AD permite que você restrinja o que os usuários convidados externos podem ver em seu diretório do AD do Azure. Por padrão, os usuários convidados são definidos com um nível de permissão limitado que os impede de enumerar usuários, grupos ou outros recursos de diretório, mas permite que eles vejam a associação de grupos não ocultos. Uma nova configuração de visualização permite restringir ainda mais o acesso de convidado, para que os convidados possam exibir apenas suas próprias informações de perfil. Para obter detalhes, consulte [restringir permissões de acesso de convidado (versão prévia)](../users-groups-roles/users-restrict-guest-permissions.md).
+O Azure AD permite que você restrinja o que os usuários convidados externos podem ver em seu diretório do AD do Azure. Por padrão, os usuários convidados são definidos com um nível de permissão limitado que os impede de enumerar usuários, grupos ou outros recursos de diretório, mas permite que eles vejam a associação de grupos não ocultos. Uma nova configuração de visualização permite restringir ainda mais o acesso de convidado, para que os convidados possam exibir apenas suas próprias informações de perfil. Para obter detalhes, consulte [restringir permissões de acesso de convidado (versão prévia)](../enterprise-users/users-restrict-guest-permissions.md).
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Definir configurações de Colaboração B2B externa
 

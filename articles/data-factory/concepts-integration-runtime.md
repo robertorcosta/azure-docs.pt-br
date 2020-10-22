@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827530"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371198"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory 
 
@@ -56,7 +56,7 @@ Um tempo de execução de integração do Azure pode:
 
 - Executar fluxos de dados no Azure 
 - Executar atividade de cópia entre armazenamentos de dados de nuvem
-- Despache as seguintes atividades de transformação na rede pública: atividade do databricks Notebook/jar/Python, atividade de hive do hdinsight, atividade do HDInsight Pig, atividade de MapReduce do hdinsight, atividade do HDInsight Spark, atividade de streaming do hdinsight, atividade de Machine Learning execução de Machine Learning em lote, Data Lake Analytics atividades de recurso de atualização, atividade de pesquisa e obter atividade de metadados.
+- Despache as seguintes atividades de transformação na rede pública: atividade do databricks Notebook/jar/Python, atividade de hive do hdinsight, atividade do HDInsight Pig, atividade de MapReduce do HDInsight, atividade do HDInsight Spark, atividade de streaming do HDInsight, atividade de execução em lote do Azure Machine Learning Studio (clássica), atividade de atualização de Azure Machine Learning Studio (clássica), atividade de pesquisa data Lake Analytics e obtenção de metadados.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede do IR do Azure
 
@@ -79,7 +79,7 @@ Para obter informações sobre como criar e configurar um Azure IR, consulte [Ho
 Um IR auto-hospedado é capaz de:
 
 - Executar a atividade de cópia entre um armazenamento de dados de nuvem e um armazenamento de dados na rede privada.
-- Expedindo as seguintes atividades de transformação em relação aos recursos de computação no local ou na rede virtual do Azure: atividade do hive do HDInsight (BYOC-traga seu próprio cluster), BYOC (Pig de atividades do HDInsight), atividade do HDInsight MapReduce (BYOC), atividade do HDInsight Spark (BYOC), atividade de streaming do HDInsight (BYOC), atividade de execução de Machine Learning em lote, atividades de recurso de atualização Machine Learning, atividade de procedimento armazenado, Data Lake Analytics atividade do U-SQL , Atividade de pesquisa e obter atividade de metadados.
+- Expedindo as seguintes atividades de transformação em relação aos recursos de computação no local ou na rede virtual do Azure: atividade do hive do HDInsight (BYOC-traga seu próprio cluster), BYOC (Pig de atividades do HDInsight), atividade do HDInsight MapReduce (BYOC), atividade do HDInsight Spark (BYOC), atividade de streaming do HDInsight (BYOC), atividade de execução em lote do Azure Machine Learning Studio (clássico), atividades de recurso de atualização de Azure Machine Learning Studio (clássico), atividade de procedimento armazenado Data Lake Analytics atividade U-SQL , Atividade personalizada (executado no lote do Azure), atividade de pesquisa e atividade obter metadados.
 
 > [!NOTE] 
 > Use o tempo de execução de integração auto-hospedado para dar suporte a armazenamentos de dados que exigem o seu próprio Driver, como SAP Hana, MySQL etc.  Para obter mais informações, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

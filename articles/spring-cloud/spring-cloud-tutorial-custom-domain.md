@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 2fc20737ab371135a62d510d9d083e084b592fae
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ea0887dd1d28bb958b27813df7f4c7a221470bac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945763"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088747"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapear um domínio personalizado existente para o Azure Spring Cloud
 
@@ -26,7 +26,7 @@ Os certificados criptografam o tráfego da Web. Esses certificados TLS/SSL podem
 * Um aplicativo implantado no Azure Spring Cloud (confira [Início rápido: Iniciar um aplicativo existente do Azure Spring Cloud usando o portal do Azure](spring-cloud-quickstart.md) ou use um aplicativo existente).
 * Um nome de domínio com acesso ao Registro DNS para um provedor de domínio, como o GoDaddy.
 * Um certificado privado (ou seja, seu certificado autoassinado) de um provedor de terceiros. O certificado precisa corresponder ao domínio.
-* Uma instância implantada do [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* Uma instância implantada do [Azure Key Vault](../key-vault/general/overview.md)
 
 ## <a name="import-certificate"></a>Importar certificado
 ### <a name="prepare-your-certificate-file-in-pfx-optional"></a>Preparar seu arquivo de certificado em PFX (opcional)
@@ -224,7 +224,6 @@ az spring-cloud app update -n <app name> --resource-group <resource group name> 
 Quando a operação estiver concluída, navegue até qualquer uma das URLs HTTPS que aponte para seu aplicativo. Observe que as URLs HTTP não funcionam.
 
 ## <a name="see-also"></a>Confira também
-* [O que é o Cofre da Chave do Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Importar um certificado](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
-* [Iniciar o aplicativo Spring Cloud usando a CLI do Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
-
+* [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
+* [Importar um certificado](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
+* [Iniciar o aplicativo Spring Cloud usando a CLI do Azure](./spring-cloud-quickstart.md)

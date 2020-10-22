@@ -4,12 +4,12 @@ description: Implante um aplicativo Web baseado em Linux para duas regiões dife
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328681"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148430"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: implantar um aplicativo Web de um Registro de Contêiner do Azure com replicação geográfica
 
@@ -27,7 +27,7 @@ No próximo artigo da série, você atualiza o aplicativo e envia por push a ima
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implantação automática em Aplicativos Web para Contêineres
 
-O Registro de Contêiner do Azure oferece suporte para a implantação de aplicativos em contêineres diretamente para [Aplicativos Web para Contêineres](../app-service/containers/index.yml). Neste tutorial, você pode usar o portal do Azure para implantar a imagem de contêiner criada no tutorial anterior para dois planos de aplicativos Web localizados em diferentes regiões do Azure.
+O Registro de Contêiner do Azure oferece suporte para a implantação de aplicativos em contêineres diretamente para [Aplicativos Web para Contêineres](../app-service/index.yml). Neste tutorial, você pode usar o portal do Azure para implantar a imagem de contêiner criada no tutorial anterior para dois planos de aplicativos Web localizados em diferentes regiões do Azure.
 
 Quando você implanta um aplicativo web de uma imagem de contêiner no registro, e você tem um registro de replicação geográfica na mesma região, o Registro de Contêiner do Azure cria um [webhook](container-registry-webhook.md) de implantação de imagem para você. Quando você enviar por push uma nova imagem para o repositório de contêiner, o webhook seleciona a alteração e implanta automaticamente a nova imagem de contêiner para seu aplicativo Web.
 

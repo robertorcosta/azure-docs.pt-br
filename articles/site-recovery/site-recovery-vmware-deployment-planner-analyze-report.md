@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef4baa4be7f6058ca704f8f499c47099de7c1a85
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654864"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372082"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware para o Azure
 
@@ -102,7 +102,7 @@ Esse resultado é o número total de núcleos a serem configurados antes do fail
 ![Número necessário de núcleos do Azure no planejador de implantação](media/site-recovery-vmware-deployment-planner-analyze-report/required-cores-v2a.png)
 
 ### <a name="required-on-premises-infrastructure"></a>Infraestrutura local necessária
-Esse valor é o número total de servidores de configuração e servidores de processo adicionais a serem configurados que seriam suficientes para proteger todas as VMs compatíveis. Dependendo das [recomendações de tamanho para o servidor de configuração](https://aka.ms/asr-v2a-on-prem-components) com suporte, a ferramenta poderá recomendar servidores adicionais. A recomendação é baseada na variação por dia ou no número máximo de VMs protegidas, o que for maior (presumindo que uma média de três discos por VM), o que for atingido primeiro no servidor de configuração ou no servidor de processo adicional. Você encontrará os detalhes de variação total por dia e o número total de discos protegidos na seção "Resumo local".
+Esse valor é o número total de servidores de configuração e servidores de processo adicionais a serem configurados que seriam suficientes para proteger todas as VMs compatíveis. Dependendo das [recomendações de tamanho para o servidor de configuração](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server) com suporte, a ferramenta poderá recomendar servidores adicionais. A recomendação é baseada na variação por dia ou no número máximo de VMs protegidas, o que for maior (presumindo que uma média de três discos por VM), o que for atingido primeiro no servidor de configuração ou no servidor de processo adicional. Você encontrará os detalhes de variação total por dia e o número total de discos protegidos na seção "Resumo local".
 
 ![Infraestrutura local necessária no planejador de implantação](media/site-recovery-vmware-deployment-planner-analyze-report/required-on-premises-components-v2a.png)
 
@@ -165,7 +165,7 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 
 **Tipo de conta de armazenamento de log**: todos os logs de replicação são armazenados em uma conta de armazenamento padrão.
 
-**Prefixo sugerido para a conta de armazenamento**: o prefixo de três caracteres sugerido que pode ser usado para nomear a conta de armazenamento em cache. Você pode usar seu próprio prefixo, mas sugestão da ferramenta segue a [convenção de nomenclatura de partição para contas de armazenamento](https://aka.ms/storage-performance-checklist).
+**Prefixo sugerido para a conta de armazenamento**: o prefixo de três caracteres sugerido que pode ser usado para nomear a conta de armazenamento em cache. Você pode usar seu próprio prefixo, mas sugestão da ferramenta segue a [convenção de nomenclatura de partição para contas de armazenamento](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Nome da conta de log sugerido**: o nome da conta de armazenamento depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
 
@@ -178,7 +178,7 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 
 **Nome da VM**: o nome da VM ou o endereço IP que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os discos (VMDKs) que estão anexados às VMs. Para diferenciar VMs vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome do host ESXi. O host ESXi listado é aquele em que a VM foi colocada quando a ferramenta realizou a descoberta durante o período de criação de perfil.
 
-**Compatibilidade de VM**: os valores são **Sim** e **Sim\***. **Sim** \* é para instâncias nas quais a VM é uma opção para [SSDs Premium](../virtual-machines/disks-types.md). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo:
+**Compatibilidade de VM**: os valores são **Sim** e **Sim \* *_. _* Sim** \* é para instâncias nas quais a VM é uma opção para o [SSDs Premium](../virtual-machines/disks-types.md). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo:
 * <128 GB é P10.
 * 128 GB até 256 GB é um P15
 * 256 GB a 512 GB é um P20.
@@ -219,7 +219,7 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 
 **Nome da VM**: o nome da VM ou o endereço IP que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os VMDKs que estão anexados às VMs. Para diferenciar VMs vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome do host ESXi. O host ESXi listado é aquele em que a VM foi colocada quando a ferramenta realizou a descoberta durante o período de criação de perfil.
 
-**Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
+**Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](/en-in/azure/storage/common/scalability-targets-standard-account) publicados, podem ser qualquer um dos seguintes:
 
 * Tamanho incorreto do disco de dados ou tamanho de disco do so incorreto. [Examine](vmware-physical-azure-support-matrix.md#azure-vm-requirements) os limites de suporte. 
 * O tamanho total da VM (replicação + TFO) excede o limite de tamanho de conta de armazenamento com suporte (35 TB). Essa incompatibilidade normalmente ocorre quando um único disco na VM tem uma característica de desempenho que excede os limites máximo com suporte do Azure ou do Site Recovery para o armazenamento standard. Essa instância coloca a VM na zona de armazenamento premium. No entanto, o tamanho máximo com suporte de uma conta de armazenamento premium é de 35 TB, e uma única VM protegida não pode ser protegida em várias contas de armazenamento. Além disso, observe que quando um failover de teste é executado em uma VM protegida, ele é executado na mesma conta de armazenamento em que a replicação está em andamento. Nessa instância, configure duas vezes o tamanho do disco para que a replicação progrida e o failover de teste tenha êxito em paralelo.

@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597507"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362800"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -42,7 +42,7 @@ Para obter uma demonstração passo a passo do processo de implantação do gere
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-Você também pode criar um pacote de acesso de forma programática usando o Microsoft Graph. Para obter um tutorial que mostra como criar um pacote de acesso de forma programática, confira [API de gerenciamento de direitos](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
+Você também pode criar um pacote de acesso de forma programática usando o Microsoft Graph. Para obter um tutorial que mostra como criar um pacote de acesso de forma programática, confira [API de gerenciamento de direitos](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,10 +118,10 @@ Um *pacote de acesso* é um pacote de recursos de que uma equipe ou projeto prec
 
     ![Novo pacote de acesso – Guia Funções de recurso](./media/entitlement-management-access-package-first/resource-roles.png)
     >[!IMPORTANT]
-    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados usando o subtipo **Atribuível a funções**. Confira [Criar um grupo atribuível a função](../users-groups-roles/roles-groups-create-eligible.md) no Azure Active Directory para obter mais detalhes sobre os grupos atribuíveis a funções do Azure AD. Se não vir um grupo atribuível a funções que deseja adicionar ou se não puder adicioná-lo, verifique se você tem a função de gerenciamento de direitos e a função do Azure AD necessárias para executar essa operação. Talvez seja necessário solicitar que alguém com as funções necessárias adicione o recurso ao seu catálogo. Para obter mais informações, confira [Funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados usando o subtipo **Atribuível a funções**. Confira [Criar um grupo atribuível a função](../roles/groups-create-eligible.md) no Azure Active Directory para obter mais detalhes sobre os grupos atribuíveis a funções do Azure AD. Se não vir um grupo atribuível a funções que deseja adicionar ou se não puder adicioná-lo, verifique se você tem a função de gerenciamento de direitos e a função do Azure AD necessárias para executar essa operação. Talvez seja necessário solicitar que alguém com as funções necessárias adicione o recurso ao seu catálogo. Para obter mais informações, confira [Funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
-    > Ao usar [grupos dinâmicos](../users-groups-roles/groups-create-rule.md), você não verá outras funções disponíveis além do proprietário. Isso ocorre por design.
+    > Ao usar [grupos dinâmicos](../enterprise-users/groups-create-rule.md), você não verá outras funções disponíveis além do proprietário. Isso ocorre por design.
     > ![Visão geral do cenário](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
     
 

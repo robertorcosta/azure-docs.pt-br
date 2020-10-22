@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602924"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362766"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -164,6 +164,7 @@ Se você tiver atribuído convidados como revisores e eles não tiverem aceitado
 |Revisado automaticamente | As decisões foram registradas pelo sistema para todos os usuários que não foram revisados. A revisão está pronta para continuar a **aplicação** se a aplicação automática estiver habilitada. |
 |Solicita | Não haverá nenhuma alteração no acesso para usuários que foram aprovados. |
 |Aplicado | Os usuários negados, se houver algum, foram removidos do recurso ou diretório. |
+|Failed (Falha) | A revisão não pôde ser executada. Esse erro pode estar relacionado à exclusão do locatário, uma alteração nas licenças ou outras alterações internas do locatário. |
 
 ## <a name="create-reviews-via-apis"></a>Criar revisões via APIs
 
