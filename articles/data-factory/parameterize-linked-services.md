@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e6c00a0d2b6ff8bbb4ba9e51110e995e93d6b558
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131387"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426968"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços vinculados no Azure Data Factory
 
@@ -32,16 +32,18 @@ Para uma introdução de sete minutos e uma demonstração desse recurso, assist
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>Armazenamento de dados com suporte
+## <a name="supported-linked-service-types"></a>Tipos de serviço vinculados com suporte
 
 Você pode parametrizar qualquer tipo de serviço vinculado.
-Ao criar o serviço vinculado na interface do usuário, o Data Factory fornece uma experiência de parametrização interna para os seguintes tipos de conectores. Na folha criação/edição de serviço vinculado, você pode encontrar opções para novos parâmetros e adicionar conteúdo dinâmico.
+Ao criar o serviço vinculado na interface do usuário, o Data Factory fornece uma experiência de parametrização interna para os seguintes tipos de serviços vinculados. Na folha criação/edição de serviço vinculado, você pode encontrar opções para novos parâmetros e adicionar conteúdo dinâmico.
 
 - Amazon Redshift
 - Amazon S3
 - Azure Cosmos DB (API do SQL)
 - Banco de Dados do Azure para MySQL
+- Azure Databricks
 - Banco de Dados SQL do Azure
+- Instância Gerenciada do Azure SQL
 - Azure Synapse Analytics (antigo SQL DW)
 - MySQL
 - Oracle
@@ -49,7 +51,7 @@ Ao criar o serviço vinculado na interface do usuário, o Data Factory fornece u
 -  HTTP Genérico
 - REST Genérico
 
-Para outros tipos, você pode parametrizar o serviço vinculado editando o JSON na interface do usuário:
+Para outros tipos de serviço vinculado que não estão na lista acima, você pode parametrizar o serviço vinculado editando o JSON na interface do usuário:
 
 - Na folha criação/edição de serviço vinculado-> expanda "avançado" na parte inferior > marque a caixa de seleção "especificar conteúdo dinâmico no formato JSON"-> especificar a carga JSON do serviço vinculado. 
 - Ou, depois de criar um serviço vinculado sem parametrização, no [Hub de gerenciamento](author-visually.md#management-hub) -> serviços vinculados-> localizar o serviço vinculado específico – > clique em "código" (botão " {} ") para editar o JSON. 

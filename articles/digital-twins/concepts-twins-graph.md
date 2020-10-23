@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145935"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440818"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Entenda o gêmeos digital e seu gráfico de entrelaçamento
 
@@ -39,11 +39,11 @@ O resultado desse processo é um conjunto de nós (o gêmeos digital) conectado 
 
 ## <a name="create-with-the-apis"></a>Criar com as APIs
 
-Esta seção mostra o que parece criar gêmeos digital e relações de um aplicativo cliente. Ele contém exemplos de código .NET que utilizam as [APIs DigitalTwins](how-to-use-apis-sdks.md), para fornecer contexto adicional sobre o que acontece dentro de cada um desses conceitos.
+Esta seção mostra o que parece criar gêmeos digital e relações de um aplicativo cliente. Ele contém exemplos de código .NET que utilizam as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins), para fornecer contexto adicional sobre o que acontece dentro de cada um desses conceitos.
 
 ### <a name="create-digital-twins"></a>Criar gêmeos digitais
 
-Abaixo está um trecho de código de cliente que usa as [APIs DigitalTwins](how-to-use-apis-sdks.md) para criar uma instância de um tipo de *espaço*.
+Abaixo está um trecho de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma instância de um tipo de *espaço*.
 
 Na visualização atual do Azure digital gêmeos, todas as propriedades de um FileUp devem ser inicializadas antes que o fileserial possa ser criado. Isso é feito criando um documento JSON que fornece os valores de inicialização necessários.
 
@@ -53,7 +53,7 @@ Você também pode usar uma classe auxiliar chamada `BasicDigitalTwin` para arma
 
 ### <a name="create-relationships"></a>Criar relações
 
-Aqui está um código de cliente de exemplo que usa as [APIs DigitalTwins](how-to-use-apis-sdks.md) para criar uma relação entre um tipo de andar de um *piso*digital chamado *GroundFloor* e um tipo de *sala*digital de texto chamado *Cafe*.
+Aqui está um código de cliente de exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma relação entre um tipo de andar de um *piso*digital chamado *GroundFloor* e um tipo de *sala*digital de texto chamado *Cafe*.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample

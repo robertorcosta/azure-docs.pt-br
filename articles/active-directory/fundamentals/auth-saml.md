@@ -1,6 +1,6 @@
 ---
 title: Autenticação SAML com Azure Active Directory
-description: Diretrizes arquitetônicas sobre como atingir esse padrão de autenticação
+description: Diretrizes arquitetônicas sobre a obtenção de autenticação SAML com Azure Active Directory
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b13e04db8e83a8a10c2d7fe0aea202dfa3b69c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114099"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441208"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>Autenticação SAML com Azure Active Directory
 
@@ -37,7 +37,7 @@ Há a necessidade de fornecer uma experiência de SSO (logon único) para um apl
 
 Embora seja um dos casos de uso mais importantes que os endereços SAML são SSO, especialmente ao estender o SSO entre domínios de segurança, também há outros casos de uso (chamados perfis). 
 
-![diagrama arquitetônico](./media/authentication-patterns/saml-auth.png)
+![diagrama arquitetônico para SAML](./media/authentication-patterns/saml-auth.png)
 
 ## <a name="components-of-system"></a>Componentes do sistema
 

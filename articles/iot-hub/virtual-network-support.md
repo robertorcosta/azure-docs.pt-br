@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149094"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427847"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada
 
@@ -170,7 +170,7 @@ O recurso confiável de exceção de serviços de terceiros da Microsoft é grat
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Conectividade de saída para pontos de extremidade da conta de armazenamento para roteamento
 
-O Hub IoT pode rotear mensagens para uma conta de armazenamento de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse uma conta de armazenamento enquanto as restrições do firewall estiverem em vigor, o Hub IoT precisa ter uma [identidade gerenciada](#turn-on-managed-identity-for-iot-hub). Após provisionar uma identidade gerenciada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar sua conta de armazenamento.
+O Hub IoT pode rotear mensagens para uma conta de armazenamento de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse uma conta de armazenamento enquanto as restrições do firewall estiverem em vigor, o Hub IoT precisa ter uma [identidade gerenciada](#turn-on-managed-identity-for-iot-hub). Depois que uma identidade gerenciada for provisionada, siga as etapas abaixo para conceder permissão de RBAC do Azure à identidade de recurso do hub para acessar sua conta de armazenamento.
 
 1. No portal do Azure, vá até a guia **Controle de acesso (IAM)** da conta de armazenamento e clique em **Adicionar** na seção **Adicionar uma atribuição de função**.
 
@@ -188,7 +188,7 @@ Agora seu ponto de extremidade de armazenamento personalizado está configurado 
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Conectividade de saída para pontos de extremidade dos hubs de eventos para roteamento
 
-O Hub IoT pode ser configurado para rotear mensagens para um namespace de hubs de eventos de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse um recurso de hubs de eventos enquanto houver restrições de firewall, o Hub IoT precisa ter uma identidade gerenciada. Após criar uma identidade gerenciada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar seus hubs de eventos.
+O Hub IoT pode ser configurado para rotear mensagens para um namespace de hubs de eventos de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse um recurso de hubs de eventos enquanto houver restrições de firewall, o Hub IoT precisa ter uma identidade gerenciada. Depois que uma identidade gerenciada for criada, siga as etapas abaixo para conceder permissão de RBAC do Azure para a identidade de recurso do hub para acessar seus hubs de eventos.
 
 1. No portal do Azure, vá até a guia **Controle de acesso (IAM)** dos hubs de eventos e clique em **Adicionar** na seção **Adicionar uma atribuição de função**.
 
@@ -206,7 +206,7 @@ Agora seu ponto de extremidade dos hubs de eventos está configurado para usar a
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Conectividade de saída para pontos de extremidade de barramento de serviço para roteamento
 
-O Hub IoT pode ser configurado para rotear mensagens para um namespace de barramento de serviço de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse um recurso de barramento de serviço enquanto houver restrições de firewall, o Hub IoT precisa ter uma identidade gerenciada. Após provisionar uma identidade gerenciada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar seu barramento de serviço.
+O Hub IoT pode ser configurado para rotear mensagens para um namespace de barramento de serviço de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse um recurso de barramento de serviço enquanto houver restrições de firewall, o Hub IoT precisa ter uma identidade gerenciada. Depois que uma identidade gerenciada for provisionada, siga as etapas abaixo para conceder permissão de RBAC do Azure à identidade de recurso do hub para acessar o barramento de serviço.
 
 1. No portal do Azure, vá até a guia **Controle de acesso (IAM)** do barramento de serviço e clique em **Adicionar** na seção **Adicionar uma atribuição de função**.
 
@@ -224,7 +224,7 @@ Agora seu ponto de extremidade do barramento de serviço está configurado para 
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Conectividade de saída para contas de armazenamento para carregamento de arquivos
 
-O recurso de carregamento de arquivo do Hub IoT permite que dispositivos carreguem arquivos para uma conta de armazenamento de propriedade do cliente. Para permitir que o carregamento do arquivo funcione, os dispositivos e o Hub IoT precisam ter conectividade com a conta de armazenamento. Se a conta de armazenamento tiver restrições de firewall, os dispositivos precisarão usar qualquer um dos mecanismos de conta de armazenamento com suporte (incluindo [pontos de extremidade privados](../private-link/tutorial-private-endpoint-storage-portal.md), [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) ou [configuração de firewall direto](../storage/common/storage-network-security.md)) para obter conectividade. Da mesma forma, se a conta de armazenamento tiver restrições de firewall, o Hub IoT precisará ser configurado para acessar o recurso de armazenamento por meio da exceção de serviços confiáveis da Microsoft. Para esse fim, o Hub IoT deve ter uma identidade gerenciada. Após provisionar uma identidade gerenciada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar sua conta de armazenamento.
+O recurso de carregamento de arquivo do Hub IoT permite que dispositivos carreguem arquivos para uma conta de armazenamento de propriedade do cliente. Para permitir que o carregamento do arquivo funcione, os dispositivos e o Hub IoT precisam ter conectividade com a conta de armazenamento. Se a conta de armazenamento tiver restrições de firewall, os dispositivos precisarão usar qualquer um dos mecanismos de conta de armazenamento com suporte (incluindo [pontos de extremidade privados](../private-link/tutorial-private-endpoint-storage-portal.md), [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) ou [configuração de firewall direto](../storage/common/storage-network-security.md)) para obter conectividade. Da mesma forma, se a conta de armazenamento tiver restrições de firewall, o Hub IoT precisará ser configurado para acessar o recurso de armazenamento por meio da exceção de serviços confiáveis da Microsoft. Para esse fim, o Hub IoT deve ter uma identidade gerenciada. Depois que uma identidade gerenciada for provisionada, siga as etapas abaixo para conceder permissão de RBAC do Azure à identidade de recurso do hub para acessar sua conta de armazenamento.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -244,7 +244,7 @@ Agora seu ponto de extremidade de armazenamento para carregamento de arquivo est
 
 O Hub IoT tem suporte para a funcionalidade de [importação/exportação](./iot-hub-bulk-identity-mgmt.md) de informações dos dispositivos em massa de/para um blob de armazenamento fornecido pelo cliente. Para permitir que o recurso de importação/exportação em massa funcione, os dispositivos e o Hub IoT precisam ter conectividade com a conta de armazenamento.
 
-Essa funcionalidade requer conectividade do Hub IoT à conta de armazenamento. Para acessar um recurso de barramento de serviço enquanto houver restrições de firewall, o Hub IoT precisa ter uma identidade gerenciada. Após provisionar uma identidade gerenciada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar seu barramento de serviço.
+Essa funcionalidade requer conectividade do Hub IoT à conta de armazenamento. Para acessar um recurso de barramento de serviço enquanto houver restrições de firewall, o Hub IoT precisa ter uma identidade gerenciada. Depois que uma identidade gerenciada for provisionada, siga as etapas abaixo para conceder permissão de RBAC do Azure à identidade de recurso do hub para acessar o barramento de serviço.
 
 1. No portal do Azure, vá até a guia **Controle de acesso (IAM)** da conta de armazenamento e clique em **Adicionar** na seção **Adicionar uma atribuição de função**.
 

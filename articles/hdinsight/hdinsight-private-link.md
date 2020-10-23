@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147923"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426385"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteger e isolar clusters do Azure HDInsight com o link privado (visualização)
 
@@ -59,6 +59,8 @@ Quando `privateLink` é definido como *habilitar*, os [balanceadores de carga St
 Os balanceadores de carga padrão não fornecem automaticamente o [NAT de saída público](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) como os balanceadores de carga básicos. Você deve fornecer sua própria solução NAT, como [NAT de rede virtual](../virtual-network/nat-overview.md) ou [Firewall](./hdinsight-restrict-outbound-traffic.md), para dependências de saída. Seu cluster HDInsight ainda precisa de acesso às suas dependências de saída. Se essas dependências de saída não forem permitidas, a criação do cluster poderá falhar.
 
 ### <a name="prepare-your-environment"></a>Prepare o seu ambiente
+
+Para a criação de successgfull de serviços de vínculo privado, você deve [desabilitar explicitamente as políticas de rede para o serviço de vínculo privado](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy).
 
 O diagrama a seguir mostra um exemplo da configuração de rede necessária antes de criar um cluster. Neste exemplo, todo o tráfego de saída é [forçado](../firewall/forced-tunneling.md) ao firewall do Azure usando UDR e as dependências de saída necessárias devem ser "permitidas" no firewall antes de criar um cluster. Para Enterprise Security Package clusters, a conectividade de rede com Azure Active Directory Domain Services pode ser fornecida pelo emparelhamento VNet.
 

@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 516989e37e8c9eb0c4ab35ea6add4f5b6526ee6d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.custom: contperfq2
+ms.openlocfilehash: 59e00d2bb47826bb4bfa381c42db551f44d84b71
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893451"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427590"
 ---
 # <a name="manage-app-consent-policies"></a>Gerenciar as políticas de consentimento do aplicativo
 
@@ -132,7 +133,7 @@ A tabela a seguir fornece a lista de condições com suporte para políticas de 
 | Condição | Descrição|
 |:---------------|:----------|
 | PermissionClassification | A [classificação de permissão](configure-permission-classifications.md) para a permissão que está sendo concedida ou "All" para corresponder a qualquer classificação de permissão (incluindo permissões que não são classificadas). O padrão é "All". |
-| PermissionType | O tipo de permissão da permissão que está sendo concedida. Use "Application" para permissões de aplicativo (por exemplo, funções de aplicativo) ou "delegadas" para permissões delegadas. <br><br>**Observação**: o valor "delegatedUserConsentable" indica permissões delegadas que não foram configuradas pelo editor de API para exigir o consentimento do administrador — esse valor pode ser usado em políticas de concessão de permissão interna, mas não pode ser usado em políticas de concessão de permissão personalizada. Obrigatórios. |
+| PermissionType | O tipo de permissão da permissão que está sendo concedida. Use "Application" para permissões de aplicativo (por exemplo, funções de aplicativo) ou "delegadas" para permissões delegadas. <br><br>**Observação**: o valor "delegatedUserConsentable" indica permissões delegadas que não foram configuradas pelo editor de API para exigir o consentimento do administrador — esse valor pode ser usado em políticas de concessão de permissão interna, mas não pode ser usado em políticas de concessão de permissão personalizada. Necessário. |
 | ResourceApplication | A **AppID** do aplicativo de recurso (por exemplo, a API) para o qual uma permissão está sendo concedida, ou "any" para corresponder a qualquer aplicativo de recurso ou API. O padrão é "any". |
 | Permissões | A lista de IDs de permissão para as permissões específicas a serem correspondidas ou uma lista com o valor único "All" para corresponder a qualquer permissão. O padrão é o único valor "All". <ul><li>As IDs de permissão delegadas podem ser encontradas na propriedade **OAuth2Permissions** do objeto de entidade de segurança da API.</li><li>As IDs de permissão de aplicativo podem ser encontradas na propriedade **AppRoles** do objeto SERVICEPRINCIPALNAME da API.</li></ol> |
 | ClientApplicationIds | Uma lista de valores de **AppID** para os aplicativos cliente a serem correspondidos, ou uma lista com o valor único "All" para corresponder a qualquer aplicativo cliente. O padrão é o único valor "All". |

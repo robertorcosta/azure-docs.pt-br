@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587626"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461015"
 ---
 # <a name="understand-event-data"></a>Entender os dados do evento
 
@@ -202,7 +202,7 @@ Aqui estão os campos no corpo de uma notificação de alteração de borda.
 
 #### <a name="body-details"></a>Detalhes do corpo
 
-O corpo é a carga de uma relação, também no formato JSON. Ele usa o mesmo formato que uma `GET` solicitação para uma relação por meio da [API DigitalTwins](how-to-use-apis-sdks.md). 
+O corpo é a carga de uma relação, também no formato JSON. Ele usa o mesmo formato que uma `GET` solicitação para uma relação por meio da [API DigitalTwins](/rest/api/digital-twins/dataplane/twins). 
 
 "Atualizar uma relação" significa que as propriedades da relação foram alteradas. 
 

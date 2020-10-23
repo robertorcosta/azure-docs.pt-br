@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424143"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460658"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -81,6 +81,10 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 [AKS (Serviço de Kubernetes do Azure)](../../aks/index.yml):
 
 - Gerencie ambientes Kubernetes hospedados e implante e gerencie aplicativos em contêineres dentro de locatários do cliente
+
+[Migrações para Azure](../../migrate/index.yml):
+
+- Criar projetos de migração no locatário do cliente e migrar VMs
 
 [Azure Monitor](../../azure-monitor/index.yml):
 

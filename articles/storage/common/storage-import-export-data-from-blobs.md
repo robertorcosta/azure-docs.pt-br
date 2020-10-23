@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfbef5ce3ba7675aff88df654a5ba6572c38adbe
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441885"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440716"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 
@@ -37,6 +37,8 @@ Você deve:
 
 ## <a name="step-1-create-an-export-job"></a>Etapa 1: Criar um trabalho de exportação
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Execute as etapas a seguir para criar um trabalho de exportação no portal do Azure.
 
 1. Faça logon em <https://portal.azure.com/>.
@@ -57,7 +59,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
     - Selecione uma assinatura.
     - Insira ou selecione um grupo de recursos.
 
-        ![Noções básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Informações básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
 5. Em **Detalhes do trabalho**:
 
@@ -99,6 +101,83 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
         > Sempre envie os discos para o datacenter anotado no portal do Azure. Se os discos forem enviados para o datacenter incorreto, o trabalho não será processado.
 
     - Clique em **OK** para concluir a criação do trabalho de exportação.
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Use as etapas a seguir para criar um trabalho de exportação no portal do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Criar um trabalho
+
+1. Use o comando [AZ Extension Add](/cli/azure/extension#az_extension_add) para adicionar a extensão [AZ Import-Export](/cli/azure/ext/import-export/import-export) :
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Para obter uma lista dos locais dos quais você pode receber discos, use o comando [AZ Import-Export Location List](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Execute o seguinte comando [AZ Import-Export Create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) para criar um trabalho de exportação que usa sua conta de armazenamento existente:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --export blob-path=/ \
+        --type Export \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --storage-account myssdocsstorage
+    ```
+
+    > [!TIP]
+    > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
+
+   Esse trabalho exporta todos os BLOBs em sua conta de armazenamento. Você pode especificar um blob para exportação substituindo esse valor para **--Export**:
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   Esse valor de parâmetro exporta o blob chamado *logo.bmp* no contêiner raiz.
+
+   Você também tem a opção de selecionar todos os BLOBs em um contêiner usando um prefixo. Substitua esse valor para **--Export**:
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   Para obter mais informações, consulte [Exemplos de caminhos de blob válido](#examples-of-valid-blob-paths).
+
+   > [!NOTE]
+   > Se o blob a ser exportado estiver em uso durante a cópia dos dados, o serviço de Importação/Exportação do Azure tira um instantâneo do blob e copia o instantâneo.
+
+1. Use o comando [AZ Import-Export List](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) para ver todos os trabalhos do grupo de recursos myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Para atualizar seu trabalho ou cancelar seu trabalho, execute o comando [AZ Import-Export Update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 <!--## (Optional) Step 2: -->
 
@@ -156,11 +235,11 @@ Essa etapa *opcional* ajuda você a determinar o número de unidades necessária
     |Parâmetro de linha de comando|Descrição|  
     |--------------------------|-----------------|  
     |**logdir**|Opcional. O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum for especificado, o diretório atual será usado como o diretório de log.|  
-    |**SN**|Obrigatórios. O nome da conta de armazenamento do trabalho de exportação.|  
+    |**SN**|Necessário. O nome da conta de armazenamento do trabalho de exportação.|  
     |**/SK**|Necessário somente se uma SAS do contêiner não for especificada. A chave de conta da conta de armazenamento do trabalho de exportação.|  
     |**/csas:**|Necessário somente se uma chave de conta de armazenamento não for especificada. A SAS do contêiner para listar os blobs a serem exportados no trabalho de exportação.|  
-    |**/ExportBlobListFile:**|Obrigatórios. Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo usado no elemento `BlobListBlobPath` da operação [Put Job](/rest/api/storageimportexport/jobs) da API REST do serviço de Importação/Exportação.|  
-    |**/DriveSize:**|Obrigatórios. O tamanho das unidades a ser usado para um trabalho de exportação, *por exemplo*, 500 GB, 1,5 TB.|  
+    |**/ExportBlobListFile:**|Necessário. Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo usado no elemento `BlobListBlobPath` da operação [Put Job](/rest/api/storageimportexport/jobs) da API REST do serviço de Importação/Exportação.|  
+    |**/DriveSize:**|Necessário. O tamanho das unidades a ser usado para um trabalho de exportação, *por exemplo*, 500 GB, 1,5 TB.|  
 
     Consulte um [exemplo do comando PreviewExport](#example-of-previewexport-command).
 
