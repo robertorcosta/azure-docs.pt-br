@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
-ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283370"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461712"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade de uma Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -113,18 +113,18 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 
 | Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE DA MI  |Allow |
-|            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE DA MI  |Allow |
-|            |9000, 9003                  |TCP     |CorpnetPublic    |SUB-REDE DA MI  |Allow |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE DA MI  |Permitir |
+|            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE DA MI  |Permitir |
+|            |9000, 9003                  |TCP     |CorpnetPublic    |SUB-REDE DA MI  |Permitir |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Permitir |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança de saída obrigatórias com configuração de sub-rede auxiliada por serviço
 
 | Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
-|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
+|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Permitir |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo usuário com configuração de sub-rede auxiliada por serviço
 
@@ -312,7 +312,7 @@ O **tls 1,2 é imposto em conexões de saída**: em Janeiro 2020 Microsoft impos
 Atualmente, não há suporte para os seguintes recursos de rede virtual com o SQL Instância Gerenciada:
 
 - **Emparelhamento da Microsoft**: habilitar o [emparelhamento da Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) em circuitos de ExpressRoute emparelhados direta ou transitivamente com uma rede virtual em que o SQL instância gerenciada reside afeta o fluxo de tráfego entre os componentes do SQL instância gerenciada dentro da rede virtual e dos serviços dos quais depende, causando problemas de disponibilidade. As implantações do SQL Instância Gerenciada na rede virtual com o emparelhamento da Microsoft já habilitado devem falhar.
-- **Emparelhamento de rede virtual global**: a conectividade de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) entre regiões do Azure não funciona para o SQL instância gerenciada devido a [restrições de balanceador de carga documentadas](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+- **Emparelhamento de rede virtual global**: a conectividade de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) entre regiões do Azure não funciona para instâncias gerenciadas do SQL colocadas em sub-redes criadas antes de 9/22/2020.
 - **AzurePlatformDNS**: usar a [marca de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma renderizaria o SQL instância gerenciada não disponível. Embora o SQL Instância Gerenciada dê suporte ao DNS definido pelo cliente para a resolução DNS dentro do mecanismo, há uma dependência no DNS da plataforma para operações de plataforma.
 - **Gateway NAT**: usar o [NAT da rede virtual do Azure](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico renderizaria o SQL instância gerenciada indisponível. No momento, o serviço SQL Instância Gerenciada está limitado ao uso do balanceador de carga básico que não fornece a coexistência de fluxos de entrada e saída com NAT de rede virtual.
 
@@ -333,16 +333,16 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 
 | Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |Allow |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |Permitir |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Permitir |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias
 
 | Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
-|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
+|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Permitir |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
 
 > [!IMPORTANT]
 > Verifique se há apenas uma regra de entrada para as portas 9000, 9003, 1438, 1440 e 1452, e uma regra de saída para as portas 443 e 12000. O provisionamento do SQL Instância Gerenciada por meio de implantações de Azure Resource Manager falhará se as regras de entrada e saída forem configuradas separadamente para cada porta. Se essas portas estiverem em regras separadas, a implantação falhará com o código de erro `VnetSubnetConflictWithIntendedPolicy` .

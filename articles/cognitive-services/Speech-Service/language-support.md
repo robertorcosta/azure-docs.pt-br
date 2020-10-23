@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 6f484277ee940c63888fff068739598dd553b515
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172261"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440886"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -142,7 +142,7 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 | `ar-SA` | Árabe (Arábia Saudita) | Feminino | `ar-SA-ZariyahNeural` | Geral |
 | `bg-BG` <sup>Novo</sup> | Búlgaro (Bulgary) | Feminino | `bg-BG-KalinaNeural` | Geral |
 | `ca-ES` | Catalão (Espanha) | Feminino | `ca-ES-AlbaNeural` | Geral |
-| `cs-CZ` <sup>Novo</sup> | Tcheco (tcheco)  | Feminino | `cs-CZ-VlastaNeural` | Geral |
+| `cs-CZ` <sup>Novo</sup> | Tcheco (tcheco) | Feminino | `cs-CZ-VlastaNeural` | Geral |
 | `da-DK` | Dinamarquês (Dinamarca) | Feminino | `da-DK-ChristelNeural` | Geral |
 | `de-AT` <sup>Novo</sup> | Alemão (Áustria) | Feminino | `de-AT-IngridNeural` | Geral |
 | `de-CH` <sup>Novo</sup> | Alemão (Suíça) | Feminino | `de-CH-LeniNeural` | Geral |
@@ -150,12 +150,12 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 | `de-DE` <sup>Novo</sup> | Alemão (Alemanha) | Masculino | `de-DE-ConradNeural` | Geral |
 | `el-GR` <sup>Novo</sup> | Grego (Grécia) | Feminino | `el-GR-AthinaNeural` | Geral |
 | `en-AU` | Inglês (Austrália) | Feminino | `en-AU-NatashaNeural` | Geral |
-| `en-AU` <sup>Novo</sup> | Australiano (Austrália) | Masculino | `en-AU-WilliamNeural` | Geral |
+| `en-AU` <sup>Novo</sup> | Inglês (Austrália) | Masculino | `en-AU-WilliamNeural` | Geral |
 | `en-CA` | Inglês (Canadá) | Feminino | `en-CA-ClaraNeural` | Geral |
 | `en-GB` | Inglês (Reino Unido) | Feminino | `en-GB-LibbyNeural` | Geral |
 | `en-GB` | Inglês (Reino Unido) | Feminino | `en-GB-MiaNeural` | Geral |
 | `en-GB` <sup>Novo</sup> | Inglês (Reino Unido) | Masculino | `en-GB-RyanNeural` | Geral |
-| `en-IE` <sup>Novo</sup> | Inglês-Irlandês (Irlanda) | Feminino | `en-IE-EmilyNeural` | Geral |
+| `en-IE` <sup>Novo</sup> | Inglês (Irlanda) | Feminino | `en-IE-EmilyNeural` | Geral |
 | `en-IN` | Inglês (Índia) | Feminino | `en-IN-NeerjaNeural` | Geral |
 | `en-US` | Inglês (Estados Unidos) | Feminino | `en-US-AriaNeural` | Geral, com vários estilos de voz disponíveis |
 | `en-US` | Inglês (Estados Unidos) | Masculino | `en-US-GuyNeural` | Geral |
@@ -174,20 +174,20 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 | `hi-IN` | Híndi (Índia) | Feminino | `hi-IN-SwaraNeural` | Geral |
 | `hr-HR` <sup>Novo</sup> | Croata (Croácia) | Feminino | `hr-HR-GabrijelaNeural` | Geral |
 | `hu-HU` <sup>Novo</sup> | Húngaro (Hungria) | Feminino | `hu-HU-NoemiNeural` | Geral |
-| `id-ID` <sup>Novo</sup> | Bahasa Indonésio (Indonésia) | Masculino | `id-ID-ArdiNeural` | Geral |
+| `id-ID` <sup>Novo</sup> | Indonésio (Indonésia) | Masculino | `id-ID-ArdiNeural` | Geral |
 | `it-IT` | Italiano (Itália) | Feminino | `it-IT-ElsaNeural` | Geral |
 | `it-IT` <sup>Novo</sup> | Italiano (Itália) | Feminino | `it-IT-IsabellaNeural` | Geral |
 | `it-IT` <sup>Novo</sup> | Italiano (Itália) | Masculino | `it-IT-DiegoNeural` | Geral |
 | `ja-JP` | Japonês (Japão) | Feminino | `ja-JP-NanamiNeural` | Geral |
 | `ja-JP` <sup>Novo</sup> | Japonês (Japão) | Masculino | `ja-JP-KeitaNeural` | Geral |
-| `ko-KR` | Coreano (Coreia) | Feminino | `ko-KR-SunHiNeural` | Geral |
+| `ko-KR` | Coreano (Coreia do Sul) | Feminino | `ko-KR-SunHiNeural` | Geral |
 | `ko-KR` <sup>Novo</sup> | Coreano (Coreia do Sul) | Masculino | `ko-KR-InJoonNeural` | Geral |
 | `ms-MY` <sup>Novo</sup> | Malaio (Malásia) | Feminino | `ms-MY-YasminNeural` | Geral |
 | `nb-NO` | Norueguês, Bokmål (Noruega) | Feminino | `nb-NO-IselinNeural` | Geral |
 | `nl-NL` | Holandês (Países Baixos) | Feminino | `nl-NL-ColetteNeural` | Geral |
 | `pl-PL` | Polonês (Polônia) | Feminino | `pl-PL-ZofiaNeural` | Geral |
 | `pt-BR` | Português (Brasil) | Feminino | `pt-BR-FranciscaNeural` | Geral, com vários estilos de voz disponíveis |
-| `pt-BR` <sup>Novo</sup> | Português do Brasil (Brasil) | Masculino | `pt-BR-AntonioNeural` | Geral |
+| `pt-BR` <sup>Novo</sup> | Português (Brasil) | Masculino | `pt-BR-AntonioNeural` | Geral |
 | `pt-PT` | Português (Portugal) | Feminino | `pt-PT-FernandaNeural` | Geral |
 | `ro-RO` <sup>Novo</sup> | Romeno (Romênia) | Feminino | `ro-RO-AlinaNeural` | Geral |
 | `ru-RU` | Russo (Rússia) | Feminino | `ru-RU-DariyaNeural` | Geral |
@@ -206,7 +206,6 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 | `zh-CN` | Mandarim (chinês simplificado, China) | Masculino | `zh-CN-YunyeNeural` | Otimização para narração de histórias |
 | `zh-HK` | Cantonês (chinês tradicional, Hong Kong) | Feminino | `zh-HK-HiuGaaiNeural` | Geral |
 | `zh-TW` | Mandarim (chinês tradicional, Taiwan) | Feminino | `zh-TW-HsiaoYuNeural` | Geral |
-
 
 > [!IMPORTANT]
 > A voz `en-US-JessaNeural` foi alterada para `en-US-AriaNeural`. Se você usava a voz "Jessa", faça a conversão para "Aria".
