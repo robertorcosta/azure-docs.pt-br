@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265775"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442058"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modelo de cobrança para identidades externas do Azure AD
 
-O preço das identidades externas do Azure Active Directory (AD do Azure) é baseado em MAU (usuários ativos mensais), que é a contagem de usuários exclusivos com atividade de autenticação em um mês civil. Esse modelo de cobrança aplica-se aos [locatários](https://docs.microsoft.com/azure/active-directory-b2c/billing)de B2B (colaboração do usuário convidado) do Azure AD e Azure ad B2C. A cobrança do MAU ajuda a reduzir os custos oferecendo uma camada gratuita e preços flexíveis e previsíveis. Neste artigo, saiba mais sobre a cobrança do MAU e vinculando seus locatários do Azure AD a uma assinatura.
+O preço das identidades externas do Azure Active Directory (AD do Azure) é baseado em MAU (usuários ativos mensais), que é a contagem de usuários exclusivos com atividade de autenticação em um mês civil. Esse modelo de cobrança aplica-se aos [locatários](../../active-directory-b2c/billing.md)de B2B (colaboração do usuário convidado) do Azure AD e Azure ad B2C. A cobrança do MAU ajuda a reduzir os custos oferecendo uma camada gratuita e preços flexíveis e previsíveis. Neste artigo, saiba mais sobre a cobrança do MAU e vinculando seus locatários do Azure AD a uma assinatura.
 
 > [!IMPORTANT]
 > Este artigo não contém detalhes de preços. Para obter as informações mais recentes sobre cobrança e preços de uso, consulte [preços de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -45,7 +45,7 @@ O tipo de preço que se aplica a seus usuários convidados baseia-se no tipo de 
 
 Um locatário do Azure AD deve estar vinculado a uma assinatura do Azure para obter a cobrança e o acesso adequados aos recursos. Se o diretório ainda não tiver uma assinatura à qual você possa se vincular, você terá a oportunidade de adicionar um durante esse processo.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com uma conta do Azure que tenha sido atribuída pelo menos a função [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) dentro da assinatura ou um grupo de recursos dentro da assinatura.
+1. Entre no [portal do Azure](https://portal.azure.com/) com uma conta do Azure que tenha sido atribuída pelo menos a função [colaborador](../../role-based-access-control/built-in-roles.md) dentro da assinatura ou um grupo de recursos dentro da assinatura.
 
 2. Selecione o diretório que você deseja vincular: na barra de ferramentas portal do Azure, selecione o **diretório +** ícone de assinatura e, em seguida, selecione o diretório.
 

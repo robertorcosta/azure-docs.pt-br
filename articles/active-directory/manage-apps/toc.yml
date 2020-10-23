@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: O que é SSO (logon único)?
       href: what-is-single-sign-on.md
+    - name: O que há de novo no Docs?
+      href: whats-new-docs.md
 - name: Inícios rápidos
   expanded: true
   items:

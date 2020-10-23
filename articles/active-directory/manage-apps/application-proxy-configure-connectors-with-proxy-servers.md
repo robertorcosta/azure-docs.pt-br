@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207998"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426464"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -121,7 +122,7 @@ Se o firewall ou o proxy permitir a configuração de listas de permissões de D
 Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 
 * permitir o acesso de saída do conector para todos os destinos.
-* Permitir o acesso de saída do conector para os intervalos de IP do datacenter do Azure. O desafio de usar a lista de intervalos IP do datacenter do Azure é que ela é atualizada semanalmente. Você precisa implantar um processo para garantir que as regras de acesso sejam atualizadas de acordo. Usar apenas um subconjunto dos endereços IP pode interromper sua configuração. Para baixar os intervalos de IP mais recentes do Data Center do Azure, navegue até [https://download.microsoft.com](https://download.microsoft.com) e pesquise por "intervalos de IP e marcas de serviço do Azure". Certifique-se de selecionar a nuvem relevante. Por exemplo, os intervalos de IP de nuvem pública podem ser encontrados com "intervalos de IP do Azure e marcas de serviço – nuvem pública". A nuvem US governo pode ser encontrada pesquisando "intervalos de IP do Azure e marcas de serviço – nuvem dos EUA governo".
+* Permitir o acesso de saída do conector para os intervalos de IP do datacenter do Azure. O desafio de usar a lista de intervalos IP do datacenter do Azure é que ela é atualizada semanalmente. Você precisa implantar um processo para garantir que as regras de acesso sejam atualizadas de acordo. Usar apenas um subconjunto dos endereços IP pode interromper sua configuração. Para baixar os intervalos de IP mais recentes do Data Center do Azure, navegue até [https://download.microsoft.com](https://download.microsoft.com) e pesquise por "intervalos de IP e marcas de serviço do Azure". Certifique-se de selecionar a nuvem relevante. Por exemplo, os intervalos de IP de nuvem pública podem ser encontrados com "intervalos de IP do Azure e marcas de serviço – nuvem pública". A nuvem do governo dos EUA pode ser encontrada pesquisando "intervalos de IP do Azure e marcas de serviço – nuvem do governo dos EUA".
 
 #### <a name="proxy-authentication"></a>Autenticação do proxy
 

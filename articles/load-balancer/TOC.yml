@@ -65,7 +65,6 @@
       href: load-balancer-multivip-overview.md
     - name: Proxy de saída
       href: load-balancer-outbound-connections.md
-    - name: Redefinição de TCP e tempo limite de ociosidade de TCP
     - name: Regras de saída
       href: outbound-rules.md
     - name: Reiniciar TCP após tempo limite de ociosidade

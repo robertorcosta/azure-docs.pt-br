@@ -4,18 +4,18 @@ description: O artigo fornece um aviso aos usuários sobre a migração de ender
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004265"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427098"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -85,7 +85,7 @@ Novos gateways do SQL estão sendo adicionados às seguintes regiões:
 Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de agosto de 2020. 
 
 ### <a name="october-2019"></a>Outubro de 2019
-- Sul do Brasil
+- Brazil South
 - Oeste dos EUA
 - Europa Ocidental
 - Leste dos EUA
@@ -95,7 +95,7 @@ Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de ag
 - Norte da Europa
 - Centro-Norte dos EUA
 - Oeste do Japão
-- Japan East
+- Leste do Japão
 - Leste dos EUA 2
 - Leste da Ásia
 
@@ -108,7 +108,8 @@ Você poderá ser afetado se:
 
 - O endereço IP embutido em código para qualquer gateway específico em seu firewall local
 - Ter qualquer sub-rede usando Microsoft. SQL como um ponto de extremidade de serviço, mas não pode se comunicar com os endereços IP do gateway
-- Usar a [configuração com redundância de zona](high-availability-sla.md#zone-redundant-configuration) para seu banco de dados
+- Usar a [configuração com redundância de zona para a camada de uso geral](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Usar a [configuração com redundância de zona para as camadas premium & Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 Você não será afetado se tiver:
  

@@ -1944,6 +1944,8 @@
       items:
         - name: AirStack
           href: airstack-provisioning-tutorial.md
+        - name: AlertMedia
+          href: alertmedia-provisioning-tutorial.md
         - name: AWS (Amazon Web Services) – Provisionamento de funções
           href: amazon-web-service-tutorial.md#configure-azure-ad-sso
         - name: Apple Business Manager
@@ -2068,7 +2070,7 @@
           href: myday-provision-tutorial.md
     - name: N – Z
       items:
-        - name: Netskope Administrator Console
+        - name: Autenticação de Usuário do Netskope
           href: netskope-administrator-console-provisioning-tutorial.md
         - name: New Relic por Organização
           href: new-relic-by-organization-provisioning-tutorial.md
@@ -2076,6 +2078,8 @@
           href: netsuite-provisioning-tutorial.md
         - name: OfficeSpace Software
           href: officespace-software-provisioning-tutorial.md
+        - name: Serviços de Diretório OpenText
+          href: open-text-directory-services-provisioning-tutorial.md
         - name: Console da Infraestrutura de Nuvem da Oracle
           href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
         - name: Oracle Fusion ERP
