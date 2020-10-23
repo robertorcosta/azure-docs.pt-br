@@ -8,32 +8,32 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5fe3017e1f39e4cf23f19e2b16a3d0406707083a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d116bdec2974fa2c39c6a56364e54ca7d776b682
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626506"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426028"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>Configurar parâmetros de servidor no banco de dados do Azure para MariaDB usando o PowerShell
 
 Você pode listar, mostrar e atualizar parâmetros de configuração para um banco de dados do Azure para MariaDB Server usando o PowerShell. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado.
 
 >[!Note]
-> Os parâmetros do servidor podem ser atualizados globalmente no nível do servidor, usar o [CLI do Azure](./howto-configure-server-parameters-cli.md), o [PowerShell](./howto-configure-server-parameters-using-powershell.md)ou o [portal do Azure](./howto-server-parameters.md).
+> Os parâmetros do servidor podem ser atualizados globalmente no nível do servidor. Use a [CLI do Azure](./howto-configure-server-parameters-cli.md), o [PowerShell](./howto-configure-server-parameters-using-powershell.md)ou o [portal do Azure](./howto-server-parameters.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de instruções, você precisa:
 
-- O [módulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
+- O [módulo AZ PowerShell](/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
 - Um [banco de dados do Azure para servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Embora o módulo Az.MariaDb do PowerShell esteja em versão prévia, você precisará instalá-lo separadamente por meio do módulo do Az PowerShell usando o seguinte comando: `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Depois que o módulo Az.MariaDb do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e ficará disponível nativamente no Azure Cloud Shell.
 
-Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

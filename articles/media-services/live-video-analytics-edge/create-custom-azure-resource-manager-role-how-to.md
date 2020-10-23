@@ -3,12 +3,12 @@ title: Criar função de Azure Resource Manager personalizada e atribuir à enti
 description: Este artigo fornece orientação sobre como criar uma função de Azure Resource Manager personalizada e atribuir à entidade de serviço para análise de vídeo ao vivo em IoT Edge usando CLI do Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526571"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425722"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Criar função de Azure Resource Manager personalizada e atribuir à entidade de serviço
 
@@ -230,7 +230,7 @@ Procure "roleDefinitionName" e veja que seu valor está definido como "LVAEdge U
 
 Isso confirma que vinculamos a função de usuário personalizada à entidade de serviço usada para nosso aplicativo.
 
-### <a name="test-the-service-principal-rbac"></a>Testar o RBAC da entidade de serviço  
+### <a name="test-the-service-principal-access-control"></a>Testar o controle de acesso da entidade de serviço
 
 1. Faça logon usando a entidade de serviço. Para isso, precisaremos de três informações para que o Azure Active Directory nos conceda o token de acesso apropriado que podemos obter da saída da etapa [criar entidade de serviço](#create-service-principal) :
     1. AadClientID 

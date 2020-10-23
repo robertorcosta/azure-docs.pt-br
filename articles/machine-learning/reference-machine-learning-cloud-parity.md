@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892981"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426528"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning a paridade de nuvem do soberanas
 
@@ -63,7 +63,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | **Suporte a SDK** |  |  | | 
 | Suporte do SDK do R                                                              | Visualização pública       | YES                | YES         |
 | Suporte ao SDK do Python                                                         | GA                   | YES                | YES         |
-| **Segurança** |   | | | 
+| **Security** |   | | | 
 | Suporte de rede virtual (VNet) para treinamento                                | GA                   | YES                | YES         |
 | Suporte à VNet (rede virtual) para inferência                               | GA                   | YES                | YES         |
 | Autenticação de ponto de extremidade de Pontuação                                            | Visualização pública       | YES                | YES         |
@@ -122,7 +122,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Acesso de raiz e SSH para recursos de computação.                                          | YES | YES |  |
 | Manter a segurança dos sistemas implantados (instâncias, pontos de extremidade, etc.), incluindo o Endpoint Protection, aplicação de patch e registro em log |  PARTIAL|  PARTIAL |ACI atrás da VNet e do ponto de extremidade privado atualmente não disponível |                                  
 | Controlar (desabilitar/limitar/restringir) o uso da integração de ACI/AKS                    | PARTIAL| PARTIAL |ACI atrás da VNet e do ponto de extremidade privado atualmente não disponível|
-| RBAC (controle de acesso de Role-Based)-criações de função personalizadas                           | YES | YES |  |
+| Controle de acesso baseado em função do Azure (RBAC do Azure) – criações de função personalizadas                           | YES | YES |  |
 | Controlar o acesso a imagens ACR usadas pelo serviço ML (Azure fornecido/mantido versus personalizado)  |PARTIAL|  PARTIAL | Não há suporte para ACR por trás do ponto de extremidade privado e VNet no Azure governamental |
 | **Uso geral do serviço de Machine Learning** |  | | |
 | Capacidade de ter um ambiente de desenvolvimento para criar um modelo, treinar esse modelo, hospedá-lo como um ponto de extremidade e consumi-lo por meio de um webapp     | YES | YES |  |
@@ -176,7 +176,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | **Suporte a SDK** |    | | |
 | Suporte do SDK do R                                                              | Visualização pública   | YES       | N/D        |
 | Suporte ao SDK do Python                                                         | GA               | YES       | N/D        |
-| **Segurança** |   | | |
+| **Security** |   | | |
 | Suporte de rede virtual (VNet) para treinamento                                | GA               | YES       | N/D        |
 | Suporte à VNet (rede virtual) para inferência                               | GA               | YES       | N/D        |
 | Autenticação de ponto de extremidade de Pontuação                                            | Visualização pública   | YES       | N/D        |

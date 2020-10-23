@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424996"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460981"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
@@ -281,6 +281,13 @@ Depois que esses requisitos forem atendidos, use as etapas a seguir para habilit
     ]
     }
     ```
+
+    Este modelo cria um _ponto de extremidade privado_ para acesso à rede do espaço de trabalho para o ACR. A captura de tela abaixo mostra um exemplo desse ponto de extremidade privado.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Registro de Contêiner do Azure para o workspace":::
+
+    > [!IMPORTANT]
+    > Não exclua este ponto de extremidade! Se você excluí-lo acidentalmente, poderá aplicar novamente o modelo nesta etapa para criar um novo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

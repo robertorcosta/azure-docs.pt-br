@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dbe1c368a730fcd09cf5e5f6435ca247150b5c3c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102486"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426193"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
-Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINSMODELS**](how-to-use-apis-sdks.md), o SDK do [.net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
+Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINSMODELS**](how-to-use-apis-sdks.md), o SDK do [.net (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
 
 As operações de gerenciamento incluem carregamento, validação, recuperação e exclusão de modelos. 
 

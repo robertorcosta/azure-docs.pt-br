@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613978"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441667"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
 
@@ -44,7 +44,7 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 > Anteriormente, era necessário configurar quais atributos de usuário enviar à API (' claims to send ') e quais atributos de usuário aceitar da API (' claims to Receive '). Agora, todos os atributos de usuário são enviados por padrão se eles tiverem um valor e qualquer atributo de usuário puder ser retornado pela API em uma resposta de ' continuação '.
 
 ## <a name="the-request-sent-to-your-api"></a>A solicitação enviada à sua API
-Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) Propriedades de usuário. 
+Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](/graph/api/resources/user#properties) Propriedades de usuário. 
 
 **Solicitação de exemplo**
 ```http
@@ -85,7 +85,7 @@ Além disso, a Declaração **localidades da interface do usuário (' ui_locales
 > Se uma declaração a ser enviada não tiver um valor no momento em que o ponto de extremidade de API for chamado, a declaração não será enviada para a API. Sua API deve ser projetada para verificar explicitamente o valor esperado.
 
 > [!TIP] 
-> [**identidades (' identidades ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e as declarações de **endereço de email (' email ')** podem ser usadas pela sua API para identificar um usuário antes que eles tenham uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um provedor de identidade, como Google ou Facebook. ' email ' é sempre enviado.
+> [**identidades (' identidades ')**](/graph/api/resources/objectidentity) e as declarações de **endereço de email (' email ')** podem ser usadas pela sua API para identificar um usuário antes que eles tenham uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um provedor de identidade, como Google ou Facebook. ' email ' é sempre enviado.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitar o conector de API em um fluxo de usuário
 
@@ -106,7 +106,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 
-Um conector de API nesta etapa no processo de inscrição é invocado imediatamente depois que o usuário é autenticado com um provedor de identidade (Google, Facebook, Azure AD). Esta etapa precede a ***página coleção de atributos***, que é o formulário apresentado ao usuário para coletar atributos de usuário. 
+Um conector de API nesta etapa no processo de inscrição é invocado imediatamente depois que o usuário é autenticado com um provedor de identidade (Google, Facebook, Azure AD). Esta etapa precede a página de*_coleção de atributos_**, que é o formulário apresentado ao usuário para coletar atributos de usuário. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -244,11 +244,11 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Type              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e nos **atributos de usuário** para um fluxo de usuário. Os valores podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como uma*declaração _ para receber** na configuração do conector de API e nos **atributos de usuário** para um fluxo de usuário. Os valores podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração retornada não precisa conter `_<extensions-app-id>_` . Os valores serão armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e no **atributo de usuário** para um fluxo de usuário. Atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
@@ -266,7 +266,7 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Type   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser `ShowBlockPage`                                              |
@@ -292,7 +292,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Type    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5be746b73cef37826be36b13c6f491b8ef6ad809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fe56a8173a4cfe8836a078a62c7bc9015c83324
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359009"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461253"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -42,10 +42,10 @@ Você também pode exercitar as APIs do plano de controle interagindo com o gêm
 ## <a name="overview-data-plane-apis"></a>Visão geral: APIs do plano de dados
 
 As APIs do plano de dados são as APIs do Azure digital gêmeos usadas para gerenciar os elementos em sua instância do gêmeos digital do Azure. Eles incluem operações como a criação de rotas, o carregamento de modelos, a criação de relações e o gerenciamento de gêmeos. Elas podem ser divididas em larga escala nas seguintes categorias:
-* **DigitalTwinsModels** -a categoria DigitalTwinsModels contém APIs para gerenciar os [modelos](concepts-models.md) em uma instância do gêmeos digital do Azure. As atividades de gerenciamento incluem carregamento, validação, recuperação e exclusão de modelos criados no DTDL.
+* **DigitalTwinModels** -a categoria DigitalTwinModels contém APIs para gerenciar os [modelos](concepts-models.md) em uma instância do gêmeos digital do Azure. As atividades de gerenciamento incluem carregamento, validação, recuperação e exclusão de modelos criados no DTDL.
 * **DigitalTwins** -a categoria DigitalTwins contém as APIs que permitem que os desenvolvedores criem, modifiquem e excluam [gêmeos digitais](concepts-twins-graph.md) e suas relações em uma instância do gêmeos digital do Azure.
 * **Consulta** -a categoria de consulta permite que os desenvolvedores [encontrem conjuntos de gêmeos digitais no grafo de entrelaçamento](how-to-query-graph.md) entre relações.
-* **EventRoutes** -a categoria EventRoutes contém APIs para [rotear dados](concepts-route-events.md), por meio do sistema e para serviços downstream.
+* **Rotas de eventos** – a categoria rotas de eventos contém APIs para [rotear dados](concepts-route-events.md), por meio do sistema e para serviços downstream.
 
 A versão mais atual da API do plano de dados para visualização pública é _**2020-10-31**_.
 
@@ -56,7 +56,7 @@ Para usar as APIs do plano de dados:
 * Você pode usar o SDK do **.net (C#)** . Para usar o SDK do .NET...
    - Você pode exibir e adicionar o pacote do NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - Você pode encontrar a origem do SDK, incluindo uma pasta de exemplos, no GitHub: [biblioteca de cliente do Azure IOT digital gêmeos para .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - Você pode exibir a [documentação de referência do SDK](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview).
+   - Você pode exibir a [documentação de referência do SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview).
    - Você pode ver informações detalhadas e exemplos de uso, continuando para a seção [SDK (plano de dados) do .net (C#)](#net-c-sdk-data-plane) deste artigo.
 * Você pode usar o SDK do **Java** . Para usar o SDK do Java...
    - Você pode exibir e instalar o pacote do Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)

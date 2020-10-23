@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab072fa53d3ecc3f856b6765acfb8c19da3ff298
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119776"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442245"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Usar a biblioteca de autenticação da Microsoft para JavaScript para trabalhar com Azure AD B2C
 
@@ -56,16 +56,22 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>Etapa 3: configurar a autenticação
 
-1. Abra o arquivo `config.js` no exemplo.
+1. Abra o arquivo `config.json` no exemplo.
 
-2. Configure o exemplo com as credenciais do aplicativo que você obteve anteriormente ao registrar seu aplicativo. Altere as linhas de código a seguir substituindo os valores pelos nomes de clientID, host, tenantid e nome da política.
+2. Configure o exemplo com as credenciais do aplicativo que você obteve anteriormente ao registrar seu aplicativo. Altere as linhas de código a seguir substituindo os valores pelo nome do locatário, ID do cliente e nome da política.
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
 Para obter mais informações, confira este [ exemplo de API webNode.js B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 

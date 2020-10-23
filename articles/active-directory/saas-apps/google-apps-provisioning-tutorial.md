@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3f2f62fe158b946e00c7f81d0cb7eeb0d8f09437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebbcb8dd8c895c61858952fbd4498bd57e06d36b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331119"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448649"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuários
 
-Este tutorial descreve as etapas que você precisa executar no G Suite e no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para o [G Suite](https://gsuite.google.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
+Este tutorial descreve as etapas que você precisa executar no G Suite e no Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para o [G Suite](https://gsuite.google.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -38,21 +38,21 @@ Este tutorial descreve as etapas que você precisa executar no G Suite e no Azur
 > * Remover usuários do G Suite quando eles não precisam mais de acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o G Suite
 > * Provisionar grupos e associações de grupo no G Suite
-> * [Logon único](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial) no G Suite (recomendado)
+> * [Logon único](./google-apps-tutorial.md) no G Suite (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
+* Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global). 
 * [Um locatário do G Suite](https://gsuite.google.com/pricing.html)
 * Uma conta de usuário em um G Suite com permissões de administrador.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
-1. Saiba mais sobre [como funciona o serviço de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quem estará no [escopo de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine quais dados [mapear entre o Azure AD e o G Suite](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
+2. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine quais dados [mapear entre o Azure AD e o G Suite](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-g-suite-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o G Suite para dar suporte ao provisionamento com o Azure AD
 
@@ -71,7 +71,7 @@ Antes de configurar o G Suite para o provisionamento automático de usuário com
     ![API do G Suite habilitada](./media/google-apps-provisioning-tutorial/gapps-api-enabled.png)
 
     > [!IMPORTANT]
-   > Para cada usuário que você pretende provisionar para o G Suite, seu nome de usuário no Azure AD **deve** estar vinculado a um domínio personalizado. Por exemplo, nomes de usuários do tipo bob@contoso.onmicrosoft.com não são aceitos pelo G Suite. Por outro lado, bob@contoso.com é aceito. Você pode alterar o domínio de um usuário existente seguindo as instruções [aqui](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
+   > Para cada usuário que você pretende provisionar para o G Suite, seu nome de usuário no Azure AD **deve** estar vinculado a um domínio personalizado. Por exemplo, nomes de usuários do tipo bob@contoso.onmicrosoft.com não são aceitos pelo G Suite. Por outro lado, bob@contoso.com é aceito. Você pode alterar o domínio de um usuário existente seguindo as instruções [aqui](../fundamentals/add-custom-domain.md).
 
 4. Depois de adicionar e verificar os domínios personalizados desejados com o Azure AD, você deve verificá-los novamente com o G Suite. Para verificar os domínios no G Suite, consulte as seguintes etapas:
 
@@ -101,15 +101,15 @@ Antes de configurar o G Suite para o provisionamento automático de usuário com
 
 ## <a name="step-3-add-g-suite-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o G Suite da Galeria de aplicativos do Azure AD
 
-Adicione o G Suite da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para o G Suite. Se você tiver configurado anteriormente o G Suite para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Adicione o G Suite da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para o G Suite. Se você tiver configurado anteriormente o G Suite para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
-No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários e grupos ao G Suite, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao G Suite, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
 
-* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-g-suite"></a>Etapa 5. Configurar o provisionamento automático de usuário para o G Suite 
@@ -159,83 +159,83 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 8. Na seção **Mapeamentos**, selecione **Provisionar usuários do Azure Active Directory**.
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para o G Suite na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no G Suite para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que a API do G Suite dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que são sincronizados do Azure AD para o G Suite na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no G Suite para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](../app-provisioning/customize-application-attributes.md), será necessário garantir que a API do G Suite dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
    |Atributo|Type|
    |---|---|
-   |primaryEmail|Cadeia de caracteres|
+   |primaryEmail|String|
    |relation. [tipo EQ "Gerenciador"]. valor|String|
    |name.familyName|String|
    |name.givenName|String|
-   |suspenso|Cadeia de caracteres|
-   |externalIds. [tipo EQ "personalizado"]. valor|Cadeia de caracteres|
-   |externalIds. [tipo EQ "organização"]. valor|Cadeia de caracteres|
-   |atende. [tipo EQ "trabalho"]. país|Cadeia de caracteres|
-   |atende. [tipo EQ "trabalho"]. streetAddress|Cadeia de caracteres|
-   |atende. [tipo EQ "trabalho"]. região|Cadeia de caracteres|
-   |atende. [tipo EQ "trabalho"]. localidade|Cadeia de caracteres|
-   |atende. [tipo EQ "trabalho"]. CEP|Cadeia de caracteres|
-   |e-mail. [tipo EQ "trabalho"]. endereço|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. departamento|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. título|Cadeia de caracteres|
-   |phoneNumbers. [tipo EQ "trabalho"]. valor|Cadeia de caracteres|
-   |phoneNumbers. [tipo EQ "móvel"]. valor|Cadeia de caracteres|
-   |phoneNumbers. [tipo EQ "work_fax"]. valor|Cadeia de caracteres|
-   |e-mail. [tipo EQ "trabalho"]. endereço|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. departamento|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. título|Cadeia de caracteres|
-   |phoneNumbers. [tipo EQ "trabalho"]. valor|Cadeia de caracteres|
-   |phoneNumbers. [tipo EQ "móvel"]. valor|Cadeia de caracteres|
-   |phoneNumbers. [tipo EQ "work_fax"]. valor|Cadeia de caracteres|
-   |atende. [tipo EQ "Home"]. país|Cadeia de caracteres|
-   |atende. [type EQ "Home"]. formatado|Cadeia de caracteres|
-   |atende. [type EQ "Home"]. localidade|Cadeia de caracteres|
-   |atende. [type EQ "Home"]. postalCode|Cadeia de caracteres|
-   |atende. [tipo EQ "Home"]. região|Cadeia de caracteres|
-   |atende. [type EQ "Home"]. streetAddress|Cadeia de caracteres|
-   |atende. [tipo EQ "other"]. país|Cadeia de caracteres|
-   |atende. [tipo EQ "other"]. formatado|Cadeia de caracteres|
-   |atende. [tipo EQ "other"]. localidade|Cadeia de caracteres|
-   |atende. [tipo EQ "other"]. postalCode|Cadeia de caracteres|
-   |atende. [tipo EQ "other"]. região|Cadeia de caracteres|
-   |atende. [tipo EQ "other"]. streetAddress|Cadeia de caracteres|
-   |atende. [tipo EQ "trabalho"]. formatado|Cadeia de caracteres|
-   |changePasswordAtNextLogin|Cadeia de caracteres|
-   |e-mail. [tipo EQ "Home"]. endereço|Cadeia de caracteres|
-   |e-mail. [tipo EQ "other"]. endereço|Cadeia de caracteres|
-   |externalIds. [tipo EQ "conta"]. valor|Cadeia de caracteres|
-   |externalIds. [tipo EQ "personalizado"]. CustomType|Cadeia de caracteres|
-   |externalIds. [tipo EQ "cliente"]. valor|Cadeia de caracteres|
-   |externalIds. [tipo EQ "login_id"]. valor|Cadeia de caracteres|
-   |externalIds. [tipo EQ "rede"]. valor|Cadeia de caracteres|
-   |gênero. Type|Cadeia de caracteres|
-   |GeneratedImmutableId|Cadeia de caracteres|
-   |Identificador|Cadeia de caracteres|
-   |IMS. [type EQ "Home"]. protocolo|Cadeia de caracteres|
-   |IMS. [tipo EQ "other"]. protocolo|Cadeia de caracteres|
-   |IMS. [tipo EQ "trabalho"]. protocolo|Cadeia de caracteres|
-   |includeInGlobalAddressList|Cadeia de caracteres|
-   |ipWhitelisted|Cadeia de caracteres|
-   |organizações. [tipo EQ "School"]. costCenter|Cadeia de caracteres|
-   |organizações. [tipo EQ "escola"]. departamento|Cadeia de caracteres|
-   |organizações. [tipo EQ "School"]. domínio|Cadeia de caracteres|
-   |organizações. [tipo EQ "School"]. fullTimeEquivalent|Cadeia de caracteres|
-   |organizações. [tipo EQ "escola"]. local|Cadeia de caracteres|
-   |organizações. [tipo EQ "escola"]. nome|Cadeia de caracteres|
-   |organizações. [tipo EQ "escola"]. símbolo|Cadeia de caracteres|
-   |organizações. [tipo EQ "escola"]. título|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. costCenter|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. domínio|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. fullTimeEquivalent|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. local|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. nome|Cadeia de caracteres|
-   |organizações. [tipo EQ "trabalho"]. símbolo|Cadeia de caracteres|
-   |OrgUnitPath|Cadeia de caracteres|
-   |phoneNumbers. [tipo EQ "Home"]. valor|Cadeia de caracteres|
-   |phoneNumbers. [tipo EQ "other"]. valor|Cadeia de caracteres|
-   |aos. [tipo EQ "Home"]. valor|Cadeia de caracteres|
-   |aos. [tipo EQ "other"]. valor|Cadeia de caracteres|
-   |aos. [tipo EQ "trabalho"]. valor|Cadeia de caracteres|
+   |suspenso|String|
+   |externalIds. [tipo EQ "personalizado"]. valor|String|
+   |externalIds. [tipo EQ "organização"]. valor|String|
+   |atende. [tipo EQ "trabalho"]. país|String|
+   |atende. [tipo EQ "trabalho"]. streetAddress|String|
+   |atende. [tipo EQ "trabalho"]. região|String|
+   |atende. [tipo EQ "trabalho"]. localidade|String|
+   |atende. [tipo EQ "trabalho"]. CEP|String|
+   |e-mail. [tipo EQ "trabalho"]. endereço|String|
+   |organizações. [tipo EQ "trabalho"]. departamento|String|
+   |organizações. [tipo EQ "trabalho"]. título|String|
+   |phoneNumbers. [tipo EQ "trabalho"]. valor|String|
+   |phoneNumbers. [tipo EQ "móvel"]. valor|String|
+   |phoneNumbers. [tipo EQ "work_fax"]. valor|String|
+   |e-mail. [tipo EQ "trabalho"]. endereço|String|
+   |organizações. [tipo EQ "trabalho"]. departamento|String|
+   |organizações. [tipo EQ "trabalho"]. título|String|
+   |phoneNumbers. [tipo EQ "trabalho"]. valor|String|
+   |phoneNumbers. [tipo EQ "móvel"]. valor|String|
+   |phoneNumbers. [tipo EQ "work_fax"]. valor|String|
+   |atende. [tipo EQ "Home"]. país|String|
+   |atende. [type EQ "Home"]. formatado|String|
+   |atende. [type EQ "Home"]. localidade|String|
+   |atende. [type EQ "Home"]. postalCode|String|
+   |atende. [tipo EQ "Home"]. região|String|
+   |atende. [type EQ "Home"]. streetAddress|String|
+   |atende. [tipo EQ "other"]. país|String|
+   |atende. [tipo EQ "other"]. formatado|String|
+   |atende. [tipo EQ "other"]. localidade|String|
+   |atende. [tipo EQ "other"]. postalCode|String|
+   |atende. [tipo EQ "other"]. região|String|
+   |atende. [tipo EQ "other"]. streetAddress|String|
+   |atende. [tipo EQ "trabalho"]. formatado|String|
+   |changePasswordAtNextLogin|String|
+   |e-mail. [tipo EQ "Home"]. endereço|String|
+   |e-mail. [tipo EQ "other"]. endereço|String|
+   |externalIds. [tipo EQ "conta"]. valor|String|
+   |externalIds. [tipo EQ "personalizado"]. CustomType|String|
+   |externalIds. [tipo EQ "cliente"]. valor|String|
+   |externalIds. [tipo EQ "login_id"]. valor|String|
+   |externalIds. [tipo EQ "rede"]. valor|String|
+   |gênero. Type|String|
+   |GeneratedImmutableId|String|
+   |Identificador|String|
+   |IMS. [type EQ "Home"]. protocolo|String|
+   |IMS. [tipo EQ "other"]. protocolo|String|
+   |IMS. [tipo EQ "trabalho"]. protocolo|String|
+   |includeInGlobalAddressList|String|
+   |ipWhitelisted|String|
+   |organizações. [tipo EQ "School"]. costCenter|String|
+   |organizações. [tipo EQ "escola"]. departamento|String|
+   |organizações. [tipo EQ "School"]. domínio|String|
+   |organizações. [tipo EQ "School"]. fullTimeEquivalent|String|
+   |organizações. [tipo EQ "escola"]. local|String|
+   |organizações. [tipo EQ "escola"]. nome|String|
+   |organizações. [tipo EQ "escola"]. símbolo|String|
+   |organizações. [tipo EQ "escola"]. título|String|
+   |organizações. [tipo EQ "trabalho"]. costCenter|String|
+   |organizações. [tipo EQ "trabalho"]. domínio|String|
+   |organizações. [tipo EQ "trabalho"]. fullTimeEquivalent|String|
+   |organizações. [tipo EQ "trabalho"]. local|String|
+   |organizações. [tipo EQ "trabalho"]. nome|String|
+   |organizações. [tipo EQ "trabalho"]. símbolo|String|
+   |OrgUnitPath|String|
+   |phoneNumbers. [tipo EQ "Home"]. valor|String|
+   |phoneNumbers. [tipo EQ "other"]. valor|String|
+   |aos. [tipo EQ "Home"]. valor|String|
+   |aos. [tipo EQ "other"]. valor|String|
+   |aos. [tipo EQ "trabalho"]. valor|String|
    
 
 10. Na seção **mapeamentos** , selecione **provisionar grupos de Azure Active Directory**.
@@ -244,12 +244,12 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
       |Atributo|Type|
       |---|---|
-      |email|Cadeia de caracteres|
-      |Membros|Cadeia de caracteres|
+      |email|String|
+      |Membros|String|
       |name|String|
-      |descrição|String|
+      |description|String|
 
-12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Para habilitar o serviço de provisionamento do Azure AD para o G Suite, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
@@ -271,15 +271,15 @@ Essa operação começa o ciclo de sincronização inicial de todos os usuários
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
-1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
-2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
-3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
+2. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

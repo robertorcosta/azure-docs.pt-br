@@ -3,13 +3,13 @@ title: Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 description: Saiba como atualizar um cluster do AKS (serviço kubernetes do Azure) para obter os recursos e as atualizações de segurança mais recentes.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050624"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461440"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster AKS
 
-Com uma lista de versões disponíveis para o cluster do AKS, use o comando [az aks upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó ao cluster que executa a versão especificada do kubernetes, depois cuidadosamente [Cordon e esvazia][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos. Quando o novo nó é confirmado como executando pods de aplicativo, o nó antigo é excluído. Esse processo se repete até que todos os nós no cluster tenham sido atualizados.
+Com uma lista de versões disponíveis para o cluster do AKS, use o comando [az aks upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó de buffer (ou quantos nós forem configurados em [pico máximo](#customize-node-surge-upgrade-preview)) ao cluster que executa a versão de kubernetes especificada. Em seguida, ele irá [Cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos (se você estiver usando o surto máximo, ele será [cordondo e drenado][kubernetes-drain] como muitos nós ao mesmo tempo que o número de nós de buffer especificados). Quando o nó antigo estiver totalmente descarregada, a imagem será recriada para receber a nova versão e ele se tornará o nó de buffer para o seguinte nó a ser atualizado. Esse processo se repete até que todos os nós no cluster tenham sido atualizados. No final do processo, o último nó esgotado será excluído, mantendo a contagem de nós do agente existente.
 
 ```azurecli-interactive
 az aks upgrade \

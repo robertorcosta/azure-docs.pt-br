@@ -2,65 +2,71 @@
 title: Como criar e gerenciar o DHCP
 description: Este artigo explica como gerenciar o DHCP na solução VMware do Azure.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 2c059918f57b7f01058a031f1bf281b243855661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: cb74ed4474cc14081e59142f2f60915fccd47559
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332824"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461049"
 ---
-# <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Como criar e gerenciar o DHCP na solução VMWare do Azure
+# <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Como criar e gerenciar o DHCP na solução VMware do Azure
 
-O NSX-T fornece a capacidade de configurar o DHCP para sua nuvem privada. Se você planeja usar o NSX-T para hospedar o servidor DHCP, consulte [criar servidor DHCP](#create-dhcp-server). Caso contrário, se você tiver um servidor DHCP externo de terceiros em sua rede e quiser retransmitir solicitações para esse servidor DHCP, consulte [Criar serviço de retransmissão DHCP](#create-dhcp-relay-service).
+O NSX-T fornece a capacidade de configurar o DHCP para sua nuvem privada. Se você usar o NSX-T para hospedar o servidor DHCP, consulte [criar servidor DHCP](#create-dhcp-server). Caso contrário, se você tiver um servidor DHCP externo de terceiros em sua rede, consulte [Criar serviço de retransmissão de DHCP](#create-dhcp-relay-service).
 
 ## <a name="create-dhcp-server"></a>Criar servidor DHCP
 
 Use as etapas a seguir para configurar um servidor DHCP no NSX-T.
 
-No NSX Manager, navegue até a guia **rede** e selecione **DHCP** em **Gerenciamento de IP**. Selecione o botão **Adicionar servidor** . Em seguida, forneça o nome do servidor e o endereço IP do servidor. Quando terminar, selecione **salvar**.
+1. No NSX Manager, navegue até a guia **rede** e selecione **DHCP**. 
+1. Selecione **Adicionar servidor** e forneça o nome do servidor e o endereço IP. 
+1. Selecione **Salvar**.
 
 :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Adicionar servidor DHCP" border="true":::
 
 ### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Conecte o servidor DHCP ao gateway de camada 1.
 
-1. Selecione **gateways da camada 1**, o gateway e, em seguida, selecione **Editar**
+1. Selecione **gateways da camada 1**, o gateway da lista e, em seguida, selecione **Editar**.
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-1. Adicionar uma sub-rede selecionando **nenhum conjunto de alocação de IP**
+1. Selecione **nenhuma alocação de IP definida** para adicionar uma sub-rede.
 
    :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-1. Na próxima tela, selecione **servidor local DHCP** na lista suspensa **tipo** . Para **servidor DHCP**, selecione **DHCP padrão** e selecione **salvar**.
+1. Selecione **servidor local DHCP** para o **tipo**. 
+1. Selecione **DHCP padrão** para o **servidor DHCP** e, em seguida, selecione **salvar**.
 
-   :::image type="content" source="./media/manage-dhcp/set-ip-address-management.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-1. Na janela **Gateway de camada 1** , selecione **salvar**. Na próxima tela, você verá **as alterações salvas**, selecione **fechar edição** para concluir.
+1. Na janela **Gateway de camada 1** , selecione **salvar**. 
+1. Selecione **fechar edição** para concluir.
 
 ### <a name="add-a-network-segment"></a>Adicionar um segmento de rede
 
 Depois de criar o servidor DHCP, você precisará adicionar segmentos de rede a ele.
 
-1. No NSX-T, selecione a guia **rede** e selecione **segmentos** em **conectividade**. Selecione **Adicionar segmento**. Nomeie o segmento e a conexão com o gateway de camada 1. Em seguida, selecione **definir sub-redes** para configurar uma nova sub-rede. 
+1. No NSX-T, selecione a guia **rede** e selecione **segmentos** em **conectividade**. 
+1. Selecione **Adicionar segmento** e nomeie o segmento e a conexão com o gateway de camada 1. 
+1. Selecione **definir sub-redes** para configurar uma nova sub-rede. 
 
    :::image type="content" source="./media/manage-dhcp/add-segment.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-1. Na janela **definir** sub-redes, selecione **Adicionar sub-rede**. Insira o endereço IP do gateway e o intervalo DHCP e selecione **Adicionar** e **aplicar**
+1. Na janela **definir** sub-redes, selecione **Adicionar sub-rede**. 
+1. Insira o endereço IP do gateway e o intervalo DHCP e selecione **Adicionar** e **aplicar**
 
-   :::image type="content" source="./media/manage-dhcp/add-subnet-segment.png" alt-text="Adicionar servidor DHCP" border="true":::
-
-1. Ao concluir, selecione **salvar** para concluir a adição de um segmento de rede.
-
-   :::image type="content" source="./media/manage-dhcp/segments-complete.png" alt-text="Adicionar servidor DHCP" border="true":::
+1. Selecione **salvar** para adicionar o novo segmento de rede.
 
 ## <a name="create-dhcp-relay-service"></a>Criar serviço de retransmissão DHCP
 
-1. Na janela NXT-T, selecione a guia **rede** e, em **Gerenciamento de IP**, selecione **DHCP**. Selecione **Adicionar servidor**. Escolha retransmissão DHCP para o **tipo de servidor** e insira o nome do servidor e o endereço IP do servidor de retransmissão. Selecione **Salvar** para salvar as alterações.
+1. Selecione a guia **rede** e, em **Gerenciamento de IP**, selecione **DHCP**. 
+1. Selecione **Adicionar servidor**. 
+1. Selecione retransmissão DHCP para o **tipo de servidor** e insira o nome do servidor e o endereço IP do servidor de retransmissão. 
+1. Selecione **Salvar**.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-1. Selecione **gateways de camada 1** em **conectividade**. Selecione as reticências verticais no gateway de camada 1 e escolha **Editar**.
+1. Selecione **gateways de camada 1** em **conectividade**. 
+1. Selecione as reticências verticais no gateway de camada 1 e selecione **Editar**.
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="Adicionar servidor DHCP" border="true":::
 
@@ -68,27 +74,32 @@ Depois de criar o servidor DHCP, você precisará adicionar segmentos de rede a 
 
    :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-1. Na caixa de diálogo, para **tipo**, selecione **servidor de retransmissão DHCP**. Na lista suspensa **retransmissão de DHCP** , selecione o servidor de retransmissão DHCP. Quando terminar, selecione **salvar**
+1. Selecione **servidor de retransmissão DHCP** para **tipo**.
+1. Selecione o servidor de retransmissão DHCP para **retransmissão DHCP**. 
+1. Selecione **Salvar**.
 
-   :::image type="content" source="./media/manage-dhcp/set-ip-address-management-relay.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-## <a name="specify-a-dhcp-range-ip-on-segment"></a>Especificar um IP de intervalo DHCP no segmento
+## <a name="specify-a-dhcp-range-ip-on-a-segment"></a>Especificar um IP de intervalo DHCP em um segmento
 
 > [!NOTE]
 > Essa configuração é necessária para perceber a funcionalidade de retransmissão DHCP no segmento de cliente DHCP. 
 
-1. Em **conectividade**, selecione **segmentos**. Selecione as reticências verticais e selecione **Editar**. Em vez disso, se você quisesse adicionar um novo segmento, você pode selecionar **Adicionar segmento** para criar um novo segmento.
+1. Em **conectividade**, selecione **segmentos**. 
+1. Selecione as reticências verticais e selecione **Editar**. 
 
-   :::image type="content" source="./media/manage-dhcp/edit-segments.png" alt-text="Adicionar servidor DHCP" border="true":::
+   >[!TIP]
+   >Se você quiser adicionar um novo segmento, selecione **Adicionar segmento**.
 
-1. Adicione detalhes sobre o segmento. Selecione o valor em **sub-redes** ou defina sub- **redes** para adicionar ou modificar a sub-rede.
+1. Adicione detalhes sobre o segmento. 
+1. Selecione o valor em **definir sub-redes** para adicionar ou modificar a sub-rede.
 
    :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-1. Selecione as reticências verticais e escolha **Editar**. Se você precisar criar uma nova sub-rede, selecione **Adicionar sub-rede** para criar um gateway e configurar um intervalo DHCP. Forneça o intervalo do pool de IPS e selecione **aplicar**e, em seguida, selecione **salvar**
+1. Selecione as reticências verticais e escolha **Editar**. Se você precisar criar uma nova sub-rede, selecione **Adicionar sub-rede** para criar um gateway e configurar um intervalo DHCP. 
+1. Forneça o intervalo do pool de IPS e selecione **aplicar**e, em seguida, selecione **salvar**
 
    :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Adicionar servidor DHCP" border="true":::
 
-1. Agora, um pool de servidores DHCP é atribuído ao segmento.
+   Um pool de servidores DHCP é atribuído ao segmento.
 
    :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Adicionar servidor DHCP" border="true":::

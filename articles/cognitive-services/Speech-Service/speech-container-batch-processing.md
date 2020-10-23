@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319071"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425792"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento em lote para contêineres de fala
 
@@ -75,9 +75,8 @@ O cliente de lote pode detectar dinamicamente se um ponto de extremidade se torn
 > [!NOTE] 
 > * Este exemplo usa o mesmo diretório ( `/my_nfs` ) para o arquivo de configuração e os diretórios de entradas, saídas e logs. Você pode usar diretórios montados ou com o NFS para essas pastas.
 > * Executar o cliente do com o `–h` listará os parâmetros de linha de comando disponíveis e seus valores padrão. 
+> * O contêiner de processamento em lotes só tem suporte no Linux.
 
-
-#### <a name="linux"></a>[Linux](#tab/linux)
 Use o comando Docker `run` para iniciar o contêiner. Isso iniciará um shell interativo dentro do contêiner.
 
 ```Docker
@@ -95,17 +94,6 @@ Para executar o cliente e o contêiner do lote em um único comando:
 ```Docker
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-Para executar o cliente e o contêiner do lote em um único comando:
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
 
 
 O cliente começará a ser executado. Se um arquivo de áudio já tiver sido transcrita em uma execução anterior, o cliente irá ignorar automaticamente o arquivo. Os arquivos são enviados com uma nova tentativa automática se ocorrerem erros transitórios e você pode diferenciar entre quais erros você deseja que o cliente tente novamente. Em um erro de transcrição, o cliente continuará a transcrição e poderá tentar novamente sem perder o progresso.  
@@ -126,7 +114,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 4. Os arquivos são expedidos para os pontos de extremidade do contêiner da etapa 1.
 5. Os logs e a saída do contêiner de fala são retornados para o diretório de saída especificado. 
 
-#### <a name="daemon"></a>[Demonstração](#tab/daemon)
+#### <a name="daemon"></a>[Daemon](#tab/daemon)
 
 > [!TIP]
 > Se vários arquivos forem adicionados ao diretório de entrada ao mesmo tempo, você poderá melhorar o desempenho em vez de adicioná-los em um intervalo regular.
@@ -163,7 +151,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 ---
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Log
 
 > [!NOTE]
 > O cliente do lote pode substituir o arquivo *Run. log* periodicamente se ele ficar muito grande.

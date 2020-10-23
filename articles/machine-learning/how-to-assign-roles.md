@@ -1,7 +1,7 @@
 ---
 title: Gerenciar funções em seu espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: Saiba como acessar um espaço de trabalho Azure Machine Learning usando o RBAC (controle de acesso baseado em função).
+description: Saiba como acessar um espaço de trabalho Azure Machine Learning usando o Azure RBAC (controle de acesso baseado em função do Azure).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966399"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425638"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 
@@ -26,7 +26,7 @@ Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do 
 
 Um workspace do Azure Machine Learning é um recurso do Azure. Assim como outros recursos do Azure, quando um novo workspace do Azure Machine Learning é criado, ele vem com três funções padrão. Você pode adicionar usuários ao espaço de trabalho e atribuí-los a uma dessas funções internas.
 
-| Função | Nível de acesso |
+| Role | Nível de acesso |
 | --- | --- |
 | **Leitor** | Ações somente leitura no espaço de trabalho. Os leitores podem listar e exibir ativos, incluindo credenciais de [repositório de armazenamento](how-to-access-data.md) , em um espaço de trabalho. Os leitores não podem criar nem atualizar esses ativos. |
 | **Colaborador** | Exiba, crie, edite ou exclua (onde aplicável) ativos em um espaço de trabalho. Por exemplo, os colaboradores podem criar um experimento, criar ou anexar um cluster de computação, enviar uma execução e implantar um serviço Web. |
@@ -34,7 +34,7 @@ Um workspace do Azure Machine Learning é um recurso do Azure. Assim como outros
 | **Função personalizada** | Permite que você personalize o acesso a operações de plano de dados ou controle específico em um espaço de trabalho. Por exemplo, o envio de uma execução, a criação de uma computação, a implantação de um modelo ou o registro de um conjunto de uma. |
 
 > [!IMPORTANT]
-> O acesso à função pode ser definido para vários níveis no Azure. Por exemplo, alguém com acesso de proprietário a um espaço de trabalho pode não ter acesso de proprietário ao grupo de recursos que contém o espaço de trabalho. Para obter mais informações, consulte [como o RBAC funciona](/azure/role-based-access-control/overview#how-rbac-works).
+> O acesso à função pode ser definido para vários níveis no Azure. Por exemplo, alguém com acesso de proprietário a um espaço de trabalho pode não ter acesso de proprietário ao grupo de recursos que contém o espaço de trabalho. Para obter mais informações, consulte [como o RBAC do Azure funciona](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
 Para obter mais informações sobre funções internas específicas, consulte [funções internas do Azure](/azure/role-based-access-control/built-in-roles).
 
@@ -432,13 +432,13 @@ Aqui estão algumas coisas que você deve conhecer enquanto usa o controle de ac
     - "Microsoft. Network/virtualNetworks/Join/Action" no recurso de VNet.
     - "Microsoft. Network/virtualNetworks/sub-rede/junção/ação" no recurso de sub-rede.
     
-    Para obter mais informações sobre o RBAC com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking).
+    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking).
 
 - Às vezes, pode levar até 1 hora para que as atribuições de nova função entrem em vigor nas permissões armazenadas em cache em toda a pilha.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. Quais permissões eu preciso para usar uma identidade gerenciada atribuída pelo usuário com meus clusters do Amlcompute?
 
-Para atribuir uma identidade atribuída ao usuário em clusters Amlcompute, é necessário ter permissões de gravação para criar a computação e ter a [função de operador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para obter mais informações sobre RBAC com identidades gerenciadas, leia [como gerenciar a identidade atribuída ao usuário](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+Para atribuir uma identidade atribuída ao usuário em clusters Amlcompute, é necessário ter permissões de gravação para criar a computação e ter a [função de operador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para obter mais informações sobre o RBAC do Azure com identidades gerenciadas, leia [como gerenciar a identidade atribuída pelo usuário](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>Q. Damos suporte ao controle de acesso baseado em função no portal do estúdio?

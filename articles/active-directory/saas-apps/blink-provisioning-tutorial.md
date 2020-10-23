@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 33433587f0617382cc5f05550577594d7e3f9f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb04b17db94a2abf0ab11d9b9baff65e764e472a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322012"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457032"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: configurar a intermitência para o provisionamento automático de usuário
 
@@ -81,7 +81,7 @@ Antes de configurar o piscar para o provisionamento automático de usuário com 
 Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários em piscar com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para piscar, seguindo as instruções fornecidas no tutorial de [logon único intermitente](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
+> Você também pode optar por habilitar o logon único baseado em SAML para piscar, seguindo as instruções fornecidas no tutorial de [logon único intermitente](./blink-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para piscar no Azure AD:
 
@@ -109,7 +109,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para piscar**.
 
@@ -145,4 +145,3 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

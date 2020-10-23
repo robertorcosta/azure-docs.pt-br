@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fa45ece76499b50694d366ed2dcdd57cc1e0c7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caeff5be83e02948baab4ecbcf05630eacff74df
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312089"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459366"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configurar o Jive para provisionamento automático de usuário
 
@@ -35,7 +35,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao aplicativo Jive. Depois de decidir, atribua esses usuários ao aplicativo Jive seguindo estas instruções:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-jive"></a>Dicas importantes para atribuir usuários ao Jive
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124388"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460947"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
 
@@ -82,7 +82,7 @@ A cópia do banco de dados é uma operação assíncrona, mas o banco de dados d
 
 Faça logon no banco de dados mestre com o logon de administrador do servidor ou o logon que criou o banco de dados que você deseja copiar. Para que a cópia do banco de dados tenha sucesso, os logons que não são o administrador do servidor devem ser membros da `dbmanager` função. Para saber mais sobre logons e como se conectar ao servidor, confira [Gerenciar logons](logins-create-manage.md).
 
-Comece a copiar o banco de dados de origem com o [criar banco de dados... COMO cópia da](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) instrução. A instrução T-SQL continua em execução até que a operação de cópia do banco de dados seja concluída.
+Comece a copiar o banco de dados de origem com o [criar banco de dados... COMO cópia da](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instrução. A instrução T-SQL continua em execução até que a operação de cópia do banco de dados seja concluída.
 
 > [!NOTE]
 > Encerrar a instrução T-SQL não encerra a operação de cópia de banco de dados. Para encerrar a operação, descarte o banco de dados de destino.
@@ -100,6 +100,21 @@ Esse comando copia o Banco de dados 1 para um novo banco de dados chamado Databa
    ```sql
    -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
+   ```
+
+### <a name="copy-to-an-elastic-pool"></a>Copiar para um pool elástico
+
+Faça logon no banco de dados mestre com o logon de administrador do servidor ou o logon que criou o banco de dados que você deseja copiar. Para que a cópia de banco de dados tenha sucesso, os logons que não são o administrador do servidor devem ser membros da `dbmanager` função.
+
+Esse comando copia Database1 para um novo banco de dados chamado Database2 em um pool elástico chamado pool1. Dependendo do tamanho do banco de dados, a operação de cópia poderá demorar a ser concluída.
+
+Database1 pode ser um banco de dados único ou em pool, mas pool1 deve ser a mesma camada de serviço que Database1. 
+
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE "Database2"
+   AS COPY OF "Database1"
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
    ```
 
 ### <a name="copy-to-a-different-server"></a>Copiar para um servidor diferente
@@ -167,7 +182,7 @@ Se você quiser ver as operações em implantações no grupo de recursos no por
 
 ## <a name="resolve-logins"></a>Resolver logons
 
-Depois que o novo banco de dados estiver online no servidor de destino, use a instrução [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) para remapear os usuários do novo banco de dados para os logons no servidor de destino. Para resolver usuários órfãos, confira [Solução de problemas de usuários órfãos](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Consulte também [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](active-geo-replication-security-configure.md).
+Depois que o novo banco de dados estiver online no servidor de destino, use a instrução [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) para remapear os usuários do novo banco de dados para os logons no servidor de destino. Para resolver usuários órfãos, confira [Solução de problemas de usuários órfãos](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Consulte também [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](active-geo-replication-security-configure.md).
 
 Todos os usuários no novo banco de dados mantêm as permissões que tinham no banco de dados de origem. O usuário que iniciou a cópia do banco de dados se torna o proprietário do novo banco de dados. Depois que a cópia for realizada com sucesso e antes que outros usuários sejam remapeados, somente o proprietário do banco de dados poderá fazer logon no novo banco de dados.
 
@@ -177,7 +192,7 @@ Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de da
 
 Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](database-copy.md).
 
-| Código do erro | Gravidade | Descrição |
+| Código do erro | Severidade | Descrição |
 | ---:| ---:|:--- |
 | 40635 |16 |O cliente com endereço IP “%.&#x2a;ls” está desabilitado temporariamente. |
 | 40637 |16 |A criação da cópia do banco de dados está desabilitada no momento. |

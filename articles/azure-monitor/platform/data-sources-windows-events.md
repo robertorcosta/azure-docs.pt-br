@@ -1,25 +1,28 @@
 ---
-title: Coletar e analisar os logs de Eventos do Windows no Azure Monitor | Microsoft Docs
+title: Coletar fontes de dados de log de eventos do Windows com Log Analytics Agent no Azure Monitor
 description: Descreve como configurar a coleta de logs de Eventos do Windows pelo Azure Monitor e detalhes dos registros criados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075258"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440596"
 ---
-# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Fontes de dados do log de eventos do Windows no Azure Monitor
-Logs de eventos do Windows são uma das mais comuns [fontes de dados](agent-data-sources.md) para coletar dados usando agentes do Windows, pois muitos aplicativos escrevem o log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
+# <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Coletar fontes de dados de log de eventos do Windows com o agente de Log Analytics
+Os logs de eventos do Windows são uma das [fontes de dados](agent-data-sources.md) mais comuns para agentes de log Analytics em máquinas virtuais do Windows, já que muitos aplicativos gravam no log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
+
+> [!IMPORTANT]
+> Este artigo aborda a coleta de eventos do Windows com o [agente de log Analytics](log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Eventos do Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configurando os logs de eventos do Windows
-Configure os logs de Eventos do Windows no [menu Dados em Configurações Avançadas](agent-data-sources.md#configuring-data-sources).
+Configure logs de eventos do Windows no [menu dados em configurações avançadas](agent-data-sources.md#configuring-data-sources) para o espaço de trabalho log Analytics.
 
 O Azure Monitor coleta apenas os eventos dos logs de eventos do Windows especificados nas configurações.  Você pode adicionar um log de eventos digitando o nome do log e clicando em **+** .  Para cada log, somente eventos com as severidades selecionadas são coletados.  Marque as severidades para o log específico que você deseja coletar.  Você não pode fornecer quaisquer critérios adicionais para filtrar eventos.
 
