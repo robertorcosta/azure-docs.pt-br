@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0a69784be3b03b030ef599037b57c2c20ea2c6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317422"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454670"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: configurar o DocuSign para o provisionamento automático de usuário
 
@@ -35,7 +35,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos no Azure AD representam os usuários que precisam de acesso ao aplicativo DocuSign. Depois de decidir, atribua esses usuários ao aplicativo DocuSign seguindo estas instruções:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Dicas importantes para atribuir usuários ao DocuSign
 
@@ -93,6 +93,12 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 Isso inicia a sincronização inicial de todos os usuários atribuídos ao DocuSign na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo DocuSign.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+
+## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
+* O provisionamento de uma função ou perfil de permissão para um usuário no Docusign pode ser realizado usando uma expressão em seus mapeamentos de atributo usando as funções [switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) e [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) . Por exemplo, a expressão abaixo provisionará a ID "8032066" quando um usuário tiver a função "administrador do DS" atribuída no Azure AD. Ele não provisionará nenhum perfil de permissão se o usuário não tiver uma função atribuída no lado do Azure AD. A ID pode ser recuperada no [portal](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)do DocuSign.
+
+Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "8032066", "admin do DS")
+
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

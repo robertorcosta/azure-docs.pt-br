@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306388"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458025"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (visualização pública)
 AD FS clientes podem expor pontos de extremidade de autenticação de senha à Internet para fornecer serviços de autenticação para que os usuários finais acessem aplicativos SaaS, como Microsoft 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
@@ -35,7 +35,7 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 
 > [!NOTE]
 > Para usar esse relatório, você deve habilitar a auditoria do AD FS. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Para acessar a versão prévia, uma permissão de Administrador Global ou [Leitor de segurança](../../role-based-access-control/built-in-roles.md#security-reader) é necessária.  
+> Para acessar a versão prévia, uma permissão de Administrador Global ou [Leitor de segurança](../../role-based-access-control/built-in-roles.md#security-reader) é necessária.  
 > 
 
 ## <a name="what-is-in-the-report"></a>O que há no relatório?
@@ -79,16 +79,16 @@ Usando a função **Baixar**, a lista de endereços IP arriscados inteira nos ú
 Os contatos de Admin do relatório podem ser atualizados por meio das **Configurações de Notificação**. Por padrão, a notificação de email de alerta de IP arriscado está desativada. Você pode habilitar a notificação alternando o botão em "Obter notificações por email para endereços IP que excederem o limite de atividades com falha do relatório" Como as configurações de notificação de alerta genérico no Connect Health, ele permite que você personalize a lista de destinatários designados para a notificação sobre o relatório de IPs arriscados aqui. Você também pode notificar todos os administradores globais ao fazer a alteração. 
 
 ## <a name="configure-threshold-settings"></a>Definir configurações de limite
-O limite de alerta pode ser atualizado com as Configurações de Limite. Para começar, o sistema tem um limite definido por padrão. Há quatro categorias nas configurações de limite do relatório de IP arriscado:
+O limite de alerta pode ser atualizado com as Configurações de Limite. Para começar, o sistema tem um limite definido por padrão. Os valores padrão são fornecidos abaixo. Há quatro categorias nas configurações de limite do relatório de IP arriscado:
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
 | Item de limite | Descrição |
 | --- | --- |
-| (U/P má + Bloqueio de Extranet) / Dia  | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **dia**. |
-| (U/P má + Bloqueio de Extranet) / Hora | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **hora**. |
-| Bloqueio de Extranet / Dia | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de bloqueio de extranet o exceder, por **dia**. |
-| Bloqueio de Extranet / Hora| Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de bloqueio de extranet o exceder, por **hora**. |
+| (U/P má + Bloqueio de Extranet) / Dia  | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **dia**. O valor padrão é 100.|
+| (U/P má + Bloqueio de Extranet) / Hora | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **hora**. O valor padrão é 50.|
+| Bloqueio de Extranet / Dia | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de bloqueio de extranet o exceder, por **dia**. O valor padrão é 50.|
+| Bloqueio de Extranet / Hora| Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de bloqueio de extranet o exceder, por **hora**. O valor padrão é 25|
 
 > [!NOTE]
 > - A alteração do limite do relatório será aplicada após uma hora a contar da alteração da configuração. 

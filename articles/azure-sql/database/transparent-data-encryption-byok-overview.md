@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602659"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441123"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Para o banco de dados SQL do Azure e o Azure Synapse Analytics, o protetor de TD
 > Para aqueles que usam TDE gerenciados por serviços que gostariam de começar a usar o TDE gerenciado pelo cliente, os dados permanecem criptografados durante o processo de troca e não há nenhum tempo de inatividade nem nova criptografia dos arquivos de banco de dados. Alternar de uma chave gerenciada por serviço para uma chave gerenciada pelo cliente requer apenas uma nova criptografia do DEK, que é uma operação rápida e online.
 
 > [!NOTE]
-> Para fornecer aos clientes do Azure SQL com duas camadas de criptografia de dados em repouso, a criptografia de infraestrutura (usando o algoritmo de criptografia AES-256) com chaves gerenciadas pela plataforma está sendo distribuída. Isso fornece uma camada de adição de criptografia em repouso junto com TDE com chaves gerenciadas pelo cliente, que já está disponível. Neste momento, os clientes devem solicitar acesso a esse recurso. Se você estiver interessado nesse recurso, entre em contato com AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> Para fornecer aos clientes do Azure SQL com duas camadas de criptografia de dados em repouso, a criptografia de infraestrutura (usando o algoritmo de criptografia AES-256) com chaves gerenciadas pela plataforma está sendo distribuída. Isso fornece uma camada de adição de criptografia em repouso junto com TDE com chaves gerenciadas pelo cliente, que já está disponível. Para o banco de dados SQL do Azure e o Instância Gerenciada, todos os bancos de dados, incluindo o banco de dados mestre e outros bancos de dados do sistema, serão criptografados quando a criptografia de infraestrutura estiver ativada. Neste momento, os clientes devem solicitar acesso a esse recurso. Se você estiver interessado nesse recurso, entre em contato com AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Benefícios do TDE gerenciado pelo cliente
 

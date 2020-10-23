@@ -1,14 +1,14 @@
 ---
-title: Entrega de eventos com identidade do serviço gerenciado
+title: Entrega de eventos, identidade de serviço gerenciada e link privado
 description: Este artigo descreve como habilitar a identidade do serviço gerenciado para um tópico da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534236"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460913"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com uma identidade gerenciada
 Este artigo descreve como habilitar uma [identidade de serviço gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para os tópicos ou domínios da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte, como filas e tópicos de Barramento de Serviço, hubs de eventos e contas de armazenamento.
@@ -17,6 +17,9 @@ Aqui estão as etapas abordadas em detalhes neste artigo:
 1. Crie um tópico ou domínio com uma identidade atribuída pelo sistema ou atualize um tópico ou domínio existente para habilitar a identidade. 
 1. Adicione a identidade a uma função apropriada (por exemplo, remetente de dados do barramento de serviço) no destino (por exemplo, uma fila do barramento de serviço).
 1. Ao criar assinaturas de evento, habilite o uso da identidade para entregar eventos ao destino. 
+
+> [!NOTE]
+> Atualmente, não é possível entregar eventos usando pontos de [extremidade privados](../private-link/private-endpoint-overview.md). Para obter mais informações, consulte a seção [pontos de extremidade particulares](#private-endpoints) no final deste artigo. 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Criar um tópico ou domínio com uma identidade
 Primeiro, vamos dar uma olhada em como criar um tópico ou domínio com uma identidade gerenciada pelo sistema.
@@ -279,6 +282,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## <a name="private-endpoints"></a>Pontos de extremidade privados
+Atualmente, não é possível entregar eventos usando pontos de [extremidade privados](../private-link/private-endpoint-overview.md). Ou seja, não haverá suporte se você tiver requisitos estritos de isolamento de rede em que o tráfego de eventos entregues não deve sair do espaço IP privado. 
+
+No entanto, se seus requisitos chamarem uma maneira segura de enviar eventos usando um canal criptografado e uma identidade conhecida do remetente (nesse caso, a grade de eventos) usando o espaço IP público, você poderá entregar eventos aos hubs de eventos, ao barramento de serviço ou ao serviço de armazenamento do Azure usando um tópico da grade de eventos do Azure ou um domínio com identidade gerenciada pelo sistema Em seguida, você pode usar um link privado configurado em Azure Functions ou seu webhook implantado em sua rede virtual para efetuar pull de eventos. Consulte o exemplo: [conectar-se a pontos de extremidade privados com Azure functions.](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+
+Observe que, nessa configuração, o tráfego passa pelo IP público/Internet da grade de eventos para os hubs de eventos, barramento de serviço ou armazenamento do Azure, mas o canal pode ser criptografado e uma identidade gerenciada da grade de eventos é usada. Se você configurar seu Azure Functions ou webhook implantado em sua rede virtual para usar os hubs de eventos, o barramento de serviço ou o armazenamento do Azure por meio do link privado, essa seção do tráfego permanecerá, de forma evidente, no Azure.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -3,22 +3,28 @@ title: Conceitos – RBAC (controle de acesso baseado em função)
 description: Saiba mais sobre os principais recursos do controle de acesso baseado em função para a solução do Azure VMware
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: a863f44dd5fdd485f8d5ebfcfbacee994e6b63a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fbda24ec6a8c1d08570d7f64270a954eb3d8a35
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91579550"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440936"
 ---
 # <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>RBAC (controle de acesso baseado em função) para a solução VMware do Azure
 
-Em uma implantação local do vCenter e ESXi, o administrador tem acesso à conta do vCenter administrator@vsphere.local e pode ter usuários/grupos adicionais de Active Directory (AD) atribuídos. No entanto, em uma implantação de solução do Azure VMware, o administrador não tem acesso à conta de usuário administrador, mas pode atribuir usuários e grupos do AD à função CloudAdmin no vCenter.  Além disso, o usuário de nuvem privada da solução Azure VMware não tem permissão para acessar ou configurar componentes de gerenciamento específicos com suporte e gerenciados pela Microsoft, como clusters, hosts, repositórios de armazenamento e comutadores virtuais distribuídos.
-
-
-Na solução Azure VMware, o vCenter tem um usuário local interno chamado cloudadmin que é atribuído à função CloudAdmin interna. O usuário cloudadmin local é usado para configurar usuários adicionais no AD. A função CloudAdmin, em geral, tem o privilégio para criar e gerenciar cargas de trabalho em sua nuvem privada (máquinas virtuais, pools de recursos, repositórios de armazenamento e redes). A função CloudAdmin na solução VMware do Azure tem um conjunto específico de privilégios vCenter que diferem de outras soluções de nuvem VMware.   
+Na solução Azure VMware, o vCenter tem um usuário local interno chamado cloudadmin e atribuído à função CloudAdmin interna. O usuário cloudadmin local é usado para configurar usuários no AD. Em geral, a função CloudAdmin cria e gerencia cargas de trabalho em sua nuvem privada. Na solução do Azure VMware, a função CloudAdmin tem privilégios de vCenter que diferem de outras soluções de nuvem VMware.     
 
 > [!NOTE]
 > Atualmente, a solução Azure VMware não oferece funções personalizadas no vCenter ou no portal de solução do Azure VMware. 
+
+Em uma implantação local do vCenter e ESXi, o administrador tem acesso à conta do vCenter administrator@vsphere.local . Eles também podem ter usuários/grupos de Active Directory adicionais (AD) atribuídos. 
+
+Em uma implantação de solução do Azure VMware, o administrador não tem acesso à conta de usuário administrador. Mas eles podem atribuir usuários e grupos do AD à função CloudAdmin no vCenter.  
+
+O usuário da nuvem privada não tem acesso ao e não pode configurar componentes de gerenciamento específicos com suporte e gerenciados pela Microsoft. Por exemplo, clusters, hosts, repositórios de armazenamento e comutadores virtuais distribuídos.
+
+
+
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Função CloudAdmin da solução VMware do Azure no vCenter
 

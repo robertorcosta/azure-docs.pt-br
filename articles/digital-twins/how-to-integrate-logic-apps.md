@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427984"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461066"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
@@ -43,7 +43,7 @@ Para conectar uma instância do gêmeos digital do Azure a aplicativos lógicos 
 Primeiro, **Configure uma instância de gêmeos digital do Azure** e a autenticação necessária para poder trabalhar com ela. Para fazer isso, siga as instruções em [*Como configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de instalação é oferecido para o [portal do Azure](how-to-set-up-instance-portal.md), a [CLI](how-to-set-up-instance-cli.md) ou o [exemplo de script de implantação do Cloud Shell automatizada](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm etapas para confirmar se você concluiu cada etapa com êxito e está pronto para passar a usar sua nova instância.
 * Depois de configurar sua instância do gêmeos digital do Azure, você precisará do **_nome do host_** da instância ([localize na portal do Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-Para autenticar o aplicativo ADT Explorer, você também precisará configurar um **registro de aplicativo**. Siga as instruções em [*como criar um registro de aplicativo*](how-to-create-app-registration.md) para configurá-lo. 
+Para autenticar o conector, você também precisará configurar um **registro de aplicativo**. Siga as instruções em [*como criar um registro de aplicativo*](how-to-create-app-registration.md) para configurá-lo. 
 * Depois de ter um registro de aplicativo, você precisará da **_ID do aplicativo (cliente)_** do registro e da **_ID do diretório (locatário)_** ([localize no portal do Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Obter segredo do cliente de registro de aplicativo
@@ -66,7 +66,7 @@ Agora, verifique se o segredo do cliente está visível na página _certificados
 
 Este artigo usa aplicativos lógicos para atualizar uma cópia em uma instância de gêmeos digital do Azure. Para continuar, você deve adicionar pelo menos um cópia em sua instância. 
 
-Você pode adicionar gêmeos usando as [APIs do DigitalTwins](how-to-use-apis-sdks.md), o [SDK do .net (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). Para obter etapas detalhadas sobre como criar gêmeos usando esses métodos, consulte [*como gerenciar o digital gêmeos*](how-to-manage-twin.md).
+Você pode adicionar gêmeos usando as [APIs do DigitalTwins](/rest/api/digital-twins/dataplane/twins), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). Para obter etapas detalhadas sobre como criar gêmeos usando esses métodos, consulte [*como gerenciar o digital gêmeos*](how-to-manage-twin.md).
 
 Você precisará da **_ID_** de cópia de um matreme em sua instância que você criou.
 

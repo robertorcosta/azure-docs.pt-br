@@ -11,17 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f14bc6f80445d1119f34d24281d764fff38c8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369158"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441548"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e Colaboração do Azure Active Directory B2B
 
 ## <a name="what-are-dynamic-groups"></a>O que são grupos dinâmicos?
-A configuração dinâmica da associação de grupo de segurança para o Azure AD (Azure Active Directory) está disponível [no portal do Azure](https://portal.azure.com). Os administradores podem definir regras para popular os grupos que são criados no Azure AD com base em atributos de usuário (por exemplo, usuário, departamento ou país/região). Os membros podem ser adicionados ou removidos automaticamente de um grupo de segurança com base nas alterações de seus atributos. Esses grupos podem fornecer acesso a aplicativos ou a recursos de nuvem (como sites e documentos do SharePoint) e para atribuir licenças a membros. Leia mais sobre grupos dinâmicos em [Grupos dedicados no Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
+A configuração dinâmica da associação de grupo de segurança para o Azure AD (Azure Active Directory) está disponível [no portal do Azure](https://portal.azure.com). Os administradores podem definir regras para popular os grupos que são criados no Azure AD com base em atributos de usuário (por exemplo, usuário, departamento ou país/região). Os membros podem ser adicionados ou removidos automaticamente de um grupo de segurança com base nas alterações de seus atributos. Esses grupos podem fornecer acesso a aplicativos ou a recursos de nuvem (como sites e documentos do SharePoint) e para atribuir licenças a membros. Leia mais sobre grupos dinâmicos em [Grupos dedicados no Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 O [licenciamento do Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/) apropriado é necessário para criar e usar grupos dinâmicos. Saiba mais no artigo [Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
@@ -42,7 +42,7 @@ Você pode criar um grupo contendo todos os usuários dentro de um locatário us
 
    ![Sintaxe de regra para todos os usuários grupo dinâmico](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-1.  Clique em **Salvar**. O novo grupo dinâmico agora incluirá usuários convidados B2B, bem como usuários membros.
+1.  Selecione **Salvar**. O novo grupo dinâmico agora incluirá usuários convidados B2B, bem como usuários membros.
 
 
 1. Selecione **criar** na página **novo grupo** para criar o grupo.
@@ -76,4 +76,3 @@ A imagem a seguir mostra a sintaxe de regra para um grupo dinâmico modificado p
 - [Propriedades de usuário de colaboração B2B](user-properties.md)
 - [Adicionar um usuário de colaboração B2B a uma função](add-guest-to-role.md)
 - [Acesso condicional para usuários de colaboração B2B](conditional-access.md)
-

@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319972"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457955"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que usam cargas de trabalho Microsoft 365, como o Exchange Online e o Skype for Business, se beneficiam de uma lista de endereços global completa para que possam enviar emails e chamar todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -127,7 +127,7 @@ Para definir o filtro de domínio, siga estas etapas:
 3.  Selecione **Personalizar opções de sincronização** e clique em **Avançar**.
 4.  Insira suas credenciais de AD do Azure
 5.  Na tela **diretórios conectados** , clique em **Avançar**.
-6.  Na **página filtragem de domínio e UO,** clique em **Atualizar**.  Novos domínios agora aparecem e os domínios excluídos desaparecerão.
+6.  Na **página filtragem de domínio e UO,** clique em **Atualizar**.  Novos domínios agora serão exibidos e os domínios excluídos desaparecerão.
    ![Partições](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Atualizar perfis de execução
@@ -232,7 +232,7 @@ No exemplo abaixo, você filtra (e não sincroniza) todos os usuários em que **
 3. Verifique se a opção **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
 4. Dê à regra um nome descritivo, como "*Entrada do AD – User DoNotSyncFilter*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra regra de sincronização (por exemplo, 50). Em seguida, clique em **Avançar**.  
    ![Descrição da entrada 1](./media/how-to-connect-sync-configure-filtering/inbound1.png)  
-5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **ExtensionAttribute15**. Verifique se **Operador** está definido como **EQUAL** e digite o valor **NoSync** na caixa **Valor**. Clique em **Avançar**.  
+5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **ExtensionAttribute15**. Verifique se **Operador** está definido como **EQUAL** e digite o valor **NoSync** na caixa **Valor**. Clique em **Próximo**.  
    ![Escopo da entrada 2](./media/how-to-connect-sync-configure-filtering/inbound2.png)  
 6. Deixe as regras de **Junção** vazias e clique em **Avançar**.
 7. Clique em **Adicionar Transformação**, selecione **FlowType** como **Constante** e selecione **cloudFiltered** como o **Atributo de Destino**. Na caixa de texto **Origem**, digite **True**. Clique em **Adicionar** para salvar a regra.  
@@ -251,13 +251,13 @@ No exemplo a seguir, você só sincroniza os objetos de usuário quando o atribu
 3. Verifique se a opção **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
 4. Dê à regra um nome descritivo, como "*Entrada do AD – Sincronização de Vendas de Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra regra de sincronização (por exemplo, 51). Em seguida, clique em **Avançar**.  
    ![Descrição da entrada 4](./media/how-to-connect-sync-configure-filtering/inbound4.png)  
-5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **Departamento**. Verifique se Operador está definido como **EQUAL** e digite o valor **Vendas** na caixa **Valor**. Clique em **Avançar**.  
+5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **Departamento**. Verifique se Operador está definido como **EQUAL** e digite o valor **Vendas** na caixa **Valor**. Clique em **Próximo**.  
    ![Escopo da entrada 5](./media/how-to-connect-sync-configure-filtering/inbound5.png)  
 6. Deixe as regras de **Junção** vazias e clique em **Avançar**.
 7. Clique em **Adicionar Transformação**, selecione **Constant** como **FlowType** e selecione **cloudFiltered** como o **Atributo de Destino**. Na caixa **Origem** , digite **False**. Clique em **Adicionar** para salvar a regra.  
    ![Transformação da entrada 6](./media/how-to-connect-sync-configure-filtering/inbound6.png)  
    Este é um caso especial em que você define cloudFiltered explicitamente como **False**.
-8. Agora temos de criar a regra de sincronização que captura tudo. Dê à regra um nome descritivo, como "*Entrada do AD – Filtro Captura Tudo Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra Regra de Sincronização (por exemplo, 99). Você selecionou um valor de precedência mais alto (menor precedência) do que para a regra de sincronização anterior. Mas você também deixou algum espaço para poder adicionar mais regras de sincronização de filtragem depois, quando quiser iniciar a sincronização de outros departamentos. Clique em **Avançar**.  
+8. Agora temos de criar a regra de sincronização que captura tudo. Dê à regra um nome descritivo, como "*Entrada do AD – Filtro Captura Tudo Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra Regra de Sincronização (por exemplo, 99). Você selecionou um valor de precedência mais alto (menor precedência) do que para a regra de sincronização anterior. Mas você também deixou algum espaço para poder adicionar mais regras de sincronização de filtragem depois, quando quiser iniciar a sincronização de outros departamentos. Clique em **Próximo**.  
    ![Descrição da entrada 7](./media/how-to-connect-sync-configure-filtering/inbound7.png)  
 9. Deixe **Filtro de escopo** vazio e clique em **Avançar**. Um filtro vazio indica que a regra deve ser aplicada a todos os objetos.
 10. Deixe as regras de **Junção** vazias e clique em **Avançar**.
@@ -279,7 +279,7 @@ Neste exemplo, você altera a filtragem para que somente usuários com emails e 
 5. No pop-up, responda **Sim** para criar uma cópia da regra.
 6. Na página **Descrição**, altere **Precedência** para um valor não usado, por exemplo, 50.
 7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**e clique em **Adicionar cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**.
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 9. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Aplicar e verificar as alterações

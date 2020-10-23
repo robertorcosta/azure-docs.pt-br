@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 41aabeeeb151a6e2cf3c52dbfa2075c55f86989f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427315"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461287"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -107,10 +107,9 @@ Depois de preparar as ferramentas de ITSM, siga as etapas abaixo para criar uma 
    Usando a solução Conector ITSM, você pode criar itens de trabalho com base em alertas do Azure, alertas do Log Analytics e registros de log do Log Analytics.
 
 ## <a name="template-definitions"></a>Definições de modelo
-   Há tipos de **item de trabalho** que podem usar modelos que são definidos pela ferramenta ITSM.
-O uso de modelos permite que o cliente defina campos que serão preenchidos automaticamente de acordo com os valores fixos definidos como parte do grupo de ações. Essa definição é feita na ferramenta ITSM.
-Nesses casos, a caixa de seleção "usar modelo personalizado" permite que o cliente tenha campos prontos para uso que serão preenchidos automaticamente de acordo com os valores fixos definidos como parte do grupo de ações.
-   
+   Há tipos de itens de trabalho que podem usar modelos que são definidos pela ferramenta ITSM.
+O uso de modelos permite que o cliente defina campos que serão preenchidos automaticamente de acordo com os valores fixos definidos como parte do grupo de ações. A definição dos modelos é feita na ferramenta ITSM.
+      
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Criar itens de trabalho de ITSM desde alertas do Azure
 
 Depois de criar a conexão de ITSM, crie itens de trabalho na ferramenta de ITSM com base nos alertas do Azure, usando a **Ação de ITSM** em **Grupos de Ação**.
@@ -139,7 +138,7 @@ Use este procedimento:
 
 6. Selecione o tipo **Item de Trabalho** na lista suspensa.
 
-7. Opte por usar um modelo existente ou use o modelo comum e preencha os campos exigidos por seu produto ITSM.
+7. Se você quiser preencher os campos de caixa com valores fixos, deverá marcar a caixa de seleção "usar modelo personalizado". caso contrário, escolha usar um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente na lista suspensa e preencha os campos de modelo com valores fixos.
 
 8. Clique em **OK**.
 

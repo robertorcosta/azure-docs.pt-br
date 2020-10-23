@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/08/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a88cf9981d4f3a69a503c9caa56be1b5f35029f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5eacd84d2ff37c10702896127adcb67f5459b6be
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105176"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461661"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados para Arquivos do Azure
 
@@ -35,7 +35,7 @@ Antes de criar um trabalho de importação para transferir dados ao Arquivos do 
     - Gerar um número de controle para o trabalho de exportação.
     - Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
     - Se você não tiver uma conta de transportadora, vá para:
-        - [Criar uma conta FedEX](https://www.fedex.com/en-us/create-account.html), ou
+        - [Criar uma conta do FedEx](https://www.fedex.com/en-us/create-account.html)ou
         - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 
@@ -114,6 +114,8 @@ Para exemplos adicionais, vá para [Exemplos de arquivos de diário](#samples-fo
 
 ## <a name="step-2-create-an-import-job"></a>Etapa 2: criar um trabalho de importação
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Execute as etapas a seguir para criar um trabalho de importação no portal do Azure.
 1. Faça logon em https://portal.azure.com/.
 2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**.
@@ -161,6 +163,86 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Clique em **OK** para concluir a criação do trabalho de importação.
 
         ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Use as etapas a seguir para criar um trabalho de importação no CLI do Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Criar um trabalho
+
+1. Use o comando [AZ Extension Add](/cli/azure/extension#az_extension_add) para adicionar a extensão [AZ Import-Export](/cli/azure/ext/import-export/import-export) :
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Você pode usar um grupo de recursos existente ou criar um. Para criar um grupo de recursos, execute o comando [AZ Group Create](/cli/azure/group#az_group_create) :
+
+    ```azurecli
+    az group create --name myierg --location "West US"
+    ```
+
+1. Você pode usar uma conta de armazenamento existente ou criar uma. Para criar uma conta de armazenamento, execute o comando [AZ Storage Account Create](/cli/azure/storage/account#az_storage_account_create) :
+
+    ```azurecli
+    az storage account create -resource-group myierg -name myssdocsstorage --https-only
+    ```
+
+1. Para obter uma lista dos locais para os quais você pode enviar discos, use o comando [AZ Import-exportar local List](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Use o comando [AZ Import-exportar local show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) para obter locais para sua região:
+
+    ```azurecli
+    az import-export location show --location "West US"
+    ```
+
+1. Execute o seguinte comando [AZ Import-Export Create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) para criar um trabalho de importação:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
+
+
+1. Use o comando [AZ Import-Export List](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) para ver todos os trabalhos do grupo de recursos myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Para atualizar seu trabalho ou cancelar seu trabalho, execute o comando [AZ Import-Export Update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Etapa 3: enviar as unidades para o datacenter do Azure
 

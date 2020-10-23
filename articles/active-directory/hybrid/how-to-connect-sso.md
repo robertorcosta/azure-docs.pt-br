@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658352"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457984"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -64,18 +64,20 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 | Sistema operacional\Navegador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
-|Windows 8.1|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 8.1|Sim\*|Ok\*\*\*|Sim|Sim\*\*\*|N/D
 |Windows 8|Sim\*|N/D|Sim|Sim\*\*\*|N/D
 |Windows 7|Sim\*|N/D|Sim|Sim\*\*\*|N/D
 |Windows Server 2012 R2 ou acima|Sim\*\*|N/D|Sim|Sim\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
 
-\*Exige o Internet Explorer versões 10 ou superior
+\*Requer o Internet Explorer versão 10 ou posterior.
 
-\*\*Exige o Internet Explorer versões 10 ou superior. Desabilitar Modo Protegido Avançado
+\*\*Requer o Internet Explorer versão 10 ou posterior. Desabilitar o modo protegido avançado.
 
-\*\*\*Exige [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations).
+
+\*\*\*\*Requer o Microsoft Edge versão 77 ou posterior.
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é usar o [Ingresso do Azure AD](../devices/concept-azure-ad-join.md) para obter a experiência ideal de logon único com o Azure AD.
