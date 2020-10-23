@@ -10,22 +10,22 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: f2859ddb6ddf7d1041509c47adfe7bf3a1ce99b8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374374"
+ms.locfileid: "92424557"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicativos Azure Active Directory: o que há de novo
 
-Bem-vindo ao que há de novo na documentação de provisionamento de aplicativos Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses.
+Bem-vindo ao que há de novo na documentação de provisionamento de aplicativos Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço de provisionamento, consulte [What ' s New in Azure Active Directory](../fundamentals/whats-new.md).
 
 ## <a name="september-2020"></a>Setembro de 2020
 
 ### <a name="new-articles"></a>Novos artigos
 
-- [Novidades](whats-new-docs.md)
+- [O que há de novo no Docs?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Provisionamento de aplicativo no status de quarentena](application-provisioning-quarantine-status.md)

@@ -3,12 +3,12 @@ title: Gerenciar espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerenciar efetivamente o Azure Sentinel em recursos de clientes delegados.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596939"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424101"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerenciar espaços de trabalho do Azure Sentinel em escala
 
@@ -39,7 +39,7 @@ Esse modelo centralizado de implantação tem as seguintes vantagens:
 > [!NOTE]
 > Você pode gerenciar recursos delegados que estão localizados em [regiões](../../availability-zones/az-overview.md#regions)diferentes. No entanto, a delegação de assinaturas em uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e na nuvem pública do Azure ou em duas nuvens nacionais separadas não tem suporte.
 
-## <a name="granular-role-based-access-control-rbac"></a>RBAC (controle de acesso baseado em função) granular
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Controle de acesso baseado em função do Azure granular (RBAC do Azure)
 
 Cada assinatura de cliente que um MSSP gerenciará deve ser [integrada ao Azure Lighthouse](onboard-customer.md). Isso permite que usuários designados no locatário de gerenciamento acessem e realizem operações de gerenciamento em espaços de trabalho do Azure Sentinel implantados em locatários do cliente.
 

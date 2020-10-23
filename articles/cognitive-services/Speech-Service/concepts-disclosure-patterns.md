@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: fe4f0cdcdb863582560b0eba3a22e95b93ff858b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150940"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425111"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de design de divulgação
 Agora que você&#39;foi determinado o [nível certo de divulgação](concepts-disclosure-guidelines.md#disclosure-assessment) para sua experiência de voz sintética, ele&#39;um bom momento para explorar os padrões de design potenciais.
@@ -184,7 +184,7 @@ Considere os diferentes modos de interações de sua experiência ao incorporar 
 
 A divulgação pode ser obtida implicitamente definindo expectativas precisas para o que o assistente digital é capaz de fazer. Forneça comandos de exemplo para que os usuários possam aprender a interagir com o assistente digital e oferecer ajuda contextual para saber mais sobre a voz sintética durante os estágios iniciais da experiência.
 
-![Dicas visuais e comentários](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Exemplo de respostas padrão a uma conversa que você pode criar.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>Transparência da conversa
 

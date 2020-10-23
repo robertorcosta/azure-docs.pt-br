@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305623"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445652"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutorial: configurar o Harness para provisionamento automático de usuário
 
@@ -99,7 +99,7 @@ Antes de configurar o Harness para o provisionamento automático de usuário com
 Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários ou grupos em conjunto com base em atribuições de usuário ou de grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o Harness seguindo as instruções no tutorial do [conjunto de logon único](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial). Você pode configurar o logon único independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
+> Você também pode optar por habilitar o logon único baseado em SAML para o Harness seguindo as instruções no tutorial do [conjunto de logon único](./harness-tutorial.md). Você pode configurar o logon único independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
 > [!NOTE]
 > Para saber mais sobre o conjunto de pontos de extremidade SCIM, consulte o artigo [chaves de API](https://docs.harness.io/article/smloyragsm-api-keys) de Harness.

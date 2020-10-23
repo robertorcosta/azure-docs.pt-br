@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776028"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424996"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
@@ -34,7 +34,7 @@ Neste artigo, você aprenderá a habilitar os seguintes recursos de espaços de 
 > - Workspace do Azure Machine Learning
 > - Contas de armazenamento do Azure
 > - Azure Machine Learning de armazenamentos e conjuntos de itens
-> - Cofre de Chave do Azure
+> - Azure Key Vault
 > - Registro de Contêiner do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,12 +43,12 @@ Neste artigo, você aprenderá a habilitar os seguintes recursos de espaços de 
 
 + Uma rede virtual e sub-rede existentes para usar com seus recursos de computação.
 
-+ Para implantar recursos em uma rede virtual ou sub-rede, sua conta de usuário deve ter permissões para as seguintes ações nos controles de acesso baseado em função (RBAC) do Azure:
++ Para implantar recursos em uma rede virtual ou sub-rede, sua conta de usuário deve ter permissões para as seguintes ações no controle de acesso baseado em função do Azure (RBAC do Azure):
 
     - "Microsoft. Network/virtualNetworks/Join/Action" no recurso de rede virtual.
     - "Microsoft. Network/virtualNetworks/sub-rede/junção/ação" no recurso de sub-rede.
 
-    Para obter mais informações sobre o RBAC com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking)
+    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Proteger o espaço de trabalho com o ponto de extremidade privado

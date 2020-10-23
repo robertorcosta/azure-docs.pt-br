@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940320"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425284"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Linha de base de segurança do Azure para Azure Load Balancer
 
@@ -402,7 +402,7 @@ Funções predefinidas e internas de inventário para determinados recursos com 
 
 **Orientação**: Use o RBAC do Azure para controlar o acesso aos seus recursos de Load Balancer.
 
-- [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

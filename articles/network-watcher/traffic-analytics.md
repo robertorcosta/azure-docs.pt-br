@@ -13,12 +13,12 @@ ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7a5157c955a51215a9e62711ebb7838b61fda496
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951546"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424266"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -131,7 +131,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
       Leste dos EUA 2 EUAP  
       França Central  
       Centro-Oeste da Alemanha  
-      Japan East  
+      Leste do Japão  
       Coreia Central  
       Centro-Norte dos EUA  
       Norte da Europa  
@@ -164,7 +164,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 
 ### <a name="user-access-requirements"></a>Requisitos de acesso do usuário
 
-A conta deve ser um membro de uma das [funções internas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) a seguir do Azure:
+Sua conta deve ser um membro de uma das seguintes [funções internas do Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
 |Modelo de implantação   | Função                   |
 |---------          |---------               |

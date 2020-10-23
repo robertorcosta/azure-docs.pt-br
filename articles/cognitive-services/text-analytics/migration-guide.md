@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/25/2020
+ms.date: 10/19/2020
 ms.author: aahi
-ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 172e684c6edbab4d7d47c8cf78e35ae38de3a0af
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85412576"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461780"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3. x do API de Análise de Texto
 
@@ -33,7 +33,12 @@ Análise de Sentimento na versão 2,1 retorna pontuações de sentimentos entre 
 
 ### <a name="rest-api"></a>API REST
 
-Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicitação para o ponto de extremidade V3 para análise de sentimentos. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Também será necessário atualizar o aplicativo para usar os rótulos de sentimentos retornados na [resposta JSON](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicitação para o ponto de extremidade V3 para análise de sentimentos. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Também será necessário atualizar o aplicativo para usar os rótulos de opiniões retornados na [resposta da API](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+
+Consulte a documentação de referência para obter exemplos de resposta JSON.
+* [Versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+* [Versão 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
+* [Versão 3.1 – versão prévia](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
 
 ### <a name="client-libraries"></a>Bibliotecas de cliente
 
@@ -60,7 +65,12 @@ Vinculação de Identidade
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-Também será necessário atualizar seu aplicativo para usar as categorias de [entidade](named-entity-types.md) retornadas na [resposta JSON](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+Também será necessário atualizar seu aplicativo para usar as categorias de [entidade](named-entity-types.md) retornadas na [resposta da API](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+
+Consulte a documentação de referência para obter exemplos de resposta JSON.
+* [Versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+* [Versão 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
+* [Versão 3.1 – versão prévia](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>Bibliotecas de cliente
 
@@ -77,7 +87,12 @@ O recurso de detecção de idioma não foi alterado na v3 fora da versão do pon
 
 ### <a name="rest-api"></a>API REST
 
-Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicitação para o ponto de extremidade V3 para detecção de idioma. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Também será necessário atualizar o aplicativo para usar em `ConfidenceScore` vez de `score` na [resposta JSON](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicitação para o ponto de extremidade V3 para detecção de idioma. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Também será necessário atualizar o aplicativo para usar em `ConfidenceScore` vez de `score` na resposta da [API](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+
+Consulte a documentação de referência para obter exemplos de resposta JSON.
+* [Versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
+* [Versão 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
+* [Versão 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ### <a name="client-libraries"></a>Bibliotecas de cliente
 
@@ -96,6 +111,11 @@ O recurso de extração de frase-chave não foi alterado em v3 fora da versão d
 
 Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicitação para o ponto de extremidade V3 para extração de frase de chave. Por exemplo: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
+Consulte a documentação de referência para obter exemplos de resposta JSON.
+* [Versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
+* [Versão 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
+* [Versão 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
+
 ### <a name="client-libraries"></a>Bibliotecas de cliente
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
@@ -105,7 +125,6 @@ Se seu aplicativo usar a API REST, atualize seu ponto de extremidade de solicita
 
 ## <a name="see-also"></a>Confira também
 
-* [Referência de API de Análise de Texto v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [O que é a API de Análise de Texto](overview.md)
 * [Suporte ao idioma](language-support.md)
 * [Controle de versão de modelo](concepts/model-versioning.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206026"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461797"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -169,6 +169,19 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Rede virtual – logs de fluxo NSG | Não | Sim | Não |  |
 |Gateway de VPN | Sim | Sim | Não |  |
 |Área de Trabalho Virtual do Windows | Não | Não | Não |  |
+
+## <a name="virtual-machine-agents"></a>Agentes da máquina virtual
+A tabela a seguir lista os agentes que podem coletar dados do sistema operacional convidado de máquinas virtuais e enviar dados para monitorar. Cada agente pode coletar dados diferentes e enviá-los para métricas ou logs em Azure Monitor. 
+
+Consulte [visão geral dos agentes de Azure monitor](platform/agents-overview.md) para obter detalhes sobre os dados que cada agente pode coletar.
+
+| Agente |  Métricas | Logs |
+|:---|:---|:---|:---|
+| [Agente de Azure Monitor (versão prévia)](platform/azure-monitor-agent-overview.md) | Sim | Sim |
+| [Agente do Log Analytics](platform/log-analytics-agent.md) | Não | Sim|
+| [Extensão de diagnóstico](platform/diagnostics-extension-overview.md) | Sim | Não |
+| [Agente Telegraf](platform/collect-custom-metrics-linux-telegraf.md) | Sim | Não |
+| [Agente de dependência](insights/vminsights-enable-overview.md) | Não | Sim |
 
 
 ## <a name="product-integrations"></a>Integrações de produto

@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bdc0bdb5966445fe98b2f65bce552fe6dca493ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368971"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461644"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -65,10 +65,10 @@ A Microsoft e a Red Hat compartilham uma equipe de suporte integrada e colocaliz
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>O VMware HCX Enterprise Edition está disponível e, nesse caso, o quanto custa?
 
-O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora o VMware HCX EE para a Solução VMware no Azure esteja em Versão prévia, ele é uma função ou um serviço gratuito e está sujeito aos termos e condições do serviço de Versão prévia. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você também terá a opção de desativar ou recusar o serviço.
+O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora a solução VMware HCX EE para Azure VMware esteja em versão prévia, ela é uma função/serviço gratuita e está sujeita a termos e condições de serviço de visualização. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você pode desativar ou recusar o serviço.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>As VMs de solução do Azure VMware podem ser gerenciadas pelo VMRC?
-Sim, desde que o sistema no qual ele está instalado possa acessar o vCenter de nuvem privada e que está usando o DNS público (para que possa resolver nomes de host ESXi).
+Sim, desde que o sistema no qual ele está instalado possa acessar a nuvem privada vCenter e esteja usando o DNS público (para que possa resolver nomes de host ESXi).
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Há instruções especiais para instalar e usar o VMRC com VMs de solução do Azure VMware?
 Não, use as [instruções fornecidas pelo VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e realize os pré-requisitos de VM especificados nessas instruções. 
@@ -116,7 +116,7 @@ Até o que sabemos, qualquer solução de backup que usa o VMware VADP com o mod
 
 Como essas soluções de backup são instaladas e gerenciadas pelos clientes, elas podem entrar em contato com o respectivo ISV para obter suporte. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Qual é a política de armazenamento correta da configuração de eliminação de duplicatas?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>Qual é a política de armazenamento correta para a configuração de eliminação de duplicatas?
 
 Use a política de armazenamento *thin_provision* para o modelo de VM.  O padrão é *thick_provision*.
 
@@ -239,7 +239,7 @@ Você precisará de uma conta do Azure em uma assinatura do Azure.
 * Você precisará de um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Você precisará de uma conta do Azure em uma assinatura do Azure.
 
-Antes de criar o recurso da Solução VMware no Azure, você precisará enviar um tíquete de suporte para que os nós sejam alocados. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo.
+Antes de criar o recurso de solução do Azure VMware, você deve enviar um tíquete de suporte para que seus nós sejam alocados. Leva até cinco dias úteis para confirmar sua solicitação e alocar seus nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo.
 
 
 1. Em seu portal do Azure, em **ajuda + suporte**, crie uma **[nova solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o tíquete:

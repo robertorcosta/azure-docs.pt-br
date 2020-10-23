@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729025"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424978"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos e fluxos de trabalho do Azure Machine Learning
 
@@ -28,7 +28,7 @@ Em geral, há dois tipos de autenticação que você pode usar com Azure Machine
 * __Interativo__: você usa sua conta no Azure Active Directory para autenticar-se diretamente ou para obter um token que é usado para autenticação. A autenticação interativa é usada durante a experimentação e o desenvolvimento iterativo. Ou onde você deseja controlar o acesso a recursos (como um serviço Web) por usuário.
 * __Entidade de serviço__: Crie uma conta de entidade de serviço no Azure Active Directory e use-a para autenticar ou obter um token. Uma entidade de serviço é usada quando você precisa de um processo automatizado para autenticar o serviço sem a necessidade de interação do usuário. Por exemplo, um script de implantação e integração contínua que treina e testa um modelo toda vez que o código de treinamento é alterado. Você também pode usar uma entidade de serviço para recuperar um token para autenticar em um serviço Web, se não quiser exigir que o usuário final do serviço seja autenticado. Ou onde a autenticação do usuário final não é executada diretamente usando Azure Active Directory.
 
-Independentemente do tipo de autenticação usado, o RBAC (controle de acesso baseado em função) é usado para o escopo do nível de acesso permitido aos recursos. Por exemplo, uma conta que é usada para obter o token de acesso para um modelo implantado precisa apenas de acesso de leitura ao espaço de trabalho. Para obter mais informações sobre o RBAC, consulte [gerenciar o acesso ao Azure Machine Learning espaço de trabalho](how-to-assign-roles.md).
+Independentemente do tipo de autenticação usado, o controle de acesso baseado em função do Azure (RBAC do Azure) é usado para o escopo do nível de acesso permitido aos recursos. Por exemplo, uma conta que é usada para obter o token de acesso para um modelo implantado precisa apenas de acesso de leitura ao espaço de trabalho. Para obter mais informações sobre o RBAC do Azure, consulte [gerenciar o acesso ao Azure Machine Learning espaço de trabalho](how-to-assign-roles.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
