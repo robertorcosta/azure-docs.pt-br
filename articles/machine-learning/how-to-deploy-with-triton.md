@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998751"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92428344"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com o servidor de inferência de Triton (visualização) 
 
@@ -30,7 +30,7 @@ Triton é uma estrutura *otimizada para inferência*. Ele fornece melhor utiliza
 > O uso de Triton para implantação do Azure Machine Learning está atualmente em versão __prévia__. A funcionalidade de visualização pode não ser coberta pelo atendimento ao cliente. Para obter mais informações, consulte os [termos de uso complementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!TIP]
-> Os trechos de código neste documento são para fins ilustrativos e podem não mostrar uma solução completa. Para o código de exemplo funcional, consulte os [exemplos de ponta a ponta de Triton em Azure Machine Learning](https://aka.ms/aml-triton-sample).
+> Os trechos de código neste documento são para fins ilustrativos e podem não mostrar uma solução completa. Para o código de exemplo funcional, consulte os [exemplos de ponta a ponta de Triton em Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -287,7 +287,7 @@ Após a conclusão da implantação, o URI de pontuação é exibido. Para essa 
 
 Para obter informações sobre como criar um cliente que envia solicitações de inferência para o URI de pontuação, consulte [consumir um modelo implantado como um serviço Web](how-to-consume-web-service.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja continuar a usar o espaço de trabalho Azure Machine Learning, mas deseja livrar-se do serviço implantado, use uma das seguintes opções:
 

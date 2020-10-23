@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617213"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428313"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é o Banco de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,7 +108,7 @@ O Banco de Dados SQL do Microsoft Azure permite que sua empresa continue a opera
 
 A recuperação de desastres pressupõe que um evento catastrófico seja geograficamente localizado para ter outro computador ou conjunto de computadores com uma cópia dos seus dados distante. No SQL Server, é possível usar Grupos de Disponibilidade AlwaysOn no modo assíncrono para obter esse recurso. Muitas vezes, o usuário não quer esperar que a replicação ocorra antes de confirmar uma transação, portanto, há potencial para perda de dados quando você faz failovers não planejados.
 
-Os bancos de dados nas camadas de serviço Premium e Comercialmente Crítico já [fazem algo semelhante](high-availability-sla.md#premium-and-business-critical-service-tier-availability) à sincronização de um grupo de disponibilidade. Os bancos de dados em camadas de serviço inferiores fornecem redundância por meio do armazenamento usando um [mecanismo diferente, mas equivalente](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability). A lógica interna ajuda a proteger contra a falha de uma máquina única. O recurso de replicação geográfica ativa permite proteger contra desastres em que uma região inteira é destruída.
+Os bancos de dados nas camadas de serviço Premium e Comercialmente Crítico já [fazem algo semelhante](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) à sincronização de um grupo de disponibilidade. Os bancos de dados em camadas de serviço inferiores fornecem redundância por meio do armazenamento usando um [mecanismo diferente, mas equivalente](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability). A lógica interna ajuda a proteger contra a falha de uma máquina única. O recurso de replicação geográfica ativa permite proteger contra desastres em que uma região inteira é destruída.
 
 O recurso Zonas de Disponibilidade do Azure tenta proteger contra a interrupção de um único datacenter criado dentro de uma única região. Ele ajuda a proteger contra a perda de energia ou rede em um prédio. No Banco de Dados SQL, você coloca as diferentes réplicas em diferentes zonas de disponibilidade (prédios diferentes, na verdade).
 
