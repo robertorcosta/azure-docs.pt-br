@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e492ebf70f69c985691852a1c1f2351d1e09578e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261593"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425020"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é um acelerador da solução de IoT Fábrica Conectada?
 
@@ -58,7 +58,7 @@ A Fábrica Conectada inclui os recursos a seguir:
 
 ## <a name="end-to-end-security"></a>Segurança de ponta a ponta
 
-- Configurar permissões de segurança para usuários usando RBAC (Controle de Acesso Baseado em Função).
+- Configure permissões de segurança para usuários usando o RBAC (controle de acesso baseado em função).
 - A criptografia de ponta a ponta é implementada usando a autenticação OPC UA (usando certificados X.509), bem como tokens de segurança.
 
 ## <a name="customizability"></a>Personalização

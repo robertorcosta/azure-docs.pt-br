@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 654fc453f0b4167ae91afcab811de321925c6bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89614636"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427494"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Linha de base de segurança do Azure para o link privado do Azure
 
@@ -268,7 +268,7 @@ Ingerir dados no Azure Sentinel para investigação adicional.
 
 Restrinja o nível de acesso aos recursos do Azure com seus aplicativos e ambientes corporativos com base nos requisitos de negócios. 
 
-Controle o acesso aos recursos do Azure por meio de Azure Active Directory controle de acesso baseado em função.
+Controle o acesso aos recursos do Azure por meio do Azure RBAC (controle de acesso baseado em função).
 
 - [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
 
@@ -292,7 +292,7 @@ Siga as recomendações da central de segurança para criptografia em repouso e 
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
 **Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso a dados e recursos, caso contrário, use métodos de controle de acesso específicos de serviço.
 

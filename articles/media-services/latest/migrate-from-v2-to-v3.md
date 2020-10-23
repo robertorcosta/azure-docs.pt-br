@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017736"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426872"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -59,7 +59,7 @@ E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs h
 * A Saída Dinâmica é mais simples de usar do que a entidade Program nas APIs v2. 
 * Suporte aprimorado do RTMP (maior estabilidade e mais suporte de codificador de código-fonte).
 * Ingestão segura de RTMPS.<br/>Ao criar um Evento ao Vivo, você obtém 4 URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId) e apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
-* Você tem controle de acesso baseado em função (RBAC) sobre suas entidades. 
+* Você tem o controle de acesso baseado em função do Azure (RBAC do Azure) em suas entidades. 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319418"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426981"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Usar réplicas somente leitura para descarregar cargas de trabalho de consulta somente leitura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Como parte da [arquitetura de alta disponibilidade](high-availability-sla.md#premium-and-business-critical-service-tier-availability), cada banco de dados individual, banco de dados do pool elástico e instância gerenciada na camada de serviço Premium e comercialmente crítico é automaticamente provisionado com uma réplica de leitura-gravação primária e várias réplicas somente leitura secundárias. As réplicas secundárias são provisionadas com o mesmo tamanho de computação que a réplica primária. O recurso de *expansão de leitura* permite descarregar cargas de trabalho somente leitura usando a capacidade de computação de uma das réplicas somente leitura, em vez de executá-las na réplica de leitura/gravação. Dessa forma, algumas cargas de trabalho somente leitura podem ser isoladas das cargas de trabalho de leitura/gravação e não afetarão seu desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análise. Nas camadas de serviço Premium e Comercialmente Crítico, os aplicativos podem obter benefícios de desempenho usando essa capacidade adicional sem custo adicional.
+Como parte da [arquitetura de alta disponibilidade](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability), cada banco de dados individual, banco de dados do pool elástico e instância gerenciada na camada de serviço Premium e comercialmente crítico é automaticamente provisionado com uma réplica de leitura-gravação primária e várias réplicas somente leitura secundárias. As réplicas secundárias são provisionadas com o mesmo tamanho de computação que a réplica primária. O recurso de *expansão de leitura* permite descarregar cargas de trabalho somente leitura usando a capacidade de computação de uma das réplicas somente leitura, em vez de executá-las na réplica de leitura/gravação. Dessa forma, algumas cargas de trabalho somente leitura podem ser isoladas das cargas de trabalho de leitura/gravação e não afetarão seu desempenho. O recurso destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análise. Nas camadas de serviço Premium e Comercialmente Crítico, os aplicativos podem obter benefícios de desempenho usando essa capacidade adicional sem custo adicional.
 
 O recurso de *expansão de leitura* também está disponível na camada de serviço de hiperescala quando pelo menos uma réplica secundária é criada. Várias réplicas secundárias podem ser usadas para cargas de trabalho somente leitura de balanceamento de carga que exigem mais recursos do que o disponível em uma réplica secundária.
 
@@ -43,7 +43,7 @@ Se você quiser garantir que o aplicativo se conecte à réplica primária, inde
 > [!NOTE]
 > Não há suporte para os recursos Repositório de Consultas e SQL Profiler em réplicas somente leitura. 
 
-## <a name="data-consistency"></a>Coerência de dados
+## <a name="data-consistency"></a>Consistência de dados
 
 Um dos benefícios das réplicas é que as réplicas estão sempre no estado transacionalmente consistente, mas em diferentes momentos, pode haver uma pequena latência entre diferentes réplicas. A expansão de leitura dá suporte à consistência no nível da sessão. Isso significa que, se a sessão somente leitura se reconectar após um erro de conexão causado pela indisponibilidade de réplica, ela poderá ser redirecionada para uma réplica que não seja 100% atualizada com a réplica de leitura/gravação. Da mesma maneira, se um aplicativo gravar dados usando uma sessão de leitura/gravação e lê-lo imediatamente usando uma sessão somente leitura, é possível que as atualizações mais recentes não fiquem visíveis imediatamente na réplica. A latência é causada por uma operação redo assíncrona do log de transações.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71d9af57ab85d694cc08f30c19f6ac87796b2c4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613910"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425553"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar o Tableau Online para provisionamento automático de usuário
 
@@ -98,7 +98,7 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
    * Na caixa **domínio** , preencha o subdomínio com base na etapa 6.
 
-   * Na caixa **nome de usuário do administrador** , preencha o nome de usuário da conta do administrador em seu locatário do Clarizen. Um exemplo é admin@contoso.com.
+   * Na caixa **nome de usuário do administrador** , preencha o nome de usuário da conta do administrador em seu locatário do tableau online. Um exemplo é admin@contoso.com.
 
    * Na caixa **senha do administrador** , preencha a senha da conta de administrador que corresponde ao nome de usuário do administrador.
 

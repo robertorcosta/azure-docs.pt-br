@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400410"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428403"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solucionar problemas do Hybrid Runbook Worker
 
@@ -46,7 +46,7 @@ Estas são as possíveis causas:
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se o computador tem acesso de saída para * **.azure-automation.net** na porta 443.
+Verifique se o computador tem acesso de saída para ** \* . Azure-Automation.net** na porta 443.
 
 Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de o trabalho ser configurado para hospedar esse recurso. Os Runbooks e o processo em segundo plano que eles usam podem fazer com que o sistema se sobrecarregue e cause atrasos ou tempos limite de trabalho de runbook.
 
@@ -226,7 +226,7 @@ No log de eventos **Application and Services Logs\Operations Manager**, você v�
 
 #### <a name="cause"></a>Causa
 
-Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueando a comunicação com o Microsoft Azure. Verifique se o computador tem acesso de saída para * **.azure-automation.net** na porta 443.
+Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueando a comunicação com o Microsoft Azure. Verifique se o computador tem acesso de saída para ** \* . Azure-Automation.net** na porta 443.
 
 #### <a name="resolution"></a>Resolução
 
@@ -293,7 +293,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Cenário: Você não pode adicionar um Hybrid Runbook Worker
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Cenário: não é possível adicionar um Hybrid Runbook Worker do Windows
 
 #### <a name="issue"></a>Problema
 
@@ -313,10 +313,50 @@ Para resolver esse problema, remova a seguinte chave do registro, reinicie `Heal
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Cenário: não é possível adicionar um Hybrid Runbook Worker do Linux
+
+#### <a name="issue"></a>Problema
+
+Você recebe a seguinte mensagem ao tentar adicionar um Hybrid Runbook Worker usando o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` script Python:
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+Além disso, tentar cancelar o registro de um Hybrid Runbook Worker usando o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` script Python:
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### <a name="cause"></a>Causa
+
+Esse problema pode ocorrer se o computador já estiver registrado com uma conta de automação diferente, se o grupo de Hybrid Worker do Azure tiver sido excluído ou se você tentar adicionar novamente o Hybrid Runbook Worker depois de removê-lo de um computador.
+
+#### <a name="resolution"></a>Resolução
+
+Para resolver o problema:
+
+1. Remova o agente `sudo sh onboard_agent.sh --purge` .
+
+1. Execute estes comandos:
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Re-integrar o agente `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` .
+
+1. Aguarde até que a pasta `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` seja populada.
+
+1. Experimente o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` script Python novamente.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrar seu problema aqui ou não conseguir resolvê-lo, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Suporte do Azure conecta a Comunidade do Azure a respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
+* Registrar um incidente de suporte do Azure. Acesse o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.

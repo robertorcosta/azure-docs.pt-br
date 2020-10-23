@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319445"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427041"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU – banco de dados SQL do Azure e SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Para obter mais informações sobre preços de armazenamento, confira a página 
 
 Um vCore (núcleo virtual) representa uma CPU lógica e oferece a opção de escolher entre gerações de hardware e as características físicas do hardware (por exemplo, o número de núcleos, a memória e o tamanho do armazenamento). O modelo de compra baseado em vCore oferece flexibilidade, controle, transparência de consumo de recursos individuais e uma maneira simples de traduzir os requisitos de carga de trabalho local para a nuvem. Esse modelo permite que você escolha recursos de computação, memória e armazenamento com base nas suas necessidades de carga de trabalho.
 
-No modelo de compra baseado em vCore, você pode escolher entre as camadas de serviço [uso geral](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) e [comercialmente crítico](high-availability-sla.md#premium-and-business-critical-service-tier-availability) para o banco de dados sql e o SQL instância gerenciada.  Para bancos de dados individuais, você também pode escolher a [camada de serviço de hiperescala](service-tier-hyperscale.md).
+No modelo de compra baseado em vCore, você pode escolher entre as camadas de serviço [uso geral](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) e [comercialmente crítico](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) para o banco de dados sql e o SQL instância gerenciada.  Para bancos de dados individuais, você também pode escolher a [camada de serviço de hiperescala](service-tier-hyperscale.md).
 
 O modelo de compra baseado em vCore permite que você escolha independentemente os recursos de computação e armazenamento, correspondam ao desempenho local e otimize o preço. No modelo de compra baseado em vCore, você paga por:
 

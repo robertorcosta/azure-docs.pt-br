@@ -2,17 +2,17 @@
 title: Solução de problemas do runtime de integração auto-hospedada no Azure Data Factory
 description: Saiba como solucionar problemas do runtime de integração auto-hospedada no Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/16/2020
-ms.author: abnarain
-ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/22/2020
+ms.author: lle
+ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131287"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427223"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -618,34 +618,37 @@ O exemplo abaixo mostra como seria um bom cenário.
 
 ### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Recebendo email para atualizar a configuração de rede para permitir a comunicação com novos endereços IP
 
-#### <a name="symptoms"></a>Sintomas
+#### <a name="email-notification-from-microsoft"></a>Notificação por email da Microsoft
 
 Você pode receber a notificação de email abaixo, que recomenda que você atualize a configuração de rede para permitir a comunicação com novos endereços IP para Azure Data Factory em 8 de novembro de 2020:
 
    ![Notificação por email](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
 
-#### <a name="resolution"></a>Resolução
+#### <a name="how-to-determine-if-you-are-impacted-by-this-notification"></a>Como determinar se você é afetado por esta notificação
 
-Essa notificação destina-se a **comunicações de saída** de seu **Integration Runtime** em execução **no local** ou dentro de uma **rede virtual privada do Azure** para o serviço ADF. Por exemplo, se você tiver um ir de IR ou SQL Server Integration Services do Azure (SSIS) por hospedagem própria na VNET do Azure, que precisa acessar o serviço ADF, será necessário examinar se você precisa adicionar esse novo intervalo de IP em suas regras de **NSG (grupo de segurança de rede)** . Se sua regra NSG de saída usar a marca de serviço, não haverá nenhum impacto.
+Essa notificação afeta os seguintes cenários:
+##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Cenário 1: comunicação de saída de Integration Runtime auto-hospedados em execução no local por trás do firewall corporativo
+Como determinar se você é afetado:
+- Você não será afetado se estiver definindo regras de firewall com base em nomes de FQDN usando a abordagem descrita neste documento: [configuração de firewall e lista de permissões de configuração para endereço IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- No entanto, você será afetado se estiver explicitamente na lista de permissões de IPs de saída em seu firewall corporativo.
 
-#### <a name="more-details"></a>Mais detalhes
+Ação a ser tomada se você for afetado: notifique sua equipe de infraestrutura de rede para atualizar sua configuração de rede para usar os endereços IP mais recentes do Data Factory em 8 de novembro de 2020.  Para baixar os endereços IP mais recentes, acesse [marcas de serviço link de download intervalo de IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
-Esses novos intervalos **de IP só têm impacto sobre** as regras de comunicação de saída do seu **firewall local** ou da **rede virtual privada do Azure** para o serviço ADF (consulte [configuração de firewall e permissão de lista de permissões para o endereço IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) para referência), para cenários em que você tem um ir de ir ou SSIS de hospedagem autônoma na rede local ou na rede virtual do Azure, que precisa se comunicar com o
+##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Cenário 2: comunicação de saída de Integration Runtime auto-hospedados em execução em uma VM do Azure na rede virtual do Azure gerenciada pelo cliente
+Como determinar se você é afetado:
+- Verifique se você tem regras de NSG de saída em sua rede privada que contenham Integration Runtime hospedadas internamente. Se não houver nenhuma restrição de saída, não haverá nenhum impacto.
+- Se você tiver restrições de regra de saída, verifique se você usa a marca de serviço ou não. Se você usar a marca de serviço, não será necessário alterar nem adicionar nada, pois os novos intervalos de IP estão sob a marca de serviço existente. 
+ ![Verificação de destino](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- No entanto, você será afetado se estiver explicitamente na lista de permissões de endereços IP de saída em sua configuração de regras do NSG na rede virtual do Azure.
 
-Para usuários existentes usando a **VPN do Azure**:
+Ação a ser tomada se você for afetado: notifique sua equipe de infraestrutura de rede para atualizar as regras de NSG em sua configuração de rede virtual do Azure para usar os endereços IP mais recentes do Data Factory em 8 de novembro de 2020.  Para baixar os endereços IP mais recentes, acesse [marcas de serviço link de download intervalo de IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
-1. Verifique todas as regras de NSG de saída em sua rede privada onde o SSIS ou o Azure SSIS está configurado. Se não houver nenhuma restrição de saída, não haverá impacto sobre elas.
-1. Se você tiver restrições de regra de saída, verifique se você usa a marca de serviço ou não. Se você usar a marca de serviço, não será necessário alterar nem adicionar nada, pois os novos intervalos de IP estão sob a marca de serviço existente. 
-  
-    ![Verificação de destino](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Cenário 3: comunicação de saída do SSIS Integration Runtime na rede virtual do Azure gerenciada pelo cliente
+- Verifique se você tem alguma regra de NSG de saída em sua rede privada que contém Integration Runtime SSIS. Se não houver nenhuma restrição de saída, não haverá nenhum impacto.
+- Se você tiver restrições de regra de saída, verifique se você usa a marca de serviço ou não. Se você usar a marca de serviço, não será necessário alterar nem adicionar nada, pois os novos intervalos de IP estão sob a marca de serviço existente.
+- No entanto, você será afetado se estiver explicitamente na lista de permissões de endereço IP de saída em sua configuração de regras do NSG na rede virtual do Azure.
 
-1. Se você usar endereços IP diretamente em sua configuração de regra, verifique se você adicionou todos os intervalos de IP no [link de download do intervalo IP de marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Já colocamos os novos intervalos de IP neste arquivo. Para novos usuários: você só precisará acompanhar a configuração de ir de IR ou do SSIS auto-hospedado relevante em nosso documento para configurar as regras de NSG.
-
-Para usuários existentes que têm o SSIS IR ou o IR hospedado internamente **local**:
-
-- Valide com sua equipe de infraestrutura de rede e veja se é necessário incluir os novos endereços de intervalo IP na comunicação para regras de saída.
-- Para regras de firewall baseadas em nomes FQDN, nenhuma atualização é necessária quando você usa as configurações documentadas na [configuração do firewall e a configuração da lista de permissões para o endereço IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
-- Alguns firewalls locais dão suporte a marcas de serviço, se você usar o arquivo atualizado de configuração de marcas de serviço do Azure, nenhuma outra alteração será necessária.
+Ação a ser tomada se você for afetado: notifique sua equipe de infraestrutura de rede para atualizar as regras de NSG em sua configuração de rede virtual do Azure para usar os endereços IP mais recentes do Data Factory em 8 de novembro de 2020.  Para baixar os endereços IP mais recentes, acesse [marcas de serviço link de download intervalo de IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="self-hosted-ir-sharing"></a>Compartilhamento do IR auto-hospedado
 

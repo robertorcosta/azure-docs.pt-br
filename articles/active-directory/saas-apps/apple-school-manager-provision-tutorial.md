@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ce2c866954f46e3a01cabb23033ea2dae77ead6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fed376eae1c3dadb17f5ecf8e7f1c3422e07b9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757415"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426424"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Tutorial: configurar o Apple School Manager para o provisionamento automático de usuário
 
@@ -103,7 +103,7 @@ No Azure AD, é possível definir quem estará no escopo de provisionamento com 
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários com o Apple School Manager**.
 
@@ -160,7 +160,6 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * [Exibir a atividade do SCIM no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
 * [Gerenciar o token SCIM e as conexões existentes no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apdc9a823611)
 * [Desconectar a conexão SCIM no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd609be3a61)
-* [Gerenciar o token SCIM e as conexões existentes no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
 * [Solucionando problemas de conexão do SCIM no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>Próximas etapas

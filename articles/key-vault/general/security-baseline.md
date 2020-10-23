@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd6a907ce855fbb7c1ef96236766beef9b25b2ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400459"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428355"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança do Azure para o Key Vault
 
@@ -566,7 +566,9 @@ Log de Azure Key Vault: https://docs.microsoft.com/azure/key-vault/key-vault-log
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: criptografar todas as informações confidenciais em trânsito
 
-**Orientação**: todo o tráfego para Azure Key Vault para autenticação, gerenciamento e acesso ao plano de dados, é criptografado e passa por https: porta 443. (No entanto, ocasionalmente haverá tráfego HTTP [porta 80] para CRL.) 
+**Orientação**: todo o tráfego para Azure Key Vault para autenticação, gerenciamento e acesso ao plano de dados, é criptografado e passa por https: porta 443. (No entanto, ocasionalmente haverá tráfego HTTP [porta 80] para CRL.) Azure Key Vault continua a permitir que os dados TLS 1,1 e TLS 1,0 sejam ingeridos. Os dados podem ser restritos ao TLS 1,2 por meio da configuração no lado do cliente.
+
+
 
 Acesse Azure Key Vault por trás de um firewall: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 

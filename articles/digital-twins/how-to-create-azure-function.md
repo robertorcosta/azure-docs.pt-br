@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d81d26c4cf975a20f31b4b4546c1477ed1a630e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: acbccd09fc8bc765083fea7b3a8d6ad749003ae9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048314"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428009"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conectar Azure Functions aplicativos para processamento de dados
 
@@ -50,7 +50,7 @@ Depois que seu aplicativo de funções for criado, seu Visual Studio terá o exe
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Escrever uma função do Azure com um gatilho de grade de eventos
 
-Você pode escrever uma função do Azure adicionando o SDK ao seu aplicativo de funções. O aplicativo de funções interage com o gêmeos digital do Azure usando a [biblioteca de cliente do Microsoft Azure IOT digital para .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
+Você pode escrever uma função do Azure adicionando o SDK ao seu aplicativo de funções. O aplicativo de funções interage com o gêmeos digital do Azure usando o [SDK do gêmeos digital do Azure para .net (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
 
 Para usar o SDK, você precisará incluir os pacotes a seguir em seu projeto. Você pode instalar os pacotes usando o Gerenciador de pacotes NuGet do Visual Studio ou adicionar os pacotes usando a `dotnet` ferramenta de linha de comando. Escolha um destes métodos: 
 

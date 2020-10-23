@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 3fe99543b821810b1479f1e504098d81fd20c534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb3d29a339911b0ec05b543257974014a1bcbe22
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711134"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425490"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitoramento do armazenamento de filas do Azure
 
@@ -46,7 +46,7 @@ O armazenamento de filas do Azure coleta os mesmos tipos de dados de monitoramen
 
 Consulte [referência de dados de monitoramento do armazenamento de filas do Azure](monitor-queue-storage-reference.md) para obter informações detalhadas sobre as métricas de métricas e logs criadas pelo armazenamento de filas do Azure.
 
-As métricas e os logs do Azure Monitor oferecem suporte apenas às contas de armazenamento do Azure Resource Manager. O Azure Monitor não tem suporte a contas de armazenamento clássicas. Se você quiser usar as métricas ou os logs nas contas de armazenamento clássicas, precisará migrar para a conta de armazenamento do Azure Resource Manager. Confira [Migrar para o Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+As métricas e os logs do Azure Monitor oferecem suporte apenas às contas de armazenamento do Azure Resource Manager. O Azure Monitor não tem suporte a contas de armazenamento clássicas. Se você quiser usar as métricas ou os logs nas contas de armazenamento clássicas, precisará migrar para a conta de armazenamento do Azure Resource Manager. Confira [Migrar para o Azure Resource Manager](/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 Você pode continuar usando logs e métricas clássicos se desejar. Na verdade, as métricas e os logs clássicos estão disponíveis em paralelo com as métricas e os logs no Azure Monitor. O suporte permanece disponível até que o Armazenamento do Microsoft Azure encerre o serviço nas métricas e nos logs herdados.
 
@@ -56,7 +56,7 @@ As métricas de plataforma e o log de atividades são coletados automaticamente,
 
 Para criar uma configuração de diagnóstico usando o portal do Azure, o CLI do Azure ou o PowerShell, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/platform/diagnostic-settings.md). 
 
-Para ver um modelo de Azure Resource Manager que cria uma configuração de diagnóstico, consulte [configuração de diagnóstico para o armazenamento do Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+Para ver um modelo de Azure Resource Manager que cria uma configuração de diagnóstico, consulte [configuração de diagnóstico para o armazenamento do Azure](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 Ao criar uma configuração de diagnóstico, escolha o tipo de armazenamento para o qual você deseja habilitar os logs, como um blob, uma fila, uma tabela ou um arquivo. Para armazenamento de filas, escolha **fila**. 
 
@@ -89,7 +89,7 @@ As métricas para o armazenamento de filas do Azure estão nestes namespaces:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-Para obter uma lista de todas as métricas de suporte de Azure Monitor, que inclui o armazenamento de filas do Azure, consulte [Azure monitor métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+Para obter uma lista de todas as métricas de suporte de Azure Monitor, que inclui o armazenamento de filas do Azure, consulte [Azure monitor métricas com suporte](/azure/azure-monitor/platform/metrics-supported).
 
 
 ### <a name="accessing-metrics"></a>Acessando métricas
@@ -101,7 +101,7 @@ Para obter uma lista de todas as métricas de suporte de Azure Monitor, que incl
 
 #### <a name="list-the-metric-definition"></a>Listar a definição de métrica
 
-Você pode listar a definição de métrica de sua conta de armazenamento ou o serviço de armazenamento de filas. Use o cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition).
+Você pode listar a definição de métrica de sua conta de armazenamento ou o serviço de armazenamento de filas. Use o cmdlet [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition).
 
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pela ID de recurso de toda a conta de armazenamento ou a ID de recurso do serviço de armazenamento de fila.  Você pode encontrar essas IDs de recurso nas página de **propriedades** da sua conta de armazenamento no portal do Azure.
 
@@ -112,7 +112,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pela ID de recurso 
 
 #### <a name="reading-metric-values"></a>Lendo valores de métrica
 
-Você pode ler os valores de métrica em nível de conta da sua conta de armazenamento ou do serviço de armazenamento de fila. Use o cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric).
+Você pode ler os valores de métrica em nível de conta da sua conta de armazenamento ou do serviço de armazenamento de fila. Use o cmdlet [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric).
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -123,7 +123,7 @@ Você pode ler os valores de métrica em nível de conta da sua conta de armazen
 
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição de métrica no nível de conta
 
-Você pode listar a definição de métrica de sua conta de armazenamento ou o serviço de armazenamento de filas. Use o comando [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
+Você pode listar a definição de métrica de sua conta de armazenamento ou o serviço de armazenamento de filas. Use o comando [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
  
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pela ID de recurso de toda a conta de armazenamento ou a ID de recurso do serviço de armazenamento de fila. Você pode encontrar essas IDs de recurso nas página de **propriedades** da sua conta de armazenamento no portal do Azure.
 
@@ -133,7 +133,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pela ID de recurso 
 
 #### <a name="read-account-level-metric-values"></a>Ler os valores de métrica no nível de conta
 
-Você pode ler os valores de métrica de sua conta de armazenamento ou o serviço de armazenamento de fila. Use o comando [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list).
+Você pode ler os valores de métrica de sua conta de armazenamento ou o serviço de armazenamento de fila. Use o comando [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list).
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -330,19 +330,19 @@ Os logs enviados para um hub de eventos não são armazenados como um arquivo, m
 
 ![Logs de auditoria](media/monitor-queue-storage/event-hub-log.png)
 
-Você pode acessar e ler dados de log enviados ao seu hub de eventos usando informações de segurança e ferramentas de monitoramento e gerenciamento de eventos. Para mais informações, consulte [O que posso fazer com os dados de monitoramento que estão sendo enviados ao meu hub de eventos?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
+Você pode acessar e ler dados de log enviados ao seu hub de eventos usando informações de segurança e ferramentas de monitoramento e gerenciamento de eventos. Para mais informações, consulte [O que posso fazer com os dados de monitoramento que estão sendo enviados ao meu hub de eventos?](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Acessando logs em um espaço de trabalho Log Analytics
 
 Você pode acessar os logs enviados a um workspace do Log Analytics usando consultas de log do Azure Monitor.
 
-Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](/azure/azure-monitor/log-query/get-started-portal).
 
 Os dados são armazenados na tabela **StorageQueueLogs** .  
 
 #### <a name="sample-kusto-queries"></a>Consultas de exemplo do Kusto
 
-Aqui estão algumas consultas que você pode inserir na barra de **pesquisa de log** para ajudá-lo a monitorar seu armazenamento de fila. Essas consultas funcionam com a [nova linguagem](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Aqui estão algumas consultas que você pode inserir na barra de **pesquisa de log** para ajudá-lo a monitorar seu armazenamento de fila. Essas consultas funcionam com a [nova linguagem](/azure/azure-monitor/log-query/log-query-overview).
 
 > [!IMPORTANT]
 > Quando você seleciona **logs** no menu do grupo de recursos da conta de armazenamento, log Analytics é aberta com o escopo de consulta definido como o grupo de recursos atual. Isso significa que as consultas de log incluirão apenas os dados desse grupo de recursos. Se você quiser executar uma consulta que inclui dados de outros recursos ou dados de outros serviços do Azure, selecione **logs** no menu **Azure monitor** . Confira [Escopo da consulta de log e intervalo de tempo no Log Analytics do Azure Monitor](/azure/azure-monitor/log-query/scope/) para obter detalhes.

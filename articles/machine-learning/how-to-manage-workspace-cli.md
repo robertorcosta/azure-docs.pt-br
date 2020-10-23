@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cb6c49ce779fe8b1e764471c31b392e31d6572ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd6fc3ee88d63c1d933d3405437ec1bf49e0432e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631198"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426352"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um workspace para o Azure Machine Learning com a CLI do Azure
 
@@ -359,7 +359,7 @@ Para compartilhar um workspace com outro usuário na sua assinatura, use o segui
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Para obter mais informações sobre o RBAC (controle de acesso baseado em função) com o Azure Machine Learning, confira [Gerenciar usuários e funções](how-to-assign-roles.md).
+Para obter mais informações sobre o controle de acesso baseado em função do Azure (RBAC do Azure) com Azure Machine Learning, consulte [gerenciar usuários e funções](how-to-assign-roles.md).
 
 Para obter mais informações, confira a documentação de [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-share).
 
