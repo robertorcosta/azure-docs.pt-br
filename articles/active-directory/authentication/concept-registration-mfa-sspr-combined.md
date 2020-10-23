@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965141"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424569"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registro de informações de segurança combinado para Azure Active Directory visão geral
 
@@ -34,7 +34,7 @@ Este artigo descreve o que é o registro de segurança combinado. Para começar 
 
 Antes de habilitar a nova experiência, examine esta documentação voltada para o administrador e a documentação voltada para o usuário para garantir que você compreenda a funcionalidade e o efeito desse recurso. Baseie seu treinamento na [documentação do usuário](../user-help/security-info-setup-signin.md) para preparar seus usuários para a nova experiência e para ajudar a garantir uma distribuição bem-sucedida.
 
-O registro de informações de segurança combinadas do Azure AD não está disponível atualmente para nuvens nacionais como Azure EUA governamental, Azure Alemanha ou Azure China 21Vianet.
+O registro de informações de segurança combinadas do Azure AD não está disponível atualmente para nuvens nacionais como o Azure Alemanha ou o Azure China 21Vianet. Ele está disponível para o governo dos EUA do Azure.
 
 > [!IMPORTANT]
 > Os usuários que estão habilitados para a versão prévia original e a experiência avançada de registro combinado veem o novo comportamento. Os usuários que estão habilitados para ambas as experiências veem apenas a nova experiência meu perfil. O novo *meu perfil* se alinha com a aparência do registro combinado e fornece uma experiência direta para os usuários. Os usuários podem ver meu perfil acessando [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .

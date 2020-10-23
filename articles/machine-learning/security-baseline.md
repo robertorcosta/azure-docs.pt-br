@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb403e2d1b11391ca3917478955dc282a174ae88
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204326"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426311"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de base de segurança do Azure para Azure Machine Learning
 
@@ -303,13 +303,13 @@ Azure Machine Learning tem suporte variado em diferentes recursos de computaçã
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
-**Orientação**: você pode usar a guia gerenciamento de identidade e acesso de um recurso no portal do Azure para configurar o controle de acesso baseado em função (RBAC) e manter o inventário em Azure Machine Learning recursos. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos.
+**Orientação**: você pode usar a guia gerenciamento de identidade e acesso de um recurso no portal do Azure para configurar o controle de acesso baseado em função do Azure (RBAC do Azure) e manter o inventário em Azure Machine Learning recursos. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos.
 
-O Azure Machine Learning fornece RBAC interno para cenários comuns de gerenciamento no Azure Machine Learning. Um indivíduo que tem um perfil no Azure Active Directory (Azure AD) pode atribuir essas funções RBAC a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Machine Learning recursos.
+O Azure Machine Learning fornece funções internas para cenários comuns de gerenciamento no Azure Machine Learning. Um indivíduo que tem um perfil no Azure Active Directory (Azure AD) pode atribuir essas funções a usuários, grupos, entidades de serviço ou identidades gerenciadas para conceder ou negar acesso a recursos e operações em Azure Machine Learning recursos.
 
 Você também pode usar o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Entender o controle de acesso baseado em função no Azure Machine Learning](how-to-assign-roles.md)
+- [Entender o controle de acesso baseado em função do Azure no Azure Machine Learning](how-to-assign-roles.md)
 
 - [Como obter uma função de diretório no Azure Active Directory com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -902,13 +902,13 @@ Azure Machine Learning dá suporte total a repositórios git para acompanhamento
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: armazenar imagens personalizadas do sistema operacional com segurança
 
-**Diretrizes**: Azure Machine Learning tem suporte variado em diferentes recursos de computação e até mesmo seus próprios recursos de computação. Para recursos de computação que pertencem à sua organização, use o RBAC (controle de acesso baseado em função) do Azure para garantir que somente usuários autorizados possam acessar suas imagens personalizadas. Use uma galeria de imagens compartilhadas do Azure você pode compartilhar suas imagens para diferentes usuários, entidades de serviço ou grupos do Azure AD em sua organização. Armazene imagens de contêiner no registro de contêiner do Azure e use o RBAC para garantir que somente usuários autorizados tenham acesso.
+**Diretrizes**: Azure Machine Learning tem suporte variado em diferentes recursos de computação e até mesmo seus próprios recursos de computação. Para recursos de computação que pertencem à sua organização, use o controle de acesso baseado em função do Azure (RBAC do Azure) para garantir que somente usuários autorizados possam acessar suas imagens personalizadas. Use uma galeria de imagens compartilhadas do Azure você pode compartilhar suas imagens para diferentes usuários, entidades de serviço ou grupos do Azure AD em sua organização. Armazene imagens de contêiner no registro de contêiner do Azure e use o RBAC do Azure para garantir que somente usuários autorizados tenham acesso.
 
-- [Entender o RBAC no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Entender o RBAC do Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Entender o RBAC para registro de contêiner](../container-registry/container-registry-roles.md)
+- [Entender o RBAC do Azure para registro de contêiner](../container-registry/container-registry-roles.md)
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Como configurar o RBAC do Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Visão geral da galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -1088,7 +1088,7 @@ Azure Machine Learning tem suporte variado em diferentes recursos de computaçã
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantir a proteção de backups e chaves gerenciadas pelo cliente
 
-**Orientação**: para o backup local, a criptografia em repouso é fornecida usando a senha que você fornece ao fazer backup no Azure. Use o controle de acesso baseado em função para proteger backups e chaves gerenciadas pelo cliente. 
+**Orientação**: para o backup local, a criptografia em repouso é fornecida usando a senha que você fornece ao fazer backup no Azure. Use o controle de acesso baseado em função do Azure para proteger backups e chaves gerenciadas pelo cliente. 
 
 Habilite a exclusão reversível e a proteção de limpeza no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada. Se o armazenamento do Azure for usado para armazenar backups, habilite a exclusão reversível para salvar e recuperar seus dados quando BLOBs ou instantâneos de blob forem excluídos.
  

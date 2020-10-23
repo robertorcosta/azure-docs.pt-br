@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280857"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427984"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
@@ -66,7 +66,7 @@ Agora, verifique se o segredo do cliente está visível na página _certificados
 
 Este artigo usa aplicativos lógicos para atualizar uma cópia em uma instância de gêmeos digital do Azure. Para continuar, você deve adicionar pelo menos um cópia em sua instância. 
 
-Você pode adicionar gêmeos usando as [APIs do DigitalTwins](how-to-use-apis-sdks.md), o [SDK do .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). Para obter etapas detalhadas sobre como criar gêmeos usando esses métodos, consulte [*como gerenciar o digital gêmeos*](how-to-manage-twin.md).
+Você pode adicionar gêmeos usando as [APIs do DigitalTwins](how-to-use-apis-sdks.md), o [SDK do .net (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). Para obter etapas detalhadas sobre como criar gêmeos usando esses métodos, consulte [*como gerenciar o digital gêmeos*](how-to-manage-twin.md).
 
 Você precisará da **_ID_** de cópia de um matreme em sua instância que você criou.
 

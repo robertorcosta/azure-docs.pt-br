@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d1f4c04bf4a26e67a905679db23e303c2762d90c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369685"
+ms.locfileid: "92426406"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implantar atualizações e examinar os resultados
 
@@ -111,7 +111,7 @@ Para agendar uma nova implantação de atualização, execute as etapas a seguir
     > [!NOTE]
     > Quando você terminar de configurar a agenda de implantação para um servidor habilitado para Arc selecionado, selecione **examinar + criar**.
 
-15. Você é retornado ao painel de status. Selecione **agendamentos de implantação** para mostrar a agenda de implantação que você criou. São listados no máximo 500 agendamentos. Se você tiver mais de 500 agendas e desejar revisar a lista completa, consulte o método de API de [configuração de atualização de software – listar](/rest/api/automation/softwareupdateconfigurations/list) a versão 2019-06-01 ou superior.
+15. Você é retornado ao painel de status. Selecione **agendamentos de implantação** para mostrar a agenda de implantação que você criou. São listados no máximo 500 agendamentos. Se você tiver mais de 500 agendas e desejar revisar a lista completa, consulte o método de API de [configuração de atualização de software – lista de configurações de atualizações](/rest/api/automation/softwareupdateconfigurations/list) . Especifique a versão de API 2019-06-01 ou superior.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Agendar uma implantação de atualização programaticamente
 

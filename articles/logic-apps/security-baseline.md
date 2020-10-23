@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315834"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424061"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança do Azure para aplicativos lógicos
 
@@ -182,7 +182,7 @@ Implante a solução de firewall de sua escolha em cada um dos limites de rede d
 
 - A Proteção contra DDoS Standard deve ser habilitada
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala empacotando artefatos de ambiente-chave, como modelos de Azure Resource Manager, RBAC (controle de acesso baseado em função) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controle de acesso baseado em função do Azure (RBAC do Azure) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -578,7 +578,7 @@ Para aplicativos lógicos que precisam de acesso direto aos recursos em uma rede
 
 Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso internos ou externos. Sua seleção determina se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual.
 
-Além disso, implemente o isolamento usando assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso aos recursos do Azure que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso aos recursos do Azure por meio de Azure Active Directory controle de acesso baseado em função.
+Além disso, implemente o isolamento usando assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso aos recursos do Azure que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso aos recursos do Azure por meio do Azure RBAC (controle de acesso baseado em função).
 
 - [Entender os conectores para aplicativos lógicos](../connectors/apis-list.md)
 
@@ -644,9 +644,9 @@ A Microsoft gerencia a infraestrutura subjacente para os aplicativos lógicos do
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: você pode permitir que somente usuários ou grupos específicos executem tarefas específicas, como gerenciar, editar e exibir aplicativos lógicos. Para controlar as permissões, use o RBAC (controle de acesso baseado em função) do Azure para que você possa atribuir funções personalizadas ou internas aos membros em sua assinatura do Azure:
+**Orientação**: você pode permitir que somente usuários ou grupos específicos executem tarefas específicas, como gerenciar, editar e exibir aplicativos lógicos. Para controlar suas permissões, use o controle de acesso baseado em função do Azure (RBAC do Azure) para que você possa atribuir funções personalizadas ou internas aos membros em sua assinatura do Azure:
 
 - Colaborador de Aplicativo Lógico: Permite o gerenciamento de aplicativos lógicos, mas você não pode alterar o acesso a eles.
 - Operador de Aplicativo Lógico: Permite a leitura, habilitação e desabilitação de aplicativos lógicos, mas você não pode editá-los ou atualizá-los.
@@ -883,7 +883,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: recursos relacionados aos seus aplicativos lógicos que são necessários para operações de negócios, mas podem incorrer em um risco maior para a organização, devem ser isolados em sua própria máquina virtual e/ou rede virtual e protegidos suficientemente com um firewall do Azure ou grupo de segurança de rede.
 
-Aplicativos lógicos que são necessários para operações de negócios, mas podem incorrer em um risco maior para a organização, devem ser isolados sempre que possível por meio de grupos de recursos separados com permissões específicas e limites de RBAC.
+Aplicativos lógicos que são necessários para operações de negócios, mas podem incorrer em um risco maior para a organização, devem ser isolados sempre que possível por meio de grupos de recursos separados com permissões específicas e limites de RBAC do Azure.
 
 - [Como criar uma rede virtual](../virtual-network/quick-create-portal.md) 
 
@@ -891,7 +891,7 @@ Aplicativos lógicos que são necessários para operações de negócios, mas po
 
 - [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md) 
 
-- [Como proteger o acesso a aplicativos lógicos via RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Como proteger o acesso a aplicativos lógicos por meio do RBAC do Azure](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

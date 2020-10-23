@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996351"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426641"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
@@ -60,7 +60,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
       ![Copiar a cadeia de conexão do namespace do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se sua cadeia de conexão está associada ao namespace do Barramento de Serviços ou a uma entidade de sistema de mensagens, como uma fila, pesquise a cadeia de conexão para o parâmetro `EntityPath` . Se encontrar esse parâmetro, a cadeia de conexão servirá para uma entidade específica e não será a cadeia correta a ser usada com seu aplicativo lógico.
+   > Para confirmar se a cadeia de conexão está associada ao namespace do Barramento de Serviço ou a uma entidade de sistema de mensagens, como uma fila, pesquise a cadeia de conexão para o parâmetro `EntityPath`. Se encontrar esse parâmetro, a cadeia de conexão servirá para uma entidade específica e não será a cadeia correta a ser usada com seu aplicativo lógico.
 
 ## <a name="add-service-bus-trigger"></a>Adicionar gatilho do barramento de serviço
 
@@ -68,18 +68,22 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico em branco no designer do aplicativo lógico.
 
-1. Na caixa de pesquisa, insira "barramento de serviço do Azure" como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
+1. Na caixa de pesquisa do portal, digite `azure service bus` . Na lista de gatilhos que aparece, selecione o gatilho desejado.
 
    Por exemplo, para disparar seu aplicativo lógico quando um novo item é enviado para uma fila do barramento de serviço, selecione o gatilho **quando uma mensagem é recebida em uma fila (preenchimento automático)** .
 
    ![Selecionar um gatilho do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Todos os gatilhos do barramento de serviço são gatilhos *de sondagem longa* . Essa descrição significa que, quando o gatilho é acionado, o gatilho processa todas as mensagens e aguarda 30 segundos para que mais mensagens apareçam na fila ou na assinatura do tópico. Se nenhuma mensagem aparecer em 30 segundos, a execução do gatilho será ignorada. Caso contrário, o gatilho continuará lendo as mensagens até que a fila ou a assinatura do tópico esteja vazia. A próxima sondagem de gatilho é baseada no intervalo de recorrência especificado nas propriedades do gatilho.
+   Aqui estão algumas considerações sobre quando você usa um gatilho do barramento de serviço:
 
-   Alguns gatilhos, como **quando uma ou mais mensagens chegam em um gatilho de fila (conclusão automática)** , podem retornar uma ou mais mensagens. Quando esses gatilhos são acionados, eles retornam entre um e o número de mensagens que é especificado pela propriedade **contagem máxima de mensagens** do gatilho.
+   * Todos os gatilhos do barramento de serviço são gatilhos *de sondagem longa* . Essa descrição significa que, quando o gatilho é acionado, o gatilho processa todas as mensagens e aguarda 30 segundos para que mais mensagens apareçam na fila ou na assinatura do tópico. Se nenhuma mensagem aparecer em 30 segundos, a execução do gatilho será ignorada. Caso contrário, o gatilho continuará lendo as mensagens até que a fila ou a assinatura do tópico esteja vazia. A próxima sondagem de gatilho é baseada no intervalo de recorrência especificado nas propriedades do gatilho.
 
-    > [!NOTE]
-    > O gatilho de preenchimento automático conclui automaticamente uma mensagem, mas a conclusão ocorre apenas na próxima chamada para o barramento de serviço. Esse comportamento pode afetar o design do seu aplicativo lógico. Por exemplo, evite alterar a simultaneidade no gatilho de preenchimento automático porque essa alteração pode resultar em mensagens duplicadas se o aplicativo lógico entrar em um estado limitado. A alteração do controle de simultaneidade cria estas condições: os gatilhos limitados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e a próxima execução do gatilho ocorrerá após o intervalo de sondagem. Você precisa definir a duração do bloqueio do barramento de serviço para um valor maior que o intervalo de sondagem. No entanto, apesar dessa configuração, a mensagem ainda pode não ser concluída se seu aplicativo lógico permanecer em um estado limitado no próximo intervalo de sondagem.
+   * Alguns gatilhos, como **quando uma ou mais mensagens chegam em um gatilho de fila (conclusão automática)** , podem retornar uma ou mais mensagens. Quando esses gatilhos são acionados, eles retornam entre um e o número de mensagens que é especificado pela propriedade **contagem máxima de mensagens** do gatilho.
+
+     > [!NOTE]
+     > O gatilho de preenchimento automático conclui automaticamente uma mensagem, mas a conclusão ocorre apenas na próxima chamada para o barramento de serviço. Esse comportamento pode afetar o design do seu aplicativo lógico. Por exemplo, evite alterar a simultaneidade no gatilho de preenchimento automático porque essa alteração pode resultar em mensagens duplicadas se o aplicativo lógico entrar em um estado limitado. A alteração do controle de simultaneidade cria estas condições: os gatilhos limitados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e a próxima execução do gatilho ocorrerá após o intervalo de sondagem. Você precisa definir a duração do bloqueio do barramento de serviço para um valor maior que o intervalo de sondagem. No entanto, apesar dessa configuração, a mensagem ainda pode não ser concluída se seu aplicativo lógico permanecer em um estado limitado no próximo intervalo de sondagem.
+
+   * Se você [ativar a configuração de simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) para um gatilho do barramento de serviço, o valor padrão da `maximumWaitingRuns` propriedade será 10. Com base na configuração de duração de bloqueio da entidade do barramento de serviço e na duração da execução da instância do aplicativo lógico, esse valor padrão pode ser muito grande e pode causar uma exceção de "bloqueio perdido". Para encontrar o valor ideal para seu cenário, comece a testar com um valor de 1 ou 2 para a `maximumWaitingRuns` propriedade. Para alterar o valor máximo de execuções em espera, consulte [alterar limite de execuções em espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. Se o seu gatilho estiver se conectando ao seu namespace do barramento de serviço pela primeira vez, siga estas etapas quando o designer do aplicativo lógico solicitar informações de conexão.
 
@@ -113,13 +117,13 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer do aplicativo lógico.
+1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
 1. Na etapa em que você deseja adicionar uma ação, selecione **nova etapa**.
 
    Ou, para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação**.
 
-1. Em **escolher uma ação**, na caixa de pesquisa, insira "barramento de serviço do Azure" como filtro. Na lista ações, selecione a ação desejada. 
+1. Em **Escolher uma ação**, na caixa de pesquisa, insira `azure service bus`. Na lista de ações exibida, selecione a ação desejada. 
 
    Para este exemplo, selecione a ação **Enviar mensagem** .
 

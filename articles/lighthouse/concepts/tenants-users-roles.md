@@ -3,12 +3,12 @@ title: Locatários, funções e usuários em cenários do Azure Lighthouse
 description: Entenda os conceitos de locatários, usuários e funções do Azure Active Directory, além de como eles podem ser usados em cenários do Azure Lighthouse.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399237"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424108"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locatários, funções e usuários em cenários do Azure Lighthouse
 
@@ -22,7 +22,7 @@ Seja qual for o método de integração que você escolher, será necessário de
 
 ## <a name="role-support-for-azure-lighthouse"></a>Suporte de função para Lighthouse do Azure
 
-Ao definir uma autorização, cada conta de usuário deve ser atribuída a uma das [funções internas do RBAC (controle de acesso baseado em função)](../../role-based-access-control/built-in-roles.md). As funções personalizadas e as [funções de administrador de assinatura clássica](../../role-based-access-control/classic-administrators.md) não têm suporte.
+Ao definir uma autorização, cada conta de usuário deve ser atribuída a uma das [funções internas do Azure](../../role-based-access-control/built-in-roles.md). As funções personalizadas e as [funções de administrador de assinatura clássica](../../role-based-access-control/classic-administrators.md) não têm suporte.
 
 Atualmente, todas as [funções internas](../../role-based-access-control/built-in-roles.md) têm suporte no Azure Lighthouse, com as seguintes exceções:
 

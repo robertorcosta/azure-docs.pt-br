@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885182"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427280"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -791,12 +791,14 @@ A maioria dos padrões de segurança aborda a disponibilidade de dados em termos
 
 - O Azure oferece alta disponibilidade interna: [alta disponibilidade com o banco de dados SQL e o sql instância gerenciada](high-availability-sla.md)
 
-- A camada de Comercialmente Crítico inclui grupos de failover, zonas de várias disponibilidade, backups de log completos e diferenciais e backups de restauração pontual habilitados por padrão:  
-  - [Alta disponibilidade – configuração com redundância de zona](high-availability-sla.md#zone-redundant-configuration)
+- A camada de Comercialmente Crítico inclui grupos de failover, backups de log completos e diferenciais e backups de restauração point-in-time habilitados por padrão:  
   - [Backups automatizados](automated-backups-overview.md)
   - [Recuperar um banco de dados usando backups de banco de dados automatizados – restauração pontual](recovery-using-backups.md#point-in-time-restore)
 
-- Recursos adicionais de continuidade de negócios, como grupos de failover automático em diferentes áreas geográficas do Azure, podem ser configurados conforme descrito aqui: [visão geral da continuidade dos negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Recursos adicionais de continuidade de negócios, como a configuração com redundância de zona e grupos de failover automático em diferentes áreas geográficas do Azure, podem ser configurados: 
+    - [Alta disponibilidade-configuração redundante de zona para as camadas de serviço Premium & Comercialmente Crítico](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
+    - [Alta disponibilidade-configuração redundante de zona para Uso Geral camada de serviço](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+    - [Visão geral da continuidade dos negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

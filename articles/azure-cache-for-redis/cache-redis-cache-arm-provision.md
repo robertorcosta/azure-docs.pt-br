@@ -1,22 +1,22 @@
 ---
 title: Implantar o cache do Azure para Redis usando o modelo Azure Resource Manager
-description: Saiba como usar um modelo de Azure Resource Manager para implantar um cache do Azure para o recurso Redis. Os modelos são fornecidos para cenários comuns.
+description: Saiba como usar um modelo de Azure Resource Manager (modelo ARM) para implantar um cache do Azure para o recurso Redis. Os modelos são fornecidos para cenários comuns.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0445aeaea6f99754469d5c0e46972aef2ed667aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461231"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424221"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Criar um cache do Azure para Redis usando um modelo do Resource Manager
+# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>Criar um cache do Azure para Redis usando um modelo ARM
 
-Saiba como criar um modelo de Azure Resource Manager que implanta um cache do Azure para Redis. O cache pode ser usado com uma conta de armazenamento existente para manter os dados de diagnóstico. Você também aprende como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades. Atualmente, as configurações de diagnóstico são compartilhadas por todos os caches na mesma região de uma assinatura. A atualização de um cache na região afeta todos os outros caches na região.
+Saiba como criar um modelo de Azure Resource Manager (modelo ARM) que implanta um cache do Azure para Redis. O cache pode ser usado com uma conta de armazenamento existente para manter os dados de diagnóstico. Você também aprende como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades. Atualmente, as configurações de diagnóstico são compartilhadas por todos os caches na mesma região de uma assinatura. A atualização de um cache na região afeta todos os outros caches na região.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -46,7 +46,7 @@ Os modelos do Resource Manager para a nova [camada Premium](cache-overview.md#se
 * [Criar um Cache Redis do Azure Premium com persistência de dados](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Criar um cache Redis Premium implantado em uma rede virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure por `Azure Cache for Redis`.
+Para verificar os modelos mais recentes, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e pesquise o _cache do Azure para Redis_.
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
@@ -59,7 +59,7 @@ Para verificar os modelos mais recentes, consulte [Modelos de início rápido do
     * **Grupo de recursos**: selecione **Criar** para criar um grupo de recursos ou selecione um existente.
     * **Local**: selecione um local para o grupo de recursos. A conta de armazenamento e o cache Redis devem estar na mesma região. Por padrão, o cache Redis usa o mesmo local que o grupo de recursos. Portanto, especifique o mesmo local que a conta de armazenamento.
     * **Nome do cache Redis**: Insira um nome para o cache Redis.
-    * **Conta de armazenamento de diagnóstico existente**: Insira a ID de recurso de uma conta de armazenamento. A sintaxe é **/SUBSCRIPTIONS/ &lt; ID da assinatura>/resourceGroups/ &lt; nome do grupo de recursos do/Providers/Microsoft.Storage/storageAccounts/>nome da conta de &lt; armazenamento>**.
+    * **Conta de armazenamento de diagnóstico existente**: Insira a ID de recurso de uma conta de armazenamento. A sintaxe é `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Use o valor padrão para o restante das configurações.
 1. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**.

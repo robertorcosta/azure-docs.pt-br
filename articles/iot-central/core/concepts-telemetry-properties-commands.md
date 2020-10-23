@@ -7,12 +7,13 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: device-developer
+ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291616"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427869"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e payloads de comando
 
@@ -772,8 +773,8 @@ IoT Central espera uma resposta do dispositivo para atualizações de propriedad
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de alteração de propriedade foi concluída com êxito. |
 | `'ac': 202`  or `'ac': 201` | Pending (Pendente) | A operação de alteração de propriedade está pendente ou em andamento |
-| `'ac': 4xx` | Erro do | A alteração de propriedade solicitada não era válida ou teve um erro |
-| `'ac': 5xx` | Erro do | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
+| `'ac': 4xx` | Erro | A alteração de propriedade solicitada não era válida ou teve um erro |
+| `'ac': 5xx` | Erro | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
 
 `av` é o número de versão enviado ao dispositivo.
 

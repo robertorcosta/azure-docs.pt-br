@@ -1,29 +1,25 @@
 ---
-title: Logon único com o Proxy de Aplicativo | Microsoft Docs
-description: Aborda como fornecer o logon único usando o Proxy de Aplicativo Azure AD.
+title: SSO (logon único) baseado em Kerberos no Azure Active Directory com o proxy de aplicativo
+description: Aborda como fornecer logon único usando o Proxy de Aplicativo do Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq2
+ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299741"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426492"
 ---
-# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
+# <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para SSO (logon único) para seus aplicativos com o proxy de aplicativo
 
 Você pode fornecer o logon único para aplicativos locais, publicados por meio do Proxy do Aplicativo, que sejam protegidos com a Autenticação Integrada do Windows. Esses aplicativos exigem um tíquete Kerberos para acessar. O Proxy do Aplicativo usa a KCD (Delegação restrita de Kerberos) para dar suporte a esses aplicativos. 
 

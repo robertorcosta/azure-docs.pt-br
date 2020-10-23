@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507659"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424687"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize sua nuvem privada do CloudSimple para instalar o Oracle RAC
 
@@ -46,7 +46,7 @@ O exemplo a seguir usa os discos definidos na tabela a seguir.
 
 | Disco                                      | Finalidade                                       | Disco compartilhado |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| Sistema operacional                                        | Disco do sistema operacional                         | Não          |
+| SO                                        | Disco do sistema operacional                         | Não          |
 | GRADE                                      | Local de instalação do software de grade da Oracle     | Não          |
 | DATABASE                                  | Local de instalação do software de banco de dados Oracle | Não          |
 | ORAHOME                                   | Local base para binários do banco de dados Oracle    | Não          |
@@ -79,7 +79,7 @@ Cada máquina virtual Oracle é configurada com vários discos para o sistema op
 * O compartilhamento está definido como **sem compartilhamento**.
 * A redundância é definida no armazenamento usando as políticas de vSAN.  
 
-![Configuração do grupo de discos de dados do Oracle RAC](media/oracle-vm-os-disks.png)
+![Diagrama que mostra a configuração física do disco do sistema operacional Oracle RAC.](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Configuração de disco de dados
 
@@ -148,7 +148,7 @@ A FRA (área de recuperação rápida) é o sistema de arquivos gerenciado pelo 
 * Os discos devem ser configurados como um grupo de discos ASM.  
 * A redundância do ASM é definida como redundância **externa** .
 
-![Configuração do grupo de discos de votação do Oracle RAC](media/oracle-vm-fra-disks.png)
+![Diagrama que mostra a configuração do grupo de discos de votação do Oracle RAC.](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Implantar o cluster vSphere de nuvem privada CloudSimple
 
@@ -220,7 +220,7 @@ O Oracle usa o disco compartilhado para armazenar os arquivos de log de dados, l
 9. Para compartilhamento, especifique **multi-Writer**.
 10. Para o nó do dispositivo virtual, selecione o novo controlador SCSI que foi criado na etapa 2.
 
-    ![Criar discos na primeira VM](media/oracle-rac-new-hard-disk.png)
+    ![Captura de tela que realça os campos necessários para criar discos na primeira VM.](media/oracle-rac-new-hard-disk.png)
 
 Repita as etapas 2 a 10 para todos os novos discos necessários para os dados, logs e arquivos de log de restauração do Oracle.
 

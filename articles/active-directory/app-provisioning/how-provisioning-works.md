@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366676"
+ms.locfileid: "92424645"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -179,6 +180,8 @@ Verifique se você selecionou a caixa de seleção para atualizações.
 
 Verifique se você tem o mapeamento para *ativo* para seu aplicativo. Se você estiver usando um aplicativo da Galeria de aplicativos, o mapeamento poderá ser um pouco diferente. Verifique se você usa o mapeamento padrão/pronto para os aplicativos da galeria.
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Desabilitar um usuário" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **Configurar seu aplicativo para excluir um usuário**
 
@@ -188,7 +191,9 @@ Os cenários a seguir dispararão uma desabilitação ou uma exclusão:
 * Um usuário é excluído/removido permanentemente da lixeira no Azure AD.
 * Um usuário não é atribuído de um aplicativo.
 * Um usuário vai de um escopo para fora do escopo (o não passa mais um filtro de escopo).
-    
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Desabilitar um usuário" lightbox="./media/how-provisioning-works/delete-user.png":::
+
 Por padrão, o serviço de provisionamento do Azure Active Directory exclui ou desabilita usuários que saem de escopo. Se você quiser substituir esse comportamento padrão, poderá definir um sinalizador para [ignorar exclusões fora do escopo.](skip-out-of-scope-deletions.md)
 
 Se um dos quatro eventos acima ocorrer e o aplicativo de destino não oferecer suporte a exclusões reversíveis, o serviço de provisionamento enviará uma solicitação de EXCLUSÃO para excluir permanentemente o usuário do aplicativo.

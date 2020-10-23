@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852320"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424836"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como usar Hubs de notificação do Python
 
@@ -414,7 +414,7 @@ Observe as Marcas do cabeçalho HTTP que são adicionadas à solicitação HTTP 
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço, das marcas de notificação do barramento de serviço e dos valores de tipo X W N S descritos em vermelho.][3]
+![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço, uma marca de notificação do barramento de serviço e valores de tipo X W N S descritos em vermelho.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Enviar notificação especificando várias marcas
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço, das marcas de notificação do barramento de serviço e dos valores de tipo X W N S descritos em vermelho.][4]
+![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço, várias marcas de notificação do barramento de serviço e valores de tipo X W N S descritos em vermelho.][4]
 
 ### <a name="templated-notification"></a>Notificação modelada
 
@@ -448,7 +448,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo mostra como criar um cliente REST do Python para os Hubs de Notificação. Nela você pode:
+Este artigo mostra como criar um cliente REST do Python para os Hubs de Notificação. A partir daqui, você pode:
 
 - Baixe o [amostra de wrapper REST Python]completo, que contém todo o código neste artigo.
 - Continue aprendendo sobre o recurso de marcação de hubs de notificação no [tutorial de últimas notícias]

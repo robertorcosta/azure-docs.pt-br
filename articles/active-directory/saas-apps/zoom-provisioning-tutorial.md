@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9f4947fe379f19593d06ba9efb6bfc43c397e9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333436"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424398"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: configurar o zoom para o provisionamento automático de usuário
 
@@ -152,6 +152,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 
 ## <a name="change-log"></a>Log de alterações
 * 05/14/2020-suporte para operações de atualização adicionadas para emails [tipo EQ "trabalho"] atributo.
+* 10/20/2020-suporte adicionado para duas novas funções "licenciado" e "local" para substituir as funções existentes "pro" e "Corp". O suporte para as funções "pro" e "Corp" será removido no futuro.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

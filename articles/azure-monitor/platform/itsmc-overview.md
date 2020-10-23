@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41aabeeeb151a6e2cf3c52dbfa2075c55f86989f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613757"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427315"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -106,6 +106,11 @@ Depois de preparar as ferramentas de ITSM, siga as etapas abaixo para criar uma 
 ## <a name="using-the-solution"></a>Usando a solução
    Usando a solução Conector ITSM, você pode criar itens de trabalho com base em alertas do Azure, alertas do Log Analytics e registros de log do Log Analytics.
 
+## <a name="template-definitions"></a>Definições de modelo
+   Há tipos de **item de trabalho** que podem usar modelos que são definidos pela ferramenta ITSM.
+O uso de modelos permite que o cliente defina campos que serão preenchidos automaticamente de acordo com os valores fixos definidos como parte do grupo de ações. Essa definição é feita na ferramenta ITSM.
+Nesses casos, a caixa de seleção "usar modelo personalizado" permite que o cliente tenha campos prontos para uso que serão preenchidos automaticamente de acordo com os valores fixos definidos como parte do grupo de ações.
+   
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Criar itens de trabalho de ITSM desde alertas do Azure
 
 Depois de criar a conexão de ITSM, crie itens de trabalho na ferramenta de ITSM com base nos alertas do Azure, usando a **Ação de ITSM** em **Grupos de Ação**.
@@ -133,8 +138,10 @@ Use este procedimento:
     ![Detalhes da ação de ITSM](media/itsmc-overview/itsm-action-details.png)
 
 6. Selecione o tipo **Item de Trabalho** na lista suspensa.
-   Escolha usar um modelo existente ou preencha os campos necessários para seu produto de ITSM.
-7. Clique em **OK**.
+
+7. Opte por usar um modelo existente ou use o modelo comum e preencha os campos exigidos por seu produto ITSM.
+
+8. Clique em **OK**.
 
 Ao criar/editar uma regra de alerta do Azure, use um grupo de ações que tenha uma Ação de ITSM. Quando o alerta é disparado, o item de trabalho é criado/atualizado na ferramenta de ITSM.
 

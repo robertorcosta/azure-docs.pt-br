@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087355"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428250"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight
 
 Saiba como usar o recurso de espelhamento do Apache Kafka para replicar tópicos para um cluster secundário. O espelhamento pode ser executado como um processo contínuo ou usado de forma intermitente como um método de migração de dados de um cluster para outro.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *lista*de permissões, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 Neste exemplo, o espelhamento é usado para replicar tópicos entre dois clusters de HDInsight. Ambos os clusters estão em diferentes redes virtuais em data centers diferentes.
 
@@ -73,7 +76,7 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
 
 1. Crie dois novos clusters Kafka:
 
-    | Nome do cluster | Grupo de recursos | Rede Virtual | Conta de Armazenamento |
+    | Nome do cluster | Grupo de recursos | Rede Virtual | Conta de armazenamento |
     |---|---|---|---|
     | Kafka-primário-cluster | Kafka-principal-RG | Kafka-Primary-vnet | kafkaprimarystorage |
     | Kafka-secundário-cluster | Kafka-secundário-RG | Kafka-secundário-vnet | kafkasecondarystorage |
@@ -92,7 +95,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 
 1. Vá para o painel do Ambari para o cluster primário: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
 1. Selecione **Serviços**  >  **Kafka**. CliSelectck a guia **configurações** .
-1. Adicione as seguintes linhas de configuração à seção de **modelo Kafka-env** inferior. Clique em **Salvar**.
+1. Adicione as seguintes linhas de configuração à seção de **modelo Kafka-env** inferior. Selecione **Salvar**.
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -112,7 +115,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configure o Kafka para escutar em todas as interfaces de rede.
     
 1. Permaneça na guia **configurações** em **Serviços**  >  **Kafka**. Na seção **agente Kafka** , defina a propriedade **Listeners** como `PLAINTEXT://0.0.0.0:9092` .
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Selecione **reiniciar**e **confirme reiniciar tudo**.
 
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Endereços IP do agente de registro e endereços Zookeeper para o cluster primário.

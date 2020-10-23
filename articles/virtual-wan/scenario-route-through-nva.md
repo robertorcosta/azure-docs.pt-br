@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976248"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424764"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: rotear o tráfego por meio de um NVA
 
@@ -41,16 +41,16 @@ A matriz de conectividade a seguir resume os fluxos com suporte neste cenário:
 
 | De             | Para:|   *NVA spokes*|*NVA VNets*|*VNets não NVA*|*Branches*|
 |---|---|---|---|---|---|
-| **NVA spokes**   | &#8594; | 0/0 UDR  |  Emparelhamento |   0/0 UDR    |  0/0 UDR  |
-| **NVA VNets**    | &#8594; |   Estático |      X   |        X     |      X    |
-| **VNets não NVA**| &#8594; |   Estático |      X   |        X     |      X    |
-| **Branches**     | &#8594; |   Estático |      X   |        X     |      X    |
+| **NVA spokes**   | &#8594; | Sobre VNet NVA | Emparelhamento | Sobre VNet NVA | Sobre VNet NVA |
+| **NVA VNets**    | &#8594; | Emparelhamento | Direto | Direto | Direto |
+| **VNets não NVA**| &#8594; | Sobre VNet NVA | Direto | Direto | Direto |
+| **Branches**     | &#8594; | Sobre VNet NVA | Direto | Direto | Direto |
 
-Cada uma das células na matriz de conectividade descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida nativamente pela WAN virtual e "estática" significa que a conectividade é fornecida pela WAN virtual usando rotas estáticas. Considere o seguinte:
+Cada uma das células na matriz de conectividade descreve como uma VNet ou ramificação (o lado "de" do fluxo, os cabeçalhos de linha na tabela) se comunica com uma VNet ou ramificação de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela). "Direto" significa que a conectividade é fornecida nativamente pela WAN virtual, "emparelhamento" significa que a conectividade é fornecida por uma User-Defined rota na VNet, "via VNet NVA" significa que a conectividade atravessa o NVA implantado na VNet NVA. Considere o seguinte:
 
 * Os spokes NVA não são gerenciados pela WAN virtual. Como resultado, os mecanismos com os quais eles se comunicarão com outros VNets ou branches serão mantidos pelo usuário. A conectividade com a VNet NVA é fornecida por um emparelhamento de VNet e uma rota padrão para 0.0.0.0/0 apontando para o NVA como o próximo salto deve abranger a conectividade com a Internet, com outros spokes e para branches
 * NVA VNets saberá sobre seus próprios spokes de NVA, mas não sobre os raios de NVA conectados a outros NVA VNets. Por exemplo, na tabela 1, a VNet 2 sabe sobre VNet 5 e VNet 6, mas não sobre outros spokes como VNet 7 e VNet 8. Uma rota estática é necessária para injetar os prefixos dos outros spokes em NVA VNets
-* Da mesma forma, branches e VNets não NVA não conhecem nenhum spoke NVA, já que os raios de NVA não estão conectados a hubs de VWAN. Como resultado, as rotas estáticas também serão necessárias aqui.
+* Da mesma forma, branches e VNets não NVA não conhecem nenhum spoke NVA, já que os raios de NVA não estão conectados aos hubs de WAN virtuais. Como resultado, as rotas estáticas também serão necessárias aqui.
 
 Levando em conta que os spokes NVA não são gerenciados pela WAN virtual, todas as outras linhas mostram o mesmo padrão de conectividade. Como resultado, uma única tabela de rotas (a padrão) fará:
 
