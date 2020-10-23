@@ -61,8 +61,10 @@
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: Banco de Dados SQL
           items:
-            - name: Zonas de disponibilidade com o Banco de Dados SQL
-              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
+            - name: Zonas de disponibilidade com a camada de uso geral do Banco de Dados SQL
+              href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+            - name: Zonas de disponibilidade com as camadas Premium e comercialmente crítica do Banco de Dados SQL
+              href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
         - name: Armazenamento
           items:
             - name: Armazenamento com redundância de zona

@@ -401,6 +401,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: Configurar pontos de extremidade da Web
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: Exportar seu aplicativo de Comandos Personalizados como uma habilidade
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: Implantar
                   items:
                     - name: Implantação contínua com o Azure DevOps

@@ -45,7 +45,7 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: Exibição de grupo de segurança de rede
       href: network-watcher-security-group-view-overview.md
-    - name: Permissões de controle de acesso baseadas em função
+    - name: Permissões de controle de acesso baseado em função do Azure
       href: required-rbac-permissions.md
     - name: Segurança
       items:

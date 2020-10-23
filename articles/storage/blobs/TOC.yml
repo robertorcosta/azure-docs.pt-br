@@ -53,6 +53,8 @@
                   href: quickstart-blobs-javascript-browser.md
                 - name: JavaScript (SDK v10 para o navegador)
                   href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
+            - name: C++ (SDK v12)
+              href: quickstart-blobs-c-plus-plus.md
             - name: Go
               href: storage-quickstart-blobs-go.md
             - name: PHP
@@ -105,6 +107,8 @@
           href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: JavaScript
           href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: C++
+          href: ../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Outros idiomas
           href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
@@ -145,8 +149,6 @@
                   href: encryption-scope-overview.md
             - name: Blobs imutáveis
               href: storage-blob-immutable-storage.md
-            - name: Controles de segurança interna
-              href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Usar pontos de extremidade privados do Azure
               href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurar preferência de roteamento de rede
@@ -207,7 +209,7 @@
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Encontrar, pesquisar e entender os dados do blob'
           items:
-            - name: Usar o índice de blob para gerenciar e encontrar dados de blob
+            - name: Usar marcas de índice de blob para gerenciar e encontrar dados de blob
               href: storage-manage-find-blobs.md
             - name: Usar IA para entender os dados do blob
               href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -316,7 +318,7 @@
               href: storage-blob-properties-metadata.md
             - name: Copiar um blob (SDK)
               href: storage-blob-copy.md
-            - name: Utilizar índice de Blob
+            - name: Usar marcas de índice de blob
               href: storage-blob-index-how-to.md
         - name: Autorizar acesso aos dados de blob
           items:

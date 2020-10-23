@@ -139,9 +139,9 @@
           href: data-factory-hadoop-streaming-activity.md
         - name: Atividade do HDInsight Spark
           href: data-factory-spark.md
-        - name: Atividade de Execução em Lote de Machine Learning
+        - name: Atividade de execução em lotes do Azure Machine Learning Studio (clássico)
           href: data-factory-azure-ml-batch-execution-activity.md
-        - name: Atividade de Atualização de Recursos do Machine Learning
+        - name: Atividade do recurso de atualização do Azure Machine Learning Studio (clássico)
           href: data-factory-azure-ml-update-resource-activity.md
         - name: Atividade de Procedimento Armazenado
           href: data-factory-stored-proc-activity.md
