@@ -129,7 +129,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Vá para **Configuração**.
    
-   ![Captura de tela mostra o item de instalação da sua empresa.](./media/jobscience-tutorial/IC784358.png "Configuração")
+   ![Captura de tela mostra o item de instalação da sua empresa.](./media/jobscience-tutorial/IC784358.png "Instalação")
 
 1. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
    
