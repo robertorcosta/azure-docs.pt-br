@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652079"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458044"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
@@ -109,7 +109,7 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-Uma vez habilitado, o Azure AD não vai para cada usuário sincronizado para remover o `DisablePasswordExpiration` valor do atributo PasswordPolicies. Em vez disso, o valor é definido como `None` durante a próxima sincronização de senha para cada usuário quando ele altera sua senha no AD local.  
+Uma vez habilitado, o Azure AD não vai para cada usuário sincronizado para remover o `DisablePasswordExpiration` valor do atributo PasswordPolicies. Em vez disso, o `DisablePasswordExpiration` valor é removido de PasswordPolicies durante a próxima sincronização de hash de senha para cada usuário, após a próxima alteração de senha no AD local.
 
 É recomendável habilitar EnforceCloudPasswordPolicyForPasswordSyncedUsers, antes de habilitar a sincronização de hash de senha, para que a sincronização inicial de hashes de senha não adicione o `DisablePasswordExpiration` valor ao atributo PasswordPolicies para os usuários.
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde22fe9997e41d6d17fba94e6b9523d82c7b910
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312899"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456816"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar o Box para provisionamento automático de usuário
 
@@ -48,7 +48,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o serviço de provisionamento, você precisa decidir quais usuários e/ou grupos do Azure AD representam os usuários que precisam de acesso ao aplicativo Box. Depois de decidir, você pode atribuir esses usuários ao aplicativo Box seguindo estas instruções:
 
-[Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="assign-users-and-groups"></a>Atribuir usuários e grupos
 A guia **Box > Usuários e Grupos** no portal do Azure permite especificar quais usuários e grupos devem ter acesso ao Box. A atribuição de um usuário ou grupo faz com que as seguintes ações ocorram:

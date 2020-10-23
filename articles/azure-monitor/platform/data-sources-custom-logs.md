@@ -1,21 +1,24 @@
 ---
-title: Coletar logs personalizados no Azure Monitor| Microsoft Docs
+title: Coletar logs personalizados com o agente de Log Analytics no Azure Monitor
 description: O Azure Monitor pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que ele cria no Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
-ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269481"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461559"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Logs personalizados de atividades no Azure Monitor
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Coletar logs personalizados com o agente de Log Analytics no Azure Monitor
 
-A fonte de dados de logs personalizados no Azure Monitor permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog. Depois de coletados, você pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleta de campos individuais.
+A fonte de dados de logs personalizados para o agente de Log Analytics no Azure Monitor permite que você colete eventos de arquivos de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog. Depois de coletados, você pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleta de campos individuais.
+
+> [!IMPORTANT]
+> Este artigo aborda a coleta de logs personalizados com o [agente de log Analytics](log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Coleta de log personalizado](media/data-sources-custom-logs/overview.png)
 
@@ -62,10 +65,10 @@ Inicie carregando um exemplo de log personalizado.  O assistente analisará e ex
 Se um delimitador de carimbo de data/hora for usado, a propriedade TimeGenerated de cada registro armazenado no Azure Monitor será preenchido com a data/hora especificada para essa entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Azure Monitor coletou a entrada.
 
 1. Clique em **Procurar** e navegue até um arquivo de exemplo.  Observe que esse botão pode ser rotulado como **Escolher Arquivo** em alguns navegadores.
-2. Clique em **Avançar**.
+2. Clique em **Próximo**.
 3. O Custom Log Wizard (Assistente de Log Personalizado) carregará o arquivo e listará os registros que identificar.
 4. Altere o delimitador usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
-5. Clique em **Avançar**.
+5. Clique em **Próximo**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
 Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.

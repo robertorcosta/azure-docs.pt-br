@@ -1,25 +1,28 @@
 ---
-title: Coletar e analisar contadores de desempenho no Azure Monitor | Microsoft Docs
+title: Coletar fontes de dados de desempenho do Windows e do Linux com Log Analytics Agent no Azure Monitor
 description: Os contadores de desempenho são coletados pelo Azure Monitor para analisar o desempenho em agentes do Windows e do Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no workspace, e como analisá-los no portal do Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/21/2020
+ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131183"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461355"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
-Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Near Real Time), além de agregar dados de desempenho para análise e relatório de longo prazo.
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Coletar fontes de dados de desempenho do Windows e do Linux com o agente de Log Analytics
+Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  Azure Monitor pode coletar contadores de desempenho de Log Analytics agentes em intervalos frequentes para análise NRT (quase em tempo real), além de agregar dados de desempenho para análise e relatórios de longo prazo.
+
+> [!IMPORTANT]
+> Este artigo aborda a coleta de dados de desempenho com o [agente de log Analytics](log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurando os contadores de desempenho
-Configure contadores de Desempenho usando o [menu Dados em Configurações Avançadas](agent-data-sources.md#configuring-data-sources).
+Configure contadores de desempenho [no menu dados em configurações avançadas](agent-data-sources.md#configuring-data-sources) para o espaço de trabalho log Analytics.
 
 Ao configurar os contadores de desempenho do Windows ou do Linux para um novo workspace pela primeira vez, você terá a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
 
@@ -121,10 +124,10 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Disco Físico | Média de segundos/Transferência do Disco |
 | Disco Físico | Média de segundos/Gravação do Disco |
 | Disco Físico | Bytes/s do Disco Físico |
-| Processo | % de Tempo Privilegiado |
-| Processo | % de Tempo do Usuário |
-| Processo | KBytes de Memória Usada |
-| Processo | Memória Virtual Compartilhada |
+| Processar | % de Tempo Privilegiado |
+| Processar | % de Tempo do Usuário |
+| Processar | KBytes de Memória Usada |
+| Processar | Memória Virtual Compartilhada |
 | Processador | % de Tempo de DPC |
 | Processador | % de Tempo Ocioso |
 | Processador | % de Tempo de Interrupção |

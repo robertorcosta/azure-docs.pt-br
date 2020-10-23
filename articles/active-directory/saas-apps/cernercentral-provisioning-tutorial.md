@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 58b991f5b229d924bc933ff34987db24bc895e10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82aca50ce57a09697d389197bf2b102bb5df457
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88529858"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456329"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cerner Central para provisionamento automático de usuário
 
@@ -106,13 +106,13 @@ Para provisionar contas de usuário no Cerner Central, você precisará solicita
 
 1. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 1. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário e grupo que serão sincronizados do Azure AD para o Cerner Central. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário e grupos no Cerner Central para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
 1. Para habilitar o serviço de provisionamento do Azure AD para o Cerner Central, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Cerner Central na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Cerner Central.
 
@@ -127,4 +127,4 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).

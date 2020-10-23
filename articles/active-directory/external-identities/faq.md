@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274037"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441837"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -51,7 +51,7 @@ Não há suporte para este recurso no momento. Se o acesso aos recursos de sua o
 Talvez uma organização queira adicionar usuários de colaboração B2B, provisioná-los aos aplicativos conforme necessário e, em seguida, enviar convites. Use a API de convite de colaboração B2B para personalizar o fluxo de trabalho de integração.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>É possível tornar os usuários convidados visíveis na Lista de Endereços Global do Exchange?
-Sim. Os objetos convidados não são visíveis na GAL (lista de endereços global) de sua organização por padrão, mas você pode usar Azure Active Directory PowerShell para torná-los visíveis. Veja posso [tornar os objetos convidados visíveis na lista de endereços global?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+Sim. Os objetos convidados não são visíveis na GAL (lista de endereços global) de sua organização por padrão, mas você pode usar Azure Active Directory PowerShell para torná-los visíveis. Veja posso [tornar os objetos convidados visíveis na lista de endereços global?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Posso tornar um usuário convidado um administrador limitado?
 Com certeza. Para obter mais informações, consulte [Adicionando usuários convidados a uma função](add-guest-to-role.md).
@@ -80,16 +80,16 @@ Sim. Você pode criar uma política de acesso condicional que impede que todos o
 Sim. Há suporte para a autenticação multifator e a contas de email do consumidor na colaboração do Azure AD B2B.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Você dá suporte à redefinição de senha para usuários de colaboração do Azure Active Directory B2B?
-Se o seu locatário do Microsoft Azure Active Directory para o diretório inicial de um usuário, você poderá [redefinir a senha do usuário](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) no portal do Azure. Mas você não pode redefinir diretamente uma senha para um usuário convidado que faz login com uma conta gerenciada por outro diretório do Microsoft Azure Active Directory ou por um provedor de identidade externo. Somente o usuário convidado ou um administrador no diretório inicial do usuário pode redefinir a senha. Aqui estão alguns exemplos de como a redefinição de senha funciona para usuários convidados:
+Se o seu locatário do Microsoft Azure Active Directory para o diretório inicial de um usuário, você poderá [redefinir a senha do usuário](../fundamentals/active-directory-users-reset-password-azure-portal.md) no portal do Azure. Mas você não pode redefinir diretamente uma senha para um usuário convidado que faz login com uma conta gerenciada por outro diretório do Microsoft Azure Active Directory ou por um provedor de identidade externo. Somente o usuário convidado ou um administrador no diretório inicial do usuário pode redefinir a senha. Aqui estão alguns exemplos de como a redefinição de senha funciona para usuários convidados:
  
 * Os usuários convidados que entrarem com uma conta da Microsoft (por exemplo, guestuser@live.com) podem redefinir suas próprias senhas usando a redefinição de senha de autoatendimento da conta da Microsoft (SSPR). Veja [Como redefinir a senha da sua conta da Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Os usuários convidados que fazem login com uma Conta do Google ou outro provedor de identidade externo podem redefinir suas próprias senhas usando o método SSPR do provedor de identidade. Por exemplo, um usuário convidado com a Conta do Google guestuser@gmail.com pode redefinir sua senha seguindo as instruções em [Alterar ou redefinir sua senha](https://support.google.com/accounts/answer/41078).
-* Se o inquilino de identidade for um inquilino Just-in-time (JIT) ou "viral" (ou seja, um inquilino separado do Azure não gerenciado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização de convite, você pode remover a conta de usuário convidado do diretório e reenviar um convite.
+* Se o inquilino de identidade for um inquilino Just-in-time (JIT) ou "viral" (ou seja, um inquilino separado do Azure não gerenciado), somente o usuário convidado poderá redefinir sua senha. Às vezes, uma organização [assumirá o gerenciamento de locatários virais](../users-groups-roles/domains-admin-takeover.md) que são criados quando os funcionários usam seus emails de trabalho para se inscrever em serviços. Depois que a organização assumir um locatário viral, somente um administrador da organização poderá redefinir a senha do usuário ou habilitar a SSPR. Se necessário, como a organização de convite, você pode remover a conta de usuário convidado do diretório e reenviar um convite.
 
 * Se o diretório inicial do usuário convidado for o seu locatário do Microsoft Azure Active Directory, você poderá redefinir a senha do usuário. Por exemplo, você pode ter criado um usuário ou sincronizado um usuário em seu Active Directory local e definir seu UserType como Convidado. Como esse usuário está hospedado em seu diretório, você pode redefinir sua senha no portal do Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>O Microsoft Dynamics 365 fornece suporte online para a colaboração do Azure AD B2B?
-Sim, o Dynamics 365 (online) suporta a colaboração Microsoft Azure Active Directory B2B. Para saber mais, veja o artigo sobre o Dynamics 365 [Convidar usuários com a colaboração do Azure AD B2B](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Sim, o Dynamics 365 (online) suporta a colaboração Microsoft Azure Active Directory B2B. Para saber mais, veja o artigo sobre o Dynamics 365 [Convidar usuários com a colaboração do Azure AD B2B](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Qual é o tempo de vida de uma senha inicial para um usuário de colaboração B2B recém-criado?
 O Azure AD tem um conjunto fixo de requisitos de caracteres, de força da senha e bloqueio de conta que é aplicado igualmente a todas as contas de usuário de nuvem do Azure AD. As contas de usuário da nuvem são contas que não são federadas com outro provedor de identidade, como 
@@ -135,4 +135,3 @@ Para obter informações sobre as licenças que sua organização precisa usar n
 ### <a name="next-steps"></a>Próximas etapas
 
 - [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
-

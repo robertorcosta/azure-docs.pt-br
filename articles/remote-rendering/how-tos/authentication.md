@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202711"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427468"
 ---
-# <a name="configure-authentication"></a>Configurar autenticação
+# <a name="configure-authentication"></a>Configurar a autenticação
 
 A renderização remota do Azure usa o mesmo mecanismo de autenticação que o [asa (âncoras espaciais) do Azure](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Os clientes precisam definir *uma* das seguintes opções para chamar as APIs REST com êxito:
 
@@ -48,7 +48,7 @@ As chaves de conta são recomendadas para criação rápida de protótipos, some
 
  Para obter mais informações, consulte o [tutorial: protegendo a renderização remota do Azure e o armazenamento de modelos-autenticação de Azure Active Directory](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
 Para ajudar a controlar o nível de acesso concedido ao seu serviço, use as seguintes funções ao conceder acesso baseado em função:
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdee884990dfadec444fae919a715c7dc3428f77
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983963"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428416"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: configurando o Netsuite para o provisionamento automático de usuário
 
@@ -28,6 +28,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 *   Um locatário do Azure Active Directory.
 *   Uma assinatura do OneWorld da Netsuite. Observe que o provisionamento automático de usuários atualmente é suportado apenas com o NetSuite OneWorld.
 *   Uma conta de usuário no Netsuite com permissões de administrador.
+*   A integração com o Azure AD requer uma isenção de 2FA. Entre em contato com a equipe de suporte do NetSuite para obter essa exceção.
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>Atribuindo usuários ao Netsuite OneWorld
 

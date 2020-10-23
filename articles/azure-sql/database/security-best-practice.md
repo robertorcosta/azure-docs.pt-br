@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "92427280"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada

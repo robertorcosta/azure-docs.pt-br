@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212256"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425745"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurar fontes de identidade do vCenter para usar Active Directory
 
@@ -61,9 +61,9 @@ Use as informações na tabela a seguir ao configurar seu domínio de Active Dir
 | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça um endereço IP nesta caixa de texto. |
 | **Alias de domínio** | O nome NetBIOS do domínio. Adicione o nome NetBIOS do domínio Active Directory como um alias da origem de identidade se você estiver usando autenticações SSPI. |
 | **DN de base para grupos** | O nome distinto base para os grupos. |
-| **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato  `ldap://hostname:port`   ou  `ldaps://hostname:port` . A porta geralmente é 389 para conexões LDAP e 636 para conexões LDAPs. Para Active Directory implantações de controlador de vários domínios, a porta geralmente é 3268 para LDAP e 3269 para LDAPs.<br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa  `ldaps://`   o na URL LDAP primária ou secundária. |
+| **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldap://hostname:port` ou `ldaps://hostname:port` . A porta geralmente é 389 para conexões LDAP e 636 para conexões LDAPs. Para Active Directory implantações de controlador de vários domínios, a porta geralmente é 3268 para LDAP e 3269 para LDAPs.<br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa `ldaps://` o na URL LDAP primária ou secundária. |
 | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para failover. |
-| **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar  `ldaps://`   na caixa de texto URL. Uma URL secundária não é necessária. |
+| **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar `ldaps://` na caixa de texto URL. Uma URL secundária não é necessária. |
 | **Nome de usuário** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
 | **Senha** | Senha do usuário que é especificada pelo nome de usuário. |
 
@@ -127,7 +127,7 @@ Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Act
 
 6. Selecione **Active Directory como um servidor LDAP** e clique em **Avançar**.
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![Captura de tela que realça o Active Directory como uma opção de servidor LDAP.](media/OnPremAD04.png)
 
 7. Especifique os parâmetros de origem de identidade para seu ambiente e clique em **Avançar**.
 

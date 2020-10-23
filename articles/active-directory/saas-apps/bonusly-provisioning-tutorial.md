@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 1db1ef3a8fa7de557444c25650410b4e84422be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33329fc30d1c20b4e20901d06a061accb2aeceb0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849275"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456890"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Configurar o Bonusly para provisionamento automático de usuário
 
@@ -64,7 +64,7 @@ O Azure Active Directory usa um conceito chamado "atribuições" para determinar
 
 Antes de configurar e habilitar o provisionamento automático de usuário, é necessário decidir quais usuários e/ou grupos no Microsoft Azure Active Directory precisam acessar o Bonusly. Depois de decidir, é possível atribuir esses usuários e/ou grupos ao Bonusly seguindo estas instruções:
 
-* [Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-bonusly"></a>Dicas importantes para atribuir usuários ao Bonusly
 
@@ -123,7 +123,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Captura de tela da guia de provisionamento de bônus. Em gerenciar, o provisionamento é realçado." border="false":::
 
-10. Clique em **Salvar**.
+10. Clique em **Save** (Salvar).
 
 11. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o Bonusly**.
 

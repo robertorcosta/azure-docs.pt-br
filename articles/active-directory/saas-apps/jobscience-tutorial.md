@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 715e99f07d0fcbc77fd1769e5da1cae6b46ac97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850727"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Active Directory do Azure com o Jobscience
 
@@ -29,7 +29,7 @@ A integração do Jobscience ao Azure AD oferece os seguintes benefícios:
 
 Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD ao Jobscience, você precisa dos seguintes itens:
 
@@ -42,7 +42,7 @@ Para configurar a integração do Azure AD ao Jobscience, você precisa dos segu
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se você não tiver um ambiente de avaliação do Azure AD, poderá obter uma avaliação de um mês aqui: [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
@@ -115,7 +115,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
  
 1. Na seção **certificado de autenticação SAML** , clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado em seu computador.
 
-    ![Captura de tela mostra o painel de certificado de autenticação SAML no qual você pode baixar um certificado.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
+    ![A captura de tela mostra o painel Certificado de Autenticação SAML em que você pode baixar um certificado.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
 1. Clique no botão **Salvar** .
 
@@ -129,7 +129,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Vá para **Configuração**.
    
-   ![Captura de tela mostra o item de instalação da sua empresa.](./media/jobscience-tutorial/IC784358.png "Instalação")
+   ![Captura de tela mostra o item de instalação da sua empresa.](./media/jobscience-tutorial/IC784358.png "Configuração")
 
 1. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
    
@@ -145,7 +145,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Na seção **Configurações de Logon Único**, faça o seguinte:
     
-    ![Configurações de Sign-On único](./media/jobscience-tutorial/ic781026.png "Configurações de logon único")
+    ![Configurações de logon único](./media/jobscience-tutorial/ic781026.png "Configurações de logon único")
     
     a. Selecione **SAML Habilitado**.
 
@@ -304,7 +304,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do Jobscience no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo Jobscience.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -324,4 +324,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/jobscience-tutorial/tutorial_general_201.png
 [202]: ./media/jobscience-tutorial/tutorial_general_202.png
 [203]: ./media/jobscience-tutorial/tutorial_general_203.png
-

@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: fd470180e17bd64990c1e657a6614fc2e0ef71d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93e9ad28b14a51432fd9ccd32d1a155eaff2e190
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335017"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427136"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Há dois modelos arquitetônicos de alta disponibilidade:
 
 O banco de dados SQL e o SQL Instância Gerenciada são executados na versão estável mais recente do mecanismo de banco de dados do SQL Server e no sistema operacional Windows, e a maioria dos usuários não observa que as atualizações são executadas continuamente.
 
-## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Disponibilidade de camada de serviço básico, padrão e de uso geral
+## <a name="basic-standard-and-general-purpose-service-tier-locally-redundant-availability"></a>Disponibilidade redundante local da camada de serviço Basic, Standard e Uso Geral
 
 As camadas de serviço básico, Standard e Uso Geral aproveitam a arquitetura de disponibilidade padrão para computação sem servidor e provisionada. A figura a seguir mostra quatro nós diferentes com a computação separada e as camadas de armazenamento.
 
@@ -46,7 +46,26 @@ O modelo de disponibilidade padrão inclui duas camadas:
 
 Sempre que o mecanismo de banco de dados ou o sistema operacional for atualizado ou uma falha for detectada, o Azure Service Fabric moverá o processo sem estado `sqlservr.exe` para outro nó de computação sem estado com capacidade livre suficiente. Os dados no armazenamento de BLOBs do Azure não são afetados pela movimentação e os arquivos de dados/log são anexados ao processo inicializado recentemente `sqlservr.exe` . Esse processo garante a disponibilidade de 99,99%, mas uma carga de trabalho pesada pode enfrentar alguma degradação de desempenho durante a transição, uma vez que o novo `sqlservr.exe` processo começa com o cache frio.
 
-## <a name="premium-and-business-critical-service-tier-availability"></a>Disponibilidade de camada de serviço Premium e Business Critical
+## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Disponibilidade com redundância de zona de camada de serviço Uso Geral (visualização)
+
+A configuração com redundância de zona para a camada de serviço de uso geral utiliza [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md)   para replicar bancos de dados em vários locais físicos em uma região do Azure.Ao selecionar a redundância de zona, você pode fazer com que seus novos e existentes bancos de dados individuais de uso geral e pools elásticos, resistentes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem nenhuma alteração da lógica do aplicativo.
+
+A configuração com redundância de zona para a camada de uso geral tem duas camadas:  
+
+- Uma camada de dados com monitoração de estado com os arquivos de banco (. MDF/. ldf) armazenados no PFS ZRS ( [compartilhamento de arquivos premium de armazenamento](../../storage/files/storage-how-to-create-premium-fileshare.md)com redundância de zona. Usando o [armazenamento com redundância de zona,](../../storage/common/storage-redundancy.md) os arquivos de dados e de log são copiados de forma síncrona em três zonas de disponibilidade do Azure fisicamente isoladas.
+- Uma camada de computação sem monitoração de estado que executa o processo de sqlservr.exe e contém somente dados transitórios e em cache, como TempDB, bancos de dado de modelo no SSD anexado e cache de planos, pool de buffers e pool columnstore na memória. Esse nó sem estado é operado pelo Service Fabric do Azure que inicializa sqlservr.exe, controla a integridade do nó e executa o failover para outro nó, se necessário. Para bancos de dados de uso geral com redundância de zona, os nós com capacidade de reposição estão prontamente disponíveis em outros Zonas de Disponibilidade para failover.
+
+A versão com redundância de zona da arquitetura de alta disponibilidade para a camada de serviço de uso geral é ilustrada pelo seguinte diagrama:
+
+![Configuração com redundância de zona para fins gerais](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
+
+> [!IMPORTANT]
+> Para obter informações atualizadas sobre as regiões que dão suporte a bancos de dados com redundância de zona, consulte [suporte a serviços por região](../../availability-zones/az-region.md). A configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 estiver selecionado. Este recurso não está disponível no SQL Instância Gerenciada.
+
+> [!NOTE]
+> Uso Geral bancos de dados com um tamanho de 80 VCORE podem apresentar degradação de desempenho com configuração com redundância de zona. Operações como backup, restauração, cópia de banco de dados e configuração de relações de DR geográfica podem passar por um desempenho mais lento para bancos únicos de dados maiores que 1 TB. 
+
+## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Disponibilidade com redundância local da camada de serviço Premium e Comercialmente Crítico
 
 As camadas de serviço Premium e Comercialmente Crítico aproveitam o modelo de disponibilidade Premium, que integra os recursos de computação ( `sqlservr.exe` processo) e o armazenamento (SSD anexado localmente) em um único nó. A alta disponibilidade é obtida com a replicação da computação e do armazenamento para nós adicionais, criando um cluster de três a quatro nós.
 
@@ -55,6 +74,23 @@ As camadas de serviço Premium e Comercialmente Crítico aproveitam o modelo de 
 Os arquivos de banco de dados subjacentes (. MDF/. ldf) são colocados no armazenamento SSD anexado para fornecer uma e/s de latência muito baixa para sua carga de trabalho. A alta disponibilidade é implementada usando uma tecnologia semelhante à SQL Server [grupos de disponibilidade Always on](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). O cluster inclui uma única réplica primária que é acessível para cargas de trabalho de leitura/gravação do cliente e até três réplicas secundárias (computação e armazenamento) que contêm cópias de dados. O nó primário envia constantemente as alterações para os nós secundários e garante que os dados sejam sincronizados com pelo menos uma réplica secundária antes de confirmar cada transação. Esse processo garante que, se o nó primário falhar por algum motivo, sempre haverá um nó totalmente sincronizado para o failover. O failover é iniciado pelo Service Fabric do Azure. Depois que a réplica secundária se tornar o novo nó primário, outra réplica secundária será criada para garantir que o cluster tenha nós suficientes (conjunto de quorum). Depois que o failover for concluído, as conexões SQL do Azure serão redirecionadas automaticamente para o novo nó primário.
 
 Como um benefício extra, o modelo de disponibilidade Premium inclui a capacidade de redirecionar conexões SQL do Azure somente leitura para uma das réplicas secundárias. Esse recurso é chamado [de expansão de leitura](read-scale-out.md). Ele fornece uma capacidade de computação adicional de 100% sem custo adicional para operações somente leitura fora do carregamento, como cargas de trabalho analíticas, da réplica primária.
+
+## <a name="premium-and-business-critical-service-tier-zone-redundant-availability"></a>Disponibilidade redundante da zona da camada de serviço Premium e Comercialmente Crítico 
+
+Por padrão, o cluster de nós para o modelo de disponibilidade Premium é criado no mesmo datacenter. Com a introdução do [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md), o banco de dados SQL pode posicionar réplicas diferentes do banco de dados comercialmente crítico em diferentes zonas de disponibilidade na mesma região. Para eliminar um ponto único de falha, o anel de controle também é duplicado entre várias zonas como três GW (anéis de gateway). O roteamento para um anel de gateway específico é controlado pelo ATM [(Gerenciador de Tráfego do Microsoft Azure)](../../traffic-manager/traffic-manager-overview.md). Como a configuração com redundância de zona nas camadas de serviço Premium ou Comercialmente Crítico não cria redundância de banco de dados adicional, você pode habilitá-la sem custo adicional. Ao selecionar uma configuração com redundância de zona, você pode tornar os bancos de dados Premium ou Comercialmente Crítico resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem nenhuma alteração na lógica do aplicativo. Além disso, é possível converter quaisquer pools ou bancos de dados Premium ou Comercialmente Crítico existentes para a configuração com redundância de zona.
+
+Como os bancos de dados com redundância de zona têm réplicas em data centers diferentes com alguma distância entre eles, a latência de rede aumentada pode aumentar o tempo de confirmação e, portanto, afetar o desempenho de algumas cargas de trabalho OLTP. Sempre será possível retornar à configuração de única zona, desabilitando a configuração com redundância de zona. Esse processo é uma operação online semelhante à atualização da camada de serviço normal. No final do processo, o pool ou banco de dados será migrado de um anel com redundância de zona para um anel de única zona ou vice-versa.
+
+> [!IMPORTANT]
+> Atualmente, os bancos de dados com redundância de zona e os pools elásticos só têm suporte nas camadas de serviço Premium e Comercialmente Crítico em regiões selecionadas. Ao usar a camada de Comercialmente Crítico, a configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 for selecionado. Para obter informações atualizadas sobre as regiões que dão suporte a bancos de dados com redundância de zona, consulte [suporte a serviços por região](../../availability-zones/az-region.md).
+
+> [!NOTE]
+> Este recurso não está disponível no SQL Instância Gerenciada.
+
+A versão com redundância de zona da arquitetura de alta disponibilidade é ilustrada pelo diagrama a seguir:
+
+![Arquitetura de alta disponibilidade com redundância de zona](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
+
 
 ## <a name="hyperscale-service-tier-availability"></a>Disponibilidade da camada de serviço de hiperescala
 
@@ -73,21 +109,6 @@ Os nós de computação em todas as camadas de hiperescala são executados no Az
 
 Para obter mais informações sobre alta disponibilidade em hiperescala, consulte [alta disponibilidade do banco de dados em hiperescala](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
 
-## <a name="zone-redundant-configuration"></a>Configuração com redundância de zona
-
-Por padrão, o cluster de nós para o modelo de disponibilidade Premium é criado no mesmo datacenter. Com a introdução do [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md), o banco de dados SQL pode posicionar réplicas diferentes do banco de dados comercialmente crítico em diferentes zonas de disponibilidade na mesma região. Para eliminar um ponto único de falha, o anel de controle também é duplicado entre várias zonas como três GW (anéis de gateway). O roteamento para um anel de gateway específico é controlado pelo ATM [(Gerenciador de Tráfego do Microsoft Azure)](../../traffic-manager/traffic-manager-overview.md). Como a configuração com redundância de zona nas camadas de serviço Premium ou Comercialmente Crítico não cria redundância de banco de dados adicional, você pode habilitá-la sem custo adicional. Ao selecionar uma configuração com redundância de zona, você pode tornar os bancos de dados Premium ou Comercialmente Crítico resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem nenhuma alteração na lógica do aplicativo. Além disso, é possível converter quaisquer pools ou bancos de dados Premium ou Comercialmente Crítico existentes para a configuração com redundância de zona.
-
-Como os bancos de dados com redundância de zona têm réplicas em data centers diferentes com alguma distância entre eles, a latência de rede aumentada pode aumentar o tempo de confirmação e, portanto, afetar o desempenho de algumas cargas de trabalho OLTP. Sempre será possível retornar à configuração de única zona, desabilitando a configuração com redundância de zona. Esse processo é uma operação online semelhante à atualização da camada de serviço normal. No final do processo, o pool ou banco de dados será migrado de um anel com redundância de zona para um anel de única zona ou vice-versa.
-
-> [!IMPORTANT]
-> Atualmente, os bancos de dados com redundância de zona e os pools elásticos só têm suporte nas camadas de serviço Premium e Comercialmente Crítico em regiões selecionadas. Ao usar a camada de Comercialmente Crítico, a configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 for selecionado. Para obter informações atualizadas sobre as regiões que dão suporte a bancos de dados com redundância de zona, consulte [suporte a serviços por região](../../availability-zones/az-region.md).
-
-> [!NOTE]
-> Este recurso não está disponível no SQL Instância Gerenciada.
-
-A versão com redundância de zona da arquitetura de alta disponibilidade é ilustrada pelo diagrama a seguir:
-
-![Arquitetura de alta disponibilidade com redundância de zona](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação Acelerada de Banco de Dados (ADR)
 

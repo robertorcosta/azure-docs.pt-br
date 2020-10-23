@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6e90e9c2ebbc6ba05e5778f618a5c3de02adf3ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b622372c881997fd77a83feb8f6c393504900b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542352"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428299"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o PowerShell
 
@@ -26,14 +26,14 @@ Você pode criar e gerenciar réplicas de leitura usando o PowerShell.
 
 Para concluir este guia de instruções, você precisa:
 
-- O [módulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
+- O [módulo AZ PowerShell](/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
 - Um [banco de dados do Azure para servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Embora o módulo Az.MariaDb do PowerShell esteja em versão prévia, você precisará instalá-lo separadamente por meio do módulo do Az PowerShell usando o seguinte comando: `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Depois que o módulo Az.MariaDb do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo do Az PowerShell e ficará disponível nativamente no Azure Cloud Shell.
 
-Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -54,9 +54,9 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 O comando `New-AzMariaDbServerReplica` exige os seguintes parâmetros:
 
-| Configuração | Valor de exemplo | Descrição  |
+| Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de réplica é criado.  |
+| ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de réplica é criado.  |
 | Nome | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
 
 Para criar uma réplica de leitura entre regiões, use o parâmetro **Location** . O exemplo a seguir cria uma réplica na região **oeste dos EUA** .
@@ -83,9 +83,9 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 O comando `Get-AzMariaDReplica` exige os seguintes parâmetros:
 
-| Configuração | Valor de exemplo | Descrição  |
+| Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
+| ResourceGroupName |  myresourcegroup |  O grupo de recursos para o qual o servidor de réplica será criado.  |
 | ServerName | mydemoserver | O nome ou a ID do servidor de origem. |
 
 ### <a name="delete-a-replica-server"></a>Excluir um servidor de réplica

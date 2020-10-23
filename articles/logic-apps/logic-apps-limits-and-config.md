@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 16dab7897fc41a97a8607df5a03281582377e1e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 05881791d495770167b271e20de173e6679f39d9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424078"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440647"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -48,7 +48,7 @@ Estes são os limites de execução de um único aplicativo lógico:
 | Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Duração da execução | 90 dias | 366 dias | A duração da execução é calculada usando a hora de início de uma execução. |
-| Retenção de histórico de execução no armazenamento | 90 dias | 366 dias | Quando uma execução é concluída ou expira, a retenção do histórico de execução é sempre calculada usando a hora de início da execução e o limite especificado na *hora atual* pela configuração do fluxo de trabalho, [**retenção do histórico de execução em dias**](#change-retention). Se você alterar essa configuração, o limite *atual* será sempre usado para calcular a retenção, não importa o limite anterior. Quando a duração de uma execução excede o limite atual, a execução é removida do histórico de execuções. <p><p>Por exemplo, suponha que você reduza o limite de retenção de 90 dias para 30 dias. Uma execução de 60 dias-antiga é removida do histórico de execuções. Se você aumentar o período de retenção de 30 dias para 60 dias, uma execução de 20 dias atrás permanecerá no histórico de execuções por mais 40 dias. <p><p>Para alterar o limite padrão, que é de 90 dias, consulte [alterar a retenção do histórico de execução no armazenamento](#change-retention). |
+| Retenção de histórico de execução no armazenamento | 90 dias | 366 dias | Se a duração de uma execução exceder o limite de retenção do histórico de execução atual, a execução será removida do histórico de execuções no armazenamento. Se a execução for concluída ou expirar, a retenção do histórico de execução será sempre calculada usando a hora de início da execução e o limite atual especificado na configuração de fluxo de trabalho, [**retenção de histórico de execução em dias**](#change-retention). Não importa o limite anterior, o limite atual é sempre usado para calcular a retenção. <p><p>Para alterar o limite padrão e obter mais informações, consulte [alterar a retenção do histórico de execução no armazenamento](#change-retention). Para aumentar o limite máximo, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para ter ajuda com seus requisitos. |
 | Intervalo de recorrência mínimo | 1 segundo | 1 segundo ||
 | Intervalo de recorrência máximo | 500 dias | 500 dias ||
 |||||
@@ -57,11 +57,17 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 ### <a name="change-run-history-retention-in-storage"></a>Retenção do histórico de execução de alteração no armazenamento
 
-Para alterar o limite padrão para retenção de histórico de execução no armazenamento, siga estas etapas. Para aumentar o limite máximo, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para ter ajuda com seus requisitos.
+Para alterar o limite padrão para retenção de histórico de execução no armazenamento, siga estas etapas.
 
-> [!NOTE]
-> Para os aplicativos lógicos no Azure com multilocatário, o limite padrão de 90 dias é igual ao limite máximo. Você só pode diminuir esse valor.
-> Para os aplicativos lógicos em um ambiente do serviço de integração, você pode diminuir ou aumentar o limite padrão de 90 dias.
+* Para os aplicativos lógicos no Azure com multilocatário, o limite padrão de 90 dias é igual ao limite máximo. Você só pode diminuir esse valor.
+
+* Para os aplicativos lógicos em um ambiente do serviço de integração, você pode diminuir ou aumentar o limite padrão de 90 dias.
+
+Por exemplo, suponha que você reduza o limite de retenção de 90 dias para 30 dias. Uma execução de 60 dias-antiga é removida do histórico de execuções. Se você aumentar o período de retenção de 30 dias para 60 dias, uma execução de 20 dias atrás permanecerá no histórico de execuções por mais 40 dias. 
+
+
+> [!IMPORTANT]
+> Para evitar a perda do histórico de execuções, verifique se o limite de retenção é *sempre* mais do que a duração mais longa possível da execução. Caso contrário, o histórico de execuções será perdido.
 
 1. Na caixa de pesquisa [portal do Azure](https://portal.azure.com) , localize e selecione **aplicativos lógicos**.
 

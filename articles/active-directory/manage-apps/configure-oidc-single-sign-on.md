@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
-ms.openlocfilehash: 825f79b0a1c132fb7a15d643c3487dfb7d6a9abd
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: e819073c3bc723a66f8beb2f9b2a094a07233ca9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209493"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427677"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Entender o logon único baseado em OIDC
 Na [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos, você aprendeu a usar o Azure ad como o IDP (provedor de identidade) para um aplicativo. Este artigo apresenta mais detalhes sobre os aplicativos que usam o padrão OpenID Connect para implementar o logon único. 

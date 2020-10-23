@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285580"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427967"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Habilitar o complemento Controlador de Entrada (versão prévia) para um novo cluster do AKS com uma nova instância do Gateway de Aplicativo
 
@@ -87,7 +87,7 @@ No exemplo a seguir, você implantará um novo cluster do AKS chamado *myCluster
 Implantar um novo cluster do AKS com o complemento AGIC habilitado sem especificar uma instância existente do Gateway de Aplicativo levará à criação automática de uma instância do Gateway de Aplicativo no SKU Standard_v2. Sendo assim, você também especificará o nome e o espaço de endereço de sub-rede da instância do Gateway de Aplicativo. O nome da instância do Gateway de Aplicativo será *myApplicationGateway* e o espaço de endereço da sub-rede que usaremos será 10.2.0.0/16. Verifique se você adicionou ou atualizou a extensão aks-preview no início deste tutorial. 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
 Para configurar parâmetros adicionais para o comando `az aks create`, confira [estas referências](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
