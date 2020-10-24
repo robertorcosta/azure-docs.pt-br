@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78addb76e2ce7a2679358e241650cc5cc827791f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461610"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495918"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conectar Azure Functions aplicativos para processamento de dados
 
@@ -186,26 +186,28 @@ Você pode configurar o acesso de segurança para o aplicativo de funções do A
 
 O esqueleto do Azure function dos exemplos anteriores requer que um token de portador seja passado para ele, a fim de ser capaz de autenticar com o gêmeos digital do Azure. Para garantir que esse token de portador seja passado, você precisará configurar [identidade de serviço gerenciada (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para o aplicativo de funções. Isso só precisa ser feito uma vez para cada aplicativo de funções.
 
-Você pode criar uma identidade gerenciada pelo sistema e atribuir a identidade do aplicativo de funções à função de _proprietário do gêmeos digital do Azure (versão prévia)_ para sua instância do gêmeos digital do Azure. Isso dará à permissão do aplicativo de funções na instância para executar atividades de plano de dados. Em seguida, torne a URL da instância do Azure digital gêmeos acessível para sua função definindo uma variável de ambiente.
+Você pode criar uma identidade gerenciada pelo sistema e atribuir a identidade do aplicativo de funções à função de _**proprietário de dados do gêmeos digital do Azure**_ para sua instância do gêmeos digital do Azure. Isso dará à permissão do aplicativo de funções na instância para executar atividades de plano de dados. Em seguida, torne a URL da instância do Azure digital gêmeos acessível para sua função definindo uma variável de ambiente.
 
- Use [Azure cloud Shell](https://shell.azure.com) para executar os comandos.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+Use [Azure cloud Shell](https://shell.azure.com) para executar os comandos.
 
 Use o comando a seguir para criar a identidade gerenciada pelo sistema. Anote o campo _principalId_ na saída.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-Use o valor _PrincipalId_ no comando a seguir para atribuir a identidade do aplicativo de funções à função de _proprietário do gêmeos digital do Azure (versão prévia)_ para sua instância do gêmeos digital do Azure.
+Use o valor _PrincipalId_ no comando a seguir para atribuir a identidade do aplicativo de funções à função de _proprietário de dados do gêmeos digital do Azure_ para sua instância do gêmeos digital do Azure.
 
-```azurecli 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive 
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 Por fim, você pode tornar a URL da sua instância de gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre como definir variáveis de ambiente, consulte [*variáveis de ambiente*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > A URL da instância do gêmeos digital do Azure é feita adicionando *https://* ao início do *nome de host*da instância do Azure digital gêmeos. Para ver o nome do host, juntamente com todas as propriedades de sua instância, você pode executar `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
-```azurecli 
+```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>Opção 2: configurar o acesso de segurança para o aplicativo de funções do Azure usando portal do Azure
@@ -241,7 +243,7 @@ Na página _Adicionar atribuição de função (versão prévia)_ que é aberta,
 * _Escopo_: grupo de recursos
 * _Assinatura_: selecione sua assinatura do Azure
 * _Grupo de recursos_: selecione o grupo de recursos na lista suspensa
-* _Função_: selecione _proprietário do gêmeos digital do Azure (versão prévia)_ na lista suspensa
+* _Função_: selecione _Azure digital gêmeos proprietário dos dados_ no menu suspenso
 
 Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
 

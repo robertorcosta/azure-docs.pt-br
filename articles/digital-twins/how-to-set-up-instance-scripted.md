@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205534"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495022"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -43,7 +43,7 @@ Este artigo usa um exemplo de código de gêmeos digital do Azure para implantar
 
 Aqui estão as etapas para executar o script de implantação no Cloud Shell.
 1. Vá para uma janela de [Azure cloud Shell](https://shell.azure.com/) em seu navegador. Entre usando este comando:
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     Se a CLI puder abrir o navegador padrão, ela o fará e carregará uma página de entrada do Azure. Caso contrário, abra uma página de navegador em *https://aka.ms/devicelogin* e insira o código de autorização exibido no terminal.
@@ -62,11 +62,11 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
 
 4. Execute o script enviando o `./deploy.ps1` comando na janela Cloud Shell. Você pode copiar o comando abaixo (Lembre-se de que para colar em Cloud Shell, você pode usar **Ctrl + Shift + v** no Windows e Linux ou **cmd + shift + v** no MacOS. Você também pode usar o menu do botão direito do mouse.
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    O script criará uma instância de gêmeos digital do Azure e atribuirá ao usuário do Azure a função de *proprietário do gêmeos digital do Azure (versão prévia)* na instância.
+    O script criará uma instância de gêmeos digital do Azure e atribuirá ao usuário do Azure a função de *proprietário de dados do gêmeos digital do Azure* na instância.
 
     À medida que o script é executado por meio das etapas de configuração automatizada, você será solicitado a passar os seguintes valores:
     * Para a instância: a *ID* da assinatura do Azure a ser usada
@@ -83,10 +83,10 @@ Aqui está um trecho do log de saída do script:
 Se o script for concluído com êxito, a impressão final dirá `Deployment completed successfully` . Caso contrário, resolva a mensagem de erro e execute o script novamente. Ele ignorará as etapas que você já concluiu e começará a solicitar a entrada novamente no ponto em que você parou.
 
 > [!NOTE]
-> O script atribui atualmente a função de gerenciamento necessária no Azure digital gêmeos (*proprietário do gêmeos digital do Azure (versão prévia)*) para o mesmo usuário que executa o script de Cloud Shell. Se você precisar atribuir essa função a outra pessoa que gerenciará a instância, poderá fazer isso agora por meio do portal do Azure ([instruções](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou da CLI ([instruções](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> O script atribui atualmente a função de gerenciamento necessária no Azure digital gêmeos (*proprietário de dados do Azure digital gêmeos*) ao mesmo usuário que executa o script de Cloud Shell. Se você precisar atribuir essa função a outra pessoa que gerenciará a instância, poderá fazer isso agora por meio do portal do Azure ([instruções](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou da CLI ([instruções](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->Atualmente, há um **problema conhecido** com a instalação com script, em que alguns usuários (especialmente usuários nas [contas pessoais da Microsoft (MSAS)](https://account.microsoft.com/account)) podem achar que a **atribuição de função ao _proprietário do gêmeos digital do Azure (versão prévia)_ não foi criada**.
+>Atualmente, há um **problema conhecido** com a instalação com script, na qual alguns usuários (especialmente usuários sobre [contas pessoais da Microsoft (MSAS)](https://account.microsoft.com/account)) podem achar que a **atribuição de função ao _proprietário de dados do Azure digital gêmeos_ não foi criada**.
 >
 >Você pode verificar a atribuição de função com a seção [*verificar atribuição de função de usuário*](#verify-user-role-assignment) posteriormente neste artigo e, se necessário, configurar a atribuição de função manualmente usando o [portal do Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou a [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >

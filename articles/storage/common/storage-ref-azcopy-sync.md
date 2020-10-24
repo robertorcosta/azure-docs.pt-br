@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13d2633576454ea6445deb4d2b0b11c2bbb1514e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869432"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478364"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -151,15 +151,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: `INFO` (todas as solicitações e respostas) `WARNING` (respostas lentas), `ERROR` (somente solicitações com falha) e `NONE` (nenhum log de saída). (padrão `INFO` ). 
 
-**--preserve-SMB-info**     False por padrão.Preserva as informações da propriedade SMB (hora da última gravação, hora de criação, bits de atributo) entre recursos com reconhecimento de SMB (arquivos do Windows e do Azure).Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo, include-Pattern).As informações transferidas para pastas são as mesmas para arquivos, exceto para a hora da última gravação que não é preservada para pastas.
+**--preserve-SMB-info**   False por padrão. Preserva as informações da propriedade SMB (hora da última gravação, hora de criação, bits de atributo) entre recursos com reconhecimento de SMB (arquivos do Windows e do Azure). Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo, include-Pattern). As informações transferidas para pastas são as mesmas para arquivos, exceto para a hora da última gravação que não é preservada para pastas.
 
-**--preserve-SMB-permissões**     False por padrão.Preserva ACLs SMB entre recursos de reconhecimento (arquivos do Windows e do Azure).Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo,  `include-pattern` ).
+**--preserve-SMB-permissões**   False por padrão. Preserva ACLs SMB entre recursos de reconhecimento (arquivos do Windows e do Azure). Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente arquivo seja especificado (por exemplo, `include-pattern` ).
 
 **--Put-MD5**     Crie um hash MD5 de cada arquivo e salve o hash como a propriedade Content-MD5 do BLOB ou arquivo de destino. (Por padrão, o hash não é criado.) Disponível somente ao carregar.
 
 **--recursivo** `True` Por padrão, examine os subdiretórios recursivamente ao sincronizar entre diretórios.     (padrão `True` ). 
 
-**--S2S-preserve-acesso-camada**  Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão `true` ). 
+**--S2S-preserve-acesso-camada**  Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 

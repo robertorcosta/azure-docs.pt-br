@@ -9,31 +9,31 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 686c1e37e093a358bb5122fbfeccdfd98eb301ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2632d5c4fe637222cb6248d35671057430d935e7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804224"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477310"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>SDK do Java v4 do Azure Cosmos DB para API do Core (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [SDK v3 do .NET](sql-api-sdk-dotnet-standard.md)
 > * [SDK do .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
-> * [SDK v2 do feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK do Feed de Alterações do .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
-> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona e uma API síncrona em um artefato Maven. O SDK da v4 oferece desempenho aprimorado, novos recursos de API e suporte a Async com base no Project Reactor e na [biblioteca Netty](https://netty.io/). Os usuários podem esperar um desempenho aprimorado com o SKD do Java v4 do Azure Cosmos DB em comparação com o [SDK do Java Assíncrono v2 do Azure Cosmos DB](sql-api-sdk-async-java.md) e o [SDK do Java Síncrono v2 do Azure Cosmos DB](sql-api-sdk-java.md).
@@ -43,7 +43,7 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 >
 > Aqui estão três etapas para começar rápido!
 > 1. Instale o [runtime mínimo com suporte para Java, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) para poder usar o SDK.
-> 2. Trabalhe no [Guia de Início Rápido do SDK do Java v4 do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java), que fornece acesso ao artefato Maven, e percorre as solicitações básicas do Azure Cosmos DB.
+> 2. Trabalhe no [Guia de Início Rápido do SDK do Java v4 do Azure Cosmos DB](./create-sql-api-java.md), que fornece acesso ao artefato Maven, e percorre as solicitações básicas do Azure Cosmos DB.
 > 3. Leia as [dicas de desempenho](performance-tips-java-sdk-v4-sql.md) e os guias de [solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB para otimizar o SDK para seu aplicativo.
 >
 > Os [workshops e laboratórios do Azure Cosmos DB](https://aka.ms/cosmosworkshop) são outro ótimo recurso para aprender como usar o SDK do Java v4 do Azure Cosmos DB!
@@ -54,9 +54,9 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 | Conteúdo | Link |
 |---|---|
 |**Baixe o SDK**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**Documentação da API** | [Documentação de referência de API Java](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable&preserve-view=true) |
+|**Documentação da API** | [Documentação de referência de API Java](/java/api/overview/azure/cosmosdb/client?preserve-view=true&view=azure-java-stable) |
 |**Contribuir para o SDK** | [SDK do Azure para repositório central do Java no GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
-|**Introdução** | [Início Rápido: Criar um aplicativo Java para gerenciar os dados de API de SQL do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) <br> [Repositório GitHub com código de início rápido](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
+|**Introdução** | [Início Rápido: Criar um aplicativo Java para gerenciar os dados de API de SQL do Azure Cosmos DB](./create-sql-api-java.md) <br> [Repositório GitHub com código de início rápido](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Amostras de código básico** | [Azure Cosmos DB: exemplos de Java para API do SQL](sql-api-java-sdk-samples.md) <br> [Repositório GitHub com código de exemplo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 |**Aplicativo de console com feed de alterações**| [Feed de alterações-exemplo de Java SDK v4](create-sql-api-java-changefeed.md) <br> [Repositório GitHub com código de exemplo](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
 |**Exemplo de aplicativo Web**| [Compilar um aplicativo Web com o SDK do Java v4](sql-api-java-application.md) <br> [Repositório GitHub com código de exemplo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app)|

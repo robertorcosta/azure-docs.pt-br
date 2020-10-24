@@ -1,6 +1,6 @@
 ---
 title: Arquitetura SQL do Synapse
-description: Saiba como o SQL do Azure Synapse do Azure combina o processamento paralelo em massa (MPP) com o Armazenamento do Azure para obter escalabilidade e alto desempenho.
+description: Saiba como o Azure Synapse SQL combina recursos de processamento de consultas distribuídas com o armazenamento do Azure para atingir alto desempenho e escalabilidade.
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046867"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476001"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura do SQL do Azure Synapse 
 
@@ -35,7 +35,7 @@ Para o SQL sob demanda, sem servidor, o dimensionamento é feito automaticamente
 
 O SQL do Synapse usa uma arquitetura baseada em nó. Aplicativos conectam e emitem comandos T-SQL para um nó de Controle, que é o ponto único de entrada para SQL do Synapse. 
 
-O nó de Controle do pool de SQL utiliza o mecanismo MPP para otimizar consultas para processamento paralelo e, em seguida, passa as operações para nós de computação para realizar seu trabalho em paralelo. 
+O nó de controle do SQL Synapse do Azure utiliza um mecanismo de consulta distribuído para otimizar consultas para processamento paralelo e, em seguida, passa as operações para nós de computação para fazer seu trabalho em paralelo. 
 
 O nó de controle do SQL sob demanda utiliza o mecanismo DQP (processamento de consultas distribuídas) para otimizar e orquestrar a execução distribuída da consulta do usuário, dividindo-a em consultas menores que serão executadas nos nós de computação. Cada consulta pequena é chamada de tarefa e representa a unidade de execução distribuída. Ela lê arquivo(s) do armazenamento, une resultados de outras tarefas, agrupa ou solicita os dados recuperados de outras tarefas. 
 
@@ -61,7 +61,7 @@ O SQL sob demanda permite consultar arquivos em seu data lake em modo somente le
 
 O nó de controle é o cérebro da arquitetura. É o front-end que interage com todos os aplicativos e conexões. 
 
-No pool de SQL, o mecanismo MPP é executado no nó de controle para otimizar e coordenar consultas paralelas. Quando você envia uma consulta T-SQL ao pool de SQL, o nó de Controle a transforma em consultas que são executadas em cada distribuição paralelamente.
+No Synapse SQL, o mecanismo de consulta distribuída é executado no nó de controle para otimizar e coordenar consultas paralelas. Quando você envia uma consulta T-SQL ao pool de SQL, o nó de Controle a transforma em consultas que são executadas em cada distribuição paralelamente.
 
 No SQL sob demanda, o mecanismo DQP é executado no nó de controle para otimizar e coordenar a execução distribuída da consulta do usuário, dividindo-a em consultas menores que serão executadas em nós de computação. Também atribui conjuntos de arquivos a serem processados por cada nó.
 
@@ -69,7 +69,7 @@ No SQL sob demanda, o mecanismo DQP é executado no nó de controle para otimiza
 
 Os nós de computação fornecem capacidade de computação. 
 
-No pool de SQL, distribuições são mapeadas para nós de computação para processamento. À medida que você paga por mais recursos de computação, o pool remapeia as distribuições para os nós de computação disponíveis. O número de intervalos de nós de 1 a 60 de computação e é determinado pelo nível de serviço para o pool de SQL. Cada nó de computação tem uma ID de nó que está visível nas exibições do sistema. Você pode ver a ID do nó de Computação olhando para a coluna node_id nas exibições do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista das exibições de sistema, consulte [Exibição do sistema MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+No pool de SQL, distribuições são mapeadas para nós de computação para processamento. À medida que você paga por mais recursos de computação, o pool remapeia as distribuições para os nós de computação disponíveis. O número de intervalos de nós de 1 a 60 de computação e é determinado pelo nível de serviço para o pool de SQL. Cada nó de computação tem uma ID de nó que está visível nas exibições do sistema. Você pode ver a ID do nó de Computação olhando para a coluna node_id nas exibições do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista dessas exibições do sistema, consulte [exibições do sistema SQL do Synapse](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
 No SQL sob demanda, a cada nó de computação é atribuída uma tarefa e um conjunto de arquivos para executar a tarefa. A tarefa é uma unidade de execução de consulta distribuída, que na verdade faz parte do usuário de consulta enviada. O dimensionamento automático está em vigor para garantir que nós de computação suficientes sejam utilizados para executar a consulta do usuário.
 

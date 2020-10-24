@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9514d0fb6c9cbc95b82f13ffb576703893f303f2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057528"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484552"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -38,7 +38,7 @@ Os backups de log de transações ocorrem a cada cinco minutos.
 O armazenamento de uso geral é o armazenamento de back-end com suporte ao [uso geral](concepts-pricing-tiers.md) e ao servidor da [camada com otimização de memória](concepts-pricing-tiers.md) . Para servidores com armazenamento de uso geral de até 4 TB, os backups completos ocorrem uma vez a cada semana. Os backups diferenciais ocorrem duas vezes por dia. Os backups de log de transações ocorrem a cada cinco minutos. Os backups no armazenamento de uso geral até o armazenamento de 4 TB não são baseados em instantâneo e consomem largura de banda de e/s no momento do backup. Para bancos de dados grandes (> 1TB) no armazenamento de 4 TB, recomendamos que você considere 
 
 - Provisionamento de mais IOPs para considerar o backup IOs ou
-- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se o infraestrutura de armazenamento subjacente estiver disponível em suas [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure. 
+- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se a infraestrutura de armazenamento subjacente estiver disponível em suas [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de uso geral com armazenamento de até 16 TB
 Em um subconjunto de [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais. 
@@ -55,12 +55,16 @@ O período de retenção de backup determina até quando a restauração de pont
 - Os servidores com armazenamento de até 4 TB manterão até 2 backups de banco de dados completos, todos os backups diferenciais e backups de log de transações executados desde o backup de banco de dados completo mais antigo.
 -   Os servidores com armazenamento de até 16 TB manterão o instantâneo completo do banco de dados, todos os instantâneos diferenciais e backups de log de transações nos últimos 8 dias.
 
+#### <a name="long-term-retention"></a>Retenção de longo prazo
+A retenção de longo prazo de backups além de 35 dias ainda não tem suporte nativo do serviço no momento. Você tem a opção de usar o mysqldump para fazer backups e armazená-los para retenção de longo prazo. Nossa equipe de suporte tem publicado um [artigo passo a passo](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) para compartilhar como você pode obtê-lo. 
+
+
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
 O Banco de Dados do Azure para MySQL fornece a flexibilidade de escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e Otimizado para Memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são somente armazenados dentro da região em que o servidor está hospedado, mas também replicados em um [datacenter emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece maior proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada Básica oferece apenas o armazenamento de backup de redundância local.
 
-> [!IMPORTANT]
-> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Quando o servidor é provisionado, você não pode alterar a opção de redundância do armazenamento de backup.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Mudando de localmente redundante para armazenamento de backup com redundância geográfica
+A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Quando o servidor é provisionado, você não pode alterar a opção de redundância do armazenamento de backup. Para mover o armazenamento de backup do armazenamento com redundância local para o armazenamento com redundância geográfica, criar um novo servidor e migrar os dados usando [dump e Restore](concepts-migrate-dump-restore.md) é a única opção com suporte.
 
 ### <a name="backup-storage-cost"></a>Custo do armazenamento de backup
 

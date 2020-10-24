@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289031"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474760"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
 
@@ -79,7 +79,9 @@ Em comparação com outras opções de ajuste, como gerenciamento de escala e di
 
 **Precisa de uma estratégia de distribuição de dados diferente para obter um desempenho de consulta mais rápido**
 
-O data warehouse do Azure é um sistema de processamento paralelo e massivamente distribuído (MPP).   Os dados em uma tabela do data warehouse são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, round_robin ou replicado).  
+O data warehouse do Azure é um sistema de processamento paralelo e massivamente distribuído (MPP).  
+
+O Synapse SQL é um sistema de consulta distribuída que permite que as empresas implementem cenários de data warehouse e de virtualização de dados usando experiências padrão de T-SQL conhecidas para os engenheiros de dados. Ele também expande as funcionalidades do SQL para lidar com cenários de streaming e aprendizado de máquina. Os dados em uma tabela do data warehouse são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, round_robin ou replicado).  
 
 A distribuição de dados é especificada na hora da criação da tabela e permanece inalterada até que a tabela seja descartada. A exibição materializada, sendo uma tabela virtual em disco, é compatível com as distribuições de dados de hash e round_robin.  Os usuários podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que usam as exibições frequentemente.  
 

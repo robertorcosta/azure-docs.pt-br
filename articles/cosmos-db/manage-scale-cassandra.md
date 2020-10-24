@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277678"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482512"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Como escalar de forma elástica uma conta da API do Cassandra do Azure Cosmos DB
 
 Há uma variedade de opções para explorar a natureza elástica da API do Azure Cosmos DB para Cassandra. Para entender como dimensionar de forma eficaz no Azure Cosmos DB, é importante entender como provisionar a quantidade certa de unidades de solicitação (RU/s) para considerar as demandas de desempenho em seu sistema. Para saber mais sobre unidades de solicitação, consulte o artigo [Unidades de solicitação](request-units.md). 
 
-Para a API do Cassandra, você pode recuperar o encargo de unidade de solicitação para consultas individuais usando o [.NET e SDKs Java](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). Isso é útil para determinar a quantidade de RU/s que você precisará provisionar no serviço.
+Para a API do Cassandra, você pode recuperar o encargo de unidade de solicitação para consultas individuais usando o [.NET e SDKs Java](./find-request-unit-charge-cassandra.md). Isso é útil para determinar a quantidade de RU/s que você precisará provisionar no serviço.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="Operações do banco de dados consomem Unidades de Solicitação" border="false":::
 
@@ -46,7 +46,7 @@ A vantagem desse método é que ele é uma maneira simples e completa de gerenci
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Use o painel de controle
 
-A API do Azure Cosmos DB para Cassandra permite ajustar a taxa de transferência de forma programática usando nossos vários recursos de painel de controle. Consulte os artigos do [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md) e [Azure CLI](cli-samples.md) para obter orientações e exemplos.
+A API do Azure Cosmos DB para Cassandra permite ajustar a taxa de transferência de forma programática usando nossos vários recursos de painel de controle. Consulte os artigos do [Azure Resource Manager](./templates-samples-cassandra.md), [PowerShell](powershell-samples.md) e [Azure CLI](cli-samples.md) para obter orientações e exemplos.
 
 A vantagem desse método é que você pode automatizar a expansão ou redução dos recursos com base em um temporizador para considerar a atividade de pico ou períodos de baixa atividade. Dê uma olhada em nosso exemplo [aqui](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) para saber como fazer isso usando o Azure Functions e o PowerShell.
 

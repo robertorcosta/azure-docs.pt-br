@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207760"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494982"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
 
@@ -36,7 +36,7 @@ Esta versão deste artigo percorre essas etapas manualmente, uma a uma, usando a
 
 Nesta seção, você **criará uma nova instância do Azure digital gêmeos** usando o comando Cloud Shell. Você precisará fornecer:
 * Um grupo de recursos no qual implantá-lo. Se você ainda não tiver um grupo de recursos existente em mente, poderá criar um agora com este comando:
-    ```azurecli
+    ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Uma região para a implantação. Para ver quais regiões dão suporte ao Azure digital gêmeos, visite [*produtos do Azure disponíveis por região*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -44,7 +44,7 @@ Nesta seção, você **criará uma nova instância do Azure digital gêmeos** us
 
 Use esses valores no comando a seguir para criar a instância:
 
-```azurecli
+```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
@@ -67,8 +67,8 @@ Agora você tem uma instância de gêmeos digital do Azure pronta para uso. Em s
 
 Use o comando a seguir para atribuir a função (deve ser executada por um usuário com [permissões suficientes](#prerequisites-permission-requirements) na assinatura do Azure). O comando exige que você passe o *nome UPN* na conta do Azure ad para o usuário que deve receber a função. Na maioria dos casos, isso corresponderá ao email do usuário na conta do Azure AD.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
 ```
 
 O resultado desse comando são informações de saída sobre a atribuição de função que foi criada.

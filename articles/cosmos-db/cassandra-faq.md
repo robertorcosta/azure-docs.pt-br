@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278196"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482597"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Quando você passa por essa capacidade, recebe a seguinte mensagem de erro que i
 
 Há métricas disponíveis que mostram como a taxa de transferência é usada em horas, mais de dias e por sete dias, entre partições ou agregadas. Para obter mais informações, consulte [monitorando e Depurando com métricas em Azure Cosmos DB](use-metrics.md).
 
-Logs de diagnóstico são explicados no artigo [Logs de diagnóstico do Azure Cosmos DB](logging.md).
+Logs de diagnóstico são explicados no artigo [Logs de diagnóstico do Azure Cosmos DB](./monitor-cosmos-db.md).
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>A chave primária mapeia para o conceito de chave de partição do Azure Cosmos DB?
 
@@ -133,11 +133,11 @@ Sim, há suporte para TTL.
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>Como posso monitorar a infraestrutura junto com a taxa de transferência?
 
-O Azure Cosmos DB é um serviço de plataforma que ajuda a aumentar a produtividade e não se preocupar com o gerenciamento e monitoramento da infraestrutura. Por exemplo, você não precisa monitorar OS parâmetros status do nó, status da réplica, GC e so anteriormente com várias ferramentas. Você só precisa cuidar da taxa de transferência disponível nas métricas do portal para ver se você está ficando limitado e, em seguida, aumentar ou diminuir essa taxa de transferência. Você pode:
+O Azure Cosmos DB é um serviço de plataforma que ajuda a aumentar a produtividade e não se preocupar com o gerenciamento e monitoramento da infraestrutura. Por exemplo, você não precisa monitorar OS parâmetros status do nó, status da réplica, GC e so anteriormente com várias ferramentas. Você só precisa cuidar da taxa de transferência disponível nas métricas do portal para ver se você está ficando limitado e, em seguida, aumentar ou diminuir essa taxa de transferência. Você poderá:
 
-- Monitorar [SLAs](monitor-accounts.md)
+- Monitorar [SLAs](./monitor-cosmos-db.md)
 - Usar [métricas](use-metrics.md)
-- Usar [logs de diagnóstico](logging.md)
+- Usar [logs de diagnóstico](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Quais SDKs de cliente podem trabalhar com o API do Cassandra?
 
@@ -187,7 +187,7 @@ Você pode ler sobre as opções de migração no tutorial [migrar seus dados pa
 Deixe comentários por meio dos [comentários da voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Próximas etapas
 

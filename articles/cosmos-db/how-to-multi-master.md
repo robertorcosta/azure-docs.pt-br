@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570659"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486133"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurar gravações de várias regiões em seus aplicativos que usam Azure Cosmos DB
 
@@ -129,8 +129,8 @@ Leia os seguintes artigos:
 * [Tipos de conflitos e políticas de resolução no Azure Cosmos DB](conflict-resolution-policies.md)
 * [Alta disponibilidade no Azure Cosmos DB](high-availability.md)
 * [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
-* [Escolher o nível de consistência correto no Azure Cosmos DB](consistency-levels-choosing.md)
-* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
-* [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
+* [Escolher o nível de consistência correto no Azure Cosmos DB](./consistency-levels.md)
+* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](./consistency-levels.md)
+* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](./consistency-levels.md)
+* [Taxa de transferência provisionada para dimensionamento global](./request-units.md)
 * [Distribuição global: nos bastidores](global-dist-under-the-hood.md)

@@ -8,14 +8,14 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: bea4a5d92309710645dd63e611cd0a5e3b742c34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0fe5c2af42e8d8095963e29149e1338cc064c90
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604214"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495181"
 ---
-# <a name="azure-key-vault-recovery-overview"></a>Visão geral da recuperação de Azure Key Vault
+# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Como habilitar a exclusão reversível e a proteção de limpeza
 
 Este artigo aborda dois recursos de recuperação do Azure Key Vault, exclusão reversível e proteção de limpeza. Este documento fornece uma visão geral desses recursos e mostra como gerenciá-los por meio do portal do Azure, CLI do Azure e Azure PowerShell.
 
@@ -34,7 +34,7 @@ A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre d
 > [!NOTE]
 > A proteção de limpeza é projetada para que nenhuma função de administrador ou permissão possa substituir, desabilitar ou evitar a proteção de limpeza. **Quando a proteção de limpeza estiver habilitada, ela não poderá ser desabilitada nem substituída por ninguém, incluindo a Microsoft.** Isso significa que você deve recuperar um cofre de chaves excluído ou aguardar até que o período de retenção decorra antes de reutilizar o nome do cofre de chaves.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
 ## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>Verifique se a exclusão reversível está habilitada em um cofre de chaves e habilite a exclusão reversível
 
@@ -233,7 +233,7 @@ A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre d
     az keyvault secret purge --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
     ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ## <a name="key-vault-powershell"></a>Key Vault (PowerShell)
 

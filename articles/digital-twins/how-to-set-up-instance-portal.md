@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0dfc93987fb2ca25b9e397e4aa91adcaaafd8a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205467"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478799"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -75,7 +75,7 @@ Primeiro, abra a página da instância do gêmeos digital do Azure no portal do 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando &quot;criar um recurso&quot; na home page da portal do Azure":::
 
 Na página *Adicionar atribuição de função* a seguir, preencha os valores (deve ser concluído por um usuário com [permissões suficientes](#prerequisites-permission-requirements) na assinatura do Azure):
-* **Função**: selecione *proprietário do gêmeos digital do Azure (versão prévia)* no menu suspenso
+* **Função**: selecione *Azure digital gêmeos proprietário dos dados* no menu suspenso
 * **Atribuir acesso a**: selecione *usuário, grupo ou entidade de serviço do Azure ad* no menu suspenso
 * **Selecione**: Procure o nome ou endereço de email do usuário a ser atribuído. Quando você seleciona o resultado, o usuário aparecerá em uma seção de *Membros selecionados* .
 
@@ -91,7 +91,7 @@ Quando tiver terminado de inserir os detalhes, clique no botão *salvar* .
 
 ### <a name="verify-success"></a>Verificar êxito
 
-Você pode exibir a atribuição de função que configurou sob o *controle de acesso (iam) > atribuições de função*. O usuário deve aparecer na lista com uma função do proprietário do *gêmeos digital do Azure (versão prévia)*. 
+Você pode exibir a atribuição de função que configurou sob o *controle de acesso (iam) > atribuições de função*. O usuário deve aparecer na lista com uma função do proprietário de *dados do gêmeos digital do Azure*. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Selecionando &quot;criar um recurso&quot; na home page da portal do Azure":::
 
