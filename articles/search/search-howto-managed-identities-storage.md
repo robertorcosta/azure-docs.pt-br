@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b877ff912470cc19082410fddab64c84824eb269
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275125"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519547"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada
 
@@ -30,7 +30,7 @@ Antes de saber mais sobre esse recurso, é recomendável compreender o que é um
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Habilitar a identidade gerenciada atribuída ao sistema
 
-Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure cria uma identidade para o serviço de pesquisa que pode ser usada para autenticar outros serviços do Azure no mesmo locatário e assinatura. Use essa identidade em atribuições de RBAC (controle de acesso baseado em função) que permitem o acesso aos dados durante a indexação.
+Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure cria uma identidade para o serviço de pesquisa que pode ser usada para autenticar outros serviços do Azure no mesmo locatário e assinatura. Você pode usar essa identidade em atribuições do Azure RBAC (controle de acesso baseado em função) que permitem o acesso aos dados durante a indexação.
 
 ![Habilitar a identidade gerenciada atribuída ao sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Habilitar a identidade gerenciada atribuída ao sistema")
 

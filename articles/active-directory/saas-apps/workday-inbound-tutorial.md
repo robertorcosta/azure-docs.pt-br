@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22252ea3e132aee39075d986d7f5a979e14c0a3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541281"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520227"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático do usuário
 
@@ -258,7 +258,7 @@ Use as etapas abaixo para configurar uma conta de serviço que pode ser usada pa
 > Se você quiser limitar o agente de provisionamento para criar e ler somente usuários de uma determinada UO para fins de teste, é recomendável delegar o controle no nível de UO apropriado durante execuções de teste.
 
 4. Clique em **Avançar** na tela de boas-vindas. 
-5. Na tela **Selecionar usuários ou grupos** , adicione o usuário de domínio que você criou na etapa 2. Clique em **Avançar**.
+5. Na tela **Selecionar usuários ou grupos** , adicione o usuário de domínio que você criou na etapa 2. Clique em **Próximo**.
    >[!div class="mx-imgBorder"]
    >![Adicionar tela](./media/workday-inbound-tutorial/delegation-wizard-01.png "Adicionar tela")
 
@@ -311,7 +311,7 @@ Esta seção fornece as etapas para o provisionamento de conta do usuário do Wo
 Para provisionar no Active Directory local, o agente de Provisionamento deverá ser instalado em um servidor que tenha o .NET Framework 4.7.1+ e acesso à rede para o(s) domínio(s) do Active Directory desejado(s).
 
 > [!TIP]
-> Você pode verificar a versão do .NET Framework em seu servidor usando as instruções fornecidas [aqui](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> Você pode verificar a versão do .NET Framework em seu servidor usando as instruções fornecidas [aqui](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Se o servidor não tiver o .NET 4.7.1 ou superior instalado, você poderá baixá-lo [aqui](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Transfira o instalador do agente baixado para o host do servidor e siga as etapas exibidas abaixo para concluir a configuração do agente.
@@ -410,7 +410,7 @@ Nesta etapa, estabelecemos a conectividade com o Workday e o Active Directory no
    * **Email de Notificação –** Digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
 
      > [!NOTE]
-     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
    * Clique no botão **Conexão de Teste**. Se o teste de conexão for bem-sucedido, clique no botão **Salvar** na parte superior. Se ele falhar, verifique se as credenciais do Workday e as credenciais do AD configuradas na instalação de agente são válidas.
 
@@ -594,7 +594,7 @@ Não, a solução não mantém um cache de perfis de usuário. O serviço de pro
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>A atribuição dá suporte a atribuição de grupos locais do AD para o usuário?
 
-Não há suporte para essa funcionalidade no momento. A solução alternativa recomendada é implantar um script do PowerShell que consulta o ponto de extremidade da API do Graph para [dados de log de auditoria](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) e usá-lo para disparar cenários, como atribuição de grupo. Este script do PowerShell pode ser anexado a um agendador de tarefas e pode ser implantado na mesma caixa que executa o agente de provisionamento.  
+Não há suporte para essa funcionalidade no momento. A solução alternativa recomendada é implantar um script do PowerShell que consulta o ponto de extremidade da API do Graph para [dados de log de auditoria](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) e usá-lo para disparar cenários, como atribuição de grupo. Este script do PowerShell pode ser anexado a um agendador de tarefas e pode ser implantado na mesma caixa que executa o agente de provisionamento.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>Quais APIs do Workday a solução utiliza para consultar e atualizar perfis de trabalhadores do Workday?
 
@@ -679,7 +679,7 @@ Substitua as variáveis [proxy-server] e [proxy-port] pelo nome do servidor prox
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Como garantir que o Agente de Provisionamento é capaz de se comunicar com o locatário do Azure AD e que nenhum firewall está bloqueando as portas exigidas pelo agente?
 
-Você também pode verificar se todas as [portas necessárias](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) estão abertas.
+Você também pode verificar se todas as [portas necessárias](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) estão abertas.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Um Agente de Provisionamento pode ser configurado para provisionar vários domínios do AD?
 
@@ -1157,4 +1157,4 @@ Em relação à retenção de dados, o serviço de provisionamento do Azure AD n
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](workday-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
-* [Saiba como usar APIs do Microsoft Graph para gerenciar configurações de provisionamento](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Saiba como usar APIs do Microsoft Graph para gerenciar configurações de provisionamento](/graph/api/resources/synchronization-overview)

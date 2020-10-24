@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945906"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521298"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Suporte para mover VMs do Azure entre regiões do Azure
 
@@ -107,7 +107,7 @@ Imagens da galeria do Azure (publicadas pela Microsoft) | Com suporte | Suportad
 Imagens da galeria do Azure (publicadas por terceiros)  | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 Imagens personalizadas (publicadas por terceiros)| Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 VMs usando Site Recovery | Sem suporte | Mover recursos entre regiões para VMs, usando Site Recovery no back-end. Se você já estiver usando Site Recovery, desabilite a replicação e inicie o processo de preparação.
-Políticas de RBAC | Sem suporte | As políticas de RBAC (controle de acesso baseado em função) em VMs não são copiadas para a VM na região de destino.
+Políticas de RBAC do Azure | Sem suporte | As políticas do Azure RBAC (controle de acesso baseado em função) do Azure em VMs não são copiadas para a VM na região de destino.
 Extensões | Sem suporte | As extensões não são copiadas para a VM na região de destino. Instale-os manualmente após a conclusão da movimentação.
 
 

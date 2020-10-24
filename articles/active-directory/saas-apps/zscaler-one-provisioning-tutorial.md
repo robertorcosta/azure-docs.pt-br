@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e306c65735d8a5682cd90a1ce28fceec7d045c4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545853"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519751"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler One para o provisionamento automático de usuário
 
 Este tutorial demonstra as etapas a serem executadas no Zscaler One e Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e grupos para o Zscaler One.
 
 > [!NOTE]
-> Este tutorial descreve um conector baseado no serviço de provisionamento de usuário do Azure Active Directory. Para obter informações sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS (software como serviço) com o Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector baseado no serviço de provisionamento de usuário do Azure Active Directory. Para obter informações sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS (software como serviço) com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -63,7 +63,7 @@ Para adicionar o Zscaler One do Marketplace, siga estas etapas.
 
 O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários ou os grupos que foram atribuídos a um aplicativo no Azure Active Directory são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, decida quais usuários ou grupos no Azure AD precisam de acesso ao Zscaler One. Para atribuir esses usuários ou grupos ao Zscaler One, siga as instruções em [atribuir um usuário ou grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar e habilitar o provisionamento automático de usuário, decida quais usuários ou grupos no Azure AD precisam de acesso ao Zscaler One. Para atribuir esses usuários ou grupos ao Zscaler One, siga as instruções em [atribuir um usuário ou grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-one"></a>Dicas importantes para atribuir usuários ao Zscaler One
 
@@ -134,7 +134,7 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
     ![Zscaler um atributo de grupo correspondente](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
 
-14. Para configurar filtros de escopo, siga as instruções fornecidas no [tutorial sobre filtros de escopo](./../active-directory-saas-scoping-filters.md).
+14. Para configurar filtros de escopo, siga as instruções fornecidas no [tutorial sobre filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Para habilitar o serviço de provisionamento do Azure AD para o Zscaler One, na seção **configurações** , altere o **status de provisionamento** para **ativado**.
 
@@ -152,7 +152,7 @@ Essa operação inicia a sincronização inicial de todos os usuários ou grupos
 
 É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Zscaler One.
 
-Para obter informações sobre como ler os logs de provisionamento do Azure AD, confira [Relatórios sobre o provisionamento automático de contas de usuário](../active-directory-saas-provisioning-reporting.md).
+Para obter informações sobre como ler os logs de provisionamento do Azure AD, confira [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -161,7 +161,7 @@ Para obter informações sobre como ler os logs de provisionamento do Azure AD, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-01.png

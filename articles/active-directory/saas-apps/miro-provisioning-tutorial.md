@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 164b2915d3085ff765635b10e97f7552df1bf4c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 786e99cec4999eef0af92fe2be18bcf0e48ed379
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256351"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518986"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Tutorial: configurar o Miro para o provisionamento automático de usuário
 
@@ -79,7 +79,7 @@ Antes de configurar o Miro para o provisionamento automático de usuário com o 
 Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no Miro com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para o Miro, seguindo as instruções fornecidas no [tutorial de logon único do Miro](https://docs.microsoft.com/azure/active-directory/saas-apps/miro-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
+> Você também pode optar por habilitar o logon único baseado em SAML para o Miro, seguindo as instruções fornecidas no [tutorial de logon único do Miro](./miro-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
 
 > [!NOTE]
 > Para saber mais sobre o ponto de extremidade de SCIM do Miro, confira [isso](https://help.miro.com/hc/en-us/articles/360036777814).
@@ -110,7 +110,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Miro**.
 
@@ -158,4 +158,3 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

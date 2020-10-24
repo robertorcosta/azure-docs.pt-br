@@ -9,16 +9,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715e09eaf6ca379261d619fe02ad81a69a519d3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328531"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516912"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para Âncoras Espaciais do Azure
 
-Neste artigo, você aprenderá as várias maneiras de autenticar as âncoras espaciais do Azure de seu aplicativo ou serviço Web. Você também aprenderá sobre as maneiras como você pode usar o controle de acesso baseado em função no Azure Active Directory (AD do Azure) para controlar o acesso às suas contas de âncoras espaciais.
+Neste artigo, você aprenderá as várias maneiras de autenticar as âncoras espaciais do Azure de seu aplicativo ou serviço Web. Você também aprenderá sobre as maneiras como você pode usar o Azure RBAC (controle de acesso baseado em função) no Azure Active Directory (Azure AD) para controlar o acesso às suas contas de âncoras espaciais.
 
 ## <a name="overview"></a>Visão geral
 
@@ -108,9 +108,9 @@ Para aplicativos direcionados Azure Active Directory usuários, recomendamos que
    1.    Vá para o recurso âncoras espaciais no portal do Azure.
    2.    Vá para a guia **controle de acesso (iam)** .
    3.    Selecione **Adicionar atribuição de função**.
-   1.    [Selecione uma função](#role-based-access-control).
+   1.    [Selecione uma função](#azure-role-based-access-control).
    2.    Na caixa **selecionar** , insira os nomes dos usuários, grupos e/ou aplicativos aos quais você deseja atribuir acesso.
-   3.    Clique em **Salvar**.
+   3.    Selecione **Salvar**.
 
 **Em seu código**
 1.    Certifique-se de usar a ID do aplicativo e o URI de redirecionamento do seu próprio aplicativo do Azure AD para os parâmetros **ID do cliente** e **RedirectUri** em MSAL.
@@ -182,13 +182,13 @@ O token de acesso do AD do Azure é recuperado por meio do [MSAL](../../active-d
         1.    Vá para o recurso âncoras espaciais no portal do Azure.
         2.    Vá para a guia **controle de acesso (iam)** .
         3.    Selecione **Adicionar atribuição de função**.
-        1.    [Selecione uma função](#role-based-access-control).
+        1.    [Selecione uma função](#azure-role-based-access-control).
         2.    Na caixa **selecionar** , insira o nome ou os nomes dos aplicativos aos quais você deseja atribuir acesso. Se você quiser que os usuários do aplicativo tenham funções diferentes em relação à conta de âncoras espaciais, registre vários aplicativos no Azure AD e atribua uma função separada a cada um. Em seguida, implemente sua lógica de autorização para usar a função certa para seus usuários.
         
               > [!NOTE] 
               > No painel **Adicionar atribuição de função** , em **atribuir acesso a**, selecione **usuário, grupo ou entidade de serviço do Azure ad**.
     
-      3.    Clique em **Salvar**.
+      3.    Selecione **Salvar**.
     
 **Em seu código** 
 
@@ -262,7 +262,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
 
 Para ajudá-lo a controlar o nível de acesso concedido a aplicativos, serviços ou usuários do Azure AD do seu serviço, você pode atribuir essas funções preexistentes conforme necessário em relação às suas contas de âncoras espaciais do Azure:
 

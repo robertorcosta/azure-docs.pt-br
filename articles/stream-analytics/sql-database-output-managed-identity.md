@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 26644d42e0e51d59c6c28daaba5447a65a43b6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5c106c1464ec6d77305b1985cc8dbd51e2b4db
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460634"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519470"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Usar identidades gerenciadas para acessar o Banco de Dados SQL do Azure de um trabalho do Azure Stream Analytics (Versão prévia)
 
@@ -60,7 +60,7 @@ Depois de criar uma identidade gerenciada, selecione um administrador do Active 
 
    ![Adicione o administrador do Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
 
-   A página de administração do Active Directory mostra todos os membros e grupos do Active Directory. Os usuários ou grupos que estão esmaecidos não podem ser selecionados porque não têm suporte como administradores de Azure Active Directory. Consulte a lista de administradores com suporte na seção **recursos e limitações do Azure Active Directory**   de [usar a autenticação Azure Active Directory para autenticação com o banco de dados SQL ou o Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). O RBAC (controle de acesso baseado em função) aplica-se somente ao portal e não é propagado para o SQL Server. Além disso, o usuário ou grupo selecionado é o usuário que poderá criar o **Usuário de banco de dados independente** na próxima seção.
+   A página de administração do Active Directory mostra todos os membros e grupos do Active Directory. Os usuários ou grupos que estão esmaecidos não podem ser selecionados porque não têm suporte como administradores de Azure Active Directory. Consulte a lista de administradores com suporte na seção **recursos e limitações do Azure Active Directory**   de [usar a autenticação Azure Active Directory para autenticação com o banco de dados SQL ou o Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). O Azure RBAC (controle de acesso baseado em função) aplica-se somente ao portal e não é propagado para SQL Server. Além disso, o usuário ou grupo selecionado é o usuário que poderá criar o **Usuário de banco de dados independente** na próxima seção.
 
 1. Selecione **Salvar** na página **Administrador do Active Directory**. O processo para alterar o administrador leva alguns minutos.
 

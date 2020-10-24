@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 787c7d7df5f013dd4477e466c02a2b323b4b59df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f1c4bf9b599da8285ac69e299549e5aa73c2f9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275091"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519581"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurar uma conexão do indexador com uma fonte de dados usando uma identidade gerenciada
 
@@ -31,7 +31,7 @@ Essa situação pode ser resolvida configurando uma conexão com uma identidade 
 
 ## <a name="using-managed-identities"></a>Usar identidades gerenciadas
 
-O recurso de [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) fornece serviços do Azure com uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). Você pode usar esse recurso no Azure Cognitive Search para criar um objeto da fonte de dados com uma cadeia de conexão que não inclua credenciais. Em vez disso, o serviço de pesquisa receberá acesso à fonte de dados por meio do RBAC (controle de acesso baseado em função).
+O recurso de [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) fornece serviços do Azure com uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). Você pode usar esse recurso no Azure Cognitive Search para criar um objeto da fonte de dados com uma cadeia de conexão que não inclua credenciais. Em vez disso, o serviço de pesquisa receberá acesso à fonte de dados por meio do controle de acesso baseado em função do Azure (RBAC do Azure).
 
 Ao configurar uma fonte de dados usando uma identidade gerenciada, você pode alterar as credenciais da fonte de dados enquanto ainda mantém a conexão entre os indexadores e a fonte de dados. Você também pode criar objetos de fonte de dados em seu código sem precisar incluir uma chave de conta ou usar Key Vault para recuperar uma chave de conta.
 

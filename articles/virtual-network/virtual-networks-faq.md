@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495834"
+ms.locfileid: "92518000"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -326,7 +326,7 @@ Há duas etapas para proteger um recurso de serviço do Azure por meio de pontos
 1. Ativar os pontos de extremidade de serviço para o serviço do Azure.
 2. Configurar ACLs da VNet no serviço do Azure.
 
-A primeira etapa é uma operação de rede; a segunda é uma operação do recurso do serviço. Ambas as etapas podem ser executadas pelo mesmo administrador ou administradores diferentes com base nas permissões RBAC concedidas à função de administrador. É recomendável ativar os pontos de extremidade de serviço da rede virtual antes de configurar as ACLs da VNet no serviço do Azure. Portanto, as etapas devem ser executadas na sequência listada acima para configurar pontos de extremidade de serviço de VNet.
+A primeira etapa é uma operação de rede; a segunda é uma operação do recurso do serviço. Ambas as etapas podem ser executadas pelo mesmo administrador ou por administradores diferentes com base nas permissões de RBAC do Azure concedidas à função de administrador. É recomendável ativar os pontos de extremidade de serviço da rede virtual antes de configurar as ACLs da VNet no serviço do Azure. Portanto, as etapas devem ser executadas na sequência listada acima para configurar pontos de extremidade de serviço de VNet.
 
 >[!NOTE]
 > As duas operações descritas anteriormente precisam ser concluídas antes de limitar o acesso ao serviço do Azure para a VNet e a sub-rede permitidas. Ativar somente os pontos de extremidade de serviço do Azure na rede não oferece acesso limitado. Além disso, também é necessário configurar as ACLs da VNet no serviço do Azure.

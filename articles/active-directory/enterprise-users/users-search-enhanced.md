@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcef70d821c7148cb926bd9357bbe656ceae35fe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374377"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517168"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Aprimoramentos de gerenciamento de usuário (versão prévia) no Azure Active Directory
 
@@ -29,7 +29,7 @@ Este artigo descreve como usar a visualização de aprimoramentos de gerenciamen
 As alterações na visualização incluem:
 
 - Mais propriedades de usuário visíveis, incluindo ID de objeto, status de sincronização de diretório, tipo de criação e emissor de identidade
-- A pesquisa agora permite a pesquisa combinada de nomes, emails e IDs de objeto
+- A pesquisa agora permite a pesquisa de subcadeia de caracteres e a pesquisa combinada de nomes, emails e IDs de objeto
 - Filtragem aprimorada por tipo de usuário (membro, convidado, nenhum), status de sincronização de diretório, tipo de criação, nome da empresa e nome de domínio
 - Novos recursos de classificação em propriedades como nome e nome principal do usuário
 - Uma nova contagem total de usuários que é atualizada com pesquisas ou filtros
@@ -59,7 +59,7 @@ A seguir estão as propriedades do usuário exibidas na página **todos os usuá
 
 - Nome: o nome de exibição do usuário.
 - Nome principal do usuário: o UPN (nome principal do usuário) do usuário.
-- Tipo de usuário: o tipo de usuário do usuário, membro ou convidado.
+- Tipo de usuário: membro, convidado, nenhum.
 - Diretório sincronizado: indica se o usuário está sincronizado de um diretório local.
 - Emissor de identidade: os emissores da identidade usada para entrar em uma conta de usuário.
 - ID do objeto: a ID de objeto do usuário.
@@ -67,6 +67,7 @@ A seguir estão as propriedades do usuário exibidas na página **todos os usuá
 - Nome da empresa: o nome da empresa ao qual o usuário está associado.
 - Estado do convite: o status do convite para um usuário convidado.
 - Email: o email do usuário.
+- Última entrada: a data em que o usuário se conectou pela última vez. Esta propriedade é visível somente para usuários com permissão para ler logs de auditoria (Reporting_ApplicationAuditLogs_Read)
 
 ![novas propriedades de usuário exibidas em todas as páginas usuários e usuários excluídos](./media/users-search-enhanced/user-properties.png)
 
@@ -75,7 +76,10 @@ A seguir estão as propriedades do usuário exibidas na página **todos os usuá
 A página **usuários excluídos** inclui todas as colunas que estão disponíveis na página **todos os usuários** e algumas colunas adicionais, isto é:
 
 - Data de exclusão: a data em que o usuário foi excluído pela primeira vez da organização (o usuário é restaurável).
-- Data de exclusão permanente: a data em que o usuário foi excluído permanentemente da organização.
+- Data de exclusão permanente: a data após a qual o processo de exclusão permanente do usuário da organização é iniciado automaticamente. 
+
+> [!NOTE]
+> As datas de exclusão são exibidas em UTC (tempo Universal Coordenado).
 
 Algumas colunas são exibidas por padrão. Para adicionar outras colunas, selecione as **colunas** na página, selecione os nomes de coluna que você deseja adicionar e selecione **OK** para salvar suas preferências.
 
@@ -88,7 +92,7 @@ Selecione uma entrada na coluna **emissor de identidade** para qualquer usuário
 
 ## <a name="user-list-search"></a>Pesquisa de lista de usuários
 
-Quando você insere uma cadeia de caracteres de pesquisa, a pesquisa usa a pesquisa "começa com" que agora pode corresponder a nomes, emails ou IDs de objeto em uma única pesquisa. Você pode inserir qualquer um desses atributos na caixa de pesquisa e a pesquisa examinará automaticamente todas essas propriedades para retornar quaisquer resultados correspondentes. Você pode executar a mesma pesquisa nas páginas **todos os usuários** e **usuários excluídos** .
+Quando você insere uma cadeia de caracteres de pesquisa, a pesquisa agora usa "começa com" e a pesquisa de subcadeia de caracteres para corresponder nomes, emails ou IDs de objeto em uma única pesquisa. Você pode inserir qualquer um desses atributos na caixa de pesquisa e a pesquisa procurará automaticamente todas essas propriedades para retornar quaisquer resultados correspondentes. A pesquisa de subcadeia de caracteres é executada somente em palavras inteiras. Você pode executar a mesma pesquisa nas páginas **todos os usuários** e **usuários excluídos** .
 
 ## <a name="user-list-filtering"></a>Filtragem da lista de usuários
 
@@ -133,10 +137,10 @@ Você pode exibir o número total de usuários nas páginas **todos os usuários
 
 Pergunta | Resposta
 -------- | ------
+Por que o usuário excluído ainda será exibido quando a data de exclusão permanente tiver passado? | A data de exclusão permanente é exibida no fuso horário UTC, portanto, isso pode não corresponder ao seu fuso horário atual. Além disso, essa data é a primeira data após a qual o usuário será excluído permanentemente da organização, portanto, ele ainda pode estar sendo processado. Os usuários excluídos permanentemente serão removidos automaticamente da lista.
 O que acontece com os recursos em massa para usuários e convidados? | As operações em massa ainda estão disponíveis para usuários e convidados, incluindo a criação em massa, o convite em massa, a exclusão em massa e o download de usuários. Acabamos de mesclá-los em um menu chamado **operações em massa**. Você pode encontrar as opções de **operações em massa** na parte superior da página **todos os usuários** .
 O que aconteceu com a coluna de origem? | A coluna de **origem** foi substituída por outras colunas que fornecem informações semelhantes, permitindo que você filtre esses valores de forma independente. Os exemplos incluem o **tipo de criação**, o **diretório foi sincronizado** e o **emissor de identidade**.
 O que aconteceu com a coluna nome de usuário? | A coluna **nome de usuário** ainda está lá, mas foi renomeada como **nome principal do usuário**. Isso reflete melhor as informações contidas nessa coluna. Você também observará que o nome principal do usuário completo agora é exibido para convidados B2B. Isso corresponde ao que você obteria no MS Graph.  
-Por que só posso executar uma pesquisa "começa com" e não uma pesquisa "contém"? | Há algumas limitações que nos impedem de permitir que você execute uma pesquisa "contém". Ouvimos os comentários, então fique atento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

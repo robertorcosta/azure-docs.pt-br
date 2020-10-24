@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f3fa755f61d398ce7f0965fba86262c3e3ec863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef38e36ce1d2c7968e3eb7079270626629523334
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021146"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518728"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas da Análise de Armazenamento do Azure (clássico)
 
@@ -176,7 +176,10 @@ Considere a possibilidade de configurar alertas no [portal do Azure](https://por
 >
 
 ## <a name="access-metrics-data-programmatically"></a>Acessar dados de métrica programaticamente  
-A listagem a seguir mostra o código C# de exemplo, que acessa a métrica de minutos para um intervalo de minutos e exibe os resultados em uma janela de console. O exemplo de código usa a biblioteca de clientes do Armazenamento do Microsoft Azure versão 4.x ou posterior, que inclui a classe **CloudAnalyticsClient** que simplifica o acesso às tabelas de métricas no armazenamento.  
+A listagem a seguir mostra o código C# de exemplo, que acessa a métrica de minutos para um intervalo de minutos e exibe os resultados em uma janela de console. O exemplo de código usa a biblioteca de clientes do Armazenamento do Microsoft Azure versão 4.x ou posterior, que inclui a classe **CloudAnalyticsClient** que simplifica o acesso às tabelas de métricas no armazenamento. 
+
+> [!NOTE]
+> A classe **CloudAnalyticsClient** não está incluída na biblioteca de cliente do armazenamento de BLOBs do Azure V12 para .net. Em **31 de agosto de 2023** análise de armazenamento métricas, também conhecidas como *métricas clássicas* serão desativadas. Para saber mais, confira o [anúncio oficial](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Se você usar métricas clássicas, recomendamos que você migre para métricas em Azure Monitor antes dessa data. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

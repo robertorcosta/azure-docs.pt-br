@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207693"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520975"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
@@ -44,7 +44,7 @@ A tabela a seguir lista as etapas e os requisitos para que seu Marketplace ofere
 
 |Etapa    |Tipo de oferta    |Requisitos    |Status de venda conjunta    |
 |----    |-------------    |------------    |---------------   |
-|<ol start=1><li> Crie uma conta no Partner Center e publique sua oferta no Marketplace comercial.</li>|Todos|<li>A oferta atende aos requisitos de publicação do Marketplace comercial.</li><li>Você tem um perfil comercial completo no Partner Center.</li>|Não está pronto.|
+|<ol start=1><li> Crie uma conta no Partner Center e publique sua oferta no Marketplace comercial.</li>|Tudo|<li>A oferta atende aos requisitos de publicação do Marketplace comercial.</li><li>Você tem um perfil comercial completo no Partner Center.</li>|Não está pronto.|
 |<ol start=2><li>Envie materiais de venda necessários.</li>|Ofertas de IP *com a* [opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Carregar materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-venda pronta|
 ||Ofertas de IP *sem* [a opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.|Co-venda pronta|
 ||Serviços de Consultoria|<li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.</li><li>Competência do Gold ativa.</li>|Co-venda pronta|
@@ -75,11 +75,13 @@ Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as e
  
 1. Carregar informações de contato de vendas na seção **contatos** . Os vendedores da Microsoft podem entrar em contato com esses contatos para solicitar informações adicionais sobre sua oferta. (*Obrigatório: um contato para cada geografia no qual sua oferta é*disponibilizada.)
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra o local da televenda com a guia Microsoft.":::
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra o local da televenda com a guia Microsoft." na lista suspensa "serviços do CED desejados":
+<ul><ul>
 
-1. Salve o rascunho antes de continuar.
-1. Depois de concluir todas as seções necessárias da oferta, você pode enviá-las para análise e publicação. No canto superior direito, selecione **revisar e publicar**. Examine os detalhes da oferta e, em seguida, selecione **publicar**.
-1. Vamos examinar os materiais que você carregou e determinar se sua oferta é qualificada para o programa de venda conjunta.
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Esta imagem mostra o local da televenda com a guia Microsoft.":::
+
+O CED entrará em contato com você para concluir o processo.
+</ul></ul>
 
 ## <a name="next-steps"></a>Próximas etapas
 
