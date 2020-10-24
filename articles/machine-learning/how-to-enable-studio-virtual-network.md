@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92426100"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503208"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 
@@ -36,7 +36,7 @@ Consulte os outros artigos desta série:
 
 
 > [!IMPORTANT]
-> Embora a maior parte do estúdio funcione com dados armazenados em uma rede virtual, os notebooks integrados __não__. Os blocos de anotações integrados não dão suporte ao uso do armazenamento que está em uma rede virtual. Em vez disso, você pode usar blocos de anotações do Jupyter de uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação]() .
+> Se o seu espaço de trabalho estiver em uma __nuvem soberanas__, como Azure governamental ou Azure China 21vianet, os notebooks integrados _não_ dão suporte ao uso de armazenamento que esteja em uma rede virtual. Em vez disso, você pode usar blocos de anotações do Jupyter de uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -127,7 +127,7 @@ O designer usa a conta de armazenamento anexada ao seu espaço de trabalho para 
 Para definir um novo armazenamento padrão para um pipeline:
 
 1. Em um rascunho de pipeline, selecione o **ícone de engrenagem configurações** próximo ao título do seu pipeline.
-1. Selecione **selecionar repositório de armazenamento padrão**.
+1. Selecione o **repositório de armazenamento padrão**.
 1. Especifique um novo repositório de armazenamento.
 
 Você também pode substituir o repositório de armazenamento padrão por módulo. Isso lhe dá controle sobre o local de armazenamento de cada módulo individual.

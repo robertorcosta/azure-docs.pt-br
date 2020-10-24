@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460947"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516198"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
 
@@ -108,7 +108,7 @@ Faça logon no banco de dados mestre com o logon de administrador do servidor ou
 
 Esse comando copia Database1 para um novo banco de dados chamado Database2 em um pool elástico chamado pool1. Dependendo do tamanho do banco de dados, a operação de cópia poderá demorar a ser concluída.
 
-Database1 pode ser um banco de dados único ou em pool, mas pool1 deve ser a mesma camada de serviço que Database1. 
+Database1 pode ser um banco de dados único ou em pool. Há suporte para a cópia entre diferentes pools de camada, mas algumas cópias entre camadas não terão sucesso. Por exemplo, você pode copiar um único banco de BD padrão ou elástico para um pool de uso geral, mas não pode copiar um banco de forma elástico padrão para um pool Premium. 
 
    ```sql
    -- execute on the master database to start copying

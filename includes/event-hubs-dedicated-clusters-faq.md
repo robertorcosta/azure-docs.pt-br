@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 10/23/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 345454557c1bd0df3b4e7210229c81f0149af0f3
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0335481566ae3f28ac0f1e6bddce7050a65e7dc2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495102"
+ms.locfileid: "92516980"
 ---
 ### <a name="what-can-i-achieve-with-a-cluster"></a>O que posso conseguir com um cluster?
 
 Para um cluster de hubs de eventos, quanto você pode ingerir e transmitir depende de vários fatores, como seus produtores, consumidores, a taxa na qual você está ingerindo e processando e muito mais. 
 
-A tabela a seguir mostra os resultados do parâmetro de comparação obtidos durante o teste:
+A tabela a seguir mostra os resultados de benchmark que obtivemos durante nosso teste:
 
 | Forma da carga | Destinatários | Largura de banda de entrada| Mensagens de entrada | Largura de banda de saída | Mensagens de saída | Total de TUs | TUs por CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
@@ -35,11 +35,11 @@ No teste, usamos os critérios a seguir:
 
 ### <a name="can-i-scale-updown-my-cluster"></a>Posso escalar/reduzir verticalmente o meu cluster?
 
-Após a criação, os clusters são cobrados por um mínimo de 4 horas de uso. Na versão de visualização da experiência de autoatendimento, você pode enviar uma [solicitação de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para a equipe de hubs de eventos sob a solicitação de *> de cota > para escalar ou reduzir verticalmente o cluster dedicado* para dimensionar ou reduzir verticalmente o cluster. Pode levar até 7 dias para concluir a solicitação para reduzir verticalmente o cluster. 
+Após a criação, os clusters são cobrados por um mínimo de 4 horas de uso. Na versão de visualização da experiência de autoatendimento, você pode enviar uma [solicitação de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) à equipe de hubs de eventos sob solicitação de cota **técnica**  >  **Quota**  >  **para escalar ou reduzir verticalmente o cluster dedicado** para dimensionar ou reduzir verticalmente o cluster. Pode levar até 7 dias para concluir a solicitação para reduzir verticalmente o cluster. 
 
-### <a name="how-will-geo-dr-work-with-my-cluster"></a>Como o geo-DR funcionará com o meu cluster?
+### <a name="how-does-geo-dr-work-with-my-cluster"></a>Como o geo-DR funciona com o meu cluster?
 
-Você pode emparelhar geograficamente um namespace em um cluster de camada dedicada com outro namespace em um cluster de camada dedicada. Não incentivamos o emparelhamento de um namespace de camada dedicada com um namespace em nossa oferta padrão, uma vez que o limite de taxa de transferência será incompatível, o que resultará em erros. 
+Você pode emparelhar geograficamente um namespace em um cluster de camada dedicada com outro namespace em um cluster de camada dedicada. Não incentivamos o emparelhamento de um namespace de camada dedicada com um namespace em nossa oferta padrão, pois o limite de taxa de transferência será incompatível e resultará em erros. 
 
 ### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Posso migrar meus namespaces padrão para pertencer a um cluster de camada dedicada?
-No momento, não damos suporte a um processo de migração automatizado para migrar seus dados de hubs de eventos de um namespace padrão para um dedicado. 
+Atualmente, não damos suporte a um processo de migração automatizado para migrar seus dados de hubs de eventos de um namespace padrão para um dedicado. 

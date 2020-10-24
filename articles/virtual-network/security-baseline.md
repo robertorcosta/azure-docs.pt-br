@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c34ace92fffee3c135cb05e07f06d885751bbce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36be61fd65db7ea02a3baec4b519a13231c420ec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629736"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514434"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Linha de base de segurança do Azure para rede virtual
 
@@ -118,7 +118,7 @@ Use grupos de segurança de aplicativo para ajudar a simplificar a configuraçã
 
 Consulte a política padrão para a central de segurança que contém as recomendações de segurança disponíveis relacionadas às suas redes virtuais.
 
-Use os planos gráficos do Azure para simplificar implantações do Azure de grande escala empacotando artefatos de ambiente-chave, como modelos de Azure Resource Manager, atribuições de controle de acesso baseado em função (RBAC do Azure) e políticas em uma única definição de Blueprint. Azure Blueprint podem ser aplicadas a novas assinaturas para controle e gerenciamento ajustados por meio de versionamento. 
+Use plantas do Azure para simplificar implantações de grande escala do Azure empacotando artefatos de ambiente-chave, como modelos de Azure Resource Manager, atribuições do Azure RBAC (controle de acesso baseado em função) e políticas, em uma única definição de Blueprint. Azure Blueprint podem ser aplicadas a novas assinaturas para controle e gerenciamento ajustados por meio de versionamento. 
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -408,13 +408,13 @@ Além disso, "a criptografia por padrão" usando MACsec (um padrão IEEE na cama
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-manage-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para gerenciar o acesso aos recursos 
+### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usar o RBAC do Azure para gerenciar o acesso aos recursos 
 
 **Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para gerenciar o acesso a dados e recursos. Caso contrário, use métodos de controle de acesso específicos do serviço. 
 
 Escolha funções internas, como proprietário, colaborador ou colaborador de rede, e atribua a função ao escopo apropriado. Por exemplo, você pode atribuir um subconjunto de recursos de rede virtual com as permissões específicas necessárias para as redes virtuais a qualquer uma dessas funções. 
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Planejar redes virtuais](virtual-network-vnet-plan-design-arm.md#permissions)
 

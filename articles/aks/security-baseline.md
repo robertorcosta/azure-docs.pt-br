@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a9410215abeb6fdb413866cbff12cf5f826c0fee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201691"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504364"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de base de segurança do Azure para o serviço kubernetes do Azure
 
@@ -949,7 +949,7 @@ Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para desc
 
 Implemente o namespace no kubernetes para criar um limite de isolamento lógico. Use Azure Policy aliases no namespace "Microsoft. ContainerService" para criar políticas personalizadas para auditar ou impor a configuração de suas instâncias do AKS (serviço kubernetes do Azure). 
 
-Examine e implemente recursos e considerações adicionais do kubernetes para isolamento e multilocação incluem as seguintes áreas: agendamento, rede, autenticação/autorização e contêineres. Use também assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Separar clusters AKS com redes virtuais, sub-redes que são marcadas adequadamente e protegidas por um WAF (firewall do aplicativo Web).
+Examine e implemente recursos e considerações adicionais do kubernetes para isolamento e multilocação para incluir o seguinte: agendamento, rede, autenticação/autorização e contêineres. Use também assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Separar clusters AKS com redes virtuais, sub-redes que são marcadas adequadamente e protegidas por um WAF (firewall do aplicativo Web).
 
 - [Saiba mais sobre as práticas recomendadas para o isolamento de cluster no AKS](operator-best-practices-cluster-isolation.md)
 
@@ -1235,7 +1235,7 @@ Remova o estado de seus aplicativos antes do backup. Nos casos em que isso não 
 
 Execute backups automatizados regulares de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell. 
 
-Por exemplo: 
+Por exemplo:
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 Execute periodicamente a restauração de dados de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell. 
 
-Por exemplo: 
+Por exemplo:
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 
