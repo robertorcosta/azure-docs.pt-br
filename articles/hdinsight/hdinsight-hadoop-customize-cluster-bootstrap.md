@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: eaddae04c198742007947831046139d80828534b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd81a15853f1c3b0eb1b1cdd40cc4c7ebf713308
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006578"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490298"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -21,7 +21,7 @@ Os scripts de Bootstrap permitem que você instale e configure componentes no Az
 
 Há três abordagens para definir as configurações do arquivo de configuração à medida que seu cluster HDInsight é criado:
 
-* Usar PowerShell do Azure
+* Usar o Azure PowerShell
 * Usar o SDK do .NET
 * Usar o modelo do Azure Resource Manager
 
@@ -50,7 +50,7 @@ Para obter informações sobre como instalar componentes adicionais no cluster H
 
 * Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/).
 
-## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
+## <a name="use-azure-powershell"></a>Usar o Azure PowerShell
 
 O seguinte código do PowerShell personaliza uma configuração de [Apache Hive](https://hive.apache.org/):
 
@@ -108,7 +108,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>Usar o SDK do .NET
 
-Consulte [SDK do Azure HDInsight para .net](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+Consulte [SDK do Azure HDInsight para .net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
 
 ## <a name="use-resource-manager-template"></a>Usar modelo do Resource Manager
 

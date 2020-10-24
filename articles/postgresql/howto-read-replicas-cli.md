@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707533"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489703"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Criar e gerenciar réplicas de leitura do CLI do Azure, API REST
 
@@ -34,7 +34,7 @@ Você pode criar e gerenciar réplicas de leitura usando o CLI do Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli)
 - Um [banco de dados do Azure para o servidor PostgreSQL](quickstart-create-server-up-azure-cli.md) ser o servidor primário.
 
 
@@ -60,7 +60,7 @@ Você pode criar e gerenciar réplicas de leitura usando o CLI do Azure.
 
 ### <a name="create-a-read-replica"></a>Criar uma réplica de leitura
 
-O comando [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) requer os seguintes parâmetros:
+O comando [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) requer os seguintes parâmetros:
 
 | Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
@@ -91,14 +91,14 @@ Se você não tiver definido o `azure.replication_support` parâmetro como **ré
 > Antes que uma configuração do servidor primário seja atualizada para um novo valor, atualize a configuração de réplica para um valor igual ou maior. Essa ação ajuda a réplica a acompanhar as alterações feitas no mestre.
 
 ### <a name="list-replicas"></a>Listar réplicas
-Você pode exibir a lista de réplicas de um servidor primário usando o comando [AZ postgres Server da lista de réplicas](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) .
+Você pode exibir a lista de réplicas de um servidor primário usando o comando [AZ postgres Server da lista de réplicas](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) .
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
-Você pode interromper a replicação entre um servidor primário e uma réplica de leitura usando o comando [AZ postgres Server Replica Stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) .
+Você pode interromper a replicação entre um servidor primário e uma réplica de leitura usando o comando [AZ postgres Server Replica Stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) .
 
 Depois de parar a replicação em um servidor primário e em uma réplica de leitura, ela não pode ser desfeita. A réplica de leitura se torna um servidor autônomo que dá suporte a leituras e gravações. O servidor autônomo não pode se tornar uma réplica novamente.
 
@@ -107,7 +107,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Excluir um servidor primário ou de réplica
-Para excluir um servidor de réplica ou primário, use o comando [AZ postgres Server Delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) .
+Para excluir um servidor de réplica ou primário, use o comando [AZ postgres Server Delete](/cli/azure/postgres/server#az-postgres-server-delete) .
 
 Quando você exclui um servidor primário, a replicação para todas as réplicas de leitura é interrompida. As réplicas de leitura tornam-se servidores independentes que agora têm suporte para leitura e gravação.
 

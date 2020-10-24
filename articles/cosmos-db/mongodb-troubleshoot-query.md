@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283524"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488377"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Solucionar problemas de consulta ao usar a API de Azure Cosmos DB para MongoDB
 
@@ -116,7 +116,7 @@ A `$explain` saída do comando é demorada e tem informações detalhadas sobre 
 | `timeInclusiveMS` | Latência de consulta de back-end |
 | `pathsIndexed` | Mostra os índices usados pela consulta | 
 | `pathsNotIndexed` | Mostra os índices que a consulta poderia ter usado, se disponível | 
-| `shardInformation` | Resumo do desempenho da consulta para uma [partição física](partition-data.md#physical-partitions) específica | 
+| `shardInformation` | Resumo do desempenho da consulta para uma [partição física](./partitioning-overview.md#physical-partitions) específica | 
 | `retrievedDocumentCount` | Número de documentos carregados pelo mecanismo de consulta | 
 | `outputDocumentCount` | Número de documentos retornados nos resultados da consulta | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Latência de consulta adicional estimada devido à limitação de taxa | 
@@ -256,13 +256,13 @@ As práticas recomendadas de indexação na API do Azure Cosmos DB para MongoDB 
 
 Os [índices curinga](mongodb-indexing.md#wildcard-indexes) podem simplificar a indexação. Ao contrário do MongoDB, os índices curinga podem dar suporte a vários campos em predicados de consulta. Não haverá diferença no desempenho da consulta se você usar um único índice curinga em vez de criar um índice separado para cada propriedade. Adicionar um índice curinga para todas as propriedades é a maneira mais fácil de otimizar todas as suas consultas.
 
-Você pode adicionar novos índices a qualquer momento, sem nenhum efeito na disponibilidade de gravação ou leitura. Você pode [acompanhar o progresso da transformação do índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Você pode adicionar novos índices a qualquer momento, sem nenhum efeito na disponibilidade de gravação ou leitura. Você pode [acompanhar o progresso da transformação do índice](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>Entender quais operações de agregação usam o índice
 
 Na maioria dos casos, as operações de agregação na API do Azure Cosmos DB para o MongoDB usarão os índices parcialmente. Normalmente, o mecanismo de consulta aplicará primeiro os filtros de igualdade e de intervalo e usará índices. Depois de aplicar esses filtros, o mecanismo de consulta poderá avaliar filtros adicionais e recorrer ao carregamento de documentos restantes para computar a agregação, se necessário. 
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```
 db.coll.aggregate( [

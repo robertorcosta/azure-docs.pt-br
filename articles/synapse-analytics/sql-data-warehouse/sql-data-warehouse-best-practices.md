@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 6978855e9b32a3842e76d02ef543d86cf0673019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206641"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489635"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Práticas recomendadas para o pool de SQL do Synapse no Azure Synapse Analytics (antigo SQL DW)
 
@@ -64,7 +64,7 @@ Confira também [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/sy
 
 O pool de SQL é compatível com o carregamento e exportação dos dados por meio de várias ferramentas, incluindo o Azure Data Factory, PolyBase e BCP.  Para pequenas quantidades de dados em que o desempenho não é essencial, qualquer ferramenta poderá ser suficiente para satisfazer suas necessidades.  No entanto, quando você estiver carregando ou exportando grandes volumes de dados ou um desempenho rápido for necessário, o PolyBase será a melhor opção.  
 
-O PolyBase foi projetado para aproveitar a arquitetura MPP (Processamento Paralelo Massivo) e carregará e exportará grandes quantidades de dados mais rapidamente do que qualquer outra ferramenta.  As cargas do PolyBase podem ser executadas usando CTAS ou INSERT INTO.  
+O polybase foi projetado para aproveitar a natureza distribuída do sistema e carregar e exportar as magnitudes de dados mais rápido do que qualquer outra ferramenta.  As cargas do PolyBase podem ser executadas usando CTAS ou INSERT INTO.   
 
 > [!TIP]
 > Usar o CTAS minimizará o registro em log das transações e será o modo mais rápido de carregar os dados.

@@ -9,31 +9,31 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 454e5fdd6fae8fc7bf8e37833124bb3d188cb028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfd4f0e0be0fe269875270161aea91465a895c7c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802541"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477599"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SDK do .NET v2 para a API do SQL: download e notas de versão
 > [!div class="op_single_selector"]
 > * [SDK v3 do .NET](sql-api-sdk-dotnet-standard.md)
 > * [SDK do .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
-> * [SDK v2 do feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK do Feed de Alterações do .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
@@ -60,5 +60,4 @@ As seguintes subversões dos SDKs do .NET estão disponíveis na versão 2. x. x
 
 ## <a name="see-also"></a>Confira também
 
-Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
+Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

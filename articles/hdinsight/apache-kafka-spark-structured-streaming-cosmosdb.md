@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
-ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203464"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487323"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
 
@@ -86,7 +86,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
 O projeto usado neste documento armazena dados no Cosmos DB. Antes de executar o código, você deve primeiro criar um _banco de dados_ e uma _coleção_ em sua instância do Cosmos DB. Você também deve recuperar o ponto de extremidade do documento e a _chave_ usada para autenticar solicitações para o Cosmos DB.
 
-Uma forma de fazer isso é usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). O script a seguir criará um banco de dados denominado `kafkadata` e uma coleção denominada `kafkacollection`. A chave primária será retornada.
+Uma forma de fazer isso é usar o [CLI do Azure](/cli/azure/). O script a seguir criará um banco de dados denominado `kafkadata` e uma coleção denominada `kafkacollection`. A chave primária será retornada.
 
 ```azurecli
 #!/bin/bash

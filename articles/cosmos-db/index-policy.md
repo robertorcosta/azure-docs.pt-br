@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277791"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489227"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -34,7 +34,7 @@ O Azure Cosmos DB dá suporte a dois modos de indexação:
 
 Por padrão, a política de indexação é definida como `automatic` . É possível definir a `automatic` Propriedade na política de indexação como `true` . Definir essa propriedade como `true` permite que o Azure CosmosDB indexe automaticamente os documentos conforme eles são gravados.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Incluindo e excluindo caminhos de propriedade
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Incluindo e excluindo caminhos de propriedade
 
 Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos que são indexados, você pode reduzir substancialmente a latência e a carga de RU das operações de gravação. Esses caminhos são definidos seguindo [o método descrito na seção visão geral da indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
 
@@ -101,7 +101,7 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminho mais preciso terá precedência.
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 **Caminho incluído**: `/food/ingredients/nutrition/*`
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409758"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490621"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo da API do Gremlin do Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Uma solução de banco de dados de grafo pode ser aplicada de forma ideal se as 
 
 Se os critérios acima forem atendidos, será provável que uma abordagem de banco de dados de grafo fornecerá vantagens para **complexidade da consulta**, **escalabilidade do modelo de dados** e **desempenho de consulta**.
 
-A próxima etapa é determinar se o grafo será usado para fins analíticos ou transacionais. Se o grafo se destinar a ser usado para cargas de trabalho de processamento de dados e cálculo intensivos, valerá a pena explorar o [conector do Spark do Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector) e o uso da [biblioteca do GraphX](https://spark.apache.org/graphx/). 
+A próxima etapa é determinar se o grafo será usado para fins analíticos ou transacionais. Se o grafo se destinar a ser usado para cargas de trabalho de processamento de dados e cálculo intensivos, valerá a pena explorar o [conector do Spark do Cosmos DB](./spark-connector.md) e o uso da [biblioteca do GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Como usar objetos de grafo
 
@@ -47,13 +47,13 @@ Estas são as melhores práticas para as propriedades nos objetos de grafo:
 
 | Objeto | Propriedade | Type | Observações |
 | --- | --- | --- |  --- |
-| Vértice | ID | String | Imposto com exclusividade por partição. Se um valor não for fornecido após a inserção, um GUID gerado automaticamente será armazenado. |
-| Vértice | label | String | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
+| Vértice | ID | Cadeia de caracteres | Imposto com exclusividade por partição. Se um valor não for fornecido após a inserção, um GUID gerado automaticamente será armazenado. |
+| Vértice | label | Cadeia de caracteres | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
 | Vértice | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada vértice. |
 | Vértice | partition key | Cadeia de caracteres, booliano, numérico | Essa propriedade define em que local o vértice e suas bordas de saída serão armazenados. Leia mais sobre o [particionamento de grafo](graph-partitioning.md). |
-| Edge | ID | String | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
-| Edge | label | String | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
-| Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
+| Microsoft Edge | ID | Cadeia de caracteres | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
+| Microsoft Edge | label | Cadeia de caracteres | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
+| Microsoft Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
 
 > [!NOTE]
 > As bordas não exigem um valor de chave de partição, pois seu valor é atribuído automaticamente com base no vértice de origem. Saiba mais no artigo [Particionamento de grafo](graph-partitioning.md).

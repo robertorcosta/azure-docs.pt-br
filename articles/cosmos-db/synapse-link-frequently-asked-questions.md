@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104097"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480064"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
 
@@ -37,13 +37,13 @@ Na versão de visualização, quando o link Synapse do Azure está habilitado pa
 
 Para os contêineres com o repositório analítico ativado, o backup automático e a restauração de seus dados no repositório analítico não têm suporte no momento. 
 
-Quando o link do Synapse estiver habilitado em uma conta de banco de dados, Azure Cosmos DB continuará a [fazer backups](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) de seus dados automaticamente no armazenamento transacional (somente) de contêineres no intervalo de backup agendado, como sempre. É importante observar que, quando um contêiner com o armazenamento analítico ativado é restaurado para uma nova conta, o contêiner será restaurado somente com armazenamento transacional e nenhum repositório analítico habilitado. 
+Quando o link do Synapse estiver habilitado em uma conta de banco de dados, Azure Cosmos DB continuará a [fazer backups](./online-backup-and-restore.md) de seus dados automaticamente no armazenamento transacional (somente) de contêineres no intervalo de backup agendado, como sempre. É importante observar que, quando um contêiner com o armazenamento analítico ativado é restaurado para uma nova conta, o contêiner será restaurado somente com armazenamento transacional e nenhum repositório analítico habilitado. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Posso desabilitar o recurso de link Synapse do Azure para minha conta de Azure Cosmos DB?
 
 Atualmente, depois que a funcionalidade de Link do Synapse é habilitada no nível da conta, você não poderá desabilitá-la. Lembre-se de que não há nenhuma implicação de cobrança para você caso o recurso de Link do Synapse esteja habilitado no nível da conta e não haja contêineres habilitados para o repositório analítico. 
 
-Se você precisar desativar o recurso, terá duas opções. A primeira é excluir e recriar uma nova conta de Azure Cosmos DB, migrando os dados, se necessário. A segunda opção é abrir um tíquete de suporte para obter ajuda sobre uma migração de dados para outra conta.
+Se você precisar desativar o recurso, terá duas opções. A primeira é excluir e recriar uma nova conta do Azure Cosmos DB, migrando os dados se necessário. A segunda opção é abrir um tíquete de suporte para obter ajuda com a migração de dados para outra conta.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Repositório analítico do Azure Cosmos DB
 
@@ -100,7 +100,7 @@ No momento, você não pode transformar os itens de dados quando eles são autom
 
 ### <a name="is-analytical-store-supported-by-terraform"></a>O repositório analítico é compatível com o Terraform?
 
-Atualmente, o Terraform não dá suporte a contêineres de repositório analítico. Consulte os [problemas do GitHub Terraform](https://github.com/hashicorp/terraform/issues) para obter mais informações.
+No momento, o Terraform não é compatível com contêineres de repositório analítico. Verifique [Problemas de GitHub do Terraform](https://github.com/hashicorp/terraform/issues) para obter mais informações.
 
 ## <a name="analytical-time-to-live-ttl"></a>Tempo de vida (TTL) analítico
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e50502c8c3e37c5d48359079e2e72c13feea4a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399033"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487867"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação do Microsoft Azure: perguntas frequentes
 
@@ -132,7 +132,7 @@ Não. Todas as unidades são criptografadas com o BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Como posso acessar dados importados por este serviço?
 
-Use o portal do Azure ou [Gerenciador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) para acessar os dados em sua conta de armazenamento do Azure.  
+Use o portal do Azure ou [Gerenciador de armazenamento](/azure/vs-azure-tools-storage-manage-with-storage-explorer) para acessar os dados em sua conta de armazenamento do Azure.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>Depois que a importação for concluída, como ficam meus dados na conta de armazenamento? Minha hierarquia do diretório é preservada?
 
@@ -144,7 +144,7 @@ Depende. Ao preparar a unidade, você pode especificar se os arquivos de destino
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>A ferramenta WAImportExport é compatível com sistemas operacionais de 32 bits?
 
-Não. A ferramenta WAImportExport só é compatível com o sistema de operacional do Windows de 64 bits. Para obter uma lista completa do SO com suporte, acesse [Sistemas Operacionais com Suporte](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
+Não. A ferramenta WAImportExport só é compatível com o sistema de operacional do Windows de 64 bits. Para obter uma lista completa do SO com suporte, acesse [Sistemas Operacionais com Suporte](/azure/storage/common/storage-import-export-requirements).
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Qual é o Blob de Blocos máximo e o Tamanho do Blob de Páginas com suporte pela Importação/Exportação do Microsoft Azure?
 

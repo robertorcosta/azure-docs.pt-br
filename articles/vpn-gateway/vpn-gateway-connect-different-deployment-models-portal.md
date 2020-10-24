@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082096"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487020"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conectar redes virtuais de diferentes modelos de implantação usando o portal
 
@@ -162,7 +162,7 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 * GatewaySubnet = 192.168.0.0/26 <br>
 * Configuração do primeiro IP = rmgwpip <br>
 
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Add gateway](../../includes/vpn-gateway-add-gw-rm-portal-empty.md)]
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -177,7 +177,7 @@ Nesta etapa, você cria o gateway de rede virtual para sua rede virtual. Criar u
 
 O gateway de rede local especifica o intervalo de endereços e o endereço IP público associado à VNet clássica e seu gateway de rede virtual. Se estiver seguindo estas etapas como um exercício, consulte os Valores de exemplo.
 
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
+[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-ip-empty.md)]
 
 ## <a name="section-3---modify-the-classic-vnet-local-site-settings"></a><a name="modifylng"></a>Seção 3 – Modificar as configurações de site local de VNet clássicas
 

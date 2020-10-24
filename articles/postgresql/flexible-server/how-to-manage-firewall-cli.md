@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d1019c31b10801a12c960dd5dadd8836fd9b7cd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36249694c5a4de8a738853892f827c6d9e1e4aff
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933238"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489465"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Criar e gerenciar o banco de dados do Azure para PostgreSQL – regras de firewall de servidor flexíveis usando o CLI do Azure
 
@@ -33,17 +33,17 @@ O [Azure Cloud Shell](../../cloud-shell/overview.md) é um shell gratuito e inte
 
 Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode abrir o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e selecione **Enter** para executá-lo.
 
-Caso prefira instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Caso prefira instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará entrar na sua conta usando o comando [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Observe a propriedade **ID** , que se refere à **ID da assinatura** da sua conta do Azure.
+Você precisará entrar na sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **ID** , que se refere à **ID da assinatura** da sua conta do Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a assinatura específica em sua conta usando o comando [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Anote o valor de **ID** da saída de **logon AZ** para usar como o argumento valor para **assinatura** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az-account-set). Anote o valor de **ID** da saída de **logon AZ** para usar como o argumento valor para **assinatura** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>

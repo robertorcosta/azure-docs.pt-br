@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 1f1af53388f177dc348c5cb805ef8e6fbe9f9436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27da5f1b731b2cdb0604f91f7f9e78b19ee2908b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710814"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489788"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migração de tempo de inatividade mínimo para o banco de dados do Azure para PostgreSQL-servidor único
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server-hyperscale.md)]
@@ -25,4 +25,4 @@ O DMS do Azure executa uma carga inicial do local no Banco de Dados do Azure par
 
 ## <a name="next-steps"></a>Próximas etapas
 - Exibir o vídeo [Modernização de aplicativos com o Microsoft Azure](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102), que contém uma demonstração mostrando como migrar aplicativos do PostgreSQL para o Banco de Dados do Azure para PostgreSQL.
-- Consulte o tutorial [Migrar o PostgreSQL para o Banco de Dados do Azure para PostgreSQL on-line usando o DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- Consulte o tutorial [Migrar o PostgreSQL para o Banco de Dados do Azure para PostgreSQL on-line usando o DMS](../dms/tutorial-postgresql-azure-postgresql-online.md).

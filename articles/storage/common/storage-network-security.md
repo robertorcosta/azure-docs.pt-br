@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7e7a61247c8f449291fb8ec0b91b7513ee75f6c9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 96e06e31ae3c963459a0f6b4772147197913b52a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072485"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488581"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -358,13 +358,13 @@ Você pode gerenciar as regras de rede IP para contas de armazenamento através 
 
 ## <a name="exceptions"></a>Exceções
 
-As regras de rede ajudam a criar um ambiente seguro para conexões entre seus aplicativos e seus dados para a maioria dos cenários. No entanto, alguns aplicativos dependem de serviços do Azure que não podem ser isolados exclusivamente por meio de regras de endereço IP ou de rede virtual. Mas, para habilitar a funcionalidade completa do aplicativo, é preciso permitir acesso ao armazenamento para esses serviços. Nessas situações, você pode usar a configuração ***Permitir serviços confiáveis da Microsoft...*** para permitir que esses serviços acessem seus dados, logs ou análises.
+As regras de rede ajudam a criar um ambiente seguro para conexões entre seus aplicativos e seus dados para a maioria dos cenários. No entanto, alguns aplicativos dependem de serviços do Azure que não podem ser isolados exclusivamente por meio de regras de endereço IP ou de rede virtual. Mas, para habilitar a funcionalidade completa do aplicativo, é preciso permitir acesso ao armazenamento para esses serviços. Nessas situações, você pode usar o **_permitir serviços confiáveis da Microsoft..._* _ configure para permitir que esses serviços acessem seus dados, logs ou análises.
 
 ### <a name="trusted-microsoft-services"></a>Serviços Microsoft confiáveis
 
 Alguns serviços da Microsoft operam de redes que não podem ser incluídas em suas regras de rede. Você pode conceder, a um subconjunto desses serviços confiáveis da Microsoft, acesso à conta de armazenamento, mantendo as regras de rede para outros aplicativos. Esses serviços confiáveis usarão a autenticação forte para se conectar à sua conta de armazenamento com segurança. Habilitamos dois modos de acesso confiável para serviços Microsoft.
 
-- Os recursos de alguns serviços, **quando registrados em sua assinatura**, podem acessar sua conta de armazenamento **na mesma assinatura** para um conjunto limitado de operações, como gravar logs ou fazer backup.
+- Os recursos de alguns serviços, _ * quando registrados em sua assinatura * *, podem acessar sua conta de armazenamento **na mesma assinatura** para operações SELECT, como gravar logs ou backup.
 - Os recursos de alguns serviços podem receber acesso explícito à sua conta de armazenamento **atribuindo uma função do Azure** à sua identidade gerenciada atribuída pelo sistema.
 
 
@@ -381,8 +381,8 @@ Quando você habilita a configuração **Permitir serviços confiáveis da Micro
 | Azure HDInsight          | Microsoft.HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Importação/Exportação do Azure      | Microsoft.ImportExport     | Permite a importação de dados para o armazenamento do Azure ou a exportação de dados do armazenamento do Azure usando o serviço de importação/exportação do armazenamento do Azure. [Saiba mais](/azure/storage/common/storage-import-export-service).  |
 | Azure Monitor            | Microsoft.insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida, incluindo logs de recursos, logs de entrada e de auditoria do Azure Active Directory e logs do Microsoft Intune. [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Rede do Azure         | Microsoft.Network          | Armazene e analise logs de tráfego de rede, incluindo por meio do observador de rede e serviços de Análise de Tráfego. [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais de IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Rede do Azure         | Microsoft.Network          | Armazene e analise logs de tráfego de rede, incluindo por meio do observador de rede e serviços de Análise de Tráfego. [Saiba mais](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais de IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
 A configuração **permitir serviços confiáveis da Microsoft...** também permite que uma instância específica dos serviços a seguir acesse a conta de armazenamento, se você [atribuir explicitamente uma função do Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recurso. Nesse caso, o escopo de acesso para a instância corresponde à função do Azure atribuída à identidade gerenciada.
 
@@ -397,7 +397,7 @@ A configuração **permitir serviços confiáveis da Microsoft...** também perm
 | Aplicativos Lógicos do Azure               | Microsoft.Logic/workflows              | Permite que os aplicativos lógicos acessem contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Serviço do Azure Machine Learning | Microsoft.MachineLearningServices      | Os workspaces autorizados do Azure Machine Learning gravam a saída, os modelos e os logs do experimento no Armazenamento de Blobs e leem os dados. [Saiba mais](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure Synapse Analytics (antigo SQL Data Warehouse)       | Microsoft.Sql                          | Permite a importação e a exportação de dados de bancos de dado SQL específicos usando a instrução de cópia ou o polybase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Banco de Dados SQL do Azure       | Microsoft.Sql                          | Permite a [importação](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) de dados de contas de armazenamento e a [gravação](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) de dados de auditoria em contas de armazenamento por trás do firewall. |
+| Banco de Dados SQL do Azure       | Microsoft.Sql                          | Permite a [importação](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) de dados de contas de armazenamento e a [gravação](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) de dados de auditoria em contas de armazenamento por trás do firewall. |
 | Stream Analytics do Azure         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam gravados no Armazenamento de Blobs. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Habilita o acesso a dados no Armazenamento do Azure do Synapse Analytics. |
 

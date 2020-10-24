@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 524c888bb132405f03af44f9c28198be0ac89370
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085541"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489584"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a REST
 
@@ -185,7 +185,7 @@ $clusterName
 
 1. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém a localização do arquivo de saída; nesse caso, `/example/rest`. Esse endereço armazena a saída do diretório `example/curl` no armazenamento padrão de clusters.
 
-    Você pode listar e baixar esses arquivos usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como usar a CLI do Azure com o Armazenamento do Azure, consulte o documento [Usar a CLI do Azure com o Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
+    Você pode listar e baixar esses arquivos usando a [CLI do Azure](/cli/azure/install-azure-cli). Para obter mais informações sobre como usar a CLI do Azure com o Armazenamento do Azure, consulte o documento [Usar a CLI do Azure com o Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 ## <a name="next-steps"></a>Próximas etapas
 

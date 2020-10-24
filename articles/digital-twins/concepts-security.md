@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331746"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485742"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -48,11 +48,13 @@ Com identidades gerenciadas, a plataforma do Azure gerencia essa identidade de r
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorização: funções do Azure para o gêmeos digital do Azure
 
 O Azure fornece as funções internas do Azure abaixo para autorizar o acesso a um recurso de gêmeos digital do Azure:
-* *Proprietário do gêmeos digital do Azure (versão prévia)* – Use essa função para fornecer acesso completo nos recursos do gêmeos digital do Azure.
-* *Leitor de gêmeos digital do Azure (versão prévia)* – Use essa função para conceder acesso somente leitura aos recursos do gêmeos digital do Azure.
+* *Proprietário de dados do gêmeos digital do Azure* – Use essa função para fornecer acesso completo nos recursos do gêmeos digital do Azure.
+* *Leitor de dados do Azure digital gêmeos* – Use essa função para conceder acesso somente leitura aos recursos do gêmeos digital do Azure.
 
-> [!TIP]
-> A função *leitor de gêmeos digital do Azure (versão prévia)* agora também dá suporte a relações de navegação.
+>[!NOTE]
+> Essas funções foram renomeadas recentemente de seus nomes anteriores na versão prévia:
+> * O *proprietário de dados do gêmeos digital do Azure* era anteriormente o *proprietário do Azure digital gêmeos (versão prévia)*.
+> * O *leitor de dados do gêmeos digital do Azure* era anteriormente o *leitor de gêmeos digital do Azure (versão prévia)*.
 
 Para obter mais informações sobre como as funções internas são definidas, consulte [*entender as definições de função*](../role-based-access-control/role-definitions.md) na documentação do RBAC do Azure. Para obter informações sobre como criar funções personalizadas do Azure, consulte [*funções personalizadas do Azure*](../role-based-access-control/custom-roles.md).
 

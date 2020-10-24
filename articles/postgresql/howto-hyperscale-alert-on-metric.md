@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b59bcf3f25921a348e9c5f25e83619d8596ebd5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907423"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489856"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usar o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -28,7 +28,7 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 Você pode configurar e obter informações sobre as regras de alerta usando:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta em uma métrica no Portal do Azure
 1. No [Portal do Azure](https://portal.azure.com/), selecione o servidor do Banco de Dados do Azure para PostgreSQL que você deseja monitorar.
@@ -102,4 +102,4 @@ O monitoramento do uso da CPU é útil para estabelecer uma linha de base para o
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
+* Tenha uma [visão geral da coleção de métricas](../azure-monitor/platform/data-platform.md) para verificar se o serviço está disponível e responsivo.

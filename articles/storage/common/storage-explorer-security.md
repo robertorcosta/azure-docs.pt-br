@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714381"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488598"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guia de segurança do Gerenciador de Armazenamento do Azure
 
@@ -44,15 +44,15 @@ Esta seção descreve as duas tecnologias baseadas no Azure AD que podem ser usa
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>RBAC do Azure (controle de acesso baseado em função do Azure)
 
-O Azure [RBAC (controle de acesso baseado em função) do](https://docs.microsoft.com/azure/role-based-access-control/overview) Azure fornece controle de acesso refinado sobre os recursos do Azure. As funções e permissões do Azure podem ser gerenciadas no portal do Azure.
+O Azure [RBAC (controle de acesso baseado em função) do](/azure/role-based-access-control/overview) Azure fornece controle de acesso refinado sobre os recursos do Azure. As funções e permissões do Azure podem ser gerenciadas no portal do Azure.
 
 O Gerenciador de Armazenamento dá suporte ao acesso RBAC do Azure a contas de armazenamento, BLOBs e filas. Se precisar de acesso a compartilhamentos de arquivos ou tabelas, você precisará atribuir funções do Azure que concedem permissão para listar chaves de conta de armazenamento.
 
 #### <a name="access-control-lists-acls"></a>ACLs (listas de controle de acesso)
 
-As [ACLs (listas de controle de acesso)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) permitem controlar o acesso ao nível de arquivo e pasta em ADLS Gen2 contêineres de BLOB. Você pode gerenciar suas ACLs usando Gerenciador de Armazenamento.
+As [ACLs (listas de controle de acesso)](/azure/storage/blobs/data-lake-storage-access-control) permitem controlar o acesso ao nível de arquivo e pasta em ADLS Gen2 contêineres de BLOB. Você pode gerenciar suas ACLs usando Gerenciador de Armazenamento.
 
-### <a name="shared-access-signatures-sas"></a>SAS (Assinaturas de Acesso Compartilhado)
+### <a name="shared-access-signatures-sas"></a>SAS (assinaturas de acesso compartilhado)
 
 Se você não puder usar a autenticação do Azure AD, recomendamos o uso de assinaturas de acesso compartilhado. Com as assinaturas de acesso compartilhado, você pode:
 
@@ -102,4 +102,4 @@ Ao habilitar o acesso público para um contêiner de BLOB, recomendamos as segui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Recomendações de segurança](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Recomendações de segurança](/azure/storage/blobs/security-recommendations)

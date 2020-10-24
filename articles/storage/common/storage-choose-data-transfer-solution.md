@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400530"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488683"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução do Azure para transferência de dados
 
@@ -71,15 +71,15 @@ Você também pode acessar sua conta de armazenamento do Azure em portal do Azur
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Obter uma introdução ao Armazenamento do Microsoft Azure](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Leia uma visão geral do AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
+- [Leia uma visão geral do AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 - [Início Rápido: Carregar, baixar e listar blobs com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Início Rápido: Criar, baixar e listar blobs com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Saiba mais sobre:
 
-    - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy para transferências offline ](https://docs.microsoft.com/azure/databox/).
-    - [Gateway do Azure data box e Azure Stack Edge para transferências online](https://docs.microsoft.com/azure/databox-online/).
-- [Saiba o que é o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+    - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy para transferências offline ](/azure/databox/).
+    - [Gateway do Azure data box e Azure Stack Edge para transferências online](/azure/databox-online/).
+- [Saiba o que é o Azure Data Factory](/azure/data-factory/copy-activity-overview).
 - Use as APIs REST para transferir dados
 
-    - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [No Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [In .NET](/dotnet/api/overview/azure/storage)
+    - [No Java](/java/api/overview/azure/storage)

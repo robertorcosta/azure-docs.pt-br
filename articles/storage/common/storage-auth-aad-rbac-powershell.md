@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d750e1f287ff7dfc5259b704355e026011fa872a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715802"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488751"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Usar o PowerShell para atribuir uma função do Azure para acesso a dados de BLOB e de fila
 
@@ -24,7 +24,7 @@ O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos
 
 Quando uma função do Azure é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O escopo do acesso pode ser definido para o nível de assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Este artigo descreve como usar Azure PowerShell para listar funções internas do Azure e atribuí-las aos usuários. Para obter mais informações sobre como usar Azure PowerShell, consulte [visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Este artigo descreve como usar Azure PowerShell para listar funções internas do Azure e atribuí-las aos usuários. Para obter mais informações sobre como usar Azure PowerShell, consulte [visão geral do Azure PowerShell](/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

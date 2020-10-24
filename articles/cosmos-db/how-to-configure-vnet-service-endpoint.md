@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c1d96c373103e0a89a9553ce8dab6ce5cce23c7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d18cf248aa94e23abfa6e2b9467bb1167a32a6f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279696"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490519"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Configurar o acesso a Azure Cosmos DB de redes virtuais (VNet)
 
@@ -93,7 +93,7 @@ Para garantir que você tenha acesso às métricas do Microsoft Azure Cosmos DB 
 
 Use as etapas a seguir para configurar um ponto de extremidade de serviço para uma conta de banco de dados do Microsoft Azure Cosmos DB usando o Azure PowerShell:  
 
-1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) e [faça login em](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Instale o [Azure PowerShell](/powershell/azure/install-Az-ps) e [faça login em](/powershell/azure/authenticate-azureps).  
 
 1. Habilite o ponto de extremidade de serviço para uma sub-rede existente de uma rede virtual.  
 
@@ -317,7 +317,7 @@ Aqui estão algumas perguntas frequentes sobre como configurar o acesso a partir
 
 ### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Os blocos de anotações e o Shell Mongo/Cassandra atualmente são compatíveis com contas habilitadas para rede virtual?
 
-No momento, o [shell do Mongo](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) e o Shell do [Cassandra](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) se integram no cosmos DB data Explorer e o [serviço do Jupyter notebooks](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks), não têm suporte com o acesso à VNET. No momento, isso está em desenvolvimento.
+No momento, o [shell do Mongo](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) e o Shell do [Cassandra](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) se integram no cosmos DB data Explorer e o [serviço do Jupyter notebooks](./cosmosdb-jupyter-notebooks.md), não têm suporte com o acesso à VNET. No momento, isso está em desenvolvimento.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Posso especificar o ponto de extremidade de serviço de rede virtual e a política de controle de acesso IP em uma conta do Azure Cosmos? 
 

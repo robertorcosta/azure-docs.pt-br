@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856578"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488105"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre o uso do HDInsight no Linux
 
@@ -25,7 +25,7 @@ Muitas das etapas neste documento usam os seguintes utilitários, que talvez pre
 
 * [cURL](https://curl.haxx.se/) - usado para comunica-se com serviços baseados na Web.
 * **jq**, um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) - usada para gerenciar remotamente os serviços do Azure.
+* [CLI do Azure](/cli/azure/install-azure-cli) - usada para gerenciar remotamente os serviços do Azure.
 * **Um cliente SSH**. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Usuários
@@ -191,7 +191,7 @@ Há várias maneiras de acessar dados de fora do cluster do HDInsight. A seguir,
 
 Se estiver usando o __armazenamento de BLOBs do Azure__, consulte os links a seguir para obter maneiras de acessar seus dados:
 
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): Comandos de interface de linha de comando para trabalhar com Azure. Depois de instalar, use o comando `az storage` para obter ajuda sobre o uso do armazenamento ou `az storage blob` para comandos específicos do blob.
+* [CLI do Azure](/cli/azure/install-az-cli2): Comandos de interface de linha de comando para trabalhar com Azure. Depois de instalar, use o comando `az storage` para obter ajuda sobre o uso do armazenamento ou `az storage blob` para comandos específicos do blob.
 * [blobxfer.py](https://github.com/Azure/blobxfer): Um Script do Python para trabalhar com blobs no Armazenamento do Microsoft Azure.
 * Vários SDKs:
 

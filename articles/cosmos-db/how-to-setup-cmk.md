@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836501"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486201"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurar chaves gerenciadas pelo cliente para sua conta do Azure Cosmos DB com o Azure Key Vault
 
@@ -279,7 +279,7 @@ Quando chaves gerenciadas pelo cliente são usadas, as [Unidades de Solicitaçã
 
 Todos os dados armazenados em sua conta do Azure Cosmos são criptografados com as chaves gerenciadas pelo cliente, exceto os seguintes metadados:
 
-- Os nomes das suas [contas, bancos de dados e contêineres](./account-overview.md#elements-in-an-azure-cosmos-account) do Azure Cosmos DB
+- Os nomes das suas [contas, bancos de dados e contêineres](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account) do Azure Cosmos DB
 
 - Os nomes dos seus [procedimentos armazenados](./stored-procedures-triggers-udfs.md)
 

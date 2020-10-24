@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76937448"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489601"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métricas e alertas DNS do Azure
 O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Este artigo descreve as métricas e alertas para o serviço DNS do Azure.
@@ -57,7 +57,7 @@ A métrica *Contagem de conjunto de registros* mostra o número de conjuntos de 
 ### <a name="record-set-capacity-utilization"></a>Utilização de capacidade de Conjuntos de Registros
 A métrica *Utilização da capacidade de definir registro* no DNS do Azure mostra a porcentagem de utilização da capacidade do conjunto de registros para uma zona DNS. Cada zona DNS no DNS do Azure está sujeita a um limite de conjunto de registros que define o número máximo de conjuntos de registros que são permitidos para a zona (consulte [limites DNS](dns-zones-records.md#limits)). Portanto, esta métrica mostra quão próximo você está de atingir o limite de conjunto de registros. Por exemplo, se você tem 500 conjuntos de registros configurados para a zona DNS e a zona tem o limite de conjunto de registros padrão de 5000, a métrica de RecordSetCapacityUtilization mostrará o valor de 10% (que é obtido pela divisão 500 a 5000). A unidade de medida é **Porcentagem** e o tipo de **agregação** é **Máximo**. Para exibir essa métrica, selecione a experiência do Metrics Explorer (versão prévia) na guia Monitor no portal do Azure. Selecione a zona DNS da lista suspensa Recurso, selecione a métrica de Utilização da capacidade de conjunto de registros e selecione Max como a Agregação. A captura de tela abaixo mostra um exemplo. Para obter mais informações sobre os gráficos e a experiência do Metrics Explorer, consulte [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
-![Contagem de Conjuntos de Registros](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
+![Captura de tela que whows um exemplo de como exibir métricas.](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
 *Figura: métricas de utilização da capacidade de conjunto de registros de DNS do Azure*
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b016468d858162123e2796e0d76b83b0a1bbf33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568039"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480047"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Link do Azure Synapse para Azure Cosmos DB: casos de uso de análise quase em tempo real
 
@@ -118,7 +118,7 @@ Vamos pegar o exemplo de uma empresa de comércio eletrônico, a EmpresaXYZ, com
 
   * A ingestão de alta taxa de transferência de feeds de dados de streaming e lote com [indexação em tempo real](index-policy.md) no repositório transacional.
 
-  * O repositório transacional do Azure Cosmos DB fornece três opções a mais do que os dois extremos de níveis de consistência forte e eventual para alcançar as [compensações entre disponibilidade e desempenho](consistency-levels-tradeoffs.md) mais próximas à necessidade de negócios.
+  * O repositório transacional do Azure Cosmos DB fornece três opções a mais do que os dois extremos de níveis de consistência forte e eventual para alcançar as [compensações entre disponibilidade e desempenho](./consistency-levels.md) mais próximas à necessidade de negócios.
 
 * Os parceiros da cadeia de fornecedores da EmpresaXYZ têm padrões de tráfego altamente flutuantes de centenas a milhões de solicitações por segundo e, portanto, a plataforma de gerenciamento de estoque precisa lidar com intermitências inesperadas de tráfego.  Benefícios do uso do Azure Cosmos DB:
 

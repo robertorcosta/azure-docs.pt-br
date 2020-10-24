@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290830"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487306"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Criptografia dupla do Azure HDInsight para dados em repouso
 
@@ -127,7 +127,7 @@ Durante a criação do cluster, forneça o **identificador de chave**completo, i
 
 #### <a name="using-azure-cli"></a>Usando a CLI do Azure
 
-O exemplo a seguir mostra como usar CLI do Azure para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [CLI do Azure AZ hdinsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+O exemplo a seguir mostra como usar CLI do Azure para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [CLI do Azure AZ hdinsight Create](/cli/azure/hdinsight#az-hdinsight-create).
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -365,7 +365,7 @@ Para girar a chave, você precisa do URI do cofre de chaves de base. Depois de f
 
 #### <a name="using-azure-cli"></a>Usando a CLI do Azure
 
-O exemplo a seguir mostra como girar a chave de criptografia de disco para um cluster HDInsight existente. Para obter mais informações, consulte [CLI do Azure AZ hdinsight Rotate-Disk-Encryption-Key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key).
+O exemplo a seguir mostra como girar a chave de criptografia de disco para um cluster HDInsight existente. Para obter mais informações, consulte [CLI do Azure AZ hdinsight Rotate-Disk-Encryption-Key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -398,7 +398,7 @@ Se o cluster perder o acesso à chave, os avisos serão mostrados no portal do A
 
 **Como poderei recuperar o cluster se as chaves forem excluídas?**
 
-Como apenas as chaves habilitadas para "exclusão reversível" têm suporte, se as chaves forem recuperadas no cofre de chaves, o cluster deverá recuperar o acesso às chaves. Para recuperar uma chave de Azure Key Vault, consulte [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) ou [AZ-keyvault-Key-Recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
+Como apenas as chaves habilitadas para "exclusão reversível" têm suporte, se as chaves forem recuperadas no cofre de chaves, o cluster deverá recuperar o acesso às chaves. Para recuperar uma chave de Azure Key Vault, consulte [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) ou [AZ-keyvault-Key-Recover](/cli/azure/keyvault/key#az-keyvault-key-recover).
 
 
 **Se um cluster for escalado verticalmente, os novos nós oferecerão suporte a chaves gerenciadas pelo cliente de forma direta?**

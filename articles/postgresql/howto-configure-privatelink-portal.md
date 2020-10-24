@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d2bdb96485a811ea9b3dde5320084f666508622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907488"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489924"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal
 
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.  Neste artigo, você aprenderá a usar o portal do Azure para criar uma VM em uma rede virtual do Azure e um servidor único do banco de dados do Azure para PostgreSQL com um ponto de extremidade privado do Azure.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
 > O recurso de link privado só está disponível para servidores do banco de dados do Azure para PostgreSQL nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor de banco de dados está em um desses tipos de preço.
@@ -222,7 +222,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     Address:  10.1.3.4
     ```
 
-3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para realizar a operação.
+3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) para realizar a operação.
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
@@ -243,7 +243,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 8. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando você terminar de usar o ponto de extremidade privado, o servidor PostgreSQL e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira *MyResource* The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.
@@ -252,7 +252,7 @@ Quando você terminar de usar o ponto de extremidade privado, o servidor Postgre
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste "como", você criou uma VM em uma rede virtual, um banco de dados do Azure para PostgreSQL-servidor único e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM da Internet e se comunica com segurança ao servidor PostgreSQL usando o link privado. Para saber mais sobre pontos de extremidade privados, confira [o que é o ponto de extremidades privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Neste "como", você criou uma VM em uma rede virtual, um banco de dados do Azure para PostgreSQL-servidor único e um ponto de extremidade privado para acesso privado. Você se conectou a uma VM da Internet e se comunica com segurança ao servidor PostgreSQL usando o link privado. Para saber mais sobre pontos de extremidade privados, confira [o que é o ponto de extremidades privado do Azure](../private-link/private-endpoint-overview.md).
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

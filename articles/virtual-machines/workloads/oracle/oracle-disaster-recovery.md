@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9736c4d2b048aa18f283689247f5597d7526f1df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996170"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480353"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure
 
@@ -42,7 +42,7 @@ Veja aqui um resumo da configuração do Azure:
 - Um jumpbox, um serviço de aplicativo, um banco de dados e um gateway de VPN em sub-redes separadas
 - O NSG imposto em sub-redes de aplicativo e do banco de dados
 
-![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Diagrama que mostra os sites primário e de recuperação de desastre no Azure.](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Cenário 2: Site primário local e site de recuperação de desastre no Azure
 
@@ -68,7 +68,7 @@ Veja aqui um resumo da configuração do Azure:
 - Uma política/regra de NSG para permitir entrada na porta TCP 1521 (ou uma porta definida pelo usuário)
 - Adicione a política/regra de NSG para restringir somente endereços IP/locais (BD ou aplicativo) para acessarem a rede virtual
 
-![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Diagrama que mostra conexões diretas entre o local e o Azure, exigindo portas TCP abertas no firewall.](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Método 2: VPN Site a site
 A VPN site a site é uma abordagem melhor. Para saber mais sobre como configurar uma VPN, veja [Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).

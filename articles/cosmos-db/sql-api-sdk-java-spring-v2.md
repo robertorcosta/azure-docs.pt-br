@@ -9,31 +9,31 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d5a906e12df14c6c3ffec704310bbede742ad841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15d3b5eb0dfd5eb35b81da1c0c1ef629aa0def63
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760818"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477412"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>API do Spring data Azure Cosmos DB v2 para núcleo (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [SDK v3 do .NET](sql-api-sdk-dotnet-standard.md)
 > * [SDK do .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
-> * [SDK v2 do feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK do Feed de Alterações do .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
-> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
  O Spring data Azure Cosmos DB versão 2 para núcleo (SQL) permite que os desenvolvedores usem Azure Cosmos DB em aplicativos Spring. O Spring data Azure Cosmos DB expõe a interface Spring data para manipular bancos de dados e coleções, trabalhar com documentos e emitir consultas. As APIs de sincronização e assíncrona (reativa) têm suporte no mesmo artefato Maven. 
@@ -48,14 +48,14 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 > O Spring Data Azure Cosmos DB é compatível apenas com a API do SQL.
 >
 > Consulte os seguintes artigos para obter informações sobre o Spring data em outras APIs de Azure Cosmos DB:
-> * [Spring Data para Apache Cassandra com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Spring Data MongoDB com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Spring Data Gremlin com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Spring Data para Apache Cassandra com Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Spring Data MongoDB com Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin com Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Quer começar a usar rapidamente?
 > 1. Instale o [tempo de execução Java mínimo com suporte, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), para que você possa usar o SDK.
-> 2. Crie um aplicativo de Azure Cosmos DB Spring data usando o [iniciador](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). É fácil!
-> 3. Trabalhe no [Guia do desenvolvedor do Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), que percorre as solicitações de Azure Cosmos DB básicas.
+> 2. Crie um aplicativo de Azure Cosmos DB Spring data usando o [iniciador](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). É fácil!
+> 3. Trabalhe no [Guia do desenvolvedor do Spring Data Azure Cosmos DB](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), que percorre as solicitações de Azure Cosmos DB básicas.
 >
 > Você pode criar aplicativos de inicialização do Spring boot rapidamente usando o [Spring Initializr](https://start.spring.io/)!
 >
@@ -69,9 +69,9 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 |**Contribuir para o SDK** | [Repositório de Azure Cosmos DB de dados Spring no GitHub](https://github.com/microsoft/spring-data-cosmosdb) | 
 |**Iniciador do Spring boot**| [Biblioteca de cliente inicial do Spring boot do Azure Cosmos DB para Java](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
 |**Exemplo de aplicativo de TODO o Spring com Azure Cosmos DB**| [Experiência Java de ponta a ponta no serviço de aplicativo Linux (parte 2)](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
-|**Guia do desenvolvedor** | [Guia do desenvolvedor do Azure Cosmos DB do Spring Data](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
-|**Usando o iniciador** | [Como usar o iniciador do Spring boot com a API do Azure Cosmos DB SQL](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Repositório GitHub para Azure Cosmos DB iniciador do Spring boot](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
-|**Exemplo com o serviço de Azure App** | [Como usar o Spring e o Cosmos DB com o Serviço de Aplicativo no Linux](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Exemplo de aplicativo TODO](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
+|**Guia do desenvolvedor** | [Guia do desenvolvedor do Azure Cosmos DB do Spring Data](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
+|**Usando o iniciador** | [Como usar o iniciador do Spring boot com a API do Azure Cosmos DB SQL](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Repositório GitHub para Azure Cosmos DB iniciador do Spring boot](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
+|**Exemplo com o serviço de Azure App** | [Como usar o Spring e o Cosmos DB com o Serviço de Aplicativo no Linux](/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Exemplo de aplicativo TODO](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
 
 ## <a name="release-history"></a>Histórico de versões
 

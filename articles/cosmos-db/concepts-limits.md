@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329365"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489278"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -144,7 +144,7 @@ Não há restrições sobre as cargas de item, como o número de propriedades e 
 
 ## <a name="per-request-limits"></a>Limites por solicitação
 
-O Azure Cosmos DB dá suporte a [operações CRUD e de consulta](/rest/api/cosmos-db/) em relação a recursos como contêineres, itens e bancos de dados. Ele também dá suporte a [solicitações de lote transacionais](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) em vários itens com a mesma chave de partição em um contêiner.
+O Azure Cosmos DB dá suporte a [operações CRUD e de consulta](/rest/api/cosmos-db/) em relação a recursos como contêineres, itens e bancos de dados. Ele também dá suporte a [solicitações de lote transacionais](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) em vários itens com a mesma chave de partição em um contêiner.
 
 | Recurso | Limite padrão |
 | --- | --- |
@@ -191,7 +191,7 @@ Confira o artigo [Dimensionamento automático](provision-throughput-autoscale.md
 
 ## <a name="sql-query-limits"></a>Limites de consulta SQL
 
-O Cosmos DB dá suporte à consulta de itens usando [SQL](how-to-sql-query.md). A tabela a seguir descreve as restrições nas instruções de consulta, por exemplo, em termos de número de cláusulas ou comprimento de consulta.
+O Cosmos DB dá suporte à consulta de itens usando [SQL](./sql-query-getting-started.md). A tabela a seguir descreve as restrições nas instruções de consulta, por exemplo, em termos de número de cláusulas ou comprimento de consulta.
 
 | Recurso | Limite padrão |
 | --- | --- |

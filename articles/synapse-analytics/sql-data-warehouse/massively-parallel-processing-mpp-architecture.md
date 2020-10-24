@@ -1,6 +1,6 @@
 ---
 title: Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
-description: Saiba como o Azure Synapse Analytics (o antigo SQL DW) combina o MPP (processamento paralelo maciço) com o armazenamento do Azure para obter alto desempenho e escalabilidade.
+description: Saiba como o Azure Synapse Analytics (anteriormente conhecido como SQL DW) combina recursos de processamento de consultas distribuídas com o armazenamento do Azure para obter alto desempenho e escalabilidade.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210959"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479333"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -33,13 +33,13 @@ O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse e
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Componentes de arquitetura do MPP do SQL do Synapse
+## <a name="synapse-sql-architecture-components"></a>Componentes de arquitetura do SQL do Synapse
 
 O [SQL do Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) usa uma arquitetura de expansão para distribuir o processamento computacional dos dados em vários nós de expansão. A unidade de escala é uma abstração de poder de computação que é conhecida como [ unidade de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). A computação é separada do armazenamento, o que permite que você dimensione a computação independentemente dos dados em seu sistema.
 
 ![Arquitetura SQL do Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-O SQL do Synapse usa uma arquitetura baseada em nós. Aplicativos conectam e emitem comandos T-SQL para um nó de Controle, que é o ponto único de entrada para SQL do Synapse. O nó de Controle executa o mecanismo MPP, que otimiza consultas para processamento paralelo e, em seguida, passa as operações para nós de computação para realizar seu trabalho em paralelo.
+O SQL do Synapse usa uma arquitetura baseada em nós. Aplicativos conectam e emitem comandos T-SQL para um nó de Controle, que é o ponto único de entrada para SQL do Synapse. O nó de controle hospeda o mecanismo de consulta distribuída, que otimiza as consultas para processamento paralelo e, em seguida, passa as operações para nós de computação para fazer seu trabalho em paralelo.
 
 Os nós de Computação armazenam todos os dados de usuário no Armazenamento do Azure e executam as consultas paralelas. O serviço de movimentação de dados (DMS) é um serviço de nível de sistema interno que move dados entre os nós, conforme necessário para executar consultas em paralelo e retornar resultados precisos.
 
@@ -60,13 +60,13 @@ O SQL do Synapse aproveita o armazenamento do Azure para manter os dados do usu�
 
 ### <a name="control-node"></a>Nó de Controle
 
-O nó de Controle é o cérebro da arquitetura. É o front-end que interage com todos os aplicativos e conexões. O mecanismo MPP é executado no nó de Controle para otimizar e coordenar consultas paralelas. Quando você envia uma consulta T-SQL, o nó de Controle a transforma em consultas que são executadas em cada distribuição paralelamente.
+O nó de Controle é o cérebro da arquitetura. É o front-end que interage com todos os aplicativos e conexões. O mecanismo de consulta distribuída é executado no nó de controle para otimizar e coordenar consultas paralelas. Quando você envia uma consulta T-SQL, o nó de Controle a transforma em consultas que são executadas em cada distribuição paralelamente.
 
 ### <a name="compute-nodes"></a>Nós de computação
 
 Os nós de computação fornecem capacidade de computação. Distribuições são mapeados para nós de computação para processamento. À medida que você paga por mais recursos de computação, as distribuições são remapeadas para os nós de computação disponíveis. O número de intervalos de nós de 1 a 60 de computação e é determinado pelo nível de serviço para o SQL do Synapse.
 
-Cada nó de computação tem uma ID de nó que está visível nas exibições do sistema. Você pode ver a ID do nó de Computação olhando para a coluna node_id nas exibições do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista das exibições de sistema, consulte [Exibição do sistema MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Cada nó de computação tem uma ID de nó que está visível nas exibições do sistema. Você pode ver a ID do nó de Computação olhando para a coluna node_id nas exibições do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista dessas exibições do sistema, consulte [exibições do sistema SQL do Synapse](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Serviço de movimentação de dados
 
