@@ -8,23 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 000e43a7861bd155ebbd7175db96dd323731464b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829866"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518204"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Como proteger seu ambiente de nuvem privada
 
 Defina o RBAC (controle de acesso baseado em função) para o serviço CloudSimple, o portal do CloudSimple e a nuvem privada do Azure.  Usuários, grupos e funções para acessar o vCenter da nuvem privada são especificados usando o SSO do VMware.  
 
-## <a name="rbac-for-cloudsimple-service"></a>RBAC para serviço CloudSimple
+## <a name="azure-rbac-for-cloudsimple-service"></a>RBAC do Azure para serviço CloudSimple
 
 A criação do serviço CloudSimple requer a função de **proprietário** ou **colaborador** na assinatura do Azure.  Por padrão, todos os proprietários e colaboradores podem criar um serviço CloudSimple e acessar o portal CloudSimple para criar e gerenciar nuvens privadas.  Somente um serviço CloudSimple pode ser criado por região.  Para restringir o acesso a administradores específicos, siga o procedimento abaixo.
 
 1. Criar um serviço CloudSimple em um novo **grupo de recursos** no portal do Azure
-2. Especifique o RBAC para o grupo de recursos.
+2. Especifique o RBAC do Azure para o grupo de recursos.
 3. Comprar nós e usar o mesmo grupo de recursos que o serviço CloudSimple
 
 Somente os usuários que têm privilégios de **proprietário** ou **colaborador** no grupo de recursos verão o serviço CloudSimple e iniciarão o portal CloudSimple.

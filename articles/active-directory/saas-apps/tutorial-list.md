@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eeddecbec31ec1bfa73cf956deb4c50809c50e7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751174"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521939"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory
 
@@ -25,7 +25,7 @@ Para ajudar a integrar seus aplicativos [SaaS (software como serviço)](https://
 
 Para obter a lista de todos os aplicativos SaaS que foram pré-integrados ao Azure AD, confira o [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
-Use o [portal de rede do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) para solicitar que um aplicativo habilitado para [scim](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) seja adicionado à galeria para o provisionamento automático ou um aplicativo habilitado para SAML/OIDC a ser adicionado à galeria para sso.
+Use o [portal de rede do aplicativo](../azuread-dev/howto-app-gallery-listing.md) para solicitar que um aplicativo habilitado para [scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) seja adicionado à galeria para o provisionamento automático ou um aplicativo habilitado para SAML/OIDC a ser adicionado à galeria para sso.
 
 ## <a name="quick-links"></a>Links rápidos
 
@@ -34,7 +34,7 @@ Use o [portal de rede do aplicativo](https://docs.microsoft.com/azure/active-dir
 | ![logotipo – nuvem Atlassian](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud – provisionamento de usuário](atlassian-cloud-provisioning-tutorial.md)|
 | ![logotipo – ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow – Provisionamento de Usuário](servicenow-provisioning-tutorial.md)|
 | ![logotipo-margem de atraso](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Margem de atraso](slack-tutorial.md)|[Slack – Provisionamento de Usuário](slack-provisioning-tutorial.md)|
-| ![logotipo-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors – provisionamento de usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![logotipo-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors – provisionamento de usuário](./sap-successfactors-inbound-provisioning-tutorial.md) |
 | ![logotipo-workday](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday – Provisionamento de Usuário](workday-inbound-tutorial.md)|
 
 Para localizar mais tutoriais, use o sumário à esquerda.
@@ -47,7 +47,7 @@ Para localizar mais tutoriais, use o sumário à esquerda.
 | ![logotipo-serviço de nuvem alibaba (SSO de bases de função)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Serviço de nuvem alibaba (SSO de bases de função)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![logotipo-Google Cloud Platform](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform-provisionamento de usuário](google-apps-provisioning-tutorial.md) |
 | ![logotipo-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce – Provisionamento de Usuário](salesforce-provisioning-tutorial.md) |
-| ![logotipo-plataforma de identidade de nuvem do SAP](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Plataforma de identidade de nuvem do SAP](saphana-tutorial.md)|[Plataforma de identidade de nuvem do SAP-provisionamento](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![logotipo-plataforma de identidade de nuvem do SAP](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Plataforma de identidade de nuvem do SAP](saphana-tutorial.md)|[Plataforma de identidade de nuvem do SAP-provisionamento](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
 ## <a name="oneclick-sso"></a>SSO do OneClick
 
@@ -83,7 +83,7 @@ Para localizar mais tutoriais, use o sumário à esquerda.
 | ![logotipo-ajuda Scout](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|
 | ![logotipo-hightail](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
 | ![logotipo-HRworks único Sign-On](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|
-| ![logotipo – JAMF pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
+| ![logotipo – JAMF pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [JAMF pro](jamfprosamlconnector-tutorial.md)|
 | ![logotipo – Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![logotipo-conhecimento em qualquer lugar LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logo-monday.com](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|

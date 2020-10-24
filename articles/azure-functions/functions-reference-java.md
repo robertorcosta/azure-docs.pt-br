@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996491"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519615"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
@@ -134,8 +134,6 @@ Aqui está o `function.json` correspondente gerado pelo [azure-functions-maven-p
 
 ## <a name="java-versions"></a>Versões do Java
 
-_O suporte para Java 11 está atualmente em visualização_
-
 A versão do Java usada durante a criação do aplicativo de funções no qual as funções são executadas no Azure é especificada no arquivo de pom.xml. O arquétipo Maven atualmente gera um pom.xml para Java 8, que você pode alterar antes da publicação. A versão do Java no pom.xml deve corresponder à versão na qual você desenvolveu e testou localmente seu aplicativo. 
 
 ### <a name="supported-versions"></a>Versões com suporte
@@ -144,14 +142,14 @@ A tabela a seguir mostra as versões Java com suporte atuais para cada versão p
 
 | Versão do Functions | Versões Java (Windows) | Versões Java (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (versão prévia)<br/>8 | 11 (versão prévia)<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2. x | 8 | N/D |
 
 A menos que você especifique uma versão Java para a sua implantação, o padrão Maven o Java 8 durante a implantação no Azure.
 
 ### <a name="specify-the-deployment-version"></a>Especificar a versão de implantação
 
-Você pode controlar a versão do Java direcionada pelo arquétipo Maven usando o `-DjavaVersion` parâmetro. O valor desse parâmetro pode ser `8` ou `11` . O suporte do Java 11 está atualmente em visualização. 
+Você pode controlar a versão do Java direcionada pelo arquétipo Maven usando o `-DjavaVersion` parâmetro. O valor desse parâmetro pode ser `8` ou `11` . 
 
 O arquétipo do Maven gera um pom.xml que tem como destino a versão do Java especificada. Os seguintes elementos no pom.xml indicam a versão do Java a ser usada:
 

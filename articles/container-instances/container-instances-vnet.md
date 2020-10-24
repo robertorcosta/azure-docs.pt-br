@@ -4,12 +4,12 @@ description: Saiba como implantar um grupo de contêineres em uma rede virtual d
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303001"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518119"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -40,7 +40,7 @@ Depois de implantar seu primeiro grupo de contêineres com esse método, você p
 
 ### <a name="example"></a>Exemplo
 
-O comando [AZ container Create][az-container-create] a seguir especifica as configurações para uma nova rede virtual e sub-rede. Forneça o nome de um grupo de recursos que foi criado em uma região em que as implantações de grupo de contêineres em uma rede virtual estão [disponíveis](container-instances-region-availability.md#availability---virtual-network-deployment). Esse comando implanta o contêiner público Microsoft [ACI-HelloWorld][aci-helloworld] que executa um pequeno servidor WebNode.js servindo uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
+O comando [AZ container Create][az-container-create] a seguir especifica as configurações para uma nova rede virtual e sub-rede. Forneça o nome de um grupo de recursos que foi criado em uma região em que as implantações de grupo de contêineres em uma rede virtual estão [disponíveis](container-instances-region-availability.md). Esse comando implanta o contêiner público Microsoft [ACI-HelloWorld][aci-helloworld] que executa um pequeno servidor WebNode.js servindo uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
 
 ```azurecli
 az container create \

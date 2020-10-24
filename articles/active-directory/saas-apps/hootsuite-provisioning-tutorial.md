@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 82cd39fdefef477e3761d8d7ab771301cea962e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92443214"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503752"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar o HootSuite para provisionamento automático de usuários
 
@@ -35,7 +35,7 @@ Este tutorial descreve as etapas que você precisa executar no HootSuite e no Az
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global). 
+* Uma conta de usuário no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * Uma conta de usuário com [HootSuite](http://www.hootsuite.com/) que tem permissões para **Gerenciar Membro** na organização.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
@@ -49,7 +49,7 @@ Entre em contato com dev.support@hootsuite.com para obter um token secreto de lo
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicione o HootSuite por meio da galeria de aplicativos do Azure AD
 
-Adicione o HootSuite por meio da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento dele. Se você já tiver configurado o HootSuite para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione o HootSuite por meio da galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento dele. Se você tiver configurado anteriormente o HootSuite para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
@@ -108,18 +108,30 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |displayName|String|
    |preferredLanguage|String|
    |timezone|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:organizationIds|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:teamIds|String|
+   |name.givenName|String|
+   |name.familyName|String|
 
-10. Para habilitar o serviço de provisionamento do Azure AD para HootSuite, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory**.
+
+11. Examine os atributos de grupo que são sincronizados do Azure AD para o HootSuite na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no HootSuite para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+
+      |Atributo|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |membros|Referência|
+
+12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para habilitar o serviço de provisionamento do Azure AD para HootSuite, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**.
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-11. Defina os usuários e/ou grupos a serem provisionados para o HootSuite escolhendo os valores desejados em **Escopo** na seção **Configurações**.
+14. Defina os usuários e/ou grupos a serem provisionados para o HootSuite escolhendo os valores desejados em **Escopo** na seção **Configurações**.
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-12. Quando estiver pronto para provisionar, clique em **Salvar**.
+15. Quando estiver pronto para provisionar, clique em **Salvar**.
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
@@ -132,6 +144,10 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 * Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## <a name="change-log"></a>Log de alterações
+
+* 10/22/2020-suporte adicionado para os atributos de usuário "Name. excertoname" e "Name. FamilyName". Os atributos de extensão personalizada "organizationIds" e "teamIds" foram removidos para os usuários.
+Adicionado suporte para atributos de grupo "displayName", "Members" e "externalId".
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

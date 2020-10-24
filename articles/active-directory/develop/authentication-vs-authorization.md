@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 320debcf2b744e949faf7b29dd72ed334fe0feea
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252106"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503718"
 ---
 # <a name="authentication-vs-authorization"></a>Autenticação versus autorização
 
@@ -35,6 +35,8 @@ Este artigo define autenticação e autorização e aborda brevemente como você
 ## <a name="authentication-and-authorization-using-microsoft-identity-platform"></a>Autenticação e autorização usando a plataforma de identidade da Microsoft
 
 Em vez de criar aplicativos que mantêm as próprias informações de nome de usuário e senha, o que gera uma carga administrativa alta quando você precisa adicionar ou remover usuários em vários aplicativos, os aplicativos podem delegar essa responsabilidade a um provedor de identidade centralizado.
+
+> [!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
 
 O Azure AD (Azure Active Directory) é um provedor de identidade centralizado na nuvem. Delegar autenticação e autorização a ele permite cenários como políticas de acesso condicional que exigem que um usuário esteja em um local específico, o uso de [autenticação multifatorial](../authentication/concept-mfa-howitworks.md) (às vezes referida como autenticação de dois fatores ou 2FA), além de habilitar um usuário para entrar uma vez e, em seguida, entrar automaticamente em todos os aplicativos da web que compartilham o mesmo diretório centralizado. Essa funcionalidade é conhecida como **SSO (logon único)** .
 

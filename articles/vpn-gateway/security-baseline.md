@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3ae57652737acc2b23cda75ace361f0bb40340
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626251"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518178"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Linha de base de segurança do Azure para gateway de VPN
 
@@ -178,7 +178,7 @@ Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: manter um inventário de contas administrativas
 
-**Diretrizes**: o RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como CLI do Azure, Azure PowerShell ou portal do Azure.
+**Diretrizes**: o Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como CLI do Azure, Azure PowerShell ou portal do Azure.
 
 - [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
@@ -310,7 +310,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolar sistemas que armazenam ou processam informações confidenciais
 
-**Diretrizes**: os gateways de VPN têm instâncias de VM dedicadas para cada rede virtual do cliente. Implemente o isolamento usando redes virtuais, assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso aos recursos do Azure que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso aos recursos do Azure por meio de Azure Active Directory controle de acesso baseado em função.
+**Diretrizes**: os gateways de VPN têm instâncias de VM dedicadas para cada rede virtual do cliente. Implemente o isolamento usando redes virtuais, assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso aos recursos do Azure que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso aos recursos do Azure por meio do Azure RBAC (controle de acesso baseado em função).
 
 - [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
 
@@ -362,11 +362,11 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o RBAC do Azure ad para controlar o acesso a dados e recursos, caso contrário, use métodos de controle de acesso específicos de serviço. Use funções internas de controle de acesso baseado em função como proprietário, colaborador ou colaborador de rede e, em seguida, atribua a função ao escopo apropriado. Atribua permissões específicas para um subconjunto de recursos de rede virtual criando uma função personalizada e atribuindo as permissões específicas necessárias para redes virtuais, sub-redes, gateways de VPN, interfaces de rede, grupos de segurança de rede e tabelas de rotas à função.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso a dados e recursos, caso contrário, use métodos de controle de acesso específicos de serviço. Use funções internas como proprietário, colaborador ou colaborador de rede e, em seguida, atribua a função ao escopo apropriado. Atribua permissões específicas para um subconjunto de recursos de rede virtual criando uma função personalizada e atribuindo as permissões específicas necessárias para redes virtuais, sub-redes, gateways de VPN, interfaces de rede, grupos de segurança de rede e tabelas de rotas à função.
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Planejar redes virtuais](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 

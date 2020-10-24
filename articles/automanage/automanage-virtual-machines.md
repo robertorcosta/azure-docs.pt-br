@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816817"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519649"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -58,7 +58,7 @@ Também é importante observar que o autogerenci só dá suporte a VMs do Window
 
 Consulte [gerenciamento automático do Azure para máquinas virtuais práticas recomendadas](virtual-machines-best-practices.md) para obter a lista completa de serviços do Azure participantes, bem como seus perfis de configuração com suporte.
 
- Nós iremos integrar automaticamente a esses serviços participantes. Eles são essenciais para nossas práticas recomendadas white paper, que você pode encontrar em nossa [estrutura de adoção de nuvem](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management).
+ Nós iremos integrar automaticamente a esses serviços participantes. Eles são essenciais para nossas práticas recomendadas white paper, que você pode encontrar em nossa [estrutura de adoção de nuvem](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 Para todos esses serviços, faremos a integração automática, o autoconfigure, o monitor para descompasso e os mediais se o descompasso for detectado.
 

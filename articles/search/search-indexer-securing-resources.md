@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101249"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503480"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Acesso do indexador ao conteúdo protegido pelos recursos de segurança de rede do Azure (Azure Pesquisa Cognitiva)
 
@@ -27,7 +27,7 @@ Os indexadores do Azure Pesquisa Cognitiva podem fazer chamadas de saída para v
 | Banco de Dados SQL do Azure | Fonte de dados |
 | SQL Server em máquinas virtuais do Azure | Fonte de dados |
 | Instância Gerenciada de SQL | Fonte de dados |
-| Funções do Azure | Host para habilidades de API Web personalizadas |
+| Azure Functions | Host para habilidades de API Web personalizadas |
 | Serviços Cognitivos | Anexado ao skillset que será usado para faturar o enriquecimento além do limite de 20 documentos gratuitos |
 
 > [!NOTE]
@@ -43,7 +43,7 @@ Os clientes podem proteger esses recursos por meio de vários mecanismos de isol
 | Banco de Dados SQL do Azure | Com suporte | Com suporte |
 | SQL Server em máquinas virtuais do Azure | Com suporte | N/D |
 | Instância Gerenciada de SQL | Com suporte | N/D |
-| Funções do Azure | Com suporte | Com suporte, somente para determinadas camadas do Azure Functions |
+| Azure Functions | Com suporte | Com suporte, somente para determinadas camadas do Azure Functions |
 
 > [!NOTE]
 > Além das opções listadas acima, para contas de armazenamento do Azure protegidas por rede, os clientes podem aproveitar o fato de que o Azure Pesquisa Cognitiva é um [serviço confiável da Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services). Isso significa que um serviço de pesquisa específico pode ignorar restrições de rede virtual ou IP na conta de armazenamento e pode acessar dados na conta de armazenamento, se o controle de acesso baseado em função apropriado estiver habilitado na conta de armazenamento. Para obter mais informações, consulte [conexões do indexador usando a exceção de serviço confiável](search-indexer-howto-access-trusted-service-exception.md). Essa opção pode ser utilizada em vez de uma rota de restrição de IP, caso a conta de armazenamento ou o serviço de pesquisa não possa ser movido para uma região diferente.
@@ -87,7 +87,7 @@ Essa funcionalidade só está disponível nos serviços de pesquisa faturáveis,
 
 Os clientes devem chamar a operação de gerenciamento de pesquisa, a [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) em um **recurso de link privado compartilhado**, para criar uma conexão de ponto de extremidade privada para seu recurso seguro (por exemplo, uma conta de armazenamento). O tráfego que passa por essa conexão de ponto de extremidade privada (de saída) se originará somente da rede virtual que está no ambiente de execução do indexador "particular" específico do serviço de pesquisa.
 
-O Pesquisa Cognitiva do Azure validará que os chamadores dessa API têm permissões RBAC para aprovar solicitações de conexão de ponto de extremidade privado para o recurso seguro. Por exemplo, se você solicitar uma conexão de ponto de extremidade privada para uma conta de armazenamento com permissões somente leitura, essa chamada será rejeitada.
+O Azure Pesquisa Cognitiva validará que os chamadores dessa API têm permissões RBAC do Azure para aprovar solicitações de conexão de ponto de extremidade privado para o recurso seguro. Por exemplo, se você solicitar uma conexão de ponto de extremidade privada para uma conta de armazenamento com permissões somente leitura, essa chamada será rejeitada.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Etapa 2: aprovar a conexão de ponto de extremidade particular
 
@@ -119,7 +119,7 @@ Para permitir que os indexadores acessem recursos por meio de conexões de ponto
 Essas etapas são descritas mais detalhadamente em [conexões do indexador por meio de um ponto de extremidade privado](search-indexer-howto-access-private.md).
 Depois de ter um ponto de extremidade privado aprovado para um recurso, os indexadores que estão definidos para serem uma tentativa *privada* de obter acesso por meio da conexão de ponto de extremidade privado.
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 
 Para garantir o desempenho ideal e a estabilidade do serviço de pesquisa, as restrições são impostas (por camada de serviço de pesquisa) nas seguintes dimensões:
 

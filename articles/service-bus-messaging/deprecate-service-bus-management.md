@@ -3,18 +3,18 @@ title: Serviços de mensagens do Azure-Service Manager para o Gerenciador de rec
 description: Este artigo fornece mapeamento de API REST preterida do Azure Service Manager & cmdlets do PowerShell para a API REST do Gerenciador de recursos & cmdlets do PowerShell.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 84335d534c229f40381b913dfca54f42e2da250b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82772b364bbc44a898197e7fafd11b33e2e6320
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761168"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518782"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Substituição do suporte de Service Manager do Azure para o barramento de serviço do Azure, retransmissão e hubs de eventos
 
 O Gerenciador de recursos, nossa pilha de infraestrutura de nuvem de última geração, está substituindo totalmente o modelo de gerenciamento de serviços do Azure "clássico" (modelo de implantação clássico). Como resultado, as APIs REST do modelo de implantação clássica e o suporte para o barramento de serviço, retransmissão e hubs de eventos serão desativados em 1º de novembro de 2021. Essa reprovação foi anunciada primeiro em um [comunicado da comunidade técnica da Microsoft](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909), mas decidimos recentemente estender o período de reprovação mais dois anos a partir da hora do anúncio original. Para facilitar a identificação, essas APIs têm `management.core.windows.net` em seu URI. Consulte a tabela a seguir para obter uma lista das APIs preteridas e sua versão Azure Resource Manager API que você deve usar agora.
 
-Para continuar usando o barramento de serviço, retransmissão e hubs de eventos, vá para o Resource Manager em 31 de outubro de 2021. Incentivamos todos os clientes que ainda estão usando APIs antigas para tornar o switch em breve aproveitar os benefícios adicionais do Resource Manager, que incluem agrupamento de recursos, marcas, um processo de implantação e gerenciamento simplificado e controle de acesso refinado usando o RBAC (controle de acesso baseado em função).
+Para continuar usando o barramento de serviço, retransmissão e hubs de eventos, vá para o Resource Manager em 31 de outubro de 2021. Incentivamos todos os clientes que ainda estão usando APIs antigas para fazer o comutador em breve aproveitar os benefícios adicionais do Resource Manager, que incluem agrupamento de recursos, marcas, um processo de implantação e gerenciamento simplificado e controle de acesso refinado usando o controle de acesso baseado em função do Azure (RBAC do Azure).
 
 Para obter mais informações sobre Azure Resource Manager do Service Manager do Azure, consulte o [blog do TechNet](https://blogs.technet.microsoft.com/meamcs/2016/12/22/difference-between-azure-service-manager-and-azure-resource-manager/).
 

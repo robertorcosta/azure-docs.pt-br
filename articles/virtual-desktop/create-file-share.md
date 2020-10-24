@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287314"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519432"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS
 
@@ -48,7 +48,7 @@ Para configurar uma conta de armazenamento:
 
 Se você precisar de instruções de configuração mais detalhadas, consulte [disponibilidade regional](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
-## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 
 Em seguida, você precisará criar um compartilhamento de arquivos do Azure.
 
@@ -86,7 +86,7 @@ Para configurar permissões de nível de compartilhamento, atribua a cada usuár
 >[!NOTE]
 >As contas ou os grupos aos quais você atribui permissões devem ter sido criados no domínio e sincronizados com o Azure AD. Contas criadas no Azure AD não funcionam.
 
-Para atribuir permissões de RBAC (controle de acesso baseado em função):
+Para atribuir permissões de controle de acesso baseado em função do Azure (RBAC):
 
 1. Abra o portal do Azure.
 
@@ -106,7 +106,7 @@ Para atribuir permissões de RBAC (controle de acesso baseado em função):
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Atribuir permissões de usuários no compartilhamento de arquivos do Azure
 
-Depois de atribuir permissões de RBAC aos seus usuários, você precisará configurar as permissões de NTFS.
+Depois de atribuir permissões de RBAC do Azure para seus usuários, em seguida, você precisará configurar as permissões de NTFS.
 
 Você precisará conhecer duas coisas da portal do Azure para começar:
 
@@ -212,7 +212,7 @@ Para configurar o FSLogix em sua VM host de sessão:
 
 6. Reinicie a VM.
 
-## <a name="testing"></a>Testando
+## <a name="testing"></a>Testes
 
 Depois de instalar e configurar o FSLogix, você pode testar sua implantação entrando com uma conta de usuário que tenha sido atribuída a um grupo de aplicativos ou área de trabalho no pool de hosts. Verifique se a conta de usuário com a qual você se conecta tem permissão no compartilhamento de arquivos.
 
