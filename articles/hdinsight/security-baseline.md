@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ebc0398eeb7679ffd57e0aa5aae642f6303aaa35
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327698"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484603"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança do Azure para HDInsight
 
@@ -146,9 +146,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 Como exibir os aliases do Azure Policy disponíveis: 
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Como configurar e gerenciar o Azure Policy: 
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Como configurar e gerenciar Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -346,11 +344,11 @@ Além disso, você pode usar as recomendações de gerenciamento de acesso e ide
 
 Como obter uma função de diretório no Azure AD com o PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 Como obter membros de uma função de diretório no Azure AD com o PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 Como monitorar a identidade e o acesso à central de segurança do Azure:
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Como exibir suas assinaturas do Azure: 
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Entenda o RBAC do Azure: 
 
@@ -942,7 +940,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 Como exibir os aliases do Azure Policy disponíveis: 
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Como configurar e gerenciar o Azure Policy: 
 
@@ -990,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-Como armazenar código no Azure DevOps: 
+[Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Documentação do Azure Repos:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1034,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientação**: use aliases de Azure Policy no namespace "Microsoft. HDInsight" para criar políticas personalizadas para auditar ou impor a configuração do cluster HDInsight.
 
-Como exibir os aliases do Azure Policy disponíveis: 
+[Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Como configurar e gerenciar o Azure Policy: 
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 Como fazer backup de chaves de Key Vault no Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 Como restaurar chaves do Key Vault no Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1234,7 +1224,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testar procedimentos de resposta de segurança
 
-**Diretriz**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identificar pontos fracos e lacunas e revisar o plano conforme necessário. Consulte a publicação do NIST: guia para testar, treinar e preparar programas para planos de ti e recursos:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Orientação**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identificar pontos fracos e lacunas e revisar o plano conforme necessário. Consulte a publicação do NIST: guia para testar, treinar e preparar programas para planos de ti e recursos:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

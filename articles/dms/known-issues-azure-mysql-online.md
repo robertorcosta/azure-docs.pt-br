@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893740"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494433"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemas de migração online & limitações do Azure DB para MySQL com o serviço de migração de banco de dados do Azure
 
@@ -32,7 +32,7 @@ Os problemas conhecidos e as limitações associados às migrações online do M
 - O Banco de Dados do Azure para MySQL dá suporte a:
   - MySQL Community Edition
   - Mecanismo InnoDB
-- Migração de mesma versão. Não há suporte para a migração do MySQL 5.6 para o Banco de Dados do Azure para MySQL 5.7.
+- Migração de mesma versão. Não há suporte para a migração do MySQL 5.6 para o Banco de Dados do Azure para MySQL 5.7. Não há suporte para migrações de ou para o MySQL 8,0.
 - Habilite o log binário em my.ini (Windows) ou em my.cnf (Unix)
   - Defina Server_id para qualquer número maior ou igual a 1, por exemplo, Server_id=1 (somente para o MySQL 5.6)
   - Defina log-bin = \<path> (somente para o MySQL 5.6)
@@ -136,7 +136,7 @@ Ao tentar executar uma migração online do AWS RDS MySQL para o banco de dados 
 
 - No Azure Database Migration Service, o limite de bancos de dados a serem migrados em uma única atividade de migração é de quatro.
 
-- O Azure DMS não dá suporte à ação referencial em cascata, que ajuda a excluir ou atualizar automaticamente uma linha correspondente na tabela filho quando uma linha é excluída ou atualizada na tabela pai. Para obter mais informações, na documentação do MySQL, consulte a seção ações referenciais do artigo [restrições de chave estrangeira](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). O Azure DMS exige que você remova as restrições de chave estrangeira no servidor de banco de dados de destino durante o carregamento inicial e não pode usar ações referenciais. Se sua carga de trabalho depende da atualização de uma tabela filho relacionada por meio dessa ação referencial, recomendamos que você execute um [despejo e uma restauração](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) em vez disso. 
+- O DMS do Azure não dá suporte à ação referencial CASCADE, que ajuda a excluir ou atualizar automaticamente uma linha correspondente na tabela filho quando uma linha é excluída ou atualizada na tabela pai. Para obter mais informações, na documentação do MySQL, confira a seção Ações Referenciais do artigo [Restrições de FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). O DMS do Azure exige que você remova as restrições de chave estrangeira do servidor de banco de dados de destino durante o carregamento de dados inicial, e você não pode usar as ações referenciais. Se a sua carga de trabalho depende da atualização de uma tabela filho relacionada por meio dessa ação referencial, recomendamos que você execute [despejo e restauração](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore). 
 
 - **Erro:** Tamanho de linha muito grande (> 8126). A alteração de algumas colunas para texto ou BLOB pode ajudar. No formato de linha atual, o prefixo de BLOB de 0 bytes é armazenado embutido.
 

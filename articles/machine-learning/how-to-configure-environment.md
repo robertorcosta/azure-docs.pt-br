@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203085"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495246"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -139,10 +139,10 @@ Não há nada para instalar ou configurar para uma instância de computação.
 
 Crie uma a qualquer momento em seu espaço de trabalho Azure Machine Learning. Forneça apenas um nome e especifique um tipo de VM do Azure. Experimente agora com este [tutorial: configurar o ambiente e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
 
-Para saber mais sobre as instâncias de computação, incluindo como instalar pacotes, consulte [instâncias de computação](concept-compute-instance.md).
+Para saber mais sobre as instâncias de computação, incluindo como instalar pacotes, confira [criar e gerenciar uma instância de computação Azure Machine Learning](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> Para evitar incorrer em encargos para uma instância de computação não usada, [interrompa a instância de computação](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+> Para evitar incorrer em encargos para uma instância de computação não usada, [interrompa a instância de computação](how-to-create-manage-compute-instance.md#manage).
 
 Além de um Jupyter Notebook Server e JupyterLab, você pode usar instâncias de computação no [recurso de bloco de anotações integrado dentro do Azure Machine Learning Studio](how-to-run-jupyter-notebooks.md).
 
@@ -244,7 +244,7 @@ Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.d
 
 1. Escolha a opção a seguir (não há suporte para nenhuma outra instalação do SDK)
 
-   |&nbsp;Extras do pacote do SDK &nbsp;|Fonte|Nome do PyPi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |&nbsp;Extras do pacote do SDK &nbsp;|Origem|Nome do PyPi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para databricks| Carregar Python Egg ou PyPI | azureml-sdk[databricks]|
 

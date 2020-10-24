@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8735bf721ec85dcd556582f7fd887dd82b55a35d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369974"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475219"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para o SDK do Java v4 do Azure Cosmos DB
 
@@ -85,13 +85,13 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 * **Habilite a rede acelerada na sua VM do Azure para uma latência mais baixa.**
 
-É recomendável que você siga as instruções para habilitar a Rede Acelerada na VM do Azure do [Windows (clique para obter instruções)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) ou [Linux (clique para obter instruções)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para maximizar o desempenho.
+É recomendável que você siga as instruções para habilitar a Rede Acelerada na VM do Azure do [Windows (clique para obter instruções)](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [Linux (clique para obter instruções)](../virtual-network/create-vm-accelerated-networking-cli.md) para maximizar o desempenho.
 
 Sem a rede acelerada, a E/S que transita entre a VM do Azure e outros recursos do Azure pode ser desnecessariamente encaminhada por meio de um host e um comutador virtual situados entre a VM e sua placa de rede. Ter o host e o comutador virtual embutidos no caminho de dados não apenas aumenta a latência e a tremulação no canal de comunicação, ele também rouba ciclos de CPU da VM. Com a rede acelerada, a VM interage diretamente com a NIC sem intermediários; todos os detalhes da diretiva de rede que estavam sendo manipulados pelo host e pelo comutador virtual agora são manipulados no hardware na NIC; o host e o comutador virtual são ignorados. Geralmente, você pode esperar uma latência mais baixa e uma taxa de transferência mais alta, bem como uma latência mais *consistente* e menor utilização da CPU quando você habilita a rede acelerada.
 
 Limitações: a rede acelerada deve ter suporte no sistema operacional da VM e só pode ser habilitada quando a VM é interrompida e desalocada. A VM não pode ser implantada com o Azure Resource Manager.
 
-Confira as instruções do [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) e do [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para obter mais detalhes.
+Confira as instruções do [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) e do [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) para obter mais detalhes.
 
 ## <a name="sdk-usage"></a>Uso do SDK
 * **Instalar o SDK mais recente**
@@ -311,7 +311,7 @@ _ **Escalar horizontalmente sua carga de trabalho do cliente**
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](indexing-policies.md).
+    Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](index-policy.md).
 
 ## <a name="throughput"></a>Produtividade
 <a id="measure-rus"></a>

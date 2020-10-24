@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/23/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, contêiner
-ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 6f04e40b0b2baa496faf8001684304c5df78ec20
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930434"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496141"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalar e executar contêineres do Docker para as APIs do serviço de fala 
 
@@ -45,7 +45,7 @@ Os contêineres de Fala permitem que os clientes criem uma arquitetura de aplica
 | Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.5.0 |
 | Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.7.0 |
 | Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.7.0 |
-| Detecção de Idioma de fala | Detectar o idioma falado nos arquivos de áudio. | 1,0 |
+| Detecção de Idioma de fala | Detectar o idioma falado nos arquivos de áudio. | 1.0 |
 | Texto em fala neural | Converte o texto em voz natural usando uma tecnologia de rede neural profunda, permitindo uma fala mais natural sintetizada. | 1.2.0 |
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
@@ -54,7 +54,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
-| Necessária | Finalidade |
+| Obrigatório | Finalidade |
 |--|--|
 | Mecanismo do Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
@@ -80,7 +80,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 A tabela a seguir descreve a alocação mínima e recomendada de recursos para cada contêiner de fala.
 
-| Contêiner | Mínimo | Recomendado |
+| Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
@@ -491,6 +491,16 @@ Esse comando:
 * Aloca 1 núcleos de CPU e 1 gigabyte (GB) de memória.
 * Expõe a porta TCP 5003 e aloca um pseudo-TTY para o contêiner.
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.
+
+Se você estiver enviando somente solicitações de Detecção de Idioma de fala, será necessário definir o valor do cliente de fala `phraseDetection` como `None` .  
+
+```python
+speech_config.set_service_property(
+      name='speechcontext-phraseDetection.Mode',
+      value='None',
+      channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+   )
+```
 
 Se você quiser executar esse contêiner com o contêiner de fala em texto, poderá usar essa [imagem do Docker](https://hub.docker.com/r/antsu/on-prem-client). Depois que os dois contêineres tiverem sido iniciados, use este comando de execução do Docker para executar `speech-to-text-with-languagedetection-client` .
 

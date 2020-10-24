@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4b0e0bd38c8bb9ea1d2331a65fc891e157971eef
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367645"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495855"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar o gêmeos digital do Azure ao serviço de Signaler do Azure
 
@@ -147,7 +147,7 @@ Em seguida, publique sua função no Azure, usando as etapas descritas na [seç�
 
 1. Por fim, adicione a cadeia de **conexão** do signalr do Azure de antes às configurações do aplicativo da função, usando o comando CLI do Azure a seguir. O comando pode ser executado no [Azure cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
-    ```azurecli
+    ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -228,7 +228,7 @@ Isso abrirá uma janela do navegador que executa o aplicativo de exemplo, que ex
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta. Descreve dados que fluem de um dispositivo para o Hub IoT, por meio de uma função do Azure (seta B) para uma instância do gêmeos digital do Azure (seção A) e, em seguida, pela grade de eventos para outra função do Azure para processamento (seta C). A seção D mostra os dados que fluem da mesma grade de eventos na seta C para uma função do Azure rotulada ' difusão '. ' Broadcast ' comunica-se com outra função do Azure rotulada como ' Negotiate ', e ' Broadcast ' e ' Negotiate ' se comunicam com dispositivos de computador.":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los. 
 
@@ -242,7 +242,7 @@ Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

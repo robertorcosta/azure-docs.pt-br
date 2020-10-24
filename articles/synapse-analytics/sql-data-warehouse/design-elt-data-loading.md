@@ -11,18 +11,18 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2f3433075a1fddf116aae28666feb62473c6dbfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075018"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476086"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estratégias de carregamento de dados para o pool de SQL do Synapse
 
-Os pools de SQL SMP tradicionais usam um processo ETL (Extrair, Transformar e Carregar) para carregar dados. O pool de SQL Synapse, no Azure Synapse Analytics, tem uma arquitetura MPP (processamento paralelo maciço) que aproveita a escalabilidade e flexibilidade de recursos de computação e de armazenamento.
+Os pools de SQL SMP tradicionais usam um processo ETL (Extrair, Transformar e Carregar) para carregar dados. O Synapse SQL, na análise de Synapse do Azure, usa a arquitetura de processamento de consulta distribuída que aproveita a escalabilidade e a flexibilidade dos recursos de computação e armazenamento.
 
-O uso de um processo ELT (extração, carregamento e transformação) usa o MPP e elimina os recursos necessários para a transformação de dados antes do carregamento.
+Usar um processo de extração, carregamento e transformação (ELT) aproveita os recursos internos de processamento de consultas distribuídas e elimina os recursos necessários para a transformação de dados antes do carregamento.
 
 Embora o pool do SQL dê suporte a muitos métodos de carregamento, incluindo opções populares de SQL Server como [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e a [API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), a maneira mais rápida e escalonável de carregar dados é por meio de tabelas externas do polybase e a [instrução de cópia](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 

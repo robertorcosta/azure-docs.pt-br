@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281067"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475457"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Os SDKs nativos (.NET/.NET Core, Java, Node.js e Python) capturam essa resposta 
 
 Se você tiver mais de um cliente operando de forma cumulativa consistentemente acima da taxa de solicitação, a contagem de repetição padrão, que está atualmente definida como 9, pode não ser suficiente. Nesses casos, o cliente gera um `RequestRateTooLargeException` com código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo `RetryOptions` na instância de ConnectionPolicy. Por padrão, o `RequestRateTooLargeException` com código de status 429 é retornado após um tempo de espera cumulativo de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetição atual é menor que a contagem de repetição máxima, seja o padrão 9 seja um valor definido pelo usuário. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet&preserve-view=true) é definido como 3, portanto, nesse caso, se uma operação de solicitação tiver uma taxa limitada excedendo a taxa de transferência reservada para o contêiner, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o aplicativo. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) é definido como 60, portanto, nesse caso, se o tempo de espera de repetição cumulativo em segundos desde a primeira solicitação exceder 60 segundos, a exceção será lançada.
+[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?preserve-view=true&view=azure-dotnet) é definido como 3, portanto, nesse caso, se uma operação de solicitação tiver uma taxa limitada excedendo a taxa de transferência reservada para o contêiner, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o aplicativo. [MaxRetryWaitTimeInSeconds](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) é definido como 60, portanto, nesse caso, se o tempo de espera de repetição cumulativo em segundos desde a primeira solicitação exceder 60 segundos, a exceção será lançada.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -112,7 +112,7 @@ Além disso, se você está usando o Azure Cosmos DB e sabe que não vai pesquis
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Otimizar através da alteração da política de indexação 
 
-Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registro. Isso destina-se a facilitar o desenvolvimento e garantir um desempenho excelente entre vários tipos diferentes de consultas ad hoc. Se você tiver grandes registros com milhares de propriedades, pagar o custo da taxa de transferência para indexar todas as propriedades pode não ser útil, especialmente se você faz consulta apenas em relação a 10 ou 20 dessas propriedades. À medida que você for ficando mais familiarizado com sua carga de trabalho específica, nossa diretriz é a de ajustar sua política de índice. Obtenha detalhes completos sobre a política de indexação do Azure Cosmos DB [aqui](indexing-policies.md). 
+Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registro. Isso destina-se a facilitar o desenvolvimento e garantir um desempenho excelente entre vários tipos diferentes de consultas ad hoc. Se você tiver grandes registros com milhares de propriedades, pagar o custo da taxa de transferência para indexar todas as propriedades pode não ser útil, especialmente se você faz consulta apenas em relação a 10 ou 20 dessas propriedades. À medida que você for ficando mais familiarizado com sua carga de trabalho específica, nossa diretriz é a de ajustar sua política de índice. Obtenha detalhes completos sobre a política de indexação do Azure Cosmos DB [aqui](index-policy.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Monitoramento provisionado e taxa de transferência consumida 
 
@@ -156,7 +156,7 @@ As etapas a seguir ajudam a tornar as suas soluções altamente escalonáveis e 
 
 1. Se você provisionou sua taxa de transferência muito acima do necessário em contêineres e bancos de dados, examine as RUs consumidas e as provisionadas e ajuste as cargas de trabalho.  
 
-2. Um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de RUs ( unidades de solicitação) associado à execução de operações comuns em relação a um banco de dados ou contêiner do Azure Cosmos representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo. Meça e inclua consultas comuns e seu uso também. Para saber como estimar os custos de RU de consultas programaticamente ou usando o portal, consulte [Otimizar o custo de consultas](optimize-cost-queries.md). 
+2. Um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de RUs ( unidades de solicitação) associado à execução de operações comuns em relação a um banco de dados ou contêiner do Azure Cosmos representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo. Meça e inclua consultas comuns e seu uso também. Para saber como estimar os custos de RU de consultas programaticamente ou usando o portal, consulte [Otimizar o custo de consultas](./optimize-cost-reads-writes.md). 
 
 3. Outra maneira de obter operações e seus custos no RUs é habilitar os logs de Azure Monitor, o que lhe dará a divisão de operação/duração e o encargo da solicitação. O Azure Cosmos DB fornece encargos de solicitação para cada operação, ou seja, o encargo de cada operação pode ser armazenado a partir da resposta e usado para análise. 
 
@@ -182,6 +182,5 @@ A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmo
 * Saiba mais sobre [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre [Otimizando o custo de consultas](./optimize-cost-reads-writes.md)
 * Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)
-

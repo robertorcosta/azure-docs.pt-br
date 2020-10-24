@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483721"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474658"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Criar uma estratégia de carregamento de dados do polybase para o pool do SQL Synapse do Azure
 
-Os data warehouses SMP tradicionais usam um processo ETL (extração, transformação e carregamento) para carregar dados. O pool SQL do Azure é uma arquitetura MPP (processamento paralelo maciço) que aproveita a escalabilidade e a flexibilidade dos recursos de computação e armazenamento. O uso de um processo ELT (extração, carregamento e transformação) pode aproveitar o MPP e eliminar os recursos necessários para transformar os dados antes do carregamento.
+Os data warehouses SMP tradicionais usam um processo ETL (extração, transformação e carregamento) para carregar dados. O pool SQL do Azure é uma arquitetura MPP (processamento paralelo maciço) que aproveita a escalabilidade e a flexibilidade dos recursos de computação e armazenamento. O uso de um processo ELT (extração, carregamento e transformação) pode aproveitar os recursos internos de processamento de consultas distribuídas e eliminar os recursos necessários para transformar os dados antes do carregamento.
 
 Embora o pool do SQL dê suporte a muitos métodos de carregamento, incluindo opções não polybase, como BCP e API do SQL BulkCopy, a maneira mais rápida e escalonável de carregar a data é por meio do polybase.  O PolyBase é uma tecnologia que acessa dados externos armazenados no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage por meio da linguagem T-SQL.
 
@@ -69,10 +69,10 @@ Se você estiver exportando do SQL Server, poderá usar a [ferramenta de linha d
 |        string         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
-|       timestamp       |                             date                             |
-|       timestamp       |                        smalldatetime                         |
-|       timestamp       |                          datetime2                           |
-|       timestamp       |                           DATETIME                           |
+|        timestamp       |                             date                             |
+|        timestamp       |                        smalldatetime                         |
+|        timestamp       |                          datetime2                           |
+|        timestamp       |                           DATETIME                           |
 |       timestamp       |                             time                             |
 |       date            |                             date                             |
 |        decimal        |                            decimal                           |
@@ -112,7 +112,7 @@ Para formatar os arquivos de texto:
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. carregar os dados nas tabelas de preparo do pool SQL usando o polybase
 
-É uma melhor prática carregar dados em uma tabela de preparo. Tabelas de preparo permitem manipular erros sem interferir nas tabelas de produção. Uma tabela de preparo também oferece a oportunidade de usar o SQL pool MPP para transformações de dados antes de inserir os dados em tabelas de produção.
+É uma melhor prática carregar dados em uma tabela de preparo. Tabelas de preparo permitem manipular erros sem interferir nas tabelas de produção. Uma tabela de preparo também oferece a oportunidade de usar recursos de processamento de consulta distribuída internos do pool do SQL para transformações de dados antes de inserir os dados em tabelas de produção.
 
 ### <a name="options-for-loading-with-polybase"></a>Opções de carregamento com PolyBase
 

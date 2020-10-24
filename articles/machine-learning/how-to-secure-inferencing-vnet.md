@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
+ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 0eb4f8a7994e7c1d04013e9c9cf92e604ef6a1a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424450"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496023"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
 
@@ -123,7 +123,7 @@ Há duas abordagens para isolar o tráfego de e para o cluster AKS para a rede v
 * __Balanceador de carga AKs interno__: essa abordagem configura o ponto de extremidade para suas implantações para AKs usar um IP privado dentro da rede virtual.
 
 > [!WARNING]
-> **Use o AKs particular ou o balanceador de carga interno, mas não ambos**.
+> O balanceador de carga interno não funciona com um cluster AKS que usa kubenet. Se você quiser usar um balanceador de carga interno e um cluster AKS privado ao mesmo tempo, configure seu cluster AKS privado com o CNI (interface de rede de contêiner do Azure). Para obter mais informações, consulte [Configurar a rede CNI do Azure no serviço kubernetes do Azure](../aks/configure-azure-cni.md).
 
 ### <a name="private-aks-cluster"></a>Cluster AKS privado
 
@@ -134,7 +134,7 @@ Depois de criar o cluster AKS privado, [anexe o cluster à rede virtual](how-to-
 > [!IMPORTANT]
 > Antes de usar um cluster AKS habilitado para link privado com Azure Machine Learning, você deve abrir um incidente de suporte para habilitar essa funcionalidade. Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-## <a name="internal-aks-load-balancer"></a>Balanceador de carga AKS interno
+### <a name="internal-aks-load-balancer"></a>Balanceador de carga AKS interno
 
 Por padrão, as implantações do AKS usam um [balanceador de carga público](../aks/load-balancer-standard.md). Nesta seção, você aprenderá a configurar o AKS para usar um balanceador de carga interno. Um balanceador de carga interno (ou privado) é usado onde somente os IPs privados são permitidos como front-end. Balanceadores de carga internos são usados para balancear a carga do tráfego dentro de uma rede virtual
 

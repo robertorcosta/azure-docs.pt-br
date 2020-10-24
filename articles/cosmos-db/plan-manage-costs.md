@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f0a8fcb841399eb910f5f043cc75ddad037ee30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606873"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482240"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planejar e gerenciar custos para Azure Cosmos DB
 
@@ -75,13 +75,13 @@ Ao começar a usar Azure Cosmos DB recursos do portal do Azure, você pode ver o
 
 ## <a name="use-budgets-and-cost-alerts"></a>Usar orçamentos e alertas de custo
 
-É possível criar [orçamentos](../cost-management/tutorial-acm-create-budgets.md) para gerenciar custos e criar alertas que notificam automaticamente os stakeholders de anomalias de gastos e risco de gastos em excesso. Os alertas são baseados nos gastos comparados com os limites de orçamento e de custo. Orçamentos e alertas são criados para assinaturas e grupos de recursos do Azure, para que eles sejam úteis como parte de uma estratégia de monitoramento de custo geral. No entanto, eles podem ter funcionalidade limitada para gerenciar custos de serviço do Azure individuais como o custo de Azure Cosmos DB porque eles foram projetados para controlar os custos em um nível mais alto.
+É possível criar [orçamentos](../cost-management-billing/costs/tutorial-acm-create-budgets.md) para gerenciar custos e criar alertas que notificam automaticamente os stakeholders de anomalias de gastos e risco de gastos em excesso. Os alertas são baseados nos gastos comparados com os limites de orçamento e de custo. Orçamentos e alertas são criados para assinaturas e grupos de recursos do Azure, para que eles sejam úteis como parte de uma estratégia de monitoramento de custo geral. No entanto, eles podem ter funcionalidade limitada para gerenciar custos de serviço do Azure individuais como o custo de Azure Cosmos DB porque eles foram projetados para controlar os custos em um nível mais alto.
 
-Se sua assinatura do Azure tiver um limite de gastos, o Azure impedirá que você gaste em seu valor de crédito. Conforme você cria e usa os recursos do Azure, seus créditos são usados. Quando atingir seu limite de crédito, os recursos implantados serão desabilitados para o restante desse período de cobrança. Você não pode alterar seu limite de crédito, mas pode removê-lo. Para obter mais informações sobre limites de gastos, consulte [limite de gastos do Azure](../billing/billing-spending-limit.md).
+Se sua assinatura do Azure tiver um limite de gastos, o Azure impedirá que você gaste em seu valor de crédito. Conforme você cria e usa os recursos do Azure, seus créditos são usados. Quando atingir seu limite de crédito, os recursos implantados serão desabilitados para o restante desse período de cobrança. Você não pode alterar seu limite de crédito, mas pode removê-lo. Para obter mais informações sobre limites de gastos, consulte [limite de gastos do Azure](../cost-management-billing/manage/spending-limit.md).
 
 ## <a name="monitor-costs"></a>Monitorar custos
 
-Ao usar recursos com Azure Cosmos DB, você incorre em custos. Os custos da unidade de uso de recursos variam de acordo com os intervalos de tempo (segundos, minutos, horas e dias) ou por uso da unidade de solicitação. Assim que o uso de Azure Cosmos DB é iniciado, os custos são incorridos e você pode vê-los no painel de [análise de custo](../cost-management/quick-acm-cost-analysis.md) na portal do Azure.
+Ao usar recursos com Azure Cosmos DB, você incorre em custos. Os custos da unidade de uso de recursos variam de acordo com os intervalos de tempo (segundos, minutos, horas e dias) ou por uso da unidade de solicitação. Assim que o uso de Azure Cosmos DB é iniciado, os custos são incorridos e você pode vê-los no painel de [análise de custo](../cost-management-billing/costs/quick-acm-cost-analysis.md) na portal do Azure.
 
 Ao usar a análise de custo, você pode exibir os custos de Azure Cosmos DB em gráficos e tabelas para intervalos de tempo diferentes. Alguns exemplos são por dia, atual, mês anterior e ano. Você também pode exibir os custos em relação a orçamentos e custos previstos. Alternar para exibições mais longas ao longo do tempo pode ajudá-lo a identificar tendências de gastos e ver onde o excesso de gastos pode ter ocorrido. Se você tiver criado orçamentos, também poderá ver facilmente onde eles foram excedidos. Para exibir os custos de Azure Cosmos DB na análise de custo:
 
@@ -103,5 +103,5 @@ Consulte os artigos a seguir para saber mais sobre como os preços funcionam no 
 
 * [Modelo de preços no Azure Cosmos DB](how-pricing-works.md)
 * [Otimizar a taxa de transferência provisionada no Azure Cosmos DB](optimize-cost-throughput.md)
-* [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
+* [Otimizar o custo de consulta no Azure Cosmos DB](./optimize-cost-reads-writes.md)
 * [Otimizar o custo de armazenamento no Azure Cosmos DB](optimize-cost-storage.md)

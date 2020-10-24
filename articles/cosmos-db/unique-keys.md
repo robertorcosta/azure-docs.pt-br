@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dac2ed3888dcf1d38fc5e2c21611edf8008a07f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281001"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476358"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chaves exclusivas no Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Se você tentar inserir outro item com as combinações listadas na tabela anter
 
 * Não é possível atualizar um contêiner existente para usar uma chave exclusiva diferente. Isso significa que, após criar um contêiner com uma política de chave exclusiva, a política não poderá ser alterada.
 
-* Para definir uma chave exclusiva para um contêiner existente, crie um novo contêiner com a restrição de chave exclusiva. Use a ferramenta de migração de dados apropriada para mover os dados do contêiner existente para o novo contêiner. Para contêineres SQL, use a [ferramenta de Migração de Dados](import-data.md) para mover dados. Para contêineres MongoDB, use [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) para mover dados.
+* Para definir uma chave exclusiva para um contêiner existente, crie um novo contêiner com a restrição de chave exclusiva. Use a ferramenta de migração de dados apropriada para mover os dados do contêiner existente para o novo contêiner. Para contêineres SQL, use a [ferramenta de Migração de Dados](import-data.md) para mover dados. Para contêineres MongoDB, use [mongoimport.exe ou mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) para mover dados.
 
 * Uma política de chave exclusiva pode ter no máximo 16 valores do caminho. Por exemplo, os valores podem ser `/firstName` , `/lastName` e `/address/zipCode` . Cada política de chave exclusiva pode ter um máximo de 10 restrições ou combinações de chave exclusiva. Os caminhos combinados para cada restrição de índice exclusivo não devem exceder 60 bytes. No exemplo anterior, o nome, sobrenome e endereço de email juntos são uma restrição. Essa restrição usa 3 dentre os 16 caminhos possíveis.
 

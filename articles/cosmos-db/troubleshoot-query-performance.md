@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277176"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476698"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
 
@@ -191,7 +191,7 @@ Política de indexação atualizada:
 
 **Preço da RU:** 2,98 RUs
 
-Você pode adicionar propriedades à política de indexação a qualquer momento, sem efeito na disponibilidade de gravação ou leitura. Você pode [acompanhar o progresso da transformação do índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Você pode adicionar propriedades à política de indexação a qualquer momento, sem efeito na disponibilidade de gravação ou leitura. Você pode [acompanhar o progresso da transformação do índice](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Entender quais funções do sistema usam o índice
 
@@ -491,5 +491,5 @@ As consultas destinam-se a buscar previamente resultados enquanto o lote atual d
 Confira os seguintes artigos para obter informações sobre como medir RUs por consulta, obter estatísticas de execução para ajustar suas consultas e muito mais:
 
 * [Obter métricas de execução de consulta SQL usando o SDK do .NET](profile-sql-api-query.md)
-* [Ajustando o desempenho da consulta com o Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Ajustando o desempenho da consulta com o Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Dicas de desempenho para o SDK do .NET](performance-tips.md)

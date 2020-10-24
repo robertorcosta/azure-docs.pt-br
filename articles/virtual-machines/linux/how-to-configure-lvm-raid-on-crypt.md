@@ -2,17 +2,18 @@
 title: Configurar o LVM e o RAID em dispositivos criptografados-Azure Disk Encryption
 description: Este artigo fornece instruções para configurar o LVM e o RAID em dispositivos criptografados para VMs do Linux.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6ccb74fe58742974798732605b4a017a06777bcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328166"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476154"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurar o LVM e o RAID em dispositivos criptografados
 

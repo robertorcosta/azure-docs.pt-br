@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331491"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495906"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Falha na solicitação de serviço. Status: 403 (proibido)
 
@@ -25,7 +25,9 @@ Esse erro pode ocorrer em muitos tipos de solicitações de serviço que exigem 
 
 ### <a name="cause-1"></a>Causa #1
 
-Geralmente, esse erro indica que as permissões do controle de acesso baseado em função do Azure (RBAC do Azure) para o serviço não estão configuradas corretamente. Muitas ações para uma instância do gêmeos digital do Azure exigem que você tenha a função de *proprietário do gêmeos digital do Azure (versão prévia)* **na instância que você está tentando gerenciar**. 
+Geralmente, esse erro indica que as permissões do controle de acesso baseado em função do Azure (RBAC do Azure) para o serviço não estão configuradas corretamente. Muitas ações para uma instância do gêmeos digital do Azure exigem que você tenha a função de *proprietário de dados do gêmeos digital do Azure* **na instância que está tentando gerenciar**. 
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### <a name="cause-2"></a>Causa #2
 
@@ -37,11 +39,12 @@ O registro do aplicativo deve ter permissões de acesso configuradas para as API
 
 ### <a name="solution-1"></a>#1 da solução
 
-A primeira solução é verificar se o usuário do Azure tem a função de _**proprietário (versão prévia) do gêmeos digital do Azure**_ na instância que você está tentando gerenciar. Se você não tiver essa função, configure-a.
+A primeira solução é verificar se o usuário do Azure tem a função de _**proprietário de dados gêmeos digital do Azure**_ na instância que você está tentando gerenciar. Se você não tiver essa função, configure-a.
 
 Observe que essa função é diferente de...
-* a função de *proprietário* em toda a assinatura do Azure. O *proprietário do gêmeos digital do Azure (versão prévia)* é uma função no gêmeos digital do Azure e tem o escopo definido para essa instância de gêmeos digital do Azure individual.
-* a função de *proprietário* no gêmeos digital do Azure. Essas são duas funções de gerenciamento de gêmeos digitais do Azure diferentes e o *proprietário do gêmeos digital do Azure (versão prévia)* é a função que deve ser usada para gerenciamento durante a visualização.
+* o nome anterior para essa função durante a visualização, *proprietário do gêmeos digital do Azure (versão prévia)* (a função é a mesma, mas o nome foi alterado)
+* a função de *proprietário* em toda a assinatura do Azure. O *proprietário de dados do gêmeos digital do Azure* é uma função dentro do gêmeos digital do Azure e tem como escopo essa instância de gêmeos digital do Azure individual.
+* a função de *proprietário* no gêmeos digital do Azure. Essas são duas funções de gerenciamento de gêmeos digitais do Azure diferentes e o *proprietário dos dados do Azure digital gêmeos* é a função que deve ser usada para gerenciamento durante a visualização.
 
 #### <a name="check-current-setup"></a>Verificar a configuração atual
 
@@ -49,12 +52,12 @@ Observe que essa função é diferente de...
 
 #### <a name="fix-issues"></a>Corrigir problemas 
 
-Se você não tiver essa atribuição de função, alguém com uma função de proprietário em sua **assinatura do Azure** deverá executar o comando a seguir para dar ao usuário do Azure a função de *proprietário (versão prévia) do Azure digital gêmeos* na **instância do gêmeos digital do Azure**. 
+Se você não tiver essa atribuição de função, alguém com uma função de proprietário em sua **assinatura do Azure** deverá executar o seguinte comando para dar ao usuário do Azure a função de *proprietário de dados do gêmeos digital* do Azure na instância do **gêmeos digital do Azure**. 
 
 Se você for um proprietário na assinatura, poderá executar esse comando por conta própria. Se não estiver, entre em contato com um proprietário para executar esse comando em seu nome.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
 Para obter mais detalhes sobre esse requisito de função e o processo de atribuição, consulte a [seção *configurar permissões de acesso do usuário* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de *como: configurar uma instância e autenticação (CLI ou Portal)*.

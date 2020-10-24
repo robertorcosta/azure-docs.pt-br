@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122714"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474896"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com o pool SQL sem servidor no link Synapse do Azure (versão prévia)
 
@@ -247,7 +247,7 @@ Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade 
 | Booliano | bit |
 | Integer | BIGINT |
 | Decimal | FLOAT |
-| String | varchar (agrupamento de banco de dados UTF8) |
+| Cadeia de caracteres | varchar (agrupamento de banco de dados UTF8) |
 | Data e hora (cadeia de caracteres formatada em ISO) | varchar (30) |
 | Data e hora (carimbo de hora do UNIX) | BIGINT |
 | Nulo | `any SQL type` 
@@ -277,5 +277,6 @@ Você pode relatar sugestões e problemas na [página de comentários do Azure S
 
 Para obter mais informações, consulte os seguintes artigos:
 
+- [Use Power BI e o pool de SQL Synapse sem servidor com o link Synapse do Azure](../../cosmos-db/synapse-link-power-bi.md)
 - [Como criar e usar modos de exibição no SQL sob demanda](create-use-views.md) 
 - [Tutorial sobre a criação de exibições do SQL sob demanda em Azure Cosmos DB e conectá-las a modelos de Power BI por meio do DirectQuery](./tutorial-data-analyst.md)

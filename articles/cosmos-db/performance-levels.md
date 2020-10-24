@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7fd7431b19ed21ee9cf76b6c2fe190b3f31cacf6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: da74fde761d32802966d1f477beaf6138c77020e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281038"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475389"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
 
@@ -116,12 +116,12 @@ Aqui está um snippet de código para mudar a taxa de transferência da coleçã
     await client.ReplaceOfferAsync(offer);
 ```
 
-Visite o [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) para exibir exemplos adicionais e saber mais sobre os métodos oferecidos:
+Visite o [MSDN](/dotnet/api/microsoft.azure.documents.client.documentclient) para exibir exemplos adicionais e saber mais sobre os métodos oferecidos:
 
-* [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
-* [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
-* [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
-* [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
+* [**ReadOfferAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync)
+* [**ReadOffersFeedAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.readoffersfeedasync)
+* [**ReplaceOfferAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync)
+* [**CreateOfferQuery**](/previous-versions/azure/dn975114(v=azure.100))
 
 <a name="ea-customer"></a>
 

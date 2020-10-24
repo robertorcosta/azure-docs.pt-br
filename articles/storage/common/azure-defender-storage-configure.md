@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289762"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474845"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurar o Azure defender para armazenamento
 
@@ -37,7 +37,7 @@ A lista a seguir resume a disponibilidade do Azure defender para armazenamento:
 
 - Estado da versão:
   - [Armazenamento de BLOBs](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
-  - [Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (disponibilidade geral)
+  - [Arquivos do Azure](/azure/storage/files/storage-files-introduction) (disponibilidade geral)
   - Azure Data Lake Storage Gen2 (disponibilidade geral)
 - Nuvens:<br>
     ✔ Nuvens comerciais<br>
@@ -98,16 +98,16 @@ Use um Azure Policy para habilitar o Azure defender entre contas de armazenament
 
 Use comandos da API REST para criar, atualizar ou obter a configuração do Azure defender para uma conta de armazenamento específica.
 
-- [Proteção avançada contra ameaças – criar](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Proteção avançada contra ameaças-obter](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Proteção avançada contra ameaças – criar](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Proteção avançada contra ameaças-obter](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Use os seguintes cmdlets do PowerShell:
 
-- [Habilitar a proteção avançada contra ameaças](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Obtenha proteção avançada contra ameaças](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Desabilitar a proteção avançada contra ameaças](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Habilitar a proteção avançada contra ameaças](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Obtenha proteção avançada contra ameaças](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Desabilitar a proteção avançada contra ameaças](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 

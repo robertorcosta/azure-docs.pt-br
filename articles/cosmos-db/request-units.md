@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 556b3915336d0ca9cec8ac67a34778cfb2523cbe
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282044"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475066"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Enquanto você estima o número de RUs consumidas por sua carga de trabalho, con
 
   A mesma consulta nos mesmos dados sempre custará o mesmo número de RUs em execuções repetidas.
 
-- **Uso de script**: assim como acontece com consultas, procedimentos armazenados e gatilhos consomem RUs com base na complexidade das operações que são executadas. Conforme você desenvolve seu aplicativo, inspecione o [cabeçalho do preço de solicitação](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) para entender melhor a capacidade de RU consumida por operação.
+- **Uso de script**: assim como acontece com consultas, procedimentos armazenados e gatilhos consomem RUs com base na complexidade das operações que são executadas. Conforme você desenvolve seu aplicativo, inspecione o [cabeçalho do preço de solicitação](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) para entender melhor a capacidade de RU consumida por operação.
 
 ## <a name="request-units-and-multiple-regions"></a>Unidades de solicitação e várias regiões
 
@@ -76,12 +76,12 @@ Sua escolha de [modelo de consistência](consistency-levels.md) também afeta a 
 
 - Saiba mais sobre como [provisionar taxa de transferência para contêineres e bancos de dados do Azure Cosmos DB](set-throughput.md).
 - Saiba mais sobre o [Azure Cosmos DB sem servidor](serverless.md).
-- Saiba mais sobre [partições lógicas](partition-data.md).
-- Saiba mais sobre como [dimensionar taxa de transferência provisionada globalmente](scaling-throughput.md).
+- Saiba mais sobre [partições lógicas](./partitioning-overview.md).
+- Saiba mais sobre como [dimensionar taxa de transferência provisionada globalmente]().
 - Saiba como [provisionar taxa de transferência em um contêiner do Azure Cosmos DB](how-to-provision-container-throughput.md).
 - Saiba como [provisionar taxa de transferência em um banco de dados do Azure Cosmos DB](how-to-provision-database-throughput.md).
 - Saiba como [localizar o encargo de unidade de solicitação para uma operação](find-request-unit-charge.md).
 - Saiba como [otimizar o custo de taxa de transferência provisionada em Azure Cosmos DB](optimize-cost-throughput.md).
 - Saiba como [otimizar o custo de leituras e gravações no Azure Cosmos DB](optimize-cost-reads-writes.md).
-- Saiba como [otimizar o custo da consulta no Azure Cosmos DB](optimize-cost-queries.md).
+- Saiba como [otimizar o custo da consulta no Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Saiba como [usar métricas para monitorar a taxa de transferência](use-metrics.md).

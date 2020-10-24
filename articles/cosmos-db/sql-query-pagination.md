@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276099"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485028"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginação no Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Se a consulta retornar um token de continuação, haverá resultados de consulta
 
 Na API REST do Azure Cosmos DB, você pode gerenciar tokens de continuação com o `x-ms-continuation` cabeçalho. Assim como acontece com a consulta com o SDK do .NET ou do Java, se o `x-ms-continuation` cabeçalho de resposta não estiver vazio, isso significará que a consulta tem resultados adicionais.
 
-Contanto que você esteja usando a mesma versão do SDK, os tokens de continuação nunca expiram. Opcionalmente, você pode [restringir o tamanho de um token de continuação](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Independentemente da quantidade de dados ou do número de partições físicas em seu contêiner, as consultas retornam um único token de continuação.
+Contanto que você esteja usando a mesma versão do SDK, os tokens de continuação nunca expiram. Opcionalmente, você pode [restringir o tamanho de um token de continuação](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Independentemente da quantidade de dados ou do número de partições físicas em seu contêiner, as consultas retornam um único token de continuação.
 
 Você não pode usar tokens de continuação para consultas com [Group by](sql-query-group-by.md) ou [DISTINCT](sql-query-keywords.md#distinct) porque essas consultas exigirão o armazenamento de um estado significativo. Para consultas com `DISTINCT` o, você pode usar tokens de continuação se adicionar `ORDER BY` à consulta.
 

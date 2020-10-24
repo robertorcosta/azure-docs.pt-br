@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d4e150eddee947aa4ed6f88c122c0fa6d01a0bae
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460641"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495777"
 ---
 # <a name="write-client-app-authentication-code"></a>Gravar o código de autenticação do aplicativo cliente
 
@@ -22,7 +22,7 @@ O Azure digital gêmeos executa a autenticação usando [tokens de segurança do
 
 Este artigo descreve como obter credenciais usando a `Azure.Identity` biblioteca de cliente. Embora este artigo mostre exemplos de código em C#, como o que você escreveria para o [SDK do .net (c#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), você pode usar uma versão do, `Azure.Identity` independentemente de qual SDK está usando (para obter mais informações sobre os SDKs disponíveis para o gêmeos digital do Azure, consulte [*como usar as APIs e SDKs do gêmeos digital do Azure*](how-to-use-apis-sdks.md)).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Primeiro, conclua as etapas de configuração em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Isso garantirá que você tenha uma instância de gêmeos digital do Azure, seu usuário tem permissões de acesso e você configurou permissões para aplicativos cliente. Após toda essa configuração, você estará pronto para gravar o código do aplicativo cliente.
 
@@ -83,6 +83,10 @@ try
     Environment.Exit(0);
 }
 ```
+
+#### <a name="set-up-local-azure-credentials"></a>Configurar credenciais locais do Azure
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (inner)](../../includes/digital-twins-local-credentials-inner.md)]
 
 ### <a name="managedidentitycredential-method"></a>Método ManagedIdentityCredential
 

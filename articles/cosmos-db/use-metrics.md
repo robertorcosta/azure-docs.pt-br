@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2a7645950fd7a239376f07d6c6f4689c1a3f3da5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280800"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476307"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
 
-O Azure Cosmos DB fornece métricas de taxa de transferência, armazenamento, consistência, disponibilidade e latência. O portal do Microsoft Azure fornece uma visualização agregada dessas métricas. Você também pode exibir métricas do Azure Cosmos DB pela API do Azure Monitor. Os valores de dimensão para as métricas, como o nome do contêiner, não diferenciam maiúsculas de minúsculas. Portanto, você precisa usar a comparação de maiúsculas e minúsculas ao fazer comparações de cadeias de caracteres nesses valores de dimensão. Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](cosmos-db-azure-monitor-metrics.md) .
+O Azure Cosmos DB fornece métricas de taxa de transferência, armazenamento, consistência, disponibilidade e latência. O portal do Microsoft Azure fornece uma visualização agregada dessas métricas. Você também pode exibir métricas do Azure Cosmos DB pela API do Azure Monitor. Os valores de dimensão para as métricas, como o nome do contêiner, não diferenciam maiúsculas de minúsculas. Portanto, você precisa usar a comparação de maiúsculas e minúsculas ao fazer comparações de cadeias de caracteres nesses valores de dimensão. Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](./monitor-cosmos-db.md) .
 
 Este artigo explica como casos de uso comuns e como as métricas do Azure Cosmos DB podem ser usadas para analisar e depurar esses problemas. As métricas são coletadas a cada cinco minutos e são mantidas por sete dias.
 
@@ -112,6 +112,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Agora você aprendeu como monitorar e depurar problemas usando as métricas fornecidas no portal do Azure. Você pode querer aprender mais sobre como melhorar o desempenho do banco de dados lendo os seguintes artigos:
 
-* Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](cosmos-db-azure-monitor-metrics.md) . 
+* Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](./monitor-cosmos-db.md) . 
 * [Teste de desempenho e escala com o Azure Cosmos DB](performance-testing.md)
 * [Dicas de desempenho para o Azure Cosmos DB](performance-tips.md)
