@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 63663d228052934616a59f5d84ff16a6510e46c9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 613e0dbfc90586475fe0ba9820ede1359a99d3a6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282075"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482206"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Compreendendo as diferenças entre o NoSQL e os bancos de dados relacionais
 
-Este artigo enumerará alguns dos principais benefícios dos bancos de dados NoSQL em bancos de dados relacionais. Também discutiremos alguns dos desafios em trabalhar com o NoSQL. Para obter uma análise detalhada dos diferentes armazenamentos de dados que existem, confira nosso artigo sobre como [escolher o armazenamento de dados correto](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview).
+Este artigo enumerará alguns dos principais benefícios dos bancos de dados NoSQL em bancos de dados relacionais. Também discutiremos alguns dos desafios em trabalhar com o NoSQL. Para obter uma análise detalhada dos diferentes armazenamentos de dados que existem, confira nosso artigo sobre como [escolher o armazenamento de dados correto](/azure/architecture/guide/technology-choices/data-store-overview).
 
 ## <a name="high-throughput"></a>Alta taxa de transferência
 
@@ -25,7 +25,7 @@ Um dos desafios mais óbvios ao manter um sistema de banco de dados relacional �
 
 Nesses cenários, [os bancos de dados distribuídos](https://en.wikipedia.org/wiki/Distributed_database) podem oferecer uma solução mais escalonável. No entanto, a manutenção ainda pode ser um exercício dispendioso e demorado. Os administradores podem precisar fazer um trabalho extra para garantir que a natureza distribuída do sistema seja transparente. Eles também podem precisar considerar a natureza "desconectada" do banco de dados.
 
-A [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) simplifica esses desafios, ao ser implantado em todo o mundo em todas as regiões do Azure. Os intervalos de partição podem ser subdivididos dinamicamente para aumentar diretamente o banco de dados em linha com o aplicativo, mantendo simultaneamente a alta disponibilidade. A gestão de recursos nativa de nuvem refinada e rigidamente controlada facilita as [garantias de latência impressionante](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs#consistency-levels-and-latency) e o desempenho previsível. O particionamento é totalmente gerenciado, de modo que os administradores não precisam escrever código nem gerenciar partições.
+A [Azure Cosmos DB](./introduction.md) simplifica esses desafios, ao ser implantado em todo o mundo em todas as regiões do Azure. Os intervalos de partição podem ser subdivididos dinamicamente para aumentar diretamente o banco de dados em linha com o aplicativo, mantendo simultaneamente a alta disponibilidade. A gestão de recursos nativa de nuvem refinada e rigidamente controlada facilita as [garantias de latência impressionante](./consistency-levels.md#consistency-levels-and-latency) e o desempenho previsível. O particionamento é totalmente gerenciado, de modo que os administradores não precisam escrever código nem gerenciar partições.
 
 Se seus volumes transacionais estiverem atingindo níveis extremos, como muitos milhares de transações por segundo, você deverá considerar um banco de dados NoSQL distribuído. Considere Azure Cosmos DB para obter máxima eficiência, facilidade de manutenção e redução do custo total de propriedade.
 
@@ -37,7 +37,7 @@ Há um número significativo de casos de uso em que as transações no banco de 
 
 No entanto, hoje a popularidade dos bancos de dados em estilo de documento cresceu significativamente. Esses bancos de dados podem ser considerados uma reinventação do paradigma hierárquico do banco de dados, agora desinibido por preocupações com o custo de armazenamento de dados em disco. Como resultado, a manutenção de muitas relações de entidades pai-filho complexas em um banco de dados relacional agora poderia ser considerada um antipadrão em comparação com as abordagens modernas orientadas a documentos.
 
-O surgimento do [design orientado a objeto](https://en.wikipedia.org/wiki/Object-oriented_design)e a [incompatibilidade de impedância](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) que surge ao combiná-lo com modelos relacionais, também realça um antipadrão em bancos de dados relacionais para determinados casos de uso. Os custos de manutenção ocultos, mas geralmente podem surgir como resultado. Embora as [abordagens de ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) tenham evoluído para reduzir parcialmente isso, os bancos de dados orientados a documentos, apesar de serem Unidos muito melhor com abordagens orientadas a objeto. Com essa abordagem, os desenvolvedores não são forçados a serem confirmados em drivers de ORM ou [mecanismos de banco de dados OO](https://en.wikipedia.org/wiki/Object_database)específicos à linguagem do bespoke. Se seus dados contiverem muitas relações pai-filho e níveis mais amplos de hierarquia, convém considerar o uso de um banco de dados de documento NoSQL, como o [Azure Cosmos DB API do SQL](https://docs.microsoft.com/azure/cosmos-db/introduction).
+O surgimento do [design orientado a objeto](https://en.wikipedia.org/wiki/Object-oriented_design)e a [incompatibilidade de impedância](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) que surge ao combiná-lo com modelos relacionais, também realça um antipadrão em bancos de dados relacionais para determinados casos de uso. Os custos de manutenção ocultos, mas geralmente podem surgir como resultado. Embora as [abordagens de ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) tenham evoluído para reduzir parcialmente isso, os bancos de dados orientados a documentos, apesar de serem Unidos muito melhor com abordagens orientadas a objeto. Com essa abordagem, os desenvolvedores não são forçados a serem confirmados em drivers de ORM ou [mecanismos de banco de dados OO](https://en.wikipedia.org/wiki/Object_database)específicos à linguagem do bespoke. Se seus dados contiverem muitas relações pai-filho e níveis mais amplos de hierarquia, convém considerar o uso de um banco de dados de documento NoSQL, como o [Azure Cosmos DB API do SQL](./introduction.md).
 
 :::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="Back-end":::
 
@@ -47,11 +47,11 @@ Ironicamente, considerando seu nome, os bancos de dados relacionais apresentam u
 
 Várias formas de bancos de dados de "rede" surgiram durante o tempo de surgimento dos bancos de dados relacionais, mas, como acontece com bancos de dados hierárquicos, esses sistemas lutavam para obter popularidade. A adoção lenta ocorreu devido a uma falta de casos de uso no momento e ineficiências de armazenamento. Hoje, os mecanismos de banco de dados do grafo podem ser considerados um novo surgimento do paradigma do banco de dados de rede. O principal benefício com esses sistemas é que as relações são armazenadas como "cidadãos de primeira classe" no banco de dados. Assim, as relações de atravessamento podem ser feitas em constante tempo, em vez de aumentar a complexidade do tempo com cada nova junção ou produto cruzado.
 
-Se você estiver mantendo uma rede complexa de relações em seu banco de dados, convém considerar um banco de dados de grafo, como a [API do Azure Cosmos DB Gremlin](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) para o gerenciamento desse dado.
+Se você estiver mantendo uma rede complexa de relações em seu banco de dados, convém considerar um banco de dados de grafo, como a [API do Azure Cosmos DB Gremlin](./graph-introduction.md) para o gerenciamento desse dado.
 
 :::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Back-end":::
 
-Azure Cosmos DB é um serviço de banco de dados multimodelo, que oferece uma projeção de API para todos os principais tipos de modelo NoSQL; Coluna-família, documento, gráfico e valor-chave. As camadas de API do documento [Gremlin (grafo)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) e SQL (núcleo) são totalmente interoperáveis. Isso tem benefícios para alternar entre modelos diferentes no nível de programação. Os repositórios de grafo podem ser consultados em termos de atravessamentos de rede complexos, bem como transações modeladas como registros de documento no mesmo armazenamento.
+Azure Cosmos DB é um serviço de banco de dados multimodelo, que oferece uma projeção de API para todos os principais tipos de modelo NoSQL; Coluna-família, documento, gráfico e valor-chave. As camadas de API do documento [Gremlin (grafo)](./gremlin-support.md) e SQL (núcleo) são totalmente interoperáveis. Isso tem benefícios para alternar entre modelos diferentes no nível de programação. Os repositórios de grafo podem ser consultados em termos de atravessamentos de rede complexos, bem como transações modeladas como registros de documento no mesmo armazenamento.
 
 ## <a name="fluid-schema"></a>Esquema fluido
 
@@ -64,8 +64,8 @@ Se você estiver gerenciando dados cujas estruturas estão em constante mudança
 O padrão de [microserviços](https://en.wikipedia.org/wiki/Microservices) cresceu significativamente nos últimos anos. Esse padrão tem suas raízes na [arquitetura orientada a serviços](https://en.wikipedia.org/wiki/Service-oriented_architecture). O padrão de fato para a transmissão de dados nessas arquiteturas modernas de microserviço é o [JSON](https://en.wikipedia.org/wiki/JSON), que também é o meio de armazenamento para a grande maioria dos bancos de dados NoSQL orientados a documentos. Isso faz com que o documento NoSQL armazene um ajuste muito mais uniforme para a persistência e a sincronização (usando [padrões de fornecimento de eventos](https://en.wikipedia.org/wiki/Event-driven_architecture)) em implementações complexas de microatendimento. Bancos de dados relacionais mais tradicionais podem ser muito mais complexos de manter nessas arquiteturas. Isso ocorre devido à maior quantidade de transformação necessária para o estado e a sincronização entre as APIs. Azure Cosmos DB em particular tem vários recursos que o tornam um ajuste ainda mais perfeito para arquiteturas de microserviços baseados em JSON do que muitos bancos de dados NoSQL:
 
 * uma opção de tipos de dados JSON puros
-* um mecanismo JavaScript e [API de consulta](https://docs.microsoft.com/azure/cosmos-db/javascript-query-api) incorporados ao banco de dados.
-* um [feed de alterações](https://docs.microsoft.com/azure/cosmos-db/change-feed) de última geração que os clientes podem assinar para ser notificado sobre modificações em um contêiner.
+* um mecanismo JavaScript e [API de consulta](./javascript-query-api.md) incorporados ao banco de dados.
+* um [feed de alterações](./change-feed.md) de última geração que os clientes podem assinar para ser notificado sobre modificações em um contêiner.
 
 ## <a name="some-challenges-with-nosql-databases"></a>Alguns desafios com bancos de dados NoSQL
 
@@ -78,13 +78,13 @@ Observando o primeiro desafio, a regra de Thumb nos bancos de dados NoSQL geralm
 
 :::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Back-end" e uma junção para recuperar os dados. 
 
-A desvantagem é que as leituras são mais eficientes no registro desnormalizado e tornam-se cada vez mais eficientes à medida que o número de entidades Unidas conceituais aumenta. No entanto, assim como a eficiência de leitura aumenta com o aumento de números de entidades Unidas em um registro de desnormalização, também faz a complexidade da manutenção de manter as entidades em sincronia. Uma maneira de mitigar essa desvantagem é criar um [modelo de dados híbrido](https://docs.microsoft.com/azure/cosmos-db/modeling-data#hybrid-data-models).
+A desvantagem é que as leituras são mais eficientes no registro desnormalizado e tornam-se cada vez mais eficientes à medida que o número de entidades Unidas conceituais aumenta. No entanto, assim como a eficiência de leitura aumenta com o aumento de números de entidades Unidas em um registro de desnormalização, também faz a complexidade da manutenção de manter as entidades em sincronia. Uma maneira de mitigar essa desvantagem é criar um [modelo de dados híbrido](./modeling-data.md#hybrid-data-models).
 
-Embora haja mais flexibilidade disponível em bancos de dados NoSQL para lidar com essas compensações, a maior flexibilidade também pode produzir mais decisões de design. Consulte nosso artigo [como modelar e particionar dados em Azure Cosmos DB usando um exemplo do mundo real](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example), que inclui uma abordagem para manter [dados de usuário desnormalizados em sincronia](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example#denormalizing-usernames) , onde os usuários não só ficam em partições diferentes, mas em contêineres diferentes.
+Embora haja mais flexibilidade disponível em bancos de dados NoSQL para lidar com essas compensações, a maior flexibilidade também pode produzir mais decisões de design. Consulte nosso artigo [como modelar e particionar dados em Azure Cosmos DB usando um exemplo do mundo real](./how-to-model-partition-example.md), que inclui uma abordagem para manter [dados de usuário desnormalizados em sincronia](./how-to-model-partition-example.md#denormalizing-usernames) , onde os usuários não só ficam em partições diferentes, mas em contêineres diferentes.
 
 Em relação à consistência forte, é raro que isso seja necessário em todo o conjunto de dados. No entanto, nos casos em que isso é necessário, pode ser um desafio em bancos de dados distribuídos. Para garantir uma consistência forte, os dados precisam ser sincronizados em todas as réplicas e regiões antes de permitir que os clientes o leiam. Isso pode aumentar a latência de leituras.
 
-Novamente, Azure Cosmos DB oferece mais flexibilidade do que bancos de dados relacionais para as várias compensações que são relevantes aqui, mas para implementações em pequena escala, essa abordagem pode adicionar mais considerações de design. Consulte nosso artigo sobre as [compensações de consistência, disponibilidade e desempenho](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs) para obter mais detalhes sobre este tópico.
+Novamente, Azure Cosmos DB oferece mais flexibilidade do que bancos de dados relacionais para as várias compensações que são relevantes aqui, mas para implementações em pequena escala, essa abordagem pode adicionar mais considerações de design. Consulte nosso artigo sobre as [compensações de consistência, disponibilidade e desempenho](./consistency-levels.md) para obter mais detalhes sobre este tópico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

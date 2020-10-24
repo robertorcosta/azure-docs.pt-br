@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280140"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488853"
 ---
 # <a name="storage-account-overview"></a>Visão geral da conta de armazenamento
 
@@ -133,7 +133,7 @@ Por exemplo, se a conta de armazenamento para uso geral chamar *mystorageaccount
 - Armazenamento de tabelas: `https://*mystorageaccount*.table.core.windows.net`
 - Armazenamento de filas: `https://*mystorageaccount*.queue.core.windows.net`
 - Arquivos do Azure: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (usa o [Driver ABFS otimizado especificamente para Big data](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2).)
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (usa o [Driver ABFS otimizado especificamente para Big data](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2).)
 
 > [!NOTE]
 > O bloco BLOB e as contas de armazenamento de blob expõem apenas o ponto de extremidade do serviço BLOB.
@@ -177,7 +177,7 @@ A biblioteca de movimentação de dados do Armazenamento do Azure para .NET base
 
 Você pode criar um aplicativo personalizado para migrar seus dados de uma conta de armazenamento v1 de uso geral para uma conta de armazenamento de BLOBs. Use uma das bibliotecas de cliente do Azure ou a API REST dos serviços de armazenamento do Azure. O Armazenamento do Azure fornece bibliotecas de cliente avançadas para várias linguagens e plataformas, como .NET, Java, C++, Node.JS, PHP, Ruby e Python. As bibliotecas de cliente oferecem recursos avançados, como lógica de recuperação, registro em log e carregamentos paralelos. Você também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que faça solicitações HTTP/HTTPS.
 
-Para saber mais sobre a API REST do Armazenamento do Azure, confira a [Referência da API REST dos Serviços do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/).
+Para saber mais sobre a API REST do Armazenamento do Azure, confira a [Referência da API REST dos Serviços do Armazenamento do Azure](/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > Blobs criptografados usando metadados relacionados à criptografia de armazenamento no lado do cliente com o blob. Se você copiar um blob que é criptografado com criptografia do lado do cliente, verifique se que a operação de cópia preserva os metadados de blob e especialmente os metadados relacionados à criptografia. Se você copiar um blob sem os metadados de criptografia, o conteúdo do blob não poderá ser recuperado novamente. Para obter mais detalhes sobre os metadados relacionados à criptografia, confira [Criptografia no Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

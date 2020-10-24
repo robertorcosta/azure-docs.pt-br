@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: a0bc2118c1a7e719c5ac45cb4d253a0708acefdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e86c48695c732b27f5032c1e3780cc24c8d3dc39
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292331"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482257"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como configurar distribuir globalmente as leituras usando a API do Azure Cosmos DB para MongoDB
 
@@ -162,7 +162,7 @@ Consulte o repos de aplicativo de exemplo correspondente para outras plataformas
 
 Neste artigo, você aprendeu a distribuir globalmente operações de leitura usando a Preferência de Leitura com API do Azure Cosmos DB para MongoDB.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não continuar a usar esse aplicativo, exclua todos os recursos criados por este artigo no Portal do Azure com as seguintes etapas:
 
@@ -171,6 +171,6 @@ Se você não continuar a usar esse aplicativo, exclua todos os recursos criados
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Importar dados do MongoDB no Azure Cosmos DB](mongodb-migrate.md)
+* [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
 * [Configurar o banco de dados distribuído globalmente com a API do Azure Cosmos DB para MongoDB](tutorial-global-distribution-mongodb.md)
 * [Desenvolver localmente com o emulador de Azure Cosmos DB](local-emulator.md)

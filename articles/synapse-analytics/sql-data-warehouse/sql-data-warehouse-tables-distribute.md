@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214002"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487000"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Diretrizes de design para tabelas distribuídas no pool de SQL do Synapse
 
 Recomendações para criar tabelas distribuídas por hash e rodízio nos pools de SQL do Synapse.
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos de movimentação e distribuição de dados no pool de SQL do Synapse.  Para ter mais informações, consulte [Arquitetura de processamento paralelo massivo (MPP) do Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
+Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados no Synapse SQL.  Para obter mais informações, consulte [arquitetura do Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
 
@@ -32,7 +32,7 @@ Uma tabela distribuída é exibida como uma única tabela, mas as linhas são ar
 
 Outra opção de armazenamento de tabela é replicar uma pequena tabela em todos os nós de computação. Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na [visão geral de tabelas](sql-data-warehouse-tables-overview.md).
 
-Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.  Por exemplo, considere estas perguntas:
+Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.    Por exemplo, considere estas perguntas:
 
 - Qual é o tamanho da tabela?
 - Com que frequência a tabela é atualizada?

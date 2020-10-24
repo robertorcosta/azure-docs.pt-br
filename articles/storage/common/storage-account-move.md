@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515011"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488819"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de armazenamento do Azure para outra região
 
@@ -67,7 +67,7 @@ Para exportar um modelo com o portal do Azure:
 
 Para exportar um modelo usando o PowerShell:
 
-1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções na tela:
+1. Entre em sua assinatura do Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e siga as instruções na tela:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -167,7 +167,7 @@ Para implantar o modelo usando o PowerShell:
          }]          
     ```
 
-    Você pode obter códigos de região executando o comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+    Você pode obter códigos de região executando o comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation) .
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -196,7 +196,7 @@ Implante o modelo para criar uma nova conta de armazenamento na região de desti
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Obtenha a ID da assinatura na qual você deseja implantar o IP público de destino com [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+1. Obtenha a ID da assinatura na qual você deseja implantar o IP público de destino com [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -232,14 +232,14 @@ A tabela a seguir lista esses recursos junto com as diretrizes para adicioná-lo
 
 ### <a name="move-data-to-the-new-storage-account"></a>Mover dados para a nova conta de armazenamento
 
-AzCopy é a ferramenta preferida para mover seus dados. Ela é otimizada para desempenho.  Uma maneira mais rápida, é copiar os dados diretamente entre os servidores de armazenamento, para que o AzCopy não use a largura de banda da rede do seu computador. Use o AzCopy na linha de comando ou como parte de um script personalizado. Confira [Introdução ao AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy é a ferramenta preferida para mover seus dados. Ela é otimizada para desempenho.  Uma maneira mais rápida, é copiar os dados diretamente entre os servidores de armazenamento, para que o AzCopy não use a largura de banda da rede do seu computador. Use o AzCopy na linha de comando ou como parte de um script personalizado. Confira [Introdução ao AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Você também pode usar Azure Data Factory para mover seus dados. Ele fornece uma interface do usuário intuitiva. Para usar Azure Data Factory, consulte qualquer um destes links:. 
 
-  - [Copiar dados de/para o Armazenamento de Blobs do Azure usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Copiar dados de/para o Azure Data Lake Storage Gen2 com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Copiar dados de/para o Armazenamento de Arquivos do Azure com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Copiar dados de/para o Armazenamento de Tabelas do Azure com o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Copiar dados de/para o Armazenamento de Blobs do Azure usando o Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+  - [Copiar dados de/para o Azure Data Lake Storage Gen2 com o Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copiar dados de/para o Armazenamento de Arquivos do Azure com o Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Copiar dados de/para o Armazenamento de Tabelas do Azure com o Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 Neste tutorial, você moveu uma conta de armazenamento do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
-- [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou assinatura](/azure/azure-resource-manager/resource-group-move-resources)
+- [Mover as VMs do Azure para outra região](/azure/site-recovery/azure-to-azure-tutorial-migrate)

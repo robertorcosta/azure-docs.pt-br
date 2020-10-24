@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151710"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479911"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
 
@@ -126,7 +126,7 @@ Você pode listar as atribuições de função para identidades gerenciadas atri
 
     Você verá uma lista de funções atribuídas à identidade gerenciada atribuída pelo usuário selecionada em vários escopos, como grupo de gerenciamento, assinatura, grupo de recursos ou recurso. Essa lista inclui todas as atribuições de função que você tem permissão para ler.
 
-    ![Atribuições de função para uma identidade gerenciada atribuída pelo sistema](./media/shared/role-assignments-user-assigned.png)
+    ![Captura de tela que mostra as atribuições de função para uma identidade gerenciada atribuída pelo usuário.](./media/shared/role-assignments-user-assigned.png)
 
 1. Para alterar a assinatura, clique na lista **assinatura** .
 
@@ -178,7 +178,7 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
     ![Baixar atribuições de função como CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Baixar atribuições de função como CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Captura de tela das atribuições de função baixadas como no formato JSON.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 0affd1660a88421f6df24bc5ef2e00497dae32a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85119262"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489244"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção Avançada contra Ameaças do Azure Cosmos DB (versão prévia)
 
@@ -26,7 +26,7 @@ Os alertas de segurança são acionados quando ocorrem anomalias na atividade. E
 > * A Proteção Avançada contra Ameaças do Azure Cosmos DB está disponível no momento apenas para a API do SQL.
 > * A Proteção Avançada contra Ameaças do Azure Cosmos DB não está disponível no momento nas regiões de nuvem soberana e do Azure Governamental.
 
-Para uma experiência de investigação completa dos alertas de segurança, recomendamos habilitar o [log de diagnóstico no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), que registra as operações no próprio banco de dados, incluindo operações CRUD em todos os documentos, contêineres e bancos de dados.
+Para uma experiência de investigação completa dos alertas de segurança, recomendamos habilitar o [log de diagnóstico no Azure Cosmos DB](./monitor-cosmos-db.md), que registra as operações no próprio banco de dados, incluindo operações CRUD em todos os documentos, contêineres e bancos de dados.
 
 ## <a name="threat-types"></a>Tipos de ameaça
 
@@ -59,16 +59,16 @@ Você pode configurar a proteção avançada contra ameaças de várias maneiras
 
 Use os comandos da API REST para criar, atualizar ou obter a configuração de Proteção Avançada contra Ameaças para uma conta específica do Azure Cosmos DB.
 
-* [Proteção Avançada contra Ameaças - Criar](https://go.microsoft.com/fwlink/?linkid=2099745)
-* [Proteção Avançada contra Ameaças - Obter](https://go.microsoft.com/fwlink/?linkid=2099643)
+* [Proteção Avançada contra Ameaças - Criar](/rest/api/securitycenter/advancedthreatprotection/create)
+* [Proteção Avançada contra Ameaças - Obter](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Use os seguintes cmdlets do PowerShell:
 
-* [Habilitar a Proteção Avançada contra Ameaças](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
-* [Obter a Proteção Avançada contra Ameaças](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
-* [Desabilitar a Proteção Avançada contra Ameaças](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+* [Habilitar a Proteção Avançada contra Ameaças](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Obter a Proteção Avançada contra Ameaças](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Desabilitar a Proteção Avançada contra Ameaças](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
 
 ### <a name="arm-template"></a>[Modelo de ARM](#tab/arm-template)
 
@@ -112,9 +112,9 @@ Uma notificação por email também é enviada com os detalhes do alerta e as a�
 
 ## <a name="cosmos-db-atp-alerts"></a>Alertas de ATP do Cosmos DB
 
- Para ver uma lista dos alertas gerados durante o monitoramento de contas do Azure Cosmos DB, consulte a seção [Alertas do Cosmos DB](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) na documentação da Central de Segurança do Azure.
+ Para ver uma lista dos alertas gerados durante o monitoramento de contas do Azure Cosmos DB, consulte a seção [Alertas do Cosmos DB](../security-center/alerts-reference.md#alerts-azurecosmos) na documentação da Central de Segurança do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre o [Log de diagnósticos no Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
-* Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Saiba mais sobre a [Central de Segurança do Azure](../security-center/security-center-introduction.md)

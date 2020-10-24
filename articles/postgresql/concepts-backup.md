@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b267a97b640c9d069f83223206200fc4814c86b9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708447"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488003"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -32,11 +32,11 @@ Para servidores que dão suporte a até 4 TB de armazenamento máximo, os backup
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>Servidores com armazenamento de até 16 TB
 
-Em um subconjunto de [regiões do Azure](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte a armazenamento de até 16 TB. Os backups nesses grandes servidores de armazenamento são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais. Os backups de instantâneo diferenciais não ocorrem em um agendamento fixo. Em um dia, três backups de instantâneo diferenciais são executados. Os backups de log de transações ocorrem a cada cinco minutos. 
+Em um subconjunto de [regiões do Azure](./concepts-pricing-tiers.md#storage), todos os servidores recentemente provisionados podem dar suporte a armazenamento de até 16 TB. Os backups nesses grandes servidores de armazenamento são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais. Os backups de instantâneo diferenciais não ocorrem em um agendamento fixo. Em um dia, três backups de instantâneo diferenciais são executados. Os backups de log de transações ocorrem a cada cinco minutos. 
 
 ### <a name="backup-retention"></a>Retenção de backup
 
-Os backups são mantidos com base na configuração do período de retenção de backup no servidor. Você pode selecionar um período de retenção de 7 a 35 dias. O período de retenção padrão é de 7 dias. Você pode definir o período de retenção durante a criação do servidor ou posterior atualizando a configuração de backup usando [portal do Azure](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) ou [CLI do Azure](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration). 
+Os backups são mantidos com base na configuração do período de retenção de backup no servidor. Você pode selecionar um período de retenção de 7 a 35 dias. O período de retenção padrão é de 7 dias. Você pode definir o período de retenção durante a criação do servidor ou posterior atualizando a configuração de backup usando [portal do Azure](./howto-restore-server-portal.md#set-backup-configuration) ou [CLI do Azure](./howto-restore-server-cli.md#set-backup-configuration). 
 
 O período de retenção de backup determina até quando a restauração de pontos anteriores pode ser feita, já que ele se baseia em backups disponíveis. O período de retenção de backup também pode ser tratado como uma janela de recuperação de uma perspectiva de restauração. Todos os backups necessários para executar uma restauração pontual dentro do período de retenção de backup são mantidos no armazenamento de backup. Por exemplo – se o período de retenção de backup for definido como 7 dias, a janela de recuperação será considerada nos últimos 7 dias. Nesse cenário, todos os backups necessários para restaurar o servidor nos últimos sete dias são mantidos. Com uma janela de retenção de backup de sete dias:
 - Os servidores com armazenamento de até 4 TB manterão até 2 backups de banco de dados completos, todos os backups diferenciais e backups de log de transações executados desde o backup de banco de dados completo mais antigo.
@@ -44,7 +44,7 @@ O período de retenção de backup determina até quando a restauração de pont
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
-O Banco de Dados do Azure para PostgreSQL fornece a flexibilidade de escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e Otimizado para Memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são somente armazenados dentro da região em que o servidor está hospedado, mas também replicados em um [datacenter emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece maior proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada Básica oferece apenas o armazenamento de backup de redundância local.
+O Banco de Dados do Azure para PostgreSQL fornece a flexibilidade de escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e Otimizado para Memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são somente armazenados dentro da região em que o servidor está hospedado, mas também replicados em um [datacenter emparelhado](../best-practices-availability-paired-regions.md). Isso fornece maior proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada Básica oferece apenas o armazenamento de backup de redundância local.
 
 > [!IMPORTANT]
 > A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Quando o servidor é provisionado, você não pode alterar a opção de redundância do armazenamento de backup.
@@ -69,7 +69,7 @@ Há dois tipos de restauração disponíveis:
 O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
 
 > [!IMPORTANT]
-> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Para proteger recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Para proteger recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore"></a>Restauração em um momento determinado
 

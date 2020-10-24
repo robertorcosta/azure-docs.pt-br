@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167582"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484994"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API de Tabela no Azure Cosmos DB
 
@@ -97,7 +97,7 @@ Use o portal do Azure para procurar os dados. Você também pode usar o código 
 
 ### <a name="which-tools-work-with-the-table-api"></a>Quais ferramentas funcionam com a API de Tabela?
 
-Você pode usar o [Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Você pode usar o [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Ferramentas que têm a flexibilidade para aceitar uma cadeia de conexão no formato especificado anteriormente podem dar suporte à nova API de Tabela. Uma lista das ferramentas de tabela é fornecida na página [Ferramentas de cliente do Armazenamento do Azure](../storage/common/storage-explorers.md).
 
@@ -115,7 +115,7 @@ Sim, você pode se conectar criando duas instâncias separadas do CloudTableClie
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Como fazer para migrar um aplicativo do armazenamento de Tabelas do Azure existente para essa oferta?
 
-O [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) e a [Ferramenta de migração de dados do Azure Cosmos DB](import-data.md) têm suporte.
+O [AzCopy](../storage/common/storage-use-azcopy-v10.md) e a [Ferramenta de migração de dados do Azure Cosmos DB](import-data.md) têm suporte.
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Como a expansão do tamanho do armazenamento é feita nesse serviço se, por exemplo, eu começar com *n* GB de dados e meus dados aumentarem para 1 TB ao longo do tempo?
 
@@ -231,7 +231,7 @@ No SDK do .NET, pode ser enviado no arquivo app.config:
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>O Azure Cosmos DB como plataforma parece ter muitas funcionalidades, como classificação, agregações, hierarquia e outras. Vocês adicionarão esses recursos à API de tabela?
 
-A API de Tabela fornece a mesma funcionalidade de consulta que o armazenamento de Tabelas do Azure. O Azure Cosmos DB também oferece suporte à classificação, agregações, consulta geoespacial, hierarquia e uma ampla variedade de funções internas. Para obter mais informações, consulte [Consultas SQL](how-to-sql-query.md).
+A API de Tabela fornece a mesma funcionalidade de consulta que o armazenamento de Tabelas do Azure. O Azure Cosmos DB também oferece suporte à classificação, agregações, consulta geoespacial, hierarquia e uma ampla variedade de funções internas. Para obter mais informações, consulte [Consultas SQL](./sql-query-getting-started.md).
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Quando devo alterar a TableThroughput da API de Tabela?
 
@@ -293,7 +293,7 @@ O Azure Cosmos DB é um sistema baseado em SLA que fornece garantia de latência
 Você pode compartilhar seus comentários em qualquer uma das seguintes maneiras:
 
 * [Voz do usuário](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Página de perguntas e respostas da Microsoft](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). O Stack Overflow é o melhor para perguntas sobre programação. Verifique se sua pergunta está [no tópico](https://stackoverflow.com/help/on-topic) e [forneça o máximo de detalhes possíveis, tornando a pergunta clara e possível de responder](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Próximas etapas

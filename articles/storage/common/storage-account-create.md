@@ -10,18 +10,18 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333572"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488887"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. A conta de armazenamento fornece um namespace exclusivo para os dados do armazenamento do Azure que podem ser acessados de qualquer lugar do mundo por HTTP ou HTTPS. Os dados em sua conta de armazenamento do Azure são duráveis e altamente disponíveis, seguros e amplamente escalonáveis.
 
-Neste artigo de instruções, você aprende a criar uma conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [CLI do Azure](https://docs.microsoft.com/cli/azure)ou um [modelo Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+Neste artigo de instruções, você aprende a criar uma conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [CLI do Azure](/cli/azure)ou um [modelo Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Nenhum.
+nenhuma.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -147,7 +147,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 |Opção de replicação  |Parâmetro SkuName  |
 |---------|---------|
-|Armazenamento com redundância local (LRS)     |Standard_LRS         |
+|LRS (armazenamento com redundância local)     |Standard_LRS         |
 |ZRS (armazenamento com redundância de zona)     |Standard_ZRS         |
 |Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
@@ -190,7 +190,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 |Opção de replicação  |Parâmetro sku  |
 |---------|---------|
-|Armazenamento com redundância local (LRS)     |Standard_LRS         |
+|LRS (armazenamento com redundância local)     |Standard_LRS         |
 |ZRS (armazenamento com redundância de zona)     |Standard_ZRS         |
 |Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |

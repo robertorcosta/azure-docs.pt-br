@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c2194476dc6e640f9c4b93d564728478de41ef7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606267"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475525"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Otimizar o custo de desenvolvimento e teste no Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Azure Cosmos DB camada gratuita facilita a introdução, o desenvolvimento e tes
 > [!NOTE]
 > A camada gratuita só está disponível no modo de taxa de transferência provisionada.
 
-A camada gratuita dura indefinidamente pelo tempo de vida da conta e vem com todos os [benefícios e recursos](introduction.md#key-benefits) de uma conta Azure Cosmos DB regular, incluindo armazenamento ilimitado e taxa de transferência (ru/s), SLAs, alta disponibilidade, distribuição global completa em todas as regiões do Azure e muito mais. Você pode ter até uma conta de camada gratuita por assinatura do Azure e deve aceitar ao criar a conta. Para começar, [crie uma nova conta no portal do Azure com a camada gratuita habilitada](create-cosmosdb-resources-portal.md) ou use um [modelo ARM](manage-sql-with-resource-manager.md#free-tier). Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter mais detalhes.
+A camada gratuita dura indefinidamente pelo tempo de vida da conta e vem com todos os [benefícios e recursos](introduction.md#key-benefits) de uma conta Azure Cosmos DB regular, incluindo armazenamento ilimitado e taxa de transferência (ru/s), SLAs, alta disponibilidade, distribuição global completa em todas as regiões do Azure e muito mais. Você pode ter até uma conta de camada gratuita por assinatura do Azure e deve aceitar ao criar a conta. Para começar, [crie uma nova conta no portal do Azure com a camada gratuita habilitada](create-cosmosdb-resources-portal.md) ou use um [modelo ARM](./manage-with-templates.md#free-tier). Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter mais detalhes.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Experimente o Azure Cosmos DB gratuitamente
 
@@ -57,5 +57,5 @@ Para começar a usar o emulador ou as contas gratuitas do Azure Cosmos DB, leia 
 * Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
-* Saiba mais sobre [Otimizando o custo de consultas](optimize-cost-queries.md)
+* Saiba mais sobre [Otimizando o custo de consultas](./optimize-cost-reads-writes.md)
 * Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)

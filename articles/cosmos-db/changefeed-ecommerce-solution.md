@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356359"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475908"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
@@ -50,7 +50,7 @@ O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na s
 
 5. **Hub de Eventos:** o Hub de Eventos do Azure armazena esses eventos e envia-os para o [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para executar análises adicionais.  
 
-6. **Azure Stream Analytics:** o Azure Stream Analytics define consultas para processar os eventos e executar análise de dados em tempo real. Em seguida, esses dados são enviados para o [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** o Azure Stream Analytics define consultas para processar os eventos e executar análise de dados em tempo real. Em seguida, esses dados são enviados para o [Microsoft Power BI](/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** o Power BI é usado para visualizar os dados enviados pelo Azure Stream Analytics. É possível criar um painel para ver como as métricas são alteradas em tempo real.  
 
@@ -382,4 +382,4 @@ Para excluir os recursos que você criou durante este laboratório, navegue até
 
 ## <a name="next-steps"></a>Próximas etapas 
   
-* Para saber mais sobre feed de alterações, consulte [como trabalhar com suporte de feed de alterações no Azure Cosmos DB](change-feed.md) 
+* Para saber mais sobre feed de alterações, consulte [como trabalhar com suporte de feed de alterações no Azure Cosmos DB](change-feed.md)

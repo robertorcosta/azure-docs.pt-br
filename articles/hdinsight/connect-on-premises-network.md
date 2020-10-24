@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 3ab706b9cdf3c071fd5d3ceca732cff6b660db6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542e4e09949aa3d673f632890bd7ee99adf431d5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086550"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487272"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conectar o HDInsight à sua rede local
 
@@ -46,7 +46,7 @@ No diagrama a seguir, linhas verdes são solicitações de recursos que terminam
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Se estiver usando o PowerShell, você precisará do [módulo AZ](https://docs.microsoft.com/powershell/azure/).
-* Se desejar usar a CLI do Azure e você ainda não a instalou, veja [Instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se desejar usar a CLI do Azure e você ainda não a instalou, veja [Instalação da CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Criar configuração de rede virtual
 
@@ -76,11 +76,11 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
     | Campo | Valor |
     | --- | --- |
     |Subscription |Selecione a assinatura apropriada.|
-    |Resource group |Selecione o grupo de recursos que contém a rede virtual criada anteriormente.|
+    |Grupo de recursos |Selecione o grupo de recursos que contém a rede virtual criada anteriormente.|
     |Nome da máquina virtual | Insira um nome amigável que identifica esta máquina virtual. Este exemplo usa **DNSProxy**.|
     |Região | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
     |Opções de disponibilidade |  Selecione o nível desejado de disponibilidade.  O Azure oferece várias opções de gerenciamento da disponibilidade e da resiliência de seus aplicativos.  Projete sua solução a fim de usar VMs replicadas em Zonas de Disponibilidade ou Conjuntos de Disponibilidade para proteger seus aplicativos e dados contra falhas do datacenter e eventos de manutenção. Este exemplo usa **Nenhuma redundância de infraestrutura necessária**. |
-    |Imagem | Deixe no **Ubuntu Server 18, 4 LTS**. |
+    |Image | Deixe no **Ubuntu Server 18, 4 LTS**. |
     |Tipo de autenticação | __Senha__ ou __chave pública SSH__: o método de autenticação para a conta SSH. É recomendável usar chaves públicas, pois elas são mais seguras. Este exemplo usa **senha**.  Para obter mais informações, consulte o documento [Criar e usar chaves SSH para VMs Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nome de usuário |Insira o nome de usuário do administrador da VM.  Este exemplo usa **sshuser**.|
     |Senha ou chave pública SSH | O campo disponível é determinado por sua escolha de **Tipo de autenticação**.  Insira o valor apropriado.|
@@ -246,7 +246,7 @@ Para configurar a rede virtual a fim de usar o servidor DNS personalizado em vez
 
 4. Selecione __Personalizado__ e insira o **ENDEREÇO IP PRIVADO** do servidor DNS personalizado.
 
-5. Clique em __Salvar__.  <br />  
+5. Selecione __Salvar__.  <br />  
 
     ![Definir o servidor DNS personalizado para a rede](./media/connect-on-premises-network/configure-custom-dns.png)
 

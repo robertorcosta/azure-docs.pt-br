@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279907"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480217"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo usuário
 
@@ -63,7 +63,7 @@ As transações são nativamente integradas ao modelo de programação do JavaSc
 
 ### <a name="data-consistency"></a>Consistência de dados
 
-Os procedimentos armazenados e os gatilhos são sempre executados na réplica primária de um contêiner do Azure Cosmos. Esse recurso garante que as leituras dos procedimentos armazenados ofereçam [coerência forte](consistency-levels-tradeoffs.md). As consultas que usam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária. Os procedimentos armazenados e os gatilhos se destinam a dar suporte a gravações transacionais – enquanto a lógica somente leitura é melhor implementada como a lógica do lado do aplicativo – e consultas usando os [SDKs da API do SQL do Azure Cosmos DB](sql-api-dotnet-samples.md) e isso ajudará você a saturar a taxa de transferência de banco de dados. 
+Os procedimentos armazenados e os gatilhos são sempre executados na réplica primária de um contêiner do Azure Cosmos. Esse recurso garante que as leituras dos procedimentos armazenados ofereçam [coerência forte](./consistency-levels.md). As consultas que usam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária. Os procedimentos armazenados e os gatilhos se destinam a dar suporte a gravações transacionais – enquanto a lógica somente leitura é melhor implementada como a lógica do lado do aplicativo – e consultas usando os [SDKs da API do SQL do Azure Cosmos DB](sql-api-dotnet-samples.md) e isso ajudará você a saturar a taxa de transferência de banco de dados. 
 
 > [!TIP]
 > As consultas executadas em um procedimento armazenado ou gatilho podem não ver as alterações nos itens feitos pela mesma transação de script. Essa instrução se aplica a consultas SQL, como `getContent().getCollection.queryDocuments()` , bem como consultas de linguagem integradas, como `getContext().getCollection().filter()` .

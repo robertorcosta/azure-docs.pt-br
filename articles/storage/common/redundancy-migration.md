@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827302"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487884"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar como uma conta de armazenamento é replicada
 
@@ -144,9 +144,9 @@ Uma pessoa de suporte entrará em contato com você e fornecerá toda a assistê
 > [!NOTE]
 > Atualmente, a migração ao vivo não tem suporte para compartilhamentos de arquivos premium. No momento, só há suporte para copiar ou mover dados manualmente.
 >
-> Atualmente, as contas de armazenamento GZRS não dão suporte à camada de arquivo morto. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para obter mais detalhes.
+> Atualmente, as contas de armazenamento GZRS não dão suporte à camada de arquivo morto. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](/azure/storage/blobs/storage-blob-storage-tiers) para obter mais detalhes.
 >
-> Os discos gerenciados estão disponíveis somente para LRS e não podem ser migrados para o ZRS. Você pode armazenar instantâneos e imagens para discos gerenciados de SSD padrão no armazenamento de HDD padrão e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para obter informações sobre a integração com conjuntos de disponibilidade, consulte [introdução aos Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+> Os discos gerenciados estão disponíveis somente para LRS e não podem ser migrados para o ZRS. Você pode armazenar instantâneos e imagens para discos gerenciados de SSD padrão no armazenamento de HDD padrão e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para obter informações sobre a integração com conjuntos de disponibilidade, consulte [introdução aos Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 
 ## <a name="switch-from-zrs-classic"></a>Alternar do ZRS clássico
 
@@ -167,7 +167,7 @@ Você também pode atualizar sua conta de armazenamento ZRS clássico para ZRS u
 
 Para atualizar para o ZRS no portal do Azure, navegue até as definições de **configuração** da conta e escolha **Atualizar**:
 
-![Atualizar ZRS clássico para ZRS no portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
+![Atualizar do ZRS Clássico para o ZRS no Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

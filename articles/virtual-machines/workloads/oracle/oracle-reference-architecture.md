@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2a6954ffdb9f992ada7fc24dbcc161658b21d23
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993570"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480421"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition no Azure
 
@@ -72,7 +72,7 @@ Com Oracle Database versão 12,2 e superior, também é possível configurar vá
 
 O diagrama a seguir é uma arquitetura recomendada para usar o Oracle Data Guard no Azure com zonas de disponibilidade. Essa arquitetura permite que você obtenha um SLA de tempo de atividade de VM de 99,99%.
 
-![Oracle Database usando zonas de disponibilidade com o agente do Data Guard-FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![Diagrama que mostra uma arquitetura recomendada para usar o Oracle Data Guard no Azure com zonas de disponibilidade.](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 No diagrama anterior, o sistema cliente acessa um aplicativo personalizado com o back-end da Oracle por meio da Web. O front-end da Web é configurado em um balanceador de carga. O front-end da Web faz uma chamada para o servidor de aplicativos apropriado para lidar com o trabalho. O servidor de aplicativos consulta o banco de dados Oracle primário. O banco de dados Oracle foi configurado usando uma [máquina virtual com memória](../../sizes-memory.md) de hiperthread otimizada com [vCPUs básica restritas](../../../virtual-machines/constrained-vcpu.md) para economizar nos custos de licenciamento e maximizar o desempenho. Vários discos Premium ou ultra (Managed Disks) são usados para desempenho e alta disponibilidade.
 

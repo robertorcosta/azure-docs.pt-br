@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: a0171481b97cff2ea085a80b387bff13590529a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905901"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484586"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
 
@@ -30,11 +30,15 @@ Para acompanhar este guia de instruções, você precisa do seguinte:
 > [!TIP]
 > Se você estiver procurando migrar grandes bancos de dados com tamanhos de banco de dados mais de 1 TBs, convém considerar o uso de ferramentas da Comunidade como **mydumpr/myuploader** , que dá suporte à importação e exportação paralelas. Saiba [como migrar grandes bancos de dados MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
 
-## <a name="common-use-cases-for-dump-and-restore"></a>Casos de uso comuns para despejo e restauração
-Você pode usar os utilitários do MySQL, como **mysqldump** e **mysqlpump** , para despejar e carregar bancos de dados em um Azure MySQL, em vários cenários comuns. Em outros cenários, você pode usar a abordagem de [Importação e exportação](concepts-migrate-import-export.md) em vez disso.
 
-- **Use despejos de banco de dados quando estiver migrando todo o banco de dados**. Essa recomendação é mantida ao mover uma grande quantidade de dados MySQL ou quando você quer minimizar a interrupção do serviço para aplicativos ou sites em tempo real.
--  **Use o despejo de banco de dados se todas as tabelas no banco de dados usarem o mecanismo de armazenamento InnoDB**. O Banco de dados do Azure para MySQL dá suporte apenas ao mecanismo de armazenamento do InnoDB e, portanto, não dá suporte a mecanismos de armazenamento alternativos. Se as tabelas foram configuradas com outros mecanismos de armazenamento, converta-as para o formato do mecanismo do InnoDB antes da migração para o Banco de dados do Azure para MySQL.
+## <a name="common-use-cases-for-dump-and-restore"></a>Casos de uso comuns para despejo e restauração
+
+Os casos de uso mais comuns são:
+
+- **Mudando de outro provedor de serviços gerenciado** -o provedor de serviços mais gerenciado pode não fornecer acesso ao arquivo de armazenamento físico por motivos de segurança para que o backup e a restauração lógicos sejam a única opção para migrar.
+- **Migrando do ambiente local ou da máquina virtual** -o banco de dados do Azure para MySQL não dá suporte à restauração de backups físicos, o que faz backup e restauração lógicas como a única abordagem.
+- **Movendo o armazenamento de backup de localmente redundante para armazenamento com redundância geográfica-o** banco de dados do Azure para MySQL permite configurar o armazenamento com redundância local ou com redundância geográfica para backup só é permitido durante a criação do servidor. Quando o servidor é provisionado, você não pode alterar a opção de redundância do armazenamento de backup. Para mover o armazenamento de backup do armazenamento com redundância local para o armazenamento com redundância geográfica, o dump e a restauração são a única opção. 
+-  **A migração de mecanismos de armazenamento alternativos para o InnoDB** -banco de dados do Azure para MySQL dá suporte apenas ao mecanismo de armazenamento do InnoDB e, portanto, não oferece suporte a mecanismos de armazenamento alternativos. Se as tabelas foram configuradas com outros mecanismos de armazenamento, converta-as para o formato do mecanismo do InnoDB antes da migração para o Banco de dados do Azure para MySQL.
 
     Por exemplo, se você tiver um WordPress ou WebApp usando as tabelas MyISAM, primeiro converta essas tabelas migrando em formato de InnoDB antes de restaurar o banco de dados do Azure para MySQL. Use a cláusula `ENGINE=InnoDB` para definir o mecanismo usado ao criar uma nova tabela e, em seguida, transfira os dados para a tabela compatível antes da restauração.
 
@@ -165,3 +169,4 @@ Para problemas conhecidos, dicas e truques, recomendamos consultar nosso [blog t
 ## <a name="next-steps"></a>Próximas etapas
 - [Conectar aplicativos ao Banco de Dados do Azure para MySQL](./howto-connection-string.md).
 - Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para MySQL, confira o [Guia de Migração de Banco de Dados](https://aka.ms/datamigration).
+- Se você estiver procurando migrar grandes bancos de dados com tamanhos de banco de dados mais de 1 TBs, convém considerar o uso de ferramentas da Comunidade como **mydumpr/myuploader** , que dá suporte à importação e exportação paralelas. Saiba [como migrar grandes bancos de dados MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

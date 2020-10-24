@@ -7,33 +7,33 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: a5ce99927ce4cd2b04b5dd5cb865299b4be84ecb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f662d7e51c49006b191778ef70740ef79173828c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519789"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487935"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---hyperscale-citus-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para PostgreSQL – recursos de computação de Citus (hiperescala) com capacidade reservada
 
 O banco de dados do Azure para PostgreSQL – Citus (hiperescala) agora ajuda você a economizar dinheiro prestando por recursos de computação em comparação com os preços pagos conforme o uso. Com a capacidade reservada de Citus (hiperescala), você faz um compromisso antecipado no grupo de servidores de hiperescala (Citus) por um período de um ou três anos para obter um desconto significativo nos custos de computação. Para adquirir a capacidade reservada do Citus (hiperescala), você precisa especificar a região do Azure, o termo de reserva e a frequência de cobrança.
 
 > [!IMPORTANT]
-> Este artigo é sobre a capacidade reservada para o banco de dados do Azure para PostgreSQL – Citus (hiperescala). Para obter informações sobre a capacidade reservada para o banco de dados do Azure para PostgreSQL – servidor único, consulte [pagar pelo banco de dados do Azure para PostgreSQL – recursos de computação de servidor único com capacidade reservada](/azure/postgresql/concept-reserved-pricing).
+> Este artigo é sobre a capacidade reservada para o banco de dados do Azure para PostgreSQL – Citus (hiperescala). Para obter informações sobre a capacidade reservada para o banco de dados do Azure para PostgreSQL – servidor único, consulte [pagar pelo banco de dados do Azure para PostgreSQL – recursos de computação de servidor único com capacidade reservada](./concept-reserved-pricing.md).
 
 Você não precisa atribuir a reserva a grupos de servidores Citus (hiperscale) específicos. Um grupo de servidores que já está executando o Citus (hiperscale) ou aqueles que foram implantados recentemente têm o benefício de preços reservados. Ao comprar uma reserva, você está prepagando os custos de computação por um ano ou três anos. Assim que você comprar uma reserva, os encargos de computação de hiperescala (Citus) que correspondam aos atributos de reserva não serão mais cobrados com as tarifas pré-pagas. 
 
 Uma reserva não abrange os encargos de software, rede ou armazenamento associados aos grupos de servidores de hiperescala (Citus). No final do prazo de reserva, o benefício de cobrança expira e os grupos de servidores de hiperescala (Citus) são cobrados pelo preço pago conforme o uso. As reservas não são renovadas. Para obter informações sobre preços, consulte a [oferta de capacidade reservada do banco de dados do Azure para PostgreSQL – Citus (hiperescala)](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
-Você pode comprar a capacidade reservada de Citus (hiperescala) no [portal do Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](https://docs.microsoft.com/azure/cost-management-billing/reservations/monthly-payments-reservations). Para comprar a capacidade reservada:
+Você pode comprar a capacidade reservada de Citus (hiperescala) no [portal do Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar a capacidade reservada:
 
 * Você deve estar na função de proprietário de pelo menos uma Enterprise Agreement (EA) ou assinatura individual com tarifas de pagamento conforme o uso.
 * Para assinaturas Enterprise Agreement, **adicionar instâncias reservadas** deve estar habilitada no [portal de ea](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você deverá ser um administrador Enterprise Agreement na assinatura.
 * Para o programa CSP (provedor de soluções na nuvem), somente os agentes de administração ou os agentes de vendas podem adquirir capacidade reservada de Citus (hiperescala).
 
 Para obter informações sobre como Enterprise Agreement clientes e clientes pagos conforme o uso são cobrados por compras de reserva, consulte:
-- [Entender o uso de reserva do Azure para seu registro de Enterprise Agreement](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-- [Entender o uso de reserva do Azure para sua assinatura pré-paga](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Entender o uso de reserva do Azure para seu registro de Enterprise Agreement](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+- [Entender o uso de reserva do Azure para sua assinatura pré-paga](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 ## <a name="determine-the-right-server-group-size-before-purchase"></a>Determinar o tamanho do grupo de servidores correto antes da compra
 
@@ -69,7 +69,7 @@ A tabela a seguir descreve os campos obrigatórios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidade de tamanho do vCore
 
@@ -85,9 +85,9 @@ O desconto de reserva vCore é aplicado automaticamente ao número de grupos de 
 
 Para saber mais sobre reservas do Azure, confira os seguintes artigos:
 
-* [O que são reservas do Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Gerenciar reservas do Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Entender o desconto de reserva do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Entenda o uso de reserva para sua assinatura pré-paga](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Entender o uso de reserva para seu registro de Enterprise Agreement](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Reservas do Azure no programa do provedor de soluções de nuvem do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
+* [O que são reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Gerenciar reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Entender o desconto de reserva do Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Entenda o uso de reserva para sua assinatura pré-paga](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Entender o uso de reserva para seu registro de Enterprise Agreement](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Reservas do Azure no programa do provedor de soluções de nuvem do Partner Center](/partner-center/azure-reservations)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 23811f379f8738e3fe9f162e23627d0c3c457621
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8ae16e6799d1253b8b070d59414beaee3c7ff332
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367492"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479775"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para acesso baseado em função granular para configurações de cluster
 
@@ -112,11 +112,11 @@ Atualize para a [versão 2.1.0](https://www.nuget.org/packages/Microsoft.Azure.M
 
 Atualize para a [versão 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) ou posterior do SDK do HDInsight para .net. Modificações mínimas de código poderão ser necessárias se você estiver usando um método afetado por essas alterações:
 
-- [`ConfigurationOperationsExtensions.Get`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet)**não retornará mais parâmetros confidenciais** , como chaves de armazenamento (site principal) ou credenciais http (gateway).
-    - Para recuperar todas as configurações, incluindo parâmetros confidenciais, use o [`ConfigurationOperationsExtensions.List`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet) futuro.Observe que os usuários com a função ' leitor ' não poderão usar esse método. Isso permite o controle granular sobre quais usuários podem acessar informações confidenciais para um cluster. 
-    - Para recuperar apenas as credenciais de gateway HTTP, use [`ClusterOperationsExtensions.GetGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet) . 
-- [`ConfigurationsOperationsExtensions.Update`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet) Agora está preterido e foi substituído por [`ClusterOperationsExtensions.UpdateGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet) . 
-- [`ConfigurationsOperationsExtensions.EnableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet) e [`DisableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet) agora estão preteridos. O HTTP agora está sempre habilitado, portanto, esses métodos não são mais necessários.
+- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet&preserve-view=true)**não retornará mais parâmetros confidenciais** , como chaves de armazenamento (site principal) ou credenciais http (gateway).
+    - Para recuperar todas as configurações, incluindo parâmetros confidenciais, use o [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet&preserve-view=true) futuro.Observe que os usuários com a função ' leitor ' não poderão usar esse método. Isso permite o controle granular sobre quais usuários podem acessar informações confidenciais para um cluster. 
+    - Para recuperar apenas as credenciais de gateway HTTP, use [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet&preserve-view=true) . 
+- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet&preserve-view=true) Agora está preterido e foi substituído por [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet&preserve-view=true) . 
+- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet&preserve-view=true) e [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet&preserve-view=true) agora estão preteridos. O HTTP agora está sempre habilitado, portanto, esses métodos não são mais necessários.
 
 ### <a name="sdk-for-python"></a>SDK para Python
 
@@ -193,7 +193,7 @@ As configurações de cluster agora estão por trás do controle de acesso basea
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Por que vejo "privilégios insuficientes para concluir a operação" ao executar o comando CLI do Azure para atribuir a função de operador do cluster HDInsight a outro usuário ou entidade de serviço?
 
-Além de ter a função proprietário, o usuário ou a entidade de serviço que executa o comando precisa ter permissões suficientes do Azure AD para pesquisar as IDs de objeto do destinatário. Essa mensagem indica permissões insuficientes do Azure AD. Tente substituir o `-–assignee` argumento por `–assignee-object-id` e forneça a ID de objeto do atribuído como o parâmetro em vez do nome (ou a ID da entidade de segurança no caso de uma identidade gerenciada). Consulte a seção parâmetros opcionais da [atribuição de função AZ Create Documentation](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para obter mais informações.
+Além de ter a função proprietário, o usuário ou a entidade de serviço que executa o comando precisa ter permissões suficientes do Azure AD para pesquisar as IDs de objeto do destinatário. Essa mensagem indica permissões insuficientes do Azure AD. Tente substituir o `-–assignee` argumento por `–assignee-object-id` e forneça a ID de objeto do atribuído como o parâmetro em vez do nome (ou a ID da entidade de segurança no caso de uma identidade gerenciada). Consulte a seção parâmetros opcionais da [atribuição de função AZ Create Documentation](/cli/azure/role/assignment#az-role-assignment-create) para obter mais informações.
 
 Se isso ainda não funcionar, entre em contato com o administrador do Azure AD para adquirir as permissões corretas.
 

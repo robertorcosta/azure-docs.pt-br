@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714445"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488615"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -23,7 +23,7 @@ Este guia resume soluções para problemas que normalmente são vistos em Gerenc
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemas de permissões do RBAC do Azure
 
-Controle de acesso baseado em função do Azure o [RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_. Aqui estão algumas estratégias para colocar o RBAC do Azure funcionando de maneira ideal no Gerenciador de Armazenamento.
+Controle de acesso baseado em função do Azure o [RBAC do Azure](/azure/role-based-access-control/overview) permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_. Aqui estão algumas estratégias para colocar o RBAC do Azure funcionando de maneira ideal no Gerenciador de Armazenamento.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como fazer acessar meus recursos no Gerenciador de Armazenamento?
 
@@ -65,7 +65,7 @@ Se você quiser acessar contêineres ou filas de BLOB, poderá anexar a esses re
 3. Selecione a conta de usuário e o locatário associados ao recurso ao qual você está anexando. Clique em Avançar.
 4. Selecione o tipo de recurso, insira a URL para o recurso e insira um nome de exibição exclusivo para a conexão. Clique em Avançar. Clique em Conectar.
 
-Para outros tipos de recursos, atualmente não temos uma solução relacionada ao RBAC do Azure. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Para outros tipos de recursos, atualmente não temos uma solução relacionada ao RBAC do Azure. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções internas do Azure recomendadas
 
@@ -332,7 +332,7 @@ Gerenciador de Armazenamento requer que o .NET Core seja instalado em seu sistem
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
-2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale o [tempo de execução do .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ Gerenciador de Armazenamento requer que o .NET Core seja instalado em seu sistem
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
-2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale o [tempo de execução do .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ Gerenciador de Armazenamento requer que o .NET Core seja instalado em seu sistem
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Baixe o arquivo Gerenciador de Armazenamento. tar. gz.
-2. Instale o [tempo de execução do .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale o [tempo de execução do .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

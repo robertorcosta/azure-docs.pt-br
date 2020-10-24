@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ac76387f32b333d6d17d8d6f71ab0bc7de07ec0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967463"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474743"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Criar uma conta que dê suporte a chaves gerenciadas pelo cliente para tabelas e filas
 
@@ -252,4 +252,4 @@ N/D
 
 - [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
 - [Chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure](customer-managed-keys-overview.md)
-- [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+- [O que é Azure Key Vault](/azure/key-vault/key-vault-overview)?
