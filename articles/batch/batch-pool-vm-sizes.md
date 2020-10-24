@@ -2,14 +2,14 @@
 title: Escolher tamanhos de VM para pools
 description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools de Lote do Azure
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107497"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517048"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -31,17 +31,19 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 | A Básico | Todos os tamanhos *exceto* Basic_A0 (A0) |
 | Um | Todos os tamanhos *, exceto* Standard_A0 |
 | Av2 | Todos os tamanhos |
-| B | Nenhum |
-| DC | Nenhum |
+| B | Sem suporte |
+| DC | Sem suporte |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3, Dsv3 | Todos os tamanhos |
 | Dav4<sup>1</sup> | Todos os tamanhos |
 | Dasv4<sup>1</sup> | Todos os tamanhos |
 | Ddv4, Ddsv4 |  Todos os tamanhos |
+| Dv4, Dsv4 | Sem suporte |
 | Ev3, Esv3 | Todos os tamanhos, exceto para E64is_v3 |
 | Eav4<sup>1</sup> | Todos os tamanhos |
 | Easv4<sup>1</sup> | Todos os tamanhos |
 | Edv4, Edsv4 |  Todos os tamanhos |
+| Ev4, Esv4 | Sem suporte |
 | F, Fs | Todos os tamanhos |
 | Fsv2 | Todos os tamanhos |
 | G, Gs | Todos os tamanhos |
@@ -56,12 +58,13 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 | NC | Todos os tamanhos |
 | NCv2<sup>1</sup> | Todos os tamanhos |
 | NCv3<sup>1</sup> | Todos os tamanhos |
+| NCasT4_v3 | Nenhum - ainda não disponível |
 | ND<sup>1</sup> | Todos os tamanhos |
 | NDv2<sup>1</sup> | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |
 | NVv3<sup>1</sup> | Todos os tamanhos |
-| NVv4 | Nenhum - ainda não disponível |
-| SAP HANA | Nenhum |
+| NVv4<sup>1</sup> | Todos os tamanhos |
+| SAP HANA | Sem suporte |
 
 <sup>1</sup> essas séries de VMs podem ser alocadas em pools do lote na configuração da máquina virtual, mas você deve criar uma nova conta do lote e solicitar um [aumento de cota](batch-quota-limit.md#increase-a-quota)específico. Essa limitação será removida quando a cota de vCPU por série de VM tiver suporte total para contas do lote.
 

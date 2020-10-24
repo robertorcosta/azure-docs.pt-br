@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: f0e34c8a331c475b103922789a9d1983f1c84cac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492147"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514377"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: configurar a sincronização de identidade de retransmissão global para provisionamento automático de usuário
 
@@ -52,7 +52,7 @@ Contate o representante de sincronização de identidade de retransmissão globa
 
 ## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar sincronização de identidade de retransmissão global da Galeria de aplicativos do Azure AD
 
-Adicione a sincronização de identidade de retransmissão global da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para sincronização de identidade de retransmissão global. Se você tiver configurado anteriormente a sincronização de identidade de retransmissão global para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Adicione a sincronização de identidade de retransmissão global da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para sincronização de identidade de retransmissão global. Saiba mais sobre como adicionar um aplicativo da Galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
@@ -63,7 +63,7 @@ No Azure AD, é possível definir quem estará no escopo de provisionamento com 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Etapa 5. Configurar o provisionamento automático de usuário para sincronização de identidade de retransmissão global 
 
-Nesta seção, você verá orientações para seguir as etapas de configuração do serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no TestApp com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no aplicativo de sincronização de identidades de retransmissão global com base em atribuições de usuário e/ou grupo no Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para sincronização de identidade de retransmissão global no Azure AD:
 

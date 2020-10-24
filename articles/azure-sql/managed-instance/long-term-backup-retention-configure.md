@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 4249e7df61c7f1f090b6377114bcab6ce1d40b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619076"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503429"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gerenciar o Azure SQL Instância Gerenciada retenção de backup de longo prazo (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-No Azure SQL Instância Gerenciada, você pode configurar uma EPD (política de retenção de backup) de [longo prazo](../database/long-term-retention-overview.md#sql-managed-instance-support) como um recurso de visualização pública limitado. Isso permite que você mantenha automaticamente backups de banco de dados em contêineres do armazenamento do Azure Blob separados por até 10 anos. Em seguida, você pode recuperar um banco de dados usando os backups com o PowerShell.
+No Azure SQL Instância Gerenciada, você pode configurar uma EPD (política de retenção de backup) de [longo prazo](../database/long-term-retention-overview.md#sql-managed-instance-support) como um recurso de visualização pública limitado. Isso permite que você mantenha automaticamente os backups de banco de dados em contêineres separados do armazenamento de BLOBs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando os backups com o PowerShell.
 
    > [!IMPORTANT]
    > A LTR para instâncias gerenciadas está atualmente em visualização limitada e disponível para assinaturas EA e CSP dependendo do caso. Para solicitar o registro, crie um [tíquete de suporte do Azure](https://azure.microsoft.com/support/create-ticket/). Para tipo de problema, selecione problema técnico. Para serviço, escolha Instância Gerenciada do Banco de Dados SQL. Para tipo de problema, selecione **Backup, restauração e continuidade de negócios/retenção de backup de longo prazo**. Em sua solicitação, informe que você gostaria de ser inscrito na visualização pública limitada do LTR para a instância gerenciada.

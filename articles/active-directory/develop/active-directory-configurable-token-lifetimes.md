@@ -9,23 +9,45 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948616"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503769"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)
 
 Você pode especificar o tempo de vida de um token emitido pela plataforma de identidade da Microsoft. Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização. No entanto, atualmente não damos suporte à configuração de tempos de vida do token para [entidades de serviço de identidade gerenciadas](../managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Após 30 de maio de 2020, nenhum novo locatário será capaz de usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. A reprovação ocorrerá em vários meses depois disso, o que significa que vamos parar de respeitar as políticas existentes de tokens de atualização e de sessão. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
+> Após 30 de janeiro de 2021, os locatários não poderão mais configurar a atualização e tempos de vida de token de sessão e Azure Active Directory deixarão de respeitar a configuração existente e o token de sessão em políticas após essa data. Você ainda pode configurar tempos de vida de token de acesso após a aposentadoria.
+> Implementamos os [recursos de gerenciamento de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md)   no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. O acesso condicional é um recurso Azure AD Premium P1 e você pode avaliar se o Premium é adequado para seu Organzation na [página de preços premium](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
+> 
+> Para locatários que não usam o gerenciamento de sessão de autenticação no acesso condicional após a data de desativação, eles podem esperar que o Azure AD honrará a configuração padrão descrita na próxima seção.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propriedades de tempo de vida de token configuráveis após a aposentadoria
+A atualização e a configuração de token de sessão são afetadas pelas propriedades a seguir e seus valores definidos respectivamente. Após a desativação da configuração de token de atualização e de sessão, o Azure AD honrará somente o valor padrão descrito abaixo, independentemente de as políticas terem valores personalizados configurados como valores personalizados.  
+
+|Propriedade   |Cadeia de caracteres de propriedade de política    |Afeta |Padrão |
+|----------|-----------|------------|------------|
+|Tempo Máximo Inativo de Token de Atualização |MaxInactiveTime  |Tokens de atualização |90 dias  |
+|Idade Máxima de Token de Atualização de Fator Único  |MaxAgeSingleFactor  |Tokens de atualização (para quaisquer usuários)  |Until-revoked  |
+|Idade Máxima de Token de Atualização Multifator  |MaxAgeMultiFactor  |Tokens de atualização (para quaisquer usuários) |180 dias  |
+|Idade Máxima de Token de Sessão de Fator Único  |MaxAgeSessionSingleFactor |Tokens de sessão (persistentes e não persistentes)  |Until-revoked |
+|Idade Máxima de Token de Sessão Multifator  |MaxAgeSessionMultiFactor  |Tokens de sessão (persistentes e não persistentes)  |180 dias |
+
+Você pode usar o cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) para identificar políticas de tempo de vida de token cujos valores de propriedade diferem dos padrões do Azure AD.
+
+Para entender ainda mais como suas políticas são usadas em seu locatário, você pode usar o cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) para identificar quais aplicativos e entidades de serviço estão vinculados às suas políticas. 
+
+Se seu locatário tiver políticas que definem valores personalizados para propriedades de atualização e de configuração de token de sessão, a Microsoft recomenda que você atualize essas políticas no escopo para valores que reflitam os padrões descritos acima. Se nenhuma alteração for feita, o Azure AD honrará automaticamente os valores padrão.  
+
+## <a name="overview"></a>Visão geral
 
 No Azure AD, um objeto de política representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em uma organização. Cada tipo de política tem uma estrutura exclusiva com um conjunto de propriedades que são aplicadas aos objetos aos quais são atribuídas.
 

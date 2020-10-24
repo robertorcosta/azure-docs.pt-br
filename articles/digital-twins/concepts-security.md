@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485742"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503310"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -20,7 +20,7 @@ Por segurança, o Azure digital gêmeos permite o controle de acesso preciso sob
 
 O Azure digital gêmeos também dá suporte à criptografia de dados em repouso.
 
-## <a name="granting-permissions-with-azure-rbac"></a>Concedendo permissões com o RBAC do Azure
+## <a name="roles-and-permissions-with-azure-rbac"></a>Funções e permissões com o RBAC do Azure
 
 O RBAC do Azure é fornecido para o gêmeos digital do Azure por meio da integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
@@ -47,22 +47,32 @@ Com identidades gerenciadas, a plataforma do Azure gerencia essa identidade de r
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorização: funções do Azure para o gêmeos digital do Azure
 
-O Azure fornece as funções internas do Azure abaixo para autorizar o acesso a um recurso de gêmeos digital do Azure:
-* *Proprietário de dados do gêmeos digital do Azure* – Use essa função para fornecer acesso completo nos recursos do gêmeos digital do Azure.
-* *Leitor de dados do Azure digital gêmeos* – Use essa função para conceder acesso somente leitura aos recursos do gêmeos digital do Azure.
+O Azure fornece **duas funções internas do Azure** para autorizar o acesso às [APIs do plano de dados](how-to-use-apis-sdks.md#overview-data-plane-apis)do Azure digital gêmeos. Você pode consultar as funções por nome ou por ID:
+
+| Função interna | Descrição | ID | 
+| --- | --- | --- |
+| Proprietário de dados do gêmeos digital do Azure | Fornece acesso completo nos recursos de gêmeos digitais do Azure | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Leitor de dados do Azure digital gêmeos | Fornece acesso somente leitura aos recursos de gêmeos digitais do Azure | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 >[!NOTE]
 > Essas funções foram renomeadas recentemente de seus nomes anteriores na versão prévia:
 > * O *proprietário de dados do gêmeos digital do Azure* era anteriormente o *proprietário do Azure digital gêmeos (versão prévia)*.
 > * O *leitor de dados do gêmeos digital do Azure* era anteriormente o *leitor de gêmeos digital do Azure (versão prévia)*.
 
-Para obter mais informações sobre como as funções internas são definidas, consulte [*entender as definições de função*](../role-based-access-control/role-definitions.md) na documentação do RBAC do Azure. Para obter informações sobre como criar funções personalizadas do Azure, consulte [*funções personalizadas do Azure*](../role-based-access-control/custom-roles.md).
-
 Você pode atribuir funções de duas maneiras:
 * por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*Adicionar ou remover atribuições de função do Azure usando o portal do Azure*](../role-based-access-control/role-assignments-portal.md))
 * por meio de comandos da CLI para adicionar ou remover uma função
 
 Para obter etapas mais detalhadas sobre como fazer isso, experimente no tutorial do gêmeos digital do Azure [*: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md).
+
+Para obter mais informações sobre como as funções internas são definidas, consulte [*entender as definições de função*](../role-based-access-control/role-definitions.md) na documentação do RBAC do Azure. Para obter informações sobre como criar funções personalizadas do Azure, consulte [*funções personalizadas do Azure*](../role-based-access-control/custom-roles.md).
+
+##### <a name="automating-roles"></a>Automatizando funções
+
+Ao fazer referência a funções em cenários automatizados, é recomendável consultá-las por suas **IDs** , em vez de seus nomes. Os nomes podem ser alterados entre as versões, mas as IDs não vão, tornando-as uma referência mais estável na automação.
+
+> [!TIP]
+> Se você estiver assiging funções com um cmdlet, como `New-AzRoleAssignment` ([referência](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), poderá usar o `-RoleDefinitionId` parâmetro em vez de `-RoleDefinitionName` para passar uma ID em vez de um nome para a função.
 
 ### <a name="permission-scopes"></a>Escopos de permissão
 

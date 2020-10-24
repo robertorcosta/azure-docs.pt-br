@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 635f1e03596d55101b6158353ed8cdc278212ceb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155423"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516181"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Como usar permissões no Azure Spring Cloud
 Este artigo mostra como criar funções personalizadas que delegam permissões para recursos de nuvem do Azure Spring. As funções personalizadas estendem as [funções internas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) com várias permissões de ações.
@@ -256,7 +256,7 @@ Em **Microsoft. AppPlatform/SKUs**, selecione:
 6. Clique em **Examinar e criar**.
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 * [Criar ou atualizar as funções personalizadas do Azure usando o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
 
 Para obter mais informações sobre três métodos que definem permissões personalizadas, consulte:

@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629362"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516876"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteger um banco de dados no Azure Synapse
 
@@ -92,7 +92,7 @@ O exemplo a seguir concede acesso de leitura a um esquema definido pelo usuário
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-O gerenciamento de bancos de dados e servidores do portal do Azure ou do uso da API Azure Resource Manager é controlado pelas atribuições de função da sua conta de usuário do Portal. Para saber mais, confira [Role-based access control in the Azure portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)(Controle de acesso baseado em função no portal do Azure).
+O gerenciamento de bancos de dados e servidores do portal do Azure ou do uso da API Azure Resource Manager é controlado pelas atribuições de função da sua conta de usuário do Portal. Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Criptografia
 

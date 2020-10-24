@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371744"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503327"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -135,7 +135,7 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 - Uma chave primária não pode ter os seguintes tipos de dados: sql_variant, binary, varbinary, Image, XML.
 - Tenha cuidado ao usar os seguintes tipos de dados como uma chave primária, porque a precisão com suporte é apenas para o segundo: time, datatime, datetime2 e datetimeoffset.
 - Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter o ponto de caracteres imprimíveis (.), colchete esquerdo ([) ou colchete direito (]).
-- Um nome de tabela não pode conter caracteres imprimíveis:! " # $ % ' ( ) * + -
+- Um nome de tabela não pode conter caracteres imprimíveis:! "# $% ' () * + espaço
 - Não há suporte para a autenticação Azure Active Directory.
 - Se houver tabelas com o mesmo nome, mas um esquema diferente (por exemplo, dbo. Customers e Sales. Customers), somente uma das tabelas poderá ser adicionada à sincronização.
 - Não há suporte para colunas com tipos de dados User-Defined
