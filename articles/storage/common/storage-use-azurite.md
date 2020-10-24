@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331566"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490774"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Usar o emulador azurite para o desenvolvimento de armazenamento local do Azure
 
@@ -282,7 +282,7 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Configuração de certificado (HTTPS)
 
-**Opcional** – por padrão, azurite usa o protocolo http. Habilite o modo HTTPS fornecendo um caminho para um arquivo de certificado Privacy Enhanced Mail (. pem) ou [troca de informações pessoais (. pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) para o `--cert` comutador.
+**Opcional** – por padrão, azurite usa o protocolo http. Habilite o modo HTTPS fornecendo um caminho para um arquivo de certificado Privacy Enhanced Mail (. pem) ou [troca de informações pessoais (. pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) para o `--cert` comutador.
 
 Quando `--cert` é fornecido para um arquivo PEM, você deve fornecer um `--key` comutador correspondente.
 

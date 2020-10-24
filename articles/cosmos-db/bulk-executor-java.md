@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a9501df45d598c85f8c694c5d07db4f959615c00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03ef816632b73f46acaf1efdf2ddec28459fc9b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968189"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489329"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Atualmente, a biblioteca de executores em massa tem suporte apenas por Azure Cos
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.  
 
-* Você pode [tentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem custos e compromissos. Ou você pode usar o [Emulador do Azure Cosmos DB](/azure/cosmos-db/local-emulator) com o ponto de extremidade de `https://localhost:8081`. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticate-requests).  
+* Você pode [tentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem custos e compromissos. Ou você pode usar o [Emulador do Azure Cosmos DB](./local-emulator.md) com o ponto de extremidade de `https://localhost:8081`. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticate-requests).  
 
 * [Java Development Kit (JDK) 1.7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
   - No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.  
@@ -215,5 +215,3 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca bulk e
     
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre os detalhes do pacote maven e as notas de versão da biblioteca bulk executor Java, consulte [Detalhes do SDK do bulk executor](sql-api-sdk-bulk-executor-java.md).
-
-

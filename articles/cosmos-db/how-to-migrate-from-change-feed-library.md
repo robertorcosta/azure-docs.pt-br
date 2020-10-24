@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7a15e5135cd89d7360a1357e3518b1253e80ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019514"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490978"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca do processador do feed de alterações para o SDK Azure Cosmos DB .NET v3
 
@@ -23,7 +23,7 @@ Este artigo descreve as etapas necessárias para migrar um código de aplicativo
 O SDK do .NET v3 tem várias alterações significativas, as seguintes são as principais etapas para migrar seu aplicativo:
 
 1. Converta as `DocumentCollectionInfo` instâncias em `Container` referências para os contêineres monitorado e concessões.
-1. As personalizações que usam `WithProcessorOptions` devem ser atualizadas para usar `WithLeaseConfiguration` e `WithPollInterval` para intervalos, `WithStartTime` [para hora de início](how-to-configure-change-feed-start-time.md)e `WithMaxItems` para definir a contagem máxima de itens.
+1. As personalizações que usam `WithProcessorOptions` devem ser atualizadas para usar `WithLeaseConfiguration` e `WithPollInterval` para intervalos, `WithStartTime` [para hora de início](./change-feed-processor.md#starting-time)e `WithMaxItems` para definir a contagem máxima de itens.
 1. Defina `processorName` ativado `GetChangeFeedProcessorBuilder` para corresponder ao valor configurado em `ChangeFeedProcessorOptions.LeasePrefix` ou use o `string.Empty` contrário.
 1. As alterações não são mais entregues como um `IReadOnlyList<Document>` , em vez disso, é um `IReadOnlyCollection<T>` onde `T` é um tipo que você precisa definir, não há mais nenhuma classe de item base.
 1. Para lidar com as alterações, você não precisa mais de uma implementação, em vez disso, precisa [definir um delegado](change-feed-processor.md#implementing-the-change-feed-processor). O delegado pode ser uma função estática ou, se você precisar manter o estado entre execuções, poderá criar sua própria classe e passar um método de instância como delegado.
@@ -60,4 +60,4 @@ Agora continue para saber mais sobre o processador do feed de alterações nos s
 
 * [Visão geral do processador do feed de alterações](change-feed-processor.md)
 * [Como usar o avaliador do feed de alterações](how-to-use-change-feed-estimator.md)
-* [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)
+* [Hora de início do processador do feed de alterações](./change-feed-processor.md#starting-time)

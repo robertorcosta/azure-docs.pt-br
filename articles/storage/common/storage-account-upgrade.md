@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0054b6e9bb73ef2918a8e5c52c59a272bae5da26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34b486dc4ccfb116b49cf57217c5b7e5aedbd992
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612499"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488836"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
@@ -40,7 +40,7 @@ A atualização para uma conta de armazenamento v2 de uso geral de suas contas d
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando PowerShell, primeiro atualize o PowerShell para usar a última versão do módulo **Az.Storage**. Acesse [Como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) para obter informações sobre como instalar o PowerShell.
+Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando PowerShell, primeiro atualize o PowerShell para usar a última versão do módulo **Az.Storage**. Acesse [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps) para obter informações sobre como instalar o PowerShell.
 
 Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome do grupo de recursos, o nome da conta de armazenamento e a camada de acesso da conta desejada.
 
@@ -49,7 +49,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 ```
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando a CLI do Azure, primeiro instale a versão mais recente da CLI do Azure. Para obter informações sobre como instalar a CLI 2.0 do Azure, veja [Como instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando a CLI do Azure, primeiro instale a versão mais recente da CLI do Azure. Para obter informações sobre como instalar a CLI 2.0 do Azure, veja [Como instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome do grupo de recursos, o nome da conta de armazenamento e a camada de acesso da conta desejada.
 

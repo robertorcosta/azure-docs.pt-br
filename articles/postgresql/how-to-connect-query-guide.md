@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 924dbadc07f57e5928ecc63a24bf5e57d6213670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933145"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490009"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Visão geral de conexão e consulta do banco de dados do Azure para PostgreSQL-servidor único
 
@@ -23,7 +23,7 @@ O documento a seguir inclui links para exemplos que mostram como se conectar e c
 | Guia de Início Rápido | Descrição |
 |---|---|
 |[PgAdmin](https://www.pgadmin.org/)|Você pode usar o pgAdmin para se conectar ao servidor e simplifica a criação, a manutenção e o uso de objetos de banco de dados.|
-|[psql em Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|Este artigo mostra como executar [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) no [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para se conectar ao servidor e, em seguida, executar instruções para consultar, inserir, atualizar e excluir dados no banco de dado. Você pode executar o **psql** se estiver instalado em seu ambiente de desenvolvimento|
+|[psql em Azure Cloud Shell](quickstart-create-server-database-azure-cli.md#connect-to-the-azure-database-for-postgresql-server-by-using-psql)|Este artigo mostra como executar [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) no [Azure cloud Shell](../cloud-shell/overview.md) para se conectar ao servidor e, em seguida, executar instruções para consultar, inserir, atualizar e excluir dados no banco de dado. Você pode executar o **psql** se estiver instalado em seu ambiente de desenvolvimento|
 |[PostgreSQL com VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|A extensão de bancos de dados do Azure para VS Code (versão prévia) permite procurar e consultar o servidor PostgreSQL localmente e na nuvem usando recortes com o IntelliSense avançado. |
 |[PHP](connect-php.md)|Este guia de início rápido demonstra como usar o PHP para criar um programa para se conectar a um banco de dados e usar o trabalho com objetos de banco para consulta.|
 |[Java](connect-java.md)|Este guia de início rápido demonstra como usar o Java para se conectar a um banco de dados e, em seguida, usar o trabalho com objetos de banco para consulta.|
@@ -42,10 +42,10 @@ O protocolo TLS é usado por todos os drivers que a Microsoft fornece ou dá sup
 ## <a name="postgresql-extensions"></a>Extensões do PostgreSQL
 O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões agrupam vários objetos SQL em um pacote que pode ser carregado ou removido do seu banco de dados com um comando. Depois de carregadas no banco de dados, as extensões funcionam como recursos internos.
 
-- [Extensões do postgres 11](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-11-extensions)
-- [Extensões do postgres 10](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-10-extensions)
-- [Extensões do postgres 9,6](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-96-extensions)
-- [Extensões do postgres 9,5](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-95-extensions)
+- [Extensões do postgres 11](./concepts-extensions.md#postgres-11-extensions)
+- [Extensões do postgres 10](./concepts-extensions.md#postgres-10-extensions)
+- [Extensões do postgres 9,6](./concepts-extensions.md#postgres-96-extensions)
+- [Extensões do postgres 9,5](./concepts-extensions.md#postgres-95-extensions)
 
 Para obter mais detalhes, consulte [como usar as extensões do PostgreSQL em um único servidor](concepts-extensions.md).
 

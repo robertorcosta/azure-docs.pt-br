@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 886e8cb1c5d86c1a61e65fa8cbd54c022f6c1c6b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074752"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484807"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters do Azure HDInsight
 
@@ -28,7 +28,7 @@ Antes de executar qualquer um dos exemplos de código neste artigo, entenda a re
 Outros pré-requisitos para os exemplos neste artigo incluem os seguintes itens:
 
 * Se você estiver usando o PowerShell, precisará instalar o [módulo AZ](https://docs.microsoft.com/powershell/azure/).
-* Se você quiser usar CLI do Azure e ainda não o tiver instalado, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se você quiser usar CLI do Azure e ainda não o tiver instalado, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > Se estiver buscando orientações passo a passo sobre como conectar o HDInsight à sua rede local usando uma Rede Virtual do Azure, consulte o documento [Conectar o HDInsight à sua rede local](connect-on-premises-network.md).

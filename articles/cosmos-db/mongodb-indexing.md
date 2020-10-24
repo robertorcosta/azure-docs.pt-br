@@ -9,12 +9,12 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425028"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487374"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerenciar a indexação na API do Azure Cosmos DB para MongoDB
 
@@ -78,7 +78,7 @@ Aqui está um exemplo de criação de um índice geoespacial no `location` campo
 
 ### <a name="text-indexes"></a>Índices de texto
 
-Atualmente, a API do Azure Cosmos DB para MongoDB não dá suporte a índices de texto. Para consultas de pesquisa de texto em cadeias de caracteres, você deve usar a integração de [pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) com Azure Cosmos DB. 
+Atualmente, a API do Azure Cosmos DB para MongoDB não dá suporte a índices de texto. Para consultas de pesquisa de texto em cadeias de caracteres, você deve usar a integração de [pesquisa cognitiva do Azure](../search/search-howto-index-cosmosdb.md) com Azure Cosmos DB. 
 
 ## <a name="wildcard-indexes"></a>Índices curinga
 

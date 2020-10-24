@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578029"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490740"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -104,7 +104,7 @@ Você pode configurar o tamanho do plano e os máximos no portal do Azure seleci
 Você também pode aumentar o limite máximo de intermitência do CLI do Azure:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 O mínimo para cada plano será pelo menos uma instância.  O número mínimo real de instâncias será configurado para você com base nas instâncias do Always Ready solicitadas por aplicativos no plano.  Por exemplo, se o aplicativo A solicitar cinco instâncias sempre prontas e o aplicativo B solicitar duas instâncias do Always Ready no mesmo plano, o tamanho mínimo do plano será calculado como cinco.  O aplicativo A será executado em todos os 5, e o aplicativo B só será executado em 2.
@@ -117,7 +117,7 @@ Na maioria das circunstâncias, o mínimo autocalculado deve ser suficiente.  No
 O aumento do mínimo calculado para um plano pode ser feito usando o CLI do Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>SKUs da instância disponível
@@ -146,8 +146,8 @@ Veja a disponibilidade regional completa das funções aqui: [Azure.com](https:/
 |Austrália Central| 100 | Não disponível |
 |Austrália Central 2| 100 | Não disponível |
 |Leste da Austrália| 100 | 20 |
-|Australia Southeast | 100 | 20 |
-|Sul do Brasil| 100 | 20 |
+|Sudeste da Austrália | 100 | 20 |
+|Brazil South| 100 | 20 |
 |Canadá Central| 100 | 20 |
 |Centro dos EUA| 100 | 20 |
 |Leste da China 2| 100 | 20 |
@@ -157,7 +157,7 @@ Veja a disponibilidade regional completa das funções aqui: [Azure.com](https:/
 |Leste dos EUA 2| 100 | 20 |
 |França Central| 100 | 20 |
 |Centro-Oeste da Alemanha| 100 | Não disponível |
-|Japan East| 100 | 20 |
+|Leste do Japão| 100 | 20 |
 |Oeste do Japão| 100 | 20 |
 |Coreia Central| 100 | 20 |
 |Sul da Coreia| Não disponível | 20 |

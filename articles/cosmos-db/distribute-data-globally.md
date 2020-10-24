@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 5ea5ee2dfe89b36fce78c369100224718eb5864f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ddb6bc297a32be856172707a220fe1dfaefb9f6d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278774"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487442"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuir dados globalmente com o Azure Cosmos DB
 
@@ -55,7 +55,6 @@ Leia mais sobre a distribuição global nos seguintes artigos:
 * [Como adicionar/remover regiões da conta do Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Criar uma política de resolução de conflitos personalizada para contas da API do SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * [Modelos de consistência programáveis no Cosmos DB](consistency-levels.md)
-* [Escolher o nível certo de coerência para o seu aplicativo](consistency-levels-choosing.md)
-* [Níveis de coerência entre as APIs do Azure Cosmos DB](consistency-levels-across-apis.md)
-* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
-
+* [Escolher o nível certo de coerência para o seu aplicativo](./consistency-levels.md)
+* [Níveis de coerência entre as APIs do Azure Cosmos DB](./consistency-levels.md)
+* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](./consistency-levels.md)

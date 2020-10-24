@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263537"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480914"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
 
@@ -38,7 +38,7 @@ Muitas dessas limitações estão sendo corrigidas para ferramentas como o Azure
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>Ferramenta personalizada com biblioteca de executor em massa 
 
-Os desafios descritos na seção acima podem ser resolvidos usando uma ferramenta personalizada que pode ser facilmente dimensionada em várias instâncias e é resiliente a falhas transitórias. Além disso, a ferramenta personalizada pode pausar e retomar a migração em vários pontos de verificação. O Azure Cosmos DB já fornece a [biblioteca de executores em massa](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) que incorpora alguns desses recursos. Por exemplo, a biblioteca de executores em massa já tem a funcionalidade para lidar com erros transitórios e pode expandir os threads em um único nó para consumir cerca de 500 K RUs por nó. A biblioteca de executores em massa também particiona o conjunto de fonte de origem em micro lotes que são operados de forma independente como uma forma de ponto de verificação.  
+Os desafios descritos na seção acima podem ser resolvidos usando uma ferramenta personalizada que pode ser facilmente dimensionada em várias instâncias e é resiliente a falhas transitórias. Além disso, a ferramenta personalizada pode pausar e retomar a migração em vários pontos de verificação. O Azure Cosmos DB já fornece a [biblioteca de executores em massa](./bulk-executor-overview.md) que incorpora alguns desses recursos. Por exemplo, a biblioteca de executores em massa já tem a funcionalidade para lidar com erros transitórios e pode expandir os threads em um único nó para consumir cerca de 500 K RUs por nó. A biblioteca de executores em massa também particiona o conjunto de fonte de origem em micro lotes que são operados de forma independente como uma forma de ponto de verificação.  
 
 A ferramenta personalizada usa a biblioteca de executores em massa e dá suporte à expansão em vários clientes e para rastrear erros durante o processo de ingestão. Para usar essa ferramenta, os dados de origem devem ser particionados em arquivos distintos no Azure Data Lake Storage (ADLS) para que os diferentes operadores de migração possam pegar cada arquivo e ingerir em Azure Cosmos DB. A ferramenta personalizada usa uma coleção separada, que armazena metadados sobre o progresso da migração para cada arquivo de origem individual no ADLS e rastreia os erros associados a eles.  
 
@@ -152,4 +152,4 @@ Embora você possa seguir este guia para migrar com êxito grandes conjuntos de 
 
 * Saiba mais experimentando os aplicativos de exemplo que consomem a biblioteca de executores em massa no [.net](bulk-executor-dot-net.md) e no [Java](bulk-executor-java.md). 
 * A biblioteca de executores em massa é integrada ao conector do Cosmos DB Spark, para saber mais, consulte o artigo [Azure Cosmos DB conector do Spark](spark-connector.md) .  
-* Entre em contato com a equipe de produto Azure Cosmos DB abrindo um tíquete de suporte no tipo de problema "consultoria geral" e no subtipo de problema "migrações grandes (TB +)" para obter ajuda adicional com migrações em larga escala. 
+* Entre em contato com a equipe de produto Azure Cosmos DB abrindo um tíquete de suporte no tipo de problema "consultoria geral" e no subtipo de problema "migrações grandes (TB +)" para obter ajuda adicional com migrações em larga escala.

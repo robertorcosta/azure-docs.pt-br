@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: jasonh
-ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408225"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490587"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como usar a etapa de perfil de execução para avaliar suas consultas do Gremlin
 
@@ -220,8 +220,8 @@ Suponha a seguinte resposta de perfil de execução de um **grafo particionado**
 
 As seguintes conclusões podem ser feitas a partir dela:
 - A consulta é uma pesquisa de ID única, uma vez que a instrução Gremlin segue o padrão `g.V('id')` .
-- Julgamento da `time` métrica, a latência dessa consulta parece estar alta, pois é [mais de 10 ms para uma única operação de leitura de ponto](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Se olharmos para o `storeOps` objeto, podemos ver que o `fanoutFactor` é `5` , o que significa que [5 partições](https://docs.microsoft.com/azure/cosmos-db/partition-data) foram acessadas por essa operação.
+- Julgamento da `time` métrica, a latência dessa consulta parece estar alta, pois é [mais de 10 ms para uma única operação de leitura de ponto](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Se olharmos para o `storeOps` objeto, podemos ver que o `fanoutFactor` é `5` , o que significa que [5 partições](./partitioning-overview.md) foram acessadas por essa operação.
 
 Como uma conclusão dessa análise, podemos determinar que a primeira consulta está acessando mais partições do que o necessário. Isso pode ser resolvido especificando-se a chave de particionamento na consulta como um predicado. Isso resultará em menos latência e menos custo por consulta. Saiba mais sobre o [particionamento de grafo](graph-partitioning.md). Uma consulta mais ideal seria `g.V('tt0093640').has('partitionKey', 't1001')` .
 

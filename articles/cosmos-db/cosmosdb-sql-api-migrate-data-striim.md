@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 5ce805fb302264a0c3907c006983f9d939a2908e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e190c9f06dc2c662760421b7240eafdf22986b0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262065"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491301"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrar dados para Azure Cosmos DB conta da API do SQL usando Striim
  
@@ -22,7 +22,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver uma [assinatura do Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+* Se você não tiver uma [assinatura do Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 * Um banco de dados Oracle em execução local com algum dado.
 

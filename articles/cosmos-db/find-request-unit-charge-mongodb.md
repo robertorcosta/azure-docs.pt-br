@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: d1fe28e4339cb4585deeeef1c44e3614fd693943
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283588"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490689"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Localizar o encargo de unidade de solicitação para operações executadas na API Azure Cosmos DB para MongoDB
 
@@ -25,7 +25,7 @@ Este artigo apresenta as diferentes maneiras pelas quais você pode encontrar o 
 
 O preço de RU é exposto por um [comando de banco de dados](https://docs.mongodb.com/manual/reference/command/) personalizado chamado `getLastRequestStatistics`. O comando retorna um documento que contém o nome da última operação executada, seu preço de solicitação e sua duração. Se você usar a API do Azure Cosmos DB para MongoDB, você terá várias opções para recuperar o preço de RU.
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -91,4 +91,4 @@ Para saber mais sobre como otimizar o consumo de RU, confira estes artigos:
 
 * [Unidades de solicitação e taxa de transferência no Azure Cosmos DB](request-units.md)
 * [Otimizar a taxa de transferência provisionada no Azure Cosmos DB](optimize-cost-throughput.md)
-* [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
+* [Otimizar o custo de consulta no Azure Cosmos DB](./optimize-cost-reads-writes.md)

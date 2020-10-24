@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d0dcecf6a0da1fbd3561dadcbe001c0ef8d4ebc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871234"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479452"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
 
@@ -240,7 +240,7 @@ Para referência detalhada, consulte os documentos de referência de [cópia do 
 
 Você pode usar o AzCopy para copiar arquivos para outras contas de armazenamento. A operação de cópia é síncrona, portanto, quando o comando retorna, isso indica que todos os arquivos foram copiados.
 
-O AzCopy usa [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)de [servidor para servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
+O AzCopy usa [APIs](/rest/api/storageservices/put-page-from-url)de [servidor para servidor](/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
 
 Esta seção contém os seguintes exemplos:
 
@@ -340,7 +340,7 @@ O primeiro compartilhamento de arquivos que aparece nesse comando é a origem. N
 | **Sintaxe** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Exemplo** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-Para saber mais sobre instantâneos de compartilhamento, consulte [visão geral de instantâneos de compartilhamento para arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
+Para saber mais sobre instantâneos de compartilhamento, consulte [visão geral de instantâneos de compartilhamento para arquivos do Azure](/azure/storage/files/storage-snapshots-files).
 
 ## <a name="next-steps"></a>Próximas etapas
 

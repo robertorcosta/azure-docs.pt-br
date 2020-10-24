@@ -6,18 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 9424a56eeda5750afc00dd996be957e67850c30c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4d4287b877f5327b7fd485358b26148686b9515b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426672"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487918"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias opções de monitoramento para fornecer insights sobre o comportamento do servidor.
 
 ## <a name="metrics"></a>Métricas
-O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. Cada métrica é emitida a uma frequência de um minuto e tem até [93 dias de histórico](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). É possível configurar alertas nas métricas. Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert-on-metric.md) (Como configurar alertas). Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+O Banco de Dados do Azure para PostgreSQL oferece várias métricas que fornecem informações sobre o comportamento dos recursos compatíveis com o servidor PostgreSQL. Cada métrica é emitida a uma frequência de um minuto e tem até [93 dias de histórico](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). É possível configurar alertas nas métricas. Para obter diretrizes passo a passo, consulte [How to set up alerts](howto-alert-on-metric.md) (Como configurar alertas). Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreSQL:
@@ -61,6 +61,6 @@ Saiba mais sobre como configurar notificações no documento de [notificações 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
-- Para obter mais informações sobre como acessar e exportar métricas usando o portal do Azure, a API REST ou a CLI, consulte a [visão geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- Para obter mais informações sobre como acessar e exportar métricas usando o portal do Azure, a API REST ou a CLI, consulte a [visão geral das métricas do Azure](../azure-monitor/platform/data-platform.md)
 - Leia nosso blog sobre [práticas recomendadas para monitorar seu servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
 - Saiba mais sobre [notificações de manutenção planejada](./concepts-planned-maintenance-notification.md) no banco de dados do Azure para PostgreSQL-servidor único.

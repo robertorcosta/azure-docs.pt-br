@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 8d249cdabcbfd82fc555c486f29bbdba200e1da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ae3c538c78be8af0fa4569592ac60547e7f5912
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710491"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481288"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Logs no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -72,7 +72,7 @@ Para habilitar logs de recursos usando o PowerShell, a CLI ou a API REST, visite
 
 ### <a name="access-resource-logs"></a>Acessar logs de recursos
 
-A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../azure-monitor/platform/resource-logs-collect-storage.md) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md) .
 
@@ -115,7 +115,7 @@ A tabela a seguir descreve os campos para o tipo **PostgreSQLLogs** . Dependendo
 | errorLevel | Nível de log, exemplo: LOG, ERROR, NOTICE |
 | Mensagem | Mensagem de log primária | 
 | Domínio | Versão do servidor, o exemplo: postgres-10 |
-| Detalhes | Mensagem de log secundária (se aplicável) |
+| Detalhe | Mensagem de log secundária (se aplicável) |
 | ColumnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
 | DatatypeName | Nome do tipo de dados (se aplicável) |

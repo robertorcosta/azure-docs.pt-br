@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7ff8f3d18564140b4654b1591eec5c0e1f40b7cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24c850b9a5302fd0ac684df6e6f1cc319118a75d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077901"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488513"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
@@ -31,7 +31,7 @@ Consulte o artigo [introdução ao AzCopy](storage-use-azcopy-v10.md) para baixa
 >
 > Se você preferir usar um token SAS para autorizar o acesso a dados BLOB, poderá acrescentar esse token à URL do recurso em cada comando AzCopy.
 >
-> Por exemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Por exemplo, `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
@@ -282,7 +282,7 @@ O nome de cada arquivo baixado começa com a ID de versão seguida pelo nome do 
 
 Você pode usar AzCopy para copiar blobs para outras contas de armazenamento. A operação de cópia é síncrona, portanto, quando o comando retorna, isso indica que todos os arquivos foram copiados. 
 
-O AzCopy usa [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)de [servidor para servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
+O AzCopy usa [APIs](/rest/api/storageservices/put-page-from-url)de [servidor para servidor](/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
 
 > [!NOTE]
 > Esse cenário tem as seguintes limitações na versão atual.
@@ -363,7 +363,7 @@ O comando [Sync](storage-ref-azcopy-sync.md) compara os nomes de arquivo e os ú
 Se você definir o `--delete-destination` sinalizador como `true` AzCopy exclui arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o `--delete-destination` sinalizador como `prompt` .
 
 > [!NOTE]
-> Para evitar exclusões acidentais, certifique-se de habilitar o recurso de [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de usar o `--delete-destination=prompt|true` sinalizador.
+> Para evitar exclusões acidentais, certifique-se de habilitar o recurso de [exclusão reversível](/azure/storage/blobs/storage-blob-soft-delete) antes de usar o `--delete-destination=prompt|true` sinalizador.
 
 > [!TIP]
 > Você pode ajustar a operação de sincronização usando sinalizadores opcionais. Aqui estão alguns exemplos.

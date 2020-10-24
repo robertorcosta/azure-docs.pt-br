@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfedc7d14c234f88e8140281a01ffcc330ba532
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797812"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488360"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Como monitorar o Azure Cosmos DB
 
@@ -66,7 +66,7 @@ A página **Visão Geral** no portal do Azure para cada banco de dados do Azure 
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Analisando dados de métrica
 
-O Azure Cosmos DB fornece uma experiência personalizada para trabalhar com métricas. Confira [Monitorar e depurar as métricas do Azure Cosmos DB usando o Azure Monitor](cosmos-db-azure-monitor-metrics.md) para obter detalhes sobre como usar essa experiência e para analisar diferentes cenários do Azure Cosmos DB.
+O Azure Cosmos DB fornece uma experiência personalizada para trabalhar com métricas. Confira [Monitorar e depurar as métricas do Azure Cosmos DB usando o Azure Monitor]() para obter detalhes sobre como usar essa experiência e para analisar diferentes cenários do Azure Cosmos DB.
 
 Você pode analisar as métricas para o Azure Cosmos DB com métricas de outros serviços do Azure usando o Metrics Explorer abrindo **Métricas** no menu **Azure Monitor**. Consulte [Introdução ao Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) para obter detalhes sobre como usar essa ferramenta. Todas as métricas para o Azure Cosmos DB estão no namespace **Métricas padrão do Cosmos DB**. Você pode usar as seguintes dimensões com essas métricas ao adicionar um filtro a um gráfico:
 
@@ -118,7 +118,7 @@ Os dados em Logs do Azure Monitor são armazenados em tabelas, cada uma com o pr
 
 ### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Consultas do Log Analytics do Azure Cosmos DB no Azure Monitor
 
-Aqui estão algumas consultas que você pode inserir na barra de pesquisa **Pesquisa de logs** para ajudar na monitoração de seus contêineres do Azure Cosmos. Essas consultas funcionam com a [nova linguagem](../log-analytics/log-analytics-log-search-upgrade.md).
+Aqui estão algumas consultas que você pode inserir na barra de pesquisa **Pesquisa de logs** para ajudar na monitoração de seus contêineres do Azure Cosmos. Essas consultas funcionam com a [nova linguagem](../azure-monitor/log-query/log-query-overview.md).
 
 Veja a seguir as consultas que podem ser usadas para ajudar você a monitorar seus bancos de dados do Azure Cosmos.
 
@@ -151,9 +151,9 @@ Veja a seguir as consultas que podem ser usadas para ajudar você a monitorar se
 
 As métricas no nível da conta disponíveis no portal, como o uso de armazenamento da conta e o total de solicitações, não estão disponíveis por meio das APIs do SQL. No entanto, você pode recuperar os dados de uso no nível da coleção usando as APIs do SQL. Para recuperar os dados do nível de coleção, faça o seguinte:
 
-* Para usar a API REST, [execute um GET na coleção](https://msdn.microsoft.com/library/mt489073.aspx). As informações de cota e de uso da coleção são retornadas nos cabeçalhos x-ms-resource-quota e x-ms-resource-usage na resposta.
+* Para usar a API REST, [execute um GET na coleção](/rest/api/cosmos-db/get-a-collection). As informações de cota e de uso da coleção são retornadas nos cabeçalhos x-ms-resource-quota e x-ms-resource-usage na resposta.
 
-* Para usar o SDK do .NET, use o método [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx), que retorna uma [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) que contém diversas propriedades de uso como **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** e muito mais.
+* Para usar o SDK do .NET, use o método [DocumentClient.ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync), que retorna uma [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1) que contém diversas propriedades de uso como **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** e muito mais.
 
 Para acessar outras métricas, use o [SDK do Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Insights). As definições de métricas disponíveis podem ser recuperadas chamando:
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802923"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476970"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Vida útil no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Com **a vida útil ou** TTL, Azure Cosmos DB fornece a capacidade de excluir ite
 
 A exclusão de itens expirados é uma tarefa em segundo plano que consome [unidades de solicitação](request-units.md)restantes, que são unidades de solicitação que não foram consumidas por solicitações do usuário. Mesmo após o TTL expirar, se o contêiner estiver sobrecarregado com solicitações e se não houver RU suficiente disponível, a exclusão de dados será atrasada. Os dados são excluídos quando há um RUs suficiente disponível para executar a operação de exclusão. Embora a exclusão de dados seja atrasada, os dados não são retornados por nenhuma consulta (por qualquer API) após o tempo de vida expirar.
 
-> Este conteúdo está relacionado a Azure Cosmos DB TTL de repositório transacional. Se você estiver procurando por TTL da loja Analitycal, que habilita cenários NoETL HTAP por meio [do link Synapse do Azure](https://docs.microsoft.com/azure/cosmos-db/synapse-link), clique [aqui](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Este conteúdo está relacionado a Azure Cosmos DB TTL de repositório transacional. Se você estiver procurando por TTL da loja Analitycal, que habilita cenários NoETL HTAP por meio [do link Synapse do Azure](./synapse-link.md), clique [aqui](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Vida Útil para contêineres e itens
 
@@ -56,7 +56,7 @@ Esta seção mostra alguns exemplos com valores de vida útil diferentes atribu�
 
 TTL no contêiner é definido como nulo (DefaultTimeToLive = NULL)
 
-|TTL no item| Result|
+|TTL no item| Resultado|
 |---|---|
 |TTL = nulo|    O TTL está desabilitado. O item nunca expirará (padrão).|
 |TTL =-1   |O TTL está desabilitado. O item nunca expirará.|
@@ -67,18 +67,18 @@ TTL no contêiner é definido como nulo (DefaultTimeToLive = NULL)
 
 TTL no contêiner é definido como-1 (DefaultTimeToLive =-1)
 
-|TTL no item| Result|
+|TTL no item| Resultado|
 |---|---|
 |TTL = nulo |O TTL está habilitado. O item nunca expirará (padrão).|
 |TTL =-1   |O TTL está habilitado. O item nunca expirará.|
 |TTL = 2000 |O TTL está habilitado. O item expirará após 2000 segundos.|
 
 
-### <a name="example-3"></a>Exemplo 3
+### <a name="example-3"></a>Exemplo 3:
 
 TTL no contêiner é definido como 1000 (DefaultTimeToLive = 1000)
 
-|TTL no item| Result|
+|TTL no item| Resultado|
 |---|---|
 |TTL = nulo|    O TTL está habilitado. O item expirará após 1000 segundos (padrão).|
 |TTL =-1   |O TTL está habilitado. O item nunca expirará.|

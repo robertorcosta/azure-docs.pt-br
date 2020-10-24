@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 98210f26072504c129ba32f765cf6bab74fef604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8351b8c74f9219cf14575cc326fa8049264ed7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570724"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491114"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
 
@@ -33,7 +33,7 @@ Consulte [criar uma conta de Azure Cosmos DB com o PowerShell](manage-with-power
 
 ### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modelo do Azure Resource Manager
 
-Consulte [criar conta de Azure Cosmos DB com modelos de Azure Resource Manager](manage-sql-with-resource-manager.md)
+Consulte [criar conta de Azure Cosmos DB com modelos de Azure Resource Manager](./manage-with-templates.md)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Adicionar ou remover regiões de sua conta de banco de dados
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: allensu
-ms.openlocfilehash: 26c4c01aaf6abe6b9c9ac6daf6836d7b660ba21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b507fbad4d9089d918ae7a85c07f30efcb118476
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649807"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487238"
 ---
 # <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>Configurar o tempo limite de ociosidade de TCP para Azure Load Balancer
 
@@ -28,7 +28,11 @@ ms.locfileid: "91649807"
 
 Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
-Azure Load Balancer tem uma configuração de tempo limite de ociosidade de 4 minutos a 120 minutos. Por padrão, é definido como 4 minutos. Se um período de inatividade for maior que o valor de tempo limite, não haverá nenhuma garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço de nuvem. Saiba mais sobre o [tempo limite de ociosidade de TCP](load-balancer-tcp-reset.md).
+Azure Load Balancer tem o seguinte intervalo de tempo limite ocioso:
+
+4 minutos a 100 minutos para regras de saída de 4 minutos a 30 minutos para regras de Load Balancer e regras NAT de entrada
+
+Por padrão, é definido como 4 minutos. Se um período de inatividade for maior que o valor de tempo limite, não haverá nenhuma garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço de nuvem. Saiba mais sobre o [tempo limite de ociosidade de TCP](load-balancer-tcp-reset.md).
 
 As seções a seguir descrevem como mudar as configurações de tempo limite de ociosidade para os recursos de IP público e de balanceador de carga.
 
@@ -41,7 +45,7 @@ $publicIP.IdleTimeoutInMinutes = "15"
 Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-`IdleTimeoutInMinutes` é opcional. Se não for definido, o tempo limite padrão será de quatro minutos. O intervalo de tempo limite aceitável é de 4 a 120 minutos.
+`IdleTimeoutInMinutes` é opcional. Se não for definido, o tempo limite padrão será de quatro minutos. 
 
 ## <a name="set-the-tcp-idle-timeout-on-rules"></a>Definir o tempo limite de ociosidade de TCP nas regras
 

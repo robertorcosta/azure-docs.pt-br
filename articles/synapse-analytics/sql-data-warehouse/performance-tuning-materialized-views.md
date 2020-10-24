@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984113"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478313"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
 
@@ -79,7 +79,7 @@ Em comparação com outras opções de ajuste, como gerenciamento de escala e es
 
 **Necessidade de uma estratégia de distribuição de dados diferente para um desempenho de consulta mais rápido**
 
-O pool de SQL é um sistema MPP (processamento paralelo maciço) distribuído.   Os dados em uma tabela de pool de SQL são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin ou replicada).  
+Synapse SQL é um sistema de processamento de consulta distribuído.  Os dados em uma tabela SQL são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin ou replicado).   
 
 A distribuição de dados é especificada no momento da criação da tabela e permanece inalterada até que a tabela seja descartada. A exibição materializada, sendo uma tabela virtual em disco, é compatível com as distribuições de dados de hash e round_robin.  Os usuários podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que usam mais as exibições.  
 

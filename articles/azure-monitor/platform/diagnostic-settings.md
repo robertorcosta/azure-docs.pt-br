@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107922"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489431"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo o log de atividades do Azure e os logs de recursos, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. As [métricas de plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas Azure monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para destinos diferentes.
@@ -63,6 +63,8 @@ Todos os destinos para a configuração de diagnóstico devem ser criados antes 
 > [!NOTE]
 > Atualmente, contas de Azure Data Lake Storage Gen2 não são compatíveis como destino para configurações de diagnóstico, embora elas possam estar listadas como uma opção válida na portal do Azure.
 
+> [!NOTE]
+> Azure Monitor (configurações de diagnóstico) não pode acessar recursos de hubs de eventos quando as redes virtuais estão habilitadas. Você precisa habilitar a opção permitir que os serviços confiáveis da Microsoft ignorem essa configuração de firewall no Hub de eventos, para que o serviço de Azure Monitor (configurações de diagnóstico) receba acesso aos seus recursos de hubs de eventos. 
 
 
 ## <a name="create-in-azure-portal"></a>Criar no portal do Azure

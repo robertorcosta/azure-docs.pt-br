@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 81180cc0d9cc7754e5a3e935c09441995f16c56a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2e988067add1513036e2f314e84a7ba6908cdd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907562"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488054"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para PostgreSQL-recursos de computação de servidor único com capacidade reservada
 
@@ -20,15 +20,15 @@ O banco de dados do Azure para PostgreSQL agora ajuda você a economizar dinheir
 Você não precisa atribuir a reserva a servidores do banco de dados do Azure específicos para PostgreSQL. Um banco de dados do Azure já em execução para PostgreSQL (ou aqueles que foram implantados recentemente) obterá automaticamente o benefício do preço reservado. Ao comprar uma reserva, você está pagando pelos custos de computação por um período de um ou três anos. Assim que você comprar uma reserva, os encargos de computação do banco de dados do Azure para PostgreSQL que correspondam aos atributos de reserva não serão cobrados com as tarifas pagas conforme o uso. Uma reserva não abrange os encargos de software, rede ou armazenamento associados aos servidores de banco de dados PostgreSQL. No final do prazo de reserva, o benefício de cobrança expira e o banco de dados do Azure para PostgreSQL são cobrados pelo preço pago conforme o uso. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> O preço da capacidade reservada está disponível para o banco de dados do Azure para PostgreSQL em opções de implantação de Citus de [servidor único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) e de [hiperescala](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) . Para obter informações sobre os preços de RI em hiperescala (Citus), consulte [esta página](concepts-hyperscale-reserved-pricing.md).
+> O preço da capacidade reservada está disponível para o banco de dados do Azure para PostgreSQL em opções de implantação de Citus de [servidor único](./overview.md#azure-database-for-postgresql---single-server) e de [hiperescala](./overview.md#azure-database-for-postgresql--hyperscale-citus) . Para obter informações sobre os preços de RI em hiperescala (Citus), consulte [esta página](concepts-hyperscale-reserved-pricing.md).
 
-Você pode comprar a capacidade reservada do banco de dados do Azure para PostgreSQL no [portal do Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a capacidade reservada:
+Você pode comprar a capacidade reservada do banco de dados do Azure para PostgreSQL no [portal do Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar a capacidade reservada:
 
 * Você deve estar na função de proprietário de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
 * Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.
 * Para o programa CSP (provedor de soluções na nuvem), somente os agentes de administração ou os agentes de vendas podem comprar a capacidade reservada do banco de dados do Azure para PostgreSQL. </br>
 
-Os detalhes sobre como clientes corporativos e clientes pagos conforme o uso são cobrados por compras de reserva, consulte [entender o uso de reserva do Azure para seu registro corporativo](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) e [entender o uso de reserva do Azure para sua assinatura pré-paga](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Os detalhes sobre como clientes corporativos e clientes pagos conforme o uso são cobrados por compras de reserva, consulte [entender o uso de reserva do Azure para seu registro corporativo](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [entender o uso de reserva do Azure para sua assinatura pré-paga](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>Determinar o tamanho do servidor correto antes da compra
@@ -63,7 +63,7 @@ A tabela a seguir descreve os campos obrigatórios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidade de tamanho do vCore
 
@@ -79,9 +79,9 @@ O desconto de reserva vCore é aplicado automaticamente ao número de servidores
 
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-* [O que são as reservas do Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)?
-* [Gerenciar Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Compreender o desconto de Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Entender o uso de reserva para a sua assinatura paga conforme o uso](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Entender o uso de reserva para seu registro de empresa](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
+* [O que são as reservas do Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md)?
+* [Gerenciar Reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Compreender o desconto de Reservas do Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Entender o uso de reserva para a sua assinatura paga conforme o uso](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Entender o uso de reserva para seu registro de empresa](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](/partner-center/azure-reservations)

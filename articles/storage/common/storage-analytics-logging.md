@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37e56caa8242709214265af0e1fc03c3853300f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280021"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488785"
 ---
 # <a name="azure-storage-analytics-logging"></a>Log da Análise de Armazenamento do Azure
 
 A análise de armazenamento registra informações detalhadas sobre solicitações bem-sucedidas e com falha para um serviço de armazenamento. Essas informações podem ser usadas para monitorar solicitações individuais e diagnosticar problemas com um serviço de armazenamento. As solicitações são registradas em uma base de melhor esforço.
 
- O log da Análise de Armazenamento não está habilitado por padrão na conta de armazenamento. Você pode habilitá-la no [portal do Azure](https://portal.azure.com/); para obter detalhes, consulte [Monitorar uma conta de armazenamento no portal do Azure](/azure/storage/storage-monitor-storage-account). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Obter Propriedades do Serviço Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Obter Propriedades do Serviço Fila](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties) e [Obter Propriedades do Serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) para habilitar a Análise de Armazenamento para cada serviço.
+ O log da Análise de Armazenamento não está habilitado por padrão na conta de armazenamento. Você pode habilitá-la no [portal do Azure](https://portal.azure.com/); para obter detalhes, consulte [Monitorar uma conta de armazenamento no portal do Azure](/azure/storage/storage-monitor-storage-account). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Obter Propriedades do Serviço Blob](/rest/api/storageservices/Blob-Service-REST-API), [Obter Propriedades do Serviço Fila](/rest/api/storageservices/Get-Queue-Service-Properties) e [Obter Propriedades do Serviço Tabela](/rest/api/storageservices/Get-Table-Service-Properties) para habilitar a Análise de Armazenamento para cada serviço.
 
  As entradas de log são criadas somente se há solicitações feitas no ponto de extremidade de serviço. Por exemplo, se uma conta de armazenamento tiver atividades em seu ponto de extremidade Blob, mas não em seus pontos de extremidade Tabela ou Fila, somente os logs pertencentes ao serviço Blob são criados.
 
@@ -204,7 +204,7 @@ O exemplo a seguir mostra como você pode baixar os dados de log para o serviço
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Para saber mais sobre como baixar arquivos específicos, veja [Download de arquivos específicos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Para saber mais sobre como baixar arquivos específicos, veja [Download de arquivos específicos](/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 Após baixar seus dados de log, veja as entradas de log nos arquivos. Esses arquivos de log usam um formato de texto delimitado que muitas ferramentas de leitura de log podem analisar (para obter mais informações, consulte o guia [monitoramento, diagnóstico e solução de problemas armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Ferramentas diferentes têm recursos diferentes para formatação, filtragem, classificação e pesquisa de anúncios para o conteúdo de seus arquivos de log. Para obter mais informações sobre o formato e o conteúdo do arquivo de log do Registro em Log do Armazenamento, consulte [Formato do Log de Análise do Armazenamento](/rest/api/storageservices/storage-analytics-log-format) e [Operações Registradas em Log na Análise de Armazenamento e Mensagem de Status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

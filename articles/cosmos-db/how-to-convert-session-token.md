@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 787c39681d0e9aff25d205c7b195be00b8c0bc9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff66c2cb355e2070cdf30444c52d1accacac8964
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020007"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490434"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Converter formatos de token de sessão no SDK do .NET
 
@@ -111,6 +111,6 @@ else
 Leia os seguintes artigos:
 
 * [Usar tokens de sessão para gerenciar a consistência no Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-* [Escolher o nível de consistência correto no Azure Cosmos DB](consistency-levels-choosing.md)
-* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
+* [Escolher o nível de consistência correto no Azure Cosmos DB](./consistency-levels.md)
+* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](./consistency-levels.md)
+* [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](./consistency-levels.md)

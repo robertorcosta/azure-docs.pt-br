@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311665"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489006"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conhecidos no Azure digital gêmeos
 
@@ -34,7 +34,7 @@ Como alternativa, você pode abrir o painel de Cloud Shell no portal do Azure e 
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Exibição do portal do Azure com o ícone ' Cloud Shell ' realçado e o Cloud Shell aparecendo na parte inferior da janela do portal":::
 
-Por fim, outra solução é [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) em seu computador para que você possa executar CLI do Azure comandos localmente. A CLI local não enfrenta esse problema.
+Por fim, outra solução é [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) em seu computador para que você possa executar CLI do Azure comandos localmente. A CLI local não enfrenta esse problema.
 
 ### <a name="possible-causes"></a>Possíveis causas
 
@@ -46,7 +46,9 @@ Isso não afeta os comandos do Azure digital gêmeos `az dt` dos `az dt endpoint
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Atribuição de função ausente após a instalação com script
 
-Alguns usuários podem enfrentar problemas com a parte de atribuição de função de [*como: configurar uma instância e autenticação (com script)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a função de *proprietário do Azure digital gêmeos (versão prévia)* não foi atribuída com êxito ao usuário, e esse problema afetará a capacidade de criar outros recursos no futuro.
+Alguns usuários podem enfrentar problemas com a parte de atribuição de função de [*como: configurar uma instância e autenticação (com script)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a função de *proprietário de dados do Azure digital gêmeos* não foi atribuída com êxito ao usuário, e esse problema afetará a capacidade de criar outros recursos em trânsito.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Para determinar se a atribuição de função foi configurada com êxito após a execução do script, siga as instruções na seção [*verificar atribuição de função de usuário*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) do artigo de instalação. Se o usuário não for exibido com essa função, esse problema afetará você.
 
@@ -64,7 +66,7 @@ Para usuários conectados com um [MSA (conta Microsoft pessoal)](https://account
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema com a autenticação interativa do navegador
 
-Ao gravar o código de autenticação em seus aplicativos de gêmeos digital do Azure usando a versão **1.2.0** da biblioteca do ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet) **, você pode enfrentar problemas com o método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+Ao gravar o código de autenticação em seus aplicativos de gêmeos digital do Azure usando a versão **1.2.0** da biblioteca do ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) **, você pode enfrentar problemas com o método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
 
 Esta não é a versão mais recente da biblioteca. A versão mais recente é **1.2.2**.
 

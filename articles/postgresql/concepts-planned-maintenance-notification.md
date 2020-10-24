@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a0d61488fe5e7e91d025c7d3b8d3aa862b9cd9bd
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428801"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487901"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planejada no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -61,9 +61,9 @@ Você pode verificar a notificação de manutenção planejada em portal do Azur
 7. Verifique se habilitar regra após a criação está definido como Sim.
 8. Selecione **criar regra de alerta** para concluir o alerta
 
-Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md).
+Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>Posso controlar ou alterar a manutenção planejada para meus servidores depois que eu receber um evento de notificação?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Posso cancelar ou adiar a manutenção planejada?
 
 A manutenção é necessária para manter seu servidor seguro, estável e atualizado. O evento de manutenção planejada não pode ser cancelado ou adiado. Depois que a notificação é enviada para uma determinada região do Azure, as alterações de agendamento de aplicação de patch não podem ser feitas para qualquer servidor individual nessa região. O patch é distribuído para toda a região ao mesmo tempo. Banco de dados do Azure para PostgreSQL-o serviço de servidor único foi projetado para aplicativos nativos de nuvem que não exigem controle granular ou personalização do serviço. Se você estiver procurando ter a capacidade de agendar a manutenção para seus servidores, recomendamos que considere [servidores flexíveis](./flexible-server/overview.md).
 

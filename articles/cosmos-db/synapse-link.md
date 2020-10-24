@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 731e23c99a92d8f7d3558ea111d19f179db61da4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae99f5fc1cd6f27c46f7a4444bc75b8c773b4f74
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367611"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479996"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é o Link do Azure Synapse para Azure Cosmos DB (versão prévia)?
 
@@ -116,11 +116,11 @@ O Link do Synapse não será recomendado se você estiver procurando requisitos 
 
 ## <a name="limitations"></a>Limitações
 
-* Atualmente, há suporte para o link Synapse do Azure para Azure Cosmos DB para a API do SQL e a API do Azure Cosmos DB para MongoDB. Não há suporte para a API Gremlin e API de Tabela. O suporte para API do Cassandra está em versão prévia privada, para obter mais informações, entre em contato com a [equipe do Azure Synapse link](mailto:cosmosdbsynapselink@microsoft.com).  
+* Atualmente, há compatibilidade com o Link do Synapse do Azure para Azure Cosmos DB para a API do SQL e a API do Azure Cosmos DB para MongoDB. Não há compatibilidade com a API Gremlin e para API de Tabela. O suporte para API do Cassandra está em versão prévia privada, para obter mais informações, entre em contato com a [equipe do Azure Synapse link](mailto:cosmosdbsynapselink@microsoft.com).  
 
 * Atualmente, o repositório analítico só pode ser habilitado para novos contêineres. Para usar o repositório analítico para contêineres existentes, migre dados de seus contêineres existentes para novos contêineres usando [Azure Cosmos DB ferramentas de migração](cosmosdb-migrationchoices.md). Você pode habilitar o link Synapse em contas de Azure Cosmos DB novas e existentes.
 
-* Para os contêineres com o repositório analítico ativado, o backup automático e a restauração de seus dados no repositório analítico não têm suporte no momento. Quando o link do Synapse estiver habilitado em uma conta de banco de dados, Azure Cosmos DB continuará a [fazer backups](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) de seus dados automaticamente no armazenamento transacional (somente) de contêineres no intervalo de backup agendado, como sempre. É importante observar que, quando um contêiner com o armazenamento analítico ativado é restaurado para uma nova conta, o contêiner será restaurado somente com armazenamento transacional e nenhum repositório analítico habilitado. 
+* Para os contêineres com o repositório analítico ativado, o backup automático e a restauração de seus dados no repositório analítico não têm suporte no momento. Quando o link do Synapse estiver habilitado em uma conta de banco de dados, Azure Cosmos DB continuará a [fazer backups](./online-backup-and-restore.md) de seus dados automaticamente no armazenamento transacional (somente) de contêineres no intervalo de backup agendado, como sempre. É importante observar que, quando um contêiner com o armazenamento analítico ativado é restaurado para uma nova conta, o contêiner será restaurado somente com armazenamento transacional e nenhum repositório analítico habilitado. 
 
 * O acesso ao repositório analítico do Azure Cosmos DB com o SQL do Synapse não está disponível atualmente.
 

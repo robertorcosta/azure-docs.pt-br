@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 38dd103189446e287f3d62d93344ed89a364d238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708774"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485249"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Visão geral de rede – banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -72,6 +72,9 @@ Aqui estão alguns conceitos a serem familiarizados com o uso de redes virtuais 
 * Não há suporte para o emparelhamento de VNets entre regiões
 
 Saiba como criar um servidor flexível com acesso privado (integração VNet) no [portal do Azure](how-to-manage-virtual-network-portal.md) ou [no CLI do Azure](how-to-manage-virtual-network-cli.md).
+
+> [!NOTE]
+> Se você estiver usando o servidor DNS personalizado, deverá usar um encaminhador DNS para resolver o FQDN do servidor do banco de dados do Azure para MySQL-flexível. Consulte a [resolução de nomes que usa seu próprio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) para saber mais.
 
 ## <a name="public-access-allowed-ip-addresses"></a>Acesso público (endereços IP permitidos)
 As características do método de acesso público incluem:

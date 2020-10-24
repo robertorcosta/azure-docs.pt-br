@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 75eda1720e80a886ca0efb2d1f4204416a5b55f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2b3810afab86b2f81a18bac442ef361404f2309
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083331"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490349"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop usando a API REST do Azure
 
@@ -214,7 +214,7 @@ Esse exemplo será usado nas etapas presentes neste documento. Substitua os *val
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Entre em sua assinatura do Azure
 
-Siga as etapas documentadas em [Introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o `az login` comando.
+Siga as etapas documentadas em [Introdução à CLI do Azure](/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o `az login` comando.
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
@@ -341,7 +341,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 Esse comando retorna informações de um documento JSON que contém informações sobre a operação de implantação. O elemento `"provisioningState"` contém o status da implantação. Se esse elemento contiver um valor de `"Succeeded"`, a implantação foi concluída com êxito.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 

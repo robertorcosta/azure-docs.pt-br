@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3b660875288db1f16f13d58b1538a876e2ff2666
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123280"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490162"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -143,7 +143,7 @@ Depois que o aplicativo processar leituras e gravações com êxito, você terá
 
 ### <a name="disaster-recovery"></a>Recuperação de desastre
 
-Quando há um grande evento de desastre, como falhas regionais ou no nível de zona de disponibilidade, você pode executar a operação de recuperação de desastres promovendo a réplica de leitura. No portal de interface do usuário, você pode navegar até o servidor de réplica de leitura. Em seguida, clique na guia replicação e você pode parar a réplica para promovê-la para ser um servidor independente. Como alternativa, você pode usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) para parar e promover o servidor de réplica.
+Quando há um grande evento de desastre, como falhas regionais ou no nível de zona de disponibilidade, você pode executar a operação de recuperação de desastres promovendo a réplica de leitura. No portal de interface do usuário, você pode navegar até o servidor de réplica de leitura. Em seguida, clique na guia replicação e você pode parar a réplica para promovê-la para ser um servidor independente. Como alternativa, você pode usar o [CLI do Azure](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) para parar e promover o servidor de réplica.
 
 ## <a name="considerations"></a>Considerações
 
