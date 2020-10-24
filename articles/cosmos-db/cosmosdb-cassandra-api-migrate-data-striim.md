@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 5c9ec20ffe52c23c2dec5a624fc157da7ebd4a41
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 749e0f7c2d79c03be052869d7d1d9539976a09c5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330930"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489295"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrar dados para Azure Cosmos DB conta de API do Cassandra usando o Striim
 
@@ -22,7 +22,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver uma [assinatura do Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+* Se você não tiver uma [assinatura do Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 * Um banco de dados Oracle em execução local com algum dado.
 
@@ -41,7 +41,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
 1. No painel **configurações de cluster do Striim** , escolha o tipo de implantação Striim e o tamanho da máquina virtual.
 
-   |Setting | Valor | Descrição |
+   |Configuração | Valor | Descrição |
    | ---| ---| ---|
    |Tipo de implantação Striim |Autônomo | Striim pode ser executado em tipos de implantação **autônomos** ou de **cluster** . O modo autônomo implantará o servidor Striim em uma única máquina virtual e você poderá selecionar o tamanho das VMs dependendo do volume de dados. O modo de cluster implantará o servidor Striim em duas ou mais VMs com o tamanho selecionado. Ambientes de cluster com mais de 2 nós oferecem alta disponibilidade e failover automáticos.</br></br> Neste tutorial, você pode selecionar a opção autônomo. Use a VM de tamanho padrão "Standard_F4s". | 
    | Nome do cluster Striim|    <Striim_cluster_Name>|  Nome do cluster Striim.|

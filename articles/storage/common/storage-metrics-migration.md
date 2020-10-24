@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1dc0c7f37dc848ecd361848934cbcc5640afc66
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802830"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490757"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Azure Monitor
 
-Em **31 de agosto de 2023** análise de armazenamento métricas, também conhecidas como *métricas clássicas* serão desativadas. Para obter mais informações, consulte o [comunicado oficial](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Se você usar métricas clássicas, certifique-se de fazer a transição para métricas em Azure Monitor antes dessa data. Este artigo ajuda você a fazer a transição. 
+Em **31 de agosto de 2023** análise de armazenamento métricas, também conhecidas como *métricas clássicas* serão desativadas. Para saber mais, confira o [anúncio oficial](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Se você usar métricas clássicas, não deixe de fazer a transição para as métricas em Azure Monitor antes dessa data. Este artigo ajuda você com a transição. 
 
 ## <a name="steps-to-complete-the-transition"></a>Etapas para concluir a transição
 
@@ -30,12 +30,12 @@ Para fazer a transição para as métricas no Azure Monitor, recomendamos a segu
 
 3. Identifique [quais métricas no Azure monitor](#metrics-mapping-between-old-metrics-and-new-metrics) fornecem os mesmos dados que as métricas que você usa no momento. 
    
-4. Crie [gráficos](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) ou [painéis](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) para exibir dados de métrica.
+4. Crie [gráficos](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) ou [painéis](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) para exibir dados de métrica.
 
    > [!NOTE]
    > As métricas em Azure Monitor são habilitadas por padrão, portanto, não há nada que você precise fazer para começar a capturar as métricas. No entanto, você deve criar gráficos ou painéis para exibir essas métricas. 
  
-5. Se você tiver criado regras de alerta baseadas em métricas de armazenamento clássicas, [crie regras de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) baseadas em métricas no Azure monitor. 
+5. Se você tiver criado regras de alerta baseadas em métricas de armazenamento clássicas, [crie regras de alerta](/azure/azure-monitor/platform/alerts-overview) baseadas em métricas no Azure monitor. 
 
 6. Depois de ver todas as métricas em Azure Monitor, você pode desativar o registro em log clássico. 
 
@@ -53,7 +53,7 @@ No que diz respeito ao suporte a métricas, as métricas clássicas fornecem mé
 
 Se a atividade em sua conta não disparar uma métrica, as métricas clássicas mostrarão um valor igual a zero (0) para essa métrica. As métricas no Azure Monitor irão omitir os dados inteiramente, o que leva a relatórios mais limpos. Por exemplo, com métricas clássicas, se nenhum erro de tempo limite do servidor for relatado, o `ServerTimeoutError` valor na tabela de métricas será definido como 0. Azure Monitor não retorna nenhum dado quando você consulta o valor da métrica `Transactions` com a dimensão `ResponseType` igual a `ServerTimeoutError` . 
 
-Para saber mais sobre as métricas em Azure Monitor, consulte [métricas em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Para saber mais sobre as métricas em Azure Monitor, consulte [métricas em Azure monitor](/azure/azure-monitor/platform/data-platform-metrics).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

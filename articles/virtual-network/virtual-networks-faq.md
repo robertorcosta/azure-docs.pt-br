@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 71b7217a1a3d79db67e1649ce33d441f0c2c2da2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489397"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495834"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -283,7 +283,7 @@ Não. Espaços de endereço não devem sobrepor para habilitar o Emparelhamento 
 Não há encargos para criar uma conexão de emparelhamento VNet. É cobrada a transferência de dados entre as conexões de emparelhamento. [Consulte aqui](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>O tráfego de emparelhamento VNet é criptografado?
-Quando o tráfego de emparelhamento vnet se move entre datacenters--fora dos limites físicos não controlados pelo (ou em nome da Microsoft--a [criptografia da camada de vínculo de dados MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) é utilizada no hardware de rede subjacente.
+Quando o tráfego do Azure é movido entre data centers (fora dos limites físicos não controlados pela Microsoft ou em nome da Microsoft), [a criptografia de camada de vínculo de dados MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) é utilizada no hardware de rede subjacente.  Isso é aplicável ao tráfego de emparelhamento VNet.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Por que minha conexão de emparelhamento está em um estado *desconectado* ?
 As conexões de emparelhamento VNet entram no estado *Desconectado* quando um vínculo de emparelhamento VNet é excluído. É necessário excluir ambos os vínculos para restabelecer uma conexão de emparelhamento com êxito.

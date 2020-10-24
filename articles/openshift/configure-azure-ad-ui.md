@@ -8,12 +8,12 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eab701d22f579a816aa95bd43a74fd9ea07d9e4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469874"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490230"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurar a autenticação de Azure Active Directory para um cluster do Azure Red Hat OpenShift 4 (Portal)
 
@@ -62,7 +62,7 @@ Vamos configurar OpenShift para usar a `email` declaração e voltar para `upn` 
 
 Navegue até **configuração de token (versão prévia)** e clique em **Adicionar declaração opcional**. Selecione **ID** e, em seguida, verifique o **email** e as declarações de **UPN** .
 
-![Criar um segredo](media/aro4-ad-tokens.png)
+![Captura de tela que mostra as declarações de email e UPN que foram adicionadas.](media/aro4-ad-tokens.png)
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>Atribuir usuários e grupos ao cluster (opcional)
 

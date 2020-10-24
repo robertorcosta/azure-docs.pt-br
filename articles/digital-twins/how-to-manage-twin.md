@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ede358cdbe533a32ff99fbd736e171463472e45c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461304"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494786"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -381,6 +381,8 @@ Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplic
 
 Você pode usar o exemplo de código executável abaixo para criar um entrelaçar, atualizar seus detalhes e excluir o. 
 
+### <a name="set-up-the-runnable-sample"></a>Configurar o exemplo executável
+
 O trecho de código usa o [Room.jsna](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) definição do modelo do [*tutorial: explorar o gêmeos digital do Azure com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). Você pode usar esse link para ir diretamente para o arquivo ou baixá-lo como parte do projeto de exemplo completo de ponta a ponta [aqui](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
 Antes de executar o exemplo, faça o seguinte:
@@ -392,7 +394,12 @@ Antes de executar o exemplo, faça o seguinte:
     dotnet add package Azure.identity
     ```
 
-Em seguida, execute o exemplo.
+Você também precisará configurar as credenciais locais se desejar executar o exemplo diretamente. A próxima seção descreve isso.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Execute o exemplo
+
+Depois de concluir as etapas acima, você poderá executar diretamente o código de exemplo a seguir.
 
 ```csharp
 using System;
@@ -555,8 +562,6 @@ Aqui está a saída do console do programa acima:
 ## <a name="manage-twins-with-cli"></a>Gerenciar o gêmeos com a CLI
 
 O gêmeos também pode ser gerenciado usando a CLI do gêmeos digital do Azure. Os comandos podem ser encontrados em [_How-to: Use a CLI do gêmeos digital do Azure *](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="view-all-digital-twins"></a>Exibir todos os gêmeos digitais
 

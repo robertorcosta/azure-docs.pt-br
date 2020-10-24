@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 1061cd7a37cbe9ce5ea360de22594d6eb4c0c2f5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 546c8ab9df58b19a47e0d330e13e65d3357c9e7c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275306"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487357"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "92275306"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -47,7 +47,7 @@ Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API
 |**Baixe o SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Documentação da API**|[Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Introdução**|[Introdução ao SDK do Java](sql-api-java-get-started.md)|
+|**Introdução**|[Introdução ao SDK do Java](./create-sql-api-java.md)|
 |**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-java-application.md)|
 |**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
@@ -331,4 +331,3 @@ A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desati
 
 ## <a name="see-also"></a>Confira também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
-

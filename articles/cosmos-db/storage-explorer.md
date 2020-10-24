@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 938968599f1824416666818a46cc73a1d33c5341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b5886984d6e3830549e86a7c1ee46cd2483e4b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987738"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480591"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gerenciar Azure Cosmos DB recursos usando Gerenciador de Armazenamento do Azure
 
@@ -20,7 +20,7 @@ Você pode usar o Gerenciador de armazenamento do Azure para se conectar ao Azur
 
 Use a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único lugar. Você pode gerenciar Azure Cosmos DB entidades, manipular dados, atualizar procedimentos armazenados e gatilhos juntamente com outras entidades do Azure, como BLOBs de armazenamento e filas.
 
-O Gerenciador de Armazenamento do Azure dá suporte a contas Cosmos configuradas para APIs SQL, MongoDB, Graph e Table. Vá para [Azure Cosmos DB em Gerenciador de armazenamento do Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) para obter mais informações.
+O Gerenciador de Armazenamento do Azure dá suporte a contas Cosmos configuradas para APIs SQL, MongoDB, Graph e Table. Vá para [Azure Cosmos DB em Gerenciador de armazenamento do Azure]() para obter mais informações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,7 +74,7 @@ Você pode usar uma cadeia de conexão para se conectar a um Azure Cosmos DB. Es
 
 Use as etapas a seguir para se conectar a um Azure Cosmos DB com um emulador. Esse método só dá suporte a contas SQL.
 
-1. Instale o emulador Cosmos DB e abra-o. Para saber como instalar o emulador, consulte [emulador de Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
+1. Instale o emulador Cosmos DB e abra-o. Para saber como instalar o emulador, consulte [emulador de Cosmos DB](./local-emulator.md).
 
 1. Localize **local e anexado** na árvore à esquerda, clique com o botão direito do mouse em **contas de Cosmos DB**e, em seguida, selecione **conectar ao emulador de Cosmos DB**.
 
@@ -173,7 +173,7 @@ Você pode clicar com o botão direito do mouse em uma assinatura no painel do E
 
 #### <a name="query-for-documents"></a>Consulta de documentos
 
-* Para editar o filtro de documento, insira uma [consulta SQL](how-to-sql-query.md)e, em seguida, selecione **aplicar**.
+* Para editar o filtro de documento, insira uma [consulta SQL](./sql-query-getting-started.md)e, em seguida, selecione **aplicar**.
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Captura de tela mostrando o ícone de plug-in no painel esquerdo.":::
 
@@ -353,4 +353,4 @@ Experimente estas sugestões:
 ## <a name="next-steps"></a>Próximas etapas
 
 * Assista a este vídeo para ver como usar Azure Cosmos DB no Gerenciador de Armazenamento do Azure: [use Azure Cosmos DB no Gerenciador de armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Saiba mais sobre o Gerenciador de Armazenamento e conecte mais serviços em [Introdução ao Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Saiba mais sobre o Gerenciador de Armazenamento e conecte mais serviços em [Introdução ao Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md).

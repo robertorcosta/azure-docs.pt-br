@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a95361dda74c145e435a7e122339fb5945fed0f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504296"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491216"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferência de dados para conjuntos de dados pequenos com largura de banda de rede baixa a moderada
  
@@ -63,6 +63,6 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [transferir dados com o Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Transferir dados com AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- Saiba como [transferir dados com o Gerenciador de Armazenamento do Azure](/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
+- [Transferir dados com AzCopy](/azure/storage/common/storage-use-azcopy-v10)
 

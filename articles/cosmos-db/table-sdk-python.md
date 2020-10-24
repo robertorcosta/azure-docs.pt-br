@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 5832214b5b0a98249f951915e867db8542c28a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23e70d8ed17846100d82a5545e9215bce4eee30f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803952"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491335"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK do API de Tabela do Azure Cosmos DB para Python: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "91803952"
 |   |   |
 |---|---|
 |**Baixe o SDK**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**Documentação da API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python&preserve-view=true)|
+|**Documentação da API**|[Documentação de referência da API do Python](/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do SDK do Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Plataforma atual com suporte**|[Python 2.7](https://www.python.org/downloads/) ou [Python 3.3, 3.4, 3.5 ou 3.6](https://www.python.org/downloads/)|
@@ -61,5 +61,4 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Confira também
-Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
+Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

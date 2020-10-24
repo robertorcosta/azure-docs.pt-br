@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a3c37143154a6e701c4308903c46f4e68ac1b604
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458091"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495773"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -221,6 +221,8 @@ await DeleteRelationship(client, srcId, relId);
 
 O seguinte trecho de código executável usa as operações de relação deste artigo para criar um grafo de bispersão de gêmeos e relações digitais.
 
+### <a name="set-up-the-runnable-sample"></a>Configurar o exemplo executável
+
 O trecho de código usa o [*Room.js*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) e [*Floor.jsem*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) definições de modelo do [*tutorial: explorar o gêmeos digital do Azure com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). Você pode usar esses links para ir diretamente para os arquivos ou baixá-los como parte do projeto de exemplo completo de ponta a ponta [aqui](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
 Antes de executar o exemplo, faça o seguinte:
@@ -232,7 +234,12 @@ Antes de executar o exemplo, faça o seguinte:
     dotnet add package Azure.identity
     ```
 
-Em seguida, execute o exemplo.
+Você também precisará configurar as credenciais locais se desejar executar o exemplo diretamente. A próxima seção descreve isso.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Execute o exemplo
+
+Depois de concluir as etapas acima, você poderá executar diretamente o código de exemplo a seguir.
 
 ```csharp 
 using System;

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 23f334d28ef5045c68bb84fc0bc34e8f847fe0f9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d8c1237b1bf4fac743ad5e70fee857337d9624c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281851"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490655"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Localizar o encargo de unidade de solicitação para operações executadas em Azure Cosmos DB API do SQL
 
@@ -25,7 +25,7 @@ Este artigo apresenta as diferentes maneiras pelas quais você pode encontrar o 
 
 Atualmente, você só pode medir esse consumo usando o portal do Azure ou inspecionando a resposta enviada do Azure Cosmos DB por meio de um dos SDKs. Se você estiver usando a API do SQL, terá várias opções para encontrar o consumo de RU para uma operação em um contêiner do Azure Cosmos.
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -175,8 +175,8 @@ Para saber mais sobre como otimizar o consumo de RU, confira estes artigos:
 
 * [Unidades de solicitação e taxa de transferência no Azure Cosmos DB](request-units.md)
 * [Otimizar a taxa de transferência provisionada no Azure Cosmos DB](optimize-cost-throughput.md)
-* [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
-* [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
+* [Otimizar o custo de consulta no Azure Cosmos DB](./optimize-cost-reads-writes.md)
+* [Taxa de transferência provisionada para dimensionamento global](./request-units.md)
 * [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
 * [Provisionar a taxa de transferência para um contêiner](how-to-provision-container-throughput.md)
 * [Monitorar e depurar com métricas no Azure Cosmos DB](use-metrics.md)

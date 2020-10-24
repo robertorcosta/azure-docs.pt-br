@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 9a37baaa80aadcf10f2bb2091a04fccb3fd9b504
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428803"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490825"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notificação de manutenção planejada no banco de dados do Azure para MariaDB
 
@@ -63,7 +63,7 @@ Você pode verificar a notificação de manutenção planejada em portal do Azur
 
 Para obter etapas detalhadas sobre como criar **alertas de integridade do serviço**, consulte [criar alertas do log de atividades em notificações de serviço](../service-health/alerts-activity-log-service-notifications.md).
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>Posso controlar ou alterar a manutenção planejada para meus servidores depois que eu receber um evento de notificação?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Posso cancelar ou adiar a manutenção planejada?
 
 A manutenção é necessária para manter seu servidor seguro, estável e atualizado. O evento de manutenção planejada não pode ser cancelado ou adiado. Depois que a notificação é enviada para uma determinada região do Azure, as alterações de agendamento de aplicação de patch não podem ser feitas para qualquer servidor individual nessa região. O patch é distribuído para toda a região ao mesmo tempo. O banco de dados do Azure para o serviço MariaDB foi projetado para aplicativos nativos de nuvem que não exigem controle granular ou personalização do serviço.
 

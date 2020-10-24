@@ -1,14 +1,14 @@
 ---
 title: Habilitar extensão de VM usando o modelo de Azure Resource Manager
 description: Este artigo descreve como implantar extensões de máquina virtual para servidores habilitados para Arc do Azure em execução em ambientes de nuvem híbrida usando um modelo de Azure Resource Manager.
-ms.date: 10/15/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 23cb1e85b9560b7033dc5bdce672ee8718ed326b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 935fa38fbb98622f2da7d2ce9e1d166b12a32e44
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462855"
+ms.locfileid: "92491199"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Habilitar extensões de VM do Azure usando o modelo ARM
 
@@ -145,7 +145,7 @@ Para usar a extensão de script personalizado, o exemplo a seguir é fornecido p
 
 * Se seus computadores precisarem baixar um script externamente e só puderem se comunicar por meio de um servidor proxy, você precisará [Configurar o agente do computador conectado](manage-agent.md#update-or-remove-proxy-settings) para definir a variável de ambiente de servidor proxy.
 
-A configuração de extensão de script personalizado especifica itens como localização de script e o comando a ser executado. Essa configuração é especificada em um modelo de Azure Resource Manager, fornecido abaixo para máquinas híbridas do Linux e do Windows.
+A configuração de extensão de script personalizado especifica coisas como o local do script e o comando a ser executado. Essa configuração é especificada em um modelo de Azure Resource Manager, fornecido abaixo para máquinas híbridas do Linux e do Windows.
 
 ### <a name="template-file-for-linux"></a>Arquivo de modelo para Linux
 
@@ -543,7 +543,7 @@ Para usar a extensão de DSC do PowerShell, o exemplo a seguir é fornecido para
 }
 ```
 
-## <a name="deploy-the-dependency-agent"></a>Implantar o Dependency Agent
+## <a name="deploy-the-dependency-agent-extension"></a>Implantar a extensão do agente de dependência
 
 Para usar a extensão do agente de dependência Azure Monitor, o exemplo a seguir é fornecido para execução no Windows e no Linux. Se você não estiver familiarizado com o Dependency Agent, consulte [visão geral dos agentes de Azure monitor](../../azure-monitor/platform/agents-overview.md#dependency-agent).
 

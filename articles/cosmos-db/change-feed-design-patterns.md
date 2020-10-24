@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85118943"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489346"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Padrões de design do feed de alterações no Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Além de ler do feed de alterações de um contêiner do Cosmos, você também p
 
 ### <a name="high-availability"></a>Alta disponibilidade
 
-O Azure Cosmos DB oferece até 99,999% de disponibilidade de leitura e gravação. Ao contrário de muitas filas de mensagens, os dados do Azure Cosmos DB podem ser distribuídos e configurados globalmente com facilidade com um [RTO (Objetivo de Ponto de Recuperação)](consistency-levels-tradeoffs.md#rto) de zero.
+O Azure Cosmos DB oferece até 99,999% de disponibilidade de leitura e gravação. Ao contrário de muitas filas de mensagens, os dados do Azure Cosmos DB podem ser distribuídos e configurados globalmente com facilidade com um [RTO (Objetivo de Ponto de Recuperação)](./consistency-levels.md#rto) de zero.
 
 Depois de processar itens no feed de alterações, você pode criar uma exibição materializada e persistir valores agregados de volta no Azure Cosmos DB. Se você estiver usando o Azure Cosmos DB para criar um jogo, poderá, por exemplo, usar o feed de alterações para implementar placares em tempo real de acordo com as pontuações dos jogos concluídos.
 
@@ -73,7 +73,7 @@ Quando você precisa [desnormalizar dados entre partições e contêineres](how-
 
 ## <a name="event-sourcing"></a>Fornecimento de eventos
 
-O [padrão de fornecimento de evento](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) envolve o uso de um armazenamento somente de acréscimo para registrar a série completa de ações nesses dados. O feed de alterações do Azure Cosmos DB é uma ótima opção como um armazenamento de dados central em arquiteturas de fornecimento de eventos em que toda a ingestão de dados é modelada como gravações (sem atualizações ou exclusões). Nesse caso, cada gravação no Azure Cosmos DB é um “evento” e você terá um registro completo de eventos passados no feed de alterações. Usos típicos dos eventos publicados pelo repositório de eventos central se destinam à manutenção de exibições materializadas ou para integração com sistemas externos. Como não há limite de tempo para a retenção no feed de alterações, você pode reproduzir todos os eventos passados lendo desde o início do feed de alterações do seu contêiner do Cosmos.
+O [padrão de fornecimento de evento](/azure/architecture/patterns/event-sourcing) envolve o uso de um armazenamento somente de acréscimo para registrar a série completa de ações nesses dados. O feed de alterações do Azure Cosmos DB é uma ótima opção como um armazenamento de dados central em arquiteturas de fornecimento de eventos em que toda a ingestão de dados é modelada como gravações (sem atualizações ou exclusões). Nesse caso, cada gravação no Azure Cosmos DB é um “evento” e você terá um registro completo de eventos passados no feed de alterações. Usos típicos dos eventos publicados pelo repositório de eventos central se destinam à manutenção de exibições materializadas ou para integração com sistemas externos. Como não há limite de tempo para a retenção no feed de alterações, você pode reproduzir todos os eventos passados lendo desde o início do feed de alterações do seu contêiner do Cosmos.
 
 Você pode fazer [vários consumidores do feed de alterações assinarem o feed de alterações do mesmo contêiner](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Além da taxa de transferência provisionada do [contêiner de concessão](change-feed-processor.md#components-of-the-change-feed-processor), não há custo para utilizar o feed de alterações. O feed de alterações está disponível em todos os contêineres, independentemente de ser utilizado.
 

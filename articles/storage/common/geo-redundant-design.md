@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013054"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480676"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Uso da redundância geográfica para criar aplicativos altamente disponíveis
 
@@ -24,11 +24,11 @@ Um recurso comum de infraestruturas baseadas em nuvem como o armazenamento do Az
 
 O armazenamento do Azure oferece duas opções de replicação com redundância geográfica. A única diferença entre essas duas opções é como os dados são replicados na região primária:
 
-* [Armazenamento com redundância de zona geográfica (GZRS)](storage-redundancy.md): os dados são replicados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o *armazenamento com redundância de zona (ZRS)* e, em seguida, replicados assincronamente para a região secundária. Para acesso de leitura aos dados na região secundária, habilite o armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS).
+* [Armazenamento com redundância de zona geográfica (GZRS)](storage-redundancy.md): os dados são replicados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o *armazenamento com redundância de zona (ZRS)* e, em seguida, replicados assincronamente para a região secundária. Para ter acesso de leitura aos dados na região secundária, habilite o RA-GZRS (armazenamento com redundância de zona geográfica com acesso de leitura).
 
     A Microsoft recomenda o uso de GZRS/RA-GZRS para cenários que exigem disponibilidade e durabilidade máximas.
 
-* [Armazenamento com redundância geográfica (GRS)](storage-redundancy.md): os dados são replicados de forma síncrona três vezes na região primária usando o *LRS (armazenamento com redundância local)* e, em seguida, replicados assincronamente para a região secundária. Para acesso de leitura aos dados na região secundária, habilite o armazenamento com redundância geográfica com acesso de leitura (RA-GRS).
+* [Armazenamento com redundância geográfica (GRS)](storage-redundancy.md): os dados são replicados de forma síncrona três vezes na região primária usando o *LRS (armazenamento com redundância local)* e, em seguida, replicados assincronamente para a região secundária. Para obter acesso de leitura aos dados na região secundária, habilite RA-GRS (armazenamento com redundância geográfica com acesso de leitura).
 
 Este artigo mostra como projetar seu aplicativo para lidar com uma interrupção na região primária. Se a região primária ficar indisponível, seu aplicativo poderá se adaptar para executar operações de leitura em vez da região secundária. Verifique se sua conta de armazenamento está configurada para RA-GRS ou RA-GZRS antes de começar.
 
@@ -72,7 +72,7 @@ Essas são as outras considerações que discutiremos no restante deste artigo.
 
 * Dados eventualmente consistentes e a Hora da Última Sincronização
 
-* Testando
+* Testes
 
 ## <a name="running-your-application-in-read-only-mode"></a>Executando o aplicativo no modo somente leitura
 
@@ -146,7 +146,7 @@ Outra consideração é como lidar com várias instâncias de um aplicativo e o 
 
 Você tem três opções principais para monitorar a frequência de novas tentativas na região primária para determinar quando passar para a região secundária e alterar o aplicativo para que seja executado no modo somente leitura.
 
-* Adicionar um manipulador para o evento [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) do objeto [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que você passa para solicitações de armazenamento. Esse é o método apresentado neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta novamente uma solicitação, permitindo que você controle com que frequência o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
+* Adicionar um manipulador para o evento [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) do objeto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que você passa para solicitações de armazenamento. Esse é o método apresentado neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta novamente uma solicitação, permitindo que você controle com que frequência o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
 
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
@@ -157,7 +157,7 @@ Você tem três opções principais para monitorar a frequência de novas tentat
     };
     ```
 
-* No método [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) em uma política de repetição personalizada, você pode executar código personalizado sempre que uma repetição ocorre. Além de gravação quando uma repetição ocorre, isso também lhe dá a oportunidade de modificar o comportamento de repetição.
+* No método [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) em uma política de repetição personalizada, você pode executar código personalizado sempre que uma repetição ocorre. Além de gravação quando uma repetição ocorre, isso também lhe dá a oportunidade de modificar o comportamento de repetição.
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -213,7 +213,7 @@ Para reconhecer que ele tem dados potencialmente inconsistentes, o cliente pode 
 
 Para saber como verificar a hora da última sincronização, consulte [verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md).
 
-## <a name="testing"></a>Testando
+## <a name="testing"></a>Testes
 
 É importante testar se o aplicativo se comporta conforme o esperado ao encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e o modo somente leitura ao detectar um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 

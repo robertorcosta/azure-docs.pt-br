@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c29fd00a19c930995d748027b2ec04eaa12a5ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075957"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480642"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Solucionar problemas de latência usando logs da Análise de Armazenamento
 
@@ -27,7 +27,7 @@ As etapas a seguir demonstram como identificar e solucionar problemas de latênc
 
 ## <a name="recommended-steps"></a>Etapas recomendadas
 
-1. Baixe os [logs de análise de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Baixe os [logs de análise de armazenamento](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
 
 2. Use o seguinte script do PowerShell para converter os logs de formato bruto em formato tabular:
 

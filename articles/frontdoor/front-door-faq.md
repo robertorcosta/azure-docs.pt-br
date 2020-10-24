@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331576"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488972"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
@@ -92,7 +92,6 @@ Para bloquear seu aplicativo para aceitar o tráfego somente de sua porta de fre
 - Configure o IP atuação para seus back-ends para aceitar o tráfego do espaço de endereço IP de back-end da porta do Azure e dos serviços de infraestrutura do Azure apenas. Consulte os detalhes de IP abaixo para atuação seu back-end:
  
     - Consulte a seção *AzureFrontDoor. backend* em [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para o intervalo de endereços IP de back-end IPv4 da porta frontal ou você também pode usar a marca de serviço *AzureFrontDoor. backend* em seus [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules).
-    - O espaço IP de back-end **IPv6** da porta frontal, enquanto coberto na marca de serviço, não está listado no arquivo JSON de intervalos de IP do Azure. Se você estiver procurando um intervalo de endereços IPv6 explícito, ele estará atualmente limitado a `2a01:111:2050::/44`
     - Serviços de [infraestrutura básica](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) do Azure por meio de endereços IP de host virtualizados: `168.63.129.16` e `169.254.169.254`
 
     > [!WARNING]

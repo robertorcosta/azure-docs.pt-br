@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 43685440de236d30698922b3b16a820eb935ae7c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ea9ab661fce1cd88bf1bdc065c2b26ccad73c30d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283590"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490706"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-gremlin-api"></a>Localizar o encargo de unidade de solicitação para operações executadas na API Azure Cosmos DB Gremlin
 
@@ -25,7 +25,7 @@ Este artigo apresenta as diferentes maneiras pelas quais você pode encontrar o 
 
 Os cabeçalhos retornados pela API do Gremlin são mapeados para atributos de status personalizados, que atualmente são exibidos pelo SDK do Java e do .NET do Gremlin. O encargo de solicitação está disponível na chave `x-ms-request-charge`. Ao usar a API do Gremlin, você tem várias opções para encontrar o consumo de RU para uma operação em um contêiner do Azure Cosmos.
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -67,4 +67,4 @@ Para saber mais sobre como otimizar o consumo de RU, confira estes artigos:
 
 * [Unidades de solicitação e taxa de transferência no Azure Cosmos DB](request-units.md)
 * [Otimizar a taxa de transferência provisionada no Azure Cosmos DB](optimize-cost-throughput.md)
-* [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
+* [Otimizar o custo de consulta no Azure Cosmos DB](./optimize-cost-reads-writes.md)

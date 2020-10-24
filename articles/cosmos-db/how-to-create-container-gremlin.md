@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 75591fbf9423ec715247af613cd047bf9440525b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 55dabccf5a5ab9e81ff0644056002f3beb644fa9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283515"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491148"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-gremlin-api"></a>Criar um contêiner na API Azure Cosmos DB Gremlin
 
@@ -70,5 +70,4 @@ await client.CreateDocumentCollectionAsync(
 * [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Solicitação no Azure Cosmos DB](request-units.md)
 * [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
-* [Como trabalhar com a conta do Azure Cosmos](account-overview.md)
-
+* [Como trabalhar com a conta do Azure Cosmos](./account-databases-containers-items.md)

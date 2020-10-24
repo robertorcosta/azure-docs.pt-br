@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2b3433d969611fabe1b12a8dcabfe6e50066a8c1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279602"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491182"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerenciar os níveis de coerência no Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Este artigo explica como gerenciar os níveis de consistência no Azure Cosmos D
 
 O [nível de consistência padrão](consistency-levels.md) é o nível de coerência que os clientes usam por padrão.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para exibir ou modificar o nível de consistência padrão, entre no portal do Azure. Localize a conta do Azure Cosmos e abra o painel **Consistência padrão**. Escolha o nível de consistência que você gostaria de ter como o novo padrão e escolha **Salvar**. O portal do Azure também fornece uma visualização dos diferentes níveis de consistência com notas musicais. 
 
@@ -288,7 +288,7 @@ Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer
 Saiba mais sobre como gerenciar conflitos de dados ou passar para o próximo conceito fundamental no Azure Cosmos DB. Confira os seguintes artigos:
 
 * [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
-* [Particionamento e distribuição de dados](partition-data.md)
+* [Particionamento e distribuição de dados](./partitioning-overview.md)
 * [Gerenciar conflitos entre regiões](how-to-manage-conflicts.md)
 * [Particionamento e distribuição de dados](partitioning-overview.md)
 * [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos)

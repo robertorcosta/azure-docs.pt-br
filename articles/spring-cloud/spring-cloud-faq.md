@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 48a2f7f6587d22c34e240fb3e784eb980c81b6b3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a0851e9d032d4d1bf9751d63061141839e95d510
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92419858"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491284"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -163,7 +163,7 @@ Sim. Para obter mais informações, consulte [Iniciar seu aplicativo Spring Clou
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>O Azure Spring Cloud dá suporte ao dimensionamento automático nas instâncias do aplicativo?
 
-Não.
+Sim.  Para obter mais informações, consulte [Configurar dimensionamento automático](spring-cloud-tutorial-setup-autoscale.md).
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Quais são as práticas recomendadas para migrar os microserviços existentes do Spring Cloud para o Azure Spring Cloud?
