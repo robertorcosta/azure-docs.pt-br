@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8ffb2d2f52e1bdfece7fe1bdcd04dcf9b1b600f3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 708bd1f61da2f3973333f8e68cabdceee0717bee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077636"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521520"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Conectar-se a uma máquina virtual do Windows usando a bastiões do Azure
 
@@ -29,10 +29,10 @@ Antes de começar, verifique se você atende aos seguintes critérios:
    Verifique se você configurou um host de bastiões do Azure para a rede virtual na qual a VM está localizada. Depois que o serviço de bastiões for provisionado e implantado em sua rede virtual, você poderá usá-lo para se conectar a qualquer VM na rede virtual. Para configurar um host de bastiões do Azure, consulte [criar um host de bastiões](tutorial-create-host-portal.md#createhost).
 * Uma máquina virtual do Windows na rede virtual.
 * As seguintes funções obrigatórias:
-  * Função de leitor na máquina virtual.
-  * Função de leitor na NIC com IP privado da máquina virtual.
-  * Função de leitor no recurso de bastiões do Azure.
-* Portas: para se conectar à VM do Windows, você deve ter as seguintes portas abertas na sua VM do Windows:
+  * A função de leitor na máquina virtual.
+  * A função de leitor na placa de interface de rede com endereço IP privado da máquina virtual.
+  * Função de leitor no recurso do Azure Bastion.
+* Portas: Para se conectar à VM do Windows, você precisará abrir as seguintes portas nela:
   * Portas de entrada: RDP (3389)
 
 ## <a name="connect"></a><a name="rdp"></a>Conectar
