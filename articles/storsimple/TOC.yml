@@ -194,7 +194,7 @@
                   items:
                     - name: 'Perguntas frequentes: Volumes fixados localmente'
                       href: storsimple-8000-local-volume-faq.md
-                - name: Controle de acesso baseado em função
+                - name: Controle de acesso baseado em função do Azure
                   href: storsimple-8000-role-based-access-control.md
                 - name: Gerenciar ACRs
                   href: storsimple-8000-manage-acrs.md
