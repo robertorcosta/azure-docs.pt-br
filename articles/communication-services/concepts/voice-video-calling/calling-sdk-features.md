@@ -64,7 +64,7 @@ A tabela a seguir representa o conjunto de navegadores e versões com suporte di
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Biblioteca de clientes de chamada** | Chrome*, novo Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+| **Biblioteca de clientes de chamada** | Chrome*, novo Microsoft Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
 
 
 *Observe há suporte para a versão mais recente do Chrome, além das duas versões anteriores.<br/>

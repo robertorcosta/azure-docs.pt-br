@@ -39,21 +39,21 @@ As coordenadas dos pontos são retornadas em unidades de pixels.
 
 Os atributos são um conjunto de recursos que, opcionalmente, podem ser detectados pela API de [detecção facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) . Os seguintes atributos podem ser detectados:
 
-* **Idade**. A idade estimada em anos de uma face específica.
-* **Desfoque**. O desfoque da face na imagem. Esse atributo retorna um valor entre zero e um e uma classificação informal de baixo, médio ou alto.
-* **Emoção**. Uma lista de emoções com a confiança de detecção para a face determinada. As pontuações de confiança são normalizadas e as pontuações em todas as emoções somam-se a uma. As emoções retornadas são felicidade, tristeza, neutral, raiva, contentative, aversão, surpresa e medo.
-* **Exposição**. A exposição da face na imagem. Esse atributo retorna um valor entre zero e um e uma classificação informal de underExposure, goodExposure ou superexposição.
-* **Cabelo facial**. A presença de cabelo facial estimada e o comprimento da face fornecida.
-* **Sexo**. O gênero estimado da face fornecida. Os valores possíveis são masculino, feminino e sexo.
-* **Óculos**. Se a face fornecida tem óculos. Os valores possíveis são novidros, ReadingGlasses, óculos e Goggles de nada.
-* **Cabelo**. O tipo de cabelo da face. Esse atributo mostra se o cabelo está visível, se baldness é detectado e quais cores de cabelo são detectadas.
-* **Pose de cabeçalho**. A orientação da face no espaço 3D. Esse atributo é descrito pelos ângulos de inclinação, roll e guinada em graus. Os intervalos de valores são de-90 graus a 90 graus,-90 graus a 90 graus e-90 graus para 90 graus, respectivamente. Consulte o diagrama a seguir para obter os mapeamentos de ângulo:
+* **Idade** . A idade estimada em anos de uma face específica.
+* **Desfoque** . O desfoque da face na imagem. Esse atributo retorna um valor entre zero e um e uma classificação informal de baixo, médio ou alto.
+* **Emoção** . Uma lista de emoções com a confiança de detecção para a face determinada. As pontuações de confiança são normalizadas e as pontuações em todas as emoções somam-se a uma. As emoções retornadas são felicidade, tristeza, neutral, raiva, contentative, aversão, surpresa e medo.
+* **Exposição** . A exposição da face na imagem. Esse atributo retorna um valor entre zero e um e uma classificação informal de underExposure, goodExposure ou superexposição.
+* **Cabelo facial** . A presença de cabelo facial estimada e o comprimento da face fornecida.
+* **Sexo** . O gênero estimado da face fornecida. Os valores possíveis são masculino, feminino e sexo.
+* **Óculos** . Se a face fornecida tem óculos. Os valores possíveis são novidros, ReadingGlasses, óculos e Goggles de nada.
+* **Cabelo** . O tipo de cabelo da face. Esse atributo mostra se o cabelo está visível, se baldness é detectado e quais cores de cabelo são detectadas.
+* **Pose de cabeçalho** . A orientação da face no espaço 3D. Esse atributo é descrito pelos ângulos de inclinação, roll e guinada em graus. Os intervalos de valores são de-90 graus a 90 graus,-90 graus a 90 graus e-90 graus para 90 graus, respectivamente. Consulte o diagrama a seguir para obter os mapeamentos de ângulo:
 
     ![Uma cabeça com os eixos de pitch, rolo e guinada rotulados](../Images/headpose.1.jpg)
-* **Composição**. Se a face tem composição. Esse atributo retorna um valor booliano para eyeMakeup e lipMakeup.
-* **Ruído**. O ruído visual detectado na imagem de face. Esse atributo retorna um valor entre zero e um e uma classificação informal de baixo, médio ou alto.
-* **Oclusão**. Se há objetos bloqueando partes da face. Esse atributo retorna um valor booliano para eyeOccluded, foreheadOccluded e mouthOccluded.
-* **Smiley**. A expressão de Smiley da face fornecida. Esse valor é entre zero e nenhum Smiley e um para um Smiley claro.
+* **Composição** . Se a face tem composição. Esse atributo retorna um valor booliano para eyeMakeup e lipMakeup.
+* **Ruído** . O ruído visual detectado na imagem de face. Esse atributo retorna um valor entre zero e um e uma classificação informal de baixo, médio ou alto.
+* **Oclusão** . Se há objetos bloqueando partes da face. Esse atributo retorna um valor booliano para eyeOccluded, foreheadOccluded e mouthOccluded.
+* **Smiley** . A expressão de Smiley da face fornecida. Esse valor é entre zero e nenhum Smiley e um para um Smiley claro.
 
 > [!IMPORTANT]
 > Os atributos de face são previstos com o uso de algoritmos estatísticos. Eles talvez nem sempre sejam precisos. Tome cuidado ao tomar decisões com base em dados de atributos.
@@ -69,9 +69,9 @@ Use as seguintes dicas para garantir que suas imagens de entrada forneçam os re
 
 Se você estiver detectando rostos de um feed de vídeo, poderá melhorar o desempenho ajustando certas configurações em sua câmera de vídeo:
 
-* **Suavização**: muitas câmeras de vídeo aplicam um efeito de suavização. Você deve desativar essa opção se puder, pois ela cria um desfoque entre os quadros e reduz a clareza.
-* **Velocidade do obturador**: uma velocidade de obturador mais rápida reduz a quantidade de movimento entre os quadros e torna cada quadro mais claro. Recomendamos velocidades do obturador de 1/60 segundo ou mais rápido.
-* **Ângulo do obturador**: algumas câmeras especificam ângulo do obturador em vez de velocidade do obturador. Você deve usar um ângulo do obturador inferior, se possível. Isso resultará em quadros de vídeo mais claros.
+* **Suavização** : muitas câmeras de vídeo aplicam um efeito de suavização. Você deve desativar essa opção se puder, pois ela cria um desfoque entre os quadros e reduz a clareza.
+* **Velocidade do obturador** : uma velocidade de obturador mais rápida reduz a quantidade de movimento entre os quadros e torna cada quadro mais claro. Recomendamos velocidades do obturador de 1/60 segundo ou mais rápido.
+* **Ângulo do obturador** : algumas câmeras especificam ângulo do obturador em vez de velocidade do obturador. Você deve usar um ângulo do obturador inferior, se possível. Isso resultará em quadros de vídeo mais claros.
 
     >[!NOTE]
     > Uma câmera com um ângulo do obturador inferior receberá menos luz em cada quadro, de modo que a imagem será mais escura. Você precisará determinar o nível certo a ser usado.

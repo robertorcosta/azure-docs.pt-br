@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cfc2abad828a3974c04074a4cde062a479f673f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086408"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533556"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Como monitorar a disponibilidade do cluster com o Apache Ambari no Azure HDInsight
 
@@ -62,7 +62,6 @@ O Ambari oferece muitos alertas predefinidos relacionados à disponibilidade, in
 | Porcentagem de JournalNodes disponíveis    | Esse alerta será disparado se o número de JournalNodes inativos no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do JournalNode. |
 | Porcentagem de datanodes disponíveis       | Esse alerta será disparado se o número de datanodes inativos no cluster for maior que o limite crítico configurado. Ele agrega os resultados de verificações de processo de datanode.|
 
-Uma lista completa de alertas do Ambari que ajudam a monitorar a disponibilidade de um cluster pode ser encontrada [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui),
 
 Para exibir detalhes de um alerta ou modificar critérios, selecione o **nome** do alerta. Use o **Resumo de integridade do datanode** como um exemplo. Você pode ver uma descrição do alerta, bem como os critérios específicos que irão disparar um alerta de ' aviso ' ou ' crítico ' e o intervalo de verificação para os critérios. Para editar a configuração, selecione o botão **Editar** no canto superior direito da caixa de configuração.
 
@@ -87,7 +86,7 @@ Será aberta uma caixa de diálogo para gerenciar notificações de alerta. Sele
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Disponibilidade e confiabilidade dos clusters Apache Hadoop em HDInsight](hdinsight-high-availability-linux.md)
+- [Disponibilidade e confiabilidade dos clusters Apache Hadoop em HDInsight](./hdinsight-business-continuity.md)
 - [Disponibilidade do cluster – Logs do Azure Monitor](./cluster-availability-monitor-logs.md)
 - [Usar logs de Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Notificações por email do Apache Ambari](apache-ambari-email.md)

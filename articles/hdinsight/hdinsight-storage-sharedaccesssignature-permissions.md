@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e00f7b97b923443cef3b97e0cdeda009ad5c9b03
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a2395eb5f5b40a7e3469292ec7faa68d8942dce9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490859"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535188"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar assinaturas de acesso compartilhado do armazenamento de BLOBs do Azure para restringir o acesso a dados no HDInsight
 
 O HDInsight tem acesso completo aos dados nas contas de armazenamento de BLOBs do Azure associadas ao cluster. Você pode usar Assinaturas de Acesso Compartilhado no contêiner de blob para restringir o acesso aos dados. As assinaturas de acesso compartilhado (SAS) são um recurso das contas de armazenamento de BLOBs do Azure que permitem limitar o acesso aos dados. Por exemplo, oferecendo acesso somente leitura aos dados.
 
 > [!IMPORTANT]  
-> Para uma solução que usa o Apache Ranger, considere usar HDInsight ingressado em domínio. Para obter mais informações, consulte o documento [Configurar HDInsight ingressado em domínio](./domain-joined/apache-domain-joined-configure.md).
+> Para uma solução que usa o Apache Ranger, considere usar HDInsight ingressado em domínio. Para obter mais informações, consulte o documento [Configurar HDInsight ingressado em domínio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 > [!WARNING]  
 > O HDInsight deve ter acesso completo ao armazenamento padrão para o cluster.
@@ -31,7 +31,7 @@ O HDInsight tem acesso completo aos dados nas contas de armazenamento de BLOBs d
 
 * Um [contêiner de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)existente.  
 
-* Se estiver usando o PowerShell, você precisará do [Az Module](https://docs.microsoft.com/powershell/azure/).
+* Se estiver usando o PowerShell, você precisará do [Az Module](/powershell/azure/).
 
 * Se desejar usar a CLI do Azure e você ainda não a instalou, veja [Instalação da CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -76,7 +76,7 @@ A diferença entre as duas formas é importante para um cenário fundamental: re
 
 É recomendável sempre usar políticas de acesso armazenadas. Ao usar políticas armazenadas, você pode revogar assinaturas ou estender a data de expiração conforme a necessidade. As etapas deste documento usam políticas de acesso armazenado para gerar a SAS.
 
-Para saber mais sobre as Assinaturas de Acesso Compartilhado, consulte [Noções básicas sobre o modelo de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para saber mais sobre as Assinaturas de Acesso Compartilhado, consulte [Noções básicas sobre o modelo de SAS](../storage/common/storage-sas-overview.md).
 
 ## <a name="create-a-stored-policy-and-sas"></a>Criar uma política armazenada e uma SAS
 
@@ -86,7 +86,7 @@ Salve o token SAS que é produzido no final de cada método. O token será semel
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Usando o PowerShell
+### <a name="using-powershell"></a>Usar o PowerShell
 
 Substitua `RESOURCEGROUP` , `STORAGEACCOUNT` e `STORAGECONTAINER` pelos valores apropriados para seu contêiner de armazenamento existente. Altere o diretório para `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` ou revise o `-File` parâmetro para que ele contenha o caminho absoluto para `Set-AzStorageblobcontent` . Insira o seguinte comando do PowerShell:
 
@@ -207,7 +207,7 @@ Talvez seja necessário executar `pip install --upgrade azure-storage` se você 
 
 1. Abra a solução no Visual Studio.
 
-2. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SASExample** e selecione **Propriedades**.
+2. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SASExample** e selecione **Propriedades** .
 
 3. Escolha **Configurações** e adicione valores às seguintes entradas:
 
@@ -353,29 +353,29 @@ Se você tiver um cluster existente, poderá adicionar a SAS à configuração d
 
 1. Abra a UI da Web do Ambari para seu cluster. O endereço para essa página é `https://YOURCLUSTERNAME.azurehdinsight.net`. Quando solicitado, faça a autenticação no cluster usando o nome do administrador (admin) e a senha usados na criação do cluster.
 
-1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site**.
+1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site** .
 
-1. Expanda a seção **Core-site personalizada** , role até o final e, em seguida, selecione **Adicionar Propriedade...**. Use os seguintes valores para **chave** e **valor**:
+1. Expanda a seção **Core-site personalizada** , role até o final e, em seguida, selecione **Adicionar Propriedade...** . Use os seguintes valores para **chave** e **valor** :
 
-    * **Chave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Valor**: a SAS retornada por um dos métodos executados anteriormente.
+    * **Chave** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Valor** : a SAS retornada por um dos métodos executados anteriormente.
 
     Substitua `CONTAINERNAME` pelo nome do contêiner usado com o aplicativo do C# ou da SAS. Substitua `STORAGEACCOUNTNAME` pelo nome da conta de armazenamento usado.
 
     Selecione **Adicionar** para salvar esta chave e valor
 
-1. Selecione o botão **salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e, em seguida, selecione **salvar**.
+1. Selecione o botão **salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e, em seguida, selecione **salvar** .
 
     Selecione **OK** quando as alterações forem concluídas.
 
    > [!IMPORTANT]  
    > Você deverá reiniciar vários serviços antes que a alteração entre em vigor.
 
-1. Uma lista suspensa de **reinicialização** será exibida. Selecione **reiniciar todos os afetados** na lista suspensa e __confirme reiniciar tudo__.
+1. Uma lista suspensa de **reinicialização** será exibida. Selecione **reiniciar todos os afetados** na lista suspensa e __confirme reiniciar tudo__ .
 
-    Repita esse processo para **MapReduce2** e **yarn**.
+    Repita esse processo para **MapReduce2** e **yarn** .
 
-1. Depois os serviços tiverem sido reiniciados, selecione cada uma e desabilite o modo de manutenção na lista suspensa **Ações de Serviço**.
+1. Depois os serviços tiverem sido reiniciados, selecione cada uma e desabilite o modo de manutenção na lista suspensa **Ações de Serviço** .
 
 ## <a name="test-restricted-access"></a>Testar o acesso restrito
 
@@ -411,7 +411,7 @@ Use as etapas a seguir para verificar se você só pode ler e listar itens na co
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Esse comando baixa o arquivo para um arquivo local chamado **testfile.txt**.
+    Esse comando baixa o arquivo para um arquivo local chamado **testfile.txt** .
 
 5. Use o comando a seguir para carregar o arquivo local para um novo arquivo chamado **testupload.txt** no armazenamento SAS:
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397820"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544929"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
 
@@ -21,7 +21,7 @@ Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste ar
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster HDInsight com Enterprise Security Package. Confira [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure.md).
+* Um cluster HDInsight com Enterprise Security Package. Confira [Configurar clusters do HDInsight com ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Uma estação de trabalho com aplicativos Microsoft 365 para Enterprise, Office 2016, Office 2013 Professional Plus, Excel 2013 standalone ou Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Conectar-se à interface do usuário de Administração do Apache Ranger
@@ -49,14 +49,14 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
 **Para criar políticas do Ranger**
 
 1. Abrir a Interface de Usuário de Administração do Ranger. Confira Conectar-se à interface do usuário de Administração do Apache Ranger.
-2. Selecione **CLUSTERNAME_Hive**, em **Hive**. Você deverá ver duas políticas de pré-configuração.
-3. Selecione **Adicionar nova política**e, em seguida, insira os seguintes valores:
+2. Selecione **CLUSTERNAME_Hive** , em **Hive** . Você deverá ver duas políticas de pré-configuração.
+3. Selecione **Adicionar nova política** e, em seguida, insira os seguintes valores:
 
     |Propriedade |Valor |
     |---|---|
-    |Nome da política|Read-hivesampletable-All|
+    |Nome da Política|Read-hivesampletable-All|
     |Banco de dados do hive|padrão|
-    |table|hivesampletable|
+    |tabela|hivesampletable|
     |Coluna do hive|*|
     |Selecionar usuário|hiveuser1|
     |Permissões|select|
@@ -72,9 +72,9 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
 
     |Propriedade |Valor |
     |---|---|
-    |Nome da política|Leia-hivesampletable-devicemake|
+    |Nome da Política|Leia-hivesampletable-devicemake|
     |Banco de dados do hive|padrão|
-    |table|hivesampletable|
+    |tabela|hivesampletable|
     |Coluna do hive|ClientID, devicemake|
     |Selecionar usuário|hiveuser2|
     |Permissões|select|
@@ -87,12 +87,12 @@ As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../
  | --- | --- |
  | Nome da Fonte de Dados | Forneça um nome para a sua fonte de dados |
  | Host | Insira CLUSTERNAME.azurehdinsight.net. Por exemplo, meu_Cluster_HDI.azurehdinsight.net |
- | Porta | Use **443**. (Essa porta foi alterada de 563 para 443.) |
- | Banco de dados | Usar **padrão**. |
+ | Porta | Use **443** . (Essa porta foi alterada de 563 para 443.) |
+ | Banco de dados | Usar **padrão** . |
  | Tipo de servidor Hive | Selecione **Servidor Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome do Usuário | Insira hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
+ | Nome do Usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
  | Senha | Digite a senha para hiveuser1. |
 
 Clique em **Testar** antes de salvar a fonte de dados.
@@ -103,21 +103,21 @@ Na última seção, você configurou duas políticas.  hiveuser1 tem a permissã
 
 1. Abra uma pasta de trabalho nova ou existente no Excel.
 
-1. Na guia **Dados**, navegue até **Obter Dados** > **De Outras Fontes** > **Do ODBC** para abrir a janela **Do ODBC**.
+1. Na guia **Dados** , navegue até **Obter Dados** > **De Outras Fontes** > **Do ODBC** para abrir a janela **Do ODBC** .
 
     ![Abrir o assistente de conexão de dados](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. Na lista suspensa, selecione o nome da fonte de dados que você criou na última seção e, em seguida, selecione **OK**.
+1. Na lista suspensa, selecione o nome da fonte de dados que você criou na última seção e, em seguida, selecione **OK** .
 
 1. Para o primeiro uso, uma caixa de diálogo do **driver ODBC** será aberta. Selecione **Windows** no menu à esquerda. Em seguida, selecione **conectar** para abrir a janela **navegador** .
 
 1. Aguarde até que a caixa de diálogo **Selecionar Banco de Dados e Tabela** seja aberta. Isso pode levar alguns segundos.
 
-1. Selecione **hivesampletable**e, em seguida, selecione **Avançar**.
+1. Selecione **hivesampletable** e, em seguida, selecione **Avançar** .
 
-1. Selecione **Concluir**.
+1. Selecione **Concluir** .
 
-1. No diálogo **Importar Dados** , você pode alterar ou especificar a consulta. Para fazer isso, selecione **Propriedades**. Isso pode levar alguns segundos.
+1. No diálogo **Importar Dados** , você pode alterar ou especificar a consulta. Para fazer isso, selecione **Propriedades** . Isso pode levar alguns segundos.
 
 1. Selecione a guia **definição** . O texto do comando é:
 
@@ -131,7 +131,7 @@ Na última seção, você configurou duas políticas.  hiveuser1 tem a permissã
 
 1. Selecione **OK** para fechar a caixa de diálogo **importar dados** .  
 
-1. Digite novamente a senha para hiveuser1 e clique em **OK**. Leva alguns segundos para que os dados sejam importados para o Excel. Quando terminar, você deverá ver 11 colunas de dados.
+1. Digite novamente a senha para hiveuser1 e clique em **OK** . Leva alguns segundos para que os dados sejam importados para o Excel. Quando terminar, você deverá ver 11 colunas de dados.
 
 Para testar a segunda política (read-hivesampletable-devicemake) que você criou na seção anterior
 
@@ -158,7 +158,7 @@ Para testar a segunda política (read-hivesampletable-devicemake) que você crio
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para configurar um cluster HDInsight com Enterprise Security Package, confira [Configurar clusters HDInsight com ESP](apache-domain-joined-configure.md).
+* Para configurar um cluster HDInsight com Enterprise Security Package, confira [Configurar clusters HDInsight com ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Para gerenciar um cluster HDInsight com ESP, confira [Gerenciar clusters HDInsight com ESP](apache-domain-joined-manage.md).
 * Para executar consultas Hive usando SSH em clusters HDInsight com ESP, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * Para conectar o Hive usando o JDBC do Hive, confira [Conectar-se ao Apache Hive no Azure HDInsight usando o driver JDBC do Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)

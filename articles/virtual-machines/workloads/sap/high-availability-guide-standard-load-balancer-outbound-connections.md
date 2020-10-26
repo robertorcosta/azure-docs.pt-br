@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961469"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544742"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
 
@@ -109,7 +109,7 @@ A configuração tem a seguinte aparência:
 4. Crie regras de Grupo de Segurança de Rede para restringir o acesso a pontos de extremidade públicos específicos. Se houver um Grupo de Segurança de Rede existente, você poderá ajustá-lo. O exemplo a seguir mostra como habilitar o acesso à API de gerenciamento do Azure: 
    1. Navegue até o Grupo de Segurança de Rede
    1. Clique em Regras de Segurança de Saída
-   1. Adicione uma regra para **Negar** todo o acesso de saída à **Internet**.
+   1. Adicione uma regra para **Negar** todo o acesso de saída à **Internet** .
    1. Adicione uma regra para **Permitir** acesso ao **AzureCloud** com prioridade inferior à prioridade da regra para negar todo o acesso à Internet.
 
 
@@ -147,14 +147,14 @@ A arquitetura seria semelhante a:
    1. Clique em Adicionar Sub-rede. Insira **AzureFirewallSubnet** como Nome. Insira o intervalo de endereços apropriado. Salve.  
 3. Crie o Firewall do Azure.  
    1. No portal do Azure, selecione Todos os recursos, clique em Adicionar, Firewall, Criar. Selecione Grupo de recursos (selecione o mesmo grupo de recursos em que a Rede Virtual está).  
-   1. Insira o nome do recurso do Firewall do Azure. Por exemplo, **MyAzureFirewall**.  
+   1. Insira o nome do recurso do Firewall do Azure. Por exemplo, **MyAzureFirewall** .  
    1. Selecione Região e selecione pelo menos duas Zonas de disponibilidade alinhadas com as Zonas de disponibilidade nas quais suas VMs estão implantadas.  
    1. Selecione a Rede Virtual em que as VMs SAP e o Azure Load Balancer estão implantados.  
-   1. Endereço IP público: Clique em Criar e insira um nome. Por exemplo, **MyFirewallPublicIP**.  
+   1. Endereço IP público: Clique em Criar e insira um nome. Por exemplo, **MyFirewallPublicIP** .  
 4. Crie uma regra do Firewall do Azure para permitir a conectividade de saída para pontos de extremidade públicos especificados. O exemplo mostra como permitir o acesso ao ponto de extremidade público da API de gerenciamento do Azure.  
    1. Selecione Regras, Coleção de Regras de Rede e clique em Adicionar coleção de regras de rede.  
-   1. Nome: **MyOutboundRule**, insira a Prioridade, Selecionar Ação, **Permitir**.  
-   1. Serviço: Dê o nome de **ToAzureAPI**.  Protocolo: Selecione **Qualquer**. Endereço de origem: insira o intervalo da sub-rede em que as VMs e o Standard Load Balancer estão implantados, por exemplo, **11.97.0.0/24**. Portas de Destino: insira <b>*</b>.  
+   1. Nome: **MyOutboundRule** , insira a Prioridade, Selecionar Ação, **Permitir** .  
+   1. Serviço: Dê o nome de **ToAzureAPI** .  Protocolo: Selecione **Qualquer** . Endereço de origem: insira o intervalo da sub-rede em que as VMs e o Standard Load Balancer estão implantados, por exemplo, **11.97.0.0/24** . Portas de Destino: insira <b>*</b>.  
    1. Salvar
    1. Como você ainda está no Firewall do Azure, selecione Visão geral. Anote o endereço IP privado do Firewall do Azure.  
 5. Criar rota para o Firewall do Azure  
@@ -162,11 +162,11 @@ A arquitetura seria semelhante a:
    1. Insira o nome MyRouteTable, selecione Assinatura, Grupo de recursos e Local (que deve corresponder ao local da Rede virtual e do Firewall).  
    1. Salvar  
 
-   A regra de firewall tem a seguinte aparência: ![Conexão de saída com o Firewall do Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   A regra de firewall teria a seguinte aparência: ![ diagrama que mostra a aparência do firewall.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
-6. Crie uma Rota Definida pelo Usuário da sub-rede de suas VMs para o IP privado do **MyAzureFirewall**.
+6. Crie uma Rota Definida pelo Usuário da sub-rede de suas VMs para o IP privado do **MyAzureFirewall** .
    1. Como você está na Tabela de Roteamento, clique em Rotas. Selecione Adicionar. 
-   1. Nome da rota: ToMyAzureFirewall, Prefixo de endereço: **0.0.0.0/0** Tipo do próximo salto: Selecione Solução de Virtualização. Endereço do próximo salto: insira o endereço IP privado do firewall que você configurou: **11.97.1.4**.  
+   1. Nome da rota: ToMyAzureFirewall, Prefixo de endereço: **0.0.0.0/0** Tipo do próximo salto: Selecione Solução de Virtualização. Endereço do próximo salto: insira o endereço IP privado do firewall que você configurou: **11.97.1.4** .  
    1. Salvar
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Usando proxy para chamadas do Pacemaker à API de Gerenciamento do Azure
@@ -185,7 +185,7 @@ Você pode usar proxy para permitir chamadas do Pacemaker para o ponto de extrem
 
 ### <a name="pacemaker-configuration-with-proxy"></a>Configuração do Pacemaker com proxy 
 
-Há muitas opções de proxy diferentes disponíveis na indústria. As instruções passo a passo para a implantação de proxy estão fora do escopo deste documento. No exemplo a seguir, presumimos que o proxy está respondendo a **MyProxyService** e escutando a porta **MyProxyPort**.  
+Há muitas opções de proxy diferentes disponíveis na indústria. As instruções passo a passo para a implantação de proxy estão fora do escopo deste documento. No exemplo a seguir, presumimos que o proxy está respondendo a **MyProxyService** e escutando a porta **MyProxyPort** .  
 Para permitir que o Pacemaker se comunique com a API de gerenciamento do Azure, execute as seguintes etapas em todos os nós de cluster:  
 
 1. Edite o arquivo de configuração /etc/sysconfig/pacemaker e adicione as seguintes linhas (todos os nós de cluster):

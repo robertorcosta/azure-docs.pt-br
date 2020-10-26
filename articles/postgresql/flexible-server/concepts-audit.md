@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 2fccf5431666990919faf7e6378b46c41d682437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf749f3aef10a0c67814722577f79906f447ffdb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932843"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532774"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---flexible-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -57,7 +57,7 @@ Cada entrada de auditoria é indicada `AUDIT:` próximo ao início da linha de l
 Para começar rapidamente, defina `pgaudit.log` como `WRITE` e abra os logs do servidor para examinar a saída. 
 
 ## <a name="viewing-audit-logs"></a>Exibindo logs de auditoria
-A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../../azure-monitor/platform/resource-logs-collect-storage.md) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../../azure-monitor/log-query/log-query-overview.md) .
 

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307799"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545065"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Criar e gerenciar o banco de dados do Azure para MySQL – regras de firewall de servidor flexíveis usando o CLI do Azure
 
@@ -25,7 +25,7 @@ O servidor flexível do banco de dados do Azure para MySQL é compatível com ti
 - Acesso público (endereços IP permitidos)
 - Acesso privado (Integração VNet)
 
-Neste artigo, nos concentraremos na criação do servidor MySQL com **acesso público (endereços IP permitidos)** usando CLI do Azure e fornecerão uma visão geral sobre CLI do Azure comandos que podem ser usados para criar, atualizar, excluir, listar e mostrar regras de firewall após a criação do servidor. Com *acesso público (endereços IP permitidos)*, as conexões com o servidor MySQL são restritas somente a endereços IP permitidos. Os endereços IP do cliente precisam ser permitidos em regras de firewall. Para saber mais sobre isso, consulte [acesso público (endereços IP permitidos)](./concepts-networking.md#public-access-allowed-ip-addresses). As regras de firewall podem ser definidas no momento da criação do servidor (recomendado), mas também podem ser adicionadas posteriormente.
+Neste artigo, nos concentraremos na criação do servidor MySQL com **acesso público (endereços IP permitidos)** usando CLI do Azure e fornecerão uma visão geral sobre CLI do Azure comandos que podem ser usados para criar, atualizar, excluir, listar e mostrar regras de firewall após a criação do servidor. Com *acesso público (endereços IP permitidos)* , as conexões com o servidor MySQL são restritas somente a endereços IP permitidos. Os endereços IP do cliente precisam ser permitidos em regras de firewall. Para saber mais sobre isso, consulte [acesso público (endereços IP permitidos)](./concepts-networking.md#public-access-allowed-ip-addresses). As regras de firewall podem ser definidas no momento da criação do servidor (recomendado), mas também podem ser adicionadas posteriormente.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -33,17 +33,17 @@ O [Azure Cloud Shell](../../cloud-shell/overview.md) é um shell gratuito e inte
 
 Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode abrir o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e selecione **Enter** para executá-lo.
 
-Caso prefira instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Caso prefira instalar e usar a CLI localmente, este início rápido exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará entrar na sua conta usando o comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Observe a propriedade **ID** , que se refere à **ID da assinatura** da sua conta do Azure.
+Você precisará entrar na sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **ID** , que se refere à **ID da assinatura** da sua conta do Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a assinatura específica em sua conta usando o comando [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set). Anote o valor de **ID** da saída de **logon AZ** para usar como o argumento valor para **assinatura** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az-account-set). Anote o valor de **ID** da saída de **logon AZ** para usar como o argumento valor para **assinatura** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -89,11 +89,11 @@ Consulte a documentação de [referência](/cli/azure/mysql/flexible-server) do 
 O comando **AZ MySQL flexível-Server firewall-Rule** é usado no CLI do Azure para criar, excluir, listar, mostrar e atualizar regras de firewall.
 
 Comandos:
-- **criar**: Crie uma regra de firewall de servidor flexível.
-- **lista**: lista as regras de firewall de servidor flexíveis.
-- **atualização**: Atualize uma regra de firewall de servidor flexível.
-- **Mostrar**: Mostre os detalhes de uma regra de firewall de servidor flexível.
-- **excluir**: excluir uma regra de firewall de servidor flexível.
+- **criar** : Crie uma regra de firewall de servidor flexível.
+- **lista** : lista as regras de firewall de servidor flexíveis.
+- **atualização** : Atualize uma regra de firewall de servidor flexível.
+- **Mostrar** : Mostre os detalhes de uma regra de firewall de servidor flexível.
+- **excluir** : excluir uma regra de firewall de servidor flexível.
 
 Consulte a documentação de [referência](/cli/azure/mysql/flexible-server) do CLI do Azure para obter a lista completa de parâmetros da CLI configuráveis. Por exemplo, nos comandos abaixo, você pode opcionalmente especificar o grupo de recursos.
 

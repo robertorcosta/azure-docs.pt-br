@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142245"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535783"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Recursos de solicitação de dados do cliente para dispositivos do Hub IoT do Azure
 
@@ -30,7 +30,7 @@ Se você usar o recurso de roteamento do serviço Hub IoT do Azure para encaminh
 
 Se você usar o recurso de integração da Grade de Eventos do Azure do serviço Hub IoT do Azure, as solicitações de dados deverão ser executadas pelo administrador de locatários para cada assinante desses eventos. Para obter mais informações, consulte [Reagir aos eventos do Hub IoT usando a Grade de Eventos](iot-hub-event-grid.md).
 
-Se você usar o recurso de integração do Azure Monitor do serviço Hub IoT do Azure para criar logs de diagnóstico, as solicitações de dados deverão ser executadas pelo administrador de locatários com base nos logs armazenados. Para obter mais informações, consulte [Monitorar a integridade do Hub IoT do Azure](iot-hub-monitor-resource-health.md).
+Se você usar o recurso de integração de Azure Monitor do serviço de Hub IoT do Azure para criar logs de recursos, as solicitações de dados deverão ser executadas pelo administrador de locatários nos logs armazenados. Para obter mais informações, consulte [monitorar o Hub IOT](monitor-iot-hub.md).
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 

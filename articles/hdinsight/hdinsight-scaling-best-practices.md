@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 874cea2377d3c0a128894bb67278e8ec2cbe7edc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490961"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535392"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -32,8 +32,8 @@ A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
 |Utilitário | Descrição|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[AzureRM do PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[AzureRM do PowerShell](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[CLI do Azure](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[CLI clássica do Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Portal do Azure](https://portal.azure.com)|Abra o painel do cluster HDInsight, selecione **tamanho do cluster** no menu à esquerda e, no painel tamanho do cluster, digite o número de nós de trabalho e selecione salvar.|  
@@ -44,7 +44,7 @@ Usando qualquer um desses métodos, você pode aumentar ou reduzir verticalmente
 
 > [!IMPORTANT]  
 > * A CLI clássica do Azure foi preterida e só deve ser usada com o modelo de implantação clássico. Para todas as outras implantações, use o [CLI do Azure](/cli/azure/).
-> * O módulo AzureRM do PowerShell foi preterido.  Use o [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sempre que possível.
+> * O módulo AzureRM do PowerShell foi preterido.  Use o [módulo AZ](/powershell/azure/new-azureps-module-az) sempre que possível.
 
 ## <a name="impact-of-scaling-operations"></a>Impacto das operações de dimensionamento
 
@@ -125,12 +125,12 @@ Para evitar que seus trabalhos em execução falhem durante uma operação de re
 1. Encerre manualmente os trabalhos.
 1. Reenvie os trabalhos após a operação de dimensionamento ser concluída.
 
-Para ver uma lista de trabalhos pendentes e em execução, você pode usar a interface do usuário do YARN **Resource Manager**, seguindo estas etapas:
+Para ver uma lista de trabalhos pendentes e em execução, você pode usar a interface do usuário do YARN **Resource Manager** , seguindo estas etapas:
 
 1. No [portal do Azure](https://portal.azure.com/), selecione o cluster.  O cluster abre em uma nova página do portal.
-2. Na exibição principal, navegue até **painéis de cluster**  >  **Ambari página inicial**. Insira suas credenciais de cluster.
+2. Na exibição principal, navegue até **painéis de cluster**  >  **Ambari página inicial** . Insira suas credenciais de cluster.
 3. Na interface do usuário do amAmbari, selecione **yarn** na lista de serviços no menu à esquerda.  
-4. Na página YARN, selecione **links rápidos** e passe o mouse sobre o nó principal ativo e, em seguida, selecione **interface do usuário do Gerenciador de recursos**.
+4. Na página YARN, selecione **links rápidos** e passe o mouse sobre o nó principal ativo e, em seguida, selecione **interface do usuário do Gerenciador de recursos** .
 
     ![Interface do usuário do Apache Ambari Quick links Resource Manager](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 

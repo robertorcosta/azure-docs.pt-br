@@ -7,18 +7,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211297"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544504"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Perguntas frequentes de desenvolvimento do cache do Azure para Redis
 
 Este artigo fornece respostas a perguntas comuns sobre como desenvolver para o cache do Azure para Redis.
 
-## <a name="common-questions-and-answers"></a>Perguntas e respostas comuns
+## <a name="common-questions-and-answers"></a>Perguntas comuns e respostas
 Esta seção aborda as seguintes perguntas frequentes:
 
 * [Como começo a usar o Cache do Azure para Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
@@ -55,8 +55,8 @@ Normalmente, os valores padrão do cliente são suficientes. Você pode realizar
 
 * **Novas tentativas**
   * Para ConnectRetry e ConnectTimeout, a orientação geral é falhar rapidamente e tentar novamente. Essa diretriz se baseia na sua carga de trabalho e em quanto tempo em média leva para o cliente emitir um comando Redis e receber uma resposta.
-  * Deixe o StackExchange.Redis reconectar-se automaticamente, em vez de você verificar o status de conexão e realizar a reconexão. **Evitar usar a propriedade ConnectionMultiplexer.IsConnected**.
-  * Bola de neve - às vezes, você poderá ter um problema em que você esteja realizando novas tentativas e isso se torne uma bola de neve, sem nunca se recuperar. Caso ocorra essa bola de neve, você deve considerar usar um algoritmo de nova tentativa de retirada exponencial, conforme descrito em [Orientação geral sobre novas tentativas](../best-practices-retry-general.md) publicado pelo grupo de Padrões e práticas da Microsoft.
+  * Deixe o StackExchange.Redis reconectar-se automaticamente, em vez de você verificar o status de conexão e realizar a reconexão. **Evitar usar a propriedade ConnectionMultiplexer.IsConnected** .
+  * Bola de neve - às vezes, você poderá ter um problema em que você esteja realizando novas tentativas e isso se torne uma bola de neve, sem nunca se recuperar. Caso ocorra essa bola de neve, você deve considerar usar um algoritmo de nova tentativa de retirada exponencial, conforme descrito em [Orientação geral sobre novas tentativas](/azure/architecture/best-practices/transient-faults) publicado pelo grupo de Padrões e práticas da Microsoft.
   
 * **Valores de tempo limite**
   * Considere sua carga de trabalho e defina os valores adequadamente. Se você estiver armazenando valores grandes, defina o tempo limite como um valor mais alto.
@@ -109,7 +109,7 @@ Você pode usar qualquer comando listado em [Comandos do Redis](https://redis.io
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> As ferramentas de linha de comando do Redis não funcionam com a porta TLS, mas você pode usar um utilitário como o `stunnel` para conectar as ferramentas com segurança à porta TLS seguindo as instruções no artigo [Como usar a ferramenta de linha de comando Redis com o Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool).
+> As ferramentas de linha de comando do Redis não funcionam com a porta TLS, mas você pode usar um utilitário como o `stunnel` para conectar as ferramentas com segurança à porta TLS seguindo as instruções no artigo [Como usar a ferramenta de linha de comando Redis com o Cache do Azure para Redis](./cache-how-to-redis-cli-tool.md).
 >
 >
 

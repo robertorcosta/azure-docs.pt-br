@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73682198"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535307"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selecionando o tamanho correto da VM para o cluster HDInsight do Azure
 
@@ -32,7 +32,7 @@ O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, p
 
 - RAM: o tamanho da VM também determina a quantidade de RAM disponível na VM. Para cargas de trabalho que armazenam dados na memória para processamento em vez de ler no disco, verifique se os nós de trabalho têm memória suficiente que se ajuste aos dados.
 
-- Rede: para a maioria dos tipos de cluster, os dados processados pelo cluster não estão no disco local, mas sim em um serviço de armazenamento externo, como o Data Lake Storage ou o armazenamento do Azure. Considere a largura de banda e taxa de transferência da rede entre a VM do nó e o serviço de armazenamento. Geralmente, a largura de banda da rede disponível para uma VM aumenta com tamanhos maiores. Para mais detalhes, consulte [Visão geral sobre tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+- Rede: para a maioria dos tipos de cluster, os dados processados pelo cluster não estão no disco local, mas sim em um serviço de armazenamento externo, como o Data Lake Storage ou o armazenamento do Azure. Considere a largura de banda e taxa de transferência da rede entre a VM do nó e o serviço de armazenamento. Geralmente, a largura de banda da rede disponível para uma VM aumenta com tamanhos maiores. Para mais detalhes, consulte [Visão geral sobre tamanhos de VM](../virtual-machines/sizes.md).
 
 ## <a name="understanding-vm-optimization"></a>Noções básicas sobre a otimização da VM
 
@@ -40,10 +40,10 @@ As famílias de máquinas virtuais no Azure são otimizadas para atender a difer
 
 | Type                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Nível de entrada](../virtual-machines/linux/sizes-general.md)          | A, Av2  | Ter configurações de desempenho e memória da CPU mais adequadas para cargas de trabalho de nível de entrada, como desenvolvimento e teste. Eles são econômicos e fornecem uma opção de baixo custo para começar a usar o Azure. |
-| [Propósito geral](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
-| [Computação otimizada](../virtual-machines/linux/sizes-compute.md)        | F           | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo.        |
-| [Memória otimizada](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | Alta relação de memória/CPU. Ótima para servidores de banco de dados relacionais, caches médios a grandes e análises na memória.                 |
+| [Nível de entrada](../virtual-machines/sizes-general.md)          | A, Av2  | Ter configurações de desempenho e memória da CPU mais adequadas para cargas de trabalho de nível de entrada, como desenvolvimento e teste. Eles são econômicos e fornecem uma opção de baixo custo para começar a usar o Azure. |
+| [Propósito geral](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
+| [Computação otimizada](../virtual-machines/sizes-compute.md)        | F           | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo.        |
+| [Memória otimizada](../virtual-machines/sizes-memory.md)         | Esv3, Ev3  | Alta relação de memória/CPU. Ótima para servidores de banco de dados relacionais, caches médios a grandes e análises na memória.                 |
 
 - Para obter informações sobre os preços das instâncias de VM disponíveis em regiões com suporte do HDInsight, consulte [preços do hdinsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -55,13 +55,13 @@ A tabela a seguir descreve os tipos de cluster e tipos de nó, que podem ser cri
 
 | Tipo de cluster | Versão | Nó de trabalho | Nó de cabeçalho | Nó Zookeeper |
 |---|---|---|---|---|
-| Spark | Todos | F4 e acima | não | não |
-| O Hadoop | Todos | F4 e acima | não | não |
-| Kafka | Todos | F4 e acima | não | não |
-| HBase | Todos | F4 e acima | não | não |
-| LLAP | desabilitado | não | não | não |
-| Storm | desabilitado | não | não | não |
-| Serviço do Machine Learning | SOMENTE HDI 3,6 | F4 e acima | não | não |
+| Spark | Todos | F4 e acima | no | no |
+| O Hadoop | Todos | F4 e acima | no | no |
+| Kafka | Todos | F4 e acima | no | no |
+| HBase | Todos | F4 e acima | no | no |
+| LLAP | desabilitado | no | no | no |
+| Storm | desabilitado | no | no | no |
+| Serviço do Machine Learning | SOMENTE HDI 3,6 | F4 e acima | no | no |
 
 Para ver as especificações de cada SKU da série F, consulte [tamanhos de VM da série f](https://azure.microsoft.com/blog/f-series-vm-size/).
 
@@ -74,4 +74,4 @@ Para obter mais informações sobre o benchmarking para SKUs de VM e tamanhos de
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurações de nó com suporte do Azure HDInsight](hdinsight-supported-node-configuration.md)
-- [Tamanhos das máquinas virtuais do Linux no Azure](../virtual-machines/linux/sizes.md)
+- [Tamanhos das máquinas virtuais do Linux no Azure](../virtual-machines/sizes.md)
