@@ -12,11 +12,11 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/01/2020
 ms.locfileid: "91631522"
 ---
-Quando a Microsoft receber e verificar o dispositivo, o status do pedido será atualizado para **Recebido**. Em seguida, o dispositivo passa por uma verificação física de danos ou sinais de violação.
+Quando a Microsoft receber e verificar o dispositivo, o status do pedido será atualizado para **Recebido** . Em seguida, o dispositivo passa por uma verificação física de danos ou sinais de violação.
 
 Após a conclusão da verificação, o Data Box será conectado à rede no datacenter do Azure. A cópia de dados começa automaticamente. Dependendo do tamanho dos dados, a operação de cópia poderá demorar de algumas horas a dias para ser concluída. Você pode monitorar o andamento do trabalho de cópia no portal.
 
-Depois que a cópia for concluída, o status do pedido será atualizado para **Concluído**.
+Depois que a cópia for concluída, o status do pedido será atualizado para **Concluído** .
 
 Verifique se seus dados estão carregados no Azure antes de excluí-los da fonte. Seus dados podem estar em:
 
