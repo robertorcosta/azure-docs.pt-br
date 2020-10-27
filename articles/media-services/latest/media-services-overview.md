@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019849"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220611"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
 
@@ -64,7 +64,7 @@ Os Serviços de Mídia permitem criar diversos fluxos de trabalho de mídia na n
 Saiba como codificar e empacotar conteúdo, transmitir vídeos sob demanda, fazer transmissões ao vivo e analisar vídeos com os Serviços de Mídia v3. Tutoriais, referências de API e outras documentações mostram como oferecer com segurança, sob demanda e ao vivo, fluxos de áudio ou vídeos que são dimensionados para milhões de usuários.
 
 > [!TIP]
-> Antes de iniciar o desenvolvimento, examine:<br/>* [Conceitos fundamentais](concepts-overview.md) (inclui conceitos importantes, como empacotamento, codificação e proteção).<br/>* [Desenvolvimento com APIs dos Serviços de Mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura etc.).
+> Antes de iniciar o desenvolvimento, examine:<br/>* [Conceitos fundamentais](concepts-overview.md) (inclui conceitos importantes, como empacotamento, codificação e proteção)<br/>* [Desenvolvimento com APIs dos Serviços de Mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura etc.).
 
 ### <a name="sdks"></a>SDKs
 

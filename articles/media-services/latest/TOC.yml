@@ -63,6 +63,7 @@
           href: protect-with-drm.md
         - name: Proteção de conteúdo com o Azure AD
           href: azure-ad-content-protection.md
+          displayName: 'AAD, Active Directory'
     - name: REST
       items:
         - name: Codificar e transmitir um REST de arquivo remoto
@@ -129,8 +130,8 @@
         - name: Visão geral
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Transformações e trabalhos
-          href: transforms-jobs-concept.md
+    - name: Transformações e trabalhos
+      href: transforms-jobs-concept.md
     - name: Transmissão ao vivo
       items:
         - name: Visão geral
@@ -265,6 +266,8 @@
       items:
         - name: Criar transformações
           href: cli-create-transform.md
+        - name: Criar uma transformação de áudio básica com REST
+          href: how-to-create-basic-audio-transform.md
         - name: Criar trabalhos
           href: cli-create-jobs.md
         - name: Criar entrada de trabalho com um arquivo local e o .NET

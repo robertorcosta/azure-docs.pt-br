@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2301219db250b97fd7ea2eb3814f5eba2c70148a
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: aad69a34cc27f341bec5beda0f52e2581538aaf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569868"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278429"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Usando o Cosmos DB, você pode criar aplicativos de escala mundial altamente din
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Precisamente definidas, várias opções de consistência
 
-Ao criar aplicativos distribuídos globalmente no Cosmos DB, você não precisa fazer [compensações extremas entre consistência, disponibilidade, latência e taxa de transferência](consistency-levels-tradeoffs.md). O protocolo de replicação de gravação de várias regiões do Cosmos DB foi projetado cuidadosamente para oferecer [cinco opções de consistência bem definidas](consistency-levels.md) - *forte*, *desatualização limitada*, *sessão*, *prefixo consistente* e *eventual* – para um modelo de programação intuitivo com baixa latência e alta disponibilidade para o seu aplicativo distribuído globalmente.
+Ao criar aplicativos distribuídos globalmente no Cosmos DB, você não precisa fazer [compensações extremas entre consistência, disponibilidade, latência e taxa de transferência](consistency-levels-tradeoffs.md). O protocolo de replicação de gravação de várias regiões do Cosmos DB foi projetado cuidadosamente para oferecer [cinco opções de consistência bem definidas](consistency-levels.md) - *forte* , *desatualização limitada* , *sessão* , *prefixo consistente* e *eventual* – para um modelo de programação intuitivo com baixa latência e alta disponibilidade para o seu aplicativo distribuído globalmente.
 
 ### <a name="no-schema-or-index-management"></a>Sem gerenciamento de esquema ou de índice
 
@@ -60,7 +60,7 @@ O Cosmos DB é um serviço básico no Azure. Por quase uma década, o Cosmos DB 
 
 ### <a name="ubiquitous-regional-presence"></a>Presença regional em todos os lugares
 
-O Cosmos DB está disponível em todas as regiões do Azure em todo o mundo, incluindo 54+ regiões na nuvem pública, [Azure China 21Vianet](https://www.azure.cn/en-us/), Azure Alemanha, Azure Governamental e Azure Governamental para o DoD (Departamento de Defesa). Confira [Presença regional do Cosmos DB](regional-presence.md).
+O Cosmos DB está disponível em todas as regiões do Azure em todo o mundo, incluindo 54+ regiões na nuvem pública, [Azure China 21Vianet](https://www.azure.cn/en-us/), Azure Alemanha, Azure Governamental e Azure Governamental para o DoD (Departamento de Defesa). Confira [Alta disponibilidade com o Azure Cosmos DB](high-availability.md).
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>Seguro por padrão e pronto para empresas
 

@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 92ec7c0a1469c9f02855cd6191faa8514e54c8f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff97aa6c6f04ad41ba6e1b986f3cc0734ec7a326
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91829132"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92526151"
 ---
 | Recurso | Limite | Observação |
 | --- | --- | --- |
@@ -39,6 +39,6 @@ ms.locfileid: "91829132"
 | Tamanho de carregamento de arquivo máximo WAF |Gateways de WAF médios V1, 100 MB<br>Gateways de WAF grandes V1, 500 MB<br>WAF V2, 750 MB| |
 | Limite de tamanho de corpo de WAF, sem arquivos|128 KB||
 | WAF máximo de regras personalizadas|100||
-| Máximo de exclusões de WAF|100||
+| Número máximo de exclusões de WAF por Gateway de Aplicativo|40||
 
 <sup>1</sup> No caso de SKUs habilitados para WAF, limite o número de recursos a 40.

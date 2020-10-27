@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ae5f01e23a7922f508c4a2674e1a3f29e354b8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653708"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166056"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorar o Azure Machine Learning com os Jupyter Notebooks
 
@@ -29,7 +29,7 @@ Este artigo mostra como acessar o repositório nos seguintes ambientes:
 - [Máquina Virtual de Ciência de Dados](#dsvm)
 
 > [!NOTE]
-> Depois de clonar o repositório, você encontrará notebooks do tutorial na pasta **tutorials** e notebooks específicos do recurso na pasta **how-to-use-azureml**.
+> Depois de clonar o repositório, você encontrará notebooks do tutorial na pasta **tutorials** e notebooks específicos do recurso na pasta **how-to-use-azureml** .
 
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obter amostras na instância de computação do Azure Machine Learning
@@ -58,6 +58,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) é uma imagem de VM personalizada
 Explore os [notebooks de exemplo](https://github.com/Azure/MachineLearningNotebooks) para descobrir o que o Azure Machine Learning pode fazer.
 
 Para obter mais exemplos e amostras de projetos do GitHub, confira estes repositórios:
++ [Azure/azureml-examples](https://github.com/Azure/azureml-examples)
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 + [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 

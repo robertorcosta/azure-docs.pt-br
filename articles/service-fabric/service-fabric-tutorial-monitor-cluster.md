@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 17ec3c6d3b9b19b7bc6edcb82cef438e27189c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020083"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331984"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorar um cluster do Service Fabric no Azure
 
@@ -57,7 +57,7 @@ Selecione o recurso **ServiceFabric(meuespaçodetrabalho)** .
 
 Em **Visão geral** você verá o bloco na forma de um gráfico para cada uma das soluções habilitadas, incluindo uma para o Service Fabric. Clique no grafo **Service Fabric** para ir para a solução de Análise do Service Fabric.
 
-![Solução do Service Fabric](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Captura de tela que mostra o grafo do Service Fabric.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 A imagem acima é a home page da solução de Análise do Service Fabric. Essa home page fornece uma visão instantânea do que está acontecendo no seu cluster.
 
@@ -74,7 +74,7 @@ A imagem acima é a home page da solução de Análise do Service Fabric. Essa h
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Exibir eventos do Service Fabric, incluindo ações em nós
 
-Na página Análise do Service Fabric, clique no grafo para **Eventos do Cluster**.  Os logs para todos os eventos do sistema que foram coletados aparecem. Para referência, esses são os de **WADServiceFabricSystemEventsTable** na conta de Armazenamento do Microsoft Azure, e igualmente os eventos de atores e serviços confiáveis que você vê ao lado são dessas respectivas tabelas.
+Na página Análise do Service Fabric, clique no grafo para **Eventos do Cluster** .  Os logs para todos os eventos do sistema que foram coletados aparecem. Para referência, esses são os de **WADServiceFabricSystemEventsTable** na conta de Armazenamento do Microsoft Azure, e igualmente os eventos de atores e serviços confiáveis que você vê ao lado são dessas respectivas tabelas.
     
 ![Canal Operacional de Consulta](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
@@ -183,7 +183,7 @@ app('PlunkoServiceFabricCluster').traces
 
 ### <a name="view-service-fabric-application-events"></a>Visualizar os eventos do aplicativo do Service Fabric
 
-Você pode exibir eventos para os aplicativos de serviço confiáveis e atores confiáveis implantados no cluster.  Na página Análise do Service Fabric, clique no grafo para **Eventos do Aplicativo**.
+Você pode exibir eventos para os aplicativos de serviço confiáveis e atores confiáveis implantados no cluster.  Na página Análise do Service Fabric, clique no grafo para **Eventos do Aplicativo** .
 
 Execute a consulta a seguir para exibir eventos de seus aplicativos de serviços confiáveis:
 ```kusto
@@ -227,13 +227,13 @@ Para configurar os eventos mais detalhados para atores confiáveis, você pode a
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Exibir contadores de desempenho com logs do Azure Monitor
 Para visualizar contadores de desempenho, vá para o [portal do Azure](https://portal.azure.com) e para o grupo de recursos em que você criou a solução de Análise do Service Fabric. 
 
-Selecione o recurso **ServiceFabric(mysfomsworkspace)** , em seguida, **Espaço de trabalho do Log Analytics**e então **Configurações avançadas**.
+Selecione o recurso **ServiceFabric(mysfomsworkspace)** , em seguida, **Espaço de trabalho do Log Analytics** e então **Configurações avançadas** .
 
-Clique em **Dados**, depois clique em **Contadores de Desempenho Windows**. Há uma lista de contadores padrão que você pode habilitar, além de também poder definir o intervalo de coleta. Você pode também adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para coletar. O formato correto é referenciado neste [artigo](/windows/desktop/PerfCtrs/specifying-a-counter-path). Clique em **Salvar**, depois em **OK**.
+Clique em **Dados** , depois clique em **Contadores de Desempenho Windows** . Há uma lista de contadores padrão que você pode habilitar, além de também poder definir o intervalo de coleta. Você pode também adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para coletar. O formato correto é referenciado neste [artigo](/windows/desktop/PerfCtrs/specifying-a-counter-path). Clique em **Salvar** , depois em **OK** .
 
-Feche a folha de Configurações Avançadas e selecione **Resumo de workspace** no título **Geral**. Para cada uma das soluções habilitadas existe é um bloco de gráfico, incluindo um para o Service Fabric. Clique no grafo **Service Fabric** para ir para a solução de Análise do Service Fabric.
+Feche a folha de Configurações Avançadas e selecione **Resumo de workspace** no título **Geral** . Para cada uma das soluções habilitadas existe é um bloco de gráfico, incluindo um para o Service Fabric. Clique no grafo **Service Fabric** para ir para a solução de Análise do Service Fabric.
 
-Há blocos gráficos para o canal operacional e eventos de serviços confiáveis. A representação gráfica dos dados que fluem para os contadores selecionados aparecerá nas **Métricas de Nó**. 
+Há blocos gráficos para o canal operacional e eventos de serviços confiáveis. A representação gráfica dos dados que fluem para os contadores selecionados aparecerá nas **Métricas de Nó** . 
 
 Selecione o grafo **Métrica de Contêiner** para visualizar os detalhes adicionais. Você também pode consultar dados do contador de desempenho da mesma forma que os eventos de cluster e filtrar por nome do contador de desempenho, nós e valores, usando a linguagem de consulta Kusto.
 

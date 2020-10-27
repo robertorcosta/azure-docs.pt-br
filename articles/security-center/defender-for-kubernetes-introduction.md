@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449069"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370501"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
@@ -20,7 +20,7 @@ O AKS (Serviço de Kubernetes do Azure) é o serviço gerenciado da Microsoft pa
 
 A Central de Segurança do Azure e o AKS formam a melhor oferta de segurança nativa de nuvem do Kubernetes e, juntos, fornecem proteção de ambiente, proteção de cargas de trabalho e proteção em tempo de execução, conforme descrito abaixo.
 
-Para detecção de ameaças nos clusters do Kubernetes, habilite o **Azure Defender para Kubernetes**.
+Para detecção de ameaças nos clusters do Kubernetes, habilite o **Azure Defender para Kubernetes** .
 
 A detecção de ameaças no nível de host para os nós AKS do Linux estará disponível se você habilitar o [Azure Defender para Servidores](defender-for-servers-introduction.md).
 
@@ -49,7 +49,7 @@ A Central de Segurança fornece proteção contra ameaças em diferentes níveis
     >[!IMPORTANT]
     > Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
 
-- **Nível de cluster do AKS (fornecido pelo Azure Defender para Kubernetes)** – No nível do cluster, a proteção contra ameaças baseia-se na análise dos logs de auditoria do Kubernetes. Para habilitar esse monitoramento **sem agente**, habilite o Azure Defender. Para gerar alertas nesse nível, a Central de Segurança monitora seus serviços gerenciados pelo AKS usando os logs recuperados pelo AKS. Exemplos de eventos nesse nível incluem painéis expostos do Kubernetes, a criação de funções com altos privilégios e a criação de montagens confidenciais.
+- **Nível de cluster do AKS (fornecido pelo Azure Defender para Kubernetes)** – No nível do cluster, a proteção contra ameaças baseia-se na análise dos logs de auditoria do Kubernetes. Para habilitar esse monitoramento **sem agente** , habilite o Azure Defender. Para gerar alertas nesse nível, a Central de Segurança monitora seus serviços gerenciados pelo AKS usando os logs recuperados pelo AKS. Exemplos de eventos nesse nível incluem painéis expostos do Kubernetes, a criação de funções com altos privilégios e a criação de montagens confidenciais.
 
     Para obter uma lista dos alertas no nível do cluster AKS, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-akscluster).
 
@@ -72,7 +72,7 @@ Você pode ver que os itens recebidos e analisados pela Central de Segurança in
 - logs de auditoria do servidor de API
 - eventos de segurança brutos do agente do Log Analytics
 - informações de configuração de cluster do cluster do AKS
-- configuração da carga de trabalho do Azure Policy (por meio do **complemento do Azure Policy para Kubernetes**). [Saiba mais sobre as melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- configuração da carga de trabalho do Azure Policy (por meio do **complemento do Azure Policy para Kubernetes** ). [Saiba mais sobre as melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Arquitetura de alto nível da interação entre a Central de Segurança do Azure, o Serviço de Kubernetes do Azure e o Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
@@ -88,6 +88,23 @@ Conforme mencionado acima, o plano opcional **Azure Defender para Kubernetes** f
 É recomendável implantar ambos, para obter a proteção mais completa possível.
 
 Se você optar por não instalar o agente nos hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
+
+
+### <a name="does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes"></a>O AKS permite instalar extensões de VM personalizadas em meus nós do AKS?
+
+Para que o Azure Defender monitore seus nós do AKS, eles devem estar executando o agente do Log Analytics. 
+
+O AKS é um serviço gerenciado e, como o agente do Log Analytics é uma extensão gerenciada pela Microsoft, ele também tem suporte nos clusters do AKS.
+
+
+
+### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>Se meu cluster já estiver executando um agente do Azure Monitor para contêineres, precisarei do agente do Log Analytics também?
+
+Para que o Azure Defender monitore seus nós do AKS, eles devem estar executando o agente do Log Analytics.
+
+Se os clusters já estiverem executando o agente do Azure Monitor para contêineres, você também poderá instalar o agente do Log Analytics e os dois agentes poderão trabalhar juntos sem nenhum problema.
+
+[Saiba mais sobre o agente do Azure Monitor para contêineres](../azure-monitor/insights/container-insights-manage-agent.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

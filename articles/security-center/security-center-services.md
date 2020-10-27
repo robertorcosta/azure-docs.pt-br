@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858006"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342290"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -28,7 +28,7 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 
 ### <a name="windows-machines"></a>[**Máquinas do Windows**](#tab/features-windows)
 
-|**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores não Azure**|**Azure Defender necessário**
+|**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores habilitados para o Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
 |[Integração ao Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(em versões compatíveis)|✔</br>(em versões compatíveis)|✔|Sim|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](alerts-reference.md)|✔|✔|✔|Sim|
@@ -42,9 +42,9 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Sim|
 |[Painel de conformidade regulatória e relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Sim|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|-|-|-|Sim|
-|Avaliação de patches ausente do sistema operacional|✔|✔|✔|Azure: Não<br><br>Não Azure: Sim|
-|Avaliação de configurações incorretas de segurança|✔|✔|✔|Azure: Não<br><br>Não Azure: Sim|
-|[Avaliação da proteção de ponto de extremidade](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Não<br><br>Não Azure: Sim|
+|Avaliação de patches ausente do sistema operacional|✔|✔|✔|Azure: Não<br><br>Habilitado para Arc: Sim|
+|Avaliação de configurações incorretas de segurança|✔|✔|✔|Azure: Não<br><br>Habilitado para Arc: Sim|
+|[Avaliação da proteção de ponto de extremidade](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Não<br><br>Habilitado para Arc: Sim|
 |Avaliação da criptografia de disco|✔</br>(para [cenários compatíveis](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Não|
 |Avaliação de vulnerabilidades de terceiros|✔|-|-|Não|
 |[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Não|
@@ -52,10 +52,10 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 
 ### <a name="linux-machines"></a>[**Máquinas do Linux**](#tab/features-linux)
 
-|**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores não Azure**|**Azure Defender necessário**
+|**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores habilitados para o Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
 |[Integração ao Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Sim|
-|[Análise comportamental de máquina virtual (e alertas de segurança)](security-center-alerts-iaas.md)|✔</br>(em versões compatíveis)|✔</br>(em versões compatíveis)|✔|Sim|
+|[Análise comportamental de máquina virtual (e alertas de segurança)](./azure-defender.md)|✔</br>(em versões compatíveis)|✔</br>(em versões compatíveis)|✔|Sim|
 |[Alertas de segurança sem arquivo](alerts-reference.md#alerts-windows)|-|-|-|Sim|
 |[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Sim|
 |[Acesso à VM Just-In-Time](security-center-just-in-time.md)|✔|-|-|Sim|
@@ -66,8 +66,8 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Sim|
 |[Painel de conformidade regulatória e relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Sim|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|✔|✔|✔|Sim|
-|Avaliação de patches ausente do sistema operacional|✔|✔|✔|Azure: Não<br><br>Não Azure: Sim|
-|Avaliação de configurações incorretas de segurança|✔|✔|✔|Azure: Não<br><br>Não Azure: Sim|
+|Avaliação de patches ausente do sistema operacional|✔|✔|✔|Azure: Não<br><br>Habilitado para Arc: Sim|
+|Avaliação de configurações incorretas de segurança|✔|✔|✔|Azure: Não<br><br>Habilitado para Arc: Sim|
 |[Avaliação da proteção de ponto de extremidade](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Não|
 |Avaliação da criptografia de disco|✔</br>(para [cenários compatíveis](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Não|
 |Avaliação de vulnerabilidades de terceiros|✔|-|-|Não|
@@ -96,10 +96,10 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Trend Micro – Deep Security | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família de servidores Linux  | Não | Sim **\*** |
-| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim **\***  |
+| McAfee v10+ | Família de servidores Linux  | Não | Sim * *\** _ |
+| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim _*\**_  |
 
- **\*** O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
+ _ *\** * O estado de cobertura e os dados de suporte estão disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
 
 > [!NOTE]
 > A detecção do SCEP (System Center Endpoint Protection) em uma máquina virtual do Windows Server 2008 R2 exige a instalação do SCEP após o PowerShell (v3.0 ou mais recente).

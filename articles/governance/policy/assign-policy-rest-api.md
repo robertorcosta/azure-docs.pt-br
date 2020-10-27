@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com a API REST'
 description: Neste início rápido, use a API REST para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88137079"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073998"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade com a API REST
 
@@ -23,7 +23,7 @@ A API REST é usada para criar e gerenciar recursos do Azure. Este guia usa a AP
 
 - Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- Caso ainda não tenha feito isso, instale o [ARMClient](https://github.com/projectkudu/ARMClient). Trata-se de uma ferramenta que envia solicitações HTTP para APIs REST baseadas no Azure Resource Manager. Como alternativa, você pode usar o recurso "Experimente" na documentação do REST ou ferramentas como o [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) do PowerShell ou o [Postman](https://www.postman.com).
+- Caso ainda não tenha feito isso, instale o [ARMClient](https://github.com/projectkudu/ARMClient). Trata-se de uma ferramenta que envia solicitações HTTP para APIs REST baseadas no Azure Resource Manager. Use também o recurso "Experimentar" na documentação da REST ou em ferramentas como o [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) do PowerShell ou o [Postman](https://www.postman.com).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -54,17 +54,17 @@ Execute o comando a seguir para criar uma atribuição de política:
 O ponto de extremidade e o corpo da solicitação anteriores usam as seguintes informações:
 
 URI da API REST:
-- **Escopo**: um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Ele pode variar de um grupo de gerenciamento a um recurso individual. Substitua `{scope}` por um dos seguintes padrões:
+- **Escopo** : um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Ele pode variar de um grupo de gerenciamento a um recurso individual. Substitua `{scope}` por um dos seguintes padrões:
   - Grupo de gerenciamento: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Assinatura: `/subscriptions/{subscriptionId}`
   - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
-- **Nome** - O nome real da atribuição. Neste exemplo, usamos _audit-vm-manageddisks_.
+- **Nome** - O nome real da atribuição. Neste exemplo, usamos _audit-vm-manageddisks_ .
 
 Corpo da solicitação:
-- **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando _Auditar VMs sem atribuição de discos gerenciados_.
+- **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando _Auditar VMs sem atribuição de discos gerenciados_ .
 - **Description** – uma explicação mais detalhada do que a política faz ou de por que ela está atribuída a esse escopo.
-- **policyDefinitionId** – a ID de definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política _Auditar VMs que não usam discos gerenciados_.
+- **policyDefinitionId** – a ID de definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política _Auditar VMs que não usam discos gerenciados_ .
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos fora de conformidade
 

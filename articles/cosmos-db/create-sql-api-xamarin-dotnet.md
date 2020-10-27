@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74ff6983b08b6f19a94384be7c4361d4266d6a20
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319037"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108755"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Início Rápido: Criar um aplicativo de tarefas pendentes com o Xamarin usando a conta de API de SQL do Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Agora, vamos clonar o aplicativo de API do SQL Xamarin no GitHub, revisar o cód
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para a nova pasta para instalar o aplicativo de exemplo.
@@ -83,25 +83,31 @@ Agora, vamos clonar o aplicativo de API do SQL Xamarin no GitHub, revisar o cód
     git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-4. Em seguida, abra o arquivo ToDoItems.sln da pasta exemplos/xamarin/ToDoItems no Visual Studio.
+4. No Visual Studio, abra **C:\git-samples\azure-cosmos-db-sql-xamarin-getting-started\src\ToDoItems.sln** 
 
 ## <a name="obtain-your-api-keys"></a>Obter as chaves de API
 
 Volte ao Portal do Azure para obter as informações da sua chave de API e copie-as para o aplicativo.
 
-1. No [Portal do Azure](https://portal.azure.com/), na sua conta de API do SQL do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia do lado direito da tela para copiar o URI e a Chave Primária para o arquivo APIKeys.cs na próxima etapa.
+1. No [Portal do Azure](https://portal.azure.com/), na sua conta de API do SQL do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação** . Você usará os botões de cópia do lado direito da tela para copiar o URI e a Chave Primária para o arquivo APIKeys.cs na próxima etapa.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
 
-2. Tanto no Visual Studio 2019 quanto no Visual Studio para Mac, abra o arquivo APIKeys.cs na pasta azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers.
+2. No Visual Studio, abra **ToDoItems.Core/Helpers/APIKeys.cs** .
 
-3. Copie o valor do URI do portal (usando o botão de cópia) e o torne o valor da variável `CosmosEndpointUrl` no arquivo APIKeys.cs.
+3. No portal do Azure, usando o botão Copiar, copie o valor do **URI** e o torne-o o valor da variável `CosmosEndpointUrl` em APIKeys.cs.
 
-    `public static readonly string CosmosEndpointUrl = "";`
+    ```csharp
+    //#error Enter the URL of your Azure Cosmos DB endpoint here
+            public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    ```
 
-4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-o no valor de `Cosmos Auth Key` no arquivo APIKeys.cs.
+4. No portal do Azure, usando o botão Copiar, copie o valor da **CHAVE PRIMÁRIA** e torne-o o valor da `Cosmos Auth Key` em APIKeys.cs.
 
-    `public static readonly string CosmosAuthKey = "";`
+    ```csharp
+    //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
+            public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    ```
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
@@ -113,15 +119,18 @@ Esta solução demonstra como criar um aplicativo de tarefas pendentes usando a 
 
 O código na solução ToDoItems contém:
 
-* ToDoItems.Core: trata-se de um projeto .NET Standard contendo um projeto Xamarin.Forms e o código da lógica de aplicativo compartilhado que mantém os itens de tarefas pendentes no Azure Cosmos DB.
-* ToDoItems.Android: este projeto contém o aplicativo Android.
-* ToDoItems.iOS: este projeto contém o aplicativo iOS.
+* **ToDoItems.Core**
+   * trata-se de um projeto .NET Standard contendo um projeto Xamarin.Forms e o código da lógica de aplicativo compartilhado que mantém os itens de tarefas pendentes no Azure Cosmos DB.
+* **ToDoItems.Android**
+  * este projeto contém o aplicativo Android.
+* **ToDoItems.iOS**
+  * este projeto contém o aplicativo iOS.
 
 Agora vamos fazer uma rápida revisão de como o aplicativo se comunica com o Azure Cosmos DB.
 
 * O Pacote NuGet do [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) deve ser adicionado em todos os projetos.
-* A classe `ToDoItem` na pasta azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models modela os documentos no contêiner **Itens** criada acima. Observe que a propriedade de nomeação diferencia maiúsculas de minúsculas.
-* A classe `CosmosDBService` na pasta azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services encapsula a comunicação ao Azure Cosmos DB.
+* A classe `ToDoItem` na pasta **ToDoItems.Core/Models** modela os documentos no contêiner **Itens** criados acima. Observe que a propriedade de nomeação diferencia maiúsculas de minúsculas.
+* A classe `CosmosDBService` na pasta **ToDoItems.Core/Services** encapsula a comunicação com o Azure Cosmos DB.
 * Na classe `CosmosDBService` há uma variável do tipo `DocumentClient`. O `DocumentClient` é usado para configurar e executar solicitações em relação à conta do Azure Cosmos DB e é instanciado:
 
     ```csharp
@@ -182,7 +191,7 @@ As etapas a seguir demonstram como executar o aplicativo usando o depurador do V
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
 
-4. Para concluir um item de tarefas pendentes em iOS, deslize-o para a esquerda > toque no botão **Concluir**. Para concluir um item de tarefas pendentes em Android, pressione e segure o item > toque no botão Concluir.
+4. Para concluir um item de tarefas pendentes em iOS, deslize-o para a esquerda > toque no botão **Concluir** . Para concluir um item de tarefas pendentes em Android, pressione e segure o item > toque no botão Concluir.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
 

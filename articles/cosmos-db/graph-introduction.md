@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409605"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279840"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API do Gremlin no Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Estes são recursos diferenciados oferecidos pela API do Gremlin do Azure Cosmos
 
   O BD Cosmos do Azure elimina a necessidade de gerenciar recursos do computador e do banco de dados. A maioria das plataformas existentes de banco de dados de grafo está associada às limitações de infraestrutura dela e geralmente exigem um alto grau de manutenção para garantir sua operação. 
   
-  Como um serviço totalmente gerenciado, o Cosmos DB acaba com a necessidade de gerenciar máquinas virtuais, atualizar o software de tempo de execução, gerenciar a fragmentação ou a replicação ou lidar com atualizações de camadas de dados complexas. Cada grafo é salvo em backup automaticamente e protegido contra falhas regionais. Essas garantias permitem que os desenvolvedores se concentrem no fornecimento de valor para o aplicativo em vez de operar e gerenciar os bancos de dados de grafo deles. 
+  Como um serviço totalmente gerenciado, o Cosmos DB acaba com a necessidade de gerenciar máquinas virtuais, atualizar o software de tempo de execução, gerenciar a fragmentação ou a replicação ou lidar com atualizações de camadas de dados complexas. Cada grafo é salvo em backup automaticamente e protegido contra falhas regionais. Isso permite que os desenvolvedores se concentrem no fornecimento de valor para o aplicativo em vez de operar e gerenciar os bancos de dados de grafo deles. 
 
 * **Indexação automática**
 
@@ -110,19 +110,19 @@ Vamos usar um grafo de exemplo para entender como as consultas podem ser express
 
 Este grafo tem os seguintes tipos de *vértice* (também chamados de "rótulo" no Gremlin):
 
-* **Pessoas**: O grafo tem três pessoas; Robin, Thomas e Ben
-* **Interesses**: Os interesses dessas pessoas, que neste exemplo é o jogo de futebol
-* **Dispositivos**: Os dispositivos que as pessoas usam
-* **Sistemas operacionais**: Os sistemas operacionais em que os dispositivos executam
-* **Local**: Os locais dos quais os dispositivos são acessados
+* **Pessoas** : O grafo tem três pessoas; Robin, Thomas e Ben
+* **Interesses** : Os interesses dessas pessoas, que neste exemplo é o jogo de futebol
+* **Dispositivos** : Os dispositivos que as pessoas usam
+* **Sistemas operacionais** : Os sistemas operacionais em que os dispositivos executam
+* **Local** : Os locais dos quais os dispositivos são acessados
 
-Representamos as relações entre essas entidades usando os seguintes tipos de *borda*:
+Representamos as relações entre essas entidades usando os seguintes tipos de *borda* :
 
-* **Conhece**: Por exemplo, "Thomas conhece Robin"
-* **Interessado**: Para representar os interesses das pessoas em nosso grafo, por exemplo, "Ben está interessado em futebol"
-* **RunsOS**: O laptop executa o sistema operacional Windows
-* **Usa**: Para representar qual dispositivo uma pessoa usa. Por exemplo, Robin usa um telefone Motorola com o número de série 77
-* **Localizado**: Para representar a localização da qual os dispositivos são acessados
+* **Conhece** : Por exemplo, "Thomas conhece Robin"
+* **Interessado** : Para representar os interesses das pessoas em nosso grafo, por exemplo, "Ben está interessado em futebol"
+* **RunsOS** : O laptop executa o sistema operacional Windows
+* **Usa** : Para representar qual dispositivo uma pessoa usa. Por exemplo, Robin usa um telefone Motorola com o número de série 77
+* **Localizado** : Para representar a localização da qual os dispositivos são acessados
 
 O Console do Gremlin é um terminal interativo oferecido pelo Apache TinkerPop e é usado para interagir com os dados do grafo. Para saber mais, confira o documento de início rápido em [Como usar o console do Gremlin](create-graph-gremlin-console.md). Você também pode executar essas operações usando drivers do Gremlin na plataforma de sua escolha (Java, Node.js, Python ou .NET). Os exemplos a seguir mostram como executar consultas em relação a esses dados do grafo usando o Console do Gremlin.
 

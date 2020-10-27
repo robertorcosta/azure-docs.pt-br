@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968932"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331831"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Atualizar de Leitura v2.x para Leitura v3.x
 
@@ -27,11 +27,12 @@ Use a tabela a seguir para determinar a **cadeia de caracteres de versão** no c
 
 |Tipo de produto| Versão | Cadeia de caracteres de versão no caminho da API 3.x |
 |:-----|:----|:----|
-|Serviço | Read 3.0 | **v3.0** |
-|Contêiner | Versão prévia da Leitura 3.0 | **v3.0** |
-|Serviço/contêiner | Versão prévia da Leitura 3.1 | **v3.1-preview.2** |
+|Serviço | Leitura 3.0 ou 3.1 | **v3.0** ou **v3.1** , respectivamente |
+|Serviço | Versão prévia da Leitura 3.2 | **v3.2-preview.1** |
+|Contêiner | Versão prévia da Leitura 3.0 ou da Leitura 3.1 | **v3.0** ou **v3.1-preview.2** , respectivamente |
 
-Em seguida, use as seções a seguir para restringir suas operações e substituir a **cadeia de caracteres de versão** no caminho da API pelo valor da tabela. Por exemplo, para as versões de nuvem e contêiner da **Versão prévia da Leitura v3.1**, atualize o caminho da API para **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]** .
+
+Em seguida, use as seções a seguir para restringir suas operações e substituir a **cadeia de caracteres de versão** no caminho da API pelo valor da tabela. Por exemplo, para as versões de nuvem e contêiner da **Versão prévia da Leitura v3.2** , atualize o caminho da API para **https://{endpoint}/vision/v3.2-preview.1/read/analyze[?language]** .
 
 ## <a name="servicecontainer"></a>Serviço/contêiner
 
@@ -39,7 +40,7 @@ Em seguida, use as seções a seguir para restringir suas operações e substitu
 
 |Read 2.x |Leitura 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**cadeia de caracteres de versão**>/read/analyze[?language]|
+|https://{endpoint}/vision/ **v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/< **cadeia de caracteres de versão** >/read/analyze[?language]|
     
 Um novo parâmetro _language_ opcional está disponível. Se não souber o idioma de seu documento, ou se ele puder ser multilíngue, não o inclua. 
 
@@ -47,7 +48,7 @@ Um novo parâmetro _language_ opcional está disponível. Se não souber o idiom
 
 |Read 2.x |Leitura 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<**cadeia de caracteres de versão**>/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/ **v2.0/read/operations** /{operationId}     |https://{endpoint}/vision/< **cadeia de caracteres de versão** >/read/analyzeResults/{operationId}|
 
 ### <a name="get-read-operation-result-status-flag"></a>Sinalizador de status `Get Read Operation Result`
 
@@ -173,11 +174,11 @@ Na v3.0, ele foi ajustado:
 ## <a name="service-only"></a>Somente serviço
 
 ### `Recognize Text`
-`Recognize Text` é uma operação de *versão prévia* que está sendo *preterida em todas as versões da API da Pesquisa Visual Computacional*. É necessário migrar da `Recognize Text` para a `Read` (v3.0) ou `Batch Read File` (v2.0, v2.1). A v3.0 de `Read` inclui modelos mais novos e melhores para reconhecimento de texto, além de recursos adicionais e, portanto, é recomendada. Para fazer upgrade de `Recognize Text` para `Read`:
+`Recognize Text` é uma operação de *versão prévia* que está sendo *preterida em todas as versões da API da Pesquisa Visual Computacional* . É necessário migrar da `Recognize Text` para a `Read` (v3.0) ou `Batch Read File` (v2.0, v2.1). A v3.0 de `Read` inclui modelos mais novos e melhores para reconhecimento de texto, além de recursos adicionais e, portanto, é recomendada. Para fazer upgrade de `Recognize Text` para `Read`:
 
 |Reconhecimento de Texto 2.x |Leitura 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/<**cadeia de caracteres de versão**>/read/analyze[?language]|
+|https://{endpoint}/vision/ **v2.0/recognizeText[?mode]**|https://{endpoint}/vision/< **cadeia de caracteres de versão** >/read/analyze[?language]|
     
 O parâmetro _mode_ não tem suporte no `Read`. Tanto texto manuscrito quanto impresso terão suporte automaticamente.
     
@@ -187,7 +188,7 @@ Um novo parâmetro _language_ opcional está disponível na v3.0. Se não souber
 
 |Reconhecimento de Texto 2.x |Leitura 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/textOperations/** {operationId}|https://{endpoint}/vision/<**cadeia de caracteres de versão**>/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/ **v2.0/textOperations/** {operationId}|https://{endpoint}/vision/< **cadeia de caracteres de versão** >/read/analyzeResults/{operationId}|
 
 ### <a name="get-recognize-text-operation-result-status-flags"></a>Sinalizadores de status `Get Recognize Text Operation Result`
 Quando é bem-sucedida, a chamada para `Get Recognize Text Operation Result` retorna um campo de cadeia de caracteres de status no corpo JSON. 
@@ -212,7 +213,7 @@ A API v3.0 também introduz os aprimoramentos a seguir, cujo uso é opcional. Co
 * `angle` orientação geral do texto no sentido horário, medida em graus entre (-180, 180).
 * `width` e `"height"` fornecem as dimensões do documento e `"unit"` fornece a unidade dessas dimensões (pixels ou polegadas, dependendo do tipo de documento).
 * `page` há suporte para documentos multipágina
-* `language` o idioma de entrada do documento (do parâmetro opcional _language_.)
+* `language` o idioma de entrada do documento (do parâmetro opcional _language_ .)
 
 
 Na 2.X, o formato de saída é o seguinte: 
@@ -311,4 +312,4 @@ No v3.x, ele foi ajustado:
 
 |Leitura 2.0 |Leitura 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/<**cadeia de caracteres de versão**>/read/syncAnalyze[?language]|
+|https://{endpoint}/vision/ **v2.0/read/core/Analyze**     |https://{endpoint}/vision/< **cadeia de caracteres de versão** >/read/syncAnalyze[?language]|

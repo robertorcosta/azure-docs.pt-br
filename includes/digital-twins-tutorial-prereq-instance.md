@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 302a478dd32c93a555bb17e9d7d0f60bd7859a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a4c7b8afab1a9f102bc0bc24b40a7525d93d83
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292637"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201335"
 ---
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Preparar uma instância dos Gêmeos Digitais do Azure
 
@@ -18,8 +18,4 @@ Para concluir este tutorial, você precisará de uma **instância dos Gêmeos Di
 
 * Caso contrário, **configure uma instância e uma autenticação** usando as instruções descritas em [*Como configurar uma instância e uma autenticação*](../articles/digital-twins/how-to-set-up-instance-portal.md). As instruções também contêm etapas para confirmar se você concluiu cada etapa com êxito e está pronto para passar a usar sua nova instância.
 
-Neste tutorial, você precisará dos valores a seguir quando configurar sua instância. Se você precisar reunir esses valores novamente, use os links abaixo para as seções correspondentes no artigo de instalação para localizá-los no [portal do Azure](https://portal.azure.com).
-* Instância de Gêmeos Digitais do Azure **_nome_** ([localizar no portal](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* A instância de Gêmeos Digitais do Azure **_nome do host_** ([localizar no portal](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Registro de aplicativo do Azure AD **_ID do aplicativo (cliente)_** ([localizar no portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-* O registro de aplicativo do Azure AD **_ID do diretório (locatário)_** ([localizar no portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
+Depois de configurar sua instância dos Gêmeos Digitais do Azure com a qual trabalhar no tutorial, você precisará do **_nome do host_** da instância ([encontre-o no portal](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).

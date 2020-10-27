@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611241"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096242"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo de página única Angular
 
@@ -78,7 +78,7 @@ Registre o valor **URI de Redirecionamento** como **http://localhost:4200/** e h
 
 ## <a name="configure-the-application"></a>Configurar o aplicativo
 
-1. Na pasta *src/app*, edite o *app.module.ts* e adicione o `MSALModule` ao `imports`, bem como a constante `isIE`:
+1. Na pasta *src/app* , edite o *app.module.ts* e adicione o `MSALModule` ao `imports`, bem como a constante `isIE`:
 
     ```javascript
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -124,7 +124,7 @@ Registre o valor **URI de Redirecionamento** como **http://localhost:4200/** e h
     |---------|---------|
     |Enter_the_Application_Id_Here|Na página **Visão Geral** do seu registro de aplicativo, esta é seu valor **ID do Aplicativo (cliente)** . |
     |Enter_the_Cloud_Instance_Id_Here|Essa é a instância da nuvem do Azure. Para a nuvem principal ou global do Azure, insira **https://login.microsoftonline.com** . Para nuvens nacionais (por exemplo, China), confira [Nuvens nacionais](./authentication-national-cloud.md).|
-    |Enter_the_Tenant_Info_Here| Defina como uma das seguintes opções: Se o aplicativo der suporte a *contas neste diretório organizacional*, substitua esse valor pela ID do diretório (locatário) ou pelo nome do locatário (por exemplo, **contoso.microsoft.com**). Se o aplicativo for compatível com as *contas em qualquer diretório organizacional*, substitua esse valor por **organizações**. Se o seu aplicativo for compatível com as *contas em qualquer diretório organizacional e contas pessoais da Microsoft*, substitua esse valor por **comum**. Para restringir o suporte a *contas pessoais da Microsoft*, substitua esse valor por **consumidores**. |
+    |Enter_the_Tenant_Info_Here| Defina como uma das seguintes opções: Se o aplicativo der suporte a *contas neste diretório organizacional* , substitua esse valor pela ID do diretório (locatário) ou pelo nome do locatário (por exemplo, **contoso.microsoft.com** ). Se o aplicativo for compatível com as *contas em qualquer diretório organizacional* , substitua esse valor por **organizações** . Se o seu aplicativo for compatível com as *contas em qualquer diretório organizacional e contas pessoais da Microsoft* , substitua esse valor por **comum** . Para restringir o suporte a *contas pessoais da Microsoft* , substitua esse valor por **consumidores** . |
     |Enter_the_Redirect_Uri_Here|Substitua por **http://localhost:4200** .|
 
     Para saber mais sobre opções configuráveis disponíveis, confira [Inicializar aplicativos cliente](msal-js-initializing-client-applications.md).
@@ -194,7 +194,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Em seguida, forneça um mapa dos recursos protegidos para `MsalModule.forRoot()` como `protectedResourceMap` e inclua esses escopos no `consentScopes`:
+Em seguida, forneça um mapa dos recursos protegidos para `MsalModule.forRoot()` como `protectedResourceMap` e inclua esses escopos em `consentScopes`. As URLs fornecidas na coleção `protectedResourceMap` diferenciam maiúsculas de minúsculas.
 
 ```javascript
 @NgModule({

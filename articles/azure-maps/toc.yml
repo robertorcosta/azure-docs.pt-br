@@ -95,6 +95,8 @@
   items:
     - name: Gerenciar contas do Azure Mapas
       items:
+        - name: Criar uma conta com o modelo ARM
+          href: how-to-create-template.md
         - name: Gerenciar Contas
           href: how-to-manage-account-keys.md
         - name: Gerenciar autenticação

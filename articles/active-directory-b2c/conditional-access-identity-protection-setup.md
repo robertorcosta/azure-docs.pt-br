@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5554cfcde9aba1b0e5c9c8b60e2e6a7e9a8ba378
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89270630"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309782"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurar o Identity Protection e o acesso condicional no Azure AD B2C
 
@@ -41,10 +41,12 @@ No momento, há suporte para as seguintes detecções de risco no Azure AD B2C:
 |Tipo de detecção de risco  |Descrição  |
 |---------|---------|
 | Viagem atípica     | Entrada proveniente de uma localização atípica com base nas conexões recentes do usuário.        |
-|Endereço IP anônimo     | Entrada de um endereço IP anônimo (por exemplo: Navegador Tor, VPNs para anonimato)        |
+|Endereço IP anônimo     | Entrada de um endereço IP anônimo (por exemplo: navegador Tor, VPNs para anonimato).        |
+|Endereço IP vinculado a malware     | Entrada de um endereço IP vinculado a malware.         |
 |Propriedades de entrada desconhecidas     | Entrada com propriedades que não vimos recentemente para o usuário especificado.        |
-|Endereço IP vinculado a malware     | Entrada de um endereço IP vinculado a malware         |
-|Inteligência contra ameaças do Azure AD     | As fontes internas e externas de inteligência contra ameaças da Microsoft identificaram um padrão de ataque conhecido        |
+|Usuário comprometido confirmado pelo administrador    | Um administrador indicou que um usuário foi comprometido.             |
+|Pulverização de senha     | Entre por meio de um ataque de pulverização de senha.      |
+|Inteligência contra ameaças do Azure AD     | As fontes internas e externas de inteligência contra ameaças da Microsoft identificaram um padrão de ataque conhecido.        |
 
 ## <a name="view-risk-events-for-your-azure-ad-b2c-tenant"></a>Ver os eventos de risco no seu locatário do Azure AD B2C
 
@@ -52,13 +54,13 @@ No momento, há suporte para as seguintes detecções de risco no Azure AD B2C:
 
 1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
 
-1. No portal do Azure, pesquise e selecione **Azure AD B2C**.
+1. No portal do Azure, pesquise e selecione **Azure AD B2C** .
 
-1. Em **Segurança**, escolha **Usuários suspeitos (Versão Prévia)** .
+1. Em **Segurança** , escolha **Usuários suspeitos (Versão Prévia)** .
 
    ![Usuários de risco](media/conditional-access-identity-protection-setup/risky-users.png)
 
-1. Em **Segurança**, escolha **Detecções de risco (Versão Prévia)** .
+1. Em **Segurança** , escolha **Detecções de risco (Versão Prévia)** .
 
    ![Detecções de risco](media/conditional-access-identity-protection-setup/risk-detections.png)
 
@@ -72,9 +74,9 @@ Para adicionar uma política de acesso condicional com base nas detecções de r
 
 2. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
 
-3. Na portal do Azure, procure e selecione **Azure Active Directory**.
+3. Na portal do Azure, procure e selecione **Azure Active Directory** .
 
-4. Escolha **Propriedades** e selecione **Gerenciar Padrões de segurança**.
+4. Escolha **Propriedades** e selecione **Gerenciar Padrões de segurança** .
 
    ![Desabilitar os padrões de segurança](media/conditional-access-identity-protection-setup/disable-security-defaults.png)
 
@@ -88,9 +90,9 @@ Para adicionar uma política de acesso condicional com base nas detecções de r
 
 1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
 
-1. No portal do Azure, pesquise e selecione **Azure AD B2C**.
+1. No portal do Azure, pesquise e selecione **Azure AD B2C** .
 
-1. Em **Segurança**, escolha **Acesso Condicional (Versão Prévia)** . A página **Políticas de Acesso Condicional** será aberta. 
+1. Em **Segurança** , escolha **Acesso Condicional (Versão Prévia)** . A página **Políticas de Acesso Condicional** será aberta. 
 
 1. Selecione **Nova política** e siga a documentação do acesso condicional do Azure AD para criar uma política. A seguir, é mostrado um exemplo:
 
@@ -103,14 +105,14 @@ Para adicionar uma política de acesso condicional com base nas detecções de r
 
 1. Crie uma política de acesso condicional, conforme mencionado acima, com as seguintes configurações:
    
-   - Em **usuários e grupos**, selecione o usuário de teste. Não selecione **Todos os usuários** ou você bloqueará sua inscrição.
-   - Em **Aplicativos de nuvem ou ações**, escolha **Selecionar aplicativos** e o aplicativo de terceira parte confiável.
-   - Em Condições, escolha **Risco de entrada** e os níveis de risco **Alto**, **Médio** e **Baixo**.
-   - Em **Concessão**, escolha **Bloquear o acesso**.
+   - Em **usuários e grupos** , selecione o usuário de teste. Não selecione **Todos os usuários** ou você bloqueará sua inscrição.
+   - Em **Aplicativos de nuvem ou ações** , escolha **Selecionar aplicativos** e o aplicativo de terceira parte confiável.
+   - Em Condições, escolha **Risco de entrada** e os níveis de risco **Alto** , **Médio** e **Baixo** .
+   - Em **Concessão** , escolha **Bloquear o acesso** .
 
       ![Escolher Bloquear o acesso](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
-1. Habilite a política de acesso condicional de teste selecionando **Criar**.
+1. Habilite a política de acesso condicional de teste selecionando **Criar** .
 
 1. Simule uma entrada suspeita usando o [Navegador Tor](https://www.torproject.org/download/). 
 
@@ -126,18 +128,18 @@ Para examinar o resultado de um evento de acesso condicional:
 
 2. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
 
-3. No portal do Azure, pesquise e selecione **Azure AD B2C**.
+3. No portal do Azure, pesquise e selecione **Azure AD B2C** .
 
-4. Em **Atividades**, selecione **Logs de auditoria**.
+4. Em **Atividades** , selecione **Logs de auditoria** .
 
-5. Filtre o log de auditoria definindo **Categoria** como **B2C** e configurando **Tipo de Recurso de Atividade** como **IdentityProtection**. Em seguida, selecione **Aplicar**.
+5. Filtre o log de auditoria definindo **Categoria** como **B2C** e configurando **Tipo de Recurso de Atividade** como **IdentityProtection** . Em seguida, selecione **Aplicar** .
 
 6. Examine a atividade de auditoria no período de até os últimos sete dias. Os seguintes tipos de atividades estão incluídos:
 
-   - **Avaliar as políticas de acesso condicional**: essa entrada de log de auditoria indica que uma avaliação de acesso condicional foi executada durante uma autenticação.
-   - **Corrigir usuário**: essa entrada indica que a concessão ou os requisitos de uma política de acesso condicional foram atendidos pelo usuário final e que essa atividade foi relatada ao mecanismo de risco para reduzir o risco (mitigar) do usuário.
+   - **Avaliar as políticas de acesso condicional** : essa entrada de log de auditoria indica que uma avaliação de acesso condicional foi executada durante uma autenticação.
+   - **Corrigir usuário** : essa entrada indica que a concessão ou os requisitos de uma política de acesso condicional foram atendidos pelo usuário final e que essa atividade foi relatada ao mecanismo de risco para reduzir o risco (mitigar) do usuário.
 
-7. Selecione uma entrada de log **Avaliar a política de acesso condicional** na lista para abrir a página **Detalhes da Atividade: Log de auditoria**, que mostra os identificadores de log de auditoria, juntamente com estas informações na seção **Detalhes Adicionais**:
+7. Selecione uma entrada de log **Avaliar a política de acesso condicional** na lista para abrir a página **Detalhes da Atividade: Log de auditoria** , que mostra os identificadores de log de auditoria, juntamente com estas informações na seção **Detalhes Adicionais** :
 
    - ConditionalAccessResult: a concessão necessária para a avaliação da política condicional.
    - AppliedPolicies: uma lista de todas as políticas de acesso condicional em que as condições foram atendidas e as políticas estão ativadas.

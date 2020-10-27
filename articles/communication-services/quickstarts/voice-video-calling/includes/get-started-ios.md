@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376922"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157941"
 ---
 Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para iOS.
 
@@ -28,7 +28,7 @@ Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 ### <a name="creating-the-xcode-project"></a>Como criar o projeto do Xcode
 
-No Xcode, crie um projeto do iOS e selecione o modelo **Aplicativo de Modo de Exibição Único**. Este tutorial usa a [estrutura SwiftUI](https://developer.apple.com/xcode/swiftui/), portanto, você deve definir a **Linguagem** como **Swift** e a **Interface do Usuário** como **SwiftUI**. Você não criará testes durante este guia de início rápido. Fique à vontade para desmarcar **Incluir Testes**.
+No Xcode, crie um projeto do iOS e selecione o modelo **Aplicativo de Modo de Exibição Único** . Este tutorial usa a [estrutura SwiftUI](https://developer.apple.com/xcode/swiftui/), portanto, você deve definir a **Linguagem** como **Swift** e a **Interface do Usuário** como **SwiftUI** . Você não criará testes durante este guia de início rápido. Fique à vontade para desmarcar **Incluir Testes** .
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Captura de tela mostrando a janela Novo Projeto no Xcode.":::
 
@@ -41,10 +41,10 @@ Adicione a biblioteca de clientes de Chamada dos Serviços de Comunicação do A
 
 1. [Baixe](https://github.com/Azure/Communication/releases) a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para iOS.
 2. No Xcode, clique no arquivo de projeto e selecione o destino de build para abrir o editor de configurações do projeto.
-3. Na guia **Geral**, role até a seção **Estruturas, Bibliotecas e Conteúdo Inserido** e clique no ícone **"+"** .
-4. Na parte inferior esquerda da caixa de diálogo, use o menu suspenso e escolha **Adicionar Arquivos**, navegue até o diretório **AzureCommunicationCalling.framework** do pacote de biblioteca de clientes descompactado.
-    1. Repita a última etapa para adicionar **AzureCore.framework** e **AzureCommunication.framework**.
-5. Abra a guia **Configurações de Build** do editor de configurações do projeto e role até a seção **Caminhos de Pesquisa**. Adicione uma nova entrada de **Caminhos de Pesquisa de Estrutura** para o diretório que contém **AzureCommunicationCalling.framework**.
+3. Na guia **Geral** , role até a seção **Estruturas, Bibliotecas e Conteúdo Inserido** e clique no ícone **"+"** .
+4. Na parte inferior esquerda da caixa de diálogo, use o menu suspenso e escolha **Adicionar Arquivos** , navegue até o diretório **AzureCommunicationCalling.framework** do pacote de biblioteca de clientes descompactado.
+    1. Repita a última etapa para adicionar **AzureCore.framework** e **AzureCommunication.framework** .
+5. Abra a guia **Configurações de Build** do editor de configurações do projeto e role até a seção **Caminhos de Pesquisa** . Adicione uma nova entrada de **Caminhos de Pesquisa de Estrutura** para o diretório que contém **AzureCommunicationCalling.framework** .
     1. Adicione outra entrada de Caminhos de Pesquisa de Estrutura apontando para a pasta que contém as dependências.
 
 :::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Captura de tela mostrando a janela Novo Projeto no Xcode.":::
@@ -53,7 +53,7 @@ Adicione a biblioteca de clientes de Chamada dos Serviços de Comunicação do A
 
 Para acessar o microfone do dispositivo, você precisa atualizar a Lista de Propriedades de Informações do aplicativo com um `NSMicrophoneUsageDescription`. Você define o valor associado como um `string` que será incluído na caixa de diálogo que o sistema usa para solicitar acesso do usuário.
 
-Clique com o botão direito do mouse na entrada `Info.plist` da árvore do projeto e selecione **Abrir Como** > **Código-Fonte**. Adicione as linhas a seguir no nível superior da seção `<dict>` e, em seguida, salve o arquivo.
+Clique com o botão direito do mouse na entrada `Info.plist` da árvore do projeto e selecione **Abrir Como** > **Código-Fonte** . Adicione as linhas a seguir no nível superior da seção `<dict>` e, em seguida, salve o arquivo.
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
@@ -125,7 +125,7 @@ As seguintes classes e as interfaces administram alguns dos principais recursos 
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Inicializar uma instância de `CallAgent` com um Token de Acesso de Usuário que nos permitirá fazer e receber chamadas. Adicione o seguinte código ao retorno de chamada `onAppear` no **ContentView.swift**:
+Inicializar uma instância de `CallAgent` com um Token de Acesso de Usuário que nos permitirá fazer e receber chamadas. Adicione o seguinte código ao retorno de chamada `onAppear` no **ContentView.swift** :
 
 ```swift
 var userCredential: CommunicationUserCredential?
@@ -155,7 +155,7 @@ Você precisa substituir `<USER ACCESS TOKEN>` por um token de acesso de usuári
 
 ## <a name="start-a-call"></a>Iniciar uma chamada
 
-O método `startCall` é definido como a ação que será executada ao tocar no botão *Iniciar Chamada*. Atualize a implementação para iniciar uma chamada com o `ASACallAgent`:
+O método `startCall` é definido como a ação que será executada ao tocar no botão *Iniciar Chamada* . Atualize a implementação para iniciar uma chamada com o `ASACallAgent`:
 
 ```swift
 func startCall()
@@ -194,10 +194,10 @@ Você pode criar e executar o seu aplicativo no simulador de iOS selecionando **
 
 :::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Captura de tela mostrando a janela Novo Projeto no Xcode.":::
 
-Você pode fazer uma chamada VOIP de saída fornecendo uma ID de usuário no campo de texto e tocando no botão **Iniciar Chamada**. Chamar `8:echo123` conecta você a um bot de eco. Isso é ótimo para começar e verificar se os dispositivos de áudio estão funcionando. 
+Você pode fazer uma chamada VOIP de saída fornecendo uma ID de usuário no campo de texto e tocando no botão **Iniciar Chamada** . Chamar `8:echo123` conecta você a um bot de eco. Isso é ótimo para começar e verificar se os dispositivos de áudio estão funcionando. 
 
 > [!NOTE]
-> Na primeira vez que você fizer uma chamada, o sistema solicitará o acesso ao microfone. Em um aplicativo de produção, você deve usar [verificar o status de permissão](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) da API `AVAudioSession` e atualizar normalmente o comportamento do aplicativo quando a permissão não for concedida.
+> Na primeira vez que você fizer uma chamada, o sistema solicitará o acesso ao microfone. Em um aplicativo de produção, você deve usar a API `AVAudioSession` para [verificar o status de permissão](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) e atualizar normalmente o comportamento do aplicativo quando a permissão não for concedida.
 
 ## <a name="sample-code"></a>Exemplo de código
 

@@ -164,7 +164,7 @@
       href: recovery-plan-overview.md
     - name: Sobre a migração para o Azure
       href: migrate-overview.md
-    - name: Sobre o controle de acesso baseado em função com o Site Recovery
+    - name: Sobre o controle de acesso baseado em função do Azure com o Site Recovery
       href: site-recovery-role-based-linked-access-control.md
     - name: Sobre a recuperação de desastre em um site local secundário
       items:

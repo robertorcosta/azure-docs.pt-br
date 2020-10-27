@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91305776"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203613"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar o SSO (logon único) baseado em SAML para um aplicativo no locatário do Azure AD (Azure Active Directory)
 
@@ -43,8 +43,8 @@ Depois de concluir a adição de um aplicativo ao locatário do Azure AD, a pág
 
 Para configurar o logon único para um aplicativo:
 
-1. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo para o qual você deseja configurar o logon único.
-1. Na seção **Gerenciar**, selecione **Logon único** para abrir o painel **Logon único** para edição.
+1. No portal do Azure AD, selecione **Aplicativos empresariais** . Em seguida, encontre e selecione o aplicativo para o qual você deseja configurar o logon único.
+1. Na seção **Gerenciar** , selecione **Logon único** para abrir o painel **Logon único** para edição.
 
     > [!IMPORTANT]
     > Se o aplicativo usar o padrão OIDC (OpenID Connect ) para SSO, você não verá a opção de logon único na navegação. Confira o início rápido sobre SSO baseado em OIDC para saber como configurá-lo.

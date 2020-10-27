@@ -100,7 +100,9 @@
           href: rbac-migration.md
         - name: Solucionar problemas de acesso
           href: troubleshooting-access-issues.md
-    - name: Como habilitar o registro em log
+    - name: Habilitar a exclusão reversível e a proteção contra limpeza
+      href: key-vault-recovery.md
+    - name: Habilitar o registro em log
       href: howto-logging.md
     - name: Desenvolver
       items:
@@ -109,7 +111,7 @@
         - name: Usar o Azure Resource Manager para implantar o Key Vault
           href: vault-create-template.md
         - name: Salvar segredos do Aplicativo Web
-          href: vs-secure-secret-appsettings.md
+          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
         - name: Autenticação serviço a serviço com .NET
           href: service-to-service-authentication.md
         - name: Como usar o serviço conectado do Key Vault
@@ -134,14 +136,6 @@
           href: private-link-service.md
         - name: Acessar o Key Vault por trás de um firewall – Azure Key Vault
           href: access-behind-firewall.md
-    - name: Exclusão reversível
-      items:
-        - name: Recuperação do Key Vault (Exclusão temporária e Proteção contra Limpeza)
-          href: key-vault-recovery.md
-        - name: Usar a exclusão reversível com a CLI
-          href: soft-delete-cli.md
-        - name: Como usar a exclusão reversível com o PowerShell
-          href: soft-delete-powershell.md
     - name: Mover o Key Vault
       items:
         - name: Mover o Key Vault para outro grupo de recursos
