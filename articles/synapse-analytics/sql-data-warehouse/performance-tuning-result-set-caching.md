@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362258"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541274"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste de desempenho com cache de conjunto de resultados
 
@@ -36,11 +36,15 @@ Quando o armazenamento em cache do conjunto de resultados está habilitado, o SQ
 
 Quando o armazenamento em cache do conjunto de resultados estiver ATIVADO para um banco de dados, os resultados serão armazenados em cache para todas as consultas até o cache ficar cheio, exceto para estas consultas:
 
-- Consultas que usam funções não determinísticas, como DateTime.Now()
+- Consultas com funções internas ou expressões de tempo de execução que são não determinísticas mesmo quando não há nenhuma alteração na consulta ou dados de tabelas base. Por exemplo, DateTime. Now (), GetDate ().
 - Consultas que usam funções definidas pelo usuário
 - Consultas que usam tabelas com segurança em nível de linha ou segurança em nível de coluna habilitada
 - Consultas que retornam dados com tamanho de linha maior que 64 KB
 - Consultas que retornam dados grandes (>10 GB) 
+>[!NOTE]
+> - Algumas funções não determinísticas e expressões de tempo de execução podem ser determinísticas em consultas repetitivas nos mesmos dados. Por exemplo, ROW_NUMBER ().  
+> - Use ORDER BY em sua consulta se a ordem/sequência de linhas no conjunto de resultados da consulta for importante para a lógica do aplicativo.
+> - Se os dados nas colunas ordem por não forem exclusivos, não haverá nenhuma ordem de linha garanteed para linhas com os mesmos valores nas colunas ORDENAr por, independentemente se o cache do conjunto de resultados estiver habilitado ou desabilitado.
 
 > [!IMPORTANT]
 > As operações para criar o cache do conjunto de resultados e recuperar dados do cache acontecem no nó de controle de uma instância de pool de SQL do Synapse.

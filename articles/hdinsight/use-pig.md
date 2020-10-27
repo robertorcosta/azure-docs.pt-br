@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 8fd42169ab6ccb144215e1b6ad2ece09ff55c07f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9474a1845898e3fda0c810314f41f6f4deabc96b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072834"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538724"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Use o Apache Pig com o Apache Hadoop no HDInsight
 
 Saiba como usar [Apache Pig](https://pig.apache.org/) com o HDInsight.
 
-O Apache Pig é uma plataforma para criar programas para o Apache Hadoop usando uma linguagem procedural conhecida como *Pig Latin*. O Pig é uma alternativa ao Java para a criação de soluções de *MapReduce* e está incluído no Azure HDInsight. Use a tabela a seguir para descobrir várias maneiras pelas quais o Pig pode ser usado com o HDInsight:
+O Apache Pig é uma plataforma para criar programas para o Apache Hadoop usando uma linguagem procedural conhecida como *Pig Latin* . O Pig é uma alternativa ao Java para a criação de soluções de *MapReduce* e está incluído no Azure HDInsight. Use a tabela a seguir para descobrir várias maneiras pelas quais o Pig pode ser usado com o HDInsight:
 
 ## <a name="why-use-apache-pig"></a><a id="why"></a>Por que usar o Apache Pig
 
@@ -30,11 +30,11 @@ O Pig permite que você defina o processamento como uma série de transformaçõ
 
 A linguagem do Pig Latin permite descrever o fluxo de dados a partir de dados brutos, por meio de uma ou mais transformações, para produzir a saída desejada. Os programas em Pig Latin seguem este padrão geral:
 
-* **Carregar**: ler dados a serem manipulados do sistema de arquivos.
+* **Carregar** : ler dados a serem manipulados do sistema de arquivos.
 
-* **Transformação**: manipule os dados.
+* **Transformação** : manipule os dados.
 
-* **Despejar ou armazenar**: dados de saída na tela ou armazená-los para processamento.
+* **Despejar ou armazenar** : dados de saída na tela ou armazená-los para processamento.
 
 ### <a name="user-defined-functions"></a>Funções definidas pelo usuário
 
@@ -95,15 +95,15 @@ Agora que você aprendeu a usar o Pig com o HDInsight, use os links abaixo para 
 
 * [Carregar dados no HDInsight](hdinsight-upload-data.md)
 * [Usar o Apache Hive com o HDInsight](./hadoop/hdinsight-use-hive.md)
-* [Usar o Apache Sqoop com HDInsight](hdinsight-use-sqoop.md)
+* [Usar o Apache Sqoop com HDInsight](./hadoop/hdinsight-use-sqoop.md)
 * [Usar trabalhos do MapReduce com o HDInsight](./hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: https://curl.haxx.se/
-[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[pigtask]: /sql/integration-services/control-flow/azure-hdinsight-pig-task?viewFallbackFrom=sql-server-2014
+[connectionmanager]: /sql/integration-services/connection-manager/azure-subscription-connection-manager?viewFallbackFrom=sql-server-2014
+[ssispack]: /sql/integration-services/azure-feature-pack-for-integration-services-ssis?viewFallbackFrom=sql-server-2014
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263253"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538639"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de banco de dados sem servidor usando o Azure Cosmos DB e o Azure Functions
 
@@ -23,9 +23,9 @@ Com a integração nativa entre o [Azure Cosmos DB](https://azure.microsoft.com/
 
 O Azure Cosmos DB e o Azure Functions permitem integrar bancos de dados e aplicativos sem servidor das seguintes maneiras:
 
-* Crie um **gatilho de Azure Functions controlado por evento para Cosmos DB**. Esse gatilho depende de fluxos de [feed de alterações](change-feed.md) para monitorar o contêiner Cosmos do Azure em busca de alterações. Quando alterações forem feitas em um contêiner, o fluxo do feed de alterações é enviado para o gatilho, que invoca o Azure Function.
-* Como alternativa, associe uma função do Azure a um contêiner Cosmos do Azure usando uma **Associação de entrada**. As associações de entrada leem dados de um contêiner quando uma função é executada.
-* Associe uma função a um contêiner Cosmos do Azure usando uma **Associação de saída**. As associações de saída gravam dados em um contêiner quando uma função é concluída.
+* Crie um **gatilho de Azure Functions controlado por evento para Cosmos DB** . Esse gatilho depende de fluxos de [feed de alterações](change-feed.md) para monitorar o contêiner Cosmos do Azure em busca de alterações. Quando alterações forem feitas em um contêiner, o fluxo do feed de alterações é enviado para o gatilho, que invoca o Azure Function.
+* Como alternativa, associe uma função do Azure a um contêiner Cosmos do Azure usando uma **Associação de entrada** . As associações de entrada leem dados de um contêiner quando uma função é executada.
+* Associe uma função a um contêiner Cosmos do Azure usando uma **Associação de saída** . As associações de saída gravam dados em um contêiner quando uma função é concluída.
 
 > [!NOTE]
 > Atualmente, Azure Functions gatilho, associações de entrada e associações de saída para Cosmos DB têm suporte para uso somente com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados a partir de sua função usando o cliente estático para sua API.
@@ -69,7 +69,7 @@ Em implementações financeiras, você pode invocar uma função quando um saldo
 
 **Implementação:** um gatilho de temporizador com uma associação de entrada do Azure Cosmos DB
 
-1. Usando um [gatilho de temporizador](../azure-functions/functions-bindings-timer.md), você pode recuperar as informações de saldo da conta bancária armazenadas em um contêiner Cosmos do Azure em intervalos de tempo usando uma **Associação de entrada**.
+1. Usando um [gatilho de temporizador](../azure-functions/functions-bindings-timer.md), você pode recuperar as informações de saldo da conta bancária armazenadas em um contêiner Cosmos do Azure em intervalos de tempo usando uma **Associação de entrada** .
 2. Se o saldo estiver abaixo do limite de saldo baixo definido pelo usuário, acompanhe com uma ação do Azure Function.
 3. A associação de saída pode ser uma [integração do SendGrid](../azure-functions/functions-bindings-sendgrid.md), que envia um email de uma conta de serviço para os endereços de email identificados para cada uma das contas de saldo baixo.
 
@@ -81,12 +81,12 @@ As imagens a seguir mostram o código no portal do Azure para este cenário.
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Caso de uso de jogos-Azure Functions gatilho e Associação de saída para Cosmos DB 
 
-Nos jogos, quando um novo usuário é criado, você pode procurar outros usuários que possam conhecê-los usando a [API do Azure Cosmos DB Gremlin](graph-introduction.md). Em seguida, você pode gravar os resultados em um [Azure Cosmos DB ou banco de dados SQL]() para recuperação fácil.
+Nos jogos, quando um novo usuário é criado, você pode procurar outros usuários que possam conhecê-los usando a [API do Azure Cosmos DB Gremlin](graph-introduction.md). Em seguida, você pode gravar os resultados em um Azure Cosmos DB ou banco de dados SQL para recuperação fácil.
 
 **Implementação:** Usar um gatilho Azure Functions e uma associação de saída para Cosmos DB
 
 1. Usando um [banco de dados](graph-introduction.md) de Azure Cosmos DB Graph para armazenar todos os usuários, você pode criar uma nova função com um gatilho de Azure Functions para Cosmos DB. 
-2. Sempre que um novo usuário é inserido, a função é invocada e, em seguida, o resultado é armazenado usando uma **associação de saída**.
+2. Sempre que um novo usuário é inserido, a função é invocada e, em seguida, o resultado é armazenado usando uma **associação de saída** .
 3. A função consulta o banco de dados de grafo para pesquisar todos os usuários que estão diretamente relacionados ao novo usuário e retorna o conjunto de dados para a função.
 4. Em seguida, esses dados são armazenados no Azure Cosmos DB, que podem ser recuperados com facilidade por qualquer aplicativo front-end que mostre ao novo usuário seus amigos conectados.
 
@@ -122,23 +122,23 @@ O Azure Functions fornece a capacidade de criar unidades de trabalho escalonáve
 
 O Azure Cosmos DB é o banco de dados recomendado para a arquitetura de computação sem servidor pelos seguintes motivos:
 
-* **Acesso instantâneo a todos os seus dados**: você tem acesso granular a cada valor armazenado porque o Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por padrão e disponibiliza esses índices imediatamente. Isso significa que você consegue consultar constantemente, atualizar e adicionar novos itens a seu banco de dados e ter acesso instantâneo por meio do Azure Functions.
+* **Acesso instantâneo a todos os seus dados** : você tem acesso granular a cada valor armazenado porque o Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por padrão e disponibiliza esses índices imediatamente. Isso significa que você consegue consultar constantemente, atualizar e adicionar novos itens a seu banco de dados e ter acesso instantâneo por meio do Azure Functions.
 
-* **Sem esquema**. O Azure Cosmos DB é sem esquema e, portanto, pode exclusivamente manipular qualquer saída de dados de um Azure Function. Essa abordagem de “manipular qualquer coisa” facilita a criação de uma variedade de Funções que serão todas geradas para o Azure Cosmos DB.
+* **Sem esquema** . O Azure Cosmos DB é sem esquema e, portanto, pode exclusivamente manipular qualquer saída de dados de um Azure Function. Essa abordagem de “manipular qualquer coisa” facilita a criação de uma variedade de Funções que serão todas geradas para o Azure Cosmos DB.
 
-* **Taxa de transferência escalonável**. A taxa de transferência pode ser escalada e reduzida verticalmente de forma instantânea no Azure Cosmos DB. Caso você tenha centenas ou milhares de Funções consultando e gravando no mesmo contêiner, expanda as [RU/s](request-units.md) para lidar com a carga. Todas as funções podem trabalhar em paralelo usando as RU/s alocadas e seus dados têm a garantia de serem [consistentes](consistency-levels.md).
+* **Taxa de transferência escalonável** . A taxa de transferência pode ser escalada e reduzida verticalmente de forma instantânea no Azure Cosmos DB. Caso você tenha centenas ou milhares de Funções consultando e gravando no mesmo contêiner, expanda as [RU/s](request-units.md) para lidar com a carga. Todas as funções podem trabalhar em paralelo usando as RU/s alocadas e seus dados têm a garantia de serem [consistentes](consistency-levels.md).
 
-* **Replicação global**. Replique dados do Azure Cosmos DB [em todo o mundo](distribute-data-globally.md) para reduzir a latência, localizando os dados na geografia mais próxima a onde os usuários se encontram. Assim como ocorre com todas as consultas do Azure Cosmos DB, os dados de gatilhos controlados por evento são dados lidos do Azure Cosmos DB mais próximo ao usuário.
+* **Replicação global** . Replique dados do Azure Cosmos DB [em todo o mundo](distribute-data-globally.md) para reduzir a latência, localizando os dados na geografia mais próxima a onde os usuários se encontram. Assim como ocorre com todas as consultas do Azure Cosmos DB, os dados de gatilhos controlados por evento são dados lidos do Azure Cosmos DB mais próximo ao usuário.
 
 Se você pretende fazer a integração com o Azure Functions para armazenar dados e não precisa de indexação profunda ou se precisa armazenar anexos e arquivos de mídia, o [gatilho do Armazenamento de Blobs do Azure](../azure-functions/functions-bindings-storage-blob.md) pode ser uma opção melhor.
 
 Benefícios do Azure Functions: 
 
-* **Controlado por evento**. O Azure Functions é controlado por eventos e pode escutar um feed de alterações do Azure Cosmos DB. Isso significa que você não precisa criar a lógica de escuta, apenas ficar atento às alterações que você está escutando. 
+* **Controlado por evento** . O Azure Functions é controlado por eventos e pode escutar um feed de alterações do Azure Cosmos DB. Isso significa que você não precisa criar a lógica de escuta, apenas ficar atento às alterações que você está escutando. 
 
-* **Sem limites**. O Functions é executado em paralelo e o serviço cria o número de funções que forem necessárias. Defina os parâmetros.
+* **Sem limites** . O Functions é executado em paralelo e o serviço cria o número de funções que forem necessárias. Defina os parâmetros.
 
-* **Bom para tarefas rápidas**. O serviço cria novas instâncias de funções sempre que um evento é acionado e fecha-as assim que a função é concluída. Você paga apenas pelo tempo durante o qual as funções são executadas.
+* **Bom para tarefas rápidas** . O serviço cria novas instâncias de funções sempre que um evento é acionado e fecha-as assim que a função é concluída. Você paga apenas pelo tempo durante o qual as funções são executadas.
 
 Caso não tenha certeza se o Flow, os Aplicativos Lógicos, o Azure Functions ou o WebJobs é o melhor para sua implementação, consulte [Escolher entre o Flow, os Aplicativos Lógicos, o Azure Functions e o WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 

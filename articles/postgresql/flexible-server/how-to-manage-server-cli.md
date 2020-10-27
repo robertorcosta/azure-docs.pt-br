@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c088188802590139ee895c45fb26959138db07e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: eba175eb831ef0c472c2e11d2d03f134a0d3b052
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939793"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547666"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Gerenciar um banco de dados do Azure para PostgreSQL – servidor flexível usando o CLI do Azure
 
@@ -23,13 +23,13 @@ Este artigo mostra como gerenciar seu servidor flexível implantado no Azure. As
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar. Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará fazer logon em sua conta usando o comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
+Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id** , que se refere à **ID da Assinatura** para sua conta do Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -101,7 +101,7 @@ Há vários aplicativos que você pode usar para conectar o servidor Banco de Da
     CREATE DATABASE postgresdb;
     ```
 
-3. No prompt, execute o seguinte comando para mudar as conexões para o banco de dados **postgresdb**recém-criado:
+3. No prompt, execute o seguinte comando para mudar as conexões para o banco de dados **postgresdb** recém-criado:
 
     ```bash
     \c postgresdb

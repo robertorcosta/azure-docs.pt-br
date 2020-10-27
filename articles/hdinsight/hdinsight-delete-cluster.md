@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: d91161127b3fd3b63d7a5cc76df2fbeb33b62f34
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 97aa37d5bc99295de7b827467b8c6db551c34ef7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479826"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547530"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure
 
-A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança é proporcional por minuto, portanto, você sempre deve excluir o cluster quando ele não estiver mais em uso. Neste documento, você aprende a excluir um cluster usando o [portal do Azure](https://portal.azure.com), Azure PowerShell o [módulo Az](https://docs.microsoft.com/powershell/azure/)e o [CLI do Azure](/cli/azure/).
+A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança é proporcional por minuto, portanto, você sempre deve excluir o cluster quando ele não estiver mais em uso. Neste documento, você aprende a excluir um cluster usando o [portal do Azure](https://portal.azure.com), Azure PowerShell o [módulo Az](/powershell/azure/)e o [CLI do Azure](/cli/azure/).
 
 > [!IMPORTANT]  
 > A exclusão de um cluster HDInsight não exclui as contas do Armazenamento do Azure ou Data Lake Storage associadas ao cluster. Você pode reutilizar os dados armazenados nesses serviços no futuro.

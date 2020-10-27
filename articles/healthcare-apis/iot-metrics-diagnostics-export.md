@@ -1,5 +1,5 @@
 ---
-title: Exportar as métricas do conector IoT do Azure para FHIR (versão prévia) por meio das configurações de diagnóstico
+title: Exportar as métricas do Conector IoT do Azure para FHIR (versão prévia) por meio das configurações de diagnóstico
 description: Este artigo explica como exportar o conector IoT do Azure para métricas FHIR (versão prévia) por meio das configurações de diagnóstico
 services: healthcare-apis
 author: msjasteppe
@@ -8,14 +8,14 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: c81dcdd2e79f5d89a0766415b47ad118874e5ad2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d7779c74a562e1237db863d7759b2adcffa2bddf
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209395"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558543"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportar as métricas do conector IoT do Azure para FHIR (versão prévia) por meio das configurações de diagnóstico
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportar as métricas do Conector IoT do Azure para FHIR (versão prévia) por meio das configurações de diagnóstico
 
 Neste artigo, você aprenderá a exportar o conector do IoT do Azure para logs de métricas do FHIR *. O recurso que habilita o log de métricas são as [**configurações de diagnóstico**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) no portal do Azure. 
 
@@ -58,7 +58,7 @@ Ter acesso aos logs de métrica é essencial para o monitoramento e a solução 
 Confira as perguntas frequentes sobre o conector do Azure IoT para FHIR.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector para FHIR FAQs](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Azure IoT Connector para FHIR FAQs](fhir-faq.md)
 
 *No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
 

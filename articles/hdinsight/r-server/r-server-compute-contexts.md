@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087598"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536327"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto de computação para o ML Services no HDInsight
 
@@ -23,14 +23,14 @@ O nó de borda de um cluster fornece um local conveniente para se conectar ao cl
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services no Microsoft Azure HDInsight
 
-O [ML Services no Microsoft Azure HDInsight](r-server-overview.md) fornece os recursos mais recentes para análises baseadas em R. Ele pode usar dados armazenados em um contêiner Apache Hadoop HDFS em sua conta de armazenamento de [BLOBs do Azure](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure") , em um data Lake Store ou no sistema de arquivos Linux local. Como os serviços ML se baseiam no R de software livre, os aplicativos baseados em R que você cria podem aplicar qualquer um dos mais de 8000 pacotes de R de software livre. Eles também podem usar as rotinas no [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), o pacote de análise de Big Data da Microsoft que está incluído no ML Services.  
+O [ML Services no Microsoft Azure HDInsight](r-server-overview.md) fornece os recursos mais recentes para análises baseadas em R. Ele pode usar dados armazenados em um contêiner Apache Hadoop HDFS em sua conta de armazenamento de [BLOBs do Azure](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure") , em um data Lake Store ou no sistema de arquivos Linux local. Como os serviços ML se baseiam no R de software livre, os aplicativos baseados em R que você cria podem aplicar qualquer um dos mais de 8000 pacotes de R de software livre. Eles também podem usar as rotinas no [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), o pacote de análise de Big Data da Microsoft que está incluído no ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de computação para um nó de extremidade
 
 Em geral, um script R executado no cluster do ML Services no nó de borda é executado no interpretador R nesse nó. As exceções são aquelas etapas que chamam uma função RevoScaleR. As chamadas de RevoScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do RevoScaleR.  Quando você executa o script R de um nó de borda, os valores possíveis de contexto de computação são:
 
-- local sequencial (*local*)
-- local paralelo (*localpar*)
+- local sequencial ( *local* )
+- local paralelo ( *localpar* )
 - Map Reduce
 - Spark
 
@@ -59,8 +59,8 @@ Com esses princípios, as seções a seguir oferecem algumas regras gerais para 
 
 ### <a name="local"></a>Local
 
-- Se a quantidade de dados a ser analisada for pequena e não exigir análise repetida, transmita-a diretamente para a rotina de análise usando *local* ou *localpar*.
-- Se a quantidade de dados a ser analisada for de pequeno ou médio porte e exigir a repetição da análise, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de *local* ou *localpar*.
+- Se a quantidade de dados a ser analisada for pequena e não exigir análise repetida, transmita-a diretamente para a rotina de análise usando *local* ou *localpar* .
+- Se a quantidade de dados a ser analisada for de pequeno ou médio porte e exigir a repetição da análise, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de *local* ou *localpar* .
 
 ### <a name="apache-spark"></a>Apache Spark
 
@@ -77,7 +77,7 @@ Para obter mais informações e exemplos de contextos de computação de RevoSca
 > ?rxSetComputeContext
 ```
 
-Você também pode consultar a [visão geral da computação distribuída](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) na [documentação do Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
+Você também pode consultar a [visão geral da computação distribuída](/machine-learning-server/r/how-to-revoscaler-distributed-computing) na [documentação do Machine Learning Server](/machine-learning-server/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

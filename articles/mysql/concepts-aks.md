@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 712bf702ba355ec3b2ca6184c33da8489f8a178e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc40903de09ebfe04858c631eee0233561784418
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519857"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546901"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Conexão do Serviço de Kubernetes do Azure e Banco de Dados do Azure para MySQL
 
@@ -26,10 +26,10 @@ A partir de novembro de 2018, o AKS oferece suporte à rede acelerada nessas ins
 Você pode confirmar se o seu cluster AKS acelerou a rede:
 1. Vá para o portal do Azure e selecione seu cluster AKS.
 2. Selecione a guia Propriedades.
-3. Copie o nome do **Grupo de Recursos de Infraestrutura**.
+3. Copie o nome do **Grupo de Recursos de Infraestrutura** .
 4. Use a barra de pesquisa do portal para localizar e abrir o grupo de recursos de infraestrutura.
 5. Selecione uma VM nesse grupo de recursos.
-6. Vá para a guia VM **Rede**.
+6. Vá para a guia VM **Rede** .
 7. Confirme se a **Rede acelerada** está "Ativada".
 
 Ou por meio da CLI do Azure usando os dois comandos a seguir:
@@ -43,5 +43,5 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar um cluster do Serviço de Kubernetes do Azure](../aks/kubernetes-walkthrough.md)
-- Aprenda como [Instalar o WordPress a partir de um gráfico do Helm usando o OSBA e o Banco de Dados do Azure para MySQL](../aks/integrate-azure.md)
+- [Criar um cluster do serviço kubernetes do Azure](../aks/kubernetes-walkthrough.md)
+- Aprenda como [Instalar o WordPress a partir de um gráfico do Helm usando o OSBA e o Banco de Dados do Azure para MySQL](../aks/index.yml)

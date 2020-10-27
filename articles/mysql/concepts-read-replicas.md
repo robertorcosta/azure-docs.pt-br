@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151175"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537959"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -24,7 +24,7 @@ Para saber mais sobre recursos e problemas de replicação do MySQL, consulte a 
 > [!NOTE]
 > Comunicação livre de desvio
 >
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_. O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
+> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_ . O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
@@ -38,7 +38,7 @@ Como réplicas são somente leitura, elas não reduzem diretamente os encargos d
 O recurso de réplica de leitura usa replicação assíncrona do MySQL. O recurso não se destina a cenários de replicação síncrona. Haverá um atraso mensurável entre a origem e a réplica. Os dados na réplica acabarão se tornando consistentes com os dados no mestre. Use este recurso para cargas de trabalho que podem acomodar esse atraso.
 
 > [!IMPORTANT]
-> O Banco de Dados do Azure para MySQL usa o log binário baseado em **LINHA**. Se a tabela não tiver uma chave primária, todas as linhas da tabela serão verificadas em busca de operações DML. Isso causa um aumento no atraso da replicação. Para garantir que a réplica consiga acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar o servidor de réplica ou recriar o servidor de réplica se você já tiver um.
+> O Banco de Dados do Azure para MySQL usa o log binário baseado em **LINHA** . Se a tabela não tiver uma chave primária, todas as linhas da tabela serão verificadas em busca de operações DML. Isso causa um aumento no atraso da replicação. Para garantir que a réplica consiga acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar o servidor de réplica ou recriar o servidor de réplica se você já tiver um.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Você pode criar uma réplica de leitura em uma região diferente do seu servidor de origem. A replicação entre regiões pode ser útil para cenários como o planejamento de recuperação de desastres ou para trazer dados mais próximos dos seus usuários.
@@ -71,7 +71,7 @@ No entanto, há certas limitações a serem consideradas:
 
 Se um servidor de origem não tiver servidores de réplica existentes, a origem será reiniciada primeiro para se preparar para a replicação.
 
-Quando você inicia o fluxo de trabalho de criação de réplica, um servidor do Banco de Dados do Azure para MySQL é criado. O novo servidor é preenchido com os dados que estavam no servidor de origem. O tempo de criação depende da quantidade de dados na origem e da hora desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma assinatura que o servidor de origem. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, você pode [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação.
+Quando você inicia o fluxo de trabalho de criação de réplica, um servidor do Banco de Dados do Azure para MySQL é criado. O novo servidor é preenchido com os dados que estavam no servidor de origem. O tempo de criação depende da quantidade de dados na origem e da hora desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma assinatura que o servidor de origem. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, você pode [mover o servidor de réplica](../azure-resource-manager/management/move-resource-group-and-subscription.md) após a criação.
 
 Cada réplica é habilitada para armazenamento de [aumento automático](concepts-pricing-tiers.md#storage-auto-grow). O recurso de aumento automático permite que a réplica acompanhe os dados replicados e evita uma interrupção na replicação causada por erros de falta de armazenamento.
 
@@ -83,7 +83,7 @@ Na criação, uma réplica herda as regras de firewall do servidor de origem. Po
 
 A réplica herda a conta do administrador do servidor de origem. Todas as contas de usuário no servidor de origem são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário que estão disponíveis no servidor de origem.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para MySQL. Para um servidor chamado **myreplica** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando a CLI do mysql:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para MySQL. Para um servidor chamado **myreplica** com o nome de usuário admin **myadmin** , você pode se conectar à réplica usando a CLI do mysql:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -113,7 +113,7 @@ Saiba como [interromper a replicação para uma réplica](howto-read-replicas-po
 
 Não há nenhum failover automatizado entre os servidores de origem e de réplica. 
 
-Como a replicação é assíncrona, há um atraso entre a origem e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor de origem e a latência entre os data centers. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
+Como a replicação é assíncrona, há um atraso entre a origem e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor de origem e a latência entre os data centers. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica* de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
 
 > [!Tip]
 > Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica da fonte indicará a quantidade de dados perdida.

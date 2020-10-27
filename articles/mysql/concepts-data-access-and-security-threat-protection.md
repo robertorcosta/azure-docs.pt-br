@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ccee3b52b0f204561ca790ce364308f81a1db6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e72cf2cbe17f3a92d3769fb85332f29be038f17
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906587"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547224"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Proteção Avançada contra Ameaças do Banco de Dados do Azure para MySQL
 
@@ -34,14 +34,14 @@ A Proteção Avançada contra Ameaças para o Banco de Dados do Azure para MySQL
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertas da Proteção Avançada contra Ameaças 
 A Proteção Avançada contra Ameaças para o Banco de Dados do Azure para MySQL detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados e pode disparar os seguintes alertas:
-- **Acesso de um local incomum**: este alerta é disparado quando há uma alteração no padrão de acesso ao servidor do Banco de Dados do Azure para MySQL, em que alguém fez logon nele de um local geográfico incomum. Em alguns casos, o alerta detecta uma ação legítima (um novo aplicativo ou manutenção do desenvolvedor). Em outros casos, o alerta detecta uma ação mal-intencionada (funcionário antigo, invasor externo).
-- **Acesso de um data center incomum do Azure**: este alerta é disparado quando há uma alteração no padrão de acesso ao servidor do Banco de Dados do Azure para MySQL, no local em que alguém fez logon no servidor de um data center incomum do Azure que foi visto neste servidor durante um período recente. Em alguns casos, o alerta detecta uma ação legítima (o novo aplicativo no Azure, no Power BI e no Editor de Consultas do Banco de Dados do Azure para MySQL). Em outros casos, o alerta detecta uma ação mal-intencionada de um recurso/serviço do Azure (funcionário antigo, invasor externo).
-- **Acesso de uma entidade de segurança não familiar**: este alerta é disparado quando há uma alteração no padrão de acesso ao servidor do Banco de Dados do Azure para MySQL, em que alguém fez logon no servidor usando uma entidade de segurança incomum (usuário do Banco de Dados do Azure para MySQL). Em alguns casos, o alerta detecta uma ação legítima (novo aplicativo ou manutenção do desenvolvedor). Em outros casos, o alerta detecta uma ação mal-intencionada (funcionário antigo, invasor externo).
-- **Acesso a partir de um aplicativo potencialmente prejudicial**: Este alerta é disparado quando um aplicativo potencialmente prejudicial é usado para acessar o banco de dados. Em alguns casos, o alerta detecta um teste de segurança que está sendo executado. Em outros casos, o alerta detecta um ataque usando ferramentas comuns de ataque.
-- **Credenciais do Banco de Dados do Azure para MySQL de força bruta**: este alerta é disparado quando há um número alto anormal de logons com falha com credenciais diferentes. Em alguns casos, o alerta detecta um teste de segurança que está sendo executado. Em outros casos, o alerta detecta ataques de força bruta.
+- **Acesso de um local incomum** : este alerta é disparado quando há uma alteração no padrão de acesso ao servidor do Banco de Dados do Azure para MySQL, em que alguém fez logon nele de um local geográfico incomum. Em alguns casos, o alerta detecta uma ação legítima (um novo aplicativo ou manutenção do desenvolvedor). Em outros casos, o alerta detecta uma ação mal-intencionada (funcionário antigo, invasor externo).
+- **Acesso de um data center incomum do Azure** : este alerta é disparado quando há uma alteração no padrão de acesso ao servidor do Banco de Dados do Azure para MySQL, no local em que alguém fez logon no servidor de um data center incomum do Azure que foi visto neste servidor durante um período recente. Em alguns casos, o alerta detecta uma ação legítima (o novo aplicativo no Azure, no Power BI e no Editor de Consultas do Banco de Dados do Azure para MySQL). Em outros casos, o alerta detecta uma ação mal-intencionada de um recurso/serviço do Azure (funcionário antigo, invasor externo).
+- **Acesso de uma entidade de segurança não familiar** : este alerta é disparado quando há uma alteração no padrão de acesso ao servidor do Banco de Dados do Azure para MySQL, em que alguém fez logon no servidor usando uma entidade de segurança incomum (usuário do Banco de Dados do Azure para MySQL). Em alguns casos, o alerta detecta uma ação legítima (novo aplicativo ou manutenção do desenvolvedor). Em outros casos, o alerta detecta uma ação mal-intencionada (funcionário antigo, invasor externo).
+- **Acesso a partir de um aplicativo potencialmente prejudicial** : Este alerta é disparado quando um aplicativo potencialmente prejudicial é usado para acessar o banco de dados. Em alguns casos, o alerta detecta um teste de segurança que está sendo executado. Em outros casos, o alerta detecta um ataque usando ferramentas comuns de ataque.
+- **Credenciais do Banco de Dados do Azure para MySQL de força bruta** : este alerta é disparado quando há um número alto anormal de logons com falha com credenciais diferentes. Em alguns casos, o alerta detecta um teste de segurança que está sendo executado. Em outros casos, o alerta detecta ataques de força bruta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Saiba mais sobre a [Central de Segurança do Azure](../security-center/security-center-introduction.md)
 * Para saber mais sobre preço, confira a [página Preço do Banco de Dados do Azure para MySQL](https://azure.microsoft.com/pricing/details/mysql/) 
-* Configurar a [Proteção Avançada contra Ameaças do Banco de Dados do Azure para MySQL](howto-database-threat-protection-portal.md) usando o portal do Azure  
+* Configurar a [Proteção Avançada contra Ameaças do Banco de Dados do Azure para MySQL](howto-database-threat-protection-portal.md) usando o portal do Azure

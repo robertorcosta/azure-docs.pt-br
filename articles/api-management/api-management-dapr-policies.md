@@ -3,15 +3,15 @@ title: Políticas de integração do Dapr de gerenciamento de API do Azure | Mic
 description: Saiba mais sobre as políticas de gerenciamento de API do Azure para interagir com extensões de microserviços do Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340794"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558390"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Políticas de integração do Dapr de gerenciamento de API
 
@@ -104,14 +104,14 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 
 ## <a name="send-message-to-pubsub-topic"></a><a name="pubsub"></a> Enviar mensagem para o tópico pub/sub
 
-Essa política instrui o gateway de gerenciamento de API a enviar uma mensagem para um tópico de publicação/assinatura do Dapr. A política realiza isso fazendo uma solicitação HTTP POST para `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` Substituir parâmetros de modelo e adicionar conteúdo especificado na declaração de política.
+Essa política instrui o gateway de gerenciamento de API a enviar uma mensagem para um tópico de publicação/assinatura do Dapr. A política realiza isso fazendo uma solicitação HTTP POST para `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` Substituir parâmetros de modelo e adicionar conteúdo especificado na declaração de política.
 
 A política pressupõe que o tempo de execução Dapr está sendo executado em um contêiner sidecar no mesmo Pod que o gateway. O tempo de execução do Dapr implementa a semântica pub/sub.
 
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -131,7 +131,8 @@ A seção "back-end" está vazia e a solicitação não é encaminhada para o ba
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+           pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -158,7 +159,8 @@ A seção "back-end" está vazia e a solicitação não é encaminhada para o ba
 
 | Atributo        | Descrição                     | Obrigatório | Padrão |
 |------------------|---------------------------------|----------|---------|
-| topic            | Nome do tópico de destino               | Sim      | N/D     |
+| PubSub-nome      | O nome do componente PubSub de destino. Mapeia para o parâmetro [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) em Dapr. Se não estiver presente, o valor do atributo __topic__ deverá estar no formato de `pubsub-name/topic-name` .    | Não       | Nenhum    |
+| topic            | O nome do tópico. Mapeia para o parâmetro [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) no Dapr.               | Sim      | N/D     |
 | ignore-error     | Se definido como `true` instruir a política para não disparar a seção ["On-Error"](api-management-error-handling-policies.md) após receber o erro do tempo de execução do Dapr | Não | `false` |
 | response-variable-name | Nome da entrada de coleção de [variáveis](api-management-policy-expressions.md#ContextVariables) a ser usada para armazenar a resposta do tempo de execução Dapr | Não | Nenhum |
 | tempo limite | Tempo (em segundos) para aguardar o tempo de execução do Dapr responder. Pode variar de 1 a 240 segundos. | Não | 5 |
@@ -243,7 +245,7 @@ A seção "back-end" está vazia e a solicitação não é encaminhada para o ba
 
 | Atributo        | Descrição                     | Obrigatório | Padrão |
 |------------------|---------------------------------|----------|---------|
-| name            | Nome da Associação de destino. Deve corresponder ao nome das associações [definidas](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) em Dapr.           | Sim      | N/D     |
+| Nome            | Nome da Associação de destino. Deve corresponder ao nome das associações [definidas](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) em Dapr.           | Sim      | N/D     |
 | operation       | Nome da operação de destino (específico de associação). Mapeia para a propriedade [Operation](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | Não | Nenhum |
 | ignore-error     | Se definido como `true` instruir a política para não disparar a seção ["On-Error"](api-management-error-handling-policies.md) após receber o erro do tempo de execução do Dapr | Não | `false` |
 | response-variable-name | Nome da entrada de coleção de [variáveis](api-management-policy-expressions.md#ContextVariables) a ser usada para armazenar a resposta do tempo de execução Dapr | Não | Nenhum |
