@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 17fb1bf8aebe1bd114f970aed997e77ce8a07af1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b194812ef68820a0c310d0bac3b055360c5b5e4a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150771"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538418"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorar, diagnosticar e solucionar problemas de desconexões com o Hub IoT
 
@@ -28,25 +28,25 @@ Problemas de conectividade para dispositivos IoT podem ser difíceis de solucion
 
 Use o Azure Monitor para receber alertas e gravar logs quando os dispositivos desconectarem.
 
-### <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
+### <a name="turn-on-logs"></a>Ativar logs
 
-Para registrar erros e eventos de conexão do dispositivo, ative o diagnóstico do Hub IoT. Ative os logs de diagnóstico o quanto antes, porque se eles não estiverem habilitados quando as desconexões de dispositivo ocorrerem, você não terá nenhuma informação para solucionar o problema.
+Para registrar eventos e erros de conexão do dispositivo, crie uma configuração de diagnóstico para [os logs de recursos de conexões do Hub IOT](monitor-iot-hub-reference.md#connections). É recomendável criar essa configuração o mais cedo possível, porque esses logs não são coletados por padrão e, sem eles, você não terá nenhuma informação para solucionar problemas de desconexão de dispositivo com quando eles ocorrerem.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Navegue até seu hub IoT.
+1. Navegue até seu hub IoT.
 
-3. Selecionar **configurações de Diagnóstico**.
+1. Selecionar **configurações de Diagnóstico** .
 
-4. Selecione **Ativar diagnóstico**.
+1. Selecione **Adicionar configuração de diagnóstico** .
 
-5. Habilitar log de **conexões** a serem coletados.
+1. Selecione logs de **conexões** .
 
-6. Para uma análise mais fácil, ative **Enviar para o Log Analytics** ([ver preço](https://azure.microsoft.com/pricing/details/log-analytics/)). Consulte o exemplo em [resolver erros de conectividade](#resolve-connectivity-errors).
+1. Para análise mais fácil, selecione **Enviar para log Analytics** ( [consulte preços](https://azure.microsoft.com/pricing/details/log-analytics/)). Consulte o exemplo em [resolver erros de conectividade](#resolve-connectivity-errors).
 
    ![Configurações recomendadas](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
-Para obter mais informações, consulte [monitorar a integridade do IoT Hub do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md).
+Para saber mais, consulte [monitorar o Hub IOT](monitor-iot-hub.md).
 
 ### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>Configurar alertas para desconexões de dispositivo em escala
 
@@ -56,9 +56,9 @@ Para receber alertas quando os dispositivos são desconectados, configure alerta
 
 2. Navegue até seu hub IoT.
 
-3. Selecione **Alertas**.
+3. Selecione **Alertas** .
 
-4. Selecione **Nova regra de alerta**.
+4. Selecione **Nova regra de alerta** .
 
 5. Selecione **Adicionar condição** e, em seguida, selecione “Dispositivos conectados (versão prévia)”.
 
@@ -68,19 +68,19 @@ Para saber mais, consulte [O que são alertas no Microsoft Azure?](../azure-moni
 
 #### <a name="detecting-individual-device-disconnects"></a>Como detectar desconexões de dispositivo individuais
 
-Para detectar desconexões *por dispositivo*, como quando é necessário saber quando um alocador ficou offline, [configure eventos de desconexão de dispositivo com a Grade de Eventos](iot-hub-event-grid.md).
+Para detectar desconexões *por dispositivo* , como quando é necessário saber quando um alocador ficou offline, [configure eventos de desconexão de dispositivo com a Grade de Eventos](iot-hub-event-grid.md).
 
 ## <a name="resolve-connectivity-errors"></a>Resolver problemas de conectividade
 
-Quando você ativa logs de diagnóstico e alertas para dispositivos conectados, você recebe alertas quando ocorrem erros. Esta seção descreve como procurar problemas comuns quando você recebe um alerta. As etapas abaixo supõem que você tenha configurado os logs do Azure Monitor para seus logs de diagnóstico.
+Quando você ativa logs e alertas para dispositivos conectados, recebe alertas quando ocorrem erros. Esta seção descreve como procurar problemas comuns quando você recebe um alerta. As etapas a seguir pressupõem que você já criou uma configuração de diagnóstico para enviar logs de conexões do Hub IoT a um espaço de trabalho Log Analytics.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Navegue até seu hub IoT.
 
-1. Selecione **Logs**.
+1. Selecione **Logs** .
 
-1. Para isolar logs de erros de conectividade do Hub IoT, insira a consulta a seguir e selecione **Executar**:
+1. Para isolar logs de erros de conectividade do Hub IoT, insira a consulta a seguir e selecione **Executar** :
 
     ```kusto
     AzureDiagnostics

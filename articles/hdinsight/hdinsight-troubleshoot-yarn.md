@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871959"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535018"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN do Apache Hadoop usando o Azure HDInsight
 
@@ -24,7 +24,7 @@ Saiba mais sobre os principais problemas e suas soluções ao trabalhar com carg
 
 Use as etapas a seguir por meio do Ambari para criar uma nova fila do YARN e equilibrar a alocação de capacidade entre todas as filas.
 
-Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alteradas de 50% da capacidade para 25% da capacidade, o que oferece a nova capacidade de fila de 50% (spark).
+Neste exemplo, duas filas existentes ( **padrão** e **thriftsvr** ) são alteradas de 50% da capacidade para 25% da capacidade, o que oferece a nova capacidade de fila de 50% (spark).
 
 | Fila | Capacity | Capacidade máxima |
 | --- | --- | --- |
@@ -32,16 +32,16 @@ Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alterada
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
-1. Selecione o ícone **Exibições do Ambari** e então selecione o padrão de grade. Em seguida, selecione **Gerenciador de Filas do YARN**.
+1. Selecione o ícone **Exibições do Ambari** e então selecione o padrão de grade. Em seguida, selecione **Gerenciador de Filas do YARN** .
 
     ![Gerenciador de filas do YARN do Apache Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
-2. Selecione a fila **padrão**.
+2. Selecione a fila **padrão** .
 
     ![Apache Ambari YARN selecionar fila padrão](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
-3. Para a fila **padrão** , altere a **capacidade** de 50% para 25%. Para a fila **thriftsvr**, altere a **capacidade** para 25%.
+3. Para a fila **padrão** , altere a **capacidade** de 50% para 25%. Para a fila **thriftsvr** , altere a **capacidade** para 25%.
 
     ![Alterar a capacidade para 25% para as filas padrão e thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. Para criar uma nova fila, selecione **Adicionar Fila**.
+4. Para criar uma nova fila, selecione **Adicionar Fila** .
 
     ![Adicionar fila do painel do Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -49,10 +49,10 @@ Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alterada
 
     ![Fila de nome do painel do Ambari YARN do Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
-6. Deixe os valores de **capacidade** em 50% e então selecione o botão **Ações**.
+6. Deixe os valores de **capacidade** em 50% e então selecione o botão **Ações** .
 
     ![Ação de seleção do Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. Escolha **Salvar e Atualizar Filas**.
+7. Escolha **Salvar e Atualizar Filas** .
 
     ![Escolha Salvar e Atualizar Filas](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -74,7 +74,7 @@ Essas alterações estarão visíveis imediatamente na interface do usuário do 
     yarn top
     ```
 
-    As IDs são listadas na coluna **APPLICATIONID**. Você pode baixar os logs da coluna **APPLICATIONID**.
+    As IDs são listadas na coluna **APPLICATIONID** . Você pode baixar os logs da coluna **APPLICATIONID** .
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -131,7 +131,7 @@ Essas alterações estarão visíveis imediatamente na interface do usuário do 
 
 ### <a name="additional-reading"></a><a name="additional-reading-2"></a>Leitura adicional
 
-- [Conectar ao HDInsight (Apache Hadoop) usando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Conectar ao HDInsight (Apache Hadoop) usando SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop conceitos e aplicativos do YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -142,4 +142,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

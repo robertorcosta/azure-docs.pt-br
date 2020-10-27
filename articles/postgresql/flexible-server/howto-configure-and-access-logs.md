@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 0b7b09696cbbe12a57d066e452b4c8ea7a7b8f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319b7a40a87d29454b22a26088df313ef524dc56
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933152"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545813"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configurar e acessar logs no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -22,20 +22,20 @@ Os logs do PostgreSQL estão disponíveis em todos os nós de um servidor flexí
 
 ## <a name="configure-diagnostic-settings"></a>Definir as configurações de diagnóstico
 
-Você pode habilitar as configurações de diagnóstico para o servidor postgres usando o portal do Azure, a CLI, a API REST e o PowerShell. A categoria de log a ser selecionada é **PostgreSQLLogs**.
+Você pode habilitar as configurações de diagnóstico para o servidor postgres usando o portal do Azure, a CLI, a API REST e o PowerShell. A categoria de log a ser selecionada é **PostgreSQLLogs** .
 
 Para habilitar os logs de recursos usando o portal do Azure:
 
 1. No portal, vá para *configurações de diagnóstico* no menu de navegação do seu servidor do Postgres.
    
-2. Selecione *Adicionar configuração de diagnóstico*.
+2. Selecione *Adicionar configuração de diagnóstico* .
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Botão Adicionar configurações de diagnóstico":::
 
 3. Nomeie essa configuração. 
 
 4. Selecione seu ponto de extremidade preferido (conta de armazenamento, Hub de eventos, log Analytics). 
 
-5. Selecione o tipo de log **PostgreSQLLogs**.
+5. Selecione o tipo de log **PostgreSQLLogs** .
    :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Botão Adicionar configurações de diagnóstico":::
 
 7. Salve sua configuração.
@@ -44,7 +44,7 @@ Para habilitar logs de recursos usando o PowerShell, a CLI ou a API REST, visite
 
 ### <a name="access-resource-logs"></a>Acessar logs de recursos
 
-A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../../azure-monitor/platform/resource-logs-collect-storage.md) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../../azure-monitor/log-query/log-query-overview.md) .
 
@@ -71,5 +71,5 @@ A consulta acima mostrará os resultados nas últimas 6 horas para qualquer log 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução às consultas do log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-- Saiba mais sobre os [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
+- [Introdução às consultas do log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+- Saiba mais sobre os [hubs de eventos do Azure](../../event-hubs/event-hubs-about.md)

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627339"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545150"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros de servidor no banco de dados do Azure para MySQL
 
@@ -57,9 +57,9 @@ Para melhorar os problemas de desempenho de consultas curtas no pool de threads,
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-No banco de dados do Azure para MySQL, os logs binários estão sempre habilitados (ou seja, `log_bin` é definido como ativado). Caso deseje usar gatilhos, você receberá um erro semelhante a *você não tem o privilégio de superprivilégios e o log binário habilitado (talvez você queira usar a variável menos segura `log_bin_trust_function_creators` )*. 
+No banco de dados do Azure para MySQL, os logs binários estão sempre habilitados (ou seja, `log_bin` é definido como ativado). Caso deseje usar gatilhos, você receberá um erro semelhante a *você não tem o privilégio de superprivilégios e o log binário habilitado (talvez você queira usar a variável menos segura `log_bin_trust_function_creators` )* . 
 
-O formato de log binário é sempre uma **linha** e todas as conexões com o servidor **sempre** usam o log binário baseado em linha. Com o log binário baseado em linha, os problemas de segurança não existem e o log binário não pode ser interrompido, portanto, você pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) como **true**.
+O formato de log binário é sempre uma **linha** e todas as conexões com o servidor **sempre** usam o log binário baseado em linha. Com o log binário baseado em linha, os problemas de segurança não existem e o log binário não pode ser interrompido, portanto, você pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) como **true** .
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -215,9 +215,9 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/ser
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Se você receber um erro semelhante a "tamanho de linha muito grande (> 8126)", talvez queira desativar o parâmetro **innodb_strict_mode**. O parâmetro do servidor **innodb_strict_mode** não pode ser modificado globalmente no nível do servidor porque se o tamanho dos dados da linha for maior que 8K, os dados serão truncados sem um erro que leva à perda potencial de dados. É recomendável modificar o esquema para se ajustar ao limite de tamanho de página. 
+Se você receber um erro semelhante a "tamanho de linha muito grande (> 8126)", talvez queira desativar o parâmetro **innodb_strict_mode** . O parâmetro do servidor **innodb_strict_mode** não pode ser modificado globalmente no nível do servidor porque se o tamanho dos dados da linha for maior que 8K, os dados serão truncados sem um erro que leva à perda potencial de dados. É recomendável modificar o esquema para se ajustar ao limite de tamanho de página. 
 
-Esse parâmetro pode ser definido em um nível de sessão usando `init_connect` . Para definir **innodb_strict_mode** no nível de sessão, consulte [parâmetro de configuração não listado](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+Esse parâmetro pode ser definido em um nível de sessão usando `init_connect` . Para definir **innodb_strict_mode** no nível de sessão, consulte [parâmetro de configuração não listado](./howto-server-parameters.md#setting-parameters-not-listed).
 
 > [!NOTE]
 > Se você tiver um servidor de réplica de leitura, definir **innodb_strict_mode** como desativado no nível de sessão em um servidor de origem interromperá a replicação. Sugerimos manter o parâmetro definido como OFF se você tiver réplicas de leitura.

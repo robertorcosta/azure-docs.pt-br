@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188150"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545932"
 ---
 # <a name="configure-apache-spark-settings"></a>Definir configurações do Apache Spark
 
@@ -23,13 +23,13 @@ O cluster padrão do HDInsight Apache Spark inclui os seguintes nós: três nós
 
 ![Arquitetura do HDInsight Spark](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-O número de VMs e os tamanhos de VM para os nós em seu cluster HDInsight podem afetar a configuração do Spark. Valores de configuração do HDInsight não padrão geralmente requerem valores de configuração do Spark não padrão. Quando você cria um cluster HDInsight Spark, são mostrados tamanhos de VM sugeridos para cada um dos componentes. Atualmente os [tamanhos de VM do Linux com otimização de memória](../../virtual-machines/linux/sizes-memory.md) do Azure são D12 v2 ou posterior.
+O número de VMs e os tamanhos de VM para os nós em seu cluster HDInsight podem afetar a configuração do Spark. Valores de configuração do HDInsight não padrão geralmente requerem valores de configuração do Spark não padrão. Quando você cria um cluster HDInsight Spark, são mostrados tamanhos de VM sugeridos para cada um dos componentes. Atualmente os [tamanhos de VM do Linux com otimização de memória](../../virtual-machines/sizes-memory.md) do Azure são D12 v2 ou posterior.
 
 ## <a name="apache-spark-versions"></a>Versões Apache Spark
 
 Use a versão recomendada do Spark para seu cluster.  O serviço HDInsight inclui várias versões do Spark e HDInsight em si.  Cada versão do Spark inclui um conjunto de configurações de cluster padrão.  
 
-Quando você cria um novo cluster, aqui estão as versões atuais do Spark para escolher. Para ver a lista completa,  [componentes e versões do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Quando você cria um novo cluster, aqui estão as versões atuais do Spark para escolher. Para ver a lista completa,  [componentes e versões do HDInsight](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > A versão padrão de Apache Spark para o serviço HDInsight pode ser alterada sem aviso prévio. Se você tem uma dependência de versão, a Microsoft recomenda que você especifique essa versão específica ao criar clusters usando o SDK do .NET, o Azure PowerShell e a CLI Clássica do Azure.
@@ -60,7 +60,7 @@ Verifique os parâmetros de configuração atuais do cluster HDInsight antes de 
 
 A interface do usuário da Web do Apache Ambari é exibida com um painel de métricas de uso de recursos de cluster de chave.  O painel do Ambari mostra a configuração de Apache Spark e outros serviços instalados. O painel inclui uma guia **histórico de configuração** , na qual você exibe informações sobre os serviços instalados, incluindo o Spark.
 
-Para ver os valores de configuração para o Apache Spark, selecione **Histórico de Configuração**, em seguida, selecione **Spark2**.  Selecione a guia **configurações** e, em seguida, selecione o link `Spark` (ou `Spark2`, dependendo de sua versão) na lista de serviços.  Você verá uma lista de valores de configuração para o cluster:
+Para ver os valores de configuração para o Apache Spark, selecione **Histórico de Configuração** , em seguida, selecione **Spark2** .  Selecione a guia **configurações** e, em seguida, selecione o link `Spark` (ou `Spark2`, dependendo de sua versão) na lista de serviços.  Você verá uma lista de valores de configuração para o cluster:
 
 ![Configurações Spark](./media/apache-spark-settings/spark-configurations.png)
 
@@ -75,7 +75,7 @@ Para ver e alterar valores de configuração individuais do Spark, selecione qua
 Se você criar um conjunto não padrão de valores de configuração, seu histórico de atualização será visível.  Esse histórico de configuração pode ser útil para ver qual configuração não-padrão tem um desempenho ideal.
 
 > [!NOTE]  
-> Para ver, mas não alterar, definições de configurações de cluster Spark comuns, selecione a guia **Ambiente** na interface superior **interface do usuário de trabalho Spark**.
+> Para ver, mas não alterar, definições de configurações de cluster Spark comuns, selecione a guia **Ambiente** na interface superior **interface do usuário de trabalho Spark** .
 
 ## <a name="configuring-spark-executors"></a>Configurando executores Spark
 

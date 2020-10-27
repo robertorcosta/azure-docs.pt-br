@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819703"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545337"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 
@@ -75,7 +75,8 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 | Arquivos do Azure | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
 | Sincronização de Arquivos do Azure | Sim | Sim |  |  |
 | Azure Managed Disks | Sim | Sim |  |  Se você estiver usando conjuntos de criptografia de disco para criptografar Managed Disks com chaves gerenciadas pelo cliente, deverá desabilitar e reabilitar as identidades atribuídas pelo sistema associadas aos conjuntos de criptografia de disco. E você deve recriar as atribuições de função, ou seja, conceder novamente as permissões necessárias para os conjuntos de criptografia de disco nos cofres de chaves. |
-| Serviços de contêiner do Azure para kubernetes | Sim | Sim |  |  |
+| Serviço de Kubernetes do Azure | Sim | Sim |  |  |
+| Azure Policy | Sim | Não | Todos os objetos de Azure Policy, incluindo definições personalizadas, atribuições, isenções e dados de conformidade. | Você deve [Exportar](../governance/policy/how-to/export-resources.md), importar e reatribuir definições. Em seguida, crie novas atribuições de política e quaisquer [isenções de política](../governance/policy/concepts/exemption-structure.md)necessárias. |
 | Azure Active Directory Domain Services | Sim | Não |  |  |
 | Registros de aplicativo | Sim | Sim |  |  |
 
@@ -108,9 +109,9 @@ Para concluir essas etapas, será necessário:
     az account set --subscription "Marketing"
     ```
 
-### <a name="install-the-resource-graph-extension"></a>Instalar a extensão Resource-Graph
+### <a name="install-the-azure-resource-graph-extension"></a>Instalar a extensão do grafo de recursos do Azure
 
- A extensão de grafo de recursos permite que você use o comando [AZ Graph](/cli/azure/ext/resource-graph/graph) para consultar recursos gerenciados pelo Azure Resource Manager. Você usará esse comando em etapas posteriores.
+ A extensão de CLI do Azure para o [grafo de recursos do Azure](../governance/resource-graph/index.yml), o *grafo de recursos* , permite que você use o comando [AZ Graph](/cli/azure/ext/resource-graph/graph) para consultar recursos gerenciados pelo Azure Resource Manager. Você usará esse comando em etapas posteriores.
 
 1. Use a [lista de extensões AZ](/cli/azure/extension#az_extension_list) para ver se você tem a extensão *Resource-Graph* instalada.
 

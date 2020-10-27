@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 1f062a8f358ac311b53e657fb5714583458bd9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62e2583f8a4d3872a1342f0f702a1913f733e7f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872575"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545456"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
 
@@ -24,13 +24,13 @@ Saiba como criar uma topologia [Apache Storm](https://storm.apache.org/) que usa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster**.
+* Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster** .
 
 * Um ambiente de desenvolvimento Storm local (opcional). Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 * [Python 2,7 ou superior](https://www.python.org/downloads/).
 
-* [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
 
@@ -114,7 +114,7 @@ Como mencionado anteriormente, há um `storm.py` arquivo que implementa a defini
     storm kill wordcount
     ```
 
-    Como alternativa, você pode usar a interface do usuário do Storm. Em **ações de topologia** para a topologia, selecione **Kill**.
+    Como alternativa, você pode usar a interface do usuário do Storm. Em **ações de topologia** para a topologia, selecione **Kill** .
 
 ## <a name="run-the-topology-locally"></a>Executar a topologia localmente
 
@@ -141,7 +141,7 @@ Uma vez que a topologia é iniciada, ela emite informações para o console loca
 24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 ```
 
-Para interromper a topologia, use __Ctrl+C__.
+Para interromper a topologia, use __Ctrl+C__ .
 
 ## <a name="next-steps"></a>Próximas etapas
 

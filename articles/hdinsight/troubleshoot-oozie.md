@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
-ms.openlocfilehash: fb795a9d7100019b2b1820c592f87025b77f5878
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f30c66839228e43f9a6fbdce9914f1ca1572c0ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045851"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538928"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Solucionar problemas do Apache Oozie no Azure HDInsight
 
@@ -30,7 +30,7 @@ Estes são os erros específicos que você pode chegar e como resolvê-los.
 
 ### <a name="issue"></a>Problema
 
-O status do trabalho é alterado para **SUSPENSO**. Os detalhes do trabalho mostram o status de `RunHiveScript` como **START_MANUAL**. Selecionar a ação exibirá a seguinte mensagem de erro:
+O status do trabalho é alterado para **SUSPENSO** . Os detalhes do trabalho mostram o status de `RunHiveScript` como **START_MANUAL** . Selecionar a ação exibirá a seguinte mensagem de erro:
 
 ```output
 JA009: Cannot initialize Cluster. Please check your configuration for map
@@ -50,7 +50,7 @@ Altere os endereços de armazenamento de blobs que o trabalho usa.
 
 ### <a name="issue"></a>Problema
 
-O status do trabalho é alterado para **SUSPENSO**. Os detalhes do trabalho mostram o status de `RunHiveScript` como **START_MANUAL**. Se você selecionar a ação, a seguinte mensagem de erro será exibida:
+O status do trabalho é alterado para **SUSPENSO** . Os detalhes do trabalho mostram o status de `RunHiveScript` como **START_MANUAL** . Se você selecionar a ação, a seguinte mensagem de erro será exibida:
 
 ```output
 JA002: User: oozie is not allowed to impersonate <USER>
@@ -77,7 +77,7 @@ sudo adduser USERNAME users
 
 ### <a name="issue"></a>Problema
 
-O status do trabalho é alterado para **ENCERRADO**. Os detalhes do trabalho mostram o status `RunSqoopExport` como **ERRO**. Se você selecionar a ação, a seguinte mensagem de erro será exibida:
+O status do trabalho é alterado para **ENCERRADO** . Os detalhes do trabalho mostram o status `RunSqoopExport` como **ERRO** . Se você selecionar a ação, a seguinte mensagem de erro será exibida:
 
 ```output
 Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
@@ -113,4 +113,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
