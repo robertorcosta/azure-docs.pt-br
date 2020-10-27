@@ -6,5 +6,5 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/22/2020
 ms.locfileid: "90530991"
 ---
-<Token>**APLICA-SE A:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics (Versão prévia) </Token> 
+<Token>**APLICA-SE A:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics (Versão prévia)</Token> 
 
