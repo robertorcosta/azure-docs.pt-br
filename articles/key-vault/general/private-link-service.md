@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d67d6301137a90d287148131fb4b1be7731e15bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07be83527fa781f87ed1de06fa41bd6d08ee9dc4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585824"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426583"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault ao Link Privado do Azure
 
@@ -51,7 +51,7 @@ Após configurar os conceitos básicos do cofre de chaves, selecione a guia Rede
 1. Selecione o botão de opção do Ponto de Extremidade Privado na guia Rede.
 1. Clique no botão “+ Adicionar” para adicionar um ponto de extremidade privado.
 
-    ![Imagem](../media/private-link-service-1.png)
+    ![Captura de tela que mostra a primeira tela ao criar um cofre de chaves.](../media/private-link-service-1.png)
  
 1. No campo “Localização” da Folha do Ponto de Extremidade Privado, selecione a região na qual sua rede virtual está localizada. 
 1. No campo “Nome”, crie um nome descritivo que permitirá identificar esse ponto de extremidade privado. 
@@ -59,7 +59,7 @@ Após configurar os conceitos básicos do cofre de chaves, selecione a guia Rede
 1. Deixe a opção "integrar-se ao DNS de zona privada" inalterada.  
 1. Selecione "Ok".
 
-    ![Imagem](../media/private-link-service-8.png)
+    ![Captura de tela que mostra os campos que são importantes para configurar um ponto de extremidade privado.](../media/private-link-service-8.png)
  
 Agora você poderá ver o ponto de extremidade privado configurado. Agora você tem a opção de excluir e editar esse ponto de extremidade privado. Selecione o botão “Examinar + Criar” e crie o cofre de chaves. Levará entre 5 e 10 minutos para a implantação ser concluída. 
 
@@ -74,12 +74,10 @@ Se você já tem um cofre de chaves, pode criar uma conexão de link privado seg
 1. Selecione a guia Conexões de ponto de extremidade privado na parte superior da página
 1. Selecione o botão “+ Ponto de Extremidade Privado” na parte superior da página.
 
-    ![Imagem](../media/private-link-service-3.png) ![Imagem](../media/private-link-service-4.png)
+    ![Captura de tela que mostra o botão + Ponto de Extremidade Privado.](../media/private-link-service-3.png)
+    ![Captura de tela que mostra como criar um ponto de extremidade privado.](../media/private-link-service-4.png)
 
 Você pode optar por criar um ponto de extremidade privado para qualquer recurso do Azure ao usar esta folha. Você pode usar os menus suspensos para selecionar um tipo de recurso e selecionar um recurso em seu diretório ou pode se conectar a qualquer recurso do Azure usando uma ID do recurso. Deixe a opção "integrar-se ao DNS de zona privada" inalterada.  
-
-![Image](../media/private-link-service-3.png)
-![Image](../media/private-link-service-4.png)
 
 ## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Estabelecer uma conexão de link privado com o Key Vault usando a CLI
 
@@ -272,13 +270,13 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 > [!NOTE]
 > O número de cofres de chaves com pontos de extremidade privados habilitados por assinatura é um limite ajustável. Esse limite mostrado abaixo é o limite padrão. Se você quiser solicitar um aumento de limite para o serviço, envie um email para akv-privatelink@microsoft.com. Aprovaremos essas solicitações dependendo do caso.
 
-**Preço**: Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
+**Preço** : Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações**:  O ponto de extremidade privado para o Azure Key Vault só está disponível nas regiões públicas do Azure.
+**Limitações** :  O ponto de extremidade privado para o Azure Key Vault só está disponível nas regiões públicas do Azure.
 
-**Número máximo de Pontos de Extremidade Privados por Key Vault**: 64.
+**Número máximo de Pontos de Extremidade Privados por Key Vault** : 64.
 
-**Número padrão de Key Vaults com Pontos de Extremidade Privados por Assinatura**: 400.
+**Número padrão de Key Vaults com Pontos de Extremidade Privados por Assinatura** : 400.
 
 Para saber mais, confira [Serviço de Link Privado do Azure: Limitações](../../private-link/private-link-service-overview.md#limitations)
 

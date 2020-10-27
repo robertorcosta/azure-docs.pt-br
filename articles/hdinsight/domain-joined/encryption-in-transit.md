@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85382ecd627ec8afc63a85de0debd98f94a89849
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89668781"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544878"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Criptografia IPSec em trânsito para o Azure HDInsight
 
@@ -21,13 +21,13 @@ Este artigo aborda a implementação de criptografia em trânsito para a comunic
 > [!Note]
 > Atualmente, a criptografia em trânsito está habilitada para as seguintes regiões: leste dos EUA, Sul EUA Central, oeste dos EUA 2. 
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 O Azure HDInsight oferece uma variedade de recursos de segurança para proteger seus dados corporativos. Essas soluções são agrupadas sob os pilares de segurança, autenticação, autorização, auditoria, criptografia e conformidade do perímetro. A criptografia pode ser aplicada a dados em repouso e em trânsito.
 
 A criptografia em repouso é coberta pela criptografia do servidor nas contas de armazenamento do Azure, bem como pela criptografia de disco nas VMs do Azure que fazem parte de seu cluster HDInsight.
 
-A criptografia de dados em trânsito no HDInsight é obtida com o protocolo [TLS](https://docs.microsoft.com/azure/hdinsight/transport-layer-security) para accssing os gateways de cluster e o [IPSec (Internet Protocol Security)](https://en.wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente habilitado entre todos os nós de cabeçalho, nós de trabalho, nós de borda e nós de Zookeeper. Ele não está habilitado para tráfego entre nós de [agente de ID](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker) ou de gateway, que são VMs baseadas em Windows e outros nós baseados em Linux no cluster.
+A criptografia de dados em trânsito no HDInsight é obtida com o protocolo [TLS](../transport-layer-security.md) para accssing os gateways de cluster e o [IPSec (Internet Protocol Security)](https://en.wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente habilitado entre todos os nós de cabeçalho, nós de trabalho, nós de borda e nós de Zookeeper. Ele não está habilitado para tráfego entre nós de [agente de ID](./identity-broker.md) ou de gateway, que são VMs baseadas em Windows e outros nós baseados em Linux no cluster.
 
 ## <a name="enable-encryption-in-transit"></a>Habilitar criptografia em trânsito
 

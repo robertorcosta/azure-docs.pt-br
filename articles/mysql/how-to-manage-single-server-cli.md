@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: c3a3fae9150b6805e9bb1533f2bb585d8845b253
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f0b059a25cd9fc77a59dc0a78feb18c2c549057
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933741"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546850"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Gerenciar um servidor único do banco de dados do Azure para MySQL usando o CLI do Azure
 
@@ -20,13 +20,13 @@ Este artigo mostra como gerenciar seus servidores únicos implantados no Azure. 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar. Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará fazer logon em sua conta usando o comando [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
+Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id** , que se refere à **ID da Assinatura** para sua conta do Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -35,7 +35,7 @@ az account set --subscription <subscription id>
 Se você ainda não criou um servidor, consulte este guia de [início rápido](quickstart-create-mysql-server-database-using-azure-cli.md) para criar um.
 
 ## <a name="scale-compute-and-storage"></a>Dimensionar a computação e o armazenamento
-Você pode escalar verticalmente seu tipo de preço, computação e armazenamento facilmente usando o comando a seguir. Você pode ver toda a operação do servidor que pode executar [AZ MySQL Server Overview](/cli/azure/mysql/server?view=azure-cli-latest)
+Você pode escalar verticalmente seu tipo de preço, computação e armazenamento facilmente usando o comando a seguir. Você pode ver toda a operação do servidor que pode executar [AZ MySQL Server Overview](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az mysql server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144

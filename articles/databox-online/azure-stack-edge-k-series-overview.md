@@ -38,7 +38,7 @@ O Azure Stack Edge Mini R tem as seguintes funcionalidades:
 |Modo desconectado|  Opcionalmente, o dispositivo e o serviço podem ser gerenciados por meio do Azure Stack Hub. Implante, execute e gerencie aplicativos no modo offline. <br> O modo desconectado é compatível com cenários de upload offline.|
 |Protocolos de transferência de arquivo com suporte      |Dá suporte aos protocolos SMB, NFS e REST padrão para ingestão de dados. <br> Para obter mais informações sobre as versões com suporte, acesse [Requisitos do sistema do Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).|
 |Atualização dedados     | Capacidade de atualizar arquivos locais com a versão mais recente da nuvem.|
-|Criptografia dupla    | O uso da unidade de criptografia automática fornece a primeira camada de criptografia. A VPN fornece a segunda camada de criptografia. Suporte ao BitLocker para criptografar dados localmente e proteger a transferência de dados para a nuvem por meio do *https*.|
+|Criptografia dupla    | O uso da unidade de criptografia automática fornece a primeira camada de criptografia. A VPN fornece a segunda camada de criptografia. Suporte ao BitLocker para criptografar dados localmente e proteger a transferência de dados para a nuvem por meio do *https* .|
 |Limitação de largura de banda| Limitação para restringir o uso de largura de banda durante horários de pico.|
 
 ## <a name="use-cases"></a>Casos de uso

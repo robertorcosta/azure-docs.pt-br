@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f1e1518cce060374f14f1db7d5f4e594e3de8f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe9ccc50d6196997863fbf228fbb76913a0d0330
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086255"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534372"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Suporte para software livre no Azure HDInsight
 
@@ -40,7 +40,7 @@ Como usuário do cluster, você pode instalar ou usar em sua carga de trabalho q
 > [!WARNING]  
 > Componentes fornecidos com o cluster HDInsight contam com suporte total. O Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercial razoável para ajudar você a solucionar o problema. O Suporte da Microsoft pode conseguir resolver o problema. Ou eles podem solicitar que você busque nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Muitos sites de comunidades podem ser usados. Os exemplos são a [Página de Perguntas e respostas da Microsoft para o HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) e [Stack Overflow](https://stackoverflow.com).
+> Componentes personalizados recebem suporte comercial razoável para ajudar você a solucionar o problema. O Suporte da Microsoft pode conseguir resolver o problema. Ou eles podem solicitar que você busque nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Muitos sites de comunidades podem ser usados. Os exemplos são a [Página de Perguntas e respostas da Microsoft para o HDInsight](/answers/topics/azure-hdinsight.html) e [Stack Overflow](https://stackoverflow.com).
 >
 > Os projetos do Apache têm sites de projeto no [site do Apache](https://apache.org). Um exemplo é o [Hadoop](https://hadoop.apache.org/).
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5f5a9fb8ddd25f750b19044bac7253bbff2f98
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006595"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545201"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o PowerShell
 
@@ -25,7 +25,7 @@ Esse documento fornece um exemplo de uso do PowerShell do Azure para executar um
 
 * Um cluster do Apache Hadoop no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* O [Módulo Az](https://docs.microsoft.com/powershell/azure/) do PowerShell instalado.
+* O [Módulo Az](/powershell/azure/) do PowerShell instalado.
 
 ## <a name="run-a-mapreduce-job"></a>Executar um trabalho MapReduce
 
@@ -36,14 +36,14 @@ Os cmdlets a seguir são usados ao executar trabalhos MapReduce em um cluster HD
 |Cmdlet | Descrição |
 |---|---|
 |Connect-AzAccount|Autentica o Azure PowerShell para a assinatura do Azure.|
-|New-AzHDInsightMapReduceJobDefinition|Cria uma nova*definição de trabalho*, usando as informações do MapReduce especificadas.|
+|New-AzHDInsightMapReduceJobDefinition|Cria uma nova *definição de trabalho* , usando as informações do MapReduce especificadas.|
 |Start-AzHDInsightJob|Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.|
 |Wait-AzHDInsightJob|Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.|
 |Get-AzHDInsightJobOutput|Usado para recuperar a saída do trabalho.|
 
 As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho no seu cluster HDInsight.
 
-1. Usando um editor, salve o código a seguir como **mapreducejob.ps1**.
+1. Usando um editor, salve o código a seguir como **mapreducejob.ps1** .
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 

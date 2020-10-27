@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996661"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534134"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar Oracle Golden Gate em uma VM Linux do Azure 
 
@@ -24,7 +24,7 @@ Antes de começar, certifique-se de que a CLI do Azure foi instalada. Para obter
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 
-Para executar a instalação do Oracle Golden Gate, você precisa criar duas VMs do Azure no mesmo conjunto de disponibilidade. A imagem do Marketplace usada para criar as VMs é **Oracle:Oracle-Database-Ee:12.1.0.2:latest**.
+Para executar a instalação do Oracle Golden Gate, você precisa criar duas VMs do Azure no mesmo conjunto de disponibilidade. A imagem do Marketplace usada para criar as VMs é **Oracle:Oracle-Database-Ee:12.1.0.2:latest** .
 
 Você também precisa estar familiarizado com Unix editor vi e ter um entendimento básico de x11 (X Windows).
 
@@ -347,7 +347,7 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Baixar o software de Golden Gate
 Para baixar e preparar o software de Oracle Golden Gate, conclua as seguintes etapas:
 
-1. Baixe o arquivo **fbo_ggs_Linux_x64_shiphome.zip** da [página de download do Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Sob o título do download **12.x.x.x do Oracle GoldenGate para Oracle Linux x86-64**, deve haver um conjunto de arquivos. zip para download.
+1. Baixe o arquivo **fbo_ggs_Linux_x64_shiphome.zip** da [página de download do Oracle Golden Gate](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Sob o título do download **12.x.x.x do Oracle GoldenGate para Oracle Linux x86-64** , deve haver um conjunto de arquivos. zip para download.
 
 2. Depois de baixar os arquivos .zip para o computador cliente, você poderá usar o protocolo SCP para copiar os arquivos na sua VM:
 
@@ -355,7 +355,7 @@ Para baixar e preparar o software de Oracle Golden Gate, conclua as seguintes et
    $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
    ```
 
-3. Mova os arquivos .zip para a pasta **/opt**. Em seguida, altere o proprietário dos arquivos da seguinte maneira:
+3. Mova os arquivos .zip para a pasta **/opt** . Em seguida, altere o proprietário dos arquivos da seguinte maneira:
 
    ```bash
    $ sudo su -
@@ -388,10 +388,10 @@ Esta é uma etapa opcional. Essa é uma etapa opcional, você pode ignorá-la se
 
 3. No Gerador de Chave PuTTY:
 
-   - Para gerar uma chave, selecione o botão **Gerar**.
-   - Copie o conteúdo da chave (**Ctrl+C**).
-   - Selecione o botão **Salvar chave privada**.
-   - Ignore o aviso que aparece e selecione **OK**.
+   - Para gerar uma chave, selecione o botão **Gerar** .
+   - Copie o conteúdo da chave ( **Ctrl+C** ).
+   - Selecione o botão **Salvar chave privada** .
+   - Ignore o aviso que aparece e selecione **OK** .
 
    ![Captura de tela da página do gerador de chave PuTTY](./media/oracle-golden-gate/puttykeygen.png)
 
@@ -403,21 +403,21 @@ Esta é uma etapa opcional. Essa é uma etapa opcional, você pode ignorá-la se
    $ cd .ssh
    ```
 
-5. Crie um arquivo chamado **authorized_keys**. Cole o conteúdo da chave nesse arquivo e salve-o.
+5. Crie um arquivo chamado **authorized_keys** . Cole o conteúdo da chave nesse arquivo e salve-o.
 
    > [!NOTE]
    > A chave deve conter a cadeia de caracteres `ssh-rsa`. Além disso, o conteúdo da chave deve ser uma única linha de texto.
    >  
 
-6. Inicie o PuTTY. No painel **categoria** , selecione **conexão**  >  **SSH**  >  **autenticação**. Na caixa **arquivo de chave privada para autenticação** , navegue até a chave que você gerou anteriormente.
+6. Inicie o PuTTY. No painel **categoria** , selecione **conexão**  >  **SSH**  >  **autenticação** . Na caixa **arquivo de chave privada para autenticação** , navegue até a chave que você gerou anteriormente.
 
    ![Captura de tela da página Instalar chave privada](./media/oracle-golden-gate/setprivatekey.png)
 
-7. No painel **Categoria**, selecione **Conexão** > **SSH** > **X11**. Em seguida, selecione a caixa **Habilitar encaminhamento X11**.
+7. No painel **Categoria** , selecione **Conexão** > **SSH** > **X11** . Em seguida, selecione a caixa **Habilitar encaminhamento X11** .
 
    ![Captura de tela da página Habilitar X11](./media/oracle-golden-gate/enablex11.png)
 
-8. No painel **Categoria**, vá para **Sessão**. Insira as informações do host e selecione **Abrir**.
+8. No painel **Categoria** , vá para **Sessão** . Insira as informações do host e selecione **Abrir** .
 
    ![Captura de tela da página de sessão](./media/oracle-golden-gate/puttysession.png)
 
@@ -442,19 +442,19 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
 
 4. Altere o diretório de inventário e, em seguida, selecione **Avançar** para continuar.
 
-   ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Captura de tela da página Selecionar instalação que mostra o diretório de instalação.](./media/oracle-golden-gate/golden_gate_install_03.png)
 
-5. Na tela de **Resumo**, selecione **Instalar** para continuar.
+5. Na tela de **Resumo** , selecione **Instalar** para continuar.
 
-   ![Captura de tela da página Selecionar Instalação do instalador](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Captura de tela que mostra a página Selecionar instalação e o botão instalar.](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. Pode ser solicitado que você execute um script como 'root'. Nesse caso, abra uma sessão separada, ssh para a VM, sudo para a raiz e, em seguida, execute o script. Selecione **OK** para continuar.
 
-   ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Captura de tela que mostra o local do script e como executar o script de configuração.](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. Quando a instalação for concluída, selecione **Fechar** para concluir o processo.
 
-   ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Captura de tela da página Selecionar instalação que mostra o botão fechar.](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Configuração de serviço no myVM1 (primário)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 593d6861ee5913fffb25bfdea4829e1b1ce6ddc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5128ac7608dfce08471f7a7f97ed28a7971e62b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087394"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534440"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analise logs do Apache Kafka no HDInsight
 
@@ -50,7 +50,7 @@ As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesma
 
 1. No [portal do Azure](https://portal.azure.com), selecione seu espaço de trabalho do log Analytics.
 
-2. No menu à esquerda, em **geral**, selecione **logs**. A partir desse ponto, é possível pesquisar os dados coletados do Kafka. Insira uma consulta na janela de consulta e, em seguida, selecione **executar**. Veja a seguir alguns exemplos de pesquisas:
+2. No menu à esquerda, em **geral** , selecione **logs** . A partir desse ponto, é possível pesquisar os dados coletados do Kafka. Insira uma consulta na janela de consulta e, em seguida, selecione **executar** . Veja a seguir alguns exemplos de pesquisas:
 
 * Uso do disco:
 
@@ -104,7 +104,7 @@ As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesma
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre Azure Monitor, consulte [Azure monitor visão geral](../../log-analytics/log-analytics-get-started.md)e [consultar logs de Azure monitor para monitorar clusters HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
+Para obter mais informações sobre Azure Monitor, consulte [Azure monitor visão geral](../../azure-monitor/overview.md)e [consultar logs de Azure monitor para monitorar clusters HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 
 Para saber mais sobre como trabalhar com o Apache Kafka, confira os seguintes documentos:
 

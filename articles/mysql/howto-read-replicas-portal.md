@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 6b097aa0adb39e1576e8771bbae8707348351a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63ce078cc80b856fe09f3d2bbad1c6e96615eae8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740115"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546799"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -35,9 +35,9 @@ Um servidor de réplica de leitura pode ser criado usando as seguintes etapas:
 
 2. Selecione o banco de dados existente do Azure para servidor MySQL que você deseja usar como um mestre. Essa ação abre a página **Visão geral** do runbook.
 
-3. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
+3. Selecione **Replicação** no menu, em **CONFIGURAÇÕES** .
 
-4. Selecione **para adicionar réplica**.
+4. Selecione **para adicionar réplica** .
 
    :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Banco de Dados do Azure para MySQL - Replicação":::
 
@@ -55,9 +55,9 @@ Um servidor de réplica de leitura pode ser criado usando as seguintes etapas:
 7. Selecione **OK** para confirmar a criação da réplica.
 
 > [!NOTE]
-> Réplicas de leitura são criadas com a mesma configuração de servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de criada. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma assinatura que o servidor de origem. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, poderá [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação. É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores do que a origem para garantir que a réplica seja capaz de acompanhar o mestre.
+> Réplicas de leitura são criadas com a mesma configuração de servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de criada. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma assinatura que o servidor de origem. Se você quiser criar um servidor de réplica para um grupo de recursos diferente ou uma assinatura diferente, poderá [mover o servidor de réplica](../azure-resource-manager/management/move-resource-group-and-subscription.md) após a criação. É recomendável que a configuração do servidor de réplica seja mantida em valores iguais ou maiores do que a origem para garantir que a réplica seja capaz de acompanhar o mestre.
 
-Depois que o servidor de réplica tiver sido criado, ele poderá ser visualizado no blade **Replication**.
+Depois que o servidor de réplica tiver sido criado, ele poderá ser visualizado no blade **Replication** .
 
    :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Banco de Dados do Azure para MySQL - Replicação":::
 
@@ -70,17 +70,17 @@ Para interromper a replicação entre um servidor de origem e de réplica do por
 
 1. Na portal do Azure, selecione seu banco de dados do Azure de origem para o servidor MySQL. 
 
-2. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
+2. Selecione **Replicação** no menu, em **CONFIGURAÇÕES** .
 
 3. Selecione o servidor de réplica para o qual você deseja interromper a replicação.
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Banco de Dados do Azure para MySQL - Replicação":::
 
-4. Selecione **Parar replicação**.
+4. Selecione **Parar replicação** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Banco de Dados do Azure para MySQL - Replicação":::
 
-5. Confirme que você deseja interromper a replicação clicando em **OK**.
+5. Confirme que você deseja interromper a replicação clicando em **OK** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Banco de Dados do Azure para MySQL - Replicação":::
 
@@ -90,7 +90,7 @@ Para excluir um servidor de réplica de leitura do portal do Azure, use as segui
 
 1. Na portal do Azure, selecione seu banco de dados do Azure de origem para o servidor MySQL.
 
-2. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
+2. Selecione **Replicação** no menu, em **CONFIGURAÇÕES** .
 
 3. Selecione o servidor de réplica que você deseja excluir.
 
@@ -113,7 +113,7 @@ Para excluir um servidor de origem do portal do Azure, use as seguintes etapas:
 
 1. Na portal do Azure, selecione seu banco de dados do Azure de origem para o servidor MySQL.
 
-2. Na **Visão geral**, selecione **Excluir**.
+2. Na **Visão geral** , selecione **Excluir** .
 
    :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Banco de Dados do Azure para MySQL - Replicação":::
 
@@ -125,7 +125,7 @@ Para excluir um servidor de origem do portal do Azure, use as seguintes etapas:
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione a réplica do Banco de Dados do Azure para o servidor MySQL que você deseja monitorar.
 
-2. Na seção **Monitoramento** da barra lateral, selecione **Métricas**:
+2. Na seção **Monitoramento** da barra lateral, selecione **Métricas** :
 
 3. Selecione o **atraso de replicação em segundos** na lista suspensa de métricas disponíveis.
 

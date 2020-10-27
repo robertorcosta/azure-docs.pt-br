@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5c0694f9ef16de9c69d424b5005ca0d5a277a77f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdd43a017e584a07d61d41e1af06d30db2f30ac7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505022"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542770"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix no HDInsight
 
@@ -52,7 +52,7 @@ Depois de excluir o cluster, você pode deixar os dados no local ou copiar os da
 
 * Crie uma nova instância do HDInsight apontando para o local de armazenamento atual. A nova instância é criada com todos os dados existentes.
 
-* Copie a pasta `hbase` para um contêiner de blob de Armazenamento do Azure diferente ou local do Data Lake Storage e, em seguida, inicie um novo cluster com esses dados. Para o Armazenamento do Azure, use [AzCopy](../../storage/common/storage-use-azcopy.md), e para o Data Lake Storage, use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copie a pasta `hbase` para um contêiner de blob de Armazenamento do Azure diferente ou local do Data Lake Storage e, em seguida, inicie um novo cluster com esses dados. Para o Armazenamento do Azure, use [AzCopy](../../storage/common/storage-use-azcopy-v10.md), e para o Data Lake Storage, use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Exportar e importar
 
@@ -173,7 +173,7 @@ Em nosso exemplo:
 
 ## <a name="snapshots"></a>Instantâneos
 
-Os [instantâneos](https://hbase.apache.org/book.html#ops.snapshots) permitem que você faça um backup pontual dos dados em seu armazenamento do HBase. Instantâneos têm sobrecarga mínima e conclusão dentro de segundos, porque uma operação de instantâneo é efetivamente uma operação de metadados capturando os nomes de todos os arquivos no armazenamento nesse momento. No momento de um instantâneo, nenhum dado real é copiado. Instantâneos dependem da natureza imutável dos dados armazenados em HDFS, onde as atualizações, inserções e exclusões são todas representadas como novos dados. Você pode restaurar (*clonar*) um instantâneo no mesmo cluster ou exportar um instantâneo para outro cluster.
+Os [instantâneos](https://hbase.apache.org/book.html#ops.snapshots) permitem que você faça um backup pontual dos dados em seu armazenamento do HBase. Instantâneos têm sobrecarga mínima e conclusão dentro de segundos, porque uma operação de instantâneo é efetivamente uma operação de metadados capturando os nomes de todos os arquivos no armazenamento nesse momento. No momento de um instantâneo, nenhum dado real é copiado. Instantâneos dependem da natureza imutável dos dados armazenados em HDFS, onde as atualizações, inserções e exclusões são todas representadas como novos dados. Você pode restaurar ( *clonar* ) um instantâneo no mesmo cluster ou exportar um instantâneo para outro cluster.
 
 Para criar um instantâneo, execute o SSH no nó principal do seu cluster do HBase no HDInsight e inicie o shell `hbase`:
 
@@ -245,4 +245,4 @@ Para habilitar a replicação no HDInsight, aplique uma Ação de Script ao seu 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Configure a replicação do Apache HBase](apache-hbase-replication.md)
-* [Trabalhando com o utilitário de importação e exportação do HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Trabalhando com o utilitário de importação e exportação do HBase](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

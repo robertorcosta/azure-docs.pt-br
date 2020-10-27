@@ -33,7 +33,7 @@ Os exemplos neste artigo usam estes Serviços Cognitivos:
 1. Depois de criar um notebook no Azure Databricks, copie o **Código compartilhado** abaixo e cole-o em uma nova célula no seu notebook.
 1. Escolha um exemplo de serviço abaixo e copie cole-o em uma segunda nova célula do notebook.
 1. Substitua qualquer um dos espaços reservados da chave de assinatura de serviço pela sua chave.
-1. Escolha o botão Executar (ícone de triângulo) no canto superior direito da célula e selecione **Célula de Execução**.
+1. Escolha o botão Executar (ícone de triângulo) no canto superior direito da célula e selecione **Célula de Execução** .
 1. Exibir resultados em uma tabela abaixo da célula.
 
 ## <a name="shared-code"></a>Código compartilhado

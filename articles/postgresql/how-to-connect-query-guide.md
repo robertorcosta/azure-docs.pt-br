@@ -1,18 +1,18 @@
 ---
 title: Conectar e consultar um PostgreSQL de servidor único
-description: Links para os guias de início rápido do banco de dados SQL do Azure mostrando como se conectar ao servidor e executar consultas.
+description: Links para guias de início rápido que mostram como se conectar ao banco de dados do Azure para PostgreSQL servidor único e executar consultas.
 services: postgresql
 ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490009"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546544"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Visão geral de conexão e consulta do banco de dados do Azure para PostgreSQL-servidor único
 
@@ -33,13 +33,12 @@ O documento a seguir inclui links para exemplos que mostram como se conectar e c
 |[Python](connect-python.md)|Este guia de início rápido demonstra como usar o Python para conectar-se a um banco de dados e usar o trabalho com objetos de banco para consulta. |
 |[Ruby](connect-ruby.md)|Este guia de início rápido demonstra como usar o Ruby para criar um programa a fim de se conectar a um banco de dados e usar o trabalho com objetos de banco de dados do para consultar o|
 
-
 ## <a name="tls-considerations-for-database-connectivity"></a>Considerações sobre o TLS para a conectividade de banco de dados
 
-O protocolo TLS é usado por todos os drivers que a Microsoft fornece ou dá suporte para conectar-se a bancos de dados no Azure Database para PostgreSQL. Nenhuma configuração especial é necessária, mas impor o TLS 1,2 para servidores recém-criados. Recomendamos se você estiver usando o TLS 1,0 e 1,1 e atualizar a versão do TLS para seus servidores. Consulte [ como configurar o TLS](howto-tls-configurations.md)
-
+O protocolo TLS é usado por todos os drivers que a Microsoft fornece ou dá suporte para conectar-se a bancos de dados no Azure Database para PostgreSQL. Nenhuma configuração especial é necessária, mas impor o TLS 1,2 para servidores recém-criados. Recomendamos se você estiver usando o TLS 1,0 e 1,1 e atualizar a versão do TLS para seus servidores. Consulte [como configurar o TLS](howto-tls-configurations.md)
 
 ## <a name="postgresql-extensions"></a>Extensões do PostgreSQL
+
 O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões agrupam vários objetos SQL em um pacote que pode ser carregado ou removido do seu banco de dados com um comando. Depois de carregadas no banco de dados, as extensões funcionam como recursos internos.
 
 - [Extensões do postgres 11](./concepts-extensions.md#postgres-11-extensions)
@@ -49,7 +48,7 @@ O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de d
 
 Para obter mais detalhes, consulte [como usar as extensões do PostgreSQL em um único servidor](concepts-extensions.md).
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximas etapas
 
 - [Migrar dados usando despejo e restauração](howto-migrate-using-dump-and-restore.md)
 - [Migrar dados usando importação e exportação](howto-migrate-using-export-and-import.md)

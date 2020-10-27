@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6de9e31c3e79f6d704ef8b4749d41329dcc0bddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2af536b2b6c6a4b220a877337ade9a74ad75bb8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82190666"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534984"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solucione problemas de HDFS do Apache Hadoop usando o Azure HDInsight
 
@@ -115,8 +115,8 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 Você também pode aumentar o valor de `fs.azure.write.request.size` globalmente usando o Apache Ambari. As etapas a seguir podem ser usadas para alterar o valor na interface de usuário do Ambari Web:
 
 1. No navegador, acesse a interface de usuário do Ambari Web para seu cluster. A URL é `https://CLUSTERNAME.azurehdinsight.net` , em que `CLUSTERNAME` é o nome do cluster. Quando solicitado, insira o nome de administrador e a senha de administrador para o cluster.
-2. No lado esquerdo da tela, escolha **HDFS** e selecione a guia **Configurações**.
-3. No campo **Filtrar...**, insira `fs.azure.write.request.size`.
+2. No lado esquerdo da tela, escolha **HDFS** e selecione a guia **Configurações** .
+3. No campo **Filtrar...** , insira `fs.azure.write.request.size`.
 4. Altere o valor de 262144 (256 KB) para o novo valor. Por exemplo, 4194304 (4 MB).
 
     ![Imagem de alteração de valor por meio da interface de usuário do Ambari Web](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
@@ -155,4 +155,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Como se conectar à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

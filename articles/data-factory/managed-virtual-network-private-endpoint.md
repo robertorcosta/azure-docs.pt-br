@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d0d7f3ecb9ddb8a52c8ddda8a076e32283ae16
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563991"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545711"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -94,6 +94,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - Leste dos EUA
 - Leste dos EUA 2
 - Centro-Oeste dos EUA
+- Oeste dos EUA
 - Oeste dos EUA 2
 - Centro-Sul dos Estados Unidos
 - Centro dos EUA
@@ -102,6 +103,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - Sul do Reino Unido
 - Sudeste Asiático
 - Leste da Austrália
+- Sudeste da Austrália
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída por meio do ponto de extremidade público da rede virtual gerenciada por ADF
 - Somente a porta 443 é aberta para comunicações de saída.

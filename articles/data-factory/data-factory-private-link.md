@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328557"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546663"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Link privado do Azure para Azure Data Factory
 
@@ -53,10 +53,10 @@ As comunicações para Azure Data Factory serviço passam pelo link privado e aj
 ![Diagrama de link privado para a arquitetura de Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
 Habilitar o serviço de vínculo privado para cada um dos canais de comunicação anteriores oferece a seguinte funcionalidade:
-- **Com suporte**:
+- **Com suporte** :
    - Você pode criar e monitorar o data factory em sua rede virtual, mesmo se você bloquear todas as comunicações de saída.
    - As comunicações de comando entre o tempo de execução de integração auto-hospedado e o serviço de Azure Data Factory podem ser executadas com segurança em um ambiente de rede privada. O tráfego entre o tempo de execução de integração auto-hospedado e o serviço de Azure Data Factory passa por um link privado. 
-- **Não tem suporte no momento**:
+- **Não tem suporte no momento** :
    - A criação interativa que usa um tempo de execução de integração auto-hospedado, como conexão de teste, lista de pastas de pesquisa e lista de tabelas, obter esquema e Visualizar dados, passa por um link privado.
    - A nova versão do tempo de execução de integração auto-hospedado pode ser baixada automaticamente do centro de download da Microsoft se você habilitar a atualização automática.
 
@@ -67,7 +67,7 @@ Habilitar o serviço de vínculo privado para cada um dos canais de comunicaçã
 > Ao criar um serviço vinculado, verifique se suas credenciais estão armazenadas em um cofre de chaves do Azure. Caso contrário, as credenciais não funcionarão quando você habilitar o link privado no Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para Azure Data Factory
-Você pode criar pontos de extremidade privados usando [o portal do Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), o PowerShell ou o CLI do Azure.
+Você pode criar pontos de extremidade privados usando [o portal do Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
 
 Você também pode ir para sua data factory do Azure no portal do Azure e criar um ponto de extremidade privado, como mostrado aqui:
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c112896e78c07fafa2d714b0533db1f58dd57ffd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361629"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535596"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Usar a reinicialização de VM da infraestrutura do Azure para atingir "maior disponibilidade" de um sistema SAP
 
@@ -228,7 +228,7 @@ Os discos gerenciados do Azure são colocados automaticamente no domínio de fal
 
 Uma arquitetura de exemplo de um sistema SAP NetWeaver que usa alta disponibilidade de infraestrutura e contas de armazenamento do Azure pode ter esta aparência:
 
-![Usar a alta disponibilidade da infraestrutura do Azure para atingir "alta disponibilidade" do aplicativo SAP][planning-guide-figure-2900]
+![Diagrama que mostra a arquitetura de um sistema SAP NetWeaver que usa alta disponibilidade e contas de armazenamento da infraestrutura do Azure.][planning-guide-figure-2900]
 
 Uma arquitetura de exemplo de um sistema SAP NetWeaver que usa alta disponibilidade de infraestrutura e discos gerenciados pode ter esta aparência:
 

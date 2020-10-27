@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754949"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547581"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conectar-se ao Apache beeline no HDInsight ou instalá-lo localmente
 
@@ -104,7 +104,7 @@ Ao conectar diretamente do nó principal do cluster ou de um recurso dentro da m
 
 ## <a name="install-beeline-client"></a>Instalar o cliente beeline
 
-Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira instalá-lo localmente.  As etapas de instalação para um computador local são baseadas em um [subsistema do Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira instalá-lo localmente.  As etapas de instalação para um computador local são baseadas em um [subsistema do Windows para Linux](/windows/wsl/install-win10).
 
 1. Atualizar listas de pacotes. Digite o seguinte comando em seu shell bash:
 
@@ -128,7 +128,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Em seguida, pressione **Ctrl + X**, em seguida, **Y**e, em seguida, Enter.
+        Em seguida, pressione **Ctrl + X** , em seguida, **Y** e, em seguida, Enter.
 
 1. Baixe os arquivos mortos Hadoop e beeline, insira os seguintes comandos:
 
@@ -144,7 +144,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Modifique ainda mais o arquivo bashrc. Você precisará identificar o caminho para onde os arquivos mortos foram desempacotados. Se você estiver usando o [subsistema do Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10)e seguiu as etapas exatamente, o caminho será `/mnt/c/Users/user/` , onde `user` é seu nome de usuário.
+1. Modifique ainda mais o arquivo bashrc. Você precisará identificar o caminho para onde os arquivos mortos foram desempacotados. Se você estiver usando o [subsistema do Windows para Linux](/windows/wsl/install-win10)e seguiu as etapas exatamente, o caminho será `/mnt/c/Users/user/` , onde `user` é seu nome de usuário.
 
     1. Abra o arquivo: `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Em seguida, pressione **Ctrl + X**, em seguida, **Y**e, em seguida, Enter.
+    1. Em seguida, pressione **Ctrl + X** , em seguida, **Y** e, em seguida, Enter.
 
 1. Feche e reabra a sessão de bash.
 

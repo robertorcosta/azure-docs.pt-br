@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 09/23/2020
-ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91315075"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370569"
 ---
 # <a name="changelog"></a>Log de alteração
 
@@ -97,7 +97,7 @@ Retornar erros KeyDelivery significativos para chamar aplicativos
 
 ### <a name="features-231"></a>Recursos da versão 2.3.1
 
-- Sinalizar um evento quando caixas de EMSG são recebidas na reprodução de DASH – Adicionado suporte para mostrar as faixas de áudio do EC-3 no menu de áudio em navegadores que dão suporte a EC-3 e permitem alternar a faixa de áudio do AAC para o EC3 e vice-versa, somente no navegador do Edge baseado em Chromimum
+- Sinalizar um evento quando caixas de EMSG são recebidas na reprodução de DASH – Adicionado suporte para mostrar as faixas de áudio do EC-3 no menu de áudio em navegadores que dão suporte a EC-3 e permitem alternar a faixa de áudio do AAC para o EC3 e vice-versa, somente no navegador do Microsoft Edge baseado em Chromimum
 
 ### <a name="bug-fixes-231"></a>Correções de bugs da versão 2.3.1
 
@@ -105,7 +105,7 @@ Retornar erros KeyDelivery significativos para chamar aplicativos
 - A hora atual pode ser maior do que a duração do vídeo
 - Definir a velocidade de reprodução via initialSpeed não funciona
 - Às vezes, após uma busca, o player parece travado
-- No Edge e no IE em uma tela touch, depois de ampliar uma página, pressionar ou passar o mouse sobre a barra de pesquisa não obtém o segmento correto do vídeo de maneira precisa
+- No Microsoft Edge e no IE em uma tela touch, depois de ampliar uma página, pressionar ou passar o mouse sobre a barra de pesquisa não obtém o segmento correto do vídeo de maneira precisa
 - [Acessibilidade] O rótulo do Aria para Executar/Pausar não é descritivo para o erro do player de vídeo Mapear segmento dinâmico não encontrado para o flashSS para o erro do amp correto
 - [Acessibilidade] As funções do Aria usadas para Reproduzir/Pausar devem estar em conformidade com os valores válidos (.vjs-text-track-display)
 - [Acessibilidade] Determinadas funções do ARIA devem estar contidas por pais específicos
@@ -198,7 +198,7 @@ Retornar erros KeyDelivery significativos para chamar aplicativos
 
 ### <a name="changes"></a>Alterações ###
 
-- [Alteração][Legenda ao vivo] Alteração do nome da API para legendas CEA de 608 para 708. Para obter mais informações, confira [Configurações de legendas do CEA-708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- [Alteração][Legenda ao vivo] Alteração do nome da API para legendas CEA de 608 para 708. Para obter mais informações, confira [Configurações de legendas do CEA-708](/javascript/api/azuremediaplayer/cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (versão oficial) ##
 
@@ -727,7 +727,7 @@ Retornar erros KeyDelivery significativos para chamar aplicativos
 - [Correção de bug] Atualização da experiência de carregamento da interface do usuário atualizada para o modo de reprodução automática
 - [Correção de bug] Problema do carregador AMD e definição de conflitos de método
 - [Correção de bug] Problema de carregamento do aplicativo Cordova no WP 8.1
-- [Correção de bug] O conteúdo protegido consulta o ProtectionType compatível com a plataforma/a tecnologia para selecionar a tecnologia apropriada para reprodução.  Corrige o problema conhecido anterior '_Atualmente, o conteúdo do PlayReady no Chrome (desktop)/Safari 8 (no OSX Yosemite) não faz fallback para o player do Silverlight_'
+- [Correção de bug] O conteúdo protegido consulta o ProtectionType compatível com a plataforma/a tecnologia para selecionar a tecnologia apropriada para reprodução.  Corrige o problema conhecido anterior ' _Atualmente, o conteúdo do PlayReady no Chrome (desktop)/Safari 8 (no OSX Yosemite) não faz fallback para o player do Silverlight_ '
 - [Correção de bug] Exceção não capturada no WinServer 2012 R2 devido ao Media Foundation não estar instalado neste computador por padrão.  Tentativa de usar APIs de marca de vídeo HTML, que não são implementadas, gerando assim um erro. A mitigação atual é capturar esse erro e retornar false em vez de gerar o erro.
 - [Correção de bug] O segmento inicial sempre e obtido após a busca ou uma falha de HTTP para evitar falhas durante a reprodução
 - [Correção de bug] Desativação do acompanhamento do progresso simulado e das atualizações de tempo quando o erro ocorria.

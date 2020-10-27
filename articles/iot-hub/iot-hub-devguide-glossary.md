@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 30ce2247207b34ab63df5b32b2a96f27256afdbb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147784"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547785"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 
@@ -60,7 +60,7 @@ As [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemNam
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-O [portal do Microsoft Azure](https://portal.azure.com) é um local central em que você pode provisionar e gerenciar seus recursos do Azure. Ele organiza seu conteúdo usando _folhas_.
+O [portal do Microsoft Azure](https://portal.azure.com) é um local central em que você pode provisionar e gerenciar seus recursos do Azure. Ele organiza seu conteúdo usando _folhas_ .
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -218,7 +218,7 @@ O Hub IoT é um serviço totalmente gerenciado que permite comunicações bidire
 
 ## <a name="iot-hub-metrics"></a>Métricas do Hub IoT
 
-As [métricas do Hub IoT](iot-hub-metrics.md) fornecem dados sobre o estado dos hubs IoT em sua [assinatura do Azure](#subscription). As métricas do Hub IoT permitem avaliar a integridade geral do serviço e dos dispositivos conectados a ele. As métricas do Hub IoT podem ajudar você a ver o que está acontecendo com o hub IoT e a investigar a causa raiz de problemas sem precisar entrar em contato com o suporte do Azure.
+As [métricas do Hub IoT](monitor-iot-hub-reference.md#metrics) fornecem dados sobre o estado dos hubs IoT em sua [assinatura do Azure](#subscription). As métricas do Hub IoT permitem avaliar a integridade geral do serviço e dos dispositivos conectados a ele. As métricas do Hub IoT podem ajudar você a ver o que está acontecendo com o hub IoT e a investigar a causa raiz de problemas sem precisar entrar em contato com o suporte do Azure. Para saber mais, consulte [monitorar o Hub IOT](monitor-iot-hub.md).
 
 ## <a name="iot-hub-query-language"></a>Linguagem de consulta do Hub IoT
 
@@ -286,7 +286,7 @@ No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), a conf
 
 No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as propriedades relatadas compõem uma subseção do dispositivo gêmeo usado com [propriedades desejadas](#desired-properties) para sincronizar a configuração ou a condição do dispositivo. As propriedades relatadas só podem ser definidas pelo [aplicativo de dispositivo](#device-app) e podem ser lidas e consultadas pelo [aplicativo de back-end](#back-end-app).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Grupo de recursos
 
 O [Azure Resource Manager](#azure-resource-manager) usa grupos de recursos para agrupar recursos relacionados. Você pode usar um grupo de recursos para executar operações em todos os recursos no grupo simultaneamente.
 
@@ -321,7 +321,7 @@ Para sua conveniência, muitos dos tutoriais do Hub IoT usam dispositivos simula
 ## <a name="solution"></a>Solução
 Uma _solução_ pode se referir a uma solução do Visual Studio que inclua um ou mais projetos. Uma _solução_ também pode se referir a uma solução IoT que inclua elementos como dispositivos, [aplicativos de dispositivo](#device-app), um hub IoT, outros serviços do Azure e [aplicativos de back-end](#back-end-app).
 
-## <a name="subscription"></a>Assinatura
+## <a name="subscription"></a>Subscription
 
 Uma assinatura do Azure é onde ocorre a cobrança. Cada recurso do Azure que você cria ou serviço do Azure que usa está associado a uma única assinatura. Muitas cotas também se aplicam ao nível de uma assinatura.
 
@@ -339,7 +339,7 @@ Os dispositivos coletam dados de telemetria, como a velocidade do vento ou a tem
 
 ## <a name="token-service"></a>Serviço de token
 
-Você pode usar um serviço de token para implementar um mecanismo de autenticação para seus dispositivos. Ele usa uma [política de acesso compartilhado](#shared-access-policy) do Hub IoT com permissões **DeviceConnect** para criar tokens *device-scoped*. Esses tokens permitem que um dispositivo se conecte ao seu Hub IoT. Um dispositivo usa um mecanismo de autenticação personalizado para se autenticar no serviço de token. Se o dispositivo for autenticado com êxito, o serviço de token emitirá um token SAS para o dispositivo a ser usado para acessar o hub IoT.
+Você pode usar um serviço de token para implementar um mecanismo de autenticação para seus dispositivos. Ele usa uma [política de acesso compartilhado](#shared-access-policy) do Hub IoT com permissões **DeviceConnect** para criar tokens *device-scoped* . Esses tokens permitem que um dispositivo se conecte ao seu Hub IoT. Um dispositivo usa um mecanismo de autenticação personalizado para se autenticar no serviço de token. Se o dispositivo for autenticado com êxito, o serviço de token emitirá um token SAS para o dispositivo a ser usado para acessar o hub IoT.
 
 ## <a name="twin-queries"></a>Consultas de gêmeos
 

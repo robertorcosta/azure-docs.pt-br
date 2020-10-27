@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e2211be478a16238d35eeb5219cf6e785a6979
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394322"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547564"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes e versões do Apache Hadoop disponíveis para o Azure HDInsight
 
@@ -89,14 +89,14 @@ Esta tabela lista as versões do HDInsight que estão disponíveis no portal do 
 | HDInsight 3,6 Spark             | 2.2               | Desativado em 30 de junho de 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Desativado em 30 de junho de 2020          |                             |
 | HDInsight 3,6 Kafka             | 1,1               | 31 de dezembro de 2020                      | 30 de junho de 2021               |
-| HDInsight 3,6 Kafka             | 1,0               | Desativado em 30 de junho de 2020.         |                             |
+| HDInsight 3,6 Kafka             | 1.0               | Desativado em 30 de junho de 2020.         |                             |
 | HBase do HDInsight 3,6             | 1,1               | 31 de dezembro de 2020                      | 30 de junho de 2021               |
 | Consulta interativa do HDInsight 3,6 | 2.1               | 31 de dezembro de 2020                      | 30 de junho de 2021               |
 | HDInsight 3,6 Storm             | 1,1               | 31 de dezembro de 2020                      | 30 de junho de 2021               |
 | Serviços do HDInsight 3,6 ML      | 9.3               | 31 de dezembro de 2020                      | 31 de dezembro de 2020                |
 
 > [!NOTE]
-> Depois que o suporte para uma versão de cluster expirar, ele poderá não estar disponível por meio do portal do Azure. Em alguns casos, as versões do cluster continuam disponíveis usando o parâmetro **version** no comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) do Windows PowerShell e o SDK do .net até a data de desativação da versão.
+> Depois que o suporte para uma versão de cluster expirar, ele poderá não estar disponível por meio do portal do Azure. Em alguns casos, as versões do cluster continuam disponíveis usando o parâmetro **version** no comando [New-AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) do Windows PowerShell e o SDK do .net até a data de desativação da versão.
 
 ### <a name="retired-versions"></a>Versões desativadas
 
@@ -119,7 +119,7 @@ Esta tabela lista as versões do HDInsight que não estão disponíveis no porta
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contrato de nível de serviço para versões do cluster HDInsight
 
-O Contrato de Nível de Serviço (SLA) é definido como uma _janela de suporte_. Uma janela de suporte é o período de tempo que uma versão do HDInsight tem suporte pelo Atendimento e Suporte ao Cliente da Microsoft. Se a versão tiver uma _data de término do suporte_ que já passou, o cluster HDInsight ficará fora da janela de suporte. A data de expiração do suporte de uma versão especificada do HDInsight (assim que uma versão X+1 mais nova estiver disponível) é a posterior entre:
+O Contrato de Nível de Serviço (SLA) é definido como uma _janela de suporte_ . Uma janela de suporte é o período de tempo que uma versão do HDInsight tem suporte pelo Atendimento e Suporte ao Cliente da Microsoft. Se a versão tiver uma _data de término do suporte_ que já passou, o cluster HDInsight ficará fora da janela de suporte. A data de expiração do suporte de uma versão especificada do HDInsight (assim que uma versão X+1 mais nova estiver disponível) é a posterior entre:
 
 - **Fórmula 1:** adicionar 180 dias à data em que o cluster HDInsight versão X foi lançado.
 - **Fórmula 2:** adicionar 90 dias à data em que o cluster HDInsight versão X+1 foi disponibilizado no portal do Azure.
