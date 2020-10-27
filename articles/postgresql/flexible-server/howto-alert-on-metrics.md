@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d3d5ced5860c14e9e4d522c42ffd0bc71341a9c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac252c3898eb014885bf9a6bf6bdedb7db74fb62
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933116"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545830"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---flexible-server"></a>Use o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -30,9 +30,9 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 
 Você pode configurar e obter informações sobre as regras de alerta usando:
 
-* [Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#create-with-azure-portal)
-* [CLI do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#with-azure-cli)
-* [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta em uma métrica no Portal do Azure
 
@@ -48,13 +48,13 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
 
    :::image type="content" source="./media/howto-alert-on-metrics/4-add-rule-form.png" alt-text="Selecionar regras de alerta":::
 
-5. Dentro da seção **Condição**, selecione **Adicionar condição**.
+5. Dentro da seção **Condição** , selecione **Adicionar condição** .
 
 6. Selecione uma métrica da lista de sinais sobre a qual deseja ser alertado. Neste exemplo, selecione "Porcentagem de armazenamento".
 
    :::image type="content" source="./media/howto-alert-on-metrics/6-configure-signal-logic.png" alt-text="Selecionar regras de alerta":::
 
-7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência**.
+7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo** , o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência** .
 
    Selecione **Concluído** ao concluir.
 
@@ -84,5 +84,5 @@ Depois de criar um alerta, você poderá selecioná-lo e executar as seguintes a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre como [configurar webhooks em alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-webhooks).
-* Tenha uma [visão geral da coleção de métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-customize-monitoring) para verificar se o serviço está disponível e responsivo.
+* Saiba mais sobre como [configurar webhooks em alertas](../../azure-monitor/platform/alerts-webhooks.md).
+* Tenha uma [visão geral da coleção de métricas](../../azure-monitor/platform/data-platform.md) para verificar se o serviço está disponível e responsivo.

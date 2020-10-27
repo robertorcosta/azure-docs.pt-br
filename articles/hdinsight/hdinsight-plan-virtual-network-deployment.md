@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
-ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71a4f2aa9bebd325b329af335985a37df5cd7263
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82786607"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547394"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planejar uma rede virtual para o Azure HDInsight
 
@@ -69,7 +69,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
 
     Para encontrar a configuração de segurança existente, use os seguintes comandos do Azure PowerShell ou da CLI do Azure:
 
-    * Grupos de segurança de rede
+    * Grupos de Segurança de Rede
 
         Substitua `RESOURCEGROUP` pelo nome do grupo de recursos que contém a rede virtual e, em seguida, insira o comando:
 
@@ -84,7 +84,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
         Para obter mais informações, consulte o documento [Solução de problemas dos grupos de segurança de rede](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
         > [!IMPORTANT]  
-        > As regras do grupo de segurança de rede são aplicadas em ordem, com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada e nenhuma outra é aplicada ao tráfego. Ordene as regras da mais permissiva para a menos permissiva. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
+        > As regras do grupo de segurança de rede são aplicadas em ordem, com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada e nenhuma outra é aplicada ao tráfego. Ordene as regras da mais permissiva para a menos permissiva. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 
     * Rotas definidas pelo usuário
 
@@ -148,7 +148,7 @@ Para permitir a resolução de nomes entre a rede virtual e os recursos em redes
 
          * Encaminhe todas as outras solicitações para o servidor DNS local. O DNS local manipula todas as outras solicitações de resolução de nomes, até mesmo solicitações de recursos da Internet, como Microsoft.com.
 
-     * __DNS local__: encaminhe solicitações do sufixo DNS da rede virtual para o servidor DNS personalizado. Em seguida, o servidor DNS personalizado encaminha-as para o resolvedor recursivo do Azure.
+     * __DNS local__ : encaminhe solicitações do sufixo DNS da rede virtual para o servidor DNS personalizado. Em seguida, o servidor DNS personalizado encaminha-as para o resolvedor recursivo do Azure.
 
        Essa configuração encaminha as solicitações de nomes de domínio totalmente qualificados que contêm o sufixo DNS da rede virtual para o servidor DNS personalizado. Todas as outras solicitações (até mesmo para endereços da Internet pública) são manipuladas pelo servidor DNS local.
 
@@ -210,6 +210,6 @@ Quando você cria um cluster HDInsight, um balanceador de carga também é criad
 * Para obter exemplos de código e exemplos de criação de Redes Virtuais do Azure, veja [Criação de redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de ponta a ponta de como configurar o HDInsight para se conectar a uma rede local, consulte [Conectar o HDInsight a uma rede local](./connect-on-premises-network.md).
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
-* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
+* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 * Para obter mais informações sobre as rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 * Para obter mais informações sobre como controlar o tráfego, consulte [controlar o tráfego de rede](./control-network-traffic.md).

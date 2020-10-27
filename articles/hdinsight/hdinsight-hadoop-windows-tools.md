@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484756"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539693"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabalhar no ecossistema Apache Hadoop no HDInsight por meio de um computador com Windows
 
@@ -31,17 +31,17 @@ Exemplos de tarefas que você pode fazer com o PowerShell:
 * [Execute Apache Hive consultas usando o PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Gerenciar clusters com o PowerShell](hdinsight-administer-use-powershell.md).
 
-Execute as etapas para [instalar e configurar o Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obter a versão mais recente.
+Execute as etapas para [instalar e configurar o Azure Powershell](/powershell/azure/install-az-ps) para obter a versão mais recente.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilitários que você pode executar em um navegador
 
 Os utilitários a seguir tem uma interface de usuário na Web que é executada em um navegador Web:
-* **[Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** é um shell de linha de comando interativo que é executado no navegador e no portal do Azure.
+* **[Azure cloud Shell](../cloud-shell/overview.md)** é um shell de linha de comando interativo que é executado no navegador e no portal do Azure.
 
 * **[Interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)** é um utilitário de gerenciamento e monitoramento disponível no portal do Azure que pode ser usado para gerenciar tipos diferentes de trabalho, como:
     * [Usar o Apache Ambari com a API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Exibição do Apache Hive no Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Exibição do Apache Tez no Apache Ambari](hdinsight-debug-ambari-tez-view.md)
+    * [Exibição do Apache Tez no Apache Ambari](./index.yml)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Ferramentas do Data Lake (Hadoop) para Visual Studio
 
@@ -84,7 +84,7 @@ Os clusters do Apache Spark no HDInsight incluem notebooks e kernels Zeppelin qu
 
 Se você vir uma situação em que deve usar uma ferramenta ou tecnologia disponível apenas no Linux, considere as seguintes opções:
 
-* O **bash no Ubuntu no Windows 10** fornece um subsistema Linux no Windows. O Bash permite que você execute diretamente os utilitários Linux sem a necessidade de manter uma instalação dedicada do Linux. Confira o [Guia de instalação do subsistema do Windows para Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conhecer as etapas de instalação.  Outros [shells do Unix](https://www.gnu.org/software/bash/) também funcionarão.
+* O **bash no Ubuntu no Windows 10** fornece um subsistema Linux no Windows. O Bash permite que você execute diretamente os utilitários Linux sem a necessidade de manter uma instalação dedicada do Linux. Confira o [Guia de instalação do subsistema do Windows para Linux para o Windows 10](/windows/wsl/install-win10) para conhecer as etapas de instalação.  Outros [shells do Unix](https://www.gnu.org/software/bash/) também funcionarão.
 * **Docker para Windows** fornece acesso às muitas ferramentas baseadas em Linux e pode ser executado diretamente do Windows. Por exemplo, você pode usar o Docker para executar o cliente Beeline para diretamente do Windows. Você pode também usar o Docker para executar um notebook local do Jupyter e se conectar remotamente ao Spark no HDInsight. [Introdução ao Docker para Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** permite que você navegue graficamente no sistema de arquivos de cluster em uma conexão SSH.
 

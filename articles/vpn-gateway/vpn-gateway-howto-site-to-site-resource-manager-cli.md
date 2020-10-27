@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: fb7afa9afb72ce16213fd15953b6c82d0fddfeb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83ae4185d22a6578130ca96c06ac1e5d0c25b375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401224"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541359"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI
 
@@ -50,21 +50,21 @@ Você pode usar os seguintes valores para criar um ambiente de teste ou fazer re
 ```
 #Example values
 
-VnetName                = TestVNet1 
-ResourceGroup           = TestRG1 
-Location                = eastus 
-AddressSpace            = 10.11.0.0/16 
-SubnetName              = Subnet1 
-Subnet                  = 10.11.0.0/24 
-GatewaySubnet           = 10.11.255.0/27 
-LocalNetworkGatewayName = Site2 
+VnetName                = TestVNet1 
+ResourceGroup           = TestRG1 
+Location                = eastus 
+AddressSpace            = 10.11.0.0/16 
+SubnetName              = Subnet1 
+Subnet                  = 10.11.0.0/24 
+GatewaySubnet           = 10.11.255.0/27 
+LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
 LocalAddrPrefix1        = 10.0.0.0/24
-LocalAddrPrefix2        = 20.0.0.0/24   
-GatewayName             = VNet1GW 
-PublicIP                = VNet1GWIP 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+LocalAddrPrefix2        = 20.0.0.0/24   
+GatewayName             = VNet1GW 
+PublicIP                = VNet1GWIP 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
@@ -127,7 +127,7 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 
 ## <a name="6-request-a-public-ip-address"></a><a name="PublicIP"></a>6. solicitar um endereço IP público
 
-Um gateway de VPN deve ter um endereço IP público. Você primeiro solicita o recurso de endereço IP e, em seguida, faz referência a ele ao criar seu gateway de rede virtual. O endereço IP é atribuído dinamicamente ao recurso quando o gateway de VPN é criado. O gateway de VPN atualmente suporta apenas alocação de endereços IP público *Dinâmico*. Você não pode solicitar uma atribuição de endereço IP Público Estático. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP Público é alterado é quando o gateway é excluído e recriado. Isso não altera o redimensionamento, a redefinição ou outras manutenções/atualizações internas do seu gateway de VPN.
+Um gateway de VPN deve ter um endereço IP público. Você primeiro solicita o recurso de endereço IP e, em seguida, faz referência a ele ao criar seu gateway de rede virtual. O endereço IP é atribuído dinamicamente ao recurso quando o gateway de VPN é criado. O gateway de VPN atualmente suporta apenas alocação de endereços IP público *Dinâmico* . Você não pode solicitar uma atribuição de endereço IP Público Estático. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP Público é alterado é quando o gateway é excluído e recriado. Isso não altera o redimensionamento, a redefinição ou outras manutenções/atualizações internas do seu gateway de VPN.
 
 Use o comando [az network public-ip create](/cli/azure/network/public-ip) para solicitar um endereço IP público dinâmico.
 
@@ -141,14 +141,14 @@ Crie o gateway de VPN da rede virtual. A criação de um gateway de VPN pode dem
 
 Use os seguintes valores:
 
-* O *--Gateway-Type* para uma configuração site a site é *VPN*. O tipo de gateway é sempre específico para a configuração que você está implementando. Para obter mais informações, consulte [Tipos de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
+* O *--Gateway-Type* para uma configuração site a site é *VPN* . O tipo de gateway é sempre específico para a configuração que você está implementando. Para obter mais informações, consulte [Tipos de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 * O *--vpn-type* pode ser *RouteBased* (referido como Gateway Dinâmico em alguns documentos) ou *PolicyBased* (referido como Gateway Estático em alguns documentos). A configuração é específica para os requisitos do dispositivo ao qual você está se conectando. Para obter mais informações sobre tipos de gateway de VPN, confira [Sobre definições de configuração de gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * Selecione a SKU de Gateway que você deseja usar. Há limitações de configuração para alguns SKUs. Para obter mais informações, confira [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Criar o gateway de VPN usando o comando [az network vnet-gateway create](/cli/azure/network/vnet-gateway). Se você executar esse comando usando o parâmetro '--no-wait', você não receberá nenhum feedback ou saída. Esse parâmetro permite que o gateway seja criado em segundo plano. Demora aproximadamente 45 minutos para criar um gateway.
 
 ```azurecli-interactive
-az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
 ## <a name="8-configure-your-vpn-device"></a><a name="VPNDevice"></a>8. configurar seu dispositivo VPN
@@ -186,7 +186,7 @@ Se quiser usar outro método para verificar a conexão, confira [Verificar uma c
 
 ## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Para conectar-se a uma máquina virtual
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Tarefas comuns
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
-ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d951089e4247d9b959476c812b98e170d92bd8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365749"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547972"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Usar o pacote de segurança Enterprise no HDInsight
 
@@ -57,7 +57,7 @@ Para obter mais informações, consulte [Configurar os clusters do HDInsight com
 
 Se você tiver uma instância do Active Directory local ou configurações mais complexas do Active Directory para o domínio, poderá sincronizá-las com o Azure AD usando o Azure AD Connect. É possível habilitar o Azure AD DS nesse locatário do Active Directory.
 
-Como o Kerberos depende de hashes de senha, é necessário [habilitar a sincronização de hash de senha no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+Como o Kerberos depende de hashes de senha, é necessário [habilitar a sincronização de hash de senha no Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Se você estiver usando a Federação com Serviços de Federação do Active Directory (AD FS) (AD FS), deverá habilitar a sincronização de hash de senha. (Para uma instalação recomendada, consulte [este vídeo](https://youtu.be/qQruArbu2Ew).) A sincronização de hash de senha ajuda na recuperação de desastres caso sua infraestrutura de AD FS falhe e também ajude a fornecer proteção contra credenciais vazadas. Para obter mais informações, consulte [Habilitar sincronização de hash de senha com a sincronização do Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -65,7 +65,7 @@ O uso do Active Directory local ou do Active Directory somente em VMs IaaS, sem 
 
 Se a Federação estiver sendo usada e os hashes de senha forem sincronizados corretamente, mas você estiver obtendo falhas de autenticação, verifique se a autenticação de senha de nuvem está habilitada para a entidade de serviço do PowerShell. Se não, você deverá definir uma [política de HRD (Home Realm Discovery)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para seu locatário do Azure AD. Para verificar e definir a política de HRD:
 
-1. Instale o módulo versão prévia do [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Instale o módulo versão prévia do [PowerShell do Azure ad](/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD

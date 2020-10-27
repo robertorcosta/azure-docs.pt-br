@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: arquivo de inclusão
+description: arquivo de inclusão
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d03579f704879bd8d012bb0bb326659d1f778dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b7a1c600fe81081fbfe8d33c3878f68e730888
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793287"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547344"
 ---
 [Obter integridade do ponto de extremidade](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) na API REST fornece o status de integridade dos pontos de extremidades, bem como o último erro conhecido, para identificar o motivo pelo qual um ponto de extremidade não está íntegro. A tabela a seguir lista os erros mais comuns.
 
 |Último erro conhecido|Descrição/quando ocorre|Possível mitigação|
 |-----|-----|-----|
-|Transitório|Ocorreu um erro transitório e o Hub IoT tentará executar a operação novamente.|Observe [os logs de diagnóstico](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes)de rotas.|
-|InternalError|Ocorreu um erro ao entregar uma mensagem a um ponto de extremidade.|Essa é uma exceção interna, mas também observa os [logs de diagnóstico](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes)de rotas.|
+|Transitório|Ocorreu um erro transitório e o Hub IoT tentará executar a operação novamente.|Observe [os logs de recursos de rotas](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes).|
+|InternalError|Ocorreu um erro ao entregar uma mensagem a um ponto de extremidade.|Essa é uma exceção interna, mas também observa os [logs de recursos de rotas](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes).|
 |Não Autorizado|O Hub IoT não está autorizado a enviar mensagens para o ponto de extremidade especificado.|Valide se a cadeia de conexão está atualizada para o ponto de extremidade. Se ele foi alterado, considere uma atualização no Hub IoT. Se o ponto de extremidade usar identidade gerenciada, verifique se a entidade de segurança do Hub IoT tem as permissões necessárias no destino.|
 |Acelerado|O Hub IoT está sendo limitado durante a gravação de mensagens no ponto de extremidade.|Examine os limites de limitação para o ponto de extremidade afetado. Modifique as configurações do ponto de extremidade para escalar verticalmente, se necessário.|
 |Tempo limite|Tempo limite da operação.|Repita a operação.|

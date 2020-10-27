@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462268"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540390"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -23,7 +23,7 @@ O Hive permite que você projete estrutura em grandes volumes de dados sem estru
 
 O HDInsight fornece vários tipos de cluster, que são ajustados para cargas de trabalho específicas. Os seguintes tipos de cluster geralmente são usados para consultas de Hive:
 
-|Tipo de cluster |Descrição|
+|Tipo de cluster |Description|
 |---|---|
 |Consulta Interativa|Um cluster Hadoop que fornece funcionalidade [LLAP (Processamento Analítico de Baixa Latência)](https://cwiki.apache.org/confluence/display/Hive/LLAP) para melhorar os tempos de resposta de consultas interativas. Para obter mais informações, confira o documento [Introdução à Consulta Interativa no HDInsight](../interactive-query/apache-interactive-query-get-started.md).|
 |O Hadoop|Um cluster Hadoop que está ajustado para cargas de trabalho de processamento em lotes. Para obter mais informações, confira o documento [Introdução ao Apache Hadoop no HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).|
@@ -72,14 +72,14 @@ Para obter mais informações sobre formatos de arquivo compatíveis com o Hive,
 
 Há dois tipos de tabelas que você pode criar com o Hive:
 
-* __Interna__: os dados são armazenados no data warehouse do Hive. O data warehouse está localizado no `/hive/warehouse/` no armazenamento padrão para o cluster.
+* __Interna__ : os dados são armazenados no data warehouse do Hive. O data warehouse está localizado no `/hive/warehouse/` no armazenamento padrão para o cluster.
 
     Use tabelas internas quando uma das condições a seguir se aplicar:
 
     * Os dados são temporários.
     * Você quer que o Hive gerencie o ciclo de vida da tabela e dos dados.
 
-* __Externa__: os dados são armazenados fora do data warehouse. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
+* __Externa__ : os dados são armazenados fora do data warehouse. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
 
     Use tabelas externas quando uma das condições a seguir se aplicar:
 
@@ -88,11 +88,11 @@ Há dois tipos de tabelas que você pode criar com o Hive:
     * Você precisa de um local personalizado, como uma conta de armazenamento não padrão.
     * Um programa que não seja o hive gerencia o formato de dados, o local e assim por diante.
 
-Para obter mais informações, confira a publicação do blog [Introdução às tabelas internas e externas do Hive](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/).
+Para obter mais informações, confira a publicação do blog [Introdução às tabelas internas e externas do Hive](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro).
 
 ## <a name="user-defined-functions-udf"></a>UDF (Funções definidas pelo usuário)
 
-O Hive também pode ser estendido por meio de **UDF (funções definidas pelo usuário)**. As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL. Para obter um exemplo de uso de UDFs com o Hive, confira os seguinte documentos:
+O Hive também pode ser estendido por meio de **UDF (funções definidas pelo usuário)** . As UDF permitem que você implemente funcionalidade ou lógica que não é facilmente modelada em HiveQL. Para obter um exemplo de uso de UDFs com o Hive, confira os seguinte documentos:
 
 * [Usar uma função definida pelo usuário do Java com o Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -100,7 +100,7 @@ O Hive também pode ser estendido por meio de **UDF (funções definidas pelo us
 
 * [Usar uma função definida C# pelo usuário do Java com o Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Como adicionar uma função definida pelo usuário personalizado de Apache Hive no HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
+* [Como adicionar uma função definida pelo usuário personalizado de Apache Hive no HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Um exemplo de função definida pelo usuário do Apache Hive para converter formatos de data/hora para carimbo de data/hora do Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -137,7 +137,7 @@ No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 |CREATE EXTERNAL TABLE|Cria uma nova tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local e no formato originais.|
 |FORMATO DE LINHA|Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.|
 |ARMAZENADO COMO LOCAL DO TEXTFILE|Informa ao hive onde os dados são armazenados (o `example/data` diretório) e que são armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.|
-|SELECT|Seleciona uma contagem de todas as linhas nas quais a coluna **t4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, já que há três linhas que contêm esse valor.|
+|SELECT|Seleciona uma contagem de todas as linhas nas quais a coluna **t4** contém o valor **[ERROR]** . Essa instrução retorna um valor de **3** , já que há três linhas que contêm esse valor.|
 |INPUT__FILE__NAME como '%. log '|O hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que devemos retornar apenas dados de arquivos que terminam em .log.|
 
 > [!NOTE]  
@@ -168,7 +168,7 @@ Essas instruções executam as seguintes ações:
 |---|---|
 |CREATE TABLE SE NÃO EXISTIR|Se a tabela não existir, crie-a. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.|
 |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.|
-|INSERIR SUBSTITUIÇÃO... Não|Seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs**.|
+|INSERIR SUBSTITUIÇÃO... Não|Seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs** .|
 
 > [!NOTE]  
 > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
@@ -189,7 +189,7 @@ O HDInsight fornece LLAP no tipo de cluster da Consulta Interativa. Para obter m
 
 Há vários serviços que podem ser usados para executar consultas de Hive como parte de um fluxo de trabalho programado ou sob demanda.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Fábrica de dados do Azure
 
 O Azure Data Factory permite que você use o HDInsight como parte de um pipeline do Data Factory. Para obter mais informações sobre como usar o Hive de um pipeline, consulte o documento [Transformar dados usando a atividade do Hive no Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md).
 
@@ -197,11 +197,11 @@ O Azure Data Factory permite que você use o HDInsight como parte de um pipeline
 
 Também é possível usar o SSIS (SQL Server Integration Services) para executar um trabalho do Hive. O Feature Pack do Azure para SSIS fornece os seguintes componentes que funcionam com trabalhos do Hive no HDInsight.
 
-* [Tarefa do Hive do Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Tarefa do Hive do Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Gerenciador de Conexões da Assinatura do Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Gerenciador de Conexões da Assinatura do Azure](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Para obter mais informações, consulte a documentação [Pacote de Recursos do Azure](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
+Para obter mais informações, consulte a documentação [Pacote de Recursos do Azure](/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

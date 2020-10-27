@@ -7,18 +7,18 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d355e7557ff38c52872a89941025d33d01bd92d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fa9f9b07eb20c995bc0cf47dd3bf72f236c3112
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503303"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546816"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>Crescimento automático do armazenamento no banco de dados do Azure para servidor MySQL usando o PowerShell
 
 Este artigo descreve como você pode configurar um armazenamento de banco de dados do Azure para servidor MySQL para crescer sem afetar a carga de trabalho.
 
-O crescimento automático de armazenamento impede que o servidor [atinja o limite de armazenamento](/azure/mysql/concepts-pricing-tiers#reaching-the-storage-limit) e se torne somente leitura. Para servidores com 100 GB ou menos de armazenamento provisionado, o tamanho aumenta em 5 GB quando o espaço livre está abaixo de 10%. Para servidores com mais de 100 GB de armazenamento provisionado, o tamanho aumenta em 5% quando o espaço livre está abaixo de 10 GB. Os limites de armazenamento máximos se aplicam conforme especificado na seção armazenamento do [tipo de preço banco de dados do Azure para MySQL](/azure/mysql/concepts-pricing-tiers#storage).
+O crescimento automático de armazenamento impede que o servidor [atinja o limite de armazenamento](./concepts-pricing-tiers.md#reaching-the-storage-limit) e se torne somente leitura. Para servidores com 100 GB ou menos de armazenamento provisionado, o tamanho aumenta em 5 GB quando o espaço livre está abaixo de 10%. Para servidores com mais de 100 GB de armazenamento provisionado, o tamanho aumenta em 5% quando o espaço livre está abaixo de 10 GB. Os limites de armazenamento máximos se aplicam conforme especificado na seção armazenamento do [tipo de preço banco de dados do Azure para MySQL](./concepts-pricing-tiers.md#storage).
 
 > [!IMPORTANT]
 > Lembre-se de que o armazenamento pode ser escalado verticalmente, não inativo.

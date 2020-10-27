@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207468"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547955"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
 
@@ -34,13 +34,13 @@ Aprenda a instalar o sandbox Apache Hadoop do Hortonworks em uma máquina virtua
 
 Para obter instruções sobre como configurar a área restrita, consulte [Guia de implantação e instalação do Sandbox](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-Para baixar uma área restrita da versão mais antiga do HDP, consulte os links em **versões mais antigas**.
+Para baixar uma área restrita da versão mais antiga do HDP, consulte os links em **versões mais antigas** .
 
 ## <a name="start-the-virtual-machine"></a>Iniciar a máquina virtual
 
 1. Abra o Oracle VM VirtualBox.
-1. No menu **Arquivo**, clique em **Importar Dispositivo** e especifique a imagem da Área Restrita da Hortonworks.
-1. Selecione a Área Restrita da Hortonworks, clique em **Iniciar** e em **Início Normal**. Quando a máquina virtual tiver terminado o processo de inicialização, ela exibirá instruções de logon.
+1. No menu **Arquivo** , clique em **Importar Dispositivo** e especifique a imagem da Área Restrita da Hortonworks.
+1. Selecione a Área Restrita da Hortonworks, clique em **Iniciar** e em **Início Normal** . Quando a máquina virtual tiver terminado o processo de inicialização, ela exibirá instruções de logon.
 
     ![início normal do VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
@@ -48,7 +48,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
 ## <a name="set-sandbox-passwords"></a>Definir senhas da Área Restrita
 
-1. Na etapa de **introdução** da página da Hortonworks Sandbox, selecione **Exibir Opções Avançadas**. Use as informações desta página para fazer logon na área restrita usando SSH. Use o nome e a senha fornecidos.
+1. Na etapa de **introdução** da página da Hortonworks Sandbox, selecione **Exibir Opções Avançadas** . Use as informações desta página para fazer logon na área restrita usando SSH. Use o nome e a senha fornecidos.
 
    > [!NOTE]
    > Se você não tiver um cliente SSH instalado, poderá usar o SSH baseado na Web fornecido pelo pela máquina virtual em **http://localhost:4200/** .
@@ -85,7 +85,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Aprenda a usar o Visual Studio com a Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Aprenda a usar o Visual Studio com a Hortonworks Sandbox](./apache-hadoop-visual-studio-tools-get-started.md)
 
 * [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 

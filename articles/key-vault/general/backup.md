@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585926"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440511"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Azure Key Vault
 
@@ -30,6 +30,9 @@ O Key Vault mantém a disponibilidade em cenários de desastre e fará automatic
 Caso deseje obter proteção contra a exclusão acidental ou mal-intencionada de segredos, configure a exclusão temporária e limpe os recursos de proteção no cofre de chaves. Para obter mais informações, confira [Visão geral da exclusão temporária do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Limitações
+
+> [!IMPORTANT]
+> O Key Vault não dá suporte para a capacidade de fazer backup de mais de 500 versões anteriores de um objeto de chave, segredo ou certificado. A tentativa de fazer backup de um objeto de chave, segredo ou certificado poderá resultar em um erro. Não é possível excluir versões anteriores de uma chave, um segredo ou um certificado.
 
 No momento, o Key Vault não fornece uma forma de fazer backup de todo um cofre de chaves em uma só operação. Qualquer tentativa de usar os comandos listados neste documento para fazer um backup automatizado de um cofre de chaves poderá resultar em erros e não terá suporte da Microsoft nem da equipe do Azure Key Vault. 
 
@@ -64,11 +67,11 @@ Siga as etapas desta seção para fazer backup de objetos e restaurá-los usando
     ![Captura de tela mostrando o local de seleção da configuração de Chaves e um objeto em um cofre de chaves.](../media/backup-1.png)
 
 4. Selecione o objeto.
-5. Selecione **Baixar Backup**.
+5. Selecione **Baixar Backup** .
 
     ![Captura de tela mostrando o local de seleção do botão Baixar Backup em um cofre de chaves.](../media/backup-2.png)
     
-6. Selecione **Baixar**.
+6. Selecione **Baixar** .
 
     ![Captura de tela mostrando o local de seleção do botão Baixar em um cofre de chaves.](../media/backup-3.png)
     
@@ -79,12 +82,12 @@ Siga as etapas desta seção para fazer backup de objetos e restaurá-los usando
 1. Vá para o portal do Azure.
 2. Selecione seu cofre de chaves.
 3. Acesse o tipo de objeto (segredo, chave ou certificado) que deseja restaurar.
-4. Selecione **Restaurar Backup**.
+4. Selecione **Restaurar Backup** .
 
     ![Captura de tela mostrando o local de seleção de Restaurar Backup em um cofre de chaves.](../media/backup-4.png)
     
 5. Acesse a localização em que você armazenou o blob criptografado.
-6. Selecione **OK**.
+6. Selecione **OK** .
 
 ## <a name="back-up-and-restore-from-the-azure-cli"></a>Backup e restauração por meio da CLI do Azure
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974661"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547802"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
@@ -38,7 +38,7 @@ Se você estiver usando o serviço DNS fornecido pelo Azure, permita o acesso de
 
 Permitir o tráfego dos seguintes endereços IP para serviços de integridade e gerenciamento do Azure HDInsight, que se aplicam a todas as regiões do Azure:
 
-| Endereço IP de origem | Destino  | Direction |
+| Endereço IP de origem | Destino  | Direção |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*: 443 | Entrada |
 | 23.99.5.239 | \*: 443 | Entrada |
@@ -52,12 +52,12 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 > [!IMPORTANT]  
 > Se a região do Azure que você está usando não estiver listada, use o recurso de [marca de serviço](hdinsight-service-tags.md) para grupos de segurança de rede.
 
-| País | Região | Endereços IP de origem permitidos | Destino permitido | Direction |
+| País | Região | Endereços IP de origem permitidos | Destino permitido | Direção |
 | ---- | ---- | ---- | ---- | ----- |
 | Ásia | Leste da Ásia | 23.102.235.122</br>52.175.38.134 | \*: 443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*: 443 | Entrada |
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*: 443 | Entrada |
-| &nbsp; | Australia Southeast | 13.77.2.56</br>13.77.2.94 | \*: 443 | Entrada |
+| &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*: 443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*: 443 | Entrada |
 | Canada | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*: 443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
@@ -87,7 +87,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | &nbsp; | Norte dos EAU | 65.52.252.96</br>65.52.252.97 | \*: 443 | Entrada |
 | &nbsp; | EAU Central | 20.37.76.96</br>20.37.76.99 | \*: 443 | Entrada |
 
-Para obter informações sobre os endereços IP a serem usados para o Azure Governamental, consulte o documento [Inteligência + Análise do Azure Governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).
+Para obter informações sobre os endereços IP a serem usados para o Azure Governamental, consulte o documento [Inteligência + Análise do Azure Governamental](../azure-government/compare-azure-government-global-azure.md).
 
 Para obter mais informações, consulte [controlar o tráfego de rede](./control-network-traffic.md).
 

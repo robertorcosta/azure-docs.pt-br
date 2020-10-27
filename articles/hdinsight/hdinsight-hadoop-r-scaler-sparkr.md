@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082268"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546034"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar o ScaleR e o SparkR no HDInsight
 
-Este documento mostra como prever atrasos na chegada de voos usando um modelo de regressão logística **ScaleR**. O exemplo usa os dados meteorológicos e atraso de voo, ingressados usando **SparkR**.
+Este documento mostra como prever atrasos na chegada de voos usando um modelo de regressão logística **ScaleR** . O exemplo usa os dados meteorológicos e atraso de voo, ingressados usando **SparkR** .
 
 Embora ambos os pacotes sejam executados no mecanismo de execução do Spark Apache Hadoop, eles são bloqueados do compartilhamento de dados na memória, pois cada um deles exigem suas próprias sessões do Spark. Até que esse problema seja resolvido em uma versão futura do ML Server, a solução é manter as sessões Spark não sobrepostas e trocar dados por meio de arquivos intermediários. As instruções aqui mostram que esses requisitos são simples de obter.
 
@@ -25,7 +25,7 @@ Este exemplo foi inicialmente compartilhado em uma palestra no Strata 2016, por 
 
 O código foi originalmente gravado para Microsoft ML Server em execução no Spark em um cluster HDInsight no Azure. Mas o conceito de misturar o uso de SparkR e ScaleR em um script também é válido no contexto de ambientes locais.
 
-As etapas neste documento consideram que você possui um nível intermediário de conhecimento do R e R da biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) do Microsoft ML Server. Você é apresentado ao [sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html) ao percorrer esse cenário.
+As etapas neste documento consideram que você possui um nível intermediário de conhecimento do R e R da biblioteca [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) do Microsoft ML Server. Você é apresentado ao [sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html) ao percorrer esse cenário.
 
 ## <a name="the-airline-and-weather-datasets"></a>Os conjuntos de dados de linhas aéreas e clima
 
@@ -535,7 +535,7 @@ Neste artigo, mostramos como é possível combinar o uso do Sparkr para a manipu
 
 ## <a name="next-steps-and-more-information"></a>Próximas etapas e mais informações
 
-- Para obter mais informações sobre o uso de ML Server em Apache Spark, consulte o [Guia de introdução](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Para obter mais informações sobre o uso de ML Server em Apache Spark, consulte o [Guia de introdução](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - Para obter informações sobre os serviços do ML no HDInsight, consulte [visão geral dos serviços do ml no hdinsight](r-server/r-server-overview.md).
 
@@ -543,4 +543,4 @@ Para obter mais informações sobre o uso de SparkR, veja:
 
 - [Documento do Apache sparkr](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Visão geral do sparkr](https://docs.databricks.com/spark/latest/sparkr/overview.html) do databricks.
+- [Visão geral do sparkr](/azure/databricks/spark/latest/sparkr/overview)

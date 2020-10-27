@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488105"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546102"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre o uso do HDInsight no Linux
 
@@ -24,13 +24,13 @@ Os clusters do Azure HDInsight disponibilizam o Apache Hadoop em um ambiente Lin
 Muitas das etapas neste documento usam os seguintes utilitários, que talvez precisem ser instalados em seu sistema.
 
 * [cURL](https://curl.haxx.se/) - usado para comunica-se com serviços baseados na Web.
-* **jq**, um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* **jq** , um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 * [CLI do Azure](/cli/azure/install-azure-cli) - usada para gerenciar remotamente os serviços do Azure.
-* **Um cliente SSH**. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente SSH** . Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Usuários
 
-A menos que tenha [ingressado no domínio](./domain-joined/hdinsight-security-overview.md), o HDInsight deve ser considerado como um sistema de **usuário único**. Uma única conta de usuário do SSH é criada com o cluster, com permissões de nível de administrador. As contas SSH adicionais podem ser criadas, mas elas também têm acesso de administrador para o cluster.
+A menos que tenha [ingressado no domínio](./domain-joined/hdinsight-security-overview.md), o HDInsight deve ser considerado como um sistema de **usuário único** . Uma única conta de usuário do SSH é criada com o cluster, com permissões de nível de administrador. As contas SSH adicionais podem ser criadas, mas elas também têm acesso de administrador para o cluster.
 
 O domínio HDInsight dá suporte para vários usuários e configurações de função e de permissão mais granulares. Para obter mais informações, consulte [Gerenciar clusters HDInsight ingressados em domínio](./domain-joined/apache-domain-joined-manage.md).
 
@@ -81,7 +81,7 @@ Esse comando retorna um documento JSON que descreve o serviço e, em seguida, o 
     >
     > A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
-* **SSH** - CLUSTERNAME-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é usada para a conexão com o nó de cabeçalho primário, enquanto a 23 é usada para a conexão com o secundário. Para obter mais informações sobre os nós de cabeçalho, consulte [Disponibilidade e confiabilidade de clusters do Apache Hadoop no HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - CLUSTERNAME-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é usada para a conexão com o nó de cabeçalho primário, enquanto a 23 é usada para a conexão com o secundário. Para obter mais informações sobre os nós de cabeçalho, consulte [Disponibilidade e confiabilidade de clusters do Apache Hadoop no HDInsight](./hdinsight-business-continuity.md).
 
     > [!NOTE]  
     > Você só pode acessar os nós de cabeçalho do cluster por meio de SSH de uma máquina cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH em um nó de cabeçalho.
@@ -92,8 +92,8 @@ Para obter mais informações, consulte o documento [Portas usadas pelos serviç
 
 Arquivos relacionados ao Hadoop encontram-se nos nós de cluster em `/usr/hdp`. O diretório raiz contém os seguintes subdiretórios:
 
-* **2.6.5.3009-43**: O nome do diretório é a versão da plataforma Hadoop usada pelo HDInsight. O número em seu cluster pode ser diferente do listado aqui.
-* **atual**: Esse diretório contém links para subdiretórios no diretório **2.6.5.3009-43**. Esse diretório existe para que não seja necessário lembrar do número da versão.
+* **2.6.5.3009-43** : O nome do diretório é a versão da plataforma Hadoop usada pelo HDInsight. O número em seu cluster pode ser diferente do listado aqui.
+* **atual** : Esse diretório contém links para subdiretórios no diretório **2.6.5.3009-43** . Esse diretório existe para que não seja necessário lembrar do número da versão.
 
 Dados de exemplo e arquivos JAR podem ser encontrados no Sistema de Arquivos Distribuído Hadoop em `/example` e `/HdiSamples`.
 
@@ -183,13 +183,13 @@ Você também pode encontrar as informações de armazenamento usando o portal d
 
 1. No [Portal do Azure](https://portal.azure.com/), escolha o cluster HDInsight.
 
-2. Na seção **Propriedades**, selecione **Contas de armazenamento**. As informações de armazenamento para o cluster são exibidas.
+2. Na seção **Propriedades** , selecione **Contas de armazenamento** . As informações de armazenamento para o cluster são exibidas.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>Como acessar arquivos fora do HDInsight
 
 Há várias maneiras de acessar dados de fora do cluster do HDInsight. A seguir, há alguns links para utilitários e SDKs que podem ser usados para trabalhar com seus dados:
 
-Se estiver usando o __armazenamento de BLOBs do Azure__, consulte os links a seguir para obter maneiras de acessar seus dados:
+Se estiver usando o __armazenamento de BLOBs do Azure__ , consulte os links a seguir para obter maneiras de acessar seus dados:
 
 * [CLI do Azure](/cli/azure/install-az-cli2): Comandos de interface de linha de comando para trabalhar com Azure. Depois de instalar, use o comando `az storage` para obter ajuda sobre o uso do armazenamento ou `az storage blob` para comandos específicos do blob.
 * [blobxfer.py](https://github.com/Azure/blobxfer): Um Script do Python para trabalhar com blobs no Armazenamento do Microsoft Azure.
@@ -201,9 +201,9 @@ Se estiver usando o __armazenamento de BLOBs do Azure__, consulte os links a seg
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [API REST de armazenamento](/rest/api/storageservices/Blob-Service-REST-API)
 
-Se estiver usando __Azure data Lake Storage Gen1__, consulte os links a seguir para obter maneiras de acessar seus dados:
+Se estiver usando __Azure data Lake Storage Gen1__ , consulte os links a seguir para obter maneiras de acessar seus dados:
 
 * [Navegador da Web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
@@ -245,7 +245,7 @@ Para utilizar uma versão diferente de um componente, carregue a versão necess�
 > [!IMPORTANT]
 > Há suporte total a componentes fornecidos com o cluster do HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites da comunidade que podem ser usados, como: [Página de perguntas e respostas da Microsoft sobre o HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com). Além disso, os projetos Apache têm sites de projeto em [https://apache.org](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites da comunidade que podem ser usados, como: [Página de perguntas e respostas da Microsoft sobre o HDInsight](/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com). Além disso, os projetos Apache têm sites de projeto em [https://apache.org](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

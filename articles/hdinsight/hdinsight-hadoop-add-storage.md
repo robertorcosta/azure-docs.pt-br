@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856221"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541988"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
@@ -26,7 +26,7 @@ Saiba como usar ações de script para adicionar mais *contas* de armazenamento 
 
 * Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nome e chave da conta de armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
-* Se estiver usando o PowerShell, você precisará do módulo AZ.  Consulte [visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* Se estiver usando o PowerShell, você precisará do módulo AZ.  Consulte [visão geral do Azure PowerShell](/powershell/azure/).
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -97,7 +97,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site**.
+1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site** .
 
 1. Observe as chaves que começam com `fs.azure.account.key` . O nome da conta fará parte da chave, como visto nesta imagem de exemplo:
 
@@ -107,7 +107,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site**.
+1. Navegue até o **HDFS**  >  **configurações**  >  **avançado**  >  **personalizado Core-site** .
 
 1. Remova as seguintes chaves:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +119,7 @@ Depois de remover essas chaves e salvar a configuração, você precisa reinicia
 
 ### <a name="storage-firewall"></a>Firewall de armazenamento
 
-Se você optar por proteger sua conta de armazenamento com as restrições de **redes virtuais e firewalls** em **redes selecionadas**, certifique-se de habilitar a exceção **permitir serviços confiáveis da Microsoft...** para que o HDInsight possa acessar sua conta de armazenamento`.`
+Se você optar por proteger sua conta de armazenamento com as restrições de **redes virtuais e firewalls** em **redes selecionadas** , certifique-se de habilitar a exceção **permitir serviços confiáveis da Microsoft...** para que o HDInsight possa acessar sua conta de armazenamento`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Não é possível acessar o armazenamento após a alteração da chave
 

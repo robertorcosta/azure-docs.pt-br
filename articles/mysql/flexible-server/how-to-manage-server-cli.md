@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 7701fe91d0e3f78f9596687bf945ba4b11c2d199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b58a9dd7901f85c59b09bc4ccb197d012bce2200
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331685"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545048"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Gerenciar um banco de dados do Azure para MySQL – servidor flexível (versão prévia) usando o CLI do Azure
 
@@ -23,13 +23,13 @@ Este artigo mostra como gerenciar seu servidor flexível (versão prévia) impla
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar. Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará fazer logon em sua conta usando o comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
+Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id** , que se refere à **ID da Assinatura** para sua conta do Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>

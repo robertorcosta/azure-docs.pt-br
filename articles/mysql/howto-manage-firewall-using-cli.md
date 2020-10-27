@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d981bf66ef9c17fda031e66e12e18a2ad9c67cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503048"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546391"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando a CLI do Azure
 As regras de firewall no nível de servidor podem ser usadas para gerenciar o acesso a um servidor de banco de dados do Azure para MySQL de um endereço IP específico ou de um intervalo de endereços IP. Usando comandos convenientes da CLI do Azure, você pode criar, atualizar, excluir, listar e mostrar as regras de firewall para gerenciar o servidor. Para obter uma visão geral do banco de dados do Azure para firewalls MySQL, consulte [regras de firewall do banco de dados do Azure para MySQL](./concepts-firewall-rules.md).
@@ -21,21 +21,21 @@ As regras de firewall no nível de servidor podem ser usadas para gerenciar o ac
 As regras de rede virtual (VNet) também podem ser usadas para proteger o acesso ao seu servidor. Saiba mais sobre como [criar e gerenciar pontos de extremidade de serviço de rede virtual e regras usando o CLI do Azure](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Instale o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Instale o CLI do Azure](/cli/azure/install-azure-cli).
 * Um [banco de dados e servidor do Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Comandos de regra de firewall:
 O comando **az mysql server firewall-rule** é usado na CLI do Azure para criar, excluir, listar, exibir e atualizar regras de firewall.
 
 Comandos:
-- **create**: crie uma regra de firewall de servidor MySQL do Azure.
-- **delete**: exclua uma regra de firewall de servidor MySQL do Azure.
-- **lista**: listar as regras de firewall do servidor MySQL do Azure.
-- **Mostrar**: Mostre os detalhes de uma regra de firewall do servidor MySQL do Azure.
-- **update**: atualize uma regra de firewall de servidor MySQL do Azure.
+- **create** : crie uma regra de firewall de servidor MySQL do Azure.
+- **delete** : exclua uma regra de firewall de servidor MySQL do Azure.
+- **lista** : listar as regras de firewall do servidor MySQL do Azure.
+- **Mostrar** : Mostre os detalhes de uma regra de firewall do servidor MySQL do Azure.
+- **update** : atualize uma regra de firewall de servidor MySQL do Azure.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Entre no Azure e liste seu banco de dados do Azure para servidores MySQL
-Conecte com segurança a CLI do Azure à sua conta do Azure usando o comando **az login**.
+Conecte com segurança a CLI do Azure à sua conta do Azure usando o comando **az login** .
 
 1. Na linha de comando, execute o seguinte comando:
     ```azurecli
@@ -65,7 +65,7 @@ Conecte com segurança a CLI do Azure à sua conta do Azure usando o comando **a
     ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mysql-server"></a>Liste regras de firewall no servidor de Banco de Dados do Azure para MySQL 
-Usando o nome do servidor e o nome do grupo de recursos, liste as regras de firewall do servidor existentes no servidor. Use o comando [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list).  Observe que o atributo de nome do servidor é especificado na opção **--server** e não na opção **--name**. 
+Usando o nome do servidor e o nome do grupo de recursos, liste as regras de firewall do servidor existentes no servidor. Use o comando [az mysql server firewall list](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-list).  Observe que o atributo de nome do servidor é especificado na opção **--server** e não na opção **--name** . 
 ```azurecli-interactive
 az mysql server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```

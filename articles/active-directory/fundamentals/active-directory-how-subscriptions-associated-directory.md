@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ed68211d034a133b923b6a2eec20ad6f1a0ffe2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666425"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541019"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -35,8 +35,6 @@ Todos os seus usuários têm um único diretório *base* para autenticação. Os
 > [!Important]
 > Quando você associa uma assinatura a um diretório diferente, os usuários que têm funções atribuídas usando o [controle de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md) perdem seu acesso. Os administradores de assinatura clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
 >
-> As Atribuições de Política também são removidas de uma assinatura quando ela é associada a um diretório diferente.
->
 > Mover o cluster AKS (serviço kubernetes do Azure) para uma assinatura diferente ou mover a assinatura proprietária do cluster para um novo locatário faz com que o cluster perca a funcionalidade devido a atribuições de função perdidas e direitos da entidade de serviço. Para obter mais informações sobre AKS, consulte [serviço kubernetes do Azure (AKs)](../../aks/index.yml).
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -50,7 +48,7 @@ Para poder associar ou adicionar sua assinatura, execute as seguintes tarefas:
   - Se você tiver cofres de chaves, eles ficarão inacessíveis e você precisará corrigi-los após a associação
   - Se você tiver identidades gerenciadas para recursos como máquinas virtuais ou aplicativos lógicos, será necessário reabilitá-los ou recriá-los após a associação
   - Se você tiver um Azure Stack registrado, será necessário registrá-lo novamente após a associação
-  - Para obter mais informações, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure ad](../../role-based-access-control/transfer-subscription.md).
+  - Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 - Entre usando uma conta que:
 
@@ -65,11 +63,11 @@ Para associar uma assinatura existente ao seu diretório do Azure AD, siga estas
 
 1. Entre e selecione a assinatura que você deseja usar na [página assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-1. Selecione **Alterar diretório**.
+1. Selecione **Alterar diretório** .
 
    ![Página de assinaturas, com a opção Alterar diretório destacada](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
 
-1. Revise todos os avisos que aparecem e, em seguida, selecione **alterar**.
+1. Revise todos os avisos que aparecem e, em seguida, selecione **alterar** .
 
    ![Altere a página do diretório, mostrando o diretório para alterar para](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
@@ -79,7 +77,7 @@ Para associar uma assinatura existente ao seu diretório do Azure AD, siga estas
 
    ![Página de seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-   Pode levar várias horas para que tudo seja exibido corretamente. Se parecer que está demorando muito, verifique o **filtro de assinatura global**. Verifique se a assinatura movida não está oculta. Talvez seja necessário sair do portal do Azure e entrar novamente para ver o novo diretório.
+   Pode levar várias horas para que tudo seja exibido corretamente. Se parecer que está demorando muito, verifique o **filtro de assinatura global** . Verifique se a assinatura movida não está oculta. Talvez seja necessário sair do portal do Azure e entrar novamente para ver o novo diretório.
 
 A alteração do diretório de assinatura é uma operação no nível do serviço, portanto, não afeta a propriedade do faturamento da assinatura. Para excluir o diretório original, você deve transferir a propriedade de cobrança da assinatura para um novo administrador da conta. Para saber mais sobre como transferir a propriedade de cobrança, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../../cost-management-billing/manage/billing-subscription-transfer.md).
 
@@ -93,7 +91,7 @@ Depois de associar uma assinatura a um diretório diferente, talvez seja necess�
 
 - Se você tiver registrado um Azure Stack usando essa assinatura, deverá registrar novamente. Para obter mais informações, consulte [registrar Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
 
-- Para obter mais informações, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure ad](../../role-based-access-control/transfer-subscription.md).
+- Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486303"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545983"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -290,9 +290,9 @@ Scripts usados para personalizar um cluster devem ser armazenados em um dos segu
 
 * Um __conta de armazenamento adicional__ associada ao cluster.
 
-* Um URI __que pode ser lido publicamente__. Por exemplo, uma URL para dados armazenados no OneDrive, Dropbox ou outro serviço de hospedagem de arquivos.
+* Um URI __que pode ser lido publicamente__ . Por exemplo, uma URL para dados armazenados no OneDrive, Dropbox ou outro serviço de hospedagem de arquivos.
 
-* Uma __conta do Azure Data Lake Storage__ que está associada com o cluster do HDInsight. Para obter mais informações sobre como usar Azure Data Lake Storage com o HDInsight, consulte [início rápido: configurar clusters no hdinsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Uma __conta do Azure Data Lake Storage__ que está associada com o cluster do HDInsight. Para obter mais informações sobre como usar Azure Data Lake Storage com o HDInsight, consulte [início rápido: configurar clusters no hdinsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > A entidade de serviço que HDInsight usa para acessar o Data Lake Storage deve ter acesso de leitura para o script.
@@ -332,13 +332,13 @@ A Microsoft fornece scripts de exemplo para instalar componentes em um cluster H
 
 Estes são os erros que podem surgir ao usar os scripts que você desenvolveu:
 
-**Erro**: `$'\r': command not found` . Às vezes, seguido por `syntax error: unexpected end of file`.
+**Erro** : `$'\r': command not found` . Às vezes, seguido por `syntax error: unexpected end of file`.
 
-*Causa*: este erro é gerado quando as linhas em um script terminam com CRLF. Os sistemas UNIX esperam apenas LF como terminação da linha.
+*Causa* : este erro é gerado quando as linhas em um script terminam com CRLF. Os sistemas UNIX esperam apenas LF como terminação da linha.
 
 Esse problema ocorre geralmente quando o script é criado em um ambiente Windows, já que CRLF é uma terminação de linha comum para muitos editores de texto no Windows.
 
-*Resolução*: se for uma opção em seu editor de texto, selecione formato UNIX ou LF para a terminação de linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
+*Resolução* : se for uma opção em seu editor de texto, selecione formato UNIX ou LF para a terminação de linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
 
 > [!NOTE]  
 > Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
@@ -350,11 +350,11 @@ Esse problema ocorre geralmente quando o script é criado em um ambiente Windows
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifica o arquivo diretamente |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contém uma versão apenas com terminações LF. |
 
-**Erro**: `line 1: #!/usr/bin/env: No such file or directory` .
+**Erro** : `line 1: #!/usr/bin/env: No such file or directory` .
 
-*Causa*: este erro ocorre quando o script foi salvo como UTF-8 com uma BOM (Marca de Ordem de Byte).
+*Causa* : este erro ocorre quando o script foi salvo como UTF-8 com uma BOM (Marca de Ordem de Byte).
 
-*Solução*: salve o arquivo como ASCII ou UTF-8, sem nenhuma BOM. Você também pode usar o seguinte comando em um sistema Linux ou Unix para criar um arquivo sem a BOM:
+*Solução* : salve o arquivo como ASCII ou UTF-8, sem nenhuma BOM. Você também pode usar o seguinte comando em um sistema Linux ou Unix para criar um arquivo sem a BOM:
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
@@ -366,4 +366,4 @@ Substitua `INFILE` com o arquivo que contém a BOM. `OUTFILE` deve ser um novo n
 
 * Saiba como [Personalizar os clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
 * Use a [referência do SDK do .NET do HDInsight](/dotnet/api/overview/azure/hdinsight) para saber mais sobre a criação de aplicativos .NET que gerenciam o HDInsight
-* Use a [API REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.
+* Use a [API REST do HDInsight](/rest/api/hdinsight/) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.

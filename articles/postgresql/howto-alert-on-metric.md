@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: a221e3c32d458135111583885a0b9f97743d36ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490026"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546612"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Use o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -42,13 +42,13 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
 
    :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Selecionar regras de alerta":::
 
-5. Dentro da seção **Condição**, selecione **Adicionar condição**.
+5. Dentro da seção **Condição** , selecione **Adicionar condição** .
 
 6. Selecione uma métrica da lista de sinais sobre a qual deseja ser alertado. Neste exemplo, selecione "Porcentagem de armazenamento".
    
    :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selecionar regras de alerta":::
 
-7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência**.
+7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo** , o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência** .
    
    Selecione **Concluído** ao concluir.
 

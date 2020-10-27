@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f30f92df505abeff108f8d1c503cb33162d2e409
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780429"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533539"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Falha na criação do cluster com InvalidNetworkConfigurationErrorCode no Azure HDInsight
 
@@ -66,7 +66,7 @@ O armazenamento do Azure e o SQL não têm endereços IP fixos, portanto, precis
 
     Vá para a portal do Azure e identifique a tabela de rotas associada à sub-rede em que o cluster está sendo implantado. Depois de encontrar a tabela de rotas para a sub-rede, inspecione a seção **rotas** nela.
 
-    Se houver rotas definidas, verifique se há rotas para endereços IP para a região em que o cluster foi implantado e o **NextHopType** para cada rota é **Internet**. Deve haver uma rota definida para cada endereço IP necessário documentado no artigo mencionado anteriormente.
+    Se houver rotas definidas, verifique se há rotas para endereços IP para a região em que o cluster foi implantado e o **NextHopType** para cada rota é **Internet** . Deve haver uma rota definida para cada endereço IP necessário documentado no artigo mencionado anteriormente.
 
 ---
 
@@ -95,7 +95,7 @@ Valide se 168.63.129.16 está na cadeia DNS personalizada. Os servidores DNS em 
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Execute o comando a seguir:
+1. Execute o seguinte comando:
 
     ```bash
     cat /etc/resolv.conf | grep nameserver*
@@ -145,4 +145,4 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, consulte [Como criar uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

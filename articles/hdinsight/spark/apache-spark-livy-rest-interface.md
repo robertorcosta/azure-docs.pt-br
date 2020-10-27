@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcb845904216fbe4cb05828877775ea2178c45e9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084606"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539149"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do HDInsight Spark
 
@@ -27,7 +27,7 @@ Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o art
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Enviar um trabalho em lotes do Apache Livy Spark
 
-Antes de enviar um trabalho em lotes, você deve carregar o jar do aplicativo no armazenamento de cluster associado ao cluster. Você pode usar [AzCopy](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes que podem ser usados para carregar dados. É possível saber mais sobre eles em [Carregar dados para trabalhos do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).
+Antes de enviar um trabalho em lotes, você deve carregar o jar do aplicativo no armazenamento de cluster associado ao cluster. Você pode usar [AzCopy](../../storage/common/storage-use-azcopy-v10.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes que podem ser usados para carregar dados. É possível saber mais sobre eles em [Carregar dados para trabalhos do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
@@ -126,7 +126,7 @@ Execute as seguintes etapas:
     {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Observe que a última linha da saída informa **total:0**, o que sugere que não há lotes em execução.
+    Observe que a última linha da saída informa **total:0** , o que sugere que não há lotes em execução.
 
 1. Agora vamos enviar um trabalho em lotes. O snippet a seguir usa um arquivo de entrada (input.txt) para passar o nome do jar e o nome de classe como parâmetros. Se você estiver executando essas etapas em um computador Windows, o uso de um arquivo de entrada é a abordagem recomendada.
 
@@ -155,7 +155,7 @@ Execute as seguintes etapas:
     {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Observe que a última linha da saída informa **state:starting**. Assim como, **id:0**. Aqui, **0** é a ID do lote.
+    Observe que a última linha da saída informa **state:starting** . Assim como, **id:0** . Aqui, **0** é a ID do lote.
 
 1. Agora você pode recuperar o status desse lote específico usando a ID do lote.
 
@@ -177,7 +177,7 @@ Execute as seguintes etapas:
     {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Agora a saída mostra **state:success**, o que sugere que o trabalho foi concluído com êxito.
+    Agora a saída mostra **state:success** , o que sugere que o trabalho foi concluído com êxito.
 
 1. Se quiser, você pode excluir o lote.
 

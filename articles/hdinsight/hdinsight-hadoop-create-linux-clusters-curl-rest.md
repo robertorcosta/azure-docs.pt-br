@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: f2b3810afab86b2f81a18bac442ef361404f2309
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b67ddd57c3a0787213763253cef5083f420cefe0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490349"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541665"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop usando a API REST do Azure
 
@@ -219,7 +219,7 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](/cli/azure/get-sta
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
 > [!NOTE]  
-> Essas etapas são uma versão resumida da seção *Criar a entidade de serviço com uma senha* do documento [Usar a CLI do Azure para criar uma entidade de serviço para acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Estas etapas criam uma entidade de serviço que é usada para autenticar a API REST do Azure.
+> Essas etapas são uma versão resumida da seção *Criar a entidade de serviço com uma senha* do documento [Usar a CLI do Azure para criar uma entidade de serviço para acessar recursos](/cli/azure/create-an-azure-service-principal-azure-cli). Estas etapas criam uma entidade de serviço que é usada para autenticar a API REST do Azure.
 
 1. Em uma linha de comando, use o seguinte comando para listar as assinaturas do Azure.
 
@@ -227,7 +227,7 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](/cli/azure/get-sta
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Na lista, selecione a assinatura que você deseja usar e observe as colunas **Subscription_ID** e __Tenant_ID__. Salve esses valores.
+    Na lista, selecione a assinatura que você deseja usar e observe as colunas **Subscription_ID** e __Tenant_ID__ . Salve esses valores.
 
 2. Use o comando a seguir para criar um aplicativo no Azure Active Directory.
 
@@ -242,15 +242,15 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](/cli/azure/get-sta
 
    O valor retornado deste comando é a __ID do aplicativo__ do novo aplicativo. Salve esse valor.
 
-3. Use o comando a seguir para criar uma entidade de serviço usando a **ID do aplicativo**.
+3. Use o comando a seguir para criar uma entidade de serviço usando a **ID do aplicativo** .
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     O valor retornado deste comando é a __ID de Objeto__. Salve esse valor.
+     O valor retornado deste comando é a __ID de Objeto__ . Salve esse valor.
 
-4. Atribua a função **Proprietário** à entidade de serviço usando o valor da **ID de Objeto**. Use o valor **ID da assinatura** obtido anteriormente.
+4. Atribua a função **Proprietário** à entidade de serviço usando o valor da **ID de Objeto** . Use o valor **ID da assinatura** obtido anteriormente.
 
    ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -274,7 +274,7 @@ Defina `$TENANTID`, `$APPID` e `$PASSWORD` para os valores obtidos ou usado ante
 
 Se essa solicitação for bem-sucedida, você receberá uma resposta do 200 series, e o corpo da resposta conterá um documento JSON.
 
-O documento JSON retornado por esta solicitação contém um elemento denominado **access_token**. O valor de **access_token** é usado para solicitações de autenticação para a API REST.
+O documento JSON retornado por esta solicitação contém um elemento denominado **access_token** . O valor de **access_token** é usado para solicitações de autenticação para a API REST.
 
 ```json
 {
@@ -341,7 +341,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 Esse comando retorna informações de um documento JSON que contém informações sobre a operação de implantação. O elemento `"provisioningState"` contém o status da implantação. Se esse elemento contiver um valor de `"Succeeded"`, a implantação foi concluída com êxito.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 

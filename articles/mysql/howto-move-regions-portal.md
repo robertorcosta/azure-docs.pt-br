@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f9b82df0ce1fae78f0c9de9c8d7a7b158d151e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542505"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546323"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Mover um banco de dados do Azure para o servidor MySQL para outra região usando o portal do Azure
 
@@ -21,7 +21,7 @@ Há vários cenários para mover um servidor existente do banco de dados do Azur
 Você pode usar uma [réplica de leitura entre regiões](concepts-read-replicas.md#cross-region-replication) do banco de dados do Azure para MySQL para concluir a mudança para outra região. Para fazer isso, primeiro crie uma réplica de leitura na região de destino. Em seguida, interrompa a replicação para o servidor de réplica de leitura para torná-lo um servidor autônomo que aceita tráfego de leitura e gravação. 
 
 > [!NOTE]
-> Este artigo se concentra em mover o servidor para uma região diferente. Se você quiser mover o servidor para um grupo de recursos ou assinatura diferente, consulte o artigo [mover](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) . 
+> Este artigo se concentra em mover o servidor para uma região diferente. Se você quiser mover o servidor para um grupo de recursos ou assinatura diferente, consulte o artigo [mover](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,8 +35,8 @@ Para criar um servidor de réplica de leitura entre regiões na região de desti
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 1. Selecione o servidor de banco de dados do Azure para MySQL existente que você deseja usar como o servidor de origem. Essa ação abre a página **Visão geral** do runbook.
-1. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
-1. Selecione **para adicionar réplica**.
+1. Selecione **Replicação** no menu, em **CONFIGURAÇÕES** .
+1. Selecione **para adicionar réplica** .
 1. Insira um nome para o servidor de réplica.
 1. Selecione o local para o servidor de réplica. O local padrão é o mesmo que o do servidor de origem. Verifique se você selecionou o local de destino onde deseja que a réplica seja implantada.
 1. Selecione **OK** para confirmar a criação da réplica. Durante a criação da réplica, os dados são copiados do servidor de origem para a réplica. O tempo de criação pode durar vários minutos ou mais, em proporção ao tamanho do servidor de origem.
@@ -53,19 +53,19 @@ Para criar um servidor de réplica de leitura entre regiões na região de desti
 Parar a replicação no servidor de réplica faz com que ele se torne um servidor autônomo. Para interromper a replicação na réplica do portal do Azure, use as seguintes etapas:
 
 1. Depois que a réplica tiver sido criada, localize e selecione o servidor de origem do banco de dados do Azure para MySQL. 
-1. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
+1. Selecione **Replicação** no menu, em **CONFIGURAÇÕES** .
 1. Selecione o servidor de réplica.
-1. Selecione **Parar replicação**.
-1. Confirme que você deseja interromper a replicação clicando em **OK**.
+1. Selecione **Parar replicação** .
+1. Confirme que você deseja interromper a replicação clicando em **OK** .
 
 ## <a name="clean-up-source-server"></a>Limpar servidor de origem
 
 Talvez você queira excluir o banco de dados do Azure de origem para o servidor MySQL. Para fazer isso, execute as seguintes etapas:
 
 1. Depois que a réplica tiver sido criada, localize e selecione o servidor de origem do banco de dados do Azure para MySQL.
-1. Na janela **visão geral** , selecione **excluir**.
+1. Na janela **visão geral** , selecione **excluir** .
 1. Digite o nome do servidor de origem para confirmar que você deseja excluir.
-1. Selecione **Excluir**.
+1. Selecione **Excluir** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
