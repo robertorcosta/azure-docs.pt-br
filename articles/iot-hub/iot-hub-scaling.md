@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: c82f6eb37d542f80b6cb79ffb1fae6fe0cf0c233
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bd016fcfe377dc610d5918ad8128fff4f6473fe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144282"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538452"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -47,7 +47,7 @@ Somente um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hu
 | [Roteamento de mensagens](iot-hub-devguide-messages-read-custom.md), [aprimoramentos de mensagens](iot-hub-message-enrichments-overview.md) e [integração da Grade de Eventos](iot-hub-event-grid.md) | Sim | Sim |
 | [Protocolos HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | Sim | Sim |
 | [Serviço de provisionamento de dispositivos](../iot-dps/about-iot-dps.md) | Sim | Sim |
-| [Monitoramento e diagnósticos](iot-hub-monitor-resource-health.md) | Sim | Sim |
+| [Monitoramento e diagnósticos](monitor-iot-hub.md) | Sim | Sim |
 | [Mensagens de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sim |
 | [Dispositivos gêmeos](iot-hub-devguide-device-twins.md), [Módulos gêmeos](iot-hub-devguide-module-twins.md) e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | Sim |
 | [Fluxos de dispositivo (versão prévia)](iot-hub-device-streams-overview.md) |   | Sim |

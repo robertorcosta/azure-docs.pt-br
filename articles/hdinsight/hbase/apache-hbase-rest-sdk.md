@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: e8bce1ca10e9175b699bd548d9241b78bce3b5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504852"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540305"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usar o SDK do .NET para o Apache HBase
 
@@ -38,13 +38,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Substitua CLUSTERNAME pelo nome do cluster HDInsight HBase e por USERNAME e PASSWORD pelas credenciais do Apache Hadoop especificadas na criação do cluster. O nome de usuário Hadoop padrão é **admin**.
+Substitua CLUSTERNAME pelo nome do cluster HDInsight HBase e por USERNAME e PASSWORD pelas credenciais do Apache Hadoop especificadas na criação do cluster. O nome de usuário Hadoop padrão é **admin** .
 
 ## <a name="create-a-new-table"></a>Criar uma nova tabela
 
-O HBase armazena dados em tabelas. Uma tabela consiste em uma *Rowkey*, a chave primária e um ou mais grupos de colunas chamado *famílias de coluna*. Os dados em cada tabela horizontalmente são distribuídos por um intervalo de Rowkey em *regiões*. Cada região tem uma chave de início e término. Uma tabela pode ter uma ou mais regiões. À medida que os dados na tabela aumentam, o HBase divide regiões grandes em regiões menores. Regiões são armazenadas em *servidores de região*, em que um servidor de região pode armazenar várias regiões.
+O HBase armazena dados em tabelas. Uma tabela consiste em uma *Rowkey* , a chave primária e um ou mais grupos de colunas chamado *famílias de coluna* . Os dados em cada tabela horizontalmente são distribuídos por um intervalo de Rowkey em *regiões* . Cada região tem uma chave de início e término. Uma tabela pode ter uma ou mais regiões. À medida que os dados na tabela aumentam, o HBase divide regiões grandes em regiões menores. Regiões são armazenadas em *servidores de região* , em que um servidor de região pode armazenar várias regiões.
 
-Os dados são armazenados fisicamente no *HFiles*. Um único HFile contém dados para uma tabela, uma região e uma família de coluna. As linhas no HFile são armazenadas classificadas pelo Rowkey. Cada HFile tem um índice *Árvore B+* para a recuperação rápida das linhas.
+Os dados são armazenados fisicamente no *HFiles* . Um único HFile contém dados para uma tabela, uma região e uma família de coluna. As linhas no HFile são armazenadas classificadas pelo Rowkey. Cada HFile tem um índice *Árvore B+* para a recuperação rápida das linhas.
 
 Para criar uma nova tabela, especifique um `TableSchema` e colunas. O código a seguir verifica se a tabela 'RestSDKTable' já existe - caso contrário, a tabela é criada.
 
@@ -190,4 +190,4 @@ finally
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução com um exemplo do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Crie um aplicativo de ponta a ponta com [Analise o sentimento do Twitter em tempo real com o Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Crie um aplicativo de ponta a ponta com [Analise o sentimento do Twitter em tempo real com o Apache HBase](./apache-hbase-tutorial-get-started-linux.md)

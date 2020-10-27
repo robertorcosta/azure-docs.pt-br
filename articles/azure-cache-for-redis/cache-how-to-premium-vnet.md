@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 34e4781d1437b34607a6d9e4f99ec5bd2ef9b46d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: eb70e7cfec4e6f3e7e55fa74bbdd6cee43493576
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999977"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537874"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de Rede Virtual para um Cache do Azure Premium para Redis
 O Cache do Azure para Redis apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos da camada Premium como clustering, persistência e suporte de rede virtual. Uma VNet é uma rede privada na nuvem. Quando uma instância do Cache do Azure para Redis é configurada com uma rede virtual, ela não é endereçável publicamente e somente pode ser acessada de máquinas virtuais e aplicativos dentro da rede virtual. Este artigo descreve como configurar suporte de rede virtual para uma instância do Cache do Azure Premium para Redis.
@@ -28,11 +28,11 @@ A implantação de[ VNet (Rede Virtual do Microsoft Azure)](https://azure.micros
 ## <a name="virtual-network-support"></a>Suporte de rede virtual
 O suporte da VNet (Rede Virtual) é configurado na folha **Novo Cache do Azure para Redis** durante a criação do cache. 
 
-1. Para criar um cache Premium, entre no [portal do Azure](https://portal.azure.com) e selecione **criar um recurso**. Observe, além de criar caches no portal do Azure, você também pode criá-los usando modelos do Resource Manager, o PowerShell ou o CLI do Azure. Para obter mais informações sobre a criação de um Cache do Azure para Redis, consulte [Criar um cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. Para criar um cache Premium, entre no [portal do Azure](https://portal.azure.com) e selecione **criar um recurso** . Observe, além de criar caches no portal do Azure, você também pode criá-los usando modelos do Resource Manager, o PowerShell ou o CLI do Azure. Para obter mais informações sobre a criação de um Cache do Azure para Redis, consulte [Criar um cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Criar recurso.":::
    
-2. Na página **Novo**, selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
+2. Na página **Novo** , selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis** .
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Criar recurso.":::
 
@@ -40,7 +40,7 @@ O suporte da VNet (Rede Virtual) é configurado na folha **Novo Cache do Azure p
    
    | Configuração      | Valor sugerido  | DESCRIÇÃO |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Insira um nome global exclusivo. | O nome de cache precisa ser uma cadeia de caracteres com 1 a 63 caracteres que contém somente números, letras ou hifens. O nome precisa começar e terminar com um número ou uma letra e não pode conter hifens consecutivos. O *nome do host* de sua instância de cache será *\<DNS name>.redis.cache.windows.net*. | 
+   | **Nome DNS** | Insira um nome global exclusivo. | O nome de cache precisa ser uma cadeia de caracteres com 1 a 63 caracteres que contém somente números, letras ou hifens. O nome precisa começar e terminar com um número ou uma letra e não pode conter hifens consecutivos. O *nome do host* de sua instância de cache será *\<DNS name>.redis.cache.windows.net* . | 
    | **Assinatura** | Na lista suspensa e selecione sua assinatura. | A assinatura na qual essa nova instância do Cache do Azure para Redis será criada. | 
    | **Grupo de recursos** | Menu suspenso e selecione um grupo de recursos ou selecione **criar novo** e insira um novo nome de grupo de recursos. | Nome do grupo de recursos no qual o cache e outros recursos serão criados. Ao colocar todos os seus recursos de aplicativos em um só grupo de recursos, você pode gerenciá-los ou excluí-los juntos com facilidade. | 
    | **Localidade** | Menu suspenso e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que usarão o cache. |
@@ -48,7 +48,7 @@ O suporte da VNet (Rede Virtual) é configurado na folha **Novo Cache do Azure p
 
 4. Selecione a guia **Rede** ou clique no botão **Rede** na parte inferior da página.
 
-5. Na guia **rede** , selecione **redes virtuais** como seu método de conectividade. Para usar uma nova rede virtual, crie-a primeiro seguindo as etapas em [criar uma rede virtual usando o portal do Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ou [criar uma rede virtual (clássica) usando o portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e, em seguida, retorne à folha **novo cache do Azure para Redis** para criar e configurar seu cache Premium.
+5. Na guia **rede** , selecione **redes virtuais** como seu método de conectividade. Para usar uma nova rede virtual, crie-a primeiro seguindo as etapas em [criar uma rede virtual usando o portal do Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ou [criar uma rede virtual (clássica) usando o portal do Azure](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) e, em seguida, retorne à folha **novo cache do Azure para Redis** para criar e configurar seu cache Premium.
 
 > [!IMPORTANT]
 > Ao implantar um Cache do Azure para Redis em uma VNet do Resource Manager, o cache deve estar em uma sub-rede dedicada que não contém nenhum outro recurso, exceto o Cache do Azure para Redis. Se uma tentativa de implantar um Cache do Azure para Redis for realizada em uma VNet do Resource Manager para uma sub-rede contendo outros recursos, a implantação falhará.
@@ -74,13 +74,13 @@ O suporte da VNet (Rede Virtual) é configurado na folha **Novo Cache do Azure p
 
 8. Selecione **Próximo: Marcas** ou clique no botão **Próximo: Botão** Categorias na parte inferior da página.
 
-9. Opcionalmente, na guia **Marcas**, insira o nome e o valor caso deseje categorizar o recurso. 
+9. Opcionalmente, na guia **Marcas** , insira o nome e o valor caso deseje categorizar o recurso. 
 
-10. Selecione  **Analisar + criar**. Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
+10. Selecione **Examinar + criar** . Você será levado para a guia Examinar + criar, na qual o Azure validará a configuração.
 
-11. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar**.
+11. Depois que a mensagem em verde Validação aprovada for exibida, selecione **Criar** .
 
-A criação do cache demora um pouco. Monitore o progresso na página  **Visão Geral**  do Cache do Azure para Redis. Quando o  **Status**  for mostrado como  **Em execução**, o cache estará pronto para uso. Após o cache ser criado, você pode exibir a configuração da VNet clicando em **Rede Virtual** no menu **Recursos**.
+A criação do cache demora um pouco. Monitore o progresso na página **Visão Geral** do Cache do Azure para Redis. Quando o **Status** for mostrado como **Em execução** , o cache estará pronto para uso. Após o cache ser criado, você pode exibir a configuração da VNet clicando em **Rede Virtual** no menu **Recursos** .
 
 ![Rede virtual][redis-cache-vnet-info]
 
@@ -128,7 +128,7 @@ Quando o Cache do Azure para Redis for hospedado em uma VNet, serão usadas as p
 
 Há nove requisitos de porta de saída. As solicitações de saída nesses intervalos são de saída para outros serviços necessários para que o cache funcione ou seja interno à sub-rede Redis para comunicação entre nós. Para a replicação geográfica, existem outros requisitos de saída para a comunicação entre as sub-redes do cache primário e de réplica.
 
-| Porta(s) | Direction | Protocolo de Transporte | Finalidade | IP local | IP remoto |
+| Porta(s) | Direção | Protocolo de Transporte | Finalidade | IP local | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Saída |TCP |Dependências de Redis no Armazenamento do Azure/PKI (Internet) | (Sub-rede Redis) |* |
 | 443 | Saída | TCP | Dependência Redis em Azure Key Vault | (Sub-rede Redis) | AzureKeyVault <sup>1</sup> |
@@ -154,7 +154,7 @@ Se você estiver usando a replicação geográfica entre caches em redes virtuai
 
 Há oito requisitos de intervalo de portas de entrada. As solicitações de entrada nesses intervalos são recebidas de outros serviços hospedados na mesma VNET ou internas para as comunicações de sub-rede Redis.
 
-| Porta(s) | Direction | Protocolo de Transporte | Finalidade | IP local | IP remoto |
+| Porta(s) | Direção | Protocolo de Transporte | Finalidade | IP local | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Entrada |TCP |Comunicação do cliente com o Redis, Balanceamento de Carga do Azure | (Sub-rede Redis) | (Sub-rede Redis), rede virtual, Azure Load Balancer <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
@@ -171,8 +171,8 @@ Há oito requisitos de intervalo de portas de entrada. As solicitações de entr
 
 Há requisitos de conectividade de rede para o Cache do Azure para Redis que podem não ser atendidos inicialmente em uma rede virtual. O Cache do Azure para Redis requer que todos os itens a seguir funcionem corretamente quando usados em uma rede virtual.
 
-* Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui pontos de extremidade localizados na mesma região que a instância do Cache do Azure para Redis, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do armazenamento do Azure são resolvidos nos seguintes domínios DNS: *Table.Core.Windows.net*, *BLOB.Core.Windows.net*, *Queue.Core.Windows.net*e *File.Core.Windows.net*. 
-* Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Essa conectividade é necessária para dar suporte à funcionalidade TLS/SSL.
+* Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui pontos de extremidade localizados na mesma região que a instância do Cache do Azure para Redis, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do armazenamento do Azure são resolvidos nos seguintes domínios DNS: *Table.Core.Windows.net* , *BLOB.Core.Windows.net* , *Queue.Core.Windows.net* e *File.Core.Windows.net* . 
+* Conectividade de rede de saída para *ocsp.msocsp.com* , *mscrl.microsoft.com* e *crl.microsoft.com* . Essa conectividade é necessária para dar suporte à funcionalidade TLS/SSL.
 * A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Esses requisitos de DNS podem ser atendidos, garantindo que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual.
 * Conectividade de rede de saída para os seguintes pontos de extremidade do Azure Monitoring resolvidos nos domínios DNS a seguir: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 
@@ -256,7 +256,7 @@ Conectar uma instância do Cache do Azure para Redis de um aplicativo local usan
 >As rotas definidas em um UDR **devem** ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração do ExpressRoute. O exemplo a seguir usa o intervalo de endereços 0.0.0.0/0 amplo, e potencialmente pode ser substituído por acidente pelos anúncios de rota usando intervalos de endereços mais específicos.
 
 >[!WARNING]  
->O Cache do Azure para redis não tem suporte com configurações do ExpressRoute que **incorretamente cruzam anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado**. As configurações de ExpressRoute com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereço forem anunciados incorretamente de modo cruzado no caminho de emparelhamento privado, o resultado será que todos os pacotes de rede de saída da sub-rede da instância do Cache do Azure para Redis serão incorretamente encapsulados para a infraestrutura de rede local do cliente. Esse fluxo de rede interrompe o Cache do Azure para Redis. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
+>O Cache do Azure para redis não tem suporte com configurações do ExpressRoute que **incorretamente cruzam anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado** . As configurações de ExpressRoute com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereço forem anunciados incorretamente de modo cruzado no caminho de emparelhamento privado, o resultado será que todos os pacotes de rede de saída da sub-rede da instância do Cache do Azure para Redis serão incorretamente encapsulados para a infraestrutura de rede local do cliente. Esse fluxo de rede interrompe o Cache do Azure para Redis. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
 
 
 Informações básicas sobre as rotas definidas pelo usuário estão disponíveis nesta [visão geral](../virtual-network/virtual-networks-udr-overview.md).

@@ -8,17 +8,17 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553638"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558526"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Conector IoT do Azure para FHIR (versão prévia)
 Este artigo fornece detalhes sobre como configurar o conector do Azure IoT para FHIR * usando modelos de mapeamento.
 
-O conector do Azure IoT para FHIR requer dois tipos de modelos de mapeamento baseados em JSON. O primeiro tipo, **mapeamento de dispositivo**, é responsável por mapear as cargas de dispositivo enviadas para o `devicedata` ponto de extremidade do hub de eventos do Azure. Ele extrai tipos, identificadores de dispositivo, data e hora de medição e o (s) valor (es) de medida. O segundo tipo, **mapeamento FHIR**, controla o mapeamento para o recurso FHIR. Ele permite a configuração do comprimento do período de observação, o tipo de dados FHIR usado para armazenar os valores e os códigos de terminologia. 
+O conector do Azure IoT para FHIR requer dois tipos de modelos de mapeamento baseados em JSON. O primeiro tipo, **mapeamento de dispositivo** , é responsável por mapear as cargas de dispositivo enviadas para o `devicedata` ponto de extremidade do hub de eventos do Azure. Ele extrai tipos, identificadores de dispositivo, data e hora de medição e o (s) valor (es) de medida. O segundo tipo, **mapeamento FHIR** , controla o mapeamento para o recurso FHIR. Ele permite a configuração do comprimento do período de observação, o tipo de dados FHIR usado para armazenar os valores e os códigos de terminologia. 
 
 Os modelos de mapeamento são compostos em um documento JSON com base em seu tipo. Esses documentos JSON são então adicionados ao conector IoT do Azure para FHIR por meio do portal do Azure. O documento de mapeamento de dispositivo é adicionado por meio da página **Configurar mapeamento de dispositivo** e do documento de mapeamento FHIR por meio da página **Configurar mapeamento de FHIR** .
 
@@ -71,8 +71,8 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 |**TypeMatchExpression**|A expressão de caminho JSON que é avaliada em relação à carga do hub de eventos. Se um JToken correspondente for encontrado, o modelo será considerado uma correspondência. Todas as expressões subsequentes são avaliadas em relação ao JToken extraído correspondente aqui.|`$..[?(@heartRate)]`
 |**Carimbo de data/hora**|A expressão de caminho JSON para extrair o valor de carimbo de data/hora para o OccurenceTimeUtc da medida.|`$.endDate`
 |**DeviceIdExpression**|A expressão de caminho JSON para extrair o identificador do dispositivo.|`$.deviceId`
-|**PatientIdExpression**|*Opcional*: a expressão de caminho JSON para extrair o identificador do paciente.|`$.patientId`
-|**EncounterIdExpression**|*Opcional*: a expressão de caminho JSON para extrair o identificador de encontre.|`$.encounterId`
+|**PatientIdExpression**|*Opcional* : a expressão de caminho JSON para extrair o identificador do paciente.|`$.patientId`
+|**EncounterIdExpression**|*Opcional* : a expressão de caminho JSON para extrair o identificador de encontre.|`$.encounterId`
 |**Valores []. ValueName**|O nome a ser associado ao valor extraído pela expressão subsequente. Usado para associar o valor/componente necessário no modelo de mapeamento FHIR. |`hr`
 |**Valores []. Valor da**|A expressão de caminho JSON para extrair o valor necessário.|`$.heartRate`
 |**Valores []. Necessário**|Exigirá que o valor esteja presente na carga.  Se não for encontrado, uma medida não será gerada e um InvalidOperationException será gerado.|`true`
@@ -376,7 +376,7 @@ Representa o tipo de dados [CodeableConcept](http://hl7.org/fhir/datatypes.html#
 
 | Propriedade | Descrição 
 | --- | --- 
-|**Text**|Representação de texto sem formatação. 
+|**Texto**|Representação de texto sem formatação. 
 |**Códigos**|Uma ou mais [codificações](http://hl7.org/fhir/datatypes-definitions.html#coding) a serem aplicadas à observação criada.
 |**Códigos []. Auto-completar**|O código para a [codificação](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Códigos []. Sistema**|O sistema para a [codificação](http://hl7.org/fhir/datatypes-definitions.html#coding).
@@ -565,7 +565,7 @@ Representa o tipo de dados [CodeableConcept](http://hl7.org/fhir/datatypes.html#
 Confira as perguntas frequentes sobre o conector do Azure IoT para FHIR (versão prévia).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector para FHIR FAQs](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Azure IoT Connector para FHIR FAQs](fhir-faq.md)
 
 *No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076871"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545218"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usar Apache Sqoop com o Hadoop no HDInsight
 
@@ -81,8 +81,8 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
     |Campo |Valor |
     |---|---|
     |Subscription |Selecione sua assinatura do Azure na lista suspensa.|
-    |Resource group |Selecione o grupo de recursos na lista suspensa ou crie um novo|
-    |Location |Selecione uma região na lista suspensa.|
+    |Grupo de recursos |Selecione o grupo de recursos na lista suspensa ou crie um novo|
+    |Localização |Selecione uma região na lista suspensa.|
     |Nome do cluster |Insira um nome para o cluster Hadoop. Use somente letra minúscula.|
     |Nome de usuário de logon do cluster |Mantenha o valor preenchido previamente `admin` .|
     |Senha de logon do cluster |Digite uma senha.|
@@ -93,13 +93,13 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
     |_artifacts local | Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac em um local diferente.|
     |Token SAS do local _artifacts |Deixe em branco.|
     |Nome do arquivo Bacpac |Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac.|
-    |Location |Use o valor padrão.|
+    |Localização |Use o valor padrão.|
 
     O nome [lógico do SQL Server](../../azure-sql/database/logical-servers.md) será  `<ClusterName>dbserver` . O nome do banco de dados será `<ClusterName>db` . O nome da conta de armazenamento padrão será `e6qhezrh2pdqu` .
 
-3. Selecione **Concordo com os termos e as condições declarados acima**.
+3. Selecione **Concordo com os termos e as condições declarados acima** .
 
-4. Selecione **Comprar**. Você poderá ver um novo bloco intitulado Como enviar a implantação para a implantação do modelo. É preciso sobre cerca de 20 minutos para criar o cluster e o banco de dados SQL.
+4. Selecione **Comprar** . Você poderá ver um novo bloco intitulado Como enviar a implantação para a implantação do modelo. É preciso sobre cerca de 20 minutos para criar o cluster e o banco de dados SQL.
 
 ## <a name="run-sqoop-jobs"></a>Executar trabalhos do Sqoop
 
@@ -109,7 +109,7 @@ O HDInsight pode executar trabalhos do Sqoop usando vários métodos. Use a tabe
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X ou Windows |
 | [SDK .NET para Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows (por enquanto) |
-| [PowerShell do Azure](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
 
 ## <a name="limitations"></a>Limitações
 
@@ -120,6 +120,6 @@ O HDInsight pode executar trabalhos do Sqoop usando vários métodos. Use a tabe
 
 Você aprendeu como usar o Sqoop. Para obter mais informações, consulte:
 
-* [Usar o Apache Hive com o HDInsight](../hdinsight-use-hive.md)
+* [Usar o Apache Hive com o HDInsight](./hdinsight-use-hive.md)
 * [Carregar dados no HDInsight](../hdinsight-upload-data.md): localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blob do Azure.
 * [Usar o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e o Banco de Dados SQL](./apache-hadoop-use-sqoop-mac-linux.md)

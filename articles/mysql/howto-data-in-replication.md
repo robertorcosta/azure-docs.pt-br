@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: c3a6f9b5831d4fed377d3f8702dbc0af0663b3a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596495"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544028"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
@@ -20,7 +20,7 @@ Este artigo descreve como configurar [replicação de dados](concepts-data-in-re
 > [!NOTE]
 > Comunicação livre de desvio
 >
-> A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
+> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_ . O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
 >
 
 Para criar uma réplica no serviço de banco de dados do Azure para MySQL, [replicação de dados](concepts-data-in-replication.md)  sincroniza dados de um servidor MySQL de origem local, em VMS (máquinas virtuais) ou em serviços de banco de dados de nuvem. A Replicação nos dados se baseia na replicação nativa baseada na posição do arquivo de log binário (binlog) para o MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -51,9 +51,9 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 1. Examine os [requisitos do servidor mestre](concepts-data-in-replication.md#requirements) antes de continuar. 
 
-2. Verifique se o servidor de origem permite o tráfego de entrada e de saída na porta 3306 e se o servidor de origem tem um **endereço IP público**, se o DNS está acessível publicamente ou tem um FQDN (nome de domínio totalmente qualificado). 
+2. Verifique se o servidor de origem permite o tráfego de entrada e de saída na porta 3306 e se o servidor de origem tem um **endereço IP público** , se o DNS está acessível publicamente ou tem um FQDN (nome de domínio totalmente qualificado). 
    
-   Teste a conectividade com o servidor de origem tentando se conectar de uma ferramenta como a linha de comando do MySQL hospedada em outro computador ou da [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal do Azure.
+   Teste a conectividade com o servidor de origem tentando se conectar de uma ferramenta como a linha de comando do MySQL hospedada em outro computador ou da [Azure cloud Shell](../cloud-shell/overview.md) disponível no portal do Azure.
 
    Se sua organização tiver políticas de segurança estritas e não permitirá que todos os endereços IP no servidor de origem habilitem a comunicação do Azure com o servidor de origem, você poderá usar o comando abaixo para determinar o endereço IP do servidor MySQL.
 
@@ -134,15 +134,15 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
    **Workbench do MySQL**
 
-   Para criar a função de replicação no Workbench do MySQL, abra o painel **Usuários e Privilégios** do painel **Gerenciamento**. Em seguida, clique em **Adicionar Conta**. 
+   Para criar a função de replicação no Workbench do MySQL, abra o painel **Usuários e Privilégios** do painel **Gerenciamento** . Em seguida, clique em **Adicionar Conta** . 
  
    :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Privilégios e usuários":::
 
-   Digite o nome de usuário no campo **Nome de Logon**. 
+   Digite o nome de usuário no campo **Nome de Logon** . 
 
    :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Privilégios e usuários":::
  
-   Clique no painel **Funções Administrativas** painel e selecione **Replicação Subordinada** na lista de **Privilégios Globais**. Em seguida, clique em **Aplicar** para criar a função de replicação.
+   Clique no painel **Funções Administrativas** painel e selecione **Replicação Subordinada** na lista de **Privilégios Globais** . Em seguida, clique em **Aplicar** para criar a função de replicação.
 
    :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Privilégios e usuários":::
 
@@ -189,7 +189,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 1. Definir servidor de origem
 
-   Todas as funções de replicação nos dados são feitas por procedimentos armazenados. Você pode encontrar todos os procedimentos em [Procedimentos armazenados de replicação nos dados](reference-data-in-stored-procedures.md). Os procedimentos armazenados podem ser executados no shell do MySQL ou no Workbench do MySQL. 
+   Todas as funções de replicação nos dados são feitas por procedimentos armazenados. Você pode encontrar todos os procedimentos em [Procedimentos armazenados de replicação nos dados](./reference-stored-procedures.md). Os procedimentos armazenados podem ser executados no shell do MySQL ou no Workbench do MySQL. 
 
    Para vincular dois servidores e iniciar a replicação, faça logon no servidor de réplica de destino no serviço BD do Azure para MySQL e defina a instância externa como o servidor de origem. Isso é feito usando o procedimento armazenado `mysql.az_replication_change_master` no servidor do Banco de Dados do Azure para MySQL.
 
@@ -206,7 +206,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
        - É recomendável passar esse parâmetro como uma variável. Confira os exemplos a seguir para obter mais informações.
 
    > [!NOTE]
-   > Se o servidor de origem estiver hospedado em uma VM do Azure, defina "permitir acesso aos serviços do Azure" como "ativado" para permitir que os servidores de origem e de réplica se comuniquem entre si. Essa configuração pode ser alterada a partir das opções **Segurança de conexão**. Consulte [gerenciar regras de firewall usando o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
+   > Se o servidor de origem estiver hospedado em uma VM do Azure, defina "permitir acesso aos serviços do Azure" como "ativado" para permitir que os servidores de origem e de réplica se comuniquem entre si. Essa configuração pode ser alterada a partir das opções **Segurança de conexão** . Consulte [gerenciar regras de firewall usando o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
       
    **Exemplos**
    
@@ -286,4 +286,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [Replicação no Dados](concepts-data-in-replication.md) parra Banco de Dados do Azure para MySQL. 
+- Saiba mais sobre [Replicação no Dados](concepts-data-in-replication.md) parra Banco de Dados do Azure para MySQL.

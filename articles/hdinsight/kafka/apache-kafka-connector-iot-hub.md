@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: b4f390e6d362895d58be0e8695e72d058a021b34
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c4efb8b4835b7dc828caa49eaf6013a2f58bb081
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485538"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534542"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
 
@@ -37,7 +37,7 @@ Para obter mais informações sobre a API de conexão, consulte [https://kafka.a
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Um hub IoT do Azure e um dispositivo. Para este artigo, considere usar [conectar simulador online do Raspberry Pi ao Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* Um hub IoT do Azure e um dispositivo. Para este artigo, considere usar [conectar simulador online do Raspberry Pi ao Hub IOT do Azure](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md).
 
 * [Ferramenta de criação escalar](https://www.scala-sbt.org/).
 
@@ -125,7 +125,7 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Mesmo que acima.|
     |N/D|`consumer.max.poll.records=10`|Adicionar ao final do arquivo. Essa alteração é evitar os tempos limite no conector do coletor limitando a 10 registros por vez. Para obter mais informações, confira [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
-1. Para salvar o arquivo, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
+1. Para salvar o arquivo, use __Ctrl + X__ , __Y__ e, em seguida, __Enter__ .
 
 1. Para criar os tópicos usados pela conector use os comandos a seguir:
 
@@ -149,11 +149,11 @@ Para recuperar informações de Hub IoT usadas pelo conector, use as seguintes e
 
 1. Obtenha o ponto de extremidade compatível com o evento de Hub e nome de ponto de extremidade compatível para o seu Hub IoT. Para obter essas informações, use um dos métodos a seguir:
 
-   * __Do [portal do Azure](https://portal.azure.com/)__, use as etapas a seguir:
+   * __Do [portal do Azure](https://portal.azure.com/)__ , use as etapas a seguir:
 
-     1. Navegue até seu Hub IoT e clique em __Pontos de Extremidade__.
-     2. Em __Pontos de extremidade internos__, selecione __Eventos__.
-     3. De __Propriedades__, copie o valor dos campos a seguir:
+     1. Navegue até seu Hub IoT e clique em __Pontos de Extremidade__ .
+     2. Em __Pontos de extremidade internos__ , selecione __Eventos__ .
+     3. De __Propriedades__ , copie o valor dos campos a seguir:
 
          * __Nome compatível com o Hub de eventos__
          * __Ponto de extremidade compatível com o Hub de eventos__
@@ -176,11 +176,11 @@ Para recuperar informações de Hub IoT usadas pelo conector, use as seguintes e
        "Partitions": 2
        ```
 
-2. Obtenha a __política de acesso compartilhado__ e __chave__. Para este exemplo, use a chave de __serviço__. Para obter essas informações, use um dos métodos a seguir:
+2. Obtenha a __política de acesso compartilhado__ e __chave__ . Para este exemplo, use a chave de __serviço__ . Para obter essas informações, use um dos métodos a seguir:
 
-    * __Do [portal do Azure](https://portal.azure.com/)__, use as etapas a seguir:
+    * __Do [portal do Azure](https://portal.azure.com/)__ , use as etapas a seguir:
 
-        1. Selecione __Políticas de acesso compartilhado__ e selecione __serviço__.
+        1. Selecione __Políticas de acesso compartilhado__ e selecione __serviço__ .
         2. Copie o valor da __chave primária__ .
         3. Copie o valor da __cadeia de conexão--chave primária__ .
 
@@ -233,7 +233,7 @@ Para configurar a fonte para trabalhar com o Hub IoT, execute as seguintes açõ
 
     Para obter um exemplo de configuração, consulte [conector de origem do Kafka Connect para o Hub IOT do Azure](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
-1. Para salvar as alterações, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
+1. Para salvar as alterações, use __Ctrl + X__ , __Y__ e, em seguida, __Enter__ .
 
 Para obter mais informações sobre como configurar a origem do conector, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
 
@@ -262,7 +262,7 @@ Para configurar a conexão do coletor para trabalhar com o Hub IoT, execute as s
 
     Para obter um exemplo de configuração, consulte [conector do coletor do Kafka Connect para o Hub IOT do Azure](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-1. Para salvar as alterações, use __Ctrl + X__, __Y__ e, em seguida, __Enter__.
+1. Para salvar as alterações, use __Ctrl + X__ , __Y__ e, em seguida, __Enter__ .
 
 Para obter mais informações sobre como configurar o coletor do conector, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 

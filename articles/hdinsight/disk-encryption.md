@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487306"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548023"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Criptografia dupla do Azure HDInsight para dados em repouso
 
@@ -23,7 +23,7 @@ Este documento não aborda dados armazenados em sua conta de armazenamento do Az
 
 ## <a name="introduction"></a>Introdução
 
-Há três funções de disco gerenciados principais no Azure: o disco de dados, o disco do sistema operacional e o disco temporário. Para obter mais informações sobre os diferentes tipos de discos gerenciados, consulte [introdução aos Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview). 
+Há três funções de disco gerenciados principais no Azure: o disco de dados, o disco do sistema operacional e o disco temporário. Para obter mais informações sobre os diferentes tipos de discos gerenciados, consulte [introdução aos Azure Managed disks](../virtual-machines/managed-disks-overview.md). 
 
 O HDInsight dá suporte a vários tipos de criptografia em duas camadas diferentes:
 
@@ -35,8 +35,8 @@ Esses tipos são resumidos na tabela a seguir.
 
 |Tipo de cluster |Disco do sistema operacional (disco gerenciado) |Disco de dados (disco gerenciado) |Disco de dados temporário (SSD local) |
 |---|---|---|---|
-|Kafka, HBase com gravações aceleradas|Layer1: [criptografia SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) por padrão|Layer1: [criptografia SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) por padrão, Layer2: criptografia opcional em repouso usando o CMK|Layer1: criptografia opcional no host usando PMK, Layer2: criptografia opcional em repouso usando o CMK|
-|Todos os outros clusters (Spark, interativo, Hadoop, HBase sem gravações aceleradas)|Layer1: [criptografia SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) por padrão|N/D|Layer1: criptografia opcional no host usando PMK, Layer2: criptografia opcional em repouso usando o CMK|
+|Kafka, HBase com gravações aceleradas|Layer1: [criptografia SSE](../virtual-machines/managed-disks-overview.md#encryption) por padrão|Layer1: [criptografia SSE](../virtual-machines/managed-disks-overview.md#encryption) por padrão, Layer2: criptografia opcional em repouso usando o CMK|Layer1: criptografia opcional no host usando PMK, Layer2: criptografia opcional em repouso usando o CMK|
+|Todos os outros clusters (Spark, interativo, Hadoop, HBase sem gravações aceleradas)|Layer1: [criptografia SSE](../virtual-machines/managed-disks-overview.md#encryption) por padrão|N/D|Layer1: criptografia opcional no host usando PMK, Layer2: criptografia opcional em repouso usando o CMK|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>Criptografia em repouso usando chaves gerenciadas pelo cliente
 
@@ -73,15 +73,15 @@ Consulte [criar uma identidade gerenciada atribuída pelo usuário](../active-di
 
 Crie um cofre da chave. Consulte [criar Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para obter etapas específicas.
 
-O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para o Azure Key Vault. Lembre-se de que o cofre de chaves deve ter a **exclusão reversível** habilitada. Para obter mais informações sobre como importar as chaves existentes, visite [Sobre chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md).
+O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para o Azure Key Vault. Lembre-se de que o cofre de chaves deve ter a **exclusão reversível** habilitada. Para obter mais informações sobre como importar as chaves existentes, visite [Sobre chaves, segredos e certificados](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Chave Create
 
-1. Em seu novo cofre de chaves, navegue até **configurações**  >  **chaves**  >  **+ gerar/importar**.
+1. Em seu novo cofre de chaves, navegue até **configurações**  >  **chaves**  >  **+ gerar/importar** .
 
     ![Gerar uma nova chave no Azure Key Vault](./media/disk-encryption/create-new-key.png "Gerar uma nova chave no Azure Key Vault")
 
-1. Forneça um nome e, em seguida, selecione **criar**. Mantenha o **tipo de chave** padrão do **RSA**.
+1. Forneça um nome e, em seguida, selecione **criar** . Mantenha o **tipo de chave** padrão do **RSA** .
 
     ![gera o nome da chave](./media/disk-encryption/create-key.png "Gerar nome da chave")
 
@@ -95,7 +95,7 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
 ### <a name="create-access-policy"></a>Criar política de acesso
 
-1. Em seu novo cofre de chaves, navegue até **configurações**  >  **políticas de acesso**  >  **+ Adicionar política de acesso**.
+1. Em seu novo cofre de chaves, navegue até **configurações**  >  **políticas de acesso**  >  **+ Adicionar política de acesso** .
 
     ![Criar uma nova política de acesso do Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +103,15 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
     |Propriedade |Descrição|
     |---|---|
-    |Permissões de chave|Selecione **obter**, **desencapsular chave**e **encapsular chave**.|
-    |Permissões de segredo|Selecione **obter**, **definir**e **excluir**.|
+    |Permissões de chave|Selecione **obter** , **desencapsular chave** e **encapsular chave** .|
+    |Permissões de segredo|Selecione **obter** , **definir** e **excluir** .|
     |Selecionar entidade de segurança|Selecione a identidade gerenciada atribuída pelo usuário que você criou anteriormente.|
 
     ![Definir Selecionar Entidade de Segurança para a política de acesso do Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Selecione **Adicionar**.
+1. Selecione **Adicionar** .
 
-1. Clique em **Salvar**.
+1. Clique em **Salvar** .
 
     ![Salvar política de acesso de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -121,7 +121,7 @@ Agora você está pronto para criar um novo cluster do HDInsight. As chaves gere
 
 #### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-Durante a criação do cluster, forneça o **identificador de chave**completo, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
+Durante a criação do cluster, forneça o **identificador de chave** completo, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
 
 ![Criar novo cluster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -141,7 +141,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Usar modelos do Azure Resource Manager
 
-O exemplo a seguir mostra como usar um modelo de Azure Resource Manager para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [o que são modelos de ARM?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+O exemplo a seguir mostra como usar um modelo de Azure Resource Manager para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [o que são modelos de ARM?](../azure-resource-manager/templates/overview.md).
 
 Este exemplo usa o PowerShell para chamar o modelo.
 
@@ -359,7 +359,7 @@ Pode haver cenários em que você talvez queira alterar as chaves de criptografi
 
 #### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-Para girar a chave, você precisa do URI do cofre de chaves de base. Depois de fazer isso, vá para a seção de propriedades do cluster HDInsight no portal e clique em **alterar chave** em **URL da chave de criptografia do disco**. Insira na nova URL de chave e envie para girar a chave.
+Para girar a chave, você precisa do URI do cofre de chaves de base. Depois de fazer isso, vá para a seção de propriedades do cluster HDInsight no portal e clique em **alterar chave** em **URL da chave de criptografia do disco** . Insira na nova URL de chave e envie para girar a chave.
 
 ![girar chave de criptografia de disco](./media/disk-encryption/change-key.png)
 
@@ -420,7 +420,7 @@ A criptografia no host pode ser habilitada durante a criação do cluster no por
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Habilite a criptografia no host.":::
 
-Essa opção habilita a [criptografia no host](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) para discos de dados temporários de VMs do HDInsight usando o PMK. A criptografia no host só [tem suporte em determinados SKUs de VM em regiões limitadas](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) e o HDInsight dá suporte à [seguinte configuração de nó e SKUs](./hdinsight-supported-node-configuration.md).
+Essa opção habilita a [criptografia no host](../virtual-machines/disks-enable-host-based-encryption-portal.md) para discos de dados temporários de VMs do HDInsight usando o PMK. A criptografia no host só [tem suporte em determinados SKUs de VM em regiões limitadas](../virtual-machines/disks-enable-host-based-encryption-portal.md) e o HDInsight dá suporte à [seguinte configuração de nó e SKUs](./hdinsight-supported-node-configuration.md).
 
 Para entender o tamanho correto da VM para seu cluster HDInsight, confira [selecionando o tamanho correto da VM para o cluster hdinsight do Azure](hdinsight-selecting-vm-size.md). O SKU da VM padrão para o nó Zookeeper quando a criptografia no host estiver habilitada será DS2V2.
 

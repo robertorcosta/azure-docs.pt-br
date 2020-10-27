@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075563"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539761"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
@@ -62,19 +62,19 @@ A página do Gerenciador de Filas do YARN mostra uma lista de suas filas à esqu
 
 ![Página de detalhes do Gerenciador de Filas do YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Para obter informações mais detalhada sobre seu filas, no painel do Ambari, selecione o serviço **YARN** na lista à esquerda. Em seguida, no menu suspenso **Links rápidos**, selecione **Interface do usuário do Gerenciador de Recursos** abaixo do nó ativo.
+Para obter informações mais detalhada sobre seu filas, no painel do Ambari, selecione o serviço **YARN** na lista à esquerda. Em seguida, no menu suspenso **Links rápidos** , selecione **Interface do usuário do Gerenciador de Recursos** abaixo do nó ativo.
 
 ![Links de menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
-Na interface do usuário do Gerenciador de Recursos, selecione **Agendador** no menu à esquerda. Você vê uma lista com as suas filas em *Filas de Aplicativo*. Aqui você pode ver a capacidade usada para cada uma das suas filas, como os trabalhos estão distribuídos entre elas e se algum trabalho está com limitação de recursos.
+Na interface do usuário do Gerenciador de Recursos, selecione **Agendador** no menu à esquerda. Você vê uma lista com as suas filas em *Filas de Aplicativo* . Aqui você pode ver a capacidade usada para cada uma das suas filas, como os trabalhos estão distribuídos entre elas e se algum trabalho está com limitação de recursos.
 
 ![Menu da IU do Gerenciador de recursos do Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 
-O gargalo do desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de afunilamento é geralmente causado pelo *bloqueio* de operações de e/s (entrada/saída), que ocorrem quando as tarefas em execução enviam mais e/s do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de E/S aguardando para serem processadas até que as E/Ss atuais sejam processadas. Os blocos são devido à *limitação de armazenamento*, que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um SLA (contrato de nível de serviço). Esse limite serve para garantir que um único cliente ou locatário não monopolize o serviço. O SLA limita o número de IOs por segundo (IOPS) para o armazenamento do Azure-para obter detalhes, consulte [escalabilidade e metas de desempenho para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md).
+O gargalo do desempenho de um cluster pode ocorrer no nível de armazenamento. Esse tipo de afunilamento é geralmente causado pelo *bloqueio* de operações de e/s (entrada/saída), que ocorrem quando as tarefas em execução enviam mais e/s do que o serviço de armazenamento pode manipular. Esse bloqueio cria uma fila de solicitações de E/S aguardando para serem processadas até que as E/Ss atuais sejam processadas. Os blocos são devido à *limitação de armazenamento* , que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um SLA (contrato de nível de serviço). Esse limite serve para garantir que um único cliente ou locatário não monopolize o serviço. O SLA limita o número de IOs por segundo (IOPS) para o armazenamento do Azure-para obter detalhes, consulte [escalabilidade e metas de desempenho para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md).
 
-Se você estiver usando o armazenamento do Azure, para obter informações sobre como monitorar problemas relacionados ao armazenamento, incluindo a limitação, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Se você estiver usando o armazenamento do Azure, para obter informações sobre como monitorar problemas relacionados ao armazenamento, incluindo a limitação, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 Se o armazenamento de backup do seu cluster for Azure Data Lake Storage (ADLS), sua limitação provavelmente será devido aos limites de largura de banda. A limitação, nesse caso, poderia ser identificada pela observação de erros de limitação nos logs de tarefa. Para o ADLS, consulte a seção sobre limitação do serviço apropriado nesses artigos:
 
@@ -126,6 +126,6 @@ Para obter mais informações sobre problemas de espaço em disco, consulte [sem
 
 Visite os links a seguir para obter mais informações sobre o monitoramento e a solução de problemas dos seus clusters:
 
-* [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
+* [Analisar logs do HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Depurar aplicativos com logs do YARN do Apache Hadoop](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

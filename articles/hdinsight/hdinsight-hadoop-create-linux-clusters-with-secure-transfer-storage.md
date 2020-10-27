@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 8c1ff1eebabd94c5e6b1241b33ca83960e8eedbb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 69844a392aa03dc962f8af456996ab51f1adf561
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490281"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547462"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop clusters com contas de armazenamento de transferência segura no Azure HDInsight
 
@@ -32,7 +32,7 @@ Para atualizar uma conta de armazenamento existente com portal do Azure, consult
 
 ### <a name="powershell"></a>PowerShell
 
-Para o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)do PowerShell, verifique se o parâmetro `-EnableHttpsTrafficOnly` está definido como `1` .
+Para o cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)do PowerShell, verifique se o parâmetro `-EnableHttpsTrafficOnly` está definido como `1` .
 
 Para atualizar uma conta de armazenamento existente com o PowerShell, consulte [exigir transferência segura com o PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 

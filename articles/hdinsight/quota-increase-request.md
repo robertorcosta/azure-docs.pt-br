@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409707"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539404"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Como solicitar aumentos de cota para o Azure HDInsight
 
@@ -30,7 +30,7 @@ Se você tiver recebido um erro indicando que atingiu um limite de cota, use o p
 
     1. Entre no [portal do Azure](https://portal.azure.com/).
     1. Navegue até a página da **Visão geral** do cluster HDInsight.
-    1. No menu à esquerda, selecione **Limites de cota**. A página exibe o número de núcleos em uso, o número de núcleos disponíveis e o total de núcleos.
+    1. No menu à esquerda, selecione **Limites de cota** . A página exibe o número de núcleos em uso, o número de núcleos disponíveis e o total de núcleos.
 
 Para solicitar um aumento de cota, siga estes passos:
 
@@ -39,17 +39,17 @@ Para solicitar um aumento de cota, siga estes passos:
 
     ![botão de ajuda e suporte](./media/quota-increase-request/help-support-button.png)
 
-1. Selecione **Nova solicitação de suporte**.
-1. Na página **Nova solicitação de suporte**, na guia **Noções básicas**, selecione as opções a seguir:
+1. Selecione **Nova solicitação de suporte** .
+1. Na página **Nova solicitação de suporte** , na guia **Noções básicas** , selecione as opções a seguir:
 
-   - **Tipo de problema**: **Limites de serviço e assinatura (cotas)**
-   - **Assinatura**: a assinatura que você quer modificar
-   - **Tipo de cota**: **HDInsight**
+   - **Tipo de problema** : **Limites de serviço e assinatura (cotas)**
+   - **Assinatura** : a assinatura que você quer modificar
+   - **Tipo de cota** : **HDInsight**
 
      ![Crie uma solicitação de suporte para aumentar a cota de núcleos do HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
 1. Selecione **Avançar: Soluções >>** .
-1. Na página **Detalhes**, insira uma descrição do problema, selecione a gravidade do problema, o método de contato preferencial e outros campos obrigatórios. Use o modelo listado abaixo para garantir que você forneça as informações necessárias. As solicitações de aumento de cota são avaliadas pela equipe de capacidade do Azure, e não pela equipe de produto do HDInsight. Quanto mais completas forem as informações fornecidas, maior será a probabilidade de sua solicitação ser aprovada.
+1. Na página **Detalhes** , insira uma descrição do problema, selecione a gravidade do problema, o método de contato preferencial e outros campos obrigatórios. Use o modelo listado abaixo para garantir que você forneça as informações necessárias. As solicitações de aumento de cota são avaliadas pela equipe de capacidade do Azure, e não pela equipe de produto do HDInsight. Quanto mais completas forem as informações fornecidas, maior será a probabilidade de sua solicitação ser aprovada.
 
     ```
     I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
@@ -62,14 +62,14 @@ Para solicitar um aumento de cota, siga estes passos:
     ![detalhes do problema](./media/quota-increase-request/problem-details.png)
 
 1. Selecione **Avançar: Examinar + Criar >>** .
-1. Na guia **Revisar + criar**, selecione **Criar**.
+1. Na guia **Revisar + criar** , selecione **Criar** .
 
 > [!NOTE]  
 > Se você precisar aumentar a cota de núcleo do HDInsight em uma região privada, [envie uma solicitação de lista aprovada](https://aka.ms/canaryintwhitelist).
 
-Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Você pode [entrar em contato com o suporte para solicitar um aumento de cota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-Há alguns limites de cota fixos. Por exemplo, uma única assinatura do Azure pode ter no máximo 10 mil núcleos. Para detalhes sobre esses limites, confira [Assinatura do Azure e limites, cotas e restrições de serviços](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Há alguns limites de cota fixos. Por exemplo, uma única assinatura do Azure pode ter no máximo 10 mil núcleos. Para detalhes sobre esses limites, confira [Assinatura do Azure e limites, cotas e restrições de serviços](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
