@@ -37,7 +37,7 @@ Neste início rápido, você aprenderá a gerenciar blobs usando o código JavaS
 
 Antes de seu aplicativo Web poder acessar um armazenamento de blobs do cliente, a conta precisará ser configurada para habilitar o [Compartilhamento de recursos entre origens](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS.
 
-Retorne ao portal do Azure e selecione a conta de armazenamento. Para definir uma nova regra de CORS, navegue até a seção **Configurações** e clique no link **CORS**. Em seguida, clique no botão **Adicionar** para abrir a janela **Adicionar regra de CORS**. Para este início rápido, crie uma regra de CORS aberta:
+Retorne ao portal do Azure e selecione a conta de armazenamento. Para definir uma nova regra de CORS, navegue até a seção **Configurações** e clique no link **CORS** . Em seguida, clique no botão **Adicionar** para abrir a janela **Adicionar regra de CORS** . Para este início rápido, crie uma regra de CORS aberta:
 
 ![Configurações de CORS da conta do Armazenamento de Blobs do Azure](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
@@ -86,9 +86,9 @@ A série de valores depois de cada parâmetro pode parecer um pouco confusa. Ess
 
 | Parâmetro        | Valor   | Descrição  |
 |------------------|---------|---------|
-| *permissões*    | racwdl  | Essa SAS permite *ler*, *acrescentar*, *criar*, *gravar*, *excluir* e *listar* recursos. |
-| *resource-types* | sco     | Os recursos afetados pela SAS são *serviço*, *contêiner* e *objeto*. |
-| *services*       | b       | O serviço afetado pela SAS é o serviço *Blob*. |
+| *permissões*    | racwdl  | Essa SAS permite *ler* , *acrescentar* , *criar* , *gravar* , *excluir* e *listar* recursos. |
+| *resource-types* | sco     | Os recursos afetados pela SAS são *serviço* , *contêiner* e *objeto* . |
+| *services*       | b       | O serviço afetado pela SAS é o serviço *Blob* . |
 
 Agora que a SAS foi gerada, copie o valor de retorno e salve-o em algum lugar para usar em uma etapa futura. Se você tiver gerado a SAS usando um método diferente da CLI do Azure, será necessário remover o `?` inicial, caso ele estiver presente. Esse caractere é um separador de URL que já é fornecido no modelo de URL mais adiante neste tópico no qual a SAS é usada.
 
@@ -101,7 +101,7 @@ Nesta seção, você criará uma página da Web básica e configurará o VS Code
 
 ### <a name="set-up-the-web-application"></a>Configurar o aplicativo Web
 
-Primeiro, crie uma nova pasta chamada *azure-blobs-javascript* e abra-a no VS Code. Crie um novo arquivo no VS Code, adicione o seguinte HTML e salve-o como *index.html* na pasta *azure-blobs-javascript*.
+Primeiro, crie uma nova pasta chamada *azure-blobs-javascript* e abra-a no VS Code. Crie um novo arquivo no VS Code, adicione o seguinte HTML e salve-o como *index.html* na pasta *azure-blobs-javascript* .
 
 ```html
 <!DOCTYPE html>
@@ -127,7 +127,7 @@ Primeiro, crie uma nova pasta chamada *azure-blobs-javascript* e abra-a no VS Co
 
 ### <a name="configure-the-debugger"></a>Configurar o depurador
 
-Para configurar a extensão do depurador no VS Code, escolha **Depurar > Adicionar configuração...**  e escolha **Chrome** ou **Edge**, dependendo da extensão instalada anteriormente na seção Pré-requisitos. Essa ação cria um arquivo *launch.jason* e abre-o no editor.
+Para configurar a extensão do depurador no VS Code, escolha **Depurar > Adicionar configuração...**  e escolha **Chrome** ou **Edge** , dependendo da extensão instalada anteriormente na seção Pré-requisitos. Essa ação cria um arquivo *launch.jason* e abre-o no editor.
 
 Modifique o arquivo *launch.json* para que o valor `url` inclua `/index.html` conforme mostrado:
 
@@ -167,11 +167,11 @@ Para iniciar *index.html* no navegador com o depurador do VS Code anexado, escol
 
 A interface do usuário exibida ainda não faz nada, mas você adicionará o código JavaScript na seção a seguir para implementar cada função exibida. Você pode definir os pontos de interrupção e interagir com o depurador quando ele estiver em pausa no seu código.
 
-Quando você fizer alterações em *index.html*, certifique-se de recarregar a página para ver as alterações no navegador. No VS Code, também é possível escolher **Depurar > Reiniciar Depuração** ou pressionar Ctrl+Shift+F5.
+Quando você fizer alterações em *index.html* , certifique-se de recarregar a página para ver as alterações no navegador. No VS Code, também é possível escolher **Depurar > Reiniciar Depuração** ou pressionar Ctrl+Shift+F5.
 
 ### <a name="add-the-blob-storage-client-library"></a>Adicionar a biblioteca de cliente de armazenamento de blobs
 
-Para habilitar chamadas para a API de armazenamento de blobs, primeiro [Baixe o SDK do Armazenamento do Azure para JavaScript – Biblioteca de clientes do blob](https://aka.ms/downloadazurestoragejsblob), extraia o conteúdo do arquivo zip e coloque o arquivo *azure-storage.blob.js* na pasta *azure-blobs-javascript*.
+Para habilitar chamadas para a API de armazenamento de blobs, primeiro [Baixe o SDK do Armazenamento do Azure para JavaScript – Biblioteca de clientes do blob](https://aka.ms/downloadazurestoragejsblob), extraia o conteúdo do arquivo zip e coloque o arquivo *azure-storage.blob.js* na pasta *azure-blobs-javascript* .
 
 Cole o seguinte HTML em *index.html* após a marcação de fechamento `</body>` substituindo o comentário do espaço reservado.
 
@@ -293,7 +293,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Esse código chama a função [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) em um loop para garantir que todos os segmentos sejam recuperados. Para cada segmento, ele percorre a lista de itens de blobs que ele contém e atualiza a lista **Arquivos**.
+Esse código chama a função [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) em um loop para garantir que todos os segmentos sejam recuperados. Para cada segmento, ele percorre a lista de itens de blobs que ele contém e atualiza a lista **Arquivos** .
 
 ### <a name="upload-blobs"></a>Carregar blobs
 
@@ -349,7 +349,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Esse código chama a função [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada arquivo escolhido na lista. Ele chama a função `listFiles` mostrada anteriormente para atualizar o conteúdo da lista **Arquivos**.
+Esse código chama a função [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) para remover cada arquivo escolhido na lista. Ele chama a função `listFiles` mostrada anteriormente para atualizar o conteúdo da lista **Arquivos** .
 
 ### <a name="run-and-test-the-web-application"></a>Executar e testar o aplicativo Web
 

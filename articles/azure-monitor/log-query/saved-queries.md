@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959835"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542600"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Consultas salvas no Azure Monitor Log Analytics
 
@@ -38,7 +38,7 @@ Você pode obter exemplos de consultas de dois locais diferentes.
 
 ### <a name="example-query-dialog"></a>Exemplo de diálogo de consulta
 
-Ao entrar pela primeira vez na experiência de Log Analytics, a *caixa de diálogo de consultas de exemplo* é mostrada automaticamente.  Ele também pode ser acessado clicando no canto superior direito da tela em **consultas de exemplo**.
+Ao entrar pela primeira vez na experiência de Log Analytics, a *caixa de diálogo de consultas de exemplo* é mostrada automaticamente.  Ele também pode ser acessado clicando no canto superior direito da tela em **consultas de exemplo** .
 
 ![Barra lateral](media/saved-queries/sidebar-2.png)
 
@@ -54,7 +54,7 @@ Cada consulta de exemplo é representada por um cartão. Você pode examinar rap
 
 Toda a mesma funcionalidade da experiência de diálogo pode ser acessada no painel consultas na barra lateral esquerda da Log Analytics. Você pode passar o mouse sobre um nome de consulta para obter a descrição da consulta e a funcionalidade adicional.
 
-![Barra lateral](media/saved-queries/sidebar-3.png)
+![Captura de tela que mostra o painel consultas.](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>Localizando e filtrando consultas
 
@@ -80,9 +80,9 @@ Altere o agrupamento das consultas clicando na lista suspensa *Agrupar por* :
 A caixa de diálogo oferece suporte ao agrupamento por:
 
 - **Tipo de recurso** – um recurso, conforme definido no Azure, como uma máquina virtual. Consulte a [referência de tabela Azure monitor](/azure/azure-monitor/reference/tables/tables-resourcetype) para obter um mapeamento completo de Azure monitor logs/tabelas de log Analytics para o tipo de recurso.  
-- **Categoria** – um tipo de informações como *segurança* ou *auditoria*. As categorias são idênticas às categorias definidas no painel do lado de tabelas. Consulte a [referência de tabela Azure monitor](/azure/azure-monitor/reference/tables/tables-category) para obter uma lista completa de categorias.  
+- **Categoria** – um tipo de informações como *segurança* ou *auditoria* . As categorias são idênticas às categorias definidas no painel do lado de tabelas. Consulte a [referência de tabela Azure monitor](/azure/azure-monitor/reference/tables/tables-category) para obter uma lista completa de categorias.  
 - **Solução** – uma solução Azure monitor associada às consultas
-- **Tópico** – o tópico da consulta de exemplo, como *logs de atividade* ou *logs de aplicativo*. A propriedade topic é exclusiva para exemplos de consultas e pode diferir de acordo com o tipo de recurso específico.
+- **Tópico** – o tópico da consulta de exemplo, como *logs de atividade* ou *logs de aplicativo* . A propriedade topic é exclusiva para exemplos de consultas e pode diferir de acordo com o tipo de recurso específico.
 
 Os valores de agrupamento também agem como um sumário ativo. Clicar em um dos valores no lado esquerdo da tela rola o modo de exibição consultas diretamente para o item clicado.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fbfb2aef838dbef6e7403e635f5bce42bf9ec901
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487255"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542311"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Práticas recomendadas de gerenciamento de cluster HDInsight
 
@@ -26,12 +26,12 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 | Fábrica de dados do Azure | [Criar clusters do Apache Hadoop sob demanda no HDInsight usando o Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Modelo personalizado do Resource Manager | [Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Modelos de início rápido | [Modelos de início rápido do HDInsight](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
-| Exemplos do Azure | [Exemplos do HDInsight no Azure](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
+| Exemplos do Azure | [Exemplos do HDInsight no Azure](/samples/browse/?products=azure-hdinsight) |
 | Portal do Azure | [Criar clusters baseados em Linux no HDInsight usando o portal do Azure](./spark/apache-spark-intellij-tool-plugin.md) |
 | CLI do Azure | [Criar os clusters do HDInsight usando a CLI do Azure](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Criar clusters do Apache Hadoop usando a API REST do Azure](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDKs (.NET, Python, Java) | [.Net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable&preserve-view=true), [go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| SDKs (.NET, Python, Java) | [.Net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable), [go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > Se você estiver criando um cluster e reutilizando o nome do cluster de um cluster criado anteriormente, aguarde até que a exclusão anterior do cluster seja concluída antes de criar o cluster.
@@ -62,7 +62,7 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 | Dimensionamento manual | [Dimensionar clusters do Azure HDInsight](./hdinsight-scaling-best-practices.md) |
 | Monitoramento com o Ambari| [Monitorar o desempenho do cluster no Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Monitoramento com logs de Azure Monitor | [Uso de logs do Azure Monitor para monitorar clusters do HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
-| Problemas de serviço, manutenção planejada, & recomendações de segurança de integridade | [Assinar alertas de integridade de serviço específicos da assinatura](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+| Problemas de serviço, manutenção planejada, & recomendações de segurança de integridade | [Assinar alertas de integridade de serviço específicos da assinatura](../service-health/alerts-activity-log-service-notifications-portal.md) |
 
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>Como fazer verificar em clusters HDInsight excluídos?

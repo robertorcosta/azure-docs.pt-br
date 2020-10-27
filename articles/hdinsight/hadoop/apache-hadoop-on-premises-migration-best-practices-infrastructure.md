@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083093"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542294"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – práticas recomendadas de infraestrutura
 
@@ -27,7 +27,7 @@ As principais escolhas a fazer para planejamento de capacidade de cluster do HDI
 A região do Azure determina onde o cluster está fisicamente provisionado. Para minimizar a latência de leituras e gravações, o cluster deverá estar na mesma região que os dados.
 
 **Local e tamanho do armazenamento**  
-O armazenamento padrão deve estar na mesma região que o cluster.Para um cluster de 48 nós, é recomendável ter de 4 a 8 contas de armazenamento. Embora já possa haver um armazenamento total suficiente, cada conta de armazenamento fornece largura de banda de rede adicional para os nós de computação. Quando houver várias contas de armazenamento, use um nome aleatório para cada conta de armazenamento, sem um prefixo. A finalidade da nomeação aleatória é a redução da chance de gargalos (limitações) de armazenamento ou falhas de modo comum em todas as contas. Para obter melhor desempenho, use apenas um contêiner por conta de armazenamento.
+O armazenamento padrão deve estar na mesma região que o cluster. Para um cluster de 48 nós, é recomendável ter de 4 a 8 contas de armazenamento. Embora já possa haver um armazenamento total suficiente, cada conta de armazenamento fornece largura de banda de rede adicional para os nós de computação. Quando houver várias contas de armazenamento, use um nome aleatório para cada conta de armazenamento, sem um prefixo. A finalidade da nomeação aleatória é a redução da chance de gargalos (limitações) de armazenamento ou falhas de modo comum em todas as contas. Para obter melhor desempenho, use apenas um contêiner por conta de armazenamento.
 
 **Tamanho e tipo da VM (agora dá suporte à série G)**  
 Cada tipo de cluster tem um conjunto de tipos de nós e cada tipo de nó tem opções específicas quanto ao tamanho e o tipo de VM. O tamanho e o tipo da VM são determinados pelo poder de processamento da CPU, pelo tamanho da RAM e pela latência da rede. Uma carga de trabalho simulada pode ser usada para determinar o tamanho e o tipo ideais da VM para cada tipo de nó.
@@ -52,35 +52,35 @@ Aplicativos ou componentes que estavam disponíveis em clusters locais, mas que 
 |**Aplicativo**|**Integração**
 |---|---|
 |Fluxo de ar|Nó de borda IaaS ou HDInsight
-|Alluxio|IaaS  
-|Arcadia|IaaS 
+|Alluxio|IaaS  
+|Arcadia|IaaS 
 |Atlas|Nenhum (Somente HDP)
 |Datameer|Nó de borda do HDInsight
 |Datastax (Cassandra)|IaaS (CosmosDB, uma alternativa no Azure)
-|DataTorrent|IaaS 
-|Drill|IaaS 
+|DataTorrent|IaaS 
+|Drill|IaaS 
 |Ignite|IaaS
-|Jethro|IaaS 
-|Mapador|IaaS 
+|Jethro|IaaS 
+|Mapador|IaaS 
 |Mongo|IaaS (CosmosDB, uma alternativa no Azure)
-|NiFi|IaaS 
+|NiFi|IaaS 
 |Pronto|Nó de borda IaaS ou HDInsight
-|Python 2|PaaS 
-|Python 3|PaaS 
-|R|PaaS 
-|SAS|IaaS 
+|Python 2|PaaS 
+|Python 3|PaaS 
+|R|PaaS 
+|SAS|IaaS 
 |Vertica|IaaS (SQLDW, uma alternativa no Azure)
-|Tableau|IaaS 
+|Tableau|IaaS 
 |Waterline|Nó de borda do HDInsight
-|StreamSets|Borda do HDInsight 
-|Palantir|IaaS 
-|Sailpoint|IaaS 
+|StreamSets|Borda do HDInsight 
+|Palantir|IaaS 
+|Sailpoint|IaaS 
 
 Para obter mais informações, consulte o artigo [Componentes do Apache Hadoop disponíveis com diferentes versões do HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personalizar clusters do HDInsight utilizando ações de script
 
-O HDInsight fornece um método de configuração de cluster chamado de **ação de script**. Uma ação de script é um script Bash executado em nós em um cluster do HDInsight e pode ser usado para instalar componentes adicionais e alterar as definições de configuração.
+O HDInsight fornece um método de configuração de cluster chamado de **ação de script** . Uma ação de script é um script Bash executado em nós em um cluster do HDInsight e pode ser usado para instalar componentes adicionais e alterar as definições de configuração.
 
 Ações de script devem estar armazenadas em um URI que pode ser acessado do cluster HDInsight. Podem ser usadas durante ou após a criação do cluster e também podem ser restrita para a execução apenas de determinados tipos de nó.
 
@@ -109,7 +109,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Personalizar configurações do HDInsight usando Inicialização
 
-Alterações em configurações nos arquivos de configuração, como `core-site.xml`, `hive-site.xml` e `oozie-env.xml`, podem ser feitas usando a inicialização. O script a seguir é um exemplo que usa o cmdlet [AZ Module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) do PowerShell [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+Alterações em configurações nos arquivos de configuração, como `core-site.xml`, `hive-site.xml` e `oozie-env.xml`, podem ser feitas usando a inicialização. O script a seguir é um exemplo que usa o cmdlet [AZ Module](/powershell/azure/new-azureps-module-az) do PowerShell [New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration

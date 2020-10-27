@@ -41,11 +41,11 @@ Antes de configurar o tableau online para o provisionamento automático de usuá
 
 Para adicionar o tableau online do Marketplace, siga estas etapas.
 
-1. No [Portal do Microsoft Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. No [Portal do Microsoft Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione **Azure Active Directory** .
 
     ![O ícone do Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos** .
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Para adicionar o tableau online do Marketplace, siga estas etapas.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **tableau online** e selecione **tableau online** no painel de resultados. Para adicionar o aplicativo, selecione **Adicionar**.
+4. Na caixa de pesquisa, digite **tableau online** e selecione **tableau online** no painel de resultados. Para adicionar o aplicativo, selecione **Adicionar** .
 
     ![Tableau Online na lista de resultados](common/search-new-app.png)
 
@@ -78,19 +78,19 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
 ### <a name="configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Configurar o provisionamento automático de usuário para o tableau online no Azure AD
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**  >  **todos os aplicativos**  >  **tableau online**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**  >  **todos os aplicativos**  >  **tableau online** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Tableau Online**.
+2. Na lista de aplicativos, selecione **Tableau Online** .
 
     ![O link do tableau online na lista de aplicativos](common/all-applications.png)
 
-3. Selecione a guia **Provisionamento**.
+3. Selecione a guia **Provisionamento** .
 
     ![Provisionamento do Tableau Online](./media/tableau-online-provisioning-tutorial/ProvisioningTab.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **Modo de Provisionamento** como **Automático** .
 
     ![Modo de provisionamento online do tableau](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -121,13 +121,13 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
     ![Conexão de teste do tableau online](./media/tableau-online-provisioning-tutorial/TestConnection.png)
 
-8. Na caixa **Email de Notificação**, insira o endereço de email da pessoa ou grupo que deve receber as notificações do erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+8. Na caixa **Email de Notificação** , insira o endereço de email da pessoa ou grupo que deve receber as notificações do erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
 
     ![Email de notificação do tableau online](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-9. Selecione **Salvar**.
+9. Selecione **Salvar** .
 
-10. Na seção **Mapeamentos**, selecione **Sincronizar Usuários do Azure Active Directory com o Tableau**.
+10. Na seção **Mapeamentos** , selecione **Sincronizar Usuários do Azure Active Directory com o Tableau** .
 
     ![Sincronização de usuário do tableau online](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
@@ -135,7 +135,7 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
     ![Atributos de usuário correspondentes do tableau online](./media/tableau-online-provisioning-tutorial/attribute.png)
 
-12. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Tableau**.
+12. Na seção **Mapeamentos** , selecione **Sincronizar Grupos do Azure Active Directory com o Tableau** .
 
     ![Sincronização de grupo do tableau online](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
@@ -145,19 +145,19 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
 14. Para configurar filtros de escopo, siga as instruções fornecidas no [tutorial sobre filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Para habilitar o serviço de provisionamento do Azure AD para o tableau online, na seção **configurações** , altere o **status de provisionamento** para **ativado**.
+15. Para habilitar o serviço de provisionamento do Azure AD para o tableau online, na seção **configurações** , altere o **status de provisionamento** para **ativado** .
 
     ![Status de provisionamento do tableau online](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-16. Defina os usuários ou grupos que você deseja provisionar para tableau online. Na seção **Configurações**, selecione os valores desejados em **Escopo**.
+16. Defina os usuários ou grupos que você deseja provisionar para tableau online. Na seção **Configurações** , selecione os valores desejados em **Escopo** .
 
     ![Escopo do tableau online](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-17. Quando estiver pronto para fazer o provisionamento, selecione **Salvar**.
+17. Quando estiver pronto para fazer o provisionamento, selecione **Salvar** .
 
     ![Salvar online do tableau](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos em **Escopo**, na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações posteriores. Elas ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure Active Directory seja executado. 
+Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos em **Escopo** , na seção **Configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações posteriores. Elas ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure Active Directory seja executado. 
 
 É possível usar a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para o relatório de atividade de provisionamento. O relatório descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no tableau online.
 

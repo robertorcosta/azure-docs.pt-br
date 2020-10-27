@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: bed196d1be101ffa75affc389d390ec0fa764b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932837"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532638"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Backup e restauração no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -28,7 +28,7 @@ Se o banco de dados estiver configurado com alta disponibilidade, os instantâne
 > [!IMPORTANT]
 >Os backups não são executados em servidores interrompidos. No entanto, os backups são retomados quando o banco de dados é iniciado automaticamente após 7 dias ou iniciado pelo usuário.
 
-Os backups só podem ser usados para operações de restauração no servidor flexível. Se você quiser exportar ou importar dados para o servidor flexível, use a metodologia [de despejo e restauração](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   .
+Os backups só podem ser usados para operações de restauração no servidor flexível. Se você quiser exportar ou importar dados para o servidor flexível, use a metodologia [de despejo e restauração](../howto-migrate-using-dump-and-restore.md) .
 
 
 ### <a name="backup-retention"></a>Retenção de backup
@@ -40,9 +40,9 @@ O período de retenção de backup controla o quanto o tempo uma restauração p
 
 ### <a name="backup-storage-cost"></a>Custo do armazenamento de backup
 
-O servidor flexível fornece até 100% de seu armazenamento de servidor provisionado como armazenamento de backup sem custo adicional. Qualquer armazenamento de backup adicional usado é cobrado em GB por mês. Por exemplo, se você tiver provisionado um servidor com 250 GiB de armazenamento, terá 250 GiB de capacidade de armazenamento de backup sem custo adicional. Se o uso diário do backup for 25 GiB, você poderá ter até 10 dias de armazenamento de backup gratuito. O consumo de armazenamento de backup excedendo 250 GiB é cobrado de acordo com o [modelo de preços](https://azure.microsoft.com/pricing/details/postgresql/).
+O servidor flexível fornece até 100% de seu armazenamento de servidor provisionado como armazenamento de backup sem custo adicional. Qualquer armazenamento de backup adicional usado é cobrado em GB por mês. Por exemplo, se você tiver provisionado um servidor com 250 GiB de armazenamento, terá 250 GiB de capacidade de armazenamento de backup sem custo adicional. Se o uso diário do backup for 25 GiB, você poderá ter até 10 dias de armazenamento de backup gratuito. O consumo de armazenamento de backup excedendo 250 GiB é cobrado de acordo com o [modelo de preços](https://azure.microsoft.com/pricing/details/postgresql/).
 
-Você pode usar a métrica [armazenamento de backup usado](https://docs.microsoft.com/azure/postgresql/concepts-monitoring)   no portal do Azure para monitorar o armazenamento de backup consumido por um servidor. A métrica Armazenamento de backup usada representa a soma do armazenamento consumido por todos os backups de banco de dados e backups de log retidos com base no período de retenção de backup definido para o servidor.  Uma atividade transacional intensa no servidor pode fazer com que o uso do armazenamento de backup aumente, independentemente do tamanho total do banco de dados.
+Você pode usar a métrica [Armazenamento de backup usado](../concepts-monitoring.md) no portal do Azure para monitorar o armazenamento de backup consumido por um servidor. A métrica Armazenamento de backup usada representa a soma do armazenamento consumido por todos os backups de banco de dados e backups de log retidos com base no período de retenção de backup definido para o servidor.  Uma atividade transacional intensa no servidor pode fazer com que o uso do armazenamento de backup aumente, independentemente do tamanho total do banco de dados.
 
 O principal meio de controlar o custo de armazenamento de backup é definindo o período de retenção de backup apropriado e escolhendo as opções de redundância de backup corretas para atender aos objetivos de recuperação desejados.
 
@@ -71,15 +71,15 @@ A Restauração pontual é útil em vários cenários. Por exemplo, quando um us
 
 Você pode escolher entre um ponto de restauração mais antigo e um ponto de restauração personalizado.
 
--   **Ponto de restauração mais antigo**: dependendo do período de retenção, ele será o primeiro horário que você pode restaurar. O horário de backup mais antigo será selecionado automaticamente e exibido no Portal. Isso será útil se você quiser investigar ou fazer alguns testes iniciando esse ponto no tempo.
+-   **Ponto de restauração mais antigo** : dependendo do período de retenção, ele será o primeiro horário que você pode restaurar. O horário de backup mais antigo será selecionado automaticamente e exibido no Portal. Isso será útil se você quiser investigar ou fazer alguns testes iniciando esse ponto no tempo.
 
--   **Ponto de restauração personalizado**: essa opção permite que você escolha um ponto no tempo dentro do período de retenção definido para esse servidor flexível. Por padrão, o horário mais recente em UTC é selecionado automaticamente e útil se você deseja restaurar para a última transação confirmada para fins de teste. Opcionalmente, você pode escolher outros dias e hora. 
+-   **Ponto de restauração personalizado** : essa opção permite que você escolha um ponto no tempo dentro do período de retenção definido para esse servidor flexível. Por padrão, o horário mais recente em UTC é selecionado automaticamente e útil se você deseja restaurar para a última transação confirmada para fins de teste. Opcionalmente, você pode escolher outros dias e hora. 
 
 O tempo estimado para recuperação depende de vários fatores, incluindo o tamanho do banco de dados, o volume de logs de transações a serem processados, a largura de banda da rede e o número total de dados recuperados na mesma região ao mesmo tempo. Normalmente, o tempo de recuperação geral demora de alguns minutos até algumas horas.
 
 
 > [!IMPORTANT]
-> Os servidores excluídos **não podem**   ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Para proteger os recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem aproveitar os [bloqueios de gerenciamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Para proteger recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem usar [bloqueios de gerenciamento](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Executar tarefas de pós-restauração
 
@@ -101,6 +101,5 @@ Depois de restaurar o banco de dados, você pode executar as seguintes tarefas p
 ## <a name="next-steps"></a>Próximas etapas
 
 -   Saiba mais sobre a [continuidade dos negócios](./concepts-business-continuity.md)
--   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
+-   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
 -   Saiba [como restaurar](./how-to-restore-server-portal.md)
-

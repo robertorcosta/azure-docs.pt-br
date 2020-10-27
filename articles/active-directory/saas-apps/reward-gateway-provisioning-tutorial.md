@@ -51,15 +51,15 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 ## <a name="setup-reward-gateway--for-provisioning"></a>Configurar gateway de recompensa para provisionamento
 Antes de configurar o gateway de recompensa para o provisionamento automático de usuário com o Azure AD, você precisará habilitar o provisionamento do SCIM no gateway de recompensa.
 
-1. Entre no seu [console de administração do gateway de recompensa](https://rewardgateway.photoshelter.com/login/). Clique em **Integrações**.
+1. Entre no seu [console de administração do gateway de recompensa](https://rewardgateway.photoshelter.com/login/). Clique em **Integrações** .
 
     ![Captura de tela do console de administração do gateway de recompensa com a opção integrações chamada out.](media/reward-gateway-provisioning-tutorial/image00.png)
 
-2.  Selecione **minha integração**.
+2.  Selecione **minha integração** .
 
     ![Captura de tela das duas opções de integração com a opção minhas integrações chamada out.](media/reward-gateway-provisioning-tutorial/image001.png)
 
-3.  Copie os valores da **URL scim (v2)** e do **token de portador OAuth**. Esses valores serão inseridos no campo URL do locatário e token secreto na guia provisionamento do aplicativo de gateway de recompensa na portal do Azure.
+3.  Copie os valores da **URL scim (v2)** e do **token de portador OAuth** . Esses valores serão inseridos no campo URL do locatário e token secreto na guia provisionamento do aplicativo de gateway de recompensa na portal do Azure.
 
     ![Captura de tela do painel minhas integrações com a caixa de texto token de portador OAuth chamada out.](media/reward-gateway-provisioning-tutorial/image03.png)
 
@@ -69,11 +69,11 @@ Para configurar o gateway de recompensa para o provisionamento automático de us
 
 **Para adicionar o gateway de recompensa da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory** .
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos** .
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -81,7 +81,7 @@ Para configurar o gateway de recompensa para o provisionamento automático de us
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **Gateway de recompensa**, selecione **Gateway de recompensa** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **Gateway de recompensa** , selecione **Gateway de recompensa** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Reward Gateway na lista de resultados](common/search-new-app.png)
 
@@ -94,19 +94,19 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-reward-gateway-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o gateway de recompensa no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Reward Gateway**.
+2. Na lista de aplicativos, selecione **Reward Gateway** .
 
     ![O link do Reward Gateway na lista Aplicativos](common/all-applications.png)
 
-3. Selecione a guia **Provisionamento**.
+3. Selecione a guia **Provisionamento** .
 
     ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **Modo de Provisionamento** como **Automático** .
 
     ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
@@ -114,13 +114,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha** .
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
 7. Clique em **Save** (Salvar).
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para recompensar o gateway**.
+8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para recompensar o gateway** .
 
     ![Captura de tela da seção mapeamentos com a opção sincronizar Azure Active Directory usuários para recompensar gateway chamada out.](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
@@ -138,11 +138,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, clique em **Salvar**.
+13. Quando estiver pronto para provisionar, clique em **Salvar** .
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no gateway de recompensa.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações** . Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no gateway de recompensa.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 

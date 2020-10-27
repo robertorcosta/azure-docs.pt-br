@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac5fad51137cd08f2498db132768263a770430d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826911"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203867"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novidades do Azure Key Vault
 
@@ -27,7 +27,7 @@ Veja a seguir as novidades do Azure Key Vault. Os novos recursos e os aprimorame
 
 ### <a name="soft-delete-on-by-default"></a>Exclusão reversível ativada por padrão
 
-Até o final de 2020, a **exclusão reversível estará ativada por padrão em todos os cofres de chaves**, novos e pré-existentes. Para obter todos os detalhes sobre essa possível alteração da falha, bem como as etapas necessárias para encontrar os cofres de chaves afetados e atualizá-los com antecedência, confira o artigo [A exclusão reversível será habilitada em todos os cofres de chaves](soft-delete-change.md). 
+Até o final de 2020, a **exclusão reversível estará ativada por padrão em todos os cofres de chaves** , novos e pré-existentes. Para obter todos os detalhes sobre essa possível alteração da falha, bem como as etapas necessárias para encontrar os cofres de chaves afetados e atualizá-los com antecedência, confira o artigo [A exclusão reversível será habilitada em todos os cofres de chaves](soft-delete-change.md). 
 
 ### <a name="azure-tls-certificate-changes"></a>Alterações no certificado TLS do Azure  
 
@@ -37,7 +37,7 @@ A Microsoft está atualizando os serviços do Azure para que eles usem certifica
 
 - Os serviços do [Azure AD (Active Directory)](/azure/active-directory) iniciaram essa transição em 7 de julho de 2020.
 - Todos os pontos de extremidade do TLS/SSL do Azure recém-criados contêm o encadeamento de certificados atualizados até as novas ACs raiz.
-- Os pontos de extremidade existentes do Azure farão a transição em fases a partir de 13 de agosto de 2020 e a concluirão até 26 de outubro de 2020.
+- Os pontos de extremidade existentes do Azure estão fazendo a transição em fases desde 13 de agosto de 2020.
 - O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub) e o [DPS](/azure/iot-dps/) permanecerão na AC Baltimore CyberTrust Root, mas as ACs intermediárias deles serão alteradas. Para obter detalhes completos, confira a postagem no blob [TLS do Azure IoT: Mudanças estão chegando! (… e por que você se importa)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - O [Armazenamento do Azure](/azure/storage) permanecerá na AC Raiz Baltimore CyberTrust, mas as ACs intermediárias deles serão alteradas. Para obter detalhes completos, confira a postagem no blob [TLS de Armazenamento do Azure: Mudanças estão chegando! (… e por que você se importa)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 
@@ -80,11 +80,11 @@ Estas são algumas maneiras de detectar se o seu aplicativo foi afetado:
 - Se você tiver um aplicativo que se integra às APIs do Azure ou a outros serviços do Azure e não tiver certeza se ele usa a anexação de certificado, verifique com o fornecedor do aplicativo.
 
 - Diferentes sistemas operacionais e runtimes de linguagem que se comunicam com os serviços do Azure podem exigir etapas adicionais para a criação correta da cadeia de certificados com estas novas raízes:
-    - **Linux**: muitas distribuições exigem a adição das ACs a /etc/ssl/certs. Para obter instruções específicas, veja a documentação da distribuição.
-    - **Java**: verifique se o repositório de chaves Java contém as ACs listadas acima.
-    - **Windows em execução em ambientes desconectados**: os sistemas em execução em ambientes desconectados precisarão ter raízes adicionadas ao repositório de Autoridades de Certificação Raiz Confiáveis e os intermediários adicionados ao repositório de Autoridades de Certificação Intermediárias.
-    - **Android**: verifique a documentação do dispositivo e a versão do Android.
-    - **Outros dispositivos de hardware, especialmente IoT**: entre em contato com o fabricante do dispositivo.
+    - **Linux** : muitas distribuições exigem a adição das ACs a /etc/ssl/certs. Para obter instruções específicas, veja a documentação da distribuição.
+    - **Java** : verifique se o repositório de chaves Java contém as ACs listadas acima.
+    - **Windows em execução em ambientes desconectados** : os sistemas em execução em ambientes desconectados precisarão ter raízes adicionadas ao repositório de Autoridades de Certificação Raiz Confiáveis e os intermediários adicionados ao repositório de Autoridades de Certificação Intermediárias.
+    - **Android** : verifique a documentação do dispositivo e a versão do Android.
+    - **Outros dispositivos de hardware, especialmente IoT** : entre em contato com o fabricante do dispositivo.
 
 - Caso você tenha um ambiente em que as regras de firewall estejam definidas para permitir chamadas de saída somente a localizações específicas de download da CRL (lista de certificados revogados) e/ou de verificação do protocolo OCSP. Você precisará permitir as seguintes URLs da CRL e do OCSP:
 

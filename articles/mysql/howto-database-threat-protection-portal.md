@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 43b85ba58ed7163a896054ab9e77ddf82e3461a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902797"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541444"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Proteção Avançada contra Ameaças para o Banco de Dados do Azure para MySQL
 
@@ -28,11 +28,11 @@ A Proteção Avançada contra Ameaças faz parte da oferta de Segurança Avança
 
 ## <a name="set-up-threat-detection"></a>Configurar detecção de ameaças
 1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com) .
-2. Navegue até a página de configuração do servidor do Banco de Dados do Azure para MySQL que deseja proteger. Nas configurações de segurança, selecione **Proteção Avançada contra Ameaças (versão prévia)**.
-3. Na página de configuração de **Proteção Avançada contra Ameaças (versão prévia)**:
+2. Navegue até a página de configuração do servidor do Banco de Dados do Azure para MySQL que deseja proteger. Nas configurações de segurança, selecione **Proteção Avançada contra Ameaças (versão prévia)** .
+3. Na página de configuração de **Proteção Avançada contra Ameaças (versão prévia)** :
 
    - Habilite a Proteção Avançada contra Ameaças no servidor.
-   - Em **Configurações de Proteção Avançada contra Ameaças**, na caixa de texto **Enviar alertas para**, forneça a lista de endereços de email para receber alertas de segurança em caso de detecção de atividades anômalas em banco de dados.
+   - Em **Configurações de Proteção Avançada contra Ameaças** , na caixa de texto **Enviar alertas para** , forneça a lista de endereços de email para receber alertas de segurança em caso de detecção de atividades anômalas em banco de dados.
   
    :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurar detecção de ameaças":::
 
@@ -63,5 +63,5 @@ Clique em **Alerta de detecção de ameaças** para iniciar a página de alertas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Para saber mais sobre preço, confira a [página Preço do Banco de Dados do Azure para MySQL](https://azure.microsoft.com/pricing/details/mysql/)  
+* Saiba mais sobre a [Central de Segurança do Azure](../security-center/security-center-introduction.md)
+* Para saber mais sobre preço, confira a [página Preço do Banco de Dados do Azure para MySQL](https://azure.microsoft.com/pricing/details/mysql/)

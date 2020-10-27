@@ -47,7 +47,7 @@ Neste tutorial, você aprenderá sobre tópicos como:
 Antes de começar, verifique se:
 
 * Você concluiu o [Tutorial: Copiar dados para o Azure Data Box e verificá-los](data-box-deploy-copy-data.md).
-* Os trabalhos de cópia estão concluídos e não há erros na página **Conectar e copiar**. A preparação para o envio não poderá ser executada se os trabalhos de cópia estiverem em andamento ou houver erros na página **Conectar e copiar**.
+* Os trabalhos de cópia estão concluídos e não há erros na página **Conectar e copiar** . A preparação para o envio não poderá ser executada se os trabalhos de cópia estiverem em andamento ou houver erros na página **Conectar e copiar** .
 
 ## <a name="prepare-to-ship"></a>Preparar para o envio
 
@@ -92,7 +92,7 @@ Execute as etapas a seguir se estiver devolvendo o dispositivo nos EUA, no Canad
     * Se o número de controle não está entre aspas, o serviço de no-break exigirá que você pague um encargo adicional durante a retirada.
 
     Em vez de agendar a retirada, você também pode descartar o Data Box no local mais próximo de redistribuição.
-4. Após a coleta e registro do Data Box por sua operadora, o status do pedido no portal será atualizado para **Recolhido**. Uma ID de rastreamento também é exibida.
+4. Após a coleta e registro do Data Box por sua operadora, o status do pedido no portal será atualizado para **Recolhido** . Uma ID de rastreamento também é exibida.
 
 ::: zone target="chromeless"
 
@@ -269,7 +269,7 @@ Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de a
 
 ::: zone-end
 
-## <a name="hong-kong"></a>[Hong Kong](#tab/in-hk)
+## <a name="hong-kong"></a>[RAE de Hong Kong](#tab/in-hk)
 
 1. Empacote o dispositivo para a remessa de devolução na caixa original.
 2. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo.
