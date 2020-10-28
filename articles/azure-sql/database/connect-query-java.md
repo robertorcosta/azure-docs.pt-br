@@ -9,25 +9,25 @@ ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 829a106a643c10626a65855152375c349cd76f9a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: badf6b8887c356c2a7fc7308f6aa15f551e4bb67
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833582"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746729"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Usar o Java e o JDBC com o Banco de Dados SQL do Azure
 
-Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/).
+Este tópico demonstra como criar um aplicativo de exemplo que usa o Java e o [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações no [Banco de Dados SQL do Azure](/azure/sql-database/).
 
 O JDBC é a API Java padrão para se conectar a bancos de dados relacionais tradicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se você não tiver uma, [obtenha uma avaliação gratuita](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) ou [CLI do Azure](/cli/azure/install-azure-cli). É recomendável usar o Azure Cloud Shell para que o logon seja feito automaticamente e você tenha acesso a todas as ferramentas necessárias.
-- Um [Java Development Kit](https://aka.ms/azure-jdks) compatível, versão 8 (incluído no Azure Cloud Shell).
+- [Azure Cloud Shell](../../cloud-shell/quickstart.md) ou [CLI do Azure](/cli/azure/install-azure-cli). É recomendável usar o Azure Cloud Shell para que o logon seja feito automaticamente e você tenha acesso a todas as ferramentas necessárias.
+- Um [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) compatível, versão 8 (incluído no Azure Cloud Shell).
 - A ferramenta de build [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Preparar o ambiente de trabalho
@@ -69,7 +69,7 @@ az group create \
 A primeira coisa que criaremos é um servidor gerenciado do Banco de Dados SQL do Azure.
 
 > [!NOTE]
-> Você pode ler informações mais detalhadas sobre como criar servidores do Banco de Dados SQL do Azure no [Início Rápido: Criar um banco de dados individual do Banco de Dados SQL do Azure](/azure/sql-database/sql-database-single-database-get-started).
+> Você pode ler informações mais detalhadas sobre como criar servidores do Banco de Dados SQL do Azure no [Início Rápido: Criar um banco de dados individual do Banco de Dados SQL do Azure](./single-database-create-quickstart.md).
 
 No [Azure Cloud Shell](https://shell.azure.com/), execute o seguinte comando:
 
@@ -230,7 +230,7 @@ Esse código Java usará os arquivos *application.properties* e *schema.sql* que
 Nesse arquivo, você pode ver que comentamos os métodos para inserir, ler, atualizar e excluir dados: codificaremos esses métodos no restante deste artigo e você poderá remover as marcas de comentários uma após a outra.
 
 > [!NOTE]
-> As credenciais de banco de dados são armazenadas nas propriedades *user* e *password* no arquivo *application.properties*. Essas credenciais são usadas durante a execução de `DriverManager.getConnection(properties.getProperty("url"), properties);`, pois o arquivo de propriedades é passado como um argumento.
+> As credenciais de banco de dados são armazenadas nas propriedades *user* e *password* no arquivo *application.properties* . Essas credenciais são usadas durante a execução de `DriverManager.getConnection(properties.getProperty("url"), properties);`, pois o arquivo de propriedades é passado como um argumento.
 
 Agora, você pode executar esta classe principal com a sua ferramenta favorita:
 
@@ -315,11 +315,11 @@ public class Todo {
 }
 ```
 
-Essa classe é um modelo de domínio mapeado na tabela `todo` que você criou ao executar o script *schema.sql*.
+Essa classe é um modelo de domínio mapeado na tabela `todo` que você criou ao executar o script *schema.sql* .
 
 ### <a name="insert-data-into-azure-sql-database"></a>Inserir dados no Banco de Dados SQL do Azure
 
-No arquivo *src/main/java/DemoApplication.java*, após o método principal, adicione o seguinte método para inserir dados no banco de dados:
+No arquivo *src/main/java/DemoApplication.java* , após o método principal, adicione o seguinte método para inserir dados no banco de dados:
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -357,7 +357,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Vamos ler os dados inseridos anteriormente para validar se o nosso código funciona corretamente.
 
-No arquivo *src/main/java/DemoApplication.java*, após o método `insertData`, adicione o seguinte método para ler dados do banco de dados:
+No arquivo *src/main/java/DemoApplication.java* , após o método `insertData`, adicione o seguinte método para ler dados do banco de dados:
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -401,7 +401,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Vamos atualizar os dados que inserimos anteriormente.
 
-Ainda no arquivo *src/main/java/DemoApplication.java*, após o método `readData`, adicione o seguinte método para atualizar os dados no banco de dados:
+Ainda no arquivo *src/main/java/DemoApplication.java* , após o método `readData`, adicione o seguinte método para atualizar os dados no banco de dados:
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -445,7 +445,7 @@ A execução da classe principal deve produzir a seguinte saída:
 
 Por fim, vamos excluir os dados que inserimos anteriormente.
 
-Ainda no arquivo *src/main/java/DemoApplication.java*, após o método `updateData`, adicione o seguinte método para excluir os dados no banco de dados:
+Ainda no arquivo *src/main/java/DemoApplication.java* , após o método `updateData`, adicione o seguinte método para excluir os dados no banco de dados:
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {
@@ -498,4 +498,4 @@ az group delete \
 
 - [Criar seu primeiro banco de dados no Banco de Dados SQL do Azure](design-first-database-tutorial.md)  
 - [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc)  
-- [Relatar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)  
+- [Relatar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)

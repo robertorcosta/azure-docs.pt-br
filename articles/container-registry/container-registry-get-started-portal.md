@@ -3,13 +3,13 @@ title: Início rápido – Criar registro no portal
 description: Aprenda rapidamente a criar um registro de contêiner do Azure privado usando o portal do Azure.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031756"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746680"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Início Rápido: Criar um Registro de Contêiner do Azure usando o portal do Azure
 
@@ -25,23 +25,23 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner**.
+Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner** .
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Navegar até o registro de contêiner no portal":::
 
-Na guia **Noções básicas**, insira valores para **Grupo de recursos** e **Nome do registro**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Para este início rápido crie um novo grupo de recursos no local `West US` denominado `myResourceGroup` e para **SKU**, selecione “Basic”.
+Na guia **Noções básicas** , insira valores para **Grupo de recursos** e **Nome do registro** . O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Para este início rápido crie um novo grupo de recursos no local `West US` denominado `myResourceGroup` e para **SKU** , selecione “Basic”.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Navegar até o registro de contêiner no portal":::
 
-Aceite os valores padrão para as configurações restantes. Em seguida, selecione **Examinar + criar**. Depois de revisar as configurações, selecione **Criar**.
+Aceite os valores padrão para as configurações restantes. Em seguida, selecione **Examinar + criar** . Depois de revisar as configurações, selecione **Criar** .
 
-Neste início rápido você criará um Registro *Básico*, que é uma opção com otimização de custo para desenvolvedores que estão aprendendo sobre o Registro de Contêiner do Azure. Para obter detalhes sobre as camadas de serviço (SKUs) disponíveis, confira [Camadas de serviço do registro de contêiner][container-registry-skus].
+Neste início rápido você criará um Registro *Básico* , que é uma opção com otimização de custo para desenvolvedores que estão aprendendo sobre o Registro de Contêiner do Azure. Para obter detalhes sobre as camadas de serviço (SKUs) disponíveis, confira [Camadas de serviço do registro de contêiner][container-registry-skus].
 
 Quando a mensagem **Implantação bem-sucedida** é exibida, selecione o registro de contêiner no portal. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Navegar até o registro de contêiner no portal":::
 
-Anote o nome do registro e o valor do **servidor de logon**. Você usará esses valores nas etapas a seguir ao enviar por push e efetuar pull de imagens com o Docker.
+Anote o nome do registro e o valor do **servidor de logon** . Você usará esses valores nas etapas a seguir ao enviar por push e efetuar pull de imagens com o Docker.
 
 ## <a name="log-in-to-registry"></a>Fazer logon no registro
 
@@ -67,7 +67,7 @@ Para listar as imagens no registro, navegue até ele no portal, selecione **Repo
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Navegar até o registro de contêiner no portal":::
 
-Ao selecionar o repositório **hello-world**, você verá a imagem marcada com `v1` em **Marcas**.
+Ao selecionar o repositório **hello-world** , você verá a imagem marcada com `v1` em **Marcas** .
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 

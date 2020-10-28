@@ -9,20 +9,20 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 088300d4b6f92886310315b67763536e39cbb019
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319462"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789515"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado do Azure para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um **ponto de extremidade privado**. Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de Link Privado, acesse a página [Documentação do Link Privado](../../private-link/index.yml). Um ponto de extremidade privado é um endereço IP privado em uma [VNet](../../virtual-network/virtual-networks-overview.md) e sub-rede específicas.
+O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um **ponto de extremidade privado** . Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de Link Privado, acesse a página [Documentação do Link Privado](../../private-link/index.yml). Um ponto de extremidade privado é um endereço IP privado em uma [VNet](../../virtual-network/virtual-networks-overview.md) e sub-rede específicas.
 
 > [!IMPORTANT]
-> Este artigo se aplica ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**.
+> Este artigo se aplica ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure** .
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar o Link Privado para o Banco de Dados SQL do Azure 
 
@@ -75,7 +75,7 @@ Para este cenário, suponha que você tenha criado uma VM (Máquina Virtual) do 
 
 ### <a name="check-connectivity-using-telnet"></a>Verificar a conectividade usando o Telnet
 
-O [Cliente Telnet](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) é um recurso do Windows que pode ser usado para testar a conectividade. Dependendo da versão do sistema operacional Windows, talvez seja necessário habilitar esse recurso explicitamente. 
+O [Cliente Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) é um recurso do Windows que pode ser usado para testar a conectividade. Dependendo da versão do sistema operacional Windows, talvez seja necessário habilitar esse recurso explicitamente. 
 
 Abra uma janela do prompt de comando depois de instalar o Telnet. Execute o comando do Telnet e especifique o endereço IP e o ponto de extremidade privado do banco de dados no Banco de Dados SQL.
 
@@ -145,11 +145,11 @@ A exportação de dados no Banco de Dados SQL do Azure ocorre quando um usuário
 
 Considere um cenário com um usuário que executa o SSMS (SQL Server Management Studio) em uma máquina virtual do Azure que se conecta a um banco de dados no Banco de Dados SQL. Esse banco de dados está no data center do Oeste dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos de extremidade públicos no Banco de Dados SQL usando controles de acesso à rede.
 
-1. Desabilite todo o tráfego de serviço do Azure para o Banco de Dados SQL por meio do ponto de extremidade público configurando Permitir Serviços do Azure como **DESATIVADO**. Verifique se nenhum endereço IP é permitido nas regras de firewall no nível de servidor e de banco de dados. Para obter mais informações, confira [Controles de acesso à rede do Banco de Dados SQL do Azure e do Azure Synapse Analytics](network-access-controls-overview.md).
+1. Desabilite todo o tráfego de serviço do Azure para o Banco de Dados SQL por meio do ponto de extremidade público configurando Permitir Serviços do Azure como **DESATIVADO** . Verifique se nenhum endereço IP é permitido nas regras de firewall no nível de servidor e de banco de dados. Para obter mais informações, confira [Controles de acesso à rede do Banco de Dados SQL do Azure e do Azure Synapse Analytics](network-access-controls-overview.md).
 1. Só permita o tráfego para o banco de dados no Banco de Dados SQL usando o endereço IP privado da VM. Para obter mais informações, confira os artigos sobre o [ponto de extremidade de serviço](vnet-service-endpoint-rule-overview.md) e as [regras de firewall da rede virtual](firewall-configure.md).
 1. Na VM do Azure, restrinja o escopo da conexão de saída usando [NSGs (grupos de segurança de rede)](../../virtual-network/manage-network-security-group.md) e Marcas de Serviço, conforme mostrado a seguir
     - Especifique uma regra NSG para permitir o tráfego para a Tag de Serviço = SQL.WestUs – só permitindo a conexão com o Banco de Dados SQL no Oeste dos EUA
-    - Especifique uma regra NSG (com uma **prioridade mais alta**) para negar o tráfego para a Tag de Serviço = SQL – negando as conexões com o Banco de Dados SQL em todas as regiões
+    - Especifique uma regra NSG (com uma **prioridade mais alta** ) para negar o tráfego para a Tag de Serviço = SQL – negando as conexões com o Banco de Dados SQL em todas as regiões
 
 Ao final desta configuração, a VM do Azure só poderá se conectar a um banco de dados no Banco de Dados SQL na região Oeste dos EUA. No entanto, a conectividade não é restrita a um banco de dados individual no Banco de Dados SQL. A VM ainda pode se conectar a qualquer banco de dados na região Oeste dos EUA, incluindo os bancos de dados que não fazem parte da assinatura. Embora tenhamos reduzido o escopo da exportação de dados no cenário acima a uma região específica, não o eliminamos por completo.
 

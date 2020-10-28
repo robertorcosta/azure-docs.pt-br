@@ -7,19 +7,19 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 045589d3b1f0e376eaf854562d271a4483702997
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 35713a2e854cf65054d162ce0191bf2dfde4e90b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047889"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786132"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para JavaScript (v4)
 
 Introdução à biblioteca de clientes do segredo do Azure Key Vault para JavaScript. Siga as etapas abaixo para instalar o pacote e testar o código de exemplo para tarefas básicas.
 
-[Documentação de referência da API](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Pacote (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[Documentação de referência da API](/javascript/api/overview/azure/key-vault-index) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Pacote (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +30,7 @@ Introdução à biblioteca de clientes do segredo do Azure Key Vault para JavaSc
 Este início rápido pressupõe que você está executando a [CLI do Azure](/cli/azure/install-azure-cli) em uma janela de terminal do Linux.
 
 ## <a name="setting-up"></a>Configurando
-Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para saber mais, confira [Autenticar o cliente na biblioteca de clientes do Azure Idendity](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme).
+Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para saber mais, confira [Autenticar o cliente na biblioteca de clientes do Azure Idendity](/javascript/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 

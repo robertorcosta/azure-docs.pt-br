@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 57baa06803e9d8c23c04170626b38c47542a4c2f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ad31eb04f53197c4c3ccdd173cd57564c65d5a35
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150683"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747460"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início Rápido: comunicar-se com um aplicativo de dispositivo no C por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -82,7 +82,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
     Essa operação pode levar alguns minutos.
 
-1. Crie um subdiretório *cmake* no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório *azure-iot-sdk-c*:
+1. Crie um subdiretório *cmake* no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório *azure-iot-sdk-c* :
 
     ```cmd/sh
     mkdir cmake
@@ -98,7 +98,7 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
       make -j
       ```
 
-   * No Windows, abra um [Prompt de Comando do Desenvolvedor para Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Execute o comando para sua versão do Visual Studio. Este início rápido usa o Visual Studio 2019. Esses comandos criam uma solução do Visual Studio para o dispositivo simulado no diretório *cmake*.
+   * No Windows, abra um [Prompt de Comando do Desenvolvedor para Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Execute o comando para sua versão do Visual Studio. Este início rápido usa o Visual Studio 2019. Esses comandos criam uma solução do Visual Studio para o dispositivo simulado no diretório *cmake* .
 
       ```cmd
       rem For VS2015

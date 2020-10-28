@@ -7,13 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91297140"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748094"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
 
@@ -113,7 +113,7 @@ Use um modelo JSON para criar um serviço de provisionamento e um Hub IoT vincul
 
    ```
 
-4. Para criar um Hub IoT, adicione as linhas a seguir para a coleção **recursos**. O JSON especifica as propriedades mínimas necessárias para criar um Hub IoT. Os valores de **nome** e **localização** serão passados como parâmetros de outro arquivo. Para saber mais sobre as propriedades que você pode especificar para um Hub IoT em um modelo, confira a [referência de modelo Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Para criar um Hub IoT, adicione as linhas a seguir para a coleção **recursos** . O JSON especifica as propriedades mínimas necessárias para criar um Hub IoT. Os valores de **nome** e **localização** serão passados como parâmetros de outro arquivo. Para saber mais sobre as propriedades que você pode especificar para um Hub IoT em um modelo, confira a [referência de modelo Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -133,7 +133,7 @@ Use um modelo JSON para criar um serviço de provisionamento e um Hub IoT vincul
 
    ``` 
 
-5. Para criar o serviço de provisionamento, adicione as seguintes linhas após a especificação do Hub IoT na coleção **recursos**. O **nome** e a **localização** do serviço de provisionamento serão passados como parâmetros. A coleção **iotHubs** especifica os hubs IoT a serem vinculados ao serviço de provisionamento. No mínimo, você deve especificar as propriedades **connectionString** e **location** para cada Hub IoT vinculado. Também é possível definir propriedades como **allocationWeight** e **applyAllocationPolicy** em cada Hub IoT, além de propriedades como **allocationPolicy** e **authorizationPolicies** no serviço de provisionamento em si. Para saber mais, confira a [referência de modelo Microsoft.Devices/provisioningServices](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
+5. Para criar o serviço de provisionamento, adicione as seguintes linhas após a especificação do Hub IoT na coleção **recursos** . O **nome** e a **localização** do serviço de provisionamento serão passados como parâmetros. A coleção **iotHubs** especifica os hubs IoT a serem vinculados ao serviço de provisionamento. No mínimo, você deve especificar as propriedades **connectionString** e **location** para cada Hub IoT vinculado. Também é possível definir propriedades como **allocationWeight** e **applyAllocationPolicy** em cada Hub IoT, além de propriedades como **allocationPolicy** e **authorizationPolicies** no serviço de provisionamento em si. Para saber mais, confira a [referência de modelo Microsoft.Devices/provisioningServices](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
 
    A propriedade **dependsOn** é usada para garantir que o Gerenciador de Recursos crie o Hub IoT antes de criar o serviço de provisionamento. O modelo requer a cadeia de conexão do Hub IoT para especificar o vínculo com o serviço de provisionamento, para que o hub e suas chaves sejam criados primeiro. O modelo usa funções como **concat** e **listKeys** para criar a cadeia de conexão com base nas variáveis parametrizadas. Para saber mais, confira [Funções de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 

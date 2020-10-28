@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 082695069a66efb3919be0667407ba73d963c572
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91285325"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889945"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Mapas?
 
@@ -60,29 +60,29 @@ O Azure Mapas é composto pelos serviços a seguir, que podem oferecer contexto 
 
 ### <a name="data-service"></a>Serviço de dados
 
-Os dados são fundamentais para os mapas. Use o serviço Dados para carregar e armazenar dados geoespaciais para uso com operações espaciais ou composição de imagens.  Levar os dados do cliente para mais perto do serviço do Azure Mapas reduzirá a latência, aumentará a produtividade e criará novos cenários nos seus aplicativos. Para obter detalhes sobre esse serviço, confira a [Documentação do serviço Dados](https://docs.microsoft.com/rest/api/maps/data).
+Os dados são fundamentais para os mapas. Use o serviço Dados para carregar e armazenar dados geoespaciais para uso com operações espaciais ou composição de imagens.  Levar os dados do cliente para mais perto do serviço do Azure Mapas reduzirá a latência, aumentará a produtividade e criará novos cenários nos seus aplicativos. Para obter detalhes sobre esse serviço, confira a [Documentação do serviço Dados](/rest/api/maps/data).
 
 ### <a name="geolocation-service"></a>Serviço de geolocalização
 
 Use o serviço de Geolocalização para visualizar o código de duas letras de país/região recuperado para um endereço IP. Esse serviço pode ajudar você a aprimorar a experiência do usuário fornecendo o conteúdo do aplicativo personalizado com base na localização geográfica.
 
-Para obter mais detalhes, leia a [documentação do serviço de Geolocalização](https://docs.microsoft.com/rest/api/maps/geolocation).
+Para obter mais detalhes, leia a [documentação do serviço de Geolocalização](/rest/api/maps/geolocation).
 
 ### <a name="mobility-service"></a>Serviço de mobilidade
 
 O serviço Mobilidade do Azure Mapas melhora o tempo de desenvolvimento para aplicativos com recursos de trânsito públicos, como roteamento de trânsito e pesquisa para interrupções de trânsito públicos próximos. Os usuários podem recuperar informações detalhadas sobre as interrupções de trânsito, linhas e cronogramas. O serviço Mobilidade também permite que os usuários recuperem geometrias de parada e de linha, alertas de paradas, linhas e áreas de serviço, bem como entradas de trânsito e alertas de serviço em tempo real. Além disso, o serviço Mobilidade fornece funcionalidades de roteamento com opções de planejamento de viagem multimodal. O planejamento de viagens multimodal incorpora opções de movimentação, semiciclo e trânsito público, tudo em uma viagem. Os usuários também podem acessar os roteiros passo a passo multimodais detalhados.
 
-Para saber mais sobre o serviço, confira a [documentação do serviço Mobilidade](https://docs.microsoft.com/rest/api/maps/mobility).
+Para saber mais sobre o serviço, confira a [documentação do serviço Mobilidade](/rest/api/maps/mobility).
 
 ### <a name="render-service"></a>Serviço de Renderização
 
-O [serviço de Renderização V2](https://docs.microsoft.com/rest/api/maps/renderv2) que está agora em versão prévia apresenta uma nova versão da [API Obter Bloco do Mapa V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). A API Obter Bloco do Mapa V2 agora permite que os clientes solicitem blocos de estrada do Azure Mapas, blocos meteorológicos ou os blocos de mapa criados usando o Criador do Azure Mapas. É recomendável que você use a nova API Obter Bloco de Mapa V2.  
+O [serviço de Renderização V2](/rest/api/maps/renderv2) que está agora em versão prévia apresenta uma nova versão da [API Obter Bloco do Mapa V2](/rest/api/maps/renderv2/getmaptilepreview). A API Obter Bloco do Mapa V2 agora permite que os clientes solicitem blocos de estrada do Azure Mapas, blocos meteorológicos ou os blocos de mapa criados usando o Criador do Azure Mapas. É recomendável que você use a nova API Obter Bloco de Mapa V2.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exemplo de mapa de alteração de população criado usando o SDK da Web do Azure Mapas":::
 
-Para mais detalhes, leia a [documentação do serviço de Renderização V2](https://docs.microsoft.com/rest/api/maps/renderv2).
+Para mais detalhes, leia a [documentação do serviço de Renderização V2](/rest/api/maps/renderv2).
 
-Para saber mais sobre o serviço de Renderização V1 que está em GA (disponibilidade geral), confira a [documentação do serviço Renderização V1](https://docs.microsoft.com/rest/api/maps/render).  
+Para saber mais sobre o serviço de Renderização V1 que está em GA (disponibilidade geral), confira a [documentação do serviço Renderização V1](/rest/api/maps/render).  
 
 ### <a name="route-service"></a>Serviço de Roteamento
 
@@ -96,7 +96,7 @@ O serviço de Roteiros oferece recursos avançados de conjunto, como:
 * Matrizes de tempo e distância de viagem entre um conjunto de origens e destinos.
 * Localização de rotas ou distâncias que os usuários podem viajar com base em requisitos de tempo ou de combustível.
 
-Para obter detalhes sobre as funcionalidades de roteamento, leia a [documentação do serviço de Roteiros](https://docs.microsoft.com/rest/api/maps/route).
+Para obter detalhes sobre as funcionalidades de roteamento, leia a [documentação do serviço de Roteiros](/rest/api/maps/route).
 
 ### <a name="search-service"></a>Serviço Search
 
@@ -111,13 +111,13 @@ O Serviço de pesquisa também fornece recursos avançados, como:
 * Criar lote de um grupo de solicitações de pesquisa.
 * Pesquise estações de carregamento de veículo elétrico e dados de POI (ponto de interesse) por nome de marca.
 
-Para obter detalhes sobre as funcionalidades de pesquisa, leia a [documentação do serviço de Pesquisa](https://docs.microsoft.com/rest/api/maps/search).
+Para obter detalhes sobre as funcionalidades de pesquisa, leia a [documentação do serviço de Pesquisa](/rest/api/maps/search).
 
 ### <a name="spatial-service"></a>Serviço espacial
 
 O serviço Espacial analisa rapidamente as informações de local para ajudar a informar os clientes sobre eventos em andamento que ocorrem. Ele permite a análise praticamente em tempo real e a modelagem preditiva de eventos.
 
-O serviço permite que os clientes aprimorem nativamente a inteligência de localização deles com uma biblioteca de cálculos matemáticos geoespaciais comuns. Os cálculos comuns incluem o ponto mais próximo, a distância do círculo máximo e buffers. Para saber mais sobre o serviço e os vários recursos, leia a [documentação do serviço Espacial](https://docs.microsoft.com/rest/api/maps/spatial).
+O serviço permite que os clientes aprimorem nativamente a inteligência de localização deles com uma biblioteca de cálculos matemáticos geoespaciais comuns. Os cálculos comuns incluem o ponto mais próximo, a distância do círculo máximo e buffers. Para saber mais sobre o serviço e os vários recursos, leia a [documentação do serviço Espacial](/rest/api/maps/spatial).
 
 ### <a name="timezone-service"></a>Serviço de Fuso horário
 
@@ -155,7 +155,7 @@ Uma resposta JSON normal para uma consulta para o serviço de Fuso horário é s
 }
 ```
 
-Para obter detalhes sobre esse serviço, leia a [documentação do serviço de Fuso horário](https://docs.microsoft.com/rest/api/maps/timezone).
+Para obter detalhes sobre esse serviço, leia a [documentação do serviço de Fuso horário](/rest/api/maps/timezone).
 
 ### <a name="traffic-service"></a>Serviço de Tráfego
 
@@ -166,15 +166,15 @@ O serviço Tráfego é um conjunto de serviços Web que os desenvolvedores podem
 
 ![Exemplo de um mapa com as informações de tráfego](media/about-azure-maps/intro_traffic.png)
 
-Para obter mais informações, confira a [documentação do serviço de Tráfego](https://docs.microsoft.com/rest/api/maps/traffic).
+Para obter mais informações, confira a [documentação do serviço de Tráfego](/rest/api/maps/traffic).
 
 ### <a name="weather-service"></a>Serviço de meteorologia
 
 O serviço Clima oferece APIs que os desenvolvedores podem usar para recuperar informações de clima para um local específico. As informações contêm detalhes como data e hora de observação, breve descrição das condições climáticas, ícone de clima, sinalizadores de indicador precipitação, temperatura e informações de velocidade de vento. Detalhes adicionais, como temperatura RealFeel™ e índice UV, também são retornados.
 
-Os desenvolvedores podem usar a [API Obter Clima ao longo da rota](https://docs.microsoft.com/rest/api/maps/weather/getweatheralongroutepreview) para recuperar informações sobre o clima em uma rota específica. Além disso, o serviço dá suporte à geração de notificações de clima para marcos que são afetados por riscos meteorológicos, como inundação ou chuva pesada.
+Os desenvolvedores podem usar a [API Obter Clima ao longo da rota](/rest/api/maps/weather/getweatheralongroutepreview) para recuperar informações sobre o clima em uma rota específica. Além disso, o serviço dá suporte à geração de notificações de clima para marcos que são afetados por riscos meteorológicos, como inundação ou chuva pesada.
 
-A API [Obter Bloco de Mapa V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) permite que você solicite blocos de radar e satélite passados, atuais e futuros.
+A API [Obter Bloco de Mapa V2](/rest/api/maps/renderv2/getmaptilepreview) permite que você solicite blocos de radar e satélite passados, atuais e futuros.
 
 ![Exemplo de mapa com blocos de radar de clima em tempo real](media/about-azure-maps/intro_weather.png)
 
@@ -184,21 +184,21 @@ O Serviço Criador de Mapa é um pacote de serviços Web que os desenvolvedores 
 
 O Criador de Mapas fornece três serviços principais:
 
-* [Serviço de conjunto de dados](https://docs.microsoft.com/rest/api/maps/dataset). Use o serviço de conjunto de dados para criar um conjunto de dados de um pacote do Drawing convertido. Para obter informações sobre os requisitos de pacotes do Drawing, confira os Requisitos do pacote do Drawing.
+* [Serviço de conjunto de dados](/rest/api/maps/dataset). Use o serviço de conjunto de dados para criar um conjunto de dados de um pacote do Drawing convertido. Para obter informações sobre os requisitos de pacotes do Drawing, confira os Requisitos do pacote do Drawing.
 
-* [Serviço de conversão](https://docs.microsoft.com/rest/api/maps/dataset). Use o serviço de conversão para converter um arquivo de design DWG em dados de pacote de desenho para mapas do interior.
+* [Serviço de conversão](/rest/api/maps/dataset). Use o serviço de conversão para converter um arquivo de design DWG em dados de pacote de desenho para mapas do interior.
 
-* [Serviço de conjunto de peças](https://docs.microsoft.com/rest/api/maps/tileset). Use o serviço de conjunto de peças para criar uma representação de um conjunto de dados baseada em vetor. Os aplicativos podem usar um conjunto de peças para apresentar uma exibição do conjunto de dados baseada em peças visuais.
+* [Serviço de conjunto de peças](/rest/api/maps/tileset). Use o serviço de conjunto de peças para criar uma representação de um conjunto de dados baseada em vetor. Os aplicativos podem usar um conjunto de peças para apresentar uma exibição do conjunto de dados baseada em peças visuais.
 
-* [Serviço de Estado do recurso](https://docs.microsoft.com/rest/api/maps/featurestate). Use o serviço Estado do Recurso para dar suporte ao estilo de mapa dinâmico. O estilo de mapa dinâmico permite que os aplicativos reflitam eventos em tempo real em espaços fornecidos pelos sistemas de IoT.
+* [Serviço de Estado do recurso](/rest/api/maps/featurestate). Use o serviço Estado do Recurso para dar suporte ao estilo de mapa dinâmico. O estilo de mapa dinâmico permite que os aplicativos reflitam eventos em tempo real em espaços fornecidos pelos sistemas de IoT.
 
-* [Serviço WFS](https://docs.microsoft.com/rest/api/maps/featurestate). Use o serviço WFS para consultar seus dados de mapa do interior. O serviço WFS segue os padrões da [API do Open Geospatial Consortium](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) para consultar um único conjunto de dados.
+* [Serviço WFS](/rest/api/maps/featurestate). Use o serviço WFS para consultar seus dados de mapa do interior. O serviço WFS segue os padrões da [API do Open Geospatial Consortium](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) para consultar um único conjunto de dados.
 
 ## <a name="programming-model"></a>Modelo de programação
 
-O Azure Mapas foi criado para a mobilidade e podem ajudar a desenvolver aplicativos de plataforma cruzada. Ele usa um modelo de programação de linguagem independente e dão suporte à saída JSON por meio de [APIs REST](https://docs.microsoft.com/rest/api/maps/).
+O Azure Mapas foi criado para a mobilidade e podem ajudar a desenvolver aplicativos de plataforma cruzada. Ele usa um modelo de programação de linguagem independente e dão suporte à saída JSON por meio de [APIs REST](/rest/api/maps/).
 
-Além disso, o Azure Mapas oferece um [controle de mapeamento JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) conveniente com um modelo de programação simples. O desenvolvimento é rápido e fácil para aplicativos Web e móveis.
+Além disso, o Azure Mapas oferece um [controle de mapeamento JavaScript](/javascript/api/azure-maps-control) conveniente com um modelo de programação simples. O desenvolvimento é rápido e fácil para aplicativos Web e móveis.
 
 ## <a name="power-bi-visual"></a>Visual do Power BI
 

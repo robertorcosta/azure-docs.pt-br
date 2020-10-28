@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008396"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787373"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade do Armazenamento de Filas
 
@@ -52,7 +52,7 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 
 Se o seu aplicativo se aproximar ou ultrapassar alguma das metas de escalabilidade, pode haver aumento da latência e restrição das transações. Quando o Armazenamento do Azure limita seu aplicativo, o serviço começa a retornar os códigos de erro 503 (Servidor ocupado) ou 500 (Tempo limite da operação). Evitar esses erros mantendo-se dentro dos limites dos destinos de escalabilidade é uma parte importante do aprimoramento do desempenho do seu aplicativo.
 
-Para obter mais informações sobre metas de escalabilidade para o serviço Fila, confira [Metas de escalabilidade e desempenho do Armazenamento do Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Para obter mais informações sobre metas de escalabilidade para o serviço Fila, confira [Metas de escalabilidade e desempenho do Armazenamento do Azure](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -128,7 +128,7 @@ Defina o limite da conexão antes de abrir conexões.
 
 No caso de outras linguagens de programação, confira a documentação da linguagem para verificar como definir o limite da conexão.  
 
-Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de threads
 
@@ -146,7 +146,7 @@ Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o
 
 ## <a name="client-libraries-and-tools"></a>Bibliotecas de cliente e ferramentas
 
-Para obter o melhor desempenho, sempre use as bibliotecas de cliente e ferramentas mais recentes fornecidas pela Microsoft. As bibliotecas de cliente do Armazenamento do Azure estão disponíveis para várias linguagens. O Armazenamento do Azure também dá suporte ao PowerShell e à CLI do Azure. A Microsoft desenvolve ativamente essas ferramentas e bibliotecas de cliente pensando no desempenho, os mantém atualizados com as versões de serviço mais recentes e verifica se eles lidam com muitas práticas de desempenho comprovadas internamente. Para obter mais informações, confira a [documentação de referência do Armazenamento do Azure](/azure/storage/#reference).
+Para obter o melhor desempenho, sempre use as bibliotecas de cliente e ferramentas mais recentes fornecidas pela Microsoft. As bibliotecas de cliente do Armazenamento do Azure estão disponíveis para várias linguagens. O Armazenamento do Azure também dá suporte ao PowerShell e à CLI do Azure. A Microsoft desenvolve ativamente essas ferramentas e bibliotecas de cliente pensando no desempenho, os mantém atualizados com as versões de serviço mais recentes e verifica se eles lidam com muitas práticas de desempenho comprovadas internamente. Para obter mais informações, confira a [documentação de referência do Armazenamento do Azure](./reference.md).
 
 ## <a name="handle-service-errors"></a>Manipular erros de serviço
 

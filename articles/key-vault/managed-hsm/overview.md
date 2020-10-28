@@ -9,36 +9,36 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d2d5d6ad23f5e6a2cac2dc97904154d5912573b0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91320550"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787917"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>O que é o HSM Gerenciado do Azure Key Vault (versão prévia)?
 
-O HSM Gerenciado do Azure Key Vault é um serviço de nuvem em conformidade com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem usando HSMs validados **FIPS 140-2 Nível 3**.  
+O HSM Gerenciado do Azure Key Vault é um serviço de nuvem em conformidade com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem usando HSMs validados **FIPS 140-2 Nível 3** .  
 
 ## <a name="why-use-managed-hsm"></a>Por que usar o HSM Gerenciado?
 
 ### <a name="fully-managed-highly-available-single-tenant-hsm-as-a-service"></a>HSM totalmente gerenciado, altamente disponível e de locatário único como serviço
 
-- **Totalmente gerenciado**: o provisionamento, a configuração, a aplicação de patch e a manutenção do HSM são processados pelo serviço. 
+- **Totalmente gerenciado** : o provisionamento, a configuração, a aplicação de patch e a manutenção do HSM são processados pelo serviço. 
 - **Altamente disponíveis e com resiliência de zona** (em que há suporte para zonas de disponibilidade): cada cluster do HSM consiste em várias partições do HSM que abrangem pelo menos duas zonas de disponibilidade. Se o hardware falhar, as partições de membro para o cluster do HSM serão migradas automaticamente para nós íntegros.
-- **Locatário único**: cada instância do HSM Gerenciado é dedicada a um único cliente e consiste em um cluster de várias partições do HSM. Cada cluster HSM usa um domínio de segurança específico de cliente separado que isola criptograficamente o cluster do HSM de cada cliente.
+- **Locatário único** : cada instância do HSM Gerenciado é dedicada a um único cliente e consiste em um cluster de várias partições do HSM. Cada cluster HSM usa um domínio de segurança específico de cliente separado que isola criptograficamente o cluster do HSM de cada cliente.
 
 
 ### <a name="access-control-enhanced-data-protection--compliance"></a>Controle de acesso, proteção avançada de dados e conformidade
 
-- **Gerenciamento centralizado de chaves**: gerencie chaves críticas e de alto valor em uma organização em um único lugar. Com as permissões granulares por chave, controle o acesso a cada chave conforme o princípio de "acesso com privilégios mínimos".
-- **Controle de acesso isolado**: o modelo de controle de acesso "RBAC local" do HSM Gerenciado permite que os administradores de cluster do HSM designados tenham controle total sobre os HSMs que nem mesmo administradores de grupo de recursos, assinatura ou grupo de gerenciamento podem substituir.
-- **HSMs validados para FIPS 140-2 Nível 3**: proteja seus dados e cumpra os requisitos de conformidade com HSMs validados para FIPS (Federal Information Protection Standard) 140-2 Nível 3. Os HSMs gerenciados usam adaptadores HSM Marvell LiquidSecurity.
-- **Monitorar e auditar**: totalmente integrado ao Azure Monitor. Obtenha logs completos de todas as atividades por meio do Azure Monitor. Use o Log Analytics do Azure para análise e alertas.
+- **Gerenciamento centralizado de chaves** : gerencie chaves críticas e de alto valor em uma organização em um único lugar. Com as permissões granulares por chave, controle o acesso a cada chave conforme o princípio de "acesso com privilégios mínimos".
+- **Controle de acesso isolado** : o modelo de controle de acesso "RBAC local" do HSM Gerenciado permite que os administradores de cluster do HSM designados tenham controle total sobre os HSMs que nem mesmo administradores de grupo de recursos, assinatura ou grupo de gerenciamento podem substituir.
+- **HSMs validados para FIPS 140-2 Nível 3** : proteja seus dados e cumpra os requisitos de conformidade com HSMs validados para FIPS (Federal Information Protection Standard) 140-2 Nível 3. Os HSMs gerenciados usam adaptadores HSM Marvell LiquidSecurity.
+- **Monitorar e auditar** : totalmente integrado ao Azure Monitor. Obtenha logs completos de todas as atividades por meio do Azure Monitor. Use o Log Analytics do Azure para análise e alertas.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrado ao Azure e aos serviços de PaaS/SaaS da Microsoft 
 
-- Gere (ou importe usando [BYOK](hsm-protected-keys-byok.md)) chaves e use-las para criptografar seus dados em repouso em serviços do Azure, como [Armazenamento do Azure](../../storage/common/encryption-customer-managed-keys.md), [SQL do Azure](../../azure-sql/database/transparent-data-encryption-byok-overview.md) e [Proteção de Informações do Azure](/azure/information-protection/byok-price-restrictions).
+- Gere (ou importe usando [BYOK](hsm-protected-keys-byok.md)) chaves e use-las para criptografar seus dados em repouso em serviços do Azure, como [Armazenamento do Azure](../../storage/common/customer-managed-keys-overview.md), [SQL do Azure](../../azure-sql/database/transparent-data-encryption-byok-overview.md) e [Proteção de Informações do Azure](/azure/information-protection/byok-price-restrictions).
 
 ### <a name="uses-same-api-and-management-interfaces-as-key-vault"></a>Usa as mesmas interfaces de API e de gerenciamento que o Key Vault
 

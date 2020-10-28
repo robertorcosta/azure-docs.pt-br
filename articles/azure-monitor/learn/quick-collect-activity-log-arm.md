@@ -3,16 +3,16 @@ title: Enviar o log de atividades do Azure para workspace do Log Analytics usand
 description: Use modelos do ARM para criar um workspace do Log Analytics e uma configuração de diagnóstico para enviar o log de atividades para Logs do Azure Monitor.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abcaee8cffd36e22c918b9d82f37370df1d61c26
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631844"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747035"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Início Rápido: Enviar o Log de atividades do Azure para workspace do Log Analytics usando um modelo do ARM
 
@@ -29,7 +29,7 @@ O log de atividades é um log de plataforma no Azure que fornece informações s
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo a seguir cria um workspace do Log Analytics vazio. Salve esse modelo como *CreateWorkspace.json*.
+O modelo a seguir cria um workspace do Log Analytics vazio. Salve esse modelo como *CreateWorkspace.json* .
 
 ```json
 {
@@ -134,7 +134,7 @@ Este modelo define um recurso:
 
 ### <a name="deploy-the-template"></a>Implantar o modelo
 
-Implante o modelo usando qualquer método padrão para [implantar um modelo do ARM](../../azure-resource-manager/templates/deploy-portal.md) como os exemplos a seguir usando a CLI e o PowerShell. Substitua os valores de exemplo para **Grupo de Recursos**, **workspaceName** e **location** pelos valores apropriados para o seu ambiente. O nome do workspace deve ser exclusivo entre todas as assinaturas do Azure.
+Implante o modelo usando qualquer método padrão para [implantar um modelo do ARM](../../azure-resource-manager/templates/deploy-portal.md) como os exemplos a seguir usando a CLI e o PowerShell. Substitua os valores de exemplo para **Grupo de Recursos** , **workspaceName** e **location** pelos valores apropriados para o seu ambiente. O nome do workspace deve ser exclusivo entre todas as assinaturas do Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo a seguir cria uma configuração de diagnóstico que envia o log de atividades para um workspace do Log Analytics. Salve esse modelo como *CreateDiagnosticSetting.json*.
+O modelo a seguir cria uma configuração de diagnóstico que envia o log de atividades para um workspace do Log Analytics. Salve esse modelo como *CreateDiagnosticSetting.json* .
 
 ```json
 {
@@ -248,7 +248,7 @@ Este modelo define um recurso:
 
 ### <a name="deploy-the-template"></a>Implantar o modelo
 
-Implante o modelo usando qualquer método padrão para [implantar um modelo do ARM](../../azure-resource-manager/templates/deploy-portal.md) como os exemplos a seguir usando a CLI e o PowerShell. Substitua os valores de exemplo para **Grupo de Recursos**, **workspaceName** e **location** pelos valores apropriados para o seu ambiente. O nome do workspace deve ser exclusivo entre todas as assinaturas do Azure.
+Implante o modelo usando qualquer método padrão para [implantar um modelo do ARM](../../azure-resource-manager/templates/deploy-portal.md) como os exemplos a seguir usando a CLI e o PowerShell. Substitua os valores de exemplo para **Grupo de Recursos** , **workspaceName** e **location** pelos valores apropriados para o seu ambiente. O nome do workspace deve ser exclusivo entre todas as assinaturas do Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -281,15 +281,15 @@ Somente novas entradas do log de atividades serão enviadas para o workspace do 
 
 ## <a name="retrieve-data-with-a-log-query"></a>Recuperar dados com uma consulta de log
 
-Use o portal do Azure para usar Log Analytics para recuperar dados do workspace. No portal do Azure, pesquise e selecione **Monitor**.
+Use o portal do Azure para usar Log Analytics para recuperar dados do workspace. No portal do Azure, pesquise e selecione **Monitor** .
 
 ![Portal do Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-Selecione **Logs** no menu **Azure Monitor**. Feche a página **Consultas de exemplo**. Se o escopo não estiver definido como o workspace que você criou, clique em **Selecionar escopo** e localize-o.
+Selecione **Logs** no menu **Azure Monitor** . Feche a página **Consultas de exemplo** . Se o escopo não estiver definido como o workspace que você criou, clique em **Selecionar escopo** e localize-o.
 
 ![Escopo do Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-Na janela de consulta, digite `AzureActivity` e clique em **Executar**. Essa é uma consulta simples que retorna todos os registros na tabela *AzureActivity*, que contém todos os registros enviados do Log de atividades.
+Na janela de consulta, digite `AzureActivity` e clique em **Executar** . Essa é uma consulta simples que retorna todos os registros na tabela *AzureActivity* , que contém todos os registros enviados do Log de atividades.
 
 ![Consulta simples](media/quick-collect-activity-log/query-01.png)
 

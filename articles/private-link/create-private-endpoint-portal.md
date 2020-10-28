@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: 3deeca4635f33b63a6e0bcecc0c829d3df88e352
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327484"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895194"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Início Rápido: Criar um ponto de extremidade privado usando o portal do Azure
 
@@ -50,7 +50,7 @@ O bastion host será usado para se conectar com segurança à máquina virtual p
     | Grupo de recursos   | Selecione **CreatePrivateEndpointQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
-    | Região           | Selecione **\<your-web-app-region>** . </br> Selecione a região em que seu aplicativo Web é implantado.|
+    | Região           | Selecione **Europa Ocidental** .|
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
@@ -101,7 +101,7 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
     | Grupo de recursos | Selecione **CreatePrivateEndpointQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM** |
-    | Região | Selecione **\<your-web-app-region>** . </br> Selecione a região em que seu aplicativo Web é implantado. |
+    | Região | Selecione **Europa Ocidental** . |
     | Opções de disponibilidade | Selecione **Nenhuma redundância infraestrutura necessária** |
     | Imagem | Selecione **Windows Server 2019 Datacenter – Gen1** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -149,7 +149,7 @@ Nesta seção, você criará um Ponto de Extremidade Privado para o aplicativo W
     | Resource group | Selecione **CreatePrivateEndpointQS-rg** . Você criou esse grupo de recursos na seção anterior.|
     | **Detalhes da instância** |  |
     | Nome  | Insira **myPrivateEndpoint** . |
-    | Região | Selecione **\<your-web-app-region>** . </br> Selecione a região em que seu aplicativo Web é implantado. |
+    | Região | Selecione **Europa Ocidental** . |
 
 6. Selecione a guia **Recurso** ou o botão **Avançar: Recurso** na parte inferior da página.
     

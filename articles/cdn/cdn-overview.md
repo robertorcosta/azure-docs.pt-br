@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 44ab6822039ef2a26ffafc2824bed249825e2daa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0c8170947b59b3d40a388642dac3df772238197
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88783800"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778340"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de distribuição de conteúdo no Azure?
 Uma CDN (rede de distribuição de conteúdo) é uma rede distribuída de servidores que pode fornecer conteúdo da Web para os usuários com eficiência. As CDNs armazenam o conteúdo armazenado em cache nos servidores de borda em localizações POP (ponto de presença) que estão próximas aos usuários finais, a fim de minimizar a latência. 
@@ -59,7 +59,7 @@ Cada assinatura do Azure tem limites padrão para os seguintes recursos:
  - O número de pontos de extremidade que podem ser criados em um perfil CDN. 
  - O número de domínios personalizados que podem ser mapeados para um ponto de extremidade.
 
-Para saber mais informações sobre limites de assinatura de CDN, confira [Limites de CDN](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Para saber mais informações sobre limites de assinatura de CDN, confira [Limites de CDN](../azure-resource-manager/management/azure-subscription-service-limits.md).
     
 ## <a name="azure-cdn-features"></a>Recursos da CDN do Azure
 A CDN do Azure oferece os seguintes recursos principais:

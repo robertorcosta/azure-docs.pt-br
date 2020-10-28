@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: sstein
 ms.date: 06/24/2020
-ms.openlocfilehash: d53f854bc3513a97398a92ee16c34a0a74650687
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e56d6558b3a80707a9f845740980f8ebbc87e35
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91614046"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791487"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando um modelo do ARM
 
@@ -24,7 +24,7 @@ A criação de um [banco de dados individual](single-database-overview.md) é a 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-database%2Fazuredeploy.json)
 
@@ -85,7 +85,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 - Crie uma regra de firewall no nível do servidor para se conectar ao banco de dados individual por meio de ferramentas locais ou remotas. Para obter mais informações, consulte [Criar uma regra de firewall no nível do servidor](firewall-create-server-level-portal-quickstart.md).
 - Depois de criar uma regra de firewall no nível do servidor, [conecte-se e consulte](connect-query-content-reference-guide.md) seu banco de dados usando várias ferramentas e linguagens diferentes.
   - [Conectar e consultar usando o SQL Server Management Studio](connect-query-ssms.md)
-  - [Conectar e consultar usando o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+  - [Conectar e consultar usando o Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)
 - Para criar um banco de dados individual usando a CLI do Azure, confira [Amostras da CLI do Azure](az-cli-script-samples-content-guide.md).
 - Para criar um banco de dados individual usando o Azure PowerShell, confira [Amostras do Azure PowerShell](powershell-script-content-guide.md).
 - Para saber como criar modelos do ARM, confira [Criar seu primeiro modelo](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

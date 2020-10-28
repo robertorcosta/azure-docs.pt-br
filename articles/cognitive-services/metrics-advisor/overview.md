@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 858bf042593045059c988ae1b2796b063b33bb6e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047566"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890234"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>O que é o Assistente de Métricas (versão prévia)? 
 
@@ -53,16 +53,14 @@ Analise as anomalias detectadas em métricas multidimensionais e gere [insights 
 O fluxo de trabalho é simples: após a integração dos dados, você pode ajustar a detecção de anomalias e criar configurações que se adequem ao cenário desejado.
 
 1. [Crie um recurso do Azure](../cognitive-services-apis-create-account.md) para o Assistente de Métrica. 
-2. Experimente o site de demonstração para ver um exemplo de instância do Assistente de Métricas usando dados de exemplo pré-configurados. 
-3. Crie o primeiro monitoramento usando o portal da Web.
+2. Crie o primeiro monitoramento usando o portal da Web.
     1. Integrar os dados
     2. Ajustar a detecção de anomalias
     3. Assinar alertas
     4. Exibir insights de diagnóstico
-1. Use a API REST para personalizar a instância.
+3. Use a API REST para personalizar a instância.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Experimente o [site de demonstração](quickstarts/explore-demo.md).
 * Explore um início rápido: [monitore a primeira métrica na Web](quickstarts/web-portal.md).
 * Explore um início rápido: [use as APIs REST para personalizar a solução](quickstarts/rest-api.md).
