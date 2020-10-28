@@ -14,9 +14,17 @@
           href: security-center-services.md
         - name: Cobertura de recursos para recursos de PaaS do Azure
           href: features-paas.md
-    - name: Quais são as novidades na Central de Segurança?
-      displayName: release notes
-      href: release-notes.md
+    - name: Novidades
+      items:
+        - name: Notas de versão
+          displayName: changelog
+          href: release-notes.md
+        - name: Alterações futuras importantes
+          displayName: 'release notes, changelog'
+          href: upcoming-changes.md
+        - name: Notas sobre a versão arquivadas (com mais de seis meses)
+          displayName: changelog
+          href: release-notes-archive.md
     - name: Conceitos básicos da Central de Segurança
       items:
         - name: Página de visão geral da Central de Segurança
@@ -217,8 +225,13 @@
         - name: Personalizar a política de proteção de informações
           href: security-center-info-protection-policy.md
     - name: Usar o Azure Defender para registros de contêiner
-      displayName: 'ACR, registry, images'
-      href: defender-for-container-registries-usage.md
+      items:
+        - name: Verificar se há vulnerabilidades em suas imagens de Registro
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md
+        - name: Desabilitar conclusões de vulnerabilidade de imagem específicas
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Exporte alertas e recomendações
       items:
         - name: 'Exportar para um SIEM, SOAR ou ITSM'
@@ -272,8 +285,6 @@
           href: faq-vms.md
         - name: Usuários existentes do Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Arquivos de novidades na Central de Segurança?
-      href: release-notes-archive.md
     - name: Blog do Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Recomendações e avaliação de Endpoint Protection

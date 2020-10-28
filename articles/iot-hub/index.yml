@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 91e3ff9dc19fdc33699fc6237cb5b6e51dbb9b52
-  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+  ms.openlocfilehash: 5459129d5d49324839bfe36e2031d5be8d1e0521
+  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/17/2020
-  ms.locfileid: "92148885"
+  ms.lasthandoff: 10/26/2020
+  ms.locfileid: "92545371"
 landingContent:
 - title: Introdução
   linkLists:
@@ -40,10 +40,10 @@ landingContent:
     links:
     - text: Trabalhar com dispositivos gêmeos usando o Node.js
       url: iot-hub-node-node-twin-getstarted.md
-    - text: Noções básicas de métricas de IoT
-      url: iot-hub-metrics.md
-    - text: Log de diagnóstico
-      url: iot-hub-monitor-resource-health.md
+    - text: Monitorar o Hub IoT
+      url: monitor-iot-hub.md
+    - text: Monitorar referência de dados do Hub IoT
+      url: monitor-iot-hub-reference.md
     - text: Monitore, diagnostique e solucione problemas de desconexões com a IoT
       url: iot-hub-troubleshoot-connectivity.md
 - title: Escalar sua solução

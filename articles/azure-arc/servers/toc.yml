@@ -84,3 +84,7 @@
     - name: Itens internos do Azure Policy
       displayName: 'samples, policies, definitions'
       href: policy-reference.md
+- name: Recursos
+  items:
+    - name: Ponto de partida do Azure Arc
+      href: 'https://github.com/microsoft/azure_arc'

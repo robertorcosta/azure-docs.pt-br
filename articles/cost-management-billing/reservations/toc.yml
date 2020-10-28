@@ -123,9 +123,11 @@
         - name: Nenhuma assinatura qualificada
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Solucionar problemas de utilização de reserva
-          href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
+          href: troubleshoot-reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Solucionar problemas de recomendações de reserva
-          href: troubleshoot-reservation-recommendation.md??toc=/azure/cost-management-billing/reservations/toc.json
+          href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Solucionar problemas de reserva não disponível
+          href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Referência
   items:
     - name: API REST de reservas

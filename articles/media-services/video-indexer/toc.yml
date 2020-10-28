@@ -13,7 +13,7 @@
       href: invite-users.md
 - name: Tutoriais
   items:
-    - name: Conectar-se ao Azure
+    - name: Criar uma conta conectada ao Azure
       href: connect-to-azure.md
     - name: Usar a API do Video Indexer
       href: video-indexer-use-apis.md

@@ -59,13 +59,13 @@
         - name: Controle de acesso baseado em função
           displayName: rbac
           href: role-based-access-control.md
+        - name: Suporte ao Azure Policy
+          href: policy.md
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
-        - name: Suporte ao Azure Policy
-          href: policy.md
     - name: Análise com o Link do Azure Synapse
       items:
         - name: Link do Azure Synapse para Cosmos DB
@@ -202,11 +202,14 @@
           href: templates-samples-sql.md
     - name: Conceitos
       items:
-        - name: Dados de documento modelo
-          displayName: document
-          href: modeling-data.md
-        - name: Particionamento
+        - name: Modelagem e particionamento
           items:
+            - name: Dados de documento modelo
+              displayName: document
+              href: modeling-data.md
+            - name: Modelagem e particionamento – um exemplo do mundo real
+              displayName: 'model, partition, example'
+              href: how-to-model-partition-example.md
             - name: Chave de partição sintética
               href: synthetic-partition-keys.md
         - name: consulta SQL
@@ -631,13 +634,13 @@
           items:
             - name: Taxa de transferência provisionada
               items:
-                - name: Provisionar taxa de transferência padrão (manual) em um contêiner
+                - name: Provisionar taxa de transferência padrão (manual) – contêiner
                   displayName: 'request units, RUs, RU, collection level'
                   href: how-to-provision-container-throughput.md
-                - name: Provisionar taxa de transferência padrão (manual) em um banco de dados
+                - name: Provisionar taxa de transferência padrão (manual) – banco de dados
                   displayName: 'request units, RUs, RU, shared throughput, database level'
                   href: how-to-provision-database-throughput.md
-                - name: Provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner
+                - name: Provisionar taxa de transferência de dimensionamento automático – banco de dados ou contêiner
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
                 - name: Estimar RU/s com o Planejador de Capacidade do Cosmos
@@ -657,9 +660,6 @@
               href: large-partition-keys.md
             - name: Consultar um contêiner
               href: how-to-query-container.md
-            - name: Particionamento e modelagem de dados – um exemplo do mundo real
-              displayName: 'model, partition, example'
-              href: how-to-model-partition-example.md
             - name: Migrar para contêineres particionados
               href: migrate-containers-partitioned-to-nonpartitioned.md
             - name: Configurar o tempo de vida útil
@@ -1179,8 +1179,6 @@
       items:
         - name: Cabeçalhos de resposta
           href: gremlin-headers.md
-        - name: limites
-          href: gremlin-limits.md
         - name: Provedor de recursos REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Modelo do Resource Manager

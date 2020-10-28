@@ -110,7 +110,7 @@
         - name: Modelo do Azure Resource Manager
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Configurar tempo limite de ociosidade TCP para Balanceador de Carga
+    - name: Configurar a redefinição e o tempo limite de ociosidade de TCP
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurar o modo de distribuição para o Load Balancer
       href: load-balancer-distribution-mode.md

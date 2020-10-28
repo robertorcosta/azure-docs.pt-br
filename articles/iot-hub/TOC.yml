@@ -317,16 +317,10 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Usar a CLI do Azure
               href: iot-hub-configure-file-upload-cli.md
-        - name: Métricas no Azure Monitor
-          href: iot-hub-metrics.md
-        - name: Configuração dos logs de diagnóstico
-          href: iot-hub-monitor-resource-health.md
         - name: Proteger seu hub com um certificado X.509
           href: iot-hub-security-x509-get-started.md
         - name: Atualizar um hub IoT
           href: iot-hub-upgrade.md
-        - name: Habilitar o rastreamento de mensagem
-          href: iot-hub-distributed-tracing.md
         - name: Configurar a filtragem de IP
           href: iot-hub-ip-filtering.md
         - name: Gerenciar o acesso de rede pública
@@ -339,6 +333,16 @@
               href: iot-hub-automatic-device-management-cli.md
         - name: Importação e exportação em massa para dispositivos IoT
           href: iot-hub-bulk-identity-mgmt.md
+    - name: Monitoramento
+      items:
+        - name: Monitorar o Hub IoT
+          href: monitor-iot-hub.md
+        - name: Referência de dados de monitoramento
+          href: monitor-iot-hub-reference.md
+        - name: Habilitar o rastreamento de mensagem
+          href: iot-hub-distributed-tracing.md
+        - name: Serviço de Hub IoT e integridade de recursos
+          href: iot-hub-azure-service-health-integration.md
     - name: Usar dispositivos reais
       items:
         - name: Usar um simulador online
