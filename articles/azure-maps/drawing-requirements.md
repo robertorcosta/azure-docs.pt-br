@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1f25aadf716b7768b6122a4fb165466aef7f8a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053385"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895827"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos do pacote de desenho
 
-Você pode converter pacotes de desenho carregados em dados de mapa usando o [serviço de conversão do Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion). Este artigo descreve os requisitos de pacote de desenho para a API de Conversão. Para exibir um pacote de exemplo, você pode baixar o [Pacote de desenho](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de amostra.
+Você pode converter pacotes de desenho carregados em dados de mapa usando o [serviço de conversão do Azure Maps](/rest/api/maps/conversion). Este artigo descreve os requisitos de pacote de desenho para a API de Conversão. Para exibir um pacote de exemplo, você pode baixar o [Pacote de desenho](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de amostra.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ O pacote de desenho inclui desenhos salvos no formato DWG, que é o formato de a
 
 Você pode escolher qualquer software CAD para produzir os desenhos no pacote de desenho.  
 
-O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) converte o pacote de desenho em dados de mapa. O serviço de conversão funciona com o formato de arquivo do AutoCAD DWG. `AC1032` é a versão de formato interno para os arquivos DWG, e é uma boa ideia selecionar `AC1032` para a versão de formato de arquivo DWG interno.  
+O [Serviço de conversão do Azure Mapas](/rest/api/maps/conversion) converte o pacote de desenho em dados de mapa. O serviço de conversão funciona com o formato de arquivo do AutoCAD DWG. `AC1032` é a versão de formato interno para os arquivos DWG, e é uma boa ideia selecionar `AC1032` para a versão de formato de arquivo DWG interno.  
 
 ## <a name="glossary-of-terms"></a>Glossário de termos
 
@@ -50,13 +50,13 @@ Você pode organizar os arquivos DWG de qualquer forma dentro da pasta, mas o ar
 
 ## <a name="dwg-files-requirements"></a>Requisitos para arquivos DWG
 
-Apenas um arquivo DWG é necessário para cada nível da instalação. Os dados do nível devem estar contidos em um único arquivo DWG. Todas as referências externas (_xrefs_) devem estar ligadas ao desenho pai. Além disso, cada arquivo DWG:
+Apenas um arquivo DWG é necessário para cada nível da instalação. Os dados do nível devem estar contidos em um único arquivo DWG. Todas as referências externas ( _xrefs_ ) devem estar ligadas ao desenho pai. Além disso, cada arquivo DWG:
 
-* Deve definir as camadas _Exterior_ e _Unidade_. Opcionalmente, ele pode definir as seguintes camadas opcionais: _mural_, _porta_, _UnitLabel_, _zona_e _ZoneLabel_.
+* Deve definir as camadas _Exterior_ e _Unidade_ . Opcionalmente, ele pode definir as seguintes camadas opcionais: _mural_ , _porta_ , _UnitLabel_ , _zona_ e _ZoneLabel_ .
 * Não deve conter recursos de vários níveis.
 * Não deve conter recursos de várias instalações.
 
-O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) pode extrair as seguintes classes de recurso de um arquivo DWG:
+O [Serviço de conversão do Azure Mapas](/rest/api/maps/conversion) pode extrair as seguintes classes de recurso de um arquivo DWG:
 
 * Levels
 * Unidades
@@ -73,11 +73,11 @@ As camadas do DWG também devem seguir os seguintes critérios:
 
 * As origens de desenhos para todos os arquivos DWG devem se alinhar à mesma latitude e longitude.
 * Cada nível deve estar na mesma orientação dos outros níveis.
-* Polígonos com interseção automática são reparados automaticamente e o [serviço de conversão do Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) gera um aviso. Você deve inspecionar os resultados reparados manualmente, pois eles podem não corresponder aos resultados esperados.
+* Polígonos com interseção automática são reparados automaticamente e o [serviço de conversão do Azure Maps](/rest/api/maps/conversion) gera um aviso. Você deve inspecionar os resultados reparados manualmente, pois eles podem não corresponder aos resultados esperados.
 
 Todas as entidades de camada devem ser um dos seguintes tipos: linha, polilinha, polígono, arco circular, círculo ou texto (linha única). Quaisquer outros tipos de entidade são ignorados.
 
-A tabela a seguir descreve os tipos de entidade com suporte e os recursos com suporte para cada camada. Se uma camada contiver tipos de entidade sem suporte, o [serviço de conversão do Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) ignorará essas entidades.  
+A tabela a seguir descreve os tipos de entidade com suporte e os recursos com suporte para cada camada. Se uma camada contiver tipos de entidade sem suporte, o [serviço de conversão do Azure Maps](/rest/api/maps/conversion) ignorará essas entidades.  
 
 | Camada | Tipos de entidade | Recursos |
 | :----- | :-------------------| :-------
@@ -168,11 +168,11 @@ Você pode ver um exemplo da camada ZoneLabel no pacote de [desenho de exemplo](
 
 ## <a name="manifest-file-requirements"></a>Requisitos do arquivo de manifesto
 
-A pasta zip deve conter um arquivo de manifesto no nível raiz do diretório, e o arquivo deve ser nomeado como **manifest.json**. Ele descreve os arquivos DWG para permitir que o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) analise seu conteúdo. Somente os arquivos identificados pelo manifesto são ingeridos. Os arquivos que estão na pasta zip, mas que não estão corretamente listados no manifesto, são ignorados.
+A pasta zip deve conter um arquivo de manifesto no nível raiz do diretório, e o arquivo deve ser nomeado como **manifest.json** . Ele descreve os arquivos DWG para permitir que o [Serviço de conversão do Azure Mapas](/rest/api/maps/conversion) analise seu conteúdo. Somente os arquivos identificados pelo manifesto são ingeridos. Os arquivos que estão na pasta zip, mas que não estão corretamente listados no manifesto, são ignorados.
 
 Os caminhos de arquivo no `buildingLevels` objeto do arquivo de manifesto devem ser relativos à raiz da pasta zip. O nome do arquivo DWG deve corresponder exatamente ao nome do nível da instalação. Por exemplo, um arquivo DWG para o nível "porão" é "porão. dwg". Um arquivo DWG para o nível 2 é nomeado como "level_2. dwg". Use um sublinhado se o nome do seu nível tiver um espaço.
 
-Embora haja requisitos ao usar os objetos de manifesto, nem todos os objetos são necessários. A tabela a seguir mostra os objetos obrigatórios e opcionais para a versão 1,1 do [serviço de conversão do Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
+Embora haja requisitos ao usar os objetos de manifesto, nem todos os objetos são necessários. A tabela a seguir mostra os objetos obrigatórios e opcionais para a versão 1,1 do [serviço de conversão do Azure Maps](/rest/api/maps/conversion).
 
 | Objeto | Obrigatório | Descrição |
 | :----- | :------- | :------- |
@@ -188,7 +188,7 @@ As seções a seguir detalham os requisitos de cada objeto.
 
 ### `directoryInfo`
 
-| Propriedade  | Type | Obrigatório | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 | `name`      | string | true   |  Nome da construção. |
 | `streetAddress`|    string |    false    | Endereço da construção. |
@@ -209,7 +209,7 @@ As seções a seguir detalham os requisitos de cada objeto.
 
 O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
-| Propriedade  | Type | Obrigatório | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`levelName`    |string    |true |    Nome do nível descritivo. Por exemplo: piso 1, lobby, estacionamento azul ou porão.|
 |`ordinal` | inteiro |    true | Determina a ordem vertical dos níveis. Cada instalação deve ter um nível com o ordinal 0. |
@@ -219,7 +219,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 ### `georeference`
 
-| Propriedade  | Type | Obrigatório | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    Representação decimal da latitude em graus na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator (`EPSG:3857`).|
 |`lon`    |numeric|    true|    Representação decimal da longitude em graus na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator (`EPSG:3857`). |
@@ -227,7 +227,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 ### `dwgLayers`
 
-| Propriedade  | Type | Obrigatório | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`exterior`    |Matriz de cadeias de caracteres|    true|    Nomes de camadas que definem o perfil de construção exterior.|
 |`unit`|    Matriz de cadeias de caracteres|    true|    Nomes de camadas que definem unidades.|
@@ -241,7 +241,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
-| Propriedade  | Type | Obrigatório | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`unitName`    |string    |true    |Nome da unidade a ser associada a esse registro `unitProperty`. Esse registro só é válido quando uma correspondência de rótulo `unitName` é encontrada nas `unitLabel` camadas. |
 |`categoryName`|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -261,7 +261,7 @@ O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
 O objeto `zoneProperties` contém uma matriz JSON das propriedades da zona.
 
-| Propriedade  | Type | Obrigatório | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nome da zona a ser associada ao registro `zoneProperty`. Esse registro só é válido quando um rótulo correspondente a `zoneName` for encontrado na camada `zoneLabel` da zona.  |
 |categoryName|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -404,7 +404,7 @@ Veja a seguir um exemplo de arquivo de manifesto para o pacote de desenho de exe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Quando o pacote de desenho atende aos requisitos, você pode usar o [serviço de conversão do Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote em um conjunto de um DataSet. Em seguida, você pode usar o conjunto de um para gerar um mapa interno usando o módulo de mapas em interno.
+Quando o pacote de desenho atende aos requisitos, você pode usar o [serviço de conversão do Azure Maps](/rest/api/maps/conversion) para converter o pacote em um conjunto de um DataSet. Em seguida, você pode usar o conjunto de um para gerar um mapa interno usando o módulo de mapas em interno.
 
 > [!div class="nextstepaction"]
 >[Criador de mapas internos](creator-indoor-maps.md)

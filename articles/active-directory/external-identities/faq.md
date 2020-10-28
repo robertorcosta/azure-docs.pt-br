@@ -12,25 +12,25 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441837"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896082"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
 Essas perguntas frequentes sobre a colaboração B2B (entre empresas) do Azure AD (Azure Active Directory) são atualizadas periodicamente para incluir novos tópicos.
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
+   > **A partir de 31 de março de 2021** , a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Podemos personalizar nossa página de login para que seja mais intuitiva para nossos usuários convidados de colaboração B2B?
 Claro que não! Consulte nossa [postagem de blog sobre esse recurso](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para obter mais informações sobre como personalizar a página de conexão de sua organização, consulte [Adicionar a identidade visual da empresa às páginas de conexão e do Painel de Acesso](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Os usuários de colaboração B2B podem acessar o SharePoint Online e o OneDrive?
-Sim. Entretanto, a capacidade de pesquisar usuários convidados existentes no SharePoint Online com o seletor de pessoas está **Desativada** por padrão. Para ativar a opção de pesquisa de usuários convidados existentes, defina **ShowPeoplePickerSuggestionsForGuestUsers** como **Ativado**. Ative essa configuração no nível do locatário ou no nível de conjunto de sites. Altere essa configuração usando os cmdlets Set-SPOTenant e Set-SPOSite. Com esses cmdlets, os membros podem pesquisar todos os usuários convidados existentes no diretório. Alterações no escopo do inquilino não afetam os sites do SharePoint Online que já foram provisionados.
+Sim. Entretanto, a capacidade de pesquisar usuários convidados existentes no SharePoint Online com o seletor de pessoas está **Desativada** por padrão. Para ativar a opção de pesquisa de usuários convidados existentes, defina **ShowPeoplePickerSuggestionsForGuestUsers** como **Ativado** . Ative essa configuração no nível do locatário ou no nível de conjunto de sites. Altere essa configuração usando os cmdlets Set-SPOTenant e Set-SPOSite. Com esses cmdlets, os membros podem pesquisar todos os usuários convidados existentes no diretório. Alterações no escopo do inquilino não afetam os sites do SharePoint Online que já foram provisionados.
 
 ### <a name="is-the-csv-upload-feature-still-supported"></a>Ainda há suporte para o recurso de upload de CSV?
 Sim. Para obter mais informações sobre como usar o recurso de upload de arquivo .csv, consulte [esta amostra do PowerShell](code-samples.md).
@@ -64,17 +64,17 @@ A menos que um usuário receba a função de administrador limitado, os usuário
 Sim. Você pode criar uma política de acesso condicional que impede que todos os usuários convidados e externos acessem o portal do Azure. Ao configurar essa política, tenha cuidado para evitar o bloqueio acidental do acesso a membros e administradores.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador de segurança ou como administrador de acesso condicional.
-2. Na portal do Azure, selecione **Azure Active Directory**. 
-3. Em **gerenciar**, selecione **segurança**.
-4. Em **proteger**, selecione **acesso condicional**. Selecione **Nova política**.
+2. Na portal do Azure, selecione **Azure Active Directory** . 
+3. Em **gerenciar** , selecione **segurança** .
+4. Em **proteger** , selecione **acesso condicional** . Selecione **Nova política** .
 5. Na página **novo** , na caixa de texto **nome** , insira um nome para a política (por exemplo, "bloquear convidados de acessar o portal").
-6. Em **Atribuições**, selecione **Usuários e Grupos**.
-7. Na guia **incluir** , escolha **Selecionar usuários e grupos**e, em seguida, selecione **todos os usuários convidados e externos (versão prévia)**.
-9. Selecione **Concluído**.
-10. Na página **novo** , na seção **atribuições** , selecione **aplicativos de nuvem ou ações**.
-11. Na página **aplicativos de nuvem ou ações** , escolha **selecionar aplicativos**e escolha **selecionar**.
-12. Na página **Selecionar**, escolha **Gerenciamento do Microsoft Azure** e escolha **Selecionar**.
-13. Na página **aplicativos de nuvem ou ações** , selecione **concluído**.
+6. Em **Atribuições** , selecione **Usuários e Grupos** .
+7. Na guia **incluir** , escolha **Selecionar usuários e grupos** e, em seguida, selecione **todos os usuários convidados e externos (versão prévia)** .
+9. Selecione **Concluído** .
+10. Na página **novo** , na seção **atribuições** , selecione **aplicativos de nuvem ou ações** .
+11. Na página **aplicativos de nuvem ou ações** , escolha **selecionar aplicativos** e escolha **selecionar** .
+12. Na página **Selecionar** , escolha **Gerenciamento do Microsoft Azure** e escolha **Selecionar** .
+13. Na página **aplicativos de nuvem ou ações** , selecione **concluído** .
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>A colaboração do Azure AD B2B dá suporte à autenticação multifator e a contas de email do consumidor?
 Sim. Há suporte para a autenticação multifator e a contas de email do consumidor na colaboração do Azure AD B2B.
@@ -130,7 +130,7 @@ Sim. Para obter mais informações, consulte [acesso condicional para usuários 
 Sim. A colaboração do Azure AD B2B dá suporte a listas de permissões e negações. 
 
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Quais licenças precisamos usar no Azure AD B2B?
-Para obter informações sobre as licenças que sua organização precisa usar no Azure AD B2B, consulte [Diretrizes de licenciamento da colaboração do Azure Active Directory B2B](licensing-guidance.md).
+Para obter informações sobre quais licenças sua organização precisa para usar o Azure AD B2B, consulte [preços de identidades externas](external-identities-pricing.md).
 
 ### <a name="next-steps"></a>Próximas etapas
 

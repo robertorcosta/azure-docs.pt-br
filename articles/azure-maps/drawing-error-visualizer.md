@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99821e51364eb9ffd75cda291c526c3c0b8c8f0e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524736"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895844"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Usando o Visualizador de Erros de Desenho do Azure Mapas
 
-O Visualizador de Erros de Desenho é um aplicativo Web autônomo que exibe [avisos e erros de pacote de desenho](drawing-conversion-error-codes.md) detectados durante o processo de conversão. O aplicativo Web Visualizador de Erros consiste em uma página estática que você pode usar sem se conectar à Internet.  Você pode usar o Visualizador de Erros para corrigir erros e avisos de acordo com os [Requisitos de pacote de desenho](drawing-requirements.md). A [API de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) só retornará uma resposta com um link para o Visualizador de Erros quando um erro for detectado.
+O Visualizador de Erros de Desenho é um aplicativo Web autônomo que exibe [avisos e erros de pacote de desenho](drawing-conversion-error-codes.md) detectados durante o processo de conversão. O aplicativo Web Visualizador de Erros consiste em uma página estática que você pode usar sem se conectar à Internet.  Você pode usar o Visualizador de Erros para corrigir erros e avisos de acordo com os [Requisitos de pacote de desenho](drawing-requirements.md). A [API de conversão do Azure Mapas](/rest/api/maps/conversion) só retornará uma resposta com um link para o Visualizador de Erros quando um erro for detectado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,13 +59,13 @@ Este tutorial usa o aplicativo [Postman](https://www.postman.com/), mas você po
 Dentro do pacote compactado baixado no link `diagnosticPackageLocation`, você encontrará dois arquivos.
 
 * _VisualizationTool. zip:_ Contém o código-fonte, a mídia e a página da Web para o Visualizador de Erros de Desenho.
-* _ConversionWarningsAndErrors.json_: Contém uma lista formatada de avisos, erros e detalhes adicionais que são usados pelo Visualizador de Erro de Desenho.
+* _ConversionWarningsAndErrors.json_ : Contém uma lista formatada de avisos, erros e detalhes adicionais que são usados pelo Visualizador de Erro de Desenho.
 
-Descompacte a pasta _VisualizationTool.zip_. Ela contém os seguintes arquivos:
+Descompacte a pasta _VisualizationTool.zip_ . Ela contém os seguintes arquivos:
 
-* pasta de _ativos_: contém imagens e arquivos de mídia
-* pasta _estático_: código-fonte
-* arquivo _index. html_: o aplicativo Web.
+* pasta de _ativos_ : contém imagens e arquivos de mídia
+* pasta _estático_ : código-fonte
+* arquivo _index. html_ : o aplicativo Web.
 
 Abra o arquivo _index.html_ usando qualquer um dos navegadores abaixo, com o respectivo número de versão. Você pode usar uma versão diferente, se a versão oferecer um comportamento igualmente compatível como a versão listada.
 
@@ -90,7 +90,7 @@ Depois que o arquivo _ConversionWarningsAndErrors.json_ for carregado, você ver
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que o [pacote de desenho atender aos requisitos](drawing-requirements.md), você poderá usar o [serviço do Conjunto de dados do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote de desenho em um conjunto de dados. Em seguida, você pode usar o módulo Web do Azure Mapas Interno para desenvolver seu aplicativo. Para saber mais, leia os seguintes artigos:
+Depois que o [pacote de desenho atender aos requisitos](drawing-requirements.md), você poderá usar o [serviço do Conjunto de dados do Azure Mapas](/rest/api/maps/conversion) para converter o pacote de desenho em um conjunto de dados. Em seguida, você pode usar o módulo Web do Azure Mapas Interno para desenvolver seu aplicativo. Para saber mais, leia os seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Códigos de erro de conversão de desenho](drawing-conversion-error-codes.md)

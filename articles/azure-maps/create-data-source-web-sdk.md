@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 75d2833a5b270fcfdcffa668ec0e308399edab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311443"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895912"
 ---
 # <a name="create-a-data-source"></a>Criar uma fonte de dados
 
 O SDK da Web do Azure Maps armazena dados em fontes de dados. O uso de fontes de dados otimiza as operações de dados para consulta e renderização. Atualmente, há dois tipos de fontes de dados:
 
-- **Origem geojson**: gerencia dados de local brutos no formato geojson localmente. Bom para conjuntos de dados pequenos a médios (em cima de centenas de milhares de formas).
-- **Origem do bloco de vetor**: carrega dados formatados como blocos de vetor para a exibição de mapa atual, com base no sistema de mapas de blocos. Ideal para conjuntos de dados grandes a grandes (milhões ou bilhões de formas).
+- **Origem geojson** : gerencia dados de local brutos no formato geojson localmente. Bom para conjuntos de dados pequenos a médios (em cima de centenas de milhares de formas).
+- **Origem do bloco de vetor** : carrega dados formatados como blocos de vetor para a exibição de mapa atual, com base no sistema de mapas de blocos. Ideal para conjuntos de dados grandes a grandes (milhões ou bilhões de formas).
 
 ## <a name="geojson-data-source"></a>Fonte de dados geojson
 
-Uma fonte de dados baseada em geojson carrega e armazena dados localmente usando a `DataSource` classe. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . A `DataSource` classe fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A `DataSource` classe fornece funcionalidade para dados de ponto de cluster. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe. O código a seguir mostra como os dados geojson podem ser criados no Azure Maps.
+Uma fonte de dados baseada em geojson carrega e armazena dados localmente usando a `DataSource` classe. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](/javascript/api/azure-maps-control/atlas.data) . A `DataSource` classe fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A `DataSource` classe fornece funcionalidade para dados de ponto de cluster. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe. O código a seguir mostra como os dados geojson podem ser criados no Azure Maps.
 
 ```javascript
 //Create raw GeoJSON object.
@@ -46,7 +46,7 @@ var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
 }); 
 ```
 
-Depois de criadas, as fontes de dados podem ser adicionadas ao mapa por meio da `map.sources` propriedade, que é um [sourcemanager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). O código a seguir mostra como criar um `DataSource` e adicioná-lo ao mapa.
+Depois de criadas, as fontes de dados podem ser adicionadas ao mapa por meio da `map.sources` propriedade, que é um [sourcemanager](/javascript/api/azure-maps-control/atlas.sourcemanager). O código a seguir mostra como criar um `DataSource` e adicioná-lo ao mapa.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -74,7 +74,7 @@ dataSource.setShapes(geoJsonData);
 
 ## <a name="vector-tile-source"></a>Origem do bloco de vetor
 
-Uma fonte de bloco de vetor descreve como acessar uma camada de bloco de vetor. Use a classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) para criar uma instância de uma fonte de bloco de vetor. As camadas de bloco de vetor são semelhantes às camadas de bloco, mas não são as mesmas. Uma camada de peça é uma imagem rasterizada. As camadas de bloco de vetor são um arquivo compactado, no formato **PBF** . Esse arquivo compactado contém dados de mapa de vetor e uma ou mais camadas. O arquivo pode ser renderizado e estilizado no cliente, com base no estilo de cada camada. Os dados em um bloco de vetor contêm recursos geográficos na forma de pontos, linhas e polígonos. Há várias vantagens de usar camadas de bloco vetorial em vez de camadas de bloco rasterizadas:
+Uma fonte de bloco de vetor descreve como acessar uma camada de bloco de vetor. Use a classe [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) para criar uma instância de uma fonte de bloco de vetor. As camadas de bloco de vetor são semelhantes às camadas de bloco, mas não são as mesmas. Uma camada de peça é uma imagem rasterizada. As camadas de bloco de vetor são um arquivo compactado, no formato **PBF** . Esse arquivo compactado contém dados de mapa de vetor e uma ou mais camadas. O arquivo pode ser renderizado e estilizado no cliente, com base no estilo de cada camada. Os dados em um bloco de vetor contêm recursos geográficos na forma de pontos, linhas e polígonos. Há várias vantagens de usar camadas de bloco vetorial em vez de camadas de bloco rasterizadas:
 
  - Um tamanho de arquivo de um bloco de vetor normalmente é muito menor do que um bloco rasterizado equivalente. Dessa forma, menos largura de banda é usada. Isso significa menor latência, um mapa mais rápido e uma melhor experiência do usuário.
  - Como os blocos de vetor são renderizados no cliente, eles se adaptam à resolução do dispositivo em que estão sendo exibidos. Como resultado, os mapas renderizados aparecem mais bem definidos, com rótulos de cristal claro.
@@ -83,10 +83,10 @@ Uma fonte de bloco de vetor descreve como acessar uma camada de bloco de vetor. 
 
 O mapas do Azure segue a [especificação de bloco de vetor Mapbox](https://github.com/mapbox/vector-tile-spec), um padrão aberto. O mapas do Azure fornece os seguintes serviços de blocos de vetor como parte da plataforma:
 
-- Detalhes do [documentation](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)  |  [formato de dados](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) da documentação dos blocos de estrada
-- Detalhes do [documentation](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de documentação de incidentes de tráfego
-- Detalhes do [documentation](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de documentação do fluxo de tráfego
-- O criador do mapas do Azure também permite que blocos de vetor personalizados sejam criados e acessados por meio da [renderização de bloco Get v2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)
+- Detalhes do [documentation](/rest/api/maps/renderv2/getmaptilepreview)  |  [formato de dados](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) da documentação dos blocos de estrada
+- Detalhes do [documentation](/rest/api/maps/traffic/gettrafficincidenttile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de documentação de incidentes de tráfego
+- Detalhes do [documentation](/rest/api/maps/traffic/gettrafficflowtile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de documentação do fluxo de tráfego
+- O criador do mapas do Azure também permite que blocos de vetor personalizados sejam criados e acessados por meio da [renderização de bloco Get v2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > Ao usar blocos de imagem vetorial ou rasterizada do serviço de renderização do Azure Maps com o SDK da Web, você pode substituir `atlas.microsoft.com` pelo espaço reservado `{azMapsDomain}` . Esse espaço reservado será substituído pelo mesmo domínio usado pelo mapa e também acrescentará automaticamente os mesmos detalhes de autenticação. Isso simplifica muito a autenticação com o serviço de renderização ao usar a autenticação Azure Active Directory.
@@ -213,16 +213,16 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
+> [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [DataSourceOptions](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource)
+> [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource)
 
 > [!div class="nextstepaction"]
-> [VectorTileSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
+> [VectorTileSourceOptions](/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
@@ -248,4 +248,4 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 > [Adicionar um mapa de calor](map-add-heat-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemplos de código](/samples/browse/?products=azure-maps)
