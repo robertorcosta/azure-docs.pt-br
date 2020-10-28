@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: d514460f3cd80b5b85604251743abbbbcd1adc8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2611c9535b9721cccadf35e56bdd21a3020257
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906996"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677447"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contêiner
 
@@ -56,7 +56,7 @@ Consulte [como executar e instalar contêineres de análise de texto](../../text
 
 Consulte [como executar e instalar contêineres do detector de anomalias](../../anomaly-detector/anomaly-detector-container-howto.md) para obter mais informações.
 
-**Serviço de Fala**
+**Serviço de fala**
 
 > [!NOTE]
 > Para usar os contêineres de fala, você precisará concluir um [formulário de solicitação online](https://aka.ms/csgate).
@@ -87,9 +87,9 @@ Anteriormente, os contêineres de visualização restringida eram hospedados no 
 
 | Serviço | Contêiner | Registro de contêiner/repositório/nome da imagem |
 |--|--|--|
-| [Pesquisa Visual Computacional](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leia v 3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| [Pesquisa Visual Computacional](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leia v 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | [Pesquisa Visual Computacional](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leia v 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
-| [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Análise espacial | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Análise Espacial | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=ctts) | Conversão de texto em fala personalizada | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=lid) | Detecção de Idioma | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=ntts) | Texto em fala neural | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |

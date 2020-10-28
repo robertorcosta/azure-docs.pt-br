@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3c941139b12fdf19bf1080b4dddecb8ab761568
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457984"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676125"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas sobre a versão do Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>Outubro de 2020
+
+| Melhorias nos serviços | Detalhes |
+| --- | --- |
+|**Funções de Table-Valued embutidas do T-SQL (versão prévia)**|Com esta versão, agora você pode criar funções com valor de tabela embutidas com o Transact-SQL e consultar seus resultados como faria com uma tabela. Este recurso está atualmente em visualização e terá suporte em ferramentas na GA. Para obter mais informações, consulte [criar função (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**Comando MERGE (visualização)**|Agora você pode executar operações de inserção, atualização ou exclusão em uma tabela de destino dos resultados de uma junção com uma tabela de origem. Por exemplo, você pode sincronizar duas tabelas inserindo, atualizando ou excluindo linhas em uma tabela com base nas diferenças encontradas na outra tabela.  Marque [mesclar](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) para obter detalhes.|
 
 ## <a name="aug-2020"></a>2020 de agosto
 

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ecbbb9580a9a79ae52320ea53a4831ac8ef57f8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091399"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678175"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com Azure Mapas
 
@@ -104,7 +104,7 @@ Alguns serviços do Azure Maps podem exigir privilégios elevados para executar 
 | Criador            | Colaborador de dados do Azure Maps |
 | Espacial            | Colaborador de dados do Azure Maps |
 
-Para obter informações sobre como exibir as configurações do RBAC do Azure, consulte [como configurar o Azure RBAC para mapas do Azure](https://aka.ms/amrbac).
+Para obter informações sobre como exibir as configurações do RBAC do Azure, consulte [como configurar o Azure RBAC para mapas do Azure](./how-to-manage-authentication.md).
 
 #### <a name="custom-role-definitions"></a>Definições de função personalizadas
 

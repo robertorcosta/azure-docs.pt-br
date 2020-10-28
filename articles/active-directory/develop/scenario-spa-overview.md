@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257309"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675633"
 ---
-# <a name="scenario-single-page-application"></a>Cenário: aplicativo de página única
+# <a name="scenario-single-page-application"></a>Cenário: Aplicativo de página única
 
 Saiba tudo o que você precisa para criar um aplicativo de página única (SPA).
 
@@ -30,19 +30,19 @@ Se você ainda não fez isso, crie seu primeiro aplicativo concluindo o início 
 
 ## <a name="overview"></a>Visão geral
 
-Muitos aplicativos Web modernos são criados como aplicativos de página única do lado do cliente. Os desenvolvedores as escrevem usando JavaScript ou uma estrutura SPA, como angular, Vue e reagir. Esses aplicativos são executados em um navegador da Web e têm características de autenticação diferentes dos aplicativos Web tradicionais do lado do servidor.
+Muitos aplicativos Web modernos são criados como aplicativos de página única do lado do cliente. Os desenvolvedores os escrevem usando JavaScript ou uma estrutura SPA, como Angular, Vue e React. Esses aplicativos são executados em um navegador da Web e têm características de autenticação diferentes dos aplicativos Web do lado do servidor tradicionais.
 
 A plataforma Microsoft Identity fornece **duas** opções para habilitar aplicativos de página única para conectar usuários e obter tokens para acessar serviços de back-end ou APIs da Web:
 
-- [Fluxo de código de autorização do OAuth 2,0 (com PKCE)](./v2-oauth2-auth-code-flow.md). O fluxo de código de autorização permite que o aplicativo troque um código de autorização para tokens de **ID** a fim de representar o usuário autenticado e os tokens de **acesso** necessários para chamar APIs protegidas. Além disso, ele retorna tokens de **atualização** que fornecem acesso de longo prazo aos recursos em nome dos usuários sem a necessidade de interação com esses usuários. Essa é a abordagem **recomendada** .
+- [Fluxo do código de autorização do OAuth 2.0 (com PKCE)](./v2-oauth2-auth-code-flow.md). O fluxo de código de autorização permite que o aplicativo troque um código de autorização para tokens de **ID** representarem o usuário autenticado e tokens de **Acesso** necessários para chamar APIs protegidas. Além disso, ele retorna tokens de **Atualização** que fornecem acesso de longo prazo a recursos em nome de usuários sem exigir interação com esses usuários. Essa é a abordagem **recomendada** .
 
-![Aplicativos de página única-autenticação](./media/scenarios/spa-app-auth.svg)
+![Aplicativos de página única – autenticação](./media/scenarios/spa-app-auth.svg)
 
-- [Fluxo implícito do OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). O fluxo de concessão implícita permite que o aplicativo obtenha tokens de **ID** e de **acesso** . Diferentemente do fluxo de código de autorização, o fluxo de concessão implícito não retorna um **token de atualização**.
+- [Fluxo implícito do OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). O fluxo de concessão implícita permite que o aplicativo obtenha os tokens de **ID** e **Acesso** . Diferentemente do fluxo de código de autorização, o fluxo de concessão implícita não retorna um **token de Atualização** .
 
-![Aplicativos de página única-implícito](./media/scenarios/spa-app.svg)
+![Aplicativo de página única – implícito](./media/scenarios/spa-app.svg)
 
-Esse fluxo de autenticação não inclui cenários de aplicativos que usam estruturas JavaScript de plataforma cruzada, como o ar-nativo e o reajam, são nativos. Eles exigem mais recursos para interação com as plataformas nativas.
+Esse fluxo de autenticação não inclui cenários de aplicativos que usam estruturas JavaScript de multiplataforma, como o Electron e React-Native. Eles exigem mais recursos para interação com as plataformas nativas.
 
 ## <a name="specifics"></a>Especificações
 
@@ -59,4 +59,4 @@ Para habilitar esse cenário para seu aplicativo, você precisa de:
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Registro do aplicativo](scenario-spa-app-registration.md)
+> [Registro de aplicativo](scenario-spa-app-registration.md)

@@ -3,13 +3,13 @@ title: Monitorar um cluster do AKS (serviço kubernetes do Azure) implantado | M
 description: Saiba como habilitar o monitoramento de um cluster AKS (serviço kubernetes do Azure) com Azure Monitor para contêineres já implantados em sua assinatura.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 9f3b9240bc10f4eaa4c9967d8c7bbb956eeab4e1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165393"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735124"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar o monitoramento do cluster AKS (serviço kubernetes do Azure) já implantado
 
@@ -28,7 +28,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Habilitar usando a CLI do Azure
 
-A etapa a seguir permite o monitoramento do cluster do AKS usando a CLI do Azure. Neste exemplo, não é necessário criar previamente ou especificar um espaço de trabalho existente. Esse comando simplificará o processo, criando um workspace padrão no grupo de recursos padrão da assinatura do cluster do AKS, se ainda não existir um na região.  O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<GUID> - \<Region> *.
+A etapa a seguir permite o monitoramento do cluster do AKS usando a CLI do Azure. Neste exemplo, não é necessário criar previamente ou especificar um espaço de trabalho existente. Esse comando simplificará o processo, criando um workspace padrão no grupo de recursos padrão da assinatura do cluster do AKS, se ainda não existir um na região.  O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<GUID> - \<Region>* .
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -58,7 +58,7 @@ Se você preferir integrar com um espaço de trabalho existente, execute as etap
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
-    Copie o valor de **SubscriptionId**.
+    Copie o valor de **SubscriptionId** .
 
 2. Alterne para a assinatura que hospeda o espaço de trabalho Log Analytics usando o seguinte comando:
 
@@ -72,7 +72,7 @@ Se você preferir integrar com um espaço de trabalho existente, execute as etap
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID**do campo.
+    Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID** do campo.
 
 4. Execute o comando a seguir para habilitar o complemento de monitoramento, substituindo o valor do `--workspace-resource-id` parâmetro. O valor da cadeia de caracteres deve estar entre aspas duplas:
 
@@ -105,15 +105,15 @@ Se você preferir integrar com um espaço de trabalho existente, execute as etap
 
 Para habilitar o monitoramento do seu contêiner AKS no portal do Azure por meio do Azure Monitor, faça o seguinte:
 
-1. No portal do Azure, selecione **Monitor**.
+1. No portal do Azure, selecione **Monitor** .
 
 2. Selecione **Contêineres** na lista.
 
-3. Na página **monitorar contêineres** , selecione **clusters não monitorados**.
+3. Na página **monitorar contêineres** , selecione **clusters não monitorados** .
 
-4. Na lista de clusters não monitorados, localize o contêiner na lista e clique em **habilitar**.
+4. Na lista de clusters não monitorados, localize o contêiner na lista e clique em **habilitar** .
 
-5. Na página **Integração do Azure Monitor para contêineres**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.
+5. Na página **Integração do Azure Monitor para contêineres** , se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.
     A lista seleciona previamente o workspace e o local padrão no qual o contêiner do AKS está implantado na assinatura.
 
     ![Habilitar o monitoramento de insights do contêiner do AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -127,17 +127,17 @@ Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minut
 
 Para habilitar o monitoramento diretamente de um dos seus clusters AKS no portal do Azure, faça o seguinte:
 
-1. No portal do Azure, clique em **Todos os serviços**.
+1. No portal do Azure, clique em **Todos os serviços** .
 
-2. Na lista de recursos, comece digitando **Contêineres**.  A lista filtra com base na sua entrada.
+2. Na lista de recursos, comece digitando **Contêineres** .  A lista filtra com base na sua entrada.
 
-3. Selecione **Serviços de Kubernetes**.
+3. Selecione **Serviços de Kubernetes** .
     
 4. Na lista de serviços Kubernetess, selecione um serviço.
 
-5. Na página Visão geral do serviço kubernetes, selecione **monitoramento-informações**.
+5. Na página Visão geral do serviço kubernetes, selecione **monitoramento-informações** .
 
-6. Na página **Integração do Azure Monitor para contêineres**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.
+6. Na página **Integração do Azure Monitor para contêineres** , se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.
     A lista seleciona previamente o workspace e o local padrão no qual o contêiner do AKS está implantado na assinatura.
 
     ![Habilitar o monitoramento de integridade do contêiner do AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)

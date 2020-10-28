@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c670c011f911e9b27f1280800508124d32e696cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489836"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676255"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Início rápido: rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure
 
@@ -24,7 +24,7 @@ Normalmente, você envia eventos para um ponto de extremidade que processa os da
 
 Quando você concluir as etapas descritas neste artigo, verá que os dados do evento foi enviados para o aplicativo Web.
 
-![Exibição do evento de assinatura](./media/storage-blob-event-quickstart/view-results.png)
+![Captura de tela do Visualizador de grade de eventos do Azure que mostra dados de eventos que foram enviados para o aplicativo Web.](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Os tópicos de Grade de Eventos são recursos do Azure e devem ser colocados em 
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
-O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` na localização* westcentralus*.  Substitua `<resource_group_name>` por um nome exclusivo para o grupo de recursos.
+O exemplo a seguir cria um grupo de recursos chamado `<resource_group_name>` na localização *westcentralus* .  Substitua `<resource_group_name>` por um nome exclusivo para o grupo de recursos.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus

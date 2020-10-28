@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: d7a3c86f3d9cf083a8746f753b8c5287c774a93e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb584d999d48c7d29420db26daebf592790af2b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263260"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676824"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Serviços de Machine Learning no SQL Instância Gerenciada do Azure (versão prévia)
 
@@ -54,21 +54,29 @@ Essa visualização pública limitada está sujeita aos [termos de visualizaçã
 
 Se estiver interessado em ingressar no programa de visualização e aceitar esses termos, você poderá solicitar o registro criando um tíquete de suporte do Azure em [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
+1. Na página **criar um tíquete de suporte** , clique em **criar um incidente** .
+
+1. Na página **ajuda + suporte** , clique em **nova solicitação de suporte** para criar um novo tíquete.
+
 1. Selecione as seguintes opções:
    - Tipo de problema- **técnico**
    - Assinatura – *Selecione sua assinatura*
-   - **Instância gerenciada do banco de dados SQL** de serviço
+   - Serviço- **SQL instância gerenciada**
+   - Recurso – *Selecione sua instância gerenciada*
    - Resumo – *Insira uma breve descrição da sua solicitação*
    - Tipo de problema- **serviços de Machine Learning para SQL instância gerenciada (versão prévia)**
    - Subtipo de problema- **outro problema ou perguntas "como"**
 
-1. Clique em **Avançar: soluções**.
+1. Clique em **Avançar: soluções** .
 
-1. Leia as informações sobre a visualização e clique em **detalhes**.
+1. Leia as informações sobre a visualização e clique em **Avançar: detalhes** .
 
-1. Em **Descrição**, insira as especificidades de sua solicitação, incluindo o nome do servidor lógico, a região e a ID da assinatura que você deseja registrar na visualização. Insira outros detalhes conforme apropriado.
+1. Nessa página:
+   - Para a pergunta **você está tentando se inscrever na versão prévia?** , selecione **Sim** . 
+   - Para **Descrição** , insira as especificidades de sua solicitação, incluindo o nome do servidor lógico, a região e a ID da assinatura que você deseja registrar na visualização. Insira outros detalhes conforme apropriado.
+   - Selecione seu método de contato preferencial. 
 
-1. Quando tiver terminado, clique em **Avançar: revisar + criar**e, em seguida, clique em **criar**.
+1. Quando tiver terminado, clique em **Avançar: revisar + criar** e, em seguida, clique em **criar** .
 
 Após se inscrever no programa, a Microsoft integrará você à visualização pública e habilitará os Serviços do Machine Learning para seu banco de dados novo ou existente.
 

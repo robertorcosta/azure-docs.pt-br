@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627218"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675293"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Além disso, os grupos de failover automático fornecem pontos de extremidade de
 
 Quando você estiver usando grupos de failover automático com a política de failover automático, qualquer interrupção que afete os bancos de dados em um servidor ou instância gerenciada resultará em failover automático. Você pode gerenciar o grupo de failover automático usando:
 
-- [Azure portal](geo-distributed-application-configure-tutorial.md)
+- [Portal do Azure](geo-distributed-application-configure-tutorial.md)
 - [CLI do Azure: grupo de failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: grupo de failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: grupo de failover](/rest/api/sql/failovergroups).
@@ -243,7 +243,7 @@ Já que cada instância é isolada em sua própria rede virtual, o tráfego em d
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Criação de um grupo de failover entre instâncias gerenciadas em assinaturas diferentes
 
-Você pode criar um grupo de failover entre instâncias gerenciadas do SQL em duas assinaturas diferentes, desde que as assinaturas estejam associadas ao mesmo [locatário Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Ao usar a API do PowerShell, você pode fazê-lo especificando o `PartnerSubscriptionId` parâmetro para o SQL instância gerenciada secundário. Ao usar a API REST, cada ID de instância incluída no `properties.managedInstancePairs` parâmetro pode ter sua própria SubscriptionId.
+Você pode criar um grupo de failover entre instâncias gerenciadas do SQL em duas assinaturas diferentes, desde que as assinaturas estejam associadas ao mesmo [locatário Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md#terminology). Ao usar a API do PowerShell, você pode fazê-lo especificando o `PartnerSubscriptionId` parâmetro para o SQL instância gerenciada secundário. Ao usar a API REST, cada ID de instância incluída no `properties.managedInstancePairs` parâmetro pode ter sua própria SubscriptionId.
   
 > [!IMPORTANT]
 > Portal do Azure não oferece suporte à criação de grupos de failover em assinaturas diferentes. Além disso, para os grupos de failover existentes em diferentes assinaturas e/ou grupos de recursos, o failover não pode ser iniciado manualmente por meio do portal do SQL Instância Gerenciada primário. Em vez disso, inicie-o na instância secundária geográfica.
@@ -341,8 +341,8 @@ Se seu plano de continuidade de negócios exigir failover usando grupos com fail
 1. [Criar um IP público](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [Crie um balanceador de carga público](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) e atribua o IP público a ele.
 3. [Crie uma rede virtual e as máquinas virtuais](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) para os componentes de front-end
-4. [Crie um grupo de segurança de rede](../../virtual-network/security-overview.md) e configure conexões de entrada.
-5. Verifique se as conexões de saída estão abertas para o banco de dados SQL do Azure usando a [marca de serviço](../../virtual-network/security-overview.md#service-tags)' SQL '.
+4. [Crie um grupo de segurança de rede](../../virtual-network/network-security-groups-overview.md) e configure conexões de entrada.
+5. Verifique se as conexões de saída estão abertas para o banco de dados SQL do Azure usando a [marca de serviço](../../virtual-network/network-security-groups-overview.md#service-tags)' SQL '.
 6. Crie uma [regra de firewall do banco de dados SQL](firewall-configure.md) para permitir o tráfego de entrada do endereço IP público que você criou na etapa 1.
 
 Para obter mais informações sobre como configurar o acesso de saída e qual IP usar nas regras de firewall, consulte [conexões de saída do balanceador de carga](../../load-balancer/load-balancer-outbound-connections.md).
@@ -362,7 +362,7 @@ Quando você configura um grupo de failover entre instâncias gerenciadas do SQL
 - As redes virtuais usadas pelas instâncias do SQL Instância Gerenciada precisam ser conectadas por meio de um [Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [rota expressa](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Quando duas redes virtuais se conectam por meio de uma rede local, verifique se não há nenhuma regra de firewall bloqueando as portas 5022 e 11000-11999. O emparelhamento VNet global tem suporte com a limitação descrita na observação abaixo.
 
    > [!IMPORTANT]
-   > [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+   > [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
 
 - Os dois VNets SQL Instância Gerenciada não podem ter endereços IP sobrepostos.
 - Você precisa configurar seus NSGs (Grupos de Segurança de Rede) de modo que as portas 5022 e o intervalo 11000~12000 sejam conexões abertas de entrada e saída para a sub-rede da outra instância gerenciada. Isso é para permitir o tráfego de replicação entre as instâncias.
@@ -406,7 +406,7 @@ Esteja ciente das seguintes limitações:
 
 ## <a name="programmatically-managing-failover-groups"></a>Gerenciando os grupos de failover programaticamente
 
-Conforme discutido anteriormente, os grupos de failover automático e a replicação geográfica ativa podem ser gerenciados programaticamente usando o Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis. A replicação geográfica ativa inclui um conjunto de APIs do Azure Resource Manager para gerenciamento, incluindo a [API REST do Banco de Dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/) e [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Essas APIs exigem o uso de grupos de recursos e dão suporte a RBAC (segurança baseada em funções). Para obter mais informações sobre como implementar funções de acesso, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md).
+Conforme discutido anteriormente, os grupos de failover automático e a replicação geográfica ativa podem ser gerenciados programaticamente usando o Azure PowerShell e a API REST. As tabelas a seguir descrevem o conjunto de comandos disponíveis. A replicação geográfica ativa inclui um conjunto de APIs do Azure Resource Manager para gerenciamento, incluindo a [API REST do Banco de Dados SQL do Azure](/rest/api/sql/) e [cmdlets do Azure PowerShell](/powershell/azure/). Essas APIs exigem o uso de grupos de recursos e dão suporte a RBAC (segurança baseada em funções). Para obter mais informações sobre como implementar funções de acesso, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Gerenciar failover do banco de dados SQL
 
@@ -435,13 +435,13 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 | API | Descrição |
 | --- | --- |
-| [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Criar ou atualizar grupo de failover |
-| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Remove um grupo de failover do servidor |
-| [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Dispara o failover do servidor primário atual para o servidor secundário com sincronização de dados completa.|
-| [O Failover forçado permite a perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Dispara o failover do servidor primário atual para o servidor secundário sem sincronizar dados. Esta operação pode resultar em perda de dados. |
-| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Recupera a configuração de um grupo de failover. |
-| [Listar grupos de failover pelo servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lista os grupos de failover em um servidor. |
-| [Atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Atualiza a configuração de um grupo de failover. |
+| [Criar ou atualizar grupo de failover](/rest/api/sql/failovergroups/createorupdate) | Criar ou atualizar grupo de failover |
+| [Excluir grupo de failover](/rest/api/sql/failovergroups/delete) | Remove um grupo de failover do servidor |
+| [Failover (planejado)](/rest/api/sql/failovergroups/failover) | Dispara o failover do servidor primário atual para o servidor secundário com sincronização de dados completa.|
+| [O Failover forçado permite a perda de dados](/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Dispara o failover do servidor primário atual para o servidor secundário sem sincronizar dados. Esta operação pode resultar em perda de dados. |
+| [Obter grupo de failover](/rest/api/sql/failovergroups/get) | Recupera a configuração de um grupo de failover. |
+| [Listar grupos de failover pelo servidor](/rest/api/sql/failovergroups/listbyserver) | Lista os grupos de failover em um servidor. |
+| [Atualizar grupo de failover](/rest/api/sql/failovergroups/update) | Atualiza a configuração de um grupo de failover. |
 
 ---
 
@@ -473,12 +473,12 @@ Conforme discutido anteriormente, os grupos de failover automático e a replica�
 
 | API | Descrição |
 | --- | --- |
-| [Criar ou atualizar grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Criar ou atualizar a configuração de um grupo de failover |
-| [Excluir grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Remove um grupo de failover da instância |
-| [Failover (planejado)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Dispara o failover da instância primária atual para esta instância com sincronização de dados completa. |
-| [O Failover forçado permite a perda de dados](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Dispara o failover da instância primária atual para a instância secundária sem sincronizar dados. Esta operação pode resultar em perda de dados. |
-| [Obter grupo de failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Recupera a configuração de um grupo de failover. |
-| [Listar grupos de failover – listar por localização](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lista os grupos de failover em uma localização. |
+| [Criar ou atualizar grupo de failover](/rest/api/sql/instancefailovergroups/createorupdate) | Criar ou atualizar a configuração de um grupo de failover |
+| [Excluir grupo de failover](/rest/api/sql/instancefailovergroups/delete) | Remove um grupo de failover da instância |
+| [Failover (planejado)](/rest/api/sql/instancefailovergroups/failover) | Dispara o failover da instância primária atual para esta instância com sincronização de dados completa. |
+| [O Failover forçado permite a perda de dados](/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Dispara o failover da instância primária atual para a instância secundária sem sincronizar dados. Esta operação pode resultar em perda de dados. |
+| [Obter grupo de failover](/rest/api/sql/instancefailovergroups/get) | Recupera a configuração de um grupo de failover. |
+| [Listar grupos de failover – listar por localização](/rest/api/sql/instancefailovergroups/listbylocation) | Lista os grupos de failover em uma localização. |
 
 ---
 

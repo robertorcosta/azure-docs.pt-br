@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444914"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675146"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Criar alertas para o banco de dados SQL do Azure e a análise de Synapse do Azure usando o portal do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -45,7 +45,7 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 * [O portal do Azure](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Uma CLI (interface de linha de comando)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [API REST do Azure Monitor](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
 
@@ -57,14 +57,14 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 3. Selecione o botão **nova regra de alerta** para abrir a página **criar regra** .
   ![Criar regra](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. Na seção **condição** , clique em **Adicionar**.
+4. Na seção **condição** , clique em **Adicionar** .
   ![Definir condição](./media/alerts-insights-configure-portal/create-rule.png)
 5. Na página **Configurar lógica de sinal** , selecione um sinal.
   ![Selecionar sinal](./media/alerts-insights-configure-portal/select-signal.png)
-6. Depois de selecionar um sinal, como **percentual de CPU**, a página **Configurar lógica de sinal** será exibida.
+6. Depois de selecionar um sinal, como **percentual de CPU** , a página **Configurar lógica de sinal** será exibida.
   ![Configurar sinal lógico](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. Nessa página, configure esse tipo de limite, operador, tipo de agregação, valor de limite, granularidade de agregação e frequência de avaliação. Em seguida, clique em **Concluído**.
-8. Na **regra criar**, selecione um grupo de **ações** existente ou crie um novo grupo. Um grupo de ações permite que você defina a ação a ser executada quando ocorrer uma condição de alerta.
+7. Nessa página, configure esse tipo de limite, operador, tipo de agregação, valor de limite, granularidade de agregação e frequência de avaliação. Em seguida, clique em **Concluído** .
+8. Na **regra criar** , selecione um grupo de **ações** existente ou crie um novo grupo. Um grupo de ações permite que você defina a ação a ser executada quando ocorrer uma condição de alerta.
   ![Definir grupo de ação](./media/alerts-insights-configure-portal/action-group.png)
 
 9. Defina um nome para a regra, forneça uma descrição opcional, escolha um nível de severidade para a regra, escolha se deseja habilitar a regra na criação de regra e clique em **criar alerta de regra** para criar o alerta de regra de métrica.

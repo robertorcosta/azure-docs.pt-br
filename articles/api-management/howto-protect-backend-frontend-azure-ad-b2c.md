@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
-ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-new, devx-track-js
+ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253687"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676015"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteger o back-end SPA com OAuth 2,0, Azure Active Directory B2C e gerenciamento de API do Azure
 
@@ -180,7 +180,7 @@ Você precisará adicionar blocos de endereços formatados por CIDR ao painel re
    > Agora, sua API de função não deve ser chamável de qualquer lugar além do gerenciamento de API ou seu endereço.
    
 ## <a name="import-the-function-app-definition"></a>Importar a definição do aplicativo de funções
-1. Abra a *folha gerenciamento de API*e, em seguida, abra *sua instância do*.
+1. Abra a *folha gerenciamento de API* e, em seguida, abra *sua instância do* .
 1. Selecione a folha APIs na seção Gerenciamento de API da sua instância.
 1. No painel ' adicionar uma nova API ', escolha ' Aplicativo de funções ' e, em seguida, selecione ' completo ' na parte superior do pop-up.
 1. Clique em procurar, escolha o aplicativo de funções no qual você está hospedando a API e clique em selecionar.

@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280172"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678162"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory autenticação de passagem: início rápido
 
@@ -72,9 +72,9 @@ Verifique se os pré-requisitos a seguir estão em vigor.
      | **8080** (opcional) | Agentes de Autenticação relatam seu status de cada dez minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. A porta 8080 _não_ é usada para entradas do usuário. |
      
      Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
-   - Se o firewall ou o proxy permitir a lista de permissões de DNS, adicione conexões a ** \* . msappproxy.net** e ** \* . ServiceBus.Windows.net**. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
+   - Se o firewall ou o proxy permitir a lista de permissões de DNS, adicione conexões a **\* . msappproxy.net** e **\* . ServiceBus.Windows.net** . Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
    - Os seus Agentes de autenticação devem acessar **login.windows.net** e **login.microsoftonline.net** para o registro inicial. Abra seu firewall para essas URLs também.
-   - Para validação do certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
+    - Para a validação de certificado, desbloqueie as seguintes URLs: **crl3.DigiCert.com:80** , **crl4.DigiCert.com:80** , **ocsp.digicert.com:80** , **www \. d-trust.net:80** , **root-C3-Ca2-2009.OCSP.d-Trust.net:80** , **CRL.Microsoft.com:80** , **oneocsp.Microsoft.com:80** e **OCSP.msocsp.com:80** . Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Pré-requisito de nuvem do Azure governamental
 Antes de habilitar a autenticação de passagem por meio do Azure AD Connect com a etapa 2, baixe a versão mais recente do agente PTA da portal do Azure.  Você precisa garantir que o agente seja de versões **1.5.1742.0.** ou posterior.  Para verificar seu agente, consulte [Atualizar agentes de autenticação](how-to-connect-pta-upgrade-preview-authentication-agents.md)
@@ -88,11 +88,11 @@ Habilite a Autenticação de passagem por meio do [Azure AD Connect](whatis-hybr
 >[!IMPORTANT]
 >É possível habilitar a Autenticação de passagem no servidor primário ou de preparo do Azure AD Connect. É altamente recomendável habilitá-la do servidor primário. Se você estiver configurando um servidor de preparo do Azure AD Connect no futuro, você **devem** continuar para escolher a autenticação de passagem como a opção de entrada; escolhendo outra opção será **desabilitar** Autenticação de passagem no locatário e substituir a configuração no servidor primário.
 
-Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página **Entrada de usuário** escolha **Autenticação de Passagem** como o **Método de logon**. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
+Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página **Entrada de usuário** escolha **Autenticação de Passagem** como o **Método de logon** . Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
 
 ![Azure AD Connect: entrada do usuário](./media/how-to-connect-pta-quick-start/sso3.png)
 
-Se já tiver instalado o Azure AD Connect usando o caminho de [instalação expressa](how-to-connect-install-express.md) ou de [instalação personalizada](how-to-connect-install-custom.md), selecione a tarefa **Alterar entrada do usuário** no Azure AD Connect e selecione **Avançar**. Depois selecione **Autenticação de Passagem** como o método de entrada. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor que o Azure AD Connect, e o recurso estará habilitado em seu locatário.
+Se já tiver instalado o Azure AD Connect usando o caminho de [instalação expressa](how-to-connect-install-express.md) ou de [instalação personalizada](how-to-connect-install-custom.md), selecione a tarefa **Alterar entrada do usuário** no Azure AD Connect e selecione **Avançar** . Depois selecione **Autenticação de Passagem** como o método de entrada. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor que o Azure AD Connect, e o recurso estará habilitado em seu locatário.
 
 ![Azure AD Connect: alterar entrada do usuário](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
@@ -105,9 +105,9 @@ Siga estas instruções para verificar se você habilitou a Autenticação de pa
 
 1. Entre no centro de [Administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais de administrador global para seu locatário.
 2. Selecione **Azure Active Directory** no painel esquerdo.
-3. Selecione **Azure AD Connect**.
-4. Verifique se o recurso **Autenticação de passagem** aparece como **Habilitado**.
-5. Selecione **Autenticação de passagem**. Esse painel da **Autenticação de passagem** lista os servidores em que os Agentes de autenticação estão instalados.
+3. Selecione **Azure AD Connect** .
+4. Verifique se o recurso **Autenticação de passagem** aparece como **Habilitado** .
+5. Selecione **Autenticação de passagem** . Esse painel da **Autenticação de passagem** lista os servidores em que os Agentes de autenticação estão instalados.
 
 ![Centro de administração do Azure Active Directory: painel do Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
@@ -134,15 +134,15 @@ Para começar, siga estas instruções para baixar o software do agente de auten
 
 1. Para fazer o download da versão mais recente do Agente de Autenticação (versões 1.5.193.0 ou posteriores), entre no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais de administrador global do seu locatário.
 2. Selecione **Azure Active Directory** no painel esquerdo.
-3. Selecione **Azure AD Connect**, **Autenticação de passagem** e depois **Baixar Agente**.
-4. Selecione o botão **Aceitar termos e baixar**.
+3. Selecione **Azure AD Connect** , **Autenticação de passagem** e depois **Baixar Agente** .
+4. Selecione o botão **Aceitar termos e baixar** .
 
 ![Centro de administração do Azure Active Directory: botão de Baixar Agente de Autenticação](./media/how-to-connect-pta-quick-start/pta9.png)
 
 ![Centro de administração do Azure Active Directory: painel Baixar Agente](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
->Você também pode [baixar o software Agente de Autenticação](https://aka.ms/getauthagent) diretamente. Leia e aceite os [Termos de Serviço do Agente de Autenticação ](https://aka.ms/authagenteula) _antes_ de instalá-lo.
+>Você também pode [baixar o software Agente de Autenticação](https://aka.ms/getauthagent) diretamente. Leia e aceite os [Termos de Serviço do Agente de Autenticação](https://aka.ms/authagenteula) _antes_ de instalá-lo.
 
 Existem duas formas de implantar um Agente de Autenticação autônomo:
 
@@ -166,7 +166,7 @@ Segundo, você pode criar e executar um script de implantação autônomo. Isso 
   ```
 
 >[!IMPORTANT]
->Se um agente de autenticação estiver instalado em uma máquina virtual, você não poderá clonar a máquina virtual para configurar outro agente de autenticação. Não há **suporte para**este método.
+>Se um agente de autenticação estiver instalado em uma máquina virtual, você não poderá clonar a máquina virtual para configurar outro agente de autenticação. Não há **suporte para** este método.
 
 ## <a name="step-5-configure-smart-lockout-capability"></a>Etapa 5: configurar o recurso de bloqueio inteligente
 

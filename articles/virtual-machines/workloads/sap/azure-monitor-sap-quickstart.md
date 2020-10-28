@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 6deb7b535c3876ae8a8e83174b97a75582e82e58
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dc8aa50c5c4ecb5e4b56a7e49453c266dad28818
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996431"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678092"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implantar Azure Monitor para soluções SAP com portal do Azure
 
@@ -24,7 +24,7 @@ Entre no portal do Microsoft Azure em https://portal.azure.com
 
 ## <a name="create-monitoring-resource"></a>Criar recurso de monitoramento
 
-1. Selecione **Azure monitor para soluções SAP** do **Azure Marketplace**.
+1. Selecione **Azure monitor para soluções SAP** do **Azure Marketplace** .
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Imagem mostra a seleção do Azure Monitor para a oferta de soluções SAP do Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
@@ -47,15 +47,18 @@ Entre no portal do Microsoft Azure em https://portal.azure.com
 
 2. Selecione **Adicionar provedor** e escolha **SAP Hana** na lista suspensa. 
 
+   > [!IMPORTANT]
+   > Verifique se o provedor de SAP HANA está configurado para SAP HANA nó ' mestre '.
+
 3. Insira o IP privado para o servidor HANA.
 
 4. Insira o nome do locatário do banco de dados que você deseja usar. Você pode escolher qualquer locatário no entanto, é recomendável usar o **SYSTEMDB** , pois ele permite uma matriz mais ampla de áreas de monitoramento. 
 
-5. Insira o número da porta SQL associada ao seu banco de dados HANA. O número da porta deve estar no formato **[3]**  +  **[Instance #]**  +  **[13]** ou **[3]**  +  **[Instance #]**  +  **[15]**. Por exemplo, 30013 ou 30015. 
+5. Insira o número da porta SQL associada ao seu banco de dados HANA. O número da porta deve estar no formato **[3]**  +  **[Instance #]**  +  **[13]** ou **[3]**  +  **[Instance #]**  +  **[15]** . Por exemplo, 30013 ou 30015. 
 
 6. Insira o nome de usuário do banco de dados que você deseja usar. Verifique se o usuário do banco de dados tem as funções de leitura e de **monitoramento** de **Catálogo** atribuídas. 
 
-7. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
+7. Quando terminar, selecione **Adicionar provedor** . Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Imagem mostra a seleção do Azure Monitor para a oferta de soluções SAP do Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -70,7 +73,7 @@ Entre no portal do Microsoft Azure em https://portal.azure.com
  
 3. Insira a ID do sistema (SID), o nome do host e do cluster.
 
-4. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
+4. Quando terminar, selecione **Adicionar provedor** . Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Imagem mostra a seleção do Azure Monitor para a oferta de soluções SAP do Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
@@ -108,7 +111,7 @@ Entre no portal do Microsoft Azure em https://portal.azure.com
 
 3. Preencha os campos usando as informações associadas à sua Microsoft SQL Server. 
 
-4. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
+4. Quando terminar, selecione **Adicionar provedor** . Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Imagem mostra a seleção do Azure Monitor para a oferta de soluções SAP do Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

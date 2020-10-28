@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: dbfb2d32b6aab7660f4fc11865122ad44e9732fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095694"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675349"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Ajude os alunos a baixar as ferramentas de desenvolvedor de software da Hub de Educação do Azure
 
@@ -26,7 +26,7 @@ Faça com que seus alunos sigam este procedimento para baixar as ferramentas de 
 1. Entre com suas credenciais de assinatura do Azure for students.
 1. Selecione qualquer uma das ferramentas de desenvolvedor de software no Hub de Educação para abrir o painel de download.
 1. Leia as informações do software para garantir que o software seja compatível com o sistema de computador.
-1. Depois de confirmar que o software é compatível com seu sistema, selecione **baixar**.
+1. Depois de confirmar que o software é compatível com seu sistema, selecione **baixar** .
 1. Siga as instruções na tela para baixar e instalar o software.
 
    O Azure for Students oferece um crédito de 100 dólares por 12 meses. Ele inclui acesso a mais de 25 serviços gratuitos, incluindo computação, rede, armazenamento e bancos de dados. Qualquer custo gerado durante esse período será deduzido do crédito. 
@@ -36,5 +36,5 @@ Faça com que seus alunos sigam este procedimento para baixar as ferramentas de 
 - [Obter ajuda com erros de logon](troubleshoot-login.md)
 - [Azure for Students](azure-students-program.md)
 - [Azure for Students Starter](azure-students-starter-program.md)
-- [Microsoft Learn: uma plataforma de aprendizado online gratuita](https://docs.microsoft.com/learn/)
+- [Microsoft Learn: uma plataforma de aprendizado online gratuita](/learn/)
 - [Perguntas frequentes](program-faq.md#azure-for-students)

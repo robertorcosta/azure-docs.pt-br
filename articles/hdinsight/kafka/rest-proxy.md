@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: a99c6412650cac565414817c91752ae85b8ad37d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8447eae4ea7234a7f47219cc81441650121b84ae
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539591"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676172"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagir com os clusters do Apache Kafka no Azure HDInsight por meio de um proxy REST
 
-O Proxy REST do Kafka permite interagir com o cluster do Kafka por meio de uma API REST via HTTP. Dessa maneira, os clientes do Kafka podem ficar fora da rede virtual. Os clientes podem fazer chamadas HTTP simples ao cluster do Kafka em vez de usar as bibliotecas da Kafka. Neste artigo, você verá como criar um proxy REST habilitado para o cluster do Kafka. Além disso, verá um exemplo de código que mostra como fazer chamadas ao proxy REST.
+O proxy REST do Kafka permite que você interaja com o cluster do Kafka por meio de uma API REST por HTTPS. Dessa maneira, os clientes do Kafka podem ficar fora da rede virtual. Os clientes podem fazer chamadas HTTPS simples e seguras para o cluster Kafka, em vez de depender de bibliotecas Kafka. Neste artigo, você verá como criar um proxy REST habilitado para o cluster do Kafka. Além disso, verá um exemplo de código que mostra como fazer chamadas ao proxy REST.
 
 ## <a name="rest-api-reference"></a>Referência da API REST
 
@@ -37,7 +37,7 @@ Quando você cria um cluster do Kafka no HDInsight com o proxy REST, um novo pon
 
 O acesso ao proxy REST do Kafka é gerenciado com os grupos de segurança do Azure Active Directory. Ao criar o cluster do Kafka, forneça o grupo de segurança do Azure AD com o acesso de ponto de extremidade REST. Os clientes do Kafka que precisam de acesso ao proxy REST devem ser registrados neste grupo pelo proprietário do grupo. O proprietário do grupo pode registrar por meio do Portal ou do PowerShell.
 
-Para solicitações de ponto de extremidade de proxy REST, os aplicativos clientes precisam obter um token OAuth. O token é usado para verificar a associação ao grupo de segurança. Encontre um [exemplo de aplicativo cliente](#client-application-sample) abaixo que mostre como obter um token OAuth. O aplicativo cliente passa o token OAuth da solicitação para o proxy REST.
+Para solicitações de ponto de extremidade de proxy REST, os aplicativos clientes precisam obter um token OAuth. O token é usado para verificar a associação ao grupo de segurança. Encontre um [exemplo de aplicativo cliente](#client-application-sample) abaixo que mostre como obter um token OAuth. O aplicativo cliente passa o token OAuth na solicitação HTTPS para o proxy REST.
 
 > [!NOTE]
 > Para saber mais sobre os grupos de segurança do AAD, confira [Gerenciar o acesso a aplicativos e recursos por meio dos grupos do Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md). Para saber mais sobre como os tokens OAuth funcionam, confira [Autorizar o acesso aos aplicativos Web do Azure Active Directory por meio do fluxo de concessão de código do OAuth 2.0](../../active-directory/azuread-dev/v1-protocols-oauth-code.md).

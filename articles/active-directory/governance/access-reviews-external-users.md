@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: barclayn
-ms.openlocfilehash: 64ff2a2a7ad6f07aac959422eadec7f24b210d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505796"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677312"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Use o governança de identidade Azure Active Directory (AD do Azure) para revisar e remover usuários externos que não têm mais acesso a recursos
 
@@ -67,11 +67,11 @@ Quando a revisão for concluída, a página **resultados** mostrará uma visão 
 
 ## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Desabilitar e excluir identidades externas com revisões de acesso do Azure AD (versão prévia)
 
-Além da opção de remover identidades externas indesejadas de recursos como grupos ou aplicativos, as revisões de acesso do Azure AD podem bloquear identidades externas de entrar em seu locatário e excluir as identidades externas do seu locatário após 30 dias.
+Além da opção de remover identidades externas indesejadas de recursos como grupos ou aplicativos, as revisões de acesso do Azure AD podem bloquear identidades externas de entrar em seu locatário e excluir as identidades externas do seu locatário após 30 dias. Depois de selecionar **Bloquear usuário de entrar por 30 dias, em seguida, remover o usuário do locatário** , a revisão permanecerá no estado "aplicando" por 30 dias. Durante esse período, as configurações, os resultados, os revisores ou os logs de auditoria na revisão atual não poderão ser exibidos ou configuráveis. 
 
 ![após as configurações de conclusão](media/access-reviews-external-users/upon-completion-settings.png)
 
-Ao criar uma nova revisão de acesso, na seção "configurações de conclusão", para **ação a ser aplicada a usuários negados** , você pode definir **impedir que os usuários façam logon por 30 dias e, em seguida, remover o usuário do locatário**.
+Ao criar uma nova revisão de acesso, na seção "configurações de conclusão", para **ação a ser aplicada a usuários negados** , você pode definir **impedir que os usuários façam logon por 30 dias e, em seguida, remover o usuário do locatário** .
 Essa configuração, atualmente em visualização, permite que você identifique, bloqueie e exclua identidades externas do seu locatário do Azure AD. Identidades externas que são revisadas e com negação de acesso contínuo pelo revisor serão bloqueadas e excluídas, independentemente do acesso a recursos ou da Associação de grupo que têm. Essa configuração é melhor usada como última etapa depois que você valida que os usuários externos em revisão não carregam mais o acesso aos recursos e podem ser removidos com segurança do seu locatário ou se você quiser ter certeza de que eles foram removidos, independentemente de seu acesso à sua posição. O recurso "desabilitar e excluir" bloqueia o usuário externo primeiro, tirando sua capacidade de entrar em seu locatário e acessar os recursos. O acesso aos recursos não é revogado neste estágio e, caso você quisesse recriar a instância do usuário externo, sua capacidade de fazer logon pode ser reconfigurada. Após nenhuma ação adicional, uma identidade externa bloqueada será excluída do diretório após 30 dias, removendo a conta, bem como seu acesso.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6aa08f91a9289984d15beac5fb215d112a5558da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999116"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676036"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem de base do Docker personalizada
 
@@ -41,7 +41,7 @@ Este documento está dividido em duas seções:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um Azure Machine Learning grupo de trabalho. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](how-to-manage-workspace.md) .
+* Um Workspace do Azure Machine Learning. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](how-to-manage-workspace.md) .
 * O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
 * O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * A [Extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -54,12 +54,12 @@ As informações nesta seção pressupõem que você está usando um registro de
 
 * Você usará o registro de contêiner do Azure criado para o espaço de trabalho Azure Machine Learning ou um registro de contêiner do Azure autônomo?
 
-    Ao usar imagens armazenadas no __registro de contêiner para o espaço de trabalho__, você não precisa se autenticar no registro. A autenticação é tratada pelo espaço de trabalho.
+    Ao usar imagens armazenadas no __registro de contêiner para o espaço de trabalho__ , você não precisa se autenticar no registro. A autenticação é tratada pelo espaço de trabalho.
 
     > [!WARNING]
     > O registro de contêiner do Azure para seu espaço de trabalho é __criado na primeira vez que você treina ou implanta um modelo__ usando o espaço de trabalho. Se você tiver criado um novo espaço de trabalho, mas não for treinado ou criado um modelo, nenhum registro de contêiner do Azure existirá para o espaço de trabalho.
 
-    Ao usar as imagens armazenadas em um __registro de contêiner autônomo__, será necessário configurar uma entidade de serviço que tenha pelo menos acesso de leitura. Em seguida, forneça a ID da entidade de serviço (nome de usuário) e a senha para qualquer pessoa que usa imagens do registro. A exceção é se você tornar o registro de contêiner acessível publicamente.
+    Ao usar as imagens armazenadas em um __registro de contêiner autônomo__ , será necessário configurar uma entidade de serviço que tenha pelo menos acesso de leitura. Em seguida, forneça a ID da entidade de serviço (nome de usuário) e a senha para qualquer pessoa que usa imagens do registro. A exceção é se você tornar o registro de contêiner acessível publicamente.
 
     Para obter informações sobre como criar um registro de contêiner do Azure privado, consulte [criar um registro de contêiner privado](/azure/container-registry/container-registry-get-started-azure-cli).
 
@@ -197,14 +197,14 @@ Para obter mais informações sobre como carregar imagens existentes para um reg
 
 Para usar uma imagem personalizada, você precisará das seguintes informações:
 
-* O __nome da imagem__. Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` é o caminho para uma imagem simples do Docker fornecida pela Microsoft.
+* O __nome da imagem__ . Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` é o caminho para uma imagem simples do Docker fornecida pela Microsoft.
 
     > [!IMPORTANT]
     > Para imagens personalizadas que você criou, certifique-se de incluir todas as marcas que foram usadas com a imagem. Por exemplo, se a imagem foi criada com uma marca específica, como `:v1` . Se você não usou uma marca específica ao criar a imagem, uma marca de `:latest` foi aplicada.
 
-* Se a imagem estiver em um __repositório privado__, você precisará das seguintes informações:
+* Se a imagem estiver em um __repositório privado__ , você precisará das seguintes informações:
 
-    * O __endereço__do registro. Por exemplo, `myregistry.azureecr.io`.
+    * O __endereço__ do registro. Por exemplo, `myregistry.azureecr.io`.
     * Um nome de __usuário__ e __senha__ da entidade de serviço que tem acesso de leitura ao registro.
 
     Se você não tiver essas informações, fale com o administrador do registro de contêiner do Azure que contém a imagem.
@@ -231,7 +231,7 @@ Para obter mais informações, consulte Azure Machine Learning repositório de [
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Usar uma imagem com o SDK do Azure Machine Learning
 
-Para usar uma imagem armazenada no **registro de contêiner do Azure para seu espaço de trabalho**ou um **registro de contêiner que esteja publicamente acessível**, defina os seguintes atributos de [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) :
+Para usar uma imagem armazenada no **registro de contêiner do Azure para seu espaço de trabalho** ou um **registro de contêiner que esteja publicamente acessível** , defina os seguintes atributos de [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) :
 
 + `docker.enabled=True`
 + `docker.base_image`: Defina como o registro e o caminho para a imagem.

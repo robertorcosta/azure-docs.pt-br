@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669096"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677671"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Executar VM do SQL Server em um Host Dedicado do Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,15 +30,14 @@ Este artigo tem detalhes específicos sobre o uso de uma VM (máquina virtual) d
 
 ## <a name="limitations"></a>Limitações
 
-- Os Conjuntos de Dimensionamento de Máquinas Virtuais não são compatíveis com hosts dedicados atualmente.
-- Há suporte para a seguinte série de VMs: DSv3 e ESv3. 
+- Nem todas as séries de VMs têm suporte em hosts dedicados, e a disponibilidade da série de VMs varia por região. Para obter mais informações, consulte [visão geral dos hosts dedicados do Azure](../../../virtual-machines/dedicated-hosts.md).
 
 ## <a name="licensing"></a>Licenciamento
 
 Escolha entre duas opções de licenciamento diferentes ao posicionar sua VM do SQL Server em um Host Dedicado do Azure. 
 
-  - **Licenciamento de VM do SQL**: Essa é a opção de licenciamento existente, em que você paga individualmente por licença de VM do SQL Server. 
-  - **Licenciamento de host dedicado**: O novo modelo de licenciamento disponível para o Host Dedicado do Azure, no qual as licenças do SQL Server são agrupadas em um pacote e pagas no nível do host. 
+  - **Licenciamento de VM do SQL** : Essa é a opção de licenciamento existente, em que você paga individualmente por licença de VM do SQL Server. 
+  - **Licenciamento de host dedicado** : O novo modelo de licenciamento disponível para o Host Dedicado do Azure, no qual as licenças do SQL Server são agrupadas em um pacote e pagas no nível do host. 
 
 
 Opções de nível de host para usar licenças de SQL Server existentes: 

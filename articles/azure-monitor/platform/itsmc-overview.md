@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547632"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676927"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -65,7 +65,7 @@ Antes de criar uma conexão, é necessário adicionar a Solução Conector ITSM.
    >[!NOTE]
    >Como parte da transição do Microsoft Operations Management Suite (OMS) em andamento para o Azure Monitor, os Workspaces do OMS agora são conhecidos como workspaces do Log Analytics.
 
-5. Clique em **Criar** .
+5. Clique em **OK** .
 
 Quando o recurso de solução é implantado, uma notificação é exibida na parte superior direita da janela.
 
@@ -122,28 +122,29 @@ Os Grupos de Ações fornecem uma maneira modular e reutilizável de disparar a�
 
 Use este procedimento:
 
-1. No portal do Azure, clique em **Monitorar** .
-2. No painel esquerdo, clique em **Grupos de ações** . A janela **Adicionar grupo de ações** é exibida.
+1. Em portal do Azure, clique em  **alertas** .
+2. No painel superior, clique em  **Gerenciar ações** . A janela **Adicionar grupo de ações** é exibida.
 
     ![Grupos de Ação](media/itsmc-overview/action-groups.png)
 
-3. Forneça um **nome** e um **ShortName** para o grupo de ações. Selecione o **Grupo de Recursos** e a **Assinatura** em que deseja criar seu grupo de ações.
+3. Selecione a **assinatura** e o **grupo de recursos** em que você deseja criar o grupo de ações. Forneça o **nome do grupo de ações** e o nome para **exibição** do seu grupo de ação. Clique em **Avançar: notificações** .
 
     ![Detalhes dos grupos de ações](media/itsmc-overview/action-groups-details.png)
 
-4. Na lista Ações, selecione **ITSM** no menu suspenso para **Tipo de Ação** . Forneça um **Nome** para a ação e clique em **Editar detalhes** .
-5. Selecione a **Assinatura** em que o espaço de trabalho do Log Analytics está localizado. Selecione o nome da **Conexão** (o nome do Conector de Gerenciamento de Serviços de TI) seguido pelo nome do Workspace. Por exemplo, "MyITSMMConnector(MyWorkspace)."
+4. Na lista de notificações, clique em **aninhar: ações** .
+5. Na lista Ações, selecione **ITSM** no menu suspenso para **Tipo de Ação** . Forneça um **nome** para a ação e clique na caneta que representa **Editar detalhes** .
+6. Selecione a **Assinatura** em que o espaço de trabalho do Log Analytics está localizado. Selecione o nome da **Conexão** (o nome do Conector de Gerenciamento de Serviços de TI) seguido pelo nome do Workspace. Por exemplo, "MyITSMMConnector(MyWorkspace)."
 
     ![Detalhes da ação de ITSM](media/itsmc-overview/itsm-action-details.png)
 
-6. Selecione o tipo **Item de Trabalho** na lista suspensa.
+7. Selecione o tipo **Item de Trabalho** na lista suspensa.
 
-7. Se você quiser preencher os campos de caixa com valores fixos, deverá marcar a caixa de seleção "usar modelo personalizado". caso contrário, escolha usar um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente na lista suspensa e preencha os campos de modelo com valores fixos.
+8. Se você quiser preencher os campos de caixa com valores fixos, deverá marcar a caixa de seleção "usar modelo personalizado". caso contrário, escolha usar um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente na lista suspensa e preencha os campos de modelo com valores fixos.
 
-8. Marcando a caixa de seleção **criar itens de trabalho individuais para cada item de** configuração, cada item de configuração terá seu próprio item de trabalho. Ou seja, haverá um item de trabalho por item de configuração e ele será atualizado de acordo com os alertas que serão criados.
+9. Marcando a caixa de seleção **criar itens de trabalho individuais para cada item de** configuração, cada item de configuração terá seu próprio item de trabalho. Ou seja, haverá um item de trabalho por item de configuração e ele será atualizado de acordo com os alertas que serão criados.
 Se você desmarcar a caixa de seleção **criar itens de trabalho individuais para cada item de configuração** , cada alerta criará um novo item de trabalho, o que significa que pode haver mais de 1 alerta por item de configuração.
 
-9. Clique em **OK** .
+10. Clique em **OK** .
 
 Ao criar/editar uma regra de alerta do Azure, use um grupo de ações que tenha uma Ação de ITSM. Quando o alerta é disparado, o item de trabalho é criado/atualizado na ferramenta de ITSM.
 
@@ -162,7 +163,7 @@ Com base na configuração feita durante a configuração de uma conexão, o con
 
 Os dados de incidente e de solicitação de alteração podem ser visualizados usando o painel do Conector ITSM na solução.
 
-![Tela do Log Analytics](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![Captura de tela que mostra o painel Conector ITSM.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 O painel também fornece informações sobre o status do conector que podem ser usadas como um ponto de partida para analisar problemas com as conexões.
 

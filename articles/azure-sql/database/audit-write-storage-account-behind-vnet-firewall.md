@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444530"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677253"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Gravação de auditoria para conta de armazenamento atrás de rede virtual ou firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -48,9 +48,9 @@ Para que a auditoria grave em uma conta de armazenamento atrás de uma VNet ou u
 
 Conecte-se ao [portal do Azure](https://portal.azure.com) com a sua assinatura. Navegue até o grupo de recursos e o servidor.
 
-1. Clique em **Auditoria** no cabeçalho de segurança. Selecione **Ativada**.
+1. Clique em **Auditoria** no cabeçalho de segurança. Selecione **Ativada** .
 
-2. Selecione **Armazenamento**. Selecione a conta de armazenamento onde os logs serão salvos. A conta de armazenamento deve estar em conformidade com os requisitos listados em [Pré-requisitos](#prerequisites).
+2. Selecione **Armazenamento** . Selecione a conta de armazenamento onde os logs serão salvos. A conta de armazenamento deve estar em conformidade com os requisitos listados em [Pré-requisitos](#prerequisites).
 
 3. Abra **Detalhes de Armazenamento**
 
@@ -61,7 +61,7 @@ Conecte-se ao [portal do Azure](https://portal.azure.com) com a sua assinatura. 
   >
   >Se você não vir essa mensagem, a conta de armazenamento não está atrás de uma VNet.
 
-4. Selecione o número de dias para o período de retenção. Em seguida, clique em **OK**. Os logs anteriores ao período de retenção são excluídos.
+4. Selecione o número de dias para o período de retenção. Em seguida, clique em **OK** . Os logs anteriores ao período de retenção são excluídos.
 
 5. Selecione **Salvar** nas configurações de auditoria.
 
@@ -93,7 +93,7 @@ Para configurar a Auditoria do SQL para gravar eventos em uma conta de armazenam
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**API REST**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**API REST**](/rest/api/sql/servers/createorupdate):
 
    Solicitação de exemplo
 
@@ -117,12 +117,12 @@ Para configurar a Auditoria do SQL para gravar eventos em uma conta de armazenam
    }
    ```
 
-2. Abra o [portal do Azure](https://portal.azure.com). Navegue até sua conta de armazenamento. Selecione **Controle de Acesso (IAM)** e clique em **Adicionar atribuição de função**. Atribua a função de **colaborador de dados do armazenamento de BLOBs** do Azure ao servidor que hospeda o banco de dado que você registrou com o Azure Active Directory (Azure AD) como na etapa anterior.
+2. Abra o [portal do Azure](https://portal.azure.com). Navegue até sua conta de armazenamento. Selecione **Controle de Acesso (IAM)** e clique em **Adicionar atribuição de função** . Atribua a função de **colaborador de dados do armazenamento de BLOBs** do Azure ao servidor que hospeda o banco de dado que você registrou com o Azure Active Directory (Azure AD) como na etapa anterior.
 
    > [!NOTE]
    > Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas do Azure, consulte [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Configure a [política de auditoria de blob do servidor](/rest/api/sql/server%20auditing%20settings/createorupdate), sem especificar um *storageAccountAccessKey*:
+3. Configure a [política de auditoria de blob do servidor](/rest/api/sql/server%20auditing%20settings/createorupdate), sem especificar um *storageAccountAccessKey* :
 
    Solicitação de exemplo
 

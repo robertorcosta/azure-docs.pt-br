@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 11444fc599b46ceff90eda562d2fd557bcaf53b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d9a9c878c96c7f5a38466c494e4b90287c984da
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961333"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734941"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerenciar a disponibilidade de máquinas virtuais do Linux
 
@@ -34,7 +34,7 @@ Há três cenários que podem afetar a máquina virtual no Azure: manutenção d
 
 Para reduzir o impacto do tempo de inatividade devido a um ou mais desses eventos, sugerimos que siga as práticas recomendadas de alta disponibilidade para suas máquinas virtuais:
 
-* Usar zonas Availabiilty para proteger contra falhas do datacenter
+* Use Zonas de Disponibilidade para proteger contra falhas do datacenter
 * Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância
 * Usar discos gerenciados para VMs no conjunto de disponibilidade
 * Usar eventos agendados para responder de forma proativa a eventos que afetam a VM
@@ -46,7 +46,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 
 [Zonas de disponibilidade](../availability-zones/az-overview.md) expandem o nível de controle de que você precisa para manter a disponibilidade dos aplicativos e dos dados em suas VMs. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha.
 
-Uma zona de disponibilidade em uma região do Azure é uma combinação de um **domínio de falha** e um **domínio de atualização**. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
+Uma zona de disponibilidade em uma região do Azure é uma combinação de um **domínio de falha** e um **domínio de atualização** . Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
 Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. Ao arquitetar suas soluções para usar VMs replicadas em zonas, você pode proteger seus aplicativos e dados contra a perda de um datacenter. Se uma zona for comprometida, os aplicativos e os dados replicados ficarão instantaneamente disponíveis em outra zona.
 
@@ -87,7 +87,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> Em determinadas circunstâncias, duas VMs no mesmo conjunto de disponibilidade podem compartilhar um domínio de falha. Você pode confirmar um domínio de falha compartilhado acessando o seu conjunto de disponibilidade e verificando a coluna **Domínio de Falha**. Um domínio de falha compartilhado poderá ser causado pela conclusão da seguinte sequência quando você tiver implantado as VMs:
+> Em determinadas circunstâncias, duas VMs no mesmo conjunto de disponibilidade podem compartilhar um domínio de falha. Você pode confirmar um domínio de falha compartilhado acessando o seu conjunto de disponibilidade e verificando a coluna **Domínio de Falha** . Um domínio de falha compartilhado poderá ser causado pela conclusão da seguinte sequência quando você tiver implantado as VMs:
 > 1. Implantar a primeira VM.
 > 1. Parar/desalocar a primeira VM.
 > 1. Implantar a segunda VM.
