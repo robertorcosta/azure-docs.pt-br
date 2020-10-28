@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 33249da6772d146de3e5e7351bc82c203674ddff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba4ef77dee8eb3cad753aca54a77aeedd166f142
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532130"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784551"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
@@ -43,4 +43,4 @@ Há suporte para a transferência de chaves protegidas por HSM para o Key Vault 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Siga [Melhores práticas do Key Vault](../general/best-practices.md) para garantir a segurança, a durabilidade e o monitoramento das suas chaves.
-* Veja [Especificação de BYOK](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) para obter uma descrição completa do novo método BYOK
+* Veja [Especificação de BYOK](./byok-specification.md) para obter uma descrição completa do novo método BYOK

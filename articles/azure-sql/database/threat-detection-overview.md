@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, sstein
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: bf228d31180f5c2223fde7433d2d9b335e2b8853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284152"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785112"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Proteção avançada contra ameaças para o banco de dados SQL do Azure, o SQL Instância Gerenciada e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Para uma experiência de investigação completa, é recomendável habilitar a a
 
 ## <a name="alerts"></a>Alertas
 
-A Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Para obter uma lista de alertas para o banco de dados SQL do Azure, consulte os [alertas para o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL data warehouse) na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse).
+A Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Para obter uma lista de alertas para o banco de dados SQL do Azure, consulte os [alertas para o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL data warehouse) na central de segurança do Azure](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Explorar a detecção de um evento suspeito
 
@@ -65,5 +65,5 @@ Clique em **alerta de proteção avançada contra ameaças** para iniciar a pág
 - Saiba mais sobre a [proteção avançada contra ameaças no Azure SQL instância gerenciada](../managed-instance/threat-detection-configure.md).
 - Saiba mais sobre o [Azure defender para SQL](azure-defender-for-sql.md).
 - Saiba mais sobre a [auditoria do banco de dados SQL do Azure](../../azure-sql/database/auditing-overview.md)
-- Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Para obter mais informações sobre preços, consulte a [página de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Saiba mais sobre a [central de segurança do Azure](../../security-center/security-center-introduction.md)
+- Para obter mais informações sobre preços, consulte a [página de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/)

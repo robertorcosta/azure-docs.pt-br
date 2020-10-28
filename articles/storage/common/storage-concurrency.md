@@ -11,12 +11,12 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac54282135759f14f17ed16b9779013f849bd8d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488666"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783956"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-O armazenamento do Azure também inclui suporte para cabeçalhos condicionais, como **If-Modified-Since**, **If-inmodified-Since**, **If-None-Match**e combinações desses cabeçalhos. Para obter mais informações, confira [Como especificar cabeçalhos condicionais para operações de serviço Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).
+O armazenamento do Azure também inclui suporte para cabeçalhos condicionais, como **If-Modified-Since** , **If-inmodified-Since** , **If-None-Match** e combinações desses cabeçalhos. Para obter mais informações, confira [Como especificar cabeçalhos condicionais para operações de serviço Blob](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 A tabela a seguir resume as operações de contêiner que aceitam cabeçalhos condicionais como **If-Match** na solicitação e retornam um valor de ETag na resposta.
 
@@ -128,9 +128,9 @@ A tabela a seguir resume as operações de blob que aceitam cabeçalhos condicio
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Simultaneidade pessimista para blobs
 
-Para bloquear um blob para uso exclusivo, adquira uma [concessão](https://msdn.microsoft.com/library/azure/ee691972.aspx) para ele. Ao adquirir uma concessão, você especifica um período de tempo para a concessão. O período de tempo varia de 15 a 60 segundos ou infinito, que é o valor de um bloqueio exclusivo. Renove uma concessão finita para estendê-la. Libere uma concessão quando tiver terminado. O armazenamento de BLOBs lança automaticamente concessões finitas quando elas expiram.
+Para bloquear um blob para uso exclusivo, adquira uma [concessão](/rest/api/storageservices/Lease-Blob) para ele. Ao adquirir uma concessão, você especifica um período de tempo para a concessão. O período de tempo varia de 15 a 60 segundos ou infinito, que é o valor de um bloqueio exclusivo. Renove uma concessão finita para estendê-la. Libere uma concessão quando tiver terminado. O armazenamento de BLOBs lança automaticamente concessões finitas quando elas expiram.
 
-As concessões permitem que diferentes estratégias de sincronização sejam suportadas. As estratégias incluem *gravação exclusiva/leitura compartilhada*, *gravação exclusiva/leitura exclusiva*e *gravação compartilhada/leitura exclusiva*. Onde existe uma concessão, o armazenamento do Azure impõe gravações exclusivas (operações put, set e Delete), no entanto, garantir que exclusividade para operações de leitura exija que o desenvolvedor garanta que todos os aplicativos cliente usem uma ID de concessão e que apenas um cliente de cada vez tenha uma ID de concessão válida. As operações de leitura que não incluem uma ID de concessão resultam em leituras compartilhadas.
+As concessões permitem que diferentes estratégias de sincronização sejam suportadas. As estratégias incluem *gravação exclusiva/leitura compartilhada* , *gravação exclusiva/leitura exclusiva* e *gravação compartilhada/leitura exclusiva* . Onde existe uma concessão, o armazenamento do Azure impõe gravações exclusivas (operações put, set e Delete), no entanto, garantir que exclusividade para operações de leitura exija que o desenvolvedor garanta que todos os aplicativos cliente usem uma ID de concessão e que apenas um cliente de cada vez tenha uma ID de concessão válida. As operações de leitura que não incluem uma ID de concessão resultam em leituras compartilhadas.
 
 O snippet de C# a seguir mostra um exemplo de aquisição de uma concessão exclusiva por 30 segundos em um blob, atualizando o conteúdo do blob e liberando a concessão. Se já houver uma concessão válida no blob quando você tentar adquirir uma nova concessão, o serviço blob retornará um resultado de status "conflito de HTTP (409)". O snippet de código a seguir usa um objeto **AccessCondition** para encapsular as informações da concessão quando ela faz uma solicitação para atualizar o blob no serviço de Armazenamento.  Você pode baixar o exemplo completo aqui: [Gerenciando a simultaneidade usando o Armazenamento do Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -161,7 +161,7 @@ catch (StorageException ex)
 }
 ```
 
-Se você tentar realizar uma operação de gravação em um blob sob concessão sem enviar a ID de concessão, a solicitação falhará com um erro 412. Se a concessão expirar antes de chamar o método **UploadText** , mas você ainda passar a ID de concessão, a solicitação também falhará com um erro **412** . Para obter mais informações sobre o gerenciamento de tempos de expiração de concessão e IDs de concessão, consulte a documentação de REST de [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx).
+Se você tentar realizar uma operação de gravação em um blob sob concessão sem enviar a ID de concessão, a solicitação falhará com um erro 412. Se a concessão expirar antes de chamar o método **UploadText** , mas você ainda passar a ID de concessão, a solicitação também falhará com um erro **412** . Para obter mais informações sobre o gerenciamento de tempos de expiração de concessão e IDs de concessão, consulte a documentação de REST de [Lease Blob](/rest/api/storageservices/Lease-Blob).
 
 As operações de blob a seguir podem usar concessões para gerenciar a simultaneidade pessimista:
 
@@ -184,7 +184,7 @@ As operações de blob a seguir podem usar concessões para gerenciar a simultan
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Simultaneidade pessimista para contêineres
 
-As concessões em contêineres permitem que as mesmas estratégias de sincronização tenham suporte como em BLOBs (*gravação exclusiva/leitura compartilhada*, *gravação exclusiva/leitura*exclusiva e *gravação compartilhada/leitura exclusiva*) no entanto, ao contrário dos BLOBs, o serviço de armazenamento impõe apenas exclusividade em operações de exclusão. Para excluir um contêiner com uma concessão ativa, o cliente deve incluir a ID da concessão ativa com a solicitação de exclusão. Todas as outras operações de contêiner obtiveram êxito em um contêiner sob concessão sem incluir a ID de concessão, caso em que são operações compartilhadas. Se a exclusividade das operações de leitura ou atualização (colocação ou definição) for obrigatória, os desenvolvedores devem garantir que todos os clientes usem uma ID de concessão e que apenas um cliente de cada vez tenha uma ID de concessão válida.
+As concessões em contêineres permitem que as mesmas estratégias de sincronização tenham suporte como em BLOBs ( *gravação exclusiva/leitura compartilhada* , *gravação exclusiva/leitura* exclusiva e *gravação compartilhada/leitura exclusiva* ) no entanto, ao contrário dos BLOBs, o serviço de armazenamento impõe apenas exclusividade em operações de exclusão. Para excluir um contêiner com uma concessão ativa, o cliente deve incluir a ID da concessão ativa com a solicitação de exclusão. Todas as outras operações de contêiner obtiveram êxito em um contêiner sob concessão sem incluir a ID de concessão, caso em que são operações compartilhadas. Se a exclusividade das operações de leitura ou atualização (colocação ou definição) for obrigatória, os desenvolvedores devem garantir que todos os clientes usem uma ID de concessão e que apenas um cliente de cada vez tenha uma ID de concessão válida.
 
 As operações de contêiner a seguir podem usar concessões para gerenciar a simultaneidade pessimista:
 
@@ -198,9 +198,9 @@ As operações de contêiner a seguir podem usar concessões para gerenciar a si
 
 Para obter mais informações, consulte:
 
-* [Especificando cabeçalhos condicionais para operações do serviço Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Concessão de blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Especificando cabeçalhos condicionais para operações do serviço Blob](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations)
+* [Lease Container](/rest/api/storageservices/Lease-Container)
+* [Concessão de blob](/rest/api/storageservices/Lease-Blob)
 
 ## <a name="managing-concurrency-in-table-storage"></a>Como gerenciar a simultaneidade no armazenamento de Tabela
 
@@ -259,7 +259,7 @@ Em geral, os desenvolvedores que usam tabelas devem contar com a simultaneidade 
 
 Para obter mais informações, consulte:
 
-* [Operações em entidades](https://msdn.microsoft.com/library/azure/dd179375.aspx)
+* [Operações em entidades](/rest/api/storageservices/Operations-on-Entities)
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>Gerenciando a simultaneidade no serviço Fila
 
@@ -269,8 +269,8 @@ O serviço fila não tem suporte para a simultaneidade otimista ou pessimista e,
 
 Para obter mais informações, consulte:
 
-* [API REST do serviço Fila](https://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [Receber mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx)
+* [API REST do serviço Fila](/rest/api/storageservices/Queue-Service-REST-API)
+* [Receber mensagens](/rest/api/storageservices/Get-Messages)
 
 ## <a name="managing-concurrency-in-azure-files"></a>Como gerenciar a simultaneidade em arquivos do Azure
 
@@ -280,7 +280,7 @@ Quando um cliente SMB abre um arquivo para exclusão, ele marca o arquivo como e
 
 Para obter mais informações, consulte:
 
-* [Gerenciando bloqueios de arquivo](https://msdn.microsoft.com/library/azure/dn194265.aspx)
+* [Gerenciando bloqueios de arquivo](/rest/api/storageservices/Managing-File-Locks)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -292,5 +292,5 @@ Para obter mais informações sobre o armazenamento do Azure, consulte:
 
 * [Página inicial do Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/)
 * [Introdução ao Armazenamento do Azure](storage-introduction.md)
-* Introdução ao Armazenamento para [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Tabela](../../cosmos-db/table-storage-how-to-use-dotnet.md), [Filas](../storage-dotnet-how-to-use-queues.md) e [Arquivos](../storage-dotnet-how-to-use-files.md)
+* Introdução ao Armazenamento para [Blob](../blobs/storage-quickstart-blobs-dotnet.md), [Tabela](../../cosmos-db/tutorial-develop-table-dotnet.md), [Filas](../queues/storage-dotnet-how-to-use-queues.md) e [Arquivos](../files/storage-dotnet-how-to-use-files.md)
 * Arquitetura de Armazenamento – [Armazenamento do Azure: Um serviço de armazenamento em nuvem altamente disponível com coerência forte](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)

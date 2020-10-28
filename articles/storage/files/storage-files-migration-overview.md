@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654252"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785605"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para compartilhamentos de Arquivos do Azure
 
@@ -34,8 +34,8 @@ A chave em qualquer migração é capturar toda a fidelidade do arquivo aplicáv
 
 Estes são os dois componentes básicos de um arquivo:
 
-- **Fluxo de dados**: o fluxo de dados de um arquivo armazena o conteúdo do arquivo.
-- **Metadados de arquivo**: os metadados de arquivo têm estes subcomponentes:
+- **Fluxo de dados** : o fluxo de dados de um arquivo armazena o conteúdo do arquivo.
+- **Metadados de arquivo** : os metadados de arquivo têm estes subcomponentes:
    * Atributos de arquivo como somente leitura
    * Permissões de arquivo, que podem ser referenciadas como *permissões NTFS* ou *ACLs de arquivo e pasta*
    * Carimbos de data/hora, principalmente os carimbos de data/hora da criação e da última modificação
@@ -111,17 +111,17 @@ Há várias ferramentas de cópia de arquivos disponíveis da Microsoft e de out
 
     Na primeira vez que você executar a ferramenta, ela copiará a massa dos dados. Essa execução inicial pode durar um pouco. Ele geralmente dura mais do que você deseja colocar a fonte de dados offline para seus processos de negócios.
 
-    Ao espelhar uma origem para um destino (como com o **Robocopy/Mir**), você pode executar a ferramenta novamente na mesma origem e no mesmo destino. A execução é muito mais rápida porque precisa transportar somente as alterações de origem que ocorrem após a execução anterior. Executar novamente uma ferramenta de cópia dessa maneira pode reduzir significativamente o tempo de inatividade.
+    Ao espelhar uma origem para um destino (como com o **Robocopy/Mir** ), você pode executar a ferramenta novamente na mesma origem e no mesmo destino. A execução é muito mais rápida porque precisa transportar somente as alterações de origem que ocorrem após a execução anterior. Executar novamente uma ferramenta de cópia dessa maneira pode reduzir significativamente o tempo de inatividade.
 
 A tabela a seguir classifica as ferramentas da Microsoft e sua adequação atual para compartilhamentos de arquivos do Azure:
 
-| Recomendadas | Ferramenta | Suporte para compartilhamentos de arquivos do Azure | Preservação da fidelidade do arquivo |
+| Recomendado | Ferramenta | Suporte para compartilhamentos de arquivos do Azure | Preservação da fidelidade do arquivo |
 | :-: | :-- | :---- | :---- |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Com suporte. Os compartilhamentos de arquivos do Azure podem ser montados como unidades de rede. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronização de Arquivos do Azure | Integrado nativamente aos compartilhamentos de arquivos do Azure. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Serviço de Migração de Armazenamento | Com suporte indiretamente. Os compartilhamentos de arquivos do Azure podem ser montados como unidades de rede em servidores de destino do SMS. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versão 10,4 ou posterior| Com suporte. | Fidelidade total. * |
-|![Não recomendado totalmente](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Com suporte. | Não copia metadados. [Data box pode ser usado com sincronização de arquivos do Azure](storage-sync-offline-data-transfer.md). |
+|![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Com suporte. | O data Box agora dá suporte total aos metadados. [Data Box também pode ser usado em combinação com sincronização de arquivos do Azure](storage-sync-offline-data-transfer.md). |
 |![Não recomendado totalmente](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Gerenciador de Armazenamento do Azure, versão 1,14 | Com suporte. | Não copia ACLs. Dá suporte a carimbos de data/hora.  |
 |![Não recomendado](media/storage-files-migration-overview/circle-red-x.png)| Fábrica de dados do Azure | Com suporte. | Não copia metadados. |
 |||||

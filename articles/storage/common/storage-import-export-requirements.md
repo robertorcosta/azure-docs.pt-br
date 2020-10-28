@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d17b9cdebf06e7d754a23a7224bbe3dba1a2832c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276390"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783599"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
 
@@ -21,7 +21,7 @@ Este artigo descreve os requisitos importantes para o serviço de Importação/E
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguintes **sistemas operacionais de 64 bits dão suporte à Criptografia de Unidade de Disco BitLocker**.
+Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguintes **sistemas operacionais de 64 bits dão suporte à Criptografia de Unidade de Disco BitLocker** .
 
 
 |Plataforma |Versão |
@@ -50,7 +50,7 @@ Para saber mais sobre as contas de armazenamento, confira [Azure storage account
 Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-account-create.md).
 
 > [!IMPORTANT]
-> Para contas de armazenamento em que o recurso de [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)foi   habilitado, use a configuração **permitir serviços confiáveis da Microsoft...** para habilitar o serviço de [importação/exportação](/azure/storage/common/storage-network-security) para executar importação/exportação de dados de/para o Azure.
+> Para contas de armazenamento em que o recurso de [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) foi habilitado, use a configuração **permitir serviços confiáveis da Microsoft...** para habilitar o serviço de [importação/exportação](./storage-network-security.md) para executar importação/exportação de dados de/para o Azure.
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 
@@ -94,4 +94,4 @@ Ao preparar discos rígidos e copiar os dados usando a ferramenta WAImportExport
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
+* [Transferir dados com o utilitário de linha de comando AzCopy](./storage-use-azcopy-v10.md)

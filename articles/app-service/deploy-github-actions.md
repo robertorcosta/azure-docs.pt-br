@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: bdc236c3ba4c70ba44e61457e2bade7df65f3153
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108041"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783072"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implantação no Serviço de Aplicativo usando o GitHub Actions
 
@@ -29,7 +29,7 @@ Introdução às [ações do GitHub](https://help.github.com/en/articles/about-g
     - Java: [criar um aplicativo Java no serviço Azure app](quickstart-java.md)
     - Python: [criar um aplicativo Python no serviço Azure app](quickstart-python.md)
 
-## <a name="workflow-file-overview"></a>Visão geral do arquivo de fluxo de trabalho
+## <a name="workflow-file-overview"></a>Visão geral do arquivo do fluxo de trabalho
 
 Um fluxo de trabalho é definido por um arquivo YAML (.yml) no caminho `/.github/workflows/` no repositório. Essa definição contém as várias etapas e os parâmetros que compõem o fluxo de trabalho.
 
@@ -37,7 +37,7 @@ O arquivo tem três seções:
 
 |Seção  |Tarefas  |
 |---------|---------|
-|**Autenticação** | 1. definir uma entidade de serviço ou um perfil de publicação. <br /> 2. Crie um segredo do GitHub. |
+|**Autenticação** | 1. definir uma entidade de serviço ou um perfil de publicação. <br /> 2. Criar um segredo do GitHub. |
 |**Compilar** | 1. configurar o ambiente. <br /> 2. Compile o aplicativo Web. |
 |**Implantar** | 1. implante o aplicativo Web. |
 
@@ -47,7 +47,7 @@ Você pode começar rapidamente com as ações do GitHub usando o centro de impl
 
 1. Navegue até seu webapp no portal do Azure
 1. No lado esquerdo, clique em **central de implantação**
-1. Em **implantação contínua (CI/CD)**, selecione **GitHub**
+1. Em **implantação contínua (CI/CD)** , selecione **GitHub**
 1. Em seguida, selecione **ações do GitHub**
 1. Use os menus suspensos para selecionar o repositório, a ramificação e a pilha de aplicativos do GitHub
     - Se a ramificação selecionada estiver protegida, você ainda poderá continuar a adicionar o arquivo de fluxo de trabalho. Certifique-se de examinar suas proteções de Branch antes de continuar.
@@ -59,7 +59,7 @@ Isso confirmará o arquivo de fluxo de trabalho para o repositório. O fluxo de 
 
 Você também pode implantar um fluxo de trabalho sem usar a central de implantação. Para fazer isso, você precisará primeiro gerar as credenciais de implantação. 
 
-## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
+## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
 A maneira recomendada de autenticar com os serviços Azure App para ações do GitHub é com um perfil de publicação. Você também pode autenticar com uma entidade de serviço, mas o processo requer mais etapas. 
 
@@ -71,13 +71,13 @@ Um perfil de publicação é uma credencial no nível do aplicativo. Configure s
 
 1. Vá para o serviço de aplicativo no portal do Azure. 
 
-1. Na página **visão geral** , selecione **obter perfil de publicação**.
+1. Na página **visão geral** , selecione **obter perfil de publicação** .
 
 1. Salve o arquivo baixado. Você usará o conteúdo do arquivo para criar um segredo do GitHub.
 
 # <a name="service-principal"></a>[Entidade de serviço](#tab/userlevel)
 
-Você pode criar uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute este comando com [Azure cloud Shell](https://shell.azure.com/) na portal do Azure ou selecionando o botão **experimentar** .
+Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -107,7 +107,7 @@ No exemplo acima, substitua os espaços reservados pela sua ID de assinatura, pe
 
 # <a name="publish-profile"></a>[Perfil de publicação](#tab/applevel)
 
-No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo**.
+No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo** .
 
 Para usar [credenciais de nível de aplicativo](#generate-deployment-credentials), Cole o conteúdo do arquivo de perfil de publicação baixado no campo valor do segredo. Nomeie o segredo `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
@@ -121,11 +121,11 @@ Ao configurar o fluxo de trabalho do GitHub, você usa o `AZURE_WEBAPP_PUBLISH_P
 
 # <a name="service-principal"></a>[Entidade de serviço](#tab/userlevel)
 
-No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo**.
+No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo** .
 
-Para usar [credenciais de nível de usuário](#generate-deployment-credentials), Cole toda a saída JSON do comando CLI do Azure no campo valor do segredo. Dê ao segredo o nome como `AZURE_CREDENTIALS` .
+Para usar [credenciais de nível de usuário](#generate-deployment-credentials), Cole toda a saída JSON do comando CLI do Azure no campo valor do segredo. Dê ao segredo o nome `AZURE_CREDENTIALS`.
 
-Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para a entrada `creds` da ação de logon do Azure. Por exemplo:
+Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para o `creds` de entrada da ação de Logon do Azure. Por exemplo:
 
 ```yaml
 - uses: azure/login@v1

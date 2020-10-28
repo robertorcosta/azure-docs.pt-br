@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488683"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784041"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução do Azure para transferência de dados
 
@@ -71,14 +71,14 @@ Você também pode acessar sua conta de armazenamento do Azure em portal do Azur
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Obter uma introdução ao Armazenamento do Microsoft Azure](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Leia uma visão geral do AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+- [Leia uma visão geral do AzCopy](./storage-use-azcopy-v10.md).
 - [Início Rápido: Carregar, baixar e listar blobs com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Início Rápido: Criar, baixar e listar blobs com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Saiba mais sobre:
 
-    - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy para transferências offline ](/azure/databox/).
-    - [Gateway do Azure data box e Azure Stack Edge para transferências online](/azure/databox-online/).
-- [Saiba o que é o Azure Data Factory](/azure/data-factory/copy-activity-overview).
+    - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy para transferências offline ](../../databox/index.yml).
+    - [Gateway do Azure data box e Azure Stack Edge para transferências online](../../databox-online/index.yml).
+- [Saiba o que é o Azure Data Factory](../../data-factory/copy-activity-overview.md).
 - Use as APIs REST para transferir dados
 
     - [In .NET](/dotnet/api/overview/azure/storage)

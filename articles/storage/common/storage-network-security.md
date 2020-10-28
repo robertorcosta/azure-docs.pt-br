@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e06e31ae3c963459a0f6b4772147197913b52a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2eed5a8ad783d325ef040b3a358e80a6517f08e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488581"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783633"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -64,9 +64,9 @@ Você pode gerar as regras de acesso à rede padrão para contas de armazenament
 
 1. Vá até a conta de armazenamento que você deseja proteger.
 
-1. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
+1. Clique no menu de configurações chamado **Firewalls e redes virtuais** .
 
-1. Para negar o acesso por padrão, opte por permitir o acesso de **Redes selecionadas**. Para permitir o tráfego de todas as redes, opte por permitir o acesso de **Todas as redes**.
+1. Para negar o acesso por padrão, opte por permitir o acesso de **Redes selecionadas** . Para permitir o tráfego de todas as redes, opte por permitir o acesso de **Todas as redes** .
 
 1. Clique em **Salvar** para aplicar suas alterações.
 
@@ -118,13 +118,13 @@ Você pode gerar as regras de acesso à rede padrão para contas de armazenament
 
 Você pode configurar as contas de armazenamento para permitir o acesso somente de sub-redes específicas. As sub-redes permitidas podem pertencer a uma VNet na mesma assinatura ou àquelas em uma assinatura diferente, incluindo assinaturas que pertençam a um locatário diferente do Azure Active Directory.
 
-Habilitar um [Ponto de extremidade de serviço](/azure/virtual-network/virtual-network-service-endpoints-overview) do Armazenamento do Microsoft Azure dentro da VNet. O ponto de extremidade de serviço roteia o tráfego da VNet por meio de um caminho ideal para o serviço de Armazenamento do Azure. As identidades da rede virtual e da sub-rede também são transmitidas com cada solicitação. Em seguida, os administradores podem configurar as regras de rede para a conta de armazenamento que as solicitações sejam recebidas de sub-redes específicas em uma VNet. Os clientes com o acesso concedido por meio dessas regras de rede devem continuar a atender aos requisitos de autorização da conta de armazenamento para acessar os dados.
+Habilitar um [Ponto de extremidade de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md) do Armazenamento do Microsoft Azure dentro da VNet. O ponto de extremidade de serviço roteia o tráfego da VNet por meio de um caminho ideal para o serviço de Armazenamento do Azure. As identidades da rede virtual e da sub-rede também são transmitidas com cada solicitação. Em seguida, os administradores podem configurar as regras de rede para a conta de armazenamento que as solicitações sejam recebidas de sub-redes específicas em uma VNet. Os clientes com o acesso concedido por meio dessas regras de rede devem continuar a atender aos requisitos de autorização da conta de armazenamento para acessar os dados.
 
 Cada conta de armazenamento dá suporte a até 200 regras de rede virtual, que podem ser combinadas com [regras de rede IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Regiões de rede virtual disponíveis
 
-Em geral, os pontos de extremidade de serviço funcionam entre redes virtuais e instâncias de serviço na mesma região do Azure. Ao usar pontos de extremidade de serviço com o Armazenamento do Microsoft Azure, este escopo cresce para incluir a [região emparelhada](/azure/best-practices-availability-paired-regions). Pontos de extremidade de serviço permitem continuidade durante um failover regional e acesso a instâncias de armazenamento com redundância geográfica somente leitura (RA-GRS). As regras de rede que concedem acesso de uma rede virtual para uma conta de armazenamento também concedem acesso a qualquer instância de RA-GRS.
+Em geral, os pontos de extremidade de serviço funcionam entre redes virtuais e instâncias de serviço na mesma região do Azure. Ao usar pontos de extremidade de serviço com o Armazenamento do Microsoft Azure, este escopo cresce para incluir a [região emparelhada](../../best-practices-availability-paired-regions.md). Pontos de extremidade de serviço permitem continuidade durante um failover regional e acesso a instâncias de armazenamento com redundância geográfica somente leitura (RA-GRS). As regras de rede que concedem acesso de uma rede virtual para uma conta de armazenamento também concedem acesso a qualquer instância de RA-GRS.
 
 Ao planejar a recuperação de desastre durante uma interrupção regional, você deve criar as VNets na região emparelhada com antecedência. Habilite pontos de extremidade de serviço para o Armazenamento do Microsoft Azure, com as regras de rede concedendo acesso dessas redes virtuais alternativas. Em seguida, aplica essas regras às contas de armazenamento com redundância geográfica.
 
@@ -133,7 +133,7 @@ Ao planejar a recuperação de desastre durante uma interrupção regional, voc�
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
-Para aplicar uma regra da rede virtual a uma conta de armazenamento, o usuário deve ter permissão para as sub-redes sendo adicionadas. A permissão necessária é *Ingressar o Serviço em uma Sub-rede* e está incluída na função interna *Colaborador da conta de armazenamento*. Também podem ser adicionado às definições de função personalizada.
+Para aplicar uma regra da rede virtual a uma conta de armazenamento, o usuário deve ter permissão para as sub-redes sendo adicionadas. A permissão necessária é *Ingressar o Serviço em uma Sub-rede* e está incluída na função interna *Colaborador da conta de armazenamento* . Também podem ser adicionado às definições de função personalizada.
 
 A conta de armazenamento e o acesso concedido às redes virtuais podem estar em assinaturas diferentes, incluindo assinaturas que são parte do mesmo locatário do Azure AD.
 
@@ -148,18 +148,18 @@ Você pode gerenciar as regras da rede virtual para contas de armazenamento atra
 
 1. Vá até a conta de armazenamento que você deseja proteger.
 
-1. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
+1. Clique no menu de configurações chamado **Firewalls e redes virtuais** .
 
-1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
+1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas** .
 
-1. Para conceder acesso a uma rede virtual com uma nova regra de rede, em **Redes virtuais**, clique em **Adicionar rede virtual existente**, selecione **Redes virtuais** e as opções **Sub-redes** e clique **Adicionar**. Para criar uma nova rede virtual e conceder acesso, clique em **Adicionar nova rede virtual**. Forneça as informações necessárias para criar a nova rede virtual e, em seguida, clique em **Criar**.
+1. Para conceder acesso a uma rede virtual com uma nova regra de rede, em **Redes virtuais** , clique em **Adicionar rede virtual existente** , selecione **Redes virtuais** e as opções **Sub-redes** e clique **Adicionar** . Para criar uma nova rede virtual e conceder acesso, clique em **Adicionar nova rede virtual** . Forneça as informações necessárias para criar a nova rede virtual e, em seguida, clique em **Criar** .
 
     > [!NOTE]
     > Se um ponto de extremidade de Armazenamento do Microsoft Azure não foi configurado anteriormente para a rede virtual selecionada e as sub-redes, você pode configurá-lo como parte dessa operação.
     >
     > Atualmente, somente as redes virtuais que pertencem ao mesmo locatário do Azure Active Directory são mostradas para seleção durante a criação de regras. Para permitir acesso a uma sub-rede em uma rede virtual que pertence a outro locatário, use o PowerShell, a CLI ou as APIs REST.
 
-1. Para remover uma regra de rede virtual ou sub-rede, clique em **...** para abrir o menu de contexto da rede virtual ou da sub-rede e clique em **Remover**.
+1. Para remover uma regra de rede virtual ou sub-rede, clique em **...** para abrir o menu de contexto da rede virtual ou da sub-rede e clique em **Remover** .
 
 1. Clique em **Salvar** para aplicar suas alterações.
 
@@ -241,12 +241,12 @@ Você pode gerenciar as regras da rede virtual para contas de armazenamento atra
 
 Você pode configurar as contas de armazenamento para permitir acesso dos intervalos de endereço IP da Internet pública. Essa configuração garante acesso a serviços públicos baseados na Internet e redes locais e bloqueia o tráfego de Internet geral.
 
-Forneça intervalos de endereços de Internet permitidos usando a [notação CIDR](https://tools.ietf.org/html/rfc4632) no formulário *16.17.18.0/24* ou como endereços IP individuas como *16.17.18.19*.
+Forneça intervalos de endereços de Internet permitidos usando a [notação CIDR](https://tools.ietf.org/html/rfc4632) no formulário *16.17.18.0/24* ou como endereços IP individuas como *16.17.18.19* .
 
    > [!NOTE]
    > Os intervalos de endereços pequenos usando o prefixo "/31" ou "/32" não têm suporte. Esses intervalos devem ser configurados usando regras de endereço IP individuais.
 
-As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**. Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com _10.*_ , _172.16.*_  - _172.31.*_ , e _192.168.*_ .
+As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública** . Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com _10.*_ , _172.16.*_  - _172.31.*_ , e _192.168.*_ .
 
    > [!NOTE]
    > As regras de rede IP não terão efeito sobre solicitações originadas da mesma região do Azure que a conta de armazenamento. Use as [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir solicitações da mesma região.
@@ -262,7 +262,7 @@ Cada conta de armazenamento dá suporte a até 200 regras de rede IP.
 
 Para conceder acesso de suas redes locais para sua conta de armazenamento com uma regra de rede IP, você deve identificar os endereços IP voltados para Internet usados por sua rede. Entre em contato com o administrador de rede para obter ajuda.
 
-Se você estiver usando [ExpressRoute](/azure/expressroute/expressroute-introduction) de suas instalações, para emparelhamento público ou emparelhamento da Microsoft, será necessário identificar os endereços IP NAT usados. Para emparelhamento público, cada circuito do ExpressRoute usará dois endereços IP de NAT, que serão aplicados ao tráfego do serviço do Azure quando o tráfego entrar no backbone da rede do Microsoft Azure. Para emparelhamento da Microsoft, os endereços IP de NAT usados são fornecidos pelo cliente ou são fornecidos pelo provedor de serviço. Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso. Para localizar os endereços IP do circuito do ExpressRoute de emparelhamento público, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Saiba mais sobre [NAT para emparelhamento público de ExpressRoute e emparelhamento da Microsoft.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+Se você estiver usando [ExpressRoute](../../expressroute/expressroute-introduction.md) de suas instalações, para emparelhamento público ou emparelhamento da Microsoft, será necessário identificar os endereços IP NAT usados. Para emparelhamento público, cada circuito do ExpressRoute usará dois endereços IP de NAT, que serão aplicados ao tráfego do serviço do Azure quando o tráfego entrar no backbone da rede do Microsoft Azure. Para emparelhamento da Microsoft, os endereços IP de NAT usados são fornecidos pelo cliente ou são fornecidos pelo provedor de serviço. Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso. Para localizar os endereços IP do circuito do ExpressRoute de emparelhamento público, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Saiba mais sobre [NAT para emparelhamento público de ExpressRoute e emparelhamento da Microsoft.](../../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Gerenciando regras de rede IP
 
@@ -272,11 +272,11 @@ Você pode gerenciar as regras de rede IP para contas de armazenamento através 
 
 1. Vá até a conta de armazenamento que você deseja proteger.
 
-1. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
+1. Clique no menu de configurações chamado **Firewalls e redes virtuais** .
 
-1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
+1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas** .
 
-1. Para conceder acesso a um intervalo de IP de Internet, insira o endereço IP ou o intervalo de endereços (no formato CIDR) em **Firewall** > **Intervalos de Endereços**.
+1. Para conceder acesso a um intervalo de IP de Internet, insira o endereço IP ou o intervalo de endereços (no formato CIDR) em **Firewall** > **Intervalos de Endereços** .
 
 1. Para remover uma regra de rede IP, clique no ícone de lixeira próximo da regra de endereço.
 
@@ -358,7 +358,7 @@ Você pode gerenciar as regras de rede IP para contas de armazenamento através 
 
 ## <a name="exceptions"></a>Exceções
 
-As regras de rede ajudam a criar um ambiente seguro para conexões entre seus aplicativos e seus dados para a maioria dos cenários. No entanto, alguns aplicativos dependem de serviços do Azure que não podem ser isolados exclusivamente por meio de regras de endereço IP ou de rede virtual. Mas, para habilitar a funcionalidade completa do aplicativo, é preciso permitir acesso ao armazenamento para esses serviços. Nessas situações, você pode usar o **_permitir serviços confiáveis da Microsoft..._* _ configure para permitir que esses serviços acessem seus dados, logs ou análises.
+As regras de rede ajudam a criar um ambiente seguro para conexões entre seus aplicativos e seus dados para a maioria dos cenários. No entanto, alguns aplicativos dependem de serviços do Azure que não podem ser isolados exclusivamente por meio de regras de endereço IP ou de rede virtual. Mas, para habilitar a funcionalidade completa do aplicativo, é preciso permitir acesso ao armazenamento para esses serviços. Nessas situações, você pode usar o * *_permitir serviços confiáveis da Microsoft..._* _ configure para permitir que esses serviços acessem seus dados, logs ou análises.
 
 ### <a name="trusted-microsoft-services"></a>Serviços Microsoft confiáveis
 
@@ -372,39 +372,39 @@ Quando você habilita a configuração **Permitir serviços confiáveis da Micro
 
 | Serviço                  | Nome do provedor de recursos     | Operações permitidas                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
-| Serviço de Backup do Azure             | Microsoft.RecoveryServices | Execute backups e restaurações de discos não gerenciados em máquinas virtuais IAAS. (não é necessário para discos gerenciados). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup). |
-| Azure Data Box           | Microsoft.DataBox          | Permite a importação de dados para o Azure usando o Data Box. [Saiba mais](/azure/databox/data-box-overview). |
+| Serviço de Backup do Azure             | Microsoft.RecoveryServices | Execute backups e restaurações de discos não gerenciados em máquinas virtuais IAAS. (não é necessário para discos gerenciados). [Saiba mais](../../backup/backup-overview.md). |
+| Azure Data Box           | Microsoft.DataBox          | Permite a importação de dados para o Azure usando o Data Box. [Saiba mais](../../databox/data-box-overview.md). |
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Criação de imagem personalizada e instalação de artefato. [Saiba mais](../../devtest-labs/devtest-lab-overview.md). |
-| Grade de Eventos do Azure         | Microsoft.EventGrid        | Habilite a publicação de eventos do Armazenamento de Blobs e permita que a Grade de Eventos publique em filas de armazenamento. Saiba mais sobre [eventos de Armazenamento de Blobs](/azure/event-grid/event-sources) e [publicação em filas](/azure/event-grid/event-handlers). |
-| Hubs de eventos do Azure         | Microsoft.EventHub         | Arquivar dados com a Captura de Hubs de Evento. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview). |
+| Grade de Eventos do Azure         | Microsoft.EventGrid        | Habilite a publicação de eventos do Armazenamento de Blobs e permita que a Grade de Eventos publique em filas de armazenamento. Saiba mais sobre [eventos de Armazenamento de Blobs](../../event-grid/overview.md#event-sources) e [publicação em filas](../../event-grid/event-handlers.md). |
+| Hubs de eventos do Azure         | Microsoft.EventHub         | Arquivar dados com a Captura de Hubs de Evento. [Saiba mais](../../event-hubs/event-hubs-capture-overview.md). |
 | Sincronização de Arquivos do Azure          | Microsoft.StorageSync      | Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de Arquivos do Azure. Isso permite a sincronização de vários sites, recuperação rápida de desastre e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
-| Azure HDInsight          | Microsoft.HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
-| Importação/Exportação do Azure      | Microsoft.ImportExport     | Permite a importação de dados para o armazenamento do Azure ou a exportação de dados do armazenamento do Azure usando o serviço de importação/exportação do armazenamento do Azure. [Saiba mais](/azure/storage/common/storage-import-export-service).  |
-| Azure Monitor            | Microsoft.insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida, incluindo logs de recursos, logs de entrada e de auditoria do Azure Active Directory e logs do Microsoft Intune. [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Rede do Azure         | Microsoft.Network          | Armazene e analise logs de tráfego de rede, incluindo por meio do observador de rede e serviços de Análise de Tráfego. [Saiba mais](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais de IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Azure HDInsight          | Microsoft.HDInsight        | Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
+| Importação/Exportação do Azure      | Microsoft.ImportExport     | Permite a importação de dados para o armazenamento do Azure ou a exportação de dados do armazenamento do Azure usando o serviço de importação/exportação do armazenamento do Azure. [Saiba mais](./storage-import-export-service.md).  |
+| Azure Monitor            | Microsoft.insights         | Permite gravar dados de monitoramento em uma conta de armazenamento protegida, incluindo logs de recursos, logs de entrada e de auditoria do Azure Active Directory e logs do Microsoft Intune. [Saiba mais](../../azure-monitor/platform/roles-permissions-security.md). |
+| Rede do Azure         | Microsoft.Network          | Armazene e analise logs de tráfego de rede, incluindo por meio do observador de rede e serviços de Análise de Tráfego. [Saiba mais](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite a replicação para recuperação de desastre de máquinas virtuais de IaaS do Azure ao usar as contas de armazenamento de cache, origem ou destino habilitadas para firewall.  [Saiba mais](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
 A configuração **permitir serviços confiáveis da Microsoft...** também permite que uma instância específica dos serviços a seguir acesse a conta de armazenamento, se você [atribuir explicitamente uma função do Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recurso. Nesse caso, o escopo de acesso para a instância corresponde à função do Azure atribuída à identidade gerenciada.
 
 | Serviço                        | Nome do provedor de recursos                 | Finalidade            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Gerenciamento de API do Azure           | Microsoft.ApiManagement/service        | Habilita o acesso do serviço de gerenciamento de API a contas de armazenamento por trás do firewall usando políticas. [Saiba mais](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
+| Gerenciamento de API do Azure           | Microsoft.ApiManagement/service        | Habilita o acesso do serviço de gerenciamento de API a contas de armazenamento por trás do firewall usando políticas. [Saiba mais](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Pesquisa Cognitiva do Azure         | Microsoft.Search/searchServices        | Permite que os serviços do Cognitive Search acessem contas de armazenamento para indexação, processamento e consulta. |
 | Tarefas do Registro de Contêiner do Azure | Microsoft.ContainerRegistry/registries | As Tarefas do ACR podem acessar contas de armazenamento ao criar imagens de contêiner. |
 | Fábrica de dados do Azure             | Microsoft.DataFactory/factories        | Permite o acesso a contas de armazenamento por meio do runtime do ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Permite o acesso a contas de armazenamento por meio do Data Share. |
 | Hub IoT do Azure                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam gravados no Armazenamento de Blobs. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
-| Aplicativos Lógicos do Azure               | Microsoft.Logic/workflows              | Permite que os aplicativos lógicos acessem contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
-| Serviço do Azure Machine Learning | Microsoft.MachineLearningServices      | Os workspaces autorizados do Azure Machine Learning gravam a saída, os modelos e os logs do experimento no Armazenamento de Blobs e leem os dados. [Saiba mais](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
-| Azure Synapse Analytics (antigo SQL Data Warehouse)       | Microsoft.Sql                          | Permite a importação e a exportação de dados de bancos de dado SQL específicos usando a instrução de cópia ou o polybase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Banco de Dados SQL do Azure       | Microsoft.Sql                          | Permite a [importação](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) de dados de contas de armazenamento e a [gravação](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) de dados de auditoria em contas de armazenamento por trás do firewall. |
-| Stream Analytics do Azure         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam gravados no Armazenamento de Blobs. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
+| Aplicativos Lógicos do Azure               | Microsoft.Logic/workflows              | Permite que os aplicativos lógicos acessem contas de armazenamento. [Saiba mais](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
+| Serviço do Azure Machine Learning | Microsoft.MachineLearningServices      | Os workspaces autorizados do Azure Machine Learning gravam a saída, os modelos e os logs do experimento no Armazenamento de Blobs e leem os dados. [Saiba mais](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
+| Azure Synapse Analytics (antigo SQL Data Warehouse)       | Microsoft.Sql                          | Permite a importação e a exportação de dados de bancos de dado SQL específicos usando a instrução de cópia ou o polybase. [Saiba mais](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Banco de Dados SQL do Azure       | Microsoft.Sql                          | Permite a [importação](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) de dados de contas de armazenamento e a [gravação](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) de dados de auditoria em contas de armazenamento por trás do firewall. |
+| Stream Analytics do Azure         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam gravados no Armazenamento de Blobs. [Saiba mais](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Habilita o acesso a dados no Armazenamento do Azure do Synapse Analytics. |
 
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados de análise de armazenamento
 
-Em alguns casos, o acesso para ler as métricas e logs de recurso é necessário de fora do limite de rede. Ao configurar o acesso de serviços confiáveis à conta de armazenamento, você pode permitir o acesso de leitura aos arquivos de log, às tabelas de métricas ou a ambos. [Saiba mais sobre como trabalhar com a análise de armazenamento.](/azure/storage/storage-analytics)
+Em alguns casos, o acesso para ler as métricas e logs de recurso é necessário de fora do limite de rede. Ao configurar o acesso de serviços confiáveis à conta de armazenamento, você pode permitir o acesso de leitura aos arquivos de log, às tabelas de métricas ou a ambos. [Saiba mais sobre como trabalhar com a análise de armazenamento.](./storage-analytics.md)
 
 ### <a name="managing-exceptions"></a>Gerenciando exceções
 
@@ -414,11 +414,11 @@ Você pode gerenciar as exceções de regra da rede através do portal do Azure,
 
 1. Vá até a conta de armazenamento que você deseja proteger.
 
-1. Clique no menu de configurações chamado **Firewalls e redes virtuais**.
+1. Clique no menu de configurações chamado **Firewalls e redes virtuais** .
 
-1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
+1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas** .
 
-1. Em **Exceções**, selecione as exceções que deseja conceder.
+1. Em **Exceções** , selecione as exceções que deseja conceder.
 
 1. Clique em **Salvar** para aplicar suas alterações.
 
@@ -474,6 +474,6 @@ Você pode gerenciar as exceções de regra da rede através do portal do Azure,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os Pontos de Extremidade do Serviço de Rede do Azure em [Pontos de Extremidade de Serviço](/azure/virtual-network/virtual-network-service-endpoints-overview).
+Saiba mais sobre os Pontos de Extremidade do Serviço de Rede do Azure em [Pontos de Extremidade de Serviço](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 Aprofunde-se na segurança do Armazenamento do Microsoft Azure no [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).

@@ -10,12 +10,12 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488887"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784347"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -199,7 +199,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-Você pode usar o Azure PowerShell ou CLI do Azure para implantar um modelo do Resource Manager para criar uma conta de armazenamento. O modelo usado neste artigo de instruções é de [Azure Resource Manager modelos de início rápido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente** para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no shell e, em seguida, selecione **Colar**.
+Você pode usar o Azure PowerShell ou CLI do Azure para implantar um modelo do Resource Manager para criar uma conta de armazenamento. O modelo usado neste artigo de instruções é de [Azure Resource Manager modelos de início rápido](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente** para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no shell e, em seguida, selecione **Colar** .
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 Para saber como modificar esse modelo ou criar novos, consulte:
 
-- [Azure Resource Manager documentação](/azure/azure-resource-manager/).
+- [Azure Resource Manager documentação](../../azure-resource-manager/index.yml).
 - [Referência de modelo da conta de armazenamento](/azure/templates/microsoft.storage/allversions).
 - [Exemplos de modelo de conta de armazenamento adicional](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
@@ -236,7 +236,7 @@ A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todo
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue até a conta de armazenamento no [portal do Azure](https://portal.azure.com).
-1. Clique em **Excluir**.
+1. Clique em **Excluir** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,7 +279,7 @@ Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de 
 > [!WARNING]
 > Não é possível restaurar uma conta de armazenamento excluída nem recuperar nenhuma parte de seu conteúdo antes da exclusão. Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Isso também é verdadeiro para todos os recursos na conta – depois que você excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
 >
-> Se você tentar excluir uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro indicando que a conta de armazenamento ainda está em uso. Para obter ajuda para solucionar esse erro, consulte [solucionar erros ao excluir contas de armazenamento](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> Se você tentar excluir uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro indicando que a conta de armazenamento ainda está em uso. Para obter ajuda para solucionar esse erro, consulte [solucionar erros ao excluir contas de armazenamento](../../virtual-machines/troubleshooting/index.yml).
 
 ## <a name="next-steps"></a>Próximas etapas
 

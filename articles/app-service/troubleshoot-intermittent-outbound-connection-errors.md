@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b4408b2f8c631453281ecf6f214d49318252a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408208"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785044"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solucionando problemas de erros de conexão de saída intermitente no serviço Azure App
 
-Este artigo ajuda você a solucionar problemas de erros de conexão intermitente e problemas de desempenho relacionados no [serviço Azure app](./overview.md). Este tópico fornecerá mais informações e metodologias de solução de problemas para o esgotamento de portas de SNAT (conversão de rede de endereço de origem). Se você precisar de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure no [msdn do Azure e os fóruns de Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, arquivo de um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Este artigo ajuda você a solucionar problemas de erros de conexão intermitente e problemas de desempenho relacionados no [serviço Azure app](./overview.md). Este tópico fornecerá mais informações e metodologias de solução de problemas para o esgotamento de portas de SNAT (conversão de rede de endereço de origem). Se você precisar de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure no [msdn do Azure e os fóruns de Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, arquivo de um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte** .
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -32,7 +32,7 @@ Os aplicativos e funções hospedados no serviço Azure App podem apresentar um 
 Uma grande causa desses sintomas é que a instância do aplicativo não é capaz de abrir uma nova conexão com o ponto de extremidade externo porque ele atingiu um dos seguintes limites:
 
 * Conexões TCP: há um limite no número de conexões de saída que podem ser feitas. Isso é associado ao tamanho do trabalho usado.
-* Portas SNAT: conforme discutido em [conexões de saída no Azure](../load-balancer/load-balancer-outbound-connections.md), o Azure usa o SNAT (conversão de endereço de rede de origem) e um Load Balancer (não exposto aos clientes) para se comunicar com pontos de extremidade fora do Azure no espaço de endereço IP público, bem como pontos de extremidade internos ao Azure que não estão aproveitando os pontos de extremidade de serviço. Inicialmente, cada instância no serviço de Azure App recebe um número pré-alocado de portas SNAT **128** . Esse limite afeta a abertura de conexões com a mesma combinação de host e porta. Se seu aplicativo cria conexões com uma combinação de combinações de endereços e portas, você não usará as portas SNAT. As portas SNAT são usadas quando você tem chamadas repetidas para a mesma combinação de endereço e porta. Depois que uma porta for liberada, a porta estará disponível para reutilização conforme necessário. O balanceador de carga de rede do Azure recupera a porta SNAT de conexões fechadas somente depois de aguardar por 4 minutos.
+* Portas SNAT: conforme discutido em [conexões de saída no Azure](../load-balancer/load-balancer-outbound-connections.md), o Azure usa o SNAT (conversão de endereço de rede de origem) e um Load Balancer (não exposto aos clientes) para se comunicar com pontos de extremidade fora do Azure no espaço de endereço IP público, bem como pontos de extremidade internos ao Azure que não estão aproveitando os pontos de extremidade de serviço/privado. Inicialmente, cada instância no serviço de Azure App recebe um número pré-alocado de portas SNAT **128** . Esse limite afeta a abertura de conexões com a mesma combinação de host e porta. Se seu aplicativo cria conexões com uma combinação de combinações de endereços e portas, você não usará as portas SNAT. As portas SNAT são usadas quando você tem chamadas repetidas para a mesma combinação de endereço e porta. Depois que uma porta for liberada, a porta estará disponível para reutilização conforme necessário. O balanceador de carga de rede do Azure recupera a porta SNAT de conexões fechadas somente depois de aguardar por 4 minutos.
 
 Quando aplicativos ou funções abrem rapidamente uma nova conexão, eles podem esgotar rapidamente a cota alocada das portas 128. Eles são bloqueados até que uma nova porta SNAT fique disponível, seja por meio da alocação dinâmica de portas SNAT adicionais ou pela reutilização de uma porta SNAT recuperada. Aplicativos ou funções que são bloqueadas devido a essa incapacidade de criar novas conexões começarão a apresentar um ou mais dos problemas descritos na seção **sintomas** deste artigo.
 
@@ -130,7 +130,7 @@ Se você não souber o comportamento do aplicativo o suficiente para determinar 
 
 Você pode usar o [diagnóstico do serviço de aplicativo](./overview-diagnostics.md) para localizar informações de alocação de porta SNAT e observar a métrica de alocação de portas SNAT de um site do serviço de aplicativo. Para localizar informações de alocação de porta SNAT, siga as seguintes etapas:
 
-1. Para acessar o diagnóstico do serviço de aplicativo, navegue até o aplicativo Web do serviço de aplicativo ou Ambiente do Serviço de Aplicativo na [portal do Azure](https://portal.azure.com/). No painel de navegação esquerdo, selecione **diagnosticar e resolver problemas**.
+1. Para acessar o diagnóstico do serviço de aplicativo, navegue até o aplicativo Web do serviço de aplicativo ou Ambiente do Serviço de Aplicativo na [portal do Azure](https://portal.azure.com/). No painel de navegação esquerdo, selecione **diagnosticar e resolver problemas** .
 2. Selecionar categoria de desempenho e disponibilidade
 3. Selecione bloco de esgotamento de porta SNAT na lista de blocos disponíveis na categoria. A prática é mantê-lo abaixo de 128.
 Se você precisar dele, ainda poderá abrir um tíquete de suporte e o engenheiro de suporte obterá a métrica do back-end para você.

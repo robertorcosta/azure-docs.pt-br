@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488615"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783786"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -23,7 +23,7 @@ Este guia resume soluções para problemas que normalmente são vistos em Gerenc
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemas de permissões do RBAC do Azure
 
-Controle de acesso baseado em função do Azure o [RBAC do Azure](/azure/role-based-access-control/overview) permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_. Aqui estão algumas estratégias para colocar o RBAC do Azure funcionando de maneira ideal no Gerenciador de Armazenamento.
+Controle de acesso baseado em função do Azure o [RBAC do Azure](../../role-based-access-control/overview.md) permite o gerenciamento de acesso altamente granular dos recursos do Azure combinando conjuntos de permissões em _funções_ . Aqui estão algumas estratégias para colocar o RBAC do Azure funcionando de maneira ideal no Gerenciador de Armazenamento.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como fazer acessar meus recursos no Gerenciador de Armazenamento?
 
@@ -46,7 +46,7 @@ Você deve receber pelo menos uma função que conceda acesso para ler dados de 
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Por que preciso de uma função de camada de gerenciamento para ver meus recursos no Gerenciador de Armazenamento?
 
-O armazenamento do Azure tem duas camadas de acesso: _Gerenciamento_ e _dados_. As assinaturas e as contas de armazenamento são acessadas por meio da camada de gerenciamento. Contêineres, BLOBs e outros recursos de dados são acessados por meio da camada de dados. Por exemplo, se você quiser obter uma lista de suas contas de armazenamento do Azure, envie uma solicitação para o ponto de extremidade de gerenciamento. Se você quiser uma lista de contêineres de BLOB em uma conta, envie uma solicitação para o ponto de extremidade de serviço apropriado.
+O armazenamento do Azure tem duas camadas de acesso: _Gerenciamento_ e _dados_ . As assinaturas e as contas de armazenamento são acessadas por meio da camada de gerenciamento. Contêineres, BLOBs e outros recursos de dados são acessados por meio da camada de dados. Por exemplo, se você quiser obter uma lista de suas contas de armazenamento do Azure, envie uma solicitação para o ponto de extremidade de gerenciamento. Se você quiser uma lista de contêineres de BLOB em uma conta, envie uma solicitação para o ponto de extremidade de serviço apropriado.
 
 As funções do Azure podem conceder permissões para acesso à camada de dados ou gerenciamento. A função leitor, por exemplo, concede acesso somente leitura aos recursos da camada de gerenciamento.
 
@@ -65,30 +65,30 @@ Se você quiser acessar contêineres ou filas de BLOB, poderá anexar a esses re
 3. Selecione a conta de usuário e o locatário associados ao recurso ao qual você está anexando. Clique em Avançar.
 4. Selecione o tipo de recurso, insira a URL para o recurso e insira um nome de exibição exclusivo para a conexão. Clique em Avançar. Clique em Conectar.
 
-Para outros tipos de recursos, atualmente não temos uma solução relacionada ao RBAC do Azure. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Para outros tipos de recursos, atualmente não temos uma solução relacionada ao RBAC do Azure. Como alternativa, você pode solicitar um URI de SAS para [anexar ao recurso](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções internas do Azure recomendadas
 
 Há várias funções internas do Azure que podem fornecer as permissões necessárias para usar Gerenciador de Armazenamento. Algumas dessas funções são:
-- [Proprietário](/azure/role-based-access-control/built-in-roles#owner): gerencie tudo, incluindo o acesso aos recursos. **Observação**: essa função fornecerá acesso à chave.
-- [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): gerenciar tudo, excluindo o acesso aos recursos. **Observação**: essa função fornecerá acesso à chave.
-- [Leitor](/azure/role-based-access-control/built-in-roles#reader): ler e listar recursos.
-- [Colaborador da conta de armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): gerenciamento completo de contas de armazenamento. **Observação**: essa função fornecerá acesso à chave.
-- [Proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): acesso completo aos dados e contêineres de blob do armazenamento do Azure.
-- [Colaborador de dados de blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): ler, gravar e excluir contêineres e blobs de armazenamento do Azure.
-- [Leitor de dados de blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Leia e liste contêineres e blobs de armazenamento do Azure.
+- [Proprietário](../../role-based-access-control/built-in-roles.md#owner): gerencie tudo, incluindo o acesso aos recursos. **Observação** : essa função fornecerá acesso à chave.
+- [Colaborador](../../role-based-access-control/built-in-roles.md#contributor): gerenciar tudo, excluindo o acesso aos recursos. **Observação** : essa função fornecerá acesso à chave.
+- [Leitor](../../role-based-access-control/built-in-roles.md#reader): ler e listar recursos.
+- [Colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor): gerenciamento completo de contas de armazenamento. **Observação** : essa função fornecerá acesso à chave.
+- [Proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): acesso completo aos dados e contêineres de blob do armazenamento do Azure.
+- [Colaborador de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): ler, gravar e excluir contêineres e blobs de armazenamento do Azure.
+- [Leitor de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Leia e liste contêineres e blobs de armazenamento do Azure.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: certificado autoassinado na cadeia de certificados (e erros semelhantes)
 
 Normalmente, os erros de certificado ocorrem em uma das seguintes situações:
 
-- O aplicativo é conectado por meio de um _proxy transparente_. Isso significa que um servidor (como o servidor da empresa) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado autoassinado.
+- O aplicativo é conectado por meio de um _proxy transparente_ . Isso significa que um servidor (como o servidor da empresa) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado autoassinado.
 - Você está executando um aplicativo que está injetando um certificado TLS/SSL autoassinado nas mensagens HTTPS recebidas. Exemplos de aplicativos que inserem certificados incluem software antivírus e de inspeção de tráfego de rede.
 
 Quando Gerenciador de Armazenamento vê um certificado autoassinado ou não confiável, ele não sabe mais se a mensagem HTTPS recebida foi alterada. Se você tiver uma cópia do certificado autoassinado, poderá instruir Gerenciador de Armazenamento a confiar, seguindo estas etapas:
 
 1. Obtenha uma cópia X. 509 (. cer) codificada em base-64 do certificado.
-2. Vá para **Editar**certificados  >  **SSL**  >  **importar certificados**e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
+2. Vá para **Editar** certificados  >  **SSL**  >  **importar certificados** e, em seguida, use o seletor de arquivos para localizar, selecionar e abrir o arquivo. cer.
 
 Esse problema também pode ocorrer se houver vários certificados (raiz e intermediário). Para corrigir esse erro, ambos os certificados devem ser adicionados.
 
@@ -98,12 +98,12 @@ Se você não tiver certeza de onde o certificado provém, siga estas etapas par
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): qualquer uma das versões leves deve ser suficiente.
     * Mac e Linux: devem ser incluídos no seu sistema operacional.
 2. Execute o OpenSSL.
-    * Windows: Abra o diretório de instalação, selecione **/bin/** e clique duas vezes em **openssl.exe**.
+    * Windows: Abra o diretório de instalação, selecione **/bin/** e clique duas vezes em **openssl.exe** .
     * Mac e Linux: executar `openssl` de um terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`.
 4. Procurar certificados autoassinados. Se você não tiver certeza de quais certificados são autoassinados, anote em qualquer lugar que o assunto `("s:")` e o emissor `("i:")` sejam os mesmos.
 5. Quando você encontrar certificados autoassinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` por meio de `-----END CERTIFICATE-----` um novo arquivo. cer.
-6. Abra Gerenciador de armazenamento e acesse **Editar**certificados  >  **SSL**  >  **importar certificados**. Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
+6. Abra Gerenciador de armazenamento e acesse **Editar** certificados  >  **SSL**  >  **importar certificados** . Em seguida, use o seletor de arquivos para localizar, selecionar e abrir os arquivos. cer que você criou.
 
 Se você não encontrar certificados autoassinados seguindo estas etapas, entre em contato conosco por meio da ferramenta de comentários. Você também pode abrir Gerenciador de Armazenamento na linha de comando usando o `--ignore-certificate-errors` sinalizador. Quando aberto com esse sinalizador, Gerenciador de Armazenamento ignora erros de certificado.
 
@@ -113,7 +113,7 @@ Se você não encontrar certificados autoassinados seguindo estas etapas, entre 
 
 Caixas de diálogo de entrada em branco ocorrem com mais frequência quando Serviços de Federação do Active Directory (AD FS) (AD FS) solicita Gerenciador de Armazenamento para executar um redirecionamento, o que não é suportado pelo de todos os. Para contornar esse problema, você pode tentar usar o fluxo de código do dispositivo para entrar. Para fazer isso, siga estas etapas:
 
-1. Na barra de ferramentas vertical esquerda, abra **configurações**. No painel configurações, vá para **Application**  >  **entrada do**aplicativo. Habilitar **usar entrada de fluxo de código de dispositivo**.
+1. Na barra de ferramentas vertical esquerda, abra **configurações** . No painel configurações, vá para **Application**  >  **entrada do** aplicativo. Habilitar **usar entrada de fluxo de código de dispositivo** .
 2. Abra a caixa de diálogo **conectar** (por meio do ícone de plugue na barra vertical do lado esquerdo ou selecionando **adicionar conta** no painel de conta).
 3. Escolha o ambiente no qual você deseja entrar.
 4. Selecione **Entrar.**
@@ -130,9 +130,9 @@ Se você estiver em um loop de reautenticação ou tiver alterado o UPN de uma d
 
 1. Remova todas as contas e, em seguida, feche Gerenciador de Armazenamento.
 2. Exclua a pasta .IdentityService do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, você pode encontrar a pasta na raiz do seu diretório de usuário.
-3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
+3. Se você estiver executando o Mac ou o Linux, também precisará excluir a entrada Microsoft. Developer. IdentityService do repositório de chaves do seu sistema operacional. No Mac, o keystore é o aplicativo de conjunto de *chaves GNOME* . No Linux, o aplicativo é normalmente chamado de _token_ de entrada, mas o nome pode ser diferente dependendo da sua distribuição.
 
-### <a name="conditional-access"></a>Acesso Condicional
+### <a name="conditional-access"></a>Acesso condicional
 
 Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Armazenamento, o acesso condicional não tem suporte quando Gerenciador de Armazenamento está sendo usado no Windows 10, Linux ou macOS.
 
@@ -141,7 +141,7 @@ Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Arm
 Às vezes, o conjunto de chaves macOS pode inserir um estado que causa problemas para a biblioteca de autenticação Gerenciador de Armazenamento. Para obter o conjunto de chaves desse Estado, siga estas etapas:
 
 1. Feche o Gerenciador de Armazenamento.
-2. Abra o conjunto de chaves (pressione Command + barra de espaços, digite **keychain**e pressione Enter).
+2. Abra o conjunto de chaves (pressione Command + barra de espaços, digite **keychain** e pressione Enter).
 3. Selecione o conjunto de chaves "logon".
 4. Selecione o ícone de cadeado para bloquear o conjunto de chaves. (O cadeado aparecerá bloqueado quando o processo for concluído. Pode levar alguns segundos, dependendo de quais aplicativos você abriu).
 
@@ -230,7 +230,7 @@ Se você estiver conectado ao Azure por meio de um proxy, verifique se as config
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>A cadeia de conexão não tem definições de configuração completas
 
-Se você receber essa mensagem de erro, é possível que você não tenha as permissões necessárias para obter as chaves para sua conta de armazenamento. Para confirmar que esse é o caso, vá para o portal e localize sua conta de armazenamento. Você pode fazer isso clicando com o botão direito do mouse no nó da sua conta de armazenamento e selecionando **abrir no portal**. Em seguida, vá para a folha **chaves de acesso** . Se você não tiver permissões para exibir chaves, verá uma mensagem "você não tem acesso". Para contornar esse problema, você pode obter a chave de conta de outra pessoa e anexar por meio do nome e da chave, ou pode pedir a alguém uma SAS para a conta de armazenamento e usá-la para anexar a conta de armazenamento.
+Se você receber essa mensagem de erro, é possível que você não tenha as permissões necessárias para obter as chaves para sua conta de armazenamento. Para confirmar que esse é o caso, vá para o portal e localize sua conta de armazenamento. Você pode fazer isso clicando com o botão direito do mouse no nó da sua conta de armazenamento e selecionando **abrir no portal** . Em seguida, vá para a folha **chaves de acesso** . Se você não tiver permissões para exibir chaves, verá uma mensagem "você não tem acesso". Para contornar esse problema, você pode obter a chave de conta de outra pessoa e anexar por meio do nome e da chave, ou pode pedir a alguém uma SAS para a conta de armazenamento e usá-la para anexar a conta de armazenamento.
 
 Se você vir as chaves de conta, execute um problema no GitHub para que possamos ajudá-lo a resolver o problema.
 
@@ -238,8 +238,8 @@ Se você vir as chaves de conta, execute um problema no GitHub para que possamos
 
 Se você receber essa mensagem de erro ao tentar adicionar uma conexão personalizada, os dados de conexão armazenados no Gerenciador de credenciais local poderão estar corrompidos. Para contornar esse problema, tente excluir as conexões locais corrompidas e, em seguida, adicione-as novamente:
 
-1. Iniciar Gerenciador de Armazenamento. No menu, vá para **ajuda**  >  **alternar ferramentas para desenvolvedores**.
-2. Na janela aberta, na guia **aplicativo** , vá para **armazenamento local** (lado esquerdo) > **file://**.
+1. Iniciar Gerenciador de Armazenamento. No menu, vá para **ajuda**  >  **alternar ferramentas para desenvolvedores** .
+2. Na janela aberta, na guia **aplicativo** , vá para **armazenamento local** (lado esquerdo) > **file://** .
 3. Dependendo do tipo de conexão com a qual você está tendo um problema, procure sua chave e copie seu valor em um editor de texto. O valor é uma matriz de seus nomes de conexão personalizados, como o seguinte:
     * Contas de armazenamento
         * `StorageExplorer_CustomConnections_Accounts_v1`
@@ -265,13 +265,13 @@ Depois de passar por todas as suas conexões, para todos os nomes de conexões q
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 1. No menu **Iniciar** , pesquise por **Gerenciador de credenciais** e abra-o.
-2. Vá para **credenciais do Windows**.
-3. Em **credenciais genéricas**, procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
+2. Vá para **credenciais do Windows** .
+3. Em **credenciais genéricas** , procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Exclua essas entradas e adicione novamente as conexões.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-1. Abra o Spotlight (Command + barra de espaços) e pesquise por acesso ao conjunto de **chaves**.
+1. Abra o Spotlight (Command + barra de espaços) e pesquise por acesso ao conjunto de **chaves** .
 2. Procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Exclua essas entradas e adicione novamente as conexões.
 

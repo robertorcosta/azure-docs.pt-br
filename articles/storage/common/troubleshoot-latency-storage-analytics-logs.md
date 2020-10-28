@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 6c29fd00a19c930995d748027b2ec04eaa12a5ec
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480642"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785588"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Solucionar problemas de latência usando logs da Análise de Armazenamento
 
@@ -27,7 +27,7 @@ As etapas a seguir demonstram como identificar e solucionar problemas de latênc
 
 ## <a name="recommended-steps"></a>Etapas recomendadas
 
-1. Baixe os [logs de análise de armazenamento](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Baixe os [logs de análise de armazenamento](./storage-analytics-logging.md#download-storage-logging-log-data).
 
 2. Use o seguinte script do PowerShell para converter os logs de formato bruto em formato tabular:
 
@@ -114,7 +114,7 @@ Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas
 * Server-Latency
 * Client-Latency
 
-Em uma **operação getBlob** com **RequestStatus = Success**, se o **tempo máximo** for gasto na **latência do cliente**, isso indica que o armazenamento do Azure está gastando um grande volume de tempo gravando dados no cliente. Esse atraso indica um problema de Client-Side.
+Em uma **operação getBlob** com **RequestStatus = Success** , se o **tempo máximo** for gasto na **latência do cliente** , isso indica que o armazenamento do Azure está gastando um grande volume de tempo gravando dados no cliente. Esse atraso indica um problema de Client-Side.
 
 **Recomendação:**
 
@@ -129,7 +129,7 @@ Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas
 * Server-Latency
 * Client-Latency
 
-Em uma **operação getBlob** com **REQUESTSTATUS = (SAS) NetworkError**, se o **tempo máximo** for gasto na **latência do cliente**, o problema mais comum é que o cliente está desconectando antes que o tempo limite expire no serviço de armazenamento.
+Em uma **operação getBlob** com **REQUESTSTATUS = (SAS) NetworkError** , se o **tempo máximo** for gasto na **latência do cliente** , o problema mais comum é que o cliente está desconectando antes que o tempo limite expire no serviço de armazenamento.
 
 **Recomendação:**
 
@@ -144,7 +144,7 @@ Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas
 * Server-Latency
 * Client-Latency
 
-Em uma **operação Put** com **RequestStatus = Success**, se o **tempo máximo** for gasto na **latência do cliente**, isso indica que o cliente está demorando mais tempo para enviar dados para o armazenamento do Azure. Esse atraso indica um problema de Client-Side.
+Em uma **operação Put** com **RequestStatus = Success** , se o **tempo máximo** for gasto na **latência do cliente** , isso indica que o cliente está demorando mais tempo para enviar dados para o armazenamento do Azure. Esse atraso indica um problema de Client-Side.
 
 **Recomendação:**
 
@@ -159,10 +159,9 @@ Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas
 * Server-Latency
 * Client-Latency
 
-Em uma **operação PutBlob** com **REQUESTSTATUS = (SAS) NetworkError**, se o **tempo máximo** for gasto na **latência do cliente**, o problema mais comum é que o cliente está desconectando antes que o tempo limite expire no serviço de armazenamento.
+Em uma **operação PutBlob** com **REQUESTSTATUS = (SAS) NetworkError** , se o **tempo máximo** for gasto na **latência do cliente** , o problema mais comum é que o cliente está desconectando antes que o tempo limite expire no serviço de armazenamento.
 
 **Recomendação:**
 
 * Investigue o código no cliente para entender porque e quando o cliente desconecta do serviço de armazenamento.
 * Use o Wireshark, o Microsoft Message Analyzer ou o Tcping para investigar problemas de conectividade de rede do cliente.
-
