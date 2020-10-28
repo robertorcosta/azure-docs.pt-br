@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a3afb12ac831d87b03d0bb16d1b7ef553f1bb906
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90006812"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675988"
 ---
 # <a name="how-to-author-and-sign-an-attestation-policy"></a>Como criar e assinar uma política de atestado
 
@@ -36,7 +36,7 @@ issuancerules
  
 Um arquivo de política tem três segmentos, conforme visto acima:
 
-- **version**:  a versão é o número de versão da gramática seguida. 
+- **version** :  a versão é o número de versão da gramática seguida. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Um arquivo de política tem três segmentos, conforme visto acima:
 
     Atualmente, a única versão compatível é 1.0.
 
-- **authorizationrules**: uma coleção de regras de declaração que será verificada primeiro para determinar se o Atestado do Azure deve prosseguir para **issuancerules**. As regras de declaração se aplicam na ordem em que são definidas.
+- **authorizationrules** : uma coleção de regras de declaração que será verificada primeiro para determinar se o Atestado do Azure deve prosseguir para **issuancerules** . As regras de declaração se aplicam na ordem em que são definidas.
 
-- **issuancerules**: uma coleção de regras de declaração que será avaliada para adicionar outras informações ao resultado do atestado, conforme definido na política. As regras de declaração se aplicam na ordem em que são definidas e também são opcionais.
+- **issuancerules** : uma coleção de regras de declaração que será avaliada para adicionar outras informações ao resultado do atestado, conforme definido na política. As regras de declaração se aplicam na ordem em que são definidas e também são opcionais.
 
 Confira [Declaração e regras de declaração](claim-rule-grammar.md) para obter mais informações.
    
@@ -54,7 +54,7 @@ Confira [Declaração e regras de declaração](claim-rule-grammar.md) para obte
 
 1. Crie um arquivo.
 1. Adicione a versão ao arquivo.
-1. Adicione seções a **authorizationrules** e **issuancerules**.
+1. Adicione seções a **authorizationrules** e **issuancerules** .
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Confira [Declaração e regras de declaração](claim-rule-grammar.md) para obte
   };
   ```
 
-  Se o conjunto de declarações de entrada contiver uma declaração correspondente ao tipo, ao valor e ao emissor, a ação permit() instruirá o mecanismo de política a processar as **issuancerules**.
+  Se o conjunto de declarações de entrada contiver uma declaração correspondente ao tipo, ao valor e ao emissor, a ação permit() instruirá o mecanismo de política a processar as **issuancerules** .
   
-5. Adicione regras de declaração a **issuancerules**.
+5. Adicione regras de declaração a **issuancerules** .
 
   ```
   version=1.0;
@@ -128,8 +128,8 @@ Depois de criar um arquivo de política, para carregar uma política no formato 
      ```
 
 2. (opcional) assine a política. O Atestado do Azure dá suporte aos seguintes algoritmos:
-     - **Nenhum**: não assine o conteúdo da política.
-     - **RS256**: algoritmo com suporte para assinar o conteúdo da política
+     - **Nenhum** : não assine o conteúdo da política.
+     - **RS256** : algoritmo com suporte para assinar o conteúdo da política
 
 3. Carregue o JWS e valide a política.
      - Se o arquivo de política estiver livre de erros de sintaxe, o arquivo de política será aceito pelo serviço.
@@ -172,4 +172,4 @@ print(encoded.decode('utf-8'))
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar o Atestado do Azure usando o PowerShell](quickstart-powershell.md)
-- [Atestar um enclave do SGX usando exemplos de código](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Atestar um enclave do SGX usando exemplos de código](/samples/browse/?expanded=azure&terms=attestation)

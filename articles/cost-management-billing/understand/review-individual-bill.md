@@ -7,14 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.custom: contentperfq2
+ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653274"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678125"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Tutorial: Examine a fatura de sua assinatura individual do Azure
 
@@ -32,9 +33,9 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa ter uma conta de cobrança paga do *Programa Microsoft Online Services*. A conta é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, se você tiver uma [conta com tarifas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou se for um [assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+Você precisa ter uma conta de cobrança paga do *Programa Microsoft Online Services* . A conta é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, se você tiver uma conta com tarifas pagas conforme o uso ou se for um assinante do Visual Studio.
 
-As faturas das [Contas Gratuitas do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) são criadas somente quando o valor de crédito mensal é ultrapassado.
+As faturas das Contas Gratuitas do Azure são criadas somente quando o valor de crédito mensal é ultrapassado.
 
 É necessário que você tenha assinado o Azure há mais de 30 dias. O Azure cobra você no final do período de faturamento.
 
@@ -48,19 +49,19 @@ As faturas das [Contas Gratuitas do Azure](https://azure.microsoft.com/offers/ms
 
 A primeira etapa para comparar o uso e os custos é baixar seus arquivos de fatura e uso. O arquivo CSV de uso detalhado mostra os encargos por período de cobrança e de uso diário. Ele não inclui nenhuma informação de impostos. Para baixar os arquivos, você precisa ser um administrador da conta ou ter a função de Proprietário.
 
-No portal do Azure, digite *assinaturas* na caixa de pesquisa e clique em [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+No portal do Azure, digite *assinaturas* na caixa de pesquisa e clique em **Assinaturas** .
 
 [![Navegue até Assinaturas](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Na lista de assinaturas, clique na assinatura.
 
-Em **Cobrança**, selecione **Faturas**.
+Em **Cobrança** , selecione **Faturas** .
 
 Na lista de faturas, procure aquela que você deseja baixar e clique no símbolo de download. Talvez seja necessário alterar o período para exibir as faturas mais antigas. Pode levar alguns minutos para gerar o arquivo de detalhes de uso e a fatura.
 
 ![Captura de tela que mostra os períodos de cobrança, a opção de download e as cobranças totais para cada período de cobrança](./media/review-individual-bill/download-invoice.png)
 
-Na janela Baixar Uso + Encargos, clique em **Baixar CSV** e em **Baixar fatura**.
+Na janela Baixar Uso + Encargos, clique em **Baixar CSV** e em **Baixar fatura** .
 
 ![Captura de tela que mostra a página Baixar fatura e uso](./media/review-individual-bill/usageandinvoice.png)
 
@@ -69,14 +70,14 @@ Caso a mensagem **Não disponível** apareça, há vários motivos pelos quais v
 - Faz menos de 30 dias que você se inscreveu no Azure.
 - Não há uso no período de cobrança.
 - A fatura ainda não foi gerada. Aguarde até o final do período de cobrança.
-- Você não tem permissão para exibir faturas. Talvez você não veja as faturas antigas a menos que seja o Administrador da Conta. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](../manage/manage-billing-access.md).
+- Você não tem permissão para exibir faturas. Talvez você não veja as faturas antigas a menos que seja o Administrador da Conta.
 - Se você tiver uma Avaliação Gratuita ou uma quantidade de crédito mensal com sua assinatura que você não excedeu, você não receberá uma fatura, a menos que tenha um Contrato de Cliente da Microsoft.
 
 Em seguida, examine os encargos. Sua fatura mostra valores dos impostos e seus encargos de uso.
 
 ![Exemplo de fatura do Azure](./media/review-individual-bill/invoice-usage-charge.png)
 
-Abra o arquivo de uso CSV que você baixou. No final do arquivo, some o valor de todos os itens na coluna *Custo*.
+Abra o arquivo de uso CSV que você baixou. No final do arquivo, some o valor de todos os itens na coluna *Custo* .
 
 ![Exemplo de arquivo de uso com o custo somado](./media/review-individual-bill/usage-file-usage-charges.png)
 
@@ -97,7 +98,7 @@ Os encargos de uso são exibidos no nível do medidor. Os termos na lista a segu
 |Tarifa | EffectivePrice|
 | Valor | Custo |
 
-A seção **Encargos de Uso** da sua fatura mostra o valor total (custo) de cada medidor que foi consumido durante o período de cobrança. Por exemplo, a imagem a seguir mostra um encargo de uso do serviço do Armazenamento do Microsoft Azure para o recurso *Discos P10*.
+A seção **Encargos de Uso** da sua fatura mostra o valor total (custo) de cada medidor que foi consumido durante o período de cobrança. Por exemplo, a imagem a seguir mostra um encargo de uso do serviço do Armazenamento do Microsoft Azure para o recurso *Discos P10* .
 
 ![Encargos de uso da fatura](./media/review-individual-bill/invoice-usage-charges.png)
 
@@ -107,11 +108,9 @@ No arquivo de uso CSV, filtre por *MeterName* o recurso correspondente mostrado 
 
 O valor do *Custo* somado deve corresponder precisamente ao custo dos *encargos de uso* do recurso individual cobrado em sua fatura.
 
-Para obter mais informações, confira [Entender sua fatura do Azure](understand-invoice.md) e [Entender o uso detalhado do Azure](understand-usage.md).
-
 ## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Comparar os encargos cobrados e o uso na análise de custo
 
-A análise de custo no portal do Azure também pode lhe ajudar a verificar seus encargos. Para ter uma visão geral rápida do uso e dos encargos faturados, selecione sua assinatura na [Página de assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure. Em seguida, clique em **Análise de custo** e, na lista modos de exibição, clique em **Detalhes da fatura**.
+A análise de custo no portal do Azure também pode lhe ajudar a verificar seus encargos. Para ter uma visão geral rápida do uso e dos encargos faturados, selecione sua assinatura na Página de assinaturas no portal do Azure. Em seguida, clique em **Análise de custo** e, na lista modos de exibição, clique em **Detalhes da fatura** .
 
 ![Exemplo mostrando a seleção de detalhes da fatura](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -129,7 +128,7 @@ Os custos mostrados na análise de custo devem corresponder precisamente ao cust
 
 Serviços externos ou encargos de Marketplace são para recursos que foram criados por fornecedores de software de terceiros. Esses recursos estão disponíveis para uso no Azure Marketplace. Por exemplo, um Barracuda Firewall é um recurso do Azure Marketplace oferecido por terceiros. Todos os encargos para o firewall e seus medidores correspondentes aparecem como cobranças de serviços externos.
 
-As taxas de serviço externas são cobradas separadamente. Os encargos não aparecem na fatura do Azure. Para saber mais, confira [Entender os encargos dos serviços externos do Azure](understand-azure-marketplace-charges.md).
+As taxas de serviço externas são cobradas separadamente. Os encargos não aparecem na fatura do Azure.
 
 ### <a name="resources-are-billed-by-usage-meters"></a>Os recursos são cobrados de acordo com os medidores de uso
 
@@ -158,13 +157,9 @@ Você pode ver os medidores que foram usados para calcular sua fatura no arquivo
 
 <a name="payment"></a>
 
-Se você tiver configurado um cartão de crédito como forma de pagamento, o pagamento será cobrado automaticamente em até 10 dias após o término do período de cobrança. Na sua declaração de cartão de crédito, o item de linha diria **MSFT Azure**.
+Se você tiver configurado um cartão de crédito como forma de pagamento, o pagamento será cobrado automaticamente em até 10 dias após o término do período de cobrança. Na sua declaração de cartão de crédito, o item de linha diria **MSFT Azure** .
 
 Para alterar o cartão de crédito cobrado, confira [Adicionar, atualizar ou remover um cartão de crédito do Azure](../manage/change-credit-card.md).
-
-Se você [pagar pela fatura](../manage/pay-by-invoice.md), envie seu pagamento para o local listado na parte inferior da fatura.
-
-Para verificar o status do seu pagamento, [crie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Próximas etapas
 

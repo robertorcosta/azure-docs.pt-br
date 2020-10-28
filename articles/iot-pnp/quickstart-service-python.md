@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946069"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741491"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Início Rápido: Interagir com um dispositivo IoT Plug and Play conectado à sua solução (Python)
 
@@ -59,7 +59,7 @@ Neste início rápido, você usará um dispositivo de termostato gravado em Pyth
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
 
-1. Esta janela de terminal é usada como o seu terminal de **dispositivo**. Acesse a pasta do repositório clonado e navegue até a pasta */azure-iot-sdk-python/azure-iot-device/samples/pnp*.
+1. Esta janela de terminal é usada como o seu terminal de **dispositivo** . Acesse a pasta do repositório clonado e navegue até a pasta */azure-iot-sdk-python/azure-iot-device/samples/pnp* .
 
 1. Execute o dispositivo de termostato de exemplo com o seguinte comando:
 
@@ -73,21 +73,21 @@ Neste início rápido, você usará um dispositivo de termostato gravado em Pyth
 
 Neste início rápido, você usará uma solução de IoT de exemplo em Python para interagir com o dispositivo de exemplo que acabou de configurar.
 
-1. Abra outra janela de terminal para usar como o seu terminal de **serviço**.
+1. Abra outra janela de terminal para usar como o seu terminal de **serviço** .
 
 1. Navegue até a pasta */azure-iot-sdk-python/azure-iot-hub/samples* do repositório clonado do SDK do Python.
 
 1. Abra o arquivo *registry_manager_pnp_sample.py* e examine o código. Este exemplo mostra como usar a classe **IoTHubRegistryManager** para interagir com o dispositivo do IoT Plug and Play.
 
 > [!NOTE]
-> Esses exemplos de serviço usam a classe **IoTHubRegistryManager** do **cliente do serviço do Hub IoT**. Para saber mais sobre as APIs, incluindo a API de gêmeos digitais, confira o [guia do desenvolvedor do serviço](concepts-developer-guide-service.md).
+> Esses exemplos de serviço usam a classe **IoTHubRegistryManager** do **cliente do serviço do Hub IoT** . Para saber mais sobre as APIs, incluindo a API de gêmeos digitais, confira o [guia do desenvolvedor do serviço](concepts-developer-guide-service.md).
 
 ### <a name="get-the-device-twin"></a>Obter o dispositivo gêmeo
 
 Em [Configurar o ambiente para os inícios rápidos e os tutoriais do IoT Plug and Play](set-up-environment.md), você criou duas variáveis de ambiente para configurar o exemplo a ser conectado ao hub IoT e ao dispositivo:
 
-* **IOTHUB_CONNECTION_STRING**: a cadeia de conexão do hub IoT anotada anteriormente.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING** : a cadeia de conexão do hub IoT anotada anteriormente.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
 
 Use o seguinte comando no terminal do **serviço** para executar este exemplo:
 
@@ -107,7 +107,7 @@ The Model ID for this device is:
 dtmi:com:example:Thermostat;1
 ```
 
-O seguinte snippet mostra o código de exemplo de *registry_manager_pnp_sample.py*:
+O seguinte snippet mostra o código de exemplo de *registry_manager_pnp_sample.py* :
 
 ```python
     # Create IoTHubRegistryManager
@@ -165,7 +165,7 @@ O terminal do **serviço** mostra uma mensagem de confirmação do dispositivo:
 The device method has been successfully invoked
 ```
 
-No terminal do **dispositivo**, você vê que o dispositivo recebe o comando:
+No terminal do **dispositivo** , você vê que o dispositivo recebe o comando:
 
 ```cmd/sh
 Command request received with payload

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167042"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537942"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Banco de Dados do Azure para MySQL – Servidor Flexível (versão prévia)
 
@@ -75,7 +75,7 @@ Você tem duas opções de rede para se conectar ao Servidor Flexível do Banco 
    * Usar a VPN ou o ExpressRoute para se conectar de recursos que não são do Azure com seu servidor flexível
    * Nenhum ponto de extremidade público
 
-* **Acesso público (endereços IP permitidos)** – você pode implantar seu servidor flexível com um ponto de extremidade público. O ponto de extremidade público é um endereço DNS que poderia ser resolvido publicamente. A frase "endereços IP permitidos" refere-se a um intervalo de IPs que você escolhe para conceder permissão para acessar o servidor. Essas permissões são chamadas **regras de firewall**.
+* **Acesso público (endereços IP permitidos)** – você pode implantar seu servidor flexível com um ponto de extremidade público. O ponto de extremidade público é um endereço DNS que poderia ser resolvido publicamente. A frase "endereços IP permitidos" refere-se a um intervalo de IPs que você escolhe para conceder permissão para acessar o servidor. Essas permissões são chamadas **regras de firewall** .
 
 Confira os [Conceitos de rede](concepts-networking.md) para saber mais.
 
@@ -99,7 +99,7 @@ O serviço criptografa os dados em movimento com o protocolo TLS imposto por pad
 
 Confira [como usar conexões criptografadas para servidores flexíveis](https://docs.mongodb.com/manual/tutorial/configure-ssl) para saber mais.
 
-Os servidores flexíveis permitem acesso privado completo aos servidores usando a [integração de VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (rede virtual) do Azure. Os servidores da rede virtual do Azure só podem ser acessados e conectados por meio de endereços IP privados. Com a Integração VNET, o acesso público é negado e os servidores não podem ser acessados por meio de pontos de extremidade públicos. 
+Os servidores flexíveis permitem acesso privado completo aos servidores usando a [integração de VNet](../../virtual-network/virtual-networks-overview.md) (rede virtual) do Azure. Os servidores da rede virtual do Azure só podem ser acessados e conectados por meio de endereços IP privados. Com a Integração VNET, o acesso público é negado e os servidores não podem ser acessados por meio de pontos de extremidade públicos. 
 
 Confira os [Conceitos de rede](concepts-networking.md) para saber mais.
 
@@ -115,7 +115,7 @@ Confira os [Conceitos de monitoramento](concepts-monitoring.md) para saber mais.
 O serviço executa a versão da comunidade do MySQL. Isso permite a compatibilidade total do aplicativo e exige o mínimo de custo de refatoração para migrar o aplicativo existente desenvolvido no mecanismo MySQL para um serviço de servidor único. A migração para o servidor único pode ser executada usando uma das seguintes opções:
 
 - **Despejo e restauração** – nas migrações offline, em que os usuários podem ter algum tempo de inatividade, realizar o despejo e a restauração com ferramentas da comunidade como mysqldump/mydumper pode fornecer uma forma mais rápida de migração. Confira Migrar usando despejo e restauração para obter detalhes. 
-- **Serviço de Migração de Banco de Dados do Azure** – para migrações integradas e simplificadas para o servidor único com um tempo de inatividade mínimo, você pode aproveitar o [Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online). 
+- **Serviço de Migração de Banco de Dados do Azure** – para migrações integradas e simplificadas para o servidor único com um tempo de inatividade mínimo, você pode aproveitar o [Serviço de Migração de Banco de Dados do Azure](../../dms/tutorial-mysql-azure-mysql-online.md). 
 
 ## <a name="azure-regions"></a>Regiões do Azure
 
@@ -131,7 +131,7 @@ Uma das vantagens de executar sua carga de trabalho no Azure é obter um alcance
 - Canadá Central
 - Sudeste Asiático
 - Coreia Central
-- Japan East
+- Leste do Japão
 - Leste da Austrália
 
 Estamos trabalhando para adicionar novos servidores em breve.

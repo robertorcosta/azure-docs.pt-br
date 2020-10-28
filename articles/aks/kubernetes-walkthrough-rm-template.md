@@ -4,13 +4,13 @@ description: Saiba como criar rapidamente um cluster do Kubernetes usando um mod
 services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2695126b8ad515735907558e3c316b87ac5dfbdc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc,subject-armqs, devx-track-azurecli
+ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070734"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740283"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando um modelo do Resource Manager
 
@@ -22,7 +22,7 @@ O AKS (Serviço de Kubernetes do Azure) é um serviço de Kubernetes gerenciado 
 
 Este guia de início rápido pressupõe uma compreensão básica dos conceitos do Kubernetes. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
@@ -38,7 +38,7 @@ Para criar um cluster do AKS usando um modelo do Resource Manager, forneça uma 
 
 ### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 
-Para acessar nós do AKS, conecte-se usando um par de chaves SSH. Use o comando `ssh-keygen` para gerar arquivos de chave SSH pública e privada. Por padrão, esses arquivos são criados no diretório *~/.ssh*. Se um par de chaves SSH com o mesmo nome existir no local especificado, esses arquivos serão substituídos.
+Para acessar nós do AKS, conecte-se usando um par de chaves SSH. Use o comando `ssh-keygen` para gerar arquivos de chave SSH pública e privada. Por padrão, esses arquivos são criados no diretório *~/.ssh* . Se um par de chaves SSH com o mesmo nome existir no local especificado, esses arquivos serão substituídos.
 
 Acesse [https://shell.azure.com](https://shell.azure.com) para abrir o Cloud Shell no navegador.
 
@@ -70,7 +70,7 @@ A saída deverá ser semelhante ao seguinte exemplo:
 }
 ```
 
-Anote a *appId* e a *senha*. Esses valores serão usados nas próximas etapas.
+Anote a *appId* e a *senha* . Esses valores serão usados nas próximas etapas.
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
@@ -88,22 +88,22 @@ Para obter mais amostras do AKS, confira o site de [modelos de início rápido d
 
 2. Selecione ou insira os seguintes valores.
 
-    Para este início rápido, deixe os valores padrão para *Tamanho em GB do Disco do Sistema Operacional*, *Contagem de Agentes*, *Tamanho da VM do Agente*, *Tipo de Sistema Operacional* e *Versão do Kubernetes*. Forneça seus próprios valores para os seguintes parâmetros de modelo:
+    Para este início rápido, deixe os valores padrão para *Tamanho em GB do Disco do Sistema Operacional* , *Contagem de Agentes* , *Tamanho da VM do Agente* , *Tipo de Sistema Operacional* e *Versão do Kubernetes* . Forneça seus próprios valores para os seguintes parâmetros de modelo:
 
-    * **Assinatura**: Selecione uma assinatura do Azure.
-    * **Grupo de recursos**: Selecione **Criar novo**. Insira um nome exclusivo para o grupo de recursos, como *myResourceGroup*, e escolha **OK**.
-    * **Localização**: selecione um local, como **Leste dos EUA**.
-    * **Nome do cluster**: insira um nome exclusivo para o cluster do AKS, como *myAKSCluster*.
-    * **Prefixo DNS**: insira um prefixo DNS exclusivo para seu cluster, como *myakscluster*.
-    * **Nome do Usuário Administrador do Linux**: insira um nome de usuário para se conectar usando SSH, como *azureuser*.
-    * **Chave pública RSA SSH**: copie e cole a parte *pública* do seu par de chaves SSH (por padrão, o conteúdo de *~/.ssh/id_rsa.pub*).
-    * **ID de Cliente da Entidade de Serviço**: copie e cole a *appId* de sua entidade de serviço do comando `az ad sp create-for-rbac`.
-    * **Segredo do Cliente da Entidade de Serviço**: copie e cole a *senha* de sua entidade de serviço do comando `az ad sp create-for-rbac`.
-    * **Concordo com os termos e condições declarados acima**: Marque esta caixa para concordar.
+    * **Assinatura** : Selecione uma assinatura do Azure.
+    * **Grupo de recursos** : Selecione **Criar novo** . Insira um nome exclusivo para o grupo de recursos, como *myResourceGroup* , e escolha **OK** .
+    * **Localização** : selecione um local, como **Leste dos EUA** .
+    * **Nome do cluster** : insira um nome exclusivo para o cluster do AKS, como *myAKSCluster* .
+    * **Prefixo DNS** : insira um prefixo DNS exclusivo para seu cluster, como *myakscluster* .
+    * **Nome do Usuário Administrador do Linux** : insira um nome de usuário para se conectar usando SSH, como *azureuser* .
+    * **Chave pública RSA SSH** : copie e cole a parte *pública* do seu par de chaves SSH (por padrão, o conteúdo de *~/.ssh/id_rsa.pub* ).
+    * **ID de Cliente da Entidade de Serviço** : copie e cole a *appId* de sua entidade de serviço do comando `az ad sp create-for-rbac`.
+    * **Segredo do Cliente da Entidade de Serviço** : copie e cole a *senha* de sua entidade de serviço do comando `az ad sp create-for-rbac`.
+    * **Concordo com os termos e condições declarados acima** : Marque esta caixa para concordar.
 
     ![Modelo do Resource Manager para criar um cluster do Serviço de Kubernetes do Azure no portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Selecione **Comprar**.
+3. Selecione **Comprar** .
 
 Leva alguns minutos para o cluster do AKS ser criado. Aguarde até que o cluster seja implantado com êxito antes de passar para a próxima etapa.
 
@@ -129,7 +129,7 @@ Para verificar a conexão com o cluster, use o comando [kubectl get][kubectl-get
 kubectl get nodes
 ```
 
-A saída de exemplo a seguir mostra os nós criados nas etapas anteriores. Verifique se o status para todos os nós é *Pronto*:
+A saída de exemplo a seguir mostra os nós criados nas etapas anteriores. Verifique se o status para todos os nós é *Pronto* :
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -257,7 +257,7 @@ Para monitorar o andamento, use o comando [kubectl get service][kubectl-get] com
 kubectl get service azure-vote-front --watch
 ```
 
-Inicialmente, o *EXTERNAL-IP* para o serviço *azure-vote-front* é mostrado como *pendente*.
+Inicialmente, o *EXTERNAL-IP* para o serviço *azure-vote-front* é mostrado como *pendente* .
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE

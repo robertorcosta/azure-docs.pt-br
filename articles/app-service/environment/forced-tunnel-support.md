@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830852"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540968"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar seu Ambiente de Serviço de Aplicativo com tunelamento forçado
 
@@ -73,7 +73,7 @@ Para encaminhar todo o tráfego de saída de seu ASE, exceto o que vai para o SQ
 
 2. Habilite os Pontos de Extremidade de Serviço com o SQL do Azure e o Armazenamento do Azure com sua sub-rede do ASE.  Após essa etapa estar concluída, você pode configurar sua rede virtual com o túnel forçado.
 
-Para criar seu ASE em uma rede virtual que já está configurada para rotear todo o tráfego no local, você precisa criar seu ASE usando um modelo do gerenciador de recursos.  Não é possível criar um ASE com o portal em uma sub-rede já existente.  Ao implantar seu ASE em uma rede virtual que já está configurada para rotear o tráfego de saída no local, você precisa criar seu ASE usando um modelo de gerenciador de recursos, que permitem que você especifique uma sub-rede já existente. Para obter detalhes sobre como implantar um ASE com um modelo, leia [Criando um Ambiente do Serviço de Aplicativo usando um modelo][template].
+Para obter detalhes sobre como implantar um ASE com um modelo, leia [Criando um Ambiente do Serviço de Aplicativo usando um modelo][template].
 
 Os Pontos de Extremidade de Serviço permitem restringir o acesso aos serviços de vários locatários para um conjunto de sub-redes e redes virtuais do Azure. Você pode saber mais sobre os Pontos de Extremidade de Serviço na documentação [Pontos de Extremidade de Serviço de Rede Virtual][serviceendpoints]. 
 
@@ -95,7 +95,7 @@ Para encapsular todo o tráfego de saída de seu ASE, exceto o que vai para o Ar
 
 3. Obtenha os endereços que serão usados para todo o tráfego de saída do seu Ambiente de Serviço de Aplicativo com a Internet. Se você estiver roteando o tráfego no local, esses endereços serão seus IPs de gateway ou NATs. Se desejar rotear o tráfego de saída do Ambiente do Serviço de Aplicativo por meio de uma NVA, o endereço de saída será o IP público da NVA.
 
-4. _Para definir os endereços de saída em um Ambiente do Serviço de Aplicativo existente:_ Acesse resources.azure.com e vá para Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Em seguida, será possível ver o JSON que descreve o Ambiente do Serviço de Aplicativo. Certifique-se de que consta **leitura/gravação** na parte superior. Selecione **Editar**. Role até a parte inferior. Altere o valor **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Use os endereços que você deseja definir como o intervalo de endereços de saída. 
+4. _Para definir os endereços de saída em um Ambiente do Serviço de Aplicativo existente:_ Acesse resources.azure.com e vá para Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Em seguida, será possível ver o JSON que descreve o Ambiente do Serviço de Aplicativo. Certifique-se de que consta **leitura/gravação** na parte superior. Selecione **Editar** . Role até a parte inferior. Altere o valor **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Use os endereços que você deseja definir como o intervalo de endereços de saída. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
@@ -103,7 +103,7 @@ Para encapsular todo o tráfego de saída de seu ASE, exceto o que vai para o Ar
 
    Selecione **PUT** na parte superior. Essa opção dispara uma operação de dimensionamento no Ambiente do Serviço de Aplicativo e ajusta o firewall.
 
-_Para criar seu ASE com os endereços de saída_: siga as instruções em [Criar um Ambiente do Serviço de Aplicativo com um modelo][template] e baixe o modelo apropriado.  Edite a seção "recursos" no arquivo azuredeploy.json, mas não no bloco "propriedades" e inclua uma linha para **userWhitelistedIpRanges** com seus valores.
+_Para criar seu ASE com os endereços de saída_ : siga as instruções em [Criar um Ambiente do Serviço de Aplicativo com um modelo][template] e baixe o modelo apropriado.  Edite a seção "recursos" no arquivo azuredeploy.json, mas não no bloco "propriedades" e inclua uma linha para **userWhitelistedIpRanges** com seus valores.
 
 ```json
 "resources": [

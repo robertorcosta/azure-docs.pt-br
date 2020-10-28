@@ -4,13 +4,13 @@ description: Saiba como configurar um contêiner do Python no qual aplicativos W
 ms.topic: quickstart
 ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-python
-ms.openlocfilehash: b489f7daebc9232088020948752c3792dca65095
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018739"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743807"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurar um aplicativo Python do Linux para o Serviço de Aplicativo do Azure
 
@@ -22,9 +22,9 @@ Este guia fornece conceitos e instruções essenciais para desenvolvedores do Py
 
 Será possível usar o [portal do Azure](https://portal.azure.com) ou a CLI do Azure para executar a configuração:
 
-- No **portal do Azure**, use a página **Configurações** > **Configuração** do aplicativo, conforme descrito em [Configurar um aplicativo do Serviço de Aplicativo no portal do Azure](configure-common.md).
+- No **portal do Azure** , use a página **Configurações** > **Configuração** do aplicativo, conforme descrito em [Configurar um aplicativo do Serviço de Aplicativo no portal do Azure](configure-common.md).
 
-- **CLI do Azure**: você tem duas opções.
+- **CLI do Azure** : você tem duas opções.
 
     - Executar comandos no [Azure Cloud Shell](../cloud-shell/overview.md), que poderá ser aberto usando o botão **Experimentar** no canto superior direito dos blocos de códigos.
     - Executar comandos localmente instalando a versão mais recente da [CLI do Azure](/cli/azure/install-azure-cli) e entrar no Azure usando o comando [az login](/cli/azure/reference-index#az-login).
@@ -34,9 +34,9 @@ Será possível usar o [portal do Azure](https://portal.azure.com) ou a CLI do A
 
 ## <a name="configure-python-version"></a>Configurar a versão do Python
 
-- **Portal do Azure**: use a guia **Configurações gerais** na página **Configuração**, conforme descrito em [Definir configurações gerais](configure-common.md#configure-general-settings) para contêineres do Linux.
+- **Portal do Azure** : use a guia **Configurações gerais** na página **Configuração** , conforme descrito em [Definir configurações gerais](configure-common.md#configure-general-settings) para contêineres do Linux.
 
-- **CLI do Azure**:
+- **CLI do Azure** :
 
     -  Mostre a versão atual do Python com o [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
@@ -69,7 +69,7 @@ O sistema de compilação do Serviço de Aplicativo, chamado Oryx, executará as
 
 1. Execute um script personalizado de pré-compilação caso seja especificado pela configuração `PRE_BUILD_COMMAND`.
 1. Execute `pip install -r requirements.txt`. O arquivo *requirements.txt* deverá estar presente na pasta raiz do projeto. Caso contrário, o processo de compilação relatará o seguinte erro: "Não foi possível localizar o setup.py nem o requirements.txt. A instalação de PIP não está sendo executada."
-1. Caso o *manage.py* seja encontrado na raiz do repositório (indicando um aplicativo Django), execute o *manage.py collectstatic*. No entanto, caso a configuração de `DISABLE_COLLECTSTATIC` seja `true`, essa etapa será ignorada.
+1. Caso o *manage.py* seja encontrado na raiz do repositório (indicando um aplicativo Django), execute o *manage.py collectstatic* . No entanto, caso a configuração de `DISABLE_COLLECTSTATIC` seja `true`, essa etapa será ignorada.
 1. Execute um script personalizado de pós-compilação caso seja especificado pela configuração `POST_BUILD_COMMAND`.
 
 Por padrão, as configurações `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` e `DISABLE_COLLECTSTATIC` estarão vazias. 
@@ -90,7 +90,7 @@ Para obter mais informações sobre como o Serviço de Aplicativo executa e cria
 > Uma configuração chamada `SCM_DO_BUILD_DURING_DEPLOYMENT`, caso contenha `true` ou 1, disparará uma compilação de Oryx durante a implantação. A configuração será true quando a implantação usar o Git, o comando `az webapp up` da CLI do Azure e o Visual Studio Code.
 
 > [!NOTE]
-> Sempre use caminhos relativos em todos os scripts de pré e pós-compilação porque o contêiner de compilação no qual o Oryx é executado será diferente do contêiner de runtime no qual o aplicativo será executado. Nunca confie no posicionamento exato da pasta do projeto do aplicativo dentro do contêiner (por exemplo, que a pasta foi colocada em *site/wwwroot*).
+> Sempre use caminhos relativos em todos os scripts de pré e pós-compilação porque o contêiner de compilação no qual o Oryx é executado será diferente do contêiner de runtime no qual o aplicativo será executado. Nunca confie no posicionamento exato da pasta do projeto do aplicativo dentro do contêiner (por exemplo, que a pasta foi colocada em *site/wwwroot* ).
 
 ## <a name="production-settings-for-django-apps"></a>Configurações de produção para aplicativos Django
 
@@ -102,7 +102,7 @@ A tabela a seguir descreverá configurações de produção relevantes para o Az
 | --- | --- |
 | `SECRET_KEY` | Armazene o valor em uma configuração do Serviço de Aplicativo, conforme descrito em como [Acessar configurações de aplicativos como variáveis de ambiente](#access-app-settings-as-environment-variables). Como alternativa, você poderá [armazenar o valor como um "segredo" no Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 | `DEBUG` | Crie uma configuração de `DEBUG` no Serviço de Aplicativo com o valor 0 (falso), depois carregue o valor como uma variável de ambiente. Em seu ambiente de desenvolvimento, crie uma variável de ambiente de `DEBUG` com o valor 1 (true). |
-| `ALLOWED_HOSTS` | Na produção, o Django exigirá que você inclua a URL do aplicativo na matriz `ALLOWED_HOSTS` de *settings.py*. Será possível recuperar essa URL no runtime com o código `os.environ['WEBSITE_HOSTNAME']`. O Serviço de Aplicativo definirá a variável de ambiente `WEBSITE_HOSTNAME` de maneira automática para a URL do aplicativo. |
+| `ALLOWED_HOSTS` | Na produção, o Django exigirá que você inclua a URL do aplicativo na matriz `ALLOWED_HOSTS` de *settings.py* . Será possível recuperar essa URL no runtime com o código `os.environ['WEBSITE_HOSTNAME']`. O Serviço de Aplicativo definirá a variável de ambiente `WEBSITE_HOSTNAME` de maneira automática para a URL do aplicativo. |
 | `DATABASES` | Defina as configurações no Serviço de Aplicativo para a conexão de banco de dados e carregue-as como variáveis de ambiente para preencher o dicionário [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES). Como alternativa, será possível armazenar os valores (especialmente o nome de usuário e a senha) como [segredos do Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 
 ## <a name="container-characteristics"></a>Características do contêiner
@@ -164,7 +164,7 @@ Se o módulo principal do aplicativo estiver contido em um arquivo diferente, us
 
 ### <a name="default-behavior"></a>Comportamento padrão
 
-Se o Serviço de Aplicativo não encontrar um aplicativo Flask, um aplicativo Django ou um comando personalizado, ele executará um aplicativo padrão somente leitura, localizado na pasta _opt/defaultsite_. O aplicativo padrão será exibido da seguinte maneira:
+Se o Serviço de Aplicativo não encontrar um aplicativo Flask, um aplicativo Django ou um comando personalizado, ele executará um aplicativo padrão somente leitura, localizado na pasta _opt/defaultsite_ . O aplicativo padrão será exibido da seguinte maneira:
 
 ![Serviço de Aplicativo padrão na página da Web do Linux](media/configure-language-python/default-python-app.png)
 
@@ -172,15 +172,15 @@ Se o Serviço de Aplicativo não encontrar um aplicativo Flask, um aplicativo Dj
 
 Conforme observado anteriormente neste artigo, você poderá fornecer parâmetros de configuração para o Gunicorn por meio de um arquivo *gunicorn.conf.py* na raiz do projeto, de acordo com o que está descrito em [Visão geral da configuração do Gunicorn](https://docs.gunicorn.org/en/stable/configure.html#configuration-file).
 
-Caso essa configuração não seja suficiente, você poderá controlar o comportamento de inicialização do contêiner fornecendo um comando de inicialização personalizado ou vários comandos em um arquivo de comandos de inicialização. Um arquivo de comandos de inicialização poderá usar qualquer nome que você escolher, como *startup.sh*, *startup.cmd*, *startup.txt* e assim por diante.
+Caso essa configuração não seja suficiente, você poderá controlar o comportamento de inicialização do contêiner fornecendo um comando de inicialização personalizado ou vários comandos em um arquivo de comandos de inicialização. Um arquivo de comandos de inicialização poderá usar qualquer nome que você escolher, como *startup.sh* , *startup.cmd* , *startup.txt* e assim por diante.
 
 Todos os comandos deverão usar caminhos relativos para a pasta raiz do projeto.
 
 Para especificar um comando de inicialização ou um arquivo de comandos:
 
-- **Portal do Azure**: selecione a página de **Configuração** do aplicativo e clique em **Configurações gerais**. No campo **Comando de Inicialização**, coloque o texto completo do comando de inicialização ou o nome do arquivo de comandos de inicialização. Depois clique em **Salvar** para aplicar as alterações. Confira [Definir configurações gerais](configure-common.md#configure-general-settings) para contêineres do Linux.
+- **Portal do Azure** : selecione a página de **Configuração** do aplicativo e clique em **Configurações gerais** . No campo **Comando de Inicialização** , coloque o texto completo do comando de inicialização ou o nome do arquivo de comandos de inicialização. Depois clique em **Salvar** para aplicar as alterações. Confira [Definir configurações gerais](configure-common.md#configure-general-settings) para contêineres do Linux.
 
-- **CLI do Azure**: use o comando [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) com o parâmetro `--startup-file` para definir o arquivo ou comando de inicialização:
+- **CLI do Azure** : use o comando [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) com o parâmetro `--startup-file` para definir o arquivo ou comando de inicialização:
 
     ```azurecli-interactive
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -192,7 +192,7 @@ O Serviço de Aplicativo ignorará todos os erros que ocorrerem no processamento
 
 ### <a name="example-startup-commands"></a>Exemplos de comandos de inicialização
 
-- **Adicionar argumentos Gunicorn**: o seguinte exemplo adicionará o `--workers=4` a uma linha de comando do Gunicorn para iniciar um aplicativo Django: 
+- **Adicionar argumentos Gunicorn** : o seguinte exemplo adicionará o `--workers=4` a uma linha de comando do Gunicorn para iniciar um aplicativo Django: 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -202,7 +202,7 @@ O Serviço de Aplicativo ignorará todos os erros que ocorrerem no processamento
 
     Para obter mais informações, veja [Como executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-- **Habilitar o log de produção para o Django**: adicione os argumentos `--access-logfile '-'` e `--error-logfile '-'` à linha de comando:
+- **Habilitar o log de produção para o Django** : adicione os argumentos `--access-logfile '-'` e `--error-logfile '-'` à linha de comando:
 
     ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
@@ -213,7 +213,7 @@ O Serviço de Aplicativo ignorará todos os erros que ocorrerem no processamento
 
     Para obter mais informações, confira [Logs do Gunicorn](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Módulo principal do Flask personalizado**: por padrão, o Serviço de Aplicativo pressupõe que o módulo principal de um aplicativo Flask será *application.py* ou *app.py*. Caso o módulo principal use um nome diferente, você deverá personalizar o comando de inicialização. Por exemplo, caso tenha um aplicativo Flask cujo módulo principal seja *hello.py* e o objeto do aplicativo Flask nesse arquivo seja chamado de `myapp`, então o comando será o seguinte:
+- **Módulo principal do Flask personalizado** : por padrão, o Serviço de Aplicativo pressupõe que o módulo principal de um aplicativo Flask será *application.py* ou *app.py* . Caso o módulo principal use um nome diferente, você deverá personalizar o comando de inicialização. Por exemplo, caso tenha um aplicativo Flask cujo módulo principal seja *hello.py* e o objeto do aplicativo Flask nesse arquivo seja chamado de `myapp`, então o comando será o seguinte:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -225,7 +225,7 @@ O Serviço de Aplicativo ignorará todos os erros que ocorrerem no processamento
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **Usar um servidor que não seja do Gunicorn**: para usar um servidor Web diferente, como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), use o comando apropriado como o comando de inicialização ou no arquivo de comandos de inicialização:
+- **Usar um servidor que não seja do Gunicorn** : para usar um servidor Web diferente, como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), use o comando apropriado como o comando de inicialização ou no arquivo de comandos de inicialização:
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -270,7 +270,7 @@ Para acessar logs por meio do portal do Azure, selecione **Monitoramento** > **F
     
     - Verifique se você está usando o Serviço de Aplicativo para Linux em vez de uma instância baseada em Windows. Na CLI do Azure, execute o comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, substituindo `<resource-group-name>` e `<app-service-name>` adequadamente. Você deve ver `app,linux` como saída; caso contrário, recrie o Serviço de Aplicativo e escolha o Linux.
     
-    - Use SSH ou o console do Kudu para se conectar diretamente ao Serviço de Aplicativo e verificar se há arquivos em *site/wwwroot*. Se os arquivos não existirem, examine seu processo de implantação e reimplante o aplicativo.
+    - Use SSH ou o console do Kudu para se conectar diretamente ao Serviço de Aplicativo e verificar se há arquivos em *site/wwwroot* . Se os arquivos não existirem, examine seu processo de implantação e reimplante o aplicativo.
     
     - Se os arquivos existem, o Serviço de Aplicativo não pôde identificar o arquivo de inicialização específica. Verifique se seu aplicativo está estruturado como o Serviço de Aplicativo espera para [Django](#django-app) ou [Flask](#flask-app), ou use um [comando de inicialização personalizados](#customize-startup-command).
 
@@ -282,9 +282,9 @@ Para acessar logs por meio do portal do Azure, selecione **Monitoramento** > **F
 
     - Examine o [fluxo de log](#access-diagnostic-logs) para verificar se há mensagens de erro.
 
-- **O fluxo de log mostrará a mensagem "não foi possível localizar o setup.py nem o requirements.txt. A instalação de PIP não está sendo executada".** : houve falha no processo de compilação do Oryx ao localizar o arquivo *requirements.txt*.
+- **O fluxo de log mostrará a mensagem "não foi possível localizar o setup.py nem o requirements.txt. A instalação de PIP não está sendo executada".** : houve falha no processo de compilação do Oryx ao localizar o arquivo *requirements.txt* .
 
-    - Use SSH ou o console do Kudu para se conectar diretamente ao Serviço de Aplicativo e verificar se *requirements.txt* existe em *site/wwwroot*. Caso contrário, verifique se o arquivo existe em seu repositório e foi incluído na implantação. Em caso afirmativo, mova o arquivo para a raiz em uma pasta separada.
+    - Use SSH ou o console do Kudu para se conectar diretamente ao Serviço de Aplicativo e verificar se *requirements.txt* existe em *site/wwwroot* . Caso contrário, verifique se o arquivo existe em seu repositório e foi incluído na implantação. Em caso afirmativo, mova o arquivo para a raiz em uma pasta separada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

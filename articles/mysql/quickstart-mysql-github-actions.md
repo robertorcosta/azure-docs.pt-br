@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 7b4620c739b2f94cb6b96743280cd1decbbb746e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326104"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541257"
 ---
 # <a name="use-github-actions-to-connect-to-azure-mysql"></a>Usar o GitHub Actions para conectar-se ao MySQL do Azure
 
@@ -39,7 +39,7 @@ O arquivo tem duas seções:
 
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
-Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar** .
+Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar** .
 
 Substitua os espaços reservados `server-name` pelo nome do seu servidor MySQL hospedado no Azure. Substitua o `subscription-id` e `resource-group` pela ID da assinatura e o grupo de recursos conectados ao servidor MySQL.  
 
@@ -191,4 +191,4 @@ Quando o banco de dados MySQL do Azure e o repositório não forem mais necessá
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a integração do Azure com o GitHub](https://docs.microsoft.com/azure/developer/github/)
+> [Saiba mais sobre a integração do Azure com o GitHub](/azure/developer/github/)

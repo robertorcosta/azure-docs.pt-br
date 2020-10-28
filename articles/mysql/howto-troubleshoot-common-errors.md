@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ebe9f936e3d0dfafec23842fcdbfd225995d546b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f64d4d2b9acbe0e6585ca546c915b82d2d1dbbc4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88719771"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737182"
 ---
 # <a name="common-errors"></a>Erros comuns
 
@@ -64,7 +64,7 @@ DELIMITER ;
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você não encontrou a resposta que estava procurando, considere o seguinte:
-- Poste sua pergunta na [página de perguntas do Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Poste sua pergunta na [página de perguntas do Microsoft Q&A](/answers/topics/azure-database-mysql.html) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Envie um email para a Equipe do Banco de Dados do Azure para MySQL [@Ask Azure DB para MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Esse endereço de email não é um alias de suporte técnico.
 - Para entrar em contato com o Suporte do Azure, [crie um tíquete no portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para corrigir um problema com sua conta, apresente uma [solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para fornecer comentários ou solicitar novos recursos, crie uma entrada por meio do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).

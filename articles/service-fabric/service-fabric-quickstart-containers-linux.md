@@ -3,13 +3,13 @@ title: Criar um aplicativo de contêiner Linux no Service Fabric no Azure
 description: Nesse início rápido, você construirá uma imagem do Docker com o seu aplicativo, enviará por push a imagem para um registro de contêiner e implantará um contêiner a um cluster do Service Fabric.
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 27a21a685d8dc4aa92585ce49b21d1986a54209f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 27d9c96643feb805a785e1e535cd8cac2602082b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91541502"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741916"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Linux no Service Fabric
 
@@ -89,7 +89,7 @@ O Service Fabric fornece várias ferramentas que você pode usar para gerenciar 
 
 Neste início rápido você usa a CLI do Service Fabric e o Service Fabric Explorer (uma ferramenta baseada na Web). Para usar o Service Fabric Explorer, você precisa importar o arquivo PFX de certificado para o navegador. Por padrão, o arquivo PFX não tem nenhuma senha.
 
-O Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu navegador e clique em **Opções**. Na página **Preferências**, use a caixa de pesquisa para procurar por "certificados". Clique em **Exibir Certificados**, selecione a guia **Seus Certificados**, clique em **Importar** e siga os prompts para importar o certificado.
+O Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu navegador e clique em **Opções** . Na página **Preferências** , use a caixa de pesquisa para procurar por "certificados". Clique em **Exibir Certificados** , selecione a guia **Seus Certificados** , clique em **Importar** e siga os prompts para importar o certificado.
 
    ![Instalar certificado no Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -101,13 +101,13 @@ O Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certif
     sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
     ```
 
-2. Use o script de instalação para copiar a definição do aplicativo de votação para o cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.  O arquivo PEM do certificado deve estar localizado no mesmo diretório que o arquivo *install.sh*.
+2. Use o script de instalação para copiar a definição do aplicativo de votação para o cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.  O arquivo PEM do certificado deve estar localizado no mesmo diretório que o arquivo *install.sh* .
 
     ```bash
     ./install.sh
     ```
 
-3. Abra um navegador da Web e navegue até o ponto de extremidade do Service Fabric Explorer para seu cluster. O ponto de extremidade tem o seguinte formato: **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Abra um navegador da Web e navegue até o ponto de extremidade do Service Fabric Explorer para seu cluster. O ponto de extremidade tem o seguinte formato: **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer** ; por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Expanda o nó **Aplicativos** para ver que agora há uma entrada para o tipo de aplicativo de votação e a instância que você criou.
 
@@ -143,13 +143,13 @@ Os serviços do Service Fabric podem ser facilmente dimensionados em um cluster 
 Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
 
 1. Abra o Service Fabric Explorer no cluster, por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080`.
-2. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/azurevotefront** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
+2. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/azurevotefront** no modo de exibição de árvore e escolha **Dimensionar Serviço** .
 
     ![Início do serviço de escala do Service Fabric Explorer][containersquickstartscale]
 
     Agora, você pode optar por dimensionar o número de instâncias do serviço de front-end da Web.
 
-3. Altere o número para **2** e clique em **Dimensionar Serviço**.
+3. Altere o número para **2** e clique em **Dimensionar Serviço** .
 4. Clique no nó **fabric:/Voting/azurevotefront** no modo de exibição de árvore e expanda o nó de partição (representado por um GUID).
 
     ![Serviço de escala do Service Fabric Explorer concluído][containersquickstartscaledone]

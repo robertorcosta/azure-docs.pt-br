@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91564775"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543807"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor Único do Banco de Dados do Azure para MySQL
 
@@ -55,7 +55,7 @@ O serviço de servidor único cria backups de servidor automaticamente e os arma
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar o desempenho e a escala em segundos
 
-O serviço de servidor único está disponível em três níveis de SKU: Básico, Uso Geral e Otimizado para Memória. O nível Básico é mais adequado para o desenvolvimento de baixo custo e cargas de trabalho com baixa simultaneidade. O Uso Geral e o Otimizado para Memória são mais adequados para cargas de trabalho de produção que exigem alta simultaneidade, escala e desempenho previsível. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escala do armazenamento é online e dá suporte ao crescimento automático do armazenamento. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga somente pelos recursos que consome. Veja  [Tipos de preço](concepts-service-tiers.md) para obter detalhes.
+O serviço de servidor único está disponível em três níveis de SKU: Básico, Uso Geral e Otimizado para Memória. O nível Básico é mais adequado para o desenvolvimento de baixo custo e cargas de trabalho com baixa simultaneidade. O Uso Geral e o Otimizado para Memória são mais adequados para cargas de trabalho de produção que exigem alta simultaneidade, escala e desempenho previsível. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escala do armazenamento é online e dá suporte ao crescimento automático do armazenamento. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga somente pelos recursos que consome. Veja [Tipos de preço](./concepts-pricing-tiers.md) para obter detalhes.
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>Segurança, conformidade e governança de nível empresarial
 
@@ -63,7 +63,7 @@ O serviço de servidor único usa o módulo de criptografia validado por FIPS 14
 
 O serviço permite o acesso privado aos servidores usando o [link privado](concepts-data-access-security-private-link.md) e fornece o recurso [Proteção avançada contra ameaças](concepts-data-access-and-security-threat-protection.md). A Proteção avançada contra ameaças detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acesso ou exploração dos bancos de dados.
 
-Além da autenticação nativa, o serviço de servidor único dá suporte à autenticação do [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). A autenticação do Azure AD é um mecanismo de conexão com os servidores MySQL usando identidades definidas e gerenciadas no Azure AD. Com a autenticação do Azure AD, é possível gerenciar as identidades de usuários do banco de dados e outros serviços do Azure em uma localização central, o que simplifica e centraliza o controle de acesso.
+Além da autenticação nativa, o serviço de servidor único dá suporte à autenticação do [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). A autenticação do Azure AD é um mecanismo de conexão com os servidores MySQL usando identidades definidas e gerenciadas no Azure AD. Com a autenticação do Azure AD, é possível gerenciar as identidades de usuários do banco de dados e outros serviços do Azure em uma localização central, o que simplifica e centraliza o controle de acesso.
 
 O [log de auditoria](concepts-audit-logs.md) está disponível para acompanhar toda a atividade no nível do banco de dados. 
 
@@ -80,7 +80,7 @@ O serviço de servidor único é equipado com recursos internos de monitoramento
 O serviço executa a versão da comunidade do MySQL. Isso permite a compatibilidade total do aplicativo e exige o mínimo de custo de refatoração para migrar o aplicativo existente desenvolvido no mecanismo MySQL para um serviço de servidor único. A migração para o servidor único pode ser executada usando uma das seguintes opções:
 
 - **Despejo e restauração** – nas migrações offline, em que os usuários podem ter algum tempo de inatividade, realizar o despejo e a restauração com ferramentas da comunidade como mysqldump/mydumper pode fornecer uma forma mais rápida de migração. Confira [Migrar usando despejo e restauração](concepts-migrate-dump-restore.md) para obter detalhes. 
-- **Serviço de Migração de Banco de Dados do Azure** – para migrações integradas e simplificadas para o servidor único com um tempo de inatividade mínimo, você pode aproveitar o [Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online). 
+- **Serviço de Migração de Banco de Dados do Azure** – para migrações integradas e simplificadas para o servidor único com um tempo de inatividade mínimo, você pode aproveitar o [Serviço de Migração de Banco de Dados do Azure](../dms/tutorial-mysql-azure-mysql-online.md). 
 - **Replicação de dados** – para migrações mínimas de tempo de inatividade, a replicação de dados, que depende da replicação baseada em binlog, também pode ser utilizada. A replicação de dados é preferida para migrações mínimas de tempo de inatividade por especialistas práticos que buscam ter mais controle sobre a migração. Confira a [replicação de dados](concepts-data-in-replication.md) para obter detalhes.
 
 ## <a name="contacts"></a>Contatos
@@ -108,4 +108,3 @@ Agora que você leu a introdução ao modo de implantação do servidor único d
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Go](./connect-go.md)
-  
