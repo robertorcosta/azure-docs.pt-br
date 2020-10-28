@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029290"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745824"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -354,7 +354,7 @@ Algumas propriedades podem ser alteradas, com exceções dependendo do valor atu
 ### <a name="properties-that-require-deallocation-to-change"></a>Propriedades que exigem desalocação para serem alteradas
 Algumas propriedades só podem ser alteradas para determinados valores se as VMs no conjunto de dimensionamento forem desalocadas. Essas propriedades incluem:
 
-- **Nome do SKU**- se não houver suporte para a nova SKU de VM no hardware em que o conjunto de dimensionamento está no momento, você precisará desalocar as VMs no conjunto de dimensionamento antes de modificar o nome do SKU. Para saber mais, confira [Como monitorar uma Azure VM](../virtual-machines/windows/resize-vm.md).
+- **Nome do SKU** - se não houver suporte para a nova SKU de VM no hardware em que o conjunto de dimensionamento está no momento, você precisará desalocar as VMs no conjunto de dimensionamento antes de modificar o nome do SKU. Para saber mais, confira [Como monitorar uma Azure VM](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>Atualizações específicas da VM
@@ -364,7 +364,7 @@ Algumas modificações podem ser aplicadas a VMs específicas em vez das proprie
 ## <a name="scenarios"></a>Cenários
 
 ### <a name="application-updates"></a>Atualizações de aplicativos
-Se um aplicativo for implantado em uma conjunto de dimensionamento por meio de extensões, uma atualização da configuração da extensão fará com que o aplicativo atualize de acordo com a política de atualização. Por exemplo, se você tiver uma nova versão de um script para ser executada em uma extensão de script personalizado, você poderá atualizar a propriedade *fileuris* para apontar para o novo script. Em alguns casos, talvez você queira forçar uma atualização mesmo que a configuração da extensão permaneça inalterada (por exemplo, você atualizou o script sem alterar o URI do script). Nesses casos, você pode modificar o *forceUpdateTag* para forçar uma atualização. A plataforma Windows Azure não interpreta essa propriedade. Se você alterar o valor, não há nenhum efeito sobre como a extensão é executada. Uma mudança simplesmente força a extensão para ser executada novamente. Para obter mais informações sobre o *forceUpdateTag*, consulte a [documentação da API REST para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Observe que *forceUpdateTag* pode ser usado com todas as extensões, não apenas com a extensão de script personalizada.
+Se um aplicativo for implantado em uma conjunto de dimensionamento por meio de extensões, uma atualização da configuração da extensão fará com que o aplicativo atualize de acordo com a política de atualização. Por exemplo, se você tiver uma nova versão de um script para ser executada em uma extensão de script personalizado, você poderá atualizar a propriedade *fileuris* para apontar para o novo script. Em alguns casos, talvez você queira forçar uma atualização mesmo que a configuração da extensão permaneça inalterada (por exemplo, você atualizou o script sem alterar o URI do script). Nesses casos, você pode modificar o *forceUpdateTag* para forçar uma atualização. A plataforma Windows Azure não interpreta essa propriedade. Se você alterar o valor, não há nenhum efeito sobre como a extensão é executada. Uma mudança simplesmente força a extensão para ser executada novamente. Para obter mais informações sobre o *forceUpdateTag* , consulte a [documentação da API REST para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Observe que *forceUpdateTag* pode ser usado com todas as extensões, não apenas com a extensão de script personalizada.
 
 Também é comum que aplicativos sejam implantados por meio de uma imagem personalizada. Esse cenário é abordado na seção a seguir.
 
@@ -379,7 +379,7 @@ Se você usar imagens personalizadas, poderá atualizar a imagem atualizando a I
 ## <a name="examples"></a>Exemplos
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Atualizar a imagem do SO para seu conjunto de dimensionamento
-Você pode ter um conjunto de dimensionamento executando uma versão antiga do Ubuntu LTS 16.04. Você deseja atualizar para uma versão mais recente do Ubuntu LTS 16.04, como a versão *16.04.201801090*. A propriedade da versão de referência da imagem não é parte de uma lista, logo você pode modificar diretamente essas propriedades com um desses seguintes comandos:
+Você pode ter um conjunto de dimensionamento executando uma versão antiga do Ubuntu LTS 16.04. Você deseja atualizar para uma versão mais recente do Ubuntu LTS 16.04, como a versão *16.04.201801090* . A propriedade da versão de referência da imagem não é parte de uma lista, logo você pode modificar diretamente essas propriedades com um desses seguintes comandos:
 
 - Azure PowerShell com [Update-AzVmss](/powershell/module/az.compute/update-azvmss) como a seguir:
 
@@ -447,7 +447,7 @@ Digamos que você tenha um conjunto de dimensionamento com um Azure Load Balance
     ```
 
 >[!NOTE]
-> Esses comandos pressupõem que há apenas um balanceador de carga e uma configuração de IP no conjunto de dimensionamento. Se houver vários, talvez seja necessário usar um índice de lista diferente de *0*.
+> Esses comandos pressupõem que há apenas um balanceador de carga e uma configuração de IP no conjunto de dimensionamento. Se houver vários, talvez seja necessário usar um índice de lista diferente de *0* .
 
 
 ## <a name="next-steps"></a>Próximas etapas

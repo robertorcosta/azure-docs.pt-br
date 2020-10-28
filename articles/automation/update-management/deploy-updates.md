@@ -3,14 +3,14 @@ title: Como criar implantações de atualização para a automação do Azure Ge
 description: Este artigo descreve como agendar implantações de atualização e revisar seu status.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6594e1cdd7925a4287cf9edbfd5324b427338f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637591"
+ms.locfileid: "92742298"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implantar atualizações e examinar os resultados
 
@@ -75,9 +75,6 @@ Para agendar uma nova implantação de atualização, execute as etapas a seguir
 
    > [!NOTE]
    > Não é possível especificar atualizações que foram substituídas para inclusão na implantação de atualização.
-
-   > [!IMPORTANT]
-   > Para o Red Hat Enterprise, as atualizações de kernel também aparecem como pacotes no YUM. Se você não excluir as atualizações que incluem atualizações de kernel, Gerenciamento de Atualizações aplicará essas atualizações.
 
 9. Selecione **Configurações da agenda** . A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
 

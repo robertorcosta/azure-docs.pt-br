@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2f4bd040d7e5858fd561444f56dbce7b3f940d9a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093269"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742396"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso dos serviços externos do serviço de Gerenciamento de API do Azure
 As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem uma ampla variedade de trabalhos úteis com base apenas na solicitação de entrada, na resposta de saída e em informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos das políticas de Gerenciamento de API abre muitas outras oportunidades.
@@ -63,7 +63,7 @@ O Slack tem a noção de ganchos de entrada da Web. Ao configurar um webhook de 
 ![Gancho da Web do Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>O método "disparar e esquecer" é o suficiente?
-Há certas compensações ao usar um estilo de solicitação "disparar e esquecer". Se por algum motivo a solicitação falhar, então, a falha não será relatada. Nessa situação específica, a complexidade de ter um sistema de relatório de falhas secundário e o custo adicional de desempenho de ter que espera por uma resposta não oferecem garantias. Para cenários nos quais é essencial verificar a resposta, a política [send-request](./api-management-advanced-policies.md#SendRequest) é uma opção mais adequada.
+Há certas compensações ao usar um estilo de solicitação "disparar e esquecer". Se, por algum motivo, a solicitação falhar, a falha não será registrada. Nessa situação específica, a complexidade de ter um sistema de relatório de falhas secundário e o custo adicional de desempenho de ter que espera por uma resposta não oferecem garantias. Para cenários nos quais é essencial verificar a resposta, a política [send-request](./api-management-advanced-policies.md#SendRequest) é uma opção mais adequada.
 
 ## <a name="send-request"></a>send-request
 A política `send-request` permite o uso de um serviço externo para executar funções complexas de processamento e retornar dados para o serviço de gerenciamento de API, que pode ser usado para um processamento adicional da política.

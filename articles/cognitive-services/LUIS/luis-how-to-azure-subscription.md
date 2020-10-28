@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eecc93558625d3ae891ca589424aec218036adae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151589"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744713"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
@@ -29,7 +29,7 @@ O LUIS permite três tipos de recursos do Azure e um recurso não Azure:
 
 |Recurso|Finalidade|Serviço cognitiva `kind`|Serviço cognitiva `type`|
 |--|--|--|--|
-|Recurso de criação|Permite criar, gerenciar, treinar, testar e publicar seus aplicativos. [Crie um recurso de criação do Luis](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) se você pretende criar Luis aplicativos programtically ou no portal do Luis. Primeiro, você precisa [migrar sua conta do Luis](luis-migration-authoring.md#what-is-migration) para poder vincular seus recursos do Authroring do Azure ao seu aplicativo. Você pode controlar as permissões para o recurso de criação atribuindo pessoas à [função colaborador](#contributions-from-other-authors). <br><br> Há um disponíveis de camada para o recurso de criação de LUIS:<br> * O **recurso de criação de F0 gratuito** que fornece a você 1 milhão de transações de criação gratuitas e 1000 solicitações gratuitas de ponto de extremidade de previsão de teste mensal. |`LUIS.Authoring`|`Cognitive Services`|
+|Recurso de criação|Permite criar, gerenciar, treinar, testar e publicar seus aplicativos. [Crie um recurso de criação do Luis](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) se você pretende criar Luis aplicativos programtically ou no portal do Luis. Primeiro, você precisa [migrar sua conta do Luis](luis-migration-authoring.md#what-is-migration) para poder vincular seus recursos de criação do Azure ao seu aplicativo. Você pode controlar as permissões para o recurso de criação atribuindo pessoas à [função colaborador](#contributions-from-other-authors). <br><br> Há uma camada disponível para o recurso de criação de LUIS:<br> * O **recurso de criação de F0 gratuito** que fornece a você 1 milhão de transações de criação gratuitas e 1000 solicitações gratuitas de ponto de extremidade de previsão de teste mensal. |`LUIS.Authoring`|`Cognitive Services`|
 |Recurso de previsão| Depois de publicar o aplicativo LUIS, use o recurso/chave de previsão para consultar solicitações de ponto de extremidade de previsão. Crie um recurso de previsão LUIS antes que seu aplicativo cliente solicite previsões além das 1.000 solicitações fornecidas pela criação ou pelo recurso de início. <br><br> Há duas camadas avialble para o recurso de previsão:<br> * **Recurso de previsão de F0 gratuito** que fornece a você 10.000 solicitações de ponto de extremidade de previsão gratuitas mensais<br> * **Recurso de previsão de S0 padrão** , que é a camada paga. [Saiba mais sobre os detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Recurso de avaliação/inicialização|Permite criar, gerenciar, treinar, testar e publicar seus aplicativos. Isso é criado por padrão se você escolher a opção de recurso de início ao se inscrever na primeira vez o TP LUIS. No entanto, a chave inicial será eventualmente preterida e todos os usuários do LUIS precisarão [migrar suas contas](luis-migration-authoring.md#what-is-migration) e vincular seus aplicativos Luis a um recurso de criação. Esse recurso não concede permissões para o controle de acesso baseado em função do Azure, como o recurso de criação. <br><br> Assim como o recurso de criação, o recurso de início fornece a você 1 milhão de transações de criação gratuitas e 1000 de solicitações de ponto de extremidade de previsão gratuitas de teste.|-|Não é um recurso do Azure|
 |[Chave de recurso de vários serviços cognitivas do serviço](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Solicitações de ponto de extremidade de previsão de consulta compartilhadas com LUIS e outros serviços cognitivas com suporte.|`CognitiveServices`|`Cognitive Services`|
@@ -190,20 +190,20 @@ Recurso `kind` :
 
     Isso abre um navegador para permitir que você selecione a conta correta e forneça a autenticação.
 
-1. Crie um **recurso de criação de Luis**, de tipo `LUIS.Authoring` , nomeado `my-luis-authoring-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a `westus` região.
+1. Crie um **recurso de criação de Luis** , de tipo `LUIS.Authoring` , nomeado `my-luis-authoring-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a `westus` região.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Crie um **recurso de ponto de extremidade de previsão Luis**, de tipo `LUIS` , nomeado `my-luis-prediction-resource` no grupo de recursos _existente_ denominado `my-resource-group` para a `westus` região. Se você quiser uma taxa de transferência mais alta do que a camada gratuita, altere `F0` para `S0` . Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-limits.md#key-limits).
+1. Crie um **recurso de ponto de extremidade de previsão Luis** , de tipo `LUIS` , nomeado `my-luis-prediction-resource` no grupo de recursos _existente_ denominado `my-resource-group` para a `westus` região. Se você quiser uma taxa de transferência mais alta do que a camada gratuita, altere `F0` para `S0` . Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
     > [!Note]
-    > Essas chaves **não** são usadas pelo portal do Luis até que sejam atribuídas no portal do Luis nos **recursos do Azure gerenciar->**.
+    > Essas chaves **não** são usadas pelo portal do Luis até que sejam atribuídas no portal do Luis nos **recursos do Azure gerenciar->** .
 
 <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
 
@@ -212,8 +212,8 @@ Recurso `kind` :
 Você pode atribuir um recurso de criação para um único aplicativo ou para todos os aplicativos no LUIS. O procedimento a seguir atribui todos os aplicativos a um único recurso de criação.
 
 1. Entre no portal do [LUIS](https://www.luis.ai).
-1. Na barra de navegação superior, à extrema direita, selecione sua conta de usuário e, em seguida, selecione **configurações**.
-1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Clique em **Salvar**.
+1. Na barra de navegação superior, à extrema direita, selecione sua conta de usuário e, em seguida, selecione **configurações** .
+1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Clique em **Salvar** .
 
 ## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
 
@@ -254,7 +254,7 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     Essa API POST requer as seguintes configurações:
 
-    |Tipo|Configuração|Valor|
+    |Type|Configuração|Valor|
     |--|--|--|
     |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
     |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|

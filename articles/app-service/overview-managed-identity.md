@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: d6b9ebd8401151d57f103e639e70dd213bde6e33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152077"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742488"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions
 
@@ -33,17 +33,17 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 1. Crie um aplicativo no portal, como você faria normalmente. Navegue até ele no portal.
 
-2. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma**. Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
+2. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma** . Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
 
-3. Selecionar **Identidade**.
+3. Selecionar **Identidade** .
 
-4. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Save** (Salvar).
+4. Na guia **Sistema atribuído** , alterne o **Status** para **Ligado** . Clique em **Save** (Salvar).
 
     ![Identidade gerenciada no Serviço de Aplicativo](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
-> Para localizar a identidade gerenciada para seu aplicativo Web ou de slot no portal do Azure, em **aplicativos empresariais**, procure na seção **configurações do usuário** . Normalmente, o nome do slot é semelhante a `<app name>/slots/<slot name>` .
+> Para localizar a identidade gerenciada para seu aplicativo Web ou de slot no portal do Azure, em **aplicativos empresariais** , procure na seção **configurações do usuário** . Normalmente, o nome do slot é semelhante a `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
@@ -198,13 +198,13 @@ Primeiro, você precisará criar um recurso de identidade atribuído pelo usuár
 
 2. Crie um aplicativo no portal, como você faria normalmente. Navegue até ele no portal.
 
-3. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma**. Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
+3. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma** . Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
 
-4. Selecionar **Identidade**.
+4. Selecionar **Identidade** .
 
-5. Na guia **Usuário atribuído**, clique em **Adicionar**.
+5. Na guia **Usuário atribuído** , clique em **Adicionar** .
 
-6. Procure a identidade que você criou anteriormente e selecione-a. Clique em **Adicionar**.
+6. Procure a identidade que você criou anteriormente e selecione-a. Clique em **Adicionar** .
 
     ![Identidade gerenciada no Serviço de Aplicativo](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -395,7 +395,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
         uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,

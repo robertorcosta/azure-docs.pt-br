@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 description: Encontre respostas para algumas das perguntas mais comuns sobre o AKS (Serviço de Kubernetes do Azure).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494532"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745767"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -57,14 +57,14 @@ O AKS baseia-se em vários recursos da infraestrutura do Azure, incluindo conjun
 
 Para habilitar essa arquitetura, cada implantação do AKS abrange dois grupos de recursos:
 
-1. Você cria o primeiro grupo de recursos. Esse grupo contém apenas o recurso do Serviço de Kubernetes. O provedor de recursos do AKS cria automaticamente o segundo grupo de recursos durante a implantação. Um exemplo do segundo grupo de recursos é *MC_myResourceGroup_myAKSCluster_eastus*. Para obter informações sobre como especificar o nome desse segundo grupo de recursos, confira a próxima seção.
-1. O segundo grupo de recursos, conhecido como o *grupo de recursos do nó*, contém todos os recursos de infraestrutura associados ao cluster. Esses recursos incluem as máquinas virtuais do nó do Kubernetes, rede virtual e armazenamento. Por padrão, o grupo de recursos do nó tem um nome como *MC_myResourceGroup_myAKSCluster_eastus*. O AKS exclui automaticamente o recurso do nó sempre que o cluster é excluído e, portanto, ele só deve ser usado para os recursos que compartilham o ciclo de vida do cluster.
+1. Você cria o primeiro grupo de recursos. Esse grupo contém apenas o recurso do Serviço de Kubernetes. O provedor de recursos do AKS cria automaticamente o segundo grupo de recursos durante a implantação. Um exemplo do segundo grupo de recursos é *MC_myResourceGroup_myAKSCluster_eastus* . Para obter informações sobre como especificar o nome desse segundo grupo de recursos, confira a próxima seção.
+1. O segundo grupo de recursos, conhecido como o *grupo de recursos do nó* , contém todos os recursos de infraestrutura associados ao cluster. Esses recursos incluem as máquinas virtuais do nó do Kubernetes, rede virtual e armazenamento. Por padrão, o grupo de recursos do nó tem um nome como *MC_myResourceGroup_myAKSCluster_eastus* . O AKS exclui automaticamente o recurso do nó sempre que o cluster é excluído e, portanto, ele só deve ser usado para os recursos que compartilham o ciclo de vida do cluster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Posso fornecer um nome personalizado para o grupo de recursos do nó no AKS?
 
-Sim. Por padrão, o AKS nomeará o grupo de recursos do nó *MC_resourcegroupname_clustername_location*, mas você também poderá fornecer um nome personalizado.
+Sim. Por padrão, o AKS nomeará o grupo de recursos do nó *MC_resourcegroupname_clustername_location* , mas você também poderá fornecer um nome personalizado.
 
-Para especificar um nome do grupo de recursos, instale a extensão da CLI do Azure [aks-preview][aks-preview-cli] versão *0.3.2* ou posterior. Ao criar um cluster do AKS por meio do comando [az aks create][az-aks-create], use o parâmetro *--node-resource-group* e especifique um nome para o grupo de recursos. Se você [usar um modelo do Azure Resource Manager][aks-rm-template] para implantar um cluster do AKS, defina o nome do grupo de recursos usando a propriedade *nodeResourceGroup*.
+Para especificar um nome do grupo de recursos, instale a extensão da CLI do Azure [aks-preview][aks-preview-cli] versão *0.3.2* ou posterior. Ao criar um cluster do AKS por meio do comando [az aks create][az-aks-create], use o parâmetro *--node-resource-group* e especifique um nome para o grupo de recursos. Se você [usar um modelo do Azure Resource Manager][aks-rm-template] para implantar um cluster do AKS, defina o nome do grupo de recursos usando a propriedade *nodeResourceGroup* .
 
 * O grupo de recursos secundário é criado automaticamente pelo provedor de recursos do Azure na própria assinatura.
 * Você poderá especificar um nome de grupo de recursos personalizado somente quando estiver criando o cluster.
@@ -95,6 +95,9 @@ O AKS dá suporte aos seguintes [controladores de admissão][admission-controlle
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 No momento, não é possível modificar a lista de controladores de admissão no AKS.
 
@@ -109,9 +112,11 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
+Os firewalls do AKS a saída do servidor de API para que você seja um webhook do controlador de admissão que precisa estar acessível de dentro do cluster.
+
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>Os webhooks do controlador de admissão podem afetar os namespaces internos do AKS e do kube-system?
 
-Para proteger a estabilidade do sistema e impedir que os controladores de admissão personalizados afetem os serviços internos no namespace do kube-system, o AKS tem uma **Imposição de Admissões**, que exclui automaticamente os namespaces internos do kube-system e do AKS. Esse serviço verifica se os controladores de admissão personalizados não afetam os serviços em execução no kube-system.
+Para proteger a estabilidade do sistema e impedir que os controladores de admissão personalizados afetem os serviços internos no namespace do kube-system, o AKS tem uma **Imposição de Admissões** , que exclui automaticamente os namespaces internos do kube-system e do AKS. Esse serviço verifica se os controladores de admissão personalizados não afetam os serviços em execução no kube-system.
 
 Se você tiver um caso de uso crítico para ter algo implantado no kube-system (não recomendado), que precisa ser coberto pelo webhook de admissão personalizado, adicione o rótulo ou a anotação abaixo para que a Imposição de Admissões o ignore.
 

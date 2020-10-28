@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842862"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744721"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Visualização: Aplicação de patch automática de convidado de VMs para Windows no Azure
 
@@ -80,17 +80,20 @@ As VMs do Windows no Azure agora dão suporte aos seguintes modos de orquestraç
 
 **AutomaticByPlatform:**
 - Esse modo permite a aplicação automática de patches de convidado de VM para a máquina virtual do Windows e a instalação do patch subsequente é orquestrada pelo Azure.
+- Esse modo é necessário para a aplicação de patches de disponibilidade.
 - A definição desse modo também desabilita o Atualizações Automáticas nativo na máquina virtual do Windows para evitar a duplicação.
 - Esse modo só tem suporte para VMs que são criadas usando as imagens de plataforma de sistema operacional com suporte acima.
 - Para usar esse modo, defina a propriedade `osProfile.windowsConfiguration.enableAutomaticUpdates=true` e defina a propriedade  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` no modelo de VM.
 
 **AutomaticByOS:**
 - Esse modo permite Atualizações Automáticas na máquina virtual do Windows e os patches são instalados na VM por meio de Atualizações Automáticas.
+- Esse modo não oferece suporte à aplicação de patches de disponibilidade.
 - Esse modo é definido por padrão se nenhum outro modo de patch for especificado.
 - Para usar esse modo, defina a propriedade `osProfile.windowsConfiguration.enableAutomaticUpdates=true` e defina a propriedade  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` no modelo de VM.
 
 **Manual:**
 - Esse modo desabilita Atualizações Automáticas na máquina virtual do Windows.
+- Esse modo não oferece suporte à aplicação de patches de disponibilidade.
 - Esse modo deve ser definido ao usar soluções de aplicação de patch personalizadas.
 - Para usar esse modo, defina a propriedade `osProfile.windowsConfiguration.enableAutomaticUpdates=false` e defina a propriedade  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` no modelo de VM.
 
@@ -196,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
-Use [AZ VM Create](/cli/azure/vm#az-vm-create) para habilitar a aplicação automática de patches de convidado de VM ao criar uma nova VM. O exemplo a seguir configura o patch automático de convidado de VM para uma VM chamada *myVM* no grupo de recursos chamado *MyResource*Group:
+Use [AZ VM Create](/cli/azure/vm#az-vm-create) para habilitar a aplicação automática de patches de convidado de VM ao criar uma nova VM. O exemplo a seguir configura o patch automático de convidado de VM para uma VM chamada *myVM* no grupo de recursos chamado *MyResource* Group:
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform

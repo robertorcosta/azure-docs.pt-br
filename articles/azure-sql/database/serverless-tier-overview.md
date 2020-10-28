@@ -4,19 +4,19 @@ description: Este artigo descreve a nova camada de computação sem servidor e a
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
-ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321400"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743154"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -314,17 +314,17 @@ Para limites de recursos, consulte [camada de computação sem servidor](resourc
 
 A quantidade de computação cobrada é a quantidade máxima de uso de CPU e memória usada por segundo. Se a quantidade de CPU e memória usada for menor que a quantidade mínima provisionada para cada uma delas, a quantidade provisionada será cobrada. Para comparar CPU com memória para fins de cobrança, a memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.
 
-- **Recurso cobrado**: CPU e memória
-- **Valor cobrado**: preço unitário de vCore * máx (mínimo de vCores, vCores usados, GB de memória mín * 1/3, GB de memória usados * 1/3) 
-- **Frequência de cobrança**: Por segundo
+- **Recurso cobrado** : CPU e memória
+- **Valor cobrado** : preço unitário de vCore * máx (mínimo de vCores, vCores usados, GB de memória mín * 1/3, GB de memória usados * 1/3) 
+- **Frequência de cobrança** : Por segundo
 
 O preço unitário de vCore é o custo por vCore por segundo. Consulte a [página de preços do Banco de Dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter os preços unitários específicos em uma determinada região.
 
 A quantidade de computação cobrada é exposta pela métrica a seguir:
 
-- **Métrica**: app_cpu_billed (segundos de vCore)
-- **Definição**: máx. (mínimo de vCores, vCores usados, GB de memória mín. * 1/3, GB de memória usados * 1/3)
-- **Frequência de relatórios**: Por minuto
+- **Métrica** : app_cpu_billed (segundos de vCore)
+- **Definição** : máx. (mínimo de vCores, vCores usados, GB de memória mín. * 1/3, GB de memória usados * 1/3)
+- **Frequência de relatórios** : Por minuto
 
 Essa quantidade é calculada a cada segundo e agregada a cada 1 minuto.
 

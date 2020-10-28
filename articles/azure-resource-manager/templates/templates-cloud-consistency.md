@@ -5,13 +5,13 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356878"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744762"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência de nuvem
 
@@ -205,7 +205,7 @@ Para construir o URI absoluto de um artefato, o método preferencial é usar a f
 }
 ```
 
-Com essa abordagem, todos os artefatos de implantação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar o local de todos os links, você só precisa especificar uma URL base diferente para os _parâmetros artifactsLocation_.
+Com essa abordagem, todos os artefatos de implantação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar o local de todos os links, você só precisa especificar uma URL base diferente para os _parâmetros artifactsLocation_ .
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Incluir funcionalidades regionais diferentes
 
@@ -611,7 +611,7 @@ Como as extensões de VM são recursos internos do Resource Manager, elas têm s
 
 A versão de API do recurso de extensão de VM precisa estar presente em todos os locais que você pretende ter como destino com o modelo. A dependência de local funciona como a disponibilidade da versão de API do provedor de recursos abordada anteriormente na seção "Verificar a versão de todos os tipos de recurso".
 
-Para recuperar uma lista das versões de API disponíveis para o recurso de extensão de VM, use o cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) com o provedor de recursos **Microsoft.Compute**, conforme mostrado abaixo:
+Para recuperar uma lista das versões de API disponíveis para o recurso de extensão de VM, use o cmdlet [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) com o provedor de recursos **Microsoft.Compute** , conforme mostrado abaixo:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
@@ -641,7 +641,7 @@ Cada extensão específica também tem um controle de versão. Essa versão é m
         ...
 ```
 
-Para recuperar uma lista das versões disponíveis de uma extensão de VM específica, use o cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O seguinte exemplo recupera as versões disponíveis para a extensão de VM de DSC (Desired State Configuration) do PowerShell de **myLocation**:
+Para recuperar uma lista das versões disponíveis de uma extensão de VM específica, use o cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O seguinte exemplo recupera as versões disponíveis para a extensão de VM de DSC (Desired State Configuration) do PowerShell de **myLocation** :
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 955e80f31cf08dd703f089d26a03b7f97242eab0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 905bdf95222a03514b5c5e76e18330cf27da0d3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631097"
+ms.locfileid: "92745128"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -158,6 +158,7 @@ Clique no nome do provedor de recursos na tabela a seguir para ver a lista de op
 | [Microsoft.Intune](#microsoftintune) |
 | **Outros** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
+| [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 
 
 ## <a name="general"></a>Geral
@@ -9663,6 +9664,45 @@ Serviço do Azure: [mapas do Bing](https://docs.microsoft.com/BingMaps/)
 > | Microsoft.BingMaps/mapApis/listSecrets/action | Listar os segredos para Microsoft. BingMaps/mapApis |
 > | Microsoft. BingMaps/mapApis/listUsageMetrics/Action | Listar as métricas para Microsoft. BingMaps/mapApis |
 > | Microsoft.BingMaps/Operations/read | Listar as operações para Microsoft. BingMaps |
+
+### <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
+
+Serviço do Azure: [gêmeos digital do Azure](../digital-twins/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Ação | Descrição |
+> | --- | --- |
+> | Microsoft. DigitalTwins/registro/ação | Registre a assinatura para o provedor de recursos de gêmeos digital e habilite a criação de instâncias de gêmeos digital. |
+> | Microsoft. DigitalTwins/cancelar registro/ação | Cancelar o registro da assinatura para o provedor de recursos de gêmeos digital |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Read | Ler qualquer recurso Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Write | Criar ou atualizar qualquer recurso Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Delete | Excluir um recurso Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/diagnosticSettings/Read | Obter as configurações de diagnóstico do recurso |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/diagnosticSettings/Write | Define as configurações de diagnóstico para o recurso |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/pontos de extremidade/excluir | Excluir qualquer ponto de extremidade de um recurso de gêmeos digital |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/pontos de extremidade/leitura | Ler qualquer ponto de extremidade de um recurso de gêmeos digital |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/pontos de extremidade/gravação | Criar ou atualizar qualquer ponto de extremidade de um recurso de gêmeos digital |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/logDefinitions/Read | Obtém as configurações de log para o Azure Monitor do recurso |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/metricDefinitions/Read | Obtém as configurações de métrica para o Azure Monitor do recurso |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/operationsResults/Read | Ler qualquer resultado de operação |
+> | Microsoft. DigitalTwins/Locations/checkNameAvailability/Action | Verificar a disponibilidade do nome de um recurso no provedor de recursos do digital gêmeos |
+> | Microsoft. DigitalTwins/Locations/operationsResults/Read | Ler qualquer resultado de operação |
+> | Microsoft. DigitalTwins/operações/leitura | Ler todas as operações |
+> | **DataAction** | **Descrição** |
+> | Microsoft. DigitalTwins/consulta/ação | Consultar qualquer grafo gêmeos digital |
+> | Microsoft. DigitalTwins/DigitalTwins/Read | Ler qualquer "digital" |
+> | Microsoft. DigitalTwins/DigitalTwins/Write | Criar ou atualizar qualquer atualização digital |
+> | Microsoft. DigitalTwins/DigitalTwins/Delete | Excluir qualquer "digital" |
+> | Microsoft. DigitalTwins/DigitalTwins/comandos/ação | Invocar qualquer comando em um teledigital |
+> | Microsoft. DigitalTwins/DigitalTwins/relações/leitura | Ler qualquer relação de FileUp digital |
+> | Microsoft. DigitalTwins/DigitalTwins/relações/gravação | Criar ou atualizar qualquer relacionamento de atualização digital |
+> | Microsoft. DigitalTwins/DigitalTwins/Relationships/Delete | Excluir qualquer relação de FileUp digital |
+> | Microsoft. DigitalTwins/eventroutes/Read | Ler qualquer rota de evento |
+> | Microsoft. DigitalTwins/eventroutes/Delete | Excluir qualquer rota de evento |
+> | Microsoft. DigitalTwins/eventroutes/Write | Criar ou atualizar qualquer rota de evento |
+> | Microsoft. DigitalTwins/Models/Read | Ler qualquer modelo |
+> | Microsoft. DigitalTwins/Models/Write | Criar ou atualizar qualquer modelo |
+> | Microsoft. DigitalTwins/Models/Delete | Excluir qualquer modelo |
 
 ## <a name="next-steps"></a>Próximas etapas
 

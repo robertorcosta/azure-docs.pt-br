@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078350"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745793"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usar drivers da interface de armazenamento de contêiner de arquivos do Azure (CSI) no serviço kubernetes do Azure (AKS) (visualização)
 
@@ -33,13 +33,13 @@ Para obter mais informações sobre o Kubernetes, veja [Opções de armazenament
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Criar dinamicamente arquivos do Azure PVs usando as classes de armazenamento internas
 
-Uma classe de armazenamento é usada para definir como um compartilhamento de arquivos do Azure é criado. Uma conta de armazenamento é criada automaticamente no [grupo de recursos do nó][node-resource-group] para uso com a classe de armazenamento para manter os compartilhamentos dos arquivos do Azure. Escolha uma das seguintes [SKUs de redundância de armazenamento do Azure][storage-skus] para *skuName*:
+Uma classe de armazenamento é usada para definir como um compartilhamento de arquivos do Azure é criado. Uma conta de armazenamento é criada automaticamente no [grupo de recursos do nó][node-resource-group] para uso com a classe de armazenamento para manter os compartilhamentos dos arquivos do Azure. Escolha uma das seguintes [SKUs de redundância de armazenamento do Azure][storage-skus] para *skuName* :
 
-* **Standard_LRS**: armazenamento com redundância local padrão
-* **Standard_GRS**: armazenamento com redundância geográfica padrão
-* **Standard_ZRS**: armazenamento com redundância de zona padrão
-* **Standard_RAGRS**: armazenamento com redundância geográfica com acesso de leitura padrão
-* **Premium_LRS**: armazenamento com redundância local Premium
+* **Standard_LRS** : armazenamento com redundância local padrão
+* **Standard_GRS** : armazenamento com redundância geográfica padrão
+* **Standard_ZRS** : armazenamento com redundância de zona padrão
+* **Standard_RAGRS** : armazenamento com redundância geográfica com acesso de leitura padrão
+* **Premium_LRS** : armazenamento com redundância local Premium
 
 > [!NOTE]
 > Os arquivos do Azure dão suporte ao armazenamento Premium do Azure. O compartilhamento de arquivos Premium mínimo é de 100 GB.
@@ -212,7 +212,7 @@ Registre o `AllowNfsFileShares` sinalizador de recurso usando o comando [AZ Feat
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-Demora alguns minutos para o status exibir *Registrado*. Verifique o status do registro usando o comando [AZ Feature List][az-feature-list] :
+Demora alguns minutos para o status exibir *Registrado* . Verifique o status do registro usando o comando [AZ Feature List][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 Você pode implantar um [conjunto com estado](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) de exemplo que economiza carimbos de data/hora em um arquivo `data.txt` implantando o comando a seguir com o comando [kubectl Apply][kubectl-apply] :
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

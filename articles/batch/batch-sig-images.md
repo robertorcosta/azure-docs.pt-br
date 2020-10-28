@@ -3,13 +3,13 @@ title: Usar a Galeria de imagens compartilhadas para criar um pool de imagens pe
 description: Os pools de imagens personalizadas são uma maneira eficiente de configurar nós de computação para executar suas cargas de trabalho do lote.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605185"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745527"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
@@ -40,7 +40,7 @@ Usar uma imagem compartilhada configurada para o seu cenário pode fornecer vár
 
 - **Uma conta do Lote do Azure.** Para criar uma conta do Lote, confira os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
-- **Uma imagem da Galeria de Imagens Compartilhadas**. Para criar uma imagem compartilhada, você precisa ter ou criar um recurso de imagem gerenciada. A imagem deve ser criada de instantâneos de disco do sistema operacional da VM e, opcionalmente, dos discos de dados anexados.
+- **Uma imagem da Galeria de Imagens Compartilhadas** . Para criar uma imagem compartilhada, você precisa ter ou criar um recurso de imagem gerenciada. A imagem deve ser criada de instantâneos de disco do sistema operacional da VM e, opcionalmente, dos discos de dados anexados.
 
 > [!NOTE]
 > Se a imagem compartilhada não estiver na mesma assinatura que a conta do lote, você deverá [registrar o provedor de recursos Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para essa assinatura. As duas assinaturas devem estar no mesmo locatário do Azure AD.
@@ -208,9 +208,9 @@ Usar as etapas a seguir para criar um pool de uma imagem compartilhada no portal
 1. Abra o [Portal do Azure](https://portal.azure.com).
 1. Vá para **Contas do Lote** e selecione sua conta.
 1. Selecione **Pools** e, em seguida, **Adicionar** para criar um pool.
-1. Na seção **Tipo de Imagem**, selecione **Galeria de Imagens Compartilhadas**.
+1. Na seção **Tipo de Imagem** , selecione **Galeria de Imagens Compartilhadas** .
 1. Conclua as seções restantes com informações sobre sua imagem gerenciada.
-1. Selecione **OK**.
+1. Selecione **OK** .
 
 ![Crie um pool de uma imagem compartilhada com o portal.](media/batch-sig-images/create-custom-pool.png)
 

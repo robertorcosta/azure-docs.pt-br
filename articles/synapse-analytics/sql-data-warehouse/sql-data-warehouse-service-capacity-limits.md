@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204975"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742467"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -54,15 +54,15 @@ Valores máximos permitidos para vários componentes do Azure Synapse.
 | Estatísticas |As colunas por objeto de estatísticas. |32 |
 | Estatísticas |As estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos armazenados |Os níveis máximos de aninhamento. |8 |
-| Exibir |Colunas por exibição |1\.024 |
+| Visualizar |Colunas por exibição |1\.024 |
 ||||
 
 ## <a name="loads"></a>Cargas
 
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| Cargas de Polybase |MB por segundo |1<br/><br/>O polybase carrega linhas menores que 1 MB. Não há suporte para o carregamento de tipos de dados LOB em tabelas com um CCI (índice Columnstore clusterizado).<br/><br/> |
-||||
+| Cargas de Polybase |MB por segundo |1<br/><br/>O polybase carrega linhas menores que 1 MB. Não há suporte para o carregamento de tipos de dados LOB em tabelas com um CCI (índice Columnstore clusterizado).<br/> |
+|Cargas de Polybase|Número total de arquivos|1\.000.000<br/><br/>As cargas do polybase não podem exceder mais de 1M arquivos. Você pode encontrar o seguinte erro: a **operação falhou porque a contagem de divisão excedeu o limite superior de 1 milhão** .|
 
 ## <a name="queries"></a>Consultas
 

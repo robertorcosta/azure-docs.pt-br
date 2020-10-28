@@ -2,15 +2,15 @@
 title: Usar zonas de disponibilidade no AKS (Serviço de Kubernetes do Azure)
 description: Saiba como criar um cluster que distribui nós entre zonas de disponibilidade no AKS (Serviço de Kubernetes do Azure)
 services: container-service
-ms.custom: fasttrack-edit, references_regions
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165801"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745807"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster do AKS (Serviço de Kubernetes do Azure) que usa zonas de disponibilidade
 
@@ -22,7 +22,7 @@ Este artigo mostra como criar um cluster do AKS e distribuir os componentes do n
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisará da CLI do Azure versão 2.0.76 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisará da CLI do Azure versão 2.0.76 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Limitações e disponibilidade de região
 
@@ -56,11 +56,11 @@ Se você precisar executar cargas de trabalho com estado, use taints e toleratio
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Visão geral das zonas de disponibilidade para clusters do AKS
 
-As zonas de disponibilidade são uma oferta de alta disponibilidade que protege os aplicativos e dados contra falhas do datacenter. As zonas são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas para zona. A separação física das zonas de disponibilidade dentro de uma região protege os aplicativos e os dados contra falhas do datacenter.
+As zonas de disponibilidade são uma oferta de alta disponibilidade que protege os aplicativos e dados contra falhas do datacenter. As zonas são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há sempre mais de uma zona em todas as regiões habilitadas para zona. A separação física das zonas de disponibilidade dentro de uma região protege os aplicativos e os dados contra falhas do datacenter.
 
 Para saber mais, confira [O que são zonas de disponibilidade no Azure?][az-overview].
 
-Os clusters do AKS implantados usando zonas de disponibilidade podem distribuir nós em várias zonas em uma única região. Por exemplo, um cluster na região *Leste dos EUA 2* pode criar nós em todas as três zonas de disponibilidade no *Leste dos EUA 2*. Essa distribuição de recursos de cluster do AKS melhora a disponibilidade do cluster, pois eles são resilientes à falha de uma zona específica.
+Os clusters do AKS implantados usando zonas de disponibilidade podem distribuir nós em várias zonas em uma única região. Por exemplo, um cluster na região  *Leste dos EUA 2* pode criar nós em todas as três zonas de disponibilidade no *Leste dos EUA 2* . Essa distribuição de recursos de cluster do AKS melhora a disponibilidade do cluster, pois eles são resilientes à falha de uma zona específica.
 
 ![Distribuição de nó do AKS entre zonas de disponibilidade](media/availability-zones/aks-availability-zones.png)
 
@@ -68,11 +68,11 @@ Se uma única zona ficar indisponível, seus aplicativos continuarão a ser exec
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Criar um cluster do AKS entre zonas de disponibilidade
 
-Quando você cria um cluster usando o comando [az aks create][az-aks-create], o parâmetro `--zones` define em quais nós de agente de zonas eles são implantados. Os componentes do plano de controle, como etcd, são difundidos entre três zonas se você definir o parâmetro `--zones` no momento da criação do cluster. As zonas específicas pelas quais os componentes do plano de controle são difundidos são independentes das zonas explícitas selecionadas para o pool de nós inicial.
+Quando você cria um cluster usando o comando [az aks create][az-aks-create], o parâmetro `--zones` define em quais nós de agente de zonas eles são implantados. Os componentes do plano de controle, como etcd ou a API, serão distribuídos entre as zonas disponíveis na região se você definir o `--zones` parâmetro no momento da criação do cluster. As zonas específicas pelas quais os componentes do plano de controle são difundidos são independentes das zonas explícitas selecionadas para o pool de nós inicial.
 
 Se você não definir zonas para o pool de agente padrão ao criar um cluster do AKS, os componentes de plano de controle não serão garantidos para serem difundidos entre as zonas de disponibilidade. Você pode adicionar pools de nós extras usando o comando [az aks nodepool add][az-aks-nodepool-add] e especificar `--zones` para novos nós, mas ele não alterará a forma como o plano de controle foi difundido entre zonas. As configurações de zona de disponibilidade só podem ser definidas no tempo de criação do cluster ou do pool de nós.
 
-O exemplo abaixo cria um cluster do AKS chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup*. Um total de *3* nós são criados – um agente na zona *1*, um em *2* e, em seguida, um em *3*.
+O exemplo abaixo cria um cluster do AKS chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup* . Um total de *3* nós são criados – um agente na zona *1* , um em *2* e, em seguida, um em *3* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
