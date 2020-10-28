@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496011"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637081"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para o Azure Machine Learning
 
@@ -111,7 +111,7 @@ Você também pode habilitar o Link Privado do Azure para seu workspace. O Link 
 ## <a name="data-encryption"></a>Criptografia de dados
 
 > [!IMPORTANT]
-> Para a criptografia de nível de produção durante o __treinamento__, a Microsoft recomenda usar Azure Machine Learning cluster de computação. Para a criptografia de nível de produção durante a __inferência__, a Microsoft recomenda usar o serviço kubernetes do Azure.
+> Para a criptografia de nível de produção durante o __treinamento__ , a Microsoft recomenda usar Azure Machine Learning cluster de computação. Para a criptografia de nível de produção durante a __inferência__ , a Microsoft recomenda usar o serviço kubernetes do Azure.
 >
 > Azure Machine Learning instância de computação é um ambiente de desenvolvimento/teste. Ao usá-lo, recomendamos que você armazene seus arquivos, como blocos de anotações e scripts, em um compartilhamento de arquivos. Seus dados devem ser armazenados em um datastore.
 
@@ -158,12 +158,7 @@ Para habilitar o provisionamento de uma instância do Cosmos DB em sua assinatur
         > [!NOTE]
         > Essa instância do cofre de chaves pode ser diferente do cofre de chaves criado pelo Azure Machine Learning quando você provisionar o workspace. Caso queira usar a mesma instância do cofre de chaves para o workspace, passe o mesmo cofre de chaves ao provisionar o workspace usando o [parâmetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Essa instância de Cosmos DB é criada em um grupo de recursos gerenciado pela Microsoft em sua assinatura, juntamente com os recursos necessários. O nome do grupo de recursos gerenciados é dado no formato `<AML Workspace Resource Group Name><GUID>`. Se seu espaço de trabalho do Azure Machine Learning usar um ponto de extremidade privado, uma rede virtual também será criada para a instância de Cosmos DB. Essa VNet é usada para proteger a comunicação entre Cosmos DB e Azure Machine Learning.
-
-> [!IMPORTANT]
-> * Não exclua o grupo de recursos que contém essa Cosmos DB instância ou qualquer um dos recursos criados automaticamente neste grupo. Se precisar excluir o grupo de recursos, Cosmos DB instância, etc., você deverá excluir o espaço de trabalho Azure Machine Learning que o utiliza. O grupo de recursos, Cosmos DB instância e outros recursos criados automaticamente são excluídos quando o espaço de trabalho associado é excluído.
-> * O padrão [__Unidades de Solicitação__](../cosmos-db/request-units.md) dessa conta do Cosmos DB é definido em __8000__. Não há suporte para a alteração desse valor.
-> * Você não pode fornecer sua própria VNet para uso com a instância de Cosmos DB que é criada. Você também não pode modificar a rede virtual. Por exemplo, você não pode alterar o intervalo de endereços IP que ele usa.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Caso precise __girar ou revogar__ sua chave, você poderá fazer isso a qualquer momento. Ao girar uma chave, o Cosmos DB será iniciado por meio de uma nova chave (versão mais recente) para criptografar dados em repouso. Ao revogar (desabilitar) uma chave, o Cosmos DB cuida das solicitações com falha. Geralmente, leva uma hora para que a rotação ou a revogação entrem em vigor.
 
@@ -261,7 +256,7 @@ Talvez também seja interessante criptografar [informações de diagnóstico reg
 
 ### <a name="metrics"></a>Métricas
 
-Você pode usar as métricas do Azure Monitor para exibir e monitorar as métricas do seu workspace do Azure Machine Learning. No [portal do Azure](https://portal.azure.com), selecione seu workspace e depois **Métricas**:
+Você pode usar as métricas do Azure Monitor para exibir e monitorar as métricas do seu workspace do Azure Machine Learning. No [portal do Azure](https://portal.azure.com), selecione seu workspace e depois **Métricas** :
 
 [![Captura de tela mostrando métricas de exemplo de um workspace](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -371,8 +366,8 @@ Estes são os detalhes:
 
 [Azure Policy](/azure/governance/policy) é uma ferramenta de governança que permite garantir que os recursos do Azure estejam em conformidade com suas políticas. Com Azure Machine Learning, você pode atribuir as seguintes políticas:
 
-* **Chave gerenciada pelo cliente**: auditar ou impor se os espaços de trabalho devem usar uma chave gerenciada pelo cliente.
-* **Link privado**: auditar se os espaços de trabalho usam um ponto de extremidade privado para se comunicar com uma rede virtual.
+* **Chave gerenciada pelo cliente** : auditar ou impor se os espaços de trabalho devem usar uma chave gerenciada pelo cliente.
+* **Link privado** : auditar se os espaços de trabalho usam um ponto de extremidade privado para se comunicar com uma rede virtual.
 
 Para obter mais informações sobre Azure Policy, consulte a [documentação do Azure Policy](/azure/governance/policy/overview).
 

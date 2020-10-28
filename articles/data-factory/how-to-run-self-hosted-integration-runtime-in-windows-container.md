@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7035da173102e59aec9c643381bad701d6facf38
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927544"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634531"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Como executar Self-Hosted Integration Runtime no contêiner do Windows
 
@@ -26,7 +26,7 @@ Este artigo explicará como executar Self-Hosted Integration Runtime no contêin
 Azure Data Factory estão fornecendo o suporte ao contêiner do Windows oficial de Self-Hosted Integration Runtime. Você pode baixar o código-fonte de Build do Docker e combinar o processo de criação e execução em seu próprio pipeline de entrega contínua. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-- [Requisitos do contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
+- [Requisitos do contêiner do Windows](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker versão 2,3 e posterior 
 - Self-Hosted Integration Runtime versão 4.11.7512.1 e posterior 
 ## <a name="get-started"></a>Introdução 
@@ -61,7 +61,5 @@ No momento, não há suporte para os recursos abaixo ao executar Self-Hosted Int
 - Atualização automática 
 
 ### <a name="next-steps"></a>Próximas etapas
-- Revise os [conceitos de runtime de integração no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
-- Saiba como [criar um runtime de integração auto-hospedada no portal do Azure](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
-
-
+- Revise os [conceitos de runtime de integração no Azure Data Factory](./concepts-integration-runtime.md).
+- Saiba como [criar um runtime de integração auto-hospedada no portal do Azure](./create-self-hosted-integration-runtime.md).

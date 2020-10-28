@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3af38f4cae53807c7268f00017f02f1325116fb6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74932058"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637047"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script do PowerShell – transformar dados na nuvem usando o Azure Data Factory
 
@@ -26,7 +26,7 @@ Este script do PowerShell de exemplo cria um pipeline que transforma os dados na
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Conta de Armazenamento do Azure**. Crie um script Python e um arquivo de entrada e carregue-os no Armazenamento do Azure. A saída do programa Spark é armazenada nessa conta de armazenamento. O cluster do Spark sob demanda usa a mesma conta de armazenamento que o respectivo armazenamento primário.  
+* **Conta de Armazenamento do Azure** . Crie um script Python e um arquivo de entrada e carregue-os no Armazenamento do Azure. A saída do programa Spark é armazenada nessa conta de armazenamento. O cluster do Spark sob demanda usa a mesma conta de armazenamento que o respectivo armazenamento primário.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Carregar o script Python em sua conta de Armazenamento de Blobs
 1. Crie um arquivo Python chamado **WordCount_Spark. py** com o seguinte conteúdo: 
@@ -54,11 +54,11 @@ Este script do PowerShell de exemplo cria um pipeline que transforma os dados na
     if __name__ == "__main__":
         main()
     ```
-2. Substitua ** &lt; storageAccountName &gt; ** pelo nome da sua conta de armazenamento do Azure. Em seguida, salve o arquivo. 
+2. Substitua **&lt; storageAccountName &gt;** pelo nome da sua conta de armazenamento do Azure. Em seguida, salve o arquivo. 
 3. No seu Armazenamento de Blobs do Azure, crie um contêiner denominado **adftutorial** se ele não existir. 
-4. Crie uma pasta chamada **spark**.
-5. Criar uma subpasta chamada **script** na pasta **spark**. 
-6. Carregue o arquivo **WordCount_Spark.py** na subpasta **script**. 
+4. Crie uma pasta chamada **spark** .
+5. Criar uma subpasta chamada **script** na pasta **spark** . 
+6. Carregue o arquivo **WordCount_Spark.py** na subpasta **script** . 
 
 
 ### <a name="upload-the-input-file"></a>Carregar o arquivo de entrada
@@ -102,6 +102,6 @@ Este script usa os seguintes comandos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).
 
 Exemplos adicionais de scripts do Azure Data Factory PowerShell podem ser encontrados nos [Exemplos do Azure Data Factory PowerShell](../samples-powershell.md).

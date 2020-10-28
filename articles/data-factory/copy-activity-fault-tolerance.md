@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440636"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634770"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -93,7 +93,7 @@ caminho | O caminho dos arquivos de log. | Especifique o caminho que você usa p
 > - Somente se você especificar vários arquivos no conjunto de dado de origem, que pode ser uma pasta, curinga ou uma lista de arquivos, a atividade de cópia poderá ignorar os arquivos de erro específicos. Se um único arquivo for especificado no conjunto de fonte de origem a ser copiado para o destino, a atividade de cópia falhará se ocorrer algum erro.
 >
 > Para ignorar arquivos específicos quando eles são verificados como inconsistentes entre o repositório de origem e de destino:
-> - Você pode obter mais detalhes do documento de consistência de dados [aqui](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
+> - Você pode obter mais detalhes do documento de consistência de dados [aqui](./copy-activity-data-consistency.md).
 
 ### <a name="monitoring"></a>Monitoramento 
 
@@ -146,22 +146,22 @@ No log acima, você pode ver que o bigfile.csv foi ignorado porque outro aplicat
 ### <a name="supported-scenarios"></a>Cenários com suporte
 A atividade de cópia oferece suporte a três cenários para detectar, ignorar e registrar dados de tabela incompatíveis:
 
-- **Incompatibilidade entre o tipo de dados de origem e o tipo nativo do coletor**. 
+- **Incompatibilidade entre o tipo de dados de origem e o tipo nativo do coletor** . 
 
     Por exemplo:  Copiar dados de um arquivo CSV no Armazenamento de Blobs para um banco de dados SQL com uma definição de esquema que contenha três colunas do tipo INT. As linhas do arquivo CSV que contêm dados numéricos, como 123.456.789, são copiadas com êxito para o repositório de coletores. No entanto, as linhas que contêm valores não numéricos, como 123.456, abc, são detectadas como incompatíveis e ignoradas.
 
-- **Incompatibilidade no número de colunas entre a origem e o coletor**.
+- **Incompatibilidade no número de colunas entre a origem e o coletor** .
 
     Por exemplo:  Copiar dados de um arquivo CSV no Armazenamento de Blobs para um banco de dados SQL com uma definição de esquema que contenha seis colunas. As linhas do arquivo CSV que contêm seis colunas são copiadas com êxito no armazenamento do coletor. As linhas do arquivo CSV que contêm mais de seis colunas são detectadas como incompatíveis e ignoradas.
 
-- **Violação de chave primária ao gravar no SQL Server/Banco de Dados SQL do Azure/Azure Cosmos DB**.
+- **Violação de chave primária ao gravar no SQL Server/Banco de Dados SQL do Azure/Azure Cosmos DB** .
 
     Por exemplo:  Copiar dados de um servidor SQL para um banco de dados SQL. Uma chave primária é definida no banco de dados SQL do coletor, mas nenhuma chave primária é definida no SQL Server de origem. As linhas duplicadas que existem na origem não podem ser copiadas no coletor. A atividade de cópia copia apenas a primeira linha dos dados de origem no coletor. As linhas da origem subsequentes que contêm o valor de chave primária duplicado são detectadas como incompatíveis e ignoradas.
 
 >[!NOTE]
 >- Para carregar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando o polybase, defina as configurações de tolerância a falhas nativas do polybase especificando políticas de rejeição por meio de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Você ainda pode habilitar o redirecionamento de linhas incompatíveis com o PolyBase para o Blob ou ADLS como mostrado abaixo.
 >- Esse recurso não se aplica quando a atividade de cópia é configurada para chamar [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- Esse recurso não se aplica quando a atividade de cópia é configurada para chamar um [procedimento armazenado de um coletor SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
+>- Esse recurso não se aplica quando a atividade de cópia é configurada para chamar um [procedimento armazenado de um coletor SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 
 ### <a name="configuration"></a>Configuração
 O seguinte exemplo fornece uma definição de JSON que configura a omissão de linhas incompatíveis na atividade de cópia:
@@ -298,5 +298,3 @@ Confira os outros artigos sobre atividade de cópia:
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Desempenho da atividade de cópia](copy-activity-performance.md)
-
-

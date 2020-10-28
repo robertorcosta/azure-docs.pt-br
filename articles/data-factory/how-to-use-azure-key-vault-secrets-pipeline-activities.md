@@ -51,7 +51,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
     |Propriedade  |Valor  |
     |---------|---------|
-    |Saída segura     |True         |
+    |Saída segura     |Verdadeiro         |
     |URL     |[Seu valor de URI secreto]? API-Version = 7.0         |
     |Método     |GET         |
     |Autenticação     |MSI         |

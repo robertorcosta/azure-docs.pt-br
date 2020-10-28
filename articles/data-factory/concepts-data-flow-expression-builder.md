@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530992"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635364"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Criar expressões no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-No fluxo de dados de mapeamento, muitas propriedades de transformação são inseridas como expressões. Essas expressões são compostas por valores de coluna, parâmetros, funções, operadores e literais que são avaliados como um tipo de dados do Spark em tempo de execução. O mapeamento de fluxos de dados tem uma experiência dedicada para ajudá-lo a criar essas expressões chamadas de **Construtor de expressões**. Utilizando a conclusão de código do  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) para realce, verificação de sintaxe e preenchimento automático, o construtor de expressões foi projetado para facilitar a criação de fluxos de dados. Este artigo explica como usar o construtor de expressões para criar efetivamente sua lógica de negócios.
+No fluxo de dados de mapeamento, muitas propriedades de transformação são inseridas como expressões. Essas expressões são compostas por valores de coluna, parâmetros, funções, operadores e literais que são avaliados como um tipo de dados do Spark em tempo de execução. O mapeamento de fluxos de dados tem uma experiência dedicada para ajudá-lo a criar essas expressões chamadas de **Construtor de expressões** . Utilizando a conclusão de código do  [IntelliSense](/visualstudio/ide/using-intellisense) para realce, verificação de sintaxe e preenchimento automático, o construtor de expressões foi projetado para facilitar a criação de fluxos de dados. Este artigo explica como usar o construtor de expressões para criar efetivamente sua lógica de negócios.
 
 ![Construtor de Expressões](media/data-flow/expresion-builder.png "Construtor de Expressões")
 
@@ -32,7 +32,7 @@ Em algumas transformações como [filtro](data-flow-filter.md), clicar em uma ca
 
 ![Caixa de expressão azul](media/data-flow/expressionbox.png "Construtor de Expressões")
 
-Quando você faz referência a colunas em uma condição de correspondência ou agrupamento, uma expressão pode extrair valores de colunas. Para criar uma expressão, selecione **coluna computada**.
+Quando você faz referência a colunas em uma condição de correspondência ou agrupamento, uma expressão pode extrair valores de colunas. Para criar uma expressão, selecione **coluna computada** .
 
 ![Opção de coluna computada](media/data-flow/computedcolumn.png "Construtor de Expressões")
 
@@ -69,7 +69,7 @@ Quando você tem nomes de coluna que incluem caracteres especiais ou espaços, c
 
 ```{[dbo].this_is my complex name$$$}```
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 Parâmetros são valores que são passados para um fluxo de dados em tempo de execução de um pipeline. Para fazer referência a um parâmetro, clique no parâmetro na exibição de **elementos de expressão** ou faça referência a ele com um sinal de dólar na frente de seu nome. Por exemplo, um parâmetro chamado parâmetro1 seria referenciado por `$parameter1` . Para saber mais, consulte [parametrizando o mapeamento de fluxos de dados](parameters-data-flow.md).
 

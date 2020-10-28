@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441101"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637336"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
@@ -36,6 +36,7 @@ Log Analytics exportação de dados de espaço de trabalho exporta dados continu
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Atualmente, a configuração só pode ser executada usando a CLI ou solicitações REST. Você não pode usar o portal do Azure ou o PowerShell.
+- A ```--export-all-tables``` opção na CLI e no REST não tem suporte e será removida. Você deve fornecer a lista de tabelas em regras de exportação explicitamente.
 - No momento, as tabelas com suporte estão limitadas às especificadas na seção [tabelas com suporte](#supported-tables) abaixo. Se a regra de exportação de dados incluir uma tabela sem suporte, a operação terá sucesso, mas nenhum dado será exportado para essa tabela. Se a regra de exportação de dados incluir uma tabela que não existe, ela falhará com o erro ```Table <tableName> does not exist in the workspace.```
 - Seu espaço de trabalho do Log Analytics pode estar em qualquer região, exceto para o seguinte:
   - Norte da Suíça
@@ -63,9 +64,9 @@ No momento, não há encargos adicionais para o recurso de exportação de dados
 ## <a name="export-destinations"></a>Destinos de exportação
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Os dados são enviados para contas de armazenamento a cada hora. A configuração de exportação de dados cria um contêiner para cada tabela na conta de armazenamento com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um contêiner chamado *am-SecurityEvent*.
+Os dados são enviados para contas de armazenamento a cada hora. A configuração de exportação de dados cria um contêiner para cada tabela na conta de armazenamento com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um contêiner chamado *am-SecurityEvent* .
 
-O caminho do blob da conta de armazenamento é *WorkspaceResourceId =/subscriptions/Subscription-ID/resourcegroups/ \<resource-group\> /Providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json*. Como os blobs de acréscimo são limitados a gravações 50 mil no armazenamento, o número de BLOBs exportados pode se estender se o número de acréscimos for alto. O padrão de nomenclatura para BLOBs nesse caso seria PT1H_ #. JSON, em que # é a contagem de BLOBs incremental.
+O caminho do blob da conta de armazenamento é *WorkspaceResourceId =/subscriptions/Subscription-ID/resourcegroups/ \<resource-group\> /Providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json* . Como os blobs de acréscimo são limitados a gravações 50 mil no armazenamento, o número de BLOBs exportados pode se estender se o número de acréscimos for alto. O padrão de nomenclatura para BLOBs nesse caso seria PT1H_ #. JSON, em que # é a contagem de BLOBs incremental.
 
 O formato de dados da conta de armazenamento é uma [linha JSON](diagnostic-logs-append-blobs.md). Isso significa que cada registro é delimitado por uma nova linha, sem nenhuma matriz de registros externos e sem vírgulas entre os registros JSON. 
 
@@ -74,7 +75,7 @@ O formato de dados da conta de armazenamento é uma [linha JSON](diagnostic-logs
 Log Analytics exportação de dados pode gravar blobs de acréscimo em contas de armazenamento imutáveis quando as políticas de retenção baseadas em tempo têm a configuração *allowProtectedAppendWrites* habilitada. Isso permite gravar novos blocos em um blob de acréscimo, mantendo a proteção contra imutabilidade e a conformidade. Consulte [permitir gravações de blobs de acréscimo protegidos](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Hub de Eventos
-Os dados são enviados ao seu hub de eventos quase em tempo real à medida que atingem Azure Monitor. Um hub de eventos é criado para cada tipo de dados que você exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um hub de eventos chamado *am-SecurityEvent*. Se você quiser que os dados exportados atinjam um hub de eventos específico ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, você poderá fornecer seu próprio nome de Hub de eventos e exportar todas as tabelas para ele.
+Os dados são enviados ao seu hub de eventos quase em tempo real à medida que atingem Azure Monitor. Um hub de eventos é criado para cada tipo de dados que você exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um hub de eventos chamado *am-SecurityEvent* . Se você quiser que os dados exportados atinjam um hub de eventos específico ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, você poderá fornecer seu próprio nome de Hub de eventos e exportar todos os dados para tabelas definidas para ele.
 
 O volume de dados exportados geralmente aumenta com o tempo e a escala do hub de eventos precisa ser aumentada para lidar com taxas de transferência maiores e evitar cenários de limitação e latência de dados. Você deve usar o recurso de inflar automaticamente dos hubs de eventos para escalar verticalmente e aumentar o número de unidades de produtividade e atender às necessidades de uso. Consulte [dimensionar automaticamente as unidades de produtividade dos hubs de eventos do Azure](../../event-hubs/event-hubs-auto-inflate.md) para obter detalhes.
 
@@ -98,7 +99,7 @@ O provedor de recursos do Azure a seguir precisa ser registrado para sua assinat
 
 - Microsoft.insights
 
-Esse provedor de recursos provavelmente já estará registrado para a maioria dos Azure Monitor usuários. Para verificar, acesse **assinaturas** no portal do Azure. Selecione sua assinatura e clique em **provedores de recursos** na seção **configurações** do menu. Localize **Microsoft. insights**. Se seu status for **registrado**, ele já estará registrado. Caso contrário, clique em **registrar** para registrá-lo.
+Esse provedor de recursos provavelmente já estará registrado para a maioria dos Azure Monitor usuários. Para verificar, acesse **assinaturas** no portal do Azure. Selecione sua assinatura e clique em **provedores de recursos** na seção **configurações** do menu. Localize **Microsoft. insights** . Se seu status for **registrado** , ele já estará registrado. Caso contrário, clique em **registrar** para registrá-lo.
 
 Você também pode usar qualquer um dos métodos disponíveis para registrar um provedor de recursos, conforme descrito em [provedores de recursos e tipos do Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Veja a seguir um comando de exemplo usando o PowerShell:
 
@@ -107,13 +108,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>Permitir serviços confiáveis da Microsoft
-Se você tiver configurado sua conta de armazenamento para permitir o acesso de redes selecionadas, será necessário adicionar uma exceção para permitir que Azure Monitor gravar na conta. Em **firewalls e redes virtuais** para sua conta de armazenamento, selecione **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento**.
+Se você tiver configurado sua conta de armazenamento para permitir o acesso de redes selecionadas, será necessário adicionar uma exceção para permitir que Azure Monitor gravar na conta. Em **firewalls e redes virtuais** para sua conta de armazenamento, selecione **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** .
 
 [![Firewalls e redes virtuais da conta de armazenamento](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 
 ### <a name="create-or-update-data-export-rule"></a>Criar ou atualizar regra de exportação de dados
-Uma regra de exportação de dados define os dados a serem exportados de todas as tabelas ou de um determinado conjunto de tabelas para um único destino. Crie várias regras se você precisar enviar para vários destinos.
+Uma regra de exportação de dados define os dados a serem exportados para um conjunto de tabelas para um único destino. Você pode criar uma regra para cada destino.
+
+Use o comando da CLI a seguir para exibir tabelas em seu espaço de trabalho. Ele pode ajudar a copiar as tabelas que você deseja e incluir na regra de exportação de dados.
+```azurecli
+az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+```
 
 Use o comando a seguir para criar uma regra de exportação de dados para uma conta de armazenamento usando a CLI.
 
@@ -142,8 +148,8 @@ O corpo da solicitação especifica o destino das tabelas. A seguir está um cor
             "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
         },
         "tablenames": [
-"table1",
-    "table2" 
+            "table1",
+            "table2" 
         ],
         "enable": true
     }
@@ -165,9 +171,26 @@ A seguir está um corpo de exemplo para a solicitação REST para um hub de even
         "enable": true
     }
 }
-
 ```
 
+Veja a seguir um corpo de exemplo para a solicitação REST para um hub de eventos em que o nome do hub de eventos é fornecido. Nesse caso, todos os dados exportados são enviados para esse Hub de eventos.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name",
+            "metaData": {
+                "EventHubName": "eventhub-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+}
+```
 
 ## <a name="view-data-export-configuration"></a>Exibir configuração de exportação de dados
 Use o comando a seguir para exibir a configuração de uma regra de exportação de dados usando a CLI.

@@ -11,19 +11,19 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 068586a96ad3655cb70171266bd58f56ed320fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83662854"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636962"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatizar a instalação do runtime de integração auto-hospedada usando scripts do PowerShell local
 Para automatizar a instalação do runtime de integração auto-hospedada em computadores locais (além de VMs do Azure em que é possível aproveitar o modelo do Resource Manager em vez disso), é possível scripts do PowerShell local. Este artigo apresenta dois scripts que podem ser usados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Iniciar o PowerShell no seu computador local. Para executar os scripts, é preciso escolher **Executar como administrador**.
+* Iniciar o PowerShell no seu computador local. Para executar os scripts, é preciso escolher **Executar como administrador** .
 * [Baixe](https://www.microsoft.com/download/details.aspx?id=39717) o software do runtime de integração auto-hospedada. Copie o caminho em que está o arquivo baixado. 
 * Também será necessária uma **chave de autenticação** para registrar o runtime de integração auto-hospedada.
 * Para automatizar atualizações manuais, é preciso ter um runtime de integração auto-hospedada pré-configurado.
@@ -31,7 +31,7 @@ Para automatizar a instalação do runtime de integração auto-hospedada em com
 ## <a name="scripts-introduction"></a>Introdução a scripts 
 
 > [!NOTE]
-> Esses scripts são criados usando o [utilitário de linha de comando documentado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#set-up-an-existing-self-hosted-ir-via-local-powershell) no runtime de integração auto-hospedada. Se necessário, é possível personalizar esses scripts adequadamente para atender às suas necessidades de automação.
+> Esses scripts são criados usando o [utilitário de linha de comando documentado](./create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) no runtime de integração auto-hospedada. Se necessário, é possível personalizar esses scripts adequadamente para atender às suas necessidades de automação.
 > Os scripts precisam ser aplicados por nó, portanto, execute-o em todos os nós no caso de configuração de alta disponibilidade (2 ou mais nós).
 
 * Para automatizar a configuração: Instalar e registrar um novo nó de runtime de integração auto-hospedada usando **[InstallGatewayOnLocalMachine.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/InstallGatewayOnLocalMachine.ps1)** : o script pode ser usado para instalar o nó de runtime de integração auto-hospedada e registrá-lo com uma chave de autenticação. O script aceita dois argumentos, **primeiro** especificando o local do [runtime de integração auto-hospedada](https://www.microsoft.com/download/details.aspx?id=39717) em um disco local, **segundo** especificando a **chave de autenticação** (para registrar o nó IR auto-hospedado).
@@ -44,7 +44,7 @@ Para automatizar a instalação do runtime de integração auto-hospedada em com
 
 ### <a name="for-automating-setup"></a>Para automatizar a configuração
 1. Baixe o IR auto-hospedado [aqui](https://www.microsoft.com/download/details.aspx?id=39717). 
-1. Especifique o caminho em que o MSI SHIR (arquivo de instalação) baixado está. Por exemplo, se o caminho for *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi*, será possível usar o exemplo de linha de comando do PowerShell abaixo para essa tarefa:
+1. Especifique o caminho em que o MSI SHIR (arquivo de instalação) baixado está. Por exemplo, se o caminho for *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi* , será possível usar o exemplo de linha de comando do PowerShell abaixo para essa tarefa:
 
    ```powershell
    PS C:\windows\system32> C:\Users\username\Desktop\InstallGatewayOnLocalMachine.ps1 -path "C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi" -authKey "[key]"

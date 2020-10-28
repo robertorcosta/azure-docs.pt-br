@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249645"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637251"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Esquema e mapeamento de tipo de dados na atividade de cópia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Você pode configurar o mapeamento na interface do usuário de criação de Data
 | caminho     | Expressão de caminho JSON para cada campo a ser extraído ou mapeado. Aplicar para origem e coletor hierárquicos, por exemplo, Cosmos DB, MongoDB ou conectores REST.<br>Para campos sob o objeto raiz, o caminho JSON começa com root `$` ; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento de matriz sem `$` . | Não       |
 | type     | Data Factory tipo de dados provisório da coluna de origem ou do coletor. Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
 | culture  | Cultura da coluna de origem ou do coletor. Aplicar quando o tipo for `Datetime` ou `Datetimeoffset` . O padrão é `en-us`.<br>Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
-| format   | Cadeia de caracteres de formato a ser usada quando o tipo é `Datetime` ou `Datetimeoffset` . Consulte [Data personalizada e cadeias de caracteres de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data e hora. Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
+| format   | Cadeia de caracteres de formato a ser usada quando o tipo é `Datetime` ou `Datetimeoffset` . Consulte [Data personalizada e cadeias de caracteres de formato de hora](/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data e hora. Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
 
 As propriedades a seguir têm suporte em `translator` além de `mappings` :
 
@@ -170,7 +170,7 @@ Por exemplo, se você tiver um documento do MongoDB de origem com o seguinte con
 }
 ```
 
-E você deseja copiá-lo em um arquivo de texto no formato a seguir com a linha de cabeçalho, mesclando os dados dentro da matriz *(order_pd e order_price)* e entre junções com as informações de raiz comuns *(número, data e cidade)*:
+E você deseja copiá-lo em um arquivo de texto no formato a seguir com a linha de cabeçalho, mesclando os dados dentro da matriz *(order_pd e order_price)* e entre junções com as informações de raiz comuns *(número, data e cidade)* :
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -182,13 +182,13 @@ Você pode definir esse mapeamento na interface do usuário de criação de Data
 
 1. Na guia atividade de cópia – mapeamento de >, clique no botão **importar esquema** para importar os esquemas de origem e de coletor. Como Data Factory amostras dos principais objetos ao importar o esquema, se algum campo não aparecer, você poderá adicioná-lo à camada correta na hierarquia-focalizar um nome de campo existente e escolher Adicionar um nó, um objeto ou uma matriz.
 
-2. Selecione a matriz da qual você deseja iterar e extrair dados. Ele será preenchido automaticamente como **referência de coleção**. Observação apenas uma única matriz tem suporte para essa operação.
+2. Selecione a matriz da qual você deseja iterar e extrair dados. Ele será preenchido automaticamente como **referência de coleção** . Observação apenas uma única matriz tem suporte para essa operação.
 
 3. Mapeie os campos necessários para o coletor. Data Factory determina automaticamente os caminhos JSON correspondentes para o lado hierárquico.
 
 ![Mapear hierárquica para tabular usando a interface do usuário](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-Você também pode alternar para o **Editor avançado**; nesse caso, você pode ver e editar os caminhos JSON dos campos diretamente. Se você optar por adicionar um novo mapeamento nessa exibição, especifique o caminho JSON.
+Você também pode alternar para o **Editor avançado** ; nesse caso, você pode ver e editar os caminhos JSON dos campos diretamente. Se você optar por adicionar um novo mapeamento nessa exibição, especifique o caminho JSON.
 
 ![Mapear hierárquica para tabular usando o editor avançado](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -287,7 +287,7 @@ As conversões de tipo de dados a seguir têm suporte entre os tipos provisório
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
 | Booliano     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Matriz de bytes  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
-| Data/hora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
+| Data/Hora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Ponto de flutuação | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
@@ -314,9 +314,9 @@ As propriedades a seguir têm suporte na atividade de cópia para conversão de 
 | *Sob `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Permitir truncamento de dados ao converter dados de origem para coletor com tipo diferente durante a cópia, por exemplo, de decimal para inteiro, de DatetimeOffset para DateTime. <br>O valor padrão é true. | Não       |
 | treatBooleanAsNumber             | Trate os valores Boolianos como números, por exemplo, true como 1.<br>O valor padrão é false. | Não       |
-| dateTimeFormat                   | Cadeia de formato ao converter entre datas sem deslocamento de fuso horário e cadeias de caracteres, por exemplo, `yyyy-MM-dd HH:mm:ss.fff` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
-| dateTimeOffsetFormat             | Cadeia de caracteres de formato ao converter entre datas com deslocamento e cadeias de caracteres de fuso horário, por exemplo, `yyyy-MM-dd HH:mm:ss.fff zzz` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
-| timeSpanFormat                   | Cadeia de formato ao converter entre períodos de tempo e cadeias de caracteres, por exemplo, `dd\.hh\:mm` . Consulte [cadeias de caracteres de formato de TimeSpan personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) para obter informações detalhadas. | Não       |
+| dateTimeFormat                   | Cadeia de formato ao converter entre datas sem deslocamento de fuso horário e cadeias de caracteres, por exemplo, `yyyy-MM-dd HH:mm:ss.fff` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
+| dateTimeOffsetFormat             | Cadeia de caracteres de formato ao converter entre datas com deslocamento e cadeias de caracteres de fuso horário, por exemplo, `yyyy-MM-dd HH:mm:ss.fff zzz` .  Consulte [cadeias de caracteres de formato de data e hora personalizadas](/dotnet/standard/base-types/custom-date-and-time-format-strings) para obter informações detalhadas. | Não       |
+| timeSpanFormat                   | Cadeia de formato ao converter entre períodos de tempo e cadeias de caracteres, por exemplo, `dd\.hh\:mm` . Consulte [cadeias de caracteres de formato de TimeSpan personalizadas](/dotnet/standard/base-types/custom-timespan-format-strings) para obter informações detalhadas. | Não       |
 | culture                          | Informações de cultura a serem usadas ao converter tipos, por exemplo, `en-us` ou `fr-fr` . | Não       |
 
 **Exemplo:**
@@ -356,7 +356,7 @@ As propriedades a seguir têm suporte na atividade de cópia para conversão de 
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Alternativa-mapeamento de coluna (modelo herdado)
 
-Você pode especificar a atividade de cópia-> `translator`  ->  `columnMappings` para mapear entre dados em formato tabular. Nesse caso, a seção "Structure" é necessária para os conjuntos de dados de entrada e saída. O mapeamento de coluna dá suporte ao **mapeamento de todas as colunas ou de um subconjunto de colunas na “structure” do conjunto de dados de origem para todas as colunas na “structure” do conjunto de dados do coletor**. Veja a seguir condições de erro que resultam em uma exceção:
+Você pode especificar a atividade de cópia-> `translator`  ->  `columnMappings` para mapear entre dados em formato tabular. Nesse caso, a seção "Structure" é necessária para os conjuntos de dados de entrada e saída. O mapeamento de coluna dá suporte ao **mapeamento de todas as colunas ou de um subconjunto de colunas na “structure” do conjunto de dados de origem para todas as colunas na “structure” do conjunto de dados do coletor** . Veja a seguir condições de erro que resultam em uma exceção:
 
 - O resultado da consulta do armazenamento de dados de origem não tem um nome de coluna especificado na seção “structure” do conjunto de dados de entrada.
 - O armazenamento de dados do coletor (se estiver com o esquema predefinido) não tem um nome de coluna especificado na seção “structure” do conjunto de dados de saída.
@@ -455,7 +455,7 @@ Você pode especificar a atividade de cópia-> `translator`  ->  `schemaMapping`
 | Propriedade            | Descrição                                                  | Obrigatório |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Sim      |
-| schemaMapping       | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>- **Chave:** representa a origem. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Valor:** representa o coletor. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Sim      |
+| schemaMapping       | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor** .<br/>- **Chave:** representa a origem. Para **fonte de tabela** , especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica** , especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Valor:** representa o coletor. Para o **coletor de tabela** , especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico** , especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Sim      |
 | collectionReference | Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. Essa propriedade só terá suporte quando os dados hierárquicos forem a origem. | Não       |
 
 **Exemplo: copiar do MongoDB para a Oracle:**
@@ -487,7 +487,7 @@ Por exemplo, se você tiver o documento do MongoDB com o seguinte conteúdo:
 }
 ```
 
-e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, ao nivelar os dados de dentro da matriz *(order_pd e order_price)* e fazer uma união cruzada com as informações de raiz comuns *(número, data e cidade)*:
+e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, ao nivelar os dados de dentro da matriz *(order_pd e order_price)* e fazer uma união cruzada com as informações de raiz comuns *(número, data e cidade)* :
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
