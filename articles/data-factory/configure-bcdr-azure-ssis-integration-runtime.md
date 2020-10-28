@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761841c1f2146a33b35cdddc4adc4d3eb1a4b139
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195724"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635279"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configurar o Azure-SSIS Integration Runtime com a replicação geográfica e o failover do Banco de Dados SQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "84195724"
 
 Este artigo descreve como configurar o Azure-SSIS IR (Integration Runtime) com a replicação geográfica do Banco de Dados SQL do Azure para o banco de dados SSISDB. Quando ocorre um failover, você pode garantir que o IR do Azure-SSIS continue trabalhando com o banco de dados secundário.
 
-Para obter mais informações sobre a replicação geográfica e o failover do Banco de Dados SQL, confira [Visão geral: replicação geográfica ativa e grupos de failover automático](../sql-database/sql-database-geo-replication-overview.md).
+Para obter mais informações sobre a replicação geográfica e o failover do Banco de Dados SQL, confira [Visão geral: replicação geográfica ativa e grupos de failover automático](../azure-sql/database/auto-failover-group-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

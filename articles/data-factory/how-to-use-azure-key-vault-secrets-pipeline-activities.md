@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 5a662119d9ccf95eac23785c5fe9a787da882531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537388"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634276"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usar segredos de Azure Key Vault em atividades de pipeline
 
@@ -25,7 +25,7 @@ Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e us�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esse recurso depende da identidade gerenciada data factory.  Saiba como ele funciona da [identidade gerenciada para data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e certifique-se de que sua data Factory tenha uma associada.
+Esse recurso depende da identidade gerenciada data factory.  Saiba como ele funciona da [identidade gerenciada para data Factory](./data-factory-service-identity.md) e certifique-se de que sua data Factory tenha uma associada.
 
 ## <a name="steps"></a>Etapas
 
@@ -39,7 +39,7 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
 
     ![Políticas de acesso ao cofre de chaves](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Clique em **Adicionar**e em **salvar**.
+    Clique em **Adicionar** e em **salvar** .
 
 3. Navegue até seu segredo de Key Vault e copie o identificador secreto.
 
@@ -65,10 +65,10 @@ Esse recurso depende da identidade gerenciada data factory.  Saiba como ele func
     > [!CAUTION]
     > Defina a opção de saída segura como true para impedir que o valor secreto seja registrado em texto sem formatação.  Qualquer outra atividade que consumir esse valor deve ter a opção de Entrada segura definida como verdadeira.
 
-5. Para usar o valor em outra atividade, use a seguinte expressão de código ** @activity (' web1 '). Output. Value**.
+5. Para usar o valor em outra atividade, use a seguinte expressão de código **@activity (' web1 '). Output. Value** .
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como usar Azure Key Vault para armazenar credenciais para armazenamentos de dados e computações, consulte [armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+Para saber como usar Azure Key Vault para armazenar credenciais para armazenamentos de dados e computações, consulte [armazenar credenciais no Azure Key Vault](./store-credentials-in-key-vault.md)

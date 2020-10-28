@@ -9,15 +9,15 @@ ms.custom: devx-track-js
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9faca55f8440a28a845e892ee38df2de3489f97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b4fff4a58685873e99332b00864ee95f569416
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259485"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628585"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemplos de JavaScript para uso no Azure Active Directory B2C
 
@@ -42,14 +42,14 @@ Este artigo descreve como você pode alterar sua política personalizada para ha
 
 * Selecione um [layout de página](contentdefinitions.md#select-a-page-layout) para os elementos da interface do usuário do seu aplicativo.
 
-    Se você pretende usar o JavaScript, precisará [definir uma versão de layout de página](contentdefinitions.md#migrating-to-page-layout) com `contract` a versão de página para *todas* as definições de conteúdo em sua política personalizada.
+    Se você pretende usar o JavaScript, precisará [definir uma versão de layout de página](contentdefinitions.md#migrating-to-page-layout) com `contract` a versão de página para *todas* as definições de conteúdo em sua política personalizada. Saiba como [migrar para o layout da página](contentdefinitions.md#migrating-to-page-layout) com a versão da página. 
 
 ## <a name="add-the-scriptexecution-element"></a>Adicionar o elemento ScriptExecution
 
 Você habilita a execução do script, adicionando o elemento **ScriptExecution** ao elemento [RelyingParty](relyingparty.md).
 
-1. Abra o arquivo de política personalizada. Por exemplo, *SignUpOrSignin.xml*.
-2. Adicione o elemento **ScriptExecution** ao elemento **UserJourneyBehaviors** do **RelyingParty**:
+1. Abra o arquivo de política personalizada. Por exemplo, *SignUpOrSignin.xml* .
+2. Adicione o elemento **ScriptExecution** ao elemento **UserJourneyBehaviors** do **RelyingParty** :
 
     ```xml
     <RelyingParty>
@@ -68,7 +68,7 @@ Você habilita a execução do script, adicionando o elemento **ScriptExecution*
 
 ### <a name="show-or-hide-a-password"></a>Mostrar ou ocultar uma senha
 
-É uma maneira comum para ajudar seus clientes a obterem êxito nas inscrições deles e permitir que eles vejam o que inseriram como a senha. Essa opção ajuda os usuários a inscrever-se, permitindo que eles vejam e façam correções em suas senhas, caso necessário. Qualquer campo de digitação de senha tem uma caixa de seleção com um rótulo **Mostrar senha**.  Isso permite que o usuário veja a senha em texto sem formatação. Inclua este snippet de código em seu modelo de inscrição ou entrada para uma página autodeclarada:
+É uma maneira comum para ajudar seus clientes a obterem êxito nas inscrições deles e permitir que eles vejam o que inseriram como a senha. Essa opção ajuda os usuários a inscrever-se, permitindo que eles vejam e façam correções em suas senhas, caso necessário. Qualquer campo de digitação de senha tem uma caixa de seleção com um rótulo **Mostrar senha** .  Isso permite que o usuário veja a senha em texto sem formatação. Inclua este snippet de código em seu modelo de inscrição ou entrada para uma página autodeclarada:
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -114,7 +114,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>Adicionar termos de uso
 
-Inclua o seguinte código na sua página em que você quer incluir uma caixa de seleção de **termos de uso**. Essa caixa de seleção é normalmente necessária nas páginas de criação de conta local e de criação de conta social.
+Inclua o seguinte código na sua página em que você quer incluir uma caixa de seleção de **termos de uso** . Essa caixa de seleção é normalmente necessária nas páginas de criação de conta local e de criação de conta social.
 
 ```Javascript
 function addTermsOfUseLink() {

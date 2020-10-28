@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 293fc1bca47f7c58f89a8dac50cc636be8231d4f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220740"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633494"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar um compartilhamento NFS
 
@@ -86,17 +86,17 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Agora que você criou uma conta de armazenamento de arquivo e configurou a rede, é possível criar um compartilhamento de arquivos NFS. O processo é semelhante à criação de um compartilhamento SMB, você seleciona **NFS** em vez de **SMB** ao criar o compartilhamento.
 
-1. Navegue até sua conta de armazenamento e selecione **Compartilhamentos de arquivo**.
+1. Navegue até sua conta de armazenamento e selecione **Compartilhamentos de arquivo** .
 1. Selecione **+ compartilhamento de arquivos** para criar um novo compartilhamento de arquivos.
 1. Nomeie o compartilhamento de arquivos, selecione uma capacidade provisionada.
-1. Para **protocolo** , selecione **NFS (versão prévia)**.
+1. Para **protocolo** , selecione **NFS (versão prévia)** .
 1. Para o **comprimir raiz** , faça uma seleção.
 
     - Comprimir raiz (padrão)-o acesso para o superusuário remoto (raiz) é mapeado para UID (65534) e GID (65534).
     - Nenhum superusuário remoto de comprimir (raiz) recebe o acesso como raiz.
     - Todos os acessos ao usuário de comprimido são mapeados para UID (65534) e GID (65534).
     
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Captura de tela da folha de criação de compartilhamento de arquivos":::
 
@@ -120,7 +120,7 @@ Agora que você criou uma conta de armazenamento de arquivo e configurou a rede,
 
 1. Feche e reabra o console do PowerShell.
 
-1. Instale o módulo de visualização **AZ. Storage** versão **2.5.2-Preview**.
+1. Instale o módulo de visualização **AZ. Storage** versão **2.5.2-Preview** .
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
@@ -152,10 +152,9 @@ Para criar um compartilhamento de arquivos Premium com o CLI do Azure, use o com
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

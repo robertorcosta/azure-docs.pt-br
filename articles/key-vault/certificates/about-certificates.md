@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88923680"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126766"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Sobre certificados do Azure Key Vault
 
@@ -57,14 +57,14 @@ Os atributos de certificado são espelhados para atributos de chave endereçáve
 
 Um certificado do Cofre de Chaves tem os seguintes atributos:  
 
--   *habilitado*: booliano, opcional, o padrão é **true**. Pode ser especificado para indicar se os dados de certificado podem ser recuperados como segredo ou operável como uma chave. Também usado em conjunto com *nbf* e *exp* quando ocorre uma operação entre *nbf* e *exp* e só será permitido se ”habilitado” estiver definido como true. As operações fora da janela *nbf* e *exp* são proibidas automaticamente.  
+-   *habilitado* : booliano, opcional, o padrão é **true** . Pode ser especificado para indicar se os dados de certificado podem ser recuperados como segredo ou operável como uma chave. Também usado em conjunto com *nbf* e *exp* quando ocorre uma operação entre *nbf* e *exp* e só será permitido se ”habilitado” estiver definido como true. As operações fora da janela *nbf* e *exp* são proibidas automaticamente.  
 
 Há mais atributos somente leitura que são incluídos em resposta:
 
--   *criado*: IndDate indica quando esta versão do certificado foi criada.  
--   *atualizado*: IndDate indica quando esta versão do certificado foi atualizada.  
--   *exp*: IntDate: contém o valor da data de expiração do certificado x509.  
--   *nbf*: IntDate: contém o valor da data do certificado x509.  
+-   *criado* : IndDate indica quando esta versão do certificado foi criada.  
+-   *atualizado* : IndDate indica quando esta versão do certificado foi atualizada.  
+-   *exp* : IntDate: contém o valor da data de expiração do certificado x509.  
+-   *nbf* : IntDate: contém o valor da data do certificado x509.  
 
 > [!Note] 
 > Se um certificado do Key Vault expirar, a chave e o certificado endereçáveis ficarão inoperantes.  
@@ -141,42 +141,11 @@ Objetos de emissor são criados no cofre e só podem ser usados com certificados
 
 ## <a name="certificate-contacts"></a>Contatos de certificado
 
-Contatos de certificado contêm informações de contato para enviar notificações disparadas por eventos de tempo de vida do certificado. As informações de contatos são compartilhadas por todos os certificados no cofre de chaves. Uma notificação é enviada a todos os contatos especificados para um evento para qualquer certificado no cofre de chaves.  
-
-Se uma política de certificado for definida como renovação automática, uma notificação é enviada nos eventos a seguir.  
-
-- Antes da renovação de certificado
-- Após a renovação do certificado, indicar se o certificado foi renovado com êxito ou se houve um erro, exigindo a renovação manual do certificado.  
-
-  Quando uma política de certificação é definida para ser renovada manualmente (somente por email), uma notificação é enviada quando chega o momento de renovar o certificado.  
+Contatos de certificado contêm informações de contato para enviar notificações disparadas por eventos de tempo de vida do certificado. As informações de contatos são compartilhadas por todos os certificados no cofre de chaves. Uma notificação é enviada a todos os contatos especificados para um evento para qualquer certificado no cofre de chaves. Para obter informações sobre como definir o contato do certificado, acesse [aqui](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
 
 ## <a name="certificate-access-control"></a>Controle de acesso de certificado
 
- O controle de acesso para certificados é gerenciado pelo Key Vault e é fornecido no nível de um Key Vault que atua como o contêiner desses certificados. A política de controle de acesso para certificados é diferente da política de controle de acesso para chaves e segredos no mesmo Key Vault. Os usuários podem criar um ou mais cofres para armazenar certificados, para manter a segmentação e gerenciamento de certificados apropriados do cenário.  
-
- As seguintes permissões podem ser usadas, por entidade de segurança, na entrada de controle de acesso segredos em um cofre de chaves e refletem com maior exatidão as operações permitidas em um objeto de segredo:  
-
-- Permissões para operações de gerenciamento do certificado
-  - *obter*: Obtém a versão atual do certificado ou qualquer versão de um certificado 
-  - *lista*: Lista os certificados atuais ou versões de um certificado  
-  - *atualizar*: Atualizar um certificado
-  - *criar*: Criar certificado do Key Vault
-  - *importar*: Importar o material do certificado em um certificado de Key Vault
-  - *excluir*: Excluir um certificado, sua política e todas as suas versões  
-  - *recuperar*: Recuperar um certificado excluído
-  - *backup*: Faz backup de um certificado em um Key Vault
-  - *restaurar*: Restaurar um backup de certificado em um Key Vault
-  - *managecontacts*: Gerenciar contatos de certificados do Key Vault  
-  - *manageissuers*: Gerenciar as autoridades/emissores de certificado do Key Vault
-  - *getissuers*: Obter as autoridades/emissores de um certificado
-  - *listissuers*: Lista as autoridades/emissores de um certificado  
-  - *setissuers*: Cria ou atualiza emissores de certificado do Key Vault  
-  - *deleteissuers*: Exclui autoridades/emissores do certificado do Azure Key Vault  
- 
-- Permissões para operações com privilégio
-  - *limpar*: Limpar (exclui permanentemente) um certificado excluído
-
-Para obter mais informações, veja [Operações de certificado na referência de API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, confira [Cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres – atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
+ O controle de acesso para certificados é gerenciado pelo Key Vault e é fornecido no nível de um Key Vault que atua como o contêiner desses certificados. A política de controle de acesso para certificados é diferente da política de controle de acesso para chaves e segredos no mesmo Key Vault. Os usuários podem criar um ou mais cofres para armazenar certificados, para manter a segmentação e gerenciamento de certificados apropriados do cenário.  Para obter mais informações sobre o controle de acesso do certificado, acesse [aqui](certificate-access-control.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

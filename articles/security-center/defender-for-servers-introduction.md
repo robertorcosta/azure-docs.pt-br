@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8757399329f3a9bd9f4d7b914b12b2a0f7e85603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448283"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275255"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure Defender para servidores
 
@@ -20,18 +20,25 @@ O Azure Defender para servidores adiciona proteções avançadas e a detecção 
 
 No Windows, o Azure Defender integra-se aos serviços do Azure para monitorar e proteger seus computadores baseados no Windows. A Central de Segurança apresenta os alertas e as sugestões de correção de todos esses serviços em um formato fácil de usar.
 
-No Linux, o Azure Defender coleta os registros de auditoria dos computadores Linux usando o **auditd**, uma das estruturas de auditoria mais comuns do Linux. auditd reside no kernel principal. 
+No Linux, o Azure Defender coleta os registros de auditoria dos computadores Linux usando o **auditd** , uma das estruturas de auditoria mais comuns do Linux. auditd reside no kernel principal. 
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-servers"></a>Quais são os benefícios do Azure Defender para servidores?
 
 As funcionalidades de detecção e proteção contra ameaças fornecidos no Azure Defender para servidores incluem:
 
-- **Verificação de avaliação de vulnerabilidades para VMs**: o verificador de vulnerabilidades incluído na Central de Segurança do Azure é fornecido pela Qualys. 
+- **Licença integrada para o Microsoft Defender para ponto de extremidade (apenas Windows)** – O Azure Defender para servidores inclui o [Microsoft Defender para Ponto de Extremidade](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Juntas, elas fornecem recursos abrangentes de Detecção e resposta de ponto de extremidade (EDR). [Saiba mais](security-center-wdatp.md).
+
+    Quando o Defender para Ponto de Extremidade detecta uma ameaça, ele dispara um alerta. O alerta é mostrado na Central de Segurança. Na Central de Segurança, você pode fazer a dinamização para o console do Defender para Ponto de Extremidade e realizar uma investigação detalhada para descobrir o escopo do ataque. Saiba mais sobre o Microsoft Defender para Ponto de Extremidade.
+
+    > [!IMPORTANT]
+    > O sensor do **Microsoft Defender para Ponto de Extremidade** é habilitado automaticamente em servidores Windows que usam a Central de Segurança.
+
+- **Verificação de avaliação de vulnerabilidades para VMs** : o verificador de vulnerabilidades incluído na Central de Segurança do Azure é fornecido pela Qualys. 
 
     O verificador da Qualys é uma das ferramentas líder para a identificação em tempo real de vulnerabilidades nas suas Máquinas Virtuais do Azure. Você não precisa de uma licença do Qualys nem de uma conta do Qualys: tudo é tratado diretamente na Central de Segurança. [Saiba mais](deploy-vulnerability-assessment-vm.md).
 
-- **Acesso JIT (just-in-time) à VM**: ameace os atores que buscam ativamente computadores acessíveis com portas de gerenciamento abertas, como RDP ou SSH. Todas as suas máquinas virtuais são alvos potenciais de um ataque. Quando uma VM é comprometida com êxito, ela é usada como o ponto de entrada para atacar outros recursos no seu ambiente.
+- **Acesso JIT (Just-In-Time) à VM (máquina virtual)** : atores de ameaça buscam ativamente computadores acessíveis com portas de gerenciamento abertas, como RDP ou SSH. Todas as suas máquinas virtuais são alvos potenciais de um ataque. Quando uma VM é comprometida com êxito, ela é usada como o ponto de entrada para atacar outros recursos no seu ambiente.
 
     Ao habilitar o Azure Defender para servidores, você pode usar o acesso just-in-time à VM para bloquear o tráfego de entrada nas suas VMs, reduzindo a exposição a ataques e fornecendo fácil acesso para se conectar às VMs quando necessário. [Saiba mais](just-in-time-explained.md).
 
@@ -47,14 +54,7 @@ As funcionalidades de detecção e proteção contra ameaças fornecidos no Azur
 
     A proteção de rede adaptável fornece recomendações para proteger ainda mais as regras NSG. Ela usa um algoritmo de machine learning que inclui o tráfego real, a configuração confiável conhecida, a inteligência contra ameaças e outros indicadores de comprometimento e, em seguida, fornece recomendações para permitir o tráfego somente de tuplas de IP/porta específicas. [Saiba mais](security-center-adaptive-network-hardening.md).
 
-- **Integração ao ATP (Proteção Avançada contra Ameaças do Microsoft Defender) (somente Windows)** : o Azure Defender se integra ao ATP (Proteção Avançada contra Ameaças do Microsoft Defender). Juntas, elas fornecem recursos abrangentes de Detecção e resposta de ponto de extremidade (EDR). [Saiba mais](security-center-wdatp.md).
-
-    > [!IMPORTANT]
-    > O sensor da ATP do Microsoft Defender é habilitado automaticamente em servidores Windows que usam a Central de Segurança.
-
-    Quando a ATP do Microsoft Defender detecta uma ameaça, ela dispara um alerta. O alerta é mostrado na Central de Segurança. Na Central de Segurança, você pode dinamizar para o console do Microsoft Defender ATP e realizar uma investigação detalhada para descobrir o escopo do ataque. Para saber mais sobre a ATP do Microsoft Defender, confira [Integrar servidores ao serviço da ATP do Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
-
-- **Proteção de host do Docker**: a Central de Segurança do Azure identifica contêineres não gerenciados hospedados em VMs IaaS do Linux ou em outros computadores Linux que executam contêineres do Docker. A Central de Segurança avalia continuamente as configurações desses contêineres. Em seguida, ela as compara com o benchmark do CIS (Center for Internet Security) do Docker. A Central de Segurança inclui todo o conjunto de regras do benchmark do CIS do Docker e alerta você se os contêineres não atendem a nenhum dos controles. [Saiba mais](harden-docker-hosts.md).
+- **Proteção de host do Docker** : a Central de Segurança do Azure identifica contêineres não gerenciados hospedados em VMs IaaS do Linux ou em outros computadores Linux que executam contêineres do Docker. A Central de Segurança avalia continuamente as configurações desses contêineres. Em seguida, ela as compara com o benchmark do CIS (Center for Internet Security) do Docker. A Central de Segurança inclui todo o conjunto de regras do benchmark do CIS do Docker e alerta você se os contêineres não atendem a nenhum dos controles. [Saiba mais](harden-docker-hosts.md).
 
 - **Detecção de ataque sem arquivos (somente Windows)** : os ataques sem arquivos injetam conteúdo mal-intencionado na memória para evitar a detecção por técnicas de verificação baseadas em disco. Depois, o conteúdo do invasor persiste na memória de processos comprometidos e executa uma ampla gama de atividades mal-intencionadas.
 

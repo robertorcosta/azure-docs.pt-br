@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221410"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628670"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks em seu workspace
 
@@ -42,15 +42,15 @@ No Workspace do Azure Machine Learning, crie um Jupyter Notebook e comece a trab
 Para criar um notebook: 
 
 1. Abra seu workspace no [Azure Machine Learning Studio](https://ml.azure.com).
-1. No lado esquerdo, selecione **Notebooks**. 
-1. Selecione o ícone **Criar arquivo** acima da lista **Arquivos do usuário** na seção **Meus arquivos**.
+1. No lado esquerdo, selecione **Notebooks** . 
+1. Selecione o ícone **Criar arquivo** acima da lista **Arquivos do usuário** na seção **Meus arquivos** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Criar arquivo":::
 
 1. Dê um nome ao arquivo. 
 1. Para Jupyter Notebook arquivos, selecione **bloco de anotações** como o tipo de arquivo.
 1. Selecione um diretório de arquivos.
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
 Você também pode criar arquivos de texto.  Selecione **Texto** como o tipo de arquivo e adicione a extensão ao nome (por exemplo, myfile.py ou myfile. txt)  
 
@@ -75,14 +75,14 @@ Você pode acessar todas as operações do git usando uma janela do terminal. To
 Para acessar o terminal:
 
 1. Abra seu workspace no [Azure Machine Learning Studio](https://ml.azure.com).
-1. No lado esquerdo, selecione **Notebooks**.
+1. No lado esquerdo, selecione **Notebooks** .
 1. Selecione qualquer notebook localizado na seção **Arquivos do usuário** no lado esquerdo.  Se você não tiver nenhum notebook, primeiro [crie um notebook](#create)
 1. Selecione um destino de **computação** ou crie um novo e aguarde até que ele esteja em execução.
-1. Selecione o ícone **Abrir terminal**.
+1. Selecione o ícone **Abrir terminal** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Criar arquivo":::
 
-1. Se você não vir o ícone, selecione o **...** à direita do destino de computação e, em seguida, selecione **abrir terminal**.
+1. Se você não vir o ícone, selecione o **...** à direita do destino de computação e, em seguida, selecione **abrir terminal** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Criar arquivo":::
 
@@ -113,8 +113,8 @@ Você também pode iniciar o Jupyter ou o JupyterLab na barra de ferramentas Not
 
 Use o modo de foco para expandir sua exibição atual para que você possa se concentrar nas guias ativas. O modo de foco oculta o explorador de arquivos dos blocos de anotações.
 
-1. Na barra de ferramentas da janela do terminal, selecione **modo de foco**   para ativar o modo de foco. Dependendo da largura da janela, isso pode estar localizado no item de menu **...** na barra de ferramentas.
-1. No modo de foco, retorne ao modo de exibição padrão selecionando **exibição padrão**.
+1. Na barra de ferramentas da janela do terminal, selecione **modo de foco** para ativar o modo de foco. Dependendo da largura da janela, isso pode estar localizado no item de menu **...** na barra de ferramentas.
+1. No modo de foco, retorne ao modo de exibição padrão selecionando **exibição padrão** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Criar arquivo":::
 
@@ -143,13 +143,13 @@ O novo bloco de anotações contém apenas células de código, com todas as cé
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Salvar e ponto de verificação de um notebook
 
-Azure Machine Learning cria um arquivo de ponto de verificação quando você cria um arquivo *ipynb*   .
+Azure Machine Learning cria um arquivo de ponto de verificação quando você cria um arquivo *ipynb* .
 
 Na barra de ferramentas do bloco de anotações, selecione o menu e, em seguida, **arquivo &gt; salvar e ponto de verificação** para salvar o bloco de anotações manualmente e ele adicionará um arquivo de ponto de verificação associado ao bloco de anotações.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Criar arquivo":::
 
-Cada bloco de anotações é salvo AutoSalva a cada 30 segundos.O salvamento automático atualiza apenas o arquivo *ipynb*inicial   , não o arquivo de ponto de verificação.
+Cada bloco de anotações é salvo AutoSalva a cada 30 segundos. O salvamento automático atualiza apenas o arquivo *ipynb* inicial, não o arquivo de ponto de verificação.
  
 Selecione **pontos de verificação** no menu do bloco de anotações para criar um ponto de verificação nomeado e reverter o bloco de anotações para um ponto de verificação salvo.
 
@@ -167,7 +167,7 @@ Selecione **pontos de verificação** no menu do bloco de anotações para criar
 
 ## <a name="delete-a-notebook"></a>Excluir um notebook
 
-Você *não pode* excluir os notebooks de **Exemplos**.  Esses blocos notebooks fazem parte do estúdio e são atualizados sempre que um novo SDK é publicado.  
+Você *não pode* excluir os notebooks de **Exemplos** .  Esses blocos notebooks fazem parte do estúdio e são atualizados sempre que um novo SDK é publicado.  
 
 Você *pode* excluir notebooks de **arquivos de usuário** de qualquer uma destas maneiras:
 
@@ -180,8 +180,8 @@ Você *pode* excluir notebooks de **arquivos de usuário** de qualquer uma desta
 Para executar um experimento de um Notebook, primeiro você se conecta a uma [instância de computação](concept-compute-instance.md) em execução. Se você não tiver uma instância de computação, use estas etapas para criar uma: 
 
 1. Selecione **+** na barra de ferramentas Notebook. 
-2. Dê um nome a Computação e escolha um **Tamanho da Máquina Virtual**. 
-3. Selecione **Criar**.
+2. Dê um nome a Computação e escolha um **Tamanho da Máquina Virtual** . 
+3. Selecione **Criar** .
 4. A instância de computação é conectada ao Notebook automaticamente e agora você pode executar as células.
 
 Somente você pode ver e usar as instâncias de computação que criar.  Seus **Arquivos de usuário** são armazenados separadamente da VM e compartilhados entre todas as instâncias de computação no workspace.
@@ -218,7 +218,7 @@ O Notebook localizará automaticamente todos os kernels do Jupyter instalados na
 1. Selecione [**Abrir terminal**](#terminal) na barra de ferramentas Notebook.
 1. Use a janela do terminal para criar um ambiente.  Por exemplo, o código a seguir cria `newenv` :
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Ative o ambiente.  Por exemplo, depois de criar `newenv`:
 
@@ -228,13 +228,13 @@ O Notebook localizará automaticamente todos os kernels do Jupyter instalados na
 1. Instalar o pacote Pip e ipykernel no novo ambiente e criar um kernel para esse Conda env
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 
 > [!NOTE]
-> Para o gerenciamento de pacotes em um notebook, use as funções mágicas **% Pip** ou **% Conda** para instalar pacotes automaticamente no **kernel em execução no momento**, em vez de **! Pip** ou **! Conda** que se refere a todos os pacotes (incluindo pacotes fora do kernel em execução no momento)
+> Para o gerenciamento de pacotes em um notebook, use as funções mágicas **% Pip** ou **% Conda** para instalar pacotes automaticamente no **kernel em execução no momento** , em vez de **! Pip** ou **! Conda** que se refere a todos os pacotes (incluindo pacotes fora do kernel em execução no momento)
 
 Qualquer um dos [Kernels do Jupyter disponíveis](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) pode ser instalado.
 

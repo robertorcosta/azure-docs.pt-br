@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003205"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167178"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS (Serviço de Kubernetes do Azure)
 
@@ -63,6 +63,12 @@ Para saber mais sobre as versões do ciclo de vida, confira [Versões do Kuberne
 AKS oferece suporte à criação de pools de nó habilitados para GPU. Atualmente, o Azure fornece uma ou várias VMs habilitasdas para GPU. As VMs habilitadas para GPU são projetadas para cargas de trabalho de visualização e com muita computação e muitos gráficos.
 
 Para obter mais informações, confira [Como usar GPUs no AKS][aks-gpu].
+
+### <a name="confidential-computing-nodes-public-preview"></a>Nós de computação confidencial (versão prévia pública)
+
+O AKS dá suporte à criação de pools de nós de computação confidencial baseados no Intel SGX (VMs DCSv2). Os nós de computação confidencial permitem que os contêineres sejam executados em um ambiente de execução isolado e confiável baseado em hardware (enclaves). O isolamento entre contêineres combinados com a integridade de código por meio de atestado pode ajudar com sua estratégia de segurança de contêiner de defesa em profundidade. Os nós de computação confidencial dão suporte a contêineres confidenciais (aplicativos existentes do Docker) e contêineres com reconhecimento de enclave.
+
+Para obter mais informações, confira [Nós de computação confidencial no AKS][conf-com-node]
 
 ### <a name="storage-volume-support"></a>Suporte a volumes de armazenamento
 
@@ -143,3 +149,4 @@ Saiba mais sobre como implantar e gerenciar o AKS com os tutoriais de início r�
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

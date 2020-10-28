@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243232"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093575"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -59,9 +59,9 @@ Para acessar as métricas:
 
     ![Métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Na lista suspensa, selecione as métricas em que você está interessado. Por exemplo, **Solicitações**. 
+2. Na lista suspensa, selecione as métricas em que você está interessado. Por exemplo, **Solicitações** . 
 3. O gráfico mostra o número total de chamadas à API.
-4. O gráfico pode ser filtrado usando as dimensões da métrica **Solicitações**. Por exemplo, clique em **Adicionar filtro**, escolha **Código de Resposta de Back-end** e insira 500 como o valor. Agora, o gráfico mostra o número de solicitações que falharam no back-end da API.   
+4. O gráfico pode ser filtrado usando as dimensões da métrica **Solicitações** . Por exemplo, clique em **Adicionar filtro** , escolha **Código de Resposta de Back-end** e insira 500 como o valor. Agora, o gráfico mostra o número de solicitações que falharam no back-end da API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurar uma regra de alerta para a solicitação não autorizada
 
@@ -75,25 +75,25 @@ Para configurar alertas:
 
 1. Selecione **Alertas** na barra de menus na parte inferior da página.
 
-    ![alertas](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![Captura de tela que mostra a opção Alertas no menu próximo à parte inferior da página.](./media/api-management-azure-monitor/alert-menu-item.png)
 
 2. Clique em uma **Nova regra de alerta** para este alerta.
-3. Clique em **Adicionar condição**.
+3. Clique em **Adicionar condição** .
 4. Selecione **Métricas** na lista suspensa Tipo de sinal.
 5. Selecione **Solicitação de Gateway Não Autorizado** como sinal para monitorar.
 
-    ![alertas](./media/api-management-azure-monitor/signal-type.png)
+    ![Captura de tela que realça o campo Tipo de Sinal e o nome do sinal Solicitações de Gateway não Autorizadas.](./media/api-management-azure-monitor/signal-type.png)
 
-6. Na exibição **Configurar lógica de sinal**, especifique um limite após o qual o alerta deve ser disparado e clique em **Concluído**.
+6. Na exibição **Configurar lógica de sinal** , especifique um limite após o qual o alerta deve ser disparado e clique em **Concluído** .
 
-    ![alertas](./media/api-management-azure-monitor/threshold.png)
+    ![Captura de tela que mostra a exibição Configurar lógica de sinal.](./media/api-management-azure-monitor/threshold.png)
 
 7. Selecione um Grupo de Ações existente ou crie um. No exemplo a seguir, um email será enviado para os administradores. 
 
     ![alertas](./media/api-management-azure-monitor/action-details.png)
 
 8. Forneça um nome, uma descrição da regra de alertas e escolha o nível de gravidade. 
-9. Clique em **Criar regra de alerta**.
+9. Clique em **Criar regra de alerta** .
 10. Agora tente chamar a API de conferência sem uma chave de API. O alerta será disparado e um email será enviado aos administradores. 
 
 ## <a name="activity-logs"></a>Logs de atividade
@@ -110,11 +110,11 @@ Os logs de atividades fornecem informações sobre as operações que foram real
 Para exibir logs de atividade:
 
 1. Selecione a instância de serviço do APIM.
-2. Clique em **Log de atividades**.
+2. Clique em **Log de atividades** .
 
     ![log de atividades](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
 
-3. Selecione o escopo de filtragem desejado e clique em **Aplicar**.
+3. Selecione o escopo de filtragem desejado e clique em **Aplicar** .
 
 ## <a name="resource-logs"></a>Logs de recursos
 
@@ -123,11 +123,11 @@ Os logs de recursos fornecem informações avançadas sobre operações e erros 
 Para configurar os logs de recursos:
 
 1. Selecione a instância de serviço do APIM.
-2. Clique em **Configurações do Diagnóstico**.
+2. Clique em **Configurações do Diagnóstico** .
 
     ![logs de recursos](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Clique em **Ativar diagnóstico**. Você pode arquivar os logs de recursos junto com as métricas em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para os logs do Azure Monitor. 
+3. Clique em **Ativar diagnóstico** . Você pode arquivar os logs de recursos junto com as métricas em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para os logs do Azure Monitor. 
 
 No momento, o Gerenciamento de API oferece logs de recursos (agrupados por hora) sobre solicitações de API individuais em que cada entrada tem o seguinte esquema:
 

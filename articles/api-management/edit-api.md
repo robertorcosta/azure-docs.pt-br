@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076922"
+ms.locfileid: "92092691"
 ---
 # <a name="edit-an-api"></a>Editar uma API
 
@@ -35,29 +35,29 @@ As etapas neste tutorial mostram como usar o APIM (Gerenciamento de API) para ed
 
 ## <a name="edit-an-api-in-apim"></a>Editar uma API no APIM
 
-![Editar uma API](./media/edit-api/edit-api001.png)
+![Captura de tela que realça o processo de edição de uma API no APIM.](./media/edit-api/edit-api001.png)
 
-1. Clique na guia **APIs**.
+1. Clique na guia **APIs** .
 2. Selecione uma das APIs que você importou anteriormente.
-3. Selecione a guia **Design**.
+3. Selecione a guia **Design** .
 4. Selecione uma operação que você deseja editar.
-5. Para renomear a operação, selecione um **lápis** na janela **Front-end**.
+5. Para renomear a operação, selecione um **lápis** na janela **Front-end** .
 
 ## <a name="update-the-swagger"></a>Atualizar o swagger
 
 Você pode atualizar sua API de back-end do Portal do Azure seguindo estas etapas:
 
 1. Selecione **Todas as operações**
-2. Clique no lápis na janela **Front-end**.
+2. Clique no lápis na janela **Front-end** .
 
-    ![Editar uma API](./media/edit-api/edit-api002.png)
+    ![Captura de tela que realça o ícone de lápis na tela Front-end.](./media/edit-api/edit-api002.png)
 
     O swagger da sua API é exibido.
 
     ![Editar uma API](./media/edit-api/edit-api003.png)
 
 3. Atualize o swagger.
-4. Pressione **Salvar**.
+4. Pressione **Salvar** .
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

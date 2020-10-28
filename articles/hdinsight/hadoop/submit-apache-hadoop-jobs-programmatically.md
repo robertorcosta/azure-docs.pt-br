@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 6b04e24541959740ca08c2ec196b2408db0b76b7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ce53e02c587086a34a9967bb09ba047858af52e8
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545184"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628925"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Enviar trabalhos do Apache Hadoop no HDInsight
 
@@ -40,6 +40,6 @@ Você pode enviar tarefas do Apache Hadoop no HDInsight do Azure usando o Micros
   - [Usar o Apache Sqoop com o Apache Hadoop no HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [Executar trabalhos do MapReduce com Apache Hadoop no HDInsight usando o PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="next-steps"></a>Próximas etapas
 
 - [Documentação do Azure HDInsight](../index.yml)

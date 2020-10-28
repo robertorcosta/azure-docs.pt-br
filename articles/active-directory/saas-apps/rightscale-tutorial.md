@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 75c0542764e94ae57379fa225b4e064a58da3af1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f071a66fef632afe9e54fecfa253e4604679baa2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553352"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Azure Active Directory ao Rightscale
 
@@ -49,11 +49,11 @@ Para configurar a integração do Rightscale ao Azure AD, é necessário adicion
 
 **Para adicionar o Rightscale por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Rightscale ao Azure AD, é necessário adicion
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Rightscale**, selecione **Rightscale** no painel de resultados, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Rightscale** , selecione **Rightscale** no painel de resultados, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![O Rightscale na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Rightscale, com base em uma usuária de teste chamada **Brenda Fernandes**.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Rightscale, com base em uma usuária de teste chamada **Brenda Fernandes** .
 Para que o logon único funcione, uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Rightscale precisa ser estabelecida.
 
 Para configurar e testar o logon único do Azure AD com o Rightscale, você precisa concluir os seguintes blocos de construção:
@@ -85,33 +85,33 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Rightscale, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Rightscale**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Rightscale** , selecione **Logon único** .
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
+4. Na seção **Configuração Básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
 
-    ![Informações de logon único de URLs e domínio do Rightscale](common/preintegrated.png)
+    ![Captura de tela que mostra a página Configuração Básica do SAML.](common/preintegrated.png)
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    ![Informações de logon único de URLs e domínio do Rightscale](common/metadata-upload-additional-signon.png)
+    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de Logon**, digite a URL: `https://login.rightscale.com/`
+    Na caixa de texto **URL de Logon** , digite a URL: `https://login.rightscale.com/`
 
-6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-7. Na seção **Configurar o Rightscale**, copie as URLs apropriadas, de acordo com seus requisitos.
+7. Na seção **Configurar o Rightscale** , copie as URLs apropriadas, de acordo com seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -125,34 +125,33 @@ Para configurar o logon único do Azure AD com o Rightscale, execute as seguinte
 
 1. Para configurar o SSO para o aplicativo, você precisa entrar no locatário do RightScale como administrador.
 
-2. No menu na parte superior, clique na guia **Configurações** e selecione **Logon Único**.
+2. No menu na parte superior, clique na guia **Configurações** e selecione **Logon Único** .
 
-    ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![Captura de tela que mostra a opção Logon Único selecionada em Configurações.](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
-3. Clique no botão **Novo** para adicionar **Seus provedores de identidade SAML**.
+3. Clique no botão **Novo** para adicionar **Seus provedores de identidade SAML** .
 
-    ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![Captura de tela que mostra os novos botões selecionados usados para adicionar um Provedor de Identidade do SAML.](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
-4. Na caixa de texto do **Nome de Exibição**, insira o nome da sua empresa.
+4. Na caixa de texto do **Nome de Exibição** , insira o nome da sua empresa.
 
-    ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![Captura de tela que mostra o local em que um nome de exibição é inserido.](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
 5. Selecione **Permitir o SSO iniciado pelo RightScale usando uma dica de descoberta** e insira seu **nome de domínio** na caixa de texto abaixo.
 
-    ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![Captura de tela que mostra o local em que você pode especificar um Método de Logon.](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
 6. Cole o valor da **URL de logon** que você copiou do portal do Azure no **Ponto de extremidade do SSO SAML** no RightScale.
 
-    ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![Captura de tela que mostra o local em que você pode inserir um Ponto de Extremidade de SSO do SAML.](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
 7. Cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure no **EntityID SAML** no RightScale.
 
-    ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![Captura de tela que mostra o local em que você pode inserir uma ID de Entidade do SAML.](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
 8. Clique no botão **Navegador** para carregar o certificado baixado no portal do Azure.
 
-
-    ![Configurar o logon único](./media/rightscale-tutorial/tutorial_rightscale_009.png)
+    ![Captura de tela que mostra o local em que você pode especificar seu Certificado de Autenticação SAML.](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
 9. Clique em **Save** (Salvar).
 
@@ -160,7 +159,7 @@ Para configurar o logon único do Azure AD com o Rightscale, execute as seguinte
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -172,40 +171,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes** .
   
-    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`  
+    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Rightscale.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos**, em seguida, selecione **Rightscale**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** , selecione **Todos os aplicativos** , em seguida, selecione **Rightscale** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Rightscale**.
+2. Na lista de aplicativos, selecione **Rightscale** .
 
     ![O link do Rightscale na lista Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos** .
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
 
 ### <a name="create-rightscale-test-user"></a>Criar um usuário de teste do Rightscale
 

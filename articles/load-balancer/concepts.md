@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5c12b7d0bf9bed551e54ccb2e54a4674a8323a9c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 28c3e4ade2c78a1a77ef7263463803e40727ba8f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930910"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315299"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Algoritmo do Azure Load Balancer
 
@@ -57,6 +57,7 @@ O balanceador de carga não interage diretamente com o TCP ou UDP, nem com a cam
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Saiba mais sobre os [componentes](components.md) que compõem o Azure Load Balancer.
 - Confira [Criar um Standard Load Balancer público](quickstart-load-balancer-standard-public-portal.md) para começar a usar um Load Balancer: crie VMs com uma extensão de IIS personalizada instalada e faça o balanceamento de carga do aplicativo Web entre as VMs.
 - Aprenda sobre [Conexões de saída do Azure Load Balancer](load-balancer-outbound-connections.md).
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).

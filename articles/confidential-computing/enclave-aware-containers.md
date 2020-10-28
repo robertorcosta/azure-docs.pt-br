@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b388b8efb7d993baa243975dbf499576246f3185
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01f10d3ba83d23478a7113cf4935181ee34959e3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998271"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125279"
 ---
 # <a name="enclave-aware-containers"></a>Contêineres com reconhecimento de enclave
 
@@ -51,14 +51,19 @@ Essa solução permite que você traga o modelo treinado de ML existente e o exe
 
 Veja uma introdução ao lift-and-shift do modelo de ML para o runtime do ONNX [aqui](https://aka.ms/confidentialinference)
 
-## <a name="container-samples-implementations"></a>Implementações de amostras de contêiner
+### <a name="edgeless-rt"></a>Edgeless RT
 
-[Exemplos do Azure para contêineres com reconhecimento de enclave no AKS](https://github.com/Azure-Samples/enclave-aware-container-samples)
+O Edgeless RT é um projeto de software livre que se baseia no SDK do Open Enclave. Ele adiciona suporte ao Go e a recursos adicionais do C++. Comece com um aplicativo Go confidencial simples usando o ambiente do VS Code que você já conhece [aqui](https://github.com/edgelesssys/edgelessrt). Para aplicativos Edgeless no AKS, siga as instruções descritas [aqui](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)
+
+
+## <a name="container-based-sample-implementations"></a>Exemplos de implementações baseadas em contêiner
+
+[Exemplos do Azure para contêineres com reconhecimento de enclave no AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Atestado do Azure](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[Máquina Virtual de DC](/confidential-computing/virtual-machine-solutions)
+[Contêineres confidenciais](/confidential-computing/containercompute/confidential-containers)

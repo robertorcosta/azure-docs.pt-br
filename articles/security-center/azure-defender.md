@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576840"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331678"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
@@ -20,7 +20,7 @@ Os recursos da Central de Segurança do Azure abrangem os dois pilares mais ampl
 
 - **GPSN (gerenciamento da postura de segurança na nuvem)** – A Central de Segurança está disponível **gratuitamente** para todos os usuários do Azure. A experiência gratuita inclui recursos de GPSN, como classificação de segurança, detecção de configurações incorretas de segurança em seus computadores do Azure, inventário de ativos e muito mais. Use esses recursos de GPSN para fortalecer sua postura de nuvem híbrida e controlar a conformidade com as políticas internas.
 
-- **PCTN (proteção de cargas de trabalho na nuvem)** – A PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada da Central de Segurança, o **Azure Defender**, oferece proteção avançada e inteligente para cargas de trabalho e recursos híbridos do Azure. A habilitação do Azure Defender oferece uma série de recursos de segurança adicionais, conforme descrito nesta página. Além das políticas internas, ao habilitar qualquer plano do Azure Defender, você pode adicionar políticas e iniciativas personalizadas. Você pode adicionar padrões regulatórios, como NIST e Azure CIS, bem como o Azure Security Benchmark para obter uma exibição verdadeiramente personalizada da sua conformidade.
+- **PCTN (proteção de cargas de trabalho na nuvem)** – A PPCTN (plataforma de proteção de cargas de trabalho na nuvem) integrada da Central de Segurança, o **Azure Defender** , oferece proteção avançada e inteligente para cargas de trabalho e recursos híbridos do Azure. A habilitação do Azure Defender oferece uma série de recursos de segurança adicionais, conforme descrito nesta página. Além das políticas internas, ao habilitar qualquer plano do Azure Defender, você pode adicionar políticas e iniciativas personalizadas. Você pode adicionar padrões regulatórios, como NIST e Azure CIS, bem como o Azure Security Benchmark para obter uma exibição verdadeiramente personalizada da sua conformidade.
 
 O painel do Azure Defender na Central de Segurança fornece visibilidade e controle dos recursos de PCTN em seu ambiente:
 
@@ -36,13 +36,14 @@ Quando você habilita o Azure Defender na área **Preços e configurações** da
 - [Azure Defender for Serviço de Aplicativo](defender-for-app-service-introduction.md)
 - [Azure Defender para Armazenamento](defender-for-storage-introduction.md)
 - [Azure Defender para SQL](defender-for-sql-introduction.md)
-- [Azure Defender para IoT](defender-for-iot-introduction.md)
 - [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)
 - [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
 
 Cada um desses planos é explicado separadamente na documentação da Central de Segurança.
 
+> [!TIP]
+> O Azure Defender para IoT (versão prévia) é um produto separado. Você encontrará todos os detalhes em [Como introduzir o Azure Defender para IoT (versão prévia)](../defender-for-iot/overview.md). 
 
 ## <a name="hybrid-cloud-protection"></a>Proteção de nuvem híbrida
 
@@ -50,7 +51,6 @@ Além de defender seu ambiente do Azure, você pode adicionar funcionalidades do
 
 - Proteger seus servidores não Azure
 - Proteger suas máquinas virtuais em outras nuvens (como a AWS e o GCP)
-- Proteger seus dispositivos IoT
 
 Você obterá inteligência contra ameaças personalizada e alertas priorizados de acordo com seu ambiente específico, de modo que possa se concentrar no que é mais importante.
 

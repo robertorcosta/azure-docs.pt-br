@@ -89,7 +89,7 @@ Conforme declarado no JIRA YARN vinculado anteriormente, ao localizar recursos p
 
 Defina permissões de leitura-execução **outros** por meio da hierarquia, por exemplo, em **/** , **/clusters** e **/clusters/finance** , conforme mostrado na tabela acima.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Início rápido: Configurar clusters no HDInsight](./hdinsight-hadoop-provision-linux-clusters.md)
 - [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md)

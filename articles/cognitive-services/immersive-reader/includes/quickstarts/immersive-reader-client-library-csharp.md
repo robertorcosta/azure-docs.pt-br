@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 08996d7343ccab4c5d6e688b580a8e6e1ca5bceb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377453"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116722"
 ---
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente desenvolvida que implementa técnicas comprovadas para melhorar a compreensão de leitura para novos leitores, aprendizes da idioma e pessoas com diferenças de aprendizado, como dislexia. Você pode usar a Leitura Avançada em seus aplicativos para isolar texto e aprimorar o foco, exibir imagens para palavras usadas com frequência, realçar partes de fala, ler o texto selecionado em voz alta, traduzir palavras e frases em tempo real e muito mais.
 
@@ -42,7 +42,7 @@ Crie um projeto no Visual Studio, usando o modelo de aplicativo Web ASP.NET Core
 
 ### <a name="configure-authentication-values"></a>Configurar os valores de autenticação
 
-Clique com botão direito do mouse no projeto no _Gerenciador de Soluções_ e escolha **Gerenciar Segredos do Usuário**. Isso abrirá um arquivo chamado _secrets.json_. Não foi feito o check-in do arquivo no controle do código-fonte. Saiba mais [aqui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Substitua o conteúdo de _secrets.json_ pelo seguinte, fornecendo os valores fornecidos quando você criou o recurso de Leitura Avançada.
+Clique com botão direito do mouse no projeto no _Gerenciador de Soluções_ e escolha **Gerenciar Segredos do Usuário** . Isso abrirá um arquivo chamado _secrets.json_ . Não foi feito o check-in do arquivo no controle do código-fonte. Saiba mais [aqui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Substitua o conteúdo de _secrets.json_ pelo seguinte, fornecendo os valores fornecidos quando você criou o recurso de Leitura Avançada.
 
 ```json
 {
@@ -53,9 +53,9 @@ Clique com botão direito do mouse no projeto no _Gerenciador de Soluções_ e e
 }
 ```
 
-### <a name="install-active-directory"></a>Instalar o Active Directory
+### <a name="install-active-directory-nuget-package"></a>Instalar o pacote NuGet do Active Directory
 
-O código a seguir usa objetos do pacote NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory**; portanto, você precisará adicionar uma referência a esse pacote no projeto.
+O código a seguir usa objetos do pacote NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory** ; portanto, você precisará adicionar uma referência a esse pacote no projeto.
 
 Abra o Console do Gerenciador de Pacotes NuGet em **Ferramentas -> Gerenciador de Pacotes NuGet-> Console do Gerenciador de Pacotes** e execute o seguinte comando:
 
@@ -71,7 +71,7 @@ Abra _Controllers\HomeController.cs_ e adicione o código a seguir após as inst
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Agora, configuraremos o controlador para obter os valores do Azure AD de _secrets.json_. Na parte superior da classe _HomeController_, depois de ```public class HomeController : Controller {```, adicione o código a seguir.
+Agora, configuraremos o controlador para obter os valores do Azure AD de _secrets.json_ . Na parte superior da classe _HomeController_ , depois de ```public class HomeController : Controller {```, adicione o código a seguir.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -142,7 +142,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## <a name="add-sample-content"></a>Adicionar o conteúdo de exemplo
-Primeiro, abra _Views\Shared\Layout.cshtml_. Antes da linha ```</head>```, adicione o código a seguir:
+Primeiro, abra _Views\Shared\Layout.cshtml_ . Antes da linha ```</head>```, adicione o código a seguir:
 
 ```html
 @RenderSection("Styles", required: false)
@@ -214,13 +214,13 @@ Agora, vamos adicionar conteúdo de exemplo a este aplicativo Web. Abra _Views\H
 </div>
 ```
 
-Observe que todo o texto tem um atributo **lang**, que descreve os idiomas do texto. Esse atributo ajuda a Leitura Avançada a fornecer recursos relevantes de idioma e gramática.
+Observe que todo o texto tem um atributo **lang** , que descreve os idiomas do texto. Esse atributo ajuda a Leitura Avançada a fornecer recursos relevantes de idioma e gramática.
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Adicionar JavaScript para tratar da inicialização da Leitura Avançada
 
 A biblioteca da Leitura Avançada fornece funcionalidades como iniciar a Leitura Avançada e renderizar botões da Leitura Avançada. Saiba mais [aqui](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
 
-Na parte inferior de _Views\Home\Index.cshtml_, adicione o seguinte código:
+Na parte inferior de _Views\Home\Index.cshtml_ , adicione o seguinte código:
 
 ```html
 @section Scripts

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575292"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206710"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Solicitar o Azure Data Box
 
@@ -55,7 +55,7 @@ Antes de começar, verifique se:
 
 #### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
-* Instalar a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) versão 2.0.67 ou posterior. Como alternativa, você pode [instalar usando o MSI](https://aka.ms/installazurecliwindows).
+* Instalar a [CLI do Azure](/cli/azure/install-azure-cli) versão 2.0.67 ou posterior. Como alternativa, você pode [instalar usando o MSI](https://aka.ms/installazurecliwindows).
 
 **Entrar no Azure**
 
@@ -164,13 +164,13 @@ Você verá esta saída:
     WSManStackVersion              3.0
 ```
 
-Caso sua versão do Windows PowerShell seja inferior à 6.2.4, você precisará atualizá-la. Para instalar a última versão do PowerShell, confira [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7).
+Caso sua versão do Windows PowerShell seja inferior à 6.2.4, você precisará atualizá-la. Para instalar a última versão do PowerShell, confira [Instalar o Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
 
 **Instalar os módulos do Azure PowerShell e Data Box**
 
 Você precisará instalar os módulos do Azure PowerShell a fim de usar o Azure PowerShell para solicitar um Azure Data Box. Para instalar os módulos do Azure PowerShell:
 
-1. Instale o [módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+1. Instale o [módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
 2. Instale o Az.DataBox usando o comando `Install-Module -Name Az.DataBox`.
 
 ```azurepowershell
@@ -184,7 +184,7 @@ Version              Name                                Repository           De
 
 #### <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Abra uma janela de comando do Windows PowerShell e entre no Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount):
+Abra uma janela de comando do Windows PowerShell e entre no Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount):
 
 ```azurepowershell
 PS C:\Windows> Connect-AzAccount
@@ -202,7 +202,7 @@ gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaa
 PS C:\Windows\System32>
 ```
 
-Para obter informações detalhadas sobre como entrar no Azure usando o Windows PowerShell, confira [Entrar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+Para obter informações detalhadas sobre como entrar no Azure usando o Windows PowerShell, confira [Entrar com o Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ---
 
@@ -213,19 +213,19 @@ Para obter informações detalhadas sobre como entrar no Azure usando o Windows 
 Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
 1. Use suas credenciais do Microsoft Azure para entrar nesta URL: [https://portal.azure.com](https://portal.azure.com).
-2. Selecione **+ Criar um recurso** e pesquise *Azure Data Box*. Selecione **Azure Data Box**.
+2. Selecione **+ Criar um recurso** e pesquise *Azure Data Box* . Selecione **Azure Data Box** .
 
    ![Captura de tela da seção Novo com Azure Data Box no campo de pesquisa.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Selecione **Criar**.
+3. Selecione **Criar** .
 
    ![Captura de tela da seção Azure Data Box com a opção Criar em destaque.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
-4. Verifique se o serviço Data Box está disponível em sua região. Insira ou selecione as informações a seguir e selecione **Aplicar**.
+4. Verifique se o serviço Data Box está disponível em sua região. Insira ou selecione as informações a seguir e selecione **Aplicar** .
 
     |Configuração  |Valor  |
     |---------|---------|
-    |Tipo de transferência     | Selecione **Importar no Azure**.        |
+    |Tipo de transferência     | Selecione **Importar no Azure** .        |
     |Subscription     | Selecione uma assinatura do EA, do CSP ou do Azure Sponsorship para o serviço Data Box. <br> A assinatura está vinculada à sua conta de cobrança.       |
     |Grupo de recursos | Selecione um grupo de recursos existente. Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos. |
     |País/região de origem    |    Selecione o país/região em que os dados residem no momento.         |
@@ -233,11 +233,11 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     [![Pedido de importação do Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
-5. Selecione **Data Box**. A capacidade máxima utilizável de um único pedido é de 80 TB. É possível criar vários pedidos para tamanhos maiores de dados.
+5. Selecione **Data Box** . A capacidade máxima utilizável de um único pedido é de 80 TB. É possível criar vários pedidos para tamanhos maiores de dados.
 
     ![Captura de tela dos diferentes tamanhos de dados disponíveis para seleção: Data Box Disk 40 terabytes, Data Box 100 terabytes, Data Box Heavy 1000 terabytes e Enviar seus próprios discos 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. Em **Pedido**, vá para a guia **Básico**. Insira ou selecione as seguintes informações e selecione **Avançar: Destino dos dados>** .
+6. Em **Pedido** , vá para a guia **Básico** . Insira ou selecione as seguintes informações e selecione **Avançar: Destino dos dados>** .
 
     |Configuração  |Valor  |
     |---------|---------|
@@ -247,15 +247,15 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     ![Captura de tela do assistente de Pedido mostrando a etapa Informações básicas com os dados corretos preenchidos.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    Por padrão, a senha de desbloqueio do dispositivo é criptografada usando uma chave gerenciada pela Microsoft. Depois de concluir o pedido, você poderá adicionar uma chave gerenciada pelo cliente. Uma chave gerenciada pelo cliente permite que você use sua própria chave de um cofre de chaves do Azure para proteger a senha de desbloqueio do dispositivo. Para obter mais informações, confira [Usar chaves gerenciadas pelo cliente no Azure Key Vault para o Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+    Por padrão, a senha de desbloqueio do dispositivo é criptografada usando uma chave gerenciada pela Microsoft. Depois de concluir o pedido, você poderá adicionar uma chave gerenciada pelo cliente. Uma chave gerenciada pelo cliente permite que você use a própria chave de um Azure Key Vault para proteger a senha de desbloqueio do dispositivo. Para obter mais informações, confira [Usar chaves gerenciadas pelo cliente no Azure Key Vault para o Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
-7. Na guia **Destino de dados**, selecione **Destino de dados**.
+7. Na guia **Destino de dados** , selecione **Destino de dados** .
 
     Se você usar as **contas de armazenamento** como o destino de armazenamento, verá a seguinte captura de tela:
 
     ![Destino de dados do Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Com base na região especificada do Azure, selecione uma ou mais contas de armazenamento existente na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser vinculada a até 10 contas de armazenamento. Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blobs**.
+    Com base na região especificada do Azure, selecione uma ou mais contas de armazenamento existente na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser vinculada a até 10 contas de armazenamento. Você também pode criar uma nova conta de **Uso geral v1** , **Uso geral v2** ou de **Armazenamento de Blobs** .
 
     Contas de armazenamento com redes virtuais são compatíveis. Para permitir que o serviço do Data Box trabalhe com contas de armazenamento protegido, habilite os serviços confiáveis em definições de firewall de rede da conta de armazenamento. Para obter mais informações, confira como [Adicionar o Azure Data Box como um serviço confiável](../storage/common/storage-network-security.md#exceptions).
 
@@ -273,30 +273,60 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     Selecione **Avançar: segurança** para continuar.
 
-1. Em **Segurança**, caso queira habilitar uma criptografia dupla baseada em software, selecione **Habilitar uma criptografia dupla para o pedido**. 
+    A tela **Segurança** permite que você use o próprio dispositivo, compartilhe senhas e opte por usar a criptografia dupla. 
+
+    Todas as configurações na tela **Segurança** são opcionais. Se você não alterar nenhuma configuração, as configurações padrão serão aplicadas.
+
+    ![Tela Segurança para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+
+1. Se você não quiser usar as senhas geradas pelo sistema que o Azure Data Box usa por padrão, expanda **Traga a própria senha** .
+
+   As senhas geradas pelo sistema são seguras e recomendadas, a menos que sua organização exija o contrário.
+
+   ![Opções de Traga a própria senha expandidas para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - Para usar a própria senha para o novo dispositivo, em **Definir preferência para a senha do dispositivo** , selecione **Usar a própria senha** e digite uma senha que atenda aos requisitos de segurança.
+   
+     ![Tela Segurança para a importação do Data Box, opções para usar a própria senha do dispositivo](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+
+   - Para usar as próprias senhas para compartilhamentos:
+
+     1. Em **Definir preferência para senhas de compartilhamento** , selecione **Usar as próprias senhas** e **Selecionar senhas para os compartilhamentos** .
+     
+        ![Tela Segurança para a importação do Data Box, opções para usar as próprias senhas de compartilhamento](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+
+     1. Digite uma senha para cada conta de armazenamento no pedido. A senha será usada em todos os compartilhamentos para a conta de armazenamento.
+     
+        Para usar a mesma senha para todas as contas de armazenamento, selecione **Copiar para todos** . Quando terminar, selecione **Salvar** .
+     
+        ![Tela para inserir senhas de compartilhamento para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+       Na tela **Segurança** , você pode usar a **Exibição de alterar senhas** para alterar as senhas.
+
+1. Em **Segurança** , caso queira habilitar uma criptografia dupla baseada em software, expanda **Criptografia dupla (para ambientes altamente seguros)** e selecione **Habilitar criptografia dupla para o pedido** .
+
+   ![Tela Segurança para a importação do Data Box, habilitando a criptografia baseada em software para um pedido do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    Uma criptografia baseada em software será executada além da criptografia AES de 256 bits dos dados no Data Box.
 
    > [!NOTE]
    > Habilitar essa opção poderá fazer com que o processamento de pedidos e a cópia de dados demorem mais. Não será possível alterar essa opção depois de criar seu pedido.
 
-   ![Tela de segurança para importação do Data Box e de uma criptografia dupla](media/data-box-deploy-ordered/select-data-box-import-07c.png)
-
    Selecione **Avançar: Detalhes de contato** para continuar.
 
-8. Em **Detalhes de contato**, selecione **+ Adicionar Endereço para Entrega**.
+8. Em **Detalhes de contato** , selecione **+ Adicionar Endereço para Entrega** .
 
     ![Captura de tela do assistente de Pedido mostrando a etapa Detalhes de contato com a opção Adicionar Endereço para Entrega em destaque.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. No **Endereço para remessa**, forneça seu nome e sobrenome, nome e endereço da empresa e um número de telefone válido. Selecione **Validar endereço**. O serviço valida o endereço de remessa para a disponibilidade do serviço. Se o serviço está disponível para o endereço de remessa especificado, você receberá uma notificação para esse efeito.
+9. No **Endereço para remessa** , forneça seu nome e sobrenome, nome e endereço da empresa e um número de telefone válido. Selecione **Validar endereço** . O serviço valida o endereço de remessa para a disponibilidade do serviço. Se o serviço está disponível para o endereço de remessa especificado, você receberá uma notificação para esse efeito.
 
    ![Captura de tela da caixa de diálogo Adicionar Endereço para Entrega com as opções de Enviar usando e a opção Adicionar endereço para entrega em destaque.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Se você tiver selecionado remessa autogerenciada, receberá uma notificação por email depois que o pedido for feito com sucesso. Para saber mais sobre a remessa autogerenciada, confira [Usar a remessa autogerenciada](data-box-portal-customer-managed-shipping.md).
 
-10. Selecione **Adicionar Endereço para Entrega** após os detalhes do envio serem validados com sucesso. Você retornará para a guia **Detalhes de contato**.
+10. Selecione **Adicionar Endereço para Entrega** após os detalhes do envio serem validados com sucesso. Você retornará para a guia **Detalhes de contato** .
 
-11. Após retornar para **Detalhes de contato**, adicione um ou mais endereços de email. O serviço envia as notificações por email em relação a quaisquer atualizações do status do pedido para os endereços de email especificados.
+11. Após retornar para **Detalhes de contato** , adicione um ou mais endereços de email. O serviço envia as notificações por email em relação a quaisquer atualizações do status do pedido para os endereços de email especificados.
 
     É recomendável usar um email de grupo para que você continue a receber notificações caso um administrador do grupo saia.
 
@@ -304,7 +334,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
 12. Examine as informações em **Examinar + Solicitar** relacionadas com o pedido, o contato, a notificação e os termos de privacidade. Marque a caixa correspondente ao contrato de termos de privacidade.
 
-13. Selecione **Pedido**. A criação do pedido demora alguns minutos.
+13. Selecione **Pedido** . A criação do pedido demora alguns minutos.
 
     ![Captura de tela do assistente de Pedido mostrando a etapa Examinar + Pedir e a opção Pedir em destaque.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
@@ -338,7 +368,7 @@ Execute as seguintes etapas usando a CLI do Azure para solicitar um dispositivo:
    |Consulta| A cadeia de caracteres de consulta JMESPath. Para obter mais informações, confira [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Incluir o registro em log detalhado. | --verbose |
 
-2. No prompt de comando ou terminal escolhido, use [az data box job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) para criar seu pedido do Azure Data Box.
+2. No prompt de comando ou terminal escolhido, execute [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) para criar seu pedido do Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -431,7 +461,7 @@ Realize as seguintes etapas usando o Azure PowerShell para solicitar um disposit
     $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
    ```
 
-2. Anote suas configurações para seu pedido do Data Box. Essas configurações incluem suas informações pessoais/empresariais, nome da assinatura, informações do dispositivo e informações de envio. Você precisará usar essas configurações como parâmetros ao executar o comando do PowerShell para criar o pedido do Data Box. A tabela a seguir mostra as configurações de parâmetro usadas para [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
+2. Anote suas configurações para seu pedido do Data Box. Essas configurações incluem suas informações pessoais/empresariais, nome da assinatura, informações do dispositivo e informações de envio. Você precisará usar essas configurações como parâmetros ao executar o comando do PowerShell para criar o pedido do Data Box. A tabela a seguir mostra as configurações de parâmetro usadas para [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
     | Configuração (parâmetro) | Descrição |  Valor de exemplo |
     |---|---|---|
@@ -452,7 +482,7 @@ Realize as seguintes etapas usando o Azure PowerShell para solicitar um disposit
     |CompanyName| O nome da empresa para a qual você trabalha.| "Contoso, LTD" |
     |StorageAccountResourceId [obrigatório]| A ID da conta de Armazenamento do Azure da qual você deseja importar dados.| <AzStorageAccount>.id |
 
-3. No seu prompt de comando ou terminal preferido, use [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) para criar seu pedido do Azure Data Box.
+3. No seu prompt de comando ou terminal preferido, use [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) para criar seu pedido do Azure Data Box.
 
    ```azurepowershell
     PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
@@ -485,7 +515,7 @@ Realize as seguintes etapas usando o Azure PowerShell para solicitar um disposit
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Depois de fazer o pedido, você pode acompanhar o status do pedido no portal do Azure. Acesse seu pedido do Data Box e, em seguida, acesse **Visão Geral** para exibir o status. O portal mostra o pedido sob o estado **Pedido**.
+Depois de fazer o pedido, você pode acompanhar o status do pedido no portal do Azure. Acesse seu pedido do Data Box e, em seguida, acesse **Visão Geral** para exibir o status. O portal mostra o pedido sob o estado **Pedido** .
 
 Se o dispositivo não estiver disponível, você receberá uma notificação. Se o dispositivo estiver disponível, a Microsoft identificará o dispositivo para envio e o preparará. Durante a preparação do dispositivo, ocorrerão as seguintes ações:
 
@@ -494,11 +524,11 @@ Se o dispositivo não estiver disponível, você receberá uma notificação. Se
 * Também é gerada uma senha do dispositivo que ajuda a desbloqueá-lo.
 * O Data Box é bloqueado para impedir o acesso não autorizado ao dispositivo.
 
-Após a conclusão da preparação do dispositivo, o portal mostra o pedido no estado **Processado**.
+Após a conclusão da preparação do dispositivo, o portal mostra o pedido no estado **Processado** .
 
 ![O pedido do Data Box é processado](media/data-box-overview/data-box-order-status-processed.png)
 
-Em seguida, a Microsoft preparará e enviará seu dispositivo por meio de uma operadora regional. Após o envio do dispositivo, você receberá um número de acompanhamento. O portal mostra o pedido no estado **Despachado**.
+Em seguida, a Microsoft preparará e enviará seu dispositivo por meio de uma operadora regional. Após o envio do dispositivo, você receberá um número de acompanhamento. O portal mostra o pedido no estado **Despachado** .
 
 ![Pedido do Data Box expedido](media/data-box-overview/data-box-order-status-dispatched.png)
 
@@ -506,7 +536,7 @@ Em seguida, a Microsoft preparará e enviará seu dispositivo por meio de uma op
 
 ### <a name="track-a-single-order"></a>Acompanhar um pedido
 
-Para obter informações de acompanhamento sobre um pedido do Azure Data Box, execute [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). O comando exibe informações sobre o pedido como, entre outras: nome, grupo de recursos, informações de acompanhamento, ID da assinatura, informações de contato, tipo de remessa e SKU do dispositivo.
+Para obter informações de acompanhamento sobre um pedido do Azure Data Box, execute [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). O comando exibe informações sobre o pedido como, entre outras: nome, grupo de recursos, informações de acompanhamento, ID da assinatura, informações de contato, tipo de remessa e SKU do dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -547,7 +577,7 @@ Para obter informações de acompanhamento sobre um pedido do Azure Data Box, ex
 
 ### <a name="list-all-orders"></a>Listar todos os pedidos
 
-Se você tiver pedido vários dispositivos, poderá executar [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) para ver todos os seus pedidos do Azure Data Box. O comando lista todos os pedidos que pertencem a um grupo de recursos específico. Também exibido na saída: nome do pedido, status da remessa, região do Azure, tipo de entrega, status do pedido. Pedidos cancelados também são incluídos na lista.
+Se você tiver pedido vários dispositivos, poderá executar [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) para ver todos os seus pedidos do Azure Data Box. O comando lista todos os pedidos que pertencem a um grupo de recursos específico. Também exibido na saída: nome do pedido, status da remessa, região do Azure, tipo de entrega, status do pedido. Pedidos cancelados também são incluídos na lista.
 O comando também exibe carimbos de data/hora de cada pedido.
 
 ```azurecli
@@ -590,7 +620,7 @@ A seguinte tabela mostra as informações de parâmetro para `az databox job lis
 
 ### <a name="track-a-single-order"></a>Acompanhar um pedido
 
-Para obter informações de acompanhamento sobre um único pedido do Azure Data Box existente, execute [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob). O comando exibe informações sobre o pedido como, entre outras: nome, grupo de recursos, informações de acompanhamento, ID da assinatura, informações de contato, tipo de remessa e SKU do dispositivo.
+Para obter informações de acompanhamento sobre um único pedido do Azure Data Box existente, execute [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob). O comando exibe informações sobre o pedido como, entre outras: nome, grupo de recursos, informações de acompanhamento, ID da assinatura, informações de contato, tipo de remessa e SKU do dispositivo.
 
 > [!NOTE]
 > `Get-AzDataBoxJob` é usado para exibir um único pedido ou vários. A diferença é que você especifica o nome do pedido para pedidos únicos.
@@ -623,7 +653,7 @@ Para obter informações de acompanhamento sobre um único pedido do Azure Data 
 
 ### <a name="list-all-orders"></a>Listar todos os pedidos
 
-Se você tiver pedido vários dispositivos, poderá executar [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob) para exibir todos os pedidos do Azure Data Box. O comando lista todos os pedidos que pertencem a um grupo de recursos específico. Também exibido na saída: nome do pedido, status da remessa, região do Azure, tipo de entrega, status do pedido. Pedidos cancelados também são incluídos na lista.
+Se você tiver pedido vários dispositivos, poderá executar [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) para exibir todos os pedidos do Azure Data Box. O comando lista todos os pedidos que pertencem a um grupo de recursos específico. Também exibido na saída: nome do pedido, status da remessa, região do Azure, tipo de entrega, status do pedido. Pedidos cancelados também são incluídos na lista.
 O comando também exibe carimbos de data/hora de cada pedido.
 
 ```azurepowershell
@@ -666,7 +696,7 @@ Para excluir um pedido cancelado, vá para **Visão geral** e selecione **Exclui
 
 ### <a name="cancel-an-order"></a>Cancelar um pedido
 
-Para cancelar um pedido do Azure Data Box, execute [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). Você precisa especificar o motivo para cancelar o pedido.
+Para cancelar um pedido do Azure Data Box, execute [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Você precisa especificar o motivo para cancelar o pedido.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -703,7 +733,7 @@ Para cancelar um pedido do Azure Data Box, execute [az databox job cancel](https
 
 ### <a name="delete-an-order"></a>Excluir um pedido
 
-Se você cancelou um pedido do Azure Data Box, pode executar [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) para excluir o pedido.
+Se você cancelou um pedido do Azure Data Box, pode executar [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) para excluir o pedido.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -742,7 +772,7 @@ Aqui está um exemplo do comando com a saída:
 
 ### <a name="cancel-an-order"></a>Cancelar um pedido
 
-Para cancelar um pedido do Azure Data Box, execute [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob). Você precisa especificar o motivo para cancelar o pedido.
+Para cancelar um pedido do Azure Data Box, execute [Stop-AzDataBoxJob](/powershell/module/az.databox/stop-azdataboxjob). Você precisa especificar o motivo para cancelar o pedido.
 
 ```azurepowershell
 Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
@@ -776,7 +806,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Excluir um pedido
 
-Se você cancelou um pedido do Azure Data Box, pode executar [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) para excluir o pedido.
+Se você cancelou um pedido do Azure Data Box, pode executar [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) para excluir o pedido.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

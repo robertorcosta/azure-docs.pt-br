@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 09bd46f3265656a1f8ea28279ce1a9ebea5e83f5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 52f0b3a09b4c58bd9123308a508e08f8ca15e230
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368631"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633511"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros de conectividade do ExpressRoute
 
@@ -33,7 +33,7 @@ As tabelas mostradas neste artigo fornecem informações sobre as localizações
 As regiões do Azure são datacenters globais em que os recursos de computação, rede e armazenamento do Azure estão localizados. Ao criar um recurso do Azure, um cliente precisa selecionar uma localização de recurso. A localização do recurso determina em que datacenter do Azure (ou zona de disponibilidade) o recurso será criado.
 
 ## <a name="expressroute-locations"></a>Locais do ExpressRoute
-As localizações do ExpressRoute (às vezes chamados de localizações de emparelhamento ou de encontro) são unidades de colocalização em que os dispositivos do MSEE (Microsoft Enterprise Edge) ficam localizados. Os locais do ExpressRoute são o ponto de entrada para a rede da Microsoft. Como são distribuídos globalmente, dão aos clientes a oportunidade de se conectar à rede da Microsoft em todo o mundo. Nessas localizações, os parceiros do ExpressRoute e os clientes do ExpressRoute Direct enviam conexões cruzadas para a rede da Microsoft. Em geral, a localização do ExpressRoute não precisa corresponder à região do Azure. Por exemplo, um cliente pode criar um circuito do ExpressRoute com a localização do recurso *Leste dos EUA* na localização de emparelhamento de *Seattle*.
+As localizações do ExpressRoute (às vezes chamados de localizações de emparelhamento ou de encontro) são unidades de colocalização em que os dispositivos do MSEE (Microsoft Enterprise Edge) ficam localizados. Os locais do ExpressRoute são o ponto de entrada para a rede da Microsoft. Como são distribuídos globalmente, dão aos clientes a oportunidade de se conectar à rede da Microsoft em todo o mundo. Nessas localizações, os parceiros do ExpressRoute e os clientes do ExpressRoute Direct enviam conexões cruzadas para a rede da Microsoft. Em geral, a localização do ExpressRoute não precisa corresponder à região do Azure. Por exemplo, um cliente pode criar um circuito do ExpressRoute com a localização do recurso *Leste dos EUA* na localização de emparelhamento de *Seattle* .
 
 Você terá acesso aos serviços do Azure em todas as regiões dentro de uma região geopolítica se estiver conectado a pelo menos um local de ExpressRoute dentro da região geopolítica.
 
@@ -109,6 +109,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **Etisalat UAE** |Com suporte |Com suporte |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Dublin, Frankfurt, Londres |
 | **FarEasTone** |Com suporte |Com suporte |Taipé|
+| **[Fastweb](https://www.fastweb.it/grandi-aziende/cloud/scheda-prodotto/fastcloud-interconnect/)** | Com suporte |Com suporte |Milão|
 | **Fibrenoire** |Com suporte |Com suporte |Montreal|
 | **GÉANT** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Dublin, Frankfurt, Marselha |
 | **GTT** |Com suporte |Com suporte |London2 |

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/05/2020
-ms.openlocfilehash: 3ccc5ab07416f65270a7bd720f1e0884027b1fe7
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057715"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102805"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início Rápido: Criar um serviço da Pesquisa Cognitiva do Azure no portal
 
@@ -45,7 +45,7 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 
 1. Clique no sinal de adição ("+ Criar Recurso") no canto superior esquerdo.
 
-1. Use a barra de pesquisa para localizar a "Pesquisa Cognitiva do Azure" ou navegue para o recurso por meio de **Web** > **Pesquisa Cognitiva do Azure**.
+1. Use a barra de pesquisa para localizar a "Pesquisa Cognitiva do Azure" ou navegue para o recurso por meio de **Web** > **Pesquisa Cognitiva do Azure** .
 
 :::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Criar um recurso no portal" border="false":::
 
@@ -70,7 +70,7 @@ Ao longo do tempo, você pode acompanhar os custos atuais e projetados por compl
 
 ## <a name="name-the-service"></a>Dê um nome ao serviço
 
-Em Detalhes da Instância, dê um nome ao serviço no campo **URL**. O nome faz parte do ponto de extremidade da URL na qual as chamadas à API são emitidas: `https://your-service-name.search.windows.net`. Por exemplo, caso deseje que o ponto de extremidade seja `https://myservice.search.windows.net`, insira `myservice`.
+Em Detalhes da Instância, dê um nome ao serviço no campo **URL** . O nome faz parte do ponto de extremidade da URL na qual as chamadas à API são emitidas: `https://your-service-name.search.windows.net`. Por exemplo, caso deseje que o ponto de extremidade seja `https://myservice.search.windows.net`, insira `myservice`.
 
 Requisitos de nome de serviço:
 
@@ -94,7 +94,7 @@ O Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 
 ### <a name="requirements"></a>Requisitos
 
- Se estiver usando o enriquecimento de IA, crie o serviço de pesquisa na mesma região dos Serviços Cognitivos. *A colocalização da Pesquisa Cognitiva do Azure e dos Serviços Cognitivos na mesma região é um requisito do enriquecimento de IA*.
+ Se estiver usando o enriquecimento de IA, crie o serviço de pesquisa na mesma região dos Serviços Cognitivos. *A colocalização da Pesquisa Cognitiva do Azure e dos Serviços Cognitivos na mesma região é um requisito do enriquecimento de IA* .
 
  Os clientes com requisitos de BCDR (continuidade dos negócios e recuperação de desastres) devem criar os serviços deles em [pares regionais](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por exemplo, se você estiver operando na América do Norte, poderá escolher Leste dos EUA e Oeste dos EUA ou Centro-Norte dos EUA e Centro-Sul dos EUA para cada serviço.
 
@@ -102,9 +102,9 @@ O Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 
 Se você estiver usando vários serviços do Azure, escolha uma região que também está hospedando seu serviço de aplicativo ou de dados. Fazer isso minimiza ou anula os preços de largura de banda para dados de saída (não há preços para dados de saída quando os serviços estão na mesma região).
 
-## <a name="choose-a-pricing-tier-sku"></a>Escolher um tipo de preço (SKU)
+## <a name="choose-a-pricing-tier"></a>Escolher um tipo de preço
 
-[A Pesquisa Cognitiva do Azure é oferecida em vários tipos de preço no momento](https://azure.microsoft.com/pricing/details/search/): Gratuito, Básico ou Padrão. Cada tipo tem sua própria [capacidade e limites](search-limits-quotas-capacity.md). Confira [Escolher um tipo de preço ou SKU](search-sku-tier.md) para obter orientações.
+Atualmente, o Azure Cognitive Search é oferecido em [vários tipos de preço](https://azure.microsoft.com/pricing/details/search/): Gratuito, Básico, Standard ou Otimizado para Armazenamento. Cada tipo tem sua própria [capacidade e limites](search-limits-quotas-capacity.md). Confira [Escolher um tipo de preço](search-sku-tier.md) para obter diretrizes.
 
 Básico e Standard são as opções mais comuns para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço Gratuito. As principais diferenças entre as camadas são o tamanho e a velocidade da partição e os limites do número de objetos que você pode criar.
 
@@ -124,9 +124,9 @@ O serviço é implantado em minutos. Monitore o progresso por meio de notificaç
 
 A menos que você esteja usando o portal, o acesso ao novo serviço exigirá o fornecimento do ponto de extremidade de URL e de uma chave de API de autenticação.
 
-1. Na página **Visão Geral**, localize e copie o ponto de extremidade de URL do lado direito da página.
+1. Na página **Visão Geral** , localize e copie o ponto de extremidade de URL do lado direito da página.
 
-2. Na página **Chaves**, copie uma das chaves administrativas (elas são equivalentes). As chaves de API do administrador são necessárias para criar, atualizar e excluir objetos em seu serviço. Por outro lado, as chaves de consulta fornecem acesso de leitura ao conteúdo do índice.
+2. Na página **Chaves** , copie uma das chaves administrativas (elas são equivalentes). As chaves de API do administrador são necessárias para criar, atualizar e excluir objetos em seu serviço. Por outro lado, as chaves de consulta fornecem acesso de leitura ao conteúdo do índice.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Criar um recurso no portal" border="false":::
 
@@ -146,7 +146,7 @@ A adição de recursos aumenta sua fatura mensal. A [calculadora de preços](htt
 > Um serviço deve ter [duas réplicas para o SLA somente leitura e três réplicas para o SLA de leitura/gravação](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Vá até a folha de serviço de pesquisa no Portal do Azure.
-2. No painel de navegação esquerdo, selecione **Configurações** > **Escala**.
+2. No painel de navegação esquerdo, selecione **Configurações** > **Escala** .
 3. Use a barra deslizante para adicionar recursos de qualquer tipo.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Criar um recurso no portal" border="false":::

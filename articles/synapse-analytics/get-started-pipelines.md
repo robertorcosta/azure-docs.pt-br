@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 72eea7c46dd005cd16ae5b8f0022c1174dd28f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 42d2ac6cf6592f8e22b0a66aee84c3436d466572
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89667487"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329876"
 ---
 # <a name="orchestrate-with-pipelines"></a>Orquestração com pipelines
 
@@ -24,15 +25,15 @@ Neste tutorial, você aprenderá a orquestrar pipelines e atividades usando o Sy
 
 Você pode orquestrar uma ampla variedade de tarefas no Azure Synapse.
 
-1. No Synapse Studio, navegue até o hub **Orquestrar**.
+1. No Synapse Studio, acesse o hub **Integrar** .
 1. Selecione **+**  > **Pipeline** para criar um pipeline.
 1. Acesse o hub **Desenvolver** e selecione um dos notebooks que você criou anteriormente.
-1. Arraste esse notebook para o pipeline.
-1. No pipeline, selecione **Adicionar gatilho** > **Novo/editar**.
-1. Em **Escolher gatilho**, selecione **Novo** e, em seguida, em **recorrência**, defina o gatilho para ser executado a cada hora.
-1. Selecione **OK**.
-1. Selecione **Publicar Tudo**. O pipeline é executado a cada hora.
-1. Para fazer com que o pipeline seja executado agora sem esperar pela próxima hora, selecione **Adicionar gatilho** > **Novo/editar**.
+1. Arraste esse notebook para o pipeline ( **Observação** : adicione a etapa importar módulos no notebook conforme especificado em [documento](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export#transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace) que são necessárias durante a execução do pipeline)
+1. No pipeline, selecione **Adicionar gatilho** > **Novo/editar** .
+1. Em **Escolher gatilho** , selecione **Novo** e defina **Recorrência** como "a cada 1 hora".
+1. Selecione **OK** . 
+1. Selecione **Publicar Tudo** .
+1. Para fazer o pipeline ser executado imediatamente, sem esperar pela próxima hora, selecione **Adicionar gatilho** > **Disparar agora** .
 
 
 
