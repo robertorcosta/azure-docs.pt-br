@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567444"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736559"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implantar um modelo de aprendizado de máquina para Azure Functions (versão prévia)
 
@@ -47,7 +47,7 @@ Com Azure Machine Learning, você pode criar imagens do Docker de modelos de apr
 
 Antes de implantar o, você deve definir o que é necessário para executar o modelo como um serviço Web. A lista a seguir descreve os principais itens necessários para uma implantação:
 
-* Um __script de entrada__. Esse script aceita solicitações, pontua a solicitação usando o modelo e retorna os resultados.
+* Um __script de entrada__ . Esse script aceita solicitações, pontua a solicitação usando o modelo e retorna os resultados.
 
     > [!IMPORTANT]
     > O script de entrada é específico para seu modelo; Ele deve entender o formato dos dados de solicitação de entrada, o formato dos dados esperados pelo seu modelo e o formato dos dados retornados aos clientes.
@@ -58,9 +58,9 @@ Antes de implantar o, você deve definir o que é necessário para executar o mo
 
 Para obter mais informações sobre o script de entrada, consulte [definir código de Pontuação](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
-* **Dependências**, como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada
+* **Dependências** , como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada
 
-Essas entidades são encapsuladas em uma __configuração de inferência__. A configuração de inferência faz referência ao script de entrada e a outras dependências.
+Essas entidades são encapsuladas em uma __configuração de inferência__ . A configuração de inferência faz referência ao script de entrada e a outras dependências.
 
 > [!IMPORTANT]
 > Ao criar uma configuração de inferência para uso com Azure Functions, você deve usar um objeto de [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) . Observe que, se você estiver definindo um ambiente personalizado, deverá adicionar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O exemplo a seguir demonstra como criar um objeto de ambiente e usá-lo com uma configuração de inferência:
@@ -84,7 +84,7 @@ Para obter mais informações sobre ambientes, consulte [criar e gerenciar ambie
 Para obter mais informações sobre a configuração de inferência, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Ao implantar o para o functions, você não precisa criar uma __configuração de implantação__.
+> Ao implantar o para o functions, você não precisa criar uma __configuração de implantação__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Instalar o pacote de visualização do SDK para o suporte do Functions
 
@@ -144,7 +144,7 @@ Quando `show_output=True` , a saída do processo de Build do Docker é mostrada.
     }
     ```
 
-    Salve o valor de __nome de usuário__ e uma das __senhas__.
+    Salve o valor de __nome de usuário__ e uma das __senhas__ .
 
 1. Se você ainda não tiver um grupo de recursos ou um plano do serviço de aplicativo para implantar o serviço, os comandos a seguir demonstrarão como criar ambos:
 

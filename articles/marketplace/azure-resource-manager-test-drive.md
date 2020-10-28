@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287939"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735613"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -30,11 +30,14 @@ Um modelo de implantação contém todos os recursos do Azure que compõem sua s
 
 - **Instâncias** – selecione o tipo (quente ou frio) e o número de instâncias disponíveis, que serão multiplicadas pelo número de regiões em que sua oferta está disponível.
 
-  - **Quente** – esse tipo de instância está implantada e aguardando acesso pela região selecionada. Os clientes podem acessar esses instâncias *quentes* de um test drive instantaneamente em vez de ter que esperar por uma implantação. A desvantagem é que tais instâncias estão sempre em execução na sua assinatura do Azure; portanto, incorrerão em um maior custo de tempo de atividade. Recomendamos ter pelo menos uma instância *quente*, pois a maioria dos seus clientes não quer esperar pelo término de implantações completas, resultando em uma diminuição no uso pelos clientes caso nenhuma instância *quente* esteja disponível.
+  - **Quente** – esse tipo de instância está implantada e aguardando acesso pela região selecionada. Os clientes podem acessar esses instâncias *quentes* de um test drive instantaneamente em vez de ter que esperar por uma implantação. A desvantagem é que tais instâncias estão sempre em execução na sua assinatura do Azure; portanto, incorrerão em um maior custo de tempo de atividade. Recomendamos ter pelo menos uma instância *quente* , pois a maioria dos seus clientes não quer esperar pelo término de implantações completas, resultando em uma diminuição no uso pelos clientes caso nenhuma instância *quente* esteja disponível.
 
-  - **Fria** – esse tipo de instância representa o número total de instâncias que é possível implantar por região. As instâncias *frias* exigem que o modelo do Resource Manager para test drive inteiro passe por uma implantação no momento em que um cliente solicita o test drive; portanto, carregam muito mais lentamente que as instâncias *quentes*. A compensação é que você só precisa pagar pela duração do test drive, ela *não* está sempre em execução em sua assinatura do Azure, como ocorre com uma instância *quente*.
+  - **Fria** – esse tipo de instância representa o número total de instâncias que é possível implantar por região. As instâncias *frias* exigem que o modelo do Resource Manager para test drive inteiro passe por uma implantação no momento em que um cliente solicita o test drive; portanto, carregam muito mais lentamente que as instâncias *quentes* . A compensação é que você só precisa pagar pela duração do test drive, ela *não* está sempre em execução em sua assinatura do Azure, como ocorre com uma instância *quente* .
 
 - **Modelo do Azure Resource Manager para test drive** – carregue o .zip que contém o modelo do Azure Resource Manager. Saiba mais sobre como criar um modelo de Azure Resource Manager no artigo de início rápido [Criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+
+    > [!note]
+    > Para publicar com êxito, é importante validar a formatação do modelo ARM. Duas maneiras de fazer isso são (1) usando uma [ferramenta de API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) ou (2) com uma [implantação de teste](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
 
 - **Duração do test drive** (obrigatório): insira o número de horas pelo qual o test drive permanecerá ativo. O test drive é encerrado automaticamente após o término desse período de tempo. Use apenas números inteiros (por exemplo, "2" horas é válido, "1,5" não é).
 
@@ -42,7 +45,7 @@ Um modelo de implantação contém todos os recursos do Azure que compõem sua s
 
 Depois de criar o pacote de recursos desejado, grave e crie o modelo de test drive ARM. Como test drive executa implantações em um modo totalmente automatizado, os modelos de test drive têm algumas restrições:
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 A maioria dos modelos tem um conjunto de parâmetros que definem nomes de recursos, tamanhos de recursos (como tipos de contas de armazenamento ou tamanhos de máquina virtual), nomes de usuário e senhas, nomes DNS e assim por diante. Quando você implanta soluções usando o portal do Azure, pode preencher manualmente todos esses parâmetros, escolher nomes de DNS disponíveis ou nomes de conta de armazenamento e assim por diante.
 
@@ -237,7 +240,7 @@ E, em seguida, usar esse local para todos os recursos para uma instância de lab
 
 Verifique se sua assinatura tem permissão para implantar todos os recursos desejados em cada uma das regiões que você selecionar. Verifique também se suas imagens de máquina virtual estão disponíveis em todas as regiões que você habilitará, caso contrário, seu modelo de implantação não funcionará para algumas regiões.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Saídas
 
 Normalmente, com modelos do Resource Manager, você pode implantar sem produzir nenhuma saída. Isso acontece porque você conhece todos os valores que usa para preencher parâmetros do modelo e pode sempre inspecionar manualmente as propriedades de qualquer recurso.
 
@@ -293,11 +296,11 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
 
 ![Detalhes da assinatura de implantação do Test Drive](media/test-drive/deployment-subscription-details.png)
 
-1. Obtenha uma **ID de assinatura do Azure**. Concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Se você ainda não tiver uma assinatura separada do Azure para apenas unidades de teste, crie uma. Você pode encontrar IDs de assinatura do Azure (como `1a83645ac-1234-5ab6-6789-1h234g764ghty1` ) entrando em portal do Azure e selecionando **assinaturas** no menu do nav esquerdo.
+1. Obtenha uma **ID de assinatura do Azure** . Concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Se você ainda não tiver uma assinatura separada do Azure para apenas unidades de teste, crie uma. Você pode encontrar IDs de assinatura do Azure (como `1a83645ac-1234-5ab6-6789-1h234g764ghty1` ) entrando em portal do Azure e selecionando **assinaturas** no menu do nav esquerdo.
 
    ![Assinaturas do Azure](media/test-drive/azure-subscriptions.png)
 
-2. Obtenha uma **ID de locatário do Azure ad**. Se você já tiver uma ID de locatário disponível, poderá encontrá-la em **Azure Active Directory**  >  **Properties**  >  **ID do diretório**de propriedades:
+2. Obtenha uma **ID de locatário do Azure ad** . Se você já tiver uma ID de locatário disponível, poderá encontrá-la em **Azure Active Directory**  >  **Properties**  >  **ID do diretório** de propriedades:
 
    ![Propriedades do Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 
@@ -306,14 +309,14 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
 3. **ID de aplicativo Azure ad** – criar e registrar um novo aplicativo. Usaremos esse aplicativo para executar operações em sua instância de test drive.
 
    1. Navegue até o diretório recém-criado ou o diretório já existente e selecione Azure Active Directory no painel de filtro.
-   2. Pesquise **registros de aplicativo** e selecione **Adicionar**.
+   2. Pesquise **registros de aplicativo** e selecione **Adicionar** .
    3. Forneça o nome do aplicativo.
-   4. Selecione o **tipo** de **aplicativo Web/API**.
+   4. Selecione o **tipo** de **aplicativo Web/API** .
    5. Forneça qualquer valor na URL de logon, esse campo não será usado.
-   6. Selecione **Criar**.
-   7. Depois que o aplicativo tiver sido criado, selecione **Propriedades**  >  **definir o aplicativo como multilocatário** e, em seguida, **salvar**.
+   6. Selecione **Criar** .
+   7. Depois que o aplicativo tiver sido criado, selecione **Propriedades**  >  **definir o aplicativo como multilocatário** e, em seguida, **salvar** .
 
-4. Clique em **Salvar**.
+4. Clique em **Salvar** .
 
 5. Copie a ID do aplicativo para este aplicativo registrado e cole-a no campo test drive.
 
@@ -323,7 +326,7 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
 
    1. Selecione o tipo de **assinatura** que você está usando para o Test Drive.
    1. Selecione **IAM (Controle de acesso)** .
-   1. Selecione a guia **atribuições de função** e, em seguida, **adicione atribuição de função**.
+   1. Selecione a guia **atribuições de função** e, em seguida, **adicione atribuição de função** .
 
       ![Adicionar uma nova entidade de segurança para Controle de Acesso](media/test-drive/access-control-principal.jpg)
 
@@ -331,9 +334,9 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
 
       ![Adicionar as permissões](media/test-drive/access-control-permissions.jpg)
 
-   1. Clique em **Salvar**.
+   1. Clique em **Salvar** .
 
-7. Gere uma chave de autenticação de **aplicativo Azure ad** . Em **chaves**, adicione uma **Descrição da chave**, defina a duração para **nunca expirar** (uma chave expirada interromperá o Test Drive em produção) e selecione **salvar**. Copie e cole esse valor em seu campo de test drive obrigatório.
+7. Gere uma chave de autenticação de **aplicativo Azure ad** . Em **chaves** , adicione uma **Descrição da chave** , defina a duração para **nunca expirar** (uma chave expirada interromperá o Test Drive em produção) e selecione **salvar** . Copie e cole esse valor em seu campo de test drive obrigatório.
 
 ![Mostra as chaves para o aplicativo Azure AD](media/test-drive/azure-ad-app-keys.png)
 
@@ -349,7 +352,7 @@ Agora que todos os campos de test drive estão concluídos, **Republique** sua o
 
 Não exclua nenhuma instância de test drive provisionada para seus clientes; o serviço de test drive limpará automaticamente esses grupos de recursos depois que um cliente for concluído com ele.
 
-Quando estiver familiarizado com sua oferta de visualização, é hora de **entrar em funcionamento**! Há um processo final de revisão para verificar a experiência completa de ponta a ponta. Se rejeitarmos a oferta, enviaremos um email para o contato de engenharia para sua oferta, explicando o que precisa ser corrigido.
+Quando estiver familiarizado com sua oferta de visualização, é hora de **entrar em funcionamento** ! Há um processo final de revisão para verificar a experiência completa de ponta a ponta. Se rejeitarmos a oferta, enviaremos um email para o contato de engenharia para sua oferta, explicando o que precisa ser corrigido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

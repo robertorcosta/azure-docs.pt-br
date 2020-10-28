@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: georgewallace
 ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: eedd796e3223c6cbcd0844cc4e814a35172d6c7e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078520"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737214"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um cluster privado do Red Hat OpenShift 4 no Azure
 
@@ -192,7 +192,7 @@ az aro create \
 Depois de executar o comando `az aro create`, normalmente leva cerca de 35 minutos para criar um cluster.
 
 >[!IMPORTANT]
-> Se você optar por especificar um domínio personalizado, por exemplo **foo.example.com**, o console do OpenShift estará disponível em uma URL como `https://console-openshift-console.apps.foo.example.com`, em vez de no domínio interno `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+> Se você optar por especificar um domínio personalizado, por exemplo **foo.example.com** , o console do OpenShift estará disponível em uma URL como `https://console-openshift-console.apps.foo.example.com`, em vez de no domínio interno `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
 > Por padrão, o OpenShift usa certificados autoassinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io`.  Se você optar pelo DNS personalizado após a conexão com o cluster, será necessário seguir a documentação do OpenShift para [configurar uma AC personalizada para o controlador de entrada](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) e uma [AC personalizada para o servidor de API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
@@ -233,7 +233,7 @@ Inicie a URL do console em um navegador e faça logon usando as credenciais `kub
 
 ## <a name="install-the-openshift-cli"></a>Instalar a CLI do OpenShift
 
-Quando você estiver conectado ao console Web do OpenShift, clique no **?** no canto superior direito e então em **Ferramentas de Linha de Comando**. Baixe a versão apropriada para seu computador.
+Quando você estiver conectado ao console Web do OpenShift, clique no **?** no canto superior direito e então em **Ferramentas de Linha de Comando** . Baixe a versão apropriada para seu computador.
 
 ![Tela de logon do Red Hat OpenShift no Azure](media/aro4-download-cli.png)
 

@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837169"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736991"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planejada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -44,7 +44,7 @@ As diretrizes a seguir podem ajudá-lo a decidir se deseja iniciar a manutençã
 > A manutenção de autoatendimento pode não estar disponível para todas as suas VMs. Para determinar se a reimplantação proativa está disponível para a VM, procure **Iniciar agora** no status de manutenção. Atualmente, a manutenção de autoatendimento não está disponível para Serviços de Nuvem do Azure (Função de Trabalho/Web) e Microsoft Azure Service Fabric.
 
 
-Não é recomendável a manutenção de autoatendimento para implantações que usam *conjuntos de disponibilidade*. Conjuntos de disponibilidade são configurações altamente disponíveis nas quais apenas um domínio de atualização é afetado a qualquer momento. Para conjuntos de disponibilidade:
+Não é recomendável a manutenção de autoatendimento para implantações que usam *conjuntos de disponibilidade* . Conjuntos de disponibilidade são configurações altamente disponíveis nas quais apenas um domínio de atualização é afetado a qualquer momento. Para conjuntos de disponibilidade:
 
 - Permita que o Azure dispare a manutenção. Para manutenção que requer um reinício, a manutenção é feita no domínio de atualização pelo domínio de atualização. Os domínios de atualização não recebem necessariamente a manutenção sequencialmente. Há uma pausa de 30 minutos entre os domínios de atualização.
 - Se uma perda temporária de parte da capacidade (1/contagem de domínio de atualização) for uma preocupação, você poderá compensar facilmente a perda, alocando instâncias adicionais durante o período de manutenção.
@@ -73,11 +73,11 @@ Não é recomendável a manutenção de autoatendimento para implantações que 
 Quando uma onda de manutenção planejada é agendada, é possível exibir a lista de conjuntos de dimensionamento de máquinas virtuais que serão afetados pela próxima onda de manutenção usando o portal do Azure. 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No menu esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Conjuntos de dimensionamento de máquinas virtuais**.
-3. Em **Conjuntos de dimensionamento de máquinas virtuais**, selecione **Editar colunas** para abrir a lista de colunas disponíveis.
-4. Na seção **Colunas disponíveis**, selecione **Manutenção de autoatendimento** e, em seguida, mova-a para a lista **Colunas selecionadas**. Escolha **Aplicar**.  
+2. No menu esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Conjuntos de dimensionamento de máquinas virtuais** .
+3. Em **Conjuntos de dimensionamento de máquinas virtuais** , selecione **Editar colunas** para abrir a lista de colunas disponíveis.
+4. Na seção **Colunas disponíveis** , selecione **Manutenção de autoatendimento** e, em seguida, mova-a para a lista **Colunas selecionadas** . Escolha **Aplicar** .  
 
-    Para facilitar a localização do item de **Manutenção de autoatendimento**, é possível alterar a opção suspensa na seção **Colunas disponíveis** de **Todos** para **Propriedades**.
+    Para facilitar a localização do item de **Manutenção de autoatendimento** , é possível alterar a opção suspensa na seção **Colunas disponíveis** de **Todos** para **Propriedades** .
 
 A **Manutenção de autoatendimento** agora aparece na lista de conjuntos de dimensionamento de máquinas virtuais. Cada conjunto de dimensionamento de máquina virtual pode ter um dos seguintes valores para a coluna de manutenção de autoatendimento:
 
@@ -92,21 +92,21 @@ A **Manutenção de autoatendimento** agora aparece na lista de conjuntos de dim
 O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. É possível adicionar destinatários e canais a essa comunicação, criando alertas do Log de Atividades. Para obter mais informações, consulte [Monitorar a atividade da assinatura com o Log de Atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No menu esquerdo, selecione **Monitorar**. 
-3. No painel **Monitorar - Alertas (clássico)**, selecione **+Adicionar alerta do log de atividades**.
-4. Na página **Adicionar alerta do log de atividades**, selecione ou insira as informações solicitadas. Em **Critérios**, certifique-se de definir os valores a seguir:
-   - **Categoria de eventos**: selecione **Integridade do Serviço**.
-   - **Serviços**: selecione **Conjuntos de Dimensionamento de Máquinas Virtuais e Máquinas Virtuais**.
-   - **Tipo**: selecione **Manutenção planejada**. 
+2. No menu esquerdo, selecione **Monitorar** . 
+3. No painel **Monitorar - Alertas (clássico)** , selecione **+Adicionar alerta do log de atividades** .
+4. Na página **Adicionar alerta do log de atividades** , selecione ou insira as informações solicitadas. Em **Critérios** , certifique-se de definir os valores a seguir:
+   - **Categoria de eventos** : selecione **Integridade do Serviço** .
+   - **Serviços** : selecione **Conjuntos de Dimensionamento de Máquinas Virtuais e Máquinas Virtuais** .
+   - **Tipo** : selecione **Manutenção planejada** . 
     
 Para saber mais sobre como configurar os alertas do Log de Atividades, consulte [Criar alertas do Log de Atividades](../azure-monitor/platform/activity-log-alerts.md)
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Iniciar a manutenção em seu conjunto de dimensionamento de máquina virtual no portal
 
-É possível ver mais detalhes relacionados à manutenção na visão geral dos conjuntos de dimensionamento de máquinas virtuais. Se pelo menos uma VM no conjunto de dimensionamento de máquinas virtuais estiver incluída na onda de manutenção planejada, uma nova faixa de notificação será adicionada na parte superior da página. Selecione a faixa de notificação para acessar a página **Manutenção**. 
+É possível ver mais detalhes relacionados à manutenção na visão geral dos conjuntos de dimensionamento de máquinas virtuais. Se pelo menos uma VM no conjunto de dimensionamento de máquinas virtuais estiver incluída na onda de manutenção planejada, uma nova faixa de notificação será adicionada na parte superior da página. Selecione a faixa de notificação para acessar a página **Manutenção** . 
 
-Na página **Manutenção**, é possível ver qual instância da VM é afetada pela manutenção planejada. Para iniciar a manutenção, selecione a caixa de seleção que corresponde à VM afetada. Em seguida, selecione **Iniciar manutenção**.
+Na página **Manutenção** , é possível ver qual instância da VM é afetada pela manutenção planejada. Para iniciar a manutenção, selecione a caixa de seleção que corresponde à VM afetada. Em seguida, selecione **Iniciar manutenção** .
 
 Após iniciar a manutenção, as VMs afetadas no conjunto de dimensionamento de máquinas virtuais passarão por manutenção e ficarão temporariamente indisponíveis. Se você perdeu a janela de autoatendimento, ainda será possível ver a janela de tempo quando o conjunto de dimensionamento de máquinas virtuais passar pela manutenção do Azure.
  
@@ -120,7 +120,7 @@ As informações de manutenção serão retornadas somente se a manutenção for
 Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
-As seguintes propriedades são retornadas em **MaintenanceRedeployStatus**: 
+As seguintes propriedades são retornadas em **MaintenanceRedeployStatus** : 
 
 | Valor | Descrição   |
 |-------|---------------|
@@ -135,7 +135,7 @@ As seguintes propriedades são retornadas em **MaintenanceRedeployStatus**:
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Iniciar manutenção na instância de VM usando PowerShell
 
-É possível iniciar a manutenção em uma VM se **IsCustomerInitiatedMaintenanceAllowed** estiver definido como **true**. Use o cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) com o parâmetro `-PerformMaintenance`.
+É possível iniciar a manutenção em uma VM se **IsCustomerInitiatedMaintenanceAllowed** estiver definido como **true** . Use o cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) com o parâmetro `-PerformMaintenance`.
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -165,7 +165,7 @@ As propriedades a seguir são retornadas em **MaintenanceRedeployStatus** para c
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Iniciar manutenção na instância de VM usando a CLI
 
-A chamada a seguir iniciará a manutenção em uma instância de VM se `IsCustomerInitiatedMaintenanceAllowed` estiver definido como **true**:
+A chamada a seguir iniciará a manutenção em uma instância de VM se `IsCustomerInitiatedMaintenanceAllowed` estiver definido como **true** :
 
 ```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
@@ -202,7 +202,7 @@ Para obter mais informações sobre alta disponibilidade, consulte [Regiões e d
 **P: não vejo nenhuma informação de manutenção em minhas VMs. O que deu errado?**
 
 **R:** Há vários motivos pelos quais não é possível ver as informações de manutenção nas VMs:
-   - Você está usando uma assinatura marcada como *Interno da Microsoft*.
+   - Você está usando uma assinatura marcada como *Interno da Microsoft* .
    - As VMs não estão agendadas para manutenção. Pode ser que a onda de manutenção tenha sido encerrada, cancelada ou modificada para que as VMs não sejam mais afetadas pela manutenção.
    - Você não tem a coluna **Manutenção** adicionada ao modo de exibição de lista da VM. Embora tenhamos adicionado essa coluna à exibição padrão, se você configurar a exibição para ver colunas não padrão, deverá adicionar manualmente a coluna **Manutenção** à exibição de lista da VM.
 

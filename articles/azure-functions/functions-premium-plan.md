@@ -8,12 +8,13 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+- devx-track-azurecli
+ms.openlocfilehash: 7efcff5709995898a6ec950dfea6450f7e0dd48d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490740"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736802"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -47,14 +48,14 @@ No plano Premium, você pode ter seu aplicativo sempre pronto em um número espe
 > [!NOTE]
 > Todo plano Premium terá pelo menos uma instância ativa (cobrada) em todos os momentos.
 
-Você pode configurar o número de instâncias do Always Ready no portal do Azure selecionando sua **aplicativo de funções**, acessando a guia **recursos da plataforma** e selecionando as opções de **scale out** . Na janela Editar do aplicativo de funções, as instâncias sempre prontas são específicas para esse aplicativo.
+Você pode configurar o número de instâncias do Always Ready no portal do Azure selecionando sua **aplicativo de funções** , acessando a guia **recursos da plataforma** e selecionando as opções de **scale out** . Na janela Editar do aplicativo de funções, as instâncias sempre prontas são específicas para esse aplicativo.
 
 ![Configurações de escala elástica](./media/functions-premium-plan/scale-out.png)
 
 Você também pode configurar instâncias do Always Ready para um aplicativo com o CLI do Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>Instâncias pré-passivas
@@ -68,7 +69,7 @@ Assim que o primeiro gatilho chega, as cinco instâncias sempre prontas se torna
 Você pode modificar o número de instâncias pré-configuradas para um aplicativo usando o CLI do Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>Máximo de instâncias para um aplicativo
@@ -99,7 +100,7 @@ Quando você cria o plano, há duas configurações de tamanho de plano: o núme
 
 Se seu aplicativo exigir instâncias além das instâncias do Always Ready, ele poderá continuar a escalar horizontalmente até que o número de instâncias atinja o limite máximo de intermitência.  Você será cobrado por instâncias além do tamanho do plano somente enquanto eles estiverem em execução e alocados a você, por segundo.  Faremos um melhor esforço em dimensionar seu aplicativo para o limite máximo definido.
 
-Você pode configurar o tamanho do plano e os máximos no portal do Azure selecionando as opções de **scale out** no plano ou um aplicativo de funções implantado nesse plano (em **recursos da plataforma**).
+Você pode configurar o tamanho do plano e os máximos no portal do Azure selecionando as opções de **scale out** no plano ou um aplicativo de funções implantado nesse plano (em **recursos da plataforma** ).
 
 Você também pode aumentar o limite máximo de intermitência do CLI do Azure:
 
@@ -122,7 +123,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 ### <a name="available-instance-skus"></a>SKUs da instância disponível
 
-Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de instância.  Você será cobrado pelo número total de núcleos e memória provisionados, por segundo, que cada instância é alocada para você.  Seu aplicativo pode ser dimensionado automaticamente para várias instâncias, conforme necessário.  
+Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de instância.  Você será cobrado pelo número total de núcleos e memória provisionados, por segundo, que cada instância é alocada para você.  Seu aplicativo pode ser dimensionado automaticamente para várias instâncias, conforme necessário.
 
 |SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
@@ -147,7 +148,7 @@ Veja a disponibilidade regional completa das funções aqui: [Azure.com](https:/
 |Austrália Central 2| 100 | Não disponível |
 |Leste da Austrália| 100 | 20 |
 |Sudeste da Austrália | 100 | 20 |
-|Brazil South| 100 | 20 |
+|Sul do Brasil| 100 | 20 |
 |Canadá Central| 100 | 20 |
 |Centro dos EUA| 100 | 20 |
 |Leste da China 2| 100 | 20 |

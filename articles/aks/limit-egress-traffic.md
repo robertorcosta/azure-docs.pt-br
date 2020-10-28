@@ -5,20 +5,20 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6907ac659b94494472a327ff0b47e630ed89a0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570372"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735581"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
 Este artigo fornece os detalhes necessários que permitem proteger o tráfego de saída do seu AKS (serviço kubernetes do Azure). Ele contém os requisitos de cluster para uma implantação de AKS de base e requisitos adicionais para Complementos e recursos opcionais. [Um exemplo será fornecido no final de como configurar esses requisitos com o Firewall do Azure](#restrict-egress-traffic-using-azure-firewall). No entanto, você pode aplicar essas informações a qualquer método ou dispositivo de restrição de saída.
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 Os clusters AKS são implantados em uma rede virtual. Essa rede pode ser gerenciada (criada por AKS) ou personalizada (previamente configurada pelo usuário com antecedência). Em ambos os casos, o cluster tem dependências de **saída** em serviços fora dessa rede virtual (o serviço não tem dependências de entrada).
 
@@ -29,17 +29,17 @@ As dependências de saída do AKS são quase totalmente definidas com FQDNs, que
 Por padrão, os clusters do AKS têm acesso irrestrito de internet de saída. Esse nível de acesso à rede permite que os nós e os serviços que você executa acessem recursos externos, conforme necessário. Se quiser restringir o tráfego de saída, um número limitado de portas e endereços precisar estar acessível para manter a integridade das tarefas de manutenção de cluster. A solução mais simples para proteger endereços de saída está em uso de um dispositivo de firewall que pode controlar o tráfego de saída com base em nomes de domínio. O Firewall do Azure, por exemplo, pode restringir o tráfego HTTP e HTTPS de saída com base no FQDN do destino. Você também pode configurar o firewall e as regras de segurança preferenciais para permitir essas portas e endereços necessários.
 
 > [!IMPORTANT]
-> Este documento aborda apenas como bloquear o tráfego de saída da sub-rede do AKS. O AKS não tem requisitos de entrada por padrão.  Não há suporte para o bloqueio de **tráfego de sub-rede interna** usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [***as políticas de rede***][network-policy].
+> Este documento aborda apenas como bloquear o tráfego de saída da sub-rede do AKS. O AKS não tem requisitos de entrada por padrão.  Não há suporte para o bloqueio de **tráfego de sub-rede interna** usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [ * *_diretivas de rede_* _][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Regras de rede de saída necessárias e FQDNs para clusters AKS
 
 As regras de rede e FQDN/aplicativo a seguir são necessárias para um cluster AKS, você poderá usá-las se desejar configurar uma solução diferente do firewall do Azure.
 
-* As dependências de Endereço IP são para o tráfego não HTTP/S (tráfego TCP e UDP)
+_ As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP e UDP)
 * Pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo de firewall.
 * Os pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar com o cluster AKS com base em vários qualificadores.
 * O AKS usa um controlador de admissão para injetar o FQDN como uma variável de ambiente para todas as implantações em Kube-System e gatekeeper-System, que garante que toda a comunicação do sistema entre nós e o servidor de API use o FQDN do servidor de API e não o IP do servidor de API. 
-* Se você tiver um aplicativo ou uma solução que precise se comunicar com o servidor de API, deverá adicionar uma regra de rede **adicional** para permitir a *comunicação TCP com a porta 443 do IP do seu servidor de API*.
+* Se você tiver um aplicativo ou uma solução que precise se comunicar com o servidor de API, deverá adicionar uma regra de rede **adicional** para permitir a *comunicação TCP com a porta 443 do IP do seu servidor de API* .
 * Em raras ocasiões, se houver uma operação de manutenção, o IP do servidor de API poderá ser alterado. As operações de manutenção planejadas que podem alterar o IP do servidor de API sempre são comunicadas antecipadamente.
 
 
@@ -67,7 +67,7 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.azure.com`**       | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
-| **`packages.microsoft.com`**     | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get*.  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
+| **`packages.microsoft.com`**     | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get* .  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
 | **`acs-mirror.azureedge.net`**   | **`HTTPS:443`** | Esse endereço é para o repositório necessário para baixar e instalar os binários necessários, como kubenet e Azure CNI. |
 
 ### <a name="azure-china-21vianet-required-network-rules"></a>Regras de rede necessárias do Azure China 21Vianet
@@ -96,7 +96,7 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
-| **`packages.microsoft.com`**                   | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get*.  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
+| **`packages.microsoft.com`**                   | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get* .  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
 | **`*.azk8s.cn`**                               | **`HTTPS:443`** | Esse endereço é para o repositório necessário para baixar e instalar os binários necessários, como kubenet e Azure CNI. |
 
 ### <a name="azure-us-government-required-network-rules"></a>Regras de rede necessárias para o governo dos EUA do Azure
@@ -123,7 +123,7 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
-| **`packages.microsoft.com`**                            | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get*.  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
+| **`packages.microsoft.com`**                            | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get* .  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
 | **`acs-mirror.azureedge.net`**                          | **`HTTPS:443`** | Esse endereço é para o repositório necessário para instalar os binários necessários, como kubenet e CNI do Azure. |
 
 ## <a name="optional-recommended-fqdn--application-rules-for-aks-clusters"></a>Regras de FQDN/aplicativo recomendadas opcionais para clusters AKS
@@ -765,7 +765,7 @@ Você deve ver o aplicativo de votação AKS. Neste exemplo, o IP público do fi
 ![Captura de tela mostra o aplicativo de votação K S com botões para gatos, cachorros, redefinição e totais.](media/limit-egress-traffic/aks-vote.png)
 
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos do Azure, exclua o grupo de recursos do AKS.
 

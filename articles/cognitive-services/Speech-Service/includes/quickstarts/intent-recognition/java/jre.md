@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bcc3e41f87570822f48a111fe98d1fdaf72679f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298820"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470882"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ Inserir este código no bloco try/catch no `main()`. Atualize estes valores:
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Esta amostra usa o método `FromSubscription()` para criar o `SpeechConfig`. Para ver uma lista completa dos métodos disponíveis, confira a [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
 
 O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
 
@@ -104,7 +104,7 @@ Neste momento, seu código deverá ter a seguinte aparência:
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar o aplicativo
 
-Pressione <kbd>F11</kbd> ou selecione **Executar** > **Depurar**.
+Pressione <kbd>F11</kbd> ou selecione **Executar** > **Depurar** .
 Os próximos 15 segundos de entrada de fala do microfone serão reconhecidos e registrados na janela do console.
 
 ## <a name="next-steps"></a>Próximas etapas

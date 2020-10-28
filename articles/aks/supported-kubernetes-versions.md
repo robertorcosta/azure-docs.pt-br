@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335527"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735070"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -95,7 +95,7 @@ New Supported Version List
 
 Você pode usar uma versão secundária mais antiga ou mais nova de `kubectl` em relação à sua versão do *Kube-apiserver* , que é consistente com a [política de suporte do kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Por exemplo, se seu *Kube-apiserver* estiver em *1,17*, você poderá usar as versões *1,16* a *1,18* de `kubectl` com esse *Kube-apiserver*.
+Por exemplo, se seu *Kube-apiserver* estiver em *1,17* , você poderá usar as versões *1,16* a *1,18* de `kubectl` com esse *Kube-apiserver* .
 
 Para instalar ou atualizar sua versão do `kubectl` , execute `az aks install-cli` .
 
@@ -121,9 +121,9 @@ Versões de patch específicas podem ser ignoradas ou a distribuição acelerada
 
 ## <a name="azure-portal-and-cli-versions"></a>Versões portal do Azure e CLI
 
-Quando você implanta um cluster AKS no portal ou com o CLI do Azure, o cluster é padronizado para a versão secundária N-1 e o patch mais recente. Por exemplo, se AKS dá suporte a *1.17. a*, *1.17. b*, *1.16. c*, *1.16. d*, *1.15. e*e *1.15. f*, a versão padrão selecionada é *1.16. c*.
+Quando você implanta um cluster AKS no portal ou com o CLI do Azure, o cluster é padronizado para a versão secundária N-1 e o patch mais recente. Por exemplo, se AKS dá suporte a *1.17. a* , *1.17. b* , *1.16. c* , *1.16. d* , *1.15. e* e *1.15. f* , a versão padrão selecionada é *1.16. c* .
 
-Para descobrir quais versões estão disponíveis atualmente para sua assinatura e região, use o comando [az aks get-versions][az-aks-get-versions]. O exemplo a seguir lista as versões disponíveis do Kubernetes para a região *EastUS*:
+Para descobrir quais versões estão disponíveis atualmente para sua assinatura e região, use o comando [az aks get-versions][az-aks-get-versions]. O exemplo a seguir lista as versões disponíveis do Kubernetes para a região *EastUS* :
 
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
@@ -135,11 +135,12 @@ Para obter o histórico de versões anteriores, consulte [aqui](https://en.wikip
 
 |  Versão do K8s | Versão de upstream  | Visualização do AKS  | GA AKS  | Fim de vida |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Setembro de 19-19  | Jan 2019   | Mar 2020  | 1,19 GA | 
+| 1.16  | Setembro de 19-19  | Jan 2019   | Mar 2020  | Jan 2021 * | 
 | 1,17  | Dec-09-19  | Jan 2019   | Julho de 2020  | 1,20 GA | 
 | 1,18  | Março de 23-20  | Maio de 2020   | 2020 de agosto  | 1,21 GA | 
 | 1,19  | Agosto de 04-20  | Setembro de 2020   | 2020 de novembro  | 1,22 GA | 
 | 1,20  | Dec-08-20  | Jan 2021   | Mar de 2021  | 1,23 GA | 
+\* Devido à época de Natal, a AKS está estendendo a vida de 1,16 de novembro de 2020 até 2021 de Janeiro. Leia mais [aqui](https://github.com/Azure/AKS/releases/tag/2020-10-12)
 
 ## <a name="faq"></a>Perguntas frequentes
 
@@ -176,7 +177,7 @@ O plano de controle deve estar dentro de uma janela de versões de todos os pool
 
 Quando você atualiza um cluster AKS com suporte, as versões secundárias do kubernetes não podem ser ignoradas. Por exemplo, as atualizações entre *1.12. x*  ->  *1.13. x* ou *1.13. x*  ->  *1.14.* x são permitidas, no entanto *1.12. x*  ->  *1.14. x* não é.
 
-Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x*e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
+Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x* e, em seguida, atualize de *1.13. x*  ->  *1.14. x* .
 
 Ignorar várias versões só pode ser feito ao atualizar de uma versão sem suporte de volta para uma versão com suporte. Por exemplo, atualizar de um *1,10. x* sem suporte > um *1.15. x* com suporte pode ser concluído.
 

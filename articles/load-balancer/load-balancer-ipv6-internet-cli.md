@@ -9,17 +9,17 @@ keywords: ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móve
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001566"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735920"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um balanceador de carga público com IPv6 usando a CLI do Azure
 
@@ -48,11 +48,11 @@ As etapas a seguir mostram como criar um balanceador de carga público usando a 
 
 Para implantar um balanceador de carga, crie e configure os seguintes objetos:
 
-* **Configuração de IP de front-end**: contém endereços IP públicos para o tráfego de rede de entrada.
-* **Pool de endereços de back-end**: contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
-* **Regras de balanceamento de carga**: contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no pool de endereços de back-end.
-* **Regras NAT de entrada**: contém regras de NAT (tradução de endereço de rede) que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no pool de endereços de back-end.
-* **Investigações**: contém investigações de integridade usadas para verificar a disponibilidade de instâncias de máquinas virtuais no pool de endereços de back-end.
+* **Configuração de IP de front-end** : contém endereços IP públicos para o tráfego de rede de entrada.
+* **Pool de endereços de back-end** : contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
+* **Regras de balanceamento de carga** : contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no pool de endereços de back-end.
+* **Regras NAT de entrada** : contém regras de NAT (tradução de endereço de rede) que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no pool de endereços de back-end.
+* **Investigações** : contém investigações de integridade usadas para verificar a disponibilidade de instâncias de máquinas virtuais no pool de endereços de back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurar a CLI do Azure
 
@@ -122,7 +122,7 @@ Neste exemplo, você executa as ferramentas da CLI do Azure em uma janela de com
     > [!IMPORTANT]
     > O balanceador de carga usa o rótulo de domínio do IP público como FQDN (nome de domínio totalmente qualificado). Isso é uma mudança da implantação clássica, que usa o nome do serviço de nuvem como o FQDN do balanceador de carga.
     >
-    > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com* .
 
 ## <a name="create-front-end-and-back-end-pools"></a>Criar pools de front-end e back-end
 

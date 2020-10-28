@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279070"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737852"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Usar procedimentos armazenados no SQL Synapse
 
@@ -24,6 +24,9 @@ Dicas para implementar procedimentos armazenados no pool do SQL Synapse para des
 ## <a name="what-to-expect"></a>O que esperar
 
 Synapse SQL dá suporte a muitos dos recursos do T-SQL que são usados no SQL Server. Mais importante, há recursos específicos de expansão que você pode usar para maximizar o desempenho da sua solução.
+
+> [!NOTE]
+> No corpo do procedimento, você pode usar apenas os recursos que têm suporte na área de superfície do SQL do Synapse. Examine [Este artigo](overview-features.md) para identificar objetos, instruções que podem ser usadas em procedimentos armazenados. Nos exemplos nestes artigos, são usados recursos genéricos que estão disponíveis na área de superfície sem servidor e provisionada.
 
 Para manter a escala e o desempenho do pool do SQL, há também alguns recursos e funcionalidades que têm diferenças comportamentais e outras que não têm suporte.
 

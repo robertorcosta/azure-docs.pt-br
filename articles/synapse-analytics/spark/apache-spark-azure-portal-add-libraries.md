@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826738"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737981"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerenciar bibliotecas para Apache Spark no Azure Synapse Analytics
 
@@ -58,7 +58,7 @@ Para instalar bibliotecas em um pool do Spark (versão prévia) durante a criaç
    
 3. Carregue o arquivo de configuração do ambiente usando o seletor de arquivo na seção **pacotes** da página. 
    
-![Adicionar bibliotecas Python durante a criação do pool](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Adicionar bibliotecas do Python")
+    ![Adicionar bibliotecas Python durante a criação do pool](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Adicionar bibliotecas do Python")
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Instalar pacotes do espaço de trabalho Synapse
@@ -68,11 +68,11 @@ Para atualizar ou adicionar bibliotecas adicionais a um pool do Spark (versão p
    
 2.  Inicie o espaço de trabalho do Azure Synapse Analytics no portal do Azure.
 
-3.  Selecione **gerenciar** no painel de navegação principal e, em seguida, selecione **pools de Apache Spark**.
+3.  Selecione **gerenciar** no painel de navegação principal e, em seguida, selecione **pools de Apache Spark** .
    
 4. Selecione um único pool do Spark e carregue o arquivo de configuração do ambiente usando o seletor de arquivo na seção  **pacotes** da página.
 
-![Adicionar bibliotecas Python no Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png "Adicionar bibliotecas do Python")
+    ![Adicionar bibliotecas Python no Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Instalar pacotes do portal do Azure
 Para instalar uma biblioteca em um pool do Spark (versão prévia) diretamente do portal do Azure:
@@ -85,7 +85,7 @@ Para instalar uma biblioteca em um pool do Spark (versão prévia) diretamente d
 
  4. Carregue o arquivo de configuração do ambiente usando o seletor de arquivo.
 
-![Captura de tela que realça o botão carregar arquivo de configuração do ambiente.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adicionar bibliotecas do Python")
+    ![Captura de tela que realça o botão carregar arquivo de configuração do ambiente.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adicionar bibliotecas do Python")
 
 ### <a name="verify-installed-libraries"></a>Verificar bibliotecas instaladas
 
@@ -106,13 +106,13 @@ Para atualizar ou desinstalar uma biblioteca:
 
 3. Navegue até a seção **pacotes** e carregue um novo arquivo de configuração de ambiente
    
-4. Depois de salvar as alterações, será necessário encerrar as sessões ativas e permitir que o pool seja reiniciado. Opcionalmente, você pode forçar as sessões ativas a terminar marcando a caixa de seleção para **forçar novas configurações**.
+4. Depois de salvar as alterações, será necessário encerrar as sessões ativas e permitir que o pool seja reiniciado. Opcionalmente, você pode forçar as sessões ativas a terminar marcando a caixa de seleção para **forçar novas configurações** .
 
-![Adicionar bibliotecas do Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Adicionar bibliotecas do Python")
+    ![Adicionar bibliotecas do Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Adicionar bibliotecas do Python")
    
 
 > [!IMPORTANT]
-> Ao selecionar a opção para **forçar novas configurações**, você encerrará todas as sessões atuais para o pool do Spark selecionado. Depois que as sessões forem encerradas, você precisará aguardar até que o pool seja reiniciado. 
+> Ao selecionar a opção para **forçar novas configurações** , você encerrará todas as sessões atuais para o pool do Spark selecionado. Depois que as sessões forem encerradas, você precisará aguardar até que o pool seja reiniciado. 
 >
 > Se essa configuração estiver desmarcada, você precisará aguardar a sessão atual do Spark terminar ou interrompê-la manualmente. Depois que a sessão for encerrada, você precisará permitir que o pool seja reiniciado. 
 

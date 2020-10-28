@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425638"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736616"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 
@@ -26,7 +26,7 @@ Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do 
 
 Um workspace do Azure Machine Learning é um recurso do Azure. Assim como outros recursos do Azure, quando um novo workspace do Azure Machine Learning é criado, ele vem com três funções padrão. Você pode adicionar usuários ao espaço de trabalho e atribuí-los a uma dessas funções internas.
 
-| Role | Nível de acesso |
+| Função | Nível de acesso |
 | --- | --- |
 | **Leitor** | Ações somente leitura no espaço de trabalho. Os leitores podem listar e exibir ativos, incluindo credenciais de [repositório de armazenamento](how-to-access-data.md) , em um espaço de trabalho. Os leitores não podem criar nem atualizar esses ativos. |
 | **Colaborador** | Exiba, crie, edite ou exclua (onde aplicável) ativos em um espaço de trabalho. Por exemplo, os colaboradores podem criar um experimento, criar ou anexar um cluster de computação, enviar uma execução e implantar um serviço Web. |
@@ -173,7 +173,7 @@ No momento, não estamos publicando [funções internas do Azure](/azure/role-ba
 
 Sim, aqui estão alguns cenários comuns com definições de função propostas personalizadas que você pode usar como base para definir suas próprias funções personalizadas:
 
-* __Personalizar o cientista de dados__: permite que um cientista de dados execute todas as operações dentro de um espaço de trabalho **, exceto**:
+* __Personalizar o cientista de dados__ : permite que um cientista de dados execute todas as operações dentro de um espaço de trabalho **, exceto** :
 
     * Criação de computação
     * Implantando modelos em um cluster AKS de produção
@@ -209,7 +209,7 @@ Sim, aqui estão alguns cenários comuns com definições de função propostas 
     }
     ```
 
-* __Personalizado de cientista de dados restrito__: uma definição de função mais restrita sem curingas nas ações permitidas. Ele pode executar todas as operações dentro de um espaço de trabalho **, exceto**:
+* __Personalizado de cientista de dados restrito__ : uma definição de função mais restrita sem curingas nas ações permitidas. Ele pode executar todas as operações dentro de um espaço de trabalho **, exceto** :
 
     * Criação de computação
     * Implantando modelos em um cluster AKS de produção
@@ -270,7 +270,7 @@ Sim, aqui estão alguns cenários comuns com definições de função propostas 
     }
     ```
      
-* __Personalizar o cientista de dados de MLflow__: permite que um cientista de dados execute todas as operações com suporte do MLflow do AzureML **, exceto**:
+* __Personalizar o cientista de dados de MLflow__ : permite que um cientista de dados execute todas as operações com suporte do MLflow do AzureML **, exceto** :
 
    * Criação de computação
    * Implantando modelos em um cluster AKS de produção
@@ -310,7 +310,7 @@ Sim, aqui estão alguns cenários comuns com definições de função propostas 
     }
     ```   
 
-* __MLOps Custom__: permite que você atribua uma função a uma entidade de serviço e use-a para automatizar seus pipelines do MLOps. Por exemplo, para enviar execuções em um pipeline já publicado:
+* __MLOps Custom__ : permite que você atribua uma função a uma entidade de serviço e use-a para automatizar seus pipelines do MLOps. Por exemplo, para enviar execuções em um pipeline já publicado:
 
     `mlops_custom_role.json` :
     ```json
@@ -351,7 +351,7 @@ Sim, aqui estão alguns cenários comuns com definições de função propostas 
     }
     ```
 
-* __Administração de espaço de trabalho__: permite que você execute todas as operações dentro do escopo de um espaço de trabalho, **exceto**:
+* __Administração de espaço de trabalho__ : permite que você execute todas as operações dentro do escopo de um espaço de trabalho, **exceto** :
 
     * Criando um novo workspace
     * Atribuindo cotas de nível de espaço de trabalho ou de assinatura
@@ -381,7 +381,7 @@ Sim, aqui estão alguns cenários comuns com definições de função propostas 
     ```
 
 <a name="labeler"></a>
-* __Labeler Custom__: permite que você defina uma função com escopo apenas para rotular dados:
+* __Labeler Custom__ : permite que você defina uma função com escopo apenas para rotular dados:
 
     `labeler_custom_role.json` :
     ```json

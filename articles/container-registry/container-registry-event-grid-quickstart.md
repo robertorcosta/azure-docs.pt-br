@@ -3,13 +3,13 @@ title: Início rápido – enviar eventos para a grade de eventos
 description: Neste início rápido, você habilita os eventos da Grade de Eventos para o registro de contêiner e, em seguida, efetua push de imagens de contêiner e exclui eventos para um aplicativo de exemplo.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78403229"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736858"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início rápido: enviar eventos do registro de contêiner privado para a grade de eventos
 
@@ -19,15 +19,15 @@ Após concluir as etapas neste artigo, os eventos enviados do registro de contê
 
 ![Navegador da Web que renderiza o aplicativo Web de exemplo com três eventos recebidos][sample-app-01]
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash**. Se você estiver usando um shell diferente, como PowerShell ou Prompt de Comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variáveis apropriadamente. Este artigo usa variáveis para minimizar a quantidade de edição de comando necessária.
+Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash** . Se você estiver usando um shell diferente, como PowerShell ou Prompt de Comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variáveis apropriadamente. Este artigo usa variáveis para minimizar a quantidade de edição de comando necessária.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O seguinte comando [az group create][az-group-create] cria um grupo de recursos nomeado *myResourceGroup* na região *eastus*. Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O seguinte comando [az group create][az-group-create] cria um grupo de recursos nomeado *myResourceGroup* na região *eastus* . Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -206,7 +206,7 @@ Parabéns! Se você visualizar os eventos `ImagePushed` e `ImageDeleted`, isso s
 
 Após concluir os recursos criados neste início rápido, você poderá excluí-los com o seguinte comando da CLI do Azure. Quando você excluir um grupo de recursos, todos os recursos nele contidos serão permanentemente excluídos.
 
-**AVISO**: Essa operação é irreversível. Antes de executar o comando, certifique-se de que nenhum dos recursos contidos no grupo será mais necessário.
+**AVISO** : Essa operação é irreversível. Antes de executar o comando, certifique-se de que nenhum dos recursos contidos no grupo será mais necessário.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

@@ -6,16 +6,16 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893077"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738731"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio (visualização) no Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Este artigo descreve como usar notebooks no Azure Synapse Studio.
 
 ## <a name="create-a-notebook"></a>Criar um notebook
 
-Há dois modos de criar um notebook. Você pode criar um notebook ou importar um existente para um workspace do Azure Synapse no **Pesquisador de Objetos**. Os notebooks do Azure Synapse Studio podem reconhecer arquivos IPYNB padrão do Jupyter Notebook.
+Há dois modos de criar um notebook. Você pode criar um notebook ou importar um existente para um workspace do Azure Synapse no **Pesquisador de Objetos** . Os notebooks do Azure Synapse Studio podem reconhecer arquivos IPYNB padrão do Jupyter Notebook.
 
 ![criar bloco de anotações de importação](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
@@ -44,11 +44,11 @@ Os notebooks consistem em células, que são blocos individuais de código ou te
 
 Há várias maneiras de adicionar uma nova célula ao notebook.
 
-1. Expanda o botão superior esquerdo **+ Célula** e selecione **Adicionar célula de código** ou **Adicionar célula de texto**.
+1. Expanda o botão superior esquerdo **+ Célula** e selecione **Adicionar célula de código** ou **Adicionar célula de texto** .
 
     ![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Passe o mouse sobre o espaço entre duas células e selecione **Adicionar código** ou **Adicionar texto**.
+2. Passe o mouse sobre o espaço entre duas células e selecione **Adicionar código** ou **Adicionar texto** .
 
     ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
@@ -142,7 +142,7 @@ Você também pode usar [teclas de atalho no modo de comando](#shortcut-keys-und
 
 ### <a name="delete-a-cell"></a>Excluir uma célula
 
-Para excluir uma célula, selecione as reticências (...), acesse o menu de ações de célula adicional na extrema direita e selecione **Excluir uma célula**. 
+Para excluir uma célula, selecione as reticências (...), acesse o menu de ações de célula adicional na extrema direita e selecione **Excluir uma célula** . 
 
 Você também pode usar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **D,D** para excluir a célula atual.
   
@@ -167,12 +167,12 @@ Você pode executar as células de código em seu notebook individualmente ou to
 
 Há várias maneiras de executar o código em uma célula.
 
-1. Passe o mouse sobre a célula que você deseja executar e selecione o botão **Executar Célula** ou pressione **Ctrl+Enter**.
+1. Passe o mouse sobre a célula que você deseja executar e selecione o botão **Executar Célula** ou pressione **Ctrl+Enter** .
 
    ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Para acessar o menu de ações adicionais de célula na extrema direita, selecione as reticências ( **...** ). Em seguida, selecione **Executar célula**.
+2. Para acessar o menu de ações adicionais de célula na extrema direita, selecione as reticências ( **...** ). Em seguida, selecione **Executar célula** .
 
    ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
@@ -211,7 +211,7 @@ O número de tarefas por cada trabalho ou estágio ajuda a identificar o nível 
 
 ### <a name="spark-session-config"></a>Configuração de sessão do Spark
 
-Você pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à sessão atual do Spark em **Configurar sessão**. Reinicie a sessão do Spark para que as alterações de configuração entrem em vigor. Todas as variáveis do notebook em cache serão limpas.
+Você pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à sessão atual do Spark em **Configurar sessão** . Reinicie a sessão do Spark para que as alterações de configuração entrem em vigor. Todas as variáveis do notebook em cache serão limpas.
 
 [![gerenciamento de sessão](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
@@ -275,7 +275,7 @@ Você pode acessar os dados na conta de armazenamento principal diretamente. Nã
 
 ### <a name="produce-rendered-table-view"></a>Produzir exibição de tabela renderizada
 
-Uma exibição de resultados tabulares é fornecida com a opção para criar gráfico de barras, de linhas, de pizza, de dispersão e de área. Você pode visualizar seus dados sem precisar escrever código. Os gráficos podem ser personalizados nas **Opções de Gráfico**. 
+Uma exibição de resultados tabulares é fornecida com a opção para criar gráfico de barras, de linhas, de pizza, de dispersão e de área. Você pode visualizar seus dados sem precisar escrever código. Os gráficos podem ser personalizados nas **Opções de Gráfico** . 
 
 A saída dos comandos magic **%%sql** aparecem na exibição de tabela renderizada por padrão. Você pode chamar <code>display(df)</code> no Spark Dataframes, nos quadros de tabela do pandas, na lista ou na função RDD (Distributed DataSets) para produzir a exibição de tabela renderizada.
 
@@ -294,9 +294,9 @@ Você pode usar <code>display(df, summary = True)</code> para verificar o resumo
 
 ### <a name="render-html-or-interactive-libraries"></a>Renderizar bibliotecas em HTML ou interativas
 
-Você pode renderizar código HTML, incluindo JavaScript, CSS, D3 ou bibliotecas interativas, como **bokeh**, usando o **displayHTML ()**.
+Você pode renderizar código HTML, incluindo JavaScript, CSS, D3 ou bibliotecas interativas, como **bokeh** , usando o **displayHTML ()** .
 
-A imagem a seguir é um exemplo de como plotar glifos em um mapa usando **bokeh**.
+A imagem a seguir é um exemplo de como plotar glifos em um mapa usando **bokeh** .
 
    ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    
@@ -357,7 +357,7 @@ Mágicas de linha disponíveis: [% lsmagic](https://ipython.readthedocs.io/en/st
 Magics de célula disponíveis: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## <a name="orchestrate-notebook"></a>Orquestrar Notebook
+## <a name="integrate-a-notebook"></a>Integrar um bloco de anotações
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Adicionar um bloco de anotações a um pipeline
 

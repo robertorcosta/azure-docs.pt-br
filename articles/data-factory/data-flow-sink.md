@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: 81ce3fae74a14c91db23c991ab0b53accd6568a6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 5845ab6419d6914b9221df1ae1280d31aba0ae7a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107701"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737529"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
@@ -26,19 +26,19 @@ Cada transformação de coletor é associada a exatamente um objeto de conjunto 
 
 ## <a name="inline-datasets"></a>Conjuntos de valores embutidos
 
-Ao criar uma transformação do coletor, escolha se as informações do coletor estão definidas dentro de um objeto de conjunto de dados ou na transformação do coletor. A maioria dos formatos só está disponível em um ou outro. Consulte o documento do conector apropriado para saber como usar um conector específico.
+Ao criar uma transformação do coletor, escolha se as informações do coletor estão definidas dentro de um objeto de conjunto de dados ou na transformação do coletor. A maioria dos formatos está disponível somente em um ou outro. Para saber como usar um conector específico, consulte o documento do conector apropriado.
 
-Quando há suporte para um formato tanto para dentro quanto para um objeto DataSet, há benefícios para ambos. Objetos DataSet são entidades reutilizáveis que podem ser aproveitadas em outros fluxos de dados e atividades como Copy. Eles são especialmente úteis ao usar um esquema protegido. Os conjuntos de dado não são baseados no Spark e, ocasionalmente, talvez seja necessário substituir certas configurações ou projeção de esquema na transformação do coletor.
+Quando há suporte para um formato tanto para dentro quanto para um objeto DataSet, há benefícios para ambos. Os objetos DataSet são entidades reutilizáveis que podem ser usadas em outros fluxos de dados e atividades como Copy. Essas entidades reutilizáveis são especialmente úteis quando você usa um esquema protegido. Conjuntos de valores não são baseados no Spark. Ocasionalmente, talvez seja necessário substituir certas configurações ou projeção de esquema na transformação do coletor.
 
-Os conjuntos de linhas embutidos são recomendados ao usar esquemas flexíveis, instâncias de coletor one-off ou coletores com parâmetros. Se o seu coletor for altamente parametrizado, conjuntos de linhas embutidos permitem que você não crie um objeto "fictício". Os conjuntos de dados embutidos são baseados no Spark e suas propriedades são nativas para o fluxo.
+Os conjuntos de linhas embutidos são recomendados quando você usa esquemas flexíveis, instâncias de coletor one-off ou coletores com parâmetros. Se o seu coletor for muito parametrizado, conjuntos de fontes embutidos permitem que você não crie um objeto "fictício". Os conjuntos de dados embutidos são baseados no Spark, e suas propriedades são nativas ao Flow.
 
 Para usar um conjunto de linhas embutido, selecione o formato desejado no seletor de **tipo de coletor** . Em vez de selecionar um conjunto de um banco de uma coletor, você seleciona o serviço vinculado ao qual deseja se conectar.
 
-![Conjunto de linhas embutido](media/data-flow/inline-selector.png "Conjunto de linhas embutido")
+![Captura de tela que mostra a linha selecionada.](media/data-flow/inline-selector.png "Captura de tela que mostra a linha selecionada.")
 
 ##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Tipos de coletor com suporte
 
-O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, transformação (ELT) e funciona com conjuntos de dados de *preparo* que estão todos no Azure. Atualmente, os seguintes conjuntos de valores podem ser usados em uma transformação de origem:
+O mapeamento de fluxo de dados segue uma abordagem ELT (extração, carregamento e transformação) e funciona com conjuntos de dados de *preparo* que estão todos no Azure. No momento, os seguintes conjuntos de valores podem ser usados em uma transformação de origem.
 
 | Connector | Formatar | Conjunto de linhas/embutido |
 | --------- | ------ | -------------- |
@@ -48,38 +48,38 @@ O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, 
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Banco de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Instância Gerenciada do SQL do Azure (versão prévia)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
-| [CosmosDB do Azure (API do SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure Cosmos DB (API do SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-As configurações específicas para esses conectores estão localizadas na guia **configurações** . Exemplos de script de fluxo de dados e informações nessas configurações estão localizados na documentação do conector. 
+As configurações específicas para esses conectores estão localizadas na guia **configurações** . Exemplos de script de fluxo de dados e informações nessas configurações estão localizados na documentação do conector.
 
-O Azure Data Factory tem acesso a aproximadamente [90 conectores nativos](connector-overview.md). Para gravar dados para essas outras fontes do fluxo de dados, use a atividade de cópia para carregar esses dados de um coletor com suporte.
+Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para gravar dados para essas outras fontes do fluxo de dados, use a atividade de cópia para carregar esses dados de um coletor com suporte.
 
 ## <a name="sink-settings"></a>Configurações do coletor
 
-Depois de adicionar um coletor, configure por meio da guia **coletor** . Aqui, você pode escolher ou criar o conjunto de um no qual seu coletor grava. Os valores de desenvolvimento para parâmetros de conjunto de um podem ser definidos nas [configurações de depuração](concepts-data-flow-debug-mode.md) (requer que o modo de depuração esteja ativado).
+Depois de adicionar um coletor, configure por meio da guia **coletor** . Aqui, você pode escolher ou criar o conjunto de um no qual seu coletor grava. Os valores de desenvolvimento para parâmetros de conjunto de um podem ser definidos nas [configurações de depuração](concepts-data-flow-debug-mode.md). (O modo de depuração deve estar ativado.)
 
-Veja abaixo um vídeo explicando várias opções de coletor diferentes para tipos de arquivo delimitados por texto:
+O vídeo a seguir explica várias opções de coletor diferentes para tipos de arquivo delimitados por texto.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
-![Configurações do coletor](media/data-flow/sink-settings.png "Configurações do coletor")
+![Captura de tela que mostra as configurações do coletor.](media/data-flow/sink-settings.png "Captura de tela que mostra as configurações do coletor.")
 
-**Descompasso de esquema:** a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade do data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações na coluna. Habilite **permitir descompasso de esquemas** para gravar colunas adicionais sobre o que está definido no esquema de dados do coletor.
+**Descompasso de esquema** : a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade de data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações de coluna. Habilite **permitir descompasso de esquemas** para gravar colunas adicionais sobre o que está definido no esquema de dados do coletor.
 
-**Validar esquema:** Se validar esquema for selecionado, o fluxo de dados falhará se qualquer coluna do esquema de origem de entrada não for encontrada na projeção de origem ou se os tipos de dados não corresponderem. Use essa configuração para impor que os dados de origem atendam ao contrato de sua projeção definida. Ele é muito útil em cenários de origem de banco de dados para sinalizar que os nomes ou tipos de coluna foram alterados.
+**Validar esquema** : se validar esquema for selecionado, o fluxo de dados falhará se qualquer coluna do esquema de origem de entrada não for encontrada na projeção de origem ou se os tipos de dados não corresponderem. Use essa configuração para impor que os dados de origem atendam ao contrato de sua projeção definida. É útil em cenários de origem de banco de dados para sinalizar que os nomes ou tipos de coluna foram alterados.
 
 ## <a name="field-mapping"></a>Mapeamento de campo
 
-Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Isso é conhecido como **mapeamento automático**.
+Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Esse comportamento é conhecido como *automapeamento* .
 
-Ao desativar o mapeamento automático, você terá a opção de adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Os mapeamentos baseados em regras permitem escrever expressões com correspondência de padrões, enquanto o mapeamento fixo mapeará nomes de colunas lógicas e físicas. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+Quando você desativa o mapeamento, pode adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Com mapeamentos baseados em regras, você pode escrever expressões com correspondência de padrões. Mapeamento fixo mapeia nomes de coluna lógicos e físicos. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
 ## <a name="custom-sink-ordering"></a>Ordenação de coletor personalizado
 
-Por padrão, os dados são gravados em vários coletores em uma ordem não determinística. O mecanismo de execução gravará dados em paralelo, pois a lógica de transformação é concluída e a ordenação do coletor pode variar cada execução. Para especificar a ordenação exata do coletor, habilite a **ordenação personalizada do coletor** na guia Geral do fluxo de dados. Quando habilitado, os coletores serão gravados em sequência em ordem crescente.
+Por padrão, os dados são gravados em vários coletores em uma ordem não determinística. O mecanismo de execução grava dados em paralelo, pois a lógica de transformação é concluída e a ordenação do coletor pode variar cada execução. Para especificar uma ordenação exata do coletor, habilite a **ordenação personalizada do coletor** na guia **geral** do fluxo de dados. Quando habilitado, os coletores são gravados sequencialmente em ordem crescente.
 
-![Ordenação de coletor personalizado](media/data-flow/custom-sink-ordering.png "Ordenação de coletor personalizado")
+![Captura de tela que mostra a ordenação personalizada do coletor.](media/data-flow/custom-sink-ordering.png "Captura de tela que mostra a ordenação personalizada do coletor.")
 
 ## <a name="data-preview-in-sink"></a>Visualização de dados no coletor
 
