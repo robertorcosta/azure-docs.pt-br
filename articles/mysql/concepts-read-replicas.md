@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 10/26/2020
+ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537959"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791963"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -36,9 +36,6 @@ Um cenário comum é ter cargas de trabalho analíticas e de BI usando a réplic
 Como réplicas são somente leitura, elas não reduzem diretamente os encargos de capacidade de gravação no mestre. Esse recurso não se destina a cargas de trabalho com uso intenso de gravação.
 
 O recurso de réplica de leitura usa replicação assíncrona do MySQL. O recurso não se destina a cenários de replicação síncrona. Haverá um atraso mensurável entre a origem e a réplica. Os dados na réplica acabarão se tornando consistentes com os dados no mestre. Use este recurso para cargas de trabalho que podem acomodar esse atraso.
-
-> [!IMPORTANT]
-> O Banco de Dados do Azure para MySQL usa o log binário baseado em **LINHA** . Se a tabela não tiver uma chave primária, todas as linhas da tabela serão verificadas em busca de operações DML. Isso causa um aumento no atraso da replicação. Para garantir que a réplica consiga acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar o servidor de réplica ou recriar o servidor de réplica se você já tiver um.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Você pode criar uma réplica de leitura em uma região diferente do seu servidor de origem. A replicação entre regiões pode ser útil para cenários como o planejamento de recuperação de desastres ou para trazer dados mais próximos dos seus usuários.
@@ -95,7 +92,7 @@ No prompt, insira a senha da conta de usuário.
 
 O Banco de Dados do Azure para MySQL fornece a métrica **Atraso da replicação em segundos** no Azure Monitor. Essa métrica está disponível apenas para réplicas. Essa métrica é calculada com o uso da métrica `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL. Defina um alerta para informá-lo quando o retardo da replicação atinge um valor que não é aceitável para sua carga de trabalho.
 
-Se você vir maior atraso de replicação, consulte [solucionar problemas de latência de replicação](howto-troubleshoot-replication-latency.md) para solucionar problemas e entender as possíveis causas.
+Se você vir maior atraso de replicação, consulte [Solucionando problemas de latência de replicação](howto-troubleshoot-replication-latency.md) para solucionar problemas e entender as possíveis causas.
 
 ## <a name="stop-replication"></a>Parar replicação
 

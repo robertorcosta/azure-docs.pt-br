@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617427"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793102"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implantar o Azure SQL Instância Gerenciada em um pool de instâncias
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ A tabela a seguir mostra as operações disponíveis relacionadas a pools de ins
 |Criar um banco de dados em instância dentro do pool|Sim|Sim|
 |Excluir um banco de dados do SQL Instância Gerenciada|Sim|Sim|
 
-[Comandos do PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)disponíveis:
+[Comandos do PowerShell](/powershell/module/az.sql/)disponíveis:
 
 |Cmdlet |Descrição |
 |:---|:---|
@@ -52,7 +52,7 @@ A tabela a seguir mostra as operações disponíveis relacionadas a pools de ins
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Retorna informações sobre o uso do pool de Instância Gerenciada do SQL. |
 
 
-Para usar o PowerShell, [instale a última versão do PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) e siga as instruções para [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Para usar o PowerShell, [instale a última versão do PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) e siga as instruções para [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
 Para operações relacionadas a instâncias dentro de pools e instâncias únicas, use os [comandos de instância gerenciada padrão](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances), mas o *nome do pool de instâncias* propriedade deve ser populada ao usar esses comandos para uma instância em um pool.
 

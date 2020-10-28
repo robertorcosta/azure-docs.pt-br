@@ -6,15 +6,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/08/2020
-ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 10/25/2020
+ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096089"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791572"
 ---
-# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solucionar problemas de latência de replicação no banco de dados do Azure para MySQL
+# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solucionar problemas de latência de replicação no Banco de Dados do Azure para MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
 O recurso de [réplica de leitura](concepts-read-replicas.md) permite replicar dados de um servidor do Azure para MySQL para um servidor de réplica somente leitura. Você pode escalar horizontalmente as cargas de trabalho roteando consultas de leitura e relatório do aplicativo para servidores de réplica. Essa configuração reduz a pressão no servidor de origem. Ele também melhora o desempenho geral e a latência do aplicativo conforme ele é dimensionado. 
 
@@ -31,9 +33,9 @@ Neste artigo, você aprenderá a solucionar problemas de latência de replicaç�
 
 ## <a name="replication-concepts"></a>Conceitos de replicação
 
-Quando um log binário é habilitado, o servidor de origem grava transações confirmadas no log binário. O log binário é usado para replicação. Ele é ativado por padrão para todos os servidores provisionados recentemente que dão suporte a até 16 TB de armazenamento. Em servidores de réplica, dois threads são executados em cada servidor de réplica. Um thread é o *thread de e/s*e o outro é o *thread do SQL*:
+Quando um log binário é habilitado, o servidor de origem grava transações confirmadas no log binário. O log binário é usado para replicação. Ele é ativado por padrão para todos os servidores provisionados recentemente que dão suporte a até 16 TB de armazenamento. Em servidores de réplica, dois threads são executados em cada servidor de réplica. Um thread é o *thread de e/s* e o outro é o *thread do SQL* :
 
-- O thread de e/s conecta-se ao servidor de origem e solicita logs binários atualizados. Esse thread recebe as atualizações de log binários. Essas atualizações são salvas em um servidor de réplica, em um log local chamado *log de retransmissão*.
+- O thread de e/s conecta-se ao servidor de origem e solicita logs binários atualizados. Esse thread recebe as atualizações de log binários. Essas atualizações são salvas em um servidor de réplica, em um log local chamado *log de retransmissão* .
 - O thread SQL lê o log de retransmissão e, em seguida, aplica as alterações de dados nos servidores de réplica.
 
 ## <a name="monitoring-replication-latency"></a>Monitorando latência de replicação

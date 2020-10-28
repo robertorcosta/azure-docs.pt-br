@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443325"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792116"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introdução às consultas entre bancos de dados (particionamento vertical) (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ A permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA é exigida. Essa permi
 
 ## <a name="create-the-sample-databases"></a>Criar os bancos de dados de exemplo
 
-Para começar, crie dois bancos de dados, **clientes** e **pedidos**, tanto no mesmo servidor quanto em servidores diferentes.
+Para começar, crie dois bancos de dados, **clientes** e **pedidos** , tanto no mesmo servidor quanto em servidores diferentes.
 
 Execute as consultas a seguir no banco de dados **Orders** para criar a tabela **OrderInformation** e inserir os dados de exemplo.
 
@@ -117,7 +117,7 @@ INNER JOIN CustomerInformation
 ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 ```
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 
 Atualmente, o recurso de consulta de banco de dados elástico está incluído no custo de seu Banco de Dados SQL do Azure.  
 
@@ -129,4 +129,4 @@ Para obter informações sobre preços, consulte [preços do banco de dados SQL]
 * Para sintaxe e amostras de consultas para dados particionados verticalmente, consulte [Consultando dados particionados verticalmente)](elastic-query-vertical-partitioning.md)
 * Para um tutorial sobre particionamento horizontal (fragmentação), consulte [Introdução à consulta elástica para particionamento horizontal (fragmentação)](elastic-query-getting-started.md).
 * Para sintaxe e amostras de consultas para dados particionados horizontalmente, consulte [Consultando dados particionados horizontalmente)](elastic-query-horizontal-partitioning.md)
-* Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução Transact-SQL em um único Banco de Dados SQL do Azure remoto ou um conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
+* Consulte [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) para um procedimento armazenado que executa uma instrução Transact-SQL em um único Banco de Dados SQL do Azure remoto ou um conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.

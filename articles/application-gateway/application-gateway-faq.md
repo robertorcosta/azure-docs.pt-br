@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278626"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791538"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -69,7 +69,7 @@ Consulte a [ordem de processamento de ouvinte](https://docs.microsoft.com/azure/
 
 Se você estiver usando um endereço IP público como um ponto de extremidade, encontrará as informações de IP e DNS no recurso de endereço IP público. Ou encontrá-lo no portal, na página Visão geral do gateway de aplicativo. Se você estiver usando endereços IP internos, localize as informações na página Visão geral.
 
-Para a SKU v2, abra o recurso IP público e selecione **Configuração**. O campo de **Rótulo de nome DNS (opcional)** está disponível para configurar o nome DNS.
+Para a SKU v2, abra o recurso IP público e selecione **Configuração** . O campo de **Rótulo de nome DNS (opcional)** está disponível para configurar o nome DNS.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quais são as configurações de tempo limite de Keep-Alive e tempo limite de ociosidade de TCP?
 
@@ -138,7 +138,7 @@ Não. O Gateway de Aplicativo v2 ainda não dá suporte a solicitações de prox
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do Gateway de Aplicativo dá suporte ao atributo SameSite?
 Sim, o [navegador Chromium](https://www.chromium.org/Home) [atualização de v80](https://chromiumdash.appspot.com/schedule) introduziu uma exigência em cookies HTTP sem que o atributo SameSite seja tratado como SameSite=Lax. Isso significa que o cookie de afinidade do Gateway de Aplicativo não será enviado pelo navegador em um contexto de terceiros. 
 
-Para dar suporte a esse cenário, o Gateway de Aplicativo injeta outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente.  Esses cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele: *SameSite=None; Secure*. Esses atributos mantêm afinidades de sessão mesmo para solicitações entre origens. Consulte a [seção da afinidade baseada em cookie](configuration-http-settings.md#cookie-based-affinity) para obter mais informações.
+Para dar suporte a esse cenário, o Gateway de Aplicativo injeta outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente.  Esses cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele: *SameSite=None; Secure* . Esses atributos mantêm afinidades de sessão mesmo para solicitações entre origens. Consulte a [seção da afinidade baseada em cookie](configuration-http-settings.md#cookie-based-affinity) para obter mais informações.
 
 ## <a name="performance"></a>Desempenho
 
@@ -249,11 +249,11 @@ Mas se você quiser usar o Gateway de Aplicativo v2 somente com o IP privado, vo
 2. Não crie nenhum ouvinte para o endereço IP de front-end público. O gateway de aplicativo não escutará nenhum tráfego no endereço IP público se nenhum ouvinte for criado para ele.
 3. Crie e anexe um [Grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede do Gateway de Aplicativo com a seguinte configuração na ordem de prioridade:
     
-    a. Permita o tráfego da Origem como **GatewayManager** marca de serviço e destino como **Qualquer** e porta de Destino como **65200-65535**. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de usuário do gateway, não podem iniciar alterações nesses pontos de extremidade sem os certificados apropriados em vigor
+    a. Permita o tráfego da Origem como **GatewayManager** marca de serviço e destino como **Qualquer** e porta de Destino como **65200-65535** . Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de usuário do gateway, não podem iniciar alterações nesses pontos de extremidade sem os certificados apropriados em vigor
     
     b. Permita o tráfego da Origem como marca de serviço e destino **AzureLoadBalancer** e porta de destino  **Qualquer**
     
-    c. Permita o tráfego da Origem como marca de serviço e destino **Internet** e porta de destino e portas de destino como **Qualquer**. Dê a essa regra *menos prioridade* nas regras de entrada
+    c. Permita o tráfego da Origem como marca de serviço e destino **Internet** e porta de destino e portas de destino como **Qualquer** . Dê a essa regra *menos prioridade* nas regras de entrada
     
     d. Mantenha as regras padrão como permitir a entrada de VirtualNetwork para que o acesso no endereço IP privado não seja bloqueado
     
@@ -350,7 +350,7 @@ Os membros do navegador da AC (autoridade de certificação) publicaram recentem
 * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
 
-De acordo com os requisitos de conformidade do setor, os fornecedores de CA começaram a revogar CAs não compatíveis e a emissão de CAs em conformidade, o que exige que os clientes tenham seus certificados reemitidos.A Microsoft está fazendo uma parceria com esses fornecedores para minimizar o impacto potencial nos serviços do Azure, **no entanto, seus certificados emitidos automaticamente ou certificados usados em cenários de BYOC ("Traga seu próprio certificado") ainda estão em risco de serem revogados inesperadamente**.
+De acordo com os requisitos de conformidade do setor, os fornecedores de CA começaram a revogar CAs não compatíveis e a emissão de CAs em conformidade, o que exige que os clientes tenham seus certificados reemitidos.A Microsoft está fazendo uma parceria com esses fornecedores para minimizar o impacto potencial nos serviços do Azure, **no entanto, seus certificados emitidos automaticamente ou certificados usados em cenários de BYOC ("Traga seu próprio certificado") ainda estão em risco de serem revogados inesperadamente** .
 
 Para verificar se os certificados utilizados pelo seu aplicativo foram revogados, consulte o [anúncio do DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) de referência e o [controlador de revogação de certificado](https://misissued.com/#revoked). Se os certificados tiverem sido revogados ou forem revogados, você precisará solicitar novos certificados do fornecedor da autoridade de certificação utilizado em seus aplicativos. Para evitar que a disponibilidade do aplicativo seja interrompida devido aos certificados serem revogados inesperadamente ou para atualizar um certificado que foi revogado, consulte nossa postagem de atualizações do Azure para obter links de correção de vários serviços do Azure que dão suporte a BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
@@ -434,9 +434,9 @@ Não, o complemento AGIC é um serviço gerenciado, o que significa que a Micros
 
 O gateway de aplicativo fornece três logs: 
 
-* **ApplicationGatewayAccessLog**: O  log de acesso contém cada solicitação enviada ao front-end do Gateway de Aplicativo. Os dados incluem o IP do chamador, a URL solicitada, latência da resposta, o código de retorno, bytes de entrada e saída. Esse log contém um registro por instância do Gateway de Aplicativo.
-* **ApplicationGatewayPerformanceLog**: O log de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem a taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras.
-* **ApplicationGatewayFirewallLog**: Para gateways de aplicativo que você configura com o WAF, o log do firewall contém solicitações que são registradas por meio do modo de detecção ou do modo de prevenção.
+* **ApplicationGatewayAccessLog** : O  log de acesso contém cada solicitação enviada ao front-end do Gateway de Aplicativo. Os dados incluem o IP do chamador, a URL solicitada, latência da resposta, o código de retorno, bytes de entrada e saída. Esse log contém um registro por instância do Gateway de Aplicativo.
+* **ApplicationGatewayPerformanceLog** : O log de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem a taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras.
+* **ApplicationGatewayFirewallLog** : Para gateways de aplicativo que você configura com o WAF, o log do firewall contém solicitações que são registradas por meio do modo de detecção ou do modo de prevenção.
 
 O log de acesso é coletado a cada 60 segundos. Confira [Integridade do back-end, registro em log de diagnóstico e métricas do Gateway de Aplicativo](application-gateway-diagnostics.md) para saber mais.
 
@@ -472,6 +472,10 @@ Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o
 - Você implantou o Gateway de Aplicativo v2
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
+
+### <a name="does-application-gateway-store-customer-data"></a>O gateway de aplicativo armazena dados do cliente?
+
+Não, o gateway de aplicativo não armazena dados do cliente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

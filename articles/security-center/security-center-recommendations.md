@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: f3fb31dc7db4808db83f33abdf14179265d147f9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425176"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791878"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança na Central de Segurança do Azure 
 Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
@@ -77,8 +77,8 @@ Um exemplo de recomendação de versão prévia:
 
 Neste documento, você foi apresentado às recomendações de segurança da Central de Segurança. Para obter informações relacionadas:
 
-- [Corrigir recomendações](security-center-remediate-recommendations.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Corrigir recomendações](security-center-remediate-recommendations.md)– saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 - [Evitar configurações incorretas com recomendações de aplicação/negação](prevent-misconfigurations.md).
-- [Automatizar respostas a recomendações](workflow-automation.md)
+- [Automatizar respostas para gatilhos da central de segurança](workflow-automation.md)– automatizar respostas para recomendações
 - [Isentar um recurso de uma recomendação](exempt-resource.md)
 - [Recomendações de segurança – um guia de referência](recommendations-reference.md)

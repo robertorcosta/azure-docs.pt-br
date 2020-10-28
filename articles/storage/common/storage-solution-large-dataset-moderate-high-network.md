@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: c88da1c7fba5d7cb51863a580ae420eb6b3298a2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491267"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792915"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com largura de banda de rede moderada a alta
  
@@ -95,16 +95,16 @@ Se estiver usando a transferência de dados online, use a tabela na seção a se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba como transferir dados com Importação/Exportação](/azure/storage/common/storage-import-export-data-to-blobs).
+- [Saiba como transferir dados com Importação/Exportação](./storage-import-export-data-to-blobs.md).
 - Entenda como
 
-    - [Transferir dados com o Data Box Disk](/azure/databox/data-box-disk-quickstart-portal).
-    - [Transferir dados com o Data Box](/azure/databox/data-box-quickstart-portal).
-- [Transferir dados com AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+    - [Transferir dados com o Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+    - [Transferir dados com o Data Box](../../databox/data-box-quickstart-portal.md).
+- [Transferir dados com AzCopy](./storage-use-azcopy-v10.md).
 - Entenda como:
-    - [Transferir dados com o Data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformar dados com o Data Box Edge antes de enviar para o Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Saiba como transferir dados com o Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
+    - [Transferir dados com o Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transformar dados com o Data Box Edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Saiba como transferir dados com o Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 - Use as APIs REST para transferir dados
 
     - [In .NET](/dotnet/api/overview/azure/storage)

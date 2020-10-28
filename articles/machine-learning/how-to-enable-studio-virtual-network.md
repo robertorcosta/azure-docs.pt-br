@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503208"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792014"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 
@@ -36,7 +36,7 @@ Consulte os outros artigos desta série:
 
 
 > [!IMPORTANT]
-> Se o seu espaço de trabalho estiver em uma __nuvem soberanas__, como Azure governamental ou Azure China 21vianet, os notebooks integrados _não_ dão suporte ao uso de armazenamento que esteja em uma rede virtual. Em vez disso, você pode usar blocos de anotações do Jupyter de uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Se o seu espaço de trabalho estiver em uma __nuvem soberanas__ , como Azure governamental ou Azure China 21vianet, os notebooks integrados _não_ dão suporte ao uso de armazenamento que esteja em uma rede virtual. Em vez disso, você pode usar blocos de anotações do Jupyter de uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -53,7 +53,7 @@ Consulte os outros artigos desta série:
 
 Se você estiver acessando o Studio de um recurso dentro de uma rede virtual (por exemplo, uma instância de computação ou máquina virtual), deverá permitir o tráfego de saída da rede virtual para o estúdio. 
 
-Por exemplo, se você estiver usando NSG (grupos de segurança de rede) para restringir o tráfego de saída, adicione uma regra a um destino de __marca de serviço__ de __AzureFrontDoor. frontend__.
+Por exemplo, se você estiver usando NSG (grupos de segurança de rede) para restringir o tráfego de saída, adicione uma regra a um destino de __marca de serviço__ de __AzureFrontDoor. frontend__ .
 
 ## <a name="access-data-using-the-studio"></a>Acessar dados usando o estúdio
 
@@ -66,9 +66,6 @@ Se você não habilitar a identidade gerenciada, receberá esse erro, `Error: Un
 * Envie um experimento do AutoML.
 * Inicie um projeto de rotulagem.
 
-> [!NOTE]
-> [Rótulos de dados assistidos de ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) não dão suporte a contas de armazenamento padrão protegidas por trás de uma rede virtual. Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. A conta de armazenamento não padrão pode ser protegida pela rede virtual. 
-
 O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório de armazenamento em uma rede virtual:
 
 * Blob do Azure
@@ -76,17 +73,21 @@ O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório d
 * Azure Data Lake Storage Gen2
 * Banco de Dados SQL do Azure
 
-### <a name="configure-datastores-to-use-managed-identity"></a>Configurar os repositórios de armazenamento para usar identidade gerenciada
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Conceder acesso do __leitor__ de identidade gerenciada do espaço de trabalho ao link privado do armazenamento
+
+Esta etapa só será necessária se você tiver adicionado a conta de armazenamento do Azure à sua rede virtual com um [ponto de extremidade privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). Para obter mais informações, consulte a função interna do [leitor](../role-based-access-control/built-in-roles.md#reader) .
+
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurar os repositórios de armazenamento para usar identidade gerenciada do espaço de trabalho
 
 Azure Machine Learning usa [repositórios](concept-data.md#datastores) de armazenamento para se conectar a contas de armazenamento. Use as etapas a seguir para configurar seus repositórios de armazenamento para usar identidade gerenciada. 
 
-1. No estúdio, selecione __repositórios de armazenamento__.
+1. No estúdio, selecione __repositórios de armazenamento__ .
 
-1. Para criar um novo repositório de armazenamento, selecione __+ novo repositório de armazenamento__.
+1. Para criar um novo repositório de armazenamento, selecione __+ novo repositório de armazenamento__ .
 
-    Para atualizar um repositório de armazenamento existente, selecione o repositório de armazenamento e selecione __Atualizar credenciais__.
+    Para atualizar um repositório de armazenamento existente, selecione o repositório de armazenamento e selecione __Atualizar credenciais__ .
 
-1. Nas configurações do repositório de armazenamento, selecione __Sim__ para  __permitir que o serviço de Azure Machine Learning acesse o armazenamento usando a identidade gerenciada pelo espaço de trabalho__.
+1. Nas configurações do repositório de armazenamento, selecione __Sim__ para  __permitir que o serviço de Azure Machine Learning acesse o armazenamento usando a identidade gerenciada pelo espaço de trabalho__ .
 
 
 Essas etapas adicionam a identidade gerenciada pelo espaço de trabalho como um __leitor__ ao serviço de armazenamento usando o controle de acesso baseado em recursos do Azure (RBAC do Azure). O acesso de __leitor__ permite que o espaço de trabalho recupere as configurações de firewall e verifique se os dados não deixam a rede virtual.
@@ -100,7 +101,7 @@ O uso da identidade gerenciada para acessar serviços de armazenamento afeta alg
 
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
-Para o __armazenamento de BLOBs do Azure__, a identidade gerenciada por espaço de trabalho também é adicionada como um [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que possa ler dados do armazenamento de BLOBs.
+Para o __armazenamento de BLOBs do Azure__ , a identidade gerenciada por espaço de trabalho também é adicionada como um [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que possa ler dados do armazenamento de BLOBs.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Controle de acesso Azure Data Lake Storage Gen2
 
@@ -127,15 +128,15 @@ O designer usa a conta de armazenamento anexada ao seu espaço de trabalho para 
 Para definir um novo armazenamento padrão para um pipeline:
 
 1. Em um rascunho de pipeline, selecione o **ícone de engrenagem configurações** próximo ao título do seu pipeline.
-1. Selecione o **repositório de armazenamento padrão**.
+1. Selecione o **repositório de armazenamento padrão** .
 1. Especifique um novo repositório de armazenamento.
 
 Você também pode substituir o repositório de armazenamento padrão por módulo. Isso lhe dá controle sobre o local de armazenamento de cada módulo individual.
 
 1. Selecione o módulo cuja saída você deseja especificar.
 1. Expanda a seção **configurações de saída** .
-1. Selecione **Substituir configurações de saída padrão**.
-1. Selecione **definir configurações de saída**.
+1. Selecione **Substituir configurações de saída padrão** .
+1. Selecione **definir configurações de saída** .
 1. Especifique um novo repositório de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas

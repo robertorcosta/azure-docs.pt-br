@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eddb0c8339069025f0742e9bcbc371efbef094ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331933"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793323"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo SaaS usando um Banco de Dados SQL do Azure multilocatário e fragmentado
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -127,9 +127,9 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-- O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
 
-- O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, confira [Implantar e explorar o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+- O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, confira [Implantar e explorar o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets](./saas-multitenantdb-get-started-deploy.md)
 
 - Obtenha os scripts e o código-fonte do Wingtip:
     - Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) do GitHub.
@@ -173,7 +173,7 @@ Para entender como o aplicativo Wingtip implementa o provisionamento do novo loc
 
 5. Rastreie a execução do script usando as opções de menu **Depurar** , **F10** e **F11** para contornar ou intervir nas funções chamadas.
 
-Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>Provisionar um locatário no seu *próprio* banco de dados
 
@@ -263,9 +263,9 @@ Esse tipo de serviço automatizado pode ser simples ou complexo. Por exemplo, a 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Biblioteca de cliente do banco de dados elástico](elastic-database-client-library.md)
-- [Como depurar scripts no ISE do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Como depurar scripts no ISE do Windows PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -277,5 +277,4 @@ Neste tutorial, você aprendeu a:
 > * Provisionar um lote de locatários adicionais
 > * Percorrer os detalhes do provisionamento de locatários e do registro deles no catálogo
 
-Experimente o [Tutorial de monitoramento de desempenho](../../sql-database/saas-multitenantdb-performance-monitoring.md).
-
+Experimente o [Tutorial de monitoramento de desempenho](./saas-multitenantdb-performance-monitoring.md).

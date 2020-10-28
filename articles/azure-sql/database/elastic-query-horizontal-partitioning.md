@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443117"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792099"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados em nuvem expandidos (visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ Para bancos de dados não fragmentados, consulte [Query across cloud databases w
 
 Essas instruções criam a representação de metadados de sua camada de dados fragmentados no banco de dados de consulta elástico.
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CRIAR UMA CREDENCIAL NO ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CRIAR UMA CREDENCIAL NO ESCOPO DO BANCO DE DADOS](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Criar chave mestra do escopo do banco de dados e credenciais
 
@@ -159,11 +159,11 @@ As cláusulas SCHEMA\_NAME e OBJECT\_NAME mapeiam a definição da tabela extern
 
 A cláusula DISTRIBUTION especifica a distribuição de dados usada para esta tabela. O processador de consultas utiliza as informações fornecidas na cláusula DISTRIBUTION para criar planos de consulta mais eficientes.
 
-1. **Fragmentado** significa que os dados são particionados horizontalmente em todos os bancos. A chave de particionamento para a distribuição de dados é o parâmetro **<sharding_column_name>**.
+1. **Fragmentado** significa que os dados são particionados horizontalmente em todos os bancos. A chave de particionamento para a distribuição de dados é o parâmetro **<sharding_column_name>** .
 2. **Replicado** significa que cópias idênticas da tabela estão presentes em cada banco de dados. É sua responsabilidade assegurar que as réplicas sejam idênticas entre os bancos de dados.
 3. **Redondo \_ ROBIN** significa que a tabela é particionada horizontalmente usando um método de distribuição dependente de aplicativo.
 
-**Referência de camada de dados**: a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece a tabela externa com as informações necessárias para localizar todos os bancos de dados em sua camada.
+**Referência de camada de dados** : a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece a tabela externa com as informações necessárias para localizar todos os bancos de dados em sua camada.
 
 ### <a name="security-considerations"></a>Considerações de segurança
 
@@ -194,7 +194,7 @@ A consulta a seguir executa uma junção de três vias entre depósitos, pedidos
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procedimento armazenado para a execução remota de T-SQL: sp\_execute_remote
 
-A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros:
+A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros:
 
 * Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS.
 * Consulta (nvarchar): a consulta T-SQL a ser executada em cada fragmento.
@@ -228,7 +228,7 @@ Use as cadeias de conexão SQL Server regulares para conectar seu aplicativo, se
 * Para obter um tutorial sobre particionamento vertical, veja [Introdução à consulta entre bancos de dados (particionamento vertical)](elastic-query-getting-started-vertical.md).
 * Para sintaxe e amostras de consultas para dados particionados verticalmente, consulte [Consultando dados particionados verticalmente)](elastic-query-vertical-partitioning.md)
 * Para um tutorial sobre particionamento horizontal (fragmentação), consulte [Introdução à consulta elástica para particionamento horizontal (fragmentação)](elastic-query-getting-started.md).
-* Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução Transact-SQL em um único Banco de Dados SQL do Azure remoto ou um conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
+* Consulte [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) para um procedimento armazenado que executa uma instrução Transact-SQL em um único Banco de Dados SQL do Azure remoto ou um conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
 
 <!--Image references-->
 [1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png

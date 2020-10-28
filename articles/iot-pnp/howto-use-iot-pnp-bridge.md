@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042789"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793051"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Como conectar um exemplo de ponte IoT Plug and Play em execução no Linux ou Windows para o Hub IoT
 
@@ -30,14 +30,14 @@ Este guia de início rápido pressupõe que você esteja usando o Ubuntu Linux. 
 
 Para concluir este início rápido no Linux, instale o seguinte software em um ambiente Linux local:
 
-Instale o **GCC**, o **Git**, o **CMake** e todas as dependências exigidas usando o comando `apt-get`:
+Instale o **GCC** , o **Git** , o **CMake** e todas as dependências exigidas usando o comando `apt-get`:
 
 ```sh
 sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Verifique se a versão do `cmake` é superior a **2.8.12** e se a versão do **GCC** é superior a **4.4.7**.
+Verifique se a versão do `cmake` é superior a **2.8.12** e se a versão do **GCC** é superior a **4.4.7** .
 
 ```sh
 cmake --version
@@ -54,7 +54,7 @@ Para concluir este início rápido no Windows, instale o seguinte software em um
 
 ### <a name="azure-iot-explorer"></a>Azure IoT Explorer
 
-Para interagir com o dispositivo de exemplo na segunda parte deste guia de início rápido, use a ferramenta **Azure IoT Explorer**. [Baixe e instale a versão mais recente do Azure IoT Explorer](./howto-use-iot-explorer.md) para o seu sistema operacional.
+Para interagir com o dispositivo de exemplo na segunda parte deste guia de início rápido, use a ferramenta **Azure IoT Explorer** . [Baixe e instale a versão mais recente do Azure IoT Explorer](./howto-use-iot-explorer.md) para o seu sistema operacional.
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
@@ -107,9 +107,13 @@ Essa operação deve demorar alguns minutos.
 
 Depois de clonar o repositório de ponte IoT Plug and Play para o seu computador, navegue até o `pnpbridge/docs/schema` diretório do repositório clonado onde você pode encontrar o [JSON de configuração](https://aka.ms/iot-pnp-bridge-env-config) ou `config.json` para o exemplo de sensor ambiental da ponte. Você pode saber mais sobre os arquivos de configuração no [documento conceitos de ponte do IoT plug and Play](concepts-iot-pnp-bridge.md).
 
-Para o `root-_interface_model_id` campo, você precisará copiar a ID do modelo de plug and Play IOT que identifica o modelo do seu dispositivo. Neste exemplo, é `dtmi:com:example:SampleDevice;1`. Modifique os seguintes parâmetros em **pnp_bridge_parameters** nó no `config.json` arquivo na seção ':
+Para o `root-_interface_model_id` campo, você precisará copiar a ID do modelo de plug and Play IOT que identifica o modelo do seu dispositivo. Neste exemplo, é `dtmi:com:example:SampleDevice;1`. Modifique os seguintes parâmetros em **pnp_bridge_parameters** nó no `config.json` arquivo:
 
-  Usando a cadeia de conexão (Observação: a symmetric_key deve corresponder à chave SAS na cadeia de conexão):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> O symmetric_key deve corresponder à chave SAS na cadeia de conexão.
 
   ```JSON
     {
@@ -126,7 +130,7 @@ Para o `root-_interface_model_id` campo, você precisará copiar a ID do modelo 
   }
   ```
 
- Uma vez preenchido, o `config.json` arquivo deve ser semelhante a:
+ Depois de preenchido, o `config.json` arquivo deve ser semelhante a:
 
    ```JSON
     {

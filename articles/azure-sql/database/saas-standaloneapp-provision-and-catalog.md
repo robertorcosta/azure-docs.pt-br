@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332171"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793238"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Este artigo tem duas partes principais:
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Padrão de aplicativo por locatário autônomo
 
-O aplicativo autônomo por padrão locatário é um dos vários padrões para aplicativos SaaS multilocatários.  Neste padrão, um aplicativo autônomo é provisionado para cada locatário. O aplicativo compreende componentes de nível de aplicativo e um Banco de Dados SQL do Azure.  Cada aplicativo de locatário pode ser implantado na assinatura do fornecedor.  Alternativamente, o Azure oferece um [programa de aplicativos gerenciados](https://docs.microsoft.com/azure/managed-applications/overview) no qual um aplicativo pode ser implantado na assinatura de um locatário e gerenciado pelo fornecedor em nome do locatário.
+O aplicativo autônomo por padrão locatário é um dos vários padrões para aplicativos SaaS multilocatários.  Neste padrão, um aplicativo autônomo é provisionado para cada locatário. O aplicativo compreende componentes de nível de aplicativo e um Banco de Dados SQL do Azure.  Cada aplicativo de locatário pode ser implantado na assinatura do fornecedor.  Alternativamente, o Azure oferece um [programa de aplicativos gerenciados](../../azure-resource-manager/managed-applications/overview.md) no qual um aplicativo pode ser implantado na assinatura de um locatário e gerenciado pelo fornecedor em nome do locatário.
 
    ![padrão de aplicativo por locatário](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -72,8 +72,8 @@ No final deste tutorial, você terá um conjunto de aplicativos de locatário au
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Os três aplicativos de locatário de exemplo são implantados. Para implantar esses aplicativos em menos de cinco minutos, consulte [Implantar e explorar o padrão de aplicativo autônomo SaaS Wingtip Tickets](../../sql-database/saas-standaloneapp-get-started-deploy.md).
+* O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
+* Os três aplicativos de locatário de exemplo são implantados. Para implantar esses aplicativos em menos de cinco minutos, consulte [Implantar e explorar o padrão de aplicativo autônomo SaaS Wingtip Tickets](./saas-standaloneapp-get-started-deploy.md).
 
 ## <a name="provision-the-catalog"></a>Provisionar o catálogo
 
@@ -92,7 +92,7 @@ Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar
 1. Execute o script pressionando **F5** .
 1.  Após a execução do script parar no ponto de interrupção, pressione **F11** para intervir no script New-Catalog.ps1.
 1.  Rastreie a execução do script usando as opções do menu Depurar, F10 e F11, para contornar ou intervir nas funções chamadas.
-    *   Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+    *   Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 Quando o script for concluído, o catálogo existirá e todos os locatários de exemplo serão registrados.
 
@@ -156,4 +156,4 @@ Neste tutorial, você aprendeu:
 > * Sobre os servidores e bancos de dados que constituem o aplicativo.
 > * Como excluir recursos de exemplo para interromper a cobrança relacionada.
 
-Você pode explorar como o catálogo é usado para dar suporte a vários cenários entre locatários usando a versão do banco de dados por locatário do [aplicativo SaaS Wingtip Tickets](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+Você pode explorar como o catálogo é usado para dar suporte a vários cenários entre locatários usando a versão do banco de dados por locatário do [aplicativo SaaS Wingtip Tickets](./saas-dbpertenant-wingtip-app-overview.md).

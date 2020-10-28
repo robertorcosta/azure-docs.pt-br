@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 93e9ad28b14a51432fd9ccd32d1a155eaff2e190
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427136"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791776"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,7 +63,7 @@ A versão com redundância de zona da arquitetura de alta disponibilidade para a
 > Para obter informações atualizadas sobre as regiões que dão suporte a bancos de dados com redundância de zona, consulte [suporte a serviços por região](../../availability-zones/az-region.md). A configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 estiver selecionado. Este recurso não está disponível no SQL Instância Gerenciada.
 
 > [!NOTE]
-> Uso Geral bancos de dados com um tamanho de 80 VCORE podem apresentar degradação de desempenho com configuração com redundância de zona. Operações como backup, restauração, cópia de banco de dados e configuração de relações de DR geográfica podem passar por um desempenho mais lento para bancos únicos de dados maiores que 1 TB. 
+> Uso Geral bancos de dados com um tamanho de 80 VCORE podem apresentar degradação de desempenho com configuração com redundância de zona. Além disso, operações como backup, restauração, cópia de banco de dados e configuração de relações de DR geográfica podem sofrer um desempenho mais lento para qualquer banco de dados individual maior que 1 TB. 
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Disponibilidade com redundância local da camada de serviço Premium e Comercialmente Crítico
 
@@ -71,7 +71,7 @@ As camadas de serviço Premium e Comercialmente Crítico aproveitam o modelo de 
 
 ![Cluster de nós de mecanismo de banco de dados](./media/high-availability-sla/business-critical-service-tier.png)
 
-Os arquivos de banco de dados subjacentes (. MDF/. ldf) são colocados no armazenamento SSD anexado para fornecer uma e/s de latência muito baixa para sua carga de trabalho. A alta disponibilidade é implementada usando uma tecnologia semelhante à SQL Server [grupos de disponibilidade Always on](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). O cluster inclui uma única réplica primária que é acessível para cargas de trabalho de leitura/gravação do cliente e até três réplicas secundárias (computação e armazenamento) que contêm cópias de dados. O nó primário envia constantemente as alterações para os nós secundários e garante que os dados sejam sincronizados com pelo menos uma réplica secundária antes de confirmar cada transação. Esse processo garante que, se o nó primário falhar por algum motivo, sempre haverá um nó totalmente sincronizado para o failover. O failover é iniciado pelo Service Fabric do Azure. Depois que a réplica secundária se tornar o novo nó primário, outra réplica secundária será criada para garantir que o cluster tenha nós suficientes (conjunto de quorum). Depois que o failover for concluído, as conexões SQL do Azure serão redirecionadas automaticamente para o novo nó primário.
+Os arquivos de banco de dados subjacentes (. MDF/. ldf) são colocados no armazenamento SSD anexado para fornecer uma e/s de latência muito baixa para sua carga de trabalho. A alta disponibilidade é implementada usando uma tecnologia semelhante à SQL Server [grupos de disponibilidade Always on](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). O cluster inclui uma única réplica primária que é acessível para cargas de trabalho de leitura/gravação do cliente e até três réplicas secundárias (computação e armazenamento) que contêm cópias de dados. O nó primário envia constantemente as alterações para os nós secundários e garante que os dados sejam sincronizados com pelo menos uma réplica secundária antes de confirmar cada transação. Esse processo garante que, se o nó primário falhar por algum motivo, sempre haverá um nó totalmente sincronizado para o failover. O failover é iniciado pelo Service Fabric do Azure. Depois que a réplica secundária se tornar o novo nó primário, outra réplica secundária será criada para garantir que o cluster tenha nós suficientes (conjunto de quorum). Depois que o failover for concluído, as conexões SQL do Azure serão redirecionadas automaticamente para o novo nó primário.
 
 Como um benefício extra, o modelo de disponibilidade Premium inclui a capacidade de redirecionar conexões SQL do Azure somente leitura para uma das réplicas secundárias. Esse recurso é chamado [de expansão de leitura](read-scale-out.md). Ele fornece uma capacidade de computação adicional de 100% sem custo adicional para operações somente leitura fora do carregamento, como cargas de trabalho analíticas, da réplica primária.
 
@@ -82,7 +82,7 @@ Por padrão, o cluster de nós para o modelo de disponibilidade Premium é criad
 Como os bancos de dados com redundância de zona têm réplicas em data centers diferentes com alguma distância entre eles, a latência de rede aumentada pode aumentar o tempo de confirmação e, portanto, afetar o desempenho de algumas cargas de trabalho OLTP. Sempre será possível retornar à configuração de única zona, desabilitando a configuração com redundância de zona. Esse processo é uma operação online semelhante à atualização da camada de serviço normal. No final do processo, o pool ou banco de dados será migrado de um anel com redundância de zona para um anel de única zona ou vice-versa.
 
 > [!IMPORTANT]
-> Atualmente, os bancos de dados com redundância de zona e os pools elásticos só têm suporte nas camadas de serviço Premium e Comercialmente Crítico em regiões selecionadas. Ao usar a camada de Comercialmente Crítico, a configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 for selecionado. Para obter informações atualizadas sobre as regiões que dão suporte a bancos de dados com redundância de zona, consulte [suporte a serviços por região](../../availability-zones/az-region.md).
+> Ao usar a camada de Comercialmente Crítico, a configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 for selecionado. Para obter informações atualizadas sobre as regiões que dão suporte a bancos de dados com redundância de zona, consulte [suporte a serviços por região](../../availability-zones/az-region.md).
 
 > [!NOTE]
 > Este recurso não está disponível no SQL Instância Gerenciada.
@@ -122,9 +122,9 @@ Um failover pode ser iniciado usando o PowerShell, a API REST ou CLI do Azure:
 
 |Tipo de implantação|PowerShell|API REST| CLI do Azure|
 |:---|:---|:---|:---|
-|Banco de dados|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover de banco de dados](/rest/api/sql/databases(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
-|Pool elástico|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover de pool elástico](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](https://docs.microsoft.com/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
-|Banco de Dados SQL|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instâncias gerenciadas-failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Banco de dados|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover de banco de dados](/rest/api/sql/databases(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
+|Pool elástico|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover de pool elástico](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
+|Banco de Dados SQL|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instâncias gerenciadas-failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > O comando de failover não está disponível para réplicas secundárias legíveis de bancos de dados de hiperescala.

@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 5fca46e7bf80504632e0894deefa1805a080b3b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4709bf901ed74e0ea7589824a280651f8b73866
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442730"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793374"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adicionar um Banco de Dados SQL do Azure a um grupo de failover automático
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -75,21 +75,21 @@ Crie o grupo de failover e adicione o banco de dados a ele usando o portal do Az
 
    ![Adicionar um novo grupo de failover](./media/failover-group-add-single-database-tutorial/sqldb-add-new-failover-group.png)
 
-1. Na página **Grupo de Failover**, insira ou selecione os seguintes valores e selecione **Criar**:
+1. Na página **Grupo de Failover** , insira ou selecione os seguintes valores e selecione **Criar** :
 
-   - **Nome do grupo de failover**: digite um nome de grupo de failover exclusivo, como `failovergrouptutorial`.
-   - **Servidor secundário**: selecione a opção para *definir as configurações necessárias* e escolha **Criar um servidor**. Como alternativa, você pode escolher um servidor já existente como o servidor secundário. Depois de inserir os valores a seguir, escolha **Selecionar**.
-      - **Nome do servidor**: digite um nome exclusivo para o servidor secundário, como `mysqlsecondary`.
-      - **Logon de administrador do servidor**: Digite `azureuser`
-      - **Senha**: Digite uma senha complexa que atenda aos requisitos de senha.
-      - **Localização**: Escolha uma localização na lista suspensa, como `East US`. Essa localização não pode ser a mesma do servidor primário.
+   - **Nome do grupo de failover** : digite um nome de grupo de failover exclusivo, como `failovergrouptutorial`.
+   - **Servidor secundário** : selecione a opção para *definir as configurações necessárias* e escolha **Criar um servidor** . Como alternativa, você pode escolher um servidor já existente como o servidor secundário. Depois de inserir os valores a seguir, escolha **Selecionar** .
+      - **Nome do servidor** : digite um nome exclusivo para o servidor secundário, como `mysqlsecondary`.
+      - **Logon de administrador do servidor** : Digite `azureuser`
+      - **Senha** : Digite uma senha complexa que atenda aos requisitos de senha.
+      - **Localização** : Escolha uma localização na lista suspensa, como `East US`. Essa localização não pode ser a mesma do servidor primário.
 
      > [!NOTE]
      > As configurações de logon e firewall do servidor precisam corresponder àquelas do servidor primário.
 
      ![Criar um servidor secundário para o grupo de failover](./media/failover-group-add-single-database-tutorial/create-secondary-failover-server.png)
 
-   - **Bancos de dados dentro do grupo**: depois que um servidor secundário é selecionado, essa opção fica desbloqueada. Escolha-a para **Selecionar os bancos de dados a serem adicionados** e selecione o banco de dados criado na seção 1. A adição do banco de dados ao grupo de failover iniciará automaticamente o processo de replicação geográfica.
+   - **Bancos de dados dentro do grupo** : depois que um servidor secundário é selecionado, essa opção fica desbloqueada. Escolha-a para **Selecionar os bancos de dados a serem adicionados** e selecione o banco de dados criado na seção 1. A adição do banco de dados ao grupo de failover iniciará automaticamente o processo de replicação geográfica.
 
    ![Adicionar o Banco de Dados SQL ao grupo de failover](./media/failover-group-add-single-database-tutorial/add-sqldb-to-failover-group.png)
 
@@ -373,7 +373,7 @@ Esta parte do tutorial usa os seguintes cmdlets da CLI do Azure:
 
 | Comando | Observações |
 |---|---|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ---
 
@@ -417,7 +417,7 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Cria um grupo de failover no Banco de Dados SQL do Azure. |
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Lista os grupos de failover de um servidor no Banco de Dados SQL do Azure. |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Define o primário do grupo de failover fazendo failover de todos os bancos de dados do servidor primário atual. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 # <a name="the-portal"></a>[O portal](#tab/azure-portal)
 

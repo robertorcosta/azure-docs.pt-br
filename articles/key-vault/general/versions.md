@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86230818"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792371"
 ---
 # <a name="key-vault-versions"></a>Versões do Key Vault
 
@@ -33,7 +33,7 @@ Os pontos de extremidade privados já estão disponíveis em versão prévia. O 
 ## <a name="2019"></a>2019
 
 - Versão dos SDKs do Azure Key Vault de próxima geração. Para obter exemplos de uso, confira os guias de início rápido de segredos do Azure Key Vault para [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md) e [Node.js](../secrets/quick-create-node.md)
-- Novas políticas do Azure para gerenciar certificados do cofre de chaves. Confira as [Definições internas do Azure Policy para o Key Vault](../policy-samples.md).
+- Novas políticas do Azure para gerenciar certificados do cofre de chaves. Confira as [Definições internas do Azure Policy para o Key Vault](../policy-reference.md).
 - A extensão de Máquina Virtual do Azure Key Vault já está em disponibilidade geral.  Confira [Extensão de máquina virtual do Key Vault para Linux](../../virtual-machines/extensions/key-vault-linux.md) e [Extensão de máquina virtual do Key Vault para Windows](../../virtual-machines/extensions/key-vault-windows.md).
 - O gerenciamento de segredos controlado por evento para o Azure Key Vault já está disponível na Grade de Eventos do Azure. Para obter mais informações, confira [o esquema da Grade de Eventos para os eventos no Azure Key Vault](../../event-grid/event-schema-key-vault.md] e saiba como [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure](event-grid-tutorial.md).
 
@@ -49,8 +49,8 @@ Novas integrações e novos recursos lançados neste ano:
 
 Novos recursos lançados neste ano:
 
-- Chaves de conta de armazenamento gerenciadas. O recurso Chaves de Conta de Armazenamento facilitou a integração ao Armazenamento do Azure. Consulte o tópico de visão geral para saber mais, [Visão geral das Chaves de Conta de Armazenamento Gerenciado](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Exclusão reversível. O recurso de exclusão reversível aprimora a proteção de dados de cofres de chave e objetos do cofre de chaves. Para saber mais, confira o tópico de visão geral, [Visão geral da exclusão reversível](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Chaves de conta de armazenamento gerenciadas. O recurso Chaves de Conta de Armazenamento facilitou a integração ao Armazenamento do Azure. Consulte o tópico de visão geral para saber mais, [Visão geral das Chaves de Conta de Armazenamento Gerenciado](../secrets/overview-storage-keys.md).
+- Exclusão reversível. O recurso de exclusão reversível aprimora a proteção de dados de cofres de chave e objetos do cofre de chaves. Para saber mais, confira o tópico de visão geral, [Visão geral da exclusão reversível](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 
@@ -64,7 +64,7 @@ A disponibilidade geral (versão 2015-06-01) foi anunciada em 24 de junho de 201
 - Restauração de uma chave – remoção do campo "usar".     
 - Alteração de "RSA_OAEP" para "RSA-OAEP" em Algoritmos RSA. Confira [Sobre chaves, segredos e certificados](about-keys-secrets-certificates.md).    
  
-A segunda versão prévia (versão 2015-02-01-preview) foi anunciada em 20 de abril de 2015. Para saber mais, consulte a postagem no blog [Atualização da API REST](https://docs.microsoft.com/archive/blogs/kv/rest-api-update). As seguintes tarefas foram atualizadas:
+A segunda versão prévia (versão 2015-02-01-preview) foi anunciada em 20 de abril de 2015. Para saber mais, consulte a postagem no blog [Atualização da API REST](/archive/blogs/kv/rest-api-update). As seguintes tarefas foram atualizadas:
  
 - Listar as chaves em um cofre - adição de suporte a paginação para a operação.
 - Listar as versões de uma chave - adição de operação para listar as versões de uma chave.  

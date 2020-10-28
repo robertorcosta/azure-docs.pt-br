@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: a95361dda74c145e435a7e122339fb5945fed0f6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491216"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792898"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferência de dados para conjuntos de dados pequenos com largura de banda de rede baixa a moderada
  
@@ -32,12 +32,12 @@ Conjunto de dados pequenos referem-se a tamanhos de dados na ordem de GBs a algu
 
 As opções recomendadas nesse cenário são:
 
-- **Ferramentas de interface gráfica**, como o Gerenciador de Armazenamento do Azure e o Armazenamento do Azure no portal do Azure. Elas fornecem uma maneira fácil de exibir os dados e transferir rapidamente alguns arquivos.
+- **Ferramentas de interface gráfica** , como o Gerenciador de Armazenamento do Azure e o Armazenamento do Azure no portal do Azure. Elas fornecem uma maneira fácil de exibir os dados e transferir rapidamente alguns arquivos.
 
     - **Gerenciador de Armazenamento do Azure** – essa ferramenta multiplataforma permite gerenciar o conteúdo de suas contas de Armazenamento do Azure. Ele permite carregar, baixar e gerenciar blogs, arquivos, filas, tabelas e entidades do Azure Cosmos DB. Use-o com o armazenamento de Blobs para gerenciar blobs e pastas, bem como carregar e baixar blobs entre o sistema de arquivos local e o armazenamento de Blobs ou entre contas de armazenamento.
     - **Portal do Azure** – o Armazenamento do Azure no portal do Azure fornece uma interface baseada na Web para explorar arquivos e carregar novos arquivos um de cada vez. Essa é uma boa opção se você não deseja instalar nenhuma ferramenta nem emitir comandos para explorar rapidamente os arquivos ou para simplesmente carregar novos arquivos.
 
-- **Ferramentas de script/programação**, como AzCopy/PowerShell/CLI do Azure e APIs REST do Armazenamento do Azure.
+- **Ferramentas de script/programação** , como AzCopy/PowerShell/CLI do Azure e APIs REST do Armazenamento do Azure.
 
     - **AzCopy** – use essa ferramenta de linha de comando para copiar dados facilmente de e para Blobs do Azure, Arquivos e armazenamento de Tabela com um desempenho ideal. O AzCopy dá suporte à simultaneidade e ao paralelismo e à capacidade de retomar as operações de cópia quando elas forem interrompidas.
     - **Azure PowerShell** – para usuários familiarizados com a administração do sistema, use o módulo de Armazenamento do Azure no Azure PowerShell para transferir dados.
@@ -63,6 +63,5 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [transferir dados com o Gerenciador de Armazenamento do Azure](/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Transferir dados com AzCopy](/azure/storage/common/storage-use-azcopy-v10)
-
+- Saiba como [transferir dados com o Gerenciador de Armazenamento do Azure](../../machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md).
+- [Transferir dados com AzCopy](./storage-use-azcopy-v10.md)

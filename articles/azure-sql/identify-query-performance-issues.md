@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619756"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791742"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detectáveis de gargalos de desempenho de consulta no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,8 +27,8 @@ Você pode usar o banco de dados SQL do Azure [Intelligent insights](database/in
 
 ![Estados da carga de trabalho](./media/identify-query-performance-issues/workload-states.png)
 
-**Problemas relacionados à execução**: problemas relacionados à execução geralmente estão relacionados a problemas de compilação, resultando em um plano de consulta de qualidade inferior ou problemas de execução relacionados a recursos insuficientes ou superutilizados.
-**Problemas relacionados à espera**: problemas relacionados à espera geralmente estão relacionados a:
+**Problemas relacionados à execução** : problemas relacionados à execução geralmente estão relacionados a problemas de compilação, resultando em um plano de consulta de qualidade inferior ou problemas de execução relacionados a recursos insuficientes ou superutilizados.
+**Problemas relacionados à espera** : problemas relacionados à espera geralmente estão relacionados a:
 
 - Bloqueios (bloqueio)
 - E/S
@@ -44,15 +44,15 @@ Um plano de qualidade inferior gerado pelo otimizador de consulta SQL pode ser a
   - Use [Intelligent insights](database/intelligent-insights-troubleshoot-performance.md#missing-index).
   - [Assistente do banco de dados](database/database-advisor-implement-performance-recommendations.md) para bancos de dados individuais e em pool.
   - DMVs. Este exemplo mostra o impacto de um índice ausente, como detectar os [índices ausentes](database/performance-guidance.md#identifying-and-adding-missing-indexes) usando DMVs e o impacto da implementação da recomendação de índice ausente.
-- Tente aplicar [dicas de consulta](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), [atualizar estatísticas](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql)ou [Recompilar índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) para obter um plano melhor. Habilite a [correção automática de plano](../azure-sql/database/automatic-tuning-overview.md) no banco de dados SQL do Azure para atenuar esses problemas automaticamente.
+- Tente aplicar [dicas de consulta](/sql/t-sql/queries/hints-transact-sql-query), [atualizar estatísticas](/sql/t-sql/statements/update-statistics-transact-sql)ou [Recompilar índices](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) para obter um plano melhor. Habilite a [correção automática de plano](../azure-sql/database/automatic-tuning-overview.md) no banco de dados SQL do Azure para atenuar esses problemas automaticamente.
 
   Este [exemplo](database/performance-guidance.md#query-tuning-and-hinting) mostra o impacto de um plano de consulta de qualidade inferior devido a uma consulta parametrizada, como detectar essa condição e como usar uma dica de consulta para resolver.
 
-- Tente alterar o nível de compatibilidade do banco de dados e implementar o processamento inteligente de consultas. O otimizador de consulta SQL pode gerar um plano de consulta diferente dependendo do nível de compatibilidade do banco de dados. Níveis de compatibilidade mais altos fornecem [recursos de processamento de consulta mais inteligentes](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing).
+- Tente alterar o nível de compatibilidade do banco de dados e implementar o processamento inteligente de consultas. O otimizador de consulta SQL pode gerar um plano de consulta diferente dependendo do nível de compatibilidade do banco de dados. Níveis de compatibilidade mais altos fornecem [recursos de processamento de consulta mais inteligentes](/sql/relational-databases/performance/intelligent-query-processing).
 
-  - Para obter mais informações sobre o processamento de consultas, consulte [Guia de arquitetura de processamento de consultas](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide).
-  - Para alterar os níveis de compatibilidade do banco de dados e ler mais sobre as diferenças entre os níveis de compatibilidade, consulte [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-  - Para ler mais sobre a estimativa de cardinalidade, consulte [estimativa de cardinalidade](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server)
+  - Para obter mais informações sobre o processamento de consultas, consulte [Guia de arquitetura de processamento de consultas](/sql/relational-databases/query-processing-architecture-guide).
+  - Para alterar os níveis de compatibilidade do banco de dados e ler mais sobre as diferenças entre os níveis de compatibilidade, consulte [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+  - Para ler mais sobre a estimativa de cardinalidade, consulte [estimativa de cardinalidade](/sql/relational-databases/performance/cardinality-estimation-sql-server)
 
 ## <a name="resolving-queries-with-suboptimal-query-execution-plans"></a>Resolvendo consultas com planos de execução de consulta de qualidade inferior
 
@@ -66,19 +66,19 @@ Para obter mais informações sobre detecção de parâmetros e processamento de
 
 Várias soluções alternativas podem reduzir os problemas de PSP. Cada solução alternativa tem compensações e desvantagens associadas:
 
-- Use a dica de consulta [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) em cada execução da consulta. Essa solução negocia o tempo de compilação e aumenta a CPU para melhorar a qualidade do plano. A `RECOMPILE` opção geralmente não é possível para cargas de trabalho que exigem uma alta taxa de transferência.
-- Use a dica de consulta [Option (Optimize for...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor do parâmetro real por um valor de parâmetro típico que produz um plano que é bom o suficiente para a maioria das possibilidades de valor de parâmetro. Essa opção requer uma boa compreensão dos valores de parâmetro ideais e características de plano associadas.
-- Use a dica de consulta [opção (otimizar para desconhecido)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor real do parâmetro e, em vez disso, use a média do vetor de densidade. Você também pode fazer isso capturando os valores de parâmetro de entrada em variáveis locais e, em seguida, usando as variáveis locais dentro dos predicados em vez de usar os próprios parâmetros. Para essa correção, a densidade média deve ser *boa o suficiente*.
-- Desabilite a detecção de parâmetros inteiramente usando a dica de consulta [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) .
-- Use a dica de consulta [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para evitar recompilações no cache. Essa solução alternativa pressupõe que o plano comum bom o suficiente é o já existente no cache. Você também pode desabilitar as atualizações automáticas de estatísticas para reduzir as chances de que o bom plano seja removido e um novo plano incorreto será compilado.
-- Force o plano usando explicitamente a dica de consulta [use Plan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) , reescrevendo a consulta e adicionando a dica no texto da consulta. Ou defina um plano específico usando Repositório de Consultas ou habilitando o [ajuste automático](../azure-sql/database/automatic-tuning-overview.md).
+- Use a dica de consulta [RECOMPILE](/sql/t-sql/queries/hints-transact-sql-query) em cada execução da consulta. Essa solução negocia o tempo de compilação e aumenta a CPU para melhorar a qualidade do plano. A `RECOMPILE` opção geralmente não é possível para cargas de trabalho que exigem uma alta taxa de transferência.
+- Use a dica de consulta [Option (Optimize for...)](/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor do parâmetro real por um valor de parâmetro típico que produz um plano que é bom o suficiente para a maioria das possibilidades de valor de parâmetro. Essa opção requer uma boa compreensão dos valores de parâmetro ideais e características de plano associadas.
+- Use a dica de consulta [opção (otimizar para desconhecido)](/sql/t-sql/queries/hints-transact-sql-query) para substituir o valor real do parâmetro e, em vez disso, use a média do vetor de densidade. Você também pode fazer isso capturando os valores de parâmetro de entrada em variáveis locais e, em seguida, usando as variáveis locais dentro dos predicados em vez de usar os próprios parâmetros. Para essa correção, a densidade média deve ser *boa o suficiente* .
+- Desabilite a detecção de parâmetros inteiramente usando a dica de consulta [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query) .
+- Use a dica de consulta [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) para evitar recompilações no cache. Essa solução alternativa pressupõe que o plano comum bom o suficiente é o já existente no cache. Você também pode desabilitar as atualizações automáticas de estatísticas para reduzir as chances de que o bom plano seja removido e um novo plano incorreto será compilado.
+- Force o plano usando explicitamente a dica de consulta [use Plan](/sql/t-sql/queries/hints-transact-sql-query) , reescrevendo a consulta e adicionando a dica no texto da consulta. Ou defina um plano específico usando Repositório de Consultas ou habilitando o [ajuste automático](../azure-sql/database/automatic-tuning-overview.md).
 - Substitua o procedimento único por um conjunto aninhado de procedimentos que podem, cada um, ser usado com base em lógica condicional e nos valores de parâmetro associados.
 - Crie alternativas de execução de cadeia de caracteres dinâmica para uma definição de procedimento estático.
 
 Para obter mais informações sobre como resolver problemas de PSP, consulte estas Postagens de blog:
 
-- [Eu Smell um parâmetro](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)
-- [Conor vs. SQL vs. procedimentos vs. qualidade do plano para consultas parametrizadas](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- [Eu Smell um parâmetro](/archive/blogs/queryoptteam/i-smell-a-parameter)
+- [Conor vs. SQL vs. procedimentos vs. qualidade do plano para consultas parametrizadas](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)
 - [Técnicas de otimização de consulta SQL no SQL Server: detecção de parâmetros](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### <a name="compile-activity-caused-by-improper-parameterization"></a>Atividade de compilação causada por parametrização incorreta
@@ -137,13 +137,13 @@ Se você usar uma dica de recompilação, um plano não será armazenado em cach
 
 Uma recompilação (ou uma nova compilação após a remoção do cache) ainda pode resultar na geração de um plano de execução de consulta que seja idêntico ao original. Quando o plano muda do plano anterior ou original, é provável que essas explicações sejam:
 
-- **Design físico alterado**: por exemplo, índices recém-criados abordam com mais eficiência os requisitos de uma consulta. Os novos índices podem ser usados em uma nova compilação se o otimizador de consulta decidir que usar esse novo índice é mais adequado do que usar a estrutura de dados que foi originalmente selecionada para a primeira versão da execução da consulta. Qualquer alteração física nos objetos referenciados pode resultar em uma nova opção de plano no momento da compilação.
+- **Design físico alterado** : por exemplo, índices recém-criados abordam com mais eficiência os requisitos de uma consulta. Os novos índices podem ser usados em uma nova compilação se o otimizador de consulta decidir que usar esse novo índice é mais adequado do que usar a estrutura de dados que foi originalmente selecionada para a primeira versão da execução da consulta. Qualquer alteração física nos objetos referenciados pode resultar em uma nova opção de plano no momento da compilação.
 
-- **Diferenças de recursos de servidor**: quando um plano em um sistema difere do plano em outro sistema, a disponibilidade de recursos, como o número de processadores disponíveis, pode influenciar qual plano é gerado. Por exemplo, se um sistema tiver mais processadores, um plano paralelo poderá ser escolhido.
+- **Diferenças de recursos de servidor** : quando um plano em um sistema difere do plano em outro sistema, a disponibilidade de recursos, como o número de processadores disponíveis, pode influenciar qual plano é gerado. Por exemplo, se um sistema tiver mais processadores, um plano paralelo poderá ser escolhido.
 
-- **Estatísticas diferentes**: as estatísticas associadas aos objetos referenciados podem ter sido alteradas ou podem ser materiais diferentes das estatísticas do sistema original. Se as estatísticas forem alteradas e uma recompilação ocorrer, o otimizador de consulta usará as estatísticas a partir de quando elas forem alteradas. As frequências e as distribuições de dados das estatísticas revisadas podem ser diferentes das da compilação original. Essas alterações são usadas para criar estimativas de cardinalidade. (*Estimativas de cardinalidade* são o número de linhas que devem fluir por meio da árvore de consulta lógica.) As alterações nas estimativas de cardinalidade podem levá-lo a escolher diferentes operadores físicos e ordens associadas de operações. Até mesmo alterações secundárias em estatísticas podem resultar em um plano de execução de consulta alterado.
+- **Estatísticas diferentes** : as estatísticas associadas aos objetos referenciados podem ter sido alteradas ou podem ser materiais diferentes das estatísticas do sistema original. Se as estatísticas forem alteradas e uma recompilação ocorrer, o otimizador de consulta usará as estatísticas a partir de quando elas forem alteradas. As frequências e as distribuições de dados das estatísticas revisadas podem ser diferentes das da compilação original. Essas alterações são usadas para criar estimativas de cardinalidade. ( *Estimativas de cardinalidade* são o número de linhas que devem fluir por meio da árvore de consulta lógica.) As alterações nas estimativas de cardinalidade podem levá-lo a escolher diferentes operadores físicos e ordens associadas de operações. Até mesmo alterações secundárias em estatísticas podem resultar em um plano de execução de consulta alterado.
 
-- **Nível de compatibilidade do banco de dados alterado ou versão do avaliador de cardinalidade**: alterações no nível de compatibilidade do banco de dados podem habilitar novas estratégias e recursos que podem resultar em um plano de execução de consulta diferente. Além do nível de compatibilidade do banco de dados, um sinalizador de rastreamento desabilitado ou habilitado 4199 ou um estado alterado da configuração no escopo do banco de dados QUERY_OPTIMIZER_HOTFIXES também pode influenciar as opções do plano de execução de consulta no momento da compilação. Os sinalizadores de rastreamento 9481 (forçar herança CE) e 2312 (forçar padrão CE) também afetam o plano.
+- **Nível de compatibilidade do banco de dados alterado ou versão do avaliador de cardinalidade** : alterações no nível de compatibilidade do banco de dados podem habilitar novas estratégias e recursos que podem resultar em um plano de execução de consulta diferente. Além do nível de compatibilidade do banco de dados, um sinalizador de rastreamento desabilitado ou habilitado 4199 ou um estado alterado da configuração no escopo do banco de dados QUERY_OPTIMIZER_HOTFIXES também pode influenciar as opções do plano de execução de consulta no momento da compilação. Os sinalizadores de rastreamento 9481 (forçar herança CE) e 2312 (forçar padrão CE) também afetam o plano.
 
 ## <a name="resource-limits-issues"></a>Problemas de limites de recursos
 
@@ -155,7 +155,7 @@ O desempenho de consulta lento não relacionado a planos de consulta de qualidad
 
   - A DMV [Sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retorna CPU, e/s e consumo de memória para o banco de dados. Existe uma linha para cada intervalo de 15 segundos, mesmo que não haja atividade no banco de dados. Dados do histórico são mantidos por uma hora.
   - A DMV [Sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) retorna o uso da CPU e os dados de armazenamento para o Azure SQL Database. Os dados são coletados e agregados em intervalos de cinco minutos.
-  - [Muitas consultas individuais que consomem cumulativamente alta utilização da CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
+  - [Muitas consultas individuais que consomem de alta utilização cumulativa](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
 Se você identificar o problema como recurso insuficiente, poderá atualizar os recursos para aumentar a capacidade de seu banco de dados para absorver os requisitos de CPU. Para obter mais informações, consulte [dimensionar recursos de banco de dados individual no banco de dados SQL do Azure](database/single-database-scale.md) e [dimensionar recursos de pool elástico no banco de dados SQL do Azure](database/elastic-pool-scale.md). Para obter informações sobre como dimensionar uma instância gerenciada, consulte [limites de recursos da camada de serviço](managed-instance/resource-limits.md#service-tier-characteristics)
 
@@ -173,11 +173,11 @@ Em resumo, se o plano de execução de consulta não foi executado de forma dife
 
 Nem sempre é fácil identificar uma alteração de volume de carga de trabalho que está gerando um problema de CPU. Considere estes fatores:
 
-- **Uso de recursos alterado**: por exemplo, considere um cenário em que o uso da CPU aumentou para 80% por um longo período de tempo. O uso da CPU sozinho não significa que o volume da carga de trabalho foi alterado. As regressões no plano de execução de consulta e as alterações na distribuição de dados também podem contribuir para mais utilização de recursos, embora o aplicativo execute a mesma carga de trabalho.
+- **Uso de recursos alterado** : por exemplo, considere um cenário em que o uso da CPU aumentou para 80% por um longo período de tempo. O uso da CPU sozinho não significa que o volume da carga de trabalho foi alterado. As regressões no plano de execução de consulta e as alterações na distribuição de dados também podem contribuir para mais utilização de recursos, embora o aplicativo execute a mesma carga de trabalho.
 
-- **A aparência de uma nova consulta**: um aplicativo pode direcionar um novo conjunto de consultas em momentos diferentes.
+- **A aparência de uma nova consulta** : um aplicativo pode direcionar um novo conjunto de consultas em momentos diferentes.
 
-- **Um aumento ou uma diminuição no número de solicitações**: esse cenário é a medida mais óbvia de uma carga de trabalho. O número de consultas nem sempre corresponde a uma maior utilização de recursos. No entanto, essa métrica ainda é um sinal significativo, supondo que outros fatores não sejam alterados.
+- **Um aumento ou uma diminuição no número de solicitações** : esse cenário é a medida mais óbvia de uma carga de trabalho. O número de consultas nem sempre corresponde a uma maior utilização de recursos. No entanto, essa métrica ainda é um sinal significativo, supondo que outros fatores não sejam alterados.
 
 Use Intelligent Insights para detectar [aumentos de carga de trabalho](database/intelligent-insights-troubleshoot-performance.md#workload-increase) e [planejar regressões](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
@@ -185,7 +185,7 @@ Use Intelligent Insights para detectar [aumentos de carga de trabalho](database/
 
 Depois de ter eliminado um plano de qualidade inferior e problemas *relacionados à espera* relacionados a problemas de execução, o problema de desempenho geralmente é que as consultas estão provavelmente aguardando algum recurso. Problemas relacionados à espera podem ser causados por:
 
-- **Bloqueio**:
+- **Bloqueio** :
 
   Uma consulta pode manter o bloqueio em objetos no banco de dados enquanto outros tentam acessar os mesmos objetos. Você pode identificar consultas de bloqueio usando [DMVs](database/monitoring-with-dmvs.md#monitoring-blocked-queries) ou [Intelligent insights](database/intelligent-insights-troubleshoot-performance.md#locking).
 - **Problemas de e/s**
@@ -203,16 +203,16 @@ Depois de ter eliminado um plano de qualidade inferior e problemas *relacionados
 Esses métodos são comumente usados para mostrar as principais categorias de tipos de espera:
 
 - Use Intelligent Insights para identificar consultas com degradação de desempenho devido a [maiores esperas](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
-- Use [repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para localizar estatísticas de espera para cada consulta ao longo do tempo. No Repositório de Consultas, aguarde os tipos de espera combinados em categorias de espera. Você pode encontrar o mapeamento de categorias de espera para esperar tipos em [Sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Use [Sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) para retornar informações sobre todas as esperas encontradas por threads executados durante uma operação de consulta. Você pode usar essa exibição agregada para diagnosticar problemas de desempenho com o banco de dados SQL do Azure e também com consultas e lotes específicos. As consultas podem estar aguardando recursos, esperas de fila ou esperas externas.
-- Use [Sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para retornar informações sobre a fila de tarefas que estão aguardando algum recurso.
+- Use [repositório de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para localizar estatísticas de espera para cada consulta ao longo do tempo. No Repositório de Consultas, aguarde os tipos de espera combinados em categorias de espera. Você pode encontrar o mapeamento de categorias de espera para esperar tipos em [Sys.query_store_wait_stats](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Use [Sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) para retornar informações sobre todas as esperas encontradas por threads executados durante uma operação de consulta. Você pode usar essa exibição agregada para diagnosticar problemas de desempenho com o banco de dados SQL do Azure e também com consultas e lotes específicos. As consultas podem estar aguardando recursos, esperas de fila ou esperas externas.
+- Use [Sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para retornar informações sobre a fila de tarefas que estão aguardando algum recurso.
 
 Em cenários de alta CPU, Repositório de Consultas e estatísticas de espera podem não refletir o uso da CPU se:
 
 - As consultas de alto consumo de CPU ainda estão em execução.
 - As consultas de alto consumo de CPU estavam sendo executadas quando um failover ocorreu.
 
-DMVs que rastreiam Repositório de Consultas e estatísticas de espera mostram resultados somente para consultas concluídas com êxito e tempo limite. Eles não mostram dados para instruções atualmente em execução até que as instruções sejam concluídas. Use o [Sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) de exibição de gerenciamento dinâmico para controlar as consultas em execução no momento e a hora de trabalho associada.
+DMVs que rastreiam Repositório de Consultas e estatísticas de espera mostram resultados somente para consultas concluídas com êxito e tempo limite. Eles não mostram dados para instruções atualmente em execução até que as instruções sejam concluídas. Use o [Sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) de exibição de gerenciamento dinâmico para controlar as consultas em execução no momento e a hora de trabalho associada.
 
 > [!TIP]
 > Ferramentas adicionais:

@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 369f79a436d76e6a1bf1a1ce64f7754f25a5abc5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 5504b9bc87f78682ff584006255d4e75e5e69fa7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058039"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793340"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Transações distribuídas entre bancos de dados na nuvem (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-As transações de banco de dados elástico para o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada permitem que você execute transações que abrangem vários bancos de dados. As transações de banco de dados elástico estão disponíveis para aplicativos .NET usando o ADO.NET e se integram com a experiência de programação familiar usando as classes [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
-Além disso, para Instância Gerenciada transações distribuídas estão disponíveis no [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql).
+As transações de banco de dados elástico para o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada permitem que você execute transações que abrangem vários bancos de dados. As transações de banco de dados elástico estão disponíveis para aplicativos .NET usando o ADO.NET e se integram com a experiência de programação familiar usando as classes [System. Transaction](/dotnet/api/system.transactions) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
+Além disso, para Instância Gerenciada transações distribuídas estão disponíveis no [Transact-SQL](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql).
 
 No local, um cenário como esse geralmente requer a execução do Microsoft Coordenador de Transações Distribuídas (MSDTC). Como o MSDTC não está disponível para aplicativos de plataforma como serviço no Azure, a capacidade de coordenar transações distribuídas agora foi diretamente integrada ao banco de dados SQL ou Instância Gerenciada. Os aplicativos podem se conectar a qualquer banco de dados para iniciar transações distribuídas, e um dos bancos de dados ou servidores coordenará de forma transparente a transação distribuída, conforme mostrado na figura a seguir.
 
@@ -32,7 +32,7 @@ Neste documento, os termos "transações distribuídas" e "transações de banco
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
-As transações de banco de dados elástico permitem que os aplicativos façam alterações atômicas nos dados armazenados em vários bancos diferentes. A visualização se concentra nas experiências de desenvolvimento do lado do cliente em C# e .NET. Uma experiência do lado do servidor (código escrito em procedimentos armazenados ou scripts do lado do servidor) usando o [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) está disponível somente para instância gerenciada.
+As transações de banco de dados elástico permitem que os aplicativos façam alterações atômicas nos dados armazenados em vários bancos diferentes. A visualização se concentra nas experiências de desenvolvimento do lado do cliente em C# e .NET. Uma experiência do lado do servidor (código escrito em procedimentos armazenados ou scripts do lado do servidor) usando o [Transact-SQL](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) está disponível somente para instância gerenciada.
 > [!IMPORTANT]
 > Em versão prévia, não há suporte para a execução de transações de banco de dados elástico entre o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada no momento. A transação de banco de dados elástico só pode abranger em conjunto de bancos de dados SQL ou em conjunto de instâncias gerenciadas.
 
@@ -136,9 +136,9 @@ O exemplo de código a seguir ilustra essa abordagem. Ele pressupõe que uma var
 
 ## <a name="transact-sql-development-experience"></a>Experiência de desenvolvimento do Transact-SQL
 
-As transações distribuídas no lado do servidor usando o Transact-SQL estão disponíveis somente para o Azure SQL Instância Gerenciada. A transação distribuída pode ser executada somente entre instâncias gerenciadas que pertencem ao mesmo [grupo de confiança do servidor](https://aka.ms/mitrusted-groups). Nesse cenário, as instâncias gerenciadas precisam usar o [servidor vinculado](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) para fazer referência entre si.
+As transações distribuídas no lado do servidor usando o Transact-SQL estão disponíveis somente para o Azure SQL Instância Gerenciada. A transação distribuída pode ser executada somente entre instâncias gerenciadas que pertencem ao mesmo [grupo de confiança do servidor](../managed-instance/server-trust-group-overview.md). Nesse cenário, as instâncias gerenciadas precisam usar o [servidor vinculado](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) para fazer referência entre si.
 
-O código Transact-SQL de exemplo a seguir usa [Iniciar transação distribuída](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) para iniciar a transação distribuída.
+O código Transact-SQL de exemplo a seguir usa [Iniciar transação distribuída](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) para iniciar a transação distribuída.
 
 ```Transact-SQL
 
@@ -192,7 +192,7 @@ Aqui está um exemplo em que a transação é promovida explicitamente para a tr
             Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
             // ...
         }
-     
+     
         using (SqlConnection conn2 = new SqlConnection(DB1_ConnectionString)
         {
             conn2.Open();
@@ -232,19 +232,19 @@ O exemplo a seguir mostra uma transação que é promovida implicitamente para a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, confira [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 As transações de banco de dados elástico têm suporte em diferentes servidores no banco de dados SQL do Azure. Quando as transações cruzam os limites do servidor, os servidores participantes precisam primeiro ser inseridos em uma relação de comunicação mútua. Após a relação de comunicação ser estabelecida, qualquer banco de dados em qualquer um dos dois servidores poderá participar de transações elásticas com bancos de dados do outro servidor. Com transações que abrangem mais de dois servidores, uma relação de comunicação precisa estar em vigor para qualquer par de servidores.
 
 Use os cmdlets do PowerShell a seguir para gerenciar as relações de comunicação entre servidores para transações de Banco de Dados Elástico:
 
-* **New-AzSqlServerCommunicationLink**: Use este cmdlet para criar uma nova relação de comunicação entre dois servidores no banco de dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com o outro servidor.
-* **Get-AzSqlServerCommunicationLink**: Use este cmdlet para recuperar relações de comunicação existentes e suas propriedades.
-* **Remove-AzSqlServerCommunicationLink**: Use este cmdlet para remover uma relação de comunicação existente.
+* **New-AzSqlServerCommunicationLink** : Use este cmdlet para criar uma nova relação de comunicação entre dois servidores no banco de dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com o outro servidor.
+* **Get-AzSqlServerCommunicationLink** : Use este cmdlet para recuperar relações de comunicação existentes e suas propriedades.
+* **Remove-AzSqlServerCommunicationLink** : Use este cmdlet para remover uma relação de comunicação existente.
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transações em vários servidores para o Azure SQL Instância Gerenciada
 
-As transações distribuídas têm suporte em diferentes servidores no Azure SQL Instância Gerenciada. Quando as transações passam por limites de Instância Gerenciada, as instâncias participantes precisam primeiro ser inseridas em uma relação de segurança e comunicação mútua. Isso é feito com a criação de um [grupo de confiança do servidor](https://aka.ms/mitrusted-groups), que pode ser feito em portal do Azure. Se as instâncias gerenciadas não estiverem na mesma rede virtual, o [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) precisará ser configurado e as regras de entrada e saída do grupo de segurança de rede precisarão permitir as portas 5024 e 11000-12000 em todas as redes virtuais de participação.
+As transações distribuídas têm suporte em diferentes servidores no Azure SQL Instância Gerenciada. Quando as transações passam por limites de Instância Gerenciada, as instâncias participantes precisam primeiro ser inseridas em uma relação de segurança e comunicação mútua. Isso é feito com a criação de um [grupo de confiança do servidor](../managed-instance/server-trust-group-overview.md), que pode ser feito em portal do Azure. Se as instâncias gerenciadas não estiverem na mesma rede virtual, o [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) precisará ser configurado e as regras de entrada e saída do grupo de segurança de rede precisarão permitir as portas 5024 e 11000-12000 em todas as redes virtuais de participação.
 
   ![Grupos de confiança do servidor no portal do Azure][3]
 
@@ -254,13 +254,13 @@ O diagrama a seguir mostra o grupo de confiança do servidor com instâncias ger
 
 ## <a name="monitoring-transaction-status"></a>Monitorando o status da transação
 
-Use DMVs (exibições de gerenciamento dinâmico) para monitorar o status e o progresso de suas transações de banco de dados elástico contínuas. Todas as DMVs relacionadas a transações são relevantes para transações distribuídas no banco de dados SQL e Instância Gerenciada. Você pode encontrar a lista correspondente de DMVs aqui: [Funções e exibições de gerenciamento dinâmico relacionadas a transações (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Use DMVs (exibições de gerenciamento dinâmico) para monitorar o status e o progresso de suas transações de banco de dados elástico contínuas. Todas as DMVs relacionadas a transações são relevantes para transações distribuídas no banco de dados SQL e Instância Gerenciada. Você pode encontrar a lista correspondente de DMVs aqui: [Funções e exibições de gerenciamento dinâmico relacionadas a transações (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/transaction-related-dynamic-management-views-and-functions-transact-sql).
 
 Estas DMVs são especialmente úteis:
 
-* **sys.dm\_tran\_active\_transactions**: lista as transações atualmente ativas e seu status. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações filho que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída carregam o mesmo valor UOW. Para obter mais informações, consulte a [documentação da DMV](https://msdn.microsoft.com/library/ms174302.aspx).
-* **sys.dm\_tran\_database\_transactions**: fornece informações adicionais sobre as transações, como a colocação da transação no log. Para obter mais informações, consulte a [documentação da DMV](https://msdn.microsoft.com/library/ms186957.aspx).
-* **sys.dm\_tran\_locks**: fornece informações sobre os bloqueios que são atualmente mantidos por transações em andamento. Para obter mais informações, consulte a [documentação da DMV](https://msdn.microsoft.com/library/ms190345.aspx).
+* **sys.dm\_tran\_active\_transactions** : lista as transações atualmente ativas e seu status. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações filho que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída carregam o mesmo valor UOW. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-active-transactions-transact-sql).
+* **sys.dm\_tran\_database\_transactions** : fornece informações adicionais sobre as transações, como a colocação da transação no log. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql).
+* **sys.dm\_tran\_locks** : fornece informações sobre os bloqueios que são atualmente mantidos por transações em andamento. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ## <a name="limitations"></a>Limitações
 
@@ -268,19 +268,19 @@ As seguintes limitações atualmente se aplicam a transações de banco de dados
 
 * Há suporte apenas para transações entre bancos de dados no SQL Database. Outros provedores de recursos [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) e bancos de dados fora do banco de dados SQL não podem participar de transações de banco de dados elástico. Isso significa que as transações de banco de dados elástico não podem ser ampliadas em SQL Server locais e no banco de dados SQL do Azure. Para transações distribuídas no local, continue a usar o MSDTC.
 * Há suporte somente para transações coordenadas pelo cliente a partir de um aplicativo .NET. Há planos para suporte do lado do servidor para o T-SQL, como INICIAR TRANSAÇÃO DISTRIBUÍDA, mas ainda não está disponível.
-* Não há suporte para transações entre serviços WCF. Por exemplo, você tem um método de serviço WCF que executa uma transação. Colocar a chamada dentro de um escopo de transação falhará como [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
+* Não há suporte para transações entre serviços WCF. Por exemplo, você tem um método de serviço WCF que executa uma transação. Colocar a chamada dentro de um escopo de transação falhará como [System.ServiceModel.ProtocolException](/dotnet/api/system.servicemodel.protocolexception).
 
 As seguintes limitações atualmente se aplicam a transações distribuídas no Instância Gerenciada:
 
 * Há suporte apenas para transações entre bancos de dados no Instância Gerenciada. Outros provedores de recursos [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) e bancos de dados fora do Azure SQL instância gerenciada não podem participar de transações distribuídas. Isso significa que as transações distribuídas não podem ser ampliadas entre SQL Server locais e o SQL Instância Gerenciada do Azure. Para transações distribuídas no local, continue a usar o MSDTC.
-* Não há suporte para transações entre serviços WCF. Por exemplo, você tem um método de serviço WCF que executa uma transação. Colocar a chamada dentro de um escopo de transação falhará como [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
-* O Azure SQL Instância Gerenciada deve fazer parte de um [grupo de confiança do servidor](https://aka.ms/mitrusted-groups) para participar da transação distribuída.
-* As limitações dos [grupos de confiança do servidor](https://aka.ms/mitrusted-groups) afetam as transações distribuídas.
+* Não há suporte para transações entre serviços WCF. Por exemplo, você tem um método de serviço WCF que executa uma transação. Colocar a chamada dentro de um escopo de transação falhará como [System.ServiceModel.ProtocolException](/dotnet/api/system.servicemodel.protocolexception).
+* O Azure SQL Instância Gerenciada deve fazer parte de um [grupo de confiança do servidor](../managed-instance/server-trust-group-overview.md) para participar da transação distribuída.
+* As limitações dos [grupos de confiança do servidor](../managed-instance/server-trust-group-overview.md) afetam as transações distribuídas.
 * As instâncias gerenciadas que participam de transações distribuídas precisam ter conectividade sobre pontos de extremidade privados (usando o endereço IP privado da rede virtual onde eles são implantados) e precisam ser referenciadas mutuamente usando FQDNs privados. Os aplicativos cliente podem usar transações distribuídas em pontos de extremidade privados. Além disso, em casos em que o Transact-SQL aproveita os servidores vinculados que fazem referência a pontos de extremidade privados, os aplicativos cliente também podem usar transações distribuídas em pontos de extremidade públicos. Essa limitação é explicada no diagrama a seguir.
   ![Limitação de conectividade de ponto de extremidade privado][4]
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para dúvidas, entre em contato conosco no [Microsoft Q&uma página de perguntas para o banco de dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+* Para dúvidas, entre em contato conosco no [Microsoft Q&uma página de perguntas para o banco de dados SQL](/answers/topics/azure-sql-database.html).
 * Para solicitações de recursos, adicione-as ao [Fórum de comentários do banco de dados SQL](https://feedback.azure.com/forums/217321-sql-database/) ou ao [Fórum instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance).
 
 
@@ -290,4 +290,3 @@ As seguintes limitações atualmente se aplicam a transações distribuídas no 
 [2]: ./media/elastic-transactions-overview/sql-mi-distributed-transactions.png
 [3]: ./media/elastic-transactions-overview/server-trust-groups-azure-portal.png
 [4]: ./media/elastic-transactions-overview/managed-instance-distributed-transactions-private-endpoint-limitations.png
- 

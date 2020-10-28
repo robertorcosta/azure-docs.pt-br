@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488819"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792983"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de armazenamento do Azure para outra região
 
@@ -55,7 +55,7 @@ Para exportar um modelo com o portal do Azure:
 
 2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
 
-3. Selecione **configurações**de >  >  **modelo de exportação**.
+3. Selecione **configurações** de >  >  **modelo de exportação** .
 
 4. Escolha **baixar** na folha **Exportar modelo** .
 
@@ -101,19 +101,19 @@ Para modificar o modelo, altere o nome da conta de armazenamento e a região.
 
 Para implantar o modelo usando portal do Azure:
 
-1. Na portal do Azure, selecione **criar um recurso**.
+1. Na portal do Azure, selecione **criar um recurso** .
 
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
+2. Em **Pesquisar no Marketplace** , digite **implantação de modelo** e pressione **Enter** .
 
-3. Selecione **implantação de modelo**.
+3. Selecione **implantação de modelo** .
 
     ![Biblioteca de modelos do Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Selecione **Criar**.
+4. Selecione **Criar** .
 
-5. Selecione **Criar seu próprio modelo no editor**.
+5. Selecione **Criar seu próprio modelo no editor** .
 
-6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
+6. Selecione **carregar arquivo** e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 
 7. Na **template.jsem** arquivo, nomeie a conta de armazenamento de destino definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor padrão do nome da conta de armazenamento como `mytargetaccount` .
     
@@ -137,7 +137,7 @@ Para implantar o modelo usando portal do Azure:
          "location": "centralus"
          }]          
     ```
-    Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central**  =  **centralus**.
+    Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).  O código de uma região é o nome da região sem espaços, **EUA Central**  =  **centralus** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -186,11 +186,11 @@ Implante o modelo para criar uma nova conta de armazenamento na região de desti
 
 2. Insira ou selecione os valores de propriedade:
 
-- **Assinatura**: Selecione uma assinatura do Azure.
+- **Assinatura** : Selecione uma assinatura do Azure.
 
-- **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
+- **Grupo de recursos** : selecione **Criar novo** e dê um nome ao grupo de recursos.
 
-- **Local**: selecione um local do Azure.
+- **Local** : selecione um local do Azure.
 
 3. Clique na caixa de seleção **eu concordo com os termos e condições declarados acima** e clique no botão **selecionar compra** .
 
@@ -255,9 +255,9 @@ Para remover uma conta de armazenamento usando o portal do Azure:
 
 1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha contas de **armazenamento** para exibir a lista de suas contas de armazenamento.
 
-2. Localize a conta de armazenamento de destino a ser excluída e clique com o botão direito do mouse no botão **mais** (**...**) no lado direito da listagem.
+2. Localize a conta de armazenamento de destino a ser excluída e clique com o botão direito do mouse no botão **mais** ( **...** ) no lado direito da listagem.
 
-3. Selecione **excluir**e confirmar.
+3. Selecione **excluir** e confirmar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 Neste tutorial, você moveu uma conta de armazenamento do Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, confira:
 
 
-- [Mover recursos para um novo grupo de recursos ou assinatura](/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover as VMs do Azure para outra região](/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover as VMs do Azure para outra região](../../site-recovery/azure-to-azure-tutorial-migrate.md)
