@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 446a70a4399b7ec0e16fed2d33c9ec711acfe200
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae29dcc0d334a2296199da0d8e3bc4562e275d3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310825"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895321"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adicionar uma camada de bolha a um mapa
 
@@ -25,7 +25,7 @@ Este artigo mostra como renderizar dados de ponto de uma fonte de dados como uma
 
 ## <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
 
-O código a seguir carrega uma matriz de pontos em uma fonte de dados. Em seguida, ele conecta os pontos de dados a uma [camada de bolha](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer). A camada de bolha renderiza o raio de cada bolha com cinco pixels e uma cor de preenchimento de branco. E uma cor de traço de azul e uma largura de traço de seis pixels. 
+O código a seguir carrega uma matriz de pontos em uma fonte de dados. Em seguida, ele conecta os pontos de dados a uma [camada de bolha](/javascript/api/azure-maps-control/atlas.layer.bubblelayer). A camada de bolha renderiza o raio de cada bolha com cinco pixels e uma cor de preenchimento de branco. E uma cor de traço de azul e uma largura de traço de seis pixels. 
 
 ```javascript
 //Add point locations.
@@ -83,10 +83,10 @@ A camada de bolha tem apenas algumas opções de estilo. Aqui está uma ferramen
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
+> [BubbleLayer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
@@ -100,4 +100,4 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 > [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemplos de código](/samples/browse/?products=azure-maps)

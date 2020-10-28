@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279174"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892746"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Cobrança limitada para SaaS usando o serviço de medição do Marketplace comercial
 
@@ -37,7 +37,7 @@ Compreender a hierarquia de oferta é importante, quando se trata de definir a o
 
 - Cada oferta de SaaS é configurada para vender pela Microsoft ou não.  Depois que uma oferta é publicada, essa opção não pode ser alterada.
 - Cada oferta de SaaS, configurada para vender pela Microsoft, pode ter um ou mais planos.  Um usuário assina a oferta de SaaS, mas é adquirida pela Microsoft dentro do contexto de um plano.
-- Cada plano tem um modelo de preços associado a ele: **taxa fixa** ou **por usuário**. Todos os planos em uma oferta devem ser associados ao mesmo modelo de preços. Por exemplo, não pode haver uma oferta que tenha planos para um modelo de preços de taxa fixa e outro sendo o modelo de preço por usuário.
+- Cada plano tem um modelo de preços associado a ele: **taxa fixa** ou **por usuário** . Todos os planos em uma oferta devem ser associados ao mesmo modelo de preços. Por exemplo, não pode haver uma oferta que tenha planos para um modelo de preços de taxa fixa e outro sendo o modelo de preço por usuário.
 - Dentro de cada plano configurado para um modelo de cobrança de taxa simples, pelo menos uma taxa recorrente (que pode ser $0) é incluída:
     - Taxa **mensal** recorrente: taxa mensal simples que é pré-paga em uma recorrência mensal quando o usuário adquire o plano.
     - Taxa **anual** recorrente: taxa anual simples que é pré-paga em uma recorrência anual quando o usuário adquire o plano.
@@ -73,12 +73,12 @@ Com base no plano selecionado, uma assinatura de compra do cliente do Azure para
 
 Cada dimensão de cobrança define uma unidade personalizada pela qual o ISV pode emitir eventos de uso.  As dimensões de cobrança também são usadas para se comunicar com o cliente sobre como eles serão cobrados pelo uso do software.  Eles são definidos da seguinte maneira:
 
-- **ID**: o identificador de dimensão imutável referenciado durante a emissão de eventos de uso.
-- **Nome de exibição**: o nome de exibição associado à dimensão, por exemplo, "mensagens de texto enviadas".
-- **Unidade de medida**: a descrição da unidade de cobrança, por exemplo "mensagem por texto" ou "por email 100".
-- **Preço por unidade em USD**: o preço de uma unidade da dimensão.  Pode ser 0. 
-- **Quantidade mensal incluída na base**: a quantidade de dimensões inclusas por mês para clientes que pagam a taxa mensal recorrente, deve ser um número inteiro. Pode ser 0 ou ilimitado.
-- **Quantidade anual incluída na base**: a quantidade de dimensões inclusas por cada ano para clientes pagando a taxa anual recorrente, deve ser um número inteiro. Pode ser 0 ou ilimitado.
+- **ID** : o identificador de dimensão imutável referenciado durante a emissão de eventos de uso.
+- **Nome de exibição** : o nome de exibição associado à dimensão, por exemplo, "mensagens de texto enviadas".
+- **Unidade de medida** : a descrição da unidade de cobrança, por exemplo "mensagem por texto" ou "por email 100".
+- **Preço por unidade em USD** : o preço de uma unidade da dimensão.  Pode ser 0. 
+- **Quantidade mensal incluída na base** : a quantidade de dimensões inclusas por mês para clientes que pagam a taxa mensal recorrente, deve ser um número inteiro. Pode ser 0 ou ilimitado.
+- **Quantidade anual incluída na base** : a quantidade de dimensões inclusas por cada ano para clientes pagando a taxa anual recorrente, deve ser um número inteiro. Pode ser 0 ou ilimitado.
 
 As dimensões de cobrança são compartilhadas entre todos os planos para uma oferta.  Alguns atributos se aplicam à dimensão em todos os planos e outros atributos são específicos do plano.
 
@@ -143,7 +143,7 @@ Depois que um plano é publicado, os detalhes de nível de plano não podem mais
 
 ### <a name="upper-limits"></a>Limites superiores
 
-O número máximo de dimensões que podem ser configuradas para uma única oferta é 18 dimensões exclusivas.
+O número máximo de dimensões que podem ser configuradas para uma única oferta é de 30 dimensões exclusivas.
 
 ## <a name="get-support"></a>Obter suporte
 

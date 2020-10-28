@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761440"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893679"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recebimento
 
@@ -88,7 +88,7 @@ A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/
 
 A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Type | Valores possíveis |
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada. |
 | |  | em execução: a operação de análise está em andamento. |
@@ -437,7 +437,7 @@ Os dados extraídos com a API de recebimento podem ser usados para executar uma 
 
 Com frequência, o arquivamento das despesas de negócios envolve o tempo de gastos inserindo manualmente dados de imagens de recibos. Com a API de recebimento, você pode usar os campos extraídos para automatizar parcialmente esse processo e analisar seus recibos rapidamente.  
 
-Como a API de recebimento tem uma saída JSON simples, você pode usar os valores de campo extraídos de várias maneiras. Integre-se com aplicativos de despesas internos para preencher previamente os relatórios de despesas. Para saber mais sobre esse cenário, leia sobre como o Acumatica está utilizando a API de recebimento para [tornar o relatório de despesas um processo menos trabalhoso](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure).  
+Como a API de recebimento tem uma saída JSON simples, você pode usar os valores de campo extraídos de várias maneiras. Integre-se com aplicativos de despesas internos para preencher previamente os relatórios de despesas. Para saber mais sobre esse cenário, leia sobre como o Acumatica está utilizando a API de recebimento para [tornar o relatório de despesas um processo menos trabalhoso](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
 ### <a name="auditing-and-accounting"></a>Auditoria e contabilidade 
 

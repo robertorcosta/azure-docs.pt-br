@@ -10,22 +10,18 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131676"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893570"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Perguntas frequentes do assistente de métricas
 
 ### <a name="what-is-the-cost-of-my-instance"></a>Qual é o custo da minha instância?
 
 Atualmente, não há um custo para usar sua instância durante a visualização.
-
-### <a name="why-is-the-demo-website-readonly"></a>Por que o site de demonstração é ReadOnly?
-
-O [site de demonstração](https://anomaly-detector.azurewebsites.net/) está disponível publicamente. Essa instância é feita somente leitura para evitar o carregamento acidental de quaisquer dados.
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>Por que não posso criar o recurso? O "tipo de preço" não está disponível e diz "você já criou 1 S0 para esta assinatura"?
 
@@ -145,5 +141,4 @@ Por exemplo, quando ocorre uma anomalia `Service = S2 | Data Center = DC2 | Mach
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Visão geral do Assistente de Métricas](overview.md)
-- [Experimente o site de demonstração](quickstarts/explore-demo.md)
 - [Usar o portal da Web](quickstarts/web-portal.md)

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311012"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895742"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa de rasterização
 
-Este artigo explica como usar o [serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage), com a funcionalidade de composição de imagem, para permitir sobreposições sobre um mapa de rasterização. A composição de imagem inclui a capacidade de obter um bloco de varredura de volta, com dados adicionais como anotações personalizadas, rótulos e sobreposições de geometria.
+Este artigo explica como usar o [serviço de imagem estática](/rest/api/maps/render/getmapimage), com a funcionalidade de composição de imagem, para permitir sobreposições sobre um mapa de rasterização. A composição de imagem inclui a capacidade de obter um bloco de varredura de volta, com dados adicionais como anotações personalizadas, rótulos e sobreposições de geometria.
 
-Para renderizar os pinos, rótulos e sobreposições de geometria personalizados, você pode usar o aplicativo do postmaster. Você pode usar as [APIs do serviço de dados](https://docs.microsoft.com/rest/api/maps/data) do Azure Maps para armazenar e renderizar sobreposições.
+Para renderizar os pinos, rótulos e sobreposições de geometria personalizados, você pode usar o aplicativo do postmaster. Você pode usar as [APIs do serviço de dados](/rest/api/maps/data) do Azure Maps para armazenar e renderizar sobreposições.
 
 > [!Tip]
 > Geralmente, é muito mais econômico usar o SDK para Web do Azure Maps para mostrar um mapa simples em uma página da Web do que usar o serviço de imagem estática. O SDK da Web usa blocos de mapa e, a menos que o usuário se sobreponha e Aplique zoom no mapa, geralmente irá gerar apenas uma fração de uma transação por carga de mapa. Observe que o SDK da Web do Azure Maps tem opções para desabilitar o movimento panorâmico e o zoom. Além disso, o SDK da Web do Azure Maps fornece um conjunto mais rico de opções de visualização de dados do que um serviço Web de mapa estático.  
@@ -41,9 +41,9 @@ A camada S0 da conta do Azure Maps dá suporte a apenas uma única instância do
 
 Para renderizar anotações com rótulos e uma imagem personalizada, conclua estas etapas:
 
-1. Crie uma coleção na qual armazenar as solicitações. No aplicativo de postmaster, selecione **novo**. Na janela **Criar**, selecione **Coleção**. Nomeie a coleção e selecione o botão **Criar**. 
+1. Crie uma coleção na qual armazenar as solicitações. No aplicativo de postmaster, selecione **novo** . Na janela **Criar** , selecione **Coleção** . Nomeie a coleção e selecione o botão **Criar** . 
 
-2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar**, selecione **Solicitação**. Insira um **nome de solicitação** para os pinos. Selecione a coleção que você criou na etapa anterior, como o local para salvar a solicitação. Em seguida, selecione **Salvar**.
+2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar** , selecione **Solicitação** . Insira um **nome de solicitação** para os pinos. Selecione a coleção que você criou na etapa anterior, como o local para salvar a solicitação. Em seguida, selecione **Salvar** .
     
     ![Criar uma solicitação no postmaster](./media/how-to-render-custom-data/postman-new.png)
 
@@ -62,7 +62,7 @@ Para renderizar anotações com rótulos e uma imagem personalizada, conclua est
 > [!Note]
 > O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S1.
 
-Você também pode obter o caminho e fixar as informações de localização usando a [API de carregamento de dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Siga as etapas abaixo para carregar o caminho e os dados dos marcadores.
+Você também pode obter o caminho e fixar as informações de localização usando a [API de carregamento de dados](/rest/api/maps/data/uploadpreview). Siga as etapas abaixo para carregar o caminho e os dados dos marcadores.
 
 1. No aplicativo de postmaster, abra uma nova guia na coleção que você criou na seção anterior. Selecione o método HTTP POST na guia Construtor e insira a seguinte URL para fazer uma solicitação POST:
 
@@ -172,7 +172,7 @@ Você também pode obter o caminho e fixar as informações de localização usa
 > O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S1.
 
 
-É possível modificar a aparência de um polígono, usando modificadores de estilo com o [parâmetro de caminho](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+É possível modificar a aparência de um polígono, usando modificadores de estilo com o [parâmetro de caminho](/rest/api/maps/render/getmapimage#uri-parameters).
 
 1. No aplicativo de postmaster, abra uma nova guia na coleção que você criou anteriormente. Selecione o método HTTP GET na guia Construtor e insira a seguinte URL para configurar uma solicitação GET para renderizar um polígono com cor e opacidade:
     
@@ -192,7 +192,7 @@ Você também pode obter o caminho e fixar as informações de localização usa
 > O procedimento nesta seção requer uma conta do Azure Maps no tipo de preço S1.
 
 
-Você pode modificar a aparência dos Pins adicionando modificadores de estilo. Por exemplo, para fazer anotações e seus rótulos maiores ou menores, use o `sc` modificador "estilo de escala". Esse modificador usa um valor maior que zero. Um valor de 1 é a escala padrão. Valores maiores que 1 tornarão os marcadores maiores e valores menores que 1 os tornarão menores. Para obter mais informações sobre modificadores de estilo, consulte [parâmetros de caminho de serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Você pode modificar a aparência dos Pins adicionando modificadores de estilo. Por exemplo, para fazer anotações e seus rótulos maiores ou menores, use o `sc` modificador "estilo de escala". Esse modificador usa um valor maior que zero. Um valor de 1 é a escala padrão. Valores maiores que 1 tornarão os marcadores maiores e valores menores que 1 os tornarão menores. Para obter mais informações sobre modificadores de estilo, consulte [parâmetros de caminho de serviço de imagem estática](/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Siga estas etapas para renderizar um círculo e anotações com rótulos personalizados:
@@ -222,6 +222,5 @@ Da mesma forma, você pode alterar, adicionar e remover outros modificadores de 
 ## <a name="next-steps"></a>Próximas etapas
 
 
-* Explore a documentação [Obter API de Imagem de Mapa do Azure Mapas](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
-* Para saber mais sobre o serviço de dados do Azure Maps, consulte a [documentação do serviço](https://docs.microsoft.com/rest/api/maps/data).
-
+* Explore a documentação [Obter API de Imagem de Mapa do Azure Mapas](/rest/api/maps/render/getmapimage).
+* Para saber mais sobre o serviço de dados do Azure Maps, consulte a [documentação do serviço](/rest/api/maps/data).

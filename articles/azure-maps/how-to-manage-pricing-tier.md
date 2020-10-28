@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8e62734e039d0f6ceff836947519ef71ee9b8497
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9934a2660d18fdcbada1cda86f957345b2d1a8c8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311046"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895725"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gerencie o tipo de preço da sua conta do Azure Mapas
 
 Você pode gerenciar o tipo de preço da sua conta do Azure Mapas através do portal do Azure. Você também pode exibir ou alterar o tipo de preço da sua conta depois de criar uma [conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Obtenha mais informações sobre [como escolher o tipo de preço certo no Azure Mapas](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier).
+Obtenha mais informações sobre [como escolher o tipo de preço certo no Azure Mapas](./choose-pricing-tier.md).
 
 ## <a name="view-your-pricing-tier"></a>Veja seu tipo de preço
 

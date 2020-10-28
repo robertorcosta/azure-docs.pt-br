@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738122"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894093"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -1832,7 +1832,7 @@ Os Azure Managed disks são colocados automaticamente no domínio de falha da m�
 
 Uma arquitetura de exemplo de um sistema SAP NetWeaver que usa alta disponibilidade de infraestrutura e contas de armazenamento do Azure poderia ter esta aparência:
 
-![Utilizando a alta disponibilidade da infraestrutura do Azure para atingir maior disponibilidade de aplicativos SAP][planning-guide-figure-2900]
+![Diagrama que mostra um sistema SAP NetWeaver que usa as contas de armazenamento e HA de infraestrutura do Azure.][planning-guide-figure-2900]
 
 Uma arquitetura de exemplo de um sistema SAP NetWeaver que usa alta disponibilidade de infraestrutura e Managed Disks do Azure poderia ter esta aparência:
 
@@ -1892,7 +1892,7 @@ Somente discos não gerenciados: Os conceitos, conforme explicado abaixo, talvez
 
 ##### <a name="windows-logologo_windows-ha-on-windows"></a>![Logotipo do Windows.][Logo_Windows] no Windows
 
-![Arquitetura de alta disponibilidade de aplicativos SAP NetWeaver com o SQL Server no Azure IaaS][planning-guide-figure-3200]
+![Diagrama que mostra a arquitetura de HA do aplicativo SAP NetWeaver com SQL Server no Azure IaaS.][planning-guide-figure-3200]
 
 As seguintes construções do Azure são usadas para o sistema SAP NetWeaver, para minimizar o impacto por problemas de infraestrutura e a aplicação de patches ao host:
 

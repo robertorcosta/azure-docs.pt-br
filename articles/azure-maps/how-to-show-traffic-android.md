@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272949"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895521"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostrar dados de tráfego no mapa usando o Azure Maps SDK do Android
 
 Dados de fluxo e dados de incidentes são os dois tipos de dados de tráfego que podem ser exibidos no mapa. Este guia mostra como exibir os dois tipos de dados de tráfego. Os dados de incidentes consistem em dados de ponto e de linha para coisas como construções, fechamentos de estrada e acidentes. Os dados de fluxo mostram métricas sobre o fluxo de tráfego em trânsito.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Antes de poder mostrar o tráfego no mapa, você precisa [criar uma conta do Azure](quick-demo-map-app.md#create-an-azure-maps-account)e [obter uma chave de assinatura](quick-demo-map-app.md#get-the-primary-key-for-your-account). Em seguida, você precisa instalar o [SDK do Android do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e carregar um mapa.
+Antes de poder mostrar o tráfego no mapa, você precisa [criar uma conta do Azure](quick-demo-map-app.md#create-an-azure-maps-account)e [obter uma chave de assinatura](quick-demo-map-app.md#get-the-primary-key-for-your-account). Em seguida, você precisa instalar o [SDK do Android do Azure Maps](./how-to-use-android-map-control-library.md) e carregar um mapa.
 
 ## <a name="incidents-traffic-data"></a>Dados de tráfego de incidentes
 
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Para obter os incidentes de um recurso específico, você pode usar o código a seguir. Quando um recurso é clicado, a lógica de código verifica incidentes e cria uma mensagem sobre o incidente. Uma mensagem é exibida na parte inferior da tela com os detalhes.
 
-1. Primeiro, você precisa editar o **layout de > res > activity_main.xml**, para que ele se pareça com o mostrado abaixo. Você pode substituir os `mapcontrol_centerLat` , `mapcontrol_centerLng` e `mapcontrol_zoom` pelos valores desejados. Lembre-se de que o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco.
+1. Primeiro, você precisa editar o **layout de > res > activity_main.xml** , para que ele se pareça com o mostrado abaixo. Você pode substituir os `mapcontrol_centerLat` , `mapcontrol_centerLng` e `mapcontrol_zoom` pelos valores desejados. Lembre-se de que o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>

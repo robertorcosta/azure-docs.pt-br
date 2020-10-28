@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448195"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893396"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -39,6 +39,9 @@ Essa extensão funciona com os dois modelos de implantação do Azure.
 ## <a name="installing-the-extension-in-your-vm"></a>Instalando a extensão em sua VM
 
 Você pode habilitar essa extensão usando os cmdlets do Azure PowerShell, os scripts da CLI do Azure, os modelos de ARM ou o portal do Azure. Para saber mais, veja [Recursos de extensões](features-linux.md).
+
+>[!NOTE]
+>Determinados componentes da extensão de VM de diagnóstico também são fornecidos na [extensão de vm log Analytics](./oms-linux.md). Devido a essa arquitetura, os conflitos podem surgir se ambas as extensões forem instanciadas no mesmo modelo do ARM. Para evitar esses conflitos de tempo de instalação, use a [ `dependsOn` diretiva](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) para garantir que as extensões sejam instaladas sequencialmente. As extensões podem ser instaladas em qualquer ordem.
 
 Estas instruções de instalação e uma [configuração de amostra para download](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configuram o LAD 3.0 para:
 
@@ -67,8 +70,8 @@ Distribuições e versões compatíveis:
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](./update-linux-agent.md) para atualizá-la.
-* **CLI do Azure**. [Configurar o ambiente da CLI do Azure](/cli/azure/install-azure-cli) em seu computador.
+* **Agente Linux do Azure versão 2.2.0 ou posterior** . A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](./update-linux-agent.md) para atualizá-la.
+* **CLI do Azure** . [Configurar o ambiente da CLI do Azure](/cli/azure/install-azure-cli) em seu computador.
 * O comando wget, caso ainda não o tenha: Execute `sudo apt-get install wget`.
 * Uma assinatura do Azure existente e uma conta de armazenamento de uso geral existente para armazenar os dados no.  As contas de armazenamento de uso geral dão suporte ao armazenamento de tabela que é necessário.  Uma conta de armazenamento de BLOBs não funcionará.
 
@@ -172,7 +175,7 @@ Depois que você tiver alterado as configurações Públicas ou Protegidas, impl
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migração de versões anteriores da extensão
 
-A versão mais recente da extensão é a **3.0**. **As versões anteriores (2.x) antigas são substituídas e podem ser canceladas em ou após 31 de julho de 2018**.
+A versão mais recente da extensão é a **3.0** . **As versões anteriores (2.x) antigas são substituídas e podem ser canceladas em ou após 31 de julho de 2018** .
 
 > [!IMPORTANT]
 > Essa extensão introduz alterações significativas na configuração da extensão. Uma alteração foi feita para melhorar a segurança da extensão; como resultado disso, a compatibilidade com as versões 2.x pode não ser mantida. Além disso, o Editor de Extensões para esta extensão é diferente do editor para as versões 2.x.
@@ -210,7 +213,7 @@ storageAccountSasToken | Um [Token de SAS de conta](https://azure.microsoft.com/
 mdsdHttpProxy | (opcional) As informações de proxy de HTTP necessárias para habilitar a extensão para se conectar ao ponto de extremidade e à conta de armazenamento especificados.
 sinksConfig | (opcional) Detalhes de destinos alternativos para os quais as métricas e os eventos podem ser entregues. Os detalhes específicos de cada coletor de dados compatível com a extensão são abordados nas seções a seguir.
 
-Para obter um token SAS dentro de um modelo do Resource Manager, use a função **listAccountSas**. Para obter um modelo de exemplo, confira [Exemplo da função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
+Para obter um token SAS dentro de um modelo do Resource Manager, use a função **listAccountSas** . Para obter um modelo de exemplo, confira [Exemplo da função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 Você pode facilmente construir o token de SAS necessário por meio do Portal do Azure.
 
@@ -578,7 +581,7 @@ TransfersPerSecond | Operações de leitura ou gravação por segundo
 
 Os valores agregados em todos os sistemas de arquivo podem ser obtidos pela configuração `"condition": "IsAggregate=True"`. Os valores para um sistema de arquivos montado específico, como "/mnt", podem ser obtidos pela configuração `"condition": 'Name="/mnt"'`. 
 
-**OBSERVAÇÃO**: Se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name='/mnt'
+**OBSERVAÇÃO** : Se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métricas internas para a classe Disk
 

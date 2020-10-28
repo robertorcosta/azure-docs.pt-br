@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cda543781118a19ba4999e774b96ae81857f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330920"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895487"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao SDK do Android do Azure Mapas
 
@@ -36,10 +36,10 @@ Baixe o Android Studio e crie um projeto com uma atividade vazia, antes de insta
 
 Primeiro, crie um novo projeto com uma atividade vazia. Conclua estas etapas para criar um projeto do Android Studio:
 
-1. Em **Escolher o projeto**, selecione **Telefone e Tablet**. O aplicativo será executado neste fator forma.
-2. Na guia **Telefone e Tablet**, selecione **Atividade Vazia** e depois selecione **Próximo**.
-3. Em **Configurar seu projeto**, selecione `API 21: Android 5.0.0 (Lollipop)` como o SDK mínimo. Esta é a versão mais antiga com suporte pelo SDK do Android do Azure Mapas.
-4. Aceite o padrão `Activity Name` e `Layout Name` e selecione **Concluir**.
+1. Em **Escolher o projeto** , selecione **Telefone e Tablet** . O aplicativo será executado neste fator forma.
+2. Na guia **Telefone e Tablet** , selecione **Atividade Vazia** e depois selecione **Próximo** .
+3. Em **Configurar seu projeto** , selecione `API 21: Android 5.0.0 (Lollipop)` como o SDK mínimo. Esta é a versão mais antiga com suporte pelo SDK do Android do Azure Mapas.
+4. Aceite o padrão `Activity Name` e `Layout Name` e selecione **Concluir** .
 
 Consulte a [documentação do Android Studio](https://developer.android.com/studio/intro/) para obter mais ajuda com a instalação do Android Studio e criação de um novo projeto.
 
@@ -47,7 +47,7 @@ Consulte a [documentação do Android Studio](https://developer.android.com/stud
 
 ## <a name="set-up-a-virtual-device"></a>Configurar um dispositivo virtual
 
-O Android Studio permite configurar um dispositivo Android virtual no computador. Esse procedimento pode ajudar a testar o aplicativo durante o desenvolvimento. Para configurar um dispositivo virtual, selecione o ícone do Gerenciador de Dispositivo Virtual Android (AVD) no canto superior direito da tela do projeto e, em seguida, selecione **Criar Dispositivo Virtual**. Você também pode acessar o Gerenciador de AVD selecionando **Ferramentas** > **Android** > **Gerenciador de AVD** na barra de ferramentas. Na categoria **Telefones**, selecione **Nexus 5X** e clique em **Avançar**.
+O Android Studio permite configurar um dispositivo Android virtual no computador. Esse procedimento pode ajudar a testar o aplicativo durante o desenvolvimento. Para configurar um dispositivo virtual, selecione o ícone do Gerenciador de Dispositivo Virtual Android (AVD) no canto superior direito da tela do projeto e, em seguida, selecione **Criar Dispositivo Virtual** . Você também pode acessar o Gerenciador de AVD selecionando **Ferramentas** > **Android** > **Gerenciador de AVD** na barra de ferramentas. Na categoria **Telefones** , selecione **Nexus 5X** e clique em **Avançar** .
 
 Você pode aprender mais sobre a configuração de um AVD na [documentação do Android Studio](https://developer.android.com/studio/run/managing-avds).
 
@@ -57,7 +57,7 @@ Você pode aprender mais sobre a configuração de um AVD na [documentação do 
 
 A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azure Mapas. Conclua estas etapas para instalar o SDK:
 
-1. Abra o arquivo de nível superior **build.gradle** e adicione o código a seguir à seção do bloco **todos os projetos**, **repositórios**:
+1. Abra o arquivo de nível superior **build.gradle** e adicione o código a seguir à seção do bloco **todos os projetos** , **repositórios** :
 
     ```
     maven {
@@ -83,7 +83,7 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
         implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
-    4. Vá para **Arquivo** na barra de ferramentas e clique em **Sincronizar Projeto com Arquivos Gradle**.
+    4. Vá para **Arquivo** na barra de ferramentas e clique em **Sincronizar Projeto com Arquivos Gradle** .
 3. Adicione um fragmento de mapa à atividade principal (res \> layout \> activity\_main.xml):
     
     ```XML
@@ -103,7 +103,7 @@ A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azur
     </FrameLayout>
     ```
 
-4. No arquivo **MainActivity.java**, você precisará:
+4. No arquivo **MainActivity.java** , você precisará:
     
     * adicionar importações para o SDK do Azure Mapas
     * definir as informações de autenticação do Azure Mapas
@@ -299,7 +299,7 @@ Saiba como adicionar dados de sobreposição no mapa:
 > [Adicionar uma camada de símbolo a um mapa do Android](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar formas a um mapa do Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Adicionar formas a um mapa do Android](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Alterar estilos de mapa nos mapas do Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Alterar estilos de mapa nos mapas do Android](./set-android-map-styles.md)

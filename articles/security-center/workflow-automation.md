@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: bbd46237e0b3b21b822b088c545c91f678a8034e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cbe6adc37025f0b727fa5f5d3ace46ed34afaa9e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792286"
+ms.locfileid: "92895215"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizar respostas para gatilhos da central de segurança
 
@@ -193,5 +193,5 @@ Para obter material relacionado, consulte:
 - [Recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)
 - [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)
 - [Sobre os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md)
-- [Conectores dos Aplicativos Lógicos](/connectors/)
+- [Conectores de Aplicativos Lógicos do Azure](../connectors/apis-list.md)
 - [Esquemas dos tipos de dados de automação de fluxo de trabalho](https://aka.ms/ASCAutomationSchemas)

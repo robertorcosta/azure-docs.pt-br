@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3f5dfcafe1c7b08a2c8320f807bf809107197d40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9b732bd25e7ef8aa084c98d5b059d422f86a4b0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335272"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895402"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Exibir as métricas de uso da API do Azure Mapas
 
@@ -21,7 +21,7 @@ Este artigo mostra como exibir as métricas de uso da API para sua conta do Azur
 
 ## <a name="view-metric-snapshot"></a>Exibir instantâneo de métrica
 
-Você pode ver algumas métricas comuns sobre a página de **visão geral** de sua conta de mapas. Atualmente, ele mostra *Total de Solicitações*, *Total de Erros*, e *Disponibilidade* em um período de tempo selecionável.
+Você pode ver algumas métricas comuns sobre a página de **visão geral** de sua conta de mapas. Atualmente, ele mostra *Total de Solicitações* , *Total de Erros* , e *Disponibilidade* em um período de tempo selecionável.
 
 ![Visão geral das métricas de uso do Azure Maps](media/how-to-view-api-usage/portal-overview.png)
 
@@ -31,7 +31,7 @@ Continue para a próxima seção se você precisar personalizar esses gráficos 
 
 1. Entre em sua assinatura do Azure no [portal](https://portal.azure.com).
 
-2. Clique o **Todos os recursos** no lado esquerdo do item de menu e navegue até a sua *conta do Azure Mapas*.
+2. Clique o **Todos os recursos** no lado esquerdo do item de menu e navegue até a sua *conta do Azure Mapas* .
 
 3. Quando sua conta de Mapas for aberta, clique no menu **Métricas** à esquerda.
 
@@ -42,7 +42,7 @@ Continue para a próxima seção se você precisar personalizar esses gráficos 
 
       ![Painel de métricas de uso do Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Em seguida, você pode selecionar *Intervalo de tempo* clicando em **Últimas 24 horas (Automático)**. Por padrão, o intervalo de tempo é definido como 24 horas. Depois de clicar, você verá todos os intervalos de tempo selecionáveis. Você pode selecionar *Granularidade de tempo* e optar por mostrar a hora como *local* ou *GMT* no mesmo menu suspenso. Clique em **Aplicar**.
+5. Em seguida, você pode selecionar *Intervalo de tempo* clicando em **Últimas 24 horas (Automático)** . Por padrão, o intervalo de tempo é definido como 24 horas. Depois de clicar, você verá todos os intervalos de tempo selecionáveis. Você pode selecionar *Granularidade de tempo* e optar por mostrar a hora como *local* ou *GMT* no mesmo menu suspenso. Clique em **Aplicar** .
 
     ![Intervalo de tempo das métricas do Azure Maps](media/how-to-view-api-usage/time-range.png)
 
@@ -66,4 +66,4 @@ Saiba mais sobre as APIs do Azure Maps para as quais você deseja acompanhar o u
 > [Instruções do Azure Maps SDK do Android](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
-> [Documentação API REST do Azure Mapas](https://docs.microsoft.com/rest/api/maps)
+> [Documentação API REST do Azure Mapas](/rest/api/maps)

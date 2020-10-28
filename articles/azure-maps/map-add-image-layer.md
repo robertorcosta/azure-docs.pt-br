@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 4116028cc8c4668c897d7de7bbffb607b5e5daba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43de832095e2c2dd674a156da914ed26f1e472d0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310536"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892937"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicionar uma camada de imagem ao um mapa
 
@@ -27,7 +27,7 @@ Este artigo mostra como sobrepor uma imagem a um conjunto fixo de coordenadas. A
 * Imagens de radar de clima
 
 > [!TIP]
-> Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) é uma maneira fácil de sobrepor uma imagem em um mapa. Observe que os navegadores podem ter dificuldades para carregar uma imagem grande. Nesse caso, considere dividir a imagem em blocos e carregá-los no mapa como um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer).
+> Um [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) é uma maneira fácil de sobrepor uma imagem em um mapa. Observe que os navegadores podem ter dificuldades para carregar uma imagem grande. Nesse caso, considere dividir a imagem em blocos e carregá-los no mapa como um [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer).
 
 A camada de imagem dá suporte aos seguintes formatos de imagem:
 
@@ -38,7 +38,7 @@ A camada de imagem dá suporte aos seguintes formatos de imagem:
 
 ## <a name="add-an-image-layer"></a>Adicionar uma camada de imagem
 
-O código a seguir sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) é criado passando uma URL para uma imagem e coordena para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
+O código a seguir sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) é criado passando uma URL para uma imagem e coordena para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -64,7 +64,7 @@ Aqui está o exemplo de código completo em execução do código anterior.
 
 Este exemplo demonstra como adicionar informações de sobreposição de terra KML como uma camada de imagem no mapa. As sobreposições de aterramento KML fornecem coordenadas norte, Sul, leste e oeste e uma rotação no sentido anti-horário. Porém, a camada de imagem espera coordenadas para cada canto da imagem. A sobreposição de aterramento KML neste exemplo é para o Chartres Cathedral e é originada de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-O código usa a `getCoordinatesFromEdges` função estática da classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) . Ele calcula os quatro cantos da imagem usando as informações do Norte, Sul, leste, oeste e de rotação da sobreposição de aterramento KML.
+O código usa a `getCoordinatesFromEdges` função estática da classe [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer) . Ele calcula os quatro cantos da imagem usando as informações do Norte, Sul, leste, oeste e de rotação da sobreposição de aterramento KML.
 
 <br/>
 
@@ -85,10 +85,10 @@ A camada de imagem tem muitas opções de estilo. Aqui está uma ferramenta para
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)
+> [ImageLayer](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 > [!div class="nextstepaction"]
-> [ImageLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions)
+> [ImageLayerOptions](/javascript/api/azure-maps-control/atlas.imagelayeroptions)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 

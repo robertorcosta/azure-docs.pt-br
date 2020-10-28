@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 19deaa7656cc86d534278464dba1041267ef15b0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 149d0ae99975628239f8b08f3987947a99e01cbb
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105032"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893226"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Criar sua primeira função do Azure com Java e IntelliJ
 
@@ -37,26 +37,26 @@ Para desenvolver uma função com Java e IntelliJ, instale o software a seguir:
 
 ## <a name="installation-and-sign-in"></a>Instalação e credenciais
 
-1. Na caixa de diálogo Configurações/Preferências do IntelliJ IDEA (Ctrl+Alt+S), selecione **Plug-ins**. Em seguida, localize o **Azure Toolkit for IntelliJ** no **Marketplace** e clique em **Instalar**. Depois de instalado, clique em **Reiniciar** para ativar o plug-in. 
+1. Na caixa de diálogo Configurações/Preferências do IntelliJ IDEA (Ctrl+Alt+S), selecione **Plug-ins** . Em seguida, localize o **Azure Toolkit for IntelliJ** no **Marketplace** e clique em **Instalar** . Depois de instalado, clique em **Reiniciar** para ativar o plug-in. 
 
     ![Plug-in do Azure Toolkit for IntelliJ no Marketplace][marketplace]
 
-2. Para entrar sua conta do Azure, abra a barra lateral **Azure Explorer** e, em seguida, clique no ícone **Entrar no Azure** na barra na parte superior (ou no menu IDEA **Ferramentas/Azure/Entrada no Azure**).
+2. Para entrar sua conta do Azure, abra a barra lateral **Azure Explorer** e, em seguida, clique no ícone **Entrar no Azure** na barra na parte superior (ou no menu IDEA **Ferramentas/Azure/Entrada no Azure** ).
     ![O comando de Entrada do IntelliJ no Azure][intellij-azure-login]
 
-3. Na janela **Entrar no Azure**, selecione **Logon do Dispositivo** e, em seguida, clique em **Entrar** ([outras opções de entrada](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. Na janela **Entrar no Azure** , selecione **Logon do Dispositivo** e, em seguida, clique em **Entrar** ( [outras opções de entrada](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![A janela Entrar no Azure com o logon no dispositivo selecionado][intellij-azure-popup]
 
-4. Clique em **Copiar e Abrir** na caixa de diálogo **Logon no Dispositivo do Azure**.
+4. Clique em **Copiar e Abrir** na caixa de diálogo **Logon no Dispositivo do Azure** .
 
    ![A janela da caixa de diálogo Logon no Azure][intellij-azure-copycode]
 
-5. No navegador, cole o código de dispositivo (que foi copiado quando você clicou em **Copiar e Abrir** na última etapa) e, em seguida, clique em **Avançar**.
+5. No navegador, cole o código de dispositivo (que foi copiado quando você clicou em **Copiar e Abrir** na última etapa) e, em seguida, clique em **Avançar** .
 
    ![O navegador de logon do dispositivo][intellij-azure-link-ms-account]
 
-6. Na caixa de diálogo **Selecionar Assinaturas**, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.
+6. Na caixa de diálogo **Selecionar Assinaturas** , selecione as assinaturas que deseja usar e, em seguida, clique em **OK** .
 
    ![A caixa de diálogo Selecionar Assinaturas][intellij-azure-login-select-subs]
    
@@ -64,17 +64,17 @@ Para desenvolver uma função com Java e IntelliJ, instale o software a seguir:
 
 Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto local do Azure Functions. Mais adiante neste artigo, você publicará o código de função no Azure. 
 
-1. Abra a caixa de diálogo Bem-vindo do IntelliJ, selecione *Criar Projeto* para abrir um assistente de Novo projeto e selecione *Azure Functions*.
+1. Abra a caixa de diálogo Bem-vindo do IntelliJ, selecione *Criar Projeto* para abrir um assistente de Novo projeto e selecione *Azure Functions* .
 
     ![Criar um projeto do Functions](media/functions-create-first-java-intellij/create-functions-project.png)
 
-1. Selecione *Gatilho Http*, clique em *Avançar* e siga o assistente para percorrer todas as configurações nas páginas a seguir, depois, confirme a localização do projeto e clique em *Concluir*. O Intellj IDEA abrirá o novo projeto.
+1. Selecione *Gatilho Http* , clique em *Avançar* e siga o assistente para percorrer todas as configurações nas páginas a seguir, depois, confirme a localização do projeto e clique em *Concluir* . O Intellj IDEA abrirá o novo projeto.
 
     ![Conclusão da criação de um projeto do Functions](media/functions-create-first-java-intellij/create-functions-project-finish.png)
 
 ## <a name="run-the-function-app-locally"></a>Executar o aplicativo de funções localmente
 
-1. Navegue até `src/main/java/org/example/functions/HttpTriggerFunction.java` para ver o código gerado. Ao lado da linha *17*, você observará a presença de um botão *Executar* verde. Clique nele e selecione *Executar 'azure-function-exam...'* , você verá que seu aplicativo de funções está sendo executado localmente com alguns logs.
+1. Navegue até `src/main/java/org/example/functions/HttpTriggerFunction.java` para ver o código gerado. Ao lado da linha *17* , você observará a presença de um botão *Executar* verde. Clique nele e selecione *Executar 'azure-function-exam...'* , você verá que seu aplicativo de funções está sendo executado localmente com alguns logs.
 
     ![Execução local de projeto do Functions](media/functions-create-first-java-intellij/local-run-functions-project.png)
 
@@ -84,7 +84,7 @@ Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto l
 
     ![Execução local de resultado do teste do Functions](media/functions-create-first-java-intellij/local-run-functions-test.png)
 
-1. O log também é impresso no IDEA. Agora, interrompa a função clicando no botão *parar*.
+1. O log também é impresso no IDEA. Agora, interrompa a função clicando no botão *parar* .
 
     ![Execução local de log de teste do Functions](media/functions-create-first-java-intellij/local-run-functions-log.png)
 
@@ -94,7 +94,7 @@ Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto l
 
     ![Botão de funções de depuração local](media/functions-create-first-java-intellij/local-debug-functions-button.png)
 
-1. Clique na linha *20* do arquivo `src/main/java/org/example/functions/HttpTriggerFunction.java` para adicionar um ponto de interrupção e acesse o ponto de extremidade `http://localhost:7071/api/HttpTrigger-Java?name=Azure` novamente. Você verá que o ponto de interrupção foi atingido e poderá tentar mais recursos de depuração, como *step*, *watch* e *evaluation*. Interrompa a sessão de depuração clicando no botão parar.
+1. Clique na linha *20* do arquivo `src/main/java/org/example/functions/HttpTriggerFunction.java` para adicionar um ponto de interrupção e acesse o ponto de extremidade `http://localhost:7071/api/HttpTrigger-Java?name=Azure` novamente. Você verá que o ponto de interrupção foi atingido e poderá tentar mais recursos de depuração, como *step* , *watch* e *evaluation* . Interrompa a sessão de depuração clicando no botão parar.
 
     ![Interrupção de funções de depuração local](media/functions-create-first-java-intellij/local-debug-functions-break.png)
 
@@ -104,7 +104,7 @@ Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto l
 
     ![Implantar funções no Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. Se você ainda não tiver nenhum aplicativo de funções, clique em *Nenhuma função disponível, clique para criar uma*.
+1. Se você ainda não tiver nenhum aplicativo de funções, clique em *Nenhuma função disponível, clique para criar uma* .
 
     ![Implantar funções no Azure criar aplicativo](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
 
@@ -114,13 +114,13 @@ Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto l
 
 1. Selecione o aplicativo de funções para o qual você deseja implantar (o novo aplicativo de funções que você acabou de criar será selecionado automaticamente). Clique em *Executar* para implantar as funções.
 
-    ![Implantar funções para execução no Azure](media/functions-create-first-java-intellij/deploy-functions-run.png)
+    ![Captura de tela mostra a caixa de diálogo implantar Azure Functions.](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![Implantar funções para registro em log no Azure](media/functions-create-first-java-intellij/deploy-functions-log.png)
 
 ## <a name="manage-azure-functions-from-idea"></a>Gerenciar Azure Functions por meio do IDEA
 
-1. Você pode gerenciar suas funções com o *Azure Explorer*. No IDEA, clique em *Aplicativo de Funções*: você verá todas as suas funções aqui.
+1. Você pode gerenciar suas funções com o *Azure Explorer* . No IDEA, clique em *Aplicativo de Funções* : você verá todas as suas funções aqui.
 
     ![Exibir funções no Explorer](media/functions-create-first-java-intellij/explorer-view-functions.png)
 
@@ -128,19 +128,19 @@ Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto l
 
     ![Mostrar propriedades de funções](media/functions-create-first-java-intellij/explorer-functions-show-properties.png)
 
-1. Clique com o botão direito do mouse em sua função *HttpTrigger-Java* e selecione *Disparar Função*, você verá que o navegador está aberto com a URL do gatilho.
+1. Clique com o botão direito do mouse em sua função *HttpTrigger-Java* e selecione *Disparar Função* , você verá que o navegador está aberto com a URL do gatilho.
 
-    ![Implantar funções para execução no Azure](media/functions-create-first-java-intellij/explorer-trigger-functions.png)
+    ![Captura de tela mostra um navegador com o U R L.](media/functions-create-first-java-intellij/explorer-trigger-functions.png)
 
 ## <a name="add-more-functions-to-the-project"></a>Adicionar mais funções ao projeto
 
-1. Clique com o botão direito do mouse no pacote *org.example.functions* e selecione *Nova -> Classe de Função do Azure*. 
+1. Clique com o botão direito do mouse no pacote *org.example.functions* e selecione *Nova -> Classe de Função do Azure* . 
 
     ![Adicionar funções à entrada do projeto](media/functions-create-first-java-intellij/add-functions-entry.png)
 
-1. Preencha o nome de classe *HttpTest*, selecione *HttpTrigger* no assistente para criar classe de função e clique em *OK* para criar. Dessa forma, você pode criar funções como desejar.
+1. Preencha o nome de classe *HttpTest* , selecione *HttpTrigger* no assistente para criar classe de função e clique em *OK* para criar. Dessa forma, você pode criar funções como desejar.
 
-    ![Adicionar funções ao projeto – selecionar gatilho](media/functions-create-first-java-intellij/add-functions-trigger.png)
+    ![Captura de tela mostra a caixa de diálogo Criar classe de função.](media/functions-create-first-java-intellij/add-functions-trigger.png)
     
     ![Adicionar funções à saída do projeto](media/functions-create-first-java-intellij/add-functions-output.png)
 
@@ -148,7 +148,7 @@ Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto l
 
 1. Excluir o Azure Functions no Azure Explorer
       
-      ![Adicionar funções ao projeto – selecionar gatilho](media/functions-create-first-java-intellij/delete-function.png)
+      ![A captura de tela mostra excluir selecionado em um menu de contexto.](media/functions-create-first-java-intellij/delete-function.png)
       
 
 ## <a name="next-steps"></a>Próximas etapas

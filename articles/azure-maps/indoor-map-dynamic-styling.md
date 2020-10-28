@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517290"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895368"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementar estilo dinâmico para mapas internos do Criador
 
-O [serviço de estado do recurso](https://docs.microsoft.com/rest/api/maps/featurestate) do Criador do Azure Mapas permite que você aplique estilos com base nas propriedades dinâmicas dos recursos de dados do mapa interno.  Por exemplo, você pode renderizar as salas de reunião de um local com uma cor específica para refletir o status de ocupação. Neste artigo, mostraremos como renderizar dinamicamente os recursos de mapa interno com o [serviço de estado do recurso](https://docs.microsoft.com/rest/api/maps/featurestate) e o [módulo Web interno](how-to-use-indoor-module.md).
+O [serviço de estado do recurso](/rest/api/maps/featurestate) do Criador do Azure Mapas permite que você aplique estilos com base nas propriedades dinâmicas dos recursos de dados do mapa interno.  Por exemplo, você pode renderizar as salas de reunião de um local com uma cor específica para refletir o status de ocupação. Neste artigo, mostraremos como renderizar dinamicamente os recursos de mapa interno com o [serviço de estado do recurso](/rest/api/maps/featurestate) e o [módulo Web interno](how-to-use-indoor-module.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,15 +66,15 @@ Na próxima seção, vamos definir o *estado* de ocupação do escritório `UNIT
 
  Agora, atualizaremos o estado dos dois escritórios, `UNIT26` e `UNIT27`:
 
-1. No aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Solicitação**. Insira o **Nome da solicitação** e selecione uma coleção. Clique em **Salvar**
+1. No aplicativo Postman, selecione **Novo** . Na janela **Criar** , selecione **Solicitação** . Insira o **Nome da solicitação** e selecione uma coleção. Clique em **Salvar**
 
-2. Use a [API de estados de atualização de recursos](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) para atualizar o estado. Passe a ID do conjunto de estados e `UNIT26` para uma das duas unidades. Acrescente sua chave de assinatura do Azure Mapas. Essa é a URL da solicitação **POST** para atualizar o estado:
+2. Use a [API de estados de atualização de recursos](/rest/api/maps/featurestate/updatestatespreview) para atualizar o estado. Passe a ID do conjunto de estados e `UNIT26` para uma das duas unidades. Acrescente sua chave de assinatura do Azure Mapas. Essa é a URL da solicitação **POST** para atualizar o estado:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Nos **Cabeçalhos** da solicitação **POST**, defina `Content-Type` como `application/json`. No **CORPO** da solicitação **POST**, grave o JSON a seguir com as atualizações de recursos. A atualização será salva somente se o carimbo de data/hora postado for posterior ao carimbo de data/hora usado nas solicitações de atualização de estado do recurso anterior para o mesmo recurso `ID`. Passe o `keyName` "ocupado" para atualizar seu valor.
+3. Nos **Cabeçalhos** da solicitação **POST** , defina `Content-Type` como `application/json`. No **CORPO** da solicitação **POST** , grave o JSON a seguir com as atualizações de recursos. A atualização será salva somente se o carimbo de data/hora postado for posterior ao carimbo de data/hora usado nas solicitações de atualização de estado do recurso anterior para o mesmo recurso `ID`. Passe o `keyName` "ocupado" para atualizar seu valor.
 
     ```json
     {
@@ -134,4 +134,3 @@ Consulte as referências das APIs mencionadas neste artigo:
 
 > [!div class="nextstepaction"]
 > [Serviço WFS](creator-indoor-maps.md#web-feature-service-api)
-
