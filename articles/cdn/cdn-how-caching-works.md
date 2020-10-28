@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86201802"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778621"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
 
@@ -65,7 +65,7 @@ Dois cabeçalhos podem ser utilizados para definir a atualização de cache: `Ca
 ## <a name="cache-directive-headers"></a>Cabeçalhos de diretiva de cache
 
 > [!IMPORTANT]
-> Por padrão, um ponto de extremidade CDN do Azure que é otimizado para DSA ignora os cabeçalhos de diretiva de cache e ignora o cache. Para perfis **CDN Standard do Azure da Verizon ** e **CDN Standard do Azure da Akamai**, é possível ajustar como um ponto de extremidade de CDN do Azure trata esses cabeçalhos, usando as [Regras de cache de CDN](cdn-caching-rules.md) para habilitar cache. Somente para **CDN Premium do Azure da Verizon** você usa o [mecanismo de regras](cdn-rules-engine.md) para habilitar cache.
+> Por padrão, um ponto de extremidade CDN do Azure que é otimizado para DSA ignora os cabeçalhos de diretiva de cache e ignora o cache. Para perfis **CDN Standard do Azure da Verizon** e **CDN Standard do Azure da Akamai** , é possível ajustar como um ponto de extremidade de CDN do Azure trata esses cabeçalhos, usando as [Regras de cache de CDN](cdn-caching-rules.md) para habilitar cache. Somente para **CDN Premium do Azure da Verizon** você usa o [mecanismo de regras](./cdn-verizon-premium-rules-engine.md) para habilitar cache.
 
 A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HTTP, que definem a duração do cache e o compartilhamento de cache.
 
@@ -75,7 +75,7 @@ A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HT
 - Quando usado em uma solicitação HTTP do cliente para os POP de CDN, `Cache-Control` é ignorado por todos os perfis de CDN do Azure, por padrão.
 - Quando usado em uma resposta HTTP do cliente para os POP de CDN:
      - **A CDN Standard/Premium do Azure da Verizon** e **CDN Standard do Azure da Microsoft** é compatível com todas as `Cache-Control` diretivas.
-     - **CDN da Azure Standard da Akamai**: dá suporte apenas às seguintes diretivas `Cache-Control`; todas as outras são ignoradas:
+     - **CDN da Azure Standard da Akamai** : dá suporte apenas às seguintes diretivas `Cache-Control`; todas as outras são ignoradas:
          - `max-age`: um cache pode armazenar o conteúdo pelo número de segundos especificado. Por exemplo, `Cache-Control: max-age=5`. Esta diretiva especifica a quantidade máxima de tempo que o conteúdo é considerado como novo.
          - `no-cache`: armazena o conteúdo em cache, mas valida o conteúdo sempre antes de entregá-lo por meio do cache. Equivalente a `Cache-Control: max-age=0`.
          - `no-store`: nunca armazene em cache o conteúdo. Remova o conteúdo se já tiver sido armazenado anteriormente.
@@ -104,7 +104,7 @@ Quando o cache está obsoleto, validadores de cache HTTP são usados para compar
 - Um cache valida um arquivo que usa `ETag` enviando um cabeçalho `If-None-Match` com um ou mais validadores `ETag` na solicitação. Por exemplo, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Se a versão do servidor coincidir com um validador `ETag` na lista, ele enviará o código de status 304 (Não Modificado) em sua resposta. Se a versão for diferente, o servidor responderá com o código de status 200 (OK) e o recurso atualizado.
 
 **Última modificação:**
-- Para a **CDN Standard/Premium do Azure da Verizon somente**, `Last-Modified` se usado se `ETag` não for parte da resposta HTTP. 
+- Para a **CDN Standard/Premium do Azure da Verizon somente** , `Last-Modified` se usado se `ETag` não for parte da resposta HTTP. 
 - Especifica a data e a hora em que o servidor de origem determinou que o recurso foi modificado pela última vez. Por exemplo, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Um cache valida um arquivo utilizando `Last-Modified` enviando um cabeçalho `If-Modified-Since` com uma data e hora na solicitação. O servidor de origem compara essa data com o cabeçalho `Last-Modified` do recurso mais recente. Se o recurso não foi modificado desde a hora especificada, o servidor retornará o código de status 304 (Não Modificado) em sua resposta. Se o recurso foi modificado, o servidor retornará o código de status 200 (OK) e o recurso atualizado.
 
@@ -129,14 +129,11 @@ A tabela a seguir descreve o comportamento de cache padrão para os produtos da 
 | **Honrar origem**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
 | **Duração do cache da CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
-**Aceitar a origem**: especifica se deve aceitar os cabeçalhos de diretiva de cache com suporte, se eles existirem na resposta HTTP do servidor de origem.
+**Aceitar a origem** : especifica se deve aceitar os cabeçalhos de diretiva de cache com suporte, se eles existirem na resposta HTTP do servidor de origem.
 
-**Duração do cache da CDN**: especifica a quantidade de tempo para o qual um recurso é armazenado em cache na CDN do Azure. No entanto, se **Aceitar a origem** for Sim e a resposta HTTP do servidor de origem inclui o cabeçalho de diretiva de cache `Expires` ou `Cache-Control: max-age`, a CDN do Azure usa o valor de duração especificado pelo cabeçalho. 
+**Duração do cache da CDN** : especifica a quantidade de tempo para o qual um recurso é armazenado em cache na CDN do Azure. No entanto, se **Aceitar a origem** for Sim e a resposta HTTP do servidor de origem inclui o cabeçalho de diretiva de cache `Expires` ou `Cache-Control: max-age`, a CDN do Azure usa o valor de duração especificado pelo cabeçalho. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como personalizar e substituir o comportamento de cache padrão na CDN através de regras de cache, consulte [Controlar o comportamento de cache da CDN do Azure com regras de cache](cdn-caching-rules.md). 
 - Para saber como usar sequências de caracteres de consulta para controlar o comportamento de cache, consulte [Controlar o comportamento de cache da CDN do Azure com cadeias de caracteres de consultas](cdn-query-string.md).
-
-
-

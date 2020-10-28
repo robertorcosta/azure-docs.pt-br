@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321094"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778025"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Monitoramento de métricas e logs brutos para a CDN do Azure da Microsoft
 Com a CDN do Azure da Microsoft, você pode monitorar recursos das seguintes maneiras para ajudá-lo a solucionar problemas, rastrear e depurar questões. 
@@ -40,34 +40,34 @@ Para configurar logs brutos para seu perfil da CDN do Azure da Microsoft:
 
 1. No menu portal do Azure, selecione **todos os recursos**  >>  **\<your-CDN-profile>** .
 
-2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
+2. Em **Monitoramento** , selecione **Configurações de diagnóstico** .
 
-3. Selecione **+ Adicionar configuração de diagnóstico**.
+3. Selecione **+ Adicionar configuração de diagnóstico** .
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-01.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
     
     > [!IMPORTANT]
     > Os logs brutos só estão disponíveis no nível do perfil enquanto os logs de código de status http agregados estão disponíveis no nível do ponto de extremidade.
 
-4. Em **Configurações de diagnóstico**, insira um nome em **Nome das configurações de diagnóstico**.
+4. Em **Configurações de diagnóstico** , insira um nome em **Nome das configurações de diagnóstico** .
 
 5. Selecione o **AzureCdnAccessLog** e defina a retenção em dias.
 
-6. Selecione os **Detalhes do destino**. As opções de destino são:
+6. Selecione os **Detalhes do destino** . As opções de destino são:
     * **Enviar para o Log Analytics**
-        * Selecione a **Assinatura** e o **Workspace do Log Analytics**.
+        * Selecione a **Assinatura** e o **Workspace do Log Analytics** .
     * **Arquivar em uma conta de armazenamento**
-        * Selecione a **Assinatura** e a **Conta de Armazenamento**.
+        * Selecione a **Assinatura** e a **Conta de Armazenamento** .
     * **Transmitir por streaming para um hub de eventos**
-        * Selecione a **Assinatura**, **Namespace do hub de eventos**, **Nome do hub de eventos (opcional)** e **Nome de política do hub de eventos**.
+        * Selecione a **Assinatura** , **Namespace do hub de eventos** , **Nome do hub de eventos (opcional)** e **Nome de política do hub de eventos** .
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar** .
 
 ## <a name="configuration---azure-powershell"></a>Configuração-Azure PowerShell
 
-Use [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) para definir a configuração de diagnóstico para logs brutos.
+Use [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) para definir a configuração de diagnóstico para logs brutos.
 
 Os dados de retenção são definidos pela opção **-RetentionInDays** no comando.
 
@@ -178,7 +178,7 @@ Atualmente, a CDN do Azure do serviço da Microsoft fornece logs brutos. Os logs
     ```
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Enviado à substituição da blindagem de origem
-A propriedade de log bruto **isSentToOriginShield** foi preterida e substituída por um novo campo **isReceivedFromClient**. Use o novo campo se você já estiver usando o campo preterido. 
+A propriedade de log bruto **isSentToOriginShield** foi preterida e substituída por um novo campo **isReceivedFromClient** . Use o novo campo se você já estiver usando o campo preterido. 
 
 Os logs brutos incluem logs gerados a partir da borda da CDN (POP filho) e da blindagem de origem. A blindagem de origem se refere a nós pai que estão estrategicamente localizados em todo o mundo. Esses nós se comunicam com servidores de origem e reduzem a carga de tráfego na origem. 
 
@@ -201,7 +201,7 @@ AzureDiagnostics
 ```
 
 > [!IMPORTANT]
-> O recurso de logs brutos HTTP está disponível automaticamente para todos os perfis criados ou atualizados após **25 de fevereiro de 2020**. Para perfis da CDN criados anteriormente, é necessário atualizar o ponto de extremidade da CDN depois de configurar o registro em log. Por exemplo, é possível navegar para a filtragem geográfica em pontos de extremidade da CDN e bloquear qualquer país/região que não seja relevante para sua carga de trabalho e clicar em salvar.
+> O recurso de logs brutos HTTP está disponível automaticamente para todos os perfis criados ou atualizados após **25 de fevereiro de 2020** . Para perfis da CDN criados anteriormente, é necessário atualizar o ponto de extremidade da CDN depois de configurar o registro em log. Por exemplo, é possível navegar para a filtragem geográfica em pontos de extremidade da CDN e bloquear qualquer país/região que não seja relevante para sua carga de trabalho e clicar em salvar.
 
 
 ## <a name="metrics"></a>Métricas
@@ -211,7 +211,7 @@ As métricas são exibidas em gráficos e acessíveis por meio do PowerShell, da
 
 A CDN do Azure da Microsoft mede e envia suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no Portal. 
 
-Para obter mais informações, consulte [Azure monitor métricas](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Para obter mais informações, consulte [Azure monitor métricas](../azure-monitor/platform/data-platform-metrics.md).
 
 **Métricas com suporte da CDN do Azure da Microsoft**
 
@@ -220,9 +220,9 @@ Para obter mais informações, consulte [Azure monitor métricas](https://docs.m
 | Taxa de acertos de bytes * | A porcentagem de egresso do cache da CDN, computada com relação à saída total.                                      | Ponto de extremidade                                                                                    |
 | RequestCount    | O número de solicitações de cliente atendidas pela CDN.                                                                     | Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP. |
 | ResponseSize    | O número de bytes enviados como respostas da borda CDN para os clientes.                                                  |Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP.                                                                                          |
-| TotalLatency    | O tempo total da solicitação do cliente recebida pela CDN **até que o último byte de resposta seja enviado da CDN para o cliente**. |Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP.                                                                                             |
+| TotalLatency    | O tempo total da solicitação do cliente recebida pela CDN **até que o último byte de resposta seja enviado da CDN para o cliente** . |Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP.                                                                                             |
 
-***Bytes atingido ração = (saída da borda-saída da origem)/egress do Edge**
+**_Bytes atingido ração = (saída da borda-saída da origem)/egress do Edge_*
 
 Cenários excluídos no cálculo da taxa de acertos de bytes:
 
@@ -233,11 +233,11 @@ Cenários excluídos no cálculo da taxa de acertos de bytes:
 
 1. No menu portal do Azure, selecione **todos os recursos**  >>  **\<your-CDN-profile>** .
 
-2. Em **monitoramento**, selecione **métricas**:
+2. Em **monitoramento** , selecione **métricas** :
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
-3. Selecione **Adicionar métrica**, selecione a métrica a ser adicionada:
+3. Selecione **Adicionar métrica** , selecione a métrica a ser adicionada:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
@@ -255,13 +255,13 @@ Cenários excluídos no cálculo da taxa de acertos de bytes:
 
 ### <a name="alerts"></a>Alertas
 
-Você pode configurar alertas na CDN da Microsoft selecionando alertas de **monitoramento**  >>  **Alerts**.
+Você pode configurar alertas na CDN da Microsoft selecionando alertas de **monitoramento**  >>  **Alerts** .
 
 Selecione **nova regra de alerta** para as métricas listadas na seção métricas:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
 
-O alerta será cobrado com base em Azure Monitor. Para obter mais informações sobre alertas, consulte [Azure monitor alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+O alerta será cobrado com base em Azure Monitor. Para obter mais informações sobre alertas, consulte [Azure monitor alertas](../azure-monitor/platform/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Métricas adicionais
 Você pode habilitar métricas adicionais usando o Azure Log Analytics e logs brutos para obter um custo adicional.
@@ -272,17 +272,17 @@ Você pode habilitar métricas adicionais usando o Azure Log Analytics e logs br
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::   
 
-3. Selecione **logs** em **geral** no espaço de trabalho do log Analytics.  Em seguida, selecione **introdução**:
+3. Selecione **logs** em **geral** no espaço de trabalho do log Analytics.  Em seguida, selecione **introdução** :
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::   
  
-4. Selecione **perfis CDN**.  Selecione um exemplo de consulta para executar ou fechar a tela de exemplo para inserir uma consulta personalizada:
+4. Selecione **perfis CDN** .  Selecione um exemplo de consulta para executar ou fechar a tela de exemplo para inserir uma consulta personalizada:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::   
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::   
 
-4. Para exibir dados por gráfico, selecione **gráfico**.  Selecione **fixar no painel** para fixar o gráfico no painel do Azure:
+4. Para exibir dados por gráfico, selecione **gráfico** .  Selecione **fixar no painel** para fixar o gráfico no painel do Azure:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true"::: 
 
@@ -293,6 +293,6 @@ Para obter mais informações sobre a CDN do Azure e os outros serviços do Azur
 
 * [Analisar](cdn-log-analysis.md) os padrões de uso da CDN do Azure.
 
-* Saiba mais sobre o [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+* Saiba mais sobre o [Azure Monitor](../azure-monitor/overview.md).
 
-* Configurar o [Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+* Configurar o [Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md).

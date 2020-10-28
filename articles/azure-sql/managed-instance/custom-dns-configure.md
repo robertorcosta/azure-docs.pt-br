@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
-ms.openlocfilehash: 9fdd61c5799724ab3ab098584f85ce52cdd6ccf4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 017698975706aa8501cd059351cf9a9d88594f77
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283251"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779893"
 ---
 # <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurar um DNS personalizado para o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ O Azure SQL Instância Gerenciada deve ser implantado em uma [VNet (rede virtual
 Como o SQL Instância Gerenciada usa o mesmo DNS para seus trabalhos internos, configure o servidor DNS personalizado para que ele possa resolver nomes de domínio públicos.
 
 > [!IMPORTANT]
-> Sempre use um FQDN (nome de domínio totalmente qualificado) para o servidor de email, para a instância do SQL Server e para outros serviços, mesmo que eles estejam dentro de sua zona DNS privada. Por exemplo, use `smtp.contoso.com` para seu servidor de email porque o `smtp` não resolverá corretamente. Criar um servidor vinculado ou replicação que referencie SQL Server VMs dentro da mesma rede virtual também exige um FQDN e um sufixo DNS padrão. Por exemplo, `SQLVM.internal.cloudapp.net`. Para obter mais informações, consulte [resolução de nomes que usa seu próprio servidor DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+> Sempre use um FQDN (nome de domínio totalmente qualificado) para o servidor de email, para a instância do SQL Server e para outros serviços, mesmo que eles estejam dentro de sua zona DNS privada. Por exemplo, use `smtp.contoso.com` para seu servidor de email porque o `smtp` não resolverá corretamente. Criar um servidor vinculado ou replicação que referencie SQL Server VMs dentro da mesma rede virtual também exige um FQDN e um sufixo DNS padrão. Por exemplo, `SQLVM.internal.cloudapp.net`. Para obter mais informações, consulte [resolução de nomes que usa seu próprio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
 > A atualização de servidores DNS da rede virtual não afetará o SQL Instância Gerenciada imediatamente. A configuração de DNS do SQL Instância Gerenciada é atualizada após a concessão do DHCP expirar ou após a atualização da plataforma, o que ocorrer primeiro. **Os usuários são aconselhados a definir sua configuração de DNS de rede virtual antes de criar sua primeira instância gerenciada.**

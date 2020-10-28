@@ -5,19 +5,19 @@ description: Saiba como configurar um banco de dados SQL do Azure e o Azure Syna
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619110"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779961"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o CLI do Azure: habilitar Transparent Data Encryption com chave gerenciada pelo cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -36,11 +36,11 @@ Este artigo explica como usar uma chave de Azure Key Vault para Transparent Data
 - A chave deve ter os seguintes atributos a serem usados para TDE:
   - Sem data de validade
   - Não desabilitado
-  - Capaz de realizar operações *get*, *codificar chave*, *decodificar chave*
+  - Capaz de realizar operações *get* , *codificar chave* , *decodificar chave*
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para obter instruções de instalação do módulo Az, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+Para obter instruções de instalação do módulo Az, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
 Para obter informações específicas sobre Key Vault, consulte [instruções do PowerShell do Key Vault](../../key-vault/secrets/quick-create-powershell.md) e [como usar Key Vault exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
-Para instalar a versão necessária do CLI do Azure (versão 2,0 ou posterior) e conectar-se à sua assinatura do Azure, consulte [instalar e configurar a interface de Command-Line de plataforma cruzada do azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para instalar a versão necessária do CLI do Azure (versão 2,0 ou posterior) e conectar-se à sua assinatura do Azure, consulte [instalar e configurar a interface de Command-Line de plataforma cruzada do azure 2,0](/cli/azure/install-azure-cli).
 
 Para obter informações específicas sobre Key Vault, consulte [gerenciar Key Vault usando a cli 2,0](../../key-vault/general/manage-with-cli2.md) e [como usar Key Vault exclusão reversível com a CLI](../../key-vault/general/soft-delete-cli.md).
 
@@ -239,7 +239,7 @@ Se um problema ocorrer, verifique o seguinte:
 
 - Se a nova chave não puder ser adicionada ao servidor, ou a nova chave não puder ser atualizada como o protetor de TDE, verifique o seguinte:
    - A chave não deve ter uma data de validade
-   - A chave deve ter as operações *get*, *codificar chave* e *decodificar chave* habilitadas.
+   - A chave deve ter as operações *get* , *codificar chave* e *decodificar chave* habilitadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

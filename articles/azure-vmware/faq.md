@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 91be1c51639aa3ae8acbf0c37f5c4a8174b5a592
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461644"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779434"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -19,7 +19,7 @@ Respostas para perguntas frequentes sobre a solução do Azure VMware.
 
 #### <a name="what-is-azure-vmware-solution"></a>O que é a Solução VMware no Azure?
 
-À medida que as empresas buscam estratégias de modernização de TI para melhorar a agilidade dos negócios, reduzir custos e acelerar a inovação, as plataformas de nuvem híbrida despontaram como facilitadoras da transformação digital dos clientes. A solução Azure VMware combina o software de Data Center (SDDC) definido pelo software VMware com Microsoft Azure ecossistema global de serviço de nuvem. A solução VMware do Azure é gerenciada para atender aos requisitos de desempenho, disponibilidade, segurança e conformidade.
+À medida que as empresas buscam estratégias de modernização de ti para melhorar a agilidade dos negócios, reduzir custos e acelerar a inovação, as plataformas de nuvem híbrida surgiram como habilitadores-chave da transformação digital dos clientes. A solução Azure VMware combina o software Software-Defined Data Center (SDDC) do VMware com Microsoft Azure ecossistema global de serviço de nuvem. A solução VMware do Azure é gerenciada para atender aos requisitos de desempenho, disponibilidade, segurança e conformidade.
 
 ## <a name="azure-vmware-solution-service"></a>Serviço de solução VMware do Azure
 
@@ -49,11 +49,11 @@ Sim. A migração de VM e o vMotion podem ser usados para mover VMs para uma nuv
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>Uma versão específica do vSphere é necessária em ambientes locais?
 
-Como todos os ambientes de nuvem vêm com o VMware HCX, o vSphere 5,5 ou posterior em ambientes locais para o vMotion.
+Todos os ambientes de nuvem vêm com o VMware HCX, o vSphere 5,5 ou posterior em ambientes locais para o vMotion.
 
 #### <a name="what-does-the-change-control-process-look-like"></a>Como é o processo de controle de alterações?
 
-As atualizações feitas no próprio serviço seguirão o processo de gerenciamento de alterações padrão do Microsoft Azure. Os clientes são responsáveis por todas as tarefas de administração de carga de trabalho e pelos processos associados de gerenciamento de alterações.
+As atualizações feitas no próprio serviço seguirão Microsoft Azure processo de gerenciamento de alterações padrão. Os clientes são responsáveis por todas as tarefas de administração de carga de trabalho e pelos processos associados de gerenciamento de alterações.
 
 #### <a name="how-is-this-different-from-azure-vmware-solution-by-cloudsimple"></a>Qual é a diferença disso para a Solução VMware da CloudSimple no Azure?
 
@@ -65,10 +65,10 @@ A Microsoft e a Red Hat compartilham uma equipe de suporte integrada e colocaliz
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>O VMware HCX Enterprise Edition está disponível e, nesse caso, o quanto custa?
 
-O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora a solução VMware HCX EE para Azure VMware esteja em versão prévia, ela é uma função/serviço gratuita e está sujeita a termos e condições de serviço de visualização. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você pode desativar ou recusar o serviço.
+O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia* . Embora a solução VMware HCX EE para Azure VMware esteja em versão prévia, ela é uma função/serviço gratuita e está sujeita a termos e condições de serviço de visualização. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você pode desativar ou recusar o serviço.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>As VMs de solução do Azure VMware podem ser gerenciadas pelo VMRC?
-Sim, desde que o sistema no qual ele está instalado possa acessar a nuvem privada vCenter e esteja usando o DNS público (para que possa resolver nomes de host ESXi).
+Sim, desde que o sistema no qual ele está instalado possa acessar a nuvem privada vCenter e esteja usando o DNS público para resolver nomes de host ESXi.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Há instruções especiais para instalar e usar o VMRC com VMs de solução do Azure VMware?
 Não, use as [instruções fornecidas pelo VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e realize os pré-requisitos de VM especificados nessas instruções. 
@@ -102,7 +102,7 @@ Cada host ESXi tem dois diskgroups vSAN com uma camada de capacidade de 15,2 TB 
 
 #### <a name="how-much-network-bandwidth-is-available-in-each-esxi-host"></a>Cada host ESXi possui quanto de largura de banda de rede disponível?
 
-Cada host ESXi é uma solução do Azure VMware é configurada com NICs de 4 25 Gbps, com duas NICs provisionadas para o tráfego do sistema ESXi e duas NICs provisionadas para o tráfego de carga de trabalho. 
+Cada host ESXi na solução VMware do Azure é configurado com NICs de 4 25 Gbps, duas NICs provisionadas para o tráfego do sistema ESXi e duas NICs provisionadas para o tráfego de carga de trabalho. 
 
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>Os dados são armazenados nos armazenamentos do vSAN criptografados em repouso?
 
@@ -116,9 +116,9 @@ Até o que sabemos, qualquer solução de backup que usa o VMware VADP com o mod
 
 Como essas soluções de backup são instaladas e gerenciadas pelos clientes, elas podem entrar em contato com o respectivo ISV para obter suporte. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>Qual é a política de armazenamento correta para a configuração de eliminação de duplicatas?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>Qual é a política de armazenamento correta para a configuração de eliminação de duplicação?
 
-Use a política de armazenamento *thin_provision* para o modelo de VM.  O padrão é *thick_provision*.
+Use a política de armazenamento *thin_provision* para o modelo de VM.  O padrão é *thick_provision* .
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>Os logs de infraestrutura SNMP são compartilhados?
 
@@ -130,13 +130,13 @@ Não.
 
 Não, clusters e hosts de nuvem privada são dedicados e apagados com segurança antes e depois do uso.
 
-#### <a name="what-are-the-minimum-and-maximum-number-of-hosts-per-cluster"></a>Quais são os números mínimo e máximo de hosts por cluster?
+#### <a name="what-are-the-minimum-and-the-maximum-number-of-hosts-per-cluster"></a>Qual é o número mínimo e máximo de hosts por cluster?
 
 Os clusters podem ser dimensionados entre 3 e 16 hosts ESXi. Os clusters de avaliação são limitados a três hosts.
 
 #### <a name="can-i-scale-my-private-cloud-clusters"></a>Posso dimensionar meus clusters de nuvem privada?
 
-Sim, os clusters são dimensionados entre o número mínimo e máximo de hosts ESXi. Os clusters de avaliação são limitados a três hosts.
+Sim, os clusters são dimensionados entre o mínimo e o número máximo de hosts ESXi. Os clusters de avaliação são limitados a três hosts.
 
 #### <a name="what-are-trial-clusters"></a>O que são clusters de avaliação?
 
@@ -170,20 +170,20 @@ As atualizações do pacote de software de nuvem privada são feitas para manter
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>Com que frequência a pilha de software de nuvem privada será atualizada?
 
-O software de nuvem privada é atualizado em um agendamento que acompanha o lançamento do pacote de software do VMware. Sua nuvem privada não exige tempo de inatividade para atualizações.
+O software de nuvem privada é atualizado em um agendamento que controla a versão do pacote de software do VMware. Sua nuvem privada não exige tempo de inatividade para atualizações.
 
 ## <a name="connectivity"></a>Conectividade
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Que planejamento de endereço IP de rede é necessário para incorporar nuvens privadas a ambientes locais?
 
-Um espaço de endereço de rede privada/22 é necessário para implantar uma nuvem privada da solução Azure VMware. Esse espaço de endereço privado não deve se sobrepor a outras redes virtuais em uma assinatura ou a redes locais.
+Um espaço de endereço de rede privada/22 é necessário para implantar uma nuvem privada da solução Azure VMware. Esse espaço de endereço privado não deve se sobrepor a outras redes virtuais em uma assinatura ou com redes locais.
  
 #### <a name="how-do-i-connect-from-on-premises-environments-to-an-azure-vmware-solution-private-cloud"></a>Como fazer conectar-se de ambientes locais a uma nuvem privada da solução Azure VMware?
 
 Você pode se conectar ao serviço de duas maneiras: 
 
 - Com uma VM ou um gateway de aplicativo implantado em uma rede virtual do Azure que é emparelhada por meio do ExpressRoute com a nuvem privada.
-- Por meio do Alcance Global ExpressRoute do datacenter local com um circuito ExpressRoute do Azure.
+- Por meio do ExpressRoute Alcance Global do seu data center local para um circuito do Azure ExpressRoute.
 
 #### <a name="how-do-i-connect-a-workload-vm-to-the-internet-or-an-azure-service-endpoint"></a>Como faço para conectar uma VM de carga de trabalho à Internet ou a um ponto de extremidade de serviço do Azure?
 
@@ -228,7 +228,7 @@ Para perguntas gerais sobre preços, consulte a página de [preços](https://azu
 
 #### <a name="who-supports-azure-vmware-solution"></a>Quem dá suporte à solução Azure VMware?
 
-O suporte para a solução Azure VMware é fornecido pela Microsoft. Você pode enviar uma [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+A Microsoft oferece suporte à solução Azure VMware. Você pode enviar uma [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Quais contas eu preciso para criar uma nuvem privada da solução Azure VMware?
 
@@ -239,10 +239,10 @@ Você precisará de uma conta do Azure em uma assinatura do Azure.
 * Você precisará de um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Você precisará de uma conta do Azure em uma assinatura do Azure.
 
-Antes de criar o recurso de solução do Azure VMware, você deve enviar um tíquete de suporte para que seus nós sejam alocados. Leva até cinco dias úteis para confirmar sua solicitação e alocar seus nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo.
+Antes de criar o recurso da solução Azure VMware, você deve enviar um tíquete de suporte para alocar seus nós. Leva até cinco dias úteis para confirmar sua solicitação e alocar seus nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo.
 
 
-1. Em seu portal do Azure, em **ajuda + suporte**, crie uma **[nova solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o tíquete:
+1. Em seu portal do Azure, em **ajuda + suporte** , crie uma **[nova solicitação de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o tíquete:
    - **Tipo de problema:** técnico
    - **Assinatura:** Selecione sua assinatura
    - **Serviço:** Todos os serviços > solução VMware do Azure
@@ -272,9 +272,9 @@ Antes de criar o recurso de solução do Azure VMware, você deve enviar um tíq
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   ```
+   `"
 
-   Para conhecer outras maneiras de registrar o provedor de recursos, confira [Provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

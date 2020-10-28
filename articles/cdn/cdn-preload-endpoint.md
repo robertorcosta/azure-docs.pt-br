@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fb414680b8ff64d057f9f68d7b97380baeaa551
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192566"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778199"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar ativos em um ponto de extremidade da CDN do Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -37,17 +37,17 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 1. No [Portal do Azure](https://portal.azure.com), navegue até o perfil da CDN que contém o ponto de extremidade que você deseja pré-carregar. O painel do perfil é aberto.
     
 2. Clique no ponto de extremidade na lista. O painel do ponto de extremidade é aberto.
-3. No painel do ponto de extremidade da CDN, selecione **Carregar**.
+3. No painel do ponto de extremidade da CDN, selecione **Carregar** .
    
     ![Painel do ponto de extremidade do CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
     O painel **Carregar** é aberto.
    
     ![Painel de carregamento da CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
-4. Em **Caminho do conteúdo**, insira o caminho completo de cada ativo que você deseja carregar (por exemplo, `/pictures/kitten.png`).
+4. Em **Caminho do conteúdo** , insira o caminho completo de cada ativo que você deseja carregar (por exemplo, `/pictures/kitten.png`).
    
    > [!TIP]
-   > Após você começar a inserir texto, mais caixas de texto de **Caminho do conteúdo** serão mostradas para permitir que você crie uma lista com vários ativos. Para excluir ativos da lista, selecione o botão de reticências (...) e selecione **Excluir**.
+   > Após você começar a inserir texto, mais caixas de texto de **Caminho do conteúdo** serão mostradas para permitir que você crie uma lista com vários ativos. Para excluir ativos da lista, selecione o botão de reticências (...) e selecione **Excluir** .
    > 
    > Cada caminho de conteúdo deve ser uma URL relativa que se encaixa nas seguintes [expressões regulares](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Carregar um único caminho de arquivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
@@ -58,7 +58,7 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
    > 
    
     ![Botão Carregar](./media/cdn-preload-endpoint/cdn-load-paths.png)
-5. Quando terminar de inserir os caminhos de conteúdo, selecione **Carregar**.
+5. Quando terminar de inserir os caminhos de conteúdo, selecione **Carregar** .
    
 
 > [!NOTE]
@@ -66,8 +66,7 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 > 
 > 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
-* [Referência da API REST da CDN do Azure: pré-carregar conteúdo em um ponto de extremidade](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Referência da API REST da CDN do Azure: limpar conteúdo de um ponto de extremidade](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
-
+* [Referência da API REST da CDN do Azure: pré-carregar conteúdo em um ponto de extremidade](/rest/api/cdn/endpoints/loadcontent)
+* [Referência da API REST da CDN do Azure: limpar conteúdo de um ponto de extremidade](/rest/api/cdn/endpoints/purgecontent)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921158"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778924"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Usar a CDN do Azure com o CORS
 ## <a name="what-is-cors"></a>O que é o CORS?
@@ -58,7 +58,7 @@ Uma solicitação complexa é uma solicitação CORS onde o navegador é necess�
 ## <a name="wildcard-or-single-origin-scenarios"></a>Cenários de origem única ou curinga
 O CORS na Azure CDN funcionará automaticamente sem nenhuma configuração adicional quando o cabeçalho **Access-Control-Allow-Origin** for definido como caractere curinga (*) ou uma origem única.  A CDN armazenará a primeira resposta em cache e as solicitações subsequentes usarão o mesmo cabeçalho.
 
-Se já tiverem sido feitas solicitações à CDN antes de o CORS ser definido na origem, você precisará limpar o conteúdo no conteúdo do ponto de extremidade para recarregar o conteúdo com o cabeçalho **Access-Control-Allow-Origin**.
+Se já tiverem sido feitas solicitações à CDN antes de o CORS ser definido na origem, você precisará limpar o conteúdo no conteúdo do ponto de extremidade para recarregar o conteúdo com o cabeçalho **Access-Control-Allow-Origin** .
 
 ## <a name="multiple-origin-scenarios"></a>Cenários de várias origens
 Se você precisar permitir que uma lista específica de origens seja permitida para o CORS, isso será um pouco mais complicado. O problema ocorre quando a CDN armazena o cabeçalho **Access-Control-Allow-Origin** em cache para a primeira origem do CORS.  Quando uma origem do CORS diferente fizer uma solicitação subsequente, a CDN terá fornecido o cabeçalho **Access-Control-Allow-Origin** armazenado em cache que não é correspondente.  Há várias maneiras de corrigir o problema.
@@ -69,13 +69,13 @@ No Azure CDN Standard da Microsoft, você pode criar uma regra no [mecanismo de 
 ![Exemplo de regras com o mecanismo de regras padrão](./media/cdn-cors/cdn-standard-cors.png)
 
 > [!TIP]
-> Você pode adicionar ações adicionais à sua regra para modificar cabeçalhos de resposta adicionais, como **Access-Control-Allow-Methods**.
+> Você pode adicionar ações adicionais à sua regra para modificar cabeçalhos de resposta adicionais, como **Access-Control-Allow-Methods** .
 > 
 
-No **Azure CDN Standard da Akamai**, o único mecanismo para permitir várias origens sem o uso da origem curinga é usar o cache de [cadeia de caracteres de consulta](cdn-query-string.md). Habilite a configuração da cadeia de caracteres de consulta para o ponto de extremidade da CDN e usar uma cadeia de caracteres de consulta exclusiva para solicitações de cada domínio permitido. Isso fará com que a CDN armazene em cache um objeto separado para cada cadeia de caractere de consulta exclusiva. No entanto, essa abordagem não é ideal, pois resultará em várias cópias do mesmo arquivo armazenadas em cache na CDN.  
+No **Azure CDN Standard da Akamai** , o único mecanismo para permitir várias origens sem o uso da origem curinga é usar o cache de [cadeia de caracteres de consulta](cdn-query-string.md). Habilite a configuração da cadeia de caracteres de consulta para o ponto de extremidade da CDN e usar uma cadeia de caracteres de consulta exclusiva para solicitações de cada domínio permitido. Isso fará com que a CDN armazene em cache um objeto separado para cada cadeia de caractere de consulta exclusiva. No entanto, essa abordagem não é ideal, pois resultará em várias cópias do mesmo arquivo armazenadas em cache na CDN.  
 
 ### <a name="azure-cdn-premium-from-verizon"></a>CDN Premium do Azure da Verizon
-Usando o mecanismo de regras do Verizon Premium, você precisará [criar uma regra](cdn-rules-engine.md) para verificar o cabeçalho de **origem** na solicitação.  Se for uma origem válida, a regra definirá o cabeçalho **Access-Control-Allow-Origin** com a origem fornecida na solicitação.  Se a origem especificada no cabeçalho de **origem** não for permitida, a regra deverá omitir o cabeçalho **Access-Control-Allow-Origin** , que fará com que o navegador rejeite a solicitação. 
+Usando o mecanismo de regras do Verizon Premium, você precisará [criar uma regra](./cdn-verizon-premium-rules-engine.md) para verificar o cabeçalho de **origem** na solicitação.  Se for uma origem válida, a regra definirá o cabeçalho **Access-Control-Allow-Origin** com a origem fornecida na solicitação.  Se a origem especificada no cabeçalho de **origem** não for permitida, a regra deverá omitir o cabeçalho **Access-Control-Allow-Origin** , que fará com que o navegador rejeite a solicitação. 
 
 Há duas maneiras de fazer isso com o mecanismo de regras Premium. Em ambos os casos, o cabeçalho **Access-Control-Allow-Origin** do servidor de origem do arquivo é ignorado e o mecanismo de regras da CDN gerencia completamente as origens CORS permitidas.
 
@@ -91,7 +91,7 @@ https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.co
 > 
 > 
 
-Se a expressão regular for correspondente, a regra substituirá o cabeçalho **Access-Control-Allow-Origin** (se houver) da origem pela origem que enviou a solicitação.  Você também pode adicionar outros cabeçalhos CORS, como **Access-Control-Allow-Methods**.
+Se a expressão regular for correspondente, a regra substituirá o cabeçalho **Access-Control-Allow-Origin** (se houver) da origem pela origem que enviou a solicitação.  Você também pode adicionar outros cabeçalhos CORS, como **Access-Control-Allow-Methods** .
 
 ![Exemplo de regras com expressões regulares](./media/cdn-cors/cdn-cors-regex.png)
 
@@ -103,7 +103,4 @@ Em vez de expressões regulares, você pode criar uma regra separada para cada o
 > [!TIP]
 > No exemplo acima, o uso do caractere curinga * instrui o mecanismo de regras a corresponder HTTP e HTTPS.
 > 
-> 
-
-
-
+>

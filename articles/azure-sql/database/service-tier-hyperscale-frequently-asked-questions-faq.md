@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488857"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780182"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,17 +42,17 @@ As camadas de serviço baseadas em vCore são diferenciadas com base na disponib
 
 | | Tipo de recurso | Uso Geral |  Hiperescala | Comercialmente Crítico |
 |:---:|:---:|:---:|:---:|:---:|
-| **Mais adequado para** |Todos|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
+| **Mais adequado para** |Tudo|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
 |  **Tipo de recurso** ||Banco de dados SQL/SQL Instância Gerenciada | Banco de dados individual | Banco de dados SQL/SQL Instância Gerenciada |
 | **Tamanho da computação**|Banco de dados SQL * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
-| **Tamanho da computação**|Instância Gerenciada do SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
-| **Tipo de armazenamento** | Todos |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
+| **Tamanho da computação**|Instância Gerenciada de SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
+| **Tipo de armazenamento** | Tudo |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
 | **Tamanho de armazenamento** | Banco de dados SQL *| 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
-| **Tamanho de armazenamento** | Instância Gerenciada do SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
+| **Tamanho de armazenamento** | Instância Gerenciada de SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **IOPS** | Banco de dados individual | 500 IOPS por vCore com máximo de 7.000 IOPS | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximo|
-| **IOPS** | Instância Gerenciada do SQL | Depende do tamanho do arquivo | N/D | 1375 IOPS/vCore |
-|**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
-|**Backups**|Todos|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
+| **IOPS** | Instância Gerenciada de SQL | Depende do tamanho do arquivo | N/D | 1375 IOPS/vCore |
+|**Disponibilidade**|Tudo|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
+|**Backups**|Tudo|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
 
 \* Não há suporte para pools elásticos na camada de serviço de hiperescala
 
@@ -136,7 +136,7 @@ Não.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>Quantas réplicas de expansão de leitura têm suporte
 
-Os bancos de dados de hiperescala são criados com uma réplica de escala horizontal de leitura (duas réplicas, incluindo a primária) por padrão. Você pode dimensionar o número de réplicas somente leitura entre 0 e 4 usando o [portal do Azure](https://portal.azure.com) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Os bancos de dados de hiperescala são criados com uma réplica de escala horizontal de leitura (duas réplicas, incluindo a primária) por padrão. Você pode dimensionar o número de réplicas somente leitura entre 0 e 4 usando o [portal do Azure](https://portal.azure.com) ou a [API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>Para alta disponibilidade, preciso provisionar réplicas de computação adicionais
 
@@ -198,7 +198,7 @@ Sim, incluindo a compactação de linha, página e columnstore.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Se eu tiver uma tabela enorme, os dados da minha tabela serão espalhados por vários arquivos de dados
 
-Sim. As páginas de dados associadas a uma determinada tabela podem acabar em vários arquivos de dados, que fazem parte do mesmo grupo de arquivos. SQL Server usa a [estratégia de preenchimento proporcional](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir dados em arquivos de dados.
+Sim. As páginas de dados associadas a uma determinada tabela podem acabar em vários arquivos de dados, que fazem parte do mesmo grupo de arquivos. SQL Server usa a [estratégia de preenchimento proporcional](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir dados em arquivos de dados.
 
 ## <a name="data-migration-questions"></a>Questões de migração de dados
 
@@ -231,9 +231,9 @@ O hiperscale é capaz de consumir 100 MB/s de dados novos/alterados, mas o tempo
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Posso ler dados do armazenamento de BLOBs e fazer o carregamento rápido (como o polybase no Azure Synapse Analytics)
 
-Você pode fazer com que um aplicativo cliente leia dados do armazenamento do Azure e carregue a carga de dados em um banco de dados de hiperescala (assim como você pode com qualquer outro banco de dado no banco de dados SQL do Azure). Atualmente, o polybase não tem suporte no banco de dados SQL do Azure. Como alternativa para fornecer carga rápida, você pode usar [Azure data Factory](https://docs.microsoft.com/azure/data-factory/)ou usar um trabalho do spark no [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) com o [conector do Spark para SQL](spark-connector.md). O conector do Spark SQL dá suporte à inserção em massa.
+Você pode fazer com que um aplicativo cliente leia dados do armazenamento do Azure e carregue a carga de dados em um banco de dados de hiperescala (assim como você pode com qualquer outro banco de dado no banco de dados SQL do Azure). Atualmente, o polybase não tem suporte no banco de dados SQL do Azure. Como alternativa para fornecer carga rápida, você pode usar [Azure data Factory](../../data-factory/index.yml)ou usar um trabalho do spark no [Azure Databricks](/azure/azure-databricks/) com o [conector do Spark para SQL](spark-connector.md). O conector do Spark SQL dá suporte à inserção em massa.
 
-Também é possível ler em massa dados do armazenamento de BLOBs do Azure usando BULK INSERT ou OPENROWSET: [exemplos de acesso em massa aos dados no armazenamento de BLOBs do Azure](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+Também é possível ler em massa dados do armazenamento de BLOBs do Azure usando BULK INSERT ou OPENROWSET: [exemplos de acesso em massa aos dados no armazenamento de BLOBs do Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 A recuperação simples ou o modelo de log em massa não é suportada na Hiperescala. O modelo de recuperação completa é necessário para fornecer alta disponibilidade e recuperação pontual. No entanto, a arquitetura de log de hiperescala fornece uma melhor taxa de ingestão de dados em comparação com outras camadas de serviço do Azure SQL Database.
 
@@ -277,7 +277,7 @@ Não. Os backups são gerenciados pelo subsistema de armazenamento e aproveitam 
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Posso executar a restauração geográfica com um banco de dados de hiperescala
 
-Sim. A restauração geográfica tem suporte total. Diferentemente da restauração pontual, a restauração geográfica requer uma operação de tamanho de dados. Os arquivos de dados são copiados em paralelo, de modo que a duração dessa operação depende principalmente do tamanho do maior arquivo no banco de dados, em vez de ter o tamanho total. O tempo de restauração geográfica será significativamente menor se o banco de dados for restaurado na região do Azure [emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) com a região do banco de dados de origem.
+Sim. A restauração geográfica tem suporte total. Diferentemente da restauração pontual, a restauração geográfica requer uma operação de tamanho de dados. Os arquivos de dados são copiados em paralelo, de modo que a duração dessa operação depende principalmente do tamanho do maior arquivo no banco de dados, em vez de ter o tamanho total. O tempo de restauração geográfica será significativamente menor se o banco de dados for restaurado na região do Azure [emparelhada](../../best-practices-availability-paired-regions.md) com a região do banco de dados de origem.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Posso configurar a replicação geográfica com o banco de dados de hiperescala
 
@@ -357,7 +357,7 @@ Não. Somente a réplica de computação primária aceita solicitações de leit
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>Quantas réplicas de computação secundárias posso provisionar
 
-Criamos uma réplica secundária para bancos de dados de hiperescala por padrão. Se você quiser ajustar o número de réplicas, poderá fazer isso usando [portal do Azure](https://portal.azure.com) ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Criamos uma réplica secundária para bancos de dados de hiperescala por padrão. Se você quiser ajustar o número de réplicas, poderá fazer isso usando [portal do Azure](https://portal.azure.com) ou a [API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Como fazer conectar-se a essas réplicas de computação secundárias
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191155"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779162"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
 
@@ -38,7 +38,7 @@ Uma região de cobrança é uma área geográfica usada para determinar qual tax
 
 - Zona 5: Índia
 
-Para obter informações sobre regiões de ponto de presença (POP), consulte [Locais de POP da CDN do Azure por região](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Por exemplo, um POP localizado no México está na região da América do Norte e, portanto, é incluído na zona 1. 
+Para obter informações sobre regiões de ponto de presença (POP), consulte [Locais de POP da CDN do Azure por região](./cdn-pop-locations.md). Por exemplo, um POP localizado no México está na região da América do Norte e, portanto, é incluído na zona 1. 
 
 Para obter informações sobre preços da CDN do Azure, consulte [Preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -48,7 +48,7 @@ A região de cobrança da CDN do Azure é baseada no local do servidor de origem
 Por exemplo, se um usuário localizado no México emite uma solicitação e ela é atendida por um servidor localizado em um POP dos Estados Unidos devido a condições de emparelhamento ou tráfego, a região de cobrança será dos Estados Unidos.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>O que é uma transação faturável da CDN do Azure?
-Qualquer solicitação de HTTP(S) que termina na CDN é um evento faturável, o que inclui todos os tipos de resposta: êxito, falha ou outro. No entanto, diferentes respostas podem gerar quantidades diferentes de tráfego. Por exemplo, *304 Não modificado* e outras respostas somente cabeçalho geram pouco tráfego porque são uma pequena resposta no cabeçalho; de forma semelhante, as respostas de erro (por exemplo, *404 Não Encontrado*) são faturáveis, mas incorrem em um pequeno custo devido ao pequeno conteúdo da resposta.
+Qualquer solicitação de HTTP(S) que termina na CDN é um evento faturável, o que inclui todos os tipos de resposta: êxito, falha ou outro. No entanto, diferentes respostas podem gerar quantidades diferentes de tráfego. Por exemplo, *304 Não modificado* e outras respostas somente cabeçalho geram pouco tráfego porque são uma pequena resposta no cabeçalho; de forma semelhante, as respostas de erro (por exemplo, *404 Não Encontrado* ) são faturáveis, mas incorrem em um pequeno custo devido ao pequeno conteúdo da resposta.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Quais outros custos do Azure estão associados ao uso da CDN do Azure?
 Usar a CDN do Azure também incorre em alguns encargos de uso sobre os serviços usados como a origem para os objetos. Normalmente, esses custos são uma pequena fração do custo geral de uso da CDN.
@@ -66,7 +66,7 @@ Se você estiver usando o armazenamento de BLOBs do Azure como a origem para o s
 
 Para saber mais sobre a cobrança do Armazenamento do Microsoft Azure, confira [Noções básicas sobre cobrança no armazenamento do Azure – largura de banda, transações e capacidade](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Se estiver usando *entrega de serviço hospedado*, incorrerá em cobranças da seguinte maneira:
+Se estiver usando *entrega de serviço hospedado* , incorrerá em cobranças da seguinte maneira:
 
 - Tempo de computação do Azure: as instâncias de computação que agem como a origem.
 
@@ -106,7 +106,7 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Azure Bastion
 - Serviço de Aplicativo do Azure
 - Funções do Azure
-- Azure Data Factory
+- Fábrica de dados do Azure
 - Gerenciamento de API do Azure
 - Lote do Azure 
 - Azure Data Explorer
@@ -119,4 +119,4 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Cache Redis do Azure
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como gerencio meus custos com mais eficiência?
-Defina a vida útil mais longa possível em seu conteúdo. 
+Defina a vida útil mais longa possível em seu conteúdo.
