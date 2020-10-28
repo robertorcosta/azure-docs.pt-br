@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566985"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786489"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Perguntas frequentes sobre SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > VMs do SQL Server no Azure, incluindo aquelas implantadas de imagens generalizadas personalizadas, devem estar [registradas no provedor de recursos de VM do SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) para atender aos requisitos de conformidade e utilizar recursos opcionais, como a aplicação automatizada de patches e os backups automáticos. O provedor de recursos também permite [especificar o tipo de licença](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) para cada VM do SQL Server.
+   > VMs do SQL Server no Azure, incluindo aquelas implantadas de imagens generalizadas personalizadas, devem estar [registradas no provedor de recursos de VM do SQL](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) para atender aos requisitos de conformidade e utilizar recursos opcionais, como a aplicação automatizada de patches e os backups automáticos. O provedor de recursos também permite [especificar o tipo de licença](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) para cada VM do SQL Server.
 
 1. **Posso usar meu próprio VHD para implantar uma VM do SQL Server?**
 
@@ -145,11 +145,11 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
  
    Sim, contanto que a VM do SQL Server tenha sido implantada na nuvem pública usando o modelo do Resource Manager e não o modelo clássico. Todos os outros clientes podem se registrar com o novo provedor de recursos de VM do SQL Server. No entanto, somente os clientes com o benefício do [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) poderão usar sua própria licença ativando o [AHB (Benefício Híbrido do Azure)](https://azure.microsoft.com/pricing/hybrid-benefit/) em uma VM do SQL Server. 
 
-1. **O que acontece com o provedor de recursos (_Microsoft.SqlVirtualMachine_) se o recurso da VM for movido ou descartado?** 
+1. **O que acontece com o provedor de recursos ( _Microsoft.SqlVirtualMachine_ ) se o recurso da VM for movido ou descartado?** 
 
    Quando o recurso Microsoft.Compute / VirtualMachine é descartado ou movido, o recurso Microsoft.SqlVirtualMachine associado é notificado para replicar de maneira assíncrona a operação.
 
-1. **O que acontece com a VM se o provedor de recursos (_Microsoft. SqlVirtualMachine_) for descartado?**
+1. **O que acontece com a VM se o provedor de recursos ( _Microsoft. SqlVirtualMachine_ ) for descartado?**
 
     O recurso Microsoft.Compute / Virtual Machine não é afetado quando o recurso Microsoft.Sql Virtual Machine é descartado. No entanto, as alterações de licenciamento serão padronizadas de volta para a origem da imagem original. 
 
@@ -169,13 +169,13 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **Posso desinstalar a instância padrão do SQL Server?**
 
-   Sim, mas há algumas considerações. Primeiro, a cobrança associada ao SQL Server pode continuar dependendo do modelo de licença da VM. Segundo, conforme indicado na resposta anterior, há recursos que dependem da [extensão do agente de IaaS do SQL Server](sql-server-iaas-agent-extension-automate-management.md). Se você desinstalar a instância padrão sem remover a extensão de IaaS, a extensão continuará a procurar a instância padrão e poderá gerar erros de log de eventos. Esses erros são provenientes das duas seguintes fontes: **Gerenciamento de Credenciais do Microsoft SQL Server** e **Microsoft SQL Server IaaS Agent**. Um dos erros pode ser semelhante ao seguinte:
+   Sim, mas há algumas considerações. Primeiro, a cobrança associada ao SQL Server pode continuar dependendo do modelo de licença da VM. Segundo, conforme indicado na resposta anterior, há recursos que dependem da [extensão do agente de IaaS do SQL Server](sql-server-iaas-agent-extension-automate-management.md). Se você desinstalar a instância padrão sem remover a extensão de IaaS, a extensão continuará a procurar a instância padrão e poderá gerar erros de log de eventos. Esses erros são provenientes das duas seguintes fontes: **Gerenciamento de Credenciais do Microsoft SQL Server** e **Microsoft SQL Server IaaS Agent** . Um dos erros pode ser semelhante ao seguinte:
 
       Ocorreu um erro relacionado à rede ou específico da instância ao estabelecer uma conexão com o SQL Server. O servidor não foi encontrado ou não estava acessível.
 
    Se você optar por desinstalar a instância padrão, desinstale também a [Extensão do SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). 
 
-1. **Posso usar uma instância nomeada do SQL Server com a extensão de IaaS**?
+1. **Posso usar uma instância nomeada do SQL Server com a extensão de IaaS** ?
    
    Sim, se a instância nomeada for única no SQL Server e se a instância padrão original for [devidamente desinstalada](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Se não houver nenhuma instância padrão e existirem várias instâncias nomeadas em uma única VM do SQL Server, a extensão do agente de IaaS do SQL Server não será instalada. 
 
@@ -210,7 +210,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **Posso fazer upgrade da minha instância do SQL Server 2008/2008 R2 depois de registrá-la no provedor de recursos de VM do SQL Server?**
 
-   Sim. Você pode usar qualquer mídia de instalação para fazer upgrade da versão e da edição do SQL Server. Você também pode fazer upgrade do [modo de extensão de IaaS do SQL](sql-vm-resource-provider-register.md#management-modes) de _sem agente_ para _completo_. Isso dará acesso a todos os benefícios da extensão de IaaS do SQL, como gerenciamento de portal, backups automatizados e aplicação automatizada de patches. 
+   Sim. Você pode usar qualquer mídia de instalação para fazer upgrade da versão e da edição do SQL Server. Você também pode fazer upgrade do [modo de extensão de IaaS do SQL](sql-vm-resource-provider-register.md#management-modes) de _sem agente_ para _completo_ . Isso dará acesso a todos os benefícios da extensão de IaaS do SQL, como gerenciamento de portal, backups automatizados e aplicação automatizada de patches. 
 
 1. **Como posso obter atualizações de segurança estendidas gratuitas para o meu fim de suporte das instâncias do SQL Server 2008 e SQL Server 2008 R2?**
 
@@ -225,7 +225,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
    Sim. Você pode instalar uma instância de cluster de failover usando [PFS (compartilhamentos de arquivos premium)](failover-cluster-instance-premium-file-share-manually-configure.md) ou [S2D (espaços de armazenamento diretos)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) para o subsistema de armazenamento. Os compartilhamentos de arquivos Premium oferecem capacidade de IOPS e taxa de transferência que atendem às necessidades de várias cargas de trabalho. Para cargas de trabalho com uso intensivo de E/S, considere o uso de espaços de armazenamento diretos baseados em discos gerenciados premium ou ultra. Como alternativa, você pode usar soluções de armazenamento ou cluster de terceiros, conforme descrito em [alta disponibilidade e recuperação de desastres para SQL Server em máquinas virtuais do Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > Neste momento, a [extensão do agente de IaaS do SQL Server](sql-server-iaas-agent-extension-automate-management.md) _completa_ não é compatível com a FCI do SQL Server no Azure. Recomendamos que você desinstale a extensão _completa_ das VMs que participam do FCI e instale a extensão no modo _leve_. Essa extensão oferece suporte a recursos, como Backup Automatizado e Aplicação Automatizada de Patches, além de alguns recursos do portal para SQL Server. Esses recursos não funcionarão para VMs do SQL Server após a desinstalação do agente _completo_.
+   > Neste momento, a [extensão do agente de IaaS do SQL Server](sql-server-iaas-agent-extension-automate-management.md) _completa_ não é compatível com a FCI do SQL Server no Azure. Recomendamos que você desinstale a extensão _completa_ das VMs que participam do FCI e instale a extensão no modo _leve_ . Essa extensão oferece suporte a recursos, como Backup Automatizado e Aplicação Automatizada de Patches, além de alguns recursos do portal para SQL Server. Esses recursos não funcionarão para VMs do SQL Server após a desinstalação do agente _completo_ .
 
 1. **Qual é a diferença entre VMs do SQL Server e o serviço de Banco de Dados SQL?**
 
@@ -241,7 +241,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 ## <a name="resources"></a>Recursos
 
-**VMs do Windows**:
+**VMs do Windows** :
 
 * [Visão geral do SQL Server em uma VM do Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Provisionar SQL Server em uma VM do Windows](create-sql-vm-portal.md)
@@ -250,9 +250,9 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 * [Melhores práticas de desempenho para as Máquinas Virtuais do SQL Server no Azure](performance-guidelines-best-practices.md)
 * [Padrões de aplicativo e estratégias de desenvolvimento para SQL Server em máquinas virtuais do Azure](application-patterns-development-strategies.md)
 
-**VMs Linux**:
+**VMs Linux** :
 
 * [Visão geral do SQL Server em uma VM Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provisionar SQL Server em uma VM do Linux](../linux/sql-vm-create-portal-quickstart.md)
 * [Perguntas Frequentes (Linux)](../linux/frequently-asked-questions-faq.md)
-* [SQL Server na documentação do Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server na documentação do Linux](/sql/linux/sql-server-linux-overview)

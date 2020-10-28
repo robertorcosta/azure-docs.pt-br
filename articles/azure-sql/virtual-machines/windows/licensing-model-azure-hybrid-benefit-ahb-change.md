@@ -13,22 +13,22 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b09d808201d58b571b2fe5ceb2e228d4e1c21d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28ab0a158507e3f29ecfdc026203d92d71877633
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316946"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786506"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual do SQL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-Este artigo descreve como alterar o modelo de licença de uma VM (máquina virtual) do SQL Server no Azure usando o novo provedor de recursos de VM do SQL, o **Microsoft.SqlVirtualMachine**.
+Este artigo descreve como alterar o modelo de licença de uma VM (máquina virtual) do SQL Server no Azure usando o novo provedor de recursos de VM do SQL, o **Microsoft.SqlVirtualMachine** .
 
 Há três modelos de licença para uma VM que está hospedando o SQL Server: pago conforme o uso, AHB (Benefício Híbrido do Azure) e DR (Recuperação de Desastre). É possível modificar o modelo de licença da VM do SQL Server no portal do Azure, na CLI do Azure ou no PowerShell. 
 
-- No modelo **pago conforme o uso**, o custo por segundo da execução da VM do Azure inclui o custo da licença do SQL Server.
+- No modelo **pago conforme o uso** , o custo por segundo da execução da VM do Azure inclui o custo da licença do SQL Server.
 - O [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) permite que você use sua licença do SQL Server em uma VM que está executando o SQL Server. 
 - O tipo de licença de **recuperação de desastre** é usado para a [réplica de DR gratuita](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) no Azure. 
 
@@ -49,7 +49,7 @@ O tipo de licença do SQL Server pode ser configurado quando a VM é provisionad
 Para alterar o modelo de licenciamento da VM do SQL Server, é preciso cumprir os seguintes requisitos: 
 
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/).
-- Uma [VM do SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada no [provedor de recursos de VM do SQL](sql-vm-resource-provider-register.md).
+- Uma [VM do SQL Server](./create-sql-vm-portal.md) registrada no [provedor de recursos de VM do SQL](sql-vm-resource-provider-register.md).
 - O [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) é um requisito para usar o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
@@ -62,9 +62,9 @@ Para alterar o modelo de licenciamento da VM do SQL Server, é preciso cumprir o
 É possível modificar o modelo de licença diretamente no portal: 
 
 1. Abra o [portal do Azure](https://portal.azure.com) e o [recurso de máquinas virtuais do SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) da VM do SQL Server. 
-1. Selecione **Configurar** em **Configurações**. 
+1. Selecione **Configurar** em **Configurações** . 
 1. Selecione a opção **Benefício Híbrido do Azure** e marque a caixa de seleção para confirmar que você tem uma licença do SQL Server com Software Assurance. 
-1. Clique em **Aplicar** na parte inferior da página **Configurar**. 
+1. Clique em **Aplicar** na parte inferior da página **Configurar** . 
 
 ![Benefício Híbrido do Azure no portal](./media/licensing-model-azure-hybrid-benefit-ahb-change/ahb-in-portal.png)
 
@@ -83,7 +83,7 @@ Para alterar o modelo de licenciamento da VM do SQL Server, é preciso cumprir o
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
-**Pago conforme o uso**: 
+**Pago conforme o uso** : 
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -180,5 +180,3 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Perguntas frequentes sobre o SQL Server em uma VM do Windows](frequently-asked-questions-faq.md)
 * [Diretrizes de preço para o SQL Server em uma VM do Windows](pricing-guidance.md)
 * [Notas sobre a versão do SQL Server em uma VM do Windows](../../database/doc-changes-updates-release-notes.md)
-
-

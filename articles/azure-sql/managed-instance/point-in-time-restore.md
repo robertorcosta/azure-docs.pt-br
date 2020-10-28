@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9b4d0fadf157ce1eef6821ccbc32f5725aea611f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616509"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788342"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar um banco de dados no Azure SQL Instância Gerenciada para um ponto anterior no tempo
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +46,7 @@ A tabela a seguir mostra cenários de restauração pontual para o SQL Instânci
 
 |           |Restaurar o banco de BD existente para a mesma instância do SQL Instância Gerenciada| Restaurar o BD existente para outro SQL Instância Gerenciada|Restaurar o banco de BD removido para o mesmo SQL Instância Gerenciada|Restaurar o BD removido para outro Instância Gerenciada do SQL|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| Sim|Não |Sim|Não|
+|**Portal do Azure**| Sim|Não |Sim|Não|
 |**CLI do Azure**|Sim |Sim |Não|Não|
 |**PowerShell**| Sim|Sim |Sim|Sim|
 
@@ -67,7 +67,7 @@ Restaure um banco de dados existente para o mesmo SQL Instância Gerenciada usan
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Se você ainda não tiver Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se você ainda não tiver Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 Para restaurar o banco de dados usando o PowerShell, especifique os valores para os parâmetros no comando a seguir. Em seguida, execute o comando:
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-Para obter detalhes, consulte [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Para obter detalhes, consulte [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [documentação da CLI para restaurar um banco de dados em um instância gerenciada do SQL](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [documentação da CLI para restaurar um banco de dados em um instância gerenciada do SQL](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -139,7 +139,7 @@ A restauração de um banco de dados excluído pode ser feita usando o PowerShel
 ### <a name="portal"></a>Portal 
 
 
-Para recuperar um banco de dados gerenciado usando o portal do Azure, abra a página Visão geral do SQL Instância Gerenciada e selecione bancos de dados **excluídos**. Escolha um banco de dados excluído que você deseja restaurar e digite o nome do novo banco de dados que será criado com a data de restauração do backup.
+Para recuperar um banco de dados gerenciado usando o portal do Azure, abra a página Visão geral do SQL Instância Gerenciada e selecione bancos de dados **excluídos** . Escolha um banco de dados excluído que você deseja restaurar e digite o nome do novo banco de dados que será criado com a data de restauração do backup.
 
   ![Captura de tela da restauração do banco de dados de instância do SQL do Azure excluído](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -205,13 +205,13 @@ DROP DATABASE WorldWideImporters;
 
 Use um dos seguintes métodos para se conectar ao banco de dados no SQL Instância Gerenciada:
 
-- [SSMS/Azure Data Studio por meio de uma máquina virtual do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SSMS/Azure Data Studio por meio de uma máquina virtual do Azure](./connect-vm-instance-configure.md)
+- [Ponto a site](./point-to-site-p2s-configure.md)
+- [Ponto de extremidade público](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No portal do Azure, selecione o banco de dados do Instância Gerenciada SQL e, em seguida, selecione **excluir**.
+No portal do Azure, selecione o banco de dados do Instância Gerenciada SQL e, em seguida, selecione **excluir** .
 
    ![Excluir um banco de dados usando o portal do Azure](./media/point-in-time-restore/delete-database-from-mi.png)
 
@@ -247,9 +247,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Use um dos seguintes métodos para se conectar ao banco de dados no SQL Instância Gerenciada:
 
-- [Máquina virtual do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Ponto de extremidade público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Máquina virtual do Azure](./connect-vm-instance-configure.md)
+- [Ponto a site](./point-to-site-p2s-configure.md)
+- [Ponto de extremidade público](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

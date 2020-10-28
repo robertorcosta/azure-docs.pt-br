@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443473"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787135"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ Para um modelo de locatário único, crie um mapa de fragmentos de **mapeamento 
 
 ![Mapeamento de lista][1]
 
-O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribua um intervalo de locatários para um banco de dados usando o **mapeamento intervalo**.
+O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribua um intervalo de locatários para um banco de dados usando o **mapeamento intervalo** .
 
 ![Mapeamento de intervalo][2]
 
@@ -168,7 +168,7 @@ Para obter informações sobre os padrões comuns da arquitetura de dados dos ap
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 
-Em caso de dúvidas, use a [página de perguntas e respostas da Microsoft sobre o Banco de Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html), e para solicitações de recurso, adicione-as ao [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Em caso de dúvidas, use a [página de perguntas e respostas da Microsoft sobre o Banco de Dados SQL](/answers/topics/azure-sql-database.html), e para solicitações de recurso, adicione-as ao [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

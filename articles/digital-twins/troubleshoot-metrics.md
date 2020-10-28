@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044627"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787186"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solução de problemas do Azure digital gêmeos: métricas
 
@@ -26,19 +26,19 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do gê
 
 2. Localize sua instância do gêmeos digital do Azure no [portal do Azure](https://portal.azure.com) (você pode abrir a página para ela digitando seu nome na barra de pesquisa do Portal). 
 
-    No menu da instância, selecione **métricas**.
+    No menu da instância, selecione **métricas** .
    
     :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Captura de tela mostrando a página de métricas do Azure digital gêmeos":::
 
     Esta página exibe as métricas para sua instância do gêmeos digital do Azure. Você também pode criar exibições personalizadas de suas métricas selecionando aquelas que deseja ver na lista.
     
-3. Você pode optar por enviar seus dados de métricas para um ponto de extremidade de hubs de eventos ou uma conta de armazenamento do Azure selecionando **configurações de diagnóstico** no menu e, em seguida, **Adicionar configuração de diagnóstico**.
+3. Você pode optar por enviar seus dados de métricas para um ponto de extremidade de hubs de eventos ou uma conta de armazenamento do Azure selecionando **configurações de diagnóstico** no menu e, em seguida, **Adicionar configuração de diagnóstico** .
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de tela mostrando a página de métricas do Azure digital gêmeos":::
 
     Para obter mais informações sobre esse processo, consulte [*solução de problemas: configurar o diagnóstico*](troubleshoot-diagnostics.md).
 
-4. Você pode optar por configurar alertas para seus dados de métricas selecionando **alertas** no menu e **+ nova regra de alerta**.
+4. Você pode optar por configurar alertas para seus dados de métricas selecionando **alertas** no menu e **+ nova regra de alerta** .
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de tela mostrando a página de métricas do Azure digital gêmeos":::
 
     Para obter mais informações sobre esse processo, consulte [*solução de problemas: configurar alertas*](troubleshoot-alerts.md).
@@ -53,44 +53,44 @@ As tabelas a seguir descrevem as métricas controladas por cada instância do g�
 
 Métricas que têm a ver com solicitações de API:
 
-| Métrica | Nome de exibição da métrica | Unit | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | Solicitações de API (versão prévia) | Contagem | Total | O número de solicitações de API feitas para operações de leitura, gravação, exclusão e consulta gêmeos digitais. |  Authentication <br>Operacional <br>Protocolo <br>Código de status, <br>Classe de código de status, <br>Texto de status |
-| ApiRequestsFailureRate | Taxa de falha de solicitações de API (versão prévia) | Porcentagem | Média | A porcentagem de solicitações de API que o serviço recebe para sua instância que fornece um código de resposta de erro interno (500) para operações de leitura, gravação, exclusão e consulta de gêmeos digital. | Authentication <br>Operacional <br>Protocolo <br>Código de status, <br>Classe de código de status, <br>Texto de status
-| ApiRequestsLatency | Latência de solicitações de API (versão prévia) | Milissegundos | Média | O tempo de resposta para solicitações de API. Isso se refere ao tempo de quando a solicitação é recebida pelo Azure digital gêmeos até que o serviço envie um resultado de êxito/falha para operações de leitura, gravação, exclusão e consulta de gêmeos digital. | Authentication <br>Operacional <br>Protocolo |
+| ApiRequests | Solicitações da API | Contagem | Total | O número de solicitações de API feitas para operações de leitura, gravação, exclusão e consulta gêmeos digitais. |  Authentication <br>Operacional <br>Protocolo <br>Código de status, <br>Classe de código de status, <br>Texto de status |
+| ApiRequestsFailureRate | Taxa de falha de solicitações de API | Porcentagem | Média | A porcentagem de solicitações de API que o serviço recebe para sua instância que fornece um código de resposta de erro interno (500) para operações de leitura, gravação, exclusão e consulta de gêmeos digital. | Authentication <br>Operacional <br>Protocolo <br>Código de status, <br>Classe de código de status, <br>Texto de status
+| ApiRequestsLatency | Latência de solicitações de API | Milissegundos | Média | O tempo de resposta para solicitações de API. Isso se refere ao tempo de quando a solicitação é recebida pelo Azure digital gêmeos até que o serviço envie um resultado de êxito/falha para operações de leitura, gravação, exclusão e consulta de gêmeos digital. | Authentication <br>Operacional <br>Protocolo |
 
 #### <a name="billing-metrics"></a>Métricas de cobrança
 
 Métricas que têm a ver com a cobrança:
 
 >[!NOTE]
-> Durante a visualização, a **cobrança é de custo zero**. Embora essas métricas ainda apareçam na lista selecionável, elas não se aplicam durante a visualização e permanecerão em zero até que o serviço se movimente além da visualização.
+> Durante a visualização, a **cobrança é de custo zero** . Embora essas métricas ainda apareçam na lista selecionável, elas não se aplicam durante a visualização e permanecerão em zero até que o serviço se movimente além da visualização.
 
-| Métrica | Nome de exibição da métrica | Unit | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Operações de API de cobrança (versão prévia) | Contagem | Total | Métrica de cobrança para a contagem de todas as solicitações de API feitas no serviço de Gêmeosção digital do Azure. | ID do medidor |
-| BillingMessagesProcessed | Mensagens de cobrança processadas (visualização) | Contagem | Total | Métrica de cobrança para o número de mensagens enviadas do Azure digital gêmeos para pontos de extremidade externos.<br><br>Para ser considerado uma única mensagem para fins de cobrança, uma carga não deve ter mais de 1 KB. Cargas maiores que isso serão contadas como mensagens adicionais em incrementos de 1 KB (portanto, uma mensagem entre 1 e 2 KB será contada como duas mensagens, entre 2 e 3 KB serão 3 mensagens e assim por diante).<br>Essa restrição também se aplica a respostas – portanto, uma chamada que retorna 1,5 KB no corpo da resposta, por exemplo, será cobrada como duas operações. | ID do medidor |
-| BillingQueryUnits | Unidades de consulta de cobrança (versão prévia) | Contagem | Total | O número de unidades de consulta, uma medida interna computada de uso de recursos de serviço, consumida para executar consultas. Também há uma API auxiliar disponível para medir as unidades de consulta: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID do medidor |
+| BillingApiOperations | Operações de API de cobrança | Contagem | Total | Métrica de cobrança para a contagem de todas as solicitações de API feitas no serviço de Gêmeosção digital do Azure. | ID do medidor |
+| BillingMessagesProcessed | Mensagens de cobrança processadas | Contagem | Total | Métrica de cobrança para o número de mensagens enviadas do Azure digital gêmeos para pontos de extremidade externos.<br><br>Para ser considerado uma única mensagem para fins de cobrança, uma carga não deve ter mais de 1 KB. Cargas maiores que isso serão contadas como mensagens adicionais em incrementos de 1 KB (portanto, uma mensagem entre 1 e 2 KB será contada como duas mensagens, entre 2 e 3 KB serão 3 mensagens e assim por diante).<br>Essa restrição também se aplica a respostas – portanto, uma chamada que retorna 1,5 KB no corpo da resposta, por exemplo, será cobrada como duas operações. | ID do medidor |
+| BillingQueryUnits | Unidades de consulta de cobrança | Contagem | Total | O número de unidades de consulta, uma medida interna computada de uso de recursos de serviço, consumida para executar consultas. Também há uma API auxiliar disponível para medir as unidades de consulta: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID do medidor |
 
 #### <a name="ingress-metrics"></a>Métricas de entrada
 
 Métricas que têm a ver com a entrada de dados:
 
-| Métrica | Nome de exibição da métrica | Unit | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| IngressEvents | Eventos de entrada (visualização) | Contagem | Total | O número de eventos de telemetria de entrada no Azure digital gêmeos. | Resultado |
-| IngressEventsFailureRate | Taxa de falha de eventos de entrada (versão prévia) | Porcentagem | Média | A porcentagem de eventos de telemetria de entrada para os quais o serviço retorna um código de resposta de erro interno (500). | Resultado |
-| IngressEventsLatency | Latência de eventos de entrada (versão prévia) | Milissegundos | Média | A hora de quando um evento chega quando está pronto para ser enviado pelo gêmeos digital do Azure, em que ponto o serviço envia um resultado de êxito/falha. | Resultado |
+| IngressEvents | Eventos de entrada | Contagem | Total | O número de eventos de telemetria de entrada no Azure digital gêmeos. | Resultado |
+| IngressEventsFailureRate | Taxa de falha de eventos de entrada | Porcentagem | Média | A porcentagem de eventos de telemetria de entrada para os quais o serviço retorna um código de resposta de erro interno (500). | Resultado |
+| IngressEventsLatency | Latência de eventos de entrada | Milissegundos | Média | A hora de quando um evento chega quando está pronto para ser enviado pelo gêmeos digital do Azure, em que ponto o serviço envia um resultado de êxito/falha. | Resultado |
 
 #### <a name="routing-metrics"></a>Métricas de roteamento
 
 Métricas que têm a ver com o roteamento:
 
-| Métrica | Nome de exibição da métrica | Unit | Tipo de agregação| Description | Dimensões |
+| Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Mensagens roteadas (visualização) | Contagem | Total | O número de mensagens roteadas para um serviço do Azure de ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Resultado |
-| RoutingFailureRate | Taxa de falha de roteamento (versão prévia) | Porcentagem | Média | A porcentagem de eventos que resultam em um erro à medida que são roteados do Azure digital gêmeos para um serviço do Azure de ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Resultado |
-| RoutingLatency | Latência de roteamento (versão prévia) | Milissegundos | Média | Tempo decorrido entre um evento sendo roteado do Azure digital gêmeos para quando ele é Postado para o serviço do Azure do ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Resultado |
+| MessagesRouted | Mensagens roteadas | Contagem | Total | O número de mensagens roteadas para um serviço do Azure de ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Resultado |
+| RoutingFailureRate | Taxa de falha de roteamento | Porcentagem | Média | A porcentagem de eventos que resultam em um erro à medida que são roteados do Azure digital gêmeos para um serviço do Azure de ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Resultado |
+| RoutingLatency | Latência de roteamento | Milissegundos | Média | Tempo decorrido entre um evento sendo roteado do Azure digital gêmeos para quando ele é Postado para o serviço do Azure do ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Resultado |
 
 ## <a name="dimensions"></a>Dimensões
 

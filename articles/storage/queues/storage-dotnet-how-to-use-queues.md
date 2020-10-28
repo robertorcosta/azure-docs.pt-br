@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855915"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787458"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao armazenamento de Fila do Azure usando o .NET
 
@@ -71,7 +71,7 @@ Você precisa fazer referência aos quatro pacotes a seguir em seu projeto para 
 
 Você pode usar o NuGet para obter esses pacotes. Siga estas etapas:
 
-1. Clique com o botão direito do mouse em seu projeto no **Gerenciador de soluções**e escolha **gerenciar pacotes NuGet**.
+1. Clique com o botão direito do mouse em seu projeto no **Gerenciador de soluções** e escolha **gerenciar pacotes NuGet** .
 1. Selecione **procurar**
 1. Pesquise online "Azure. Storage. Queues" e selecione **instalar** para instalar a biblioteca de cliente de armazenamento e suas dependências. Isso também instalará as bibliotecas Azure. Storage. Common e Azure. Core, que são dependências da biblioteca de filas.
 1. Pesquise online por "System.Configuration.ConfigurationManager" e selecione **instalar** para instalar o Configuration Manager.
@@ -86,7 +86,7 @@ Você precisa fazer referência aos três pacotes a seguir em seu projeto para c
 
 Você pode usar o NuGet para obter esses pacotes. Siga estas etapas:
 
-1. Clique com o botão direito do mouse em seu projeto no **Gerenciador de soluções**e escolha **gerenciar pacotes NuGet**.
+1. Clique com o botão direito do mouse em seu projeto no **Gerenciador de soluções** e escolha **gerenciar pacotes NuGet** .
 1. Selecione **procurar**
 1. Pesquise online "Microsoft. Azure. Storage. Queue" e selecione **instalar** para instalar a biblioteca de cliente de armazenamento e suas dependências. Isso também instalará a biblioteca Microsoft. Azure. Storage. Common, que é uma dependência da biblioteca de filas.
 1. Pesquise online por "Microsoft.Azure.ConfigurationManager" e selecione **instalar** para instalar o Configuration Manager do Azure.
@@ -113,7 +113,7 @@ O código de exemplo precisa autorizar o acesso à sua conta de armazenamento. P
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
 2. Localize sua cadeia de conexão.
-3. Na seção **Configurações** da visão geral da conta de armazenamento, selecione **Chaves de acesso**. Suas chaves de acesso da conta são exibidas, bem como a cadeia de conexão completa para cada chave.
+3. Na seção **Configurações** da visão geral da conta de armazenamento, selecione **Chaves de acesso** . Suas chaves de acesso da conta são exibidas, bem como a cadeia de conexão completa para cada chave.
 4. Encontre o valor da **Cadeia de conexão** em **key1** e clique no botão **Copiar** para copiar a cadeia de conexão. Você adicionará o valor de cadeia de conexão para uma variável de ambiente na próxima etapa.
 
     ![Captura de tela mostrando como copiar uma cadeia de conexão do portal do Azure](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Usar padrão Async-Await com APIs comuns de armazenamento da fila
 
-Este exemplo mostra como usar o padrão Async-Await com APIs de armazenamento da fila comuns. O exemplo chama a versão assíncrona de cada um dos métodos determinados, conforme indicado pelo sufixo *Async* de cada método. Quando um método assíncrono é usado, o padrão async-await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho que ajude a evitar gargalos de desempenho e melhora a capacidade de resposta geral do aplicativo. Para obter mais detalhes sobre como usar o padrão de Async-Await no .NET [, consulte Async e Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Este exemplo mostra como usar o padrão Async-Await com APIs de armazenamento da fila comuns. O exemplo chama a versão assíncrona de cada um dos métodos determinados, conforme indicado pelo sufixo *Async* de cada método. Quando um método assíncrono é usado, o padrão async-await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho que ajude a evitar gargalos de desempenho e melhora a capacidade de resposta geral do aplicativo. Para obter mais detalhes sobre como usar o padrão de Async-Await no .NET [, consulte Async e Await (C# e Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 - Consulte a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
-  - [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Referência à Biblioteca de Cliente de Armazenamento para .NET](/dotnet/api/overview/azure/storage)
+  - [Referência da API REST](/rest/api/storageservices/)
 - Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
-  - [Introdução ao armazenamento de Tabelas do Azure usando o .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para armazenar dados estruturados.
-  - [Introdução ao armazenamento de Blobs do Azure usando o .NET](../blobs/storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
+  - [Introdução ao armazenamento de Tabelas do Azure usando o .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) para armazenar dados estruturados.
+  - [Introdução ao armazenamento de Blobs do Azure usando o .NET](../blobs/storage-quickstart-blobs-dotnet.md) para armazenar dados não estruturados.
   - [Conectar-se ao Banco de Dados SQL usando .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) para armazenar dados relacionais.
 - Saiba como simplificar o código que você escreve para trabalhar com o Armazenamento do Azure usando o [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).

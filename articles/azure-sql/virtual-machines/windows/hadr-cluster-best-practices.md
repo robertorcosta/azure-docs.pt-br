@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167943"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786421"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Práticas recomendadas de configuração de cluster (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Configure um disco compartilhado do Azure como a testemunha de disco.
 Para começar, consulte [Configurar uma testemunha de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**SO com suporte**: Todos   
+**SO com suporte** : Todos   
 
 
 ### <a name="cloud-witness"></a>Testemunha da nuvem
@@ -66,7 +66,7 @@ Uma testemunha de nuvem é um tipo de testemunha de quorum de cluster de failove
 Para começar, consulte [Configurar uma testemunha de nuvem](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**SO com suporte**: Windows Server 2016 e posterior   
+**SO com suporte** : Windows Server 2016 e posterior   
 
 
 ### <a name="file-share-witness"></a>Testemunha de compartilhamento de arquivos
@@ -78,7 +78,7 @@ Se você for usar um compartilhamento de arquivos do Azure, poderá montá-lo co
 Para começar, consulte [Configurar uma testemunha de compartilhamento de arquivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**SO com suporte**: Windows Server 2012 e posterior   
+**SO com suporte** : Windows Server 2012 e posterior   
 
 ## <a name="connectivity"></a>Conectividade
 
@@ -89,7 +89,7 @@ Use um VNN com Azure Load Balancer ou um DNN (nome de rede distribuída) para ro
 
 A tabela a seguir compara a suporte à conexão HADR: 
 
-| |**VNN (nome da rede virtual)**  |**DNN (nome da rede distribuída)**  |
+| |**Nome da rede virtual (VNN)**  |**Nome de rede distribuída (DNN)**  |
 |---------|---------|---------|
 |**Versão mínima do SO**| Todos | Windows Server 2016 |
 |**Versão mínima do SQL Server** |Todos |SQL Server 2019 CU2 (para FCI)<br/> SQL Server 2019 CU8 (para AG)|
@@ -104,9 +104,9 @@ Há um pequeno atraso de failover quando você está usando o balanceador de car
 
 Para começar, saiba como configurar Azure Load Balancer para instância de [cluster de failover](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou um [grupo de disponibilidade](availability-group-vnn-azure-load-balancer-configure.md)
 
-**SO com suporte**: Todos   
-**Versão do SQL com suporte**: Todos   
-**Solução HADR com suporte**: instância de cluster de failover e grupo de disponibilidade   
+**SO com suporte** : Todos   
+**Versão do SQL com suporte** : Todos   
+**Solução HADR com suporte** : instância de cluster de failover e grupo de disponibilidade   
 
 
 ### <a name="distributed-network-name-dnn"></a>DNN (nome da rede distribuída)
@@ -124,9 +124,9 @@ A maioria dos recursos de SQL Server funciona de forma transparente com FCI e gr
 
 Para começar, saiba como configurar um recurso de nome de rede distribuída para [uma instância de cluster de failover](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou um [grupo de disponibilidade](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**SO com suporte**: Windows Server 2016 e posterior   
-**Versão do SQL com suporte**: SQL Server 2019 Cu2 (FCI) e SQL Server 2019 CU8 (AG)   
-**Solução HADR com suporte**: instância de cluster de failover e grupo de disponibilidade   
+**SO com suporte** : Windows Server 2016 e posterior   
+**Versão do SQL com suporte** : SQL Server 2019 Cu2 (FCI) e SQL Server 2019 CU8 (AG)   
+**Solução HADR com suporte** : instância de cluster de failover e grupo de disponibilidade   
 
 
 ## <a name="limitations"></a>Limitações
@@ -135,7 +135,7 @@ Considere as seguintes limitações quando estiver trabalhando com FCI ou grupos
 
 ### <a name="msdtc"></a>MSDTC 
 
-As Máquinas Virtuais do Azure dão suporte ao MSDTC (Coordenador de Transações Distribuídas da Microsoft) no Windows Server 2019 com armazenamento em CSVs (Volumes Compartilhados Clusterizados) e um [Standard Load Balancer do Azure](../../../load-balancer/load-balancer-standard-overview.md) ou em VMs do SQL Server que estão usando discos compartilhados do Azure. 
+As Máquinas Virtuais do Azure dão suporte ao MSDTC (Coordenador de Transações Distribuídas da Microsoft) no Windows Server 2019 com armazenamento em CSVs (Volumes Compartilhados Clusterizados) e um [Standard Load Balancer do Azure](../../../load-balancer/load-balancer-overview.md) ou em VMs do SQL Server que estão usando discos compartilhados do Azure. 
 
 Nas Máquinas Virtuais do Azure, o MSDTC não tem suporte para o Windows Server 2016 ou versões anteriores com Volumes Compartilhados Clusterizados porque:
 
@@ -145,5 +145,4 @@ Nas Máquinas Virtuais do Azure, o MSDTC não tem suporte para o Windows Server 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de determinar as práticas recomendadas apropriadas para sua solução, comece [preparando sua VM SQL Server para FCI](failover-cluster-instance-prepare-vm.md) ou criando seu grupo de disponibilidade usando o [portal do Azure](availability-group-azure-portal-configure.md), os [modelos de início rápido](availability-group-quickstart-template-configure.md)do [CLI do Azure/PowerShell](availability-group-az-cli-configure.md)ou do Azure. 
-
+Depois de determinar as práticas recomendadas apropriadas para sua solução, comece [preparando sua VM SQL Server para FCI](failover-cluster-instance-prepare-vm.md) ou criando seu grupo de disponibilidade usando o [portal do Azure](availability-group-azure-portal-configure.md), os [modelos de início rápido](availability-group-quickstart-template-configure.md)do [CLI do Azure/PowerShell](./availability-group-az-commandline-configure.md)ou do Azure.

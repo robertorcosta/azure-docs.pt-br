@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887661"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788543"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ Em um nível alto, o processo de migração de banco de dados se parece com:
 
 Primeiro, determine se o SQL Instância Gerenciada é compatível com os requisitos de banco de dados do seu aplicativo. O SQL Instância Gerenciada foi projetado para fornecer migração de deslocamento rápido e fácil para a maioria dos aplicativos existentes que usam SQL Server. No entanto, às vezes você pode exigir recursos ou funcionalidades que ainda não têm suporte e o custo da implementação de uma solução alternativa é muito alto.
 
-Use [Assistente de migração de dados](https://docs.microsoft.com/sql/dma/dma-overview) para detectar possíveis problemas de compatibilidade impactando a funcionalidade do banco de dados no banco de dados SQL do Azure. Se houver alguns problemas de bloqueio relatados, talvez seja necessário considerar uma opção alternativa, como [SQL Server na VM do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estes são alguns exemplos:
+Use [Assistente de migração de dados](/sql/dma/dma-overview) para detectar possíveis problemas de compatibilidade impactando a funcionalidade do banco de dados no banco de dados SQL do Azure. Se houver alguns problemas de bloqueio relatados, talvez seja necessário considerar uma opção alternativa, como [SQL Server na VM do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estes são alguns exemplos:
 
 - Se você precisar de acesso direto ao sistema operacional ou sistema de arquivos, por exemplo, para instalar agentes de terceiros ou personalizados na mesma máquina virtual com SQL Server.
 - Se você tiver uma dependência estrita dos recursos que ainda não têm suporte, como FileStream/Filetable, polybase e transações de instância cruzada.
@@ -69,8 +69,8 @@ A linha de base de desempenho é um conjunto de parâmetros como o uso médio/m�
 Alguns dos parâmetros que você precisa medir em sua instância de SQL Server são:
 
 - [Monitore o uso da CPU em sua instância do SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registre o uso médio e máximo da CPU.
-- [Monitore o uso de memória em sua instância do SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) e determine a quantidade de memória usada por diferentes componentes, como pool de buffers, cache de planos, pool de repositório de coluna, [OLTP na memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Além disso, você deve encontrar os valores médio e de pico do contador de desempenho de memória expectativa de vida da página.
-- Monitore o uso de e/s de disco na instância de SQL Server de origem usando [Sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) exibição ou [contadores de desempenho](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- [Monitore o uso de memória em sua instância do SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) e determine a quantidade de memória usada por diferentes componentes, como pool de buffers, cache de planos, pool de repositório de coluna, [OLTP na memória](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Além disso, você deve encontrar os valores médio e de pico do contador de desempenho de memória expectativa de vida da página.
+- Monitore o uso de e/s de disco na instância de SQL Server de origem usando [Sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) exibição ou [contadores de desempenho](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitore a carga de trabalho e o desempenho de consulta ou sua instância de SQL Server examinando exibições de gerenciamento dinâmico ou Repositório de Consultas se você estiver migrando de uma versão do SQL Server 2016 +. Identifique a duração média e o uso da CPU das consultas mais importantes em sua carga de trabalho para compará-las com as consultas em execução na instância gerenciada.
 
 > [!Note]
@@ -116,7 +116,7 @@ O SQL Instância Gerenciada dá suporte às seguintes opções de migração de 
 
 O [serviço de migração de banco de dados do Azure](../../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações diretas de várias fontes de banco de dados para plataformas de data do Azure com tempo de inatividade Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação no modo de visualização pública incluem bancos de dados no banco de dados SQL do Azure e SQL Server bancos de dados em uma máquina virtual do Azure. O serviço de migração de banco de dados é o método recomendado de migração para suas cargas de trabalho corporativas.
 
-Se você usar SQL Server Integration Services (SSIS) no SQL Server local, o serviço de migração de banco de dados ainda não oferecerá suporte à migração do catálogo do SSIS (SSISDB) que armazena os pacotes do SSIS, mas você pode provisionar Azure-SSIS Integration Runtime (IR) no Azure Data Factory, que criará um novo SSISDB em uma instância gerenciada para que você possa reimplantar os pacotes nele. Consulte [criar Azure-SSIS ir em Azure data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Se você usar SQL Server Integration Services (SSIS) no SQL Server local, o serviço de migração de banco de dados ainda não oferecerá suporte à migração do catálogo do SSIS (SSISDB) que armazena os pacotes do SSIS, mas você pode provisionar Azure-SSIS Integration Runtime (IR) no Azure Data Factory, que criará um novo SSISDB em uma instância gerenciada para que você possa reimplantar os pacotes nele. Consulte [criar Azure-SSIS ir em Azure data Factory](../../data-factory/create-azure-ssis-integration-runtime.md).
 
 Para saber mais sobre esse cenário e as etapas de configuração do serviço de migração de banco de dados, consulte [migrar seu banco de dados local para a instância gerenciada usando o serviço de migração de banco de dados](../../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -133,8 +133,8 @@ A tabela a seguir fornece mais informações sobre os métodos que podem ser uti
 |Etapa|Mecanismo SQL e versão|Método de backup/restauração|
 |---|---|---|
 |Coloque o backup no Armazenamento do Microsoft Azure|Antes do 2012 SP1 CU2|Carregar o arquivo. bak diretamente no armazenamento do Azure|
-||2012 SP1 CU2 - 2016|Backup direto utilizando a sintaxe [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)|
-||2016 e posterior|Backup direto utilizando [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
+||2012 SP1 CU2 - 2016|Backup direto utilizando a sintaxe [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql)|
+||2016 e posterior|Backup direto utilizando [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Restaurar do armazenamento do Azure para uma instância gerenciada|[RESTORE FROM URL com SAS CREDENTIAL](restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
@@ -164,7 +164,7 @@ Como pré-requisito, verifique se você concluiu as seguintes atividades:
 - Alinhe suas configurações na instância gerenciada com as configurações da instância de SQL Server de origem, investigando várias instâncias de instância, banco de dados, tempdb e configurações. Certifique-se de que você não alterou as configurações como níveis de compatibilidade ou criptografia antes de executar a primeira comparação de desempenho ou aceite o risco de que alguns dos novos recursos habilitados possam afetar algumas consultas. Para reduzir os riscos de migração, altere o nível de compatibilidade do banco de dados somente após o monitoramento do desempenho.
 - Implemente [diretrizes de práticas recomendadas de armazenamento para uso geral](https://techcommunity.microsoft.com), como alocar previamente o tamanho dos arquivos para obter um melhor desempenho.
 - Saiba mais sobre as [principais diferenças de ambiente que podem causar as diferenças de desempenho entre uma instância gerenciada e SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)e identificar os riscos que podem afetar o desempenho.
-- Certifique-se de manter habilitado Repositório de Consultas e ajuste automático em sua instância gerenciada. Esses recursos permitem que você meça o desempenho da carga de trabalho e corrija automaticamente os possíveis problemas de desempenho. Saiba como usar o Repositório de Consultas como uma ferramenta ideal para obter informações sobre o desempenho da carga de trabalho antes e depois da alteração do nível de compatibilidade do banco de dados, conforme explicado em [manter a estabilidade do desempenho durante a atualização para uma versão mais recente do SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+- Certifique-se de manter habilitado Repositório de Consultas e ajuste automático em sua instância gerenciada. Esses recursos permitem que você meça o desempenho da carga de trabalho e corrija automaticamente os possíveis problemas de desempenho. Saiba como usar o Repositório de Consultas como uma ferramenta ideal para obter informações sobre o desempenho da carga de trabalho antes e depois da alteração do nível de compatibilidade do banco de dados, conforme explicado em [manter a estabilidade do desempenho durante a atualização para uma versão mais recente do SQL Server](/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Depois de preparar o ambiente que é comparável o máximo possível com seu ambiente local, você pode começar a executar sua carga de trabalho e medir o desempenho. O processo de medição deve incluir os mesmos parâmetros que você mediu [enquanto criou o desempenho de linha de base de suas medidas de carga de trabalho na instância de SQL Server de origem](#create-a-performance-baseline).
 Como resultado, você deve comparar os parâmetros de desempenho com a linha de base e identificar as diferenças críticas.
 
@@ -194,16 +194,16 @@ O SQL Instância Gerenciada fornece muitas ferramentas avançadas para monitoram
 
 Quando você estiver em uma plataforma totalmente gerenciada e tiver verificado que os desempenhos de carga de trabalho correspondem à sua carga de trabalho de SQL Server, use as vantagens que são fornecidas automaticamente como parte do serviço.
 
-Mesmo que você não faça algumas alterações na instância gerenciada durante a migração, há alta probabilidade de que você ative alguns dos novos recursos enquanto está operando sua instância para aproveitar os aprimoramentos do mecanismo de banco de dados mais recentes. Algumas alterações só serão habilitadas quando o [nível de compatibilidade do banco de dados tiver sido alterado](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+Mesmo que você não faça algumas alterações na instância gerenciada durante a migração, há alta probabilidade de que você ative alguns dos novos recursos enquanto está operando sua instância para aproveitar os aprimoramentos do mecanismo de banco de dados mais recentes. Algumas alterações só serão habilitadas quando o [nível de compatibilidade do banco de dados tiver sido alterado](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
 
 Por exemplo, você não precisa criar backups na instância gerenciada – o serviço executa backups para você automaticamente. Não é mais necessário preocupar-se com agendamento, execução e gerenciamento de backups. O SQL Instância Gerenciada fornece a capacidade de restaurar para qualquer ponto no tempo dentro desse período de retenção usando a [PITR (recuperação pontual)](../database/recovery-using-backups.md#point-in-time-restore). Além disso, você não precisa se preocupar com a configuração de alta disponibilidade, pois a [alta disponibilidade](../database/high-availability-sla.md) é interna.
 
-Para reforçar a segurança, considere o uso de [Azure Active Directory autenticação](../database/security-overview.md), [auditoria](auditing-configure.md), [detecção de ameaças](../database/azure-defender-for-sql.md), [segurança em nível de linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)e máscara de [dados dinâmicos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+Para reforçar a segurança, considere o uso de [Azure Active Directory autenticação](../database/security-overview.md), [auditoria](auditing-configure.md), [detecção de ameaças](../database/azure-defender-for-sql.md), [segurança em nível de linha](/sql/relational-databases/security/row-level-security)e máscara de [dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking).
 
-Além dos recursos avançados de gerenciamento e segurança, uma instância gerenciada fornece um conjunto de ferramentas avançadas que podem ajudá-lo a [monitorar e ajustar sua carga de trabalho](../database/monitor-tune-overview.md). [Análise de SQL do Azure](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) permite monitorar um grande conjunto de instâncias gerenciadas e centralizar o monitoramento de um grande número de instâncias e bancos de dados. O [ajuste automático](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) em instâncias gerenciadas monitora continuamente o desempenho de suas estatísticas de execução do plano SQL e corrige automaticamente os problemas de desempenho identificados.
+Além dos recursos avançados de gerenciamento e segurança, uma instância gerenciada fornece um conjunto de ferramentas avançadas que podem ajudá-lo a [monitorar e ajustar sua carga de trabalho](../database/monitor-tune-overview.md). [Análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md) permite monitorar um grande conjunto de instâncias gerenciadas e centralizar o monitoramento de um grande número de instâncias e bancos de dados. O [ajuste automático](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) em instâncias gerenciadas monitora continuamente o desempenho de suas estatísticas de execução do plano SQL e corrige automaticamente os problemas de desempenho identificados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre o Azure SQL Instância Gerenciada, consulte [o que é o instância gerenciada do Azure SQL?](sql-managed-instance-paas-overview.md).
 - Para obter um tutorial que inclui uma restauração do backup, consulte [criar uma instância gerenciada](instance-create-quickstart.md).
-- Para tutorial mostrando migração usando o serviço de migração de banco de dados, consulte [migrar seu banco de dados local para o Azure SQL instância gerenciada usando o serviço de migração de banco de dados](../../dms/tutorial-sql-server-to-managed-instance.md).  
+- Para tutorial mostrando migração usando o serviço de migração de banco de dados, consulte [migrar seu banco de dados local para o Azure SQL instância gerenciada usando o serviço de migração de banco de dados](../../dms/tutorial-sql-server-to-managed-instance.md).

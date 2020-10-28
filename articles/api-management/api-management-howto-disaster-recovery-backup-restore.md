@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075324"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787220"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -61,28 +61,28 @@ Todas as tarefas realizadas em recursos com o Azure Resource Manager precisam se
     > [!NOTE]
     > Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta.
 
-3. Clique em **Novo registro de aplicativo**.
+3. Clique em **Novo registro de aplicativo** .
 
     A janela **Criar** é exibida à direita. É nela em que você pode inserir as informações relevantes do aplicativo do AAD.
 
 4. Insira um nome para o aplicativo.
-5. Para o tipo de aplicativo, selecione **Nativo**.
-6. Insira uma URL de espaço reservado como `http://resources` para o **URI de redirecionamento**, que é um campo obrigatório, mas o valor não é usado posteriormente. Clique na caixa de seleção para salvar o aplicativo.
-7. Clique em **Criar**.
+5. Para o tipo de aplicativo, selecione **Nativo** .
+6. Insira uma URL de espaço reservado como `http://resources` para o **URI de redirecionamento** , que é um campo obrigatório, mas o valor não é usado posteriormente. Clique na caixa de seleção para salvar o aplicativo.
+7. Clique em **Criar** .
 
 ### <a name="add-an-application"></a>Adicionar um aplicativo
 
-1. Depois que o aplicativo for criado, clique em **permissões de API**.
-2. Clique em **+ Adicionar uma permissão**.
-4. Pressione **selecionar APIs da Microsoft**.
-5. Escolha **Gerenciamento de serviços do Azure**.
-6. Pressione **Selecionar**.
+1. Depois que o aplicativo for criado, clique em **permissões de API** .
+2. Clique em **+ Adicionar uma permissão** .
+4. Pressione **selecionar APIs da Microsoft** .
+5. Escolha **Gerenciamento de serviços do Azure** .
+6. Pressione **Selecionar** .
 
     ![Adicionar permissões](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Clique em **Permissões Delegadas** ao lado do aplicativo recém-adicionado e marque a caixa de **Acessar o Gerenciamento de Serviços do Azure (versão prévia)**.
-8. Pressione **Selecionar**.
-9. Clique em **Conceder Permissões**.
+7. Clique em **Permissões Delegadas** ao lado do aplicativo recém-adicionado e marque a caixa de **Acessar o Gerenciamento de Serviços do Azure (versão prévia)** .
+8. Pressione **Selecionar** .
+9. Clique em **Conceder Permissões** .
 
 ### <a name="configuring-your-app"></a>Configurar seu aplicativo
 
@@ -115,11 +115,11 @@ namespace GetTokenResourceManagerRequests
 
 Substitua `{tenant id}`, `{application id}` e `{redirect uri}` usando as seguintes instruções:
 
-1. Substitua `{tenant id}` pela ID de locatário do aplicativo do Azure Active Directory criado. Você pode acessar a ID clicando em **registros de aplicativo**  ->  **pontos de extremidade**.
+1. Substitua `{tenant id}` pela ID de locatário do aplicativo do Azure Active Directory criado. Você pode acessar a ID clicando em **registros de aplicativo**  ->  **pontos de extremidade** .
 
     ![Pontos de extremidade][api-management-endpoint]
 
-2. Substitua `{application id}` pelo valor obtido navegando para a página **Configurações**.
+2. Substitua `{application id}` pelo valor obtido navegando para a página **Configurações** .
 3. Substitua a guia `{redirect uri}` com o valor das **URIs de Redirecionamento** pelo aplicativo do Azure Active Directory.
 
     Depois que os valores são especificados, o exemplo de código deve retornar um token semelhante ao seguinte exemplo:
@@ -152,7 +152,7 @@ onde:
 -   `subscriptionId` – ID da assinatura que contém o serviço de Gerenciamento de API do qual você está tentando fazer backup
 -   `resourceGroupName` -nome do grupo de recursos do seu serviço de Gerenciamento de API do Azure
 -   `serviceName` - o nome do serviço de Gerenciamento de API que você está fazendo um backup em específico, no momento de sua criação
--   `api-version` -substituir por `2018-06-01-preview`
+-   `api-version` -substituir por `2019-12-01`
 
 No corpo da solicitação, especifique o nome da conta de armazenamento de destino do Azure, a chave de acesso, o nome do contêiner Blob e o nome de backup:
 
@@ -171,10 +171,10 @@ O backup é uma operação longa de execução que pode levar mais de um minuto 
 
 #### <a name="constraints-when-making-backup-or-restore-request"></a>Restrições ao fazer backup ou solicitação de restauração
 
--   O **contêiner** especificado no corpo solicitado **tem que existir**.
+-   O **contêiner** especificado no corpo solicitado **tem que existir** .
 -   Enquanto o backup está em andamento, **Evite alterações de gerenciamento no serviço** , como atualização de SKU ou downgrade, alteração no nome de domínio e muito mais.
 -   A restauração de um **backup é garantida somente por 30 dias** desde o momento de sua criação.
--   As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de backup está em andamento **podem não ser incluídas no backup e, portanto, serão perdidas**.
+-   As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de backup está em andamento **podem não ser incluídas no backup e, portanto, serão perdidas** .
 -   **Permitir** o acesso do plano de controle à conta de armazenamento do Azure se ele tiver o [Firewall][azure-storage-ip-firewall] habilitado. O cliente deve abrir o conjunto de [endereços IP do plano de controle de gerenciamento de API do Azure][control-plane-ip-address] em sua conta de armazenamento para backup ou restauração. Isso ocorre porque as solicitações para o armazenamento do Azure não são no modo SNAT a um IP público do > de computação (plano de controle de gerenciamento de API do Azure). A solicitação de armazenamento entre regiões será no modo SNAT.
 
 #### <a name="what-is-not-backed-up"></a>O que não é feito backup
@@ -202,7 +202,7 @@ onde:
 -   `subscriptionId` - ID da assinatura que contém o serviço de Gerenciamento de API que você está restaurando um backup em
 -   `resourceGroupName` – nome do grupo de recursos que contém o serviço de Gerenciamento de API do Azure em que você está restaurando um backup
 -   `serviceName` - o nome do serviço de Gerenciamento de API para o qual está sendo realizada a restauração especificada no momento de sua criação
--   `api-version` -substituir por `2018-06-01-preview`
+-   `api-version` -substituir por `api-version=2019-12-01`
 
 No corpo da solicitação, especifique o local do arquivo de backup. Ou seja, adicione o nome da conta de armazenamento do Azure, chave de acesso, nome do contêiner de blob e nome de backup:
 
@@ -222,7 +222,7 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 > [!IMPORTANT]
 > **A SKU** do serviço que está sendo restaurada **precisa corresponder** à SKU do serviço copiado em backup que está sendo restaurada.
 >
-> As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de restauração está em andamento **podem ser substituídas**.
+> As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de restauração está em andamento **podem ser substituídas** .
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 

@@ -4,14 +4,14 @@ description: Saiba como configurar um contêiner personalizado no serviço Azure
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264568"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787050"
 ---
-# <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contêiner personalizado para o serviço Azure App
+# <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contêiner personalizado para o Serviço de Aplicativo do Azure
 
 Este artigo mostra como configurar um contêiner personalizado para ser executado no serviço Azure App.
 
@@ -212,7 +212,7 @@ Há várias maneiras de acessar os logs do Docker:
 
 ### <a name="in-azure-portal"></a>No Portal do Azure
 
-Os logs do Docker são exibidos no portal, na página **configurações de contêiner** do seu aplicativo. Os logs são truncados, mas você pode baixar todos os logs clicando em **baixar**. 
+Os logs do Docker são exibidos no portal, na página **configurações de contêiner** do seu aplicativo. Os logs são truncados, mas você pode baixar todos os logs clicando em **baixar** . 
 
 ### <a name="from-the-kudu-console"></a>No console do kudu
 
@@ -272,7 +272,7 @@ Os processadores podem ser de vários núcleos ou processadores hyperthreading. 
 
 ## <a name="customize-health-ping-behavior"></a>Personalizar comportamento de ping de integridade
 
-O serviço de aplicativo considera que um contêiner seja iniciado com êxito quando o contêiner é iniciado e responde a um ping HTTP. A solicitação de ping de integridade contêinera o cabeçalho `User-Agent= "App Service Hyper-V Container Availability Check"` . Se o contêiner for iniciado, mas não responder a um ping após determinado período de tempo, o serviço de aplicativo registrará um evento no log do Docker, dizendo que o contêiner não foi iniciado. 
+O serviço de aplicativo considera que um contêiner seja iniciado com êxito quando o contêiner é iniciado e responde a um ping HTTP. A solicitação de ping de integridade contém o cabeçalho `User-Agent= "App Service Hyper-V Container Availability Check"` . Se o contêiner for iniciado, mas não responder a um ping após determinado período de tempo, o serviço de aplicativo registrará um evento no log do Docker, dizendo que o contêiner não foi iniciado. 
 
 Se seu aplicativo estiver com uso intensivo de recursos, o contêiner poderá não responder ao ping de HTTP no tempo. Para controlar as ações quando ocorre falha em pings HTTP, defina a `CONTAINER_AVAILABILITY_CHECK_MODE` configuração do aplicativo. Você pode defini-lo por meio do [Cloud Shell](https://shell.azure.com). No bash:
 
@@ -290,7 +290,7 @@ A tabela a seguir mostra os valores possíveis:
 
 | Valor | Descrições |
 | - | - |
-| **Corrige** | Reiniciar o contêiner após três verificações de disponibilidade consecutivas |
+| **Reparar** | Reiniciar o contêiner após três verificações de disponibilidade consecutivas |
 | **ReportOnly** | O valor padrão. Não reinicie o contêiner, mas o relatório nos logs do Docker para o contêiner após três verificações de disponibilidade consecutivas. |
 | **Desativado** | Não Verifique a disponibilidade. |
 
