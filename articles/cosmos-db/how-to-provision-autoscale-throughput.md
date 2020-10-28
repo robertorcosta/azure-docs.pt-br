@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 823f5f90bc1a72b1df87ee21e37cf39fed0b2340
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486150"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740879"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Provisionar taxa de transferência de autoescala no banco de dados ou contêiner na API Azure Cosmos DB-SQL
 
@@ -27,13 +27,13 @@ Se você estiver usando uma API diferente, confira [API para MongoDB](how-to-pro
 
 1. Entre no [Portal do Azure](https://portal.azure.com) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
-1. Vá até sua conta do Azure Cosmos DB e abra a guia **Data Explorer**.
+1. Vá até sua conta do Azure Cosmos DB e abra a guia **Data Explorer** .
 
-1. Selecione **Novo contêiner**. Insira um nome para seu banco de dados, contêiner e uma chave de partição. Em **Taxa de transferência**, selecione a opção **dimensionamento automático** e defina a [taxa de transferência máxima (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) para a qual você deseja que o banco de dados ou contêiner seja dimensionado.
+1. Selecione **Novo contêiner** . Insira um nome para seu banco de dados, contêiner e uma chave de partição. Em **Taxa de transferência** , selecione a opção **dimensionamento automático** e defina a [taxa de transferência máxima (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) para a qual você deseja que o banco de dados ou contêiner seja dimensionado.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Criando um contêiner e configurando a taxa de transferência provisionada de dimensionamento automático":::
 
-1. Selecione **OK**.
+1. Selecione **OK** .
 
 Para provisionar o dimensionamento automático no banco de dados de taxa de transferência compartilhada, selecione a opção **Provisionar taxa de transferência do banco de dados** ao criar um novo banco de dados. 
 
@@ -44,11 +44,11 @@ Para provisionar o dimensionamento automático no banco de dados de taxa de tran
 
 1. Entre no [Portal do Azure](https://portal.azure.com) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 
-1. Vá até sua conta do Azure Cosmos DB e abra a guia **Data Explorer**.
+1. Vá até sua conta do Azure Cosmos DB e abra a guia **Data Explorer** .
 
 1. Selecione **Escala e configurações** para seu contêiner ou **Escala** para seu banco de dados.
 
-1. Em **Escala**, selecione a opção **Dimensionamento automático** e **Salvar**.
+1. Em **Escala** , selecione a opção **Dimensionamento automático** e **Salvar** .
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Criando um contêiner e configurando a taxa de transferência provisionada de dimensionamento automático":::
 

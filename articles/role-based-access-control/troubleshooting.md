@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368223"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741064"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -120,7 +120,7 @@ Se você convidou recentemente um usuário ao criar uma atribuição de função
 
 No entanto, se essa entidade de segurança não for um usuário convidado recentemente, ela poderá ser uma entidade de segurança excluída. Se você atribuir uma função a uma entidade de segurança e posteriormente excluir essa entidade de segurança sem primeiro remover a atribuição de função, a entidade de segurança será listada como **identidade não encontrada** e um tipo **desconhecido** .
 
-Se você listar essa atribuição de função usando Azure PowerShell, poderá ver um vazio `DisplayName` e um `ObjectType` definido como **desconhecido**. Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função que é semelhante à seguinte saída:
+Se você listar essa atribuição de função usando Azure PowerShell, poderá ver um vazio `DisplayName` e um `ObjectType` definido como **desconhecido** . Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função que é semelhante à seguinte saída:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -222,7 +222,7 @@ Semelhante aos aplicativos Web, alguns recursos na folha da máquina virtual exi
 
 As máquinas virtuais são relacionadas a nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.
 
-Estes itens exigem acesso para **gravação** na **Máquina virtual**:
+Estes itens exigem acesso para **gravação** na **Máquina virtual** :
 
 * Pontos de extremidade  
 * Endereços IP  
@@ -239,7 +239,7 @@ Se você não conseguir acessar nenhum desses blocos, solicite ao administrador 
 
 ## <a name="azure-functions-and-write-access"></a>Azure Functions e acesso para gravação
 
-Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) exigem acesso de gravação. Por exemplo, se uma função de [leitor](built-in-roles.md#reader) for atribuída a um usuário, ela não poderá exibir as funções em um aplicativo de funções. O portal exibirá **(Sem acesso)**.
+Alguns recursos do [Azure Functions](../azure-functions/functions-overview.md) exigem acesso de gravação. Por exemplo, se uma função de [leitor](built-in-roles.md#reader) for atribuída a um usuário, ela não poderá exibir as funções em um aplicativo de funções. O portal exibirá **(Sem acesso)** .
 
 ![Aplicativos de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
 

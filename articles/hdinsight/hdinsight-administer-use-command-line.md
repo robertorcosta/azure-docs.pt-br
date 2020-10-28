@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
 ms.date: 02/26/2020
-ms.openlocfilehash: 38bf49ba39420aa1edffa13540d61292e23d654b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d47c741bdf0d056a75a86cdb8aa14333320bb52a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490366"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742135"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gerenciar clusters do Azure HDInsight usando o CLI do Azure
 
@@ -90,7 +90,7 @@ az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --w
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a executar diferentes tarefas administrativas do cluster HDInsight. Para saber mais, leia os seguintes artigos:
+Neste artigo, você aprendeu a executar diferentes tarefas administrativas do cluster HDInsight. Confira os seguintes artigos para saber mais:
 
 * [Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-portal-linux.md)
 * [Administrar clusters HDInsight usando o Azure PowerShell](hdinsight-administer-use-powershell.md)

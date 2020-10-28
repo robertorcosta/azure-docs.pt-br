@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: 661147769d8ae845066e912a84118c9fd3f93486
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dd5d05ff6ed2368308f90f61ea0a6f107e43acd7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674925"
+ms.locfileid: "92740776"
 ---
 # <a name="weather-partner-integration"></a>Integração com parceiros de clima
 
@@ -180,7 +180,7 @@ O Docker do conector deve ter a capacidade de enviar atualizações nos metadado
 
 ## <a name="weather-data-telemetry-specifications"></a>Especificações de dados meteorológicos (telemetria)
 
-Os dados meteorológicos são mapeados para uma mensagem canônica enviada por push a um hub de eventos do Azure para processamento. O Azure EventHub é um serviço que habilita a ingestão de dados em tempo real (telemetria) de dispositivos e aplicativos conectados. Para enviar dados meteorológicos para o FarmBeats, você precisará criar um cliente que envia mensagens para um hub de eventos no FarmBeats. Para saber mais sobre como enviar telemetria, consulte [enviando telemetria para um hub de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+Os dados meteorológicos são mapeados para uma mensagem canônica enviada por push a um hub de eventos do Azure para processamento. Os Hubs de Eventos do Azure são um serviço que permite a ingestão de dados em tempo real (telemetria) a partir de dispositivos e aplicativos conectados. Para enviar dados meteorológicos para o FarmBeats, você precisará criar um cliente que envia mensagens para um hub de eventos no FarmBeats. Para saber mais sobre como enviar telemetria, consulte [enviando telemetria para um hub de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Aqui está um exemplo de código Python que envia telemetria como cliente para um hub de eventos especificado.
 

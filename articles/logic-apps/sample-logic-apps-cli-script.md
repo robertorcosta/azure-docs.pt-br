@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: ceb4a3356ef78d2129f76bd11f555a9ca5206d51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66edb1325d1c603e89f877f1d34f60c136eb1db
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505829"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740734"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Exemplo de script CLI do Azure – criar um aplicativo lógico
 
 Esse script cria um aplicativo lógico de exemplo por meio da [extensão de aplicativos lógicos CLI do Azure](/cli/azure/ext/logic/logic?view=azure-cli-latest), ( `az logic` ). Para obter um guia detalhado para criar e gerenciar aplicativos lógicos por meio do CLI do Azure, consulte o guia de [início rápido dos aplicativos lógicos para o CLI do Azure](quickstart-logic-apps-azure-cli.md).
 
 > [!WARNING]
-> Atualmente, a extensão de Aplicativos Lógicos para a CLI do Azure está em fase *experimental* e não é *coberta pelo atendimento ao cliente*. Use essa extensão da CLI com cuidado, especialmente se optar por usar a extensão em ambientes de produção.
+> Atualmente, a extensão de Aplicativos Lógicos para a CLI do Azure está em fase *experimental* e não é *coberta pelo atendimento ao cliente* . Use essa extensão da CLI com cuidado, especialmente se optar por usar a extensão em ambientes de produção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

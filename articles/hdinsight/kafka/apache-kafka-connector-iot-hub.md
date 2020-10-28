@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/26/2019
-ms.openlocfilehash: c4efb8b4835b7dc828caa49eaf6013a2f58bb081
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 66b14e435b777595e23fcf5a98d4820f36d21a1a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534542"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742045"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
 
@@ -85,7 +85,7 @@ Em sua conexão SSH com o nó de borda, use as seguintes etapas para configurar 
     export password='PASSWORD'
     ```
 
-1. Instale o utilitário [JQ](https://stedolan.github.io/jq/) . JQ torna mais fácil processar documentos JSON retornados de consultas Ambari. Digite o seguinte comando:
+1. Instale o utilitário [JQ](https://stedolan.github.io/jq/) . JQ torna mais fácil processar documentos JSON retornados de consultas Ambari. Insira o seguinte comando:
 
     ```bash
     sudo apt -y install jq

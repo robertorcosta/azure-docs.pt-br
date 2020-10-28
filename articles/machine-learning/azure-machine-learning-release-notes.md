@@ -9,18 +9,50 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6e18599e83a301ecda94525949f9f4cd077085a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139367"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742022"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) .
 
 Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender sobre erros e soluções conhecidas.
+
+## <a name="2020-10-26"></a>2020-10-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1170"></a>Azure Machine Learning SDK para Python v 1.17.0
++ **novos exemplos**
+  + Um novo repositório controlado pela comunidade de exemplos está disponível em https://github.com/Azure/azureml-examples
++ **Correções de bugs e melhorias**
+  + **azureml-automl-core**
+    + Corrigido um problema em que get_output pode gerar um XGBoostError.
+  + **azureml-automl-runtime**
+    + Os recursos baseados em tempo/calendário criados pelo AutoML agora terão o prefixo.
+    + Correção de um IndexError ocorrido durante o treinamento de StackEnsemble para conjuntos de volumes de conjunto de valores com um grande número de classes e a subamostra habilitada.
+    + Corrigido um problema em que as previsões de VotingRegressor podem ser imprecisas depois de reajustar o modelo.
+  + **azureml-core**
+    + Detalhes adicionais adicionados sobre a relação entre a configuração de implantação do AKS e os conceitos do serviço kubernetes do Azure.
+    + O cliente pode usar o SDK do serviço vinculado para vincular o espaço de trabalho Synapse no espaço de trabalho AML. CRUD têm suporte.
+    + Suporte a rótulos de cliente de ambiente. O usuário pode rotular os ambientes e referenciá-los por rótulo.
+  + **azureml-dataprep**
+    + Melhor mensagem de erro ao usar o Spark sem suporte no momento com escala de 2,12.
+  + **azureml-explain-model**
+    + O pacote azureml-explique-Model foi oficialmente preterido
+  + **azureml-mlflow**
+    + Foi resolvido um bug em mlflow. Projects. Execute no back-end do azureml em que o estado final não foi manipulado corretamente.
+  + **azureml-pipeline-core**
+    + Adicione suporte para criar, listar e obter agenda de pipeline com base em um ponto de extremidade de pipeline.
+    +  Melhorou a documentação de PipelineData.as_dataset com um exemplo de uso inválido-usar PipelineData.as_dataset de forma inadequada agora resultará em um Valorexception sendo lançado
+    + O bloco de anotações de pipelines HyperDriveStep foi alterado para registrar o melhor modelo em um PipelineStep diretamente após a execução do HyperDriveStep.
+  + **azureml-pipeline-steps**
+    + O bloco de anotações de pipelines HyperDriveStep foi alterado para registrar o melhor modelo em um PipelineStep diretamente após a execução do HyperDriveStep.
+  + **azureml-train-automl-client**
+    + Corrigido um problema em que get_output pode gerar um XGBoostError.
+
 
 ## <a name="2020-10-12"></a>2020-10-12
 
@@ -134,7 +166,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
 ## <a name="2020-08-31"></a>2020-08-31
 
 ### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Azure Machine Learning SDK para Python v 1.13.0
-+ **Versão prévia dos recursos**
++ **Recursos de visualização**
   + **azureml-núcleo** Com a nova funcionalidade de conjuntos de novos de saída, você pode fazer write-back para o armazenamento em nuvem, incluindo BLOB, ADLS Gen 1, ADLS Gen 2 e FileShare. Você pode configurar o local de saída de dados, como gerar dados de saída (via montagem ou carregamento), se deseja registrar os dados de saída para futura reutilização e compartilhamento e passar dados intermediários entre as etapas do pipeline diretamente. Isso permite que o reprodução, o compartilhamento, impeça a duplicação de dados e resulte em eficiência de custo e ganhos de produtividade. [Saiba como usá-lo](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true)
     
 + **Correções de bugs e melhorias**
@@ -178,8 +210,8 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
 + **Novos recursos**
   + Nova página de aterrissagem introdução 
   
-+ **Versão prévia dos recursos**
-    + Reúna recursos em blocos de anotações. Com o recurso de [coleta](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview)   , os usuários agora podem facilmente limpar blocos de anotações com o, coletar usa uma análise de dependência automatizada do seu notebook, garantindo que o código essencial seja mantido, mas removendo quaisquer partes irrelevantes.
++ **Recursos de visualização**
+    + Reúna recursos em blocos de anotações. Com o recurso de [coleta](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview) , os usuários agora podem facilmente limpar blocos de anotações com o, coletar usa uma análise de dependência automatizada do seu notebook, garantindo que o código essencial seja mantido, mas removendo quaisquer partes irrelevantes.
 
 + **Correções de bugs e melhorias**
   + Melhoria em velocidade e confiabilidade
@@ -347,7 +379,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
   + **azureml-pipeline-steps**
     + Atualizações do documento para o azureml-pipeline-Steps.
     +  Suporte adicionado no ParallelRunConfig `load_yaml()` para que os usuários definam ambientes embutidos com o restante da configuração ou em um arquivo separado
-  + **azureml-Train-automl-Client**.
+  + **azureml-Train-automl-Client** .
     + A capacidade de especificar `enable_cache` como parte do AutoMLConfig foi removida
   + **azureml-train-automl-runtime**
     + Adição de disponibilidade limitada de vários nós personalização distribuídos de várias GPU com BERT.
@@ -360,7 +392,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
 
 ### <a name="azure-machine-learning-sdk-for-python-v180"></a>Azure Machine Learning SDK para Python v 1.8.0
   
-  + **Versão prévia dos recursos**
+  + **Recursos de visualização**
     + **azureml-contrib-imparcial** O `azureml-contrib-fairness` pacote fornece integração entre a avaliação de integridade de software livre e o pacote de mitigação de infração [Fairlearn](https://fairlearn.github.io) e o Azure Machine Learning Studio. Em particular, o pacote permite que os painéis de avaliação de integridade do modelo sejam carregados como parte de uma execução do AzureML e apareçam no Azure Machine Learning Studio
 
 + **Correções de bugs e melhorias**
@@ -606,7 +638,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
 ### <a name="azure-machine-learning-sdk-for-python-v150"></a>SDK do Azure Machine Learning para Python v 1.5.0
 
 + **Novos recursos**
-  + **Versão prévia dos recursos**
+  + **Recursos de visualização**
     + **azureml-contrib-reinforcementlearning**
         + Azure Machine Learning está liberando o suporte de visualização para aprendizado de reforço usando o [Ray](https://ray.io) Framework. O `ReinforcementLearningEstimator` habilita o treinamento de agentes do reforço Learning em destinos de computação de CPU e de GPU em Azure Machine Learning.
 
@@ -701,7 +733,7 @@ Agora você pode criar, editar e compartilhar arquivos e blocos de anotações d
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     
-| Ferramenta baseada na Web  |     Description  |
+| Ferramenta baseada na Web  |     Descrição  |
 |---|---|
 | Blocos de anotações do Azure ML Studio   |     Primeira criação na classe para arquivos de bloco de anotações e suporte a todas as operações disponíveis no SDK do Python do Azure ML. | 
 
@@ -1159,7 +1191,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1074"></a>Azure Machine Learning SDK para Python v 1.0.74
 
-  + **Versão prévia dos recursos**
+  + **Recursos de visualização**
     + **azureml-contrib-dataset**
       + Depois de importar o azureml-contrib-DataSet, você pode chamar `Dataset.Labeled.from_json_lines` em vez de `._Labeled` criar um conjunto de um DataSet.
       + Ao chamar `to_pandas_dataframe` em um DataSet rotulado com a opção de download, agora você pode especificar se deseja substituir os arquivos existentes ou não.
@@ -1213,7 +1245,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Description | 
+| Ferramenta baseada na Web | Descrição | 
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | 
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | 
@@ -1252,7 +1284,7 @@ Azure Machine Learning agora é um provedor de recursos para a grade de eventos,
   + Anunciando duas novas edições (também chamadas de SKU intercambiáveis) em Azure Machine Learning. Com esta versão, agora você pode criar um espaço de trabalho básico ou de Azure Machine Learning empresarial. Todos os espaços de trabalho existentes serão padronizados para a edição básica e você poderá ir para a portal do Azure ou para o estúdio para atualizar o espaço de trabalho a qualquer momento. Você pode criar um espaço de trabalho básico ou empresarial do portal do Azure. Leia [nossa documentação](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) para saber mais. No SDK, a edição do seu espaço de trabalho pode ser determinada usando a propriedade "SKU" do seu objeto de espaço de trabalho.
   + Também fizemos aprimoramentos para Azure Machine Learning computação. agora você pode exibir métricas para seus clusters (como nós totais, nós em execução, cota de núcleo total) em Azure Monitor, além de exibir os logs de diagnóstico para depuração. Além disso, você também pode exibir execuções em fila ou em execução no momento no cluster e detalhes como os IPs dos vários nós no cluster. Você pode exibi-los no portal ou usando funções correspondentes no SDK ou na CLI.
 
-  + **Versão prévia dos recursos**
+  + **Recursos de visualização**
     + Estamos liberando o suporte de visualização para a criptografia de disco do SSD local no Azure Machine Learning computação. Gere um tíquete de suporte técnico para fazer com que sua assinatura seja listada para usar esse recurso.
     + Visualização pública de inferência de Azure Machine Learning lote. Azure Machine Learning inferência de lote tem como alvo grandes trabalhos de inferência que não diferenciam o tempo. A inferência de lote fornece o dimensionamento de computação de inferência econômica, com taxa de transferência incomparável para aplicativos assíncronos. Ele é otimizado para inferência de alta taxa de transferência, incêndio e esqueci sobre grandes coleções de dados.
     + [**azureml-contrib-dataset**](https://docs.microsoft.com/python/api/azureml-contrib-dataset)
@@ -1464,7 +1496,7 @@ A guia experimento no [novo portal de espaço de trabalho](https://ml.azure.com)
   + **[azureml-Train-automl](/python/api/azureml-train-automl-runtime/)**
     + Adicionado o suporte de conversão de ONNX para o ADB e o HDI
 
-+ **Versão prévia dos recursos**
++ **Recursos de visualização**
   + **azureml-Train-automl**
   + **[azureml-Train-automl](/python/api/azureml-train-automl-runtime/)**
     + BERT e BiLSTM com suporte como Text featurizer (somente visualização)
@@ -1880,7 +1912,7 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
   + **azureml-pipeline-steps**
     + O DBFS datastore agora tem suporte para entradas e saídas em DatabricksStep.
     + Documentação atualizada para a etapa do lote do Azure com relação a entradas/saídas.
-    + Em AzureBatchStep, alterado *delete_batch_job_after_finish* valor padrão para *true*.
+    + Em AzureBatchStep, alterado *delete_batch_job_after_finish* valor padrão para *true* .
   + **azureml-telemetry**
     +  Mova o azureml-contrib-opendatasets para o azureml-opendatasets.
     + Permita que as classes Open DataSet sejam registradas no espaço de trabalho Azure Machine Learning e aproveitem as funcionalidades do conjunto de recursos AML diretamente.
@@ -1905,18 +1937,18 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
 ## <a name="2019-07-09"></a>2019-07-09
 
 ### <a name="visual-interface"></a>Interface Visual
-+ **Versão prévia dos recursos**
++ **Recursos de visualização**
   + Módulo "executar script R" adicionado na interface visual.
 
 ### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine Learning SDK para Python v 1.0.48
 
 + **Novos recursos**
   + **azureml-opendatasets**
-    + o **azureml-contrib-opendatasets** agora está disponível como **azureml-opendatasets**. O pacote antigo ainda pode funcionar, mas é recomendável usar o **azureml-opendatasets** avançando para obter recursos e aprimoramentos mais avançados.
+    + o **azureml-contrib-opendatasets** agora está disponível como **azureml-opendatasets** . O pacote antigo ainda pode funcionar, mas é recomendável usar o **azureml-opendatasets** avançando para obter recursos e aprimoramentos mais avançados.
     + Esse novo pacote permite que você registre conjuntos de registros abertos como DataSet no espaço de trabalho Azure Machine Learning e aproveite quaisquer funcionalidades oferecidas pelo conjunto de recursos.
     + Ele também inclui recursos existentes, como o consumo de conjuntos de valores abertos como o pandas/SPARK dataframes e junções de local para alguns conjuntos de um conjunto de recursos, como clima.
 
-+ **Versão prévia dos recursos**
++ **Recursos de visualização**
     + HyperDriveConfig agora pode aceitar o objeto de pipeline como um parâmetro para dar suporte ao ajuste de hiperparâmetro usando um pipeline.
 
 + **Correções de bugs e melhorias**
@@ -2031,7 +2063,7 @@ O [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-co
 
 + **Novos recursos**
   + O SDK do Azure Machine Learning agora dá suporte ao Python 3,7.
-  + Azure Machine Learning os estimadores DNN agora fornecem suporte interno a várias versões. Por exemplo, `TensorFlow`   o estimador agora aceita um `framework_version` parâmetro e os usuários podem especificar a versão ' 1,10 ' ou ' 1,12 '. Para obter uma lista das versões com suporte na versão atual do SDK, chame `get_supported_versions()` na classe da estrutura desejada (por exemplo, `TensorFlow.get_supported_versions()` ).
+  + Azure Machine Learning os estimadores DNN agora fornecem suporte interno a várias versões. Por exemplo, `TensorFlow` o estimador agora aceita um `framework_version` parâmetro e os usuários podem especificar a versão ' 1,10 ' ou ' 1,12 '. Para obter uma lista das versões com suporte na versão atual do SDK, chame `get_supported_versions()` na classe da estrutura desejada (por exemplo, `TensorFlow.get_supported_versions()` ).
   Para obter uma lista das versões com suporte da versão mais recente do SDK, consulte a [documentação do estimador do DNN](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py&preserve-view=true).
 
 ## <a name="2019-03-25"></a>25-03-2019

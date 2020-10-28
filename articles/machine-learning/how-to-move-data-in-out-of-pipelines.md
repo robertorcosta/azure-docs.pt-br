@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: a1bd93931f8a94f598952b28fc3db23d33e5783f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 195c334500c8c540d819e949353b34bea65b3d4f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329764"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741898"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movendo dados para e entre as etapas de pipeline de ML (Python)
 
@@ -101,6 +101,9 @@ train_step = PythonScriptStep(
 )
 ```
 
+> [!NOTE]
+> Você precisa substituir os valores de todos esses argumentos (ou seja,,, `"train_data"` `"train.py"` `cluster` e `iris_dataset` ) pelos seus próprios dados. O trecho acima mostra apenas a forma da chamada e não faz parte de um exemplo da Microsoft. 
+
 Você também pode usar métodos como `random_split()` e `take_sample()` para criar várias entradas ou reduzir a quantidade de dados passados para a etapa do pipeline:
 
 ```python
@@ -150,6 +153,9 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
+> [!NOTE]
+> Os trechos de código anteriores mostram a forma das chamadas e não fazem parte de um exemplo da Microsoft. Você deve substituir os vários argumentos por valores de seu próprio projeto.
+
 ## <a name="use-pipelinedata-for-intermediate-data"></a>Usar `PipelineData` para dados intermediários
 
 Embora `Dataset` os objetos representem dados persistentes, os objetos [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) são usados para dados temporários que são gerados de etapas de pipeline. Como o tempo de vida de um `PipelineData` objeto é maior do que uma única etapa de pipeline, você os define no script de definição de pipeline. Ao criar um `PipelineData` objeto, você deve fornecer um nome e um repositório de dados no qual os mesmos serão armazenados. Passe seus `PipelineData` objetos para o `PythonScriptStep` usando _os_ `arguments` `outputs` argumentos e:
@@ -175,6 +181,9 @@ Você pode optar por criar o `PipelineData` objeto usando um modo de acesso que 
 ```python
 PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
 ```
+
+> [!NOTE]
+> Os trechos de código anteriores mostram a forma das chamadas e não fazem parte de um exemplo da Microsoft. Você deve substituir os vários argumentos por valores de seu próprio projeto.
 
 > [!TIP]
 > Uma experiência aprimorada para passar dados intermediários entre etapas de pipeline está disponível com a classe de visualização pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Para obter um exemplo de código usando `OutputFileDatasetConfig` , consulte como [criar um pipeline de ml de duas etapas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
@@ -226,6 +235,9 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
 O valor de uma `PipelineData` entrada é o caminho para a saída anterior. 
+
+> [!NOTE]
+> Os trechos de código anteriores mostram a forma das chamadas e não fazem parte de um exemplo da Microsoft. Você deve substituir os vários argumentos por valores de seu próprio projeto.
 
 > [!TIP]
 > Uma experiência aprimorada para passar dados intermediários entre etapas de pipeline está disponível com a classe de visualização pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Para obter um exemplo de código usando `OutputFileDatasetConfig` , consulte como [criar um pipeline de ml de duas etapas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
