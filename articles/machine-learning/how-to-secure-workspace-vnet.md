@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460981"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672858"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
@@ -34,7 +34,7 @@ Neste artigo, você aprenderá a habilitar os seguintes recursos de espaços de 
 > - Workspace do Azure Machine Learning
 > - Contas de armazenamento do Azure
 > - Azure Machine Learning de armazenamentos e conjuntos de itens
-> - Azure Key Vault
+> - Cofre de Chave do Azure
 > - Registro de Contêiner do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -74,23 +74,28 @@ Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtu
 
    [![O armazenamento anexado ao workspace do Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Na página conta de serviço de armazenamento, selecione __firewalls e redes virtuais__.
+1. Na página conta de serviço de armazenamento, selecione __firewalls e redes virtuais__ .
 
    ![A área “Firewalls e redes virtuais” na página Armazenamento do Azure no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Na página __Firewalls e redes virtuais__, execute as seguintes ações:
-    1. Selecione __Redes selecionadas__.
-    1. Em __Redes virtuais__, selecione o link __Adicionar rede virtual existente__. Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
+1. Na página __Firewalls e redes virtuais__ , execute as seguintes ações:
+    1. Selecione __Redes selecionadas__ .
+    1. Em __Redes virtuais__ , selecione o link __Adicionar rede virtual existente__ . Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
 
         > [!IMPORTANT]
         > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que as instâncias ou clusters de computação usados para treinamento ou inferência.
 
-    1. Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__.
+    1. Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__ . Isso não dá a todos os serviços do Azure acesso à sua conta de armazenamento.
+    
+        * Os recursos de alguns serviços, **registrados em sua assinatura** , podem acessar a conta de armazenamento **na mesma assinatura** para operações de seleção. Por exemplo, gravando logs ou criando backups.
+        * Os recursos de alguns serviços podem receber acesso explícito à sua conta de armazenamento __atribuindo uma função do Azure__ à sua identidade gerenciada atribuída pelo sistema.
+
+        Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     > [!IMPORTANT]
     > Ao trabalhar com o SDK do Azure Machine Learning, seu ambiente de desenvolvimento deve ter a capacidade de se conectar à Conta de Armazenamento do Azure. O firewall deve permitir o acesso do endereço IP do ambiente de desenvolvimento quando a conta de armazenamento está dentro de uma rede virtual.
     >
-    > Para habilitar o acesso à conta de armazenamento, acesse __Firewalls e redes virtuais__ para a conta de armazenamento *de um navegador da Web no cliente de desenvolvimento*. Em seguida, use a caixa de seleção __Adicionar endereço IP do seu cliente__ para adicionar o endereço IP do cliente ao __INTERVALO DE ENDEREÇOS__. Você também pode usar o campo __INTERVALO DE ENDEREÇOS__ para inserir manualmente o endereço IP do ambiente de desenvolvimento. Após adicionar o endereço IP do cliente, ele poderá acessar a conta de armazenamento usando o SDK.
+    > Para habilitar o acesso à conta de armazenamento, acesse __Firewalls e redes virtuais__ para a conta de armazenamento *de um navegador da Web no cliente de desenvolvimento* . Em seguida, use a caixa de seleção __Adicionar endereço IP do seu cliente__ para adicionar o endereço IP do cliente ao __INTERVALO DE ENDEREÇOS__ . Você também pode usar o campo __INTERVALO DE ENDEREÇOS__ para inserir manualmente o endereço IP do ambiente de desenvolvimento. Após adicionar o endereço IP do cliente, ele poderá acessar a conta de armazenamento usando o SDK.
 
    [![O painel “Firewalls e redes virtuais” no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -170,12 +175,12 @@ Para usar os recursos de experimentação do Azure Machine Learning com Azure Ke
 
 1. Vá para o Key Vault associado ao espaço de trabalho.
 
-1. Na página __Key Vault__ , no painel esquerdo, selecione __rede__.
+1. Na página __Key Vault__ , no painel esquerdo, selecione __rede__ .
 
 1. Na guia __firewalls e redes virtuais__ , execute as seguintes ações:
-    1. Em __permitir acesso de__, selecione __ponto de extremidade privado e redes selecionadas__.
-    1. Em __Redes virtuais__, selecione __Adicionar redes virtuais existentes__ para adicionar a rede virtual onde reside a sua computação de experimentação.
-    1. Em __permitir que os serviços confiáveis da Microsoft ignorem esse firewall?__, selecione __Sim__.
+    1. Em __permitir acesso de__ , selecione __ponto de extremidade privado e redes selecionadas__ .
+    1. Em __Redes virtuais__ , selecione __Adicionar redes virtuais existentes__ para adicionar a rede virtual onde reside a sua computação de experimentação.
+    1. Em __permitir que os serviços confiáveis da Microsoft ignorem esse firewall?__ , selecione __Sim__ .
 
    [![A seção “Firewalls e redes virtuais” no painel do Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 

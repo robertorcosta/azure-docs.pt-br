@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638322"
+ms.locfileid: "92674747"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorar a integridade do espaço de trabalho de Log Analytics no Azure Monitor
 Para manter o desempenho e a disponibilidade do seu espaço de trabalho do Log Analytics no Azure Monitor, você precisa ser capaz de detectar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorar a integridade do seu espaço de trabalho do Log Analytics usando dados na tabela de [operações](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Essa tabela está incluída em todos os Log Analytics espaço de trabalho e contém erros e avisos que ocorrem em seu espaço de trabalho. Você deve examinar esses dados regularmente e criar alertas para que sejam notificados proativamente quando houver incidentes importantes em seu espaço de trabalho.
 
 ## <a name="_logoperation-function"></a>Função _LogOperation
+
 Os logs de Azure Monitor enviam detalhes sobre quaisquer problemas na tabela de [operações](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) no espaço de trabalho em que o problema ocorreu. A função de sistema **_LogOperation** é baseada na tabela de **operações** e fornece um conjunto simplificado de informações para análise e alertas.
 
 ## <a name="columns"></a>Colunas
@@ -36,6 +37,7 @@ A função **_LogOperation** retorna as colunas na tabela a seguir.
 
 
 ## <a name="categories"></a>Categorias
+
 A tabela a seguir descreve as categorias da função _LogOperation. 
 
 | Categoria | Descrição |

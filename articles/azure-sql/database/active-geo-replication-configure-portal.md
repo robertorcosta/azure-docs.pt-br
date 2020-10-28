@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ddc79721355924f125acedd7420cab5f487c065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71c73fec4f559b34b097556243617636acd77480
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445049"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673267"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Tutorial: Configurar a replicação geográfica ativa e o failover no portal do Azure (Banco de Dados SQL do Azure)
 
@@ -35,7 +35,7 @@ Para configurar a replicação geográfica ativa usando o Portal do Azure, você
 * Um banco de dados no Banco de Dados SQL do Azure: O banco de dados primário que você deseja replicar para uma região geográfica diferente.
 
 > [!Note]
-> Ao usar o portal do Azure, você só pode criar um banco de dados secundário na mesma assinatura que o primário. Se o banco de dados secundário precisar estar em outra assinatura, use a [API REST de Criação de Banco de Dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou a [API do Transact-SQL ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Ao usar o portal do Azure, você só pode criar um banco de dados secundário na mesma assinatura que o primário. Se o banco de dados secundário precisar estar em outra assinatura, use a [API REST de Criação de Banco de Dados](/rest/api/sql/databases/createorupdate) ou a [API do Transact-SQL ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Adicionar um banco de dados secundário
 
@@ -70,8 +70,8 @@ Depois que o banco de dados secundário for criado e propagado, os dados começa
 O banco de dados secundário pode ser alternado para se tornar primário.  
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o banco de dados primário na parceria de replicação geográfica.
-2. Na folha Banco de dados SQL, selecione **Todas as configurações** > **replicação geográfica**.
-3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que deverá se tornar o novo primário e clique em **Failover Forçado**.
+2. Na folha Banco de dados SQL, selecione **Todas as configurações** > **replicação geográfica** .
+3. Na lista **SECUNDÁRIOS** , selecione o banco de dados que deverá se tornar o novo primário e clique em **Failover Forçado** .
 
     ![failover](./media/active-geo-replication-configure-portal/secondaries.png)
 4. Clique em **Sim** para iniciar o failover.
@@ -88,9 +88,9 @@ Há um breve período durante o qual os bancos de dados não estão disponíveis
 Essa operação termina permanentemente a replicação para o banco de dados secundário e altera a função do secundário para um banco de dados de leitura/gravação normal. Se a conectividade com o banco de dados secundário for desfeita, o comando terá êxito, mas o secundário só se tornará de leitura/gravação quando a conectividade for restaurada.  
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o banco de dados primário na parceria de replicação geográfica.
-2. Na página do Banco de dados SQL, selecione **Replicação geográfica**.
-3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que você deseja remover da parceria de replicação geográfica.
-4. Clique em **Parar Replicação**.
+2. Na página do Banco de dados SQL, selecione **Replicação geográfica** .
+3. Na lista **SECUNDÁRIOS** , selecione o banco de dados que você deseja remover da parceria de replicação geográfica.
+4. Clique em **Parar Replicação** .
 
     ![Remover secundário](./media/active-geo-replication-configure-portal/remove-secondary.png)
 5. Uma janela de confirmação é aberta. Clique em **Sim** para remover o banco de dados da parceria de replicação geográfica. (Defina-o como um banco de dados de leitura/gravação que não faz parte de nenhuma replicação.)

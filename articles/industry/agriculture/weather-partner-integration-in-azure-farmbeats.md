@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 661147769d8ae845066e912a84118c9fd3f93486
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86496988"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674925"
 ---
 # <a name="weather-partner-integration"></a>Integração com parceiros de clima
 
@@ -28,7 +28,7 @@ Um parceiro meteorológico precisará fornecer uma imagem/programa do Docker (co
 - Credenciais/chaves de API específicas do cliente para acessar os dados do sistema do parceiro meteorológico
 - Detalhes de SKU de VM (os parceiros podem fornecer isso caso o Docker tenha requisitos específicos de VM; caso contrário, os clientes podem escolher entre SKUs de VM com suporte no Azure)
 
-Usando as informações acima do Docker, o cliente registrará um parceiro meteorológico em sua instância FarmBeats. Para saber mais sobre como os clientes podem usar o Docker para ingerir dados meteorológicos no FarmBeats, consulte o guia para [obter dados meteorológicos](https://docs.microsoft.com/azure/industry/agriculture/get-weather-data-from-weather-partner)
+Usando as informações acima do Docker, o cliente registrará um parceiro meteorológico em sua instância FarmBeats. Para saber mais sobre como os clientes podem usar o Docker para ingerir dados meteorológicos no FarmBeats, consulte o guia para [obter dados meteorológicos](./get-weather-data-from-weather-partner.md)
 
 ## <a name="connector-docker-development"></a>Desenvolvimento do Docker do conector
 
@@ -71,9 +71,9 @@ Para permitir que os clientes se autentiquem com as APIs do lado do parceiro dur
    }
 }
 ```
-O serviço de API serializa esse dicter e o armazena em um [keyvault](https://docs.microsoft.com/azure/key-vault/basic-concepts).
+O serviço de API serializa esse dicter e o armazena em um [keyvault](../../key-vault/general/basic-concepts.md).
 
-[Azure data Factory](https://docs.microsoft.com/azure/data-factory/introduction) é usado para orquestrar trabalhos meteorológicos e girar recursos para executar o código do Docker. Ele também fornece um mecanismo para enviar dados por push com segurança para a VM na qual o trabalho do Docker é executado. As credenciais de API, que agora são armazenadas com segurança no keyvault são lidas como cadeias de caracteres seguras do keyvault e disponibilizadas como propriedades estendidas no diretório de trabalho do contêiner do Docker como activity.jsem (o caminho para o arquivo é "/mnt/working_dir/activity.js") o código do Docker pode ler as credenciais desse arquivo durante o tempo de execução para acessar as APIs do lado do parceiro em nome do cliente. As credenciais estarão disponíveis no arquivo da seguinte maneira:
+[Azure data Factory](../../data-factory/introduction.md) é usado para orquestrar trabalhos meteorológicos e girar recursos para executar o código do Docker. Ele também fornece um mecanismo para enviar dados por push com segurança para a VM na qual o trabalho do Docker é executado. As credenciais de API, que agora são armazenadas com segurança no keyvault são lidas como cadeias de caracteres seguras do keyvault e disponibilizadas como propriedades estendidas no diretório de trabalho do contêiner do Docker como activity.jsem (o caminho para o arquivo é "/mnt/working_dir/activity.js") o código do Docker pode ler as credenciais desse arquivo durante o tempo de execução para acessar as APIs do lado do parceiro em nome do cliente. As credenciais estarão disponíveis no arquivo da seguinte maneira:
 
 ```json
 { 
@@ -89,7 +89,7 @@ A FarmBeats lib fornece funções auxiliares para permitir que os parceiros leia
 
 O tempo de vida do arquivo é apenas durante a execução do código do Docker e será excluído após o término da execução do Docker.
 
-Para obter mais detalhes sobre como funcionam as atividades e os pipelines do ADF, consulte [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping) .
+Para obter mais detalhes sobre como funcionam as atividades e os pipelines do ADF, consulte [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](../../data-factory/copy-activity-schema-and-type-mapping.md) .
 
 **Cabeçalhos de solicitação HTTP**
 
@@ -107,7 +107,7 @@ O JSON é um formato de dados comum independente de linguagem que fornece uma re
 
 ## <a name="docker-specifications"></a>Especificações do Docker
 
-O programa Docker precisa ter dois componentes: **Bootstrap** e **trabalhos**. Pode haver mais de um trabalho.
+O programa Docker precisa ter dois componentes: **Bootstrap** e **trabalhos** . Pode haver mais de um trabalho.
 
 ### <a name="bootstrap"></a>Bootstrap
 
@@ -123,8 +123,8 @@ Os metadados a seguir são criados como parte desse processo.
  > [!NOTE]
  > **Observe** que, se você atualizar o bootstrap_manifest.jsno arquivo conforme mencionado na [implementação de referência](https://github.com/azurefarmbeats/noaa_docker), não será necessário criar os metadados abaixo, pois a inicialização criará o mesmo com base no arquivo de manifesto.
 
-- /**WeatherDataModel**: um WeatherDataModel é um modelo para representar dados meteorológicos e corresponde a conjuntos de dados diferentes fornecidos pela origem. Por exemplo, um DailyForecastSimpleModel pode fornecer a temperatura média, umidade e informações de precipitação uma vez por dia, enquanto uma DailyForecastAdvancedModel pode fornecer muito mais informações em uma granularidade de hora. Você pode criar qualquer número de WeatherDataModels.
-- /**JobType**: o FarmBeats tem um sistema de gerenciamento de trabalhos extensível. Como um provedor de dados meteorológicos, você terá diferentes conjuntos/APIs (por exemplo, GetDailyForecasts) – você pode habilitá-los em FarmBeats como JobType. Depois que um JobType é criado, um cliente pode disparar trabalhos desse tipo para obter dados meteorológicos para seu local/farm de interesse (consulte JobType e APIs de trabalho no [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)).
+- /**WeatherDataModel** : um WeatherDataModel é um modelo para representar dados meteorológicos e corresponde a conjuntos de dados diferentes fornecidos pela origem. Por exemplo, um DailyForecastSimpleModel pode fornecer a temperatura média, umidade e informações de precipitação uma vez por dia, enquanto uma DailyForecastAdvancedModel pode fornecer muito mais informações em uma granularidade de hora. Você pode criar qualquer número de WeatherDataModels.
+- /**JobType** : o FarmBeats tem um sistema de gerenciamento de trabalhos extensível. Como um provedor de dados meteorológicos, você terá diferentes conjuntos/APIs (por exemplo, GetDailyForecasts) – você pode habilitá-los em FarmBeats como JobType. Depois que um JobType é criado, um cliente pode disparar trabalhos desse tipo para obter dados meteorológicos para seu local/farm de interesse (consulte JobType e APIs de trabalho no [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)).
 
 ### <a name="jobs"></a>Trabalhos
 
@@ -136,7 +136,7 @@ Esse componente será invocado toda vez que um usuário FarmBeats executar um tr
 
   WeatherDataModel | Descrição |
   --- | ---
-  Nome  | Nome do modelo de dados meteorológicos |
+  Name  | Nome do modelo de dados meteorológicos |
   Descrição  | Fornece uma descrição significativa da configuração. |
   Propriedades  | Propriedades adicionais definidas pelo provedor de dados. |
   Nome > weatherMeasures  | Nome da medida do clima. Por exemplo humidity_max |
@@ -159,7 +159,7 @@ Esse componente será invocado toda vez que um usuário FarmBeats executar um tr
   **WeatherDataLocation** | **Descrição** |
   weatherDataModelId  | ID do WeatherDataModel correspondente que foi criado durante a inicialização|
   local  | representa latitude, longitude e elevação |
-  Nome | Nome do objeto |
+  Name | Nome do objeto |
   DESCRIÇÃO | Descrição |
   farmid | **opcional** ID do farm – fornecido pelo cliente como parte do parâmetro de trabalho |
   Propriedades  | Propriedades adicionais do fabricante.
@@ -180,7 +180,7 @@ O Docker do conector deve ter a capacidade de enviar atualizações nos metadado
 
 ## <a name="weather-data-telemetry-specifications"></a>Especificações de dados meteorológicos (telemetria)
 
-Os dados meteorológicos são mapeados para uma mensagem canônica enviada por push a um hub de eventos do Azure para processamento. O Azure EventHub é um serviço que habilita a ingestão de dados em tempo real (telemetria) de dispositivos e aplicativos conectados. Para enviar dados meteorológicos para o FarmBeats, você precisará criar um cliente que envia mensagens para um hub de eventos no FarmBeats. Para saber mais sobre como enviar telemetria, consulte [enviando telemetria para um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+Os dados meteorológicos são mapeados para uma mensagem canônica enviada por push a um hub de eventos do Azure para processamento. O Azure EventHub é um serviço que habilita a ingestão de dados em tempo real (telemetria) de dispositivos e aplicativos conectados. Para enviar dados meteorológicos para o FarmBeats, você precisará criar um cliente que envia mensagens para um hub de eventos no FarmBeats. Para saber mais sobre como enviar telemetria, consulte [enviando telemetria para um hub de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Aqui está um exemplo de código Python que envia telemetria como cliente para um hub de eventos especificado.
 

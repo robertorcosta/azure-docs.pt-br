@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278021"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674635"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de cobrança limitada do Marketplace
 
@@ -34,7 +34,7 @@ Somente um evento de uso pode ser emitido para cada hora de um dia do calendári
 
 Somente um evento de uso pode ser emitido para cada hora de um dia de calendário por recurso. Se mais de uma unidade for consumida em uma hora, o acumulará todas as unidades consumidas na hora e a emitirá em um único evento. Os eventos de uso só podem ser emitidos para as últimas 24 horas. Se você emitir um evento de uso a qualquer momento entre 8:00 e 8:59:59 (e ele for aceito) e enviar um evento adicional para o mesmo dia entre 8:00 e 8:59:59, ele será rejeitado como duplicado.
 
-**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -67,7 +67,7 @@ Somente um evento de uso pode ser emitido para cada hora de um dia de calendári
 >[!NOTE]
 >`resourceId` tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
 
-Para planos de Aplicativos Gerenciados do Aplicativo Azure, a `resourceId` é a `resourceUsageId` encontrada no `billingDetails` do objeto de metadados do Aplicativo Gerenciado. Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Para Aplicativo Azure planos de aplicativos gerenciados, o `resourceId` é o aplicativo gerenciado `resource group Id` . Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Para ofertas de SaaS, a `resourceId` é a ID de assinatura do SaaS. Para obter mais detalhes sobre assinaturas de SaaS, veja [listar assinaturas](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -191,7 +191,7 @@ A API de evento de uso do lote permite que você emita eventos de uso para mais 
 >[!NOTE]
 >`resourceId` tem significado diferente para o aplicativo SaaS e para o aplicativo gerenciado que emite o medidor personalizado. 
 
-Para planos de Aplicativos Gerenciados do Aplicativo Azure, a `resourceId` é a `resourceUsageId` encontrada no `billingDetails` do objeto de metadados do Aplicativo Gerenciado. Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Para Aplicativo Azure planos de aplicativos gerenciados, o `resourceId` é o aplicativo gerenciado `resource group Id` . Um script de exemplo para buscá-los pode ser encontrado em [usando o token de identidades gerenciadas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Para ofertas de SaaS, a `resourceId` é a ID de assinatura do SaaS. Para obter mais detalhes sobre assinaturas de SaaS, veja [listar assinaturas](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 

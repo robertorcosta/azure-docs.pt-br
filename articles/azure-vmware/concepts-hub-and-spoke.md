@@ -1,18 +1,18 @@
 ---
 title: Conceito – integrar uma implantação de solução do Azure VMware em uma arquitetura de Hub e spoke
-description: Saiba mais sobre as recomendações para integrar uma implantação de solução do Azure VMware a uma arquitetura de Hub e spoke existente ou nova no Azure.
+description: Saiba como integrar uma implantação de solução do Azure VMware em uma arquitetura de Hub e spoke no Azure.
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/26/2020
+ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058464"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674701"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrar a solução do Azure VMware em uma arquitetura de Hub e spoke
 
-Neste artigo, fornecemos recomendações para integrar uma implantação de solução do Azure VMware em uma [arquitetura de Hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/shared-services) existente ou nova no Azure. 
+Este artigo fornece recomendações para integrar uma implantação de solução do Azure VMware em uma arquitetura de [Hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/shared-services) existente ou nova no Azure. 
 
 
 O cenário Hub e spoke assumem um ambiente de nuvem híbrida com cargas de trabalho em:
@@ -28,7 +28,7 @@ O *Hub* é uma rede virtual do Azure que atua como um ponto central de conectivi
 O tráfego entre o datacenter local, a nuvem privada da solução Azure VMware e o Hub passa pelas conexões do Azure ExpressRoute. As redes virtuais spoke geralmente contêm cargas de trabalho baseadas em IaaS, mas podem ter serviços de PaaS como [ambiente do serviço de aplicativo](../app-service/environment/intro.md), que tem integração direta com a rede virtual ou outros serviços de PaaS com o [link privado do Azure](../private-link/index.yml) habilitado.
 
 >[!IMPORTANT]
->Você pode usar um gateway de ExpressRoute existente para se conectar à solução do Azure VMware, desde que ela não exceda o limite de quatro circuitos de ExpressRoute por rede virtual.  No entanto, para acessar a solução Azure VMware do local por meio do ExpressRoute, você deve ter o ExpressRoute Alcance Global, pois o gateway de ExpressRoute não fornece roteamento transitivo entre seus circuitos conectados.
+>Você pode usar um Gateway de ExpressRoute existente para se conectar à Solução VMware no Azure, desde que ela não exceda o limite de quatro circuitos de ExpressRoute por rede virtual.  No entanto, para acessar a Solução VMware no Azure do local por meio do ExpressRoute, você precisa ter o Alcance Global do ExpressRoute, pois o gateway do ExpressRoute não fornece roteamento transitivo entre os circuitos conectados.
 
 O diagrama mostra um exemplo de implantação de Hub e spoke no Azure conectado à solução local e do Azure VMware por meio do ExpressRoute Alcance Global.
 
@@ -46,7 +46,7 @@ A arquitetura tem os seguintes componentes principais:
 
 
   > [!NOTE]
-  > **Considerações sobre VPN S2S:** Para implantações de produção de solução do Azure VMware, a VPN S2S do Azure não tem suporte devido a requisitos de rede para o VMware HCX. No entanto, ele pode ser usado para uma implantação de PoC.
+  > **Considerações sobre VPN S2S:** Para implantações de produção de solução do Azure VMware, a VPN S2S do Azure não tem suporte devido a requisitos de rede para o VMware HCX. No entanto, você pode usá-lo para uma implantação de PoC.
 
 
 -   **Rede virtual do Hub:** Atua como o ponto central de conectividade para sua rede local e a nuvem privada da solução Azure VMware.
@@ -81,9 +81,9 @@ Você pode encontrar mais detalhes sobre os conceitos de conectividade e rede da
 
 ### <a name="traffic-segmentation"></a>Segmentação de tráfego
 
-O [Firewall do Azure](../firewall/index.yml) é a parte central da topologia hub e spoke, implantada na rede virtual do Hub. Use o Firewall do Azure ou outra solução de virtualização de rede com suporte do Azure para estabelecer regras de tráfego e segmentar a comunicação entre os spokes diferentes e as cargas de trabalho da solução Azure VMware.
+O [Firewall do Azure](../firewall/index.yml) é a peça central da topologia hub e do spoke, implantada na rede virtual do Hub. Use o Firewall do Azure ou outra solução de virtualização de rede com suporte do Azure para estabelecer regras de tráfego e segmentar a comunicação entre os spokes diferentes e as cargas de trabalho da solução Azure VMware.
 
-Crie tabelas de rotas para direcionar o tráfego para o Firewall do Azure.  Para as redes virtuais spoke, crie uma rota que defina a rota padrão para a interface interna do firewall do Azure, dessa forma, quando uma carga de trabalho na rede virtual precisar acessar o espaço de endereço da solução VMware do Azure, o firewall poderá avaliá-la e aplicar a regra de tráfego correspondente para permitir ou negar.  
+Crie tabelas de rotas para direcionar o tráfego para o Firewall do Azure.  Para as redes virtuais spoke, crie uma rota que defina a rota padrão para a interface interna do firewall do Azure. Dessa forma, quando uma carga de trabalho na rede virtual precisar acessar o espaço de endereço da solução Azure VMware, o firewall poderá avaliá-la e aplicar a regra de tráfego correspondente para permitir ou negar.  
 
 :::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Implantação do hub de solução do Azure VMware e integração de spoke" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
@@ -91,14 +91,14 @@ Crie tabelas de rotas para direcionar o tráfego para o Firewall do Azure.  Para
 > [!IMPORTANT]
 > Não há suporte para uma rota com o prefixo de endereço 0.0.0.0/0 na configuração **GatewaySubnet** .
 
-Defina rotas para redes específicas na tabela de rotas correspondente. Por exemplo, as rotas para alcançar os prefixos de IP do gerenciamento de soluções e cargas de trabalho do Azure VMware das cargas de trabalho do spoke e vice-versa.
+Defina rotas para redes específicas na tabela de rotas correspondente. Por exemplo, as rotas para alcançar os prefixos de IP do gerenciamento de soluções e cargas de trabalho do Azure VMware das cargas de trabalho do spoke e o contrário.
 
 :::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Implantação do hub de solução do Azure VMware e integração de spoke" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
 Um segundo nível de segmentação de tráfego usando os grupos de segurança de rede dentro dos spokes e o Hub para criar uma política de tráfego mais granular.
 
 > [!NOTE]
-> **Tráfego do local para a solução VMware do Azure:** O tráfego entre as cargas de trabalho locais, tanto com base em vSphere quanto em outros, é habilitado por Alcance Global, mas o tráfego não passa pelo firewall do Azure no Hub. Nesse cenário, você deve implementar mecanismos de segmentação de tráfego no local ou na solução do Azure VMware.
+> **Tráfego do local para a solução VMware do Azure:** O tráfego entre as cargas de trabalho locais, tanto com base em vSphere quanto em outros, é habilitado por Alcance Global, mas o tráfego não passa pelo firewall do Azure no Hub. Nesse cenário, você deve implementar mecanismos de segmentação de tráfego, seja no local ou na solução do Azure VMware.
 
 ### <a name="application-gateway"></a>Gateway de Aplicativo
 
@@ -111,7 +111,7 @@ Examine o artigo específico da solução Azure VMware no [Gateway de aplicativo
 
 ### <a name="jump-box-and-azure-bastion"></a>Jump box e bastiões do Azure
 
-Acesse o ambiente de solução do Azure VMware com o Jump Box, que é uma VM do Windows 10 ou do Windows Server implantada na sub-rede do serviço compartilhado dentro da rede virtual do Hub.
+Acesse o ambiente de solução do Azure VMware com uma caixa de salto, que é uma VM do Windows 10 ou do Windows Server implantada na sub-rede do serviço compartilhado dentro da rede virtual do Hub.
 
 >[!IMPORTANT]
 >A bastiões do Azure é o serviço recomendado para se conectar à caixa de salto para evitar a exposição da solução Azure VMware à Internet. Você não pode usar a bastiões do Azure para se conectar às VMs da solução Azure VMware, pois elas não são objetos IaaS do Azure.  
@@ -137,7 +137,7 @@ A melhor abordagem é combinar ambos para fornecer resolução de nomes confiáv
 
 Como recomendação de design geral, use a infraestrutura de DNS do Azure existente (nesse caso, o DNS Active Directory integrado) implantado em pelo menos duas VMs do Azure implantadas na rede virtual do Hub e configuradas nas redes virtuais do spoke para usar esses servidores DNS do Azure nas configurações de DNS.
 
-O Azure DNS privado ainda pode ser usado onde a zona de DNS privado do Azure está vinculada às redes virtuais, e os servidores DNS são usados como resolvedores híbridos com encaminhamento condicional para a solução local/Azure VMware que executa o DNS, aproveitando a infraestrutura de DNS privado do Azure do cliente.
+Você pode usar o Azure DNS privado, onde a zona do Azure DNS privado vincula à rede virtual.  Os servidores DNS são usados como resolvedores híbridos com encaminhamento condicional para a solução local ou Azure VMware que executa o DNS, aproveitando a infraestrutura de DNS privado do Azure do cliente. 
 
 Há várias considerações a serem consideradas para as zonas privadas do DNS do Azure:
 
@@ -149,7 +149,7 @@ Os servidores de solução local e do Azure VMware podem ser configurados com en
 
 ## <a name="identity-considerations"></a>Considerações sobre identidade
 
-Para fins de identidade, a melhor abordagem é implantar pelo menos um controlador de domínio do AD no Hub, usando a sub-rede do serviço compartilhado, idealmente dois deles no modo distribuído por zona ou em um conjunto de disponibilidade de VM. Consulte [centro de arquitetura do Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) para estender seu domínio do AD local para o Azure.
+Para fins de identidade, a melhor abordagem é implantar pelo menos um controlador de domínio do AD no Hub. Use duas sub-redes de serviço compartilhado no modo distribuído por zona ou um conjunto de disponibilidade de VM. Consulte [centro de arquitetura do Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) para estender seu domínio do AD local para o Azure.
 
 Além disso, implante outro controlador de domínio no lado da solução do Azure VMware para atuar como identidade e origem do DNS no ambiente vSphere.
 

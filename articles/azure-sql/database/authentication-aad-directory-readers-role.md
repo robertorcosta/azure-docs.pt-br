@@ -9,19 +9,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 0f9b6e0250acb53899ab0443a62db7c9cc51f992
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370093"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675066"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Função Leitores de Diretório no Azure Active Directory para o SQL do Azure
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Este recurso neste artigo está em **Visualização pública**.
+> Este recurso neste artigo está em **Visualização pública** .
 
 O Azure Active Directory (Azure AD) introduziu o [uso de grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)](../../active-directory/roles/groups-concept.md). Isso permite que as funções do Azure AD sejam atribuídas a grupos.
 
@@ -31,7 +31,7 @@ A função **leitores de diretório** é necessária para:
 
 - Criar logons do Azure AD para o SQL Instância Gerenciada
 - Representar usuários do Azure AD no Azure SQL
-- Migrar SQL Server usuários que usam a autenticação do Windows para o SQL Instância Gerenciada com a autenticação do Azure AD (usando o comando [ALTER User (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
+- Migrar SQL Server usuários que usam a autenticação do Windows para o SQL Instância Gerenciada com a autenticação do Azure AD (usando o comando [ALTER User (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
 - Alterar o administrador do Azure AD para o SQL Instância Gerenciada
 - Permitir que as [entidades de serviço (aplicativos)](authentication-aad-service-principal.md) criem usuários do Azure AD no Azure SQL
 
@@ -45,7 +45,7 @@ A atribuição da função de **Leitores de diretório** à identidade do servid
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Concedendo a função leitores de diretório a um grupo do Azure AD
 
-Atualmente em **Visualização pública**, agora você pode ter um administrador [global](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) ou [administrador de função com privilégios](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) para criar um grupo do Azure AD e atribuir a permissão de [**leitores de diretório**](../../active-directory/roles/permissions-reference.md#directory-readers) ao grupo. Isso permitirá o acesso ao API do Graph do Azure AD para membros deste grupo. Além disso, os usuários do Azure AD que são proprietários desse grupo têm permissão para atribuir novos membros para esse grupo, incluindo identidades dos servidores lógicos do SQL Azure.
+Atualmente em **Visualização pública** , agora você pode ter um administrador [global](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) ou [administrador de função com privilégios](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) para criar um grupo do Azure AD e atribuir a permissão de [**leitores de diretório**](../../active-directory/roles/permissions-reference.md#directory-readers) ao grupo. Isso permitirá o acesso ao API do Graph do Azure AD para membros deste grupo. Além disso, os usuários do Azure AD que são proprietários desse grupo têm permissão para atribuir novos membros para esse grupo, incluindo identidades dos servidores lógicos do SQL Azure.
 
 Essa solução ainda requer um usuário de alto privilégio (administrador global ou administrador de função com privilégios) para criar um grupo e atribuir usuários como uma atividade de uma vez, mas os proprietários do grupo do Azure AD poderão atribuir outros membros no futuro. Isso elimina a necessidade de envolver um usuário de alto privilégio no futuro para configurar todos os bancos de dados SQL, instâncias gerenciadas do SQL ou servidores Synapse do Azure em seu locatário do Azure AD.
 

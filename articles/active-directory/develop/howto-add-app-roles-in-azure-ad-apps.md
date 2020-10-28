@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: be5cb1c1e6ff428b3c4d4305c915e07d3880839c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c29e1e3fd42702e0eb02531f995c550738839a9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258380"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673715"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como fazer: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -36,10 +36,10 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal.
-1. Na lista **Favoritos** ou **Todos os Diretórios**, escolha o locatário do Active Directory no qual deseja registrar seu aplicativo.
-1. Na portal do Azure, procure e selecione **Azure Active Directory**.
-1. No painel **Azure Active Directory**, selecione **Registros de aplicativo** para exibir uma lista com todos os seus aplicativos.
-1. Selecione o aplicativo no qual deseja definir funções. Em seguida, selecione **Manifesto**.
+1. Na lista **Favoritos** ou **Todos os Diretórios** , escolha o locatário do Active Directory no qual deseja registrar seu aplicativo.
+1. Na portal do Azure, procure e selecione **Azure Active Directory** .
+1. No painel **Azure Active Directory** , selecione **Registros de aplicativo** para exibir uma lista com todos os seus aplicativos.
+1. Selecione o aplicativo no qual deseja definir funções. Em seguida, selecione **Manifesto** .
 1. Edite o manifesto do aplicativo localizando a configuração `appRoles` e adicionando todas as suas Funções de aplicativo.
 
      > [!NOTE]
@@ -76,7 +76,7 @@ O exemplo a seguir mostra o `appRoles` que você pode atribuir a `users`.
 > [!NOTE]
 >O `displayName` pode conter espaços.
 
-Você pode definir funções de aplicativo para o `users` de destino, para `applications` ou ambos. Quando disponível para o `applications` , as funções de aplicativo aparecem como permissões de aplicativo na seção **gerenciar** > **permissões de API > adicionar uma permissão > minhas APIs > escolher uma API > permissões de aplicativo**. O exemplo a seguir mostra uma função de aplicativo destinada a um `Application`.
+Você pode definir funções de aplicativo para o `users` de destino, para `applications` ou ambos. Quando disponível para o `applications` , as funções de aplicativo aparecem como permissões de aplicativo na seção **gerenciar** > **permissões de API > adicionar uma permissão > minhas APIs > escolher uma API > permissões de aplicativo** . O exemplo a seguir mostra uma função de aplicativo destinada a um `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -101,23 +101,23 @@ O número de funções definidas afeta os limites do manifesto do aplicativo. El
 
 Após adicionar funções de aplicativo em seu aplicativo, você pode atribuir usuários e grupos a essas funções.
 
-1. No painel **Azure Active Directory**, selecione **Aplicativos empresariais** no menu de navegação esquerdo do **Azure Active Directory**.
+1. No painel **Azure Active Directory** , selecione **Aplicativos empresariais** no menu de navegação esquerdo do **Azure Active Directory** .
 1. Selecione **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos.
 
      Se não vir o aplicativo desejado na lista, use os diferentes filtros na parte superior da lista **Todos os aplicativos** para restringir a lista ou percorra a lista para localizar o aplicativo.
 
 1. Selecione o aplicativo no qual deseja atribuir funções a usuários ou grupos de segurança.
 1. Escolha o painel **Usuários e grupos** no menu de navegação à esquerda do aplicativo.
-1. Na parte superior da lista **Usuários e grupos**, escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
-1. Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**.
+1. Na parte superior da lista **Usuários e grupos** , escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição** .
+1. Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição** .
 
      Uma lista de usuários e grupos de segurança será exibida em conjunto com uma caixa de texto para pesquisar e localizar um determinado usuário ou grupo. Esta tela permite que você escolha vários usuários e grupos de uma só vez.
 
 1. Após terminar de escolher os usuários e grupos, pressione o botão **Selecionar** na parte inferior para passar para a próxima parte.
-1. Escolha o seletor **Selecionar Função** no painel **Adicionar atribuição**. Todas as funções declaradas anteriormente no manifesto do aplicativo serão exibidas.
-1. Escolha uma função e pressione o botão **Selecionar**.
+1. Escolha o seletor **Selecionar Função** no painel **Adicionar atribuição** . Todas as funções declaradas anteriormente no manifesto do aplicativo serão exibidas.
+1. Escolha uma função e pressione o botão **Selecionar** .
 1. Pressione o botão **Atribuir** na parte inferior para concluir as atribuições de usuários e grupos ao aplicativo.
-1. Confirme que os usuários e grupos que você adicionou estão aparecendo na lista atualizada de **Usuários e grupos**.
+1. Confirme que os usuários e grupos que você adicionou estão aparecendo na lista atualizada de **Usuários e grupos** .
 
 ### <a name="receive-roles-in-tokens"></a>Receber funções em tokens
 
@@ -126,7 +126,7 @@ Quando os usuários atribuídos às várias funções de aplicativo entrarem no 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Adicionar autorização usando funções de aplicativo e declarações de funções a um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Implementar a autorização em seus aplicativos com a plataforma de identidade da Microsoft (vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
+- [Implementar a autorização em seus aplicativos com a plataforma de identidade da Microsoft (vídeo)](https://www.youtube.com/watch?v=HdBSBSbgYQQ)
 - [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto de aplicativo do Azure Active Directory](./reference-app-manifest.md)
 - [Tokens de acesso do AD do Azure](access-tokens.md)

@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444427"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675091"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usar autenticação Azure Active Directory
 
@@ -108,7 +108,7 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Conceda a função `db_owner` diretamente ao usuário individual do Azure AD para atenuar o problema de **CREATE DATABASE SCOPED CREDENTIAL**.
+    Conceda a função `db_owner` diretamente ao usuário individual do Azure AD para atenuar o problema de **CREATE DATABASE SCOPED CREDENTIAL** .
 
 - Estas funções do sistema retornam valores NULL quando executadas em entidades de segurança do Azure AD:
 
@@ -118,7 +118,7 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
+### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
 
 - As entidades de segurança do servidor do Azure AD (logons) e os usuários têm suporte para o [SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md).
 - A definição de entidades de segurança do Azure AD (logons) mapeados para um grupo do Azure AD como proprietário do banco de dados não tem suporte no [SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md).
@@ -153,21 +153,21 @@ Os seguintes métodos de autenticação têm suporte para entidades de seguranç
   - A adição de entidades de segurança de servidor do Azure AD (logons) para o SQL Instância Gerenciada permite a possibilidade de criar várias entidades de segurança de servidor do Azure AD (logons) que podem ser adicionadas à `sysadmin` função.
 - Somente um administrador do Azure AD para o servidor pode inicialmente se conectar ao servidor ou à instância gerenciada usando uma conta de Azure Active Directory. O administrador do Active Directory pode configurar os próximos usuários do banco de dados do Azure AD.
 - É recomendável configurar o tempo limite da conexão para 30 segundos.
-- O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (Há suporte para a autenticação do Azure AD no **Provedor de Dados .NET Framework para SqlServer**; é necessária, no mínimo, a versão 4.6 do .NET Framework). Portanto, as versões mais recentes dessas ferramentas e aplicativos da camada de dados (DAC e BACPAC) podem usar a autenticação do Azure AD.
+- O SQL Server 2016 Management Studio e o SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação do Azure Active Directory. (Há suporte para a autenticação do Azure AD no **Provedor de Dados .NET Framework para SqlServer** ; é necessária, no mínimo, a versão 4.6 do .NET Framework). Portanto, as versões mais recentes dessas ferramentas e aplicativos da camada de dados (DAC e BACPAC) podem usar a autenticação do Azure AD.
 - A partir da versão 15.0.1, o [utilitário sqlcmd](/sql/tools/sqlcmd-utility) e o [utilitário bcp](/sql/tools/bcp-utility) suportam Active Directory autenticação interativa com autenticação multifator.
-- O SQL Server Data Tools para Visual Studio 2015 requer pelo menos a versão de abril de 2016 do Data Tools (versão 14.0.60311.1). Atualmente, os usuários do Azure AD não são mostrados no Pesquisador de objetos do SSDT. Como alternativa, exiba os usuários em [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+- O SQL Server Data Tools para Visual Studio 2015 requer pelo menos a versão de abril de 2016 do Data Tools (versão 14.0.60311.1). Atualmente, os usuários do Azure AD não são mostrados no Pesquisador de objetos do SSDT. Como alternativa, exiba os usuários em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 - O [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) dá suporte à autenticação do Azure AD. Confira também [Configuração das propriedades de conexão](/sql/connect/jdbc/setting-the-connection-properties).
 - O PolyBase não pode ser autenticado com a autenticação do Azure AD.
 - A autenticação do Azure AD tem suporte para o banco de dados SQL do Azure e o Azure Synapse usando as folhas portal do Azure **importar banco** de dados e **Exportar banco** de dados. Também há suporte para importar e exportar usando a autenticação do Azure AD em um comando do PowerShell.
-- A autenticação do Azure AD tem suporte para o banco de dados SQL, o SQL Instância Gerenciada e o Azure Synapse com o uso da CLI. Para obter mais informações, consulte [configurar e gerenciar a autenticação do Azure AD com o banco de dados SQL ou o Azure Synapse](authentication-aad-configure.md) e o [SQL Server-AZ SQL Server](https://docs.microsoft.com/cli/azure/sql/server).
+- A autenticação do Azure AD tem suporte para o banco de dados SQL, o SQL Instância Gerenciada e o Azure Synapse com o uso da CLI. Para obter mais informações, consulte [configurar e gerenciar a autenticação do Azure AD com o banco de dados SQL ou o Azure Synapse](authentication-aad-configure.md) e o [SQL Server-AZ SQL Server](/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como criar e popular uma instância do Azure AD e, em seguida, configurá-la com o banco de dados SQL do Azure, o SQL Instância Gerenciada ou o Azure Synapse, consulte [configurar e gerenciar a autenticação Azure Active Directory com o banco de dados SQL, sql instância gerenciada ou Azure Synapse](authentication-aad-configure.md).
 - Para obter um tutorial de como usar entidades de segurança de servidor do Azure AD (logons) com o SQL Instância Gerenciada, consulte [entidades de segurança do Azure Ad Server (logons) com sql instância gerenciada](../managed-instance/aad-security-configure-tutorial.md)
 - Para obter uma visão geral de logons, usuários, funções de banco de dados e permissões no banco de dados SQL, consulte [logons, usuários, funções de banco de dados e permissões](logins-create-manage.md).
-- Para obter mais informações sobre objetos de banco de dados, confira [Entidades](https://msdn.microsoft.com/library/ms181127.aspx).
-- Para obter mais informações sobre as funções de banco de dados, confira [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121.aspx).
+- Para obter mais informações sobre objetos de banco de dados, confira [Entidades](/sql/relational-databases/security/authentication-access/principals-database-engine).
+- Para obter mais informações sobre as funções de banco de dados, confira [Funções de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles).
 - Para obter a sintaxe sobre a criação de entidades de segurança do servidor do Azure AD (logons) para o SQL Instância Gerenciada, consulte  [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Para obter mais informações sobre as regras de firewall no Banco de Dados SQL, confira [Regras de firewall de Banco de Dados SQL](firewall-configure.md).
 
