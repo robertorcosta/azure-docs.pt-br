@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201354"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781712"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **ClaimsSchema** define os tipos de declaração que podem ser referenciados como parte da política. O esquema de declarações é o lugar em que você declara suas declarações. Uma declaração pode ser um primeiro nome, sobrenome, nome de exibição, número de telefone e muito mais. O elemento ClaimsSchema contém uma lista de elementos **ClaimType**. O elemento **ClaimType** contém o atributo **Id**, que é o nome da declaração.
+O elemento **ClaimsSchema** define os tipos de declaração que podem ser referenciados como parte da política. O esquema de declarações é o lugar em que você declara suas declarações. Uma declaração pode ser um primeiro nome, sobrenome, nome de exibição, número de telefone e muito mais. O elemento ClaimsSchema contém uma lista de elementos **ClaimType** . O elemento **ClaimType** contém o atributo **Id** , que é o nome da declaração.
 
 ```xml
 <BuildingBlocks>
@@ -52,13 +52,13 @@ O elemento **ClaimType** contém os seguintes elementos:
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | O título que é exibido aos usuários em várias telas. O valor pode ser [localizado](localization.md). |
 | Tipo de dados | 1:1 | O tipo da declaração. |
-| DefaultPartnerClaimTypes | 0:1 | Os tipos de declaração padrão do parceiro a serem usados para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **InputClaim** ou **OutputClaim**. Use esse elemento para especificar o nome padrão de um protocolo.  |
+| DefaultPartnerClaimTypes | 0:1 | Os tipos de declaração padrão do parceiro a serem usados para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado nos elementos **InputClaim** ou **OutputClaim** . Use esse elemento para especificar o nome padrão de um protocolo.  |
 | Mask | 0:1 | Uma cadeia de caracteres opcional de caracteres de mascaramento que podem ser aplicados ao exibir a declaração. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de declaração que pode ser útil para os usuários entenderem sua finalidade. O valor pode ser [localizado](localization.md). |
 | UserInputType | 0:1 | O tipo de controle de entrada que deve estar disponível para o usuário ao inserir manualmente os dados da declaração para o tipo de declaração. Confira os tipos de entrada do usuário definidos nesta página. |
 | AdminHelpText | 0:1 | Uma descrição do tipo de declaração que pode ser útil para os administradores entenderem sua finalidade. |
 | Restrição | 0:1 | As restrições de valor para essa declaração, como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizado](localization.md). |
-PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateValidationsInput**. Os elementos **PredicateValidationReference** permitem que você execute um processo de validação para garantir que apenas dados formados corretamente sejam inseridos. Para obter mais informações, confira [Predicados](predicates.md). |
+PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateValidationsInput** . Os elementos **PredicateValidationReference** permitem que você execute um processo de validação para garantir que apenas dados formados corretamente sejam inseridos. Para obter mais informações, confira [Predicados](predicates.md). |
 
 
 
@@ -92,7 +92,7 @@ O elemento **Protocol** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Name | Sim | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sim | O nome do tipo de declaração a ser usado. |
 
 No exemplo a seguir, quando o Identity Experience Framework interage com um provedor de identidade SAML2 ou com o aplicativo de terceira parte confiável, a declaração **surname** é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a declaração é mapeada para `family_name`.
@@ -109,7 +109,7 @@ No exemplo a seguir, quando o Identity Experience Framework interage com um prov
 </ClaimType>
 ```
 
-Como resultado, o token JWT emitido pelo B2C do Azure AD emite `family_name` ao invés do nome de ClaimType **surname**.
+Como resultado, o token JWT emitido pelo B2C do Azure AD emite `family_name` ao invés do nome de ClaimType **surname** .
 
 ```json
 {
@@ -228,7 +228,7 @@ O exemplo a seguir configura uma declaração **email** com o texto de ajuda e a
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -284,7 +284,7 @@ O tipo de entrada do usuário **EmailBox** é usado para fornecer um campo de en
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450235"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782613"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retenção de longo prazo-banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -26,7 +26,7 @@ Muitos aplicativos têm regulamentação, conformidade ou outras finalidades com
 A retenção de tempo por extenso pode ser habilitada para o banco de dados SQL do Azure e está em uma visualização pública limitada para o Azure SQL Instância Gerenciada. Este artigo fornece uma visão geral conceitual da retenção de longo prazo. Para configurar a retenção de longo prazo, consulte [Configurar o banco de dados SQL do Azure EPD](long-term-backup-retention-configure.md) e [Configurar o Azure SQL instância gerenciada EPD](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
-> Você pode usar trabalhos do SQL Agent para agendar [backups somente cópia de banco de dados](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como uma alternativa ao LTR alem de 35 dias.
+> Você pode usar trabalhos do SQL Agent para agendar [backups somente cópia de banco de dados](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como uma alternativa ao LTR alem de 35 dias.
 
 
 ## <a name="how-long-term-retention-works"></a>Como a retenção de longo prazo funciona
@@ -36,7 +36,7 @@ A retenção de backup de longo prazo (LTR) aproveita os backups completos do ba
 Para permitir a LTR, você pode definir uma política usando uma combinação de quatro parâmetros: retenção de backup semanal (W), retenção de backup mensal (M), retenção de backup anual (Y) e semana do ano (WeekOfYear). Se você especificar W, um backup por semana será copiado para o armazenamento de longo prazo. Se você especificar M, o primeiro backup de cada mês será copiado para o armazenamento de longo prazo. Se você especificar Y, um backup durante a semana especificada por WeekOfYear será copiado para o armazenamento de longo prazo. Se a WeekOfYear especificada estiver no passado quando a política for configurada, o primeiro backup LTR será criado no ano seguinte. Cada backup será mantido no armazenamento de longo prazo de acordo com os parâmetros de política configurados quando o backup LTR é criado.
 
 > [!NOTE]
-> Qualquer alteração na política de LTR se aplica somente a backups futuros. Por exemplo, se a retenção de backup semanal (W), retenção de backup mensal (M) ou retenção de backup anual (Y) for modificada, a nova configuração de retenção será aplicada somente a novos backups. A retenção de backups existentes não será modificada. Se sua intenção for excluir backups LTR antigos antes do término do período de retenção, será necessário [excluir manualmente os backups](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> Qualquer alteração na política de LTR se aplica somente a backups futuros. Por exemplo, se a retenção de backup semanal (W), retenção de backup mensal (M) ou retenção de backup anual (Y) for modificada, a nova configuração de retenção será aplicada somente a novos backups. A retenção de backups existentes não será modificada. Se sua intenção for excluir backups LTR antigos antes do término do período de retenção, será necessário [excluir manualmente os backups](./long-term-backup-retention-configure.md#delete-ltr-backups).
 > 
 
 Exemplos da política de LTR:
@@ -84,7 +84,7 @@ O uso da retenção de backup de longo prazo com o Azure SQL Instância Gerencia
 - **Visualização pública limitada** - Essa visualização só está disponível para assinaturas EA e CSP e está sujeita à disponibilidade limitada.  
 - [**Somente PowerShell**](../managed-instance/long-term-backup-retention-configure.md) – atualmente, não há suporte para Portal do Azure. No entanto, o LTR pode ser habilitado com o PowerShell. 
 
-Para solicitar a inscrição, crie um [tíquete de Suporte do Azure](https://azure.microsoft.com/support/create-ticket/). Para tipo de problema, selecione problema técnico, para serviço escolha SQL Instância Gerenciada e, para o tipo de problema, selecione **backup, restauração e continuidade de negócios/retenção de backup de longo prazo**. Em sua solicitação, informe que você deseja ser registrado em visualização pública limitada de EPD para SQL Instância Gerenciada.
+Para solicitar a inscrição, crie um [tíquete de Suporte do Azure](https://azure.microsoft.com/support/create-ticket/). Para tipo de problema, selecione problema técnico, para serviço escolha SQL Instância Gerenciada e, para o tipo de problema, selecione **backup, restauração e continuidade de negócios/retenção de backup de longo prazo** . Em sua solicitação, informe que você deseja ser registrado em visualização pública limitada de EPD para SQL Instância Gerenciada.
 
 ## <a name="configure-long-term-backup-retention"></a>Configurar retenção de backup de longo prazo
 
@@ -99,4 +99,3 @@ Para restaurar um banco de dados do armazenamento LTR, você pode selecionar um 
 ## <a name="next-steps"></a>Próximas etapas
 
 Como os backups de banco de dados protegem os dados de danos ou exclusão acidental, eles são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL, consulte [Visão geral da continuidade dos negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md).
- 

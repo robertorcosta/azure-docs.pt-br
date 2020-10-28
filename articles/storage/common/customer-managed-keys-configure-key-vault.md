@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993883"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782375"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas no Azure Key Vault
 
@@ -33,17 +33,17 @@ Você pode usar um cofre de chaves novo ou existente para armazenar chaves geren
 
 O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure exige que a exclusão reversível e a proteção de limpeza sejam habilitadas para o cofre de chaves. A exclusão reversível é habilitada por padrão quando você cria um novo cofre de chaves e não pode ser desabilitada. Você pode habilitar a proteção de limpeza ao criar o cofre de chaves ou após sua criação.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Para saber como criar um cofre de chaves com o portal do Azure, consulte [início rápido: criar um cofre de chaves usando o portal do Azure](../../key-vault/general/quick-create-portal.md). Ao criar o cofre de chaves, selecione **habilitar proteção de limpeza**, conforme mostrado na imagem a seguir.
+Para saber como criar um cofre de chaves com o portal do Azure, consulte [início rápido: criar um cofre de chaves usando o portal do Azure](../../key-vault/general/quick-create-portal.md). Ao criar o cofre de chaves, selecione **habilitar proteção de limpeza** , conforme mostrado na imagem a seguir.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Captura de tela mostrando como habilitar a proteção de limpeza ao criar um cofre de chaves":::
 
 Para habilitar a proteção de limpeza em um cofre de chaves existente, siga estas etapas:
 
 1. Navegue até o cofre de chaves na portal do Azure.
-1. Em **configurações**, escolha **Propriedades**.
-1. Na seção **limpar proteção** , escolha **habilitar proteção de limpeza**.
+1. Em **configurações** , escolha **Propriedades** .
+1. Na seção **limpar proteção** , escolha **habilitar proteção de limpeza** .
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -58,7 +58,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Para saber como habilitar a proteção de limpeza em um cofre de chaves existente com o PowerShell, consulte [como usar a exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Para saber como habilitar a proteção de limpeza em um cofre de chaves existente com o PowerShell, consulte [como usar a exclusão reversível com o PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 Em seguida, atribua uma identidade gerenciada atribuída pelo sistema à sua conta de armazenamento. Você usará essa identidade gerenciada para conceder permissões de conta de armazenamento para acessar o cofre de chaves. Para obter mais informações sobre identidades gerenciadas atribuídas pelo sistema, consulte [o que são identidades gerenciadas para recursos do Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -93,7 +93,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Para saber como habilitar a proteção de limpeza em um cofre de chaves existente com CLI do Azure, consulte [como usar a exclusão reversível com a CLI](../../key-vault/general/soft-delete-cli.md).
+Para saber como habilitar a proteção de limpeza em um cofre de chaves existente com CLI do Azure, consulte [como usar a exclusão reversível com a CLI](../../key-vault/general/key-vault-recovery.md).
 
 Em seguida, atribua uma identidade gerenciada atribuída pelo sistema à conta de armazenamento. Você usará essa identidade gerenciada para conceder permissões de conta de armazenamento para acessar o cofre de chaves. Para obter mais informações sobre identidades gerenciadas atribuídas pelo sistema, consulte [o que são identidades gerenciadas para recursos do Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -129,9 +129,9 @@ az keyvault set-policy \
 
 Em seguida, adicione uma chave no cofre de chaves.
 
-A criptografia de armazenamento do Azure dá suporte às chaves RSA e RSA-HSM de tamanhos 2048, 3072 e 4096. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+A criptografia de armazenamento do Azure dá suporte às chaves RSA e RSA-HSM de tamanhos 2048, 3072 e 4096. Para obter mais informações sobre chaves, consulte [sobre chaves](../../key-vault/keys/about-keys.md).
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para saber como adicionar uma chave com o portal do Azure, consulte [início rápido: definir e recuperar uma chave de Azure Key Vault usando o portal do Azure](../../key-vault/keys/quick-create-portal.md).
 
@@ -170,17 +170,17 @@ Ao configurar a criptografia com chaves gerenciadas pelo cliente, você pode opt
 
 O armazenamento do Azure pode atualizar automaticamente a chave gerenciada pelo cliente que é usada para criptografia para usar a versão de chave mais recente. Quando a chave gerenciada pelo cliente é girada no Azure Key Vault, o armazenamento do Azure começará automaticamente a usar a versão mais recente da chave para criptografia.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para configurar chaves gerenciadas pelo cliente com a atualização automática da versão de chave no portal do Azure, siga estas etapas:
 
 1. Navegue para sua conta de armazenamento.
-1. Na folha **Configurações** da conta de armazenamento, clique em **Criptografia**. Selecione a opção **chaves gerenciadas pelo cliente** , conforme mostrado na imagem a seguir.
+1. Na folha **Configurações** da conta de armazenamento, clique em **Criptografia** . Selecione a opção **chaves gerenciadas pelo cliente** , conforme mostrado na imagem a seguir.
 
     ![Captura de tela do portal mostrando a opção de criptografia](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
-1. Escolha a opção **Selecionar do Cofre de chaves**.
-1. Selecione **selecionar um cofre de chaves e uma chave**.
+1. Escolha a opção **Selecionar do Cofre de chaves** .
+1. Selecione **selecionar um cofre de chaves e uma chave** .
 1. Selecione o cofre de chaves que contém a chave que você deseja usar.
 1. Selecione a chave no cofre de chaves.
 
@@ -236,7 +236,7 @@ az storage account update
 
 Se você preferir atualizar manualmente a versão da chave, especifique explicitamente a versão no momento em que configurar a criptografia com chaves gerenciadas pelo cliente. Nesse caso, o armazenamento do Azure não atualizará automaticamente a versão de chave quando uma nova versão for criada no cofre de chaves. Para usar uma nova versão de chave, você deve atualizar manualmente a versão usada para a criptografia de armazenamento do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para configurar chaves gerenciadas pelo cliente com a atualização manual da versão de chave no portal do Azure, especifique o URI de chave, incluindo a versão. Para especificar uma chave como um URI, siga estas etapas:
 
@@ -304,7 +304,7 @@ Ao atualizar manualmente a versão da chave, você precisará atualizar as confi
 
 Você pode alterar a chave que está usando para a criptografia de armazenamento do Azure a qualquer momento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para alterar a chave com o portal do Azure, siga estas etapas:
 
@@ -326,7 +326,7 @@ Para alterar a chave com CLI do Azure, chame [AZ Storage Account Update](/cli/az
 
 A revogação de uma chave gerenciada pelo cliente remove a associação entre a conta de armazenamento e o cofre de chaves.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para revogar chaves gerenciadas pelo cliente com o portal do Azure, desabilite a chave, conforme descrito em [desabilitar chaves gerenciadas pelo cliente](#disable-customer-managed-keys).
 
@@ -355,7 +355,7 @@ az keyvault delete-policy \
 
 Quando você desabilita chaves gerenciadas pelo cliente, sua conta de armazenamento é novamente criptografada com chaves gerenciadas pela Microsoft.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para desabilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas etapas:
 

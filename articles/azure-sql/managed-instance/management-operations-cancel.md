@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994088"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782494"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelando operações de gerenciamento de Instância Gerenciada do SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,7 +75,7 @@ Se a solicitação de cancelamento falhar ou o botão Cancelar não estiver ativ
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Se você ainda não tiver Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se você ainda não tiver Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 Para cancelar uma operação de gerenciamento, você precisa especificar o nome da operação de gerenciamento. Portanto, primeiro use o comando Get para recuperar a lista de operações e, em seguida, cancele a operação específica.
 
@@ -93,7 +93,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-Para obter uma explicação detalhada de comandos, consulte [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) e [Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation).
+Para obter uma explicação detalhada de comandos, consulte [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) e [Stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -110,13 +110,13 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-Para obter uma explicação detalhada de comandos, consulte [AZ SQL mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Para obter uma explicação detalhada de comandos, consulte [AZ SQL mi op](/cli/azure/sql/mi/op).
 
 ---
 
 ## <a name="canceled-deployment-request"></a>Solicitação de implantação cancelada
 
-Com a versão de API 2020-02-02, assim que a solicitação de criação de instância é aceita, a instância começa a existir como um recurso, não importa o progresso do processo de implantação (o status da instância gerenciada é **provisionamento**). Se você cancelar a solicitação de implantação de instância (nova criação de instância), a instância gerenciada passará do estado de **provisionamento** para **FailedToCreate**.
+Com a versão de API 2020-02-02, assim que a solicitação de criação de instância é aceita, a instância começa a existir como um recurso, não importa o progresso do processo de implantação (o status da instância gerenciada é **provisionamento** ). Se você cancelar a solicitação de implantação de instância (nova criação de instância), a instância gerenciada passará do estado de **provisionamento** para **FailedToCreate** .
 
 As instâncias que falharam ao criar ainda estão presentes como um recurso e: 
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330114"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781015"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica do banco de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Este tutorial explora fluxos de trabalho de failover e failback. Você aprender�
 
 Antes de iniciar este tutorial, verifique se todos os pré-requisitos a seguir foram atendidos:
 * O aplicativo de banco de dados SaaS Wingtip Tickets por locatário é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)  
-* O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Introdução ao padrão de recuperação de replicação geográfica
 
@@ -66,11 +66,11 @@ Todas as partes precisam ser consideradas com cuidado, especialmente se estivere
 
 Neste tutorial, esses desafios são resolvidos usando os recursos do Banco de Dados SQL do Azure e a plataforma Azure:
 
-* [Modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) para reservar toda a capacidade necessária assim que possível. Os modelos do Azure Resource Manager são usados para provisionar uma imagem espelho dos servidores de produção e pools elásticos na região de recuperação.
+* [Modelos do Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) para reservar toda a capacidade necessária assim que possível. Os modelos do Azure Resource Manager são usados para provisionar uma imagem espelho dos servidores de produção e pools elásticos na região de recuperação.
 * [Replicação geográfica](active-geo-replication-overview.md) para criar secundários replicados de forma assíncrona e somente leitura para todos os bancos de dados. Durante uma interrupção, você faz failover para as réplicas na região de recuperação.  Após a interrupção ter sido resolvida, você não fará failback para os bancos de dados na região original sem perda de dados.
-* Operações de failover [assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) enviadas na ordem de prioridade de locatários, para minimizar o tempo de failover para um grande número de bancos de dados.
+* Operações de failover [assíncronas](../../azure-resource-manager/management/async-operations.md) enviadas na ordem de prioridade de locatários, para minimizar o tempo de failover para um grande número de bancos de dados.
 * [Recursos de recuperação de gerenciamento de fragmentos](elastic-database-recovery-manager.md) para alterar as entradas de banco de dados no catálogo durante a recuperação e a repatriação. Esses recursos permitem que o aplicativo se conecte aos bancos de dados de locatário, independente do local sem precisar reconfigurar o aplicativo.
-* [Aliases DNS do SQL Server](../../sql-database/dns-alias-overview.md) para habilitar o provisionamento contínuo de novos locatários, independente da região em que o aplicativo está operando. Aliases DNS também são usados para permitir que o processo de sincronização de catálogo se conecte ao catálogo ativo, independente de sua localização.
+* [Aliases DNS do SQL Server](./dns-alias-overview.md) para habilitar o provisionamento contínuo de novos locatários, independente da região em que o aplicativo está operando. Aliases DNS também são usados para permitir que o processo de sincronização de catálogo se conecte ao catálogo ativo, independente de sua localização.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obter os scripts de recuperação de desastre 
 
@@ -85,7 +85,7 @@ Neste tutorial, você primeiro usa replicação geográfica para criar réplicas
 Mais tarde, em uma etapa de repatriação separada, você faz failover dos bancos de dados de catálogo e locatário na região de recuperação para a região original. O aplicativo e os bancos de dados ficam disponíveis em toda a repatriação. Ao concluir, o aplicativo estará totalmente funcional na região original.
 
 > [!Note]
-> O aplicativo é recuperado para a _região emparelhada_ da região em que o aplicativo é implantado. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> O aplicativo é recuperado para a _região emparelhada_ da região em que o aplicativo é implantado. Para obter mais informações, consulte [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Examinar o estado de integridade do aplicativo
 
@@ -106,7 +106,7 @@ Antes de iniciar o processo de recuperação, examine o estado de integridade no
 Nesta tarefa, você inicia um processo que sincroniza a configuração dos servidores, dos pools elásticos e dos bancos e dados com o catálogo de locatário. O processo mantém essas informações atualizadas no catálogo.  O processo funciona com o catálogo ativo, se estiver na região original ou na região de recuperação. As informações de configuração são usadas como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original e posteriormente, durante a repatriação para garantir que a região original seja tornada consistente com as alterações feitas no ambiente de recuperação. O catálogo também é usado para controlar o estado de recuperação de recursos de locatário
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outros processos de recuperação e de repatriação de execução prolongada são implementados nesses tutoriais como trabalhos ou sessões locais do PowerShell executados em seu logon de usuário de cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, o processo de sincronização e outros processos de recuperação e de repatriação de execução prolongada são implementados nesses tutoriais como trabalhos ou sessões locais do PowerShell executados em seu logon de usuário de cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 1. No _ISE do PowerShell_ , abra o arquivo ...\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo.  Salve o arquivo!
 
@@ -186,7 +186,7 @@ Agora imagine que haja uma interrupção na região em que o aplicativo é impla
 
 2. Pressione **F5** para executar o script.  
     * O script é aberto em uma nova janela do PowerShell e, em seguida, inicia uma série de trabalhos do PowerShell executados em paralelo. Esses trabalhos fazem failover de bancos de dados de locatário para a região de recuperação.
-    * A região de recuperação é a _região emparelhada_ associada à região do Azure na qual você implantou o aplicativo. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * A região de recuperação é a _região emparelhada_ associada à região do Azure na qual você implantou o aplicativo. Para obter mais informações, consulte [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md). 
 
 3. Monitore o status do processo de recuperação na janela do PowerShell.
     ![processo de failover](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)

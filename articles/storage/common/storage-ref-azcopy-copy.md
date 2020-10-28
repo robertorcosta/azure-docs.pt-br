@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f3d691692553a8201b3e3eccfaead82a2cbb9ca0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479690"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781729"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -292,7 +292,7 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--S2S-Handle-inválida-a cadeia de caracteres de metadados** especifica como as chaves de metadados inválidas são tratadas. Opções disponíveis: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (padrão `ExcludeIfInvalid` ). (padrão "ExcludeIfInvalid")
 
-**--S2S-preserve-acesso-camada**   Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão `true` ).  (padrão "true")
+**--S2S-preserve-acesso-camada**   Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão `true` ).  (padrão "true")
 
 **--S2S-preserve-Propriedades**   Preserve as propriedades completas durante a cópia de serviço para serviço. Para AWS S3 e fonte de arquivo não único de arquivo do Azure, a operação de lista não retorna propriedades completas de objetos e arquivos. Para preservar as propriedades completas, o AzCopy precisa enviar uma solicitação adicional por objeto ou arquivo. (padrão true)
 
@@ -304,6 +304,6 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--a cadeia de caracteres Trusted-Microsoft-suffixs** especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [azcopy](storage-ref-azcopy.md)

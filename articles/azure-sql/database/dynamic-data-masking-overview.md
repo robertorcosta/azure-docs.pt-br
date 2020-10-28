@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398605"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781440"
 ---
 # <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,7 +34,7 @@ Você configura uma política de mascaramento de dados dinâmicos na portal do A
 
 ### <a name="dynamic-data-masking-permissions"></a>Permissões de mascaramento de dados dinâmico
 
-A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do Banco de Dados SQL do Azure, do administrador do servidor ou de funções do [Gerenciador de Segurança do SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
+A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do Banco de Dados SQL do Azure, do administrador do servidor ou de funções do [Gerenciador de Segurança do SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Política de mascaramento de dados dinâmico
 
@@ -60,15 +60,15 @@ O mecanismo de recomendações DDM sinaliza determinados campos do banco de dado
 
 ### <a name="data-masking-policies"></a>Políticas de mascaramento de dados
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>Regras de mascaramento de dados
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>Configurar o mascaramento de dados dinâmicos para seu banco usando a API REST
 
@@ -76,10 +76,10 @@ Você pode usar a API REST para gerenciar programaticamente a política e as reg
 
 ### <a name="data-masking-policies"></a>Políticas de mascaramento de dados
 
-- [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): cria ou atualiza uma política de mascaramento de dados de banco de dado.
-- [Obter](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): Obtém uma política de mascaramento de dados de banco de dados. 
+- [Criar ou atualizar](/rest/api/sql/datamaskingpolicies/createorupdate): cria ou atualiza uma política de mascaramento de dados de banco de dado.
+- [Obter](/rest/api/sql/datamaskingpolicies/get): Obtém uma política de mascaramento de dados de banco de dados. 
 
 ### <a name="data-masking-rules"></a>Regras de mascaramento de dados
 
-- [Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): Cria ou atualiza uma regra de mascaramento de dados de banco de dados.
-- [Listar por banco de dados](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): Obtém uma lista de regras de mascaramento de dados do banco de dados.
+- [Criar ou Atualizar](/rest/api/sql/datamaskingrules/createorupdate): Cria ou atualiza uma regra de mascaramento de dados de banco de dados.
+- [Listar por banco de dados](/rest/api/sql/datamaskingrules/listbydatabase): Obtém uma lista de regras de mascaramento de dados do banco de dados.

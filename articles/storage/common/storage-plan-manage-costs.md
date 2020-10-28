@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: f0f5069ca063f95cb845921c0d716b6c013c9e83
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479741"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781831"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planejar e gerenciar custos para o armazenamento de BLOBs do Azure
 
@@ -56,19 +56,19 @@ Esta seção aborda cada opção em mais detalhes.
 
 Você pode economizar dinheiro em custos de armazenamento para dados de blob com capacidade reservada de armazenamento do Azure. A capacidade reservada do armazenamento do Azure oferece um desconto sobre a capacidade para BLOBs de blocos e para Azure Data Lake Storage Gen2 dados em contas de armazenamento padrão quando você se compromete com uma reserva por um ou três anos. Uma reserva fornece uma quantidade fixa de capacidade de armazenamento para o termo da reserva. A capacidade reservada de armazenamento do Azure pode reduzir significativamente os custos de capacidade para BLOBs de bloco e dados de Azure Data Lake Storage Gen2. 
 
-Para saber mais, confira [otimizar os custos para o armazenamento de BLOBs com capacidade reservada](/azure/storage/blobs/storage-blob-reserved-capacity).
+Para saber mais, confira [otimizar os custos para o armazenamento de BLOBs com capacidade reservada](../blobs/storage-blob-reserved-capacity.md).
 
 #### <a name="organize-data-into-access-tiers"></a>Organizar dados em camadas de acesso
 
 Você pode reduzir os custos colocando dados de blob nas camadas de acesso mais econômicas. Escolha entre três camadas que foram projetadas para otimizar seus custos em relação ao uso de dados. Por exemplo, a camada *quente* tem um custo de armazenamento maior, mas menor custo de acesso. Portanto, se você planeja acessar os dados com frequência, a camada quente pode ser a opção mais econômica. Se você planeja acessar dados com menos frequência, a camada *fria* ou de *arquivo* pode fazer mais sentido, pois aumenta o custo de acesso aos dados, reduzindo o custo de armazenamento de dados.    
 
-Para saber mais, confira [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+Para saber mais, confira [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 
 #### <a name="automatically-move-data-between-access-tiers"></a>Mover dados automaticamente entre as camadas de acesso
 
 Use políticas de gerenciamento do ciclo de vida para mover dados periodicamente entre as camadas para economizar mais dinheiro. Essas políticas podem mover dados para o usando regras que você especificar. Por exemplo, você pode criar uma regra que mova os BLOBs para a camada de arquivo se esse BLOB não tiver sido modificado em 90 dias. Ao criar políticas que ajustam a camada de acesso de seus dados, você pode criar as opções de armazenamento menos caras para suas necessidades.
 
-Para saber mais, consulte [gerenciar o ciclo de vida do armazenamento de BLOBs do Azure](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+Para saber mais, consulte [gerenciar o ciclo de vida do armazenamento de BLOBs do Azure](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
 ## <a name="create-budgets"></a>Criar orçamentos
 
@@ -85,13 +85,13 @@ Ao usar a análise de custo, você pode exibir os custos de armazenamento do Azu
 
 Para exibir os custos de armazenamento do Azure na análise de custo:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Abra a janela **Gerenciamento de custos + cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione análise de **custo**. Em seguida, você pode alterar o escopo de uma assinatura específica da lista suspensa **escopo** .
+2. Abra a janela **Gerenciamento de custos + cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione análise de **custo** . Em seguida, você pode alterar o escopo de uma assinatura específica da lista suspensa **escopo** .
 
    ![Captura de tela mostrando escopo](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Para exibir apenas os custos do armazenamento do Azure, selecione **Adicionar filtro** e, em seguida, selecione **nome do serviço**. Em seguida, escolha **armazenamento** na lista. 
+4. Para exibir apenas os custos do armazenamento do Azure, selecione **Adicionar filtro** e, em seguida, selecione **nome do serviço** . Em seguida, escolha **armazenamento** na lista. 
 
    Veja um exemplo que mostra os custos apenas para o armazenamento do Azure:
 

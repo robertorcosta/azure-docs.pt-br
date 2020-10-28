@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 14edb8db945a9b69ba77d56cd19a4524876ede03
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bfecae4775655f732df8fd6cffea613cd39fb828
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676797"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782001"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -27,7 +27,7 @@ Recomendamos que você examine o [Azure Monitor for Storage](../../azure-monitor
 >
 > O Arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log.
 >
-> As contas de armazenamento premium de blobs de bloco de desempenho não dão suporte a métricas de Análise de Armazenamento, mas dão suporte ao registro em log. You pode habilitar o log programaticamente por meio da API REST ou da biblioteca de cliente. Se quiser exibir métricas com contas de armazenamento premium de blobs de bloco de desempenho, considere o uso das [Métricas de Armazenamento do Azure no Azure Monitor](storage-metrics-in-azure-monitor.md).
+> As contas de armazenamento premium de blobs de bloco de desempenho não dão suporte a métricas de Análise de Armazenamento, mas dão suporte ao registro em log. You pode habilitar o log programaticamente por meio da API REST ou da biblioteca de cliente. Se quiser exibir métricas com contas de armazenamento premium de blobs de bloco de desempenho, considere o uso das [Métricas de Armazenamento do Azure no Azure Monitor](../blobs/monitor-blob-storage.md).
 >
 > Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 >
