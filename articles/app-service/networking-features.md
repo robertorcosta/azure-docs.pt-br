@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9b75df9df2e81f01543b407b019c752c77ee6807
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207029"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628822"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -29,6 +29,7 @@ O serviço de Azure App é um sistema distribuído. As funções que tratam soli
 | Endereço atribuído ao aplicativo | Conexões Híbridas |
 | Restrições de acesso | Integração VNet necessária do gateway |
 | Pontos de extremidade de serviço | Integração VNet |
+| Pontos de extremidade privados ||
 
 Salvo indicação em contrário, todos os recursos podem ser usados juntos. Você pode misturar os recursos para resolver os diversos problemas.
 
@@ -43,7 +44,7 @@ Para qualquer caso de uso específico, pode haver algumas maneiras de resolver o
 | Restringir o acesso ao seu aplicativo de um conjunto de endereços bem definidos | Restrições de acesso |
 | Restringir o acesso ao meu aplicativo de recursos em uma VNet | Pontos de extremidade de serviço </br> ILB ASE </br> Pontos de extremidade privados |
 | Expor meu aplicativo em um IP privado em minha VNet | ILB ASE </br> Pontos de extremidade privados </br> IP privado para entrada em um gateway de aplicativo com pontos de extremidade de serviço |
-| Proteger meu aplicativo com um WAF (firewall do aplicativo Web) | Gateway de aplicativo + ILB ASE </br> Gateway de aplicativo com pontos de extremidade privados </br> Gateway de aplicativo com pontos de extremidade de serviço </br> Porta frontal do Azure com restrições de acesso |
+| Proteger meu aplicativo com um WAF (firewall do aplicativo Web) | Gateway de aplicativo + ILB ASE </br> Gateway de aplicativo com pontos de extremidade privados </br> Gateway de Aplicativo com pontos de extremidade de serviço </br> Porta frontal do Azure com restrições de acesso |
 | Balancear a carga do tráfego para meus aplicativos em regiões diferentes | Porta frontal do Azure com restrições de acesso | 
 | Balancear a carga do tráfego na mesma região | [Gateway de Aplicativo com pontos de extremidade de serviço][appgwserviceendpoints] | 
 
@@ -89,20 +90,23 @@ Você pode aprender a definir um endereço em seu aplicativo com o tutorial sobr
 
 ### <a name="access-restrictions"></a>Restrições de acesso 
 
-O recurso de restrições de acesso permite filtrar solicitações de **entrada** com base no endereço IP de origem. A ação de filtragem ocorre nas funções de front-end que são upstream das funções de trabalho em que seus aplicativos estão em execução. Como as funções de front-end são upstream dos trabalhadores, a capacidade de restrições de acesso pode ser considerada como proteção de nível de rede para seus aplicativos. O recurso permite que você crie uma lista de blocos de endereços allow e Deny que são avaliados em ordem de prioridade. É semelhante ao recurso NSG (grupo de segurança de rede) que existe na rede do Azure.  Você pode usar esse recurso em um ASE ou no serviço multilocatário. Quando usado com um ASE ILB, você pode restringir o acesso de blocos de endereços privados.
+O recurso de restrições de acesso permite filtrar solicitações de **entrada** . A ação de filtragem ocorre nas funções de front-end que são upstream das funções de trabalho em que seus aplicativos estão em execução. Como as funções de front-end são upstream dos trabalhadores, a capacidade de restrições de acesso pode ser considerada como proteção de nível de rede para seus aplicativos. O recurso permite que você crie uma lista de regras de permissão e negação que são avaliadas em ordem de prioridade. É semelhante ao recurso NSG (grupo de segurança de rede) que existe na rede do Azure.  Você pode usar esse recurso em um ASE ou no serviço multilocatário. Quando usado com um ASE ILB ou um ponto de extremidade privado, você pode restringir o acesso de blocos de endereços privados.
+> [!NOTE]
+> Até 512 regras de restrição de acesso podem ser configuradas por aplicativo. 
 
 ![Restrições de acesso](media/networking-features/access-restrictions.png)
+#### <a name="ip-based-access-restriction-rules"></a>Regras de restrição de acesso baseado em IP
 
-O recurso de restrições de acesso ajuda em cenários em que você deseja restringir os endereços IP que podem ser usados para acessar seu aplicativo. Entre os casos de uso para esse recurso estão:
+O recurso de restrições de acesso baseado em IP ajuda em cenários em que você deseja restringir os endereços IP que podem ser usados para acessar seu aplicativo. Há suporte para IPv4 e IPv6. Entre os casos de uso para esse recurso estão:
 
 * Restringir o acesso ao seu aplicativo de um conjunto de endereços bem definidos 
-* Restringir o acesso à entrada de um serviço de balanceamento de carga, como o Azure front door. Se você quisesse bloquear seu tráfego de entrada para a porta frontal do Azure, crie regras para permitir o tráfego de 147.243.0.0/16 e 2a01:111:2050::/44. 
+* Restringir o acesso proveniente de um serviço de balanceamento de carga, como a porta frontal do Azure
 
 ![Restrições de acesso com a porta frontal](media/networking-features/access-restrictions-afd.png)
 
-Se você quiser bloquear o acesso ao seu aplicativo para que ele só possa ser acessado de recursos em sua VNet (rede virtual) do Azure, você precisará de um endereço público estático em qualquer sua fonte em sua VNet. Se os recursos não tiverem um endereço público, você deverá usar o recurso de pontos de extremidade de serviço em vez disso. Saiba como habilitar esse recurso com o tutorial sobre como [Configurar restrições de acesso][iprestrictions].
+Saiba como habilitar esse recurso com o tutorial sobre como [Configurar restrições de acesso][iprestrictions].
 
-### <a name="service-endpoints"></a>Pontos de extremidade de serviço
+#### <a name="service-endpoint-based-access-restriction-rules"></a>Regras de restrição de acesso baseadas no ponto de extremidade de serviço
 
 Os pontos de extremidade de serviço permitem bloquear o acesso de **entrada** ao seu aplicativo, de modo que o endereço de origem deve vir de um conjunto de sub-redes que você selecionar. Esse recurso funciona em conjunto com as restrições de acesso de IP. Os pontos de extremidade de serviço não são compatíveis com a depuração remota. Para usar a depuração remota com seu aplicativo, o cliente não pode estar em uma sub-rede com pontos de extremidade de serviço habilitados. Os pontos de extremidade de serviço são definidos na mesma experiência de usuário que as restrições de acesso de IP. Você pode criar uma lista de permissão/negação de regras de acesso que inclui endereços públicos, bem como sub-redes em seu VNets. Esse recurso dá suporte a cenários como:
 
@@ -261,7 +265,7 @@ Se nenhum for o caso, você será melhor usar pontos de extremidade privados. Co
 
 Se você examinar o serviço de aplicativo, encontrará várias portas que são expostas para conexões de entrada. Não é possível bloquear ou controlar o acesso a essas portas no serviço multilocatário. As portas que são expostas são as seguintes:
 
-| Use | Portas |
+| Uso | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Gerenciamento | 454, 455 |

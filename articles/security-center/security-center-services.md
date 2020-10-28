@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342290"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425147"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -30,7 +30,7 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 
 |**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores habilitados para o Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
-|[Integração ao Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(em versões compatíveis)|✔</br>(em versões compatíveis)|✔|Sim|
+|[Integração do Microsoft Defender para Ponto de Extremidade](security-center-wdatp.md)|✔</br>(em versões compatíveis)|✔</br>(em versões compatíveis)|✔|Sim|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](alerts-reference.md)|✔|✔|✔|Sim|
 |[Alertas de segurança sem arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Sim|
 |[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Sim|
@@ -54,7 +54,7 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 
 |**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores habilitados para o Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
-|[Integração ao Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Sim|
+|[Integração do Microsoft Defender para Ponto de Extremidade](security-center-wdatp.md)|-|-|-|Sim|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](./azure-defender.md)|✔</br>(em versões compatíveis)|✔</br>(em versões compatíveis)|✔|Sim|
 |[Alertas de segurança sem arquivo](alerts-reference.md#alerts-windows)|-|-|-|Sim|
 |[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Sim|

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614114"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92358983"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Fazer a triagem, investigar e responder a alertas de segurança
-A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para lhe avisar a existência de atividades mal-intencionadas. Você também pode integrar à Central de Segurança alertas de outros produtos e serviços de segurança, bem como criar alertas personalizados com base em indicadores ou fontes de inteligência próprios. Após a geração de um alerta, é necessária uma ação rápida para investigação e correção da questão. 
+A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para alertar você quanto à presença de atividades potencialmente mal-intencionadas em seus recursos de rede. Você também pode integrar alertas de outros produtos e serviços de segurança à Central de Segurança. Após um alerta ser gerado, é necessária uma ação rápida para investigação e correção do possível problema de segurança. 
 
 Neste tutorial, você aprenderá a:
 
@@ -40,7 +40,7 @@ Para acompanhar os recursos abordados neste tutorial, você deve ter o Azure Def
 ## <a name="triage-security-alerts"></a>Classificação de alertas de segurança
 A Central de Segurança fornece uma visualização unificada de todos os alertas de segurança. Os alertas de segurança são classificados com base na severidade da atividade detectada. 
 
-Faça a triagem dos alertas na página **Alertas de segurança**:
+Faça a triagem dos alertas na página **Alertas de segurança** :
 
 :::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Página de lista de alertas de segurança" lightbox="./media/tutorial-security-incident/alerts-list.png":::
 
@@ -68,7 +68,7 @@ Quando você decidir qual alerta investigar primeiro:
     - Recursos afetados
     - Encerrar a intenção da cadeia da atividade na matriz MITRE ATT&CK
 
-1. Para obter informações mais detalhadas que possam ajudar você a investigar a atividade suspeita, examine a guia **Detalhes do alerta**.
+1. Para obter informações mais detalhadas que possam ajudar você a investigar a atividade suspeita, examine a guia **Detalhes do alerta** .
 
 1. Quando tiver analisado as informações nessa página, talvez você tenha o suficiente para prosseguir com uma resposta. Se precisar de mais detalhes:
 
@@ -83,18 +83,18 @@ Após investigar um alerta e compreender seu escopo, você pode responder a um a
     :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Página de lista de alertas de segurança" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Examine na seção **Atenuar a ameaça** as etapas de investigação manual necessárias para atenuar o problema.
-1.  Para proteger seus recursos e evitar ataques futuros desse tipo, corrija as recomendações de segurança na seção **Evitar ataques futuros**.
-1.  Para disparar um aplicativo lógico com etapas de resposta automatizadas, use a seção **Disparar resposta automatizada**.
-1.  Se a atividade detectada *não* for mal intencionada, suprima alertas futuros desse tipo usando a seção **Suprimir alertas semelhantes**.
+1.  Para proteger seus recursos e evitar ataques futuros desse tipo, corrija as recomendações de segurança na seção **Evitar ataques futuros** .
+1.  Para disparar um aplicativo lógico com etapas de resposta automatizadas, use a seção **Disparar resposta automatizada** .
+1.  Se a atividade detectada *não* for mal intencionada, suprima alertas futuros desse tipo usando a seção **Suprimir alertas semelhantes** .
 
-1.  Quando tiver concluído a investigação do alerta e respondido da maneira apropriada, altere o status para **Ignorado**.
+1.  Quando tiver concluído a investigação do alerta e respondido da maneira apropriada, altere o status para **Ignorado** .
 
     :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Página de lista de alertas de segurança":::
 
-    Isso remove o alerta da lista de alertas principais. Use o filtro na página de lista de alertas para exibir todos os alertas com status de **Ignorado**.
+    Isso remove o alerta da lista de alertas principais. Use o filtro na página de lista de alertas para exibir todos os alertas com status de **Ignorado** .
 
-1.  Opcionalmente, forneça comentários sobre um alerta para a Microsoft:
-    1. Marque o alerta como **Útil** ou **Não útil** e forneça
+1.  Incentivamos você a fornecer comentários sobre o alerta à Microsoft:
+    1. Marque o alerta como **Útil** ou **Não útil** .
     1. Selecione um motivo e adicione um comentário.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Página de lista de alertas de segurança":::
@@ -108,11 +108,11 @@ Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de
 
 Se você não planeja continuar ou se deseja desabilitar um desses recursos:
 
-1. retorne ao menu principal da Central de Segurança e selecione **Preços e configurações**.
+1. retorne ao menu principal da Central de Segurança e selecione **Preços e configurações** .
 1. Selecione a assinatura relevante.
-1. Para fazer downgrade, selecione **Azure Defender desativado**.
-1. Para desabilitar o provisionamento automático, abra a página **Coleção de Dados** e defina **Provisionamento automático** como **Desativado**.
-4. Clique em **Salvar**.
+1. Para fazer downgrade, selecione **Azure Defender desativado** .
+1. Para desabilitar o provisionamento automático, abra a página **Coleção de Dados** e defina **Provisionamento automático** como **Desativado** .
+4. Clique em **Salvar** .
 
 >[!NOTE]
 > Desabilitar o provisionamento automático não remove o agente do Log Analytics das VMs do Azure que já têm o agente. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.

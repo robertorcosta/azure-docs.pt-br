@@ -208,7 +208,7 @@ GTID está desativado por padrão. Quando o GTID estiver habilitado, você não 
 
 Se o GTID estiver habilitado em um servidor de origem, as réplicas recém-criadas também terão GTID habilitado e usarão a replicação GTID. Para manter a replicação consistente, você não pode atualizar `gtid_mode` no (s) servidor (es) de origem ou de réplica.
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 
 - A criação de uma réplica de uma réplica não é suportada.
 - Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Esta é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 1e395e4e73f6c140d81189f1abbccca8c064f757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee440c77ec94a7c3e61c37e589aa5ef23031ca7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616645"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332409"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explore a análise de SaaS com o Banco de Dados SQL do Azure, o Azure Synapse Analytics, o Data Factory e o Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ Em seguida, os dados extraídos são transformados e carregados em um conjunto d
 
 Juntas, as tabelas central e de dimensão habilitam o processamento analítico eficiente. O esquema em estrela usado neste tutorial é exibido na seguinte imagem:
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
+![Diagrama que mostra o esquema em estrela usado neste tutorial.](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
 
 Por fim, as tabelas de esquema em estrela são consultadas. Os resultados da consulta são exibidos visualmente usando o Power BI para realçar os insights sobre o comportamento do locatário e o uso do aplicativo. Com esse esquema em estrela, você executa consultas que expõem:
 
@@ -87,7 +87,7 @@ Este tutorial explora a análise de dados de vendas de ingressos. Nesta etapa, v
 
 No aplicativo Wingtip Tickets, os dados transacionais dos locatários são distribuídos entre vários bancos de dados. O ADF (Azure Data Factory) é usado para orquestrar o processo de ELT (extração, carregamento e transformação) desses dados no data warehouse. Para carregar dados no Azure Synapse Analytics (antigo SQL Data Warehouse) com mais eficiência, o ADF extrai os dados em arquivos de blob intermediários e usa o [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) para carregar os dados no data warehouse.
 
-Nesta etapa, você implantará os recursos adicionais usados no tutorial: um pool de SQL chamado _tenantanalytics_, um Azure Data Factory chamado _dbtodwload-\<user\>_ e uma conta de armazenamento do Azure chamada _wingtipstaging\<user\>_ . A conta de armazenamento é usada para armazenar temporariamente os arquivos de dados extraídos como blobs antes que eles sejam carregados no data warehouse. Essa etapa também implanta o esquema do data warehouse e define os pipelines do ADF que orquestram o processo de ELT.
+Nesta etapa, você implantará os recursos adicionais usados no tutorial: um pool de SQL chamado _tenantanalytics_ , um Azure Data Factory chamado _dbtodwload-\<user\>_ e uma conta de armazenamento do Azure chamada _wingtipstaging\<user\>_ . A conta de armazenamento é usada para armazenar temporariamente os arquivos de dados extraídos como blobs antes que eles sejam carregados no data warehouse. Essa etapa também implanta o esquema do data warehouse e define os pipelines do ADF que orquestram o processo de ELT.
 
 1. No ISE do PowerShell, abra *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e defina:
     - **$DemoScenario** = **2** Implantar data warehouse, armazenamento de blob e data factory de análise de locatário
@@ -97,18 +97,18 @@ Agora, examine os recursos do Azure implantados:
 
 #### <a name="tenant-databases-and-analytics-store"></a>Bancos de dados de locatário e repositório de análise
 
-Use o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar aos servidores **tenants1-dpt-&lt;usuário&gt;** e **catalog-dpt-&lt;usuário&gt;**. Substitua &lt;usuário&gt; pelo valor usado quando você implantou o aplicativo. Use o logon *developer* e a senha *P\@ssword1*. Veja o [tutorial introdutório](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
+Use o [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para se conectar aos servidores **tenants1-dpt-&lt;usuário&gt;** e **catalog-dpt-&lt;usuário&gt;** . Substitua &lt;usuário&gt; pelo valor usado quando você implantou o aplicativo. Use o logon *developer* e a senha *P\@ssword1* . Veja o [tutorial introdutório](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
 
 ![Conectar-se ao Banco de Dados SQL por meio do SSMS](./media/saas-tenancy-tenant-analytics-adf/ssmsSignIn.JPG)
 
 No Pesquisador de Objetos:
 
-1. Expanda o servidor *tenants1-dpt-&lt;usuário&gt;*.
+1. Expanda o servidor *tenants1-dpt-&lt;usuário&gt;* .
 1. Expanda o nó Bancos de dados e veja a lista de bancos de dados de locatário.
-1. Expanda o servidor *catalog-dpt-&lt;usuário&gt;*.
+1. Expanda o servidor *catalog-dpt-&lt;usuário&gt;* .
 1. Verifique se você vê o repositório de análise que contém os seguintes objetos:
-    1. As tabelas **raw_Tickets**, **raw_Customers**, **raw_Events** e **raw_Venues** contêm dados extraídos brutos dos bancos de dados de locatário.
-    1. As tabelas de esquema em estrela são **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates **.
+    1. As tabelas **raw_Tickets** , **raw_Customers** , **raw_Events** e **raw_Venues** contêm dados extraídos brutos dos bancos de dados de locatário.
+    1. As tabelas de esquema em estrela são **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** e **dim_Dates** .
     1. O procedimento armazenado **sp_transformExtractedData** é usado para transformar os dados e carregá-lo nas tabelas de esquema em estrela.
 
 ![A captura de tela mostra o Pesquisador de Objetos com Tabelas expandidas para mostrar vários objetos de banco de dados.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
@@ -122,7 +122,7 @@ No Pesquisador de Objetos:
 1. Clique na conta de armazenamento **wingtipstaging\<user\>** para explorar os objetos presentes.
 1. Clique no bloco **Blobs**
 1. Clique no contêiner **configfile**
-1. Verifique se **configfile** contém um arquivo JSON chamado **TableConfig.json**. Esse arquivo contém os nomes de tabela, nomes de coluna e nomes de coluna de rastreador de origem e de destino.
+1. Verifique se **configfile** contém um arquivo JSON chamado **TableConfig.json** . Esse arquivo contém os nomes de tabela, nomes de coluna e nomes de coluna de rastreador de origem e de destino.
 
 #### <a name="azure-data-factory-adf"></a>ADF (Azure Data Factory)
 
@@ -138,13 +138,13 @@ Siga as etapas abaixo para iniciar o data factory:
 
 ## <a name="extract-load-and-transform-data"></a>Extrair, carregar e transformar dados
 
-O Azure Data Factory é usado para orquestrar a extração, o carregamento e a transformação de dados. Neste tutorial, você extrai dados de quatro exibições SQL diferentes de cada um dos bancos de dados de locatário: **rawTickets**, **rawCustomers**, **rawEvents** e **rawVenues**. Essas exibições incluem a ID do local, de modo que você possa distinguir os dados de cada local no data warehouse. Os dados são carregados nas tabelas de preparo correspondentes no data warehouse: **raw_Tickets**, **raw_customers**, **raw_Events** e **raw_Venue**. Em seguida, um procedimento armazenado transforma os dados brutos e preenche as tabelas de esquema em estrela: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
+O Azure Data Factory é usado para orquestrar a extração, o carregamento e a transformação de dados. Neste tutorial, você extrai dados de quatro exibições SQL diferentes de cada um dos bancos de dados de locatário: **rawTickets** , **rawCustomers** , **rawEvents** e **rawVenues** . Essas exibições incluem a ID do local, de modo que você possa distinguir os dados de cada local no data warehouse. Os dados são carregados nas tabelas de preparo correspondentes no data warehouse: **raw_Tickets** , **raw_customers** , **raw_Events** e **raw_Venue** . Em seguida, um procedimento armazenado transforma os dados brutos e preenche as tabelas de esquema em estrela: **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** e **dim_Dates** .
 
 Na seção anterior, você implantou e inicializou os recursos necessários do Azure, incluindo o data factory. O data factory implantado inclui os pipelines, conjuntos de dados, serviços vinculados, entre outros, necessários para extrair, carregar e transformar os dados de locatário. Vamos explorar mais esses objetos e, em seguida, acionar o pipeline para mover dados dos bancos de dados de locatário para o data warehouse.
 
 ### <a name="data-factory-pipeline-overview"></a>Visão geral do pipeline do data factory
 
-Esta seção explora os objetos criados no data factory. A figura a seguir descreve o fluxo de trabalho geral do pipeline do ADF usado neste tutorial. Se preferir explorar o pipeline mais tarde e ver os resultados primeiro, vá para a próxima seção, **Acionar a execução do pipeline**.
+Esta seção explora os objetos criados no data factory. A figura a seguir descreve o fluxo de trabalho geral do pipeline do ADF usado neste tutorial. Se preferir explorar o pipeline mais tarde e ver os resultados primeiro, vá para a próxima seção, **Acionar a execução do pipeline** .
 
 ![adf_overview](./media/saas-tenancy-tenant-analytics-adf/adf-data-factory.PNG)
 
@@ -153,13 +153,13 @@ Na página de visão geral, passe para a guia **Autor** no painel esquerdo e obs
 
 Os três pipelines aninhados são: SQLDBToDW, DBCopy e TableCopy.
 
-O **Pipeline 1 – SQLDBToDW** pesquisa os nomes dos bancos de dados de locatário armazenados no banco de dados de Catálogo (nome da tabela: [__ShardManagement].[ShardsGlobal]) e, para cada banco de dados de locatário, executa o pipeline **DBCopy**. Após a conclusão, o esquema do procedimento armazenado **sp_TransformExtractedData** fornecido será executado. Esse procedimento armazenado transforma os dados carregados nas tabelas de preparo e preenche as tabelas de esquema em estrela.
+O **Pipeline 1 – SQLDBToDW** pesquisa os nomes dos bancos de dados de locatário armazenados no banco de dados de Catálogo (nome da tabela: [__ShardManagement].[ShardsGlobal]) e, para cada banco de dados de locatário, executa o pipeline **DBCopy** . Após a conclusão, o esquema do procedimento armazenado **sp_TransformExtractedData** fornecido será executado. Esse procedimento armazenado transforma os dados carregados nas tabelas de preparo e preenche as tabelas de esquema em estrela.
 
 O **Pipeline 2 – DBCopy** pesquisa os nomes das tabelas e colunas de origem de um arquivo de configuração armazenado no Armazenamento de Blobs.  Em seguida, o pipeline **TableCopy** é executado para cada uma das quatro tabelas: TicketFacts, CustomerFacts, EventFacts e VenueFacts. A atividade **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** é executada em paralelo para os 20 bancos de dados. O ADF permite que um máximo de 20 iterações de loop sejam executadas em paralelo. Considere criar vários pipelines para mais bancos de dados.
 
-O **Pipeline 3 – TableCopy** usa números de versão de linha no Banco de Dados SQL (_rowversion_) para identificar linhas que foram alteradas ou atualizadas. Essa atividade pesquisa as versões de linha inicial e final para extrair linhas das tabelas de origem. A tabela **CopyTracker** armazenada em cada banco de dados de locatário rastreia a última linha extraída de cada tabela de origem em cada execução. Linhas novas ou alteradas são copiadas para as tabelas de preparo correspondentes no data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues** e **raw_Events**. Por fim, a última versão de linha é salva na tabela **CopyTracker** para ser usada como a versão de linha inicial para a próxima extração.
+O **Pipeline 3 – TableCopy** usa números de versão de linha no Banco de Dados SQL ( _rowversion_ ) para identificar linhas que foram alteradas ou atualizadas. Essa atividade pesquisa as versões de linha inicial e final para extrair linhas das tabelas de origem. A tabela **CopyTracker** armazenada em cada banco de dados de locatário rastreia a última linha extraída de cada tabela de origem em cada execução. Linhas novas ou alteradas são copiadas para as tabelas de preparo correspondentes no data warehouse: **raw_Tickets** , **raw_Customers** , **raw_Venues** e **raw_Events** . Por fim, a última versão de linha é salva na tabela **CopyTracker** para ser usada como a versão de linha inicial para a próxima extração.
 
-Há também três serviços vinculados parametrizados que vinculam o data factory aos Bancos de Dados SQL de origem, ao pool de SQL de destino e ao Armazenamento de Blobs intermediário. Na guia **Autor**, clique em **Conexões** para explorar os serviços vinculados, conforme mostrado na imagem a seguir:
+Há também três serviços vinculados parametrizados que vinculam o data factory aos Bancos de Dados SQL de origem, ao pool de SQL de destino e ao Armazenamento de Blobs intermediário. Na guia **Autor** , clique em **Conexões** para explorar os serviços vinculados, conforme mostrado na imagem a seguir:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -180,14 +180,14 @@ A etapa final da transformação exclui os dados de preparo prontos para a próx
 Siga as etapas abaixo para executar todo o pipeline de extração, carga e transformação para todos os bancos de dados de locatário:
 
 1. Na guia **Autor** da interface do usuário do ADF, selecione o pipeline **SQLDBToDW** no painel esquerdo.
-1. Clique em **Disparador** e o, do menu suspenso, clique em **Disparar Agora**. Essa ação executa o pipeline imediatamente. Em um cenário de produção, você definiria um cronograma para executar o pipeline para atualizar os dados de acordo com uma programação.
+1. Clique em **Disparador** e o, do menu suspenso, clique em **Disparar Agora** . Essa ação executa o pipeline imediatamente. Em um cenário de produção, você definiria um cronograma para executar o pipeline para atualizar os dados de acordo com uma programação.
   ![A captura de tela mostra Recursos do Factory de um pipeline chamado BD do SQL para DW com a opção Gatilho expandida e Disparar Agora selecionado.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
-1. Na página **Execução de Pipeline**, clique em **Concluir**.
+1. Na página **Execução de Pipeline** , clique em **Concluir** .
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 
 1. Na interface do usuário do ADF, alterne para a guia **Monitor** no menu à esquerda.
-1. Clique em **Atualizar** até que o status do pipeline SQLDBToDW seja **Com êxito**.
+1. Clique em **Atualizar** até que o status do pipeline SQLDBToDW seja **Com êxito** .
   ![A captura de tela mostra o pipeline BD do SQL para DW com o status Êxito.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Conecte-se ao data warehouse usando o SSMS e consulte as tabelas de esquema em estrela para verificar se os dados foram carregados nessas tabelas.
 
@@ -203,16 +203,16 @@ Use as seguintes etapas para se conectar ao Power BI e importar os modos de exib
 
 1. Inicie o Power BI desktop.
 2. Na faixa de opções Página Inicial, selecione **Obter Dados** e **Mais...**  no menu.
-3. Na janela **Obter Dados**, selecione **Banco de Dados SQL do Azure**.
-4. Na janela de logon do banco de dados, digite o nome do servidor (**catalog-dpt-&lt;Usuário&gt;.database.windows.net**). Selecione **Importar** para **Modo de Conectividade de Dados** e, em seguida, clique em **OK**.
+3. Na janela **Obter Dados** , selecione **Banco de Dados SQL do Azure** .
+4. Na janela de logon do banco de dados, digite o nome do servidor ( **catalog-dpt-&lt;Usuário&gt;.database.windows.net** ). Selecione **Importar** para **Modo de Conectividade de Dados** e, em seguida, clique em **OK** .
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. Selecione **Banco de dados** no painel esquerdo e insira nome de usuário = *developer* e senha = *P\@ssword1*. Clique em **Conectar**.  
+5. Selecione **Banco de dados** no painel esquerdo e insira nome de usuário = *developer* e senha = *P\@ssword1* . Clique em **Conectar** .  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
-6. No painel **Navegador**, no banco de dados de análise, selecione as tabelas de esquema em estrela: **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** e **dim_Dates**. Em seguida, selecione **Carregar**.
+6. No painel **Navegador** , no banco de dados de análise, selecione as tabelas de esquema em estrela: **fact_Tickets** , **dim_Events** , **dim_Venues** , **dim_Customers** e **dim_Dates** . Em seguida, selecione **Carregar** .
 
 Parabéns! Você carregou os dados no Power BI com êxito. Agora, explore visualizações interessantes para obter insights sobre seus locatários. Vamos examinar como a análise pode fornecer algumas recomendações controladas por dados para a equipe de negócios do Wingtip Tickets. As recomendações podem ajudar a otimizar a experiência de atendimento ao cliente e o modelo de negócios.
 
@@ -242,7 +242,7 @@ Este gráfico de vendas cumulativas de ingressos ao longo do tempo para o Contos
 
 As percepções de padrões de vendas de tíquetes podem levar o Wingtip Tickets a otimizar seu modelo de negócios. Em vez de recarregar todos os locatários igualmente, talvez Wingtip possa introduzir as camadas de serviço com diferentes tamanhos da computação. Locais maiores que precisam vender mais tíquetes por dia podem receber a oferta de uma camada superior com um SLA (contrato de nível de serviço) superior. Esses locais podem ter seus bancos de dados colocados em pool com limites de recursos maiores por banco de dados. Cada camada de serviço pode ter uma alocação de vendas por hora, com valores adicionais cobrados por exceder a alocação. Locais maiores que têm picos de vendas periódicos pode se beneficiar dos níveis mais altos e Wingtip Tickets podem monetizar seus serviços com mais eficiência.
 
-Enquanto isso, alguns clientes de Wingtip Tickets reclamam que se esforçam para vender tíquetes suficientes para justificar o custo do serviço. Talvez nessas percepções haja uma oportunidade de aumentar as vendas de tíquetes para locais com baixo desempenho. Vendas mais altas aumentariam o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **Nova medida**. Digite a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
+Enquanto isso, alguns clientes de Wingtip Tickets reclamam que se esforçam para vender tíquetes suficientes para justificar o custo do serviço. Talvez nessas percepções haja uma oportunidade de aumentar as vendas de tíquetes para locais com baixo desempenho. Vendas mais altas aumentariam o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **Nova medida** . Digite a seguinte expressão para a nova medida chamada **AverageTicketsSold** :
 
 ```sql
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
@@ -256,7 +256,7 @@ O gráfico acima mostra que, embora a maioria das casas de show venda mais de 80
 
 ## <a name="embedding-analytics-in-your-apps"></a>Inserindo a análise em seus aplicativos
 
-Este tutorial se concentrou na análise entre locatários usada para melhorar a compreensão que o fornecedor do software tem de seus locatários. A análise também pode fornecer insights para os _locatários_, ajudando-os a gerenciar seus negócios com mais eficácia.
+Este tutorial se concentrou na análise entre locatários usada para melhorar a compreensão que o fornecedor do software tem de seus locatários. A análise também pode fornecer insights para os _locatários_ , ajudando-os a gerenciar seus negócios com mais eficácia.
 
 No exemplo do Wingtip Tickets, você descobriu que as vendas de ingressos tendem a seguir padrões previsíveis. Esse insight pode ser usado para ajudar as casas de show com baixo desempenho a promover as vendas de ingressos. Talvez haja uma oportunidade de empregar técnicas de aprendizado de máquina para prever as vendas de ingressos dos eventos. Os efeitos das alterações de preços também podem ser modelados, de forma a permitir que o impacto de ofertas de descontos seja previsto. O Power BI Embedded pode ser integrado a um aplicativo de gerenciamento de evento para visualizar as vendas previstas, incluindo o impacto dos descontos sobre o total de assentos vendidos e a receita em eventos com poucas vendas. Com o Power BI Embedded, você pode até mesmo integrar a aplicação do desconto aos preços dos ingressos diretamente na experiência de visualização.
 

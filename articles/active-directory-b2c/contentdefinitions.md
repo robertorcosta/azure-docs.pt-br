@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202850"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628653"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -24,7 +24,7 @@ ms.locfileid: "85202850"
 
 Você pode personalizar a aparência de qualquer [perfil técnico autodeclarado](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) executa o código no navegador do cliente e usa uma abordagem moderna chamada CORS (compartilhamento de recursos entre origens).
 
-Para personalizar a interface do usuário, você pode especificar uma URL no elemento **ContentDefinition** com conteúdo personalizado em HTML. No perfil técnico autodeclarado ou **OrchestrationStep**, aponte para esse identificador de definição de conteúdo. A definição de conteúdo pode conter um elemento **LocalizedResourcesReferences** que especifica uma lista de recursos localizados a serem carregados. O Azure AD B2C mescla os elementos da interface do usuário com o conteúdo HTML carregado da URL e exibe a página ao usuário.
+Para personalizar a interface do usuário, você pode especificar uma URL no elemento **ContentDefinition** com conteúdo personalizado em HTML. No perfil técnico autodeclarado ou **OrchestrationStep** , aponte para esse identificador de definição de conteúdo. A definição de conteúdo pode conter um elemento **LocalizedResourcesReferences** que especifica uma lista de recursos localizados a serem carregados. O Azure AD B2C mescla os elementos da interface do usuário com o conteúdo HTML carregado da URL e exibe a página ao usuário.
 
 O elemento **ContentDefinitions** contém as URLs para modelos de HTML5 que podem ser usados em um percurso do usuário. O URI da página HTML5 é usado para uma etapa especificada da interface do usuário. Por exemplo, a redefinição de senha de entrada ou de inscrição ou páginas de erro. Você pode modificar a aparência substituindo o LoadUri pelo arquivo HTML5. Você pode criar definições de novo conteúdo de acordo com suas necessidades. Esse elemento pode conter uma referência de recursos localizados, como o identificador de localização especificado no elemento [localização](localization.md).
 
@@ -111,7 +111,7 @@ O exemplo a seguir mostra o **DataUri** da `selfasserted` versão `1.2.0` :
 
 #### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
 
-O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD: B2C: elements:p**contract**age-Name: Version_. Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
+O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD: B2C: elements:p **contract** age-Name: Version_ . Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , use a tabela a seguir para migrar para o novo formato.
 
 | Valor antigo de DataUri | Novo valor de DataUri |
 | ----------------- | ----------------- |
@@ -126,6 +126,39 @@ O formato do valor deve conter a palavra `contract` : _urn: com: Microsoft: AAD:
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+O exemplo a seguir mostra os identificadores de definição de conteúdo e o **DataUri** correspondente com o contrato de página: 
+
+```xml
+<ContentDefinitions>
+  <ContentDefinition Id="api.error">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections.signup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.signuporsignin">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted.profileupdate">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.phonefactor">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
 
 ### <a name="metadata"></a>Metadados
 
@@ -162,7 +195,7 @@ O elemento **LocalizedResourcesReference** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Linguagem | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
-| LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources**. |
+| LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources** . |
 
 O exemplo a seguir mostra uma definição de conteúdo de entrada ou inscrição com uma referência à localização para inglês, francês e espanhol:
 

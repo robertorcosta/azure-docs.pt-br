@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6d1786766fc61ed0edfdc53295a50ba212818fc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d964312ea283fee4bb71e9a41b31f6b32de346be
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181418"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327787"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>O que são os novos Gêmeos Digitais do Azure? Qual é a diferença entre a versão atual e a anterior (2018)?
 
@@ -33,7 +33,7 @@ O gráfico a seguir fornece uma exibição lado a lado dos conceitos que foram a
 | **Topologia**<br>*Mais flexível*| A versão anterior dava suporte a uma estrutura de dados de árvore, personalizada para espaços inteligentes. Os gêmeos digitais foram conectados com relações hierárquicas. | Com a nova versão, seus gêmeos digital pode ser conectado a topologias de grafo arbitrárias, organizadas da forma como você desejar. Isso proporciona mais flexibilidade para expressar as relações complexas do mundo real.<br><br>Saiba mais em [*Conceitos: gêmeos digitais e o grafo de gêmeos*](concepts-twins-graph.md). |
 | **Computação**<br>*Mais avançada e mais flexível* | Na versão anterior, a lógica para processar eventos e telemetria foi definida em UDFs (funções definidas pelo usuário) JavaScript. A depuração com UDFs era limitada. | A nova versão tem um modelo de computação aberta: você fornece lógica personalizada anexando recursos de computação externos, como o [Azure Functions](../azure-functions/functions-overview.md). Isso permite que você use uma linguagem de programação de sua escolha, acesse bibliotecas de código personalizadas sem restrição e aproveite os recursos de desenvolvimento e depuração que o serviço externo pode ter.<br><br>Saiba mais em [*Como configurar uma função do Azure para processar dados*](how-to-create-azure-function.md). |
 | **Gerenciamento de dispositivo com o Hub IoT**<br>*Mais acessível* | A versão anterior tinha dispositivos gerenciados com uma instância do [Hub IoT](../iot-hub/about-iot-hub.md) que era interna ao serviço de Gêmeos Digitais do Azure. Esse hub integrado não estava totalmente acessível para os desenvolvedores. | Na nova versão, você “traz seu próprio” hub IoT, anexando uma instância do Hub IoT criada independentemente (junto com dispositivos que ela já gerencia). Isso dá a você acesso completo aos recursos do Hub IoT e coloca você no controle do gerenciamento de dispositivos.<br><br>Saiba mais em [*Como ingerir a telemetria do Hub IoT*](how-to-ingest-iot-hub-data.md). |
-| **Segurança**<br>*Mais padrão* | A versão anterior tinha funções predefinidas que você poderia usar para gerenciar o acesso à sua instância. | A nova versão se integra com o mesmo serviço de back-end de [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md) que outros serviços do Azure usam. Isso pode simplificar a autenticação entre outros serviços do Azure em sua solução, como o Hub IoT, o Azure Functions, a Grade de Eventos e muito mais.<br>Com o RBAC, você ainda pode usar funções predefinidas ou pode criar e configurar funções personalizadas.<br><br>Saiba mais em [*Conceitos: segurança para soluções dos Gêmeos Digitais do Azure*](concepts-security.md). |
+| **Segurança**<br>*Mais padrão* | A versão anterior tinha funções predefinidas que você poderia usar para gerenciar o acesso à sua instância. | A nova versão se integra com o mesmo serviço de back-end de [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md) que outros serviços do Azure usam. Isso pode simplificar a autenticação entre outros serviços do Azure em sua solução, como o Hub IoT, o Azure Functions, a Grade de Eventos e muito mais.<br>Com o Azure RBAC, você ainda pode usar funções predefinidas ou pode criar e configurar funções personalizadas.<br><br>Saiba mais em [*Conceitos: segurança para soluções dos Gêmeos Digitais do Azure*](concepts-security.md). |
 | **Escalabilidade**<br>*Maior* | A versão anterior tinha limitações de escala para dispositivos, mensagens, grafos e unidades de escala. Havia suporte apenas para uma instância dos Gêmeos Digitais do Azure por assinatura.  | A nova versão se baseia em uma nova arquitetura com escalabilidade aprimorada e tem maior capacidade de computação. Ela também dá suporte a 10 instâncias por região, por assinatura.<br><br>Confira [*Referência: limites de serviço da versão prévia pública*](reference-service-limits.md) para obter detalhes dos limites na versão prévia pública atualmente. |
 
 ## <a name="service-limits-in-public-preview"></a>Limites de serviço em versão prévia pública

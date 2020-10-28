@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427223"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629350"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -34,7 +34,7 @@ Para atividades com falha em execução no ir de IR/compartilhado auto-hospedado
 
     ![Enviar logs](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. Você pode escolher os logs que deseja enviar. Para *ir via hospedagem interna*, você pode carregar logs relacionados à atividade com falha ou a todos os logs no nó ir de hospedagem interna. Para *ir compartilhado*, você só pode carregar logs relacionados à atividade com falha.
+1. Você pode escolher os logs que deseja enviar. Para *ir via hospedagem interna* , você pode carregar logs relacionados à atividade com falha ou a todos os logs no nó ir de hospedagem interna. Para *ir compartilhado* , você só pode carregar logs relacionados à atividade com falha.
 
     ![Escolher logs](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -52,7 +52,7 @@ Para atividades com falha em execução no ir de IR/compartilhado auto-hospedado
 
 #### <a name="symptoms"></a>Sintomas
 
-Ao tentar habilitar o certificado TLS/SSL (avançado) do **Gerenciador de configuração de IR auto-hospedado** -> **Acesso remoto da intranet**, depois de selecionar o certificado TLS/SSL, o erro abaixo será exibido:
+Ao tentar habilitar o certificado TLS/SSL (avançado) do **Gerenciador de configuração de IR auto-hospedado** -> **Acesso remoto da intranet** , depois de selecionar o certificado TLS/SSL, o erro abaixo será exibido:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,7 +65,7 @@ Esse é um problema conhecido no WFC: A validação do WCF TLS/SSL verifica some
 #### <a name="resolution"></a>Resolução
 
 O certificado curinga é compatível no IR auto-hospedado do Azure Data Factory v2. Esse problema normalmente ocorre porque o certificado SSL não está correto. O último DNSName em SAN deve ser válido. Siga as etapas abaixo para verificá-lo. 
-1.  Abra o console de gerenciamento, verifique duas vezes o *assunto* e o *nome alternativo da entidade* nos detalhes do certificado. No caso acima, por exemplo, o último item no *nome alternativo da entidade*, que é "nome DNS = Microsoft.com.com", não é legítimo.
+1.  Abra o console de gerenciamento, verifique duas vezes o *assunto* e o *nome alternativo da entidade* nos detalhes do certificado. No caso acima, por exemplo, o último item no *nome alternativo da entidade* , que é "nome DNS = Microsoft.com.com", não é legítimo.
 2.  Contate a empresa de problemas de certificado para remover o nome DNS errado.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problema de limite de trabalhos concorrentes
@@ -102,7 +102,7 @@ Quando lidamos com casos relacionados ao handshake SSL/TLS, podemos encontrar al
 
 - Aqui está uma maneira rápida e intuitiva de solucionar problemas de falha de compilação da cadeia de certificados X. 509.
  
-    1. Exporte o certificado que precisa ser verificado. Vá para Gerenciar certificado de computador, localize o certificado que você deseja verificar e clique com o botão direito do mouse em **Todas as tarefas** -> **Exportar**.
+    1. Exporte o certificado que precisa ser verificado. Vá para Gerenciar certificado de computador, localize o certificado que você deseja verificar e clique com o botão direito do mouse em **Todas as tarefas** -> **Exportar** .
     
         ![Exportar tarefas](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +138,7 @@ Quando lidamos com casos relacionados ao handshake SSL/TLS, podemos encontrar al
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Em seguida, a **ferramenta de recuperação de URL** será aberta. Você pode verificar os certificados de AIA, CDP e OCSP clicando no botão **Recuperar**.
+    1. Em seguida, a **ferramenta de recuperação de URL** será aberta. Você pode verificar os certificados de AIA, CDP e OCSP clicando no botão **Recuperar** .
 
         ![Botão de recuperação](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -164,8 +164,8 @@ Se você usar o Process Monitor, poderá ver o seguinte resultado:
 
 > [!TIP] 
 > Você pode definir o filtro conforme mostrado na captura de tela abaixo.
-> Ele nos informa que o dll **System. ValueTuple** não está localizado na pasta relacionada ao GAC, ou em *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*ou em *c:\Program Files\Microsoft Integration Runtime\4.0\Shared* pasta.
-> Basicamente, ele carregará a DLL da pasta *GAC* primeiro e, em seguida, de *Compartilhados* e finalmente da pasta *Gateway*. Portanto, você pode colocar a dll em qualquer caminho que possa ser útil.
+> Ele nos informa que o dll **System. ValueTuple** não está localizado na pasta relacionada ao GAC, ou em *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* ou em *c:\Program Files\Microsoft Integration Runtime\4.0\Shared* pasta.
+> Basicamente, ele carregará a DLL da pasta *GAC* primeiro e, em seguida, de *Compartilhados* e finalmente da pasta *Gateway* . Portanto, você pode colocar a dll em qualquer caminho que possa ser útil.
 
 ![Configurar filtros](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +179,7 @@ Você pode usar o mesmo método para resolver problemas ausentes de outro arquiv
 
 O motivo pelo qual você vê o System.ValueTuple.dll em *%windir%\Microsoft.NET\assembly* e *%windir%\assembly* é que ele é um comportamento do .net. 
 
-A partir do erro abaixo, você pode ver claramente o assembly *System. ValueTuple* não está lá. Assim, esse problema ocorre quando o aplicativo tenta verificar o assembly *System.ValueTuple.dll*.
+A partir do erro abaixo, você pode ver claramente o assembly *System. ValueTuple* não está lá. Assim, esse problema ocorre quando o aplicativo tenta verificar o assembly *System.ValueTuple.dll* .
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -201,7 +201,7 @@ O tempo de execução de integração auto-hospedado de repente fica off-line se
 
 #### <a name="resolution"></a>Resolução
 
-Se nenhuma das causas acima for aplicável, você poderá ir para a pasta: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*e verificar se o arquivo chamado **configurações** foi excluído. Se ele foi excluído, siga as instruções [aqui](https://www.netwrix.com/how_to_detect_who_deleted_file.html) para auditar quem exclui o arquivo.
+Se nenhuma das causas acima for aplicável, você poderá ir para a pasta: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway* e verificar se o arquivo chamado **configurações** foi excluído. Se ele foi excluído, siga as instruções [aqui](https://www.netwrix.com/how_to_detect_who_deleted_file.html) para auditar quem exclui o arquivo.
 
 ![Verificar arquivo de configurações](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
@@ -210,7 +210,7 @@ Se nenhuma das causas acima for aplicável, você poderá ir para a pasta: *%Pro
 
 #### <a name="symptoms"></a>Sintomas
 
-Depois de criar o IRs auto-hospedados para os armazenamentos de dados de origem e destino, você deseja conectar os dois IRs para concluir uma cópia. Se os armazenamentos de dados estiverem configurados em diferentes VNETs ou não conseguirem entender o mecanismo de gateway, você encontrará erros como: *o driver de origem não pode ser encontrado no ir de destino*; *a origem não pode ser acessada pelo ir de destino*.
+Depois de criar o IRs auto-hospedados para os armazenamentos de dados de origem e destino, você deseja conectar os dois IRs para concluir uma cópia. Se os armazenamentos de dados estiverem configurados em diferentes VNETs ou não conseguirem entender o mecanismo de gateway, você encontrará erros como: *o driver de origem não pode ser encontrado no ir de destino* ; *a origem não pode ser acessada pelo ir de destino* .
  
 #### <a name="cause"></a>Causa
 
@@ -288,14 +288,14 @@ Vá para o log de eventos Integration Runtime para verificar o erro.
 
 ![Log de eventos IR](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Se o erro aparecer como acima de *UnauthorizedAccessException*, siga as instruções abaixo:
+Se o erro aparecer como acima de *UnauthorizedAccessException* , siga as instruções abaixo:
 
 
 1. Verifique a conta de serviço de logon do *DIAHostService* no painel de serviço do Windows.
 
     ![Conta de serviço de logon](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Verifique se a conta de serviço de logon tem a permissão R/W na pasta: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway*.
+2. Verifique se a conta de serviço de logon tem a permissão R/W na pasta: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway* .
 
     - Por padrão, se a conta de logon do serviço não tiver sido alterada, ela deverá ter a permissão de R/W.
 
@@ -305,7 +305,7 @@ Se o erro aparecer como acima de *UnauthorizedAccessException*, siga as instruç
         1. Limpar desinstalar o IR auto-hospedado atual.
         1. Instale os bits de IR hospedados internamente.
         1. Siga as instruções abaixo para alterar a conta de serviço: 
-            1. Acesse a pasta de instalação do selfhosted IR, alterne para a pasta: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Acesse a pasta de instalação do selfhosted IR, alterne para a pasta: *Microsoft Integration Runtime\4.0\Shared* .
             1. Inicie uma linha de comando usando privilégios elevados. Substitua *\<user>* e *\<password>* por seu próprio nome de usuário e senha e, em seguida, execute o comando abaixo:
                        
                 ```
@@ -325,7 +325,7 @@ Se o erro aparecer como acima de *UnauthorizedAccessException*, siga as instruç
             1. Você pode usar o usuário local/domínio para a conta de logon do serviço IR.            
         1. Registre o Integration Runtime.
 
-Se o erro aparecer como: o *serviço ' Integration Runtime Service ' (DIAHostService) falhou ao iniciar. Verifique se você tem privilégios suficientes para iniciar os serviços do sistema*, siga as instruções abaixo:
+Se o erro aparecer como: o *serviço ' Integration Runtime Service ' (DIAHostService) falhou ao iniciar. Verifique se você tem privilégios suficientes para iniciar os serviços do sistema* , siga as instruções abaixo:
 
 1. Verifique a conta de serviço de logon do *DIAHostService* no painel de serviço do Windows.
    
@@ -351,7 +351,7 @@ Não foi possível encontrar o botão **registrar** na interface do usuário do 
 
 #### <a name="cause"></a>Causa
 
-Desde o lançamento do *Integration Runtime 3,0*, o botão **registrar** em um nó Integration Runtime existente foi removido para habilitar um ambiente mais limpo e seguro. Se um nó foi registrado em algum Integration Runtime (online ou não), para registrá-lo novamente em outro Integration Runtime, desinstale o nó anterior e, em seguida, instale e registre o nó.
+Desde o lançamento do *Integration Runtime 3,0* , o botão **registrar** em um nó Integration Runtime existente foi removido para habilitar um ambiente mais limpo e seguro. Se um nó foi registrado em algum Integration Runtime (online ou não), para registrá-lo novamente em outro Integration Runtime, desinstale o nó anterior e, em seguida, instale e registre o nó.
 
 #### <a name="resolution"></a>Resolução
 
@@ -431,7 +431,7 @@ O runtime de integração auto-hospedada não se conecta ao serviço do Data Fac
     ```
         
    > [!NOTE]     
-   > A URL do serviço pode variar, dependendo da localização do Data Factory. Você pode encontrar a URL do serviço em **Interface do usuário do ADF** > **Conexões** > **Runtimes de integração** > **Editar runtime de integração auto-hospedada** > **Nós** > **Exibir URLs de serviço**.
+   > A URL do serviço pode variar, dependendo da localização do Data Factory. Você pode encontrar a URL do serviço em **Interface do usuário do ADF** > **Conexões** > **Runtimes de integração** > **Editar runtime de integração auto-hospedada** > **Nós** > **Exibir URLs de serviço** .
             
     A resposta esperada é a seguinte:
             
@@ -476,7 +476,7 @@ A resposta esperada é a seguinte:
 
 #### <a name="cause"></a>Causa 
 
-O nó do runtime de integração auto-hospedada pode ter um status **Inativo**, conforme mostrado na seguinte captura de tela:
+O nó do runtime de integração auto-hospedada pode ter um status **Inativo** , conforme mostrado na seguinte captura de tela:
 
 ![Nó de runtime de integração auto-hospedada inativa](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
@@ -484,7 +484,7 @@ Esse comportamento ocorre quando os nós não conseguem se comunicar entre si.
 
 #### <a name="resolution"></a>Resolução
 
-1. Faça logon na VM hospedada no nó. Em **Logs de Aplicativos e Serviços** > **Runtime de Integração**, abra o Visualizador de Eventos e filtre todos os logs de erros.
+1. Faça logon na VM hospedada no nó. Em **Logs de Aplicativos e Serviços** > **Runtime de Integração** , abra o Visualizador de Eventos e filtre todos os logs de erros.
 
 1. Verifique se há um dos logs de erros contém o seguinte erro: 
     
@@ -569,7 +569,7 @@ Faça o rastreamento do Netmon e analise mais detalhadamente.
  
     *Pacote de rede do sistema Linux A com TTL 64-> B TTL 64 menos 1 = 63-> C TTL 63 menos 1 = 62-> TTL 62 menos 1 = 61 IR auto-hospedado*
 
-- Na situação ideal, o TTL será 128, o que significa que o sistema Windows está executando nossa Data Factory. Conforme mostrado no exemplo abaixo, *128 – 107 = 21 saltos*, o que significa que 21 saltos para o pacote foram enviados de data Factory para ir por hospedagem própria durante o handshake TCP 3.
+- Na situação ideal, o TTL será 128, o que significa que o sistema Windows está executando nossa Data Factory. Conforme mostrado no exemplo abaixo, *128 – 107 = 21 saltos* , o que significa que 21 saltos para o pacote foram enviados de data Factory para ir por hospedagem própria durante o handshake TCP 3.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +587,11 @@ Ao tentar fazer o Telnet **8.8.8.8 888** com o Netmon Trace coletado, você deve
 ![rastreamento do Netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Isso significa que não foi possível fazer a conexão TCP com o lado do servidor **8.8.8.8** com base na porta **888**, para que você veja dois pacotes adicionais do **SynReTransmit** lá. Como a **HOST2** de origem não pôde estabelecer a conexão com o **8.8.8.8** no primeiro pacote, ele continuará fazendo a conexão.
+Isso significa que não foi possível fazer a conexão TCP com o lado do servidor **8.8.8.8** com base na porta **888** , para que você veja dois pacotes adicionais do **SynReTransmit** lá. Como a **HOST2** de origem não pôde estabelecer a conexão com o **8.8.8.8** no primeiro pacote, ele continuará fazendo a conexão.
 
 > [!TIP]
-> - Você pode clicar em filtro de **carregamento**  ->  **padrão filtrar**  ->  **endereços**  ->  **IPv4**.
-> - Insira **IPv4. Address = = 8.8.8.8** como filtro e clique em **aplicar**. Depois disso, você verá apenas a comunicação do computador local com o **8.8.8.8**de destino.
+> - Você pode clicar em filtro de **carregamento**  ->  **padrão filtrar**  ->  **endereços**  ->  **IPv4** .
+> - Insira **IPv4. Address = = 8.8.8.8** como filtro e clique em **aplicar** . Depois disso, você verá apenas a comunicação do computador local com o **8.8.8.8** de destino.
 
 ![filtrar endereços 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
@@ -630,7 +630,7 @@ Essa notificação afeta os seguintes cenários:
 ##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Cenário 1: comunicação de saída de Integration Runtime auto-hospedados em execução no local por trás do firewall corporativo
 Como determinar se você é afetado:
 - Você não será afetado se estiver definindo regras de firewall com base em nomes de FQDN usando a abordagem descrita neste documento: [configuração de firewall e lista de permissões de configuração para endereço IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
-- No entanto, você será afetado se estiver explicitamente na lista de permissões de IPs de saída em seu firewall corporativo.
+- No entanto, você será afetado se estiver habilitando explicitamente a lista de permissões para IPs de saída em seu firewall corporativo.
 
 Ação a ser tomada se você for afetado: notifique sua equipe de infraestrutura de rede para atualizar sua configuração de rede para usar os endereços IP mais recentes do Data Factory em 8 de novembro de 2020.  Para baixar os endereços IP mais recentes, acesse [marcas de serviço link de download intervalo de IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
@@ -639,16 +639,55 @@ Como determinar se você é afetado:
 - Verifique se você tem regras de NSG de saída em sua rede privada que contenham Integration Runtime hospedadas internamente. Se não houver nenhuma restrição de saída, não haverá nenhum impacto.
 - Se você tiver restrições de regra de saída, verifique se você usa a marca de serviço ou não. Se você usar a marca de serviço, não será necessário alterar nem adicionar nada, pois os novos intervalos de IP estão sob a marca de serviço existente. 
  ![Verificação de destino](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
-- No entanto, você será afetado se estiver explicitamente na lista de permissões de endereços IP de saída em sua configuração de regras do NSG na rede virtual do Azure.
+- No entanto, você será afetado se estiver habilitando explicitamente a lista de permissões para endereços IP de saída em sua configuração de regras do NSG na rede virtual do Azure.
 
 Ação a ser tomada se você for afetado: notifique sua equipe de infraestrutura de rede para atualizar as regras de NSG em sua configuração de rede virtual do Azure para usar os endereços IP mais recentes do Data Factory em 8 de novembro de 2020.  Para baixar os endereços IP mais recentes, acesse [marcas de serviço link de download intervalo de IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Cenário 3: comunicação de saída do SSIS Integration Runtime na rede virtual do Azure gerenciada pelo cliente
 - Verifique se você tem alguma regra de NSG de saída em sua rede privada que contém Integration Runtime SSIS. Se não houver nenhuma restrição de saída, não haverá nenhum impacto.
 - Se você tiver restrições de regra de saída, verifique se você usa a marca de serviço ou não. Se você usar a marca de serviço, não será necessário alterar nem adicionar nada, pois os novos intervalos de IP estão sob a marca de serviço existente.
-- No entanto, você será afetado se estiver explicitamente na lista de permissões de endereço IP de saída em sua configuração de regras do NSG na rede virtual do Azure.
+- No entanto, você será afetado se estiver habilitando explicitamente a lista de permissões para o endereço IP de saída em sua configuração de regras do NSG na rede virtual do Azure.
 
 Ação a ser tomada se você for afetado: notifique sua equipe de infraestrutura de rede para atualizar as regras de NSG em sua configuração de rede virtual do Azure para usar os endereços IP mais recentes do Data Factory em 8 de novembro de 2020.  Para baixar os endereços IP mais recentes, acesse [marcas de serviço link de download intervalo de IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+
+### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Não foi possível estabelecer uma relação de confiança para o canal seguro do SSLTLS 
+
+#### <a name="symptoms"></a>Sintomas
+
+O IR auto-hospedado não pôde se conectar ao serviço ADF.
+
+Ao verificar o log de eventos do SHIR ou os logs de notificação do cliente na tabela CustomLogEvent, a seguinte mensagem de erro será encontrada:
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+Como verificar o certificado do servidor do serviço ADF:
+
+A maneira mais simples é abrir a URL de serviço do ADF no navegador, por exemplo, abrir https://eu.frontend.clouddatahub.net/ no computador em que o SHIR está instalado e exibir as informações do certificado do servidor:
+
+  ![Verificar o certificado do servidor do serviço ADF](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![Verificar caminho do certificado do servidor](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### <a name="cause"></a>Causa
+
+Dois motivos possíveis para esse problema:
+
+- A AC raiz do certificado do servidor do serviço ADF não é confiável no computador em que o SHIR está instalado. 
+- Você está usando proxy em seu ambiente e o certificado do servidor do serviço ADF é substituído pelo proxy, enquanto o certificado de servidor substituído não é confiável para o computador em que o SHIR está instalado.
+
+#### <a name="solution"></a>Solução
+
+- Por motivo 1, verifique se o certificado do servidor ADF e sua cadeia de certificados são confiáveis pelo computador em que o SHIR está instalado.
+- Por motivo 2, confie na AC raiz substituída no computador SHIR ou configure o proxy para não substituir o certificado do servidor ADF.
+
+Consulte [Este artigo](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) para obter detalhes sobre como confiar em um certificado no Windows.
+
+#### <a name="additional-info"></a>Informações adicionais
+Estamos distribuindo um novo certificado SSL, que é assinado de DigiCert, verifique se o DigiCert global root G2 está na AC raiz confiável.
+
+  ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+Caso contrário, baixe-o [aqui](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
 ## <a name="self-hosted-ir-sharing"></a>Compartilhamento do IR auto-hospedado
 

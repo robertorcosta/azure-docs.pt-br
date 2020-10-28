@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92322814"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470662"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -107,7 +107,8 @@ Por exemplo, no Windows, este comando define a chave:
 
 ## <a name="create-subscription-config"></a>Criar configuração da assinatura
 
-Para começar a usar a CLI de Fala, primeiro você precisa inserir sua chave de assinatura da Fala e informações da região. Confira a página [suporte a regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o identificador de sua região. Depois de obter a chave de assinatura e o identificador da região (por exemplo, `eastus`, `westus`), execute os comandos a seguir.
+Para começar a usar a CLI de Fala, você precisa inserir a chave de assinatura de Fala e o identificador de região. Obtenha essas credenciais seguindo as etapas em [Experimente o serviço de Fala gratuitamente](../overview.md#try-the-speech-service-for-free).
+Depois de obter a chave de assinatura e o identificador da região (por exemplo, `eastus`, `westus`), execute os comandos a seguir.
 
 ```shell
 spx config @key --set SUBSCRIPTION-KEY

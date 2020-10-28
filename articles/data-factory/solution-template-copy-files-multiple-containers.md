@@ -11,36 +11,38 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82629037"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629418"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiar arquivos de vários contêineres com o Azure Data Factory
+# <a name="copy-multiple-folders-with-azure-data-factory"></a>Copiar várias pastas com Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo descreve um modelo de solução que você pode usar para copiar arquivos de vários contêineres entre repositórios de arquivos. Por exemplo, você pode usá-lo para migrar seu data Lake do AWS S3 para Azure Data Lake Store. Ou, você pode usar o modelo para replicar tudo de uma conta de armazenamento de BLOBs do Azure para outra.
+Este artigo descreve um modelo de solução que permite usar várias atividades de cópia para copiar contêineres ou pastas entre repositórios baseados em arquivo, em que cada atividade de cópia deve copiar um único contêiner ou pasta. 
 
 > [!NOTE]
 > Se você quiser copiar arquivos de um único contêiner, é mais eficiente usar a [ferramenta copiar dados](copy-data-tool.md) para criar um pipeline com uma única atividade de cópia. O modelo neste artigo é mais do que você precisa para esse cenário simples.
 
 ## <a name="about-this-solution-template"></a>Sobre o modelo de solução
 
-Esse modelo enumera os contêineres do seu armazenamento de origem. Em seguida, ele copia esses contêineres para o repositório de destino.
+Esse modelo enumera as pastas de uma determinada pasta pai no armazenamento de origem. Em seguida, ele copia cada uma das pastas para o repositório de destino.
 
 O modelo contém três atividades:
-- O **GetMetadata** verifica seu armazenamento de origem e obtém a lista de contêineres.
-- **Foreach** Obtém a lista de contêineres da atividade **GetMetadata** e, em seguida, itera na lista e passa cada contêiner para a atividade de cópia.
-- **Copiar** copia cada contêiner do repositório de armazenamento de origem para o repositório de destino.
+- O **GetMetadata** verifica seu armazenamento de origem e obtém a lista de subpastas de uma determinada pasta pai.
+- **Foreach** Obtém a lista de subpastas da atividade **GetMetadata** e, em seguida, itera na lista e passa cada pasta para a atividade de cópia.
+- **Copiar** copia cada pasta do repositório de armazenamento de origem para o repositório de destino.
 
 O modelo define os seguintes parâmetros:
-- *SourceFileFolder* é o caminho da pasta do armazenamento de fonte de dados, onde você pode obter uma lista dos contêineres. O caminho é o diretório raiz, que contém várias pastas de contêiner. O valor padrão desse parâmetro é `sourcefolder`.
-- *SourceFileDirectory* é o caminho da subpasta no diretório raiz do seu armazenamento de fonte de dados. O valor padrão desse parâmetro é `subfolder`.
-- *DestinationFileFolder* é o caminho da pasta para onde os arquivos serão copiados no armazenamento de destino. O valor padrão desse parâmetro é `destinationfolder`.
-- *DestinationFileDirectory* é o caminho da subpasta onde os arquivos serão copiados no armazenamento de destino. O valor padrão desse parâmetro é `subfolder`.
+- *SourceFileFolder* faz parte do caminho da pasta pai do seu repositório de fonte de dados: *SourceFileFolder/SourceFileDirectory* , onde você pode obter uma lista das subpastas. 
+- *SourceFileDirectory* faz parte do caminho da pasta pai do seu repositório de fonte de dados: *SourceFileFolder/SourceFileDirectory* , onde você pode obter uma lista das subpastas. 
+- *DestinationFileFolder* faz parte do caminho da pasta pai: *DestinationFileFolder/DestinationFileDirectory* em que os arquivos serão copiados para o armazenamento de destino. 
+- *DestinationFileDirectory* faz parte do caminho da pasta pai: *DestinationFileFolder/DestinationFileDirectory* em que os arquivos serão copiados para o armazenamento de destino. 
+
+Se você quiser copiar vários contêineres em pastas raiz entre armazenamentos de repositório, poderá inserir todos os quatro parâmetros como */* . Ao fazer isso, você replicará tudo entre repositórios de armazenamento.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
@@ -52,7 +54,7 @@ O modelo define os seguintes parâmetros:
 
     ![Criar uma nova conexão para o destino](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Selecione **Usar este modelo**.
+3. Selecione **Usar este modelo** .
 
     ![Usar este modelo](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
@@ -60,7 +62,7 @@ O modelo define os seguintes parâmetros:
 
     ![Mostrar o pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Selecione **Depurar**, insira os **Parâmetros** e, em seguida, selecione **Concluir**.
+5. Selecione **Depurar** , insira os **Parâmetros** e, em seguida, selecione **Concluir** .
 
     ![Executar o pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

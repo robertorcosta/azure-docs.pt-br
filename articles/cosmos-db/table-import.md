@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0023308c74d58b1c94bf13fcb47ffb8aa7ade1d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85557630"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329396"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrar seus dados para a conta de API de Tabela do Azure Cosmos DB
 
@@ -66,13 +66,13 @@ Use as seguintes opções de fonte ao definir Armazenamento de Tabela do Azure o
 * **/s.Filter:** Opcional. Cadeia de caracteres de filtro a ser aplicada
 * **/s.Projection:** Opcional. Lista de colunas a selecionar
 
-Para recuperar a cadeia de conexão da fonte ao importar do armazenamento de Tabela do Azure, abra o portal do Azure e clique em **Contas de armazenamento** > **Conta** > **Chaves de acesso** e, em seguida, use o botão copiar para copiar a **Cadeia de conexão**.
+Para recuperar a cadeia de conexão da fonte ao importar do armazenamento de Tabela do Azure, abra o portal do Azure e clique em **Contas de armazenamento** > **Conta** > **Chaves de acesso** e, em seguida, use o botão copiar para copiar a **Cadeia de conexão** .
 
-:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Captura de tela das opções de origem do HBase":::
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Captura de tela que mostra as opções Contas de armazenamento > Conta > Chaves de acesso e realça o botão copiar.":::
 
-Para recuperar a cadeia de conexão da fonte ao importar de uma conta de API de Tabela do Azure Cosmos DB, abra o portal do Azure, clique em **Azure Cosmos DB** > **Conta** > **Cadeia de conexão** e use o botão copiar para copiar a **Cadeia de conexão**.
+Para recuperar a cadeia de conexão da fonte ao importar de uma conta de API de Tabela do Azure Cosmos DB, abra o portal do Azure, clique em **Azure Cosmos DB** > **Conta** > **Cadeia de conexão** e use o botão copiar para copiar a **Cadeia de conexão** .
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Captura de tela das opções de origem do HBase":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Captura de tela que mostra as opções Contas de armazenamento > Conta > Chaves de acesso e realça o botão copiar.":::
 
 [Exemplo de comando de Armazenamento de Tabela do Azure](#azure-table-storage)
 

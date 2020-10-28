@@ -9,16 +9,32 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5da42ebd31e4b09eb8bc223560aec976584c47e9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3e80ff90e47f45655761abd4c7e8fa9ed04b61ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874451"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518884"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutorial – Migrar serviço Web do Google Maps
 
 O Azure Mapas e o Google Maps dão acesso a APIs espaciais por meio de serviços Web REST. As interfaces de API dessas plataformas executam funcionalidades semelhantes. No entanto, cada uma delas usa convenções de nomenclatura e objetos de resposta diferentes.
+
+Neste tutorial, você aprenderá a:
+
+> * Geocódigo direto e reverso
+> * Pesquisar pontos de interesse
+> * Calcular rotas e instruções
+> * Recuperar uma imagem do mapa
+> * Calcular uma matriz de distância
+> * Obter detalhes do fuso horário
+
+Você também aprenderá: 
+
+> [!div class="checklist"]
+> * Qual serviço REST do Azure Mapas usar ao migrar de um Serviço Web do Google Maps
+> * Dicas sobre como aproveitar ao máximo os serviços do Azure Mapas
+> * Insights sobre outros serviços relacionados ao Azure Mapas
 
 A tabela mostra as APIs de serviço dos Azure Mapas, que têm uma funcionalidade semelhante às APIs de serviço do Google Maps listadas.
 
@@ -48,6 +64,12 @@ O Azure Mapas tem vários serviços Web REST adicionais que podem ser interessan
 
 - [Operações Espaciais](https://docs.microsoft.com/rest/api/maps/spatial): Descarregue operações e cálculos espaciais complexos, como cerca geográfica, para um serviço.
 - [Tráfego](https://docs.microsoft.com/rest/api/maps/traffic): Acesse o fluxo de tráfego e os dados de incidentes em tempo real.
+
+## <a name="prerequisites"></a>Pré-requisitos 
+
+1. Entre no [portal do Azure](https://portal.azure.com). Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+2. [Faça uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 ## <a name="geocoding-addresses"></a>Como geocodificar endereços
 
@@ -110,7 +132,7 @@ A API de geocódigo inverso dos Azure Mapas tem alguns recursos adicionais, que 
 Os dados do ponto de interesse podem ser pesquisados no Google Maps usando a API de Pesquisa de Locais. Essa API fornece três maneiras diferentes de pesquisar pontos de interesse:
 
 - **Localizar local do texto:** Pesquisa um ponto de interesse com base em seu nome, endereço ou número de telefone.
-- **Pesquisa de Proximidade**: Pesquisa pontos de interesse dentro de uma determinada distância de uma localização.
+- **Pesquisa de Proximidade** : Pesquisa pontos de interesse dentro de uma determinada distância de uma localização.
 - **Pesquisa de Texto:** pesquisa locais usando um texto de forma livre, que inclui informações de ponto de interesse e localização. Por exemplo, "pizza em Nova York" ou "restaurantes perto da main st".
 
 O Azure Mapas fornece várias APIs de pesquisa para pontos de interesse:
@@ -197,8 +219,8 @@ A tabela faz uma referência cruzada dos parâmetros da API do Google Maps com o
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
-| `region`                       | *N/A*: este recurso está relacionado ao geocódigo. Use o parâmetro *countrySet* ao usar a API de geocódigo do Azure Mapas.  |
-| `traffic_model`               | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro *traffic*. |
+| `region`                       | *N/A* : este recurso está relacionado ao geocódigo. Use o parâmetro *countrySet* ao usar a API de geocódigo do Azure Mapas.  |
+| `traffic_model`               | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro *traffic* . |
 | `transit_mode`                | Confira a [documentação de serviços de mobilidade](https://docs.microsoft.com/rest/api/maps/mobility) |
 | `transit_routing_preference` | Confira a [documentação de serviços de mobilidade](https://docs.microsoft.com/rest/api/maps/mobility) |
 | `units`                        | *N/A* – o Azure Mapas usa apenas o sistema métrico.  |
@@ -334,7 +356,6 @@ Vamos adicionar um ícone padrão vermelho (`FF0000`), com o rótulo "Space Need
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-
 ![Marcador do Azure Mapas](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Adicione três marcadores com os valores de rótulo '1', '2' e '3':
@@ -342,8 +363,6 @@ Adicione três marcadores com os valores de rótulo '1', '2' e '3':
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
-
-
 
 ![Vários marcadores dos Azure Mapas](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
@@ -424,10 +443,10 @@ Esta tabela faz uma referência cruzada dos parâmetros da API do Google Maps co
 | `language`                     | `language` – confira a documentação de [idiomas compatíveis](supported-languages.md).  |
 | `mode`                         | `travelMode`                         |
 | `origins`                      | `origins` – especifique no corpo da solicitação POST como GeoJSON.  |
-| `region`                       | *N/A*: este recurso está relacionado ao geocódigo. Use o parâmetro `countrySet` ao usar a API de geocódigo do Azure Mapas. |
+| `region`                       | *N/A* : este recurso está relacionado ao geocódigo. Use o parâmetro `countrySet` ao usar a API de geocódigo do Azure Mapas. |
 | `traffic_model`                | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro `traffic`. |
-| `transit_mode`                 | *N/A*: no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
-| `transit_routing_preference`   | *N/A*: no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
+| `transit_mode`                 | *N/A* : no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
+| `transit_routing_preference`   | *N/A* : no momento, não há suporte para matrizes de distância baseadas em trânsito.  |
 | `units`                        | *N/A* – o Azure Mapas usa apenas o sistema métrico. |
 
 > [!TIP]
@@ -468,13 +487,24 @@ Estas bibliotecas de clientes open-source destinam-se a outras linguagens de pro
 
 - .NET Standard 2.0 – [projeto GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [pacote NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Próximas etapas
 
-Veja a seguir documentação e recursos adicionais para os serviços REST dos Azure Mapas.
+Saiba mais sobre os serviços REST do Azure Mapas:
 
-- [Melhores práticas para pesquisar](how-to-use-best-practices-for-search.md)
-- [Pesquisar um endereço](how-to-search-for-address.md)
-- [Melhores práticas para roteamento](how-to-use-best-practices-for-routing.md)
-- [Documentação de referência da API do Serviço REST do Azure Mapas](https://docs.microsoft.com/rest/api/maps/)
-- [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-- [Como usar o módulo de serviços (SDK da Web)](how-to-use-best-practices-for-routing.md)
+> [!div class="nextstepaction"]
+> [Melhores práticas para pesquisar](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Pesquisar um endereço](how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Melhores práticas para roteamento](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Documentação de referência da API do Serviço REST do Azure Mapas](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
+> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+> [!div class="nextstepaction"]
+> [Como usar o módulo de serviços (SDK da Web)](how-to-use-best-practices-for-routing.md)

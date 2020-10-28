@@ -109,7 +109,7 @@ $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
 Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID -Force
 ```
 
-O comando retornará um **contêiner de backup** desse recurso e o status será **registrado**.
+O comando retornará um **contêiner de backup** desse recurso e o status será **registrado** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

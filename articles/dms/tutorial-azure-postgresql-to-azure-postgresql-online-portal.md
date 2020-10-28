@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 85b42c6a3c3c59bd8c22bcdc8954b8dd3399c454
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313139"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460964"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar online o BD do Azure para PostgreSQL – Servidor Único para o BD do Azure para PostgreSQL – Servidor Único usando o DMS por meio do portal do Azure
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar/Atualizar online o BD do Azure para PostgreSQL – Servidor Único para o BD do Azure para PostgreSQL – Servidor Único usando o DMS por meio do portal do Azure
 
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do [Banco de Dados do Azure para PostgreSQL – Servidor Único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) para uma a mesma versão ou uma versão diferente da instância do Banco de Dados do Azure para PostgreSQL – Servidor Único ou do Banco de Dados do Azure para PostgreSQL – Servidor Flexível com tempo de inatividade mínimo. Neste tutorial, você migrará o banco de dados de exemplo **DVD Rental** de um Banco de Dados do Azure para PostgreSQL v10 para o Banco de Dados do Azure para PostgreSQL – Servidor Único usando a atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
 
@@ -47,7 +47,7 @@ Neste tutorial, você aprenderá como:
 Para concluir este tutorial, você precisará:
 
 * Verifique o [status dos cenários de migração compatíveis com o Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/resource-scenario-status) para obter as combinações de migração e versão com suporte. 
-* Uma instância existente do [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) versão 10 ou posteriores com o banco de dados **DVD Rental** . O Serviço de Migração de Banco de Dados do Azure não dá suporte à migração do BD do Azure para PostgreSQL 9.5 nem 9.6.
+* Uma instância existente do [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) versão 10 ou posteriores com o banco de dados **DVD Rental** . 
 
     Observe também que a versão do Banco de Dados do Azure para PostgreSQL de destino precisa ser igual ou posterior à versão local do PostgreSQL. Por exemplo, o PostgreSQL 10 pode migrar para o Banco de Dados do Azure para PostgreSQL 10 ou 11, mas não para o Banco de Dados do Azure para PostgreSQL 9.6.
 

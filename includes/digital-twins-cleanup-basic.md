@@ -1,16 +1,16 @@
 ---
 author: baanders
-description: incluir arquivo para limpar uma instância básica dos Gêmeos Digitais do Azure e o registro de aplicativo
+description: incluir arquivo para limpar uma instância básica dos Gêmeos Digitais do Azure
 ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: e8f167555434338416381aaf8978a3d551686fb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606159"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372303"
 ---
 Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los.
 
@@ -23,10 +23,4 @@ Abra um Azure Cloud Shell e execute o comando a seguir para excluir o grupo de r
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Em seguida, exclua o registro de aplicativo do Azure Active Directory criado para o aplicativo cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
