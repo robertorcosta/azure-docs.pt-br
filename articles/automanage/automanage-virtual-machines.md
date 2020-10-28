@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519649"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891495"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -37,18 +37,20 @@ O gerenciamento automático do Azure também monitora automaticamente a descompa
 Por fim, a experiência é incrivelmente simples.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Há vários pré-requisitos a serem considerados antes de tentar habilitar o autogerenciamento do Azure em suas máquinas virtuais.
 
 - Somente VMs do Windows Server
 - As VMs devem estar em execução
 - As VMs devem estar em uma região com suporte
-- O usuário deve ter as permissões corretas
-- As VMs não devem vincular a um espaço de trabalho do log Analytics em uma assinatura diferente
+- O usuário deve ter as permissões corretas (consulte o parágrafo abaixo)
 - O autogerenci não dá suporte a assinaturas de área restrita no momento
 
-Você precisa ter a função de **Colaborador** para habilitar o Gerenciamento Automático usando uma Conta de Gerenciamento Automático existente. Se você estiver habilitando o Gerenciamento Automático com uma nova Conta de Gerenciamento Automático, precisará das seguintes permissões: Função de **Proprietário** ou **Colaborador** junto com funções de **Administrador de Acesso do Usuário**.
+Você deve ter a função de **colaborador** no grupo de recursos que contém suas VMs para habilitar o autogerenciamento em VMs usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões em sua assinatura: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** . 
+
+> [!NOTE]
+> Se você quiser usar o autogerenci em uma VM que esteja conectada a um espaço de trabalho em uma assinatura diferente, deverá ter as permissões descritas acima em cada assinatura.
 
 Também é importante observar que o autogerenci só dá suporte a VMs do Windows localizadas nas seguintes regiões: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central.
 
@@ -67,7 +69,7 @@ Para todos esses serviços, faremos a integração automática, o autoconfigure,
 
 No portal do Azure, você pode habilitar o autogerenci em uma máquina virtual existente ou ao criar uma nova máquina virtual. Para etapas concisas para esse processo, confira o guia de [início rápido para máquinas virtuais](quick-create-virtual-machines-portal.md).
 
-Se for a primeira vez que você habilita o autogerenci para sua VM, você poderá pesquisar no portal do Azure para **autogerenciar – práticas recomendadas da máquina virtual do Azure**. Clique em **habilitar na VM existente**, selecione as VMs que você gostaria de carregar, clique em **selecionar**, em **habilitar**e pronto.
+Se for a primeira vez que você habilita o autogerenci para sua VM, você poderá pesquisar no portal do Azure para **autogerenciar – práticas recomendadas da máquina virtual do Azure** . Clique em **habilitar na VM existente** , selecione as VMs que você gostaria de carregar, clique em **selecionar** , em **habilitar** e pronto.
 
 A única vez que você pode precisar interagir com essa VM para gerenciar esses serviços está no evento que tentamos corrigir sua VM, mas não conseguiu fazer isso. Se corrigirmos com êxito sua VM, vamos colocá-la de volta em conformidade sem até mesmo alertá-lo.
 
@@ -105,7 +107,7 @@ A conta de autogerenciamento é o contexto de segurança ou a identidade sob a q
 Na experiência de portal do Azure, quando você está habilitando o autogerenciamento em suas VMs, há uma lista suspensa avançada na folha **habilitar a prática recomendada de VM do Azure** que permite atribuir ou criar manualmente a conta de autogerenciamento.
 
 > [!NOTE]
-> Você precisa ter a função de **Colaborador** para habilitar o Gerenciamento Automático usando uma Conta de Gerenciamento Automático existente. Se você estiver habilitando o Gerenciamento Automático com uma nova Conta de Gerenciamento Automático, precisará das seguintes permissões: Função de **Proprietário** ou **Colaborador** junto com funções de **Administrador de Acesso do Usuário**.
+> Você precisa ter a função de **colaborador** no grupo de recursos que contém suas VMs para habilitar o autogerenciamento em VMs usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões em sua assinatura: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
 
 
 ## <a name="status-of-vms"></a>Status das VMs
@@ -121,7 +123,7 @@ A coluna **status** pode exibir os seguintes Estados:
 - *Configurado* -a VM está configurada e nenhum descompasso foi detectado
 - *Falha* -a VM foi descartada e não foi possível corrigi-la
 
-Se você vir o **status** como *com falha*, poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos**, selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
+Se você vir o **status** como *com falha* , poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos** , selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Desabilitando o autogerenci para VMs
@@ -132,7 +134,7 @@ Para fazer isso na portal do Azure, vá para a página **autogerenciar – prát
 
 :::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Integração inteligente de serviços.":::
 
-Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar**.
+Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar** .
 
 > [!NOTE]
 > A desabilitação do autogerenciamento em uma VM resulta no seguinte comportamento:

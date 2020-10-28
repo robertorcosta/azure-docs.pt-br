@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: ecefac68a4348eeae23860d542f949b1c7ff23a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddb8009e544ede82d1c56d112950ff247a87380c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310197"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890693"
 ---
 # <a name="get-shape-data"></a>Obter dados da forma
 
-Este artigo mostra como obter dados de formas que são desenhadas no mapa. Usamos a função **drawingprovider. GetSource ()** dentro do [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Há vários cenários em que você deseja extrair dados geojson de uma forma desenhada e usá-los em outro lugar.  
+Este artigo mostra como obter dados de formas que são desenhadas no mapa. Usamos a função **drawingprovider. GetSource ()** dentro do [Gerenciador de desenho](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Há vários cenários em que você deseja extrair dados geojson de uma forma desenhada e usá-los em outro lugar.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>Obter dados da forma desenhada
@@ -54,10 +54,10 @@ Saiba como usar recursos adicionais do módulo de ferramentas de desenho:
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Gerenciador de desenho](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Barra de ferramentas desenho](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

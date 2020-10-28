@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714966"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891447"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes sobre o autogerenciamento do Azure para VMs
 
 Este artigo fornece respostas para algumas das perguntas mais comuns sobre o [autogerenciamento do Azure para máquinas virtuais](automanage-virtual-machines.md).
 
-Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azure no [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou postar para [@AzureSupport no Twitter](https://twitter.com/AzureSupport). Você também pode enviar uma solicitação de suporte do Azure. Para enviar uma solicitação de suporte, na [página de suporte do Azure](https://azure.microsoft.com/support/options/), selecione **obter suporte**.
+Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azure no [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou postar para [@AzureSupport no Twitter](https://twitter.com/AzureSupport). Você também pode enviar uma solicitação de suporte do Azure. Para enviar uma solicitação de suporte, na [página de suporte do Azure](https://azure.microsoft.com/support/options/), selecione **obter suporte** .
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
@@ -32,7 +32,6 @@ Veja a seguir os pré-requisitos para habilitar o autogerenciamento do Azure:
 - As VMs devem estar em uma região com suporte
 - O usuário deve ter as permissões corretas
 - Somente VMs de conjunto sem escala
-- As VMs não devem vincular a um espaço de trabalho do log Analytics em uma assinatura diferente
 - O autogerenci não dá suporte a assinaturas de área restrita no momento
 
 **Qual permissão RBAC do Azure é necessária para habilitar o autogerenci?**
@@ -106,7 +105,7 @@ Não, o autogerenci não irá reconfigurá-lo. Começaremos a monitorar os recur
 
 **Por que minha VM tem um status de falha no portal de autogerenciamento?**
 
-Se você vir o status como *com falha*, poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos**, selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
+Se você vir o status como *com falha* , poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos** , selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
 
 **Como posso obter suporte para a solução de problemas para autogerenciamento?**
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9e83fcd6a8e6a7b0c81f47cc3ad97b7f55da1b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c67ff71ccc7690fbf3362b423ba4b6a56091684
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713187"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891237"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros ISV Azure Active Directory B2C
 
@@ -29,19 +29,19 @@ Nossa rede de parceiros de ISV estende nossos recursos de solução para ajudá-
 
 | Parceiro ISV | Orientações de descrição e integração  |
 | :--- | :--- |
-| ![Logotipo](./media/partner-gallery/arkose-logo.png) | O [arkose Labs](./partner-arkose-labs.md) é um provedor de soluções de prevenção de fraude que ajuda as organizações a proteger contra ataques de bot, ataques de tomada de conta e aberturas de contas fraudulentas.
-| ![Logotipo](./media/partner-gallery/experian-logo.png) | O [Experian](./partner-experian.md) é um provedor de verificação de identidade e de provação que executa avaliações de risco com base em atributos de usuário para evitar fraudes.|
-| ![Logotipo](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) é um provedor de autenticação true sem senha, que substitui senhas com criptografias de chave pública eliminando fraude, phishing e reutilização de credenciais.|
-| ![Logotipo](./media/partner-gallery/idology-logo.png) | O [IDology](./partner-idology.md) é um provedor de verificação de identidade e de provação com soluções de verificação de ID, soluções de prevenção de fraudes, soluções de conformidade e outras.|
-| ![Logotipo](./media/partner-gallery/itsme-logo.png) | o [ITSM](./partner-itsme.md) é uma solução de identificação digital em conformidade com os serviços de autenticação e confiança (eiDAS) para permitir que os usuários se conectem com segurança sem leitores de cartão, senhas, autenticação de dois fatores e vários códigos de PIN. |
-| ![Logotipo](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) é um serviço de verificação de ID, que permite a verificação de ID automatizada em tempo real, protegendo os dados do cliente. |
-| ![Logotipo](./media/partner-gallery/lexisnexis-logo.png) | O [LexisNexis](./partner-lexisnexis.md) é um provedor de validação de identidade e criação de perfil que verifica a identificação do usuário e fornece uma avaliação de risco abrangente com base no dispositivo do usuário. |
-| ![Logotipo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) é uma ID de documento e uma solução de verificação de biometria facial que permite que as empresas atendam aos requisitos de *clientes* e de identidade em tempo real.  |
-| ![Logotipo](./media/partner-gallery/saviynt-logo.png) | A plataforma nativa de nuvem [Saviynt](./partner-saviynt.md) usa análise inteligente e fornece integração entre aplicativos para simplificar a modernização de ti e promover melhor segurança, governança e conformidade. A modernização dos negócios muda a maneira como as empresas analisam as solicitações de acesso, realizam revisões de acesso, análises de relatórios e simplificam campanhas de certificação.  |
-| ![Logotipo](./media/partner-gallery/trusona-logo.png) | A integração do [Trusona](./partner-trusona.md) ajuda você a entrar com segurança e permite a autenticação sem senha, a autenticação multifator e a verificação de licença digital.|
-| ![Logotipo](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) fornece várias soluções para habilitar a MFA (autenticação multifator) por meio de OTP (senha de uso único) do SMS, uma senha de uso único baseada em tempo (TOTP) e notificações por push e para atender aos requisitos de SCA para a diretiva de serviços de pagamento 2 (PSD2).|
-| ![Logotipo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) é um provedor de verificação de identidade e de provação com base no padrão de digitação do usuário, fornece soluções de verificação de ID que forçam a autenticação multifator e ajuda a cumprir os requisitos de SCA para a diretiva 2 de serviços de pagamento (PSD2). |
-| ![Logotipo](./media/partner-gallery/whoiam-logo.png) | O [WhoIAM](./partner-whoiam.md) é um aplicativo BRIMS (sistema de gerenciamento de identidades) que permite que as organizações verifiquem sua base de usuários por voz, SMS e email. 
+| ![Captura de tela de um logotipo do Arkos Labs.](./media/partner-gallery/arkose-logo.png) | O [arkose Labs](./partner-arkose-labs.md) é um provedor de soluções de prevenção de fraude que ajuda as organizações a proteger contra ataques de bot, ataques de tomada de conta e aberturas de contas fraudulentas.
+| ![Captura de tela de um logotipo do Experian.](./media/partner-gallery/experian-logo.png) | O [Experian](./partner-experian.md) é um provedor de verificação de identidade e de provação que executa avaliações de risco com base em atributos de usuário para evitar fraudes.|
+| ![Captura de tela de um logotipo do HYPR.](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) é um provedor de autenticação true sem senha, que substitui senhas com criptografias de chave pública eliminando fraude, phishing e reutilização de credenciais.|
+| ![Captura de tela de um logotipo do IDology.](./media/partner-gallery/idology-logo.png) | O [IDology](./partner-idology.md) é um provedor de verificação de identidade e de provação com soluções de verificação de ID, soluções de prevenção de fraudes, soluções de conformidade e outras.|
+| ![Captura de tela de um logotipo de ITSM.](./media/partner-gallery/itsme-logo.png) | o [ITSM](./partner-itsme.md) é uma solução de identificação digital em conformidade com os serviços de autenticação e confiança (eiDAS) para permitir que os usuários se conectem com segurança sem leitores de cartão, senhas, autenticação de dois fatores e vários códigos de PIN. |
+| ![Captura de tela de um logotipo do Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) é um serviço de verificação de ID, que permite a verificação de ID automatizada em tempo real, protegendo os dados do cliente. |
+| ![Captura de tela de um logotipo do LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | O [LexisNexis](./partner-lexisnexis.md) é um provedor de validação de identidade e criação de perfil que verifica a identificação do usuário e fornece uma avaliação de risco abrangente com base no dispositivo do usuário. |
+| ![Captura de tela de um logotipo do Onfido.](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) é uma ID de documento e uma solução de verificação de biometria facial que permite que as empresas atendam aos requisitos de *clientes* e de identidade em tempo real.  |
+| ![Captura de tela de um logotipo do Saviynt.](./media/partner-gallery/saviynt-logo.png) | A plataforma nativa de nuvem [Saviynt](./partner-saviynt.md) usa análise inteligente e fornece integração entre aplicativos para simplificar a modernização de ti e promover melhor segurança, governança e conformidade. A modernização dos negócios muda a maneira como as empresas analisam as solicitações de acesso, realizam revisões de acesso, análises de relatórios e simplificam campanhas de certificação.  |
+| ![Captura de tela de um logotipo do Trusona.](./media/partner-gallery/trusona-logo.png) | A integração do [Trusona](./partner-trusona.md) ajuda você a entrar com segurança e permite a autenticação sem senha, a autenticação multifator e a verificação de licença digital.|
+| ![Captura de tela de um logotipo do aplicativo twilio Verify.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) fornece várias soluções para habilitar a MFA (autenticação multifator) por meio de OTP (senha de uso único) do SMS, uma senha de uso único baseada em tempo (TOTP) e notificações por push e para atender aos requisitos de SCA para a diretiva de serviços de pagamento 2 (PSD2).|
+| ![Captura de tela que mostra um logotipo do TypingDNA.](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) é um provedor de verificação de identidade e de provação com base no padrão de digitação do usuário, fornece soluções de verificação de ID que forçam a autenticação multifator e ajuda a cumprir os requisitos de SCA para a diretiva 2 de serviços de pagamento (PSD2). |
+| ![Captura de tela que mostra um logotipo do WhoIAM.](./media/partner-gallery/whoiam-logo.png) | O [WhoIAM](./partner-whoiam.md) é um aplicativo BRIMS (sistema de gerenciamento de identidades) que permite que as organizações verifiquem sua base de usuários por voz, SMS e email. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

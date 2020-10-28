@@ -1,30 +1,26 @@
 ---
 title: Conectar máquinas híbridas ao Azure usando o PowerShell
 description: Neste artigo, você aprende a instalar o agente e a conectar um computador ao Azure usando os servidores habilitados para Arc do Azure usando o PowerShell.
-ms.date: 10/21/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d36fd174606b49b28b1d8343bff6ccc1f62e5194
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb114ec3e279a7ea696d834af8eb7240cb892dc1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374249"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891934"
 ---
 # <a name="connect-hybrid-machines-to-azure-using-powershell"></a>Conectar máquinas híbridas ao Azure usando o PowerShell
 
-Você pode habilitar os servidores habilitados para Arc do Azure para um ou um pequeno número de computadores Windows ou Linux em seu ambiente executando um conjunto de etapas manualmente. Ou você pode usar o cmdlet do PowerShell [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine). Esse cmdlet executa as seguintes ações:
+Você pode habilitar os servidores habilitados para Arc do Azure para um ou mais computadores Windows ou Linux em seu ambiente executando um conjunto de etapas manuais. Ou você pode usar o cmdlet do PowerShell [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) para baixar o agente do computador conectado, instalar o agente e registrar o computador com o Arc do Azure. O cmdlet baixa o pacote do Windows Agent Windows Installer do centro de download da Microsoft e o pacote do agente do Linux do repositório de pacotes da Microsoft.
 
-- Configura o computador host para baixar o agente do Windows do centro de download da Microsoft e o pacote de agente do Linux de packages.microsoft.com.
-- Instala o agente do computador conectado.
-- Registra o computador com o arco do Azure
-
-Esse método exige que você tenha permissões de administrador no computador para instalar e configurar o agente. No Linux, usando a conta raiz, e no Windows, você é membro do grupo local de administradores.
+Esse método exige que você tenha permissões de administrador no computador para instalar e configurar o agente. No Linux, usando a conta raiz, e no Windows, você é membro do grupo local de administradores. Você pode concluir esse processo interativamente ou remotamente em um Windows Server usando a [comunicação remota do PowerShell](/powershell/scripting/learn/ps101/08-powershell-remoting).
 
 Antes de começar, examine os [pré-requisitos](agent-overview.md#prerequisites) e verifique se a sua assinatura e os recursos atendem aos requisitos. Para obter informações sobre regiões com suporte e outras considerações relacionadas, consulte [regiões do Azure com suporte](overview.md#supported-regions).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/).
 
@@ -38,7 +34,31 @@ Quando a instalação for concluída, a seguinte mensagem será retornada:
 
 `The installed extension ``Az.ConnectedMachine`` is experimental and not covered by customer support. Please use with discretion.`
 
-## <a name="install-and-validate-the-agent-on-windows"></a>Instalar e validar o agente no Windows
+## <a name="install-the-agent-and-connect-to-azure"></a>Instalar o agente e conectar-se ao Azure
+
+1. Abra um console do PowerShell com privilégios elevados.
+
+2. Entre no Azure executando o comando `Connect-AzAccount` .
+
+3. Para instalar o agente do computador conectado, use `Connect-AzConnectedMachine` com `-Name` os `-ResourceGroupName` parâmetros, `-Location` e. Use o `-SubscriptionId` parâmetro para substituir a assinatura padrão como resultado do contexto do Azure criado após a entrada. Execute um dos seguintes comandos:
+
+    * Para instalar o agente do computador conectado no computador de destino que pode se comunicar diretamente com o Azure, execute:
+
+    ```azurepowershell
+    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+    ```
+    
+    * Para instalar o agente do computador conectado no computador de destino que se comunica por meio de um servidor proxy, execute:
+    
+    ```azurepowershell
+    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+    ```
+
+Se o agente não for iniciado após a conclusão da instalação, verifique os logs para obter informações de erro detalhadas. No Windows em *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log* e no Linux em */var/opt/azcmagent/log/himds.log* .
+
+## <a name="install-and-connect-using-powershell-remoting"></a>Instalar e conectar usando a comunicação remota do PowerShell
+
+Execute as etapas a seguir para configurar o servidor ou computador Windows de destino com os servidores habilitados para Arc do Azure. A comunicação remota do PowerShell deve ser habilitada no computador remoto. Use o cmdlet `Enable-PSRemoting` para habilitar a comunicação remota do PowerShell.
 
 1. Abra um console do PowerShell como administrador.
 
@@ -46,19 +66,25 @@ Quando a instalação for concluída, a seguinte mensagem será retornada:
 
 3. Para instalar o agente do computador conectado, use `Connect-AzConnectedMachine` com `-Name` os `-ResourceGroupName` parâmetros, `-Location` e. Use o `-SubscriptionId` parâmetro para substituir a assinatura padrão como resultado do contexto do Azure criado após a entrada.
 
-    Para instalar o agente do computador conectado no computador de destino que pode se comunicar diretamente com o Azure, execute o seguinte comando::
+Para instalar o agente do computador conectado no computador de destino que pode se comunicar diretamente com o Azure, execute o seguinte comando:
 
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
-    ```
-    
-    Se o computador de destino se comunicar por meio de um servidor proxy, execute o seguinte comando:
-    
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
-    ```
+```azurepowershell
+$session = Connect-PSSession -ComputerName myMachineName
+Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+```
 
-    Se o agente não for iniciado após a conclusão da instalação, verifique os logs para obter informações de erro detalhadas. No Windows em *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*e no Linux em */var/opt/azcmagent/log/himds.log*.
+O exemplo a seguir é o resultado do comando:
+
+```azurepowershell
+time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
+time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
+time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
+time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
+
+Name           Location OSName   Status     ProvisioningState
+----           -------- ------   ------     -----------------
+myMachineName  eastus   windows  Connected  Succeeded
+```
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificar a conexão com o Azure Arc
 

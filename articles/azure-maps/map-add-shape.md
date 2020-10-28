@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 74c8ba4ed1f228b9b3ba90b46c47f538d71ff409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96553e75d4b982cfe67d03961d4356a3844f253c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310451"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890990"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Adicionar uma camada de polígono ao mapa
 
-Este artigo mostra como renderizar as áreas de geometrias de recurso `Polygon` e `MultiPolygon` no mapa usando uma camada de polígono. O SDK da Web do Azure Mapas também dá suporte à criação de geometrias de círculo conforme definido no [esquema GeoJSON estendido](extend-geojson.md#circle). Esses círculos são transformados em polígonos quando renderizados no mapa. Todas as geometrias de recursos podem ser facilmente atualizadas quando encapsuladas com a classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape).
+Este artigo mostra como renderizar as áreas de geometrias de recurso `Polygon` e `MultiPolygon` no mapa usando uma camada de polígono. O SDK da Web do Azure Mapas também dá suporte à criação de geometrias de círculo conforme definido no [esquema GeoJSON estendido](extend-geojson.md#circle). Esses círculos são transformados em polígonos quando renderizados no mapa. Todas as geometrias de recursos podem ser facilmente atualizadas quando encapsuladas com a classe [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape).
 
 ## <a name="use-a-polygon-layer"></a>Usar uma camada de polígono 
 
-Quando uma camada de polígono é conectada a uma fonte de dados e carregada no mapa, ela renderiza a área com os recursos `Polygon` e `MultiPolygon`. Para criar um polígono, adicione-o a uma fonte de dados e renderize-o com uma camada de polígono usando a classe [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer).
+Quando uma camada de polígono é conectada a uma fonte de dados e carregada no mapa, ela renderiza a área com os recursos `Polygon` e `MultiPolygon`. Para criar um polígono, adicione-o a uma fonte de dados e renderize-o com uma camada de polígono usando a classe [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer).
 
 ```javascript
 //Create a data source and add it to the map.
@@ -115,7 +115,7 @@ O SDK da Web do Azure Mapas converte esses recursos `Point` em recursos do `Poly
 
 ## <a name="make-a-geometry-easy-to-update"></a>Facilitar a atualização de uma geometria
 
-Uma classe `Shape` envolve uma [Geometria](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry) ou um [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) e facilita a atualização e manutenção desses recursos. Para criar uma instância de uma variável de forma, passe uma geometria ou um conjunto de propriedades para o construtor de forma.
+Uma classe `Shape` envolve uma [Geometria](/javascript/api/azure-maps-control/atlas.data.geometry) ou um [Recurso](/javascript/api/azure-maps-control/atlas.data.feature) e facilita a atualização e manutenção desses recursos. Para criar uma instância de uma variável de forma, passe uma geometria ou um conjunto de propriedades para o construtor de forma.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -137,10 +137,10 @@ O exemplo de código a seguir mostra como encapsular um objeto GeoJSON de círcu
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygon](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
+> [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
 
 > [!div class="nextstepaction"]
 > [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)

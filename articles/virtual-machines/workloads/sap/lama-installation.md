@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361357"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890472"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector SAP LaMa para o Azure
 
@@ -93,7 +93,7 @@ O conector do Azure pode usar uma entidade de serviço para autorizar contra Mic
 
 A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa conceder as permissões da entidade de serviço para acessá-los.
 
-1. Acesse https://portal.azure.com
+1. Ir para https://portal.azure.com
 1. Abra a folha Grupos de recursos
 1. Selecione o grupo de recursos que você quer usar
 1. Clique em Controle de acesso (IAM)
@@ -109,7 +109,7 @@ Para poder usar uma identidade gerenciada, sua instância do SAP LaMa deve ser e
 
 A identidade gerenciada não tem permissões para acessar os recursos do Azure por padrão. Você precisa conceder a ele permissões para acessá-los.
 
-1. Acesse https://portal.azure.com
+1. Ir para https://portal.azure.com
 1. Abra a folha Grupos de recursos
 1. Selecione o grupo de recursos que você quer usar
 1. Clique em Controle de acesso (IAM)
@@ -181,7 +181,7 @@ Crie uma nova máquina virtual com um dos sistemas operacionais para os banco de
 
 O banco de dados Oracle precisa de discos para /oracle, /home/oraod1, e /home/oracle
 
-![Banco de dados Oracle no Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagrama que mostra um banco de dados Oracle no Linux e os discos necessários.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### <a name="manual-deployment-for-microsoft-sql-server"></a>Implantação manual para o Microsoft SQL Server
 
@@ -274,7 +274,7 @@ Antes de iniciar o SAP SWPM Software Provisioning Manager (SWPM), você precisar
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-Execute o SWPM e use *ah1-ascs* para o *Nome de Host de Instância do ASCS*.
+Execute o SWPM e use *ah1-ascs* para o *Nome de Host de Instância do ASCS* .
 
 ![Logotipo do Linux.][Logo_Linux] Linux  
 Adicione o seguinte parâmetro de perfil para o perfil de agente de Host do SAP, que está localizado em /usr/sap/hostctrl/exe/host_profile. Para saber mais, confira a Nota SAP [2628497].
@@ -319,7 +319,7 @@ Na conta do NetApp, o pool de capacidade especifica o tamanho e o tipo de discos
 
 ![Pool de capacidade do SAP LaMa NetApp criado ](media/lama/sap-lama-capacitypool-list.png)
 
-Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância do as, são necessárias as seguintes montagens *: \<SID\> /sapmnt/*, */usr/SAP/ \<SID\> *e */Home/ \<sid\> ADM*. Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
+Os volumes de NFS agora podem ser definidos. Como haverá volumes para vários sistemas em um pool, um esquema de nomenclatura autoexplicado deverá ser escolhido. Adicionar o SID ajuda a agrupar volumes relacionados juntos. Para o ASCS e a instância do as, são necessárias as seguintes montagens *: \<SID\> /sapmnt/* , */usr/SAP/ \<SID\>* e */Home/ \<sid\> ADM* . Opcionalmente, */usr/SAP/trans* é necessário para o diretório de transporte central, que é pelo menos usado por todos os sistemas de um cenário.
 
 > [!NOTE]
 > Durante a fase BETA, o nome dos volumes deve ser exclusivo na assinatura.
@@ -381,7 +381,7 @@ Adicione outro nome de host virtual e endereço IP para o nome que é usado pelo
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-Execute a instalação da instância de banco de dados do SWPM na máquina virtual do servidor do aplicativo, não na máquina virtual do HANA. Use *db ah1* para o *Banco de Dados Host* na caixa de diálogo *Banco de Dados para o Sistema SAP*.
+Execute a instalação da instância de banco de dados do SWPM na máquina virtual do servidor do aplicativo, não na máquina virtual do HANA. Use *db ah1* para o *Banco de Dados Host* na caixa de diálogo *Banco de Dados para o Sistema SAP* .
 
 #### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>Instale o servidor de aplicativos do SAP NetWeaver do SAP HANA
 
@@ -417,7 +417,7 @@ Se você defini-lo manualmente, você também precisará criar novas entradas de
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-Use *ah1-di-0* para o *nome do Host de instância PAS* na caixa de diálogo *Instância Primária do Servidor de Aplicativo*.
+Use *ah1-di-0* para o *nome do Host de instância PAS* na caixa de diálogo *Instância Primária do Servidor de Aplicativo* .
 
 #### <a name="post-installation-steps-for-sap-hana"></a>Etapas pós-instalação para o SAP HANA
 
@@ -436,7 +436,7 @@ Antes de iniciar o SAP SWPM Software Provisioning Manager (SWPM), você precisar
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-Execute o SWPM e use *as1-ascs* para o *Nome de Host de Instância do ASCS*.
+Execute o SWPM e use *as1-ascs* para o *Nome de Host de Instância do ASCS* .
 
 #### <a name="install-sql-server"></a>Instale o SQL Server
 
@@ -447,9 +447,9 @@ Você precisará adicionar o endereço IP do nome do host virtual do banco de da
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Execute a instalação da instância de banco de dados do SWPM na máquina de virtual do SQL server. Use o SAPINST_USE_HOSTNAME =*as1 db* para substituir o nome do host usado para se conectar ao SQL Server. Se você implantou a máquina virtual usando o modelo do Azure Resource Manager, certifique-se de definir o diretório usado para os arquivos de dados do banco de dados para *C:\sql\data* e o arquivo de log de banco de dados *C:\sql\log*.
+Execute a instalação da instância de banco de dados do SWPM na máquina de virtual do SQL server. Use o SAPINST_USE_HOSTNAME = *as1 db* para substituir o nome do host usado para se conectar ao SQL Server. Se você implantou a máquina virtual usando o modelo do Azure Resource Manager, certifique-se de definir o diretório usado para os arquivos de dados do banco de dados para *C:\sql\data* e o arquivo de log de banco de dados *C:\sql\log* .
 
-Certifique-se de que o usuário *NT AUTHORITY\SYSTEM* tem acesso ao SQL Server e tem a função de servidor *sysadmin*. Para saber mais, confira a Nota SAP [1877727] e [2562184].
+Certifique-se de que o usuário *NT AUTHORITY\SYSTEM* tem acesso ao SQL Server e tem a função de servidor *sysadmin* . Para saber mais, confira a Nota SAP [1877727] e [2562184].
 
 #### <a name="install-sap-netweaver-application-server"></a>Instalar o Servidor de Aplicativos do SAP NetWeaver
 
@@ -460,7 +460,7 @@ Antes de iniciar o SAP SWPM Software Provisioning Manager (SWPM), você precisar
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Instância Primária do Servidor de Aplicativo*.
+Use *as1-di-0* para o *nome do Host de Instância PAS* na caixa de diálogo *Instância Primária do Servidor de Aplicativo* .
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

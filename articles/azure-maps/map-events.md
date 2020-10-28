@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0621e0ecfbb91d151e3cc78d3b345ab92133695c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8121ceb68bdea9332316a9508bf6f4731e05b0ba
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310366"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890778"
 ---
 # <a name="interact-with-the-map"></a>Interagir com o mapa
 
-Este artigo mostra como usar a [classe de evento de mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). A propriedade realça os eventos no mapa e em camadas diferentes do mapa. Você também pode realçar eventos quando interage com um marcador HTML.
+Este artigo mostra como usar a [classe de evento de mapa](/javascript/api/azure-maps-control/atlas.map#events). A propriedade realça os eventos no mapa e em camadas diferentes do mapa. Você também pode realçar eventos quando interage com um marcador HTML.
 
 ## <a name="interact-with-the-map"></a>Interagir com o mapa
 
@@ -117,4 +117,4 @@ Consulte os seguintes artigos para obter exemplos de código completo:
 > [Como usar o módulo de Serviços do Azure Mapas](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemplos de código](/samples/browse/?products=azure-maps)
