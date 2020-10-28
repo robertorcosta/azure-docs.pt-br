@@ -111,7 +111,7 @@ Agora, prepare o armazenamento de BLOBs do Azure e o banco de dados SQL do Azure
 
     Se o cliente não tiver permissão para acessar o SQL Server lógico, você precisará configurar o firewall para o servidor para permitir o acesso do seu computador (endereço IP). Consulte [Este artigo](../../azure-sql/database/firewall-configure.md) para obter as etapas para configurar o firewall para seu servidor.
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 Você concluiu os pré-requisitos. Você pode criar um data factory usando um dos caminhos a seguir. Clique em uma das opções na lista suspensa na parte superior ou nos links a seguir para executar o tutorial.     
 
 * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)

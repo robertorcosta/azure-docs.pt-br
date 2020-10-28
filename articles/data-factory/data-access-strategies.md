@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616849"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632763"
 ---
 # <a name="data-access-strategies"></a>Estratégias de acesso a dados
 
@@ -28,7 +28,7 @@ Normalmente, um armazenamento de dados em nuvem controla o acesso usando os meca
 * Mecanismos de autorização que restringem os usuários a ações e dados específicos
 
 > [!TIP]
-> Com a [introdução do intervalo de endereço IP Estático](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses), agora você pode permitir a lista de intervalos de IP para a região de tempo de execução de integração do Azure específica, para garantir que você não precise permitir todos os endereços IP do Azure nos armazenamentos de dados em nuvem. Dessa forma, você pode restringir os endereços IP que têm permissão para acessar os armazenamentos de dados.
+> Com a [introdução do intervalo de endereço IP Estático](./azure-integration-runtime-ip-addresses.md), agora você pode permitir a lista de intervalos de IP para a região de tempo de execução de integração do Azure específica, para garantir que você não precise permitir todos os endereços IP do Azure nos armazenamentos de dados em nuvem. Dessa forma, você pode restringir os endereços IP que têm permissão para acessar os armazenamentos de dados.
 
 > [!NOTE] 
 > Os intervalos de endereços IP são bloqueados para Azure Integration Runtime e, no momento, são usados apenas para movimentação de dados, pipeline e atividades externas. Os fluxos de e Azure Integration Runtime que habilitam a rede virtual gerenciada agora não usam esses intervalos de IP. 
@@ -37,11 +37,11 @@ Isso deve funcionar em muitos cenários e entendemos que um endereço IP Estáti
 
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Estratégias de acesso a dados por meio do Azure Data Factory
 
-* **[Link privado](https://docs.microsoft.com/azure/private-link/private-link-overview)** – você pode criar um Azure Integration Runtime em Azure data Factory rede virtual gerenciada e utilizará pontos de extremidade privados para se conectar com segurança a armazenamentos de dados com suporte. O tráfego entre a rede virtual gerenciada e as fontes de dados viaja pela rede de backbone da Microsoft e não é uma exposição à rede pública.
-* **[Serviço Confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** - O Armazenamento do Microsoft Azure (Blob, ADLS Gen2) dá suporte à configuração do firewall que permite selecionar serviços confiáveis da plataforma Azure para acessar a conta de armazenamento com segurança. Os serviços confiáveis imponham a autenticação de identidade gerenciada, o que garante que nenhum outro data factory possa se conectar a esse armazenamento, a menos que seja aprovado para fazer isso usando a identidade gerenciada. Você pode encontrar mais detalhes **[neste blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Portanto, é extremamente seguro e recomendado. 
+* **[Link privado](../private-link/private-link-overview.md)** – você pode criar um Azure Integration Runtime em Azure data Factory rede virtual gerenciada e utilizará pontos de extremidade privados para se conectar com segurança a armazenamentos de dados com suporte. O tráfego entre a rede virtual gerenciada e as fontes de dados viaja pela rede de backbone da Microsoft e não é uma exposição à rede pública.
+* **[Serviço Confiável](../storage/common/storage-network-security.md#exceptions)** - O Armazenamento do Microsoft Azure (Blob, ADLS Gen2) dá suporte à configuração do firewall que permite selecionar serviços confiáveis da plataforma Azure para acessar a conta de armazenamento com segurança. Os serviços confiáveis imponham a autenticação de identidade gerenciada, o que garante que nenhum outro data factory possa se conectar a esse armazenamento, a menos que seja aprovado para fazer isso usando a identidade gerenciada. Você pode encontrar mais detalhes **[neste blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Portanto, é extremamente seguro e recomendado. 
 * **IP Estático Exclusivo** - Você precisará configurar um runtime de integração auto-hospedada para obter um IP Estático para conectores de Data Factory. Esse mecanismo garante que você possa bloquear o acesso de todos os outros endereços IP. 
-* **[Intervalo de IP Estático](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** - Você pode usar os endereços IP do Azure Integration Runtime para permitir listá-los no armazenamento (digamos S3, Salesforce, etc.). Certamente, ele restringe os endereços IP que podem se conectar aos armazenamentos de dados, mas também se baseia em regras de Autenticação/Autorização.
-* **[Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** - Uma marca de serviço representa um grupo de prefixos de endereço IP de determinado serviço do Azure (como o Azure Data Factory). A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. Ele é útil ao filtrar o acesso a dados em armazenamentos de dados hospedados de IaaS na rede virtual.
+* **[Intervalo de IP Estático](./azure-integration-runtime-ip-addresses.md)** - Você pode usar os endereços IP do Azure Integration Runtime para permitir listá-los no armazenamento (digamos S3, Salesforce, etc.). Certamente, ele restringe os endereços IP que podem se conectar aos armazenamentos de dados, mas também se baseia em regras de Autenticação/Autorização.
+* **[Service Tag](../virtual-network/service-tags-overview.md)** - Uma marca de serviço representa um grupo de prefixos de endereço IP de determinado serviço do Azure (como o Azure Data Factory). A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. Ele é útil ao filtrar o acesso a dados em armazenamentos de dados hospedados de IaaS na rede virtual.
 * **Permitir serviços do Azure** - Permite que todos os serviços do Azure sejam conectados, caso você escolha essa opção. 
 
 Para obter mais informações sobre os mecanismos de segurança de rede com suporte em armazenamentos de dados no Azure Integration Runtime e Runtime de Integração Auto-Hospedada, confira as duas tabelas abaixo.  
@@ -82,7 +82,7 @@ Para obter mais informações sobre os mecanismos de segurança de rede com supo
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, confira os artigos relacionados a seguir:
-* [Armazenamento de dados com suporte](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
-* ["Serviços Confiáveis" do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
-* ["Serviços Confiáveis" do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Identidade Gerenciada para Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Armazenamento de dados com suporte](./copy-activity-overview.md#supported-data-stores-and-formats)
+* ["Serviços Confiáveis" do Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+* ["Serviços Confiáveis" do Armazenamento do Microsoft Azure](../storage/common/storage-network-security.md#trusted-microsoft-services)
+* [Identidade Gerenciada para Data Factory](./data-factory-service-identity.md)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545983"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629435"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -239,7 +239,7 @@ Os auxiliares a seguir, disponíveis para uso em seu script:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Baixa um arquivo da URI de origem para o caminho de arquivo especificado. Por padrão, ele não substitui um arquivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrai um arquivo tar (usando `-xf`) para o diretório de destino. |
-| `test_is_headnode` |Se executado em um nó de cabeçalho do cluster, retorna 1. Caso contrário, 0. |
+| `test_is_headnode` |Se o script for executado em um nó de cabeçalho do cluster, retornará 1; caso contrário, 0. |
 | `test_is_datanode` |Se o nó atual é um nó de dados (de trabalho), retorna 1; caso contrário, 0. |
 | `test_is_first_datanode` |Se o nó atual é o primeiro nó de dados (de trabalho, chamado workernode0), retorna 1; caso contrário, retorna 0. |
 | `get_headnodes` |Retorna o nome de domínio totalmente qualificado dos nós de cabeçalho no cluster. Os nomes são delimitados por vírgula. Uma cadeia de caracteres vazia retorna em caso de erro. |
@@ -268,7 +268,7 @@ Definir uma variável de ambiente é uma ação realizada pela seguinte instruç
 VARIABLENAME=value
 ```
 
-Em que VARIABLENAME é o nome da variável. Para acessar a variável, use `$VARIABLENAME`. Por exemplo, para atribuir um valor fornecido por um parâmetro posicional como uma variável de ambiente denominada PASSWORD, use a seguinte instrução:
+No exemplo anterior, `VARIABLENAME` é o nome da variável. Para acessar a variável, use `$VARIABLENAME`. Por exemplo, para atribuir um valor fornecido por um parâmetro posicional como uma variável de ambiente denominada PASSWORD, use a seguinte instrução:
 
 ```bash
 PASSWORD=$1

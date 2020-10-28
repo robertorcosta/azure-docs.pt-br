@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5df2f9cd0a47e5a89d7ff2eb12aefe593cae7a8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194452"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631471"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades do Azure Data Factory
 > [!NOTE]
@@ -228,7 +228,7 @@ Consulte [definindo pipelines](data-factory-create-pipelines.md#pipeline-json) p
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Parametrizando o modelo de Data Factory
-Para obter as práticas recomendadas sobre parametrização, consulte [Práticas recomendadas para criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). Em geral, o uso do parâmetro deverá ser minimizado, especialmente se variáveis puderem ser usadas em vez disso. Apenas forneça parâmetros nos seguintes cenários:
+Para obter as práticas recomendadas sobre parametrização, consulte [Práticas recomendadas para criar modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-best-practices.md). Em geral, o uso do parâmetro deverá ser minimizado, especialmente se variáveis puderem ser usadas em vez disso. Apenas forneça parâmetros nos seguintes cenários:
 
 * As configurações variam de acordo com ambiente (exemplo: desenvolvimento, teste e produção)
 * Segredos (por exemplo, senhas)

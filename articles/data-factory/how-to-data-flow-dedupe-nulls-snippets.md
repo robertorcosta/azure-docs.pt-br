@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 1c630cdd66fa4f8e609524feb9c3f0bcad9711a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458159"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632440"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Eliminação de duplicação de linhas e localização de nulos usando trechos de fluxo de dados
 
@@ -25,7 +25,7 @@ Usando trechos de código no mapeamento de fluxos de dados, você pode facilment
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-1. Selecione **novo pipeline**.
+1. Selecione **novo pipeline** .
 
 1. Adicione uma atividade de fluxo de dados.
 
@@ -35,9 +35,9 @@ Usando trechos de código no mapeamento de fluxos de dados, você pode facilment
 
     Os trechos de verificação de eliminação de duplicação e nulo usam padrões genéricos que aproveitam a descompasso do esquema de fluxo de dados. Os trechos de código funcionam com qualquer esquema do seu conjunto de linhas ou com conjuntos de valores que não têm nenhum esquema predefinido.
 
-1. Na seção "linhas distintas usando todas as colunas" do [script de fluxo de dados (DFS)](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns), copie o trecho de código para DistinctRows.
+1. Na seção "linhas distintas usando todas as colunas" do [script de fluxo de dados (DFS)](./data-flow-script.md#distinct-row-using-all-columns), copie o trecho de código para DistinctRows.
 
-1. Na interface do usuário do designer de fluxo de dados, selecione o botão **script** no canto superior direito para abrir o editor de script por trás do grafo de fluxo de dados.
+1. [Vá para a página de documentação do script de fluxo de dados e copie o trecho de código para linhas distintas.](./data-flow-script.md#distinct-row-using-all-columns)
 
     ![Captura de tela de um trecho de código-fonte.](media/data-flow/snippet-adf-3.png)
 
@@ -55,7 +55,7 @@ Usando trechos de código no mapeamento de fluxos de dados, você pode facilment
     
 1. Adicione um trecho de código para dividir os dados em um fluxo que contém linhas com valores nulos e outro fluxo sem valores nulos. Para fazer isso:
 
-   a. Volte para a [biblioteca de trechos](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns)e copie o código para as verificações nulas.
+1. [Volte para a biblioteca de trechos e, desta vez, copie o código para as verificações nulas.](./data-flow-script.md#check-for-nulls-in-all-columns)
 
    b. No designer de fluxo de dados, selecione **script** novamente e cole esse novo código de transformação na parte inferior. Essa ação conecta o script à transformação anterior colocando o nome dessa transformação na frente do trecho colado.
 

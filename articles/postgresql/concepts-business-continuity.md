@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939861"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629333"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -25,13 +25,13 @@ O banco de dados do Azure para PostgreSQL fornece recursos de continuidade de ne
 
 A tabela a seguir compara RTO e RPO em um cenário típico:
 
-| **Recurso** | **Basic** | **Uso Geral** | **Memória otimizada** |
+| **Funcionalidade** | **Basic** | **Uso Geral** | **Memória otimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Recuperação Pontual do backup | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | RTO – varia <br/>RPO < 1 h | RTO – varia <br/>RPO < 1 h |
-| Réplicas de leitura | RTO-minutos <br/>RPO < 5 min * | RTO-minutos <br/>RPO < 5 min *| RTO-minutos <br/>RPO < 5 min *|
+| Réplicas de leitura | RTO-minutos * <br/>RPO < 5 min * | RTO-minutos * <br/>RPO < 5 min *| RTO-minutos * <br/>RPO < 5 min *|
 
-\* O RPO pode ser maior em alguns casos, dependendo de vários fatores, incluindo a carga de trabalho do banco de dados primário e a latência entre regiões. 
+\* O RTO e o RPO podem ser muito maiores em alguns casos, dependendo de vários fatores, incluindo a carga de trabalho do banco de dados principal e a latência entre regiões. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de aplicativo ou usuário
 

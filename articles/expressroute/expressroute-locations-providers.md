@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 820fec5fd782d66e5b681f5fbb9bbb8f8d4f6648
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2890c8f37106ef124fe1a11206d13127d93eed1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106511"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633562"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -32,7 +32,7 @@ As tabelas mostradas neste artigo fornecem informações sobre as localizações
 As regiões do Azure são datacenters globais em que os recursos de computação, rede e armazenamento do Azure estão localizados. Ao criar um recurso do Azure, um cliente precisa selecionar uma localização de recurso. A localização do recurso determina em que datacenter do Azure (ou zona de disponibilidade) o recurso será criado.
 
 ## <a name="expressroute-locations"></a>Locais do ExpressRoute
-As localizações do ExpressRoute (às vezes chamados de localizações de emparelhamento ou de encontro) são unidades de colocalização em que os dispositivos do MSEE (Microsoft Enterprise Edge) ficam localizados. Os locais do ExpressRoute são o ponto de entrada para a rede da Microsoft. Como são distribuídos globalmente, dão aos clientes a oportunidade de se conectar à rede da Microsoft em todo o mundo. Nessas localizações, os parceiros do ExpressRoute e os clientes do ExpressRoute Direct enviam conexões cruzadas para a rede da Microsoft. Em geral, a localização do ExpressRoute não precisa corresponder à região do Azure. Por exemplo, um cliente pode criar um circuito do ExpressRoute com a localização do recurso *Leste dos EUA* na localização de emparelhamento de *Seattle*.
+As localizações do ExpressRoute (às vezes chamados de localizações de emparelhamento ou de encontro) são unidades de colocalização em que os dispositivos do MSEE (Microsoft Enterprise Edge) ficam localizados. Os locais do ExpressRoute são o ponto de entrada para a rede da Microsoft. Como são distribuídos globalmente, dão aos clientes a oportunidade de se conectar à rede da Microsoft em todo o mundo. Nessas localizações, os parceiros do ExpressRoute e os clientes do ExpressRoute Direct enviam conexões cruzadas para a rede da Microsoft. Em geral, a localização do ExpressRoute não precisa corresponder à região do Azure. Por exemplo, um cliente pode criar um circuito do ExpressRoute com a localização do recurso *Leste dos EUA* na localização de emparelhamento de *Seattle* .
 
 Você terá acesso aos serviços do Azure em todas as regiões dentro de uma região geopolítica se estiver conectado a pelo menos um local de ExpressRoute dentro da região geopolítica. 
 
@@ -111,7 +111,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Marselha** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | Sul da França | n/d | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Sudeste da Austrália | 10G, 100G | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | n/d | 10G, 100G | Claro, C3ntro, Equinix, Megaport, Neutrona Networks |
-| **Milão** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | n/d | 10G | Colt, Equinix, Retelit |
+| **Milão** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | n/d | 10G | Colt, Equinix, Fastweb, Retelit |
 | **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) | 1 | n/d | 10G, 100G | Cologix |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/d | 10G, 100G | Bell Canada, Cologix, Fibrenoire, Megaport, Telus, Zayo |
 | **Mumbai** | Tata Communications | 2 | Oeste da Índia | 10G | CIX, CloudXchange global (GCX), dependência Jio, Sify, Tata Communications, Verizon |

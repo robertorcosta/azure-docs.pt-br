@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136024"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632882"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um runtime de integração auto-hospedada compartilhado no Azure Data Factory
 
@@ -55,9 +55,9 @@ Para criar um IR auto-hospedado compartilhado usando o Azure PowerShell, siga es
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+- **Assinatura do Azure** . Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell**. Siga as instruções em [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um runtime de integração auto-hospedada que pode ser compartilhado com outros data factories. 
+- **Azure PowerShell** . Siga as instruções em [Instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um runtime de integração auto-hospedada que pode ser compartilhado com outros data factories. 
 
 > [!NOTE]  
 > Para obter uma lista de regiões do Azure nas quais o Data Factory está atualmente disponível, selecione as regiões que lhe interessam em [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -66,7 +66,7 @@ Para criar um IR auto-hospedado compartilhado usando o Azure PowerShell, siga es
 
 1. Inicie o ISE (ambiente de script integrado) do Windows PowerShell.
 
-1. Crie variáveis. Copie e cole o seguinte script. Substitua as variáveis, como **SubscriptionName** e **ResourceGroupName**, com valores reais: 
+1. Crie variáveis. Copie e cole o seguinte script. Substitua as variáveis, como **SubscriptionName** e **ResourceGroupName** , com valores reais: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -99,7 +99,7 @@ Para criar um IR auto-hospedado compartilhado usando o Azure PowerShell, siga es
     > [!NOTE]  
     > Esta etapa é opcional. Se você já tiver um data factory, ignore esta etapa. 
 
-    Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização WestEurope: 
+    Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização WestEurope: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -155,7 +155,7 @@ A resposta contém a chave de autenticação para esse runtime de integração a
 #### <a name="create-another-data-factory"></a>Criar outro data factory
 
 > [!NOTE]  
-> Esta etapa é opcional. Se você já possui o data factory com o qual deseja compartilhar, pule esta etapa. Mas, para adicionar ou remover atribuições de função a outros data factory, você deve `Microsoft.Authorization/roleAssignments/write` ter `Microsoft.Authorization/roleAssignments/delete` permissões e, como [administrador de acesso do usuário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
+> Esta etapa é opcional. Se você já possui o data factory com o qual deseja compartilhar, pule esta etapa. Mas, para adicionar ou remover atribuições de função a outros data factory, você deve `Microsoft.Authorization/roleAssignments/write` ter `Microsoft.Authorization/roleAssignments/delete` permissões e, como [administrador de acesso do usuário](../role-based-access-control/built-in-roles.md#user-access-administrator) ou [proprietário](../role-based-access-control/built-in-roles.md#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -216,6 +216,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 ### <a name="next-steps"></a>Próximas etapas
 
-- Revise os [conceitos de runtime de integração no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
+- Revise os [conceitos de runtime de integração no Azure Data Factory](./concepts-integration-runtime.md).
 
-- Saiba como [criar um runtime de integração auto-hospedada no portal do Azure](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+- Saiba como [criar um runtime de integração auto-hospedada no portal do Azure](./create-self-hosted-integration-runtime.md).

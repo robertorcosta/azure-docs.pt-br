@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546663"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632678"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Link privado do Azure para Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Usando o link privado do Azure, você pode se conectar a várias implantações de PaaS (plataforma como serviço) no Azure por meio de um ponto de extremidade privado. Um ponto de extremidade privado é um endereço IP privado em uma rede virtual e sub-rede específica. Para obter uma lista de implantações de PaaS que dão suporte à funcionalidade de link privado, consulte a [documentação do link privado](https://docs.microsoft.com/azure/private-link/). 
+Usando o link privado do Azure, você pode se conectar a várias implantações de PaaS (plataforma como serviço) no Azure por meio de um ponto de extremidade privado. Um ponto de extremidade privado é um endereço IP privado em uma rede virtual e sub-rede específica. Para obter uma lista de implantações de PaaS que dão suporte à funcionalidade de link privado, consulte a [documentação do link privado](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Comunicação segura entre redes do cliente e Azure Data Factory 
 Você pode configurar uma rede virtual do Azure como uma representação lógica da sua rede na nuvem. Isso oferece os seguintes benefícios:
@@ -67,7 +67,7 @@ Habilitar o serviço de vínculo privado para cada um dos canais de comunicaçã
 > Ao criar um serviço vinculado, verifique se suas credenciais estão armazenadas em um cofre de chaves do Azure. Caso contrário, as credenciais não funcionarão quando você habilitar o link privado no Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para Azure Data Factory
-Você pode criar pontos de extremidade privados usando [o portal do Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+Você pode criar pontos de extremidade privados usando [o portal do Azure](../private-link/create-private-endpoint-portal.md).
 
 Você também pode ir para sua data factory do Azure no portal do Azure e criar um ponto de extremidade privado, como mostrado aqui:
 
@@ -89,4 +89,3 @@ Se você quiser bloquear o acesso público ao data factory do Azure e permitir a
 - [Criar um data factory usando a interface do usuário do Azure Data Factory](quickstart-create-data-factory-portal.md)
 - [Introdução ao Azure Data Factory](introduction.md)
 - [Criação visual no Azure Data Factory](author-visually.md)
-

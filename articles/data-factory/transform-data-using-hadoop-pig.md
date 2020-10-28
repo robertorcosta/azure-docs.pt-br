@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 8b6f75204f64f892f80abb4890796551bffd22a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5bdb1c7f0158b0e45145b41d9960c7c55a0d8ead
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368946"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631862"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Pig do Hadoop no Azure Data Factory
 
@@ -65,7 +65,7 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
 | descrição         | Texto que descreve qual a utilidade da atividade | Não       |
 | type                | Para a atividade do Hive, o tipo de atividade é HDinsightPig | Sim      |
 | linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
-| scriptLinkedService | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar o script do Pig a ser executado. Somente os serviços vinculados do **[Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e do **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** são compatíveis aqui. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não       |
+| scriptLinkedService | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar o script do Pig a ser executado. Somente os serviços vinculados do **[Armazenamento de Blobs do Azure](./connector-azure-blob-storage.md)** e do **[ADLS Gen2](./connector-azure-data-lake-storage.md)** são compatíveis aqui. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não       |
 | scriptPath          | Forneça o caminho para o arquivo de script armazenado no Armazenamento do Azure referenciado por scriptLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não       |
 | getDebugInfo        | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não       |
 | argumentos           | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |

@@ -732,7 +732,7 @@ Controle o acesso às chaves usadas para autenticar solicitações para todas as
 
 **Orientação** : use aliases de Azure Policy no namespace "Microsoft. Search" para criar políticas personalizadas para auditar ou impor a configuração de seus recursos de pesquisa cognitiva do Azure. Você também pode usar definições de Azure Policy internas para serviços de Pesquisa Cognitiva, como:
 
-- habilitar o registro em log de auditoria para recursos do Azure
+- Habilitar o log de auditoria para recursos do Azure
 
 Azure Resource Manager tem a capacidade de exportar o modelo no JavaScript Object Notation (JSON), que deve ser revisado para garantir que as configurações atendam aos requisitos de segurança da sua organização. 
 

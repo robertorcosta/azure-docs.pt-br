@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbc7fd22915af1c9645d915a9898679a3a7c30d0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73667662"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631505"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funções e Variáveis do Sistema
 > [!NOTE]
@@ -37,7 +37,7 @@ Este artigo fornece informações sobre funções e variáveis com suporte no Az
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Exemplo para usar uma variável de sistema
-No exemplo a seguir, o ano, o mês, o dia e a hora de **SliceStart** são extraídos em variáveis separadas que são usadas pelas propriedades **folderPath** e **fileName**.
+No exemplo a seguir, o ano, o mês, o dia e a hora de **SliceStart** são extraídos em variáveis separadas que são usadas pelas propriedades **folderPath** e **fileName** .
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -61,7 +61,7 @@ Você pode usar funções no Data Factory junto com as variáveis do sistema par
    
     $$ não é necessário para especificar expressões de dependência de entrada.     
 
-No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atribuída a um valor retornado pela função `Text.Format`. Este exemplo também usa uma variável de sistema chamada **WindowStart**, que representa a hora de início da janela de execução de atividade.
+No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atribuída a um valor retornado pela função `Text.Format`. Este exemplo também usa uma variável de sistema chamada **WindowStart** , que representa a hora de início da janela de execução de atividade.
 
 ```json
 {
@@ -70,7 +70,7 @@ No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atri
 }
 ```
 
-Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa). 
+Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa). 
 
 ### <a name="functions"></a>Funções
 As tabelas a seguir listam todas as funções no Azure Data Factory:
@@ -175,7 +175,7 @@ No exemplo a seguir, o parâmetro DateTime da Atividade de Procedimento Armazena
 }
 ```
 
-### <a name="example-3"></a>Exemplo 3
+### <a name="example-3"></a>Exemplo 3:
 Para ler dados do dia anterior em vez do dia representado pelo SliceStart, use a função AddDays conforme mostrado no exemplo a seguir: 
 
 ```json
@@ -227,5 +227,4 @@ Para ler dados do dia anterior em vez do dia representado pelo SliceStart, use a
 }
 ```
 
-Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa). 
-
+Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa).

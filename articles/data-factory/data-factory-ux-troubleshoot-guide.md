@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426208"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632560"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Solucionar problemas Azure Data Factory UX
 
@@ -42,7 +42,7 @@ O ADF UX usa cookies de navegador para manter a sessão do usuário e habilitar 
 
 #### <a name="only-allow-adf-ux-to-use-cookies"></a>Permitir que somente a UX do ADF use cookies
 Se você não quiser permitir todos os cookies, você pode opcionalmente permitir apenas o ADF UX:
-1. Visite **Chrome://Settings/cookies**.
+1. Visite **Chrome://Settings/cookies** .
 1. Selecione **Adicionar** em **sites que sempre podem usar a opção cookies** 
 
     ![Adicionar a UX do ADF a sites permitidos no Chrome](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
@@ -63,7 +63,7 @@ Se você não quiser permitir todos os cookies, você pode opcionalmente permiti
 
 Se você não quiser permitir todos os cookies, você pode opcionalmente permitir apenas o ADF UX:
 
-1. Visite **Edge://Settings/Content/cookies**.
+1. Visite **Edge://Settings/Content/cookies** .
 1. Na seção **permitir** , selecione **Adicionar** e adicionar site **ADF.Azure.com** . 
 
     ![Adicionar a UX do ADF a sites permitidos no Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
@@ -71,17 +71,17 @@ Se você não quiser permitir todos os cookies, você pode opcionalmente permiti
 
 ## <a name="connection-failed-on-adf-ux"></a>Falha na conexão na UX do ADF
 
-Às vezes, você veria erros de "falha na conexão" na UX do ADF semelhante à captura de tela abaixo, depois de clicar em **testar conexão**, **Visualizar**, etc.
+Às vezes, você veria erros de "falha na conexão" na UX do ADF semelhante à captura de tela abaixo, depois de clicar em **testar conexão** , **Visualizar** , etc.
 
 ![Falha na conexão](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
 Nesse caso, você pode primeiro tentar a mesma operação com o modo de navegação InPrivate em seu navegador.
 
-Se ainda não estiver funcionando, no navegador, pressione F12 para abrir **ferramentas para desenvolvedores**. Vá para a guia **rede** , marque **desabilitar cache**, repita a operação com falha e localize a solicitação com falha (em vermelho).
+Se ainda não estiver funcionando, no navegador, pressione F12 para abrir **ferramentas para desenvolvedores** . Vá para a guia **rede** , marque **desabilitar cache** , repita a operação com falha e localize a solicitação com falha (em vermelho).
 
 ![Solicitação com falha](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-Em seguida, localize o **nome do host** (nesse caso, **DPNORTHEUROPE.svc.DATAFACTORY.Azure.com**) da **URL de solicitação** da solicitação com falha.
+Em seguida, localize o **nome do host** (nesse caso, **DPNORTHEUROPE.svc.DATAFACTORY.Azure.com** ) da **URL de solicitação** da solicitação com falha.
 
 Digite o **nome do host** diretamente na barra de endereços do seu navegador. Se você vir 404 no navegador, isso geralmente significa que o lado do cliente está OK e o problema está no lado do serviço do ADF. Arquivo um tíquete de suporte com a **ID da atividade** da mensagem de erro de UX do ADF.
 
@@ -91,7 +91,7 @@ Caso contrário, você verá um erro semelhante abaixo no navegador, isso geralm
 
 ![Erro no lado do cliente](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-Abra o **prompt de comando** e digite **nslookup dpnortheurope.svc.datafactory.Azure.com**. Uma resposta normal deve se parecer com A seguinte:
+Abra o **prompt de comando** e digite **nslookup dpnortheurope.svc.datafactory.Azure.com** . Uma resposta normal deve se parecer com A seguinte:
 
 ![Resposta de comando 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 
@@ -120,4 +120,4 @@ Para obter mais ajuda com a solução de problemas, experimente estes recursos:
 * [Fórum do Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informações do Twitter sobre o Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/)
-* [Página de P e R da Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Página de P e R da Microsoft](/answers/topics/azure-data-factory.html)
