@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533947"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790943"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App restrições de acesso de serviço
 
@@ -24,7 +24,11 @@ Quando uma solicitação é feita ao seu aplicativo, o endereço de é avaliado 
 
 O recurso de restrições de acesso é implementado nas funções de front-end do serviço de aplicativo, que são upstream dos hosts de trabalho em que seu código é executado. Portanto, as restrições de acesso são efetivamente ACLs de rede.
 
-A capacidade de restringir o acesso ao seu aplicativo Web de uma VNet (rede virtual) do Azure é chamada de [pontos de extremidade de serviço][serviceendpoints]. Os pontos de extremidade de serviço permitem restringir o acesso a um serviço multilocatário de sub-redes selecionadas. Ele deve ser habilitado tanto no lado da rede quanto no serviço com o qual está sendo habilitado. Ele não funciona para restringir o tráfego para aplicativos hospedados em um Ambiente do Serviço de Aplicativo. Se você estiver em um Ambiente do Serviço de Aplicativo, poderá controlar o acesso ao seu aplicativo com regras de endereço IP.
+A capacidade de restringir o acesso ao seu aplicativo Web de uma VNet (rede virtual) do Azure é chamada de [pontos de extremidade de serviço][serviceendpoints]. Os pontos de extremidade de serviço permitem restringir o acesso a um serviço multilocatário de sub-redes selecionadas. Ele não funciona para restringir o tráfego para aplicativos hospedados em um Ambiente do Serviço de Aplicativo. Se você estiver em um Ambiente do Serviço de Aplicativo, poderá controlar o acesso ao seu aplicativo com regras de endereço IP.
+
+> [!NOTE]
+> Os pontos de extremidade de serviço devem ser habilitados tanto no lado da rede quanto no serviço do Azure com o qual está sendo habilitado. Para obter uma lista de serviços do Azure que dão suporte a pontos de extremidade de serviço, consulte [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
+>
 
 ![fluxo de restrições de acesso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 

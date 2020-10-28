@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298820"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790025"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurar um grupo de disponibilidade de grupo de trabalho 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,14 +53,14 @@ Nesta etapa, configure o sufixo DNS para ambos os servidores. Por exemplo, `ag.w
 Para configurar o sufixo DNS, siga estas etapas:
 
 1. RDP no seu primeiro nó e abra Gerenciador do Servidor. 
-1. Selecione **Servidor Local** e, em seguida, selecione o nome da sua máquina virtual em **Nome do computador**. 
+1. Selecione **Servidor Local** e, em seguida, selecione o nome da sua máquina virtual em **Nome do computador** . 
 1. Selecione **Alterar...** em **Para renomear este computador...** . 
 1. Altere o nome do grupo de trabalho para algo significativo, como `AGWORKGROUP`: 
 
    ![Alterar nome do grupo de trabalho](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
-1. Selecione **Mais...** para abrir a caixa de diálogo **Sufixo DNS e Nome do Computador NetBIOS**. 
-1. Digite o nome do seu sufixo DNS em **Sufixo DNS primário deste computador**, como `ag.wgcluster.example.com` e, em seguida, selecione **OK**: 
+1. Selecione **Mais...** para abrir a caixa de diálogo **Sufixo DNS e Nome do Computador NetBIOS** . 
+1. Digite o nome do seu sufixo DNS em **Sufixo DNS primário deste computador** , como `ag.wgcluster.example.com` e, em seguida, selecione **OK** : 
 
    ![Adicionar sufixo DNS](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
@@ -111,16 +111,16 @@ Diferenças notáveis entre o tutorial e o que deve ser feito para um cluster de
 - Ao adicionar os nós ao cluster, adicione o nome totalmente qualificado, como:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
-- Desmarque **Adicione todo o armazenamento qualificado ao cluster**. 
+- Desmarque **Adicione todo o armazenamento qualificado ao cluster** . 
 
 Depois que o cluster tiver sido criado, atribua um endereço IP de cluster estático. Para fazer isso, siga estas etapas:
 
-1. Em um dos nós, abra **Gerenciador de Cluster de Failover**, selecione o cluster, clique com o botão direito do mouse no **Nome: \<ClusterNam>** em **Recursos Principais de Cluster** e, em seguida, selecione **Propriedades**. 
+1. Em um dos nós, abra **Gerenciador de Cluster de Failover** , selecione o cluster, clique com o botão direito do mouse no **Nome: \<ClusterNam>** em **Recursos Principais de Cluster** e, em seguida, selecione **Propriedades** . 
 
    ![Iniciar propriedades do nome do cluster](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
-1. Selecione o endereço IP em **Endereços IP** e selecione **Editar**. 
-1. Selecione **Usar Estático**, forneça o endereço IP do cluster e, em seguida, selecione **OK**: 
+1. Selecione o endereço IP em **Endereços IP** e selecione **Editar** . 
+1. Selecione **Usar Estático** , forneça o endereço IP do cluster e, em seguida, selecione **OK** : 
 
    ![Forneça um endereço IP estático para o cluster](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 
@@ -184,8 +184,8 @@ Para configurar o primeiro nó, siga estas etapas:
 
 Para configurar o segundo nó, siga estas etapas: 
 
-1. Conecte-se ao segundo nó com o **SQL Server Management Studio**, como `AGNode2`. 
-1. Em uma janela **Nova Consulta**, execute a seguinte instrução T-SQL (Transact-SQL) após atualizar para uma senha complexa e segura: 
+1. Conecte-se ao segundo nó com o **SQL Server Management Studio** , como `AGNode2`. 
+1. Em uma janela **Nova Consulta** , execute a seguinte instrução T-SQL (Transact-SQL) após atualizar para uma senha complexa e segura: 
 
    ```sql
    USE master;  
@@ -291,6 +291,4 @@ Nesta etapa final, configure o balanceador de carga usando o [portal do Azure](a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode usar a [CLI do AZ em VM do SQL](availability-group-az-cli-configure.md) para configurar um grupo de disponibilidade. 
-
-
+Você também pode usar a [CLI do AZ em VM do SQL](./availability-group-az-commandline-configure.md) para configurar um grupo de disponibilidade.

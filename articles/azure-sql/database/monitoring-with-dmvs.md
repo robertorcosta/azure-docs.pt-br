@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b76390efaed94003a792b04836d6850e6b7a7ead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448787"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789549"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoramento do desempenho do Banco de Dados SQL do Microsoft Azure e da Instância Gerenciada de SQL usando DMV
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ O Banco de Dados SQL do Microsoft Azure e o SQL Instância Gerenciada do Azure d
 - Exibições de gerenciamento dinâmico relacionadas à execução.
 - Exibições de gerenciamento dinâmico relacionadas à transação.
 
-Para obter informações detalhadas sobre exibições de gerenciamento dinâmico, consulte [funções e exibições de gerenciamento dinâmico (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Para obter informações detalhadas sobre exibições de gerenciamento dinâmico, consulte [funções e exibições de gerenciamento dinâmico (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 ## <a name="permissions"></a>Permissões
 
@@ -94,7 +94,7 @@ GO
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>O problema da CPU ocorreu no passado
 
-Se o problema ocorreu no passado e você deseja analisar a causa raiz, use o[Repositório de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Os usuários com acesso de banco de dados podem usar o T-SQL para consultar os dados dos Repositório de Consultas. As configurações padrão dos Repositório de Dados de Consultas usam uma granularidade de 1 hora. Use a consulta a seguir para examinar a atividade para consultas de consumo de CPU alta. Essa consulta retorna as consultas de consumo de CPU 15 principais. Lembre-se de alterar `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+Se o problema ocorreu no passado e você deseja analisar a causa raiz, use o[Repositório de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Os usuários com acesso de banco de dados podem usar o T-SQL para consultar os dados dos Repositório de Consultas. As configurações padrão dos Repositório de Dados de Consultas usam uma granularidade de 1 hora. Use a consulta a seguir para examinar a atividade para consultas de consumo de CPU alta. Essa consulta retorna as consultas de consumo de CPU 15 principais. Lembre-se de alterar `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -123,7 +123,7 @@ Ao identificar problemas de desempenho de e/s, os tipos de espera superior assoc
 
 - `PAGEIOLATCH_*`
 
-  Para problemas de e/s de arquivo de dados (incluindo `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Se tiver o nome do tipo de espera **e/s** nele, ele aponta para um problema de e/s. Se não houver nenhuma **e/s** o nome de espera de trava de página, ela aponta para um tipo diferente de problema (por exemplo, a contenção de tempdb).
+  Para problemas de e/s de arquivo de dados (incluindo `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Se o nome do tipo de espera tiver **e/s** , ele apontará para um problema de e/s. Se não houver nenhuma **e/s** no nome de espera da trava de página, ela apontará para um tipo diferente de problema (por exemplo, contenção de tempdb).
 
 - `WRITE_LOG`
 
@@ -131,7 +131,7 @@ Ao identificar problemas de desempenho de e/s, os tipos de espera superior assoc
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Se o problema de e/s estiver ocorrendo no momento
 
-Use o [. DM exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [DM os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver os `wait_type` e `wait_time`.
+Use o [. DM exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [DM os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver os `wait_type` e `wait_time`.
 
 #### <a name="identify-data-and-log-io-usage"></a>Identificar os dados e registrar o uso de e/s
 
@@ -252,7 +252,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificar `tempdb` problemas de desempenho
 
-Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para confirmar ainda mais a `tempdb` contenção, use [Sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de wait_resource começa com `2:x:y` onde 2 é `tempdb` a ID do banco de dados, `x` é a ID do arquivo e `y` é a ID da página.  
+Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para confirmar ainda mais a `tempdb` contenção, use [Sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de wait_resource começa com `2:x:y` onde 2 é `tempdb` a ID do banco de dados, `x` é a ID do arquivo e `y` é a ID da página.  
 
 Contenção de tempdb, de um método comum é reduzir ou reescrever o código do aplicativo que se baseia em `tempdb`.  Áreas de uso comum `tempdb` incluem:
 
@@ -517,21 +517,21 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Ao executar as exibições **sys.dm_exec_requests** e **sys.dm_exec_sessions**, se você tiver a permissão **EXIBIR ESTADO DO BANCO DE DADOS** no banco de dados, verá todas as sessões em execução no banco de dados; caso contrário, verá apenas a sessão atual.
+> Ao executar as exibições **sys.dm_exec_requests** e **sys.dm_exec_sessions** , se você tiver a permissão **EXIBIR ESTADO DO BANCO DE DADOS** no banco de dados, verá todas as sessões em execução no banco de dados; caso contrário, verá apenas a sessão atual.
 
 ## <a name="monitor-resource-use"></a>Monitorar o uso de recursos
 
-Você pode monitorar o uso de recursos do banco de dados SQL usando o [banco de dados sql análise de desempenho de consultas](query-performance-insight-use.md). Para o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada, você pode monitorar usando [repositório de consultas](https://msdn.microsoft.com/library/dn817826.aspx).
+Você pode monitorar o uso de recursos do banco de dados SQL usando o [banco de dados sql análise de desempenho de consultas](query-performance-insight-use.md). Para o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada, você pode monitorar usando [repositório de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 Você também pode monitorar o uso usando estas exibições:
 
 - Banco de dados SQL do Azure: [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - Instância Gerenciada do SQL do Azure: [Sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
-- Banco de dados SQL do Azure e Azure SQL Instância Gerenciada: [Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Banco de dados SQL do Azure e Azure SQL Instância Gerenciada: [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-Você pode usar a exibição [Sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em cada banco de dados. A exibição **sys.dm_db_resource_stats** mostra dados de uso de recursos recentes em relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por 1 hora.
+Você pode usar a exibição [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) em cada banco de dados. A exibição **sys.dm_db_resource_stats** mostra dados de uso de recursos recentes em relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por 1 hora.
 
 Como essa exibição oferece uma visão mais granular do uso de recursos, use **sys.dm_db_resource_stats** primeiro para qualquer análise de estado atual ou para solução de problemas. Por exemplo, esta consulta mostra o uso médio e máximo dos recursos do banco de dados atual durante a última hora:
 
@@ -548,7 +548,7 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-Para outras consultas, consulte os exemplos em [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Para outras consultas, consulte os exemplos em [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
 ### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
@@ -568,7 +568,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### <a name="sysresource_stats"></a>sys. resource_stats
 
-A exibição de [Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem informações adicionais que podem ajudá-lo a monitorar o desempenho do banco de dados em sua camada de serviço e tamanho de computação específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 14 dias. Essa exibição é útil para uma análise histórica de longo prazo de como seu banco de dados usa recursos.
+A exibição de [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) no banco de dados **mestre** tem informações adicionais que podem ajudá-lo a monitorar o desempenho do banco de dados em sua camada de serviço e tamanho de computação específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 14 dias. Essa exibição é útil para uma análise histórica de longo prazo de como seu banco de dados usa recursos.
 
 O grafo a seguir mostra o uso de recursos da CPU para um banco de dados Premium com o tamanho da computação P2 para cada hora em uma semana. Esse grafo começa em uma segunda-feira, mostra 5 dias úteis e, depois, um fim de semana, em que ocorrem muito menos atividades no aplicativo.
 
@@ -743,11 +743,11 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Monitoramento de consultas bloqueadas
 
-Consultas lentas ou demoradas podem contribuir para consumo excessivo de recursos e ser a consequência de consultas bloqueadas. A causa do bloqueio pode ser projeto inadequado de aplicativos, planos de consulta incorretos, a falta de índices úteis e assim por diante. Você pode usar a exibição sys.dm_tran_locks para obter informações sobre a atividade de bloqueio atual no banco de dados. Para obter um exemplo de código, consulte [Sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
+Consultas lentas ou demoradas podem contribuir para consumo excessivo de recursos e ser a consequência de consultas bloqueadas. A causa do bloqueio pode ser projeto inadequado de aplicativos, planos de consulta incorretos, a falta de índices úteis e assim por diante. Você pode usar a exibição sys.dm_tran_locks para obter informações sobre a atividade de bloqueio atual no banco de dados. Para obter um exemplo de código, consulte [Sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ### <a name="monitoring-query-plans"></a>Monitoramento de planos de consulta
 
-Um plano de consulta ineficiente também pode aumentar o consumo de CPU. O exemplo a seguir usa a exibição [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qual consulta usa a CPU mais cumulativa.
+Um plano de consulta ineficiente também pode aumentar o consumo de CPU. O exemplo a seguir usa a exibição [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) para determinar qual consulta usa a CPU mais cumulativa.
 
 ```sql
 SELECT
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Introdução ao banco de dados SQL do Azure e Azure SQL Instância Gerenciada](sql-database-paas-overview.md)

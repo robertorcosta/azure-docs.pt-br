@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 81a5b5d8b9cb56b41d051de52f1496e30fb4900f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168130"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790059"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>Tutorial: Configurar um grupo de disponibilidade manualmente (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Embora este artigo configure manualmente o ambiente do grupo de disponibilidade,
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O tutorial supõe que você tem uma compreensão básica dos grupos de disponibilidade Always On do SQL Server. Se você precisar de mais informações, confira [Visão geral dos grupos de disponibilidade Always On (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+O tutorial supõe que você tem uma compreensão básica dos grupos de disponibilidade Always On do SQL Server. Se você precisar de mais informações, confira [Visão geral dos grupos de disponibilidade Always On (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 Antes de iniciar o tutorial, você precisará [Concluir os pré-requisitos para a criação de grupos de disponibilidade Always On em Máquinas Virtuais do Azure](availability-group-manually-configure-prerequisites-tutorial.md). Se esses pré-requisitos já foram concluídos,vá para [Criar Cluster](#CreateCluster).
 
@@ -51,7 +51,7 @@ A tabela a seguir lista os pré-requisitos que precisam ser concluídos antes de
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Conta do domínio de instalação** | - Administrador local em cada SQL Server <br/> - Membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
 
 >[!NOTE]
-> Muitas das etapas fornecidas neste tutorial agora podem ser automatizadas com o [portal do Azure](availability-group-azure-portal-configure.md) e o [PowerShell e a CLI do Az](availability-group-az-cli-configure.md) e os [Modelos de Início Rápido do Azure](availability-group-quickstart-template-configure.md).
+> Muitas das etapas fornecidas neste tutorial agora podem ser automatizadas com o [portal do Azure](availability-group-azure-portal-configure.md) e o [PowerShell e a CLI do Az](./availability-group-az-commandline-configure.md) e os [Modelos de Início Rápido do Azure](availability-group-quickstart-template-configure.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -114,7 +114,7 @@ Adicione o outro SQL Server ao cluster.
    ![Adicionar Confirmação do Nó](./media/availability-group-manually-configure-tutorial/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >Se você estiver usando Espaços de Armazenamento e não desmarcar **Adicionar todo o armazenamento qualificado ao cluster** , o Windows desconectará os discos virtuais durante o processo de clustering. Como resultado, eles não aparecem no Explorador ou Gerenciador de Discos até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell. Espaços de Armazenamento agrupam vários discos em pools de armazenamento. Para obter mais informações, consulte [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739).
+   >Se você estiver usando Espaços de Armazenamento e não desmarcar **Adicionar todo o armazenamento qualificado ao cluster** , o Windows desconectará os discos virtuais durante o processo de clustering. Como resultado, eles não aparecem no Explorador ou Gerenciador de Discos até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell. Espaços de Armazenamento agrupam vários discos em pools de armazenamento. Para obter mais informações, consulte [Espaços de Armazenamento](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
    >
 
 1. Selecione **Avançar** .
@@ -127,7 +127,7 @@ Adicione o outro SQL Server ao cluster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Adicionar um compartilhamento de arquivos de quorum de cluster
 
-Neste exemplo, o cluster do Windows usa um compartilhamento de arquivo para criar um quorum de cluster. Este tutorial usa um quorum Maioria de Compartilhamento de Arquivos e Nós. Para saber mais, confira [Noções básicas sobre configurações de quorum em um cluster de failover](https://technet.microsoft.com/library/cc731739.aspx).
+Neste exemplo, o cluster do Windows usa um compartilhamento de arquivo para criar um quorum de cluster. Este tutorial usa um quorum Maioria de Compartilhamento de Arquivos e Nós. Para saber mais, confira [Noções básicas sobre configurações de quorum em um cluster de failover](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)).
 
 1. Conecte-se ao servidor membro de testemunha de compartilhamento de arquivos com uma sessão de área de trabalho remota.
 
@@ -176,7 +176,7 @@ Em seguida, configure o quorum do cluster.
 1. Em **Selecionar Testemunha de Quorum** , selecione **Configurar testemunha de compartilhamento de arquivos** .
 
    >[!TIP]
-   >O Windows Server 2016 dá suporte a testemunha de nuvem. Se você escolher esse tipo de testemunha, não precisará de testemunha de compartilhamento de arquivos. Para saber mais, confira [Implantar uma testemunha de nuvem para um Cluster de Failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial usa uma testemunha de compartilhamento de arquivos, o que tem suporte de sistemas operacionais anteriores.
+   >O Windows Server 2016 dá suporte a testemunha de nuvem. Se você escolher esse tipo de testemunha, não precisará de testemunha de compartilhamento de arquivos. Para saber mais, confira [Implantar uma testemunha de nuvem para um Cluster de Failover](/windows-server/failover-clustering/deploy-cloud-witness). Este tutorial usa uma testemunha de compartilhamento de arquivos, o que tem suporte de sistemas operacionais anteriores.
    >
 
 1. Em **Configurar Testemunha de Compartilhamento de Arquivos** , insira o caminho para o compartilhamento criado. Selecione **Avançar** .
@@ -347,7 +347,7 @@ Agora você está pronto para configurar um grupo de disponibilidade usando as s
    ![Grupo de disponibilidade no Gerenciador de Cluster de Failover](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Não tente fazer failover do grupo de disponibilidade no Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **Painel AlwaysOn** no SSMS. Para obter mais informações, confira [Restrições do uso do Gerenciador de Cluster de Failover com grupos de disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Não tente fazer failover do grupo de disponibilidade no Gerenciador de Cluster de Failover. Todas as operações de failover devem ser executadas no **Painel AlwaysOn** no SSMS. Para obter mais informações, confira [Restrições do uso do Gerenciador de Cluster de Failover com grupos de disponibilidade](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server).
     >
 
 Agora você tem um grupo de disponibilidade com réplicas em duas instâncias do SQL Server. Você pode mover o grupo de disponibilidade entre instâncias. Você ainda não pode se conectar ao grupo de disponibilidade porque não tem um ouvinte. Nas máquinas virtuais do Azure, o ouvinte precisa de um balanceador de carga. A próxima etapa é criar o balanceador de carga no Azure.
@@ -535,7 +535,7 @@ Para testar a conexão:
 A conexão SQLCMD se conecta automaticamente a qualquer instância do SQL Server que hospede a réplica primária.
 
 > [!TIP]
-> Verifique se a porta especificada está aberta no firewall dos servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que você usa. Para saber mais, confira [Adicionar ou Editar Regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx).
+> Verifique se a porta especificada está aberta no firewall dos servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que você usa. Para saber mais, confira [Adicionar ou Editar Regra de Firewall](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)).
 >
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 5948f7adedfa430d7d0dac570910f662846464c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058209"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790858"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre duas instâncias gerenciadas
 
@@ -68,7 +68,7 @@ Você também precisará [configurar uma VM do Azure para se conectar](connect-v
 
 ## <a name="3---create-an-azure-storage-account"></a>3 – Criar uma conta de armazenamento do Azure
 
-[Crie uma conta de armazenamento do Azure](/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho e, em seguida, crie um [compartilhamento de arquivo](../../storage/files/storage-how-to-create-file-share.md) na conta de armazenamento. 
+[Crie uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md#create-a-storage-account) para o diretório de trabalho e, em seguida, crie um [compartilhamento de arquivo](../../storage/files/storage-how-to-create-file-share.md) na conta de armazenamento. 
 
 Copie o caminho do compartilhamento de arquivo no formato: `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -326,4 +326,4 @@ Limpe os recursos do Azure [excluindo os recursos da Instância Gerenciada de SQ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais também sobre a [replicação transacional com a Instância Gerenciada de SQL do Azure](replication-transactional-overview.md) ou aprenda a configurar a replicação entre uma [Instância Gerenciada de SQL do publicador/distribuidor e um SQL no assinante da VM do Azure](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Saiba mais também sobre a [replicação transacional com a Instância Gerenciada de SQL do Azure](replication-transactional-overview.md) ou aprenda a configurar a replicação entre uma [Instância Gerenciada de SQL do publicador/distribuidor e um SQL no assinante da VM do Azure](replication-two-instances-and-sql-server-configure-tutorial.md).

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: d05b603d3f854d919df43e633449e37301a5e77d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1d6eb4df91ce912832d15835a00bdb287f67e787
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168317"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789736"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Alterações na documentação das máquinas virtuais do SQL Server no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,9 +56,9 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 
 | Alterações | Detalhes |
 | --- | --- |
-| **Nome de rede distribuída (DNN)** | SQL Server 2019 no Windows Server 2016 + agora está visualizando o suporte para roteamento de tráfego para a FCI (instância de cluster de failover) usando um [nome de rede distribuída](hadr-distributed-network-name-dnn-configure.md) em vez de usar Azure Load Balancer. Esse suporte simplifica e simplifica a conexão à sua solução HA (alta disponibilidade) no Azure. | 
+| **DNN (Nome de rede distribuída)** | SQL Server 2019 no Windows Server 2016 + agora está visualizando o suporte para roteamento de tráfego para a FCI (instância de cluster de failover) usando um [nome de rede distribuída](./failover-cluster-instance-distributed-network-name-dnn-configure.md) em vez de usar Azure Load Balancer. Esse suporte simplifica e simplifica a conexão à sua solução HA (alta disponibilidade) no Azure. | 
 | **FCI com discos compartilhados do Azure** | Agora é possível implantar a [FCI (instância de cluster de failover)](failover-cluster-instance-overview.md) usando os [discos compartilhados do Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
-| **Documentos reorganizados do FCI** | A documentação sobre as [instâncias de cluster de failover com SQL Server em VMs do Azure](failover-cluster-instance-overview.md) foi reescrita e reorganizada para fins de clareza. Separamos alguns dos conteúdos de configuração, como as [práticas recomendadas de configuração de cluster](hadr-cluster-best-practices.md), como preparar uma [máquina virtual para um SQL Server FCI](failover-cluster-instance-prepare-vm.md)e como configurar [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md). | 
+| **Documentos reorganizados do FCI** | A documentação sobre as [instâncias de cluster de failover com SQL Server em VMs do Azure](failover-cluster-instance-overview.md) foi reescrita e reorganizada para fins de clareza. Separamos alguns dos conteúdos de configuração, como as [práticas recomendadas de configuração de cluster](hadr-cluster-best-practices.md), como preparar uma [máquina virtual para um SQL Server FCI](failover-cluster-instance-prepare-vm.md)e como configurar [Azure Load Balancer](./availability-group-vnn-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 
 
@@ -84,7 +84,7 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 | **Registro do provedor de recursos em massa** | Agora você pode registrar SQL Server máquinas virtuais [em massa](sql-vm-resource-provider-bulk-register.md) com o provedor de recursos. | 
 |**Configuração de armazenamento com otimização de desempenho** | Agora você pode [personalizar totalmente a configuração de armazenamento](storage-configuration.md#new-vms) ao criar uma VM do SQL Server. |
 |**Compartilhamento de arquivo Premium para a FCI** | Agora você pode criar uma instância de cluster de failover usando um [compartilhamento de arquivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md) em vez do método original de [espaços de armazenamento diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
-| **Host dedicado do Azure** | Você pode executar sua VM SQL Server no [host dedicado do Azure](dedicated-host.md). | 
+| **Host Dedicado do Azure** | Você pode executar sua VM SQL Server no [host dedicado do Azure](dedicated-host.md). | 
 | **SQL Server migração de VM para uma região diferente** | Use o Azure Site Recovery para [migrar sua VM do SQL Server de uma região para outra](move-sql-vm-different-region.md). |
 |  **Novos modos de instalação do SQL IaaS** | Agora é possível instalar a extensão SQL Server IaaS no [modo leve](sql-server-iaas-agent-extension-automate-management.md) para evitar a reinicialização do serviço SQL Server.  |
 | **Modificação da edição do SQL Server** | Agora você pode alterar a [propriedade de edição](change-sql-server-edition.md) da sua VM do SQL Server. |
@@ -96,7 +96,7 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 | **Capacidade de suporte à instância nomeada** | Agora você poderá usar a extensão [SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md#installation) com uma instância nomeada se a instância padrão tiver sido desinstalada corretamente. | 
 | **Melhoria do portal** | A experiência do portal do Azure para implantação de uma VM do SQL Server foi renovada para aprimorar a usabilidade. Para obter mais informações, confira o breve [início rápido](sql-vm-create-portal-quickstart.md) e o [guia de instruções](create-sql-vm-portal.md) mais detalhado para implantar uma VM do SQL Server.|
 | **Aprimoramento do portal** | Agora é possível alterar o modelo de licenciamento de uma VM do SQL Server de pagamento conforme o uso para traga sua própria licença usando o [portal do Azure](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider).|
-| **Simplificação da implantação do grupo de disponibilidade para uma VM SQL Server por meio do CLI do Azure** | Agora ficou mais fácil do que nunca implantar um grupo de disponibilidade em uma VM do SQL Server no Azure. Você pode usar o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) para criar o cluster de failover do Windows, o balanceador de carga interno e os ouvintes do grupo de disponibilidade, tudo na linha de comando. Para obter mais informações, consulte [usar o CLI do Azure para configurar um grupo de disponibilidade Always on para SQL Server em uma VM do Azure](availability-group-az-cli-configure.md). | 
+| **Simplificação da implantação do grupo de disponibilidade para uma VM SQL Server por meio do CLI do Azure** | Agora ficou mais fácil do que nunca implantar um grupo de disponibilidade em uma VM do SQL Server no Azure. Você pode usar o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) para criar o cluster de failover do Windows, o balanceador de carga interno e os ouvintes do grupo de disponibilidade, tudo na linha de comando. Para obter mais informações, consulte [usar o CLI do Azure para configurar um grupo de disponibilidade Always on para SQL Server em uma VM do Azure](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -112,7 +112,7 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-**VMs do Windows**:
+**VMs do Windows** :
 
 * [Visão geral do SQL Server em uma VM do Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Provisionar SQL Server em uma VM do Windows](create-sql-vm-portal.md)
@@ -121,9 +121,9 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 * [Melhores práticas de desempenho para as Máquinas Virtuais do SQL Server no Azure](performance-guidelines-best-practices.md)
 * [Padrões de aplicativo e estratégias de desenvolvimento para Máquinas Virtuais do SQL Server no Azure](application-patterns-development-strategies.md)
 
-**VMs Linux**:
+**VMs Linux** :
 
 * [Visão geral do SQL Server em uma VM Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provisionar SQL Server em uma máquina virtual Linux](../linux/sql-vm-create-portal-quickstart.md)
 * [Perguntas Frequentes (Linux)](../linux/frequently-asked-questions-faq.md)
-* [SQL Server na documentação do Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server na documentação do Linux](/sql/linux/sql-server-linux-overview)

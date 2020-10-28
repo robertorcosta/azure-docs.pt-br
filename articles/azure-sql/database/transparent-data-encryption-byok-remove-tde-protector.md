@@ -5,19 +5,19 @@ description: Saiba como responder a um protetor de TDE potencialmente comprometi
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 77f2312438f3f9db7aa4e0dc7cc0f672644a87c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657e3967d9e34147364114cec4d946e900f60032
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617393"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791368"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de TDE (Transparent Data Encryption) usando PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,16 +26,16 @@ ms.locfileid: "91617393"
 Este tópico descreve como responder a uma proteção TDE potencialmente comprometida para o banco de dados SQL do Azure ou o Azure Synapse Analytics que está usando o TDE com chaves gerenciadas pelo cliente no suporte a BYOK (Azure Key Vault Bring Your Own Key). Para saber mais sobre o suporte BYOK para TDE, consulte a [página de visão geral](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
-> Os procedimentos descritos neste artigo devem ser feitos apenas em casos extremos ou em ambientes de teste. Examine as etapas cuidadosamente, pois excluir os protetores de TDE usados ativamente de Azure Key Vault resultará no **banco de dados ficando indisponível**.
+> Os procedimentos descritos neste artigo devem ser feitos apenas em casos extremos ou em ambientes de teste. Examine as etapas cuidadosamente, pois excluir os protetores de TDE usados ativamente de Azure Key Vault resultará no **banco de dados ficando indisponível** .
 
 Se uma chave já suspeita de comprometimento, de modo que um serviço ou usuário tivesse acesso não autorizado à chave, é melhor excluir a chave.
 
-Tenha em mente que, depois que o protetor de TDE for excluído no Key Vault, em até 10 minutos, todos os bancos de dados criptografados começarão a negar todas as conexões com a mensagem de erro correspondente e alterarão seu estado para [inacessível](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
+Tenha em mente que, depois que o protetor de TDE for excluído no Key Vault, em até 10 minutos, todos os bancos de dados criptografados começarão a negar todas as conexões com a mensagem de erro correspondente e alterarão seu estado para [inacessível](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector).
 
 Este guia de instruções passa por duas abordagens dependendo do resultado desejado após uma resposta de incidente comprometida:
 
-- Para tornar os bancos de dados no Azure SQL Database/Azure Synapse Analytics **inacessíveis**.
-- Para tornar os bancos de dados do Azure SQL Database/Azure Synapse Analytics (anteriormente SQL Data Warehouse) **inacessíveis**.
+- Para tornar os bancos de dados no Azure SQL Database/Azure Synapse Analytics **inacessíveis** .
+- Para tornar os bancos de dados do Azure SQL Database/Azure Synapse Analytics (anteriormente SQL Data Warehouse) **inacessíveis** .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ Este guia de instruções passa por duas abordagens dependendo do resultado dese
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
- Para obter instruções de instalação do módulo Az, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+ Para obter instruções de instalação do módulo Az, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber as correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para saber mais sobre a compatibilidade entre eles, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -79,7 +79,7 @@ Como alternativa, você pode usar o PowerShell ou o CLI do Azure:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-O comando **Get-AzureRmSqlServerKeyVaultKey**do PowerShell   fornece a impressão digital do protetor de TDE usado na consulta, para que você possa ver quais chaves manter e quais chaves serão excluídas em akv. Somente as chaves que não são mais usadas pelo banco de dados podem ser excluídas com segurança do Azure Key Vault.
+O comando **Get-AzureRmSqlServerKeyVaultKey** do PowerShell   fornece a impressão digital do protetor de TDE usado na consulta, para que você possa ver quais chaves manter e quais chaves serão excluídas em akv. Somente as chaves que não são mais usadas pelo banco de dados podem ser excluídas com segurança do Azure Key Vault.
 
 # <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 

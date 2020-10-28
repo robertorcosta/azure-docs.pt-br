@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 6e60403344a0341b4aee74a001287c09ba67e114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448909"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790399"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Como migrar seu banco de dados SQLite para o Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,13 +53,13 @@ Depois de seguir as etapas abaixo, seu banco de dados será migrado para o Banco
     - Iniciando o ADF (Criar e Monitorar no serviço no portal do Azure)
     - Clique na guia "Criar" (lápis azul) à esquerda
     - Clique em Conexões (canto inferior esquerdo) e em Runtimes de integração
-    - Adicione um novo runtime de integração auto-hospedada, dê a ele um nome e selecione *Opção 2*.
+    - Adicione um novo runtime de integração auto-hospedada, dê a ele um nome e selecione *Opção 2* .
 
 5. Crie um serviço vinculado para o banco de dados SQLite de origem no Data Factory.
 
     ![Captura de tela mostrando a folha de serviços vinculados vazia no Azure Data Factory](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. Em **Conexões**, em **Serviço Vinculado**, clique em **Novo**.
+6. Em **Conexões** , em **Serviço Vinculado** , clique em **Novo** .
 
 7. Pesquisar e selecionar o conector "ODBC"
 
@@ -109,4 +109,4 @@ Depois de seguir as etapas abaixo, seu banco de dados será migrado para o Banco
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para começar, confira [Início rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure](single-database-create-quickstart.md).
-- Para limites de recursos, consulte [Limites de recursos de camada de computação sem servidor](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
+- Para limites de recursos, consulte [Limites de recursos de camada de computação sem servidor](./resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

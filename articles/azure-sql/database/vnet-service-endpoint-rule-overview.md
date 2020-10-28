@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 1e8810e8b0c02aec33f55fb8f0689eec3c5bad8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616696"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791317"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -89,7 +89,7 @@ Para o Banco de Dados SQL do Azure, o recurso de regras da rede virtual tem as s
 
 Ao usar pontos de extremidade de serviço para o Banco de Dados SQL do Azure, veja as considerações a seguir:
 
-- **Saída para IPs públicos do Banco de Dados SQL do Azure é necessária**: NSGs (Grupos de Segurança de Rede) devem ser abertos para IPs do Banco de Dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando o NSG [Marcas de Serviço](../../virtual-network/security-overview.md#service-tags) para o Banco de Dados SQL do Azure.
+- **Saída para IPs públicos do Banco de Dados SQL do Azure é necessária** : NSGs (Grupos de Segurança de Rede) devem ser abertos para IPs do Banco de Dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando o NSG [Marcas de Serviço](../../virtual-network/network-security-groups-overview.md#service-tags) para o Banco de Dados SQL do Azure.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -112,9 +112,9 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
-- Instalar o Azure PowerShell usando este [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário primeiro atualizar para uso geral v2 usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- É necessário ativar **Permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** no menu de configurações **Firewalls e redes virtuais** da conta do Armazenamento do Azure. Habilitar essa configuração permitirá que o polybase e a instrução de cópia se conectem à conta de armazenamento usando autenticação forte em que o tráfego de rede permanece no backbone do Azure. Confira este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para saber mais.
+- Instalar o Azure PowerShell usando este [guia](/powershell/azure/install-az-ps).
+- Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário primeiro atualizar para uso geral v2 usando este [guia](../../storage/common/storage-account-upgrade.md).
+- É necessário ativar **Permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** no menu de configurações **Firewalls e redes virtuais** da conta do Armazenamento do Azure. Habilitar essa configuração permitirá que o polybase e a instrução de cópia se conectem à conta de armazenamento usando autenticação forte em que o tráfego de rede permanece no backbone do Azure. Confira este [guia](../../storage/common/storage-network-security.md#exceptions) para saber mais.
 
 > [!IMPORTANT]
 > O módulo Azure Resource Manager do PowerShell ainda tem suporte do Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber as correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para saber mais sobre a compatibilidade entre eles, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -129,27 +129,27 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Crie uma **Conta de armazenamento de uso geral v2** usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+1. Crie uma **Conta de armazenamento de uso geral v2** usando este [guia](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
    >
-   > - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-   > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, confira este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](../../storage/common/storage-account-upgrade.md).
+   > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, confira este [guia](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função de **colaborador de dados de armazenamento de BLOBs** do Azure ao servidor que hospeda a análise de Synapse do Azure que você registrou com Azure Active Directory (AAD) como na etapa #1.
+1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função** . Atribua a função de **colaborador de dados de armazenamento de BLOBs** do Azure ao servidor que hospeda a análise de Synapse do Azure que você registrou com Azure Active Directory (AAD) como na etapa #1.
 
    > [!NOTE]
-   > Somente membros com privilégio de proprietário na conta de armazenamento podem executar esta etapa. Para obter várias funções internas do Azure, confira este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Somente membros com privilégio de proprietário na conta de armazenamento podem executar esta etapa. Para obter várias funções internas do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md).
   
 1. **Conectividade do Polybase com a conta de Armazenamento do Azure:**
 
-   1. Crie uma **[chave mestra](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** de banco de dados se ainda não tiver criado uma anteriormente:
+   1. Crie uma **[chave mestra](/sql/t-sql/statements/create-master-key-transact-sql)** de banco de dados se ainda não tiver criado uma anteriormente:
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Criar credencial com escopo de banco de dados com **IDENTITY = 'Managed Service Identity'**:
+   1. Criar credencial com escopo de banco de dados com **IDENTITY = 'Managed Service Identity'** :
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -157,7 +157,7 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
 
        > [!NOTE]
        >
-       > - Não é necessário especificar SECRET com a chave de acesso de Armazenamento do Azure, porque esse mecanismo usa [Identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nos bastidores.
+       > - Não é necessário especificar SECRET com a chave de acesso de Armazenamento do Azure, porque esse mecanismo usa [Identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) nos bastidores.
        > - O nome IDENTITY deve ser **'Managed Service Identity'** para que a conectividade do PolyBase funcione com a conta de armazenamento do Azure protegida para VNet.
 
    1. Crie uma fonte de dados externa com `abfss://` o esquema para se conectar à sua conta de armazenamento de uso geral v2 usando o polybase:
@@ -168,11 +168,11 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
 
        > [!NOTE]
        >
-       > - Se você já tiver tabelas externas associadas à conta de armazenamento de blobs ou de uso geral v1, primeiro remova essas tabelas externas e, em seguida, remova a fonte de dados externa correspondente. Em seguida, crie uma fonte de dados externa com `abfss://` o esquema conectando-se à conta de armazenamento de uso geral v2 como acima e recrie todas as tabelas externas usando essa nova fonte de dados externa. Use o [Assistente para gerar e publicar scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar scripts de criação para todas as tabelas externas com facilidade.
-       > - Para obter mais informações sobre `abfss://` o esquema, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-       > - Para saber mais sobre CREATE EXTERNAL DATA SOURCE, confira este [guia](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       > - Se você já tiver tabelas externas associadas à conta de armazenamento de blobs ou de uso geral v1, primeiro remova essas tabelas externas e, em seguida, remova a fonte de dados externa correspondente. Em seguida, crie uma fonte de dados externa com `abfss://` o esquema conectando-se à conta de armazenamento de uso geral v2 como acima e recrie todas as tabelas externas usando essa nova fonte de dados externa. Use o [Assistente para gerar e publicar scripts](/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar scripts de criação para todas as tabelas externas com facilidade.
+       > - Para obter mais informações sobre `abfss://` o esquema, consulte este [guia](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+       > - Para saber mais sobre CREATE EXTERNAL DATA SOURCE, confira este [guia](/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-   1. Consulte normalmente usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Consulte normalmente usando [tabelas externas](/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Auditoria de Blobs do Banco de Dados SQL do Azure
 
@@ -180,7 +180,7 @@ A auditoria de blob envia por push logs de auditoria para sua própria conta de 
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra do Firewall VNet ao seu servidor sem ativar os pontos de extremidade do serviço da VNet
 
-Há muito tempo antes que esse recurso fosse aprimorado, era necessário ativar os pontos de extremidade de serviço da VNet antes de implementar uma regra dinâmica da VNet no Firewall. Os pontos de extremidade relacionados a uma determinada sub-rede de VNet a um banco de dados no banco de dados SQL do Azure. No entanto, a partir de janeiro de 2018, você pode contornar esse requisito definindo o sinalizador **IgnoreMissingVNetServiceEndpoint**.
+Há muito tempo antes que esse recurso fosse aprimorado, era necessário ativar os pontos de extremidade de serviço da VNet antes de implementar uma regra dinâmica da VNet no Firewall. Os pontos de extremidade relacionados a uma determinada sub-rede de VNet a um banco de dados no banco de dados SQL do Azure. No entanto, a partir de janeiro de 2018, você pode contornar esse requisito definindo o sinalizador **IgnoreMissingVNetServiceEndpoint** .
 
 A simples configuração de uma regra de Firewall não ajuda a proteger o servidor. Você também precisa ativar os pontos de extremidade de serviço da VNET para que a segurança entre em vigor. Quando você ativa os pontos de extremidade de serviço, a sub-rede da VNET passa por um tempo de inatividade até concluir a transição de desativado para ativado. Isso é especialmente verdadeiro no contexto de VNETs grandes. Use o sinalizador **IgnoreMissingVNetServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
 
@@ -188,11 +188,11 @@ Defina o sinalizador **IgnoreMissingVNetServiceEndpoint** usando o PowerShell. P
 
 ## <a name="errors-40914-and-40615"></a>Erros 40914 e 40615
 
-O erro de conexão 40914 está relacionado a *regras da rede virtual*, conforme especificado no painel Firewall no Portal do Azure. O erro 40615 é semelhante, exceto pelo fato de que ele se relaciona com *regras de endereço IP* no Firewall.
+O erro de conexão 40914 está relacionado a *regras da rede virtual* , conforme especificado no painel Firewall no Portal do Azure. O erro 40615 é semelhante, exceto pelo fato de que ele se relaciona com *regras de endereço IP* no Firewall.
 
 ### <a name="error-40914"></a>Erro 40914
 
-*Texto da mensagem:* não é possível abrir o servidor '*[nome-do-servidor]*' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.
+*Texto da mensagem:* não é possível abrir o servidor ' *[nome-do-servidor]* ' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.
 
 *Descrição do erro:* o cliente está em uma sub-rede que tem pontos de extremidade de servidor de rede virtual. Mas o servidor não tem nenhuma regra de rede virtual que conceda à sub-rede o direito de se comunicar com o banco de dados.
 
@@ -210,7 +210,7 @@ O erro de conexão 40914 está relacionado a *regras da rede virtual*, conforme 
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>O Portal pode criar uma regra da rede virtual
 
-Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* em seu banco de dados no banco de dados SQL do Azure. A regra diz ao banco de dados para aceitar a comunicação de uma sub-rede específica que foi marcada como um *ponto de extremidade de serviço de rede virtual*.
+Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* em seu banco de dados no banco de dados SQL do Azure. A regra diz ao banco de dados para aceitar a comunicação de uma sub-rede específica que foi marcada como um *ponto de extremidade de serviço de rede virtual* .
 
 > [!NOTE]
 > Se você pretende adicionar um ponto de extremidade de serviço às regras de firewall de rede virtual do seu servidor, primeiro verifique se os pontos de extremidade de serviço estão ativados para a sub-rede.
@@ -231,7 +231,7 @@ Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs R
 
 Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de serviço de rede virtual específico *nome do tipo* relevante para o banco de dados SQL do Azure.
 
-- O nome do tipo de ponto de extremidade relevante é **Microsoft.Sql**.
+- O nome do tipo de ponto de extremidade relevante é **Microsoft.Sql** .
 - Se a sua sub-rede não pode ser marcada com o nome do tipo, consulte [Verificar se sua sub-rede é um ponto de extremidade][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
@@ -240,22 +240,22 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 1. Entre no [portal do Azure][http-azure-portal-link-ref-477t].
 
-2. Procure e selecione **servidores SQL**e, em seguida, selecione o servidor. Em **segurança**, selecione **firewalls e redes virtuais**.
+2. Procure e selecione **servidores SQL** e, em seguida, selecione o servidor. Em **segurança** , selecione **firewalls e redes virtuais** .
 
 3. Defina o controle **Permitir acesso aos serviços do Azure** como OFF.
 
     > [!IMPORTANT]
     > Se você deixar o controle definido como ativado, o servidor aceitará a comunicação de qualquer sub-rede dentro do limite do Azure, ou seja, proveniente de um dos endereços IP que são reconhecidos como aqueles nos intervalos definidos para data centers do Azure. Deixar o controle definido como ON pode ocasionar acesso excessivo de um ponto de vista de segurança. O recurso de ponto de extremidade de serviço de rede virtual do Microsoft Azure, em conjunto com o recurso de regra da rede virtual do Banco de dados SQL do Microsoft Azure, pode reduzir a área de superfície de segurança.
 
-4. Clique no controle **+ Adicionar existente**, na seção **Redes virtuais**.
+4. Clique no controle **+ Adicionar existente** , na seção **Redes virtuais** .
 
     ![Clique em Adicionar existente (ponto de extremidade de sub-rede, como uma regra SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
-5. No novo painel **Criar/Atualizar**, preencha os controles com os nomes dos recursos do Azure.
+5. No novo painel **Criar/Atualizar** , preencha os controles com os nomes dos recursos do Azure.
 
     > [!TIP]
     > Você deve incluir o **prefixo de endereço** correto para a sua sub-rede. É possível encontrar o valor no portal.
-    > Navegue até **Todos os recursos** &gt; **Todos os tipos** &gt; **Redes virtuais**. O filtro exibe suas redes virtuais. Clique em sua rede virtual e, em seguida, clique em **Sub-redes**. A coluna **INTERVALO DE ENDEREÇOS** tem o prefixo de endereço de que você precisa.
+    > Navegue até **Todos os recursos** &gt; **Todos os tipos** &gt; **Redes virtuais** . O filtro exibe suas redes virtuais. Clique em sua rede virtual e, em seguida, clique em **Sub-redes** . A coluna **INTERVALO DE ENDEREÇOS** tem o prefixo de endereço de que você precisa.
 
     ![Preencha os campos para a nova regra.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -298,12 +298,12 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[vm-virtual-network-service-endpoints-overview-649d]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml
 
 <!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
+[rest-api-virtual-network-rules-operations-862r]: /rest/api/sql/virtualnetworkrules
 
 <!-- ??2
 #### Syntax related articles

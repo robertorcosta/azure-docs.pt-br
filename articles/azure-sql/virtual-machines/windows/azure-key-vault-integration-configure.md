@@ -14,26 +14,26 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7fab8db1fcc02e26d1b19d3889414565ff56351b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fca190d4818dc2ee8d598a3a1d3535ba7132398
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293520"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789957"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Configurar a integração do Azure Key Vault para SQL Server em VMs do Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (criptografia de nível de coluna)](https://msdn.microsoft.com/library/ms173744.aspx) e [criptografia de backup](https://msdn.microsoft.com/library/dn449489.aspx). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço AKV (Azure Key Vault) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [SQL Server Connector](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Cofre da Chave do Azure.
+Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](/sql/relational-databases/security/encryption/transparent-data-encryption), [CLE (criptografia de nível de coluna)](/sql/t-sql/functions/cryptographic-functions-transact-sql) e [criptografia de backup](/sql/relational-databases/backup-restore/backup-encryption). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço AKV (Azure Key Vault) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [SQL Server Connector](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Cofre da Chave do Azure.
 
-Se você estiver executando o SQL Server localmente, existem etapas a serem seguidas para [acessar o Azure Key Vault pela instância do SQL Server local](https://msdn.microsoft.com/library/dn198405.aspx). Mas, para o SQL Server em VMs do Azure, você pode economizar tempo usando o recurso de *Integração do Azure Key Vault*.
+Se você estiver executando o SQL Server localmente, existem etapas a serem seguidas para [acessar o Azure Key Vault pela instância do SQL Server local](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server). Mas, para o SQL Server em VMs do Azure, você pode economizar tempo usando o recurso de *Integração do Azure Key Vault* .
 
 Quando esse recurso está habilitado, ele instala automaticamente o SQL Server Connector, configura o provedor de EKM a fim de acessar o Cofre da Chave do Azure e cria a credencial para permitir que você acesse seu cofre. Ao examinar as etapas da documentação local mencionada anteriormente, é possível ver que esse recurso automatiza as etapas 2 e 3. A única coisa que você ainda precisará fazer manualmente é criar o cofre da chave e as chaves. A partir daí, toda a configuração de sua VM do SQL Server será automatizada. Quando esse recurso concluir a configuração, você poderá executar instruções T-SQL (Transact-SQL) para começar a criptografar seus bancos de dados ou backups como faria normalmente.
 
 [!INCLUDE [Prepare for Key Vault integration](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
   >[!NOTE]
-  > O provedor de EKM (gerenciamento de chaves extensível) versão 1.0.4.0 é instalado na VM do SQL Server por meio da [extensão de IaaS (infraestrutura como serviço) do SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Atualizar a extensão de IaaS do SQL não atualizará a versão do provedor. Considere a possibilidade de atualizar manualmente a versão do provedor EKM se necessário (por exemplo, ao migrar para uma Instância Gerenciada do SQL).
+  > O provedor de EKM (gerenciamento de chaves extensível) versão 1.0.4.0 é instalado na VM do SQL Server por meio da [extensão de IaaS (infraestrutura como serviço) do SQL](./sql-server-iaas-agent-extension-automate-management.md). Atualizar a extensão de IaaS do SQL não atualizará a versão do provedor. Considere a possibilidade de atualizar manualmente a versão do provedor EKM se necessário (por exemplo, ao migrar para uma Instância Gerenciada do SQL).
 
 
 ## <a name="enabling-and-configuring-key-vault-integration"></a>Habilitar e configurar a integração do Key Vault
@@ -50,7 +50,7 @@ Para obter uma explicação detalhada sobre o provisionamento, confira [Provisio
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para máquinas virtuais SQL existentes, abra o [recurso de máquinas virtuais do SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) e selecione **Segurança** em **Configurações**. Selecione **Habilitar** para habilitar a integração do Azure Key Vault. 
+Para máquinas virtuais SQL existentes, abra o [recurso de máquinas virtuais do SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) e selecione **Segurança** em **Configurações** . Selecione **Habilitar** para habilitar a integração do Azure Key Vault. 
 
 ![Integração do SQL Key Vault para VMs existentes](./media/azure-key-vault-integration-configure/azure-sql-rm-akv-existing-vms.png)
 

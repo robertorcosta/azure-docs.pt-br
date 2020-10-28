@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628359"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791249"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Há duas opções para conectar redes virtuais:
 O emparelhamento é preferível porque usa a rede de backbone da Microsoft, portanto, da perspectiva da conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais em uma rede virtual emparelhada e na mesma rede virtual. O emparelhamento de rede virtual tem suporte entre as redes na mesma região. O emparelhamento de rede virtual global também tem suporte com a limitação descrita na observação abaixo.  
 
 > [!IMPORTANT]
-> [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+> [Em 9/22/2020 anunciamos o emparelhamento de rede virtual global para clusters virtuais recém-criados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Isso significa que o emparelhamento de rede virtual global tem suporte para instâncias gerenciadas do SQL criadas em sub-redes vazias após a data do anúncio, bem como para todas as instâncias gerenciadas subsequentes criadas nessas sub-redes. Para todas as outras instâncias gerenciadas do SQL, o suporte ao emparelhamento é limitado às redes na mesma região devido às [restrições do emparelhamento de rede virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
 
 ## <a name="connect-from-on-premises"></a>Conectar do local 
 
@@ -71,10 +71,10 @@ Outro cenário implementado por clientes é o local em que um gateway de VPN é 
 
 ![Emparelhamento de rede virtual](./media/connect-application-instance/vnet-peering.png)
 
-Depois que a infraestrutura básica estiver configurada, você precisará modificar algumas configurações para que o gateway de VPN possa ver os endereços IP na rede virtual que hospeda o SQL Instância Gerenciada. Para fazer isso, faça as seguintes alterações muito específicas nas **Configurações de emparelhamento**.
+Depois que a infraestrutura básica estiver configurada, você precisará modificar algumas configurações para que o gateway de VPN possa ver os endereços IP na rede virtual que hospeda o SQL Instância Gerenciada. Para fazer isso, faça as seguintes alterações muito específicas nas **Configurações de emparelhamento** .
 
-1. Na rede virtual que hospeda o gateway de VPN, acesse **emparelhamentos**, vá para a conexão de rede virtual emparelhada para o SQL instância gerenciada e, em seguida, clique em **Permitir trânsito de gateway**.
-2. Na rede virtual que hospeda o SQL Instância Gerenciada, acesse **emparelhamentos**, vá para a conexão de rede virtual emparelhada para o gateway de VPN e, em seguida, clique em **usar gateways remotos**.
+1. Na rede virtual que hospeda o gateway de VPN, acesse **emparelhamentos** , vá para a conexão de rede virtual emparelhada para o SQL instância gerenciada e, em seguida, clique em **Permitir trânsito de gateway** .
+2. Na rede virtual que hospeda o SQL Instância Gerenciada, acesse **emparelhamentos** , vá para a conexão de rede virtual emparelhada para o gateway de VPN e, em seguida, clique em **usar gateways remotos** .
 
 ## <a name="connect-azure-app-service"></a>Conectar Azure App serviço 
 
@@ -151,8 +151,8 @@ As seguintes versões mínimas das ferramentas e dos drivers serão recomendadas
 |Driver JDBC| 6.4.0 |
 |Driver Node.js| 2.1.1 |
 |Driver OLE DB| 18.0.2.0 |
-|SSMS| 18,0 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou superior |
+|SSMS| 18,0 ou [superior](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou superior |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 093d470052a639ad3d4e819d08fad7c34b547d44
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428313"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789498"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é o Banco de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ O Banco de Dados SQL do Azure é um mecanismo de banco de dados de PaaS (platafo
 
 Com o Banco de Dados SQL do Azure, você pode criar uma camada de armazenamento de dados altamente disponível e de alto desempenho para aplicativos e soluções no Azure. O Banco de Dados SQL do Azure pode ser a escolha certa para uma série de aplicativos de nuvem modernos porque permite processar dados relacionais e [estruturas não relacionais](../multi-model-features.md), como grafos, JSON, espacial e XML.
 
-Ele se baseia na última versão estável do [mecanismo de banco de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). É possível usar recursos avançados de processamento de consulta, como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e [processamento inteligente de consulta](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). De fato, as funcionalidades mais recentes do SQL Server são lançadas primeiro para o Banco de Dados SQL e, depois, para o SQL Server. Você recebe as funcionalidades mais recentes do SQL Server sem a sobrecarga de aplicar patches ou atualizar, testados em milhões de bancos de dados. 
+Ele se baseia na última versão estável do [mecanismo de banco de dados do Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json). É possível usar recursos avançados de processamento de consulta, como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e [processamento inteligente de consulta](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json). De fato, as funcionalidades mais recentes do SQL Server são lançadas primeiro para o Banco de Dados SQL e, depois, para o SQL Server. Você recebe as funcionalidades mais recentes do SQL Server sem a sobrecarga de aplicar patches ou atualizar, testados em milhões de bancos de dados. 
 
 O Banco de Dados SQL permite definir e escalar facilmente o desempenho dinamicamente escalonável em dois modelos de compra diferentes: um [modelo de compra baseado em vCore](service-tiers-vcore.md) e um [modelo de compra baseado em DTU](service-tiers-dtu.md). O Banco de Dados SQL é um serviço totalmente gerenciado que tem alta disponibilidade interna, backups e outras operações de manutenção comuns. A Microsoft trata de todas as correções e atualizações do código do sistema operacional e do SQL. Não é preciso gerenciar a infraestrutura subjacente.
 
@@ -37,7 +37,7 @@ Se você não está familiarizado com o Banco de Dados SQL do Azure, confira o v
 
 O Banco de Dados SQL do Azure fornece as seguintes opções de implantação para um banco de dados:
 
-- O [banco de dados individual](single-database-overview.md) representa um banco de dados isolado e totalmente gerenciado. É possível usar essa opção com aplicativos de nuvem modernos e microsserviços que precisam de uma única fonte de dados confiável. Um banco de dados individual é semelhante a um [banco de dados independente](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) no [mecanismo de banco de dados do SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- O [banco de dados individual](single-database-overview.md) representa um banco de dados isolado e totalmente gerenciado. É possível usar essa opção com aplicativos de nuvem modernos e microsserviços que precisam de uma única fonte de dados confiável. Um banco de dados individual é semelhante a um [banco de dados independente](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json) no [mecanismo de banco de dados do SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json).
 - O [pool elástico](elastic-pool-overview.md) é uma coleção de [bancos de dados individuais](single-database-overview.md) com um conjunto compartilhado de recursos, como CPU ou memória. Bancos de dados individuais podem ser movidos para dentro e para fora de um pool elástico.
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ O Banco de Dados SQL do Microsoft Azure fornece desempenho previsível com vári
 
 É possível criar seu primeiro aplicativo em um banco de dados pequeno e único com um baixo custo por mês na camada de serviço de uso geral. É possível mudar sua camada de serviço manual ou programaticamente a qualquer momento para a camada de serviço comercialmente crítica, para atender às necessidades da sua solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, quando precisa deles.
 
-A *escalabilidade dinâmica* é diferente do *dimensionamento automático*. O dimensionamento automático é quando um serviço pode ser dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmico permite o redimensionamento manual sem tempo de inatividade. A opção de banco de dados individual permite escalabilidade dinâmica manual, mas não dimensionamento automático. Para uma experiência mais automática, considere o uso de pools elásticos, que permitem que os bancos de dados compartilhem recursos em um pool com base nas necessidades individuais do banco de dados. Outra opção é usar scripts que podem ajudar a automatizar a escalabilidade de um banco de dados individual. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um banco de dados individual](scripts/monitor-and-scale-database-powershell.md).
+A *escalabilidade dinâmica* é diferente do *dimensionamento automático* . O dimensionamento automático é quando um serviço pode ser dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmico permite o redimensionamento manual sem tempo de inatividade. A opção de banco de dados individual permite escalabilidade dinâmica manual, mas não dimensionamento automático. Para uma experiência mais automática, considere o uso de pools elásticos, que permitem que os bancos de dados compartilhem recursos em um pool com base nas necessidades individuais do banco de dados. Outra opção é usar scripts que podem ajudar a automatizar a escalabilidade de um banco de dados individual. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um banco de dados individual](scripts/monitor-and-scale-database-powershell.md).
 
 ### <a name="purchasing-models"></a>Modelos de compra
 
@@ -92,13 +92,13 @@ O Banco de Dados SQL do Azure fornece recursos avançados de monitoramento e sol
  - As funcionalidades de monitoramento internas fornecidas pela última versão do mecanismo de banco de dados do Microsoft SQL Server. Eles permitem que você encontre informações de desempenho em tempo real. 
  - Recursos de monitoramento de PaaS fornecidos pelo Azure que permitem que você monitore e solucione problemas de um grande número de instâncias do banco de dados.
 
-[Repositório de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), um recurso interno de monitoramento de SQL Server, registra o desempenho de suas consultas em tempo real e permite que você identifique os possíveis problemas de desempenho e os principais consumidores de recursos. O ajuste automático e as recomendações apresentam conselhos sobre as consultas com o desempenho regressivo e índices ausentes ou duplicados. O ajuste automático no Banco de Dados SQL do Microsoft Azure permite aplicar manualmente os scripts que podem corrigir os problemas ou deixar que o Banco de Dados SQL do Azure aplique a correção. O Banco de Dados SQL do Azure também pode testar e verificar se a correção oferece algum benefício e reter ou reverter a mudança dependendo do resultado. Além dos recursos de Repositório de Consultas e de ajuste automático, é possível usar [DMVs e XEvent](monitoring-with-dmvs.md) para monitorar o desempenho da carga de trabalho.
+[Repositório de Consultas](/sql/relational-databases/performance/best-practice-with-the-query-store), um recurso interno de monitoramento de SQL Server, registra o desempenho de suas consultas em tempo real e permite que você identifique os possíveis problemas de desempenho e os principais consumidores de recursos. O ajuste automático e as recomendações apresentam conselhos sobre as consultas com o desempenho regressivo e índices ausentes ou duplicados. O ajuste automático no Banco de Dados SQL do Microsoft Azure permite aplicar manualmente os scripts que podem corrigir os problemas ou deixar que o Banco de Dados SQL do Azure aplique a correção. O Banco de Dados SQL do Azure também pode testar e verificar se a correção oferece algum benefício e reter ou reverter a mudança dependendo do resultado. Além dos recursos de Repositório de Consultas e de ajuste automático, é possível usar [DMVs e XEvent](monitoring-with-dmvs.md) para monitorar o desempenho da carga de trabalho.
 
 O Azure fornece ferramentas de [monitoramento de desempenho integrado](performance-guidance.md) e [alertas](alerts-insights-configure-portal.md), combinados com classificações de desempenho, que permitem monitorar o status de milhares de bancos de dados. Usando essas ferramentas, é possível avaliar rapidamente o impacto da expansão ou redução com base nas necessidades de desempenho atuais ou de projeto. Além disso, o Banco de Dados SQL pode [emitir métrica e logs de recursos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
 
-- **Armazenamento do Azure**: para o arquivamento de grandes quantidades de telemetria por um preço baixo.
-- **Hubs de Eventos do Azure**: Para a integração de telemetria de Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos.
-- **Logs do Azure Monitor**: Para solução de monitoramento interna com relatórios, alertas e recursos de mitigação.
+- **Armazenamento do Azure** : para o arquivamento de grandes quantidades de telemetria por um preço baixo.
+- **Hubs de Eventos do Azure** : Para a integração de telemetria de Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos.
+- **Logs do Azure Monitor** : Para solução de monitoramento interna com relatórios, alertas e recursos de mitigação.
 
 ![Diagrama da arquitetura de monitoramento do Azure](./media/sql-database-paas-overview/architecture.png)
 
@@ -149,8 +149,8 @@ Muitos dos nossos parceiros executando [aplicativos SaaS multilocatários](saas-
 
 Há dois aspectos de ajuste automático [disponíveis no Banco de Dados SQL do Azure](automatic-tuning-overview.md):
 
-- **Gerenciamento automático de índice**: identifica os índices que devem ser adicionados ao seu banco de dados e os que devem ser removidos.
-- **Correção automática de plano**: Identifica planos problemáticos e corrige problemas de desempenho do plano SQL.
+- **Gerenciamento automático de índice** : identifica os índices que devem ser adicionados ao seu banco de dados e os que devem ser removidos.
+- **Correção automática de plano** : Identifica planos problemáticos e corrige problemas de desempenho do plano SQL.
 
 ### <a name="adaptive-query-processing"></a>Processamento de consulta adaptável
 
@@ -158,7 +158,7 @@ Também é possível usar [processamento de consulta adaptável](/sql/relational
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
-O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e conformidade](../../active-directory/identity-protection/security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de conformidade e segurança.
+O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e conformidade](../../active-directory/identity-protection/concept-identity-protection-security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de conformidade e segurança.
 
 > [!IMPORTANT]
 > A Microsoft certificou o Banco de Dados SQL do Azure (todas as opções de implantação) contra vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), onde é possível encontrar a lista mais atualizada de certificações de conformidade do Banco de Dados SQL do Azure.
@@ -180,7 +180,7 @@ A [Auditoria](../../azure-sql/database/auditing-overview.md) acompanha eventos d
 
 ### <a name="data-encryption"></a>Criptografia de dados
 
-O Banco de Dados SQL ajuda a proteger seus dados com criptografia. Para dados em movimento, ele usa [segurança da camada de transporte](https://support.microsoft.com/kb/3135244). Para dados em repouso, ele usa [criptografia de dados transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Para os dados em uso, ele usa o [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+O Banco de Dados SQL ajuda a proteger seus dados com criptografia. Para dados em movimento, ele usa [segurança da camada de transporte](https://support.microsoft.com/kb/3135244). Para dados em repouso, ele usa [criptografia de dados transparente](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Para os dados em uso, ele usa o [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="data-discovery-and-classification"></a>Descoberta e classificação de dados
 
@@ -198,8 +198,8 @@ O Banco de Dados SQL torna a compilação e o gerenciamento de aplicativos mais 
 |:---|:---|
 |[O portal do Azure](https://portal.azure.com/)|Um aplicativo baseado na Web para gerenciar todos os serviços do Azure.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de banco de dados multiplataforma executada no Windows, no macOS e no Linux.|
-|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Um aplicativo cliente gratuito e transferível para gerenciar qualquer infraestrutura SQL, do SQL Server ao Banco de Dados SQL.|
-|[SQL Server Data Tools no Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Um aplicativo cliente gratuito que pode ser baixado para desenvolver bancos de dados relacionais do SQL Server, bancos de dados do Banco de Dados SQL do Azure, pacotes do Integration Services, modelos de dados do Analysis Services e relatórios do Reporting Services.|
+|[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|Um aplicativo cliente gratuito e transferível para gerenciar qualquer infraestrutura SQL, do SQL Server ao Banco de Dados SQL.|
+|[SQL Server Data Tools no Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt)|Um aplicativo cliente gratuito que pode ser baixado para desenvolver bancos de dados relacionais do SQL Server, bancos de dados do Banco de Dados SQL do Azure, pacotes do Integration Services, modelos de dados do Analysis Services e relatórios do Reporting Services.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito de software livre que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o Azure Synapse Analytics (antigo SQL Data Warehouse).|
 
 O Banco de Dados SQL permite a criação de aplicativos com Python, Java, Node.js, PHP, Ruby e .NET no macOS, Linux e Windows. O Banco de Dados SQL dá suporte às mesmas [bibliotecas de conexão](connect-query-content-reference-guide.md#libraries) do SQL Server.
@@ -218,7 +218,7 @@ Não. O impacto de patch geralmente não será perceptível, se você [empregar 
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Faça perguntas sobre a administração de banco de dados.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Faça perguntas sobre desenvolvimento.
-- [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
+- [Página de perguntas e respostas da Microsoft](/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
 - [Comentários](https://aka.ms/sqlfeedback): Relate bugs e solicite recursos.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuta o SQL Server.
 
@@ -237,4 +237,3 @@ Não. O impacto de patch geralmente não será perceptível, se você [empregar 
 
 - Para obter informações sobre novos recursos conforme são anunciados, consulte [Roteiro do Azure para Banco de Dados SQL](https://azure.microsoft.com/roadmap/?category=databases).
 - Consulte o [blog do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/topics/database): um local em que membros da equipe de produto do SQL Server postam sobre notícias e recursos do Banco de Dados SQL.
-

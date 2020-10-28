@@ -9,16 +9,16 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822281"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789668"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
 
-O Azure Resource Manager é p serviço de implantação e gerenciamento do Azure. O provedor de recursos de armazenamento do Azure é um serviço baseado em Azure Resource Manager e que fornece acesso a recursos de gerenciamento para o armazenamento do Azure. Você pode usar o provedor de recursos de armazenamento do Azure para criar, atualizar, gerenciar e excluir recursos como contas de armazenamento, pontos de extremidade privados e chaves de acesso de conta. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](/azure/azure-resource-manager/resource-group-overview).
+O Azure Resource Manager é p serviço de implantação e gerenciamento do Azure. O provedor de recursos de armazenamento do Azure é um serviço baseado em Azure Resource Manager e que fornece acesso a recursos de gerenciamento para o armazenamento do Azure. Você pode usar o provedor de recursos de armazenamento do Azure para criar, atualizar, gerenciar e excluir recursos como contas de armazenamento, pontos de extremidade privados e chaves de acesso de conta. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](../../azure-resource-manager/management/overview.md).
 
 Você pode usar o provedor de recursos de armazenamento do Azure para executar ações como criar ou excluir uma conta de armazenamento ou obter uma lista de contas de armazenamento em uma assinatura. Para autorizar solicitações no provedor de recursos de armazenamento do Azure, use Azure Active Directory (Azure AD). Este artigo descreve como atribuir permissões a recursos de gerenciamento e aponta para exemplos que mostram como fazer solicitações no provedor de recursos de armazenamento do Azure.
 
@@ -32,9 +32,9 @@ O armazenamento do Azure dá suporte ao uso do Azure AD para autorizar solicita�
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Atribuir permissões de gerenciamento com o controle de acesso baseado em função do Azure (RBAC do Azure)
 
-Cada assinatura do Azure tem um Azure Active Directory associado que gerencia usuários, grupos e aplicativos. Um usuário, grupo ou aplicativo também é conhecido como uma entidade de segurança no contexto da [plataforma de identidade da Microsoft](/azure/active-directory/develop/). Você pode conceder acesso a recursos em uma assinatura para uma entidade de segurança que é definida no Active Directory usando o controle de acesso baseado em função do Azure (RBAC do Azure).
+Cada assinatura do Azure tem um Azure Active Directory associado que gerencia usuários, grupos e aplicativos. Um usuário, grupo ou aplicativo também é conhecido como uma entidade de segurança no contexto da [plataforma de identidade da Microsoft](../../active-directory/develop/index.yml). Você pode conceder acesso a recursos em uma assinatura para uma entidade de segurança que é definida no Active Directory usando o controle de acesso baseado em função do Azure (RBAC do Azure).
 
-Ao atribuir uma função do Azure a uma entidade de segurança, você também indica o escopo no qual as permissões concedidas pela função estão em vigor. Para operações de gerenciamento, você pode atribuir uma função no nível da assinatura, no grupo de recursos ou na conta de armazenamento. Você pode atribuir uma função do Azure a uma entidade de segurança usando o [portal do Azure](https://portal.azure.com/), as [ferramentas de CLI do Azure](../../cli-install-nodejs.md), o [PowerShell](/powershell/azure/)ou a [API REST do provedor de recursos de armazenamento do Azure](/rest/api/storagerp).
+Ao atribuir uma função do Azure a uma entidade de segurança, você também indica o escopo no qual as permissões concedidas pela função estão em vigor. Para operações de gerenciamento, você pode atribuir uma função no nível da assinatura, no grupo de recursos ou na conta de armazenamento. Você pode atribuir uma função do Azure a uma entidade de segurança usando o [portal do Azure](https://portal.azure.com/), as [ferramentas de CLI do Azure](/cli/azure/install-classic-cli), o [PowerShell](/powershell/azure/)ou a [API REST do provedor de recursos de armazenamento do Azure](/rest/api/storagerp).
 
 Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md) e funções de [administrador de assinatura clássica, funções do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -53,7 +53,7 @@ Funções internas que concedem permissões para chamar operações de gerenciam
 | **Administrador de Acesso do Usuário** | Pode gerenciar o acesso à conta de armazenamento.   | Sim, permite que uma entidade de segurança atribua qualquer permissão a si mesma e a outras. |
 | **Colaborador de Máquina Virtual** | Pode gerenciar máquinas virtuais, mas não a conta de armazenamento à qual elas estão conectadas.   | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
 
-A terceira coluna na tabela indica se a função interna dá suporte a **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa ação concede permissões para ler e regenerar as chaves da conta de armazenamento. As permissões para acessar os recursos de gerenciamento de armazenamento do Azure também não incluem permissões para acessar dados. No entanto, se um usuário tiver acesso às chaves de conta, ele poderá usar as chaves de conta para acessar os dados do armazenamento do Azure por meio da autorização de chave compartilhada.
+A terceira coluna na tabela indica se a função interna dá suporte a **Microsoft. Storage/storageAccounts/listkeys/Action** . Essa ação concede permissões para ler e regenerar as chaves da conta de armazenamento. As permissões para acessar os recursos de gerenciamento de armazenamento do Azure também não incluem permissões para acessar dados. No entanto, se um usuário tiver acesso às chaves de conta, ele poderá usar as chaves de conta para acessar os dados do armazenamento do Azure por meio da autorização de chave compartilhada.
 
 ### <a name="custom-roles-for-management-operations"></a>Funções personalizadas para operações de gerenciamento
 
@@ -76,6 +76,6 @@ Para obter mais informações sobre os modelos de implantação do Azure, consul
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+- [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?](../../role-based-access-control/overview.md)
 - [Metas de escalabilidade para o provedor de recursos de armazenamento do Azure](scalability-targets-resource-provider.md)

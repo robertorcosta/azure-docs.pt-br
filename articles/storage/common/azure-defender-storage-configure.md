@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474845"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789005"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurar o Azure defender para armazenamento
 
@@ -37,7 +37,7 @@ A lista a seguir resume a disponibilidade do Azure defender para armazenamento:
 
 - Estado da versão:
   - [Armazenamento de BLOBs](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
-  - [Arquivos do Azure](/azure/storage/files/storage-files-introduction) (disponibilidade geral)
+  - [Arquivos do Azure](../files/storage-files-introduction.md) (disponibilidade geral)
   - Azure Data Lake Storage Gen2 (disponibilidade geral)
 - Nuvens:<br>
     ✔ Nuvens comerciais<br>
@@ -53,10 +53,10 @@ Você pode configurar o Azure defender para armazenamento de várias maneiras, d
 Quando você assina a camada Standard na central de segurança do Azure, o Azure defender é automaticamente configurado em todas as suas contas de armazenamento. Você pode habilitar ou desabilitar o Azure defender para suas contas de armazenamento em uma assinatura específica da seguinte maneira:
 
 1. Inicie a **central de segurança do Azure** no [portal do Azure](https://portal.azure.com).
-1. No menu principal, em **Gerenciamento**, selecione **preços & configurações**.
+1. No menu principal, em **Gerenciamento** , selecione **preços & configurações** .
 1. Selecione a assinatura para a qual você deseja habilitar ou desabilitar o Azure defender.
 1. Selecione **Azure defender ativado** para habilitar o Azure defender para a assinatura.
-1. Em **selecionar plano do Azure defender por tipo de recurso**, localize a linha de **armazenamento** e selecione **habilitado** na coluna **plano** .
+1. Em **selecionar plano do Azure defender por tipo de recurso** , localize a linha de **armazenamento** e selecione **habilitado** na coluna **plano** .
 1. Salve suas alterações.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
@@ -66,8 +66,8 @@ O Azure defender agora está habilitado para todas as contas de armazenamento ne
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Inicie o [portal do Azure](https://portal.azure.com/).
-1. Navegue para sua conta de armazenamento. Em **configurações**, selecione **segurança avançada**.
-1. Selecione **habilitar Azure defender para armazenamento**.
+1. Navegue para sua conta de armazenamento. Em **configurações** , selecione **segurança avançada** .
+1. Selecione **habilitar Azure defender para armazenamento** .
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 
@@ -138,4 +138,4 @@ Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [logs em contas de armazenamento do Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- Saiba mais sobre a [Central de Segurança do Azure](../../security-center/security-center-intro.md)
+- Saiba mais sobre a [Central de Segurança do Azure](../../security-center/security-center-introduction.md)

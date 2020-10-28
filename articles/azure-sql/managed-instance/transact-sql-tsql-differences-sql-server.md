@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973301"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790603"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ O SQL Instância Gerenciada não pode acessar compartilhamentos de arquivos e pa
 
 Consulte [CRIAR CERTIFICADO](/sql/t-sql/statements/create-certificate-transact-sql) e [CERTIFICADO DE BACKUP](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solução alternativa**: Em vez de criar backup de certificado e restaurar o backup, [obter o conteúdo binário do certificado e a chave privada, armazená-los como arquivo .sql e criar de binários](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Solução alternativa** : Em vez de criar backup de certificado e restaurar o backup, [obter o conteúdo binário do certificado e a chave privada, armazená-los como arquivo .sql e criar de binários](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -153,7 +153,7 @@ O SQL Instância Gerenciada não pode acessar arquivos, portanto, os provedores 
 - Não há suporte para logons do Azure AD mapeados para um grupo do Azure AD como proprietário do banco de dados.
 - A representação de entidades de segurança no nível do servidor do Azure AD usando outras entidades de segurança do Azure AD é compatível, como a cláusula [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql). As limitações de executar como são:
 
-  - EXECUTE AS USER não é compatível com usuários do Azure AD quando o nome é diferente do nome de logon. Por exemplo, quando o usuário é criado por meio da sintaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com], e a tentativa de representação é por meio de EXEC AS USER = _myAadUser_. Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON**.
+  - EXECUTE AS USER não é compatível com usuários do Azure AD quando o nome é diferente do nome de logon. Por exemplo, quando o usuário é criado por meio da sintaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com], e a tentativa de representação é por meio de EXEC AS USER = _myAadUser_ . Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON** .
   - Somente as entidades de segurança no nível do SQL Server (logons) que fazem parte do `sysadmin` podem executar as seguintes operações direcionadas a entidades de segurança do Azure AD:
 
     - EXECUTE AS USER
@@ -220,7 +220,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 
 - Não há suporte para vários arquivos de log.
 - Não há suporte para objetos na memória na camada de serviço de Uso Geral. 
-- Há um limite de 280 arquivos por instância de Uso Geral, o que implica um máximo de 280 arquivos por banco de dados. Os arquivos de log e de dados na camada de Uso Geral são contados para esse limite. [A camada de Comercialmente Crítico é compatível com 32.767 arquivos por banco de dados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Há um limite de 280 arquivos por instância de Uso Geral, o que implica um máximo de 280 arquivos por banco de dados. Os arquivos de log e de dados na camada de Uso Geral são contados para esse limite. [A camada de Comercialmente Crítico é compatível com 32.767 arquivos por banco de dados](./resource-limits.md#service-tier-characteristics).
 - O banco de dados não pode conter grupos de arquivos que contenham dados de fluxo de arquivos. A restauração falhará se .bak contiver dados `FILESTREAM`. 
 - Cada arquivo é colocado no Armazenamento de Blobs do Azure. A E/S e a taxa de transferência por arquivo dependem do tamanho de cada arquivo individual.
 
@@ -354,7 +354,7 @@ Não há suporte para instruções DBCC não documentadas habilitadas no SQL Ser
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
 O suporte parcial para [transações distribuídas](../database/elastic-transactions-overview.md) está atualmente em visualização pública. Os cenários com suporte são:
-* Transações em que os participantes são apenas instâncias gerenciadas do SQL do Azure que fazem parte do [grupo de confiança do servidor](https://aka.ms/mitrusted-groups).
+* Transações em que os participantes são apenas instâncias gerenciadas do SQL do Azure que fazem parte do [grupo de confiança do servidor](./server-trust-group-overview.md).
 * Transações iniciadas do .NET (classe TransactionScope) e Transact-SQL.
 
 O Azure SQL Instância Gerenciada atualmente não dá suporte a outros cenários que são suportados regularmente pelo MSDTC local ou em máquinas virtuais do Azure.
@@ -482,7 +482,7 @@ Não há suporte para agente de serviços entre instâncias:
   - `remote proc trans`
 - Não há suporte para `sp_execute_external_scripts`. Consulte [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - Não há suporte para `xp_cmdshell`. Consulte [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` não têm suporte, o que inclui `sp_addextendedproc` e `sp_dropextendedproc`. Consulte [Procedimentos armazenados estendidos](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` Não tem suporte, que inclui `sp_addextendedproc` e `sp_dropextendedproc` . Consulte [Procedimentos armazenados estendidos](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - Não há suporte para `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db`. Consulte [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Função do sistema e variáveis
@@ -527,13 +527,13 @@ Os seguintes esquemas MSDB no SQL Instância Gerenciada devem ser de propriedade
 
 - Funções gerais
   - TargetServersRole
-- [Funções de banco de dados fixas](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Funções de banco de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Funções de DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Funções de DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Funções do Integration Services](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Funções do Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ Os seguintes esquemas MSDB no SQL Instância Gerenciada devem ser de propriedade
 
 ### <a name="error-logs"></a>Logs de erros
 
-O SQL Instância Gerenciada coloca informações detalhadas nos logs de erros. Há muitos eventos internos do sistema que são registrados no log de erros. Usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para obter mais informações, consulte [sql instância gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [extensão do SQL instância gerenciada (versão prévia)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
+O SQL Instância Gerenciada coloca informações detalhadas nos logs de erros. Há muitos eventos internos do sistema que são registrados no log de erros. Usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para obter mais informações, consulte [sql instância gerenciada – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) ou [extensão do SQL instância gerenciada (versão prévia)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
 

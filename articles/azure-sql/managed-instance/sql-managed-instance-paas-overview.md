@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424238"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790705"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Instância Gerenciada de SQL do Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,12 +44,12 @@ A Instância Gerenciada de SQL combina os melhores recursos disponíveis no Banc
 
 | **Benefícios de PaaS** | **Continuidade de negócios** |
 | --- | --- |
-|Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>[Alta disponibilidade](../database/high-availability-sla.md) interna <br>Dados protegidos com [backups automatizados](../database/automated-backups-overview.md) <br>Período de retenção de backup configurável pelo cliente <br>[Backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) iniciados pelo usuário <br>Capacidade de [restauração pontual do banco de dados](../database/recovery-using-backups.md#point-in-time-restore) |
+|Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>[Alta disponibilidade](../database/high-availability-sla.md) interna <br>Dados protegidos com [backups automatizados](../database/automated-backups-overview.md) <br>Período de retenção de backup configurável pelo cliente <br>[Backups](/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) iniciados pelo usuário <br>Capacidade de [restauração pontual do banco de dados](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Segurança e conformidade** | **Gerenciamento**|
-|Ambiente isolado ([Integração de VNet](connectivity-architecture-overview.md), serviço de locatário único, computação e armazenamento dedicados) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD (Azure Active Directory)](../database/authentication-aad-overview.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de segurança do servidor do Azure AD (logons)</a>  <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>[Auditoria do SQL](auditing-configure.md) <br>[Proteção Avançada contra Ameaças](threat-detection-configure.md) |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados
+|Ambiente isolado ([Integração de VNet](connectivity-architecture-overview.md), serviço de locatário único, computação e armazenamento dedicados) <br>[Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD (Azure Active Directory)](../database/authentication-aad-overview.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de segurança do servidor do Azure AD (logons)</a>  <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>[Auditoria do SQL](auditing-configure.md) <br>[Proteção Avançada contra Ameaças](threat-detection-configure.md) |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados
 
 > [!IMPORTANT]
-> A Instância Gerenciada de SQL do Azure foi certificada em relação a vários padrões de conformidade. Para saber mais, confira as [Ofertas de Conformidade do Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), em que é possível encontrar a lista mais atual de certificações de conformidade da Instância Gerenciada de SQL, listadas em **Banco de Dados SQL**.
+> A Instância Gerenciada de SQL do Azure foi certificada em relação a vários padrões de conformidade. Para saber mais, confira as [Ofertas de Conformidade do Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), em que é possível encontrar a lista mais atual de certificações de conformidade da Instância Gerenciada de SQL, listadas em **Banco de Dados SQL** .
 
 Os principais recursos da Instância Gerenciada de SQL são mostrados na seguinte tabela:
 
@@ -65,9 +65,9 @@ Os principais recursos da Instância Gerenciada de SQL são mostrados na seguint
 | VNet - Implantação do Azure Resource Manager | Sim |
 | VNet - Modelo de implantação clássico | Não |
 | Suporte do Portal | Sim|
-| Serviço de Integração Integrado (SSIS) | Não - o SSIS faz parte da [PaaS do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
-| Serviço de análise interna (SSAS) | Não - SSAS é separado [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
-| Serviço interno de relatório (SSRS) | Não. Use [Relatórios paginados do Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou hospede o SSRS em uma VM do Azure. Embora a Instância Gerenciada de SQL não possa executar o SSRS como serviço, ela pode hospedar [bancos de dados de catálogo SSRS](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para um servidor de relatórios instalado na Máquina Virtual do Azure, usando a autenticação do SQL Server. |
+| Serviço de Integração Integrado (SSIS) | Não - o SSIS faz parte da [PaaS do Azure Data Factory](../../data-factory/tutorial-deploy-ssis-packages-azure.md) |
+| Serviço de análise interna (SSAS) | Não - SSAS é separado [PaaS](../../analysis-services/analysis-services-overview.md) |
+| Serviço interno de relatório (SSRS) | Não. Use [Relatórios paginados do Power BI](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou hospede o SSRS em uma VM do Azure. Embora a Instância Gerenciada de SQL não possa executar o SSRS como serviço, ela pode hospedar [bancos de dados de catálogo SSRS](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para um servidor de relatórios instalado na Máquina Virtual do Azure, usando a autenticação do SQL Server. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
@@ -85,8 +85,8 @@ Encontre mais informações sobre a diferença entre gerações de hardware em [
 
 A Instância Gerenciada de SQL está disponível em duas camadas de serviço:
 
-- **Uso geral**: projetada para aplicativos com desempenho típico e requisitos de latência de E/S.
-- **Comercialmente crítico**: projetada para aplicativos com baixos requisitos de latência de E/S e impacto mínimo das operações de manutenção subjacentes na carga de trabalho.
+- **Uso geral** : projetada para aplicativos com desempenho típico e requisitos de latência de E/S.
+- **Comercialmente crítico** : projetada para aplicativos com baixos requisitos de latência de E/S e impacto mínimo das operações de manutenção subjacentes na carga de trabalho.
 
 Ambas as camadas de serviço garantem 99,99% de disponibilidade e permitem que você selecione de maneira independente o tamanho do armazenamento e a capacidade de computação. Para obter mais informações sobre a arquitetura de alta disponibilidade da Instância Gerenciada de SQL do Azure, confira [Alta disponibilidade e Instância Gerenciada de SQL do Azure](../database/high-availability-sla.md).
 
@@ -98,7 +98,7 @@ A seguinte lista descreve a principal característica da camada de serviço de U
 - Armazenamento de Blobs do Azure de alto desempenho (8 TB)
 - [Alta disponibilidade](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) interna baseada no Armazenamento de Blobs do Azure confiável e no [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 
-Para obter mais informações, confira [Camada de armazenamento na Camada de Uso Geral](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) e [Melhores práticas e considerações de desempenho de armazenamento para a Instância Gerenciada de SQL (Uso Geral)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Para obter mais informações, confira [Camada de armazenamento na Camada de Uso Geral](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) e [Melhores práticas e considerações de desempenho de armazenamento para a Instância Gerenciada de SQL (Uso Geral)](/archive/blogs/sqlcat/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose).
 
 Encontre mais informações sobre a diferença entre camadas de serviço em [limites de recursos da Instância Gerenciada de SQL](resource-limits.md#service-tier-characteristics).
 
@@ -110,7 +110,7 @@ A lista a seguir apresenta as características principais da camada de serviço 
 
 - Projetada para aplicativos de negócios com requisitos de alta disponibilidade e desempenho mais alto
 - Vem com armazenamento SSD local super rápido (até 1 TB no Gen 4 e até 4 TB no Gen 5)
-- [Alta disponibilidade](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) interna com base nos [Grupos de Disponibilidade Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e no [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- [Alta disponibilidade](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) interna com base nos [Grupos de Disponibilidade Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e no [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 - [Réplica de banco de dados somente leitura](../database/read-scale-out.md) adicional integrada que pode ser usada para relatórios e outras cargas de trabalho somente leitura
 - [OLTP In-Memory](../in-memory-oltp-overview.md) que pode ser usado para carga de trabalho com requisitos de alto desempenho  
 
@@ -156,9 +156,9 @@ Há suporte para a migração de um banco de dados criptografado para a Instânc
 
 ## <a name="azure-active-directory-integration"></a>Integração do Microsoft Azure Active Directory
 
-A Instância Gerenciada de SQL dá suporte a logons do mecanismo de banco de dados do SQL Server e logons integrados ao Azure AD. As entidades de servidor do Azure AD (logons) (**versão prévia pública**) são uma versão de nuvem do Azure de logons de banco de dados locais que você está usando no ambiente local. As entidades de servidor do Azure AD (logons) permitem que você especifique usuários e grupos de seu locatário do Azure AD como verdadeiras entidades de segurança com escopo de instância, capazes de executar qualquer operação no nível da instância, incluindo consultas entre bancos de dados dentro da mesma instância gerenciada.
+A Instância Gerenciada de SQL dá suporte a logons do mecanismo de banco de dados do SQL Server e logons integrados ao Azure AD. As entidades de servidor do Azure AD (logons) ( **versão prévia pública** ) são uma versão de nuvem do Azure de logons de banco de dados locais que você está usando no ambiente local. As entidades de servidor do Azure AD (logons) permitem que você especifique usuários e grupos de seu locatário do Azure AD como verdadeiras entidades de segurança com escopo de instância, capazes de executar qualquer operação no nível da instância, incluindo consultas entre bancos de dados dentro da mesma instância gerenciada.
 
-Uma nova sintaxe é introduzida para criar entidades de servidor do Azure AD (logons) **DE UM PROVEDOR EXTERNO**. Para obter mais informações sobre a sintaxe, confira <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> e examine o artigo [Provisionar um administrador do Azure Active Directory para a Instância Gerenciada de SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+Uma nova sintaxe é introduzida para criar entidades de servidor do Azure AD (logons) **DE UM PROVEDOR EXTERNO** . Para obter mais informações sobre a sintaxe, confira <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> e examine o artigo [Provisionar um administrador do Azure Active Directory para a Instância Gerenciada de SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e autenticação multifator
 
@@ -168,12 +168,12 @@ A Instância Gerenciada de SQL permite gerenciar centralmente as identidades de 
 
 A autenticação de Instância Gerenciada de SQL refere-se a como os usuários comprovam a identidade deles ao conectarem-se ao banco de dados. A Instância Gerenciada de SQL dá suporte a dois tipos de autenticação:  
 
-- **Autenticação do SQL**:
+- **Autenticação do SQL** :
 
   Este método de autenticação usa um nome de usuário e senha.
-- **Autenticação do Active Directory do Azure**:
+- **Autenticação do Active Directory do Azure** :
 
-  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory e tem suporte para domínios gerenciados e integrados. Use autenticação do Active Directory (segurança integrada) [sempre que possível](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
+  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory e tem suporte para domínios gerenciados e integrados. Use autenticação do Active Directory (segurança integrada) [sempre que possível](/sql/relational-databases/security/choose-an-authentication-mode).
 
 ### <a name="authorization"></a>Autorização
 
@@ -185,7 +185,7 @@ A Instância Gerenciada de SQL direciona cenários de usuários com migração d
 
 ### <a name="backup-and-restore"></a>Backup e restauração  
 
-A abordagem de migração aproveita backups do SQL para o Armazenamento de Blobs do Azure. Os backups armazenados em um blob de armazenamento do Azure podem ser restaurados diretamente na instância gerenciada usando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
+A abordagem de migração aproveita backups do SQL para o Armazenamento de Blobs do Azure. Os backups armazenados em um blob de armazenamento do Azure podem ser restaurados diretamente na instância gerenciada usando o [comando T-SQL RESTORE](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current).
 
 - Para obter um início rápido mostrando como restaurar a Wide World Importers – Arquivo de backup do banco de dados padrão, consulte [Restaurar um arquivo de backup para uma instância gerenciada](restore-sample-database-quickstart.md). Este guia de início rápido mostra que você precisa carregar um arquivo de backup para o Armazenamento de blobs do Azure e o proteger usando uma chave de SAS (assinatura de acesso compartilhado).
 - Para obter informações sobre restauração de URL, consulte [Restauração nativa de URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
@@ -195,7 +195,7 @@ A abordagem de migração aproveita backups do SQL para o Armazenamento de Blobs
 
 ### <a name="database-migration-service"></a>Serviço de Migração de Banco de Dados
 
-O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações perfeitas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados do SQL Server e de terceiros existentes para o Banco de Dados SQL do Azure, a Instância Gerenciada de SQL do Azure e o SQL Server na VM do Azure. Confira [Como migrar o banco de dados local para a Instância Gerenciada de SQL usando o Serviço de Migração de Banco de Dados](https://aka.ms/migratetoMIusingDMS).
+O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações perfeitas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados do SQL Server e de terceiros existentes para o Banco de Dados SQL do Azure, a Instância Gerenciada de SQL do Azure e o SQL Server na VM do Azure. Confira [Como migrar o banco de dados local para a Instância Gerenciada de SQL usando o Serviço de Migração de Banco de Dados](../../dms/tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="sql-features-supported"></a>Recursos do SQL com suporte
 
@@ -213,12 +213,12 @@ A Instância Gerenciada de SQL se beneficia de estar sempre atualizada na nuvem,
 
 Algumas das principais diferenças:
 
-- Alta disponibilidade é criada e pré-configurada usando uma tecnologia semelhante a [grupos de disponibilidade Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
+- Alta disponibilidade é criada e pré-configurada usando uma tecnologia semelhante a [grupos de disponibilidade Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Há apenas backups automatizados e restauração pontual. Os clientes podem iniciar backups `copy-only` que não interferem na cadeia de backup automático.
 - Não há suporte para especificar caminhos físicos completos, de modo que todos os cenários correspondentes precisam ter suporte de maneira diferente: RESTORE DB não dá suporte a WITH MOVE, CREATE DB não permite caminhos físicos, BULK INSERT funciona somente com blobs do Azure etc.
 - A Instância Gerenciada de SQL dá suporte à [autenticação do Azure AD](../database/authentication-aad-overview.md) como uma alternativa de nuvem à autenticação do Windows.
 - A Instância Gerenciada de SQL gerencia automaticamente o grupo de arquivos XTP e os arquivos para bancos de dados que contêm objetos OLTP in-memory.
-- A Instância Gerenciada de SQL dá suporte ao SSIS (SQL Server Integration Services) e pode hospedar o catálogo do SSIS (SSISDB) que armazena pacotes SSIS, mas eles são executados em um Azure-SSIS IR (Integration Runtime) gerenciado no Azure Data Factory. Confira [Criar Azure-SSIS IR em um Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar os recursos do SSIS, confira [Comparar o Banco de Dados SQL com a Instância Gerenciada de SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
+- A Instância Gerenciada de SQL dá suporte ao SSIS (SQL Server Integration Services) e pode hospedar o catálogo do SSIS (SSISDB) que armazena pacotes SSIS, mas eles são executados em um Azure-SSIS IR (Integration Runtime) gerenciado no Azure Data Factory. Confira [Criar Azure-SSIS IR em um Data Factory](../../data-factory/create-azure-ssis-integration-runtime.md). Para comparar os recursos do SSIS, confira [Comparar o Banco de Dados SQL com a Instância Gerenciada de SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
 
 ### <a name="administration-features"></a>Recursos de administração
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503327"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791419"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -44,9 +44,9 @@ A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados
 Um grupo de sincronização tem as seguintes propriedades:
 
 - O **Esquema de Sincronização** descreve quais dados estão sendo sincronizados.
-- A **Direção da Sincronização** pode ser bidirecional ou pode fluir em uma única direção. Ou seja, a direção de sincronização pode ser *Hub para membro*ou *membro para Hub*, ou ambos.
+- A **Direção da Sincronização** pode ser bidirecional ou pode fluir em uma única direção. Ou seja, a direção de sincronização pode ser *Hub para membro* ou *membro para Hub* , ou ambos.
 - O **Intervalo de Sincronização** descreve a frequência com a qual ocorre a sincronização.
-- A **Política de Resolução de Conflito** é uma política em nível de grupo, que pode ser *Hub ganha* ou *Membro ganha*.
+- A **Política de Resolução de Conflito** é uma política em nível de grupo, que pode ser *Hub ganha* ou *Membro ganha* .
 
 ## <a name="when-to-use"></a>Quando usar
 
@@ -62,7 +62,7 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 |----------|----------------------------|
 | Recuperação de desastre | [Backups com redundância geográfica do Azure](automated-backups-overview.md) |
 | Escala de Leitura | [Usar réplicas somente leitura para balancear a carga de cargas de trabalho de consulta somente leitura (visualização)](read-scale-out.md) |
-| ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL (OLTP para OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migração de SQL Server para o banco de dados SQL do Azure | [Serviço de Migração de Banco de Dados do Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -72,9 +72,9 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 
 - **Controle de alterações de dados:** A Sincronização de Dados controla alterações usando os gatilhos inserir, atualizar e excluir. As alterações são registradas em uma tabela secundária do banco de dados do usuário. Observe que BULK INSERT não dispara gatilhos por padrão. Se FIRE_TRIGGERS não for especificado, nenhum gatilho de inserção será executado. Adicionar a opção de FIRE_TRIGGERS para a Sincronização de dados rastrear essas inserções. 
 - **Sincronizando dados:** A sincronização de dados é projetada em um modelo de Hub e spoke. O Hub é sincronizado com cada membro individualmente. As alterações do hub são baixadas para o membro e, em seguida, as alterações do membro são carregadas no Hub.
-- **Resolução de conflitos:** A Sincronização de Dados fornece duas opções para a resolução de conflito, *Hub ganha* ou *Membro ganha*.
-  - Se você selecionar *Hub ganha*, as alterações no hub sempre substituem as alterações no membro.
-  - Se você selecionar *Membro ganha*, as alterações no membro sempre substituem as alterações no hub. Se houver mais de um membro, o valor final depende de qual membro será sincronizado pela primeira vez.
+- **Resolução de conflitos:** A Sincronização de Dados fornece duas opções para a resolução de conflito, *Hub ganha* ou *Membro ganha* .
+  - Se você selecionar *Hub ganha* , as alterações no hub sempre substituem as alterações no membro.
+  - Se você selecionar *Membro ganha* , as alterações no membro sempre substituem as alterações no hub. Se houver mais de um membro, o valor final depende de qual membro será sincronizado pela primeira vez.
 
 ## <a name="compare-with-transactional-replication"></a>Comparar com a replicação transacional
 
@@ -101,7 +101,7 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 
 ### <a name="did-something-go-wrong"></a>Algo deu errado?
 
-- [Solucionar problemas com a Sincronização de Dados SQL do Azure](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Solucionar problemas com a Sincronização de Dados SQL do Azure](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>Consistência e desempenho
 
@@ -126,7 +126,7 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 > - Os dados entre o Hub e o membro podem ser perdidos, embora a sincronização não relate nenhum problema.
 > - A sincronização pode falhar porque a tabela de rastreamento tem uma linha não existente da origem devido à alteração da chave primária.
 
-- O isolamento de instantâneo deve ser habilitado tanto para membros de sincronização quanto para o Hub. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- O isolamento de instantâneo deve ser habilitado tanto para membros de sincronização quanto para o Hub. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitações gerais
 
@@ -175,8 +175,8 @@ A Sincronização de Dados não pode sincronizar colunas somente leitura ou gera
 
 Quando o grupo de sincronização é estabelecido, o serviço de sincronização de dados precisa se conectar ao banco de dado Hub. No momento em que você estabelece o grupo de sincronização, o SQL Server do Azure deve ter a seguinte configuração em suas `Firewalls and virtual networks` configurações:
 
- * *Negar acesso à rede pública* deve ser definido como *desativado*.
- * *Permitir que os serviços e recursos do Azure acessem este servidor* deve ser definido como *Sim*ou você deve criar regras de IP para os [endereços IP usados pelo serviço de sincronização de dados](network-access-controls-overview.md#data-sync).
+ * *Negar acesso à rede pública* deve ser definido como *desativado* .
+ * *Permitir que os serviços e recursos do Azure acessem este servidor* deve ser definido como *Sim* ou você deve criar regras de IP para os [endereços IP usados pelo serviço de sincronização de dados](network-access-controls-overview.md#data-sync).
 
 Depois que o grupo de sincronização for criado e provisionado, você poderá desabilitar essas configurações. O agente de sincronização se conectará diretamente ao banco de dados de Hub e você poderá usar as [regras de IP de firewall](firewall-configure.md) do servidor ou os pontos de [extremidade privados](private-endpoint-overview.md) para permitir que o agente acesse o servidor de Hub.
 
@@ -240,7 +240,7 @@ O Banco de Dados de Raiz da Federação pode ser usado no Serviço da Sincroniza
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Posso usar a sincronização de dados para sincronizar dados exportados do Dynamics 365 usando o recurso traga seu próprio banco de dados (BYOD)?
 
-O recurso traga seu próprio banco de dados do Dynamics 365 permite que os administradores exportem entidades do aplicativo para suas próprias Microsoft Azure banco de dado SQL. A sincronização de dados pode ser usada para sincronizar esses dados em outros bancos de dado se os dados forem exportados usando o **Push incremental** (não há suporte para Push completo) e **habilitar gatilhos no banco de dados de destino** estiver definido como **Sim**.
+O recurso traga seu próprio banco de dados do Dynamics 365 permite que os administradores exportem entidades do aplicativo para suas próprias Microsoft Azure banco de dado SQL. A sincronização de dados pode ser usada para sincronizar esses dados em outros bancos de dado se os dados forem exportados usando o **Push incremental** (não há suporte para Push completo) e **habilitar gatilhos no banco de dados de destino** estiver definido como **Sim** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -248,20 +248,19 @@ O recurso traga seu próprio banco de dados do Dynamics 365 permite que os admin
 
 Você precisa atualizar o esquema de um banco de dados em um grupo de sincronização? As alterações de esquema não são replicadas automaticamente. Para algumas soluções, consulte os seguintes artigos:
 
-- [Automatizar a replicação de alterações de esquema com o Sincronização de Dados SQL no Azure](../../sql-database/sql-database-update-sync-schema.md)
+- [Automatizar a replicação de alterações de esquema com o Sincronização de Dados SQL no Azure](./sql-data-sync-update-sync-schema.md)
 - [Usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Monitorar e solucionar problemas
 
 O Sincronização de Dados SQL está sendo feito conforme o esperado? Para monitorar a atividade e solucionar problemas, consulte os seguintes artigos:
 
-- [Monitorar a Sincronização de Dados SQL com logs do Azure Monitor](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Solucionar problemas com a Sincronização de Dados SQL do Azure](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Monitorar a Sincronização de Dados SQL com logs do Azure Monitor](./monitor-tune-overview.md)
+- [Solucionar problemas com a Sincronização de Dados SQL do Azure](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Saiba mais sobre o Banco de Dados SQL do Azure
 
 Para obter mais informações sobre o banco de dados SQL do Azure, consulte os seguintes artigos:
 
 - [Visão geral do Banco de Dados SQL](sql-database-paas-overview.md)
-- [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [Gerenciamento de ciclo de vida do banco de dados](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

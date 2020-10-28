@@ -12,14 +12,14 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618107"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790756"
 ---
-# <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos do Azure SQL Instância Gerenciada
+# <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo fornece uma visão geral das características técnicas e dos limites de recursos para o Azure SQL Instância Gerenciada e fornece informações sobre como solicitar um aumento para esses limites.
@@ -82,7 +82,7 @@ O SQL Instância Gerenciada tem duas camadas de serviço: [uso geral](../databas
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
 | OLTP na memória | Sem suporte | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
-| Máximo de trabalhos simultâneos (solicitações) | Gen4:210 * número de vCores + 800<br>Gen5:105 * número de vCores + 800 | Gen4:210 * contagem de vCore + 800<br>Gen5:105 * contagem de vCore + 800 |
+| Máximo de trabalhos simultâneos (solicitações) | Gen4: 210 x número de vCores + 800<br>Gen5: 105 x número de vCores + 800 | Gen4: 210 x contagem de vCore + 800<br>Gen5: 105 * contagem de vCore + 800 |
 | [Réplicas somente leitura](../database/read-scale-out.md) | 0 | 1 (incluído no preço) |
 | Isolamento de computação | Gen5:<br/>-com suporte para 80 vCores<br/>-sem suporte para outros tamanhos<br/><br/>Não há suporte para Gen4 devido à reprovação|Gen5:<br/>-com suporte para 60, 64, 80 vCores<br/>-sem suporte para outros tamanhos<br/><br/>Não há suporte para Gen4 devido à reprovação|
 
@@ -120,7 +120,7 @@ O SQL Instância Gerenciada atualmente dá suporte à implantação somente nos 
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Provedor de Serviços de Nuvem (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Provedor de Serviços de Nuvem (CSP)](/partner-center/csp-documents-and-learning-resources)
 - [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Assinaturas com crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
@@ -132,8 +132,8 @@ O SQL Instância Gerenciada atualmente dá suporte à implantação somente nos 
 
 Os tipos de assinatura suportados podem conter um número limitado de recursos por região. O SQL Instância Gerenciada tem dois limites padrão por região do Azure (que podem ser aumentados sob demanda por meio da criação de uma [solicitação de suporte especial na portal do Azure](../database/quota-increase-request.md) , dependendo de um tipo de assinatura:
 
-- **Limite de sub-rede**: o número máximo de sub-redes em que as instâncias do SQL instância gerenciada são implantadas em uma única região.
-- **limite de unidade VCORE**: o número máximo de unidades VCORE que podem ser implantadas em todas as instâncias em uma única região. Um vCore da GP usa uma unidade vCore e um vCore de BC usa 4 unidades vCore. O número total de instâncias não é limitado, desde que esteja dentro do limite da unidade vCore.
+- **Limite de sub-rede** : o número máximo de sub-redes em que as instâncias do SQL instância gerenciada são implantadas em uma única região.
+- **limite de unidade VCORE** : o número máximo de unidades VCORE que podem ser implantadas em todas as instâncias em uma única região. Um vCore da GP usa uma unidade vCore e um vCore de BC usa 4 unidades vCore. O número total de instâncias não é limitado, desde que esteja dentro do limite da unidade vCore.
 
 > [!Note]
 > Esses limites são configurações padrão e não limitações técnicas. Os limites podem ser aumentados sob demanda criando uma solicitação especial [de suporte no portal do Azure](../database/quota-increase-request.md) se você precisar de mais instâncias na região atual. Como alternativa, você pode criar novas instâncias do SQL Instância Gerenciada em outra região do Azure sem enviar solicitações de suporte.
@@ -150,7 +150,7 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e Plataformas MSDN|2|32|
 
-\* No planejamento de implantações, leve em consideração que a camada de serviço de Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore do que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que o SQL Instância Gerenciada está implantado e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
+\* No planejamento de implantações, leve em consideração que a camada de serviço de Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore do que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que o SQL Instância Gerenciada está implantado e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore** .
 
 \*\* Os limites de maior sub-rede e vCore estão disponíveis nas seguintes regiões: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 

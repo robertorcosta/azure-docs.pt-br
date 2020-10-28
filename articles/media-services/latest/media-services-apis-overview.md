@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b01208c67610ff220df1654d10211472e0eed61f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426847"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790569"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Desenvolver com as APIs dos Serviços de Mídia v3
 
@@ -32,10 +32,10 @@ Este artigo discute as regras que se aplicam a entidades e APIs ao desenvolver c
 
 Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. Os Serviços de Mídia dão suporte à [autenticação baseada no Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md). Duas opções de autenticação comuns são:
  
-* **Autenticação de entidade de serviço**: Usado para autenticar um serviço (por exemplo: aplicativos Web, aplicativos de funções, aplicativos lógicos, API e microservices). Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para aplicativos Web, sempre deve haver uma camada intermediária que se conecte aos serviços de mídia com uma entidade de serviço.
-* **Autenticação de usuário**: Usada para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos dos Serviços de Mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo.
+* **Autenticação de entidade de serviço** : Usado para autenticar um serviço (por exemplo: aplicativos Web, aplicativos de funções, aplicativos lógicos, API e microservices). Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para aplicativos Web, sempre deve haver uma camada intermediária que se conecte aos serviços de mídia com uma entidade de serviço.
+* **Autenticação de usuário** : Usada para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos dos Serviços de Mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo.
 
-A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **Colaborador** ou de **Proprietário**. A API pode ser acessada com a função de **Leitor**, mas somente as operações **Get** ou **List** estarão disponíveis. Para obter mais informações, consulte [controle de acesso baseado em função do Azure (RBAC do Azure) para contas de serviços de mídia](rbac-overview.md).
+A API dos serviços de mídia requer que o usuário ou aplicativo que faz as solicitações da API REST tenha acesso ao recurso de conta dos serviços de mídia e use uma função de **Colaborador** ou de **Proprietário** . A API pode ser acessada com a função de **Leitor** , mas somente as operações **Get** ou **List** estarão disponíveis. Para obter mais informações, consulte [controle de acesso baseado em função do Azure (RBAC do Azure) para contas de serviços de mídia](rbac-overview.md).
 
 Em vez de criar uma entidade de serviço, considere o uso de identidades gerenciadas dos recursos do Azure para acessar a API dos serviços de mídia por meio de Azure Resource Manager. Para saber mais sobre as identidades gerenciadas para os recursos do Azure, confira o artigo [O que são as identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -109,11 +109,11 @@ Os serviços de mídia têm as seguintes operações de execução longa:
 * [Parar StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
 * [Escalar StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
-Após o envio bem-sucedido de uma operação longa, você receberá um '202 aceito' e deverá sondar a conclusão da operação usando a ID da operação retornada.
+Após o envio bem-sucedido de uma operação longa, você receberá um ' 201 criado ' e deverá sondar a conclusão da operação usando a ID da operação retornada.
 
 O artigo [Acompanhar as operações assíncronas do Azure](../../azure-resource-manager/management/async-operations.md) explica detalhadamente como acompanhar o status das operações assíncronas do Azure por meio dos valores retornados na resposta.
 
-Somente uma operação de execução longa tem suporte para um determinado evento ao vivo ou qualquer uma de suas saídas dinâmicas associadas. Depois de iniciada, uma operação de execução prolongada deve ser concluída antes de iniciar uma operação de execução prolongada subsequente no mesmo LiveEvent ou em qualquer saída ao vivo associada. Para eventos ao vivo com várias saídas ao vivo, você deve aguardar a conclusão de uma operação de execução prolongada em uma saída dinâmica antes de disparar uma operação de execução prolongada em outra saída ao vivo. 
+Somente uma operação de execução longa tem suporte para um determinado evento ao vivo ou qualquer uma de suas saídas dinâmicas associadas. Depois de iniciada, uma operação de execução prolongada deve ser concluída antes de iniciar uma operação de execução prolongada subsequente no mesmo LiveEvent ou em qualquer saída ao vivo associada. Para eventos ao vivo com várias saídas ao vivo, você deve aguardar a conclusão de uma operação de execução prolongada em uma saída dinâmica antes de disparar uma operação de execução prolongada em outra saída ao vivo.
 
 ## <a name="sdks"></a>SDKs
 

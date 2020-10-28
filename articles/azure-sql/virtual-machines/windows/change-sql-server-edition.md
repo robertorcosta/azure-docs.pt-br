@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 997e867798922975757a588ef50248f0d09a96e0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293349"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789838"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Alteração no local da edição do SQL Server na VM do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Depois que a edição do SQL Server tiver sido alterada internamente para a VM d
 Para fazer uma alteração no local da edição do SQL Server, você precisará do seguinte: 
 
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/).
-- Uma [VM do SQL Server no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada no [provedor de recursos de VM do SQL](sql-vm-resource-provider-register.md).
+- Uma [VM do SQL Server no Windows](./create-sql-vm-portal.md) registrada no [provedor de recursos de VM do SQL](sql-vm-resource-provider-register.md).
 - A mídia de instalação com a **edição desejada** do SQL Server. Os clientes que têm [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter a mídia de instalação deles do [Centro de Licenciamento por Volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm o Software Assurance podem usar a mídia de instalação de uma imagem da VM do SQL Server do Azure Marketplace que tenha a edição desejada por eles (normalmente localizada em `C:\SQLServerFull`). 
 
 
@@ -46,11 +46,11 @@ Para fazer uma alteração no local da edição do SQL Server, você precisará 
 Para atualizar a edição do SQL Server, obtenha a mídia de instalação do SQL Server para a edição desejada do SQL Server e, depois, faça o seguinte:
 
 1. Abra o Setup.exe da mídia de instalação do SQL Server. 
-1. Vá para **Manutenção** e escolha a opção **Atualização de Edição**. 
+1. Vá para **Manutenção** e escolha a opção **Atualização de Edição** . 
 
    ![Seleção para atualizar a edição do SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
-1. Selecione **Avançar** até acessar a página **Pronto para atualizar a edição** e, em seguida, selecione **Atualizar**. A janela de instalação poderá parar de responder por alguns minutos enquanto a alteração estiver sendo efetivada. Uma página com a mensagem **Concluído** confirmará que a atualização de edição foi concluída. 
+1. Selecione **Avançar** até acessar a página **Pronto para atualizar a edição** e, em seguida, selecione **Atualizar** . A janela de instalação poderá parar de responder por alguns minutos enquanto a alteração estiver sendo efetivada. Uma página com a mensagem **Concluído** confirmará que a atualização de edição foi concluída. 
 
 Depois que a edição do SQL Server for atualizada, modifique a propriedade de edição da máquina virtual SQL Server no portal do Azure. Isso atualizará os metadados e a cobrança associados a essa VM.
 
@@ -79,7 +79,7 @@ Depois que você tiver alterado a edição do SQL Server usando a mídia de inst
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Vá para seu recurso de máquina virtual do SQL Server. 
-1. Em **Configurações**, escolha **Configurar**. Em seguida, selecione a edição desejada do SQL Server na lista suspensa em **Edição**. 
+1. Em **Configurações** , escolha **Configurar** . Em seguida, selecione a edição desejada do SQL Server na lista suspensa em **Edição** . 
 
    ![Alterar metadados de edição](./media/change-sql-server-edition/edition-change-in-portal.png)
 
@@ -102,5 +102,3 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Perguntas frequentes sobre o SQL Server em uma VM do Windows](frequently-asked-questions-faq.md)
 * [Diretrizes de preço para o SQL Server em uma VM do Windows](pricing-guidance.md)
 * [Notas sobre a versão do SQL Server em uma VM do Windows](doc-changes-updates-release-notes.md)
-
-

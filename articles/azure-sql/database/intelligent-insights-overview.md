@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6133d838fa31919a37ddd633193e5559c50de9b6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317048"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790433"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights usando o ia para monitorar e solucionar problemas de desempenho do banco de dados (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -85,7 +85,7 @@ Intelligent Insights opções disponíveis são:
 
 A saída do Intelligent Insights pode ser transmitida para um dos vários destinos para análise:
 
-- A saída transmitida para um espaço de trabalho Log Analytics pode ser usada com [análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) para exibir informações por meio da interface do usuário do portal do Azure. Esta é a solução do Azure integrada e a maneira mais comum de exibir os insights.
+- A saída transmitida para um espaço de trabalho Log Analytics pode ser usada com [análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md) para exibir informações por meio da interface do usuário do portal do Azure. Esta é a solução do Azure integrada e a maneira mais comum de exibir os insights.
 - A saída transmitida para os hubs de eventos do Azure pode ser usada para o desenvolvimento de cenários de monitoramento e alerta personalizados
 - A saída transmitida para o armazenamento do Azure pode ser usada para desenvolvimento de aplicativos personalizados, como, por exemplo, relatórios personalizados, arquivamento de dados de longo prazo e assim por diante.
 
@@ -107,7 +107,7 @@ O exemplo a seguir mostra um Intelligent Insights exibido por meio da Análise d
 
 ### <a name="set-up-with-event-hubs"></a>Configuração com os Hubs de Eventos
 
-Para usar Intelligent Insights com os hubs de eventos, configure Intelligent Insights dados de log a serem transmitidos para os hubs de eventos, consulte [log de métricas e diagnósticos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [transmita logs de diagnóstico do Azure para os hubs de eventos](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Para usar Intelligent Insights com os hubs de eventos, configure Intelligent Insights dados de log a serem transmitidos para os hubs de eventos, consulte [log de métricas e diagnósticos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [transmita logs de diagnóstico do Azure para os hubs de eventos](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 Para usar os hubs de eventos para configurar o monitoramento e alertas personalizados, consulte [o que fazer com métricas e logs de diagnóstico em hubs de eventos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 

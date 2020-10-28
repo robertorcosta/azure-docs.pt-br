@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441123"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790875"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Para o banco de dados SQL do Azure e o Azure Synapse Analytics, o protetor de TD
 > Para aqueles que usam TDE gerenciados por serviços que gostariam de começar a usar o TDE gerenciado pelo cliente, os dados permanecem criptografados durante o processo de troca e não há nenhum tempo de inatividade nem nova criptografia dos arquivos de banco de dados. Alternar de uma chave gerenciada por serviço para uma chave gerenciada pelo cliente requer apenas uma nova criptografia do DEK, que é uma operação rápida e online.
 
 > [!NOTE]
-> Para fornecer aos clientes do Azure SQL com duas camadas de criptografia de dados em repouso, a criptografia de infraestrutura (usando o algoritmo de criptografia AES-256) com chaves gerenciadas pela plataforma está sendo distribuída. Isso fornece uma camada de adição de criptografia em repouso junto com TDE com chaves gerenciadas pelo cliente, que já está disponível. Para o banco de dados SQL do Azure e o Instância Gerenciada, todos os bancos de dados, incluindo o banco de dados mestre e outros bancos de dados do sistema, serão criptografados quando a criptografia de infraestrutura estiver ativada. Neste momento, os clientes devem solicitar acesso a esse recurso. Se você estiver interessado nesse recurso, entre em contato com AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> <a id="doubleencryption"></a> Para fornecer aos clientes do Azure SQL com duas camadas de criptografia de dados em repouso, a criptografia de infraestrutura (usando o algoritmo de criptografia AES-256) com chaves gerenciadas pela plataforma está sendo distribuída. Isso fornece uma camada de adição de criptografia em repouso junto com TDE com chaves gerenciadas pelo cliente, que já está disponível. Para o banco de dados SQL do Azure e o Instância Gerenciada, todos os bancos de dados, incluindo o banco de dados mestre e outros bancos de dados do sistema, serão criptografados quando a criptografia de infraestrutura estiver ativada. Neste momento, os clientes devem solicitar acesso a esse recurso. Se você estiver interessado nesse recurso, entre em contato com AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Benefícios do TDE gerenciado pelo cliente
 
@@ -82,7 +82,7 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 - Conceda ao servidor ou à instância gerenciada acesso ao cofre de chaves (Get, wrapKey, unwrapKey) usando sua identidade de Azure Active Directory. Ao usar o portal do Azure, a identidade do Azure AD é criada automaticamente. Ao usar o PowerShell ou a CLI, a identidade do Azure AD deve ser explicitamente criada e a conclusão deve ser verificada. Consulte [Configurar TDE com BYOK](transparent-data-encryption-byok-configure.md) e [Configurar o TDE com BYOK para SQL instância gerenciada](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obter instruções passo a passo detalhadas ao usar o PowerShell.
 
-- Ao usar o firewall com AKV, você deve habilitar *a opção permitir que serviços confiáveis da Microsoft ignorem o firewall*.
+- Ao usar o firewall com AKV, você deve habilitar *a opção permitir que serviços confiáveis da Microsoft ignorem o firewall* .
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisitos para configurar o protetor de TDE
 
@@ -90,12 +90,12 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 - A data de ativação da chave (se definida) precisa ser uma data e uma hora no passado. A data de validade (se definido) deve ser uma data e hora futura.
 
-- A chave precisa estar no estado *Habilitado*.
+- A chave precisa estar no estado *Habilitado* .
 
 - Se você estiver importando a chave existente para o cofre de chaves, certifique-se de fornecê-la nos formatos de arquivo com suporte (. pfx,. byok ou. Backup).
 
 > [!NOTE]
-> O SQL do Azure agora dá suporte ao uso de uma chave RSA armazenada em um HSM gerenciado como um protetor de TDE. Este recurso está em **Visualização pública**. Azure Key Vault HSM gerenciado é um serviço de nuvem compatível com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem, usando HSMs validados pelo FIPS 140-2 nível 3. Saiba mais sobre [HSMs gerenciados](https://aka.ms/mhsm).
+> O SQL do Azure agora dá suporte ao uso de uma chave RSA armazenada em um HSM gerenciado como um protetor de TDE. Este recurso está em **Visualização pública** . Azure Key Vault HSM gerenciado é um serviço de nuvem compatível com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem, usando HSMs validados pelo FIPS 140-2 nível 3. Saiba mais sobre [HSMs gerenciados](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Recomendações ao configurar o TDE gerenciado pelo cliente
@@ -106,7 +106,7 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 - Defina um bloqueio de recurso no cofre de chaves para controlar quem pode excluir esse recurso crítico e impedir a exclusão acidental ou não autorizada. Saiba mais sobre [bloqueios de recursos](../../azure-resource-manager/management/lock-resources.md).
 
-- Habilitar auditoria e relatórios em todas as chaves de criptografia: o Key Vault fornece logs que são fáceis de injetar em outras informações de segurança e ferramentas de gerenciamento de eventos. O Operations Management Suite [log Analytics](../../azure-monitor/insights/azure-key-vault.md) é um exemplo de um serviço que já está integrado.
+- Habilitar auditoria e relatórios em todas as chaves de criptografia: o Key Vault fornece logs que são fáceis de injetar em outras informações de segurança e ferramentas de gerenciamento de eventos. O Operations Management Suite [log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) é um exemplo de um serviço que já está integrado.
 
 - Vincule cada servidor com dois cofres de chaves que residem em regiões diferentes e mantenha o mesmo material de chave, para garantir a alta disponibilidade de bancos de dados criptografados. Marque somente a chave do cofre de chaves na mesma região que um protetor de TDE. O sistema alternará automaticamente para o cofre de chaves na região remota se houver uma interrupção afetando o cofre de chaves na mesma região.
 
@@ -126,7 +126,7 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 ## <a name="inaccessible-tde-protector"></a>Protetor de TDE inacessível
 
-Quando a Transparent Data Encryption é configurada para usar uma chave gerenciada pelo cliente, o acesso contínuo ao protetor de TDE é necessário para que o banco de dados permaneça online. Se o servidor perder acesso ao protetor de TDE gerenciado pelo cliente no AKV, em até 10 minutos, um banco de dados começará a negar todas as conexões com a mensagem de erro correspondente e alterará seu estado para *inacessível*. A única ação permitida em um banco de dados no estado inacessível é excluí-lo.
+Quando a Transparent Data Encryption é configurada para usar uma chave gerenciada pelo cliente, o acesso contínuo ao protetor de TDE é necessário para que o banco de dados permaneça online. Se o servidor perder acesso ao protetor de TDE gerenciado pelo cliente no AKV, em até 10 minutos, um banco de dados começará a negar todas as conexões com a mensagem de erro correspondente e alterará seu estado para *inacessível* . A única ação permitida em um banco de dados no estado inacessível é excluí-lo.
 
 > [!NOTE]
 > Se o banco de dados estiver inacessível devido a uma interrupção intermitente da rede, não haverá nenhuma ação necessária e os bancos de dados voltarão a ficar online automaticamente.
@@ -135,7 +135,7 @@ Depois que o acesso à chave for restaurado, colocar o banco de dados online nov
 
 - Se o acesso à chave for restaurado dentro de 8 horas, o banco de dados será reparado automaticamente na próxima hora.
 
-- Se o acesso à chave for restaurado após mais de 8 horas, a reparação automática não será possível e o retorno do banco de dados exigirá etapas adicionais no portal e poderá levar um tempo significativo dependendo do tamanho do banco de dados. Quando o banco de dados estiver online novamente, as configurações de nível de servidor definidas anteriormente, como configuração do [grupo de failover](auto-failover-group-overview.md) , histórico de restauração pontual e marcas **serão perdidas**. Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
+- Se o acesso à chave for restaurado após mais de 8 horas, a reparação automática não será possível e o retorno do banco de dados exigirá etapas adicionais no portal e poderá levar um tempo significativo dependendo do tamanho do banco de dados. Quando o banco de dados estiver online novamente, as configurações de nível de servidor definidas anteriormente, como configuração do [grupo de failover](auto-failover-group-overview.md) , histórico de restauração pontual e marcas **serão perdidas** . Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
 
 Veja abaixo uma exibição das etapas adicionais necessárias no portal para colocar um banco de dados inacessível online novamente.
 
@@ -146,7 +146,7 @@ Veja abaixo uma exibição das etapas adicionais necessárias no portal para col
 
 Pode acontecer que alguém com direitos de acesso suficientes ao cofre de chaves desabilite acidentalmente o acesso do servidor à chave por:
 
-- revogando as permissões *Get*, *wrapKey*, *unwrapKey* do cofre de chaves do servidor
+- revogando as permissões *Get* , *wrapKey* , *unwrapKey* do cofre de chaves do servidor
 
 - excluindo a chave
 
@@ -163,7 +163,7 @@ Saiba mais sobre [as causas comuns para que o banco de dados se torne inacessív
 Para monitorar o estado do banco de dados e habilitar o alerta para perda de acesso ao protetor do TDE, configure os seguintes recursos do Azure:
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Um banco de dados inacessível que perdeu o acesso ao protetor de TDE aparecerá como "indisponível" após a negação da primeira conexão com o banco de dados.
-- [Log de atividades](../../service-health/alerts-activity-log-service-notifications.md) quando o acesso ao protetor de TDE no cofre de chaves gerenciado pelo cliente falha, as entradas são adicionadas ao log de atividades.  A criação de alertas para esses eventos permitirá que você reinstale o acesso assim que possível.
+- [Log de atividades](../../service-health/alerts-activity-log-service-notifications-portal.md) quando o acesso ao protetor de TDE no cofre de chaves gerenciado pelo cliente falha, as entradas são adicionadas ao log de atividades.  A criação de alertas para esses eventos permitirá que você reinstale o acesso assim que possível.
 - Os [grupos de ações](../../azure-monitor/platform/action-groups.md) podem ser definidos para enviar notificações e alertas com base em suas preferências, por exemplo, email/SMS/Push/voz, aplicativo lógico, webhook, ITSM ou runbook de automação.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Backup e restauração de banco de dados com TDE gerenciados pelo cliente

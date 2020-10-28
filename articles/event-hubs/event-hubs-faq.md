@@ -2,13 +2,13 @@
 title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
 ms.topic: article
-ms.date: 10/23/2020
-ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/27/2020
+ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518017"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789362"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -90,7 +90,7 @@ Se você usar a **redundância de zona** para seu namespace, precisará executar
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote o nome na seção **resposta não autoritativa**, que está em um dos seguintes formatos: 
+2. Anote o nome na seção **resposta não autoritativa** , que está em um dos seguintes formatos: 
 
     ```
     <name>-s1.cloudapp.net
@@ -170,7 +170,7 @@ As TUs (unidades de produtividade) são cobradas por hora. A cobrança é basead
 Você pode começar com uma TU (unidade de produtividade) e ativar a [inflação automática](event-hubs-auto-inflate.md). O recurso de inflação automática permite que você aumente suas TUs à medida que seu conteúdo/tráfego aumenta. Você também pode definir um limite superior de TUs.
 
 ### <a name="how-does-auto-inflate-feature-of-event-hubs-work"></a>Como funciona o recurso Inflação Automática dos Hubs de Eventos?
-O recurso inflação automática permite que você escale verticalmente suas TUs (unidades de produtividade). Isso significa que você pode começar comprando poucas TUs e a inflação automática escala verticalmente suas TUs à medida que aumenta a entrada. Isso proporciona uma opção econômica e controle total do número de TUs para gerenciamento. Esse recurso **serve apenas para escalar verticalmente**, e você pode controlar completamente a redução do número de TUs atualizando-o. 
+O recurso inflação automática permite que você escale verticalmente suas TUs (unidades de produtividade). Isso significa que você pode começar comprando poucas TUs e a inflação automática escala verticalmente suas TUs à medida que aumenta a entrada. Isso proporciona uma opção econômica e controle total do número de TUs para gerenciamento. Esse recurso **serve apenas para escalar verticalmente** , e você pode controlar completamente a redução do número de TUs atualizando-o. 
 
 Convém começar com poucas TUs (unidades de produtividade), por exemplo 2 TUs. Se você prever que o tráfego pode aumentar para 15 TUs, ative o recurso inflação automática em seu namespace e defina o limite máximo como 15 TUs. Agora, você pode aumentar suas TUs automaticamente conforme seu tráfego aumenta.
 
@@ -184,8 +184,19 @@ Se a produtividade de **saída** total ou a taxa de eventos de saída total em t
 
 As cotas de entrada e saída são aplicadas separadamente, para que nenhum remetente possa fazer com que o consumo de eventos se torne lento e para que um receptor não possa evitar que eventos sejam enviados para um Hub de Eventos.
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Há um limite para o número de unidades de produtividade (TUs) que podem ser reservadas/selecionadas?
-Em uma oferta com vários locatários, as unidades de produtividade podem chegar a 40 TUs (você pode selecionar até 20 TUs no portal e gerar um tíquete de suporte para elevá-lo até 40 TUs no mesmo namespace). Além dos 40 TUs, os Hubs de Eventos oferecem o modelo baseado em recursos/capacidade chamado de **clusters de Hubs de Eventos Dedicados**. Clusters dedicados são vendidos em Unidades de Capacidade (CUs).
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>Há um limite no número de unidades de produtividade que podem ser reservadas/selecionadas?
+
+Ao criar um namespace de camada básica ou Standard no portal do Azure, você pode selecionar até 20 TUs para o namespace. Para prometê-lo a **exatamente** 40 Tus, envie uma  [solicitação de suporte](../azure-portal/supportability/how-to-create-azure-support-request.md).  
+
+1. Na página **namespace do barramento de evento** , selecione **nova solicitação de suporte** no menu à esquerda. 
+1. Na página **nova solicitação de suporte** , siga estas etapas:
+    1. Para **Resumo** , descreva o problema em algumas palavras. 
+    1. Para **Tipo de problema** , selecione **Cota** . 
+    1. Para **subtipo de problema** , selecione **solicitação de aumento ou diminuição da unidade de produtividade** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Página de Solicitação de suporte":::
+
+Além dos 40 TUs, os Hubs de Eventos oferecem o modelo baseado em recursos/capacidade chamado de clusters de Hubs de Eventos Dedicados. Clusters dedicados são vendidos em Unidades de Capacidade (CUs). Para obter mais informações, consulte [hubs de eventos dedicados-visão geral](event-hubs-dedicated-overview.md).
 
 ## <a name="dedicated-clusters"></a>Clusters dedicados
 
@@ -199,7 +210,7 @@ Para obter instruções passo a passo e mais informações sobre como configurar
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="partitions"></a>Partições
 
 ### <a name="how-many-partitions-do-i-need"></a>De quantas partições preciso?
 O número de partições é especificado na criação e deve estar entre 1 e 32. A contagem de partições não é mutável, portanto você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Para obter mais informações sobre partições, confira [Partições](event-hubs-features.md#partitions).
@@ -209,6 +220,21 @@ Talvez você queira defini-la como o maior valor possível, que é 32, no moment
 Hubs de Eventos são projetados para permitir um único leitor de partição por grupo de consumidores. Na maioria dos casos de uso, a configuração padrão de quatro partições é suficiente. Se você estiver buscando dimensionar o processamento de eventos, convém considerar a inclusão de partições adicionais. Não há nenhum limite específico de taxa de transferência em uma partição, no entanto, a taxa de transferência agregada em seu namespace é limitada pelo número de unidades de produtividade. Conforme você aumenta o número de unidades de taxa de transferência no seu namespace, talvez você deseje partições adicionais para permitir que cada um dos leitores simultâneos alcance sua taxa de transferência máxima.
 
 No entanto, se você tiver um modelo no qual seu aplicativo tem uma afinidade com uma determinada partição, aumentar o número de partições pode não ser útil pra você. Para saber mais, confira [disponibilidade e consistência](event-hubs-availability-and-consistency.md).
+
+### <a name="increase-partitions"></a>Aumentar partições
+Você pode solicitar que a contagem de partições seja aumentada para 40 (exato) enviando uma solicitação de suporte. 
+
+1. Na página **namespace do barramento de evento** , selecione **nova solicitação de suporte** no menu à esquerda. 
+1. Na página **nova solicitação de suporte** , siga estas etapas:
+    1. Para **Resumo** , descreva o problema em algumas palavras. 
+    1. Para **Tipo de problema** , selecione **Cota** . 
+    1. Para **subtipo de problema** , selecione **solicitação de alteração de partição** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Página de Solicitação de suporte":::
+
+A contagem de partições pode ser aumentada para exatamente 40. Nesse caso, o número de TUs também precisa ser aumentado para 40. Se você decidir mais tarde para reduzir o limite da TU para <= 20, o limite máximo de partição também será reduzido para 32. 
+
+A redução nas partições não afeta os hubs de eventos existentes porque as partições são aplicadas no nível do hub de eventos e são imutáveis após a criação do Hub. 
 
 ## <a name="pricing"></a>Preços
 
@@ -270,9 +296,9 @@ Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Como é possível direcionar uma versão específica do SDK do armazenamento do Azure ao usar o armazenamento de BLOBs do Azure como um armazenamento de ponto de verificação?
-Se você executar esse código no Azure Stack Hub, haverá erros de runtime, a menos que você direcione uma versão específica da API de Armazenamento. Isso ocorre porque o SDK dos Hubs de Eventos usa a última API de Armazenamento do Azure disponível no Azure que talvez não esteja disponível na sua plataforma Azure Stack Hub. O Hub de Azure Stack pode dar suporte a uma versão diferente do SDK do blob de armazenamento que normalmente está disponível no Azure. Se estiver usando o Armazenamento de Blobs do Azure como um repositório de pontos de verificação, verifique a [versão da API do Armazenamento do Azure com suporte para o build do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e tenha como destino essa versão no código. 
+Se executar esse código no Azure Stack Hub, você verá erros de runtime, a menos que direcione uma versão de API de Armazenamento específica. Isso ocorre porque o SDK dos Hubs de Eventos usa a API do Armazenamento do Microsoft Azure mais recente disponível no Azure, que pode não estar disponível em sua plataforma do Azure Stack Hub. O Hub de Azure Stack pode dar suporte a uma versão diferente do SDK do blob de armazenamento que normalmente está disponível no Azure. Se estiver usando o Armazenamento de Blobs do Azure como um armazenamento de ponto de verificação, verifique a [versão da API do Armazenamento do Azure com suporte de seu build do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e tenha como destino essa versão em seu código. 
 
-Por exemplo, se você estiver executando o Azure Stack Hub versão 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais recente disponível no Azure (2019-07-07, no momento da liberação do SDK). Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2019-02-02 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte os exemplos a seguir para C#, Java, Python e JavaScript/TypeScript.  
+Por exemplo, se você estiver executando o Azure Stack Hub versão 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes do SDK dos Hubs de Eventos usa a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Nesse caso, além de seguir as etapas desta seção, você também precisará adicionar o código para ter como destino a versão de API 2019-02-02 do serviço de Armazenamento. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte os exemplos a seguir para C#, Java, Python e JavaScript/TypeScript.  
 
 Para obter um exemplo de como direcionar uma versão de API de armazenamento específica do seu código, consulte os seguintes exemplos no GitHub: 
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166532"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789906"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidade Always On no SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ O seguinte diagrama ilustra um grupo de disponibilidade para SQL Server em VMs d
 
 ## <a name="vm-redundancy"></a>Redundância de VM 
 
-Para aumentar a redundância e a alta disponibilidade, as VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou em [zonas de disponibilidade](/azure/availability-zones/az-overview) diferentes.
+Para aumentar a redundância e a alta disponibilidade, as VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou em [zonas de disponibilidade](../../../availability-zones/az-overview.md) diferentes.
 
 Um conjunto de disponibilidade é um agrupamento de recursos que são configurados de modo que não haja dois na mesma zona de disponibilidade. Isso impede que vários recursos no grupo sejam afetados durante as distribuições da implantação. 
 
@@ -74,7 +74,7 @@ Há várias opções para implantar um grupo de disponibilidade no SQL Server em
 
 A seguinte tabela fornece uma comparação das opções disponíveis: 
 
-| |**[Portal do Azure](availability-group-azure-portal-configure.md)**|**[CLI do Azure/PowerShell](availability-group-az-cli-configure.md)**|**[Modelos de início rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Portal do Azure](availability-group-azure-portal-configure.md)**|**[CLI do Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Modelos de início rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edição do SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
@@ -100,6 +100,6 @@ Em um cluster de failover de convidado de VM IaaS do Azure, recomendamos uma ún
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine as [práticas recomendadas do HADR](hadr-cluster-best-practices.md) e, em seguida, comece a implantar o seu grupo de disponibilidade usando o [portal do Azure](availability-group-azure-portal-configure.md), a [CLI do Azure/PowerShell](availability-group-az-cli-configure.md), os [Modelos de Início Rápido](availability-group-quickstart-template-configure.md) ou [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
+Examine as [práticas recomendadas do HADR](hadr-cluster-best-practices.md) e, em seguida, comece a implantar o seu grupo de disponibilidade usando o [portal do Azure](availability-group-azure-portal-configure.md), a [CLI do Azure/PowerShell](./availability-group-az-commandline-configure.md), os [Modelos de Início Rápido](availability-group-quickstart-template-configure.md) ou [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Como alternativa, você pode implantar um [grupo de disponibilidade sem cluster](availability-group-clusterless-workgroup-configure.md) ou um grupo de disponibilidade em [várias regiões](availability-group-manually-configure-multiple-regions.md). 
+Como alternativa, você pode implantar um [grupo de disponibilidade sem cluster](availability-group-clusterless-workgroup-configure.md) ou um grupo de disponibilidade em [várias regiões](availability-group-manually-configure-multiple-regions.md).

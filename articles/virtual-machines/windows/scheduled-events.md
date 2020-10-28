@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 823013de0462d830f065993b1c7c9dbe4256991d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8a0dd7f020c9a8e720aacf34b1719ee2094fa223
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978030"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788801"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -153,6 +153,10 @@ Cada evento é agendado uma quantidade mínima de tempo no futuro com base no ti
 
 > [!NOTE] 
 > Em alguns casos, o Azure é capaz de prever a falha do host devido a hardware degradado e agendará uma migração para tentar reduzir a interrupção em seu serviço. As máquinas virtuais afetadas receberão um evento agendado com um `NotBefore`, que normalmente é de alguns dias no futuro. O tempo real depende da avaliação de risco da falha prevista. O Azure tenta avisar com sete dias de antecedência, quando possível, mas o tempo real varia e poderá ser menor se houver uma previsão de grande chance de falha de software iminente. Para minimizar o risco para o serviço caso o hardware falhe antes da migração iniciada pelo sistema, recomendamos que você reimplante sua máquina virtual assim que possível.
+
+### <a name="polling-frequency"></a>Frequência de sondagem
+
+Você pode sondar o ponto de extremidade para atualizações com frequência ou com pouca frequência como desejar. No entanto, quanto maior o tempo entre as solicitações, mais tempo você pode perder para reagir a um evento futuro. A maioria dos eventos tem de 5 a 15 minutos de aviso prévio, embora, em alguns casos, o aviso de antecedência possa ser de até 30 segundos. Para garantir que você tenha o máximo de tempo possível para realizar ações de mitigação, recomendamos que você monitore o serviço uma vez por segundo.
 
 ### <a name="start-an-event"></a>Iniciar um evento 
 
