@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/05/2020
-ms.openlocfilehash: 7573abbbee479bfb0d1710beba3b95d084a5e657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898869"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739217"
 ---
 # <a name="apply-transformation-module"></a>Aplicar o módulo de transformação
 
 Este artigo descreve um módulo no designer de Azure Machine Learning.
 
-Use este módulo para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.
+Use este módulo para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente. Esse módulo é necessário no se você precisar atualizar transformações em pipelines de inferência.
 
 Por exemplo, se você usou pontuações z para normalizar seus dados de treinamento usando o módulo **normalizar dados** , convém usar o valor de pontuação z que foi calculado para treinamento durante a fase de Pontuação também. No Azure Machine Learning, você pode salvar o método de normalização como uma transformação e, em seguida, usar **aplicar transformação** para aplicar a pontuação z aos dados de entrada antes da pontuação.
 
@@ -46,7 +46,14 @@ O designer permite salvar transformações de dados como **DataSets** para que v
   
 1. Conecte a saída do conjunto de dados do módulo desejado à porta de entrada à direita do módulo **aplicar transformação** .
   
-1. Para aplicar uma transformação ao novo conjunto de um, execute o pipeline.  
+1. Para aplicar uma transformação ao novo conjunto de um, envie o pipeline.  
+
+> [!IMPORTANT]
+> Para garantir que a transformação atualizada em pipelines de treinamento também seja viável em pipelines de inferência, você precisa seguir as etapas abaixo sempre que houver uma transformação atualizada no pipeline de treinamento:
+> 1. No pipeline de treinamento, registre a saída da [transformação selecionar colunas](select-columns-transform.md) como um conjunto de uma.
+> ![Registrar conjunto de registros da saída do módulo](media/module/select-columns-transform-register-dataset.png)
+> 1. No pipeline de inferência, remova o módulo **td** e substitua-o pelo DataSet registrado na etapa anterior.
+> ![Substituir módulo TD](media/module/replace-tranformation-directory.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,7 +4,7 @@
   items:
     - name: O que é o Gerenciador de Tráfego?
       href: traffic-manager-overview.md
-- name: Início rápido
+- name: Inícios rápidos
   items:
     - name: Criar um perfil do Gerenciador de Tráfego – Portal
       href: quickstart-create-traffic-manager-profile.md
@@ -13,6 +13,7 @@
     - name: Criar um perfil do Gerenciador de Tráfego – CLI do Azure
       href: quickstart-create-traffic-manager-profile-cli.md
     - name: Criar um perfil do Gerenciador de Tráfego – Modelo ARM
+      displayName: Resource Manager
       href: quickstart-create-traffic-manager-profile-template.md
   expanded: true
 - name: Tutoriais

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 27a58fc66de31fef272ab2f2c2bfaa9896a07d4b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209416"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740142"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Suporte a políticas de logon único e proteção de aplicativo em aplicativos móveis que você desenvolve
 
@@ -47,7 +47,7 @@ Se você estiver usando atualmente a [biblioteca Adal](../azuread-dev/active-dir
 
 Para aplicativos iOS, temos um guia de [início rápido](quickstart-v2-ios.md) que mostra como configurar entradas usando o MSAL, bem como [diretrizes para configurar o MSAL para vários cenários de SSO](single-sign-on-macos-ios.md).
 
-Para aplicativos Android, temos um guia de [início rápido](quickstart-v2-android.md) que mostra como configurar entradas usando o MSAL e orientações para usar a [autenticação orientada](brokered-auth.md) ou agentes de [autorização](authorization-agents.md).
+Para aplicativos Android, temos um guia de [início rápido](quickstart-v2-android.md) que mostra como configurar entradas usando o MSAL e orientação sobre [como habilitar o SSO entre aplicativos no Android usando o MSAL](msal-android-single-sign-on.md).
 
 ### <a name="use-the-system-web-browser"></a>Usar o navegador da Web do sistema
 
