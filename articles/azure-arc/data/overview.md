@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 47fef490c5ece577823a14e3fa4c415f0f613ccb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943231"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316977"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>O que são os serviços de dados habilitados para Azure Arc (versão prévia)?
 
@@ -41,7 +41,7 @@ O Azure Arc também oferece outros benefícios de nuvem, como implantação ráp
 
 ## <a name="unified-management"></a>Gerenciamento unificado
 
-Usando ferramentas já conhecidas, como o portal do Azure, o Azure Data Studio e a CLI de Dados do Azure, agora você pode obter uma exibição unificada de todos os seus ativos de dados implantados com o Azure Arc. Você pode ver e gerenciar uma variedade de bancos de dados relacionais no seu ambiente e no Azure, além de obter logs e telemetria das APIs do Kubernetes para analisar a integridade e a capacidade da infraestrutura subjacente. Além de ter a análise de logs e o monitoramento de desempenho localizados, agora você pode aproveitar o Azure Monitor para obter insights operacionais abrangentes em toda a sua propriedade.
+Usando ferramentas já conhecidas, como o portal do Azure, o Azure Data Studio e a [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], agora você pode obter uma exibição unificada de todos os seus ativos de dados implantados com o Azure Arc. Você pode ver e gerenciar uma variedade de bancos de dados relacionais no seu ambiente e no Azure, além de obter logs e telemetria das APIs do Kubernetes para analisar a integridade e a capacidade da infraestrutura subjacente. Além de ter a análise de logs e o monitoramento de desempenho localizados, agora você pode aproveitar o Azure Monitor para obter insights operacionais abrangentes em toda a sua propriedade.
 
 ## <a name="disconnected-scenario-support"></a>Suporte a cenários desconectados
 

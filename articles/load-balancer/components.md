@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930944"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317440"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do Azure Load Balancer
 
@@ -128,6 +128,7 @@ O balanceador de carga básico não é compatível com regras de saída.
 
 ## <a name="limitations"></a>Limitações
 
+- Saiba mais sobre os [limites](https://aka.ms/lblimits) do Load Balancer 
 - O balanceador de carga fornece balanceamento de carga e encaminhamento de porta para protocolos TCP e UDP específicos. As regras de balanceamento de carga e as regras NAT de entrada são compatíveis com TCP e UDP, mas não com outros protocolos IP, incluindo ICMP.
 - O fluxo de saída de uma VM de back-end para um front-end de um Load Balancer interno falhará.
 - Uma regra de balanceador de carga não pode abranger duas redes virtuais.  Os front-ends e as instâncias de back-end deles devem estar localizados na mesma rede virtual.  

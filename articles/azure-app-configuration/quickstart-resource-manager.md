@@ -4,28 +4,28 @@ titleSuffix: Azure App Configuration
 description: Saiba como criar um armazenamento da Configuração de Aplicativos do Azure usando o modelo do ARM (modelo do Azure Resource Manager).
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 840f907015e9673caba46998493b5cb705de5fb7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824176"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149004"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Início Rápido: Criar um armazenamento da Configuração de Aplicativos do Azure usando um modelo do ARM
 
 Este guia de início rápido descreve como:
 
-- Implantar um repositório de Configuração de Aplicativos usando o modelo do ARM
-- Criar os pares chave/valor em um repositório de Configuração de Aplicativos usando o modelo do ARM
-- Ler os pares chave/valor em um repositório de Configuração de Aplicativos do modelo do ARM
+- Implantar um repositório de Configuração de Aplicativos usando um modelo do ARM (modelo do Azure Resource Manager).
+- Criar pares chave/valor em um repositório de Configuração de Aplicativos usando um modelo do ARM.
+- Ler pares chave/valor em um repositório de Configuração de Aplicativos por meio do modelo do ARM.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
@@ -35,14 +35,14 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). Ele cria um repositório de Configuração de Aplicativos com dois pares chave/valor dentro. Em seguida, ele usa a função `reference` para gerar os valores dos dois recursos de par chave/valor. Dessa maneira, a leitura do valor da chave permite que ele seja usado em outros locais do modelo.
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/). Ele cria um repositório de Configuração de Aplicativos com dois pares chave/valor dentro. Em seguida, ele usa a função `reference` para gerar os valores dos dois recursos de par chave/valor. Dessa maneira, a leitura do valor da chave permite que ele seja usado em outros locais do modelo.
 
 O guia de início rápido usa o elemento `copy` para criar várias instâncias do recurso de par chave/valor. Para saber mais sobre o elemento `copy`, confira [Iteração de recursos em modelos do ARM](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
 > Esse modelo requer a versão do provedor de recursos de Configuração de Aplicativos versão `2020-07-01-preview` ou posterior. Essa versão usa a função `reference` para ler pares chave/valor. A função `listKeyValue` que foi usada para ler valores de chave na versão anterior não está disponível da versão `2020-07-01-preview` em diante.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
 
 Há dois recursos do Azure definidos no modelo:
 
@@ -83,10 +83,10 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
-1. Entre no [Portal do Azure](https://portal.azure.com)
-1. Na caixa de pesquisa do portal do Azure, digite **Configuração de Aplicativos**. Selecione **Configuração de Aplicativos** na lista.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Na caixa de pesquisa do portal do Azure, digite **Configuração de Aplicativos** . Selecione **Configuração de Aplicativos** na lista.
 1. Selecione o recurso de Configuração de Aplicativos recém-criado.
-1. Em **Operações**, clique em **Gerenciador de configuração.**
+1. Em **Operações** , clique em **Gerenciador de configurações** .
 1. Verifique se há dois pares chave/valor.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

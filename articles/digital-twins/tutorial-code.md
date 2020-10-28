@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057477"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201334"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs dos Gêmeos Digitais do Azure
 
@@ -39,7 +39,7 @@ O que você precisa para começar:
 
 Quando estiver pronto para começar a usar sua instância dos Gêmeos Digitais do Azure, inicie a configuração do projeto de aplicativo cliente. 
 
-Abra um prompt de comando ou outra janela do console no computador e crie um diretório de projeto vazio no qual deseja armazenar seu trabalho durante este tutorial. Nomeie o diretório como desejar (por exemplo, *DigitalTwinsCodeTutorial*).
+Abra um prompt de comando ou outra janela do console no computador e crie um diretório de projeto vazio no qual deseja armazenar seu trabalho durante este tutorial. Nomeie o diretório como desejar (por exemplo, *DigitalTwinsCodeTutorial* ).
 
 Acesse o novo diretório.
 
@@ -49,7 +49,7 @@ Quando estiver no diretório do projeto, crie um projeto de aplicativo de consol
 dotnet new console
 ```
 
-Isso criará vários arquivos dentro do diretório, incluindo um chamado *Program.cs*, no qual você escreverá a maior parte do código.
+Isso criará vários arquivos dentro do diretório, incluindo um chamado *Program.cs* , no qual você escreverá a maior parte do código.
 
 Em seguida, adicione duas dependências necessárias para trabalhar com os Gêmeos Digitais do Azure:
 
@@ -104,40 +104,21 @@ Em seguida, você adicionará o código a esse arquivo para preencher algumas fu
 
 A primeira coisa que o seu aplicativo precisará fazer é se autenticar no serviço Gêmeos Digitais do Azure. Em seguida, você poderá criar uma classe de cliente de serviço para acessar as funções do SDK.
 
-Para se autenticar, você precisará de três informações:
-* A *ID de Diretório (locatário)* da sua assinatura
-* A *ID do Aplicativo (cliente)* criada quando você configurou a instância dos Gêmeos Digitais do Azure anteriormente
-* O *nome do host* da sua instância dos Gêmeos Digitais do Azure
+Para se autenticar, você precisa de *hostName* da instância dos Gêmeos Digitais do Azure.
 
->[!TIP]
-> Se você não sabe a *ID de Diretório (locatário)* , obtenha-a executando este comando no [Azure Cloud Shell](https://shell.azure.com):
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
-
-Em *Program.cs*, cole o código a seguir abaixo da linha de cópia impressa "Olá, mundo!" no método `Main`. Defina o valor de `adtInstanceUrl` como o *Nome do host* da instância dos Gêmeos Digitais do Azure, `clientId` como a *ID do Aplicativo* e `tenantId` como a *ID de Diretório*.
+Em *Program.cs* , cole o código a seguir abaixo da linha de cópia impressa "Olá, mundo!" no método `Main`. Defina o valor de `adtInstanceUrl` como o *hostName* da instância dos Gêmeos Digitais do Azure.
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
 Salve o arquivo. 
 
-Observe que este exemplo usa uma credencial de navegador interativo:
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-Esse tipo de credencial fará com que uma janela do navegador seja aberta, solicitando que você forneça suas credenciais do Azure. 
-
 >[!NOTE]
-> Para obter informações sobre outros tipos de credenciais, confira a documentação das [bibliotecas de autenticação da plataforma de identidade da Microsoft](../active-directory/develop/reference-v2-libraries.md).
+> Este exemplo usa um `DefaultAzureCredential` para autenticação. Para obter informações sobre outros tipos de credenciais, confira a documentação das [bibliotecas de autenticação da plataforma de identidade da Microsoft](../active-directory/develop/reference-v2-libraries.md) ou o artigo dos Gêmeos Digitais do Azure sobre como [autenticar aplicativos cliente](how-to-authenticate-client.md).
 
 Na janela Comando, execute o código com este comando: 
 
@@ -146,16 +127,16 @@ dotnet run
 ```
 
 Isso vai restaurar as dependências na primeira execução e executar o programa. 
-* Se nenhum erro ocorrer, o programa imprimirá *Cliente de serviço criado – pronto para uso*.
+* Se nenhum erro ocorrer, o programa imprimirá *Cliente de serviço criado – pronto para uso* .
 * Como ainda não há nenhum tratamento de erro neste projeto, se algo der errado, você verá uma exceção gerada pelo código.
 
 ### <a name="upload-a-model"></a>Carregar um modelo
 
-Os Gêmeos Digitais do Azure não têm um vocabulário de domínio intrínseco. Os tipos de elementos no seu ambiente que podem ser representados nos Gêmeos Digitais do Azure são definidos por você por meio de **modelos**. Os [modelos](concepts-models.md) são semelhantes às classes nas linguagens de programação orientadas a objeto; elas fornecem modelos definidos pelo usuário para os [gêmeos digitais](concepts-twins-graph.md) seguirem e criarem uma instância deles posteriormente. Eles são escritos em uma linguagem semelhante a JSON chamada **DTDL (Digital Twins Definition Language)** .
+Os Gêmeos Digitais do Azure não têm um vocabulário de domínio intrínseco. Os tipos de elementos no seu ambiente que podem ser representados nos Gêmeos Digitais do Azure são definidos por você por meio de **modelos** . Os [modelos](concepts-models.md) são semelhantes às classes nas linguagens de programação orientadas a objeto; elas fornecem modelos definidos pelo usuário para os [gêmeos digitais](concepts-twins-graph.md) seguirem e criarem uma instância deles posteriormente. Eles são escritos em uma linguagem semelhante a JSON chamada **DTDL (Digital Twins Definition Language)** .
 
 A primeira etapa na criação de uma solução dos Gêmeos Digitais do Azure é definir, pelo menos, um modelo em um arquivo DTDL.
 
-No diretório em que você criou o projeto, crie um arquivo *.json* chamado *SampleModel.json*. Cole-o no corpo do seguinte arquivo: 
+No diretório em que você criou o projeto, crie um arquivo *.json* chamado *SampleModel.json* . Cole-o no corpo do seguinte arquivo: 
 
 ```json
 {
@@ -178,7 +159,7 @@ No diretório em que você criou o projeto, crie um arquivo *.json* chamado *Sam
 ```
 
 > [!TIP]
-> Se você estiver usando o Visual Studio para este tutorial, o ideal será selecionar o arquivo JSON recém-criado e definir a propriedade *Copiar para o Diretório de Saída* na inspeção de propriedade como *Copiar se for o Mais Recente* ou *Sempre Copiar*. Isso permitirá que o Visual Studio localize o arquivo JSON com o caminho padrão quando você executar o programa com **F5** durante o restante do tutorial.
+> Se você estiver usando o Visual Studio para este tutorial, o ideal será selecionar o arquivo JSON recém-criado e definir a propriedade *Copiar para o Diretório de Saída* na inspeção de propriedade como *Copiar se for o Mais Recente* ou *Sempre Copiar* . Isso permitirá que o Visual Studio localize o arquivo JSON com o caminho padrão quando você executar o programa com **F5** durante o restante do tutorial.
 
 > [!TIP] 
 > Há uma [amostra de Validador DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-parse-models.md).
@@ -283,7 +264,7 @@ Daqui em diante, o tutorial encapsulará todas as chamadas a métodos de serviç
 
 ### <a name="create-digital-twins"></a>Criar gêmeos digitais
 
-Agora que você carregou um modelo nos Gêmeos Digitais do Azure, use essa definição de modelo para criar **gêmeos digitais**. Os [gêmeos digitais](concepts-twins-graph.md) são instâncias de um modelo e representam as entidades no seu ambiente de negócios – itens como sensores em um farm, salas em um prédio ou luzes em um carro. Esta seção cria alguns gêmeos digitais com base no modelo carregado anteriormente.
+Agora que você carregou um modelo nos Gêmeos Digitais do Azure, use essa definição de modelo para criar **gêmeos digitais** . Os [gêmeos digitais](concepts-twins-graph.md) são instâncias de um modelo e representam as entidades no seu ambiente de negócios – itens como sensores em um farm, salas em um prédio ou luzes em um carro. Esta seção cria alguns gêmeos digitais com base no modelo carregado anteriormente.
 
 Adicione uma nova instrução `using` à parte superior, pois você precisará do serializador JSON do .NET interno em `System.Text.Json`:
 
@@ -314,19 +295,26 @@ for(int i=0; i<3; i++) {
 
 Na janela Comando, execute o programa com `dotnet run`. Em seguida, repita a etapa para executar o programa novamente. 
 
-Observe que nenhum erro é gerado quando os gêmeos são criados na segunda vez, mesmo que eles já existam após a primeira execução. Ao contrário da criação do modelo, a criação de gêmeos é, no nível da REST, uma chamada *PUT* com a semântica de *upsert*. Isso significa que, se um gêmeo já existir, a tentativa de recriá-lo apenas o substituirá. Nenhum erro é necessário.
+Observe que nenhum erro é gerado quando os gêmeos são criados na segunda vez, mesmo que eles já existam após a primeira execução. Ao contrário da criação do modelo, a criação de gêmeos é, no nível da REST, uma chamada *PUT* com a semântica de *upsert* . Isso significa que, se um gêmeo já existir, a tentativa de recriá-lo apenas o substituirá. Nenhum erro é necessário.
 
 ### <a name="create-relationships"></a>Criar relações
 
-Em seguida, você pode criar **relações** entre os gêmeos criados para conectá-los a um **grafo de gêmeos**. Os [grafos de gêmeos](concepts-twins-graph.md) são usados para representar todo o ambiente.
+Em seguida, você pode criar **relações** entre os gêmeos criados para conectá-los a um **grafo de gêmeos** . Os [grafos de gêmeos](concepts-twins-graph.md) são usados para representar todo o ambiente.
 
-Para poder criar relações, você precisará do namespace `Azure.DigitalTwins.Core.Serialization`. Você adicionou o ao projeto anteriormente com esta instrução `using`:
+Para ajudar na criação de relações, esse exemplo de código usa o namespace `Azure.DigitalTwins.Core.Serialization`. Você adicionou o ao projeto anteriormente com esta instrução `using`:
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` não é necessário para trabalhar com gêmeos digitais e relações; é um namespace opcional que pode ajudar a colocar os dados no formato correto. Algumas alternativas ao uso dele incluem:
+>* Concatenar cadeias de caracteres para formar um objeto JSON
+>* Usar um analisador JSON como `System.Text.Json` para criar um objeto JSON dinamicamente
+>* Modelar seus tipos personalizados em C#, instanciando-os e serializando-os para cadeias de caracteres
+
 Adicione um novo método estático à classe `Program`, sob o método `Main`:
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +336,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Em seguida, adicione o seguinte código ao final do método `Main` para chamar o código `CreateRelationship`:
+Em seguida, adicione o seguinte código ao final do método `Main` para chamar o método `CreateRelationship` e usar o código que você acabou de escrever:
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
@@ -455,11 +444,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();

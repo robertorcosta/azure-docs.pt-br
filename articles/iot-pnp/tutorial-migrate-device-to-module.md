@@ -1,22 +1,22 @@
 ---
-title: Converter um dispositivo IoT Plug and Play em um módulo genérico | Microsoft Docs
-description: Use código de dispositivo PnP do C# e converta-o em um módulo.
+title: Conectar um módulo genérico IoT Plug and Play | Microsoft Docs
+description: Use o código C# de exemplo de dispositivo IoT Plug and Play em um módulo genérico.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046329"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089155"
 ---
-# <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Tutorial: Como converter um dispositivo IoT Plug and Play em um módulo (C#)
+# <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Conectar um módulo IoT Plug and Play (C#)
 
-Este tutorial mostra como converter o código de um dispositivo IoT Plug and Play para ser executado como um módulo genérico.
+Este tutorial mostra como conectar um [módulo](../iot-hub/iot-hub-devguide-module-twins.md) genérico IoT Plug and Play.
 
 Um dispositivo é IoT Plug and Play se ele publica a ID de modelo quando se conecta a um hub IoT e implementa as propriedades e os métodos descritos no modelo DTDL (Linguagem de Definição de Gêmeos Digitais) identificado pela ID do modelo. Para saber mais sobre como os dispositivos usam uma DTDL e uma ID de modelo, confira o [Guia do desenvolvedor do IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Os módulos usam IDs de modelo e modelos de DTDL da mesma maneira.
 
@@ -33,15 +33,15 @@ Para realizar este tutorial no Windows, instale o seguinte software em um ambien
 
 Use a ferramenta Explorer de IoT do Azure para adicionar um novo dispositivo chamado **my-module-device** ao hub IoT.
 
-Adicione um módulo chamado **my-module** ao **my-module-device**:
+Adicione um módulo chamado **my-module** ao **my-module-device** :
 
-1. Na ferramenta Explorer de IoT do Azure, navegue até o dispositivo **my-module-device**.
+1. Na ferramenta Explorer de IoT do Azure, navegue até o dispositivo **my-module-device** .
 
-1. Selecione **Identidade do módulo** e escolha **+ Adicionar**.
+1. Selecione **Identidade do módulo** e escolha **+ Adicionar** .
 
-1. Insira **my-module** como o nome da identidade do módulo e selecione **Salvar**.
+1. Insira **my-module** como o nome da identidade do módulo e selecione **Salvar** .
 
-1. Na lista de identidades de módulo, selecione **my-module**. Em seguida, copie a cadeia de conexão primária. Você usará a cadeia de conexão do módulo posteriormente neste tutorial.
+1. Na lista de identidades de módulo, selecione **my-module** . Em seguida, copie a cadeia de conexão primária. Você usará a cadeia de conexão do módulo posteriormente neste tutorial.
 
 1. Selecione a guia **Módulo gêmeo** e observe que não há propriedades desejadas ou relatadas:
 
@@ -96,7 +96,7 @@ Para abrir e preparar o projeto de exemplo:
 
 1. Abra o arquivo de projeto *azure-iot-sdk-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* no Visual Studio 2019.
 
-1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
+1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar** . Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
     | Nome | Valor |
     | ---- | ----- |
@@ -169,9 +169,9 @@ Se você executar o código e usar o gerenciador do Azure IoT para ver o módulo
 
 Os SDKs de serviço permitem recuperar a ID do modelo dos dispositivos e módulos de IoT Plug and Play conectados. Use os SDKs de serviço para definir propriedades graváveis e chamar comandos:
 
-1. Em outra instância do Visual Studio, abra o projeto *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj*.
+1. Em outra instância do Visual Studio, abra o projeto *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* .
 
-1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
+1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar** . Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
     | Nome | Valor |
     | ---- | ----- |
@@ -187,7 +187,7 @@ Os SDKs de serviço permitem recuperar a ID do modelo dos dispositivos e módulo
     CloudToDeviceMethodResult result = await s_serviceClient.InvokeDeviceMethodAsync(s_deviceId, "my-module", commandInvocation);
     ```
 
-1. No arquivo *Program.cs*, modifique a linha que recupera o dispositivo gêmeo da seguinte maneira:
+1. No arquivo *Program.cs* , modifique a linha que recupera o dispositivo gêmeo da seguinte maneira:
 
     ```csharp
     Twin twin = await s_registryManager.GetTwinAsync(s_deviceId, "my-module");

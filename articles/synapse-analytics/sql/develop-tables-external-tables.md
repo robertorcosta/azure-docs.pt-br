@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6c76fcc0fefdf8aa3ae97a4c131481f7ea6ada81
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a9bb3ac7d3028937a422f2cd94aca4f4f4f41b58
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288844"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167528"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usar tabelas externas com Synapse SQL
 
@@ -165,6 +165,8 @@ Ao criar um formato de arquivo externo, você especificará o layout real dos da
 
 ### <a name="syntax-for-create-external-file-format"></a>Sintaxe de CREATE EXTERNAL FILE FORMAT
 
+#### <a name="sql-pool"></a>[Pool de SQL](#tab/sql-pool)
+
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
@@ -192,6 +194,40 @@ WITH (
     | Encoding = {'UTF8' | 'UTF16'}
 }
 ```
+
+#### <a name="sql-on-demand"></a>[SQL sob demanda](#tab/sql-on-demand)
+
+```syntaxsql
+-- Create an external file format for PARQUET files.  
+CREATE EXTERNAL FILE FORMAT file_format_name  
+WITH (  
+    FORMAT_TYPE = PARQUET  
+    [ , DATA_COMPRESSION = {  
+        'org.apache.hadoop.io.compress.SnappyCodec'  
+      | 'org.apache.hadoop.io.compress.GzipCodec'      }  
+    ]);  
+
+--Create an external file format for DELIMITED TEXT files
+CREATE EXTERNAL FILE FORMAT file_format_name  
+WITH (  
+    FORMAT_TYPE = DELIMITEDTEXT  
+    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
+    [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
+    );  
+
+<format_options> ::=  
+{  
+    FIELD_TERMINATOR = field_terminator  
+    | STRING_DELIMITER = string_delimiter
+    | First_Row = integer
+    | USE_TYPE_DEFAULT = { TRUE | FALSE }
+    | Encoding = {'UTF8' | 'UTF16'}
+    | PARSER_VERSION = {'parser_version'}
+}
+```
+
+---
+
 
 ### <a name="arguments-for-create-external-file-format"></a>Argumentos de CREATE EXTERNAL FILE FORMAT
 
@@ -245,6 +281,8 @@ O tipo de formato de arquivo DELIMITEDTEXT é compatível com este método de co
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 
+PARSER_VERSION = 'parser_version' Especifica a versão do analisador a ser usada durante a leitura de arquivos. Verifique o argumento PARSER_VERSION nos argumentos [OPENROWSET](develop-openrowset.md#arguments) para obter detalhes.
+
 ### <a name="example-for-create-external-file-format"></a>Exemplo de CREATE EXTERNAL FILE FORMAT
 
 O seguinte exemplo cria um formato de arquivo externo para arquivos de censo:
@@ -285,7 +323,7 @@ column_name <data_type>
 
 O nome de uma a três partes da tabela a ser criada. Para uma tabela externa, o SQL sob demanda armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado no SQL sob demanda.
 
-<column_definition>, ...*n* ]
+<column_definition>, ... *n* ]
 
 O CREATE EXTERNAL TABLE é compatível com a configuração de nome de coluna, tipo de dados, nulidade e ordenação. Não é possível usar a DEFAULT CONSTRAINT em tabelas externas.
 
@@ -294,7 +332,7 @@ O CREATE EXTERNAL TABLE é compatível com a configuração de nome de coluna, t
 
 Ao ler em arquivos Parquet, você pode especificar apenas as colunas que deseja ler e ignorar o restante.
 
-LOCATION = '*folder_or_filepath*'
+LOCATION = ' *folder_or_filepath* '
 
 Especifica a pasta ou o caminho do arquivo e o nome de arquivo para os dados reais no Armazenamento de Blobs do Azure. O local inicia da pasta raiz. A pasta raiz é o local de dados especificado na fonte de dados externa.
 
@@ -351,7 +389,7 @@ Usando os recursos de exploração do Data Lake, agora você pode criar e consul
 
 - Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) e consultar tabelas externas no pool de SQL ou no SQL OD (SQL sob demanda)
 
-- O serviço vinculado associado à conta do ADLS Gen2 **deve ter acesso ao arquivo**. Por exemplo, se o mecanismo de autenticação do serviço vinculado for uma Identidade Gerenciada, a Identidade Gerenciada do workspace deverá ter, pelo menos, a permissão Leitor de blob de armazenamento na conta de armazenamento
+- O serviço vinculado associado à conta do ADLS Gen2 **deve ter acesso ao arquivo** . Por exemplo, se o mecanismo de autenticação do serviço vinculado for uma Identidade Gerenciada, a Identidade Gerenciada do workspace deverá ter, pelo menos, a permissão Leitor de blob de armazenamento na conta de armazenamento
 
 No painel Dados, selecione o arquivo do qual você gostaria de criar a tabela externa:
 > [!div class="mx-imgBorder"]

@@ -8,20 +8,20 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6aa31e816a42e9cf1344137676fbbafb0c06730
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85483288"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282192"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Início Rápido: Criar um Azure Cosmos DB e um contêiner usando um modelo do Resource Manager
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível usar o Azure Cosmos DB para criar e consultar rapidamente bancos de dados de chave/valor, de documentos e de grafo. Este guia de início rápido tem como foco o processo de implantação de um modelo do Azure Resource Manager para criação de um banco de dados do Azure Cosmos e um contêiner nesse banco de dados. Posteriormente, você poderá armazenar dados nesse contêiner.
+O Azure Cosmos DB é o banco de dados NoSQL rápido da Microsoft com APIs abertas para qualquer escala. É possível usar o Azure Cosmos DB para criar e consultar rapidamente bancos de dados de chave/valor, de documentos e de grafo. Este guia de início rápido tem como foco o processo de implantação de um modelo do Azure Resource Manager para criação de um banco de dados do Azure Cosmos e um contêiner nesse banco de dados. Posteriormente, você poderá armazenar dados nesse contêiner.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implantar no Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -61,22 +61,22 @@ Mais exemplos de modelos do Azure Cosmos DB podem ser encontrados na [galeria de
 
     A menos que seja especificado, use os valores padrão para criar os recursos do Azure Cosmos.
 
-    * **Assinatura**: selecione uma assinatura do Azure.
-    * **Grupo de recursos**: selecione **Criar novo**, insira um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK**.
-    * **Local**: selecione um local.  Por exemplo, **Centro dos EUA**.
-    * **Nome da Conta**: o nome da conta do Azure Cosmos. Deve ser globalmente exclusivo.
-    * **Localização**: insira uma localização em que você deseja criar sua conta do Azure Cosmos. A conta do Azure Cosmos pode estar na mesma localização que o grupo de recursos.
-    * **Região Primária**: a região da réplica primária para a conta do Azure Cosmos.
-    * **Região secundária**: a região da réplica secundária para a conta do Azure Cosmos.
-    * **Nível de consistência padrão**: O nível de consistência padrão para a conta do Azure Cosmos.
-    * **Prefixo máximo de desatualização**: máximo de solicitações obsoletas. Exigido para BoundedStaleness.
-    * **Intervalo máximo em segundos**: tempo de retardo máximo. Exigido para BoundedStaleness.
-    * **Nome do Banco de Dados**: o nome do banco de dados do Azure Cosmos.
-    * **Nome do Contêiner**: o nome do contêiner do Azure Cosmos.
-    * **Taxa de transferência**:  a taxa de transferência do contêiner, cujo valor mínimo é de 400 RU/s.
-    * **Concordo com os termos e condições declarados acima**: selecione.
+    * **Assinatura** : selecione uma assinatura do Azure.
+    * **Grupo de recursos** : selecione **Criar novo** , insira um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK** .
+    * **Local** : selecione um local.  Por exemplo, **Centro dos EUA** .
+    * **Nome da Conta** : o nome da conta do Azure Cosmos. Deve ser globalmente exclusivo.
+    * **Localização** : insira uma localização em que você deseja criar sua conta do Azure Cosmos. A conta do Azure Cosmos pode estar na mesma localização que o grupo de recursos.
+    * **Região Primária** : a região da réplica primária para a conta do Azure Cosmos.
+    * **Região secundária** : a região da réplica secundária para a conta do Azure Cosmos.
+    * **Nível de consistência padrão** : O nível de consistência padrão para a conta do Azure Cosmos.
+    * **Prefixo máximo de desatualização** : máximo de solicitações obsoletas. Exigido para BoundedStaleness.
+    * **Intervalo máximo em segundos** : tempo de retardo máximo. Exigido para BoundedStaleness.
+    * **Nome do Banco de Dados** : o nome do banco de dados do Azure Cosmos.
+    * **Nome do Contêiner** : o nome do contêiner do Azure Cosmos.
+    * **Taxa de transferência** :  a taxa de transferência do contêiner, cujo valor mínimo é de 400 RU/s.
+    * **Concordo com os termos e condições declarados acima** : selecione.
 
-3. Selecione **Comprar**. Depois que a conta do Azure Cosmos for implantada com êxito, você receberá uma notificação:
+3. Selecione **Comprar** . Depois que a conta do Azure Cosmos for implantada com êxito, você receberá uma notificação:
 
    :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Implantar no Azure":::
 

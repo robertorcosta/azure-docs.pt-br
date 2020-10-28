@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654099"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146145"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Início Rápido: Compartilhar dados usando o Azure Data Share e modelos do Resource Manager
 
@@ -20,7 +20,7 @@ Saiba como configurar um novo Azure Data Share e uma conta de armazenamento do A
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 
@@ -60,7 +60,7 @@ Este modelo é criado para fins de aprendizado. Na prática, normalmente você t
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Isso ocorre porque a implantação está tentando criar o conjunto de dados antes que a atribuição de RBAC seja finalizada. Apesar da mensagem de erro, a implantação pode ser bem-sucedida.  Você ainda poderá percorrer [Examinar recursos implantados](#review-deployed-resources).
+Isso ocorre porque a implantação está tentando criar o conjunto de dados antes que a atribuição de função do Azure seja finalizada. Apesar da mensagem de erro, a implantação pode ser bem-sucedida.  Você ainda poderá percorrer [Examinar recursos implantados](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
@@ -69,25 +69,25 @@ Isso ocorre porque a implantação está tentando criar o conjunto de dados ante
     [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 1. Selecione ou insira os valores a seguir:
 
-    * **Assinatura**: selecione uma assinatura do Azure usada para criar o compartilhamento de dados e os outros recursos.
-    * **Grupo de recursos**: selecione **Criar** para criar um grupo de recursos ou selecione um existente.
-    * **Local**: selecione um local para o grupo de recursos.
-    * **Nome do projeto**: insira um nome para o projeto.  O nome do projeto é usado para gerar nomes de recursos.  Consulte as definições de variáveis no modelo anterior.
-    * **local**: selecione um local para os recursos.  Você pode usar o mesmo local do grupo de recursos.
-    * **Email de convite**: insira o endereço de email de logon do Azure do destinatário do compartilhamento de dados.  O alias de email não funciona.
+    * **Assinatura** : selecione uma assinatura do Azure usada para criar o compartilhamento de dados e os outros recursos.
+    * **Grupo de recursos** : selecione **Criar** para criar um grupo de recursos ou selecione um existente.
+    * **Local** : selecione um local para o grupo de recursos.
+    * **Nome do projeto** : insira um nome para o projeto.  O nome do projeto é usado para gerar nomes de recursos.  Consulte as definições de variáveis no modelo anterior.
+    * **local** : selecione um local para os recursos.  Você pode usar o mesmo local do grupo de recursos.
+    * **Email de convite** : insira o endereço de email de logon do Azure do destinatário do compartilhamento de dados.  O alias de email não funciona.
 
     Use o valor padrão para o restante das configurações.
-1. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**.
+1. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar** .
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Abra a conta do compartilhamento de dados que você criou.
-1. No menu esquerdo, selecione **Enviar compartilhamentos**.  Você verá a conta de armazenamento listada.
-1. Selecione a conta de armazenamento.  Em **Detalhes**, você verá a configuração de sincronização conforme definida no modelo.
+1. No menu esquerdo, selecione **Enviar compartilhamentos** .  Você verá a conta de armazenamento listada.
+1. Selecione a conta de armazenamento.  Em **Detalhes** , você verá a configuração de sincronização conforme definida no modelo.
 
     ![Configurações de sincronização da Conta de Armazenamento do Azure Data Share](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
-1. Selecione **Convites** na parte superior. Você verá o endereço de email que especificou ao implantar o modelo. O **Status** deverá ser **Pendente**.
+1. Selecione **Convites** na parte superior. Você verá o endereço de email que especificou ao implantar o modelo. O **Status** deverá ser **Pendente** .
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -2,22 +2,23 @@
 title: Planejando a implantação da Solução VMware no Azure
 description: Este artigo descreve um fluxo de trabalho de implantação da Solução VMware no Azure.  O resultado final é um ambiente pronto para a criação e a migração da VM (máquina virtual).
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/16/2020
+ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055079"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147979"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planejando a implantação da Solução VMware no Azure
 
-Neste artigo, fornecemos o processo de planejamento para identificar e coletar os dados usados durante a implantação. [Use a lista de verificação de pré-implantação](pre-deployment-checklist.md) para documentar as informações e para ter uma referência fácil durante a implantação.  
+Neste artigo, fornecemos o processo de planejamento para identificar e coletar os dados usados durante a implantação. Ao planejar sua implantação, lembre-se de documentar as informações coletadas para facilitar a referência durante a implantação.
 
 Os processos desse início rápido resultam em um ambiente pronto para produção para a criação e migração de VMs (máquinas virtuais). 
 
 >[!IMPORTANT]
->Antes de criar o recurso da Solução VMware no Azure, você precisará enviar um tíquete de suporte para que os nós sejam alocados. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo. Para obter mais informações, confira [Como habilitar o recurso de Solução VMware no Azure](enable-azure-vmware-solution.md). 
+>Antes de criar o recurso da Solução VMware no Azure, siga o artigo [Como habilitar o recurso da Solução VMware no Azure](enable-azure-vmware-solution.md) para enviar um tíquete de suporte para alocar seus nós. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo. 
+
 
 ## <a name="subscription"></a>Subscription
 

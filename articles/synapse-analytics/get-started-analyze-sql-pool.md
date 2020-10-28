@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 11c11d3e43f15b569a74c282b15a95525cea7e7c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620028"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147560"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com pools de SQL dedicados
 
@@ -23,6 +24,7 @@ O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de S
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Carregar os Dados de Táxi de Nova York no SQLDB1
 
 1. No Synapse Studio, navegue até o hub **Desenvolver** e crie um script de SQL
+1. Selecione o pool 'SQLDB1' (pool criado na [ETAPA 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na seção 'Conectar-se a' do script.
 1. Insira o seguinte código:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -73,11 +75,11 @@ O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de S
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explorar os dados de táxis de Nova York no pool de SQL dedicado
 
-1. No Synapse Studio, acesse o hub **Dados**.
-1. Acesse **SQLDB1** > **Tabelas**. Você verá várias tabelas carregadas.
-1. Clique com o botão direito do mouse na tabela **dbo.Trip** e selecione **Novo Script de SQL** > **Selecionar as Primeiras 100 Linhas**.
+1. No Synapse Studio, acesse o hub **Dados** .
+1. Acesse **SQLDB1** > **Tabelas** . Você verá várias tabelas carregadas.
+1. Clique com o botão direito do mouse na tabela **dbo.Trip** e selecione **Novo Script de SQL** > **Selecionar as Primeiras 100 Linhas** .
 1. Aguarde enquanto um novo script SQL é criado e executado.
-1. Observe na parte superior do script de SQL que **Conectar ao** é automaticamente definido como o pool de SQL chamado **SQLDB1**.
+1. Observe na parte superior do script de SQL que **Conectar ao** é automaticamente definido como o pool de SQL chamado **SQLDB1** .
 1. Substitua o texto do script de SQL por esse código e execute-o.
 
     ```sql

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91642574"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92323020"
 ---
 **Volume e retenção da coleta de dados** 
 
@@ -70,31 +70,7 @@ O Azure Monitor é um serviço de dados de grande escala que atende milhares de 
 
 Ao enviar dados para um workspace a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa do volume de ingestão continuar excedendo o limite ou se você estiver esperando alcançá-la em breve, poderá solicitar o aumento abrindo uma solicitação de suporte. 
 
-Para receber uma notificação sobre como abordar ou alcançar o limite da taxa de volume de ingestão no workspace, crie uma [regra de alerta de log](../articles/azure-monitor/platform/alerts-log.md) usando a consulta a seguir com base lógica de alerta no número de resultados superior a zero, com período de avaliação de cinco minutos e frequência de cinco minutos.
-
-A taxa do volume de ingestão ultrapassou o limite
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Error"
-```
-
-A taxa do volume de ingestão ultrapassou 80% do limite
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Warning"
-```
-
-A taxa do volume de ingestão ultrapassou 70% do limite
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Info"
-```
+Confira [Monitorar a integridade do workspace do Log Analytics no Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md) para criar regras de alerta para você ser proativamente notificado quando atingir os limites de ingestão.
 
 >[!NOTE]
 >Dependendo de quanto tempo está usando o Log Analytics, você poderá ter acesso a tipos de preço herdados. Saiba mais sobre os [tipos de preço herdados do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

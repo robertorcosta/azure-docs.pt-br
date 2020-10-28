@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Conectar-se a uma conta do Azure Cosmos usando um ponto de extremidade privado do Azure'
 titleSuffix: Azure Private Link
-description: Comece a usar o ponto de extremidade privado do Azure para se conectar a uma conta do Azure Cosmos em modo privado.
+description: Comece com este tutorial usando o ponto de extremidade privado do Azure para se conectar a uma conta do Azure Cosmos no modo privado.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 8b38c72efff5b76392d23837696c340e3cfb58de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd534fff5bfc56dbc4040db016563b06bef6d047
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843469"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145683"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Conectar-se a uma conta do Azure Cosmos usando um Ponto de Extremidade Privado do Azure
 
@@ -28,6 +28,10 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure
+
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
 Entre no [portal do Azure](https://portal.azure.com).
@@ -40,7 +44,7 @@ O bastion host será usado para se conectar com segurança à máquina virtual p
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso > Rede > Rede virtual** ou pesquise por **Rede virtual** na caixa de pesquisa.
 
-2. Em **Criar rede virtual**, insira ou selecione estas informações na guia **Básico**:
+2. Em **Criar rede virtual** , insira ou selecione estas informações na guia **Básico** :
 
     | **Configuração**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -53,37 +57,37 @@ O bastion host será usado para se conectar com segurança à máquina virtual p
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
-4. Na guia **Endereços IP**, insira estas informações:
+4. Na guia **Endereços IP** , insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Espaço de endereço IPv4 | Insira **10.1.0.0/16** |
 
-5. Em **Nome da sub-rede**, selecione a palavra **padrão**.
+5. Em **Nome da sub-rede** , selecione a palavra **padrão** .
 
-6. Em **Editar sub-rede**, insira estas informações:
+6. Em **Editar sub-rede** , insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Nome da sub-rede | Insira **mySubnet** |
     | Intervalo de endereços da sub-rede | Insira **10.1.0.0/24** |
 
-7. Clique em **Salvar**.
+7. Clique em **Salvar** .
 
-8. Selecione a guia **Segurança**.
+8. Selecione a guia **Segurança** .
 
-9. Em **BastionHost**, selecione **Habilitar**. Insira estas informações:
+9. Em **BastionHost** , selecione **Habilitar** . Insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Nome do bastion | Insira **myBastionHost** |
     | Espaço de endereço da AzureBastionSubnet | Insira **10.1.1.0/24** |
-    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome**, insira **myBastionIP**. </br> Selecione **OK**. |
+    | Endereço IP público | Selecione **Criar novo** . </br> Em **Nome** , insira **myBastionIP** . </br> Selecione **OK** . |
 
 
-8. Selecione a guia **Revisar + criar** ou o botão **Revisar + criar**.
+8. Selecione a guia **Revisar + criar** ou o botão **Revisar + criar** .
 
-9. Selecione **Criar**.
+9. Selecione **Criar** .
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -91,7 +95,7 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
 
 1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Máquina virtual** ou pesquise **Máquina virtual** na caixa de pesquisa.
    
-2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
+2. Em **Criar uma máquina virtual** , digite ou selecione os valores na guia **Informações Básicas** :
 
     | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
@@ -110,7 +114,7 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
     | Senha | Insira uma senha |
     | Confirmar senha | Insira novamente a senha |
 
-3. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**.
+3. Selecione a guia **Rede** ou selecione **Avançar: Discos** , em seguida, **Avançar: Rede** .
   
 4. Na guia Rede, selecione ou insira:
 
@@ -119,13 +123,13 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
     | Sub-rede | **mySubnet** |
-    | IP público | Selecione **Nenhum**. |
+    | IP público | Selecione **Nenhum** . |
     | Grupo de segurança de rede da NIC | **Basic**|
-    | Porta de entrada públicas | Selecione **Nenhum**. |
+    | Porta de entrada públicas | Selecione **Nenhum** . |
    
-5. Selecione **Examinar + criar**. 
+5. Selecione **Examinar + criar** . 
   
-6. Examine as configurações e selecione **Criar**.
+6. Examine as configurações e selecione **Criar** .
 
 ## <a name="create-a-cosmos-db-account-with-a-private-endpoint"></a>Criar uma conta do Cosmos DB com um ponto de extremidade privado
 
@@ -133,37 +137,37 @@ Nesta seção, você vai criar uma conta do Cosmos DB e configurar o ponto de ex
 
 1. No menu à esquerda, selecione **Criar um recurso** > **Bancos de Dados** > **Conta do Cosmos DB** ou pesquise **Conta do Cosmos DB** na caixa de pesquisa.
 
-2. Na guia **Informações Básicas** de **Criar conta do Cosmos DB**, insira ou selecione as seguintes informações:
+2. Na guia **Informações Básicas** de **Criar conta do Cosmos DB** , insira ou selecione as seguintes informações:
 
     | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecione sua assinatura do Azure. |
-    | Grupo de recursos | Selecione **myResourceGroup**. |
+    | Grupo de recursos | Selecione **myResourceGroup** . |
     | **Detalhes da instância** |  |
-    | Nome da conta | Insira **mycosmosdb**. Se o nome não estiver disponível, insira um nome exclusivo. |
-    | API | Selecione **Core (SQL)**. |
-    | Location | Selecione **Leste dos EUA**. |
-    | Modo de capacidade | Mantenha o padrão **Taxa de transferência provisionada**. |
-    | Aplicar desconto por nível gratuito | Mantenha o padrão **Não Aplicar**. |
-    | Redundância geográfica | Mantenha o padrão **Desabilitar**. |
-    | Gravações de várias regiões | Mantenha o padrão **Desabilitar**. |
+    | Nome da conta | Insira **mycosmosdb** . Se o nome não estiver disponível, insira um nome exclusivo. |
+    | API | Selecione **Core (SQL)** . |
+    | Location | Selecione **Leste dos EUA** . |
+    | Modo de capacidade | Mantenha o padrão **Taxa de transferência provisionada** . |
+    | Aplicar desconto por nível gratuito | Mantenha o padrão **Não Aplicar** . |
+    | Redundância geográfica | Mantenha o padrão **Desabilitar** . |
+    | Gravações de várias regiões | Mantenha o padrão **Desabilitar** . |
    
-3. Selecione a guia **Rede** ou escolha o botão **Avançar: Rede**.
+3. Selecione a guia **Rede** ou escolha o botão **Avançar: Rede** .
 
-4. Na guia **Rede**, insira ou selecione as seguintes informações:
+4. Na guia **Rede** , insira ou selecione as seguintes informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | **Conectividade de rede** | |
-    | Método de conectividade | Selecione **Ponto de extremidade privado**. |
+    | Método de conectividade | Selecione **Ponto de extremidade privado** . |
     | **Configurar o firewall** | |
-    | Permitir acesso pelo portal do Azure | Mantenha o padrão **Permitir**. |
-    | Permitir acesso do meu IP | Mantenha o padrão **Negar**. |
+    | Permitir acesso pelo portal do Azure | Mantenha o padrão **Permitir** . |
+    | Permitir acesso do meu IP | Mantenha o padrão **Negar** . |
 
-5. Em **Ponto de extremidade privado**, selecione **+ Adicionar**.
+5. Em **Ponto de extremidade privado** , selecione **+ Adicionar** .
 
-6. Em **Criar ponto de extremidade privado**, insira ou selecione as seguintes informações:
+6. Em **Criar ponto de extremidade privado** , insira ou selecione as seguintes informações:
 
     | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
@@ -179,38 +183,38 @@ Nesta seção, você vai criar uma conta do Cosmos DB e configurar o ponto de ex
     | Integrar com a zona DNS privado | Mantenha o padrão **Sim** |
     | Zona DNS privado | Mantenha o padrão (Novo) privatelink.documents.azure.com |
 
-7. Selecione **OK**.
+7. Selecione **OK** .
 
-8. Selecione **Examinar + criar**.
+8. Selecione **Examinar + criar** .
 
-9. Selecione **Criar**.
+9. Selecione **Criar** .
 
 ### <a name="add-a-database-and-a-container"></a>Adicionar um banco de dados e um contêiner
 
-1. Selecione **Ir para recurso** ou, no menu à esquerda do portal do Azure, selecione **Todos os Recursos** > **mycosmosdb**.
+1. Selecione **Ir para recurso** ou, no menu à esquerda do portal do Azure, selecione **Todos os Recursos** > **mycosmosdb** .
 
-2. No menu à esquerda, selecione **Data Explorer**.
+2. No menu à esquerda, selecione **Data Explorer** .
 
-3. Na janela **Data Explorer**, selecione **Novo Contêiner**.
+3. Na janela **Data Explorer** , selecione **Novo Contêiner** .
 
-4. Em **Adicionar Contêiner**, insira ou selecione as seguintes informações:
+4. Em **Adicionar Contêiner** , insira ou selecione as seguintes informações:
 
     | Configuração | Valor |
     | ------- | ----- |
-    | ID do banco de dados | Mantenha o padrão **Criar**. </br> Insira **mydatabaseid** na caixa de texto. |
-    | Taxa de transferência (400 a 100.000 RU/s) | Mantenha o padrão **Manual**. </br> Insira **400** na caixa de texto. |
+    | ID do banco de dados | Mantenha o padrão **Criar** . </br> Insira **mydatabaseid** na caixa de texto. |
+    | Taxa de transferência (400 a 100.000 RU/s) | Mantenha o padrão **Manual** . </br> Insira **400** na caixa de texto. |
     | ID do contêiner | Insira **mycontainerid** |
     | Chave de partição | Insira **/mykey** |
 
-5. Selecione **OK**.
+5. Selecione **OK** .
 
-10. Na seção **Configurações** da conta do CosmosDB, selecione **Chaves**.
+10. Na seção **Configurações** da conta do CosmosDB, selecione **Chaves** .
 
-11. Selecione **myResourceGroup**.
+11. Selecione **myResourceGroup** .
 
 12. Escolha a conta de armazenamento criada nas etapas anteriores.
 
-14. Selecione Copiar na **CADEIA DE CONEXÃO PRIMÁRIA**.
+14. Selecione Copiar na **CADEIA DE CONEXÃO PRIMÁRIA** .
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testar a conectividade com o ponto de extremidade privado
 
@@ -218,13 +222,13 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
 
 1. Selecione **Grupos de recursos** no painel de navegação à esquerda.
 
-2. Selecione **myResourceGroup**.
+2. Selecione **myResourceGroup** .
 
-3. Selecione **myVM**.
+3. Selecione **myVM** .
 
-4. Na página de visão geral de **myVM**, escolha **Conectar** e **Bastion**.
+4. Na página de visão geral de **myVM** , escolha **Conectar** e **Bastion** .
 
-5. Selecione o botão azul **Usar Bastion**.
+5. Selecione o botão azul **Usar Bastion** .
 
 6. Insira o nome de usuário e a senha que você inseriu durante a criação da máquina virtual.
 
@@ -246,38 +250,38 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
 
 9. Instale o [Gerenciador de Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) na máquina virtual.
 
-10. Selecione **Concluir** após a instalação do **Gerenciador de Armazenamento do Microsoft Azure**.  Mantenha a caixa marcada para abrir o aplicativo.
+10. Selecione **Concluir** após a instalação do **Gerenciador de Armazenamento do Microsoft Azure** .  Mantenha a caixa marcada para abrir o aplicativo.
 
-11. Na tela **Conectar-se ao Armazenamento do Azure**, selecione **Cancelar**.
+11. Na tela **Conectar-se ao Armazenamento do Azure** , selecione **Cancelar** .
 
-12. No Gerenciador de Armazenamento, clique com o botão direito do mouse em **Contas do Cosmos DB** e selecione **Conectar-se ao Cosmos DB**.
+12. No Gerenciador de Armazenamento, selecione o botão direito do mouse em **Contas do Cosmos DB** e escolha **Conectar-se ao Cosmos DB** .
 
-13. Mantenha o padrão de **SQL** em **Selecionar API**.
+13. Mantenha o padrão de **SQL** em **Selecionar API** .
 
-14. Na caixa, em **Cadeia de Conexão**, cole a cadeia de conexão da conta do Cosmos DB que você copiou nas etapas anteriores.
+14. Na caixa, em **Cadeia de Conexão** , cole a cadeia de conexão da conta do Cosmos DB que você copiou nas etapas anteriores.
 
-15. Selecione **Avançar**.
+15. Selecione **Avançar** .
 
-16. Confirme se as configurações estão corretas em **Resumo da Conexão**.  
+16. Confirme se as configurações estão corretas em **Resumo da Conexão** .  
 
-17. Selecione **Conectar**.
+17. Selecione **Conectar** .
 
-18. Feche a conexão com **myVM**.
+18. Feche a conexão com **myVM** .
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não pretende continuar usando este aplicativo, exclua a rede virtual, a máquina virtual e a conta do Cosmos DB com as seguintes etapas:
 
-1. No menu esquerdo, selecione **Grupos de recursos**.
+1. No menu esquerdo, selecione **Grupos de recursos** .
 
-2. Selecione **myResourceGroup**.
+2. Selecione **myResourceGroup** .
 
-3. Selecione **Excluir grupo de recursos**.
+3. Selecione **Excluir grupo de recursos** .
 
-4. Insira **myResourceGroup** em **DIGITE O NOME DO GRUPOS DE RECURSOS**.
+4. Insira **myResourceGroup** em **DIGITE O NOME DO GRUPOS DE RECURSOS** .
 
-5. Selecione **Excluir**.
+5. Selecione **Excluir** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

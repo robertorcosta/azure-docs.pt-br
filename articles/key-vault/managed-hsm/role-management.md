@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818021"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149109"
 ---
 # <a name="managed-hsm-role-management"></a>Gerenciamento de função do HSM Gerenciado
 
 > [!NOTE]
-> O Key Vault é compatível com dois tipos de recurso: cofres e HSMs Gerenciados. Este artigo é sobre o **HSM Gerenciado**. Se você quiser aprender como gerenciar um cofre, confira [Gerenciar o Key Vault usando a CLI do Azure](../general/manage-with-cli2.md).
+> O Key Vault é compatível com dois tipos de recurso: cofres e HSMs Gerenciados. Este artigo é sobre o **HSM Gerenciado** . Se você quiser aprender como gerenciar um cofre, confira [Gerenciar o Key Vault usando a CLI do Azure](../general/manage-with-cli2.md).
 
 Para obter uma visão geral do HSM Gerenciado, confira [O que é o HSM Gerenciado?](overview.md). Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>Atribuir função para uma chave específica
 
-Use o comando `az keyvault role assignment create` para atribuir a função de **Responsável pela Criptografia do HSM Gerenciado** ao usuário identificado pelo nome UPN **user2\@contoso.com** para uma chave específica chamada **myrsakey**.
+Use o comando `az keyvault role assignment create` para atribuir a função de **Responsável pela Criptografia do HSM Gerenciado** ao usuário identificado pelo nome UPN **user2\@contoso.com** para uma chave específica chamada **myrsakey** .
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -70,7 +70,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 Use `az keyvault role assignment list` para listar as atribuições de função.
 
-Todas as atribuições de função dentro do escopo/(padrão quando nenhum --escopo for especificado) para todos os usuários (padrão quando o --destinatário for especificado)
+Todas as atribuições de função no escopo/(padrão, quando nenhum --scope for especificado) para todos os usuários (padrão, quando nenhum --assignee for especificado)
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM
@@ -82,7 +82,7 @@ Todas as atribuições de função no nível do HSM para um usuário específico
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
-Todas as atribuições de função para um usuário específico **user2@contoso.com** para uma chave específica chamada **myrsakey**.
+Todas as atribuições de função para um usuário específico **user2@contoso.com** para uma chave específica chamada **myrsakey** .
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey
@@ -97,7 +97,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>Excluir uma atribuição de função
 
-Use o comando `az keyvault role assignment delete` para excluir a função de **Responsável pela Criptografia do HSM Gerenciado** atribuída ao usuário **user2\@contoso.com** para a chave **user2contoso**.
+Use o comando `az keyvault role assignment delete` para excluir a função de **Responsável pela Criptografia do HSM Gerenciado** atribuída ao usuário **user2\@contoso.com** para a chave **user2contoso** .
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2

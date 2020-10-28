@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Introdução ao Azure Sentinel'
-description: Use este guia de início rápido para saber como ver e monitorar rapidamente o que está acontecendo no seu ambiente por meio do Azure Sentinel. 
+description: Use este guia de início rápido para saber como ver e monitorar rapidamente o que está acontecendo no seu ambiente por meio do Azure Sentinel.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889137"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208219"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -38,15 +38,15 @@ Para visualizar e obter uma análise do que está acontecendo em seu ambiente, p
 
 O corpo principal da página de visão geral fornece insight rápido sobre o status de segurança do workspace:
 
-- **Eventos e alertas ao longo do tempo**: Lista o número de eventos e quantos alertas foram criados com base nesses eventos. Se você vir um pico incomum, deverá ver alertas para ele. Caso haja algo incomum em que houve um pico nos eventos, mas você não viu alertas, isso pode ser motivo de preocupação.
+- **Eventos e alertas ao longo do tempo** : Lista o número de eventos e quantos alertas foram criados com base nesses eventos. Se você vir um pico incomum, deverá ver alertas para ele. Caso haja algo incomum em que houve um pico nos eventos, mas você não viu alertas, isso pode ser motivo de preocupação.
 
-- **Eventos mal-intencionados em potencial**: Quando se detecta tráfego de fontes que são conhecidas como mal-intencionadas, o Azure Sentinel alerta no mapa. Se você vir cor de laranja, trata-se de tráfego de entrada: alguém está tentando acessar sua organização de um endereço IP mal-intencionado conhecido. Se você vir uma atividade de saída (vermelha), significará que dados da sua rede estão saindo da organização para um endereço IP mal-intencionado conhecido.
+- **Eventos mal-intencionados em potencial** : Quando se detecta tráfego de fontes que são conhecidas como mal-intencionadas, o Azure Sentinel alerta no mapa. Se você vir cor de laranja, trata-se de tráfego de entrada: alguém está tentando acessar sua organização de um endereço IP mal-intencionado conhecido. Se você vir uma atividade de saída (vermelha), significará que dados da sua rede estão saindo da organização para um endereço IP mal-intencionado conhecido.
 
    ![Mapa de tráfego mal-intencionado](./media/qs-get-visibility/map.png)
 
-- **Incidentes recentes**: Para exibir os incidentes recentes, a gravidade deles e o número de alertas associados com o incidente. Se você vir um pico repentino em um tipo específico de alerta, poderá significar que um ataque ativo está em execução no momento. Por exemplo, se você tiver um pico repentino de 20 eventos pass-the-hash do Microsoft Defender para Identidade (anteriormente, ATP do Azure), é possível que alguém esteja tentando atacar você.
+- **Incidentes recentes** : Para exibir os incidentes recentes, a gravidade deles e o número de alertas associados com o incidente. Se você vir um pico repentino em um tipo específico de alerta, poderá significar que um ataque ativo está em execução no momento. Por exemplo, se você tiver um pico repentino de 20 eventos pass-the-hash do Microsoft Defender para Identidade (anteriormente, ATP do Azure), é possível que alguém esteja tentando atacar você.
 
-- **Anomalias na fonte de dados**: Analistas de dados da Microsoft criaram modelos que pesquisam constantemente anomalias nos dados de suas fontes de dados. Se não houver anomalias, nada será exibido. Se anomalias forem detectadas, você deverá examinar para ver o que aconteceu. Por exemplo, clique no pico na atividade do Azure. É possível clicar em **Gráfico** para ver quando o pico aconteceu e, em seguida, filtrar por atividades que ocorreram durante esse período para ver o que causou o pico.
+- **Anomalias na fonte de dados** : Analistas de dados da Microsoft criaram modelos que pesquisam constantemente anomalias nos dados de suas fontes de dados. Se não houver anomalias, nada será exibido. Se anomalias forem detectadas, você deverá examinar para ver o que aconteceu. Por exemplo, clique no pico na atividade do Azure. É possível clicar em **Gráfico** para ver quando o pico aconteceu e, em seguida, filtrar por atividades que ocorreram durante esse período para ver o que causou o pico.
 
    ![Fontes de dados anormais](./media/qs-get-visibility/anomolies.png)
 
@@ -54,10 +54,10 @@ O corpo principal da página de visão geral fornece insight rápido sobre o sta
 
 Pastas de trabalho internas oferecem dados integrados de suas fontes de dados conectadas para permitir que você examine os eventos gerados nesses serviços. As pastas de trabalho internas incluem o Azure AD, os eventos de atividades do Azure e locais, que podem ser dados de eventos do Windows provenientes de servidores, de alertas internos, de terceiros, incluindo logs de tráfego do firewall, do Office 365 e de protocolos inseguros com base em eventos do Windows. As pastas de trabalho são baseadas em Pastas de Trabalho do Azure Monitor para fornecer a você melhores personalização e flexibilidade na criação de sua própria pasta de trabalho. Para saber mais, confira [Pastas de Trabalho](../azure-monitor/platform/workbooks-overview.md).
 
-1. Em **Configurações**, selecione **Pastas de Trabalho**. Em **Instalados**, é possível ver todas as pastas de trabalho instaladas. Em **Todos**, é possível ver toda a galeria de pastas de trabalho internas disponíveis para instalação. 
+1. Em **Configurações** , selecione **Pastas de Trabalho** . Em **Instalados** , é possível ver todas as pastas de trabalho instaladas. Em **Todos** , é possível ver toda a galeria de pastas de trabalho internas disponíveis para instalação. 
 2. Pesquise uma pasta de trabalho específica ver a lista inteira e a descrição do que cada uma oferece. 
 3. Supondo que você usa o Azure AD, para começar a usar o Azure Sentinel, recomendamos que instale pelo menos as pastas de trabalho a seguir:
-   - **Azure AD**: Use uma ou ambas as opções a seguir:
+   - **Azure AD** : Use uma ou ambas as opções a seguir:
        - **As entradas do Azure AD** analisam as entradas ao longo do tempo para ver se há anomalias. Esta pasta de trabalho fornece entradas com falha por aplicativos, dispositivos e locais para que você possa perceber rapidamente se acontecer algo incomum. Preste atenção a várias entradas com falha. 
        - **Os logs de auditoria do Azure AD** analisam as atividades administrativas, como alterações em usuários (adicionar, remover etc.), criação de grupo e modificações.  
 
@@ -66,7 +66,7 @@ Pastas de trabalho internas oferecem dados integrados de suas fontes de dados co
       ![Painel Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Para personalizar as pastas de trabalho, edite a consulta principal ![botão edição de consulta](./media/qs-get-visibility/edit-query-button.png). É possível clicar no botão ![botão Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para acessar o [Log Analytics e editar a consulta encontrada](../azure-monitor/log-query/get-started-portal.md). Também é possível selecionar as reticências (...) e **Personalizar dados do bloco**, o que permite editar o filtro de tempo principal ou remover os blocos específicos da pasta de trabalho.
+Para personalizar as pastas de trabalho, edite a consulta principal ![botão edição de consulta](./media/qs-get-visibility/edit-query-button.png). É possível clicar no botão ![botão Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para acessar o [Log Analytics e editar a consulta encontrada](../azure-monitor/log-query/get-started-portal.md). Também é possível selecionar as reticências (...) e **Personalizar dados do bloco** , o que permite editar o filtro de tempo principal ou remover os blocos específicos da pasta de trabalho.
 
 Para obter mais informações sobre como trabalhar com consultas, confira [Tutorial: Dados visuais no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -74,14 +74,14 @@ Para obter mais informações sobre como trabalhar com consultas, confira [Tutor
 
 Se desejar adicionar um novo bloco, será possível adicioná-lo a uma pasta de trabalho existente, seja um criado por você ou uma pasta de trabalho interna do Azure Sentinel. 
 1. No Log Analytics, crie um bloco usando as instruções encontradas em [Tutorial: Dados visuais no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Após a criação do bloco, em **Fixar**, selecione a pasta de trabalho em que deseja que o bloco apareça.
+2. Após a criação do bloco, em **Fixar** , selecione a pasta de trabalho em que deseja que o bloco apareça.
 
 ## <a name="create-new-workbooks"></a>Criar pastas de trabalho
 É possível criar uma pasta de trabalho do zero ou usar uma interna como a base da sua nova pasta de trabalho.
 
-1. Para criar uma pasta de trabalho do zero, selecione **Pastas de Trabalho** e, em seguida, **+Nova pasta de trabalho**.
+1. Para criar uma pasta de trabalho do zero, selecione **Pastas de Trabalho** e, em seguida, **+Nova pasta de trabalho** .
 2. Selecione a assinatura em que a pasta de trabalho foi criada e lhe dê um nome descritivo. Cada pasta de trabalho é um recurso do Azure como qualquer outro. É possível atribuir funções (RBAC) para definir e limitar quem pode acessar. 
-3. Para permitir que ela apareça em suas pastas de trabalho para fixar visualizações, é necessário compartilhá-la. Clique em **Compartilhar** e em **Gerenciar usuários**. 
+3. Para permitir que ela apareça em suas pastas de trabalho para fixar visualizações, é necessário compartilhá-la. Clique em **Compartilhar** e em **Gerenciar usuários** . 
  
 1. Use **Verificar acesso** e **Atribuições de função** como faria para qualquer outro recurso do Azure. Para obter mais informações, confira [Compartilhar pastas de trabalho do Azure usando RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
@@ -119,7 +119,7 @@ Gere detecções nas [fontes de dados que você conectou ao Azure Sentinel](conn
 
 Quando você criar uma detecção, aproveite as detecções internas criadas por pesquisadores de segurança da Microsoft que são personalizadas para as fontes de dados conectadas.
 
-Para exibir todas as detecções prontas para uso, acesse **Análise** e **Modelos de regra**. Esta guia contém todas as regras internas do Azure Sentinel.
+Para exibir todas as detecções prontas para uso, acesse **Análise** e **Modelos de regra** . Esta guia contém todas as regras internas do Azure Sentinel.
 
    ![Usar detecções internas para encontrar ameaças com o Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
