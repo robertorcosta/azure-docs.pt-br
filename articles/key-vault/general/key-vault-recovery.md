@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: a0fe5c2af42e8d8095963e29149e1338cc064c90
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495181"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748502"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Como habilitar a exclusão reversível e a proteção de limpeza
 
@@ -23,11 +23,11 @@ Este artigo aborda dois recursos de recuperação do Azure Key Vault, exclusão 
 
 A exclusão reversível e a proteção de limpeza são dois recursos diferentes de recuperação do cofre de chaves.
 > [!IMPORTANT]
-> A proteção de exclusão reversível deve ser habilitada em todos os cofres de chaves. A capacidade de desabilitar a proteção de exclusão reversível será preterida em dezembro de 2020. Consulte os detalhes completos [ **aqui**.](soft-delete-change.md)
+> A proteção de exclusão reversível deve ser habilitada em todos os cofres de chaves. A capacidade de desabilitar a proteção de exclusão reversível será preterida em dezembro de 2020. Consulte os detalhes completos [ **aqui** .](soft-delete-change.md)
 
 A **exclusão reversível** foi projetada para impedir a exclusão acidental do cofre de chaves e chaves, segredos e certificados armazenados no Key Vault. Pense na exclusão reversível como uma lixeira. Quando você excluir um cofre de chaves ou um objeto de cofre de chaves, ele permanecerá recuperável para um período de retenção configurável pelo usuário ou um padrão de 90 dias. Os cofres de chaves no estado de exclusão reversível também podem ser **limpos** , o que significa que eles são excluídos permanentemente. Isso permite recriar cofres de chaves e objetos do cofre de chaves com o mesmo nome. A recuperação e a exclusão de cofres de chaves e objetos exigem permissões elevadas de política de acesso. **Depois que a exclusão reversível tiver sido habilitada, ela não poderá ser desabilitada.**
 
-É importante observar que os **nomes do cofre de chaves são globalmente exclusivos**, portanto, você não poderá criar um cofre de chaves com o mesmo nome que um cofre de chaves no estado de exclusão reversível. Da mesma forma, os nomes de chaves, segredos e certificados são exclusivos em um cofre de chaves. Você não poderá criar um segredo, uma chave ou um certificado com o mesmo nome que outro no estado de exclusão reversível.
+É importante observar que os **nomes do cofre de chaves são globalmente exclusivos** , portanto, você não poderá criar um cofre de chaves com o mesmo nome que um cofre de chaves no estado de exclusão reversível. Da mesma forma, os nomes de chaves, segredos e certificados são exclusivos em um cofre de chaves. Você não poderá criar um segredo, uma chave ou um certificado com o mesmo nome que outro no estado de exclusão reversível.
 
 A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre de chaves, chaves, segredos e certificados por um insider mal-intencionado. Pense nisso como uma lixeira com um bloqueio baseado em tempo. Você pode recuperar itens em qualquer ponto durante o período de retenção configurável. **Você não poderá excluir ou limpar permanentemente um cofre de chaves até que o período de retenção tenha decorrido.** Depois que o período de retenção expirar, o cofre de chaves ou o objeto do cofre de chaves será limpo automaticamente.
 
@@ -241,14 +241,6 @@ A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre d
 
     ```powershell
     Get-AzKeyVault -VaultName "ContosoVault"
-    ```
-
-* Habilitar exclusão reversível no cofre de chaves
-
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
 * Excluir cofre de chaves

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630501"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747896"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conectar sua solução externa usando o formato de evento comum
 
@@ -44,7 +44,7 @@ Como alternativa, essa configuração existirá se você usar uma VM em outra nu
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
-Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. Você pode usar as seguintes instruções para melhorar sua configuração de segurança de computador:  [VM segura no Azure](../virtual-machines/security-policy.md), [práticas recomendadas para segurança de rede](../security/fundamentals/network-best-practices.md).
+Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. Você pode usar as seguintes instruções para melhorar sua configuração de segurança de computador:  [VM segura no Azure](../virtual-machines/security-policy.md), [práticas recomendadas para segurança de rede](../security/fundamentals/network-best-practices.md).
 
 Para usar a comunicação TLS entre a origem do syslog e o encaminhador do syslog, você precisará configurar o daemon do syslog (rsyslog ou syslog-ng) para se comunicar em TLS: [criptografando o tráfego do syslog com TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [criptografando mensagens de log com TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
  
@@ -55,14 +55,14 @@ Verifique se o computador Linux que você usa como proxy está executando um dos
 - 64 bits
   - CentOS 7 e subversões e superior (não 6)
   - Amazon Linux 2017.09
-  - Oracle Linux 6 e 7
+  - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 e subversões e superior (não 6)
   - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
   - SUSE Linux Enterprise Server 12
 - 32 bits
    - CentOS 7
-   - Oracle Linux 6
+   - Oracle Linux 7
    - Red Hat Enterprise Linux Server 7
    - Debian GNU/Linux 8 e 9
    - Ubuntu Linux 14.04 LTS and 16.04 LTS
@@ -79,7 +79,7 @@ Verifique se o computador também atende aos seguintes requisitos:
 - Permissões
     - Você deve ter permissões elevadas (sudo) em seu computador. 
 - Requisitos de software
-    - Verifique se você tem o Python (2,7 ou superior) em execução no seu computador
+    - Verifique se você tem o Python 2,7 em execução em seu computador.
 
 ## <a name="next-steps"></a>Próximas etapas
 

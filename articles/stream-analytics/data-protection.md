@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812855"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746413"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados no Azure Stream Analytics 
 
@@ -67,16 +67,12 @@ Use as etapas a seguir para configurar sua conta de armazenamento para ativos de
 
 1. Preencha a página Stream Analytics trabalho com os detalhes necessários, como nome, região e escala. 
 
-1. Marque a caixa de seleção que diz *proteger todos os ativos de dados privados necessários para esse trabalho em minha conta de armazenamento*.
+1. Marque a caixa de seleção que diz *proteger todos os ativos de dados privados necessários para esse trabalho em minha conta de armazenamento* .
 
 1. Selecione uma conta de armazenamento da sua assinatura. Observe que essa configuração não pode ser modificada durante o ciclo de vida do trabalho. 
 
    ![Configurações de conta de armazenamento de dados particulares](./media/data-protection/storage-account-create.png)
 
-
-
-### <a name="known-issues"></a>Problemas conhecidos
-Atualmente, há uma limitação conhecida em que um trabalho usando a chave gerenciada pelo cliente é executado em falhas ao usar a identidade gerenciada para se autenticar em qualquer entrada ou saída.
 
 ## <a name="next-steps"></a>Próximas etapas
 

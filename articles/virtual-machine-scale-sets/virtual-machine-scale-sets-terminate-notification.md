@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603825"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747743"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificação de encerramento para instâncias de conjuntos de dimensionamento de máquinas virtuais do Azure
 As instâncias do conjunto de dimensionamento podem optar por receber notificações de encerramento de instância e definir um tempo limite de atraso predefinido para a operação de encerramento. A notificação de encerramento é enviada por meio do serviço de metadados do Azure – [eventos agendados](../virtual-machines/windows/scheduled-events.md), que fornece notificações e atraso de operações de impacto, como reinicializações e reimplantação. A solução adiciona outro evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento Terminate dependerá do limite de atraso conforme especificado pelos usuários em suas configurações de modelo de conjunto de dimensionamento.
@@ -28,12 +28,12 @@ Há várias maneiras de habilitar notificações de encerramento em suas instân
 
 As etapas a seguir habilitam a notificação de término ao criar um novo conjunto de dimensionamento. 
 
-1. Vá para **conjuntos de dimensionamento de máquinas virtuais**.
+1. Vá para **conjuntos de dimensionamento de máquinas virtuais** .
 1. Selecione **+ Adicionar** para criar um novo conjunto de dimensionamento.
 1. Vá para a guia **Gerenciamento** . 
 1. Localize a seção **término da instância** .
-1. Para **notificação de encerramento de instância**, selecione **ativado**.
-1. Para o **atraso de encerramento (minutos)**, defina o tempo limite padrão desejado.
+1. Para **notificação de encerramento de instância** , selecione **ativado** .
+1. Para o **atraso de encerramento (minutos)** , defina o tempo limite padrão desejado.
 1. Quando terminar de criar o novo conjunto de dimensionamento, selecione o botão **revisar + criar** . 
 
 > [!NOTE]
@@ -63,9 +63,9 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-O bloco acima Especifica um atraso de tempo limite de 5 minutos (conforme indicado por *PT5M*) para qualquer operação de término em todas as instâncias em seu conjunto de dimensionamento. O campo *notBeforeTimeout* pode usar qualquer valor entre 5 e 15 minutos no formato ISO 8601. Você pode alterar o tempo limite padrão para a operação de término modificando a propriedade *notBeforeTimeout* em *terminateNotificationProfile* descrito acima.
+O bloco acima Especifica um atraso de tempo limite de 5 minutos (conforme indicado por *PT5M* ) para qualquer operação de término em todas as instâncias em seu conjunto de dimensionamento. O campo *notBeforeTimeout* pode usar qualquer valor entre 5 e 15 minutos no formato ISO 8601. Você pode alterar o tempo limite padrão para a operação de término modificando a propriedade *notBeforeTimeout* em *terminateNotificationProfile* descrito acima.
 
-Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout*, atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
+Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout* , atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 
 > [!NOTE]
 >As notificações de término em instâncias do conjunto de dimensionamento só podem ser habilitadas com a versão de API 2019-03-01 e superior
@@ -197,7 +197,7 @@ Se você não estiver obtendo eventos de **término** por meio de eventos agenda
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Obtendo evento de encerramento com hora incorreta  
-Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout*, atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
+Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout* , atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 
 ## <a name="next-steps"></a>Próximas etapas
 Aprenda como [Implantar o aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais

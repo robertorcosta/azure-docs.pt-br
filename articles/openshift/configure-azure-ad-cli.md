@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469415"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748045"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurar a autenticação de Azure Active Directory para um cluster do Azure Red Hat OpenShift 4 (CLI)
 
@@ -21,7 +21,7 @@ Se você optar por instalar e usar a CLI localmente, este artigo exigirá que vo
 
 Recupere as URLs específicas do cluster que serão usadas para configurar o aplicativo Azure Active Directory.
 
-Construa a URL de retorno de chamada OAuth do cluster e armazene-a em uma variável **oauthCallbackURL**. Certifique-se de substituir **toa-RG** pelo nome do grupo de recursos e pela **toa-cluster** pelo nome do cluster.
+Construa a URL de retorno de chamada OAuth do cluster e armazene-a em uma variável **oauthCallbackURL** . Certifique-se de substituir **toa-RG** pelo nome do grupo de recursos e pela **toa-cluster** pelo nome do cluster.
 
 > [!NOTE]
 > A `AAD` seção na URL de retorno de chamada OAuth deve corresponder ao nome do provedor de identidade OAuth que você irá configurar mais tarde.
@@ -210,6 +210,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Verificar o logon por meio de Azure Active Directory
 
-Se agora fizer logoff do console Web do OpenShift e tentar fazer logon novamente, você verá uma nova opção para fazer logon com o **AAD**. Talvez seja necessário aguardar alguns minutos.
+Se agora fizer logoff do console Web do OpenShift e tentar fazer logon novamente, você verá uma nova opção para fazer logon com o **AAD** . Talvez seja necessário aguardar alguns minutos.
 
 ![Tela de logon com a opção Azure Active Directory](media/aro4-login-2.png)

@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: c93f8e50b0437f9ac1569b8abe19bd0b5174ea8d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363956"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747833"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -84,9 +84,9 @@ Para configurar servidores DNS personalizados em um modelo do Azure, adicione um
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Como criar um conjunto de dimensionamento com nomes de domínio configuráveis de máquina de virtual
-Para criar uma escala configurada com um nome DNS personalizado para máquinas virtuais usando a CLI, adicione o argumento **--vm-domain-name** ao comando **virtual machine scale set create**, seguido por uma cadeia de caracteres representando o nome do domínio.
+Para criar uma escala configurada com um nome DNS personalizado para máquinas virtuais usando a CLI, adicione o argumento **--vm-domain-name** ao comando **virtual machine scale set create** , seguido por uma cadeia de caracteres representando o nome do domínio.
 
-Para configurar o nome de domínio em um modelo do Azure, adicione uma propriedade **dnsSettings** à seção **networkInterfaceConfigurations ** do conjunto de dimensionamento. Por exemplo:
+Para configurar o nome de domínio em um modelo do Azure, adicione uma propriedade **dnsSettings** à seção **networkInterfaceConfigurations** do conjunto de dimensionamento. Por exemplo:
 
 ```json
 "networkProfile": {
@@ -130,7 +130,7 @@ Em geral, as máquinas de virtuais do conjunto de dimensionamento do Azure não 
 No entanto, alguns cenários exigem que as máquinas de virtuais do conjunto de dimensionamento do Azure tenham seus próprios endereços IP públicos. Um exemplo é o jogo, onde um console precisa fazer uma conexão direta com uma máquina virtual da nuvem, que está fazendo o processamento da física do jogo. Outro exemplo é onde as máquinas virtuais precisam fazer conexões externas umas com as outras em regiões em um banco de dados distribuído.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Como criar um conjunto de dimensionamento com IP público por máquina de virtual
-Para criar um conjunto de dimensionamento que atribui um endereço IP público para cada máquina virtual com a CLI 2.0, adicione o parâmetro **--public-ip-per-vm** ao comando **vmss create**. 
+Para criar um conjunto de dimensionamento que atribui um endereço IP público para cada máquina virtual com a CLI 2.0, adicione o parâmetro **--public-ip-per-vm** ao comando **vmss create** . 
 
 Para criar um conjunto de dimensionamento usando um modelo do Azure, verifique se a versão da API do recurso Microsoft.Compute/virtualMachineScaleSets seja, pelo menos, **2017-03-30** e adicione uma propriedade JSON **publicIpAddressConfiguration** à seção ipConfigurations do conjunto de dimensionamento. Por exemplo:
 
@@ -146,9 +146,9 @@ Para criar um conjunto de dimensionamento usando um modelo do Azure, verifique s
 Modelo de exemplo: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Como consultar os endereços IP públicos das máquinas virtuais em um conjunto de dimensionamento
-Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de escalas usando a CLI, use o comando **az vmss list-instance-public-ips**.
+Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de escalas usando a CLI, use o comando **az vmss list-instance-public-ips** .
 
-Para listar os endereços IP públicos do conjunto de dimensionamento usando o PowerShell, use o comando _Get-AzPublicIpAddress_. Por exemplo:
+Para listar os endereços IP públicos do conjunto de dimensionamento usando o PowerShell, use o comando _Get-AzPublicIpAddress_ . Por exemplo:
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
@@ -165,14 +165,14 @@ Você também pode exibir os endereços IP públicos atribuídos às máquinas v
 Para consultar o [Azure Resource Explorer](https://resources.azure.com):
 
 1. Abra o [Azure Resource Explorer](https://resources.azure.com) em um navegador da Web.
-1. Expanda *inscrições* no lado esquerdo clicando em *+* ao lado dele. Se você tiver apenas um item em *assinaturas*, ele já poderá ser expandido.
+1. Expanda *inscrições* no lado esquerdo clicando em *+* ao lado dele. Se você tiver apenas um item em *assinaturas* , ele já poderá ser expandido.
 1. Expanda a assinatura.
 1. Expanda seu grupo de recursos.
-1. Expanda *provedores*.
-1. Expanda *Microsoft.Compute*.
-1. Expanda *virtualMachineScaleSets*.
+1. Expanda *provedores* .
+1. Expanda *Microsoft. Compute* .
+1. Expanda *virtualMachineScaleSets* .
 1. Expanda o conjunto de dimensionamento.
-1. Clique em *publicipaddresses*.
+1. Clique em *publicipaddresses* .
 
 Para consultar a API REST do Azure:
 

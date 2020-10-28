@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563685"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746838"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que podem ser acessados por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor e do [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -22,7 +22,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 1. A seção de comentários deste artigo.
 2. [Página de P e R da Microsoft para Armazenamento do Microsoft Azure](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
+4. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda** , selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte** .
 
 ## <a name="general"></a>Geral
 * <a id="why-files-useful"></a>
@@ -76,7 +76,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     Os Arquivos do Azure dão suporte a duas camadas de armazenamento: Premium e Standard. Os compartilhamentos de arquivos Standard são criados em contas de armazenamento de uso geral (GPv1 ou GPv2) e os compartilhamentos de arquivos Premium são criados em contas de armazenamento FileStorage. Saiba mais sobre como criar [compartilhamentos de arquivos Standard](storage-how-to-create-file-share.md) e [compartilhamentos de arquivos Standard Premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Você não pode criar compartilhamentos de arquivos do Azure de contas de armazenamento para blob ou contas de armazenamento de uso geral (GPv1 ou GPv2) *Premium*. Os compartilhamentos de arquivos Standard do Azure precisam ser criados apenas em contas de uso geral *Standard* e os compartilhamentos de arquivo Premium do Azure precisam ser criados apenas em contas FileStorage. Contas de armazenamento de uso geral *Premium* (GPv1 e GPv2) são apenas para blobs de páginas premium. 
+    > Você não pode criar compartilhamentos de arquivos do Azure de contas de armazenamento para blob ou contas de armazenamento de uso geral (GPv1 ou GPv2) *Premium* . Os compartilhamentos de arquivos Standard do Azure precisam ser criados apenas em contas de uso geral *Standard* e os compartilhamentos de arquivo Premium do Azure precisam ser criados apenas em contas FileStorage. Contas de armazenamento de uso geral *Premium* (GPv1 e GPv2) são apenas para blobs de páginas premium. 
 
 * <a id="file-locking"></a>
   **Os arquivos do Azure dão suporte ao bloqueio de arquivos?**  
@@ -107,7 +107,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     O desempenho irá variar com base nas configurações ambientais, na configuração e se esta é uma sincronização inicial ou uma sincronização contínua. Para obter mais informações, consulte [sincronização de arquivos do Azure métricas de desempenho](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Se o mesmo arquivo é alterado em dois servidores quase ao mesmo tempo, o que acontece?**  
-    Sincronização de Arquivos do Azure usa uma estratégia simples de resolução de conflitos: mantemos ambas as alterações nos arquivos que são alterados em dois pontos de extremidade ao mesmo tempo. A alteração gravada mais recentemente mantém o nome do arquivo original. O arquivo mais antigo (determinado por LastWriteTime) tem o nome do ponto de extremidade e o número de conflito anexado ao nome do arquivo. Para os pontos de extremidade do servidor, o nome do ponto final é o nome do servidor. Para os pontos de extremidade de nuvem, o nome do ponto final é **nuvem**. O nome segue esta taxonomia: 
+    Sincronização de Arquivos do Azure usa uma estratégia simples de resolução de conflitos: mantemos ambas as alterações nos arquivos que são alterados em dois pontos de extremidade ao mesmo tempo. A alteração gravada mais recentemente mantém o nome do arquivo original. O arquivo mais antigo (determinado por LastWriteTime) tem o nome do ponto de extremidade e o número de conflito anexado ao nome do arquivo. Para os pontos de extremidade do servidor, o nome do ponto final é o nome do servidor. Para os pontos de extremidade de nuvem, o nome do ponto final é **nuvem** . O nome segue esta taxonomia: 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -257,7 +257,25 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 * <a id="ad-multiple-forest"></a>
 **A autenticação do AD DS local para compartilhamentos de arquivos do Azure tem suporte à integração com um ambiente de AD DS usando várias florestas?**    
 
-    A autenticação do AD DS local dos Arquivos do Azure se integra apenas com a floresta do serviço de domínio em que a conta de armazenamento está registrada. Para dar suporte à autenticação de outra floresta, seu ambiente precisar ter uma relação de confiança de floresta configurada corretamente. O modo que os Arquivos do Azure se registra no AD DS é quase o mesmo de um servidor de arquivos comum, onde ele cria uma identidade (conta de computador ou de logon de serviço) no AD DS para autenticação. A única diferença é que o SPN registrado da conta de armazenamento termina com "file.core.windows.net", que não corresponde ao sufixo do domínio. Consulte o administrador de domínio para ver se você precisa atualizar sua política de roteamento de DNS para habilitar a autenticação de várias florestas devido ao sufixo de domínio diferente.
+    A autenticação do AD DS local dos Arquivos do Azure se integra apenas com a floresta do serviço de domínio em que a conta de armazenamento está registrada. Para dar suporte à autenticação de outra floresta, seu ambiente precisar ter uma relação de confiança de floresta configurada corretamente. O modo que os Arquivos do Azure se registra no AD DS é quase o mesmo de um servidor de arquivos comum, onde ele cria uma identidade (conta de computador ou de logon de serviço) no AD DS para autenticação. A única diferença é que o SPN registrado da conta de armazenamento termina com "file.core.windows.net", que não corresponde ao sufixo do domínio. Consulte o administrador de domínio para ver se alguma atualização para sua política de roteamento de sufixo é necessária para habilitar a autenticação de várias florestas devido ao sufixo de domínio diferente. Fornecemos um exemplo abaixo para configurar a política de roteamento de sufixo.
+    
+    Exemplo: quando os usuários na floresta um domínio desejam acessar um compartilhamento de arquivos com a conta de armazenamento registrada em um domínio na floresta B, isso não funcionará automaticamente porque a entidade de serviço da conta de armazenamento não tem um sufixo correspondente ao sufixo de qualquer domínio na floresta A. Podemos resolver esse problema Configurando manualmente uma regra de roteamento de sufixo da floresta A para a floresta B para um sufixo personalizado de "file.core.windows.net".
+    Primeiro, você deve adicionar um novo sufixo personalizado à floresta B. Verifique se você tem as permissões administrativas apropriadas para alterar a configuração e siga estas etapas:   
+    1. Logon em um domínio de computador ingressado na floresta B
+    2.  Abrir o console "Active Directory domínios e relações de confiança"
+    3.  Clique com o botão direito em "Active Directory domínios e relações de confiança"
+    4.  Clique em "Propriedades"
+    5.  Clique em "Adicionar"
+    6.  Adicionar "file.core.windows.net" como os sufixos UPN
+    7.  Clique em "aplicar" e em "OK" para fechar o assistente
+    
+    Em seguida, adicione a regra de roteamento de sufixo na floresta A para que ela Redirecione para a floresta B.
+    1.  Fazer logon em um domínio de computador ingressado na floresta A
+    2.  Abrir o console "Active Directory domínios e relações de confiança"
+    3.  Clique com o botão direito do mouse no domínio que você deseja acessar o compartilhamento de arquivos, clique na guia "relações de confiança" e selecione domínio da floresta B de relações de confiança de saída. Se você não configurou a confiança entre as duas florestas, precisará configurar a confiança primeiro
+    4.  Clique em "Propriedades..." em seguida, "roteamento de sufixo de nome"
+    5.  Verifique se o surffix "*. file.core.windows.net" aparece. Caso contrário, clique em ' Atualizar '
+    6.  Selecione "*. file.core.windows.net" e clique em "habilitar" e "aplicar"
 
 * <a id=""></a>
 **Quais regiões estão disponíveis para a autenticação de AD DS de arquivos do Azure?**

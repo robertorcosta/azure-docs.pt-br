@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 3bbe704e6223bb04a17af7109c61875ca3b21bf9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88214128"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748187"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da Grade de Eventos do Azure para o Azure Functions
 
@@ -80,7 +80,7 @@ namespace Company.Function
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função de script de C#](functions-reference-csharp.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui estão os dados de associação no arquivo *function.json* :
 
 ```json
 {
@@ -132,7 +132,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui estão os dados de associação no arquivo *function.json* :
 
 ```json
 {
@@ -163,7 +163,7 @@ module.exports = function (context, eventGridEvent) {
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui estão os dados de associação no arquivo *function.json* :
 
 ```json
 {
@@ -305,7 +305,7 @@ A anotação [EventGridTrigger](https://github.com/Azure/azure-functions-java-li
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*. Não há parâmetros ou propriedades do construtor para definir o atributo `EventGridTrigger`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* . Não há parâmetros ou propriedades do construtor para definir o atributo `EventGridTrigger`.
 
 |Propriedade function.json |Descrição|
 |---------|---------|
@@ -345,11 +345,11 @@ No Azure Functions 2.x e superior, você também tem a opção de usar o seguint
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A instância da Grade de Eventos está disponível por meio do parâmetro configurado na propriedade de `name` do arquivo *function.json*.
+A instância da Grade de Eventos está disponível por meio do parâmetro configurado na propriedade de `name` do arquivo *function.json* .
 
 # <a name="python"></a>[Python](#tab/python)
 
-A instância da Grade de Eventos está disponível por meio do parâmetro configurado na propriedade de `name` do arquivo *function.json*, com o tipo `func.EventGridEvent`.
+A instância da Grade de Eventos está disponível por meio do parâmetro configurado na propriedade de `name` do arquivo *function.json* , com o tipo `func.EventGridEvent`.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -401,7 +401,7 @@ Para iniciar o recebimento de solicitações HTTP de Grade de Eventos, crie uma 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para as funções que você desenvolve no portal do Azure com o gatilho de Grade de Eventos, selecione **Integração**, escolha **Gatilho da Grade de Eventos** e selecione **Criar assinatura de Grade de Eventos**.
+Para as funções que você desenvolve no portal do Azure com o gatilho de Grade de Eventos, selecione **Integração** , escolha **Gatilho da Grade de Eventos** e selecione **Criar assinatura de Grade de Eventos** .
 
 :::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Conecte uma nova assinatura de evento para disparar no portal.":::
 
