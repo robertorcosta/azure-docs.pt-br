@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 5008e3b11a7e00e8f831333551c892113f03dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51df9683152d97b899150e240dee98896f8c40ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310621"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896371"
 ---
 # <a name="add-a-heat-map-layer"></a>Adicionar uma camada do mapa de calor
 
@@ -24,9 +24,9 @@ A renderização de dezenas de milhares de pontos como símbolos pode abranger a
 
 Você pode usar mapas de calor em vários cenários diferentes, incluindo:
 
-- **Dados de temperatura**: fornece aproximações para o que é a temperatura entre dois pontos de dados.
-- **Dados para sensores de ruído**: mostra não apenas a intensidade do ruído em que o sensor está, mas também pode fornecer informações sobre a dissipação ao longo de uma distância. O nível de ruído em um site pode não estar alto. Se a área de cobertura de ruído de vários sensores se sobrepuser, é possível que essa área sobreposta possa ter níveis de ruído maiores. Dessa forma, a área sobreposta estaria visível no mapa de calor.
-- **Rastreamento de GPS**: inclui a velocidade como um mapa de altura ponderado, em que a intensidade de cada ponto de dados é baseada na velocidade. Por exemplo, essa funcionalidade fornece uma maneira de ver onde um veículo estava acelerando.
+- **Dados de temperatura** : fornece aproximações para o que é a temperatura entre dois pontos de dados.
+- **Dados para sensores de ruído** : mostra não apenas a intensidade do ruído em que o sensor está, mas também pode fornecer informações sobre a dissipação ao longo de uma distância. O nível de ruído em um site pode não estar alto. Se a área de cobertura de ruído de vários sensores se sobrepuser, é possível que essa área sobreposta possa ter níveis de ruído maiores. Dessa forma, a área sobreposta estaria visível no mapa de calor.
+- **Rastreamento de GPS** : inclui a velocidade como um mapa de altura ponderado, em que a intensidade de cada ponto de dados é baseada na velocidade. Por exemplo, essa funcionalidade fornece uma maneira de ver onde um veículo estava acelerando.
 
 > [!TIP]
 > Por padrão, as camadas do mapa de calor renderizam as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada para que ela só processe recursos de geometria de ponto, defina a `filter` propriedade da camada como `['==', ['geometry-type'], 'Point']` . Se você também quiser incluir recursos do MultiPoint, defina a `filter` propriedade da camada como `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` .
@@ -120,10 +120,10 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mapa de calor com 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos:
 

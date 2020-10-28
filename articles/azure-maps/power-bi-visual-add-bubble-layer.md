@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261608"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896218"
 ---
 # <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
 
@@ -51,13 +51,13 @@ Se um campo for passado para o Bucket de **tamanho** do painel **campos** , as b
 | Tamanho máx.            | Tamanho máximo da bolha ao dimensionar os dados.|
 | Método de dimensionamento de tamanho | Algoritmo de dimensionamento usado para determinar o tamanho relativo da bolha.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervalo linear de dados de entrada mapeados linearmente para o tamanho mínimo e máximo. (padrão)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervalo de log dos dados de entrada logaritmicamente mapeados para o tamanho mínimo e máximo.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier-especifique os valores X1, y1, X2, Y2 de uma curva de Cubic-Bezier para criar um método de dimensionamento personalizado. |
 
-Quando o **método de dimensionamento de tamanho** for definido como **log**, as opções a seguir serão disponibilizadas.
+Quando o **método de dimensionamento de tamanho** for definido como **log** , as opções a seguir serão disponibilizadas.
 
 | Configuração   | Descrição      |
 |-----------|------------------|
 | Escala de log | A escala logarítmica a ser aplicada ao calcular o tamanho das bolhas. |
 
-Quando o **método de dimensionamento de tamanho** for definido como **Bezier cúbico**, as opções a seguir serão disponibilizadas para personalizar a curva de dimensionamento.
+Quando o **método de dimensionamento de tamanho** for definido como **Bezier cúbico** , as opções a seguir serão disponibilizadas para personalizar a curva de dimensionamento.
 
 | Configuração | Descrição                           |
 |---------|---------------------------------------|
@@ -90,7 +90,7 @@ Adicione mais contexto ao mapa:
 Personalize o Visual:
 
 > [!div class="nextstepaction"]
-> [Dicas e truques para formatação de cores no Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Dicas e truques para formatação de cores no Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Personalizar títulos, telas de fundo e legendas de visualizações](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Personalizar títulos, telas de fundo e legendas de visualizações](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

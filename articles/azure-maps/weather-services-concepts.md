@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972046"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896720"
 ---
 # <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos no Azure Maps
 
-Este artigo apresenta conceitos que se aplicam aos [serviços meteorológicos do Azure Maps](https://aka.ms/AzureMapsWeatherService). É recomendável passar por este artigo antes de começar com as APIs meteorológicos.
+Este artigo apresenta conceitos que se aplicam aos [serviços meteorológicos do Azure Maps](/rest/api/maps/weather). É recomendável passar por este artigo antes de começar com as APIs meteorológicos.
 
 ## <a name="unit-types"></a>Tipos de unidade
 
@@ -47,7 +47,7 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 |19      |kelvin              |
 |20      |{1&gt;percent&lt;1}             |
 |21      |FLOAT               |
-|22      |Número inteiro             |
+|22      |inteiro             |
 
 
 ## <a name="weather-icons"></a>Ícones de clima
@@ -100,7 +100,7 @@ Algumas das APIs de serviço meteorológico retornam o `iconCode` na resposta. O
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de cores de imagens de radar e satélite
 
-Por meio da [API do mapa Get do Map v2](https://aka.ms/AzureMapsWeatherTiles) , os usuários podem solicitar imagens satélite de radar e infravermelho mais recentes. Consulte o guia abaixo para ajudar a interpretar as cores usadas para os blocos de radar e satélite.
+Por meio da [API do mapa Get do Map v2](/rest/api/maps/renderv2/getmaptilepreview) , os usuários podem solicitar imagens satélite de radar e infravermelho mais recentes. Consulte o guia abaixo para ajudar a interpretar as cores usadas para os blocos de radar e satélite.
 
 ### <a name="radar-images"></a>Imagens de radar
 
@@ -475,7 +475,7 @@ A paleta de cores detalhada para blocos satélite de infravermelho é mostrada a
 
 ## <a name="index-ids-and-index-groups-ids"></a>IDs de índice e identificadores de grupos de índice
 
-A [API obter índices diários](https://aka.ms/AzureMapsWeatherDailyIndices) permite que os usuários restrinjam os resultados retornados a tipos de índice ou grupos de índice específicos.
+A [API obter índices diários](/rest/api/maps/weather) permite que os usuários restrinjam os resultados retornados a tipos de índice ou grupos de índice específicos.
 
 Abaixo está uma tabela de IDs de índice disponíveis, seus nomes e um link para seus conjuntos de intervalos. Abaixo desta tabela, há uma tabela que lista os vários grupos de índice.
 
@@ -543,11 +543,11 @@ Abaixo está a lista de grupos de índice disponíveis (indexGroupId):
   10      |Saúde | Arthritis dor (21) </br> Asthma (23) </br> Frio comum (25) </br> Poeira & dander (18) </br> Gripe (26) </br> Aptidão de coração íntegra (16) </br> Migraine dor de cabeça (27)
   11      |Externa | Barbecue externamente (24) </br> Pool de & de praia (10) </br> Biciclo (4) </br> Concerto ao ar (8) </br>  Preparação do campo (32) </br> Pesca (13) </br> Clima de golfe (5) </br> Caminhada (3) </br> Caça (20) </br> Jogging (2) </br> Kite voando (9) </br> Atividade mosquito (17)</br> Mowing do gramado (28) </br> Atividade externa (29) </br> Em execução (1) </br> Velejando (11) </br> Skateboarding (7) </br> Clima da esqui (15) </br>  Umidade de solo (34)</br> Stargazing (12) </br> Tênis (6)
   12      |Artigos | Biciclo (4) </br> Clima de golfe (5) </br> Caminhada (3) </br>  Jogging (2) </br> Em execução (1) </br> Skateboarding (7) </br> Clima da esqui (15) </br>Tênis (6)
-  13      |Inicial | Eficiência de energia doméstica (36) </br> Economia de combustível (37) </br> Atividade de interno (-2)
+  13      |Página Inicial | Eficiência de energia doméstica (36) </br> Economia de combustível (37) </br> Atividade de interno (-2)
 
 ## <a name="daily-index-range-sets"></a>Conjuntos de intervalos de índice diários
 
-A [API obter índices diários](https://aka.ms/AzureMapsWeatherDailyIndices) retorna o valor de intervalo e seu nome de categoria associado para cada ID de índice. Os conjuntos de intervalos não são os mesmos para todos os índices. As tabelas a seguir mostram os vários conjuntos de intervalos usados pelos índices com suporte listados em IDs de [índice e IDs de grupos de índice](#index-ids-and-index-groups-ids). Para descobrir quais índices usam quais conjuntos de intervalos, vá para a seção [IDs de índice e IDs de grupos de índice](#index-ids-and-index-groups-ids) deste documento.
+A [API obter índices diários](/rest/api/maps/weather) retorna o valor de intervalo e seu nome de categoria associado para cada ID de índice. Os conjuntos de intervalos não são os mesmos para todos os índices. As tabelas a seguir mostram os vários conjuntos de intervalos usados pelos índices com suporte listados em IDs de [índice e IDs de grupos de índice](#index-ids-and-index-groups-ids). Para descobrir quais índices usam quais conjuntos de intervalos, vá para a seção [IDs de índice e IDs de grupos de índice](#index-ids-and-index-groups-ids) deste documento.
 
 ### <a name="poor-excellent-1"></a>Poor-Excellent 1
 
@@ -624,7 +624,7 @@ A [API obter índices diários](https://aka.ms/AzureMapsWeatherDailyIndices) ret
 | Nome da categoria | Intervalo de início | Intervalo de término |
   ----------------|--------------|------------
   Provável         |  0     |          2,99
-  Inspeção            |  3     |          4,99
+  Assistir            |  3     |          4,99
   Supervisão         |  5     |          6,99
   Aviso          |  7     |          8,99
   Emergência        |  9     |          10

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037398"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897187"
 ---
 # <a name="geofencing-geojson-data"></a>Dados GeoJSON de delimitação geográfica
 
@@ -40,7 +40,7 @@ Os dados para cerca geográfica ou conjunto de cercas geográficas são represen
 
 * Todos os valores de coordenadas são representados como [longitude, latitude] definido em `WGS84` .
 * Para cada recurso, que contém `MultiPoint`, `MultiLineString`, `MultiPolygon` ou `GeometryCollection`, as propriedades são aplicadas a todos os elementos. por exemplo: todos os pontos em `MultiPoint` usarão o mesmo raio para formar um limite geográfico de vários círculos.
-* Em cenário de círculo ponto, uma geometria de círculo pode ser representada usando um objeto de geometria `Point` com propriedades elaboradas em [Estender geometrias GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
+* Em cenário de círculo ponto, uma geometria de círculo pode ser representada usando um objeto de geometria `Point` com propriedades elaboradas em [Estender geometrias GeoJSON](./extend-geojson.md).      
 
 A seguir, é apresentado um corpo da solicitação de exemplo para uma cerca geográfica representada como uma geometria de cerca geográfica de círculo em `GeoJSON` usando um ponto central e um raio. O período válido dos dados de cerca geográfica começa a partir de 22/10/2018, das 9h às 17h, repetido todos os dias, exceto no final de semana. `expiredTime` indica que os dados de cerca geográfica serão considerados expirados, se `userTime` na solicitação for posterior a `2019-01-01`.  
 

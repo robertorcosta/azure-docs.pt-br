@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825310"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896575"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grade lado a lado
 
@@ -74,7 +74,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Como a largura e a altura do mapa são diferentes em cada nível de zoom, são as coordenadas de pixel. O pixel no canto superior esquerdo do mapa sempre tem coordenadas de pixel (0, 0). O pixel no canto inferior direito do mapa tem coordenadas de pixel *(largura-1, altura-1)* ou referindo-se às equações na seção anterior, *(Tiles \* 2<sup>zoom</sup>– 1, tileize \* 2<sup>zoom</sup>– 1)*. Por exemplo, ao usar blocos quadrados de 512 no nível 2, as coordenadas de pixel variam de (0, 0) a (2047, 2047), desta forma:
+Como a largura e a altura do mapa são diferentes em cada nível de zoom, são as coordenadas de pixel. O pixel no canto superior esquerdo do mapa sempre tem coordenadas de pixel (0, 0). O pixel no canto inferior direito do mapa tem coordenadas de pixel *(largura-1, altura-1)* ou referindo-se às equações na seção anterior, *(Tiles \* 2 <sup>zoom</sup>– 1, tileize \* 2 <sup>zoom</sup>– 1)* . Por exemplo, ao usar blocos quadrados de 512 no nível 2, as coordenadas de pixel variam de (0, 0) a (2047, 2047), desta forma:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Bloco do mapa mundial":::
 
@@ -100,7 +100,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Cada bloco recebe coordenadas XY que variam de (0, 0) no canto superior esquerdo a *(2<sup>zoom</sup>– 1, 2<sup>zoom</sup>– 1)* no canto inferior direito. Por exemplo, no nível de zoom 3, o bloco coordena o intervalo de (0, 0) para (7, 7) da seguinte maneira:
+Cada bloco recebe coordenadas XY que variam de (0, 0) no canto superior esquerdo a *(2 <sup>zoom</sup>– 1, 2 <sup>zoom</sup>– 1)* no canto inferior direito. Por exemplo, no nível de zoom 3, o bloco coordena o intervalo de (0, 0) para (7, 7) da seguinte maneira:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Bloco do mapa mundial":::
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > Os controles de mapa interativos no SDK do Azure Maps têm funções auxiliares para converter entre posições geoespaciais e pixels de visor. 
-> - [SDK da Web: mapear os cálculos de pixel e posição](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [SDK da Web: mapear os cálculos de pixel e posição](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Acesse diretamente os blocos de mapa dos serviços REST do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Obter blocos de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Obter blocos de mapa](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Obter blocos de fluxo de tráfego](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Obter blocos de fluxo de tráfego](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Obter blocos de incidente de tráfego](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Obter blocos de incidente de tráfego](/rest/api/maps/traffic/gettrafficincidenttile)
 
 Saiba mais sobre os conceitos geoespaciais:
 

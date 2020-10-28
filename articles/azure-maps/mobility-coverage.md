@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d61cc94ee1b3c5d23135c033b1068aa7411761d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12548b04e5fb967572e17f1be88369b9950661c3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033250"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896286"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade do Azure Maps
 
-O serviço de [mobilidade](https://aka.ms/AzureMapsMobilityService) do Azure Maps melhora o tempo de desenvolvimento para aplicativos com recursos de trânsito públicos, como roteamento de trânsito e pesquisa para interrupções de trânsito públicos próximos. Os usuários podem recuperar informações detalhadas sobre as interrupções de trânsito, linhas e cronogramas. O serviço Mobilidade também permite que os usuários recuperem geometrias de parada e de linha, alertas de paradas, linhas e áreas de serviço, bem como entradas de trânsito e alertas de serviço em tempo real. Além disso, o serviço Mobilidade fornece funcionalidades de roteamento com opções de planejamento de viagem multimodal. O planejamento de viagens multimodal incorpora opções de movimentação, semiciclo e trânsito público, tudo em uma viagem. Os usuários também podem acessar os roteiros passo a passo multimodais detalhados. 
+O serviço de [mobilidade](/rest/api/maps/mobility) do Azure Maps melhora o tempo de desenvolvimento para aplicativos com recursos de trânsito públicos, como roteamento de trânsito e pesquisa para interrupções de trânsito públicos próximos. Os usuários podem recuperar informações detalhadas sobre as interrupções de trânsito, linhas e cronogramas. O serviço Mobilidade também permite que os usuários recuperem geometrias de parada e de linha, alertas de paradas, linhas e áreas de serviço, bem como entradas de trânsito e alertas de serviço em tempo real. Além disso, o serviço Mobilidade fornece funcionalidades de roteamento com opções de planejamento de viagem multimodal. O planejamento de viagens multimodal incorpora opções de movimentação, semiciclo e trânsito público, tudo em uma viagem. Os usuários também podem acessar os roteiros passo a passo multimodais detalhados. 
 
 O mapas do Azure não fornece o mesmo nível de informações e precisão para todas as cidades e países/regiões. A capacidade de chamar dados de trânsito públicos depende da área de metrô. Além disso, os dados do mapa podem não incluir todas as opções de trânsito público e as agências que servem a área de metrô.
 
@@ -159,4 +159,4 @@ Saiba como solicitar dados em tempo real usando o serviço de mobilidade:
 Explore a documentação da API do serviço de mobilidade do Azure Maps
 
 > [!div class="nextstepaction"]
-> [Documentação da API do serviço de mobilidade](https://aka.ms/AzureMapsMobilityService)
+> [Documentação da API do serviço de mobilidade](/rest/api/maps/mobility)

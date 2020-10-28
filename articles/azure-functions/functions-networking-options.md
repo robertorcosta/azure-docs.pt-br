@@ -1,15 +1,16 @@
 ---
 title: Opções de rede do Azure Functions
 description: Uma visão geral de todas as opções de rede disponíveis no Azure Functions.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.author: jehollan
+ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530074"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897068"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -66,11 +67,30 @@ Para fornecer um nível mais alto de segurança, você pode restringir vários s
 
 Para obter mais detalhes, confira [Pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Restringir sua conta de armazenamento a uma rede virtual (versão prévia)
 
-Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas. No momento, não é possível usar restrições de rede virtual nesta conta. Se você configurar um ponto de extremidade de serviço de rede virtual na conta de armazenamento que você está usando para seu aplicativo de funções, essa configuração interromperá seu aplicativo.
+Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas.  Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular.  Este recurso de visualização atualmente funciona apenas com planos do Windows Premium no Europa Ocidental.  Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
 
-Para saber mais, confira [Requisitos de uma conta de armazenamento](./functions-create-function-app-portal.md#storage-account-requirements).
+> [!NOTE]
+> Restringir a conta de armazenamento só funciona atualmente para funções Premium usando o Windows no Europa Ocidental
+
+1. Crie uma função com uma conta de armazenamento que não tenha pontos de extremidade de serviço habilitados.
+1. Configure a função para se conectar à sua rede virtual.
+1. Crie ou configure uma conta de armazenamento diferente.  Essa será a conta de armazenamento que protegemos com os pontos de extremidade de serviço e conectamos nossa função.
+1. [Crie um compartilhamento de arquivos](../storage/files/storage-how-to-create-file-share.md#create-file-share) na conta de armazenamento protegida.
+1. Habilite os pontos de extremidade de serviço ou o Endpoint particular para a conta de armazenamento.  
+    * Certifique-se de habilitar a sub-rede dedicada para seus aplicativos de funções se estiver usando um ponto de extremidade de serviço.
+    * Certifique-se de criar um registro DNS e configurar seu aplicativo para [trabalhar com pontos de extremidade de ponto de extremidades privados](#azure-dns-private-zones) , se estiver usando um ponto de extremidade privado.  A conta de armazenamento precisará de um ponto de extremidade privado para os `file` `blob` subrecursos e.  Se estiver usando determinados recursos como Durable Functions você também precisará `queue` e poderá `table` ser acessado por meio de uma conexão de ponto de extremidade privada.
+1. Adicional Copie o conteúdo do arquivo e do blob da conta de armazenamento do aplicativo de funções para a conta de armazenamento protegida e o compartilhamento de arquivos.
+1. Copie a cadeia de conexão para esta conta de armazenamento.
+1. Atualize as **configurações do aplicativo** em **configuração** para o aplicativo de funções para o seguinte:
+    - `AzureWebJobsStorage` para a cadeia de conexão da conta de armazenamento protegida.
+    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` para a cadeia de conexão da conta de armazenamento protegida.
+    - `WEBSITE_CONTENTSHARE` para o nome do compartilhamento de arquivos criado na conta de armazenamento protegido.
+    - Crie uma nova configuração com o nome `WEBSITE_CONTENTOVERVNET` e o valor de `1` .
+1. Salve as configurações do aplicativo.  
+
+O aplicativo de funções será reiniciado e agora será conectado a uma conta de armazenamento protegida.
 
 ## <a name="use-key-vault-references"></a>Usar referências de Key Vault
 
@@ -87,7 +107,7 @@ No momento, você pode usar funções de gatilho não HTTP de dentro de uma rede
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plano Premium com gatilhos de rede virtual
 
-Ao executar um plano Premium, você poderá conectar funções de gatilho não HTTP a serviços que são executados dentro de uma rede virtual. Para fazer isso, você deverá habilitar o suporte ao gatilho de rede virtual para seu aplicativo de funções. A configuração **monitoramento de escala de tempo de execução** é encontrada no [portal do Azure](https://portal.azure.com) em configurações de tempo de execução da função de **configuração**  >  **Function runtime settings**.
+Ao executar um plano Premium, você poderá conectar funções de gatilho não HTTP a serviços que são executados dentro de uma rede virtual. Para fazer isso, você deverá habilitar o suporte ao gatilho de rede virtual para seu aplicativo de funções. A configuração **monitoramento de escala de tempo de execução** é encontrada no [portal do Azure](https://portal.azure.com) em configurações de tempo de execução da função de **configuração**  >  **Function runtime settings** .
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -136,8 +156,8 @@ Quando você integra um aplicativo de funções em um plano Premium ou plano do 
 ## <a name="automation"></a>Automação
 As APIs a seguir permitem gerenciar programaticamente integrações de rede virtual regional:
 
-+ **CLI do Azure**: Use os [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandos para adicionar, listar ou remover uma integração de rede virtual regional.  
-+ **Modelos de ARM**: a integração de rede virtual regional pode ser habilitada usando um modelo de Azure Resource Manager. Para obter um exemplo completo, consulte [este modelo de início rápido do Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **CLI do Azure** : Use os [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) comandos para adicionar, listar ou remover uma integração de rede virtual regional.  
++ **Modelos de ARM** : a integração de rede virtual regional pode ser habilitada usando um modelo de Azure Resource Manager. Para obter um exemplo completo, consulte [este modelo de início rápido do Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

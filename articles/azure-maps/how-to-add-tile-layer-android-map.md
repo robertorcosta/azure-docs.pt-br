@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311080"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897085"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicionar uma camada de bloco a um mapa usando o Azure Maps SDK do Android
 
@@ -37,9 +37,9 @@ A URL do bloco passada para uma camada de peça deve ser uma URL http/https para
 * `{bbox-epsg-3857}` -Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
 * `{subdomain}` -Um espaço reservado para os valores de subdomínio, se o valor de subdomínio for especificado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](./how-to-use-android-map-control-library.md) para carregar um mapa.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Adicionar uma camada de bloco ao mapa
@@ -179,4 +179,4 @@ Se você executar o aplicativo agora, deverá ver uma linha no mapa, como mostra
 Consulte o artigo a seguir para saber mais sobre maneiras de definir estilos de mapa
 
 > [!div class="nextstepaction"]
-> [Alterar estilos de mapa nos mapas do Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Alterar estilos de mapa nos mapas do Android](./set-android-map-styles.md)

@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60d45febced2f2d678d41682f7f27bf668943de2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033216"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896303"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Estruturas de dados no serviço de mobilidade do Azure Maps
 
-Este artigo apresenta o conceito de área de metrô no [serviço de mobilidade do Azure Maps](https://aka.ms/AzureMapsMobilityService). Discutiremos alguns campos comuns que são retornados quando esse serviço é consultado para interrupções e linhas de trânsito públicos. É recomendável ler este artigo antes de desenvolver com as APIs do serviço de mobilidade.
+Este artigo apresenta o conceito de área de metrô no [serviço de mobilidade do Azure Maps](/rest/api/maps/mobility). Discutiremos alguns campos comuns que são retornados quando esse serviço é consultado para interrupções e linhas de trânsito públicos. É recomendável ler este artigo antes de desenvolver com as APIs do serviço de mobilidade.
 
 ## <a name="metro-area"></a>Área de metrô
 
 Os dados do serviço de mobilidade são agrupados por áreas de metrô com suporte. Áreas de metrô não seguem limites de cidade. Uma área de metrô pode conter várias cidades, uma cidade com alta densidade e cidades ao redor. Na verdade, um país/região pode ser uma área de metrô. 
 
-O `metroID` é uma ID da área de metrô que pode ser usada para chamar a [API obter informações da área de metrô](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Use a API "Get metro" do Azure Maps para solicitar tipos de trânsito, agências de trânsito, alertas ativos e detalhes adicionais para o metro escolhido. Você também pode solicitar as áreas de metrô e metroIDs com suporte. As IDs de área de metrô estão sujeitas a alterações.
+O `metroID` é uma ID da área de metrô que pode ser usada para chamar a [API obter informações da área de metrô](/rest/api/maps/mobility/getmetroareainfopreview). Use a API "Get metro" do Azure Maps para solicitar tipos de trânsito, agências de trânsito, alertas ativos e detalhes adicionais para o metro escolhido. Você também pode solicitar as áreas de metrô e metroIDs com suporte. As IDs de área de metrô estão sujeitas a alterações.
 
 **metroID:** 522   **nome:** Seattle-Tacoma-Bellevue
 
@@ -33,7 +33,7 @@ O `metroID` é uma ID da área de metrô que pode ser usada para chamar a [API o
 
 As interrupções de trânsito podem ser referenciadas por dois tipos de IDs, a ID de [GFTS (especificação de feed de trânsito geral)](http://gtfs.org/) e a ID de parada do Azure Maps. A ID de GFTS é conhecida como stopKey e a ID de parada do Azure Maps é referida como stopid. Quando se referirem a um trânsito com frequência, você será incentivado a usar a ID de parada do Azure Maps. StopId é mais estável e provavelmente permanecerá o mesmo, desde que a parada física exista. A ID de parada GTFS é atualizada com mais frequência. Por exemplo, GTFS Stop ID pode ser atualizado de acordo com a solicitação do provedor GTFS ou quando uma nova versão do GTFS é liberada. Embora a parada física não tenha sido alterada, a ID de parada GTFS pode ser alterada.
 
-Para começar, você pode solicitar que o trânsito próximo seja interrompido usando a [API de trânsito próximo](https://aka.ms/AzureMapsMobilityNearbyTransit).
+Para começar, você pode solicitar que o trânsito próximo seja interrompido usando a [API de trânsito próximo](/rest/api/maps/mobility/getnearbytransitpreview).
 
 ## <a name="line-groups-and-lines"></a>Linhas e grupos de linha
 
@@ -49,7 +49,7 @@ Um grupo de linhas é uma entidade, que agrupa todas as linhas que são logicame
 
 Conforme discutido acima, cada grupo de linhas é composto por um conjunto de linhas. Cada grupo de linhas é composto de duas linhas e cada linha descreve uma direção.  No entanto, há casos em que mais linhas compõem um grupo de linhas. Por exemplo, há uma linha que às vezes faz uma despasseio por uma determinada vizinhança e, às vezes, não. Em ambos os casos, ele opera com o mesmo número de linha. Além disso, um grupo de linhas pode ser composto por uma única linha. Uma linha circular com uma única direção é um grupo de Ling com uma linha.
 
-Para começar, você pode solicitar grupos de linhas usando a [API obter linha de trânsito](https://aka.ms/AzureMapsMobilityTransitLine).
+Para começar, você pode solicitar grupos de linhas usando a [API obter linha de trânsito](/rest/api/maps/mobility/gettransitlineinfopreview).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -67,4 +67,4 @@ Saiba como solicitar dados em tempo real usando o serviço de mobilidade:
 Explore a documentação da API do serviço de mobilidade do Azure Maps
 
 > [!div class="nextstepaction"]
-> [Documentação da API do serviço de mobilidade](https://aka.ms/AzureMapsMobilityService)
+> [Documentação da API do serviço de mobilidade](/rest/api/maps/mobility)

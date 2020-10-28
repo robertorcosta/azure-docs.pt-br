@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311301"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897119"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma forma a um mapa usando o Azure Maps SDK do Android
 
 Este artigo mostra como renderizar formas em um mapa usando o Azure Maps SDK do Android.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para concluir o processo neste artigo, você precisa instalar o [Azure Maps SDK do Android](./how-to-use-android-map-control-library.md) para carregar um mapa.
 
 
 ## <a name="add-a-line-to-the-map"></a>Adicionar uma linha ao mapa
 
-Você pode adicionar uma linha ao mapa usando uma **camada de linha**, seguir as etapas abaixo para adicionar uma linha no mapa.
+Você pode adicionar uma linha ao mapa usando uma **camada de linha** , seguir as etapas abaixo para adicionar uma linha no mapa.
 
 1. Edite o **layout de > res > activity_main.xml** para que ele se pareça com o seguinte:
 

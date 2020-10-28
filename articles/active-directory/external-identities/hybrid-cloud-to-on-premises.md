@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84169daa28fc394254ddce211a96d4a462f78cbd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441854"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896459"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
 
@@ -28,10 +28,10 @@ Se o aplicativo local usar a autenticação baseada em SAML, você poderá dispo
 
 Para isso, será necessário fazer o seguinte:
 
-- Integre o aplicativo usando o SAML conforme descrito em [Configurar logon único baseado em SAML](../manage-apps/configure-saml-single-sign-on.md). Certifique-se de anotar o que é utilizado para o valor da **URL de logon**.
+- Integre o aplicativo usando o SAML conforme descrito em [Configurar logon único baseado em SAML](../manage-apps/configure-saml-single-sign-on.md). Certifique-se de anotar o que é utilizado para o valor da **URL de logon** .
 -  Use o Proxy de Aplicativo do Azure Active Directory para publicar o aplicativo local com o **Azure Active Directory** configurado como a fonte de autenticação. Para obter instruções, consulte [Publicar aplicativos usando o Proxy de Aplicativo do Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md). 
 
-   Ao configurar a configuração **Internal Url**, use a URL de logon especificada no modelo de aplicativo inexistente na galeria. Dessa forma, os usuários podem acessar o aplicativo fora do limite da organização. O Proxy de Aplicativo realiza o logon único do SAML para o aplicativo local.
+   Ao configurar a configuração **Internal Url** , use a URL de logon especificada no modelo de aplicativo inexistente na galeria. Dessa forma, os usuários podem acessar o aplicativo fora do limite da organização. O Proxy de Aplicativo realiza o logon único do SAML para o aplicativo local.
  
    ![Mostra a URL interna e a autenticação das configurações do aplicativo local](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
 
@@ -39,8 +39,8 @@ Para isso, será necessário fazer o seguinte:
 
 Para fornecer aos usuários B2B acesso a aplicativos locais que são protegidos com a delegação restrita de Autenticação Integrada do Windows e Kerberos, serão necessários os componentes a seguir:
 
-- **Autenticação por meio do Proxy de Aplicativo do Azure Active Directory**. Os usuários B2B devem autenticar-se no aplicativo local. Para fazer isso, é necessário publicar o aplicativo local por meio do Proxy de Aplicativo do Azure Active Directory. Para obter mais informações, consulte [Introdução ao Proxy de Aplicativo e instalação do conector](../manage-apps/application-proxy-add-on-premises-application.md) e [Publicar aplicativos usando o Proxy de Aplicativo do Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md).
-- **Autorização por meio de um objeto de usuário B2B no diretório local**. O aplicativo deve executar verificações de acesso do usuário e conceder acesso aos recursos corretos. A IWA e KCD exigem um objeto de usuário no Active Directory do Windows Server local para concluir essa autorização. Conforme descrito em [Como o logon único com KCD funciona](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), o Proxy de aplicativo precisa desse objeto de usuário para representar o usuário e obter um token do Kerberos no aplicativo. 
+- **Autenticação por meio do Proxy de Aplicativo do Azure Active Directory** . Os usuários B2B devem autenticar-se no aplicativo local. Para fazer isso, é necessário publicar o aplicativo local por meio do Proxy de Aplicativo do Azure Active Directory. Para obter mais informações, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Autorização por meio de um objeto de usuário B2B no diretório local** . O aplicativo deve executar verificações de acesso do usuário e conceder acesso aos recursos corretos. A IWA e KCD exigem um objeto de usuário no Active Directory do Windows Server local para concluir essa autorização. Conforme descrito em [Como o logon único com KCD funciona](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), o Proxy de aplicativo precisa desse objeto de usuário para representar o usuário e obter um token do Kerberos no aplicativo. 
 
    > [!NOTE]
    > Ao configurar o Proxy de Aplicativo do AD do Azure, verifique se a **identidade de logon delegada** está definida como **nome principal do usuário** (padrão) na configuração de logon único para IWA (autenticação integrada do Windows).
@@ -77,7 +77,7 @@ Para obter informações sobre como usar o MIM 2016 Service Pack 1 e o agente de
 
 Há um script de amostra do PowerShell disponível que pode ser utilizado como ponto de partida para criar os objetos de usuário convidado no Active Directory local.
 
-É possível baixar o script e o arquivo Leiame do [Centro de Download](https://www.microsoft.com/download/details.aspx?id=51495). Escolha o arquivo **Script e Leiame para efetuar pull de usuários B2B do Microsoft Azure AD local.zip**.
+É possível baixar o script e o arquivo Leiame do [Centro de Download](https://www.microsoft.com/download/details.aspx?id=51495). Escolha o arquivo **Script e Leiame para efetuar pull de usuários B2B do Microsoft Azure AD local.zip** .
 
 Antes de usar o script, certifique-se de revisar os pré-requisitos e as considerações importantes no arquivo Leiame associado. Além disso, entenda que o script é disponibilizado apenas como um exemplo. Sua equipe de desenvolvimento ou um parceiro deverá personalizar e revisar o script antes de executá-lo.
 

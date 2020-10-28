@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3ece62e671caa0838bbf4713c0ad4a74f19fd6cb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 61b6f4a530ab1861c67b0bd4983167546e268957
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518867"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896320"
 ---
 # <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>Tutorial – Fazer a migração do Google Maps para o Azure Mapas
 
@@ -79,7 +79,7 @@ Aqui estão alguns recursos relacionados para o Azure Mapas:
 - [Página de preços do Azure Mapas](https://azure.microsoft.com/pricing/details/azure-maps/)
 - [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 - [Termo de uso do Azure Mapas](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46) (incluído nos termos do Microsoft Online Services)
-- [Escolha o tipo de preço certo no Azure Mapas](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+- [Escolha o tipo de preço certo no Azure Mapas](./choose-pricing-tier.md)
 
 ## <a name="suggested-migration-plan"></a>Plano de migração sugerido
 
@@ -87,7 +87,7 @@ O plano de migração a seguir é de alto nível.
 
 1. Faça o inventário dos SDKs e dos serviços do Google Maps que seu aplicativo usa. Verifique se o Azure Mapas fornece SDKs e serviços alternativos.
 2. Caso você ainda não tenha, crie uma assinatura do Azure em [https://azure.com](https://azure.com).
-3. Crie uma conta ([documentação](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) e chave de autenticação do Azure Mapas ou do Azure Active Directory ([documentação](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
+3. Crie uma conta ([documentação](./how-to-manage-account-keys.md)) e chave de autenticação do Azure Mapas ou do Azure Active Directory ([documentação](./how-to-manage-authentication.md)).
 4. Migre o código do aplicativo.
 5. Teste seu aplicativo migrado.
 6. Implante seu aplicativo migrado para produção.
@@ -98,17 +98,17 @@ Para criar uma conta do Azure Mapas e obter acesso à plataforma do Azure Mapas,
 
 1. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 2. Entre no [portal do Azure](https://portal.azure.com/).
-3. Crie uma [conta do Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
-4. [Obtenha a chave de assinatura do Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) ou configure a autenticação do Azure Active Directory para aumentar a segurança.
+3. Crie uma [conta do Azure Mapas](./how-to-manage-account-keys.md). 
+4. [Obtenha a chave de assinatura do Azure Mapas](./how-to-manage-authentication.md#view-authentication-details) ou configure a autenticação do Azure Active Directory para aumentar a segurança.
 
 ## <a name="azure-maps-technical-resources"></a>Recursos técnicos do Azure Mapas
 
 Aqui está uma lista de recursos técnicos úteis para o Azure Mapas.
 
 - Visão geral: [https://azure.com/maps](https://azure.com/maps)
-- Documentação: [https://aka.ms/AzureMapsDocs](https://aka.ms/AzureMapsDocs)
+- Documentação: [https://aka.ms/AzureMapsDocs](./index.yml)
 - Exemplos de código do SDK Web: [https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
-- Fóruns de desenvolvedores: [https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
+- Fóruns de desenvolvedores: [https://aka.ms/AzureMapsForums](/answers/topics/azure-maps.html)
 - Vídeos: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Blog de tecnologia: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
@@ -117,7 +117,7 @@ Aqui está uma lista de recursos técnicos úteis para o Azure Mapas.
 
 ## <a name="migration-support"></a>Suporte à migração
 
-Os desenvolvedores podem buscar suporte à migração por meio dos [fóruns](https://aka.ms/AzureMapsForums) ou por meio de uma das muitas opções de Suporte do Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
+Os desenvolvedores podem buscar suporte à migração por meio dos [fóruns](/answers/topics/azure-maps.html) ou por meio de uma das muitas opções de Suporte do Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
 ## <a name="next-steps"></a>Próximas etapas
 

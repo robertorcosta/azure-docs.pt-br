@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888103"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896133"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Criar um trabalho de streaming de dados no Azure SQL Edge 
 
@@ -103,7 +103,7 @@ O exemplo a seguir cria um objeto de fluxo externo para o banco de dados local n
 
 3. Crie uma fonte de dados externa, usando CREATE EXTERNAL DATA SOURCE. O exemplo a seguir:
 
-    * Cria uma fonte de dados externa chamada *LocalSQLOutput*.
+    * Cria uma fonte de dados externa chamada *LocalSQLOutput* .
     * Identifica a fonte de dados externa (LOCATION = '<vendor>://<server>[:<port>]'). No exemplo, ele aponta para uma instância local do Azure SQL Edge.
     * Usa a credencial criada anteriormente.
 
@@ -117,7 +117,7 @@ O exemplo a seguir cria um objeto de fluxo externo para o banco de dados local n
     go
     ```
 
-4. Crie o objeto de fluxo externo. O exemplo a seguir cria um objeto de fluxo externo apontando para uma tabela *dbo. TemperatureMeasurements*, no banco de dados *MySQLDatabase*.
+4. Crie o objeto de fluxo externo. O exemplo a seguir cria um objeto de fluxo externo apontando para uma tabela *dbo. TemperatureMeasurements* , no banco de dados *MySQLDatabase* .
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -233,7 +233,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```
@@ -244,7 +245,7 @@ O trabalho de streaming pode ter um dos seguintes status:
 |--------| ------------|
 | Criado | O trabalho de streaming foi criado, mas ainda não foi iniciado. |
 | Iniciando | O trabalho de fluxo está na fase inicial. |
-| Idle | O trabalho de streaming está em execução, mas não há nenhuma entrada para processar. |
+| Ocioso | O trabalho de streaming está em execução, mas não há nenhuma entrada para processar. |
 | Processando | O trabalho de streaming está em execução e processando as entradas. Indica um estado de integridade para o trabalho de fluxo. |
 | Degradado | O trabalho de streaming está em execução, mas houve alguns erros não fatais durante o processamento de entrada. O trabalho de entrada continuará em execução, mas removerá as entradas que encontrar erros. |
 | Parado | O trabalho de fluxo foi interrompido. |
