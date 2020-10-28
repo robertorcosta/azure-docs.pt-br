@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874825"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637863"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -155,7 +155,7 @@ O banco de dados SQL do Azure tem uma opção de particionamento exclusiva chama
 
 #### <a name="isolation-level"></a>Nível de isolamento
 
-O nível de isolamento da leitura em um sistema de origem do SQL do Azure tem um impacto no desempenho. Escolher ' ler não confirmado ' fornecerá o desempenho mais rápido e evitará qualquer bloqueio de banco de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [noções básicas sobre níveis de isolamento](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
+O nível de isolamento da leitura em um sistema de origem do SQL do Azure tem um impacto no desempenho. Escolher ' ler não confirmado ' fornecerá o desempenho mais rápido e evitará qualquer bloqueio de banco de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [noções básicas sobre níveis de isolamento](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
 
 #### <a name="read-using-query"></a>Ler usando consulta
 
@@ -163,7 +163,7 @@ Você pode ler no banco de dados SQL do Azure usando uma tabela ou uma consulta 
 
 ### <a name="azure-synapse-analytics-sources"></a>Fontes do Azure Synapse Analytics
 
-Ao usar o Azure Synapse Analytics, uma configuração chamada **habilitar preparo** existe nas opções de origem. Isso permite que o ADF leia do Synapse usando o [polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), o que melhora muito o desempenho de leitura. Habilitar o polybase exige que você especifique um armazenamento de BLOBs do Azure ou Azure Data Lake Storage local de preparo de Gen2 nas configurações de atividade de fluxo de dados.
+Ao usar o Azure Synapse Analytics, uma configuração chamada **habilitar preparo** existe nas opções de origem. Isso permite que o ADF leia do Synapse usando o [polybase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), o que melhora muito o desempenho de leitura. Habilitar o polybase exige que você especifique um armazenamento de BLOBs do Azure ou Azure Data Lake Storage local de preparo de Gen2 nas configurações de atividade de fluxo de dados.
 
 ![Habilitar preparo](media/data-flow/enable-staging.png "Habilitar preparo")
 
@@ -198,7 +198,7 @@ Ambos podem ser feitos nativamente usando scripts Pre e post-SQL dentro de um ba
 ![Desabilitar índices](media/data-flow/disable-indexes-sql.png "Desabilitar índices")
 
 > [!WARNING]
-> Ao desabilitar índices, o fluxo de dados está efetivamente assumindo o controle de um banco e as consultas são improvável de serem bem sucedidos no momento. Como resultado, muitos trabalhos de ETL são disparados no meio da noite para evitar esse conflito. Para obter mais informações, saiba mais sobre as [restrições de desabilitar índices](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+> Ao desabilitar índices, o fluxo de dados está efetivamente assumindo o controle de um banco e as consultas são improvável de serem bem sucedidos no momento. Como resultado, muitos trabalhos de ETL são disparados no meio da noite para evitar esse conflito. Para obter mais informações, saiba mais sobre as [restrições de desabilitar índices](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
 
 #### <a name="scaling-up-your-database"></a>Escalar verticalmente seu banco de dados
 
@@ -206,7 +206,7 @@ Agende um redimensionamento do Banco de Dados SQL do Azure e do DW da origem e d
 
 ### <a name="azure-synapse-analytics-sinks"></a>Coletores do Azure Synapse Analytics
 
-Ao gravar no Azure Synapse Analytics, verifique se **habilitar preparo** está definido como true. Isso permite que o ADF grave usando o [polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) , que carrega efetivamente os dados em massa. Você precisará fazer referência a um Azure Data Lake Storage Gen2 ou conta de armazenamento de BLOBs do Azure para preparo dos dados ao usar o polybase.
+Ao gravar no Azure Synapse Analytics, verifique se **habilitar preparo** está definido como true. Isso permite que o ADF grave usando o [polybase](/sql/relational-databases/polybase/polybase-guide) , que carrega efetivamente os dados em massa. Você precisará fazer referência a um Azure Data Lake Storage Gen2 ou conta de armazenamento de BLOBs do Azure para preparo dos dados ao usar o polybase.
 
 Além do polybase, as mesmas práticas recomendadas se aplicam ao Azure Synapse Analytics como banco de dados SQL do Azure.
 
@@ -226,7 +226,7 @@ A seleção da opção **padrão** gravará o mais rápido. Cada partição ser�
 
 Definir um **padrão** de nomenclatura renomeará cada arquivo de partição para um nome mais amigável. Essa operação ocorre após a gravação e é um pouco mais lenta do que escolher o padrão. Por partição permite que você nomeie cada partição individual manualmente.
 
-Se uma coluna corresponder ao modo como você deseja gerar os dados, você poderá selecionar **como dados na coluna**. Isso reembaralha os dados e pode afetar o desempenho se as colunas não forem distribuídas uniformemente.
+Se uma coluna corresponder ao modo como você deseja gerar os dados, você poderá selecionar **como dados na coluna** . Isso reembaralha os dados e pode afetar o desempenho se as colunas não forem distribuídas uniformemente.
 
 **A saída para um único arquivo** combina todos os dados em uma única partição. Isso leva a longos tempos de gravação, especialmente para grandes conjuntos de altos. A equipe de Azure Data Factory altamente recomenda **não** escolher essa opção, a menos que haja um motivo de negócios explícito para fazer isso.
 
@@ -247,7 +247,7 @@ Ao gravar em CosmosDB, alterar a taxa de transferência e o tamanho do lote dura
 
 #### <a name="broadcasting"></a>Difundindo
 
-Em junções, pesquisas e transformações existentes, se um ou ambos os fluxos de dados forem pequenos o suficiente para caber na memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **transmissão**. A difusão é quando você envia quadros de dados pequenos para todos os nós no cluster. Isso permite que o mecanismo do Spark execute uma junção sem embaralhando os dados no fluxo grande. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não difundir um lado de uma junção. Se você estiver familiarizado com seus dados de entrada e souber que um fluxo será significativamente menor do que o outro, poderá selecionar a difusão **fixa** . A difusão fixa força o Spark a transmitir o fluxo selecionado. 
+Em junções, pesquisas e transformações existentes, se um ou ambos os fluxos de dados forem pequenos o suficiente para caber na memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **transmissão** . A difusão é quando você envia quadros de dados pequenos para todos os nós no cluster. Isso permite que o mecanismo do Spark execute uma junção sem embaralhando os dados no fluxo grande. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não difundir um lado de uma junção. Se você estiver familiarizado com seus dados de entrada e souber que um fluxo será significativamente menor do que o outro, poderá selecionar a difusão **fixa** . A difusão fixa força o Spark a transmitir o fluxo selecionado. 
 
 Se o tamanho dos dados transmitidos for muito grande para o nó do Spark, você poderá receber um erro de memória insuficiente. Para evitar erros de memória insuficiente, use clusters com **otimização de memória** . Se você tiver tempos limite de difusão durante execuções de fluxo de dados, poderá desativar a otimização de difusão. No entanto, fará com que os fluxos de dados fiquem mais lentos.
 

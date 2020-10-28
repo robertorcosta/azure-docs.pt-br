@@ -2,15 +2,15 @@
 title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729110"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668881"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos em nível de assinatura
+# <a name="subscription-deployments-with-arm-templates"></a>Implantações de assinatura com modelos ARM
 
 Para simplificar o gerenciamento de recursos, você pode usar um modelo de Azure Resource Manager (modelo ARM) para implantar recursos no nível de sua assinatura do Azure. Por exemplo, você pode implantar [políticas](../../governance/policy/overview.md) e o [Azure RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para sua assinatura, que as aplica em sua assinatura. Você também pode criar grupos de recursos dentro da assinatura e implantar recursos em grupos de recursos na assinatura.
 
@@ -71,32 +71,26 @@ O esquema que você pode usar para implantações no nível da assinatura são d
 Para modelos, use:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 O esquema para um arquivo de parâmetro é o mesmo para todos os escopos de implantação. Para arquivos de parâmetros, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>Escopos de implantação
-
-Ao implantar em uma assinatura, você pode direcionar uma assinatura e todos os grupos de recursos dentro da assinatura. Não é possível implantar em uma assinatura diferente da assinatura de destino. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
-
-Os recursos definidos na seção de recursos do modelo são aplicados à assinatura.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-Para direcionar um grupo de recursos dentro da assinatura, adicione uma implantação aninhada e inclua a `resourceGroup` propriedade. No exemplo a seguir, a implantação aninhada tem como destino um grupo de recursos denominado `rg2` .
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-Neste artigo, você pode encontrar modelos que mostram como implantar recursos em escopos diferentes. Para um modelo que cria um grupo de recursos e implanta uma conta de armazenamento nele, consulte [Criar grupo de recursos e recursos](#create-resource-group-and-resources). Para um modelo que cria um grupo de recursos, aplica um bloqueio a ele e atribui uma função para o grupo de recursos, consulte [controle de acesso](#access-control).
 
 ## <a name="deployment-commands"></a>Comandos de implantação
 
-Os comandos para implantações no nível da assinatura são diferentes dos comandos para implantações do grupo de recursos.
+Para implantar em uma assinatura, use os comandos de implantação de nível de assinatura.
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para CLI do Azure, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). O exemplo a seguir implanta um modelo para criar um grupo de recursos:
 
@@ -108,7 +102,9 @@ az deployment sub create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-Para o comando de implantação do PowerShell, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **New-AzSubscriptionDeployment**. O exemplo a seguir implanta um modelo para criar um grupo de recursos:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para o comando de implantação do PowerShell, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **New-AzSubscriptionDeployment** . O exemplo a seguir implanta um modelo para criar um grupo de recursos:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -119,35 +115,52 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-Para a API REST, use [Deployments – Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+---
+
+Para obter informações mais detalhadas sobre os comandos de implantação e opções para implantar modelos de ARM, consulte:
+
+* [Implantar recursos com modelos ARM e portal do Azure](deploy-portal.md)
+* [Implantar recursos com modelos do Resource Manager e a CLI do Azure](deploy-cli.md)
+* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](deploy-powershell.md)
+* [Implantar recursos com modelos ARM e Azure Resource Manager API REST](deploy-rest.md)
+* [Usar um botão de implantação para implantar modelos do repositório GitHub](deploy-to-azure-button.md)
+* [Implantar modelos de ARM de Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Escopos de implantação
+
+Ao implantar em uma assinatura, você pode implantar recursos em:
+
+* a assinatura de destino da operação
+* grupos de recursos dentro da assinatura
+* os [recursos de extensão](scope-extension-resources.md) podem ser aplicados aos recursos
+
+Não é possível implantar em uma assinatura diferente da assinatura de destino. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+
+Esta seção mostra como especificar escopos diferentes. Você pode combinar esses escopos diferentes em um único modelo.
+
+### <a name="scope-to-subscription"></a>Escopo da assinatura
+
+Para implantar recursos na assinatura de destino, adicione esses recursos à seção de recursos do modelo.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Para obter exemplos de implantação na assinatura, consulte [criar grupos de recursos](#create-resource-groups) e [atribuir definição de política](#assign-policy-definition).
+
+### <a name="scope-to-resource-group"></a>Escopo para o grupo de recursos
+
+Para implantar recursos em um grupo de recursos dentro da assinatura, adicione uma implantação aninhada e inclua a `resourceGroup` propriedade. No exemplo a seguir, a implantação aninhada tem como destino um grupo de recursos denominado `demoResourceGroup` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+Para obter um exemplo de implantação em um grupo de recursos, consulte [Criar grupo de recursos e recursos](#create-resource-group-and-resources).
 
 ## <a name="deployment-location-and-name"></a>Nome e local da implantação
 
 Para implantações no nível da assinatura, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
 
-Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy** .
 
 O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
-
-## <a name="use-template-functions"></a>Usar funções de modelo
-
-Para implantações em nível de assinatura, há algumas considerações importantes ao usar funções de modelo:
-
-* A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
-* A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
-* Não use [ResourceId ()](template-functions-resource.md#resourceid) para obter a ID de recurso para recursos que são implantados no nível de assinatura. Em vez disso, use a função [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
-
-  Por exemplo, para obter a ID de recurso para uma definição de política que é implantada em uma assinatura, use:
-
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
-
-  A ID do recurso retornada tem o seguinte formato:
-
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="resource-groups"></a>Grupos de recursos
 

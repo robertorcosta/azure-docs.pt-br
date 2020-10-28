@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: ffbb81fa56b87281199309d61ab3e2e59c1a5acd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30f5b5990e189cb6942c15b65b6a417ce49f0c2b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563986"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637795"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Habilitar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime
 
@@ -28,7 +28,7 @@ Este artigo mostra como habilitar a autenticação do Azure Active Directory (Az
 
 - Conecte-se a vários recursos do Azure ao executar pacotes do SSIS em Azure-SSIS IR.
 
-Para obter mais informações sobre a identidade gerenciada para o ADF, consulte [identidade gerenciada para data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Para obter mais informações sobre a identidade gerenciada para o ADF, consulte [identidade gerenciada para data Factory](./data-factory-service-identity.md).
 
 > [!NOTE]
 >
@@ -45,9 +45,9 @@ O banco de dados SQL suporta a criação de um banco de dados com um usuário do
 
 É possível usar um grupo do Azure AD existente ou criar um novo usando o PowerShell do Azure AD.
 
-1.  Instale o módulo do [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) .
+1.  Instale o módulo do [PowerShell do Azure ad](/powershell/azure/active-directory/install-adv2) .
 
-2.  Entre usando  `Connect-AzureAD` e execute o cmdlet a seguir para criar um grupo e salvá-lo em uma variável:
+2.  Entre usando `Connect-AzureAD` , execute o seguinte cmdlet para criar um grupo e salve-o em uma variável:
 
     ```powershell
     $Group = New-AzureADGroup -DisplayName "SSISIrGroup" `
@@ -66,7 +66,7 @@ O banco de dados SQL suporta a criação de um banco de dados com um usuário do
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Adicione a identidade gerenciada para o seu ADF ao grupo. Você pode seguir o artigo [identidade gerenciada para data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) obter a ID de objeto de identidade gerenciada principal (por exemplo, 765AD4AB-XXXX-XXXX-XXXX-51ed985819dc, mas não use a ID do aplicativo de identidade gerenciada para essa finalidade).
+3.  Adicione a identidade gerenciada para o seu ADF ao grupo. Você pode seguir o artigo [identidade gerenciada para data Factory](./data-factory-service-identity.md) obter a ID de objeto de identidade gerenciada principal (por exemplo, 765AD4AB-XXXX-XXXX-XXXX-51ed985819dc, mas não use a ID do aplicativo de identidade gerenciada para essa finalidade).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -80,15 +80,15 @@ O banco de dados SQL suporta a criação de um banco de dados com um usuário do
 
 ### <a name="configure-azure-ad-authentication-for-sql-database"></a>Configurar a autenticação do Azure AD para o banco de dados SQL
 
-É possível  [Configurar e gerenciar a autenticação do Azure AD com o SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) seguindo estas etapas:
+Você pode [configurar e gerenciar a autenticação do Azure AD com o SQL](../azure-sql/database/authentication-aad-configure.md) usando as seguintes etapas:
 
 1.  Em portal do Azure, selecione **todos os serviços**  ->  **SQL Servers** na navegação à esquerda.
 
 2.  Selecione o servidor no banco de dados SQL a ser configurado com a autenticação do Azure AD.
 
-3.  Na seção **Configurações** da folha, selecione **Administrador do Active Directory**.
+3.  Na seção **Configurações** da folha, selecione **Administrador do Active Directory** .
 
-4.  Na barra de comandos, selecione **Definir administrador**.
+4.  Na barra de comandos, selecione **Definir administrador** .
 
 5.  Selecione uma conta de usuário do Azure AD para tornar o administrador do servidor e selecione **selecionar.**
 
@@ -96,21 +96,21 @@ O banco de dados SQL suporta a criação de um banco de dados com um usuário do
 
 ### <a name="create-a-contained-user-in-sql-database-representing-the-azure-ad-group"></a>Criar um usuário independente no banco de dados SQL que representa o grupo do Azure AD
 
-Para esta próxima etapa, você precisará de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   (SSMS).
+Para esta próxima etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)).
 
 1. Inicie o SSMS.
 
 2. Na caixa de diálogo **conectar ao servidor** , insira o nome do servidor no campo **nome do servidor** .
 
-3. No campo **autenticação** , selecione **Active Directory-universal com suporte a MFA** (você também pode usar os outros dois tipos de autenticação Active Directory, consulte [configurar e gerenciar a autenticação do Azure AD com o SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
+3. No campo **autenticação** , selecione **Active Directory-universal com suporte a MFA** (você também pode usar os outros dois tipos de autenticação Active Directory, consulte [configurar e gerenciar a autenticação do Azure AD com o SQL](../azure-sql/database/authentication-aad-configure.md)).
 
 4. No campo **nome de usuário** , digite o nome da conta do Azure AD que você definiu como o administrador do servidor, por exemplo, testuser@xxxonline.com .
 
 5. Selecione **conectar** e conclua o processo de entrada.
 
-6. No **Pesquisador de Objetos**, expanda a pasta **Bancos de dados** -> **Bancos de Dados do Sistema**.
+6. No **Pesquisador de Objetos** , expanda a pasta **Bancos de dados** -> **Bancos de Dados do Sistema** .
 
-7. Clique com o botão direito do mouse em banco de dados **mestre** e selecione **nova consulta**.
+7. Clique com o botão direito do mouse em banco de dados **mestre** e selecione **nova consulta** .
 
 8. Na janela de consulta, insira o comando T-SQL a seguir e selecione **executar** na barra de ferramentas.
 
@@ -128,7 +128,7 @@ Para esta próxima etapa, você precisará de [Microsoft SQL Server Management 
 
    O comando deve ser concluído com êxito, concedendo ao usuário independente a capacidade de criar um banco de dados (SSISDB).
 
-10. Se o SSISDB foi criado usando a autenticação do SQL e você deseja alternar para usar a autenticação do Azure AD para seu Azure-SSIS IR para acessá-lo, primeiro certifique-se de que as etapas para conceder permissão para o banco de dados **mestre** tenham sido concluídas com êxito. Em seguida, clique com o botão direito do mouse no banco de dados **SSISDB** e selecione **nova consulta**.
+10. Se o SSISDB foi criado usando a autenticação do SQL e você deseja alternar para usar a autenticação do Azure AD para seu Azure-SSIS IR para acessá-lo, primeiro certifique-se de que as etapas para conceder permissão para o banco de dados **mestre** tenham sido concluídas com êxito. Em seguida, clique com o botão direito do mouse no banco de dados **SSISDB** e selecione **nova consulta** .
 
 11. Na janela de consulta, insira o comando T-SQL a seguir e selecione **executar** na barra de ferramentas.
 
@@ -152,19 +152,19 @@ O SQL Instância Gerenciada dá suporte à criação de um banco de dados com a 
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-managed-instance"></a>Configurar a autenticação do Azure AD para o Azure SQL Instância Gerenciada
 
-Siga as etapas em [provisionar um administrador de Azure Active Directory para SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+Siga as etapas em [provisionar um administrador de Azure Active Directory para SQL instância gerenciada](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-sql-managed-instance"></a>Adicionar a identidade gerenciada para o ADF como um usuário no SQL Instância Gerenciada
 
-Para esta próxima etapa, você precisará de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   (SSMS).
+Para esta próxima etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)).
 
 1.  Inicie o SSMS.
 
-2.  Conecte-se ao SQL Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin**. Essa é uma limitação temporária que será removida quando entidades de segurança do Azure AD (logons) para o Azure SQL Instância Gerenciada se tornarem GA. Você verá o erro a seguir se tentar usar uma conta de administrador do Azure AD para criar o logon: msg 15247, nível 16, estado 1, o usuário da linha 1 não tem permissão para executar esta ação.
+2.  Conecte-se ao SQL Instância Gerenciada usando uma conta de SQL Server que seja um **sysadmin** . Essa é uma limitação temporária que será removida quando entidades de segurança do Azure AD (logons) para o Azure SQL Instância Gerenciada se tornarem GA. Você verá o erro a seguir se tentar usar uma conta de administrador do Azure AD para criar o logon: msg 15247, nível 16, estado 1, o usuário da linha 1 não tem permissão para executar esta ação.
 
-3.  No **Pesquisador de Objetos**, expanda a pasta **Bancos de dados** -> **Bancos de Dados do Sistema**.
+3.  No **Pesquisador de Objetos** , expanda a pasta **Bancos de dados** -> **Bancos de Dados do Sistema** .
 
-4.  Clique com o botão direito do mouse em banco de dados **mestre** e selecione **nova consulta**.
+4.  Clique com o botão direito do mouse em banco de dados **mestre** e selecione **nova consulta** .
 
 5.  Na janela de consulta, execute o seguinte script T-SQL para adicionar a identidade gerenciada para o ADF como um usuário
 
@@ -176,7 +176,7 @@ Para esta próxima etapa, você precisará de [Microsoft SQL Server Management 
     
     O comando deve ser concluído com êxito, concedendo à identidade gerenciada para o ADF a capacidade de criar um banco de dados (SSISDB).
 
-6.  Se o SSISDB foi criado usando a autenticação do SQL e você deseja alternar para usar a autenticação do Azure AD para seu Azure-SSIS IR para acessá-lo, primeiro certifique-se de que as etapas para conceder permissão para o banco de dados **mestre** tenham sido concluídas com êxito. Em seguida, clique com o botão direito do mouse no banco de dados **SSISDB** e selecione **nova consulta**.
+6.  Se o SSISDB foi criado usando a autenticação do SQL e você deseja alternar para usar a autenticação do Azure AD para seu Azure-SSIS IR para acessá-lo, primeiro certifique-se de que as etapas para conceder permissão para o banco de dados **mestre** tenham sido concluídas com êxito. Em seguida, clique com o botão direito do mouse no banco de dados **SSISDB** e selecione **nova consulta** .
 
 7.  Na janela de consulta, insira o comando T-SQL a seguir e selecione **executar** na barra de ferramentas.
 
@@ -189,9 +189,9 @@ Para esta próxima etapa, você precisará de [Microsoft SQL Server Management 
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Provisionar o Azure-SSIS IR no portal do Azure/aplicativo ADF
 
-Ao provisionar o Azure-SSIS IR no portal do Azure/aplicativo ADF, na página **Configurações do SQL**, selecione a opção **Usar autenticação do AAD com a identidade gerenciada para o ADF**. A captura de tela a seguir mostra as configurações de IR com o banco de dados SQL que hospeda o SSISDB. Para IR com o SQL Instância Gerenciada que hospeda o SSISDB, a **camada de serviço do banco de dados do catálogo** e **permite que os serviços do Azure acessem** as configurações não são aplicáveis, enquanto outras configurações são as mesmas.
+Ao provisionar o Azure-SSIS IR no portal do Azure/aplicativo ADF, na página **Configurações do SQL** , selecione a opção **Usar autenticação do AAD com a identidade gerenciada para o ADF** . A captura de tela a seguir mostra as configurações de IR com o banco de dados SQL que hospeda o SSISDB. Para IR com o SQL Instância Gerenciada que hospeda o SSISDB, a **camada de serviço do banco de dados do catálogo** e **permite que os serviços do Azure acessem** as configurações não são aplicáveis, enquanto outras configurações são as mesmas.
 
-Para obter mais informações sobre como criar um Azure-SSIS IR, consulte [Criar um runtime de integração do Azure-SSIS no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Para obter mais informações sobre como criar um Azure-SSIS IR, consulte [Criar um runtime de integração do Azure-SSIS no Azure Data Factory](./create-azure-ssis-integration-runtime.md).
 
 ![Configurações do runtime de integração do Azure-SSIS](media/enable-aad-authentication-azure-ssis-ir/enable-aad-authentication.png)
 
@@ -199,7 +199,7 @@ Para obter mais informações sobre como criar um Azure-SSIS IR, consulte [Criar
 
 Para provisionar seu IR do Azure-SSIS com o PowerShell, faça o seguinte:
 
-1.  Instale o módulo [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)   .
+1.  Instale o módulo [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) .
 
 2.  No seu script, não defina o parâmetro `CatalogAdminCredential`. Por exemplo:
 
@@ -226,8 +226,8 @@ Para provisionar seu IR do Azure-SSIS com o PowerShell, faça o seguinte:
 
 Ao executar pacotes do SSIS no Azure-SSIS IR, você pode usar a autenticação de identidade gerenciada para se conectar a vários recursos do Azure. No momento, já há suporte para a autenticação de identidade gerenciada nos gerenciadores de conexões a seguir.
 
-- [Gerenciador de conexões OLE DB](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)
+- [Gerenciador de conexões OLE DB](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)
 
-- [Gerenciador de conexões ADO.NET](https://docs.microsoft.com/sql/integration-services/connection-manager/ado-net-connection-manager#managed-identities-for-azure-resources-authentication)
+- [Gerenciador de conexões ADO.NET](/sql/integration-services/connection-manager/ado-net-connection-manager#managed-identities-for-azure-resources-authentication)
 
-- [Gerenciador de conexões do Armazenamento do Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)
+- [Gerenciador de conexões do Armazenamento do Azure](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)

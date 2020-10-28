@@ -2,15 +2,15 @@
 title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372384"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668701"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
+# <a name="tenant-deployments-with-arm-templates"></a>Implantações de locatário com modelos ARM
 
 À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) em seu locatário do Azure AD. Com os modelos de nível de locatário, você pode aplicar políticas declarativamente e atribuir funções em um nível global.
 
@@ -49,13 +49,19 @@ O esquema que você pode usar para implantações de locatário são diferentes 
 Para modelos, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 O esquema para um arquivo de parâmetro é o mesmo para todos os escopos de implantação. Para arquivos de parâmetros, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>Acesso necessário
@@ -78,21 +84,11 @@ O administrador global do Microsoft Azure Active Directory não tem automaticame
 
 O principal agora tem as permissões necessárias para implantar o modelo.
 
-## <a name="deployment-scopes"></a>Escopos de implantação
-
-Ao implantar em um locatário, você pode direcionar para o locatário ou grupos de gerenciamento, assinaturas e grupos de recursos no locatário. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
-
-Os recursos definidos na seção de recursos do modelo são aplicados ao locatário.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-Para direcionar um grupo de gerenciamento dentro do locatário, adicione uma implantação aninhada e especifique a `scope` propriedade.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## <a name="deployment-commands"></a>Comandos de implantação
 
 Os comandos para implantações de locatário são diferentes dos comandos para implantações do grupo de recursos.
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para CLI do Azure, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
@@ -103,6 +99,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Para Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
@@ -112,38 +110,58 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-Para REST API, use [Implantações – Criar ou atualizar no escopo do locatário](/rest/api/resources/deployments/createorupdateattenantscope).
+---
+
+Para obter informações mais detalhadas sobre os comandos de implantação e opções para implantar modelos de ARM, consulte:
+
+* [Implantar recursos com modelos ARM e portal do Azure](deploy-portal.md)
+* [Implantar recursos com modelos do Resource Manager e a CLI do Azure](deploy-cli.md)
+* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](deploy-powershell.md)
+* [Implantar recursos com modelos ARM e Azure Resource Manager API REST](deploy-rest.md)
+* [Usar um botão de implantação para implantar modelos do repositório GitHub](deploy-to-azure-button.md)
+* [Implantar modelos de ARM de Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Escopos de implantação
+
+Ao implantar em um grupo de gerenciamento, você pode implantar recursos em:
+
+* o locatário
+* grupos de gerenciamento dentro do locatário
+* subscriptions
+* grupos de recursos (por meio de duas implantações aninhadas)
+* os [recursos de extensão](scope-extension-resources.md) podem ser aplicados aos recursos
+
+O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+
+Esta seção mostra como especificar escopos diferentes. Você pode combinar esses escopos diferentes em um único modelo.
+
+### <a name="scope-to-tenant"></a>Escopo para o locatário
+
+Os recursos definidos na seção de recursos do modelo são aplicados ao locatário.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>Escopo do grupo de gerenciamento
+
+Para direcionar um grupo de gerenciamento dentro do locatário, adicione uma implantação aninhada e especifique a `scope` propriedade.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Escopo da assinatura
+
+Você também pode direcionar as assinaturas dentro do locatário. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+
+Para direcionar uma assinatura no locatário, use uma implantação aninhada e a `subscriptionId` propriedade.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## <a name="deployment-location-and-name"></a>Nome e local da implantação
 
 Para implantações no nível do locatário, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
 
-Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy** .
 
 O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
-
-## <a name="use-template-functions"></a>Usar funções de modelo
-
-Para implantações de locatário, há algumas considerações importantes ao usar funções de modelo:
-
-* A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
-* A função [subscription()](template-functions-resource.md#subscription) **não** tem suporte.
-* A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
-* Não use [ResourceId ()](template-functions-resource.md#resourceid) para obter a ID do recurso para recursos que são implantados no nível do locatário.
-
-  Em vez disso, use a função [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
-
-  Por exemplo, para obter a ID de recurso para uma definição de política interna, use:
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  A ID do recurso retornada tem o seguinte formato:
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="create-management-group"></a>Criar grupo de gerenciamento
 

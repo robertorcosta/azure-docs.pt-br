@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48373c9ffc9146b6e62b62fb7d7fe10d571ce27f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570144"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638101"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorar visualmente o Azure Data Factory
 
@@ -36,7 +36,7 @@ O modo de exibição de monitoramento padrão é a lista de execuções de pipel
 | Início da Execução | Data e hora de início da execução do pipeline (MM/DD/AAAA HH:MM:SS AM/PM) |
 | Duration | Duração da execução (HH:MM:SS) |
 | Disparado por | O nome do gatilho que iniciou o pipeline |
-| Status | **Falha**, **Bem-sucedida**, **Em andamento**, **Cancelado**ou **Na fila** |
+| Status | **Falha** , **Bem-sucedida** , **Em andamento** , **Cancelado** ou **Na fila** |
 | Anotações | Marcas filtráveis associadas a um pipeline  |
 | Parâmetros | Parâmetros de execução de pipeline (pares de nome/valor) |
 | Erro | Se o pipeline falhou, o erro de execução |
@@ -50,16 +50,16 @@ Você precisará selecionar manualmente o botão **Atualizar** para atualizar a 
 
 ## <a name="monitor-activity-runs"></a>Monitorar execuções de atividade
 
-Para visualizar as execuções de atividade para cada execução do pipeline, selecione o ícone de **Visualizar execuções de atividade** na coluna **Ações**. A exibição de lista mostra as execuções de atividade que correspondem a cada execução de pipeline.
+Para visualizar as execuções de atividade para cada execução do pipeline, selecione o ícone de **Visualizar execuções de atividade** na coluna **Ações** . A exibição de lista mostra as execuções de atividade que correspondem a cada execução de pipeline.
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome da atividade | Nome da atividade no pipeline |
-| Tipo de atividade | Tipo de atividade, como **Copiar**, **ExecuteDataFlow** ou **AzureMLExecutePipeline** |
+| Tipo de atividade | Tipo de atividade, como **Copiar** , **ExecuteDataFlow** ou **AzureMLExecutePipeline** |
 | Ações | Ícones que permitem que você veja informações de entrada JSON, informações de saída JSON ou experiências detalhadas de monitoramento específicas da atividade | 
 | Início da Execução | Data e hora de início da execução da atividade (MM/DD/AAAA HH:MM:SS AM/PM) |
 | Duration | Duração da execução (HH:MM:SS) |
-| Status | **Falha**, **Sucesso**, **Em andamento** ou **Cancelado** |
+| Status | **Falha** , **Sucesso** , **Em andamento** ou **Cancelado** |
 | Integration Runtime | Em qual Integration Runtime a atividade foi executada |
 | Propriedades do Usuário | Propriedades definidas pelo usuário da atividade |
 | Erro | Se a atividade falhou, o erro de execução |
@@ -93,8 +93,8 @@ Alterne se as execuções de pipeline serão em ordem decrescente ou crescente, 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome do Pipeline | Filtre o nome do pipeline. |
-| Início da Execução |  Determine o intervalo de tempo das execuções de pipeline exibidas. As opções incluem filtros rápidos para **últimas 24 horas**, **Última semana**, **Últimos 30 dias** ou selecione uma data e hora personalizadas. |
-| Status da execução | O filtro é executado por status: **Êxito**, **Com falha**, **Enfileiradas**, **Canceladas** ou **Em andamento**. |
+| Início da Execução |  Determine o intervalo de tempo das execuções de pipeline exibidas. As opções incluem filtros rápidos para **últimas 24 horas** , **Última semana** , **Últimos 30 dias** ou selecione uma data e hora personalizadas. |
+| Status da execução | O filtro é executado por status: **Êxito** , **Com falha** , **Enfileiradas** , **Canceladas** ou **Em andamento** . |
 | Anotações | Filtrar por marcas aplicadas a cada pipeline |
 | Execuções | Filtrar se você deseja ver os pipelines reexecutados |
 
@@ -110,7 +110,7 @@ Aumente e diminua as larguras das colunas na exibição de lista simplesmente pa
 
 ## <a name="rerun-activities-inside-a-pipeline"></a>Executar atividades novamente em um pipeline
 
-Você pode executar atividades novamente em um pipeline. Selecione **Exibir execuções de atividade**, em seguida, a atividade no pipeline de cujo ponto você deseja executar o pipeline novamente.
+Você pode executar atividades novamente em um pipeline. Selecione **Exibir execuções de atividade** , em seguida, a atividade no pipeline de cujo ponto você deseja executar o pipeline novamente.
 
 ![Exibir execuções de atividade](media/monitor-visually/rerun-activities-image1.png)
 
@@ -118,7 +118,7 @@ Você pode executar atividades novamente em um pipeline. Selecione **Exibir exec
 
 ### <a name="rerun-from-failed-activity"></a>Executar novamente a partir da atividade com falha
 
-Se uma atividade falhar, expirar ou for cancelada, você poderá executar novamente o pipeline da atividade com falha selecionando **Executar novamente a partir da atividade com falha**.
+Se uma atividade falhar, expirar ou for cancelada, você poderá executar novamente o pipeline da atividade com falha selecionando **Executar novamente a partir da atividade com falha** .
 
 ![Executar novamente a atividade com falha](media/monitor-visually/rerun-failed-activity.png)
 
@@ -212,4 +212,4 @@ Para uma introdução de sete minutos e uma demonstração desse recurso, assist
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o monitoramento e o gerenciamento de pipelines, veja o artigo [Monitorar e gerenciar os pipelines programaticamente](https://docs.microsoft.com/azure/data-factory/monitor-programmatically).
+Para saber mais sobre o monitoramento e o gerenciamento de pipelines, veja o artigo [Monitorar e gerenciar os pipelines programaticamente](./monitor-programmatically.md).

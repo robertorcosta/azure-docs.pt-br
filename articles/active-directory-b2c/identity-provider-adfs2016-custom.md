@@ -1,28 +1,28 @@
 ---
-title: Adicionar o ADFS como um provedor de identidade SAML usando políticas personalizadas
+title: Adicionar AD FS como um provedor de identidade SAML usando políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Configurar o ADFS 2016 usando o protocolo SAML e as políticas personalizadas no Azure Active Directory B2C
+description: Configurar AD FS 2016 usando o protocolo SAML e políticas personalizadas no Azure Active Directory B2C
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/27/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60bc4623416eeb491d073dba9517ac13861a3e9e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8cd761131fba23e89d1f72aed018a3e1dfd27e60
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633443"
+ms.locfileid: "92668741"
 ---
-# <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
+# <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar AD FS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para uma conta de usuário do ADFS usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C). Você habilita a credencial adicionando um [perfil técnico de provedor de identidade do SAML](saml-identity-provider-technical-profile.md) a uma política personalizada.
+Este artigo mostra como habilitar a entrada para uma conta de usuário AD FS usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C). Você habilita a credencial adicionando um [perfil técnico de provedor de identidade do SAML](saml-identity-provider-technical-profile.md) a uma política personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,15 +40,15 @@ Você precisa armazenar o certificado em seu locatário do Azure AD B2C.
 4. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade** .
 5. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar** .
 6. Para **Opções** , escolha `Upload`.
-7. Insira um **Nome** para a chave de política. Por exemplo, `SamlCert`. O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
+7. Insira um **Nome** para a chave de política. Por exemplo, `ADFSSamlCert`. O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
 8. Procure e selecione o arquivo .pfx do certificado com a chave privada.
 9. Clique em **Criar** .
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
 
-Se você quiser que os usuários entrem usando uma conta do ADFS, defina a conta como um provedor de declarações com o qual o Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
+Se desejar que os usuários entrem usando uma conta de AD FS, você precisará definir a conta como um provedor de declarações com o qual Azure AD B2C possa se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
-Você pode definir uma conta do ADFS como um provedor de declarações adicionando-o ao elemento **ClaimsProviders** no arquivo de extensão da política. Para obter mais informações, confira [definir um perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md).
+Você pode definir uma conta de AD FS como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política. Para obter mais informações, confira [definir um perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md).
 
 1. Abra *TrustFrameworkExtensions.xml* .
 1. Localize o elemento **ClaimsProviders** . Se ele não existir, adicione-o sob o elemento raiz.
@@ -57,16 +57,15 @@ Você pode definir uma conta do ADFS como um provedor de declarações adicionan
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso ADFS</DisplayName>
+      <DisplayName>Contoso AD FS</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso ADFS</DisplayName>
-          <Description>Login with your ADFS account</Description>
+          <DisplayName>Contoso AD FS</DisplayName>
+          <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
-            <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
-            <Item Key="XmlSignatureAlgorithm">Sha256</Item>
+            <Item Key="PartnerEntity">https://your-AD-FS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlCert"/>
@@ -92,7 +91,7 @@ Você pode definir uma conta do ADFS como um provedor de declarações adicionan
     </ClaimsProvider>
     ```
 
-1. Substitua `your-ADFS-domain` pelo nome do domínio do ADFS e substitua o valor da declaração de saída **identityProvider** pelo DNS (valor arbitrário que indica o domínio).
+1. Substitua `your-AD-FS-domain` pelo nome do seu domínio de AD FS e substitua o valor da declaração de saída **identityprovider** pelo seu DNS (valor arbitrário que indica seu domínio).
 
 1. Localize a seção `<ClaimsProviders>` e adicione o snippet XML a seguir. Se sua política já contiver o perfil técnico `SM-Saml-idp`, pule para a próxima etapa. Para saber mais, confira [gerenciamento de sessão de logon único](custom-policy-reference-sso.md).
 
@@ -116,19 +115,19 @@ Você pode definir uma conta do ADFS como um provedor de declarações adicionan
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
 
-Agora, você já configurou a política, portanto, o Azure AD B2C sabe como se comunicar com a conta do ADFS. Tente carregar o arquivo de extensão da política apenas para confirmar se ele não apresenta problemas até o momento.
+Agora, você configurou sua política para que Azure AD B2C saiba como se comunicar com AD FS conta. Tente carregar o arquivo de extensão da política apenas para confirmar se ele não apresenta problemas até o momento.
 
 1. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política** .
 2. Habilite **Substitua a política se ela existir** e, em seguida, navegue até o arquivo *TrustFrameworkExtensions.xml* e selecione-o.
 3. Clique em **Carregar** .
 
 > [!NOTE]
-> A extensão do Visual Studio Code B2C usa "socialIdpUserId". Uma política social também é necessária para o ADFS.
+> A extensão do Visual Studio Code B2C usa "socialIdpUserId". Uma política social também é necessária para AD FS.
 >
 
 ## <a name="register-the-claims-provider"></a>Registrar o provedor de declarações
 
-Neste ponto, o provedor de identidade já foi definido, mas não está disponível em nenhuma das telas de inscrição ou de entrada. Para disponibilizá-lo, você criará uma duplicata de um percurso do usuário de modelo existente e, depois, o modificará para que ele também tenha o provedor de identidade ADFS.
+Neste ponto, o provedor de identidade já foi definido, mas não está disponível em nenhuma das telas de inscrição ou de entrada. Para disponibilizá-lo, crie uma duplicata de um percurso de usuário de modelo existente e, em seguida, modifique-o para que ele também tenha o provedor de identidade AD FS.
 
 1. Abra o arquivo *TrustFrameworkBase.xml* do starter pack.
 2. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
@@ -138,7 +137,7 @@ Neste ponto, o provedor de identidade já foi definido, mas não está disponív
 
 ### <a name="display-the-button"></a>Exibir o botão
 
-O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de identidade em uma tela de inscrição ou de entrada. Se você adicionar um elemento **ClaimsProviderSelection** à conta do ADFS, um novo botão será exibido quando o usuário chegar à página.
+O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de identidade em uma tela de inscrição ou de entrada. Se você adicionar um elemento **ClaimsProviderSelection** para uma conta de AD FS, um novo botão será exibido quando um usuário chegar à página.
 
 1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada do usuário que você criou.
 2. Em **ClaimsProviderSelections** , adicione o elemento a seguir. Defina o valor de **TargetClaimsExchangeId** para um valor apropriado, por exemplo `ContosoExchange`:
@@ -149,7 +148,7 @@ O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de id
 
 ### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
 
-Agora que implementou um botão, você precisará vinculá-lo a uma ação. A ação, nesse caso, é para o Azure AD B2C comunicar-se com uma conta do ADFS para receber um token.
+Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação é para Azure AD B2C se comunicar com uma conta de AD FS para receber um token.
 
 1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
 2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que você use o mesmo valor para a ID que você usou para **TargetClaimsExchangeId** :
@@ -163,9 +162,9 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. A a�
 3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 
 
-## <a name="configure-an-adfs-relying-party-trust"></a>Configurar um objeto de confiança de terceira parte confiável do ADFS
+## <a name="configure-an-ad-fs-relying-party-trust"></a>Configurar um AD FS confiança de terceira parte confiável
 
-Para usar o ADFS como um provedor de identidade no Azure AD B2C, é necessário criar uma confiança de terceira parte confiável do ADFS com os metadados SAML do Azure AD B2C. O exemplo a seguir mostra um endereço de URL para os metadados do SAML de um perfil técnico do Azure AD B2C:
+Para usar AD FS como um provedor de identidade no Azure AD B2C, você precisa criar uma AD FS terceira parte confiável com os metadados de SAML Azure AD B2C. O exemplo a seguir mostra um endereço de URL para os metadados do SAML de um perfil técnico do Azure AD B2C:
 
 ```
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
@@ -177,9 +176,9 @@ Substitua os seguintes valores:
 - **your-policy** pelo nome da política. Por exemplo, B2C_1A_signup_signin_adfs.
 - **seu perfil técnico** com o nome do seu perfil técnico do provedor de identidade SAML. Por exemplo, Contoso-SAML2.
 
-Abra um navegador e navegue até a URL. Certifique-se de digitar a URL correta e ter acesso ao arquivo de metadados XML. Para adicionar uma nova confiança de terceira parte confiável usando o snap-in Gerenciamento do ADFS e definir manualmente as configurações, execute o procedimento a seguir em um servidor de federação. A associação em **Administradores** ou equivalente no computador local é o mínimo necessário para concluir este procedimento.
+Abra um navegador e navegue até a URL. Certifique-se de digitar a URL correta e ter acesso ao arquivo de metadados XML. Para adicionar um novo objeto de confiança de terceira parte confiável usando o snap-in de Gerenciamento do AD FS e definir manualmente as configurações, execute o seguinte procedimento em um servidor de Federação. A associação em **Administradores** ou equivalente no computador local é o mínimo necessário para concluir este procedimento.
 
-1. No Gerenciador do Servidor, selecione **Ferramentas** e, em seguida, selecione **Gerenciamento do ADFS** .
+1. Em Gerenciador do Servidor, selecione **ferramentas** e, em seguida, selecione **Gerenciamento de AD FS** .
 2. Selecione **Adicionar Relação de Confiança de Terceira Parte Confiável** .
 3. Na **Página inicial** , escolha **Com reconhecimento de declaração** e, em seguida, clique em **Iniciar** .
 4. Na página **Selecionar Fonte de Dados** , selecione **Importar dados sobre a terceira parte confiável publicados online ou em uma rede local** , forneça a URL de metadados do Azure AD B2C e clique em **Avançar** .
@@ -202,7 +201,7 @@ Abra um navegador e navegue até a URL. Certifique-se de digitar a URL correta e
     Observe que esses nomes não serão exibidos na lista suspensa tipo de declaração de saída. Você precisa digitá-los manualmente no. (A lista suspensa é realmente editável).
 
 12.  Com base no tipo de certificado, talvez seja necessário definir o algoritmo de HASH. Na janela de propriedades de confiança de terceira parte confiável (Demonstração B2C), selecione a guia **Avançado** e altere o **algoritmo de Secure hash** para `SHA-256`, e clique em **OK** .
-13. No Gerenciador do Servidor, selecione **Ferramentas** e, em seguida, selecione **Gerenciamento do ADFS** .
+13. Em Gerenciador do Servidor, selecione **ferramentas** e, em seguida, selecione **Gerenciamento de AD FS** .
 14. Selecione a terceira parte confiável que você criou, selecione **Atualização dos metadados da federação** e, em seguida, clique em **Atualizar** .
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar um aplicativo Azure AD B2C
@@ -221,4 +220,39 @@ Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do
 4. Atualize o valor do atributo **ReferenceId** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignInADFS).
 5. Salve suas alterações, carregue o arquivo e, em seguida, selecione a nova política na lista.
 6. Verifique se o aplicativo Azure AD B2C que você criou está selecionado no campo **Selecionar aplicativo** e teste-o clicando em **Executar agora** .
+
+## <a name="troubleshooting-ad-fs-service"></a>Solucionando problemas de serviço AD FS  
+
+AD FS está configurado para usar o log de aplicativos do Windows. Se você enfrentar desafios Configurando AD FS como um provedor de identidade SAML usando políticas personalizadas no Azure AD B2C, convém verificar o log de eventos do AD FS:
+
+1. Na barra de **pesquisa** do Windows, digite **Visualizador de eventos** e, em seguida, selecione o **Visualizador de eventos** aplicativo de área de trabalho.
+1. Para exibir o log de um computador diferente, clique com o botão direito do mouse em **Visualizador de Eventos (local)** . Selecione **Conectar a outro computador** e preencha os campos para completar a caixa de diálogo **Selecionar Computador** .
+1. No **Visualizador de Eventos** , abra **Logs de aplicativos e serviços** .
+1. Selecione **AD FS** e, em seguida, selecione **administrador** . 
+1. Para exibir mais informações sobre um evento, clique duas vezes no evento.  
+
+### <a name="saml-request-is-not-signed-with-expected-signature-algorithm-event"></a>A solicitação SAML não está assinada com o evento de algoritmo de assinatura esperado
+
+Esse erro indica que a solicitação SAML enviada pelo Azure AD B2C não está assinada com o algoritmo de assinatura esperado configurado no AD FS. Por exemplo, a solicitação SAML é assinada com o algoritmo de assinatura `rsa-sha256` , mas o algoritmo de assinatura esperado é `rsa-sha1` . Para corrigir esse problema, verifique se os Azure AD B2C e AD FS estão configurados com o mesmo algoritmo de assinatura.
+
+#### <a name="option-1-set-the-signature-algorithm-in-azure-ad-b2c"></a>Opção 1: definir o algoritmo de assinatura no Azure AD B2C  
+
+Você pode configurar como assinar a solicitação SAML no Azure AD B2C. Os metadados [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) controlam o valor do `SigAlg` parâmetro (cadeia de caracteres de consulta ou parâmetro post) na solicitação SAML. O exemplo a seguir configura Azure AD B2C para usar o `rsa-sha256` algoritmo de assinatura.
+
+```xml
+<Metadata>
+  <Item Key="WantsEncryptedAssertions">false</Item>
+  <Item Key="PartnerEntity">https://your-AD-FS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+  <Item Key="XmlSignatureAlgorithm">Sha256</Item>
+</Metadata>
+```
+
+#### <a name="option-2-set-the-signature-algorithm-in-ad-fs"></a>Opção 2: definir o algoritmo de assinatura no AD FS 
+
+Como alternativa, você pode configurar o algoritmo de assinatura de solicitação SAML esperado no AD FS.
+
+1. Em Gerenciador do Servidor, selecione **ferramentas** e, em seguida, selecione **Gerenciamento de AD FS** .
+1. Selecione a **terceira parte** confiável que você criou anteriormente.
+1. Selecione **Propriedades** e **Avançar**
+1. Configure o **algoritmo de hash seguro** e selecione **OK** para salvar as alterações.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 55d8b5ebdfb226247f8a500f36e6df3ae02ea58a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619035"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638288"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços de IP do Azure Integration Runtime
 
@@ -31,12 +31,12 @@ Os endereços IP que Azure Integration Runtime usa depende da região em que o t
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Azure Integration Runtime endereços IP: regiões específicas
 
-Permita o tráfego dos endereços IP listados para o tempo de execução de integração do Azure na região específica do Azure onde os recursos estão localizados. Você pode obter uma lista de intervalos IP de marcas de serviço no [link de download do intervalo de IP das marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Por exemplo, se a região do Azure for **AustraliaEast**, você poderá obter uma lista de intervalos de IP de **DataFactory. AustraliaEast**.
+Permita o tráfego dos endereços IP listados para o tempo de execução de integração do Azure na região específica do Azure onde os recursos estão localizados. Você pode obter uma lista de intervalos IP de marcas de serviço no [link de download do intervalo de IP das marcas de serviço](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Por exemplo, se a região do Azure for **AustraliaEast** , você poderá obter uma lista de intervalos de IP de **DataFactory. AustraliaEast** .
 
 
 ## <a name="known-issue-with-azure-storage"></a>Problema conhecido com o armazenamento do Azure
 
-* Ao se conectar à conta de armazenamento do Azure, as regras de rede IP não têm nenhum efeito nas solicitações originadas do tempo de execução de integração do Azure na mesma região que a conta de armazenamento. Para obter mais detalhes, [Veja este artigo](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
+* Ao se conectar à conta de armazenamento do Azure, as regras de rede IP não têm nenhum efeito nas solicitações originadas do tempo de execução de integração do Azure na mesma região que a conta de armazenamento. Para obter mais detalhes, [Veja este artigo](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range). 
 
   Em vez disso, sugerimos o uso [de serviços confiáveis durante a conexão com o armazenamento do Azure](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
 

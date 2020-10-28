@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372252"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638322"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorar a integridade do espaço de trabalho de Log Analytics no Azure Monitor
-Para manter o desempenho e a disponibilidade do seu espaço de trabalho do Log Analytics no Azure Monitor, você precisa ser capaz de detectar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorar a integridade do seu espaço de trabalho do Log Analytics usando dados na tabela de [operações](/azure-monitor/reference/tables/operation) . Essa tabela está incluída em todos os Log Analytics espaço de trabalho e contém erros e avisos que ocorrem em seu espaço de trabalho. Você deve examinar esses dados regularmente e criar alertas para que sejam notificados proativamente quando houver incidentes importantes em seu espaço de trabalho.
+Para manter o desempenho e a disponibilidade do seu espaço de trabalho do Log Analytics no Azure Monitor, você precisa ser capaz de detectar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorar a integridade do seu espaço de trabalho do Log Analytics usando dados na tabela de [operações](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Essa tabela está incluída em todos os Log Analytics espaço de trabalho e contém erros e avisos que ocorrem em seu espaço de trabalho. Você deve examinar esses dados regularmente e criar alertas para que sejam notificados proativamente quando houver incidentes importantes em seu espaço de trabalho.
 
-## <a name="_logsoperation-function"></a>Função _LogsOperation
-Os logs de Azure Monitor enviam detalhes sobre quaisquer problemas na tabela de [operações](/azure-monitor/reference/tables/operation) no espaço de trabalho em que o problema ocorreu. A função de sistema **_LogsOperation** é baseada na tabela de **operações** e fornece um conjunto simplificado de informações para análise e alertas.
+## <a name="_logoperation-function"></a>Função _LogOperation
+Os logs de Azure Monitor enviam detalhes sobre quaisquer problemas na tabela de [operações](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) no espaço de trabalho em que o problema ocorreu. A função de sistema **_LogOperation** é baseada na tabela de **operações** e fornece um conjunto simplificado de informações para análise e alertas.
 
 ## <a name="columns"></a>Colunas
 
-A função **_LogsOperation** retorna as colunas na tabela a seguir.
+A função **_LogOperation** retorna as colunas na tabela a seguir.
 
 | Coluna | Descrição |
 |:---|:---|
@@ -36,7 +36,7 @@ A função **_LogsOperation** retorna as colunas na tabela a seguir.
 
 
 ## <a name="categories"></a>Categorias
-A tabela a seguir descreve as categorias da função _LogsOperations. 
+A tabela a seguir descreve as categorias da função _LogOperation. 
 
 | Categoria | Descrição |
 |:---|:---|
@@ -82,8 +82,8 @@ Use o processo em [criar, exibir e gerenciar alertas de log usando Azure monitor
 
 | Consulta | Valor limite | Período | Frequência |
 |:---|:---|:---|:---|
-| `_LogsOperation | where Level == "Error"`   | 0 | 5 | 5 |
-| `_LogsOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
+| `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
+| `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
 Essas regras de alerta responderão as mesmas a todas as operações com erro ou aviso. Ao se familiarizar mais com as operações que estão gerando alertas, talvez você queira responder de forma diferente para operações específicas. Por exemplo, talvez você queira enviar notificações para pessoas diferentes para operações específicas. 
 
