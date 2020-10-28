@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048484"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460777"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
@@ -24,7 +24,7 @@ Neste tutorial, você vai...
 > [!div class="checklist"]
 > * Configurar uma instância dos Gêmeos Digitais do Azure
 > * Configurar o aplicativo de linha de comando de exemplo para interagir com a instância
-> * Usar o aplicativo de linha de comando para explorar os Gêmeos Digitais do Azure, incluindo **modelos**, **gêmeos digitais**, **relações** e **consultas**
+> * Usar o aplicativo de linha de comando para explorar os Gêmeos Digitais do Azure, incluindo **modelos** , **gêmeos digitais** , **relações** e **consultas**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -32,24 +32,24 @@ Neste tutorial, você vai...
 
 ## <a name="explore-with-the-sample-solution"></a>Explorar com a solução de exemplo
 
-Agora que a instância e o aplicativo de exemplo estão configurados, você usará o projeto de exemplo e um código de exemplo já escrito para criar e explorar uma solução básica dos Gêmeos Digitais do Azure. Os principais componentes da solução são os **modelos**, os **gêmeos digitais** e as **relações**, resultando em um **grafo consultável** de um ambiente.
+Agora que a instância e o aplicativo de exemplo estão configurados, você usará o projeto de exemplo e um código de exemplo já escrito para criar e explorar uma solução básica dos Gêmeos Digitais do Azure. Os principais componentes da solução são os **modelos** , os **gêmeos digitais** e as **relações** , resultando em um **grafo consultável** de um ambiente.
 
 ### <a name="model-a-physical-environment-with-dtdl"></a>Modelar um ambiente físico com DTDL
 
 A primeira etapa na criação de uma solução dos Gêmeos Digitais do Azure é definir [**modelos**](concepts-models.md) gêmeos para o ambiente. 
 
-Os modelos são semelhantes às classes nas linguagens de programação orientadas a objeto; elas fornecem modelos definidos pelo usuário para os [gêmeos digitais](concepts-twins-graph.md) seguirem e criarem uma instância deles posteriormente. Eles são escritos em uma linguagem semelhante a JSON chamada **DTDL (Digital Twins Definition Language)** e podem definir as *propriedades*, a *telemetria*, as *relações* e os *componentes* de um gêmeo.
+Os modelos são semelhantes às classes nas linguagens de programação orientadas a objeto; elas fornecem modelos definidos pelo usuário para os [gêmeos digitais](concepts-twins-graph.md) seguirem e criarem uma instância deles posteriormente. Eles são escritos em uma linguagem semelhante a JSON chamada **DTDL (Digital Twins Definition Language)** e podem definir as *propriedades* , a *telemetria* , as *relações* e os *componentes* de um gêmeo.
 
 > [!NOTE]
 > A DTDL também permite a definição de *comandos* em gêmeos digitais. No entanto, atualmente os comandos não têm suporte nos Gêmeos Digitais do Azure.
 
-Na janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, use o painel do *Gerenciador de Soluções* para navegar até a pasta *AdtSampleApp\SampleClientApp\Models*. Esta pasta contém modelos de exemplo.
+Na janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, use o painel do *Gerenciador de Soluções* para navegar até a pasta *AdtSampleApp\SampleClientApp\Models* . Esta pasta contém modelos de exemplo.
 
 Selecione *Room.json* para abri-lo na janela de edição e altere-o das seguintes maneiras:
 
-* **Atualizar o número de versão**, de modo a indicar que você está fornecendo uma versão mais atualizada do modelo. Faça isso alterando o *1* no final do valor `@id` para *2*. Qualquer número maior que o da versão atual também funcionará.
-* **Editar uma propriedade**. Altere o nome da propriedade `Humidity` para *HumidityLevel* (ou algo diferente, se desejar. Se usar algo diferente de *HumidityLevel*, lembre-se do que você usou e continue usando o mesmo nome em vez de *HumidityLevel* ao longo do tutorial).
-* **Adicionar uma propriedade**. Abaixo da propriedade `HumidityLevel` que termina na linha 15, cole o código a seguir para adicionar uma propriedade `RoomName` à sala:
+* **Atualizar o número de versão** , de modo a indicar que você está fornecendo uma versão mais atualizada do modelo. Faça isso alterando o *1* no final do valor `@id` para *2* . Qualquer número maior que o da versão atual também funcionará.
+* **Editar uma propriedade** . Altere o nome da propriedade `Humidity` para *HumidityLevel* (ou algo diferente, se desejar. Se usar algo diferente de *HumidityLevel* , lembre-se do que você usou e continue usando o mesmo nome em vez de *HumidityLevel* ao longo do tutorial).
+* **Adicionar uma propriedade** . Abaixo da propriedade `HumidityLevel` que termina na linha 15, cole o código a seguir para adicionar uma propriedade `RoomName` à sala:
 
     ```json
     ,
@@ -59,7 +59,7 @@ Selecione *Room.json* para abri-lo na janela de edição e altere-o das seguinte
       "schema": "string"
     }
     ```
-* **Adicionar uma relação**. Abaixo da propriedade `RoomName` que você acabou de adicionar, cole o código a seguir para adicionar a capacidade desse tipo de gêmeo de gerar relações do tipo *contains* com outros gêmeos:
+* **Adicionar uma relação** . Abaixo da propriedade `RoomName` que você acabou de adicionar, cole o código a seguir para adicionar a capacidade desse tipo de gêmeo de gerar relações do tipo *contains* com outros gêmeos:
 
     ```json
     ,
@@ -76,7 +76,7 @@ Quando você terminar, o modelo atualizado deverá ter a seguinte aparência:
 Salve o arquivo antes de continuar.
 
 > [!TIP]
-> Se quiser tentar criar seu próprio modelo, cole o código do modelo *Room* em um novo arquivo que você salvará com a extensão *.json* na pasta *AdtSampleApp\SampleClientApp\Models*. Em seguida, experimente adicionar propriedades e relações para representar o que você quiser. Você também pode examinar os outros modelos de exemplo nesta pasta para ter ideias.
+> Se quiser tentar criar seu próprio modelo, cole o código do modelo *Room* em um novo arquivo que você salvará com a extensão *.json* na pasta *AdtSampleApp\SampleClientApp\Models* . Em seguida, experimente adicionar propriedades e relações para representar o que você quiser. Você também pode examinar os outros modelos de exemplo nesta pasta para ter ideias.
 
 > [!TIP] 
 > Há uma [amostra de Validador DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-parse-models.md).
@@ -151,7 +151,7 @@ Agora que alguns modelos foram carregados em sua instância dos Gêmeos Digitais
 
 Para criar um gêmeo digital, use o comando `CreateDigitalTwin`. Você precisa referenciar o modelo em que o gêmeo se baseia e pode optar por definir valores iniciais para qualquer propriedade no modelo. Você não precisa passar nenhuma informação de relação neste estágio.
 
-Execute este código no console do projeto em execução para criar vários gêmeos, com base no modelo *Room* que você atualizou anteriormente e em outro modelo, *Floor*. Lembre-se de que *Room* tem três propriedades, de modo que você pode fornecer argumentos com os valores iniciais delas.
+Execute este código no console do projeto em execução para criar vários gêmeos, com base no modelo *Room* que você atualizou anteriormente e em outro modelo, *Floor* . Lembre-se de que *Room* tem três propriedades, de modo que você pode fornecer argumentos com os valores iniciais delas.
 
 ```cmd/sh
 CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
@@ -167,11 +167,11 @@ A saída desses comandos deve indicar que os gêmeos foram criados com êxito.
 
 :::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
-Você também pode verificar se os gêmeos foram criados executando o comando `Query`. Esse comando consulta sua instância dos Gêmeos Digitais do Azure para todos os gêmeos digitais que ela contém. Procure pelos gêmeos *floor0*, *floor1*, *room0* e *room1* nos resultados.
+Você também pode verificar se os gêmeos foram criados executando o comando `Query`. Esse comando consulta sua instância dos Gêmeos Digitais do Azure para todos os gêmeos digitais que ela contém. Procure pelos gêmeos *floor0* , *floor1* , *room0* e *room1* nos resultados.
 
 #### <a name="modify-a-digital-twin"></a>Modificar um gêmeo digital
 
-Você também pode modificar as propriedades de um gêmeo que criou. Tente executar este comando para alterar o RoomName de *room0* de *Room0* para *PresidentialSuite*:
+Você também pode modificar as propriedades de um gêmeo que criou. Tente executar este comando para alterar o RoomName de *room0* de *Room0* para *PresidentialSuite* :
 
 ```cmd/sh
 UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
@@ -179,7 +179,7 @@ UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
 
 A saída deve indicar que o gêmeo foi atualizado com êxito.
 
-Você também pode fazer a verificação executando esse comando para ver as informações de *room0*:
+Você também pode fazer a verificação executando esse comando para ver as informações de *room0* :
 
 ```cmd/sh
 GetDigitalTwin room0
@@ -234,7 +234,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
     >[!NOTE]
-    >No projeto de exemplo, o comando `Query` sem argumentos adicionais é o equivalente de `Query SELECT * FROM DIGITALTWINS`. Para consultar todos os gêmeos em sua instância usando as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos da CLI](how-to-use-cli.md), use a consulta mais longa (completa).
+    >No projeto de exemplo, o comando `Query` sem argumentos adicionais é o equivalente de `Query SELECT * FROM DIGITALTWINS`. Para consultar todos os gêmeos em sua instância usando as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos da CLI](how-to-use-cli.md), use a consulta mais longa (completa).
 
 * **Quais são as salas em meu ambiente?** (consultar por modelo)
 
@@ -242,11 +242,11 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
-    Você pode restringir a consulta aos gêmeos de um determinado tipo a fim de obter informações mais específicas sobre o que é representado. O resultado mostra *room0* e *room1*, mas **não** mostra *floor0* nem *floor1* (pois eles são andares, não salas).
+    Você pode restringir a consulta aos gêmeos de um determinado tipo a fim de obter informações mais específicas sobre o que é representado. O resultado mostra *room0* e *room1* , mas **não** mostra *floor0* nem *floor1* (pois eles são andares, não salas).
     
     :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 
-* **Quais são as salas em *floor0*?** (consultar por relação)
+* **Quais são as salas em *floor0* ?** (consultar por relação)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
@@ -272,7 +272,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
     ```
 
-    Você também pode combinar as consultas anteriores como faria no SQL, usando operadores de combinação como `AND`, `OR` e `NOT`. Essa consulta usa `AND` para deixar a consulta anterior sobre as temperaturas dos gêmeos mais específica. O resultado agora inclui apenas salas com temperaturas acima de 75 que estão em *floor0*– que, nesse caso, é nenhuma delas. O conjunto de resultados é vazio.
+    Você também pode combinar as consultas anteriores como faria no SQL, usando operadores de combinação como `AND`, `OR` e `NOT`. Essa consulta usa `AND` para deixar a consulta anterior sobre as temperaturas dos gêmeos mais específica. O resultado agora inclui apenas salas com temperaturas acima de 75 que estão em *floor0* – que, nesse caso, é nenhuma delas. O conjunto de resultados é vazio.
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Room.json editado com o número de versão atualizado, as propriedades HumidityLevel e RoomName e a relação contains":::
 

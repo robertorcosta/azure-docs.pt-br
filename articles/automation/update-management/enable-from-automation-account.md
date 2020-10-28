@@ -2,19 +2,19 @@
 title: Habilitar o Gerenciamento de Atualizações da Automação do Azure a partir da conta de Automação
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações a partir de uma conta de Automação.
 services: automation
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 1c28d73cac142e85cc9faf36d5e875d684094724
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9630b29def0c450ef907219895d1488d72fd78d1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221955"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669904"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Habilitar o Gerenciamento de Atualizações de uma conta de Automação
 
-Este artigo descreve como você pode usar sua conta de automação para habilitar o recurso [Gerenciamento de atualizações](overview.md) para VMs em seu ambiente, incluindo computadores ou servidores registrados com [servidores habilitados para Arc do Azure](../../azure-arc/servers/overview.md) (versão prévia). Para habilitar as VMs do Azure em escala, você deve habilitar uma VM do Azure existente usando Gerenciamento de Atualizações.
+Este artigo descreve como você pode usar sua conta de automação para habilitar o recurso [Gerenciamento de atualizações](overview.md) para VMs em seu ambiente, incluindo computadores ou servidores registrados com [servidores habilitados para Arc do Azure](../../azure-arc/servers/overview.md). Para habilitar as VMs do Azure em escala, você deve habilitar uma VM do Azure existente usando Gerenciamento de Atualizações.
 
 > [!NOTE]
 > Quando habilitamos o Gerenciamento de Atualizações, somente determinadas regiões têm suporte para a vinculação de um workspace do Log Analytics e uma conta da Automação. Para obter uma lista dos pares de mapeamento com suporte, consulte [Mapeamento de região para conta da Automação e workspace do Log Analytics](../how-to/region-mappings.md).
@@ -23,7 +23,7 @@ Este artigo descreve como você pode usar sua conta de automação para habilita
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automação](../index.yml) para gerenciar máquinas.
-* Uma [máquina virtual do Azure](../../virtual-machines/windows/quick-create-portal.md)ou uma VM ou um servidor registrado com servidores habilitados para Arc (versão prévia). As VMs ou servidores não Azure precisam ter o [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux instalado e o relatório para o espaço de trabalho vinculado à conta de automação gerenciamento de atualizações está habilitado no. O agente pode ser instalado em servidores habilitados para Arc implantando a [extensão de VM log Analytics do Azure](../../azure-arc/servers/manage-vm-extensions.md) com o Azure Arc.
+* Uma [máquina virtual do Azure](../../virtual-machines/windows/quick-create-portal.md)ou uma VM ou um servidor registrado com servidores habilitados para Arc (versão prévia). As VMs ou servidores não Azure precisam ter o [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux instalado e o relatório para o espaço de trabalho vinculado à conta de automação gerenciamento de atualizações está habilitado no. Recomendamos instalar o agente de Log Analytics para Windows ou Linux conectando primeiro o computador aos [servidores habilitados para Arc do Azure](../../azure-arc/servers/overview.md)e, em seguida, usando Azure Policy para atribuir a política de [implantação do agente de log Analytics ao *Linux* ou ao *Windows* Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . Se você planeja também monitorar as máquinas com Azure Monitor para VMs, use a iniciativa [habilitar Azure monitor para VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -31,7 +31,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-update-management"></a>Habilitar Gerenciamento de Atualizações
 
-1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações**.
+1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações** .
 
 2. Escolha o espaço de trabalho Log Analytics e a conta de automação e selecione **habilitar** para habilitar gerenciamento de atualizações. A instalação leva até 15 minutos para ser concluída.
 
@@ -39,7 +39,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-azure-vms"></a>Habilitar VMs do Azure
 
-1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações**.
+1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações** .
 
 2. Selecione **+ Adicionar VMs do Azure** e selecione uma ou mais VMs na lista. Máquinas virtuais que não podem ser habilitadas ficam esmaecidas e não podem ser selecionadas. As VMs do Azure podem existir em qualquer região, independentemente do local da sua conta de Automação.
 
@@ -51,23 +51,23 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 Computadores que não estão no Azure precisam ser adicionados manualmente.
 
-1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações**.
+1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações** .
 
-2. Selecione **Adicionar computador não Azure**. Essa ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente do log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md) para que o computador possa iniciar a emissão de relatórios para gerenciamento de atualizações. Se você estiver habilitando um computador atualmente gerenciado pelo Operations Manager, um novo agente não será necessário. As informações do espaço de trabalho são adicionadas à configuração dos agentes.
+2. Selecione **Adicionar computador não Azure** . Essa ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente do log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md) para que o computador possa iniciar a emissão de relatórios para gerenciamento de atualizações. Se você estiver habilitando um computador atualmente gerenciado pelo Operations Manager, um novo agente não será necessário. As informações do espaço de trabalho são adicionadas à configuração dos agentes.
 
 ## <a name="enable-machines-in-the-workspace"></a>Habilitar máquinas no workspace
 
 Máquinas ou máquinas instaladas manualmente que já estão se reportando ao seu workspace devem ser adicionadas à Automação do Azure para que o Gerenciamento de Atualizações seja habilitado.
 
-1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações**.
+1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações** .
 
-2. Selecione **Gerenciar computadores**. O botão **Gerenciar computadores** poderá ficar esmaecido se você tiver escolhido anteriormente a opção **Habilitar em todos os computadores disponíveis e futuros**
+2. Selecione **Gerenciar computadores** . O botão **Gerenciar computadores** poderá ficar esmaecido se você tiver escolhido anteriormente a opção **Habilitar em todos os computadores disponíveis e futuros**
 
     ![Pesquisas salvas](media/enable-from-automation-account/managemachines.png)
 
 3. Para habilitar o Gerenciamento de Atualizações para todos os computadores disponíveis relatando para o espaço de trabalho, selecione **habilitar em todos os computadores disponíveis** na página Gerenciar computadores. Essa ação desabilita o controle para adicionar computadores individualmente e adiciona todos os computadores relatando ao espaço de trabalho para a consulta de pesquisa salva do grupo de computadores `MicrosoftDefaultComputerGroup` . Quando selecionada, essa ação desabilita a opção **gerenciar computadores** .
 
-4. Para ativar o recurso para todos os computadores disponíveis e futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui a pesquisa salva e a configuração de escopo do espaço de trabalho e permite que o recurso inclua todos os computadores Azure e não Azure que estejam no momento ou no futuro, relate ao espaço de trabalho. Quando selecionada, essa ação desabilita a opção **gerenciar computadores** permanentemente, pois não há nenhuma configuração de escopo disponível.
+4. Para ativar o recurso para todos os computadores disponíveis e futuros, selecione **Habilitar em todos os computadores disponíveis e futuros** . Essa opção exclui a pesquisa salva e a configuração de escopo do espaço de trabalho e permite que o recurso inclua todos os computadores Azure e não Azure que estejam no momento ou no futuro, relate ao espaço de trabalho. Quando selecionada, essa ação desabilita a opção **gerenciar computadores** permanentemente, pois não há nenhuma configuração de escopo disponível.
 
     > [!NOTE]
     > Como essa opção exclui a pesquisa salva e a configuração de escopo dentro de Log Analytics, é importante remover quaisquer bloqueios de exclusão no espaço de trabalho Log Analytics antes de selecionar essa opção. Se você não fizer isso, a opção falhará ao remover as configurações e você deverá removê-las manualmente.

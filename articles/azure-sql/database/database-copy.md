@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 99eea73add47b6498833de7bfd7728feb4c5c4ab
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516198"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671567"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
 
@@ -43,7 +43,7 @@ Se você usar logons no nível do servidor para acessar os dados e copiar o banc
 
 ## <a name="copy-using-the-azure-portal"></a>Copiar usando o portal do Azure
 
-Para copiar um banco de dados usando o Portal do Azure, abra a página do banco de dados e clique em **Copiar**.
+Para copiar um banco de dados usando o Portal do Azure, abra a página do banco de dados e clique em **Copiar** .
 
    ![Cópia do banco de dados](./media/database-copy/database-copy.png)
 
@@ -82,7 +82,7 @@ A cópia do banco de dados é uma operação assíncrona, mas o banco de dados d
 
 Faça logon no banco de dados mestre com o logon de administrador do servidor ou o logon que criou o banco de dados que você deseja copiar. Para que a cópia do banco de dados tenha sucesso, os logons que não são o administrador do servidor devem ser membros da `dbmanager` função. Para saber mais sobre logons e como se conectar ao servidor, confira [Gerenciar logons](logins-create-manage.md).
 
-Comece a copiar o banco de dados de origem com o [criar banco de dados... COMO cópia da](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instrução. A instrução T-SQL continua em execução até que a operação de cópia do banco de dados seja concluída.
+Comece a copiar o banco de dados de origem com o [criar banco de dados... COMO cópia da](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instrução. A instrução T-SQL continua em execução até que a operação de cópia do banco de dados seja concluída.
 
 > [!NOTE]
 > Encerrar a instrução T-SQL não encerra a operação de cópia de banco de dados. Para encerrar a operação, descarte o banco de dados de destino.
@@ -143,13 +143,13 @@ Você pode usar as etapas na seção [copiar um banco de dados SQL para um servi
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o andamento da operação de cópia
 
-Monitore o processo de cópia consultando os modos de exibição [Sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [Sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [Sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Enquanto a cópia estiver em andamento, a coluna **state_desc** da exibição sys.databases para o novo banco de dados é definida como **COPYING**.
+Monitore o processo de cópia consultando os modos de exibição [Sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [Sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [Sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Enquanto a cópia estiver em andamento, a coluna **state_desc** da exibição sys.databases para o novo banco de dados é definida como **COPYING** .
 
-* Se a cópia falhar, a coluna **state_desc** da exibição sys.databases para o novo banco de dados será definida como **SUSPECT**. Execute a instrução DROP no novo banco de dados e tente novamente mais tarde.
-* Se a cópia for bem-sucedida, a coluna **state_desc** da exibição sys.databases para o novo banco de dados será definida como **ONLINE**. A cópia foi concluída e o novo banco de dados é um banco de dados normal, capaz de ser alterado de forma independente do banco de dados de origem.
+* Se a cópia falhar, a coluna **state_desc** da exibição sys.databases para o novo banco de dados será definida como **SUSPECT** . Execute a instrução DROP no novo banco de dados e tente novamente mais tarde.
+* Se a cópia for bem-sucedida, a coluna **state_desc** da exibição sys.databases para o novo banco de dados será definida como **ONLINE** . A cópia foi concluída e o novo banco de dados é um banco de dados normal, capaz de ser alterado de forma independente do banco de dados de origem.
 
 > [!NOTE]
-> Se você decidir cancelar a cópia enquanto ela estiver em andamento, execute a instrução [DROP DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) no novo banco de dados.
+> Se você decidir cancelar a cópia enquanto ela estiver em andamento, execute a instrução [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) no novo banco de dados.
 
 > [!IMPORTANT]
 > Se você precisar criar uma cópia com um objetivo de serviço substancialmente menor do que a origem, o banco de dados de destino pode não ter recursos suficientes para concluir o processo de propagação e isso pode fazer com que a operabilidade de cópia falhe. Nesse cenário, use uma solicitação de restauração geográfica para criar uma cópia em um servidor diferente e/ou em uma região diferente. Consulte [recuperar um banco de dados SQL do Azure usando backups de banco de dados](recovery-using-backups.md#geo-restore) para obter mais informações.
@@ -182,7 +182,7 @@ Se você quiser ver as operações em implantações no grupo de recursos no por
 
 ## <a name="resolve-logins"></a>Resolver logons
 
-Depois que o novo banco de dados estiver online no servidor de destino, use a instrução [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) para remapear os usuários do novo banco de dados para os logons no servidor de destino. Para resolver usuários órfãos, confira [Solução de problemas de usuários órfãos](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Consulte também [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](active-geo-replication-security-configure.md).
+Depois que o novo banco de dados estiver online no servidor de destino, use a instrução [ALTER USER](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) para remapear os usuários do novo banco de dados para os logons no servidor de destino. Para resolver usuários órfãos, confira [Solução de problemas de usuários órfãos](/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Consulte também [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](active-geo-replication-security-configure.md).
 
 Todos os usuários no novo banco de dados mantêm as permissões que tinham no banco de dados de origem. O usuário que iniciou a cópia do banco de dados se torna o proprietário do novo banco de dados. Depois que a cópia for realizada com sucesso e antes que outros usuários sejam remapeados, somente o proprietário do banco de dados poderá fazer logon no novo banco de dados.
 
@@ -192,7 +192,7 @@ Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de da
 
 Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](database-copy.md).
 
-| Código do erro | Severidade | Descrição |
+| Código de erro | Severidade | Descrição |
 | ---:| ---:|:--- |
 | 40635 |16 |O cliente com endereço IP “%.&#x2a;ls” está desabilitado temporariamente. |
 | 40637 |16 |A criação da cópia do banco de dados está desabilitada no momento. |

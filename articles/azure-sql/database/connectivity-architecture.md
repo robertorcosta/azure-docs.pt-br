@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479078"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672504"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Banco de dados SQL do Azure e arquitetura de conectividade do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "92479078"
 Este artigo explica a arquitetura de vários componentes que direcionam o tráfego de rede para um servidor no banco de dados SQL do Azure ou no Azure Synapse Analytics. Ele também explica políticas de conexão diferentes e como isso afeta os clientes que se conectam de dentro do Azure e os clientes que se conectam de fora do Azure.
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**. Consulte [arquitetura de conectividade para uma instância gerenciada](../managed-instance/connectivity-architecture-overview.md).
+> Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure** . Consulte [arquitetura de conectividade para uma instância gerenciada](../managed-instance/connectivity-architecture-overview.md).
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 
@@ -51,7 +51,7 @@ Os servidores no banco de dados SQL e o Azure Synapse dão suporte às três op�
 
 - **Padrão:** Essa é a política de conexão em vigor em todos os servidores após a criação, a menos que você altere explicitamente a política de conexão para o `Proxy` ou o `Redirect` . A política padrão é `Redirect` para todas as conexões de cliente originadas dentro do Azure (por exemplo, de uma máquina virtual do Azure) e `Proxy` para todas as conexões de cliente que se originam fora (por exemplo, conexões de sua estação de trabalho local).
 
-É altamente recomendável usar a política de conexão `Redirect` em relação à política de conexão `Proxy` para a menor latência e maior taxa de transferência. No entanto, será necessário atender aos requisitos adicionais para permitir o tráfego de rede, conforme descrito acima. Se o cliente for uma máquina virtual do Azure, você poderá fazer isso usando NSG (grupos de segurança de rede) com [marcas de serviço](../../virtual-network/security-overview.md#service-tags). Se o cliente estiver se conectando de uma estação de trabalho local, talvez seja necessário trabalhar com o administrador de rede para permitir o tráfego de rede por meio do firewall corporativo.
+É altamente recomendável usar a política de conexão `Redirect` em relação à política de conexão `Proxy` para a menor latência e maior taxa de transferência. No entanto, será necessário atender aos requisitos adicionais para permitir o tráfego de rede, conforme descrito acima. Se o cliente for uma máquina virtual do Azure, você poderá fazer isso usando NSG (grupos de segurança de rede) com [marcas de serviço](../../virtual-network/network-security-groups-overview.md#service-tags). Se o cliente estiver se conectando de uma estação de trabalho local, talvez seja necessário trabalhar com o administrador de rede para permitir o tráfego de rede por meio do firewall corporativo.
 
 ## <a name="connectivity-from-within-azure"></a>Conectividade de dentro do Azure
 
@@ -66,7 +66,7 @@ Se você estiver se conectando de fora do Azure, as conexões terão uma políti
 ![Diagrama que mostra como a sessão TCP é estabelecida por meio do gateway do banco de dados SQL do Azure e todos os pacotes subsequentes fluem por meio do gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Além disso, abra as portas TCP 1434 e 14000-14999 para habilitar a [conexão com o DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Além disso, abra as portas TCP 1434 e 14000-14999 para habilitar a [conexão com o DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>Endereços IP do gateway
 
@@ -80,7 +80,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Central2 da Austrália   | 20.36.113.0 |
 | Leste da Austrália       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| Brazil South         | 104.41.11.5, 191.233.200.14 |
+| Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Leste do Canadá          | 40.86.226.166, 52.242.30.154 |
 | Centro dos EUA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
@@ -124,6 +124,6 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre como alterar a política de conexão do banco de dados SQL do Azure para um servidor, consulte [Conn-Policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Para obter informações sobre como alterar a política de conexão do banco de dados SQL do Azure para um servidor, consulte [Conn-Policy](/cli/azure/sql/server/conn-policy).
 - Para obter mais informações sobre o comportamento de conexão do Banco de Dados SQL do Azure para clientes que usam ADO.NET 4.5 ou uma versão mais recente, consulte [Portas depois da 1433 para ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).
 - Para obter informações sobre a visão geral do desenvolvimento de aplicativos em geral, consulte [Visão Geral do Desenvolvimento de Aplicativos do Banco de Dados SQL](develop-overview.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2359c762c9ad653ee2eed294709ad7bf6b2a31c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289864"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671108"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar site estático no Armazenamento do Microsoft Azure
 
@@ -38,11 +38,11 @@ A hospedagem de site estática é um recurso que você precisa habilitar na cont
 
 4. Selecione **Ativado** para habilitar a hospedagem de site estático para a conta de armazenamento.
 
-5. No campo **Nome do documento de índice**, especifique uma página de índice padrão (por exemplo: *index.html*). 
+5. No campo **Nome do documento de índice** , especifique uma página de índice padrão (por exemplo: *index.html* ). 
 
    A página de índice padrão é exibida quando um usuário navega para a raiz do site estático.  
 
-6. No campo **Caminho do documento de erro**, especifique uma página de erro padrão (por exemplo: *404.html*). 
+6. No campo **Caminho do documento de erro** , especifique uma página de erro padrão (por exemplo: *404.html* ). 
 
    A página de erro padrão é exibida quando o usuário tenta navegar até uma página que não existe no site estático.
 
@@ -140,7 +140,7 @@ Estas instruções mostram como carregar arquivos usando a versão do Gerenciado
 
 1. Selecione **Gerenciador de Armazenamento do Microsoft Azure (versão prévia)** .
 
-2. Expanda o nó **BLOB CONTAINERS** e selecione o contêiner **$web**.
+2. Expanda o nó **BLOB CONTAINERS** e selecione o contêiner **$web** .
 
 3. Selecione o botão **Carregar** para carregar os arquivos.
 
@@ -151,7 +151,7 @@ Estas instruções mostram como carregar arquivos usando a versão do Gerenciado
    ![Verifique os tipos de conteúdo](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > O Gerenciador de Armazenamento define automaticamente essa propriedade como `text/html` para extensões comumente reconhecidas, como `.html`. No entanto, em alguns casos, você terá que definir isso por conta própria. Se você não definir essa propriedade como `text/html`, o navegador solicitará que os usuários baixem o arquivo em vez de renderizar o conteúdo. Para definir essa propriedade, clique com botão direito do mouse no arquivo e, em seguida, clique em **Propriedades**.
+   > O Gerenciador de Armazenamento define automaticamente essa propriedade como `text/html` para extensões comumente reconhecidas, como `.html`. No entanto, em alguns casos, você terá que definir isso por conta própria. Se você não definir essa propriedade como `text/html`, o navegador solicitará que os usuários baixem o arquivo em vez de renderizar o conteúdo. Para definir essa propriedade, clique com botão direito do mouse no arquivo e, em seguida, clique em **Propriedades** .
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -204,7 +204,7 @@ Você pode exibir as páginas do site de um navegador usando a URL pública do s
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No painel que aparece ao lado da página de visão geral da conta da sua conta de armazenamento, selecione **site estático**. A URL do seu site aparece no campo **Ponto de extremidade primário**.
+No painel que aparece ao lado da página de visão geral da conta da sua conta de armazenamento, selecione **site estático** . A URL do seu site aparece no campo **Ponto de extremidade primário** .
 
 ![Métrica de métricas de sites estáticos de Armazenamento do Microsoft Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -249,23 +249,23 @@ Depois que você tiver habilitado as métricas, as estatísticas de tráfego nos
    > [!NOTE]
    > Dados de métricas são gerados pendurando em diferentes APIs de métrica. O portal exibe apenas membros da API usados em um determinado período de tempo para se concentrar apenas em membros que retornam dados. Para garantir que você possa selecionar o membro de API necessário, a primeira etapa é expandir o intervalo de tempo.
 
-2. Clique no botão de período, selecione o período e clique em **Aplicar**.
+2. Clique no botão de período, selecione o período e clique em **Aplicar** .
 
    ![Intervalo de tempo de métricas de sites estático do Armazenamento do Microsoft Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
-3. Selecione o **Blob** da lista suspensa *Namespace*.
+3. Selecione o **Blob** da lista suspensa *Namespace* .
 
    ![Namespace de métricas de sites estático do Armazenamento do Microsoft Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
 
-4. Em seguida, selecione a métrica **Egresso**.
+4. Em seguida, selecione a métrica **Egresso** .
 
-   ![Métrica de métricas de sites estáticos de Armazenamento do Microsoft Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Captura de tela que mostra a métrica de saída dos sites estáticos do armazenamento do Azure.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. Selecione **Somar** do seletor *Agregação*.
+5. Selecione **Somar** do seletor *Agregação* .
 
    ![Agregação de métricas de sites estáticos de Armazenamento do Microsoft Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. Clique no botão **Adicionar filtro** e escolha **Nome da API** do seletor *Propriedade*.
+6. Clique no botão **Adicionar filtro** e escolha **Nome da API** do seletor *Propriedade* .
 
    ![Nome da API de métricas de sies estáticos do Armazenamento do Microsoft Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 

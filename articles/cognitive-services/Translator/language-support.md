@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282310"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669629"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -165,8 +165,7 @@ O tradutor detecta os seguintes idiomas para tradução e transliteração.
 |Pashto|    `ps`    |
 |Persa|   `fa`    |
 |Polonês|    `pl`    |
-|Português (Brasil)|   `pt-br` |
-|Português (Portugal)| `pt-pt` |
+|Português|    `pt`    |
 |Romeno|  `ro`    |
 |Russo|   `ru`    |
 |Sérvio (cirílico)|    `sr-Cyrl`|
@@ -202,7 +201,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
 | Guzerate | `gu`  | Guzerate `Gujr` | <--> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
-| Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
+| Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
 | canarim | `kn` | Canarim `Knda` | <--> | Latim `Latn` |
 | Malaiala | `ml` | Malaiala `Mlym` | <--> | Latim `Latn` |
@@ -212,7 +211,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Sérvio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (latino) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 | Tâmil | `ta` | Tâmil `Taml` | <--> | Latim `Latn` |
-| Telugu | `te` | Télugo `Telu` | <--> | Latim `Latn` |
+| Télugo | `te` | Télugo `Telu` | <--> | Latim `Latn` |
 | Tailandês | `th` | Tailandês `Thai` | --> | Latim `Latn` |
 
 ### <a name="dictionary"></a>Dicionário
@@ -368,7 +367,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 |Francês (Canadá)|
 |Alemão|
 |Guzerate|
-|Hindi|
+|Híndi|
 |Italiano|
 |Japonês|
 |Coreano|

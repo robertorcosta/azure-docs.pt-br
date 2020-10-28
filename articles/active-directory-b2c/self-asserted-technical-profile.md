@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096208"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670126"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Em um perfil técnico autodeclarado, você pode usar os elementos **InputClaims*
 
 ## <a name="display-claims"></a>Exibir declarações
 
-O recurso Exibir declarações está em **Visualização**no momento.
+O recurso Exibir declarações está em **Visualização** no momento.
 
 O elemento **DisplayClaims** contém uma lista de declarações a serem apresentadas na tela para coletar dados do usuário. Para preencher previamente os valores de declarações de exibição, use as declarações de entrada que foram descritas anteriormente. O elemento também pode conter um valor padrão.
 
@@ -114,7 +114,7 @@ Se uma política de folha que herda essa base subsequentemente especificar `offi
 </TechnicalProfile>
 ```
 
-A `age` declaração na política de base não é mais apresentada na tela ao usuário; ela é efetivamente "oculta". Para exibir a `age` declaração e coletar o valor de idade do usuário, você deve adicionar um `age` **DisplayClaim**.
+A `age` declaração na política de base não é mais apresentada na tela ao usuário; ela é efetivamente "oculta". Para exibir a `age` declaração e coletar o valor de idade do usuário, você deve adicionar um `age` **DisplayClaim** .
 
 ## <a name="output-claims"></a>Declarações de saída
 
@@ -133,10 +133,10 @@ Em um perfil técnico autodeclarado, a coleção de declarações de saída reto
 
 Use declarações de saída quando:
 
-- As **declarações são saídas pela transformação declarações de saída**.
+- As **declarações são saídas pela transformação declarações de saída** .
 - **Definir um valor padrão em uma declaração de saída** sem coletar dados do usuário ou retornar os dados do perfil técnico de validação. O perfil técnico autodeclarado `LocalAccountSignUpWithLogonEmail` define a declaração **executed-SelfAsserted-Input** como `true`.
-- **Um perfil técnico de validação retorna as declarações de saída**: seu perfil técnico pode chamar um perfil técnico de validação que retorna algumas declarações. Talvez você queira juntar as declarações e retorná-las para as próximas etapas de orquestração no percurso do usuário. Por exemplo, ao entrar com uma conta local, o perfil técnico autodeclarado de nome `SelfAsserted-LocalAccountSignin-Email` chama o perfil técnico de validação chamado `login-NonInteractive`. Esse perfil técnico valida as credenciais do usuário e também retorna o perfil do usuário. Como 'userPrincipalName', 'displayName', 'givenName' e 'surName'.
-- **Um controle de exibição retorna as declarações de saída** – seu perfil técnico pode ter uma referência a um [controle de exibição](display-controls.md). O controle de exibição retorna algumas declarações, como o endereço de email verificado. Talvez você queira juntar as declarações e retorná-las para as próximas etapas de orquestração no percurso do usuário. O recurso de controle de exibição está atualmente em **Visualização**.
+- **Um perfil técnico de validação retorna as declarações de saída** : seu perfil técnico pode chamar um perfil técnico de validação que retorna algumas declarações. Talvez você queira juntar as declarações e retorná-las para as próximas etapas de orquestração no percurso do usuário. Por exemplo, ao entrar com uma conta local, o perfil técnico autodeclarado de nome `SelfAsserted-LocalAccountSignin-Email` chama o perfil técnico de validação chamado `login-NonInteractive`. Esse perfil técnico valida as credenciais do usuário e também retorna o perfil do usuário. Como 'userPrincipalName', 'displayName', 'givenName' e 'surName'.
+- **Um controle de exibição retorna as declarações de saída** – seu perfil técnico pode ter uma referência a um [controle de exibição](display-controls.md). O controle de exibição retorna algumas declarações, como o endereço de email verificado. Talvez você queira juntar as declarações e retorná-las para as próximas etapas de orquestração no percurso do usuário. O recurso de controle de exibição está atualmente em **Visualização** .
 
 O exemplo a seguir demonstra o uso de um perfil técnico autodeclarado que usa declarações de exibição e declarações de saída.
 
@@ -175,6 +175,14 @@ O exemplo a seguir demonstra o uso de um perfil técnico autodeclarado que usa d
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>Página de inscrição ou entrada de declarações de saída
+
+Em uma página de inscrição e entrada combinada, observe o seguinte ao usar um elemento [DataUri](contentdefinitions.md#datauri) de definição de conteúdo, que especifica um `unifiedssp` `unifiedssd` tipo de página ou:
+
+- Somente as declarações de nome de usuário e senha são renderizadas.
+- As duas primeiras declarações de saída devem ser o nome de usuário e a senha (nesta ordem). 
+- Quaisquer outras declarações não são renderizadas; para essas declarações, você precisará definir `defaultValue` ou invocar um perfil técnico de validação de formulário de declarações. 
+
 ## <a name="persist-claims"></a>Declarações de persistência
 
 O elemento PersistedClaims não é usado. O perfil técnico autodeclarado não mantém os dados para Azure AD B2C. Em vez disso, é feita uma chamada para um perfil técnico de validação responsável por persistir os dados. Por exemplo, a política de inscrição usa o perfil técnico autodeclarado `LocalAccountSignUpWithLogonEmail` para coletar o novo perfil do usuário. O perfil técnico `LocalAccountSignUpWithLogonEmail` chama o perfil técnico de validação para criar a conta no Azure AD B2C.
@@ -203,7 +211,7 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 | configuração. forgotPasswordLinkLocation <sup>2</sup>| Não| Exibe o link esqueceu a senha. Valores possíveis: `AfterInput` (padrão) o link é exibido na parte inferior da página ou `None` Remove o link de senha esquecida.|
 | configuração. enableRememberMe <sup>2</sup>| Não| Exibe a caixa de seleção [manter-me conectado](custom-policy-keep-me-signed-in.md) . Valores possíveis: `true` ou `false` (padrão). |
 | configuração. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Não| Melhora a experiência do usuário, aguardando que o usuário pare de digitar e, em seguida, valide o valor. Valor padrão de 2000 milissegundos. |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false`   (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
+| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
 
 Observações:
 1. Disponível para a definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` .

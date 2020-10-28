@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570415"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670101"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Visão geral das chaves de política no Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Você pode configurar segredos e certificados para estabelecer confiança entre 
 
 ## <a name="policy-keyset-and-keys"></a>Chave e conjunto de chaves de política
 
-O recurso de nível superior para chaves de política no Azure AD B2C é o contêiner do conjunto de **chaves** . Cada conjunto de chaves contém pelo menos uma **chave**. Uma chave tem os seguintes atributos:
+O recurso de nível superior para chaves de política no Azure AD B2C é o contêiner do conjunto de **chaves** . Cada conjunto de chaves contém pelo menos uma **chave** . Uma chave tem os seguintes atributos:
 
 | Atributo |  Obrigatório | Comentários |
 | --- | --- |--- |
@@ -58,7 +58,7 @@ Para fins de segurança, Azure AD B2C pode sobrepor chaves periodicamente ou ime
 
 Se um conjunto de chaves Azure AD B2C tiver várias chaves, somente uma das chaves estará ativa a qualquer momento, com base nos seguintes critérios:
 
-- A ativação da chave é baseada na **data de ativação**.
+- A ativação da chave é baseada na **data de ativação** .
   - As chaves são classificadas por data de ativação em ordem crescente. As chaves com datas de ativação ainda mais no futuro aparecem mais abaixo na lista. As chaves sem uma data de ativação estão localizadas na parte inferior da lista.
   - Quando a data e a hora atuais forem maiores que a data de ativação de uma chave, Azure AD B2C ativará a chave e interromperá o uso da chave ativa anterior.
 - Quando o tempo de expiração da chave atual tiver decorrido e o contêiner de chave contiver uma nova chave com os tempos de validade e *não antes* e de *expiração* , a nova chave se tornará ativa automaticamente.
@@ -73,11 +73,18 @@ Para adicionar ou excluir chaves de criptografia e assinatura:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o locatário do Azure AD B2C.
-1. No portal do Azure, procure e selecione **Azure AD B2C**.
-1. Na página Visão Geral, em **Políticas**, selecione **Identity Experience Framework**.
+1. No portal do Azure, procure e selecione **Azure AD B2C** .
+1. Na página Visão Geral, em **Políticas** , selecione **Identity Experience Framework** .
 1. Selecionar **chaves de política** 
-    1. Para adicionar uma nova chave, selecione **Adicionar**.
-    1. Para remover uma nova chave, selecione a chave e, em seguida, selecione **excluir**. Para excluir a chave, digite o nome do contêiner de chave a ser excluído. Azure AD B2C excluirá a chave e criará uma cópia da chave com o sufixo. bak.
+    1. Para adicionar uma nova chave, selecione **Adicionar** .
+    1. Para remover uma nova chave, selecione a chave e, em seguida, selecione **excluir** . Para excluir a chave, digite o nome do contêiner de chave a ser excluído. Azure AD B2C excluirá a chave e criará uma cópia da chave com o sufixo. bak.
+
+### <a name="replace-a-key"></a>Substituir uma chave
+
+As chaves em um conjunto de chaves não são substituíveis ou removíveis. Se você precisar alterar uma chave existente:
+
+- É recomendável adicionar uma nova chave com a **data de ativação** definida para a data e hora atuais. Azure AD B2C ativará a nova chave e irá parar de usar a chave ativa anterior.
+- Como alternativa, você pode criar um novo conjunto de chaves com as chaves corretas. Atualize sua política para usar o novo conjunto de chaves e, em seguida, remova o conjunto de chaves antigo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

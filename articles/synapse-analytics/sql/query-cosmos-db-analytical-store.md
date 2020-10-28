@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c5fa326fa05a34ae5b51054b867a766489b85c16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474896"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670699"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com o pool SQL sem servidor no link Synapse do Azure (versão prévia)
 
@@ -23,6 +23,9 @@ O pool SQL sem servidor do Synapse (anteriormente SQL sob demanda) permite que v
 Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa é suportada por meio da função [OPENROWSET](develop-openrowset.md) , incluindo a maioria dos [operadores e funções SQL](overview-features.md). Você também pode armazenar os resultados da consulta que lê dados de Azure Cosmos DB juntamente com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando [criar tabela externa como SELECT](develop-tables-cetas.md#cetas-in-sql-on-demand). Atualmente, não é possível armazenar os resultados da consulta do pool SQL sem servidor para Azure Cosmos DB usando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 Neste artigo, você aprenderá a escrever uma consulta com o pool SQL sem servidor que consultará dados de contêineres de Azure Cosmos DB que estão com o link Synapse habilitado. Em seguida, você pode saber mais sobre como criar exibições de pool de SQL sem servidor em Azure Cosmos DB contêineres e conectá-las a modelos de Power BI [neste tutorial.](./tutorial-data-analyst.md) 
+
+> [!IMPORTANT]
+> Este tutorial usa um contêiner com [Azure Cosmos DB esquema bem definido](../../cosmos-db/analytical-store-introduction.md#schema-representation) que fornece a experiência de consulta que terá suporte no futuro. A experiência de consulta que o pool SQL sem servidor fornece para [Azure Cosmos DB esquema de fidelidade total](#full-fidelity-schema) é um comportamento temporário que será alterado com base nos comentários de visualização. Não confie no esquema que a `OPENROWSET` função fornece para contêineres de fidelidade total durante a visualização pública, pois a consulta experinece pode ser alterada e alinhada com um esquema bem definido. Contate a [equipe do produto Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer comentários.
 
 ## <a name="overview"></a>Visão geral
 
@@ -247,18 +250,83 @@ Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade 
 | Booliano | bit |
 | Integer | BIGINT |
 | Decimal | FLOAT |
-| Cadeia de caracteres | varchar (agrupamento de banco de dados UTF8) |
+| String | varchar (agrupamento de banco de dados UTF8) |
 | Data e hora (cadeia de caracteres formatada em ISO) | varchar (30) |
 | Data e hora (carimbo de hora do UNIX) | BIGINT |
 | Nulo | `any SQL type` 
 | Objeto ou matriz aninhada | varchar (max) (agrupamento de banco de dados UTF8), serializado como texto JSON |
 
+## <a name="full-fidelity-schema"></a>Esquema de fidelidade total
+
+Azure Cosmos DB esquema de fidelidade total registra os valores e seus melhores tipos de correspondência para cada propriedade em um contêiner.
+`OPENROWSET` a função em um contêiner com esquema de fidelidade total fornece o tipo e o valor real em cada célula. Vamos supor que a consulta a seguir leia os itens de um contêiner com esquema de fidelidade total:
+
+```sql
+SELECT *
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) as rows
+```
+
+O resultado dessa consulta retornará tipos e valores formatados como texto JSON: 
+
+| date_rep | cases | geo_id |
+| --- | --- | --- |
+| {"data": "2020-08-13"} | {"Int32": "254"} | {"String": "RS"} |
+| {"data": "2020-08-12"} | {"Int32": "235"}| {"String": "RS"} |
+| {"data": "2020-08-11"} | {"Int32": "316"} | {"String": "RS"} |
+| {"data": "2020-08-10"} | {"Int32": "281"} | {"String": "RS"} |
+| {"data": "2020-08-09"} | {"Int32": "295"} | {"String": "RS"} |
+| {"String": "2020/08/08"} | {"Int32": "312"} | {"String": "RS"} |
+| {"data": "2020-08-07"} | {"float64": "339.0"} | {"String": "RS"} |
+
+Para cada valor, você pode ver o tipo identificado em Cosmos DB item de contêiner. A maioria dos valores da `date_rep` propriedade contém `date` valores, mas alguns deles são armazenados incorretamente como cadeias de caracteres no cosmos DB. O esquema de fidelidade completa retornará valores digitados corretamente `date` e valores formatados incorretamente `string` .
+O número de casos é uma informação armazenada como `int32` valor, mas há um valor que é inserido como número decimal. Este valor tem `float64` tipo. Se houver alguns valores que excedam o maior `int32` número, eles serão armazenados como `int64` tipo. Todos os `geo_id` valores neste exemplo são armazenados como `string` tipos.
+
+> [!IMPORTANT]
+> O esquema de fidelidade total expõe os valores com os tipos esperados e os valores com tipos inseridos incorretamente.
+> Você deve limpar os valores que têm tipos incorretos no contêiner Azure Cosmos DB para aplicar a corect em um repositório analítico de fidelidade total. 
+
 Para consultar Azure Cosmos DB contas do tipo de API do Mongo DB, você pode saber mais sobre a representação de esquema de fidelidade total no repositório analítico e os nomes de propriedade estendida a serem usados [aqui](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+Ao consultar o esquema de fidelidade completa, você precisa especificar explicitamente o tipo SQL e o tipo de propriedade esperado Cosmos DB na `WITH` cláusula in. No exemplo a seguir, vamos pressupor que `string` é o tipo correto para a `geo_id` propriedade e o `int32` tipo correto para a `cases` Propriedade:
+
+```sql
+SELECT geo_id, cases = SUM(cases)
+FROM OPENROWSET(
+      'CosmosDB'
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
+             cases INT '$.cases.int32'
+    ) as rows
+GROUP BY geo_id
+```
+
+Os valores com outros tipos não serão retornados nas `geo_id` `cases` colunas e e a consulta retornará um `NULL` valor nessas células. Essa consulta fará referência somente ao `cases` com o tipo especificado na expressão ( `cases.int32` ). Se você tiver valores com outros tipos ( `cases.int64` , `cases.float64` ) que representam não podem ser limpos no contêiner Cosmos DB, você precisará referenciá-los explicitamente na `WITH` cláusula e combinar os resultados. A consulta a seguir agrega ambos `int32` , `int64` e `float64` armazenados na `cases` coluna:
+
+```sql
+SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
+             cases_int INT '$.cases.int32',
+             cases_bigint BIGINT '$.cases.int64',
+             cases_float FLOAT '$.cases.float64'
+    ) as rows
+GROUP BY geo_id
+```
+
+Neste exemplo, o número de casos é armazenado como `int32` , `int64` ou `float64` valores e todos os valores devem ser extraídos para calcular o número de casos por país. 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
 - O alias **deve** ser especificado após `OPENROWSET` a função (por exemplo, `OPENROWSET (...) AS function_alias` ). A omissão do alias pode causar problemas de conexão e o ponto de extremidade SQL sem servidor Synapse pode estar temporariamente indisponível. Esse problema será resolvido em 2020 de novembro.
-- O pool SQL sem servidor atualmente não dá suporte a [Azure Cosmos DB esquema de fidelidade total](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use o pool SQL sem servidor somente para acessar Cosmos DB esquema bem definido.
+- A experiência de consulta que o pool SQL sem servidor fornece para [Azure Cosmos DB esquema de fidelidade total](#full-fidelity-schema) é um comportamento temporário que será alterado com base nos comentários de visualização. Não confie no esquema que `OPENROWSET` a função fornece durante a visualização pública, pois a experiência de consulta pode estar alinhada com um esquema bem definido. Contate a [equipe do produto Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer comentários.
 
 Possíveis erros e ações de solução de problemas estão listados na tabela a seguir:
 
