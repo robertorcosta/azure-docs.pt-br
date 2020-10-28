@@ -16,16 +16,16 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6709d7589ebf4c82ec25c6b7a79fa31a305839
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 30724edafdee0c04f0c8b004ce335072b4ce0fd4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87506436"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367441"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Funcionalidades de gerenciamento para grupos do Azure AD com acesso privilegiado (versão prévia)
 
-No PIM (Privileged Identity Management), agora você pode atribuir qualificação para associação ou propriedade de grupos com acesso privilegiado. Começando com essa versão prévia, você pode atribuir funções internas do Azure AD (Azure Active Directory) a grupos de nuvem e usar o PIM para gerenciar a qualificação e a ativação de proprietários e membros do grupo. Para obter mais informações sobre grupos passíveis de atribuição de função no Azure AD, confira [Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)](../users-groups-roles/roles-groups-concept.md).
+No PIM (Privileged Identity Management), agora você pode atribuir qualificação para associação ou propriedade de grupos com acesso privilegiado. Começando com essa versão prévia, você pode atribuir funções internas do Azure AD (Azure Active Directory) a grupos de nuvem e usar o PIM para gerenciar a qualificação e a ativação de proprietários e membros do grupo. Para obter mais informações sobre grupos passíveis de atribuição de função no Azure AD, confira [Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)](../roles/groups-concept.md).
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Exigir políticas diferentes para cada grupo passível de atribuição de função
 

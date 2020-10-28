@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597378"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362460"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
@@ -77,15 +77,15 @@ O gerenciamento de direitos introduz o conceito de *pacote de acesso* ao Azure A
 
 Você também pode controlar o acesso a outros recursos que dependem de grupos de segurança do Azure AD ou grupos do Microsoft 365.  Por exemplo:
 
-- Você pode conceder aos usuários licenças para o Microsoft 365 usando um grupo de segurança do Azure AD em um pacote de acesso e configurando um [licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo.
+- Você pode conceder aos usuários licenças para o Microsoft 365 usando um grupo de segurança do Azure AD em um pacote de acesso e configurando um [licenciamento baseado em grupo](../enterprise-users/licensing-groups-assign.md) para esse grupo.
 - Você pode conceder aos usuários acesso para gerenciar recursos do Azure usando um grupo de segurança do Azure AD em um pacote de acesso e criando uma [atribuição de função do Azure](../../role-based-access-control/role-assignments-portal.md) para esse grupo.
-- Você pode conceder aos usuários acesso para gerenciar funções do Azure AD usando grupos atribuíveis às funções do Azure AD em um pacote de acesso e [atribuindo uma função do Azure AD a esse grupo](../users-groups-roles/roles-groups-assign-role.md).
+- Você pode conceder aos usuários acesso para gerenciar funções do Azure AD usando grupos atribuíveis às funções do Azure AD em um pacote de acesso e [atribuindo uma função do Azure AD a esse grupo](../roles/groups-assign-role.md).
 
 ## <a name="how-do-i-control-who-gets-access"></a>Como faço para controlar quem obtém acesso?
 
 Com um pacote de acesso, um administrador ou um gerenciador de pacotes de acesso delegado pode listar os recursos (grupos, aplicativos e sites) e as funções que os usuários precisam para esses recursos.
 
-Os pacotes de acesso também incluem uma ou mais *políticas*. Uma política define as regras ou grades de proteção para atribuição ao pacote de acesso. Cada política pode ser usada para garantir que apenas os usuários apropriados sejam capazes de solicitar acesso, que há aprovadores para essa solicitação e que o acesso a esses recursos é limitado por tempo e expirará se não for renovado.
+Os pacotes de acesso também incluem uma ou mais *políticas* . Uma política define as regras ou grades de proteção para atribuição ao pacote de acesso. Cada política pode ser usada para garantir que apenas os usuários apropriados sejam capazes de solicitar acesso, que há aprovadores para essa solicitação e que o acesso a esses recursos é limitado por tempo e expirará se não for renovado.
 
 ![Pacote de acesso e políticas](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -113,7 +113,7 @@ Os pacotes de acesso não substituem outros mecanismos para atribuição de aces
 
 ## <a name="how-do-i-delegate-access"></a>Como faço para delegar acesso?
 
- Pacotes de acesso são definidos em contêineres chamados *catálogos*.  Você pode ter um catálogo para todos os seus pacotes de acesso ou pode designar indivíduos para criar e serem proprietários dos próprios catálogos. Um administrador pode adicionar recursos a qualquer catálogo, mas alguém que não seja administrador só pode adicionar a um catálogo os recursos de que é proprietário. Um proprietário de catálogo pode adicionar outros usuários como coproprietários de catálogo ou como gerenciadores de pacotes de acesso.  Esses cenários são descritos mais detalhadamente no artigo [delegação e funções no gerenciamento de direitos do Azure AD](entitlement-management-delegate.md).
+ Pacotes de acesso são definidos em contêineres chamados *catálogos* .  Você pode ter um catálogo para todos os seus pacotes de acesso ou pode designar indivíduos para criar e serem proprietários dos próprios catálogos. Um administrador pode adicionar recursos a qualquer catálogo, mas alguém que não seja administrador só pode adicionar a um catálogo os recursos de que é proprietário. Um proprietário de catálogo pode adicionar outros usuários como coproprietários de catálogo ou como gerenciadores de pacotes de acesso.  Esses cenários são descritos mais detalhadamente no artigo [delegação e funções no gerenciamento de direitos do Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Resumo da terminologia
 

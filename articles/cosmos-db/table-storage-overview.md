@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: abd88c3cdb54747c21ad8772860a3ed6929dbd15
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7727dd2ae69fab75219c5d6d733db3f150061df3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318714"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477225"
 ---
 # <a name="azure-table-storage-overview"></a>Visão geral do armazenamento de tabelas
 
@@ -30,10 +30,10 @@ Você pode usar o armazenamento de tabelas para armazenar conjuntos de dados fle
 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 
-* [Introdução à API de Tabela do Azure Cosmos DB e armazenamento de Tabelas do Azure usando SDK do .NET](table-storage-how-to-use-dotnet.md)
+* [Introdução à API de Tabela do Azure Cosmos DB e armazenamento de Tabelas do Azure usando SDK do .NET](./tutorial-develop-table-dotnet.md)
 
 * Consulte a documentação de referência do serviço Tabela para obter detalhes completos sobre as APIs disponíveis:
 
-    * [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Referência à Biblioteca de Cliente de Armazenamento para .NET](/dotnet/api/overview/azure/storage)
 
-    * [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)
+    * [Referência da API REST](/rest/api/storageservices/)

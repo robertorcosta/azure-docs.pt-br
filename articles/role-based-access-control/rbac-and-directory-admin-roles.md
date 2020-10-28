@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: b85f1d8bd7249ad26ff957a72a9cc7285158caba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: cc4f775c3cf4c016173c485d57f203b4665c6393
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397718"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370637"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções de administrador da assinatura clássica, funções do Azure e funções do Azure AD
 
@@ -48,7 +48,7 @@ Administrador da Conta, Administrador de Serviços e Coadministrador são as fun
 | Administrador de serviços | 1 por assinatura do Azure | <ul><li>Gerenciar serviços no [portal do Azure](https://portal.azure.com)</li><li>Cancelar a assinatura</li><li>Atribuir usuários à função de coadministrador</li></ul> | Por padrão, para uma nova assinatura, o Administrador da Conta também é o Administrador de Serviços.<br>O administrador de serviço tem o acesso equivalente ao de um usuário que é atribuído à função de Proprietário no escopo da assinatura.<br>O Administrador de Serviços não tem acesso completo ao portal do Azure. |
 | Coadministrador | 200 por assinatura | <ul><li>Mesmos privilégios de acesso que o Administrador de Serviços, mas não pode alterar a associação de assinaturas nos diretórios do Azure</li><li>Atribui usuários à função de coadministrador, mas não pode alterar o administrador de serviço</li></ul> | O coadministrador tem o acesso equivalente ao de um usuário que é atribuído à função de Proprietário no escopo da assinatura. |
 
-No portal do Azure, você pode gerenciar Coadministradores ou exibir o Administrador de Serviços usando a guia **Administradores clássicos**.
+No portal do Azure, você pode gerenciar Coadministradores ou exibir o Administrador de Serviços usando a guia **Administradores clássicos** .
 
 ![Os administradores de assinatura clássicos do Azure no portal do Azure](./media/rbac-and-directory-admin-roles/subscription-view-classic-administrators.png)
 
@@ -87,7 +87,7 @@ No portal do Azure, as atribuições de função usando o RBAC do Azure aparecem
 
 ![Folha Controle de acesso (IAM) no portal do Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
-Quando você clicar na guia **Funções**, verá a lista de funções internas e personalizadas.
+Quando você clicar na guia **Funções** , verá a lista de funções internas e personalizadas.
 
 ![Funções internas no portal do Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
@@ -99,11 +99,11 @@ As funções do Azure AD são usadas para gerenciar recursos do Azure AD em um d
 
 | Função do Azure AD | Permissões | Observações |
 | --- | --- | --- |
-| [Administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Gerenciar o acesso a todos os recursos administrativos do Azure Active Directory, bem como serviços federados ao Azure Active Directory</li><li>Atribuir funções de administrador a outras pessoas</li><li>Redefinir a senha para qualquer usuário e todos os outros administradores</li></ul> | A pessoa que se inscreve no locatário do Azure Active Directory torna-se um administrador global. |
-| [Administrador de usuários](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Criar e gerenciar todos os aspectos de usuários e grupos</li><li>Gerenciar tíquetes de suporte</li><li>Monitorar a integridade do serviço</li><li>Alterar senhas de usuários, Administradores de Assistência Técnica e outros Administradores de Usuário</li></ul> |  |
-| [Administrador de cobrança](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Fazer compras</li><li>Gerenciar Assinaturas</li><li>Gerenciar tíquetes de suporte</li><li>Monitorar a integridade do serviço</li></ul> |  |
+| [Administrador global](../active-directory/roles/permissions-reference.md#company-administrator-permissions) | <ul><li>Gerenciar o acesso a todos os recursos administrativos do Azure Active Directory, bem como serviços federados ao Azure Active Directory</li><li>Atribuir funções de administrador a outras pessoas</li><li>Redefinir a senha para qualquer usuário e todos os outros administradores</li></ul> | A pessoa que se inscreve no locatário do Azure Active Directory torna-se um administrador global. |
+| [Administrador de usuários](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>Criar e gerenciar todos os aspectos de usuários e grupos</li><li>Gerenciar tíquetes de suporte</li><li>Monitorar a integridade do serviço</li><li>Alterar senhas de usuários, Administradores de Assistência Técnica e outros Administradores de Usuário</li></ul> |  |
+| [Administrador de cobrança](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>Fazer compras</li><li>Gerenciar Assinaturas</li><li>Gerenciar tíquetes de suporte</li><li>Monitorar a integridade do serviço</li></ul> |  |
 
-No portal do Azure, você pode ver a lista de funções do Azure AD na folha **Funções e administradores**. Para obter uma lista de todas as funções do Azure AD, confira [Permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+No portal do Azure, você pode ver a lista de funções do Azure AD na folha **Funções e administradores** . Para obter uma lista de todas as funções do Azure AD, confira [Permissões da função de administrador no Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ![Funções do Azure AD no portal do Azure](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
@@ -129,5 +129,5 @@ Várias funções do Azure AD englobam o Azure AD e o Microsoft 365, como as fun
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?](overview.md)
-- [Permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Permissões da função de administrador no Azure Active Directory](../active-directory/roles/permissions-reference.md)
 - [Administradores da assinatura clássica do Azure](classic-administrators.md)

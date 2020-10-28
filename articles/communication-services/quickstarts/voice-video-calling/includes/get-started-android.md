@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 460d1c33dcd5284067d14d5d6efa9da9b5b182ae
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779591"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92438681"
 ---
 Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android.
 
@@ -321,4 +321,4 @@ Selecione o modelo de projeto &quot;Atividade Vazia":::
 
 ## <a name="sample-code"></a>Exemplo de código
 
-É possível baixar o aplicativo de exemplo do [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)
+É possível baixar o aplicativo de exemplo do [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10e3f420a187d67e19392dd3647692b54a817fa5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ffa8e473fb084b2d5f0e7f59a07b3de50e04752e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090294"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475852"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Início Rápido: Compilar um aplicativo do Xamarin.Forms com o SDK do .NET e a API para MongoDB do Azure Cosmos DB
 
@@ -163,11 +163,11 @@ Os snippets a seguir foram todos obtidos da classe `MongoService`, encontrada no
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [Portal do Azure](https://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar a Cadeia de Conexão Primária nas próximas etapas.
+1. No [Portal do Azure](https://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação** . Você usará os botões de cópia no lado direito da tela para copiar a Cadeia de Conexão Primária nas próximas etapas.
 
-2. Abra o arquivo **APIKeys.cs** no diretório **Auxiliares** do projeto **TaskList.Core**.
+2. Abra o arquivo **APIKeys.cs** no diretório **Auxiliares** do projeto **TaskList.Core** .
 
-3. Copie o valor da sua **cadeia de conexão primária** no portal (usando o botão de cópia) e transforme-o no valor do campo **ConnectionString** em seu arquivo **APIKeys.cs**.
+3. Copie o valor da sua **cadeia de conexão primária** no portal (usando o botão de cópia) e transforme-o no valor do campo **ConnectionString** em seu arquivo **APIKeys.cs** .
 
 4. Remova `&replicaSet=globaldb` da cadeia de conexão. Você receberá um erro de runtime se não remover esse valor da cadeia de caracteres de consulta.
 
@@ -180,12 +180,12 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clique em **Gerenciar Pacotes NuGet**.
-2. Clique em **Restaurar todos os pacotes NuGet**.
-3. Clique com botão direito em **TaskList.Android** e selecione **Definir como projeto de inicialização**.
+1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clique em **Gerenciar Pacotes NuGet** .
+2. Clique em **Restaurar todos os pacotes NuGet** .
+3. Clique com botão direito em **TaskList.Android** e selecione **Definir como projeto de inicialização** .
 4. Pressione F5 para iniciar a depuração do aplicativo.
-5. Se você quiser executar no iOS, primeiro seu computador está conectado a um Mac (confira estas [instruções](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre como fazer isso).
-6. Clique com botão direito no projeto **TaskList.Android** e selecione **Definir como projeto de inicialização**.
+5. Se você quiser executar no iOS, primeiro seu computador está conectado a um Mac (confira estas [instruções](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre como fazer isso).
+6. Clique com botão direito no projeto **TaskList.Android** e selecione **Definir como projeto de inicialização** .
 7. Clique em F5 para começar a depuração do aplicativo.
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio para Mac
@@ -206,4 +206,4 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB e executar um aplicativo Xamarin.Forms usando a API para MongoDB. Agora, é possível importar outros dados para sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importar dados para o Azure Cosmos DB configurado com a API para MongoDB do Azure Cosmos DB](mongodb-migrate.md)
+> [Importar dados para o Azure Cosmos DB configurado com a API para MongoDB do Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

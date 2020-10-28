@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a430af4bd0cb8ec0db468ed4bfe605ce1fd3b8c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 10a1a13deaaa6e61eacef3e68e19a1cfe97ef3c1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322781"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487544"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Início Rápido: Criar um aplicativo Java para gerenciar os dados de API de Tabela do Azure Cosmos DB
 
@@ -22,7 +22,7 @@ ms.locfileid: "87322781"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 Neste início rápido, você criará uma conta da API de Tabela do Azure Cosmos DB e usará o Data Explorer e um aplicativo Java clonado do GitHub para criar tabelas e entidades. O Azure Cosmos DB é um serviço de banco de dados multimodelo que permite criar e consultar rapidamente bancos de dados de documentos, tabelas, pares chave-valor e grafo com funcionalidades de escala horizontal e distribuição global.
@@ -157,13 +157,13 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permite que seu aplicativo se comunique com o banco de dados hospedado. 
 
-1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
+1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão** . 
 
    :::image type="content" source="./media/create-table-java/cosmos-db-quickstart-connection-string.png" alt-text="Exibir as informações de cadeia de conexão no painel da Cadeia de Conexão":::
 
 2. Copie a CADEIA DE CONEXÃO PRIMÁRIA usando o botão de cópia do lado direito.
 
-3. Abra *config.properties* na pasta *C:\git-samples\storage-table-java-getting-started\src\main\resources*. 
+3. Abra *config.properties* na pasta *C:\git-samples\storage-table-java-getting-started\src\main\resources* . 
 
 5. Comente a linha um e remova os comentários da linha dois. As primeiras duas linhas agora devem ter esta aparência.
 
@@ -178,7 +178,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     > Se o ponto de extremidade usa documents.azure.com, isso significa que você tem uma conta de versão prévia, e você precisa criar um [nova conta de API de tabela](#create-a-database-account) para trabalhar com o SDK de API de tabela geralmente disponível.
     >
 
-7. Salve o arquivo *config.properties*.
+7. Salve o arquivo *config.properties* .
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91306456"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362443"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
 
@@ -58,7 +58,7 @@ As organizações precisam de um processo para gerenciar o acesso além do que f
 
 Em geral, a IT delega as decisões de aprovação de acesso aos tomadores de decisão empresariais.  Além disso, a IT pode envolver os próprios usuários.  Por exemplo, os usuários que acessam os dados confidenciais do cliente no aplicativo de marketing da empresa na Europa precisam conhecer as políticas da empresa. Usuários convidados podem não estar cientes dos requisitos de manipulação para os dados em uma organização para a qual foram convidados.
 
-As organizações podem automatizar o processo de ciclo de vida de acesso por meio de tecnologias como [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md), junto com o provisionamento de usuário para [aplicativos SaaS](../saas-apps/tutorial-list.md) ou [aplicativos integrados ao SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  As organizações também podem controlar quais [usuários convidados têm acesso a aplicativos locais](../external-identities/hybrid-cloud-to-on-premises.md).  Esses direitos de acesso podem então ser revisados regularmente usando [revisões de acesso do Azure AD](access-reviews-overview.md) recorrentes.   [O gerenciamento de direitos do Azure AD](entitlement-management-overview.md) também permite que você defina como os usuários solicitam acesso entre pacotes de associações de grupo e de equipe, funções de aplicativo e funções do SharePoint Online.
+As organizações podem automatizar o processo de ciclo de vida de acesso por meio de tecnologias como [grupos dinâmicos](../enterprise-users/groups-dynamic-membership.md), junto com o provisionamento de usuário para [aplicativos SaaS](../saas-apps/tutorial-list.md) ou [aplicativos integrados ao SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  As organizações também podem controlar quais [usuários convidados têm acesso a aplicativos locais](../external-identities/hybrid-cloud-to-on-premises.md).  Esses direitos de acesso podem então ser revisados regularmente usando [revisões de acesso do Azure AD](access-reviews-overview.md) recorrentes.   [O gerenciamento de direitos do Azure AD](entitlement-management-overview.md) também permite que você defina como os usuários solicitam acesso entre pacotes de associações de grupo e de equipe, funções de aplicativo e funções do SharePoint Online.
 
 Quando um usuário tenta acessar aplicativos, o Azure AD impõe políticas de [Acesso Condicional](../conditional-access/index.yml). Por exemplo, políticas de Acesso Condicional podem incluir a exibição de [Termos de uso](../conditional-access/terms-of-use.md) e [garantir que o usuário tenha concordado com esses termos](../conditional-access/require-tou.md) antes de poder acessar um aplicativo.
 
@@ -100,7 +100,7 @@ Se você tiver algum comentário sobre os recursos do Identity Governance, cliqu
 Embora não haja nenhuma solução nem recomendação perfeita para todos os clientes, os guias de configuração a seguir também fornecem as políticas de linha de base que a Microsoft recomenda que você siga para garantir uma força de trabalho mais segura e produtiva.
 
 - [Configurações de acesso à identidade e ao dispositivo](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Protegendo o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
+- [Protegendo o acesso privilegiado](../roles/security-planning.md)
 
 ## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>Apêndice – funções com privilégios mínimos para gerenciamento em recursos do Identity Governance
 

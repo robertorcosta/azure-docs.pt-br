@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0b81bf951df6db0da7ed049c435a319f6ee33b8a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91578370"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479044"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Início Rápido: Compilar um aplicativo .NET Framework ou Core usando a conta da API do Gremlin do Azure Cosmos DB
 
@@ -72,7 +72,7 @@ Agora vamos clonar um aplicativo de API do Gremlin do GitHub, definir a cadeia d
 5. Restaure os pacotes NuGet no projeto. Isso deve incluir o driver Gremlin.Net, bem como o pacote Newtonsoft.Json.
 
 
-6. Também é possível instalar o driver Gremlin.Net manualmente, usando o gerenciador de pacotes Nuget ou o [utilitário de linha de comando do nuget](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. Também é possível instalar o driver Gremlin.Net manualmente, usando o gerenciador de pacotes Nuget ou o [utilitário de linha de comando do nuget](/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -104,7 +104,7 @@ Todos os snippets de código a seguir são retirados do arquivo Program.cs.
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [portal do Azure](https://portal.azure.com/), navegue até sua conta de banco de dados do gráfico. Na guia **Visão geral**, você pode ver dois pontos de extremidade - 
+1. No [portal do Azure](https://portal.azure.com/), navegue até sua conta de banco de dados do gráfico. Na guia **Visão geral** , você pode ver dois pontos de extremidade - 
  
    **URI de SDK do .NET** - Esse valor é usado ao conectar-se à conta do Graph usando a biblioteca Microsoft.Azure.Graphs. 
 
@@ -112,7 +112,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar o ponto de extremidade&quot;:::
 
-   Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin**, exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
+   Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin** , exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Em seguida, navegue até a guia **Chaves** e copie o valor de **CHAVE PRIMÁRIA** do portal do Azure. 
 
@@ -141,7 +141,7 @@ Clique em CTRL + F5 para executar o aplicativo. O aplicativo imprimirá os coman
 
 Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consultar seus novos dados de grafo.
 
-1. No Data Explorer, o novo banco de dados aparece no painel Grafos. Expanda os nós do banco de dados e do contêiner, depois clique em **Grafo**.
+1. No Data Explorer, o novo banco de dados aparece no painel Grafos. Expanda os nós do banco de dados e do contêiner, depois clique em **Grafo** .
 
 2. Clique no botão **Aplicar Filtro** para usar a consulta padrão para exibir todos os vértices no grafo. Os dados gerados pelo aplicativo de exemplo são exibidos no painel Grafos.
 
@@ -149,7 +149,7 @@ Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consult
 
     :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Copiar o ponto de extremidade&quot;:::
 
-   Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin**, exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
+   Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin** , exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Em seguida, navegue até a guia **Chaves** e copie o valor de **CHAVE PRIMÁRIA** do portal do Azure. 
 
@@ -176,4 +176,3 @@ Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, c
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)
-

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e4615db3dbabbc4b18dad7d6ec805ddff10e8fd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c11a98c04f81e7c111faf4aa449ab2bf9a4890bb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705102"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485215"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Início Rápido: Use um comando da CLI do Azure, az postgres up (versão prévia), para criar um Banco de Dados do Azure para PostgreSQL – Servidor único
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará entrar na sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observe a propriedade **ID** da saída do comando para obter o nome da assinatura correspondente.
+Você precisará entrar na sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli). Observe a propriedade **ID** da saída do comando para obter o nome da assinatura correspondente.
 
 ```azurecli
 az login

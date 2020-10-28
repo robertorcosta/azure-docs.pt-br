@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87f3ea2d1ce8d3d9f2f584db379618fc6c4a4a67
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86535470"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491233"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Início Rápido: Criar um aplicativo Go com o cliente do `gocql` para gerenciar dados da API do Cassandra para Azure Cosmos DB
 
@@ -85,7 +85,7 @@ func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandr
 }
 ```
 
-O host do Cassandra para Azure Cosmos DB é passado para a função [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) a fim de obter um struct [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) que é configurado para usar o nome de usuário, a senha, a porta e a versão do TLS apropriada ([requisito de segurança de criptografia HTTPS/SSL/TLS](https://docs.microsoft.com/azure/cosmos-db/database-security?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
+O host do Cassandra para Azure Cosmos DB é passado para a função [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) a fim de obter um struct [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) que é configurado para usar o nome de usuário, a senha, a porta e a versão do TLS apropriada ([requisito de segurança de criptografia HTTPS/SSL/TLS](./database-security.md?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
 
 A função `GetSession` é então chamada por meio da função `main` (`main.go`).
 
@@ -225,7 +225,7 @@ func mapToUser(m map[string]interface{}) model.User {
 
 Como mencionado anteriormente, o aplicativo aceita a conectividade e as credenciais no formato de variáveis de ambiente. 
 
-1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
+1. Em sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão** . 
 
     :::image type="content" source="./media/create-cassandra-go/copy-username-connection-string-azure-portal.png" alt-text="Ver e copiar detalhes da página Cadeia de Conexão no portal do Azure":::
 

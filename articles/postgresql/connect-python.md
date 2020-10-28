@@ -8,19 +8,19 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ecf5c540c3fce7a60ebf256d871993400a731ed
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707890"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481186"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar o Python para se conectar e consultar dados no Banco de Dados do Azure para PostgreSQL – servidor único
 
 Neste início rápido, você trabalhará com um Banco de Dados do Azure para PostgreSQL usando Python no macOS, Ubuntu Linux ou Windows. O início rápido mostra como se conectar ao banco de dados e usar as instruções SQL para consultar, inserir, atualizar e excluir dados. Este artigo pressupõe que você esteja familiarizado com o Python, mas que não tenha experiência em trabalhar com o Banco de Dados do Azure para PostgreSQL.
 
 > [!TIP]
-> Se você estiver procurando criar um aplicativo Django com PostgreSQL, confira o tutorial [Implantar um aplicativo Web Django com PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md).
+> Se você estiver procurando criar um aplicativo Django com PostgreSQL, confira o tutorial [Implantar um aplicativo Web Django com PostgreSQL](../app-service/tutorial-python-postgresql-app.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,7 +42,7 @@ Para instalar `psycopg2`, abra um terminal ou um prompt de comando e execute o c
 A conexão com um Banco de Dados do Azure para PostgreSQL requer o nome do servidor totalmente qualificado e as credenciais de logon. Você pode obter essas informações no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), procure e selecione o nome do servidor do Banco de Dados do Azure para PostgreSQL. 
-1. Na página **Visão Geral** do servidor, copie o **Nome do servidor** totalmente qualificado e o **Nome de usuário do administrador**. O **Nome do servidor** totalmente qualificado sempre está no formato *\<my-server-name>.postgres.database.azure.com* e **Nome do usuário administrador** sempre está no formato *\<my-admin-username>@\<my-server-name>* . 
+1. Na página **Visão Geral** do servidor, copie o **Nome do servidor** totalmente qualificado e o **Nome de usuário do administrador** . O **Nome do servidor** totalmente qualificado sempre está no formato *\<my-server-name>.postgres.database.azure.com* e **Nome do usuário administrador** sempre está no formato *\<my-admin-username>@\<my-server-name>* . 
    
    Você também precisa da sua senha de administrador. Se a esquecer, será possível redefini-la nessa página. 
    
@@ -59,12 +59,12 @@ Para cada exemplo de código neste artigo:
    - `<admin-password>` pela sua senha de servidor.
    - `<database-name>` pelo nome do Banco de Dados do Azure para PostgreSQL. Um banco de dados padrão chamado *postgres* foi criado automaticamente quando você criou seu servidor. É possível renomear esse banco de dados ou criar outro usando os comandos SQL. 
    
-1. Salve o arquivo na pasta do seu projeto com uma extensão *.py*, como *postgres-insert.py*. Para Windows, verifique se a codificação UTF-8 está selecionada quando você salvar o arquivo. 
+1. Salve o arquivo na pasta do seu projeto com uma extensão *.py* , como *postgres-insert.py* . Para Windows, verifique se a codificação UTF-8 está selecionada quando você salvar o arquivo. 
    
 1. Para executar o arquivo, altere a pasta do projeto em um interface de linha de comando e digite `python` seguido pelo nome do arquivo, por exemplo `python postgres-insert.py`.
 
 ## <a name="create-a-table-and-insert-data"></a>Criar uma tabela e inserir dados
-O exemplo de código a seguir conecta-se ao seu Banco de Dados do Azure para PostgreSQL usando a função [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) e carrega os dados com uma instrução **INSERT**. A função [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) executa a consulta SQL no banco de dados. 
+O exemplo de código a seguir conecta-se ao seu Banco de Dados do Azure para PostgreSQL usando a função [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) e carrega os dados com uma instrução **INSERT** . A função [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) executa a consulta SQL no banco de dados. 
 
 ```Python
 import psycopg2

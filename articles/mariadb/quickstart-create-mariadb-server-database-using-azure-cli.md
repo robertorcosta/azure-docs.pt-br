@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88185138"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424482"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
@@ -33,7 +33,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [Grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
+Crie um [Grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
 O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no local `westus`:
 
@@ -49,14 +49,14 @@ Configuração | Valor de exemplo | Descrição
 ---|---|---
 name | **mydemoserver** | Insira um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
 resource-group | **myresourcegroup** | Insira o nome do grupo de recursos do Azure.
-sku-name | **GP_Gen5_2** | O nome da SKU. Segue a convenção*tipo de preço*\_*geração de computação*\_*vCores* em resumo. Para obter mais informações sobre o parâmetro **sku-name**, consulte a seção após a tabela.
+sku-name | **GP_Gen5_2** | O nome da SKU. Segue a convenção *tipo de preço*\_*geração de computação*\_*vCores* em resumo. Para obter mais informações sobre o parâmetro **sku-name** , consulte a seção após a tabela.
 backup-retention | **7** | Quanto tempo um backup deve ser retido. A unidade é dias. Intervalo: 7 a 35. 
-geo-redundant-backup | **Desabilitado** | Indica se os backups com redundância geográfica devem ser habilitados para este servidor. Valores permitidos: **Habilitado**, **Desabilitado**.
+geo-redundant-backup | **Desabilitado** | Indica se os backups com redundância geográfica devem ser habilitados para este servidor. Valores permitidos: **Habilitado** , **Desabilitado** .
 local | **westus** | O local do Azure para o servidor.
-ssl-enforcement | **Enabled** | Se o SSL deve ser habilitado para este servidor. Valores permitidos: **Habilitado**, **Desabilitado**.
+ssl-enforcement | **Enabled** | Se o SSL deve ser habilitado para este servidor. Valores permitidos: **Habilitado** , **Desabilitado** .
 storage-size | **51200** | A capacidade de armazenamento do servidor (a unidade é megabytes). Os tamanhos de armazenamento válidos são 5.120 MB (mínimo) com aumentos em incrementos de 1.024 MB. Para obter mais informações sobre tamanhos de armazenamento, consulte o documento [tipos de preço](./concepts-pricing-tiers.md). 
 version | **10.2** | A versão do mecanismo principal do MariaDB.
-admin-user | **myadmin** | O nome de usuário para o logon de administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
+admin-user | **myadmin** | O nome de usuário para o logon de administrador. O parâmetro **admin-user** não pode ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ou **public** .
 admin-password | *sua senha* | A senha do usuário administrador. Sua senha deve conter entre 8 e 128 caracteres. Ela precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos.
 
 O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geração de cálculo}\_{vCores} como nestes exemplos:
@@ -66,7 +66,7 @@ O valor do parâmetro sku-name segue a convenção {camada de preços}\_{geraç�
 
 Para obter informações sobre valores válidos por região e camadas, consulte [Tipos de preço](./concepts-pricing-tiers.md).
 
-O exemplo a seguir cria um servidor chamado **mydemoserver** na região Oeste dos EUA. O servidor está no grupo de recursos **myresourcegroup** e tem o logon de administrador do servidor **myadmin**. Trata-se de um servidor Gen 5 com o tipo de preço Uso Geral e com 2 vCores. Um nome de servidor mapeia para um nome DNS e deve ser globalmente exclusivo no Azure. Substitua `<server_admin_password>` com sua própria senha de administrador do servidor.
+O exemplo a seguir cria um servidor chamado **mydemoserver** na região Oeste dos EUA. O servidor está no grupo de recursos **myresourcegroup** e tem o logon de administrador do servidor **myadmin** . Trata-se de um servidor Gen 5 com o tipo de preço Uso Geral e com 2 vCores. Um nome de servidor mapeia para um nome DNS e deve ser globalmente exclusivo no Azure. Substitua `<server_admin_password>` com sua própria senha de administrador do servidor.
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
@@ -106,7 +106,7 @@ Para se conectar ao servidor, é preciso fornecer credenciais de acesso e inform
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Anote os valores de **fullyQualifiedDomainName** e o **administratorLogin**.
+O resultado está no formato JSON. Anote os valores de **fullyQualifiedDomainName** e o **administratorLogin** .
 
 ```json
 {
@@ -139,7 +139,7 @@ O resultado está no formato JSON. Anote os valores de **fullyQualifiedDomainNam
 
 ## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>Conectar-se ao servidor usando a ferramenta de linha de comando do mysql
 
-Conecte-se ao seu servidor usando a ferramenta de linha de comando do mysql. É possível [baixar](https://dev.mysql.com/downloads/) a ferramenta de linha de comando aqui e instalá-la em seu computador. Você também pode acessar a ferramenta de linha de comando, selecionando o botão **Experimente** em um exemplo de código neste artigo. Outra maneira de acessar a ferramenta de linha de comando é selecionando o botão **> _** na barra de ferramentas superior direita no portal do Azure para abrir o **Azure Cloud Shell**.
+Conecte-se ao seu servidor usando a ferramenta de linha de comando do mysql. É possível [baixar](https://dev.mysql.com/downloads/) a ferramenta de linha de comando aqui e instalá-la em seu computador. Você também pode acessar a ferramenta de linha de comando, selecionando o botão **Experimente** em um exemplo de código neste artigo. Outra maneira de acessar a ferramenta de linha de comando é selecionando o botão **> _** na barra de ferramentas superior direita no portal do Azure para abrir o **Azure Cloud Shell** .
 
 Para se conectar ao servidor usando a ferramenta de linha de comando do mysql:
 
@@ -206,7 +206,7 @@ Para se conectar ao servidor usando a ferramenta de linha de comando do mysql:
 
 1. Abra o MySQL Workbench no computador cliente. Se ainda não estiver instalado, [baixe](https://dev.mysql.com/downloads/workbench/) e instale o aplicativo.
 
-2. Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
+2. Na caixa de diálogo **Configurar Nova Conexão** , insira as seguintes informações na guia **Parâmetros** :
 
    ![Configurar uma nova conexão](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
@@ -219,7 +219,7 @@ Para se conectar ao servidor usando a ferramenta de linha de comando do mysql:
    | Nome de Usuário | **myadmin\@mydemoserver** | O logon de administrador do servidor que você anotou anteriormente. |
    | Senha | *sua senha* | Use a senha da conta de administrador que você configurou anteriormente. |
 
-3. Para verificar se todos os parâmetros estão configurados corretamente, selecione **Testar conexão**.
+3. Para verificar se todos os parâmetros estão configurados corretamente, selecione **Testar conexão** .
 
 4. Selecione a conexão para se conectar com sucesso ao servidor.
 
@@ -240,4 +240,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Projetar um banco de dados MariaDB com a CLI do Azure](./tutorial-design-database-cli.md)
+> [Projetar um banco de dados MariaDB com a CLI do Azure](tutorial-design-database-cli.md)

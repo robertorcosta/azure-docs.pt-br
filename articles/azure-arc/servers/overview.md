@@ -2,14 +2,14 @@
 title: Visão geral de servidores habilitados para Azure Arc
 description: Saiba como usar servidores habilitados para Azure Arc para gerenciar servidores hospedados fora do Azure como um recurso do Azure.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: overview
-ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200960"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460845"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores habilitados para Azure Arc?
 
@@ -29,7 +29,7 @@ Quando você conecta seu computador a servidores habilitados para Azure Arc, ele
 
 - Simplifique a implantação com outros serviços do Azure, como o [State Configuration](../../automation/automation-dsc-overview.md) da Automação do Azure e workspace do Log Analytics do Azure Monitor usando as [extensões de VM do Azure](manage-vm-extensions.md) com suporte para seu computador Windows ou Linux não Azure. Isso inclui a execução da instalação de software ou a configuração pós-implantação usando a Extensão de Script Personalizado.
 
-- Use [Gerenciamento de Atualizações](../../automation/update-management/update-mgmt-overview.md) na Automação do Azure para gerenciar atualizações do sistema operacional para seus servidores Windows e Linux. Primeiro, implante a função de trabalho do [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) e siga as etapas para [habilitar Gerenciamento de Atualizações](../../automation/update-management/update-mgmt-enable-portal.md) em seu computador Windows ou Linux não Azure.
+- Use [Gerenciamento de Atualizações](../../automation/update-management/update-mgmt-overview.md) na Automação do Azure para gerenciar atualizações do sistema operacional para seus servidores Windows e Linux.
 
 - Inclua seus servidores não Azure para detecção de ameaças e monitore proativamente possíveis ameaças à segurança usando a [Central de Segurança do Azure](../../security-center/security-center-introduction.md).
 
@@ -45,7 +45,7 @@ Na maioria dos casos, o local selecionado durante a criação do script de insta
 
 ### <a name="agent-status"></a>Status do agente
 
-O agente do Connected Machine envia uma mensagem de pulsação regular para o serviço a cada 5 minutos. Se o serviço parar de receber essas mensagens de pulsação de um computador, esse computador será considerado offline e o status será alterado automaticamente para **Desconectado** no portal no período de 15 a 30 minutos. Ao receber uma mensagem de pulsação subsequente do agente do Connected Machine, o status dela será alterado automaticamente para **Conectado**.
+O agente do Connected Machine envia uma mensagem de pulsação regular para o serviço a cada 5 minutos. Se o serviço parar de receber essas mensagens de pulsação de um computador, esse computador será considerado offline e o status será alterado automaticamente para **Desconectado** no portal no período de 15 a 30 minutos. Ao receber uma mensagem de pulsação subsequente do agente do Connected Machine, o status dela será alterado automaticamente para **Conectado** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74ff6983b08b6f19a94384be7c4361d4266d6a20
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2d82b7f618757fbf77072bd7147595eec3083885
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108755"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487629"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Início Rápido: Criar um aplicativo de tarefas pendentes com o Xamarin usando a conta de API de SQL do Azure Cosmos DB
 
@@ -32,7 +32,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 > [!NOTE]
 > Encontre um exemplo de código de um aplicativo Xamarin de exemplo totalmente canônico mostrando várias ofertas do Azure, incluindo o CosmosDB, no GitHub clicando [aqui](https://github.com/xamarinhq/app-geocontacts). Esse aplicativo demonstra a exibição de contatos geograficamente disperso, e permite que os contatos atualizem sua localização.
 
-Este início rápido demonstra como criar uma conta de API do SQL, um banco de dados de documento e um contêiner do Azure Cosmos DB usando o portal do Azure. Em seguida, você compilará e implantará um aplicativo móvel de lista de tarefas pendentes na [API do SQL .NET](sql-api-sdk-dotnet.md) e no [Xamarin](https://docs.microsoft.com/xamarin/) usando o [Xamarin.Forms](https://docs.microsoft.com/xamarin/) e o [padrão de arquitetura MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Este início rápido demonstra como criar uma conta de API do SQL, um banco de dados de documento e um contêiner do Azure Cosmos DB usando o portal do Azure. Em seguida, você compilará e implantará um aplicativo móvel de lista de tarefas pendentes na [API do SQL .NET](sql-api-sdk-dotnet.md) e no [Xamarin](/xamarin/) usando o [Xamarin.Forms](/xamarin/) e o [padrão de arquitetura MVVM](/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png" alt-text="Aplicativo de tarefas pendentes do Xamarin em execução no iOS":::
 
@@ -177,7 +177,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 As etapas a seguir demonstram como executar o aplicativo usando o depurador do Visual Studio para Mac.
 
 > [!NOTE]
-> O uso do aplicativo de versão Android é exatamente o mesmo, e quaisquer diferenças serão indicadas nas etapas abaixo. Se você deseja depurar com o Visual Studio no Windows, documente as tarefas pendentes para que elas possam ser encontradas pelo [iOS aqui](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) e pelo [Android aqui](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/).
+> O uso do aplicativo de versão Android é exatamente o mesmo, e quaisquer diferenças serão indicadas nas etapas abaixo. Se você deseja depurar com o Visual Studio no Windows, documente as tarefas pendentes para que elas possam ser encontradas pelo [iOS aqui](/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) e pelo [Android aqui](/xamarin/android/deploy-test/debugging/).
 
 1. Primeiro, selecione a plataforma de destino desejada clicando no menu suspenso em destaque e selecionando a opção ToDoItems.iOS para iOS ou ToDoItems.Android para Android.
 

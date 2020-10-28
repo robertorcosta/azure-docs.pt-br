@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e49ecf0f8e88e0de22117a5ed85b8352e73a2f5d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65a3e9a1e60ad28fbc0357c5b04007ce4da37895
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020228"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487595"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Início Rápido: compilar um aplicativo de API de Tabela com o SDK do .NET e o Azure Cosmos DB 
 
@@ -22,7 +22,7 @@ ms.locfileid: "89020228"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 >  
 
 Este guia de início rápido mostra como usar o .NET e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para criar um aplicativo por meio da clonagem de um exemplo do GitHub. Este guia de início rápido também mostra como criar uma conta do Azure Cosmos DB e como usar o Data Explorer para criar tabelas e entidades no Portal do Azure baseado na Web.
@@ -68,11 +68,11 @@ Agora, clonaremos um aplicativo de Tabela do GitHub, definiremos a cadeia de con
    ```
 
 > [!TIP]
-> Para ver uma explicação mais detalhada de um código semelhante, confira o artigo [Exemplo da API de Tabela do Cosmos DB](table-storage-how-to-use-dotnet.md).
+> Para ver uma explicação mais detalhada de um código semelhante, confira o artigo [Exemplo da API de Tabela do Cosmos DB](./tutorial-develop-table-dotnet.md).
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Abrir o aplicativo de exemplo no Visual Studio
 
-1. No Visual Studio, do menu **Arquivo**, escolha **Abrir** e, em seguida, escolha **Projeto/Solução**. 
+1. No Visual Studio, do menu **Arquivo** , escolha **Abrir** e, em seguida, escolha **Projeto/Solução** . 
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-open-solution.png" alt-text="Abrir a solução"::: 
 
@@ -102,19 +102,19 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permite que seu aplicativo se comunique com o banco de dados hospedado. 
 
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Cadeia de Conexão**. Use o botão de cópia no lado direito da tela para copiar a **CADEIA DE CONEXÃO PRIMÁRIA**.
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Cadeia de Conexão** . Use o botão de cópia no lado direito da tela para copiar a **CADEIA DE CONEXÃO PRIMÁRIA** .
 
    :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Abrir a solução"
    }
    ```
 
-4. Pressione CTRL+S para salvar o arquivo **Settings.json**.
+4. Pressione CTRL+S para salvar o arquivo **Settings.json** .
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
 ## <a name="build-and-deploy-the-app"></a>Compilar e implantar o aplicativo
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto **CosmosTableSamples** em **Gerenciador de Soluções** e, depois, clique em **Gerenciar Pacotes NuGet**. 
+1. No Visual Studio, clique com o botão direito do mouse no projeto **CosmosTableSamples** em **Gerenciador de Soluções** e, depois, clique em **Gerenciar Pacotes NuGet** . 
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="Abrir a solução":::
 
@@ -122,9 +122,9 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
    
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-nuget-browse.png" alt-text="Abrir a solução":::
 
-3. Clique em **Instalar** para instalar a biblioteca **Microsoft.Azure.Cosmos.Table**. Isso instala o pacote da API de Tabela do Azure Cosmos DB e todas as dependências.
+3. Clique em **Instalar** para instalar a biblioteca **Microsoft.Azure.Cosmos.Table** . Isso instala o pacote da API de Tabela do Azure Cosmos DB e todas as dependências.
 
-4. Quando você executa o aplicativo inteiro, os dados de exemplo são inseridos na entidade de tabela e excluídos no fina. Portanto, você não verá nenhum dado inserido se executar o exemplo inteiro. Porém, pode inserir alguns pontos de interrupção para exibir os dados. Abra o arquivo BasicSamples.cs file e clique com o botão direito do mouse na linha 52, selecione **Ponto de interrupção** e, em seguida, selecione **Inserir ponto de interrupção**. Insira outro ponto de interrupção na linha 55.
+4. Quando você executa o aplicativo inteiro, os dados de exemplo são inseridos na entidade de tabela e excluídos no fina. Portanto, você não verá nenhum dado inserido se executar o exemplo inteiro. Porém, pode inserir alguns pontos de interrupção para exibir os dados. Abra o arquivo BasicSamples.cs file e clique com o botão direito do mouse na linha 52, selecione **Ponto de interrupção** e, em seguida, selecione **Inserir ponto de interrupção** . Insira outro ponto de interrupção na linha 55.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Abrir a solução"::: 
 
@@ -132,7 +132,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
     
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Abrir a solução":::
 
-   Quando atingir o primeiro ponto de interrupção, volte para o Data Explorer no Portal do Azure. Clique no botão **Atualizar**, expanda a tabela demonstração* e clique em **Entidades**. A guia **Entidades** à direita mostra a nova entidade que foi adicionada para Walter Harp. Observe que o número de telefone para a nova entidade é 425-555-0101.
+   Quando atingir o primeiro ponto de interrupção, volte para o Data Explorer no Portal do Azure. Clique no botão **Atualizar** , expanda a tabela demonstração* e clique em **Entidades** . A guia **Entidades** à direita mostra a nova entidade que foi adicionada para Walter Harp. Observe que o número de telefone para a nova entidade é 425-555-0101.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Abrir a solução":::
     
@@ -173,4 +173,3 @@ Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure
 
 > [!div class="nextstepaction"]
 > [Importar dados de tabela para a API de Tabela](table-import.md)
-
