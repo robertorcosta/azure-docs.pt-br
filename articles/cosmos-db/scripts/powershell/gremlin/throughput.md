@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: c2c598c65b1277248fea545f6bb25e5bed5aedaf
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 29300bf6487801018ecc1ce67ccc23ab9b7907eb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280054"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489159"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Operações de taxa de transferência (RU/s) com o PowerShell para um banco de dados ou grafo para o Azure Cosmos DB – API do Gremlin
 
@@ -47,16 +47,16 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | Comando | Observações |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Obtém o valor de taxa de transferência do Banco de Dados da API do Gremlin. |
-| [Get-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Obtém o valor de taxa de transferência do Grafo da API do Gremlin. |
-| [Update-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbgremlindatabasethroughput) | Atualiza o valor da taxa de transferência do Banco de Dados da API do Gremlin. |
-| [Update-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbgremlingraphthroughput) | Atualiza o valor de taxa de transferência do Grafo da API do Gremlin. |
-| [Invoke-AzCosmosDBGremlinDatabaseThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbgremlindatabasethroughputmigration) | Migra a taxa de transferência de um Banco de Dados da API do Gremlin. |
-| [Invoke-AzCosmosDBGremlinGraphThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbgremlingraphthroughputmigration) | Migra a taxa de transferência de um grafo da API do Gremlin. |
+| [Get-AzCosmosDBGremlinDatabaseThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Obtém o valor de taxa de transferência do Banco de Dados da API do Gremlin. |
+| [Get-AzCosmosDBGremlinGraphThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Obtém o valor de taxa de transferência do Grafo da API do Gremlin. |
+| [Update-AzCosmosDBGremlinDatabaseThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbgremlindatabasethroughput) | Atualiza o valor da taxa de transferência do Banco de Dados da API do Gremlin. |
+| [Update-AzCosmosDBGremlinGraphThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbgremlingraphthroughput) | Atualiza o valor de taxa de transferência do Grafo da API do Gremlin. |
+| [Invoke-AzCosmosDBGremlinDatabaseThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbgremlindatabasethroughputmigration) | Migra a taxa de transferência de um Banco de Dados da API do Gremlin. |
+| [Invoke-AzCosmosDBGremlinGraphThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbgremlingraphthroughputmigration) | Migra a taxa de transferência de um grafo da API do Gremlin. |
 |**Grupos de recursos do Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).

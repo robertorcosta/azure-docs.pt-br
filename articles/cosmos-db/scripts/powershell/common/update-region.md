@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: f89ebc6a82c8b0a5ee34f40e2a5630e1faeb6b27
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8bd5bba0f98a872ce31836217aef5605df3b0c41
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280702"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488173"
 ---
 # <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Atualizar as regiões da conta do Azure Cosmos usando o PowerShell
 
@@ -43,13 +43,13 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | Comando | Observações |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista contas do Cosmos DB ou obtém uma conta do Cosmos DB especificada. |
-| [New-AzCosmosDBLocationObject](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) | Cria um objeto do tipo PSLocation para ser usado como um parâmetro para Update-AzCosmosDBAccountRegion. |
-| [Update-AzCosmosDBAccountRegion](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) | Atualize as regiões de uma conta do Cosmos DB. |
+| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista contas do Cosmos DB ou obtém uma conta do Cosmos DB especificada. |
+| [New-AzCosmosDBLocationObject](/powershell/module/az.cosmosdb/new-azcosmosdblocationobject) | Cria um objeto do tipo PSLocation para ser usado como um parâmetro para Update-AzCosmosDBAccountRegion. |
+| [Update-AzCosmosDBAccountRegion](/powershell/module/az.cosmosdb/update-azcosmosdbaccountregion) | Atualize as regiões de uma conta do Cosmos DB. |
 |**Grupos de recursos do Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 143b79a0e65d842daae84fb7565c0caa64e3b68a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 726242b9a4a6585d440322540dc5353bcbe20d29
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276174"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488224"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Criar uma conta do Azure Cosmos DB com o firewall de IP
 
@@ -41,11 +41,11 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | Comando | Observações |
 |---|---|
 |**Azure Cosmos DB**| |
-| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma conta do Cosmos DB. |
+| [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma conta do Cosmos DB. |
 |**Grupos de recursos do Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).

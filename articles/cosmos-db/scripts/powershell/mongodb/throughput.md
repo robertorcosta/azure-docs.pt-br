@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0b3c755415185324d427bcd3ae222774bca31284
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 54e990b27461bd47466e12e5f51f3ed2a8a585ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282718"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489091"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-collection-for-azure-cosmos-db-api-for-mongodb"></a>Operações de taxa de transferência (RU/s) com o PowerShell para um banco de dados ou uma coleção para a API do Azure Cosmos DB para MongoDB
 
@@ -47,16 +47,16 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | Comando | Observações |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBMongoDBDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Obtém o valor da taxa de transferência da API do Azure Cosmos DB especificado para o Banco de Dados MongoDB. |
-| [Get-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Obtém o valor da taxa de transferência da API do Azure Cosmos DB especificado para a Coleção do MongoDB. |
-| [Update-AzCosmosDBMongoDBDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbdatabasethroughput) | Atualiza o valor da taxa de transferência da API do Azure Cosmos DB para o Banco de Dados MongoDB. |
-| [Update-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollectionthroughput) | Atualiza o valor da taxa de transferência da API do Azure Cosmos DB para a Coleção do MongoDB. |
-| [Invoke-AzCosmosDBMongoDBDatabaseThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbmongodbdatabasethroughputmigration) | Migre a taxa de transferência de uma API do Azure Cosmos DB para a Coleção do MongoDB. |
-| [Invoke-AzCosmosDBMongoDBCollectionThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbmongodbcollectionthroughputmigration) | Migre a taxa de transferência de uma API do Azure Cosmos DB para a Coleção do MongoDB. |
+| [Get-AzCosmosDBMongoDBDatabaseThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Obtém o valor da taxa de transferência da API do Azure Cosmos DB especificado para o Banco de Dados MongoDB. |
+| [Get-AzCosmosDBMongoDBCollectionThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Obtém o valor da taxa de transferência da API do Azure Cosmos DB especificado para a Coleção do MongoDB. |
+| [Update-AzCosmosDBMongoDBDatabaseThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbdatabasethroughput) | Atualiza o valor da taxa de transferência da API do Azure Cosmos DB para o Banco de Dados MongoDB. |
+| [Update-AzCosmosDBMongoDBCollectionThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollectionthroughput) | Atualiza o valor da taxa de transferência da API do Azure Cosmos DB para a Coleção do MongoDB. |
+| [Invoke-AzCosmosDBMongoDBDatabaseThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbmongodbdatabasethroughputmigration) | Migre a taxa de transferência de uma API do Azure Cosmos DB para a Coleção do MongoDB. |
+| [Invoke-AzCosmosDBMongoDBCollectionThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbmongodbcollectionthroughputmigration) | Migre a taxa de transferência de uma API do Azure Cosmos DB para a Coleção do MongoDB. |
 |**Grupos de recursos do Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/).
