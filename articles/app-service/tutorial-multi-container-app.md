@@ -6,13 +6,13 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: cli-validate
-ms.openlocfilehash: 9c984daa380f1d4f0a7b067604ab66ba14a0b70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cli-validate, devx-track-azurecli
+ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88081832"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743454"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroup* no localização *Centro-Sul dos EUA*. Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Standard**, execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroup* no localização *Centro-Sul dos EUA* . Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Standard** , execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -138,7 +138,7 @@ Navegue até o aplicativo implantado em (`http://<app-name>.azurewebsites.net`).
 
 ![Aplicativo multicontêiner de exemplo no Aplicativo Web para Contêineres][1]
 
-**Parabéns**, você criou um aplicativo multicontêiner no Aplicativo Web para Contêineres. Em seguida, você configurará o aplicativo para usar o Banco de Dados do Azure para MySQL. Não instale o WordPress neste momento.
+**Parabéns** , você criou um aplicativo multicontêiner no Aplicativo Web para Contêineres. Em seguida, você configurará o aplicativo para usar o Banco de Dados do Azure para MySQL. Não instale o WordPress neste momento.
 
 ## <a name="connect-to-production-database"></a>Conectar o banco de dados de produção
 
@@ -464,21 +464,21 @@ Conclua as etapas e instale o WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>Conecte o WordPress ao Redis
 
-Entre no administrador do WordPress. Na navegação esquerda, selecione **Plug-ins**, e, em seguida, selecione **Plug-ins Instalados**.
+Entre no administrador do WordPress. Na navegação esquerda, selecione **Plug-ins** , e, em seguida, selecione **Plug-ins Instalados** .
 
 ![Selecione Plug-ins do WordPress][2]
 
 Mostrar todos os plug-ins aqui
 
-Na página de plug-ins, localize **Cache de Objetos do Redis** e clique em **Ativar**.
+Na página de plug-ins, localize **Cache de Objetos do Redis** e clique em **Ativar** .
 
 ![Ativar Redis][3]
 
-Clique em **Configurações**.
+Clique em **Configurações** .
 
 ![Clique em configurações][4]
 
-Clique no botão **Habilitar Cache de Objetos**.
+Clique no botão **Habilitar Cache de Objetos** .
 
 ![Clicar no botão "Habilitar Cache de Objetos"][5]
 
@@ -486,7 +486,7 @@ O WordPress conecta-se ao servidor de Redis. A conexão **status** aparece na me
 
 ![O WordPress conecta-se ao servidor de Redis. A conexão ** status ** aparece na mesma página.][6]
 
-**Parabéns**, você conectou o WordPress ao Redis. O aplicativo pronto para produção agora está usando **Banco de Dados do Azure para MySQL, armazenamento persistente e Redis**. Agora é possível escalar horizontalmente o Plano do Serviço de Aplicativo para várias instâncias.
+**Parabéns** , você conectou o WordPress ao Redis. O aplicativo pronto para produção agora está usando **Banco de Dados do Azure para MySQL, armazenamento persistente e Redis** . Agora é possível escalar horizontalmente o Plano do Serviço de Aplicativo para várias instâncias.
 
 ## <a name="find-docker-container-logs"></a>Localizar logs do contêiner do Docker
 

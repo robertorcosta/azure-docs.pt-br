@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006425"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746475"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas no Azure HDInsight
 
@@ -27,13 +27,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* CLI do Azure – versão 2.2.0 ou posterior. Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* CLI do Azure – versão 2.2.0 ou posterior. Confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 * jq, um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * Um membro da [Função interna do Azure – proprietário](../role-based-access-control/built-in-roles.md).
 
-* Se você estiver usando o PowerShell para disparar o pipeline do Data Factory, precisará do [módulo Az](https://docs.microsoft.com/powershell/azure/).
+* Se você estiver usando o PowerShell para disparar o pipeline do Data Factory, precisará do [módulo Az](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) para visualizar insights empresariais no final deste tutorial.
 
@@ -93,7 +93,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    Se você não tiver certeza de qual região especificar, poderá recuperar uma lista de regiões compatíveis com a assinatura com o comando [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations).
+    Se você não tiver certeza de qual região especificar, poderá recuperar uma lista de regiões compatíveis com a assinatura com o comando [az account list-locations](/cli/azure/account#az-account-list-locations).
 
     O comando exibirá os seguintes recursos:
 
@@ -110,7 +110,7 @@ A senha padrão usada para acesso SSH aos clusters é `Thisisapassword1`. Caso d
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Verificar a implantação e coletar informações de recursos
 
-1. Caso deseje verificar o status da implantação, vá até o grupo de recursos no portal do Azure. Em **Configurações**, selecione **Implantações** e depois a sua implantação. Aqui você pode ver os recursos que foram implantados com êxito e aqueles que ainda estão em andamento.
+1. Caso deseje verificar o status da implantação, vá até o grupo de recursos no portal do Azure. Em **Configurações** , selecione **Implantações** e depois a sua implantação. Aqui você pode ver os recursos que foram implantados com êxito e aqueles que ainda estão em andamento.
 
 1. Para exibir os nomes dos clusters, digite o seguinte comando:
 
@@ -214,7 +214,7 @@ Para disparar o pipeline, você pode escolher uma das seguintes alternativas:
 
     Ou
 
-* Abra o data factory e selecione **Criar e Monitorar**. Dispare o pipeline `IngestAndTransform` no portal. Para obter informações sobre como disparar pipelines por meio do portal, veja [Criar clusters Apache Hadoop sob demanda no HDInsight usando o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Abra o data factory e selecione **Criar e Monitorar** . Dispare o pipeline `IngestAndTransform` no portal. Para obter informações sobre como disparar pipelines por meio do portal, veja [Criar clusters Apache Hadoop sob demanda no HDInsight usando o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 Para verificar se o pipeline foi executado, execute uma das seguintes etapas:
 
@@ -252,21 +252,21 @@ Para obter outras maneiras de transformar dados usando o HDInsight, veja [artigo
 
 1. Abra o Power BI Desktop.
 
-1. No menu, navegue até **Obter dados** > **Mais...**  > **Azure** > **Interactive Query do HDInsight**.
+1. No menu, navegue até **Obter dados** > **Mais...**  > **Azure** > **Interactive Query do HDInsight** .
 
-1. Selecione **Conectar**.
+1. Selecione **Conectar** .
 
-1. Na caixa de diálogo **Interactive Query do HDInsight**:
-    1. Na caixa de texto **Servidor**, digite o nome do cluster LLAP no formato `https://LLAPCLUSTERNAME.azurehdinsight.net`.
-    1. Na caixa de texto **banco de dados**, digite `default`.
-    1. Selecione **OK**.
+1. Na caixa de diálogo **Interactive Query do HDInsight** :
+    1. Na caixa de texto **Servidor** , digite o nome do cluster LLAP no formato `https://LLAPCLUSTERNAME.azurehdinsight.net`.
+    1. Na caixa de texto **banco de dados** , digite `default`.
+    1. Selecione **OK** .
 
-1. Na caixa de diálogo **AzureHive**:
-    1. Na caixa de texto **Nome de usuário**, digite `admin`.
-    1. Na caixa de texto **Senha**, insira `Thisisapassword1`.
-    1. Selecione **Conectar**.
+1. Na caixa de diálogo **AzureHive** :
+    1. Na caixa de texto **Nome de usuário** , digite `admin`.
+    1. Na caixa de texto **Senha** , insira `Thisisapassword1`.
+    1. Selecione **Conectar** .
 
-1. No **Navegador**, selecione `sales` e/ou `sales_raw` para visualizar os dados. Depois que os dados forem carregados, você poderá experimentar o painel que deseja criar. Confira os seguintes links para obter uma introdução aos dashboards do Power BI:
+1. No **Navegador** , selecione `sales` e/ou `sales_raw` para visualizar os dados. Depois que os dados forem carregados, você poderá experimentar o painel que deseja criar. Confira os seguintes links para obter uma introdução aos dashboards do Power BI:
 
 * [Introdução aos dashboards para designers do Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Tutorial: Introdução ao serviço do Power BI](https://docs.microsoft.com/power-bi/service-get-started)

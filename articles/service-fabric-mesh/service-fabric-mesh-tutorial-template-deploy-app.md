@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cc4912545bedb650268b3d8e4a3e9820b70b5fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842522"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745987"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Use o comando a seguir para criar um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Use o comando a seguir para criar um grupo de recursos chamado *myResourceGroup* no local *eastus* .
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -156,7 +156,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-O exemplo a seguir lista as marcas no repositório **azure-mesh-todo-service**.
+O exemplo a seguir lista as marcas no repositório **azure-mesh-todo-service** .
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -196,9 +196,9 @@ Um aplicativo de Malha do Serviço Fabric é um recurso do Azure que você pode 
 Este tutorial usa o exemplo de lista de tarefas como um exemplo.  Em vez de criar novos arquivos de modelo e parâmetros, baixe os arquivos [modelo de implantação mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [parâmetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>parâmetros
-Quando há valores no modelo que você pretende alterar após a implantação do aplicativo ou se você deseja ter a opção de alterar a cada implantação (se você planeja reutilizar esse modelo para outras implantações), a prática recomendada é parametrizar os valores. A maneira correta de fazer isso é criar uma seção "parâmetros" na parte superior do seu modelo de implantação, em que você especifica nomes e propriedades de parâmetros, que serão referenciados posteriormente no modelo de implantação. Cada definição de parâmetro inclui *tipo*, *defaultValue*e uma seção opcional *metadados* com uma *descrição*.
+Quando há valores no modelo que você pretende alterar após a implantação do aplicativo ou se você deseja ter a opção de alterar a cada implantação (se você planeja reutilizar esse modelo para outras implantações), a prática recomendada é parametrizar os valores. A maneira correta de fazer isso é criar uma seção "parâmetros" na parte superior do seu modelo de implantação, em que você especifica nomes e propriedades de parâmetros, que serão referenciados posteriormente no modelo de implantação. Cada definição de parâmetro inclui *tipo* , *defaultValue* e uma seção opcional *metadados* com uma *descrição* .
 
-A seção de parâmetros é definida na parte superior do seu modelo de implantação, logo antes da seção *recursos*:
+A seção de parâmetros é definida na parte superior do seu modelo de implantação, logo antes da seção *recursos* :
 
 ```json
 {

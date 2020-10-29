@@ -5,14 +5,14 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.custom: mvc, cli-validate, seodec18, devx-track-js
+ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4fc79f8508f46f5003b99289d725b303feef78aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311998"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743644"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Criar um aplicativo Node.js e MongoDB no Azure
 
@@ -186,7 +186,7 @@ Copie o valor de `primaryMasterKey`. Essas informações serão necessárias na 
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurar a cadeia de conexão em seu aplicativo Node.js
 
-No repositório local do MEAN.js, na pasta _config/env/_ , crie um arquivo chamado _local-production.js_. _.gitignore_ já está configurado para manter esse arquivo fora do repositório. 
+No repositório local do MEAN.js, na pasta _config/env/_ , crie um arquivo chamado _local-production.js_ . _.gitignore_ já está configurado para manter esse arquivo fora do repositório. 
 
 Copie o seguinte código dentro dele. Substitua os dois espaços reservados *\<cosmosdb-name>* pelo nome do banco de dados Cosmos DB e substitua o espaço reservado *\<primary-master-key>* pela chave copiada na etapa anterior.
 
@@ -210,7 +210,7 @@ Em uma janela de terminal local, execute o comando a seguir para reduzir e agrup
 gulp prod
 ```
 
-Em uma janela de terminal local, execute o comando a seguir para usar a cadeia de conexão configurada em _config/env/local-production.js_. Ignore o erro de certificado e o aviso de config.domain.
+Em uma janela de terminal local, execute o comando a seguir para usar a cadeia de conexão configurada em _config/env/local-production.js_ . Ignore o erro de certificado e o aviso de config.domain.
 
 ```bash
 # Bash
@@ -287,7 +287,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 No código Node.js, você [acessa essa configuração de aplicativo](configure-language-nodejs.md#access-environment-variables) com `process.env.MONGODB_URI`, assim como você teria acesso a qualquer variável de ambiente. 
 
-No repositório local do MEAN.js, abra _config/env/production.js_ (e não _config/env/local-production.js_), que tem a configuração específica ao ambiente de produção. O aplicativo MEAN.js padrão já está configurado para usar a variável de ambiente `MONGODB_URI` que você criou.
+No repositório local do MEAN.js, abra _config/env/production.js_ (e não _config/env/local-production.js_ ), que tem a configuração específica ao ambiente de produção. O aplicativo MEAN.js padrão já está configurado para usar a variável de ambiente `MONGODB_URI` que você criou.
 
 ```javascript
 db: {
@@ -317,7 +317,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 </pre>
 
 É possível notar que o processo de implantação executa [Gulp](https://gulpjs.com/) após `npm install`. O Serviço de Aplicativo não executa tarefas Gulp ou Grunt durante a implantação, portanto, esse repositório de exemplo possui dois arquivos adicionais em seu diretório raiz para habilitá-lo: 
@@ -351,7 +351,7 @@ Nessa etapa, você altera o modelo de dados `article` e publica suas alteraçõe
 
 ### <a name="update-the-data-model"></a>Atualizar o modelo de dados
 
-No repositório local do MEAN.js, abra _modules/articles/server/models/article.server.model.js_.
+No repositório local do MEAN.js, abra _modules/articles/server/models/article.server.model.js_ .
 
 Em `ArticleSchema`, adicione um tipo `String` chamado `comment`. Quando terminar, seu código de esquema deverá ter essa aparência:
 
@@ -376,7 +376,7 @@ Atualize o resto do seu código `articles` para usar `comment`.
 
 Há cinco arquivos que você precisa modificar: o controlador de servidor e as quatro exibições do cliente. 
 
-Abra _modules/articles/server/controllers/articles.server.controller.js_.
+Abra _modules/articles/server/controllers/articles.server.controller.js_ .
 
 Na função `update` adicione uma atribuição para `article.comment`. O código a seguir mostra a função `update` completa:
 
@@ -392,7 +392,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Abra _modules/articles/client/views/view-article.client.view.html_.
+Abra _modules/articles/client/views/view-article.client.view.html_ .
 
 Logo acima da marca de fechamento `</section>`, adicione a seguinte linha para exibir `comment` juntamente com o resto dos dados do artigo:
 
@@ -400,7 +400,7 @@ Logo acima da marca de fechamento `</section>`, adicione a seguinte linha para e
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/list-articles.client.view.html_.
+Abra _modules/articles/client/views/list-articles.client.view.html_ .
 
 Logo acima da marca de fechamento `</a>`, adicione a seguinte linha para exibir `comment` juntamente com o resto dos dados do artigo:
 
@@ -408,7 +408,7 @@ Logo acima da marca de fechamento `</a>`, adicione a seguinte linha para exibir 
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/admin/list-articles.client.view.html_.
+Abra _modules/articles/client/views/admin/list-articles.client.view.html_ .
 
 Dentro do elemento `<div class="list-group">` e logo acima da marcação de fechamento `</a>`, adicione a seguinte linha para exibir `comment` juntamente com o resto dos dados do artigo:
 
@@ -416,7 +416,7 @@ Dentro do elemento `<div class="list-group">` e logo acima da marcação de fech
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/admin/form-article.client.view.html_.
+Abra _modules/articles/client/views/admin/form-article.client.view.html_ .
 
 Localize o elemento `<div class="form-group">` que contém o botão enviar, que se parece com este:
 
