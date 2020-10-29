@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: d036b12bbbd46b279421ffc67941f6671528890f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a8d570d77ae8955a427d74e9c1e21600fc83e1e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056312"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integração do Active Directory do Azure ao Cherwell
 
@@ -27,7 +27,7 @@ A integração do Cherwell ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Cherwell (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -43,7 +43,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 * O Cherwell dá suporte ao SSO iniciado por **SP**
 
-* Após configurar o Cherwell, você poderá impor o Controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Após configurar o Cherwell, você poderá impor o Controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
@@ -53,15 +53,15 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 Para configurar a integração do Cherwell ao Azure AD, você precisa adicionar o Cherwell à lista de aplicativos SaaS gerenciados por meio da galeria.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Cherwell** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
+1. Na seção **Adicionar por meio da galeria** , digite **Cherwell** na caixa de pesquisa.
 1. Selecione **Cherwell** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar o SSO do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Cherwell, com base em um usuário de teste chamado **Brenda Fernandes**.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Cherwell, com base em um usuário de teste chamado **Brenda Fernandes** .
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Cherwell.
 
 Para configurar e testar o logon único do Azure AD com o Cherwell, você precisa concluir os seguintes blocos de construção:
@@ -77,13 +77,13 @@ Para configurar e testar o logon único do Azure AD com o Cherwell, você precis
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Cherwell**, localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Cherwell** , localize a seção **Gerenciar** e selecione **logon único** .
+1. Na página **Selecionar um método de logon único** , escolha **SAML** .
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML**, execute a seguinte etapa:
+4. Na seção **Configuração Básica do SAML** , execute a seguinte etapa:
 
     ![Informações de logon único de Domínio e URLs do Cherwell](common/sp-signonurl.png)
 
@@ -94,11 +94,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > O valor não é real. Atualize o valor com as URLs de Logon e de Resposta reais. Contate a [equipe de suporte ao Cliente do Cherwell](https://cherwellsupport.com/CherwellPortal) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Cherwell**, copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Cherwell** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -112,36 +112,36 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará uma usuária de teste no portal do Azure chamada B.Fernandes.
 
-1. No painel esquerdo no portal do Azure, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
-1. Na parte superior da tela, selecione **Novo usuário**.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira **B.Fernandes**.  
-   1. No campo **Nome de usuário**, insira `<username>@<companydomain>.<extension>`. Por exemplo: `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Selecione **Criar**.
+1. No painel esquerdo no portal do Azure, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. Na parte superior da tela, selecione **Novo usuário** .
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira **B.Fernandes** .  
+   1. No campo **Nome de usuário** , insira `<username>@<companydomain>.<extension>`. Por exemplo: `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
+   1. Selecione **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo o acesso ao Cherwell.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione **Cherwell**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
+1. Na lista de aplicativos, selecione **Cherwell** .
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
 
 
 ## <a name="configure-cherwell-sso"></a>Configurar o SSO do Cherwell
 
-Para configurar o logon único no lado do **Cherwell**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Cherwell](https://cherwellsupport.com/CherwellPortal). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Cherwell** , é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Cherwell](https://cherwellsupport.com/CherwellPortal). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!NOTE]
 > A equipe de suporte do Cherwell precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
@@ -157,12 +157,12 @@ Para permitir os usuários do Azure AD entrem no Cherwell, eles deverão ser pro
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Cherwell no Painel de Acesso, você deverá ser conectado automaticamente ao Cherwell, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Cherwell no Painel de Acesso, você deverá ser conectado automaticamente ao Cherwell, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
