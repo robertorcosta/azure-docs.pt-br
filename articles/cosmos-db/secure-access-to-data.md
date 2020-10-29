@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0a68c2b9c857205dda7f5da846085f9f3823da20
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371725"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927627"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 
@@ -119,6 +119,12 @@ Um recurso de permissão é associado a um usuário e atribuído no contêiner, 
 > [!NOTE]
 > Para executar procedimentos armazenados, o usuário deve ter a permissão All no contêiner no qual o procedimento armazenado será executado.
 
+Se você habilitar os [logs de diagnóstico em solicitações de plano de dados](cosmosdb-monitor-resource-logs.md), as duas propriedades a seguir correspondentes à permissão serão registradas em log:
+
+* **resourceTokenPermissionId** -essa propriedade indica a ID de permissão de token de recurso que você especificou. 
+
+* **resourceTokenPermissionMode** -essa propriedade indica o modo de permissão que você definiu ao criar o token de recurso. O modo de permissão pode ter valores como "todos" ou "leitura".
+
 ### <a name="code-sample-to-create-permission"></a>Exemplo de código para criar permissão
 
 O exemplo de código a seguir mostra como criar um recurso de permissão, ler o token de recurso do recurso de permissão e associar as permissões ao [usuário](#users) criado anteriormente.
@@ -150,9 +156,9 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de usuário, peça ao proprietário de uma assinatura que execute as seguintes etapas no portal do Azure.
 
 1. Abra o portal do Azure e selecione sua conta do Azure Cosmos DB.
-2. Clique na guia **Controle de acesso (IAM)** e, em seguida, clique em **+ Adicionar atribuição de função**.
-3. No painel **Adicionar atribuição de função**, na caixa **Função**, selecione **Função de leitor de conta do Cosmos DB**.
-4. Na **caixa atribuir acesso a**, selecione **usuário, grupo ou aplicativo do Azure ad**.
+2. Clique na guia **Controle de acesso (IAM)** e, em seguida, clique em **+ Adicionar atribuição de função** .
+3. No painel **Adicionar atribuição de função** , na caixa **Função** , selecione **Função de leitor de conta do Cosmos DB** .
+4. Na **caixa atribuir acesso a** , selecione **usuário, grupo ou aplicativo do Azure ad** .
 5. Selecione o usuário, o grupo ou o aplicativo no diretório ao qual você deseja conceder acesso.  Você pode pesquisar o diretório por nome para exibição, endereço de email ou identificadores de objeto.
     O usuário, grupo ou aplicativo selecionado aparece na lista de membros selecionados.
 6. Clique em **Save** (Salvar).

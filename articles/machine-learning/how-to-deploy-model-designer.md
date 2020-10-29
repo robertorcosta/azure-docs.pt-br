@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999006"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927576"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Use o Studio para implantar modelos treinados no designer
 
@@ -56,7 +56,7 @@ Após a conclusão do pipeline de treinamento, registre o modelo treinado em seu
 
     ![Captura de tela do painel direito do módulo modelo de treinamento](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. Insira um nome para seu modelo e, em seguida, selecione **salvar**.
+1. Insira um nome para seu modelo e, em seguida, selecione **salvar** .
 
 Depois de registrar seu modelo, você pode encontrá-lo na página de ativos de **modelos** no estúdio.
     
@@ -73,7 +73,7 @@ Você precisa dos seguintes arquivos para implantar um modelo no Azure Machine L
 
 Você pode baixar esses dois arquivos no painel direito do módulo **modelo de treinamento** :
 
-1. Selecione o módulo **Treinar Modelo**.
+1. Selecione o módulo **Treinar Modelo** .
 1. Na guia **saídas + logs** , selecione a pasta `trained_model_outputs` .
 1. Baixe o `conda_env.yaml` arquivo e o `score.py` arquivo.
 
@@ -99,13 +99,13 @@ Como alternativa, você pode baixar os arquivos da página de ativos de **modelo
 Depois de baixar os arquivos necessários, você estará pronto para implantar o modelo.
 
 1. Na página de ativos **modelos** , selecione o modelo registrado.
-1. Selecione o botão **Implantar**.
+1. Selecione o botão **Implantar** .
 1. No menu configuração, insira as seguintes informações:
 
     - Insira um nome para o ponto de extremidade.
     - Selecione para implantar o modelo no [serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md) ou [instância de contêiner do Azure](how-to-deploy-azure-container-instance.md).
-    - Carregue o `score.py` para o **arquivo de script de entrada**.
-    - Carregue o `conda_env.yml` para o **arquivo de dependências Conda**. 
+    - Carregue o `score.py` para o **arquivo de script de entrada** .
+    - Carregue o `conda_env.yml` para o **arquivo de dependências Conda** . 
 
     >[!TIP]
     > Na configuração **avançada** , você pode definir a capacidade de CPU/memória e outros parâmetros para implantação. Essas configurações são importantes para determinados modelos, como modelos PyTorch, que consomem uma quantidade considerável de memery (cerca de 4 GB).
@@ -299,6 +299,7 @@ score_params = dict(
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Treinar um modelo no designer](tutorial-designer-automobile-price-train-score.md)
+* [Implantar modelos com Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Solucionar problemas de uma implantação com falha](how-to-troubleshoot-deployment.md)
 * [Implantar no Serviço de Kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicativos cliente para consumir serviços Web](how-to-consume-web-service.md)

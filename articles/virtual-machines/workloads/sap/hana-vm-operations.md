@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978774"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927661"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientação para configurar a infraestrutura do Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas (VMs) do Azure. O documento também inclui informações de configuração de expansão para a SKU de VM M128s do SAP HANA. Este documento não pretende substituir a documentação padrão do SAP, que inclui o seguinte conteúdo:
@@ -135,11 +135,11 @@ Para /hana/shared, também recomendamos o uso de [Azure NetApp Files](https://az
 
 O design básico típico de um único nó em uma configuração de expansão será semelhante a:
 
-![Princípios básicos de expansão de um único nó](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![Diagrama que mostra um design básico típico para um único nó em uma configuração de expansão.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 A configuração básica de um nó de VM para scale-out do SAP HANA é semelhante a:
 
-- Para **/hana/shared**, use o serviço de NFS nativo fornecido por meio do Azure NetApp Files. 
+- Para **/hana/shared** , use o serviço de NFS nativo fornecido por meio do Azure NetApp Files. 
 - Todos os outros volumes de disco não são compartilhados entre os diferentes nós e não são baseados em NFS. As configurações de instalação e as etapas para instalações HANA de expansão com **/hana/data** e **/hana/log** não compartilhados são fornecidas mais abaixo neste documento. Para o armazenamento certificado do HANA que pode ser usado, confira o artigo [Configurações de armazenamento de máquina virtual SAP HANA no Azure](./hana-vm-operations-storage.md).
 
 

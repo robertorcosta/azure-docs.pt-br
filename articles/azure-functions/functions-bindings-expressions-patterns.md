@@ -6,16 +6,16 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212603"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927406"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
-Um dos recursos mais poderosos de [gatilhos e associações](./functions-triggers-bindings.md) é a *Associação de expressões*. No arquivo *function.json* e em parâmetros de função e de código, você pode usar expressões que são resolvidas para valores de várias fontes.
+Um dos recursos mais poderosos de [gatilhos e associações](./functions-triggers-bindings.md) é a *Associação de expressões* . No arquivo *function.json* e em parâmetros de função e de código, você pode usar expressões que são resolvidas para valores de várias fontes.
 
 A maioria das expressões é identificada encapsulando-as entre chaves. Por exemplo, em uma função de gatilho de fila, `{queueTrigger}` resolve para o texto de mensagem da fila. Se a propriedade `path` para uma associação de saída de blob é `container/{queueTrigger}` e a função é disparada por uma mensagem da fila `HelloWorld`, um blob denominado `HelloWorld` é criado.
 
@@ -36,12 +36,12 @@ Configurações do aplicativo também são úteis sempre que você desejar alter
 
 Expressões de associação de configuração do aplicativo são identificadas diferentemente de outras expressões de associação: elas são dispostas em sinais de porcentagem em vez de chaves. Por exemplo, se o caminho de associação de saída de blob é `%Environment%/newblob.txt` e o `Environment` valor de configuração do aplicativo é `Development`, um blob será criado no contêiner `Development`.
 
-Quando uma função é executada localmente, os valores de configuração do aplicativo são provenientes do arquivo *local.settings.json*.
+Quando uma função é executada localmente, os valores de configuração do aplicativo são provenientes do arquivo *local.settings.json* .
 
 > [!NOTE]
 > A `connection` propriedade de gatilhos e associações é um caso especial e resolve automaticamente os valores como configurações do aplicativo, sem sinais de porcentagem. 
 
-O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma configuração de aplicativo `%input-queue-name%` para definir a fila em que o gatilho é disparado.
+O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma configuração de aplicativo `%input_queue_name%` para definir a fila em que o gatilho é disparado.
 
 ```json
 {
@@ -50,7 +50,7 @@ O exemplo a seguir é um gatilho do Armazenamento de Filas do Azure que usa uma 
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -62,7 +62,7 @@ Você pode usar a mesma abordagem em bibliotecas de classes:
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -161,7 +161,7 @@ Por exemplo, um gatilho do Armazenamento de Filas do Azure é compatível com as
 * NextVisibleTime
 * PopReceipt
 
-Esses valores de metadados estão acessíveis nas propriedades do arquivo *function.json*. Por exemplo, suponha que você usa um gatilho de fila e que a mensagem da fila contém o nome de um blob que você deseja ler. No arquivo *function.json*, você pode usar a propriedade de metadados `queueTrigger` na propriedade `path` do blob, conforme mostrado no exemplo a seguir:
+Esses valores de metadados estão acessíveis nas propriedades do arquivo *function.json* . Por exemplo, suponha que você usa um gatilho de fila e que a mensagem da fila contém o nome de um blob que você deseja ler. No arquivo *function.json* , você pode usar a propriedade de metadados `queueTrigger` na propriedade `path` do blob, conforme mostrado no exemplo a seguir:
 
 ```json
   "bindings": [
@@ -292,7 +292,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>Criar GUIDs
 
-A expressão de associação `{rand-guid}` cria um GUID. O seguinte caminho de blob em um `function.json` arquivo cria um blob com um nome como *50710cb5-84b9-4d87-9d 83-a03d6976a682.txt*.
+A expressão de associação `{rand-guid}` cria um GUID. O seguinte caminho de blob em um `function.json` arquivo cria um blob com um nome como *50710cb5-84b9-4d87-9d 83-a03d6976a682.txt* .
 
 ```json
 {
@@ -305,7 +305,7 @@ A expressão de associação `{rand-guid}` cria um GUID. O seguinte caminho de b
 
 ## <a name="current-time"></a>Hora atual
 
-A expressão de associação `DateTime` resolve para `DateTime.UtcNow`. O seguinte caminho de blob em um `function.json` arquivo cria um blob com um nome como *2018-02-16T17-59-55Z.txt*.
+A expressão de associação `DateTime` resolve para `DateTime.UtcNow`. O seguinte caminho de blob em um `function.json` arquivo cria um blob com um nome como *2018-02-16T17-59-55Z.txt* .
 
 ```json
 {

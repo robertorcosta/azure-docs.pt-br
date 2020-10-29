@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736704"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927508"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
@@ -49,7 +49,7 @@ Caso você prefira o desenvolvimento de linha de comando do Terminal, a maneira 
 
 O seguinte comando gera um novo projeto de função Java usando esse arquétipo:
 
-```
+```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 
@@ -153,7 +153,7 @@ Você pode controlar a versão do Java direcionada pelo arquétipo Maven usando 
 
 O arquétipo do Maven gera um pom.xml que tem como destino a versão do Java especificada. Os seguintes elementos no pom.xml indicam a versão do Java a ser usada:
 
-| Elemento |  Valor de Java 8 | Valor do Java 11 | Descrição |
+| Elemento |  Valor de Java 8 | Valor do Java 11 | Description |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Versão do Java usada pelo plug-in Maven-Compiler-. |
 | **`JavaVersion`** | 8 | 11 | Versão do Java hospedada pelo aplicativo de funções no Azure. |
