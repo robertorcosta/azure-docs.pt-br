@@ -1,20 +1,20 @@
 ---
 title: Controles do exemplo de blueprint do FedRAMP High
 description: Mapeamento de controle do exemplo de blueprint do FedRAMP High. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 07/31/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: 99fcb41e1961cbf7def766249940023eb2f330f7
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0b729046d44d76f71dfb520db16e6fd268d421c9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929346"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669376"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Controlar o mapeamento do exemplo de blueprint do FedRAMP High
 
 O artigo a seguir fornece detalhes sobre como o exemplo de blueprint do FedRAMP High do Azure Blueprints é mapeado para os controles do FedRAMP High. Para obter mais informações sobre os controles, confira [Linha de base dos controles de segurança do FedRAMP](https://www.fedramp.gov/).
 
-Os mapeamentos a seguir referem-se aos controles do **FedRAMP High**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Auditar controles do FedRAMP High e implantar extensões de VM específicas para dar suporte a requisitos de auditoria**.
+Os mapeamentos a seguir referem-se aos controles do **FedRAMP High** . Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições** . Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Auditar controles do FedRAMP High e implantar extensões de VM específicas para dar suporte a requisitos de auditoria** .
 
 > [!IMPORTANT]
 > Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../../../policy/overview.md). Essas políticas podem ajudar você a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias políticas. Não garante que você está totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre controles e definições do Azure Policy desta amostra de blueprint de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-h/control-mapping.md).

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/08/2020
-ms.openlocfilehash: fad9584f663675e9bf534a56bb223094479f39c5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 19a0446cc0e69b860d6238ef7d7823cfa0afbb7c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148031"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636214"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copiar dados de um banco de dados do SQL Server para o Armazenamento de Blobs do Azure
 
@@ -50,7 +50,7 @@ Para exibir as permissões que você tem na assinatura, acesse o portal do Azure
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
 Neste tutorial, você usa um banco de dados do SQL Server como um armazenamento de dados de *origem* . O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server (origem) para um Armazenamento de Blobs (coletor). Depois você cria uma tabela chamada **emp** no seu banco de dados do SQL Server e insere algumas entradas de exemplo na tabela.
 
-1. Inicie o SQL Server Management Studio. Se ainda não estiver instalado em seu computador, vá para [Baixar o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Inicie o SQL Server Management Studio. Se ainda não estiver instalado em seu computador, vá para [Baixar o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Conecte-se à sua instância do SQL Server usando suas credenciais.
 
