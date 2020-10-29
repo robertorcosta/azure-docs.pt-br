@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 6a59df062adf9b5c2e511db29cb8601d4a4df70e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f76f6bc77a26a8574218a07321ab72acc9280569
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554545"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517983"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao MongoDB Cloud
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o MongoDB Cloud ao Azure Active Dire
 * Permitir que os usuários sejam conectados automaticamente ao MongoDB Cloud com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,25 +39,25 @@ Para começar, você precisa do seguinte:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O MongoDB Cloud é compatível com o SSO iniciado por **SP** e **IDP**.
-* O MongoDB Cloud é compatível com o provisionamento de usuário **Just-In-Time**.
-* Depois de configurar o MongoDB Cloud, você poderá impor o controle de sessão, que protege contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. Para obter mais informações, confira [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* O MongoDB Cloud é compatível com o SSO iniciado por **SP** e **IDP** .
+* O MongoDB Cloud é compatível com o provisionamento de usuário **Just-In-Time** .
+* Depois de configurar o MongoDB Cloud, você poderá impor o controle de sessão, que protege contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. Para obter mais informações, confira [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mongodb-cloud-from-the-gallery"></a>Adicionar o MongoDB Cloud da galeria
 
 Para configurar a integração do MongoDB Cloud com o Azure AD, é necessário adicionar o MongoDB Cloud da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
-1. No painel esquerdo, selecione **Azure Active Directory**.
-1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
-1. Na seção **Adicionar da galeria**, digite **MongoDB Cloud** na caixa de pesquisa.
+1. No painel esquerdo, selecione **Azure Active Directory** .
+1. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os Aplicativos** .
+1. Para adicionar um novo aplicativo, selecione **Novo aplicativo** .
+1. Na seção **Adicionar da galeria** , digite **MongoDB Cloud** na caixa de pesquisa.
 1. Selecione **MongoDB Cloud** nos resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-mongodb-cloud"></a>Configurar e testar o logon único do Azure AD para o MongoDB Cloud
 
-Configure e teste o SSO do Azure AD com o MongoDB Cloud usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do MongoDB Cloud.
+Configure e teste o SSO do Azure AD com o MongoDB Cloud usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do MongoDB Cloud.
 
 Para configurar e testar o SSO do Azure AD com o MongoDB Cloud, conclua os seguintes blocos de construção:
 
@@ -72,21 +72,21 @@ Para configurar e testar o SSO do Azure AD com o MongoDB Cloud, conclua os segui
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **MongoDB Cloud**, localize a seção **Gerenciar**. Selecione **logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **MongoDB Cloud** , localize a seção **Gerenciar** . Selecione **logon único** .
+1. Na página **Selecionar um método de logon único** , escolha **SAML** .
+1. Na página **Configurar o logon único com o SAML** , selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
 
    ![Captura de tela da página Configurar o Logon Único com SAML, com o ícone de lápis realçado](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IdP**, insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IdP** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **Identificador**, digite uma URL que usa o seguinte padrão: `https://www.okta.com/saml2/service-provider/<Customer_Unique>`
+    a. Na caixa de texto **Identificador** , digite uma URL que usa o seguinte padrão: `https://www.okta.com/saml2/service-provider/<Customer_Unique>`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL que use o seguinte padrão: `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
+    b. Na caixa de texto **URL de Resposta** , digite uma URL que use o seguinte padrão: `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 
-1. Selecione **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado por **SP**:
+1. Selecione **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado por **SP** :
 
-    Na caixa de texto **URL de Entrada**, digite uma URL que usa o seguinte padrão: `https://cloud.mongodb.com/sso/<Customer_Unique>`
+    Na caixa de texto **URL de Entrada** , digite uma URL que usa o seguinte padrão: `https://cloud.mongodb.com/sso/<Customer_Unique>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Para obter esses valores, entre em contato com a [equipe de suporte ao cliente do MongoDB Cloud](https://support.mongodb.com/). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -103,42 +103,42 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | firstName | user.givenname |
     | lastName | user.surname |
 
-1. Na página **Configurar logon único com SAML** na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação**. Selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
+1. Na página **Configurar logon único com SAML** na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** . Selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
 
     ![Captura de tela da seção Certificado de Autenticação SAML, com o link Download realçado](common/metadataxml.png)
 
-1. Na seção **Configurar o MongoDB Cloud**, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o MongoDB Cloud** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Captura de tela da seção Configurar o MongoDB Cloud, com as URLs realçadas](common/copy-configuration-urls.png)
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários** .
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa de seleção **Mostrar senha** e, em seguida, anote a senha.
-   1. Selecione **Criar**.
+   1. Selecione **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que B.Fernandes use o logon único do Azure permitindo acesso ao MongoDB Cloud.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione **MongoDB Cloud**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos** .
+1. Na lista de aplicativos, selecione **MongoDB Cloud** .
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos** .
 
    ![Captura de tela da seção Gerenciar, com Usuários e grupos realçados](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**. Em seguida, na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
+1. Selecione **Adicionar usuário** . Em seguida, na caixa de diálogo **Adicionar Atribuição** , selecione **Usuários e grupos** .
 
     ![Captura de tela da página Usuários e grupos, com a função Adicionar usuário destacada](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista de usuários. Em seguida, escolha **Selecionar** na parte inferior da tela.
-1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Em seguida, escolha **Selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista de usuários. Em seguida, escolha **Selecionar** na parte inferior da tela.
+1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , selecione a função apropriada para o usuário na lista. Em seguida, escolha **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir** .
 
 ## <a name="configure-mongodb-cloud-sso"></a>Configurar o SSO do MongoDB Cloud
 
@@ -152,21 +152,20 @@ O MongoDB Cloud é compatível com o provisionamento de usuário Just-In-Time, q
 
 Nesta seção, você testará a configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao selecionar o bloco do MongoDB Cloud no Painel de Acesso, você é conectado automaticamente ao MongoDB Cloud para o qual configurou o SSO. Para obter mais informações, confira [Entrar e iniciar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do MongoDB Cloud no Painel de Acesso, você é conectado automaticamente ao MongoDB Cloud para o qual configurou o SSO. Para obter mais informações, confira [Entrar e iniciar aplicativos no portal Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Inscrever-se no MongoDB Atlas no Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
 
 - [Experimente o MongoDB Cloud com o Azure AD](https://aad.portal.azure.com/)
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Proteger o MongoDB Cloud com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Proteger o MongoDB Cloud com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e84be9cbc6aa50f4beb3ed333b47459b15fbcc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 648bb5eb5daab20248e16f2d1606f61a3fc52d17
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546271"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Azure Active Directory com o xMatters OnDemand
 
@@ -27,7 +27,7 @@ A integração do xMatters OnDemand ao Azure AD oferece os seguintes benefícios
 * Você pode permitir que os usuários façam logon automaticamente no xMatters OnDemand (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -49,11 +49,11 @@ Para configurar a integração do xMatters OnDemand com o Azure AD, é necessár
 
 **Para adicionar o xMatters OnDemand da galeria, siga as etapas abaixo:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do xMatters OnDemand com o Azure AD, é necessár
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **xMatters OnDemand**, selecione **xMatters OnDemand** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **xMatters OnDemand** , selecione **xMatters OnDemand** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![xMatters OnDemand na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o xMatters OnDemand com base em um usuário de teste chamado **Brenda Fernandes**.
+Nesta seção, você configurará e testará o logon único do Azure AD com o xMatters OnDemand com base em um usuário de teste chamado **Brenda Fernandes** .
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no xMatters OnDemand.
 
 Para configurar e testar o logon único do Azure AD com o xMatters OnDemand, é necessário concluir os seguintes blocos de construção:
@@ -85,23 +85,23 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o xMatters OnDemand, siga as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **xMatters OnDemand**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **xMatters OnDemand** , selecione **Logon único** .
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
+4. Na página **Configurar Logon Único com SAML** , execute as seguintes etapas:
 
     ![Informações de logon único em Domínio e URLs do xMatters OnDemand](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador** , digite uma URL usando o seguinte padrão:
 
     - `https://<companyname>.au1.xmatters.com.au/`
     - `https://<companyname>.cs1.xmatters.com/`
@@ -109,7 +109,7 @@ Para configurar o logon único do Azure AD com o xMatters OnDemand, siga as segu
     - `https://www.xmatters.com`
     - `https://<companyname>.xmatters.com.au/`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão:
 
     - `https://<companyname>.au1.xmatters.com.au`
     - `https://<companyname>.xmatters.com/sp/<instancename>`
@@ -119,14 +119,14 @@ Para configurar o logon único do Azure AD com o xMatters OnDemand, siga as segu
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do xMatters OnDemand](https://www.xmatters.com/company/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
     > [!IMPORTANT]
     > É necessário encaminhar o certificado para a [equipe de suporte do xMatters OnDemand](https://www.xmatters.com/company/contact-us/). O certificado precisa ser carregado pela equipe de suporte do xMatters antes de você finalizar a configuração de logon único.
 
-6. Na seção **Configurar o xMatters OnDemand**, copie a URL apropriada de acordo com seus requisitos.
+6. Na seção **Configurar o xMatters OnDemand** , copie a URL apropriada de acordo com seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -140,7 +140,7 @@ Para configurar o logon único do Azure AD com o xMatters OnDemand, siga as segu
 
 1. Em uma janela diferente do navegador da Web, entre no seu site de empresa no xMatters OnDemand como administrador.
 
-2. Na barra de ferramentas na parte superior, clique em **Administrador** e em **Detalhes da Empres**a na barra de navegação à esquerda.
+2. Na barra de ferramentas na parte superior, clique em **Administrador** e em **Detalhes da Empres** a na barra de navegação à esquerda.
 
     ![Administrador](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
@@ -148,15 +148,15 @@ Para configurar o logon único do Azure AD com o xMatters OnDemand, siga as segu
 
     ![Configuração do SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuração do SAML")
 
-    a. Selecione **Habilitar SAML**.
+    a. Selecione **Habilitar SAML** .
 
-    b. Na caixa de texto **ID do Provedor de Identidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    b. Na caixa de texto **ID do Provedor de Identidade** , cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    c. Na caixa de texto **URL de Logon Único**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    c. Na caixa de texto **URL de Logon Único** , cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    d. Na caixa de texto **URL de Logoff Único**, cole o valor da **URL de Logoff** que você copiou do portal do Azure.
+    d. Na caixa de texto **URL de Logoff Único** , cole o valor da **URL de Logoff** que você copiou do portal do Azure.
 
-    e. Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações**.
+    e. Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações** .
 
     ![Company details](./media/xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
 
@@ -164,7 +164,7 @@ Para configurar o logon único do Azure AD com o xMatters OnDemand, siga as segu
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -176,39 +176,39 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes** .
   
-    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário** , digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao xMatters OnDemand.
 
-1. No portal do Azure, escolha **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, escolha **xMatters OnDemand**.
+1. No portal do Azure, escolha **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, escolha **xMatters OnDemand** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **xMatters OnDemand**.
+2. Na lista de aplicativos, selecione **xMatters OnDemand** .
 
     ![O link do xMatters OnDemand na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos** .
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
 
 ### <a name="create-xmatters-ondemand-test-user"></a>Criar usuário de teste do xMatters OnDemand
 
@@ -216,9 +216,9 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no xMatte
 
 **Se você precisar criar o usuário manualmente, execute as seguintes etapas:**
 
-1. Entre em seu locatário do **xMatters OnDemand**.
+1. Entre em seu locatário do **xMatters OnDemand** .
 
-2. Clique na guia **Usuários** e, em seguida, **Adicionar Usuário**.
+2. Clique na guia **Usuários** e, em seguida, **Adicionar Usuário** .
 
     ![Usuários](./media/xmatters-ondemand-tutorial/IC781048.png "Usuários")
 
@@ -226,15 +226,15 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no xMatte
 
     ![Adicionar um Usuário](./media/xmatters-ondemand-tutorial/IC781049.png "Adicionar um Usuário")
 
-    a. Selecione **Ativo**.
+    a. Selecione **Ativo** .
 
-    b. Na caixa de texto **ID de usuário**, digite a ID de usuário, como Brittasimon@contoso.com.
+    b. Na caixa de texto **ID de usuário** , digite a ID de usuário, como Brittasimon@contoso.com.
 
-    c. Na caixa de texto **Nome**, digite o nome do usuário, como Brenda.
+    c. Na caixa de texto **Nome** , digite o nome do usuário, como Brenda.
 
-    d. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário, como Fernandes.
+    d. Na caixa de texto **Sobrenome** , digite o sobrenome do usuário, como Fernandes.
 
-    e. Na caixa de texto **Site**, insira o site válido de uma conta válida do Azure AD que você deseja provisionar.
+    e. Na caixa de texto **Site** , insira o site válido de uma conta válida do Azure AD que você deseja provisionar.
 
     f. Clique em **Save** (Salvar).
 
@@ -242,13 +242,12 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no xMatte
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando clicar no bloco do xMatters OnDemand no Painel de Acesso, você deverá ser automaticamente conectado ao xMatters OnDemand para o qual você tiver configurado o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clicar no bloco do xMatters OnDemand no Painel de Acesso, você deverá ser automaticamente conectado ao xMatters OnDemand para o qual você tiver configurado o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

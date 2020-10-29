@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448275"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521026"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gerenciar um HSM Gerenciado usando a CLI do Azure
 
 > [!NOTE]
-> O Key Vault é compatível com dois tipos de recurso: cofres e HSMs Gerenciados. Este artigo é sobre o **HSM Gerenciado**. Se você quiser aprender como gerenciar um cofre, confira [Gerenciar o Key Vault usando a CLI do Azure](../general/manage-with-cli2.md).
+> O Key Vault é compatível com dois tipos de recurso: cofres e HSMs Gerenciados. Este artigo é sobre o **HSM Gerenciado** . Se você quiser aprender como gerenciar um cofre, confira [Gerenciar o Key Vault usando a CLI do Azure](../general/manage-with-cli2.md).
 
 Para obter uma visão geral do HSM Gerenciado, confira [O que é o HSM Gerenciado?](overview.md)
 
@@ -45,7 +45,7 @@ az login
 Para obter mais informações sobre as opções de logon por meio da CLI, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
 
 > [!NOTE]
-> Todos os comandos a seguir mostram dois métodos de uso. Um que usa os parâmetros **--hsm-name** e **--name** (para nome da chave) e outro que usa o parâmetro **--id**, em que você pode especificar a URL inteira, inclusive o nome da chave, quando apropriado. O último método é útil quando o chamador (seja um usuário ou um aplicativo) não tem acesso de leitura ao plano de controle e somente acesso restrito ao plano de dados.
+> Todos os comandos a seguir mostram dois métodos de uso. Um que usa os parâmetros **--hsm-name** e **--name** (para nome da chave) e outro que usa o parâmetro **--id** , em que você pode especificar a URL inteira, inclusive o nome da chave, quando apropriado. O último método é útil quando o chamador (seja um usuário ou um aplicativo) não tem acesso de leitura ao plano de controle e somente acesso restrito ao plano de dados.
 
 ## <a name="create-an-hsm-key"></a>Criar uma chave HSM
 
@@ -69,7 +69,7 @@ Observe que a operação `get` retorna apenas a chave pública e os atributos de
 
 ### <a name="create-an-ec-key"></a>Criar uma chave do EC
 
-O exemplo a seguir mostra como criar uma chave do **EC** com curva P-256 que será usada somente para **assinar e verificar** operações (--ops) e que tem duas marcações, **usage** e **appname**. As marcações ajudam na inclusão de metadados adicionais à chave para fins de acompanhamento e gerenciamento.
+O exemplo a seguir mostra como criar uma chave do **EC** com curva P-256 que será usada somente para **assinar e verificar** operações (--ops) e que tem duas marcações, **usage** e **appname** . As marcações ajudam na inclusão de metadados adicionais à chave para fins de acompanhamento e gerenciamento.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
@@ -90,7 +90,7 @@ az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decr
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
 ```
 
 ## <a name="view-key-attributes-and-tags"></a>Visualizar atributos de chave e marcações
