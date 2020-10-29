@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276927"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911708"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Criar um conjunto de dados de treinamento para um modelo personalizado
 
@@ -41,7 +41,7 @@ Siga estas dicas adicionais para otimizar ainda mais seu conjunto de dados para 
 
 ## <a name="upload-your-training-data"></a>Carregue seus dados de treinamento
 
-Depois de reunir o conjunto de documentos de formulário que você usará para treinamento, você precisa carregá-lo em um contêiner de armazenamento de BLOBs do Azure. Se você não souber como criar uma conta de armazenamento do Azure com um contêiner, seguindo o guia de [início rápido do armazenamento do Azure para Portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Use o nível de desempenho padrão.
+Depois de reunir o conjunto de documentos de formulário que você usará para treinamento, você precisa carregá-lo em um contêiner de armazenamento de BLOBs do Azure. Se você não souber como criar uma conta de armazenamento do Azure com um contêiner, seguindo o guia de [início rápido do armazenamento do Azure para Portal do Azure](../../storage/blobs/storage-quickstart-blobs-portal.md). Use o nível de desempenho padrão.
 
 Se você quiser usar dados rotulados manualmente, também precisará carregar o *.labels.js* e *.ocr.jsem* arquivos que correspondam aos seus documentos de treinamento. Você pode usar a [ferramenta de rotulagem de exemplo](./quickstarts/label-tool.md) (ou sua própria interface do usuário) para gerar esses arquivos.
 

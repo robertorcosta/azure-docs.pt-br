@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 05e29278f6b9ce5436979c0533551763e2f90462
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520931"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911028"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -44,7 +44,7 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
 Sul | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA
-Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, oeste da África do Sul, norte da África do Sul, leste da Noruega, oeste da Noruega, França central
+Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, oeste da África do Sul, norte da África do Sul, leste da Noruega, oeste da Noruega, França central, Norte da Suíça
 Ásia | Sul da Índia, Índia Central, Oeste da Índia, Sudeste Asiático, Leste da Ásia, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia
 Austrália    | Leste da Austrália, Sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, Leste do US DoD, Região Central do US DoD
@@ -54,7 +54,7 @@ Regiões restritas reservadas para recuperação de desastre dentro do país |No
 
 >[!NOTE]
 >
-> - Para a região **Sul do Brasil**, você pode replicar e fazer failover para estas regiões: Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e Centro-Norte dos EUA.
+> - Para a região **Sul do Brasil** , você pode replicar e fazer failover para estas regiões: Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e Centro-Norte dos EUA.
 > - A Sul do Brasil só pode ser usado como uma região de origem da qual as VMs podem replicar usando o Site Recovery. Ela não pode atuar como uma região de destino. Isso ocorre graças a problemas de latência devido a distâncias geográficas. Observe que se você fizer failover do Sul do Brasil como uma região de origem para um destino, o failback para o Sul do Brasil da região de destino será um procedimento compatível.
 > - Você pode trabalhar em regiões para as quais tem acesso apropriado.
 > - Se a região na qual deseja criar um cofre não for exibida, verifique se sua assinatura tem acesso para criar recursos nessa região.
@@ -280,7 +280,7 @@ Balanceador de carga interno | Com suporte | Associe o balanceador de carga pré
 Endereço IP público | Com suporte | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG em NIC | Com suporte | Associe o NSG à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na sub-rede | Com suporte | Associe o NSG à sub-rede usando um script de automação do Azure em um plano de recuperação.
-Endereço IP reservado (estático) | Com suporte | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ela será atribuída à VM com falha.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede na **itens replicados** > **configurações** > **de computação e rede** > **Interfaces de rede**.
+Endereço IP reservado (estático) | Com suporte | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ela será atribuída à VM com falha.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede na **itens replicados** > **configurações** > **de computação e rede** > **Interfaces de rede** .
 Endereço IP dinâmico | Com suporte | Se a NIC de origem tiver o endereçamento IP dinâmico, a NIC na VM com failover também é dinâmica por padrão.<br/><br/> Você pode modificar isso para um endereço IP fixo, se necessário.
 Vários endereços IP | Sem suporte | Quando você faz failover de uma VM que tem uma NIC com vários endereços IP, somente o endereço IP primário da NIC na região de origem é mantido. Para atribuir vários endereços IP, você pode adicionar VMs a um [plano de recuperação](recovery-plan-overview.md) e anexar um script para atribuir endereços IP adicionais ao plano ou pode fazer a alteração manualmente ou com um script após o failover.
 Gerenciador de Tráfego     | Com suporte | Você pode pré-configurar o Traffic Manager para que o tráfego seja roteado para o terminal na região de origem regularmente e para o terminal na região de destino em caso de failover.

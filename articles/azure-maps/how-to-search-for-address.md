@@ -3,21 +3,22 @@ title: Pesquisar um local usando os serviços de pesquisa do Azure Maps
 description: Saiba mais sobre o serviço de pesquisa do Azure Maps. Veja como usar esse conjunto de APIs para geocodificação, geocodificação geográfica, pesquisas difusas e pesquisas de várias ruas invertidas.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/21/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9628ecada2e427f6220ae2a5154cebb8e4958bd0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895691"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910977"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Pesquisar um local usando os serviços de pesquisa do Azure Maps
 
 O [Azure Maps serviço de pesquisa](/rest/api/maps/search) é um conjunto de APIs RESTful projetado para ajudar os desenvolvedores a pesquisar endereços, locais e listagens de negócios por nome, categoria e outras informações geográficas. Além de oferecer suporte à geocodificação tradicional, os serviços também podem reverter endereços geocódigo e entre ruas com base em latitudes e longitudes. Os valores de latitude e longitude retornados pela pesquisa podem ser usados como parâmetros em outros serviços do Azure Maps, como serviços de [rota](/rest/api/maps/route) e [clima](/rest/api/maps/weather) .
+
 
 Neste artigo, você aprenderá a:
 
@@ -44,9 +45,7 @@ Neste exemplo, usaremos a [API obter endereço de pesquisa](/rest/api/maps/searc
 
 2. Para criar a solicitação, selecione **Novo** outra vez. Na janela **Criar** , selecione **Solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior e clique em **Salvar** .
 
-3. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Nesta solicitação, Estamos pesquisando um endereço específico: `400 Braod St, Seattle, WA 98109` .
-
-    Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária. A solicitação deve ser semelhante à seguinte URL:
+3. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Nesta solicitação, Estamos pesquisando um endereço específico: `400 Braod St, Seattle, WA 98109` . Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
@@ -60,7 +59,7 @@ Neste exemplo, usaremos a [API obter endereço de pesquisa](/rest/api/maps/searc
 
 6. Em seguida, tente definir a `query` chave como `400 Broa` .
 
-7. Clique no botão **Enviar** .  Agora você pode ver que a resposta inclui respostas de vários países. Para resultados geopolares para a área relevante para seus usuários, sempre adicione o máximo possível de detalhes de local à solicitação.
+7. Clique no botão **Enviar** . Agora você pode ver que a resposta inclui respostas de vários países. Para resultados geopolares para a área relevante para seus usuários, sempre adicione o máximo possível de detalhes de local à solicitação.
 
 ## <a name="using-fuzzy-search-api"></a>Usando a API de pesquisa difusa
 
@@ -78,7 +77,7 @@ Neste exemplo, usaremos a pesquisa difusa para pesquisar o mundo inteiro `pizza`
 
 1. Abra o aplicativo do postmaster, clique em **novo** e selecione **solicitação** . Insira um **Nome de solicitação** para a solicitação. Selecione a coleção que você criou na seção anterior ou criou uma nova e, em seguida, selecione **salvar** .
 
-2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária. A solicitação deve ser semelhante à seguinte URL:
+2. Selecione o método http **Get** na guia Construtor e insira a URL a seguir. Para essa solicitação e outras solicitações mencionadas neste artigo, substitua `{Azure-Maps-Primary-Subscription-key}` pela sua chave de assinatura primária.
 
     ```http
    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza

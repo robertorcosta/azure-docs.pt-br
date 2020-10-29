@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 4f381e2f2e9f85422bd5f4fb89ec684f4bc99f91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9287e9661172480292a2214b231e7e5dac9c32f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970802"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912236"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -28,13 +28,13 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
 
 
 - A **referência da API REST está disponível** -Veja a [referência v 2.1-Preview. 1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Novos idiomas com suporte além do inglês**, agora há suporte para os seguintes [idiomas](language-support.md) : para `Layout` e `Train Custom Model` : Inglês ( `en` ), chinês (simplificado) ( `zh-Hans` ), holandês ( `nl` ), francês ( `fr` ), alemão () `de` , italiano () `it` , Português ( `pt` ) e espanhol ( `es` ).
+- **Novos idiomas com suporte além do inglês** , agora há suporte para os seguintes [idiomas](language-support.md) : para `Layout` e `Train Custom Model` : Inglês ( `en` ), chinês (simplificado) ( `zh-Hans` ), holandês ( `nl` ), francês ( `fr` ), alemão () `de` , italiano () `it` , Português ( `pt` ) e espanhol ( `es` ).
 - **Detecção de seleção/marca de seleção** – o reconhecedor de formulário dá suporte à detecção e extração de marcas de seleção, como caixas de seleção e botões de opção. As marcas de seleção são extraídas no `Layout` e agora você pode também rotular e treinar em `Train Custom Model`  -  _treinamento com rótulos_ para extrair pares de chave-valor para marcas de seleção. 
-- A **composição de modelo** permite que vários modelos sejam compostos e chamados com uma única ID de modelo. Quando um documento é enviado para ser analisado com uma ID de modelo composto, uma etapa de classificação é executada primeiro para encaminhá-la para o modelo personalizado correto. A composição de modelo está disponível para `Train Custom Model`  -  _treinamento com rótulos_.
+- A **composição de modelo** permite que vários modelos sejam compostos e chamados com uma única ID de modelo. Quando um documento é enviado para ser analisado com uma ID de modelo composto, uma etapa de classificação é executada primeiro para encaminhá-la para o modelo personalizado correto. A composição de modelo está disponível para `Train Custom Model`  -  _treinamento com rótulos_ .
 - **Nome do modelo** adicione um nome amigável aos modelos personalizados para facilitar o gerenciamento e o controle.
 - **[Novo modelo predefinido para cartões de negócios](concept-business-cards.md)** para extrair campos comuns em inglês, cartões de visita de idioma.
 - **[Novas localidades para recebimentos pré-criados](concept-receipts.md)** , além do en-US, o suporte agora está disponível para en-au, en-CA, en-GB, en-in
-- **Aprimoramentos de qualidade** para `Layout` , `Train Custom Model`  -  _treine sem rótulos_ e _treine com rótulos_.
+- **Aprimoramentos de qualidade** para `Layout` , `Train Custom Model`  -  _treine sem rótulos_ e _treine com rótulos_ .
 
 
 o **v 2.0** inclui a seguinte atualização:
@@ -45,7 +45,7 @@ o **v 2.0** inclui a seguinte atualização:
 **Novos exemplos** estão disponíveis no github. 
 - O [guia estratégico de receitas de extração de conhecimento](https://github.com/microsoft/knowledge-extraction-recipes-forms) coleta as práticas recomendadas de compromissos do cliente do reconhecedor de formato real e fornece exemplos de código, listas de verificação e pipelines de exemplo utilizáveis usados no desenvolvimento desses projetos. 
 - A [ferramenta de rotulagem de exemplo](https://github.com/microsoft/OCR-Form-Tools) foi atualizada para dar suporte à nova funcionalidade v 2.1. Consulte este guia de [início rápido](quickstarts/label-tool.md) para começar a usar a ferramenta. 
-- O exemplo de reconhecedor de formulário de [quiosque inteligente](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) mostra como integrar `Analyze Receipt` e `Train Custom Model`  -  _treinar sem rótulos_.
+- O exemplo de reconhecedor de formulário de [quiosque inteligente](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) mostra como integrar `Analyze Receipt` e `Train Custom Model`  -  _treinar sem rótulos_ .
 
 
 
@@ -53,14 +53,14 @@ o **v 2.0** inclui a seguinte atualização:
 
 ### <a name="new-features"></a>Novos recursos
 
-* **referência v 2.0 disponível** Exiba a [referência da API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
-* Aprimoramentos **de tabela e aprimoramentos de extração** incluem melhorias de precisão e aprimoramentos de extrações de tabela, especificamente, a capacidade de aprender cabeçalhos e estruturas de tabelas em _treinamento personalizado sem rótulos_. 
+* **referência v 2.0 disponível** Exiba a [referência da API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* Aprimoramentos **de tabela e aprimoramentos de extração** incluem melhorias de precisão e aprimoramentos de extrações de tabela, especificamente, a capacidade de aprender cabeçalhos e estruturas de tabelas em _treinamento personalizado sem rótulos_ . 
 
 * **Suporte de moeda** Detecção e extração de símbolos de moeda global.
 * **Gov do Azure** O reconhecedor de formulário agora também está disponível no Azure gov.
-* **Recursos de segurança aprimorados**: 
-   * **Traga sua própria chave**  O reconhecedor de formulário criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente (CMK), também conhecidas como traga sua própria chave (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
-   * **Pontos de extremidade privados** – permite que você em uma rede virtual (VNet) [acesse dados com segurança por meio de um link privado. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* **Recursos de segurança aprimorados** : 
+   * **Traga sua própria chave**  O reconhecedor de formulário criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente (CMK), também conhecidas como traga sua própria chave (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
+   * **Pontos de extremidade privados** – permite que você em uma rede virtual (VNet) [acesse dados com segurança por meio de um link privado.](../../private-link/private-link-overview.md)
 
 
 ## <a name="june-2020"></a>Junho de 2020
@@ -78,10 +78,10 @@ o **v 2.0** inclui a seguinte atualização:
 
 ### <a name="new-features"></a>Novos recursos
 * **Suporte do SDK para a visualização pública da API v 2.0 do Forms Recognizer** Este mês, expandimos nosso suporte de serviço para incluir um SDK de visualização para o formulário Recognizer v 2.0 (versão prévia). Use os links abaixo para começar a usar o idioma de sua escolha: 
-   * [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [SDK do Python](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [SDK do JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [SDK .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
+   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
+   * [SDK do Python](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
+   * [SDK do JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
 
   O novo SDK dá suporte a todos os recursos da API REST v 2.0 para o reconhecedor de formulário. Por exemplo, você pode treinar um modelo com ou sem rótulos e extrair texto, pares chave-valor e tabelas de seus formulários, extrair dados de recibos com o serviço de recebimentos pré-criados e extrair texto e tabelas com o serviço de layout de seus documentos. Você pode compartilhar seus comentários sobre os SDKs por meio do [formulário de comentários do SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -91,8 +91,8 @@ o **v 2.0** inclui a seguinte atualização:
 
 ### <a name="security-improvements"></a>Aprimoramentos de segurança
 
-* As chaves gerenciadas pelo cliente agora estão disponíveis para FormRecognizer. Para obter mais informações, consulte [criptografia de dados em repouso para o reconhecedor de formulário](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
-* Use identidades gerenciadas para acessar recursos do Azure com Azure Active Directory. Para obter mais informações, consulte [autorizar o acesso a identidades gerenciadas](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
+* As chaves gerenciadas pelo cliente agora estão disponíveis para FormRecognizer. Para obter mais informações, consulte [criptografia de dados em repouso para o reconhecedor de formulário](./form-recognizer-encryption-of-data-at-rest.md).
+* Use identidades gerenciadas para acessar recursos do Azure com Azure Active Directory. Para obter mais informações, consulte [autorizar o acesso a identidades gerenciadas](../authentication.md#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Março de 2020 
 

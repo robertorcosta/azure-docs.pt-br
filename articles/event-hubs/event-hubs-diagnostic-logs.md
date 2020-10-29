@@ -2,13 +2,13 @@
 title: Configurar logs de diagnóstico – Hub de Eventos do Azure | Microsoft Docs
 description: Saiba como configurar logs de atividade e de diagnóstico para Hubs de Eventos no Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88927724"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912592"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
@@ -25,16 +25,16 @@ ms.locfileid: "88927724"
 Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico, siga estas etapas:
 
 1.  No [Portal do Azure](https://portal.azure.com), navegue até o seu namespace de Hubs de Eventos. 
-2. Selecione **Configurações de diagnóstico** em **Monitoramento** no painel esquerdo e, em seguida, selecione **+Adicionar configuração de diagnóstico**. 
+2. Selecione **Configurações de diagnóstico** em **Monitoramento** no painel esquerdo e, em seguida, selecione **+Adicionar configuração de diagnóstico** . 
 
     ![Página Configurações de diagnóstico - adicionar configuração de diagnóstico](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. Na seção **Detalhes da categoria**, selecione os **Tipos de logs de diagnóstico** que você deseja habilitar. Você encontrará detalhes sobre essas categorias posteriormente neste artigo. 
-5. Na seção **Detalhes de destino**, defina o destino do arquivo (destino) desejado; por exemplo, uma conta de armazenamento, um hub de eventos ou um espaço de trabalho Log Analytics.
+4. Na seção **Detalhes da categoria** , selecione os **Tipos de logs de diagnóstico** que você deseja habilitar. Você encontrará detalhes sobre essas categorias posteriormente neste artigo. 
+5. Na seção **Detalhes de destino** , defina o destino do arquivo (destino) desejado; por exemplo, uma conta de armazenamento, um hub de eventos ou um espaço de trabalho Log Analytics.
 
     ![Página Adicionar configurações de diagnóstico](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
 6.  Selecione **Salvar** na barra de ferramentas para salvar as configurações de diagnóstico.
 
-    As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
+    As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico** .
 
     Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
@@ -97,7 +97,7 @@ O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arqu
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
-Nome | DESCRIÇÃO
+Nome | Descrição
 ------- | -------
 `ActivityId` | ID interna, usada para acompanhamento |
 `EventName` | Nome da operação |
@@ -129,7 +129,7 @@ Example:
 ## <a name="autoscale-logs-schema"></a>Esquema dos logs de dimensionamento automático
 O JSON do log de dimensionamento automático incluem os elementos listados na seguinte tabela:
 
-| Nome | DESCRIÇÃO |
+| Nome | Descrição |
 | ---- | ----------- | 
 | `TrackingId` | ID interna, que é usada para fins de rastreamento |
 | `ResourceId` | ID do Recurso do Azure Resource Manager. |
@@ -148,7 +148,7 @@ Veja um exemplo de evento de dimensionamento automático:
 ## <a name="kafka-coordinator-logs-schema"></a>Esquema de logs do coordenador de Kafka
 O JSON do log do coordenador de Kafka inclui os elementos listados na seguinte tabela:
 
-| Nome | DESCRIÇÃO |
+| Nome | Descrição |
 | ---- | ----------- | 
 | `RequestId` | ID de solicitação, que é usada para fins de rastreamento |
 | `ResourceId` | ID de recurso do Azure Resource Manager |
@@ -188,7 +188,6 @@ O JSON do log de erro do usuário do Kafka inclui os elementos listados na segui
 | `Message` | Mensagem informativa, que fornece detalhes sobre um erro |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Esquema de evento de conexão de rede virtual de Hubs de Eventos
-
 O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elementos listados na tabela a seguir:
 
 | Nome | Descrição |
@@ -196,10 +195,12 @@ O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elem
 | `SubscriptionId` | ID da assinatura do Azure |
 | `NamespaceName` | Nome do Namespace |
 | `IPAddress` | Endereço IP de um cliente que se conecta ao serviço de Hubs de Eventos |
-| `Action` | Ação feita pelo serviço de Hubs de Eventos ao avaliar solicitações de conexão. As ações com suporte são **Aceitar conexão** e **Negar conexão**. |
+| `Action` | Ação feita pelo serviço de Hubs de Eventos ao avaliar solicitações de conexão. As ações com suporte são **Aceitar conexão** e **Negar conexão** . |
 | `Reason` | Fornece um motivo pelo qual a ação foi feita |
 | `Count` | Número de ocorrências para a ação especificada |
 | `ResourceId` | ID do Recurso do Azure Resource Manager. |
+
+Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **redes selecionadas** ou de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda quiser obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa. Habilite a filtragem de IP e adicione o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). Os hubs de eventos não dão suporte a intervalos de IPv6. 
 
 ### <a name="example"></a>Exemplo
 
@@ -219,7 +220,7 @@ O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elem
 ## <a name="customer-managed-key-user-logs"></a>Logs de usuário de chave gerenciada pelo cliente
 O JSON do log de usuário gerenciada pelo cliente inclui os elementos listados na seguinte tabela:
 
-| Nome | DESCRIÇÃO |
+| Nome | Descrição |
 | ---- | ----------- | 
 | `Category` | Tipo de categoria para uma mensagem. É um dos seguintes valores: **error** e **info** |
 | `ResourceId` | ID de recurso interno, que inclui a ID da assinatura do Azure e o nome do namespace |

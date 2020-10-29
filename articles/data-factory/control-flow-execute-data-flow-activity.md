@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485030"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910756"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de fluxo de dados no Azure Data Factory
 
@@ -60,8 +60,8 @@ Flow | A referência ao fluxo de dados que está sendo executado | DataFlowRefer
 integrationRuntime | O ambiente de computação no qual o fluxo de dados é executado. Se não for especificado, a solução de tempo de execução de integração do Azure será usada automaticamente. | IntegrationRuntimeReference | Não
 Compute. coreCount | O número de núcleos usados no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | 8, 16, 32, 48, 80, 144, 272 | Não
 Compute. computetype | O tipo de computação usado no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | "Geral", "ComputeOptimized", "MemoryOptimized" | Não
-preparo. linkedService | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, a conta de armazenamento usada para preparo do polybase | LinkedServiceReference | Somente se o fluxo de dados lê ou grava em uma análise de Synapse do Azure
-preparo. folderPath | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | Cadeia de caracteres | Somente se o fluxo de dados lê ou grava no Azure Synapse Analytics
+preparo. linkedService | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, especifique a conta de armazenamento usada para o preparo do polybase.<br/><br/>Se o armazenamento do Azure estiver configurado com o ponto de extremidade do serviço VNet, você deverá usar a autenticação de identidade gerenciada com "permitir serviço Microsoft confiável" habilitado na conta de armazenamento, consulte o [impacto de usar pontos de extremidade do serviço de VNet com o armazenamento do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Além disso, Aprenda as configurações necessárias para o [blob do Azure](connector-azure-blob-storage.md#managed-identity) e [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) , respectivamente.<br/> | LinkedServiceReference | Somente se o fluxo de dados lê ou grava em uma análise de Synapse do Azure
+preparo. folderPath | Se você estiver usando uma origem ou coletor do Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de BLOBs usada para preparo do polybase | String | Somente se o fluxo de dados lê ou grava no Azure Synapse Analytics
 
 ![Executar fluxo de dados](media/data-flow/activity-data-flow.png "Executar fluxo de dados")
 
@@ -116,7 +116,7 @@ O pipeline de depuração é executado no cluster de depuração ativa, não no 
 
 ## <a name="monitoring-the-data-flow-activity"></a>Monitorando a atividade de fluxo de dados
 
-A atividade de fluxo de dados tem uma experiência de monitoramento especial, na qual você pode exibir informações sobre particionamento, tempo de estágio e linhagem de dados. Abra o painel Monitoramento por meio do ícone óculos em **ações**. Para obter mais informações, consulte [monitorando fluxos de dados](concepts-data-flow-monitoring.md).
+A atividade de fluxo de dados tem uma experiência de monitoramento especial, na qual você pode exibir informações sobre particionamento, tempo de estágio e linhagem de dados. Abra o painel Monitoramento por meio do ícone óculos em **ações** . Para obter mais informações, consulte [monitorando fluxos de dados](concepts-data-flow-monitoring.md).
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Usar resultados de atividade de fluxo de dados em uma atividade subsequente
 

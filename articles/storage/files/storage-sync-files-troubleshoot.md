@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 14a532e7809db3359d90a03c169c27a19cf89a9a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164220"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911623"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -21,7 +21,7 @@ Este artigo foi projetado para ajudá-lo a solucionar problemas e resolver probl
 
 1. [Página de P e R da Microsoft para Armazenamento do Azure](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
+3. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda** , selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte** .
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Estou tendo um problema com o Azure File Sync no meu servidor (sincronização, nível de nuvem, etc.). Deve remover e recriar o ponto de extremidade do meu servidor?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -93,7 +93,7 @@ Reset-StorageSyncServer
 > Se o servidor for parte de um cluster, você pode usar opcional *StorageSyncServer Reset - CleanClusterRegistration* parâmetro também para remover o registro de cluster.
 
 <a id="web-site-not-trusted"></a>**Ao registrar um servidor, obtenho várias respostas de "sites não confiáveis". Por quê?**  
-Esse erro ocorre porque a política **Segurança reforçada do Internet Explorer** está habilitada durante o registro do servidor. Para obter mais informações sobre como desabilitar corretamente a política **Segurança aprimorada do Internet Explorer**, consulte [Preparar o Windows Server para usar com o Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Como implantar o Azure File Sync](storage-sync-files-deployment-guide.md).
+Esse erro ocorre porque a política **Segurança reforçada do Internet Explorer** está habilitada durante o registro do servidor. Para obter mais informações sobre como desabilitar corretamente a política **Segurança aprimorada do Internet Explorer** , consulte [Preparar o Windows Server para usar com o Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Como implantar o Azure File Sync](storage-sync-files-deployment-guide.md).
 
 <a id="server-registration-missing"></a>**O servidor não está listado em servidores registrados no portal do Azure**  
 Se algum servidor não estiver listado em **Servidores registrados** de um Serviço de Sincronização de Armazenamento:
@@ -102,17 +102,20 @@ Se algum servidor não estiver listado em **Servidores registrados** de um Servi
 3. Execute ServerRegistration.exe e siga o assistente para registrar o servidor com um Serviço de Sincronização de Armazenamento.
 
 ## <a name="sync-group-management"></a>Gerenciamento de grupo de sincronização
+
+### <a name="cloud-endpoint-creation-errors"></a>Erros de criação de ponto de extremidade de nuvem
+
 <a id="cloud-endpoint-using-share"></a>**Falha na criação de ponto de extremidade de nuvem, com este erro: "O Compartilhamento de Arquivos do Azure especificado já está sendo usado por um CloudEndpoint diferente"**  
 Esse erro ocorre se o compartilhamento de arquivo do Azure já está em uso por outro ponto de extremidade da nuvem. 
 
 Se essa mensagem aparecer e o compartilhamento de arquivos do Azure não estiver sendo usado por um ponto de extremidade de nuvem no momento, conclua as seguintes etapas para limpar os metadados da Sincronização de arquivos do Azure no compartilhamento de arquivos do Azure:
 
 > [!Warning]  
-> Excluir os metadados em um compartilhamento de arquivos do Azure que está sendo usado no momento por um ponto de extremidade de nuvem faz com que as operações da Sincronização de arquivos do Azure falhem. 
+> Excluir os metadados em um compartilhamento de arquivos do Azure que está sendo usado no momento por um ponto de extremidade de nuvem faz com que as operações da Sincronização de arquivos do Azure falhem. 
 
-1. Navegue até o seu compartilhamento de arquivos do Azure no Portal do Azure.  
-2. Clique com botão direito no compartilhamento de arquivos do Azure e selecione **Editar metadados**.
-3. Clique com botão direito em **SyncService** e selecione **Excluir**.
+1. Navegue até o seu compartilhamento de arquivos do Azure no Portal do Azure.  
+2. Clique com botão direito no compartilhamento de arquivos do Azure e selecione **Editar metadados** .
+3. Clique com botão direito em **SyncService** e selecione **Excluir** .
 
 <a id="cloud-endpoint-authfailed"></a>**Falha na criação de ponto de extremidade de nuvem, com este erro: "AuthorizationFailed"**  
 Esse erro ocorre quando a conta de usuário não tem direitos suficientes para criar um ponto de extremidade na nuvem. 
@@ -128,13 +131,15 @@ As seguintes funções internas têm as permissões de Autorização da Microsof
 * Administrador de Acesso do Usuário
 
 Para determinar se sua função de conta de usuário tem as permissões necessárias:  
-1. No portal do Azure, clique em **Grupos de recursos**.
+1. No portal do Azure, clique em **Grupos de recursos** .
 2. Selecione o grupo de recursos em que a conta de armazenamento está localizada e clique em **Controle de acesso (IAM)** .
-3. Selecione a guia **Atribuições de função**.
+3. Selecione a guia **Atribuições de função** .
 4. Selecione a **Função** (por exemplo, o proprietário ou colaborador) para sua conta de usuário.
-5. Na lista **Provedor de Recursos**, selecione **Autorização da Microsoft**. 
-    * **Atribuição de função** deve ter **Permissões de Leitura** e de **Gravação**.
-    * **Definição de função** deve ter **Permissões de Leitura** e de **Gravação**.
+5. Na lista **Provedor de Recursos** , selecione **Autorização da Microsoft** . 
+    * **Atribuição de função** deve ter **Permissões de Leitura** e de **Gravação** .
+    * **Definição de função** deve ter **Permissões de Leitura** e de **Gravação** .
+
+### <a name="server-endpoint-creation-and-deletion-errors"></a>Erros de criação e exclusão do ponto de extremidade do servidor
 
 <a id="-2134375898"></a>**Falha na criação de ponto de extremidade de nuvem, com este erro: "MgmtServerJobFailed" (Código de erro: -2134375898 ou 0x80c80226)**  
 Esse erro ocorrerá se o caminho do ponto de extremidade de servidor estiver no volume do sistema e a camada de nuvem estiver habilitada. A camada de nuvem não tem suporte no volume do sistema. Para criar um ponto de extremidade do servidor no volume do sistema, desabilite a disposição em camadas da nuvem ao criar o ponto de extremidade do servidor.
@@ -165,6 +170,8 @@ Esse erro ocorrerá se o caminho do ponto de extremidade do servidor contém arq
 
 <a id="-2134347757"></a>**Falha na exclusão de ponto de extremidade de nuvem, com este erro: "MgmtServerJobExpired" (Código de erro: -2134347757 ou 0x80c87013)**  
 Esse erro ocorrerá se o servidor estiver offline ou não tiver conectividade de rede. Se o servidor não estiver mais disponível, cancele o registro do servidor no portal que excluirá os pontos de extremidade do servidor. Para excluir os pontos de extremidade do servidor, siga as etapas descritas em [Cancelar o registro de um servidor com a Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+### <a name="server-endpoint-health"></a>Integridade do ponto de extremidade do servidor
 
 <a id="server-endpoint-provisioningfailed"></a>**Não é possível abrir a página de propriedades do ponto de extremidade do servidor ou atualizar a política de camada de nuvem**  
 Esse problema pode ocorrer se uma operação de gerenciamento no ponto de extremidade do servidor falhar. Se a página de propriedades do ponto de extremidade de servidor não abrir no Portal do Azure, atualizar o ponto de extremidade de servidor usando comandos do PowerShell a partir do servidor poderá solucionar esse problema. 
@@ -338,7 +345,9 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport.ps1*
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | O arquivo não pode ser sincronizado porque o número máximo de arquivos de conflito foi atingido. A Sincronização de Arquivos do Azure dá suporte a 100 arquivos de conflito por arquivo. Para saber mais sobre conflitos de arquivo, confira as [perguntas frequentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution) da Sincronização de Arquivos do Azure. | Para resolver esse problema, reduza o número de arquivos com conflito. O arquivo será sincronizado assim que o número de arquivos com conflito for menor que 100. |
 
 #### <a name="handling-unsupported-characters"></a>Manipulando Caracteres Não Suportados
-Se o script do **FileSyncErrorsReport.ps1** PowerShell mostrar erros de sincronização por item devido a caracteres sem suporte (código de erro 0x8007007b ou 0x80c80255), você deverá remover ou renomear os caracteres com falha dos respectivos nomes de arquivo. PowerShell provavelmente será impresso esses caracteres como pontos de interrogação ou retângulos vazios, pois a maior parte desses caracteres não têm nenhuma codificação de visual padrão. Uma [Ferramenta de Avaliação](storage-sync-files-planning.md#evaluation-cmdlet) pode ser usada para identificar os caracteres sem suporte. Se o conjunto de seus conjuntos de um tiver vários arquivos com caracteres inválidos, use o script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) para renomear os arquivos que contêm caracteres sem suporte.
+Se o script do **FileSyncErrorsReport.ps1** PowerShell mostrar erros de sincronização por item devido a caracteres sem suporte (código de erro 0x8007007b ou 0x80c80255), você deverá remover ou renomear os caracteres com falha dos respectivos nomes de arquivo. PowerShell provavelmente será impresso esses caracteres como pontos de interrogação ou retângulos vazios, pois a maior parte desses caracteres não têm nenhuma codificação de visual padrão. 
+> [!Note]  
+> Uma [Ferramenta de Avaliação](storage-sync-files-planning.md#evaluation-cmdlet) pode ser usada para identificar os caracteres sem suporte. Se o conjunto de seus conjuntos de um tiver vários arquivos com caracteres inválidos, use o script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) para renomear os arquivos que contêm caracteres sem suporte.
 
 A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda não suporta.
 
@@ -347,7 +356,7 @@ A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda 
 | <ul><li>0x0000009D (osc comando do sistema operacional)</li><li>0x00000090 (cadeia de controle de dispositivo de controladores de domínio)</li><li>0x0000008F (ss3 único shift três)</li><li>0x00000081 (predefinição de octeto alta)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverso alimentação de linha)</li></ul> | 6 |
 | 0x0000FDD0 - 0x0000FDEF (apresentação árabe formulários-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (especiais) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (não caracteres)</li><li>0x0002FFFE - 0x0002FFFF = 2 (não caracteres)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (área de suplementares de uso particular)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (não caracteres)</li><li>0x0002FFFE - 0x0002FFFF = 2 (não caracteres)</li><li>0x0003FFFE - 0x0003FFFF = 2 (não caracteres)</li><li>0x0004FFFE - 0x0004FFFF = 2 (não caracteres)</li><li>0x0005FFFE - 0x0005FFFF = 2 (não caracteres)</li><li>0x0006FFFE - 0x0006FFFF = 2 (não caracteres)</li><li>0x0007FFFE - 0x0007FFFF = 2 (não caracteres)</li><li>0x0008FFFE - 0x0008FFFF = 2 (não caracteres)</li><li>0x0009FFFE - 0x0009FFFF = 2 (não caracteres)</li><li>0x000AFFFE - 0x000AFFFF = 2 (não caracteres)</li><li>0x000BFFFE - 0x000BFFFF = 2 (não caracteres)</li><li>0x000CFFFE - 0x000CFFFF = 2 (não caracteres)</li><li>0x000DFFFE - 0x000DFFFF = 2 (não caracteres)</li><li>0x000EFFFE - 0x000EFFFF = 2 (indefinido)</li><li>0x000FFFFE - 0x000FFFFF = 2 (área de suplementares de uso particular)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>Erros comuns de sincronização
@@ -520,7 +529,7 @@ Esse erro ocorre quando o limite de armazenamento de compartilhamento de arquivo
 
 5. Selecione **Arquivos** para visualizar a lista de compartilhamentos de arquivos.
 6. Clique nos três pontos no final da linha do compartilhamento de arquivos do Azure mencionado pelo ponto de extremidade da nuvem.
-7. Verifique se o **Uso** está abaixo da **Cota**. Observe que, a menos que uma cota alternativa tenha sido especificada, a cota corresponderá ao [tamanho máximo do compartilhamento de arquivos do Azure](storage-files-scale-targets.md).
+7. Verifique se o **Uso** está abaixo da **Cota** . Observe que, a menos que uma cota alternativa tenha sido especificada, a cota corresponderá ao [tamanho máximo do compartilhamento de arquivos do Azure](storage-files-scale-targets.md).
 
     ![Uma captura de tela das propriedades do compartilhamento de arquivos do Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -995,16 +1004,16 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Certifique-se de que a sincronização de arquivos do Azure tem acesso à conta de armazenamento.**  
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Clique em **Controle de acesso (IAM)** no sumário à esquerda.
-1. Clique na guia **Atribuições de função** para a lista de usuários e aplicativos (*entidades de serviço*) que têm acesso à sua conta de armazenamento.
-1. Verifique se **Microsoft.StorageSync** ou **Serviço Híbrido Sincronização de Arquivos** (nome do aplicativo antigo) aparece na lista com a função de **Leitor e Acesso a Dados**. 
+1. Clique na guia **Atribuições de função** para a lista de usuários e aplicativos ( *entidades de serviço* ) que têm acesso à sua conta de armazenamento.
+1. Verifique se **Microsoft.StorageSync** ou **Serviço Híbrido Sincronização de Arquivos** (nome do aplicativo antigo) aparece na lista com a função de **Leitor e Acesso a Dados** . 
 
     ![Uma captura de tela da entidade de serviço do Serviço Híbrido de Sincronização de Arquivos na guia de controle de acesso da conta de armazenamento](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Se o **Microsoft.StorageSync** ou o **Serviço Híbrido de Sincronização de Arquivos do Azure** não aparecer na lista, execute as seguintes etapas:
 
-    - Clique em **Adicionar**.
-    - No campo **Função**, selecione **Leitor e Acesso a Dados**.
-    - No campo **Selecionar**, digite **Microsoft.StorageSync**, selecione a função e clique em **Salvar**.
+    - Clique em **Adicionar** .
+    - No campo **Função** , selecione **Leitor e Acesso a Dados** .
+    - No campo **Selecionar** , digite **Microsoft.StorageSync** , selecione a função e clique em **Salvar** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1045,17 +1054,17 @@ Há dois caminhos para falhas na definição de camadas de nuvem:
 Há duas classes principais de falhas que podem ocorrer por meio de um desses caminhos de falha:
 
 - Falhas no armazenamento em nuvem
-    - *Problemas transitórios de disponibilidade do serviço de armazenamento*. Para obter mais informações, consulte o [Contrato de Nível de Serviço (SLA) para o Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
-    - *Compartilhamento de arquivos do Azure inacessível*. Essa falha geralmente ocorre quando você exclui o compartilhamento de arquivos do Azure quando ainda é um ponto de extremidade de nuvem em um grupo de sincronização.
-    - *Conta de armazenamento inacessível*. Essa falha normalmente acontece quando você exclui a conta de armazenamento enquanto ela ainda tem um compartilhamento de arquivo do Azure que é um ponto de extremidade na nuvem em um grupo de sincronização. 
+    - *Problemas transitórios de disponibilidade do serviço de armazenamento* . Para obter mais informações, consulte o [Contrato de Nível de Serviço (SLA) para o Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Compartilhamento de arquivos do Azure inacessível* . Essa falha geralmente ocorre quando você exclui o compartilhamento de arquivos do Azure quando ainda é um ponto de extremidade de nuvem em um grupo de sincronização.
+    - *Conta de armazenamento inacessível* . Essa falha normalmente acontece quando você exclui a conta de armazenamento enquanto ela ainda tem um compartilhamento de arquivo do Azure que é um ponto de extremidade na nuvem em um grupo de sincronização. 
 - Falhas de servidor 
-  - *O filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) não está carregado*. Para responder às solicitações de definição de camadas/recuperação, o filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado. O filtro pode não ser carregado por diversos motivos, mas o motivo mais comum é quando um administrador o descarrega manualmente. O filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado sempre para que a Sincronização de arquivos do Azure funcione corretamente.
-  - *Ponto de nova análise ausente, corrompido ou desfeito por algum outro motivo*. Um ponto de nova análise é uma estrutura de dados especial em um arquivo que consiste em duas partes:
+  - *O filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) não está carregado* . Para responder às solicitações de definição de camadas/recuperação, o filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado. O filtro pode não ser carregado por diversos motivos, mas o motivo mais comum é quando um administrador o descarrega manualmente. O filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado sempre para que a Sincronização de arquivos do Azure funcione corretamente.
+  - *Ponto de nova análise ausente, corrompido ou desfeito por algum outro motivo* . Um ponto de nova análise é uma estrutura de dados especial em um arquivo que consiste em duas partes:
     1. Uma marca de nova análise, que indica para o sistema operacional que o filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) pode precisar executar alguma ação na E/S do arquivo. 
     2. Dados de nova análise, que indica para o filtro do sistema de arquivos qual é o URI do arquivo no ponto de extremidade de nuvem associado (o compartilhamento de arquivos do Azure). 
         
        A maneira mais comum de corromper um ponto de nova análise é quando um administrador tenta modificar a marca ou seus dados. 
-  - *Problemas de conectividade de rede*. Para a definir camadas ou recuperar um arquivo, o servidor deve ter conectividade com a Internet.
+  - *Problemas de conectividade de rede* . Para a definir camadas ou recuperar um arquivo, o servidor deve ter conectividade com a Internet.
 
 As seções a seguir indicam como solucionar problemas de definição de camadas de nuvem e determinar se o problema é do armazenamento em nuvem ou do servidor.
 
@@ -1271,7 +1280,7 @@ Para executar o AFSDiag, execute as seguintes etapas:
 
 3. Para o nível de rastreamento do modo de kernel da Sincronização de arquivos do Azure, insira **1** (a menos que especificado para criar rastreamentos mais detalhados) e pressione Enter.
 4. Para o nível de rastreamento do modo de usuário da Sincronização de arquivos do Azure, insira **1** (a menos que especificado para criar rastreamentos mais detalhados) e pressione Enter.
-5. Reproduza o problema. Quando tiver terminado, clique em **D**.
+5. Reproduza o problema. Quando tiver terminado, clique em **D** .
 6. Um arquivo. zip que contém logs e arquivos de rastreamento é salvo no diretório de saída que você especificou.
 
 ## <a name="see-also"></a>Confira também

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f4ad8db5b750a8e75a921a6d459a1a294a4bad0
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118664"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910025"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -24,7 +24,7 @@ Este artigo explica as especificações de registro do aplicativo para um aplica
 
 Para registrar seu aplicativo, você pode usar:
 
-- Os [guias de início rápido do aplicativo Web](#register-an-app-by-using-the-quickstarts). Além de ser uma ótima primeira experiência com a criação de um aplicativo, os guias de início rápido no portal do Azure contêm um botão chamado **fazer essa alteração para mim**. Você pode usar esse botão para definir as propriedades necessárias, mesmo para um aplicativo existente. Você precisará adaptar os valores dessas propriedades ao seu próprio caso. Em particular, a URL da API Web para seu aplicativo provavelmente será diferente do padrão proposto, o que também afetará o URI de saída.
+- Os [guias de início rápido do aplicativo Web](#register-an-app-by-using-the-quickstarts). Além de ser uma ótima primeira experiência com a criação de um aplicativo, os guias de início rápido no portal do Azure contêm um botão chamado **fazer essa alteração para mim** . Você pode usar esse botão para definir as propriedades necessárias, mesmo para um aplicativo existente. Você precisará adaptar os valores dessas propriedades ao seu próprio caso. Em particular, a URL da API Web para seu aplicativo provavelmente será diferente do padrão proposto, o que também afetará o URI de saída.
 - O portal do Azure para [registrar seu aplicativo manualmente](#register-an-app-by-using-the-azure-portal).
 - PowerShell e ferramentas de linha de comando.
 
@@ -43,39 +43,39 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft. Como alternativa, entre no [portal do Azure de escolha](./authentication-national-cloud.md#app-registration-endpoints) para a nuvem nacional.
 2. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito. Em seguida, defina a sessão do portal para o locatário do Azure Active Directory (Azure AD) desejado.
-3. No painel esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**  >  **novo registro**.
+3. No painel esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**  >  **novo registro** .
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
    1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
-   1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **AspNetCore-webapp**.
-   1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, digite **https://localhost:44321** . Em seguida, selecione **Registrar**.
-   ![registration](media/scenario-webapp/scenario-webapp-app-registration-1.png)
+   1. Na seção **Nome** , insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **AspNetCore-webapp** .
+   1. Para **URI de redirecionamento** , adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, digite **https://localhost:44321** . Em seguida, selecione **Registrar** .
+   ![Captura de tela mostra a página registrar um aplicativo onde você pode selecionar registrar.](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Selecione o menu **Autenticação** e, em seguida, adicione as seguintes informações:
-   1. Para **URL de resposta**, adicione **https://localhost:44321/signin-oidc** do tipo **Web**.
-   1. Na seção **Configurações avançadas**, defina **URL de Logoff** como **https://localhost:44321/signout-oidc** .
-   1. Em **Concessão implícita**, selecione **Tokens de ID**.
-   1. Selecione **Salvar**.
-  ![registration](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+   1. Para **URL de resposta** , adicione **https://localhost:44321/signin-oidc** do tipo **Web** .
+   1. Na seção **Configurações avançadas** , defina **URL de Logoff** como **https://localhost:44321/signout-oidc** .
+   1. Em **Concessão implícita** , selecione **Tokens de ID** .
+   1. Selecione **Salvar** .
+  ![Captura de tela mostra as opções de autenticação, nas quais você pode fazer as alterações descritas.](media/scenario-webapp/scenario-webapp-app-registration-2.png)
  
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
    1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
-   1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **MailApp-openidconnect-v2**.
+   1. Na seção **Nome** , insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **MailApp-openidconnect-v2** .
    1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **https://localhost:44326/** .
 1. Selecione **Registrar** para criar o aplicativo.
 1. Selecione o menu **autenticação** .
-1. Na seção **Advanced settings**de  |  **concessão implícita** configurações avançadas, selecione **tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
-1. Selecione **Salvar**.
+1. Na seção **Advanced settings** de  |  **concessão implícita** configurações avançadas, selecione **tokens de ID** . Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
+1. Selecione **Salvar** .
 
 # <a name="java"></a>[Java](#tab/java)
 
-1. Quando a **página registrar um aplicativo** for exibida, insira um nome de exibição para o aplicativo. Por exemplo, digite **Java-webapp**.
-1. Selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** e, em seguida, selecione **aplicativo Web/API** para o **tipo de aplicativo**.
+1. Quando a **página registrar um aplicativo** for exibida, insira um nome de exibição para o aplicativo. Por exemplo, digite **Java-webapp** .
+1. Selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** e, em seguida, selecione **aplicativo Web/API** para o **tipo de aplicativo** .
 1. Selecione **registrar** para registrar o aplicativo.
-1. No menu à esquerda, selecione **autenticação**. Em **URIs de redirecionamento**, selecione **Web**.
+1. No menu à esquerda, selecione **autenticação** . Em **URIs de redirecionamento** , selecione **Web** .
 
 1. Insira dois URIs de redirecionamento: um para a página de entrada e outro para a página do grafo. Para ambos, use o mesmo host e número da porta, seguido por **/msal4jsample/Secure/AAD** para a página de entrada e **msal4jsample/Graph/me** para a página de informações do usuário.
 
@@ -84,30 +84,30 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-  Em seguida, selecione **Salvar**.
+  Em seguida, selecione **Salvar** .
 
 1. Selecione **certificados & segredos** no menu.
-1. Na seção **segredos do cliente** , selecione **novo segredo do cliente**e, em seguida:
+1. Na seção **segredos do cliente** , selecione **novo segredo do cliente** e, em seguida:
 
    1. Insira uma descrição de chave.
-   1. Selecione a duração da chave **em 1 ano**.
-   1. Selecione **Adicionar**.
+   1. Selecione a duração da chave **em 1 ano** .
+   1. Selecione **Adicionar** .
    1. Quando o valor da chave for exibido, copie-o para mais tarde. Esse valor não será exibido novamente ou poderá ser recuperado por outros meios.
 
 # <a name="python"></a>[Python](#tab/python)
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
-   1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **Python-webapp**.
-   1. Altere os **tipos de conta com suporte** para **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
+   1. Na seção **Nome** , insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **Python-webapp** .
+   1. Altere os **tipos de conta com suporte** para **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
    1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **http://localhost:5000/getAToken** .
 1. Selecione **Registrar** para criar o aplicativo.
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará dele para definir o arquivo de configuração do Visual Studio para este projeto.
-1. No menu à esquerda, selecione **certificados & segredos**.
-1. Na seção **segredos do cliente** , selecione **novo segredo do cliente**e, em seguida:
+1. No menu à esquerda, selecione **certificados & segredos** .
+1. Na seção **segredos do cliente** , selecione **novo segredo do cliente** e, em seguida:
 
    1. Insira uma descrição de chave.
-   1. Selecione uma duração de chave igual a **Em 1 ano**.
-   1. Selecione **Adicionar**.
+   1. Selecione uma duração de chave igual a **Em 1 ano** .
+   1. Selecione **Adicionar** .
    1. Quando o valor da chave for exibido, copie-o. Você precisará dela mais tarde.
 ---
 

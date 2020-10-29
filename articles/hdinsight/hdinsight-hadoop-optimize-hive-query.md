@@ -1,27 +1,35 @@
 ---
 title: Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
-description: Este artigo descreve como otimizar suas consultas do Apache Hive para Hadoop no HDInsight.
+description: Este artigo descreve como otimizar suas consultas de Apache Hive no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 840c481a54451e1f8374aec4799df10b96fb2e4d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085286"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910875"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Apache Hive no Azure HDInsight
 
-No Azure HDInsight, há vários tipos de cluster e tecnologias que podem executar consultas do Apache Hive. Escolha o tipo de cluster apropriado para ajudar a otimizar o desempenho para suas necessidades de carga de trabalho.
+Este artigo descreve algumas das otimizações de desempenho mais comuns que você pode usar para melhorar o desempenho de suas consultas de Apache Hive.
 
-Por exemplo, escolha tipo de cluster de **consulta interativa** para otimizar `ad hoc` consultas interativas. Escolha o tipo de cluster Apache **Hadoop** para otimizar para consultas do Hive usadas como um processo em lote. Os tipos de cluster **Spark** e **HBase** também podem executar consultas Hive. Para saber mais sobre como executar consultas Hive em vários tipos de cluster do HDInsight, confira [O que é o Apache Hive e HiveQL no Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+## <a name="cluster-type-selection"></a>Seleção de tipo de cluster
 
-Os clusters HDInsight do tipo de cluster Hadoop não são otimizados para desempenho por padrão. Este artigo descreve alguns dos métodos de otimização de desempenho do Hive mais comuns que você pode aplicar às suas consultas.
+No Azure HDInsight, você pode executar Apache Hive consultas em alguns tipos de cluster diferentes. 
+
+Escolha o tipo de cluster apropriado para ajudar a otimizar o desempenho para suas necessidades de carga de trabalho:
+
+* Escolha tipo de cluster de **consulta interativa** para otimizar `ad hoc` consultas interativas. 
+* Escolha o tipo de cluster Apache **Hadoop** para otimizar para consultas do Hive usadas como um processo em lote. 
+* Os tipos de cluster **Spark** e **HBase** também podem executar consultas Hive e podem ser apropriados se você estiver executando essas cargas de trabalho. 
+
+Para saber mais sobre como executar consultas Hive em vários tipos de cluster do HDInsight, confira [O que é o Apache Hive e HiveQL no Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 ## <a name="scale-out-worker-nodes"></a>Escalar nós de trabalho horizontalmente
 
@@ -45,11 +53,11 @@ Para saber mais sobre dimensionamento do HDInsight, consulte [Dimensionar cluste
 
 O Tez é mais rápido porque:
 
-* **Execute o DAG (grafo direcionado acíclico) como um trabalho único no mecanismo MapReduce**. O DAG requer que cada conjunto de mapeadores seja seguido por um conjunto de redutores. Esse requisito faz com que vários trabalhos MapReduce sejam rotacionados para cada consulta de Hive. O tez não tem essa restrição e pode processar DAG complexas como um trabalho minimizando a sobrecarga de inicialização do trabalho.
-* **Evita gravações desnecessárias**. Vários trabalhos são usados para processar a mesma consulta Hive no mecanismo MapReduce. A saída de cada trabalho do MapReduce é gravada no HDFS para dados intermediários. Como o tez minimiza o número de trabalhos para cada consulta do hive, ele é capaz de evitar gravações desnecessárias.
-* **Minimiza atrasos de inicialização**. O Tez é mais capaz de minimizar o atraso de inicialização, reduzindo o número de mapeadores de que precisa para ser iniciado, além de aumentar a otimização de maneira geral.
-* **Reutiliza contêineres**. Sempre que possível, o tez reutilizará contêineres para garantir que a latência de inicialização de contêineres seja reduzida.
-* **Técnicas de otimização contínua**. Tradicionalmente, a otimização ocorria durante a fase de compilação. No entanto, há disponibilidade de mais informações sobre as entradas que permitem maior otimização durante o runtime. O Tez usa técnicas de otimização contínua que permitem otimizar ainda mais o plano mais adiante na fase de runtime.
+* **Execute o DAG (grafo direcionado acíclico) como um trabalho único no mecanismo MapReduce** . O DAG requer que cada conjunto de mapeadores seja seguido por um conjunto de redutores. Esse requisito faz com que vários trabalhos MapReduce sejam rotacionados para cada consulta de Hive. O tez não tem essa restrição e pode processar DAG complexas como um trabalho minimizando a sobrecarga de inicialização do trabalho.
+* **Evita gravações desnecessárias** . Vários trabalhos são usados para processar a mesma consulta Hive no mecanismo MapReduce. A saída de cada trabalho do MapReduce é gravada no HDFS para dados intermediários. Como o tez minimiza o número de trabalhos para cada consulta do hive, ele é capaz de evitar gravações desnecessárias.
+* **Minimiza atrasos de inicialização** . O Tez é mais capaz de minimizar o atraso de inicialização, reduzindo o número de mapeadores de que precisa para ser iniciado, além de aumentar a otimização de maneira geral.
+* **Reutiliza contêineres** . Sempre que possível, o tez reutilizará contêineres para garantir que a latência de inicialização de contêineres seja reduzida.
+* **Técnicas de otimização contínua** . Tradicionalmente, a otimização ocorria durante a fase de compilação. No entanto, há disponibilidade de mais informações sobre as entradas que permitem maior otimização durante o runtime. O Tez usa técnicas de otimização contínua que permitem otimizar ainda mais o plano mais adiante na fase de runtime.
 
 Para obter mais informações sobre esses conceitos, consulte [Apache TEZ](https://tez.apache.org/).
 
@@ -63,7 +71,7 @@ set hive.execution.engine=tez;
 
 As operações de E/S são o principal gargalo de desempenho para executar consultas do Hive. O desempenho pode ser melhorado se a quantidade de dados que precisam ser lidos puder ser reduzida. Por padrão, consultas do Hive examinam tabelas inteiras do Hive. Porém, para consultas que só precisam verificar uma pequena quantidade de dados (por exemplo, consultas com filtragem), esse comportamento cria uma sobrecarga desnecessária. O particionamento do Hive permite que as consultas do Hive acessem somente a quantidade necessária de dados nas tabelas do Hive.
 
-O particionamento do Hive é implementado pela reorganização dos dados brutos em novos diretórios. Cada partição tem seu próprio diretório de arquivos. O particionamento é definido pelo usuário. O diagrama a seguir ilustra o particionamento de uma tabela do Hive pela coluna *Ano*. Um novo diretório é criado para cada ano.
+O particionamento do Hive é implementado pela reorganização dos dados brutos em novos diretórios. Cada partição tem seu próprio diretório de arquivos. O particionamento é definido pelo usuário. O diagrama a seguir ilustra o particionamento de uma tabela do Hive pela coluna *Ano* . Um novo diretório é criado para cada ano.
 
 ![Particionamento de Apache Hive do HDInsight](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
@@ -124,9 +132,9 @@ Para obter mais informações, consulte [Partitioned Tables](https://cwiki.apach
 
 O Hive dá suporte a vários formatos de arquivo. Por exemplo:
 
-* **Texto**: é o formato de arquivo padrão e funciona com a maioria dos cenários.
-* **Avro**: funciona bem para cenários de interoperabilidade.
-* **Orc/parquet**: mais adequado para desempenho.
+* **Texto** : é o formato de arquivo padrão e funciona com a maioria dos cenários.
+* **Avro** : funciona bem para cenários de interoperabilidade.
+* **Orc/parquet** : mais adequado para desempenho.
 
 O formato ORC é uma maneira altamente eficiente para armazenar dados do Hive. Comparado a outros formatos, o ORC tem as seguintes vantagens:
 
@@ -135,7 +143,7 @@ O formato ORC é uma maneira altamente eficiente para armazenar dados do Hive. C
 * indexa a cada 10.000 linhas, o que permite ignorar linhas de índices.
 * uma redução significativa no tempo de execução.
 
-Para habilitar o formato ORC, primeiro você deve criar uma tabela com a cláusula *Armazenado como ORC*:
+Para habilitar o formato ORC, primeiro você deve criar uma tabela com a cláusula *Armazenado como ORC* :
 
 ```sql
 CREATE TABLE lineitem_orc_part
@@ -191,13 +199,12 @@ Há mais métodos de otimização que você pode considerar, por exemplo:
 
 * **Bucketing do Hive:** uma técnica que permite clusterizar ou segmentar grandes conjuntos de dados para otimizar o desempenho da consulta.
 * **Otimização de junção:** otimização do planejamento da execução de consultas do Hive para melhorar a eficiência de junções e reduzir a necessidade de dicas de usuário. Para obter mais informações, consulte [Otimização de junção](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Aumentar**os redutores.
+* **Aumentar** os redutores.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a vários métodos comuns de otimização de consultas do Hive. Confira os seguintes artigos para saber mais:
 
-* [Usar o Apache Hive no HDInsight](hadoop/hdinsight-use-hive.md)
 * [Otimizar o Apache Hive](./optimize-hive-ambari.md)
 * [Analisar dados de atraso de voo usando a consulta interativa no HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analise os dados do Twitter usando o Apache Hive no HDInsight](hdinsight-analyze-twitter-data-linux.md)

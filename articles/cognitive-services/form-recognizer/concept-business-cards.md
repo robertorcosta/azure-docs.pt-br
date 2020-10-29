@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334541"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909940"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartão de visita
 
@@ -385,7 +385,7 @@ Os dados extraídos com a API do cartão de negócios podem ser usados para exec
 * Mantenha o controle dos leads de vendas.  
 * Extraia informações de contato em massa de imagens de cartões de visita existentes. 
 
-A API do cartão de negócios também alimenta o [recurso de processamento do cartão de visita do AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
+A API do cartão de negócios também alimenta o [recurso de processamento do cartão de visita do AIBuilder](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 91be1c51639aa3ae8acbf0c37f5c4a8174b5a592
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 64b2955b1417d6931172b41f83f05d5f1b560708
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779434"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911878"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -76,7 +76,7 @@ Não, use as [instruções fornecidas pelo VMware](https://docs.vmware.com/en/VM
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>O VMware HCX tem suporte em VPNs?
 Não, devido aos requisitos de largura de banda e latência.
 
-#### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>A bastiões do Azure pode ser usada para conectar-se a VMs da AVS?
+#### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>A bastiões do Azure pode ser usada para conectar-se às VMs da solução Azure VMware?
 A bastiões do Azure é o serviço recomendado para se conectar à caixa de salto para evitar a exposição da solução Azure VMware à Internet. Você não pode usar a bastiões do Azure para se conectar às VMs da solução Azure VMware, pois elas não são objetos IaaS do Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Um gateway de ExpressRoute existente pode ser usado para se conectar à solução do Azure VMware?
