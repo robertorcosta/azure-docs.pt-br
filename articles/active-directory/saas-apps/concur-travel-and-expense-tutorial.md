@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 6797d169dbdfdd63ae9cc96ac9fed133bc8d1adc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 525c70c18354e35998e564680c68a975bdb3ec54
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544461"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455435"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Concur Travel and Expense
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o Concur Travel and Expense ao Azure
 * Permitir que os usuários sejam conectados automaticamente ao Concur Travel and Expense usando suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,15 +51,15 @@ Neste tutorial, você configurará e testará o SSO do Azure AD.
 Para configurar a integração do Concur Travel and Expense ao Azure AD, você precisará adicionar o Concur Travel and Expense por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Concur Travel and Expense** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
+1. Na seção **Adicionar por meio da galeria** , digite **Concur Travel and Expense** na caixa de pesquisa.
 1. Selecione **Concur Travel and Expense** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-concur-travel-and-expense"></a>Configurar e testar o logon único do Azure AD para o Concur Travel and Expense
 
-Configure e teste o SSO do Azure AD com o Concur Travel and Expense usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Concur Travel and Expense.
+Configure e teste o SSO do Azure AD com o Concur Travel and Expense usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Concur Travel and Expense.
 
 Para configurar e testar o SSO do Azure AD com o Concur Travel and Expense, conclua os seguintes blocos de construção:
 
@@ -74,22 +74,22 @@ Para configurar e testar o SSO do Azure AD com o Concur Travel and Expense, conc
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Concur Travel and Expense**, localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Concur Travel and Expense** , localize a seção **Gerenciar** e selecione **Logon único** .
+1. Na página **Selecionar um método de logon único** , escolha **SAML** .
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
+1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar** .
 
     > [!NOTE]
     > O Identificador (ID da Entidade) e a URL de Resposta (URL do Serviço do Consumidor de Declaração) são específicos da região. Selecione uma opção com base no datacenter de sua entidade do Concur. Caso não saiba o datacenter de sua entidade do Concur, contate o suporte do Concur. 
 
-5. Na página **Configurar o Logon Único com o SAML**, clique no ícone de edição/caneta de **Atributo de Usuário** para editar as configurações. O Identificador de Usuário Exclusivo precisa corresponder à login_id do usuário do Concur. Normalmente, é necessário alterar **user.userprincipalname** para **user.mail**.
+5. Na página **Configurar o Logon Único com o SAML** , clique no ícone de edição/caneta de **Atributo de Usuário** para editar as configurações. O Identificador de Usuário Exclusivo precisa corresponder à login_id do usuário do Concur. Normalmente, é necessário alterar **user.userprincipalname** para **user.mail** .
 
     ![Editar Atributo de Usuário](common/edit-attribute.png)
 
-6. Na página **Configurar logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar os metadados e salvá-los no computador.
+6. Na página **Configurar logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** e selecione **Baixar** para baixar os metadados e salvá-los no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -97,37 +97,37 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ela acesso ao Concur Travel and Expense.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione **Concur Travel and Expense**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
+1. Na lista de aplicativos, selecione **Concur Travel and Expense** .
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
 
 ## <a name="configure-concur-travel-and-expense-sso"></a>Configurar o SSO do Concur Travel and Expense
 
-1. Para configurar o logon único no lado do **Concur Travel and Expense**, é necessário fazer upload do **XML dos Metadados de Federação** baixado na [Ferramenta de Autoatendimento de SSO do Concur](https://www.concursolutions.com/nui/authadmin/ssoadmin) e fazer logon com uma conta com a função "Administrador da empresa". 
+1. Para configurar o logon único no lado do **Concur Travel and Expense** , é necessário fazer upload do **XML dos Metadados de Federação** baixado na [Ferramenta de Autoatendimento de SSO do Concur](https://www.concursolutions.com/nui/authadmin/ssoadmin) e fazer logon com uma conta com a função "Administrador da empresa". 
 
-1. Clique em **Adicionar**.
+1. Clique em **Adicionar** .
 1. Insira um nome personalizado para o IdP, por exemplo, "Azure AD (EUA)". 
 1. Clique em **Carregar Arquivo XML** e anexe **XML de Metadados de Federação** baixado anteriormente.
 1. Clique em **Adicionar Metadados** para salvar a alteração.
@@ -142,7 +142,7 @@ Nesta seção, você criará um usuário chamado B.Fernandes no Concur Travel an
 > A ID de logon do Concur de B.Fernandes precisa corresponder ao identificador exclusivo de B.Fernandes no Azure AD. Por exemplo, se o identificador exclusivo do Azure AD de B.Fernandes for `B.Simon@contoso.com`. A ID de logon do Concur de B.Fernandes precisará ser `B.Simon@contoso.com` também. 
 
 ## <a name="configure-concur-mobile-sso"></a>Configurar o SSO móvel do Concur
-Para habilitar o SSO móvel do Concur, você precisa fornecer à equipe de suporte do Concur a **URL de acesso do usuário**. Siga as etapas abaixo para obter a **URL de acesso do usuário** do Azure AD:
+Para habilitar o SSO móvel do Concur, você precisa fornecer à equipe de suporte do Concur a **URL de acesso do usuário** . Siga as etapas abaixo para obter a **URL de acesso do usuário** do Azure AD:
 1. Acesse **Aplicativos empresariais**
 1. Clique em **Concur Travel and Expense**
 1. Clique em **Propriedades**
@@ -155,15 +155,14 @@ Para habilitar o SSO móvel do Concur, você precisa fornecer à equipe de supor
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Concur Travel and Expense no Painel de Acesso, você deverá ser conectado automaticamente ao Concur Travel and Expense no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Concur Travel and Expense no Painel de Acesso, você deverá ser conectado automaticamente ao Concur Travel and Expense no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o Concur Travel and Expense com o Azure AD](https://aad.portal.azure.com/)
-
