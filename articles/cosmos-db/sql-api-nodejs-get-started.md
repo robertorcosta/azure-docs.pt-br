@@ -9,19 +9,19 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: 68a2d354c45820bc9f2b291701deb9066a745235
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297871"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477990"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Compilar um aplicativo de console do Node.js com o SDK do JavaScript para gerenciar dados da API de SQL do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Async Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Async Java](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
@@ -85,7 +85,7 @@ Agora que seu aplicativo existe, você precisa verificar se ele pode se comunica
 
 1. Abra o arquivo *config.js* no seu editor de texto favorito.
 
-1. Copie e cole o snippet de código a seguir no arquivo *config.js* e defina as propriedades `endpoint` e `key` para o URI do ponto de extremidade do Azure Cosmos DB e a chave primária. O banco de dados, os nomes de contêiner são definidos como **Tarefas** e **Itens**. A chave de partição que você usará para esse aplicativo será **/category**.
+1. Copie e cole o snippet de código a seguir no arquivo *config.js* e defina as propriedades `endpoint` e `key` para o URI do ponto de extremidade do Azure Cosmos DB e a chave primária. O banco de dados, os nomes de contêiner são definidos como **Tarefas** e **Itens** . A chave de partição que você usará para esse aplicativo será **/category** .
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
@@ -93,17 +93,17 @@ Agora que seu aplicativo existe, você precisa verificar se ele pode se comunica
 
    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Captura de tela de Obter chaves do portal do Azure":::
 
-O SDK do JavaScript usa os termos genéricos *contêiner* e *item*. Um contêiner pode ser uma coleção, um gráfico ou uma tabela. Um item pode ser um documento, borda/vértice ou linha e descreve o conteúdo do contêiner. No snippet de código anterior, o código de `module.exports = config;` é usado para exportar o objeto de configuração para que você possa referenciá-lo dentro do arquivo *app.js*.
+O SDK do JavaScript usa os termos genéricos *contêiner* e *item* . Um contêiner pode ser uma coleção, um gráfico ou uma tabela. Um item pode ser um documento, borda/vértice ou linha e descreve o conteúdo do contêiner. No snippet de código anterior, o código de `module.exports = config;` é usado para exportar o objeto de configuração para que você possa referenciá-lo dentro do arquivo *app.js* .
 
 ## <a name="create-a-database-and-a-container"></a>Criar um banco de dados e um contêiner
 
 1. Abra o arquivo do *databaseContext.js* em seu editor de texto favorito.
 
-1. Copie e cole o código a seguir no arquivo *databaseContext.js*. Esse código define uma função que criará o banco de dados "Tarefas", "Itens" e o contêiner se eles ainda não existirem na sua conta do Azure Cosmos:
+1. Copie e cole o código a seguir no arquivo *databaseContext.js* . Esse código define uma função que criará o banco de dados "Tarefas", "Itens" e o contêiner se eles ainda não existirem na sua conta do Azure Cosmos:
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/data/databaseContext.js" id="createDatabaseAndContainer":::
 
-   Um banco de dados é o contêiner lógico de itens particionados em contêineres. Você pode criar um banco de dados usando a `createIfNotExists` ou a função create da classe **Databases**. Um contêiner consiste em itens que, no caso da API do SQL, são documentos JSON. Você pode criar um contêiner usando a `createIfNotExists` ou a função create da classe **Containers**. Depois de criar um contêiner, você pode armazenar e consultar os dados.
+   Um banco de dados é o contêiner lógico de itens particionados em contêineres. Você pode criar um banco de dados usando a `createIfNotExists` ou a função create da classe **Databases** . Um contêiner consiste em itens que, no caso da API do SQL, são documentos JSON. Você pode criar um contêiner usando a `createIfNotExists` ou a função create da classe **Containers** . Depois de criar um contêiner, você pode armazenar e consultar os dados.
 
    > [!WARNING]
    > Criar um contêiner tem implicações de preço. Acesse nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o que esperar.
@@ -118,12 +118,12 @@ O SDK do JavaScript usa os termos genéricos *contêiner* e *item*. Um contêine
 
 ## <a name="connect-to-the-azure-cosmos-account"></a>Conectar-se a uma conta do Azure Cosmos
 
-No arquivo *app.js*, copie e cole o código a seguir para usar o ponto de extremidade e a chave salvos anteriormente para criar um objeto CosmosClient.
+No arquivo *app.js* , copie e cole o código a seguir para usar o ponto de extremidade e a chave salvos anteriormente para criar um objeto CosmosClient.
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> Caso esteja se conectando ao **Emulador do Cosmos DB**, desabilite a verificação de TLS para o processo do nó:
+> Caso esteja se conectando ao **Emulador do Cosmos DB** , desabilite a verificação de TLS para o processo do nó:
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -151,13 +151,13 @@ Um item pode ser criado usando a função create da classe `Items`. Se você est
 
 ## <a name="update-an-item"></a><a id="ReplaceItem"></a>Atualizar um item
 
-O Azure Cosmos DB é compatível com a substituição de conteúdo dos itens. Copie e cole o código a seguir no arquivo *app.js*. Esse código obtém um item do contêiner e atualiza o campo *isComplete* como true.
+O Azure Cosmos DB é compatível com a substituição de conteúdo dos itens. Copie e cole o código a seguir no arquivo *app.js* . Esse código obtém um item do contêiner e atualiza o campo *isComplete* como true.
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="UpdateItem":::
 
 ## <a name="delete-an-item"></a><a id="DeleteItem"></a>Excluir um item
 
-O Azure Cosmos DB é compatível com a exclusão de itens JSON. O código a seguir mostra como obter um item por sua ID e excluí-lo. Copie e cole o código a seguir no arquivo *app.js*:
+O Azure Cosmos DB é compatível com a exclusão de itens JSON. O código a seguir mostra como obter um item por sua ID e excluí-lo. Copie e cole o código a seguir no arquivo *app.js* :
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="DeleteItem":::
 
@@ -221,6 +221,6 @@ Quando esses recursos já não forem necessários, você poderá excluir o grupo
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Monitorar uma conta do Azure Cosmos DB](monitor-accounts.md)
+> [Monitorar uma conta do Azure Cosmos DB](./monitor-cosmos-db.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account

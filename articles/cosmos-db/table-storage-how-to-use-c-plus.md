@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: ed3ea64bf76eafd965e13f4dab1911840ed8139a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282843"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477327"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com C++
 
@@ -78,7 +78,7 @@ Este exemplo mostra como declarar um campo estático para armazenar a cadeia de 
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Use o nome de sua Conta de armazenamento para `<your_storage_account>`. Para <chave_da_conta_de_armazenamento>, use a chave de acesso da Conta de armazenamento listada no [portal do Azure](https://portal.azure.com). Para obter informações sobre Contas de armazenamento e chaves de acesso, confira [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
+Use o nome de sua Conta de armazenamento para `<your_storage_account>`. Para <chave_da_conta_de_armazenamento>, use a chave de acesso da Conta de armazenamento listada no [portal do Azure](https://portal.azure.com). Para obter informações sobre Contas de armazenamento e chaves de acesso, confira [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Configurar uma cadeia de conexão do Azure Cosmos DB
 
@@ -98,7 +98,7 @@ Para testar o seu aplicativo no computador local baseado em Windows, você pode 
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Para iniciar o Emulador de Armazenamento do Azure, na sua área de trabalho do Windows, selecione o botão **Iniciar** ou a tecla Windows. Insira e execute o *Emulador de Armazenamento do Microsoft Azure*. Para saber mais, confira [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
+Para iniciar o Emulador de Armazenamento do Azure, na sua área de trabalho do Windows, selecione o botão **Iniciar** ou a tecla Windows. Insira e execute o *Emulador de Armazenamento do Microsoft Azure* . Para saber mais, confira [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Recuperar sua cadeia de conexão
 
@@ -138,7 +138,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade a uma tabela, crie um objeto `table_entity` e passe-o para `table_operation::insert_entity`. O código a seguir usa o primeiro nome do cliente como a chave de linha e o último nome como a chave de partição. Juntas, uma chave de partição e uma chave de linha identificam exclusivamente a entidade na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rápido do que aquelas com chaves de partição diferentes. O uso de diversas chaves de partição permite uma maior escalabilidade de operação paralela. Para obter mais informações, veja [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](../storage/common/storage-performance-checklist.md).
+Para adicionar uma entidade a uma tabela, crie um objeto `table_entity` e passe-o para `table_operation::insert_entity`. O código a seguir usa o primeiro nome do cliente como a chave de linha e o último nome como a chave de partição. Juntas, uma chave de partição e uma chave de linha identificam exclusivamente a entidade na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rápido do que aquelas com chaves de partição diferentes. O uso de diversas chaves de partição permite uma maior escalabilidade de operação paralela. Para obter mais informações, veja [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](../storage/blobs/storage-performance-checklist.md).
 
 O código a seguir cria uma instância de `table_entity` com alguns dados do cliente a serem armazenados. O próximo código chama `table_operation::insert_entity` para criar um objeto `table_operation` a fim de inserir uma entidade em uma tabela e associa a nova entidade de tabela a ele. Por fim, o código chama o método `execute` no objeto `cloud_table`. A nova `table_operation` envia uma solicitação ao serviço Tabela para inserir a nova entidade de cliente na tabela `people`.  
 
@@ -499,11 +499,11 @@ else
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Para o Visual Studio Community Edition, se seu projeto receber erros de build por causa dos arquivos de inclusão *storage_account.h* e *table.h*, remova o comutador do compilador **/permissive-** :
+Para o Visual Studio Community Edition, se seu projeto receber erros de build por causa dos arquivos de inclusão *storage_account.h* e *table.h* , remova o comutador do compilador **/permissive-** :
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu projeto e selecione **Propriedades**.
-1. Na caixa de diálogo **Páginas de propriedade**, expanda **Propriedades de configuração**, expanda **C/C++** e selecione **Linguagem**.
-1. Defina o **Modo de conformidade** para **Não**.
+1. No **Gerenciador de Soluções** , clique com o botão direito do mouse no seu projeto e selecione **Propriedades** .
+1. Na caixa de diálogo **Páginas de propriedade** , expanda **Propriedades de configuração** , expanda **C/C++** e selecione **Linguagem** .
+1. Defina o **Modo de conformidade** para **Não** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

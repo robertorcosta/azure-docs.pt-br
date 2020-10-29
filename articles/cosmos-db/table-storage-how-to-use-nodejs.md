@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318765"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477276"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como usar o Armazenamento de Tabelas do Azure e a API da Tabela do Azure Cosmos DB do Node.js
 
@@ -115,7 +115,7 @@ Você pode aplicar uma filtragem opcional às operações executadas usando `Tab
 function handle (requestOptions, next)
 ```
 
-Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar **next**, passando um retorno de chamada com a assinatura abaixo:
+Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar **next** , passando um retorno de chamada com a assinatura abaixo:
 
 ```javascript
 function (returnObject, finalCallback, next)
@@ -132,12 +132,12 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade, primeiro crie um objeto que defina as propriedades da entidade. Todas as entidades devem conter uma **PartitionKey** e **RowKey**, que são identificadores exclusivos da entidade.
+Para adicionar uma entidade, primeiro crie um objeto que defina as propriedades da entidade. Todas as entidades devem conter uma **PartitionKey** e **RowKey** , que são identificadores exclusivos da entidade.
 
 * **PartitionKey** - determina a partição na qual a entidade está armazenada.
 * **RowKey** - identifica exclusivamente a entidade dentro da partição.
 
-Ambas, **PartitionKey** e **RowKey**, devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Ambas, **PartitionKey** e **RowKey** , devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 A seguir, um exemplo de definição de uma entidade. O **dueDate** é definido como um tipo de `Edm.DateTime`. A especificação do tipo é opcional, e os tipos são inferidos, se não forem especificados.
 
@@ -268,7 +268,7 @@ Inspecione as operações adicionadas a um lote exibindo a propriedade `operatio
 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperar uma entidade por chave
 
-Para retornar uma entidade específica com base em **PartitionKey** e **RowKey**, use o método **retrieveEntity**.
+Para retornar uma entidade específica com base em **PartitionKey** e **RowKey** , use o método **retrieveEntity** .
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -299,7 +299,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Como **select** não é usado, todos os campos retornam. Para realizar a consulta em uma tabela, use **queryEntities**. O exemplo a seguir usa essa consulta para retornar entidades de 'mytable'.
+Como **select** não é usado, todos os campos retornam. Para realizar a consulta em uma tabela, use **queryEntities** . O exemplo a seguir usa essa consulta para retornar entidades de 'mytable'.
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -309,12 +309,12 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 });
 ```
 
-Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que correspondem à consulta. Se a consulta não tiver sido capaz de retornar todas as entidades, `result.continuationToken` não será*null* e poderá ser usado como terceiro parâmetro de **queryEntities** para recuperar mais resultados. Para a consulta inicial, use *null* como o terceiro parâmetro.
+Se for bem-sucedido, `result.entries` conterá uma matriz de entidades que correspondem à consulta. Se a consulta não tiver sido capaz de retornar todas as entidades, `result.continuationToken` não será *null* e poderá ser usado como terceiro parâmetro de **queryEntities** para recuperar mais resultados. Para a consulta inicial, use *null* como o terceiro parâmetro.
 
 ### <a name="query-a-subset-of-entity-properties"></a>consultar um subconjunto de propriedades da entidade
 
 Uma consulta a uma tabela pode recuperar apenas alguns campos de uma entidade.
-Isso reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula **select** e transmita os nomes dos campos a serem retornados. Por exemplo, a consulta a seguir retorna apenas os campos **description** e **dueDate**.
+Isso reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula **select** e transmita os nomes dos campos a serem retornados. Por exemplo, a consulta a seguir retorna apenas os campos **description** e **dueDate** .
 
 ```javascript
 var query = new azure.TableQuery()
@@ -357,7 +357,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Se você não tiver certeza de que a tabela existe, use **deleteTableIfExists**.
+Se você não tiver certeza de que a tabela existe, use **deleteTableIfExists** .
 
 ## <a name="use-continuation-tokens"></a>Usar tokens de continuação
 
@@ -455,7 +455,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-O exemplo a seguir obtém a ACL atual para a tabela **hometasks** e adiciona as novas políticas usando **setTableAcl**. Essa abordagem permite:
+O exemplo a seguir obtém a ACL atual para a tabela **hometasks** e adiciona as novas políticas usando **setTableAcl** . Essa abordagem permite:
 
 ```javascript
 var extend = require('extend');
@@ -483,6 +483,6 @@ Para obter mais informações, consulte os recursos a seguir.
 
 * [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 * Repositório [SDK do Armazenamento do Azure para Node.js](https://github.com/Azure/azure-storage-node) no GitHub.
-* [Desenvolvedores do Azure para Node.js](https://docs.microsoft.com/azure/developer/javascript/)
+* [Desenvolvedores do Azure para Node.js](/azure/developer/javascript/)
 * [Criar um aplicativo Web do Node.js no Azure](../app-service/quickstart-nodejs.md)
 * [Criar e implantar um aplicativo Node.js para um serviço de nuvem do AzureServiço de nuvem do Node.js](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando o Windows PowerShell)
