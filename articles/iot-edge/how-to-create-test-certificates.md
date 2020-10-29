@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147880"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927695"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar recursos do dispositivo do IoT Edge
 
@@ -163,7 +163,7 @@ Antes de prosseguir com as etapas nesta seção, siga as etapas na seção [Conf
    New-CACertsCertChain rsa
    ```
 
-   Esse comando de script cria vários arquivos de certificado e de chave, mas quando os artigos solicitam o **certificado de autoridade de certificação raiz**, use o seguinte arquivo:
+   Esse comando de script cria vários arquivos de certificado e de chave, mas quando os artigos solicitam o **certificado de autoridade de certificação raiz** , use o seguinte arquivo:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,7 +177,7 @@ Antes de prosseguir com as etapas nesta seção, siga as etapas na seção [Conf
    ./certGen.sh create_root_and_intermediate
    ```
 
-   Esse comando de script cria vários arquivos de certificado e de chave, mas quando os artigos solicitam o **certificado de autoridade de certificação raiz**, use o seguinte arquivo:
+   Esse comando de script cria vários arquivos de certificado e de chave, mas quando os artigos solicitam o **certificado de autoridade de certificação raiz** , use o seguinte arquivo:
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
@@ -255,7 +255,7 @@ O nome passado para o comando **New-CACertsEdgeDevice** não deve ser o mesmo qu
 2. Crie o certificado de autoridade de certificação do dispositivo IoT Edge e a chave privada com o comando a seguir. Forneça um nome para o certificado de autoridade de certificação.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    Esse comando de script cria vários arquivos de certificado e chave. O seguinte certificado e par de chaves precisam ser copiados para um dispositivo IoT Edge e referenciados no arquivo config. YAML:
@@ -263,7 +263,7 @@ O nome passado para o comando **New-CACertsEdgeDevice** não deve ser o mesmo qu
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-O nome passado para o comando **create_edge_device_certificate** não deve ser o mesmo que o parâmetro HostName em config. YAML, ou a ID do dispositivo no Hub IOT.
+O nome passado para o comando **create_edge_device_ca_certificate** não deve ser o mesmo que o parâmetro HostName em config. YAML, ou a ID do dispositivo no Hub IOT.
 
 ## <a name="create-downstream-device-certificates"></a>Criar certificados de dispositivo downstream
 

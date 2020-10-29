@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143737"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927899"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de Azure Monitor pastas de trabalho
 
@@ -77,7 +77,7 @@ As pastas de trabalho dão suporte à obtenção do Azure Resource Health e à c
 
 Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa **tipo de consulta** para escolher a integridade do Azure e selecione os recursos para direcionar. Use os menus suspensos de filtro de integridade para selecionar um subconjunto interessante de problemas de recursos para suas necessidades analíticas.
 
-![Captura de tela da consulta de alertas](./media/workbooks-overview/resource-health.png)
+![Captura de tela da consulta de alertas que mostra as listas de filtros de integridade.](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -100,7 +100,7 @@ Para fazer com que um controle de consulta Use essa fonte de dados, use a lista 
 
 As pastas de trabalho dão suporte à obtenção de dados de qualquer fonte externa. Se seus dados estiverem fora do Azure, você poderá colocá-los em pastas de trabalho usando esse tipo de fonte de dados.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa _fonte de dados_ para escolher _ponto de extremidade personalizado_. Forneça os parâmetros apropriados, como `Http method` , `url` , `headers` `url parameters` e/ou `body` . Verifique se a fonte de dados dá suporte a [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) , caso contrário, a solicitação falhará.
+Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa _fonte de dados_ para escolher _ponto de extremidade personalizado_ . Forneça os parâmetros apropriados, como `Http method` , `url` , `headers` `url parameters` e/ou `body` . Verifique se a fonte de dados dá suporte a [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) , caso contrário, a solicitação falhará.
 
 Para evitar fazer chamadas automaticamente para hosts não confiáveis ao usar modelos, o usuário precisa marcar os hosts usados como confiáveis. Isso pode ser feito clicando no botão _Adicionar como confiável_ ou adicionando-o como um host confiável nas configurações da pasta de trabalho. Essas configurações serão salvas em navegadores que dão suporte a IndexDb com Web Workers, mais informações [aqui](https://caniuse.com/#feat=indexeddb).
 

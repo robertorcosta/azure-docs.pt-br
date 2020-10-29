@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611513"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927916"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos do sistema operacional efêmero para VMs do Azure
 
@@ -34,15 +34,16 @@ Principais diferenças entre discos do sistema operacional persistentes e efême
 
 |                             | Disco do so persistente                          | Disco do SO Efêmero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Limite de tamanho para o disco do sistema operacional**      | 2 TiB                                                                                        | Tamanho do cache para o tamanho da VM ou 2TiB, o que for menor. Para o **tamanho do cache em GIB**, consulte [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
-| **Tamanhos de VM com suporte**          | Todos                                                                                          | Tamanhos de VM que dão suporte ao armazenamento Premium, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| **Limite de tamanho para o disco do sistema operacional**      | 2 TiB                                                                                        | Tamanho do cache para o tamanho da VM ou 2TiB, o que for menor. Para o **tamanho do cache em GIB** , consulte [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
+| **Tamanhos de VM com suporte**          | Tudo                                                                                          | Tamanhos de VM que dão suporte ao armazenamento Premium, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | **Suporte a tipo de disco**           | Disco do sistema operacional gerenciado e não gerenciado                                                                | Somente disco do sistema operacional gerenciado                                                               |
 | **Suporte de regiões**              | Todas as regiões                                                                                  | Todas as regiões                              |
 | **Persistência de dados**            | Os dados do disco do sistema operacional gravados no disco do sistema operacional são armazenados no armazenamento do Azure                                  | Os dados gravados no disco do sistema operacional são armazenados no armazenamento da VM local e não são persistidos no armazenamento do Azure. |
 | **Estado de parada desalocada**      | As VMs e as instâncias do conjunto de dimensionamento podem ser interrompidas e reiniciadas a partir do estado de parada/desalocada | VMs e instâncias do conjunto de dimensionamento não podem ser interrompidas-desalocadas                                  |
 | **Suporte a disco do so especializado** | Sim                                                                                          | Não                                                                                 |
 | **Redimensionamento de disco do so**              | Com suporte durante a criação da VM e depois que a VM é parada-desalocada                                | Com suporte somente durante a criação da VM                                                  |
-| **Redimensionando para um novo tamanho de VM**   | OS dados do disco do sistema operacional são preservados                                                                    | Os dados no disco do sistema operacional são excluídos, o sistema operacional é reprovisionado                                      |
+| **Redimensionando para um novo tamanho de VM**   | OS dados do disco do sistema operacional são preservados                                                                    | Os dados no disco do sistema operacional são excluídos, o sistema operacional é reprovisionado       
+| **Posicionamento do arquivo de paginação**   | Para o Windows, o arquivo de paginação é armazenado no disco de recursos                                              | Para o Windows, o arquivo de paginação é armazenado no disco do sistema operacional   |
 
 ## <a name="size-requirements"></a>Requisitos de tamanho
 
@@ -87,13 +88,13 @@ Para conjuntos de dimensionamento, use o mesmo `--ephemeral-os-disk true` parâm
 
 ## <a name="portal"></a>Portal   
 
-No portal do Azure, você pode optar por usar discos efêmeros ao implantar uma VM abrindo a seção **avançada** da guia **discos** . Para **usar disco do sistema operacional efêmero** , selecione **Sim**.
+No portal do Azure, você pode optar por usar discos efêmeros ao implantar uma VM abrindo a seção **avançada** da guia **discos** . Para **usar disco do sistema operacional efêmero** , selecione **Sim** .
 
 ![Captura de tela mostrando o botão de opção para escolher usar um disco do sistema operacional efêmero](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
 
 Se a opção para usar um disco efêmero estiver esmaecida, você poderá ter selecionado um tamanho de VM que não tenha um tamanho de cache maior do que a imagem do sistema operacional ou que não dê suporte ao armazenamento Premium. Volte para a página **noções básicas** e tente escolher outro tamanho de VM.
 
-Você também pode criar conjuntos de dimensionamento com discos do sistema operacional efêmero usando o Portal. Apenas certifique-se de selecionar um tamanho de VM com tamanho de cache grande o suficiente e, em seguida, em **usar disco do so efêmero** , selecione **Sim**.
+Você também pode criar conjuntos de dimensionamento com discos do sistema operacional efêmero usando o Portal. Apenas certifique-se de selecionar um tamanho de VM com tamanho de cache grande o suficiente e, em seguida, em **usar disco do so efêmero** , selecione **Sim** .
 
 ![Captura de tela mostrando o botão de opção para escolher usar um disco do so efêmero para seu conjunto de dimensionamento](./media/virtual-machines-common-ephemeral/scale-set.png)
 

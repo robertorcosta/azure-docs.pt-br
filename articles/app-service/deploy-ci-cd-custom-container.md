@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961849"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928001"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implantação contínua com o Aplicativo Web para Contêineres
 
@@ -26,7 +26,7 @@ Neste tutorial, você configura a implantação contínua para uma imagem de con
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione a opção **Serviço de aplicativo do Azure** no lado esquerdo da página.
 3. Selecione o nome do aplicativo para o qual você deseja configurar a implantação contínua.
-4. Na página **Configurações do Contêiner**, selecione **Contêiner Único**
+4. Na página **Configurações do Contêiner** , selecione **Contêiner Único**
 5. Selecione **Registro de Contêiner do Azure**
 6. Selecione **Implantação contínua > em**
 7. Selecione **Salvar** para ativar a implantação contínua.
@@ -35,7 +35,7 @@ Neste tutorial, você configura a implantação contínua para uma imagem de con
 
 Depois que a Implantação Contínua tiver sido habilitada, você poderá exibir o webhook recém-criado na página de webholes do Registro de Contêiner do Azure.
 
-![Captura de tela de ACR webhook](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Captura de tela que mostra onde você pode exibir o webhook recém-criado em sua página WebHooks do registro de contêiner do Azure.](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 No seu Registro de Contêiner, clique em Webhooks para visualizar os webhooks atuais.
 
@@ -44,7 +44,7 @@ No seu Registro de Contêiner, clique em Webhooks para visualizar os webhooks at
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione a opção **Serviço de aplicativo do Azure** no lado esquerdo da página.
 3. Selecione o nome do aplicativo para o qual você deseja configurar a implantação contínua.
-4. Na página **Configurações do Contêiner**, selecione **Contêiner Único**
+4. Na página **Configurações do Contêiner** , selecione **Contêiner Único**
 5. Selecione **Hub do Docker**
 6. Selecione **Implantação contínua > em**
 7. Selecione **Salvar** para ativar a implantação contínua.

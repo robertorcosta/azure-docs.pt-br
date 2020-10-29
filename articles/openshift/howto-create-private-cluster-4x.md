@@ -8,12 +8,12 @@ author: georgewallace
 ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3864d48399f00d5cfbdfa0a94939be0d88a73322
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737214"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928052"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um cluster privado do Red Hat OpenShift 4 no Azure
 
@@ -229,7 +229,7 @@ Você pode encontrar a URL do console de cluster executando o comando a seguir, 
 
 Inicie a URL do console em um navegador e faça logon usando as credenciais `kubeadmin`.
 
-![Tela de logon do Red Hat OpenShift no Azure](media/aro4-login.png)
+![Instantâneo que mostra a tela de logon do Azure Red Hat OpenShift.](media/aro4-login.png)
 
 ## <a name="install-the-openshift-cli"></a>Instalar a CLI do OpenShift
 

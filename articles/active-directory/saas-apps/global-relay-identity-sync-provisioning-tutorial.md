@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900291"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927984"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: configurar a sincronização de identidade de retransmissão global para provisionamento automático de usuário
 
@@ -33,6 +33,10 @@ Este tutorial descreve as etapas que você precisa executar tanto na sincroniza�
 > * Remover usuários na sincronização de identidade de retransmissão global quando eles não exigem mais acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e a sincronização de identidade de retransmissão global
 > * Provisionar grupos e associações de grupo na sincronização de identidade de retransmissão global
+
+
+> [!NOTE]
+> O conector de provisionamento de sincronização de identidade de retransmissão global utiliza um método de autorização SCIM que não é mais suportado devido a questões de segurança. Os esforços estão em andamento com a retransmissão global para mudar para um método de autorização mais seguro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

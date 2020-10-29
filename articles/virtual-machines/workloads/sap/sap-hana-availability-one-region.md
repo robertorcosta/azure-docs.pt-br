@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978196"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927763"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade do SAP HANA em uma região do Azure
 Este artigo descreve vários cenários de disponibilidade em uma região do Azure. O Azure tem várias regiões, distribuídas em todo o mundo. Para obter a lista de regiões do Azure, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). Para implantar SAP HANA em VMs em uma região do Azure, a Microsoft oferece a implantação de uma única VM com uma instância do HANA. Para maior disponibilidade, você pode implantar duas VMs com duas instâncias do HANA dentro de um [Conjunto de disponibilidade do Azure](../../windows/tutorial-availability-sets.md) use replicação de sistema do HANA para disponibilidade. 
@@ -78,7 +78,7 @@ Uma das configurações mais rudimentares é o uso de backups. Em particular, vo
 
 A arquitetura é semelhante ao:
 
-![Diagrama de duas VMs com a replicação de armazenamento](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagrama que mostra a arquitetura de duas VMs com replicação de armazenamento.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 Essa configuração não é adequada para alcançar excelentes tempos de RPO (objetivo de ponto de recuperação) e RTO (objetivo de tempo de recuperação). Os tempos RTO seriam especialmente afetados devido à necessidade de restaurar completamente todo o banco de dados usando os backups copiados. No entanto, essa configuração é útil para recuperação após a exclusão não intencional de dados nas instâncias principais. Com essa configuração, é possível a qualquer momento restaurar para um determinado ponto no tempo, extrair os dados e importar os dados excluídos para sua instância principal. Portanto, pode fazer sentido usar um método de cópia de backup em combinação com outros recursos de alta disponibilidade. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425346"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928086"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação segura na Central de Segurança do Azure
 
@@ -29,7 +29,7 @@ A central de segurança do Azure tem dois objetivos principais:
 - para ajudá-lo a entender sua situação de segurança atual
 - para ajudá-lo a melhorar sua segurança de forma eficiente e eficaz
 
-O recurso central na central de segurança que permite alcançar essas metas é a **Pontuação segura**.
+O recurso central na central de segurança que permite alcançar essas metas é a **Pontuação segura** .
 
 A Central de Segurança avalia continuamente seus recursos, suas assinaturas e a organização em busca de problemas de segurança. Em seguida, ele agrega todas as conclusões em uma única pontuação para que você possa ver, rapidamente, sua situação de segurança atual: quanto maior a pontuação, menor o nível de risco identificado.
 
@@ -39,7 +39,7 @@ A pontuação segura é mostrada na portal do Azure páginas como um valor perce
 
 Para aumentar sua segurança, examine a página recomendações da central de segurança para as ações pendentes necessárias para aumentar sua pontuação. Cada recomendação inclui instruções para ajudá-lo a corrigir o problema específico.
 
-As recomendações são agrupadas em **controles de segurança**. Cada controle é um grupo lógico de recomendações de segurança relacionadas e reflete as superfícies de ataque vulneráveis. Sua pontuação só melhora quando você corrige *todas* as recomendações para um único recurso dentro de um controle. Para ver como sua organização está protegendo cada superfície de ataque individual, examine as pontuações de cada controle de segurança.
+As recomendações são agrupadas em **controles de segurança** . Cada controle é um grupo lógico de recomendações de segurança relacionadas e reflete as superfícies de ataque vulneráveis. Sua pontuação só melhora quando você corrige *todas* as recomendações para um único recurso dentro de um controle. Para ver como sua organização está protegendo cada superfície de ataque individual, examine as pontuações de cada controle de segurança.
 
 Para obter mais informações, consulte [como sua pontuação segura é calculada](secure-score-security-controls.md#how-your-secure-score-is-calculated) abaixo. 
 
@@ -88,7 +88,7 @@ O grafo de recursos do Azure fornece acesso instantâneo a informações de recu
 
 Para acessar a pontuação segura para várias assinaturas com ARG:
 
-1. No portal do Azure, abra o **Gerenciador de grafo de recursos do Azure**.
+1. No portal do Azure, abra o **Gerenciador de grafo de recursos do Azure** .
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Pontuação segura geral, conforme mostrado no portal" :::
 
@@ -112,7 +112,7 @@ Para acessar a pontuação segura para várias assinaturas com ARG:
         | project SecureControl , unhealthy, currentscore, maxscore
         ```
 
-1. Selecione **Executar consulta**.
+1. Selecione **Executar consulta** .
 
 ## <a name="how-your-secure-score-is-calculated"></a>Como sua pontuação segura é calculada 
 
@@ -162,6 +162,14 @@ Outra maneira de melhorar sua pontuação e garantir que os usuários não criem
 
 A tabela a seguir lista os controles de segurança na Central de Segurança do Azure. Para cada controle, é possível ver o número máximo de pontos que você poderá adicionar à sua pontuação segura se corrigir *todas* as recomendações listadas no controle, para *todos* os seus recursos. 
 
+O conjunto de recomendações de segurança fornecido com a central de segurança é adaptado aos recursos disponíveis no ambiente de cada organização. As recomendações podem ser personalizadas ainda mais com a [desabilitação de políticas](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) e [a isenção de recursos específicos de uma recomendação](exempt-resource.md). 
+ 
+Recomendamos que cada organização revise cuidadosamente suas iniciativas de Azure Policy atribuídas. 
+
+> [!TIP]
+> Para obter detalhes sobre como revisar e editar suas iniciativas, consulte [trabalhando com políticas de segurança](tutorial-security-policy.md). 
+
+Embora a iniciativa de segurança padrão da central de segurança seja baseada em padrões e práticas recomendadas do setor, há cenários em que as recomendações internas listadas abaixo podem não se ajustar completamente à sua organização. Consequentemente, às vezes, será necessário ajustar a iniciativa padrão-sem comprometer a segurança-para garantir que ela esteja alinhada com as políticas próprias da sua organização. padrões do setor, padrões regulatórios e benchmarks que você está obrigada a atender.<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>

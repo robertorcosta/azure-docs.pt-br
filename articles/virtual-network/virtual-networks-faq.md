@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7ab9b5166aab07e0629cdd280f8cdccbd0702c99
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518000"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927712"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -123,8 +123,8 @@ Não. A rede virtual é limitada a uma única região. Todavia, uma rede virtual
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Posso conectar uma rede virtual a outra rede virtual no Azure?
 Sim. É possível conectar uma VNet a outra VNet, utilizando:
-- **Emparelhamento de rede virtual**: para obter detalhes, consulte [Visão geral do emparelhamento de VNet](virtual-network-peering-overview.md)
-- **Um Gateway de VPN do Azure**: Para obter detalhes, consulte [Configurar uma conexão VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Emparelhamento de rede virtual** : para obter detalhes, consulte [Visão geral do emparelhamento de VNet](virtual-network-peering-overview.md)
+- **Um Gateway de VPN do Azure** : Para obter detalhes, consulte [Configurar uma conexão VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Resolução de nomes (DNS)
 
@@ -159,10 +159,10 @@ Sim. Todas as interfaces de rede (NIC) anexadas a uma VM implantada por meio do 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Quais são os diferentes tipos de endereços IP que posso atribuir a VMs?
 * **Privado:** atribuído a cada NIC em cada VM. O endereço é atribuído usando o método estático ou dinâmico. Os endereços IP privados são atribuídos do intervalo que você especificou nas configurações de sub-rede da VNet. Recursos implantados por meio do modelo de implantação clássico recebem endereços IP privados mesmo que não estejam conectados a uma VNet. O comportamento do método de alocação é diferente, dependendo se um recurso foi implantado com o modelo de implantação do Azure Resource Manager ou clássico: 
 
-  - **Azure Resource Manager**: um endereço IP privado atribuído com o método dinâmico ou estático permanece atribuído a uma máquina virtual (Gerenciador de Recursos) até que o recurso seja excluído. A diferença é que você seleciona o endereço a ser atribuído quando usar estático e o Azure escolhe quando usar dinâmico. 
-  - **Clássico**: um endereço IP privado atribuído com o método dinâmico poderá alterar quando uma VM da máquina virtual (clássica) é reiniciada após ter ficado no estado parado (desalocado). Se você precisar garantir que o endereço IP privado de um recurso implantado através do modelo de implantação clássico nunca altere, atribua um endereço IP privado com o método estático.
+  - **Azure Resource Manager** : um endereço IP privado atribuído com o método dinâmico ou estático permanece atribuído a uma máquina virtual (Gerenciador de Recursos) até que o recurso seja excluído. A diferença é que você seleciona o endereço a ser atribuído quando usar estático e o Azure escolhe quando usar dinâmico. 
+  - **Clássico** : um endereço IP privado atribuído com o método dinâmico poderá alterar quando uma VM da máquina virtual (clássica) é reiniciada após ter ficado no estado parado (desalocado). Se você precisar garantir que o endereço IP privado de um recurso implantado através do modelo de implantação clássico nunca altere, atribua um endereço IP privado com o método estático.
 
-* **Público:** opcionalmente atribuído a NICs anexadas a VMs implantadas por meio do modelo de implantação do Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estática ou dinâmica. Todas as instâncias de função de VMs e Serviços de Nuvem implantadas por meio do modelo de implantação clássico existem dentro de um serviço de nuvem, ao qual é atribuído um endereço IP endereço virtual IP (VIP) *dinâmico* e público. Um endereço IP público e *estático*, chamado de [endereço IP Reservado](virtual-networks-reserved-public-ip.md), pode ser atribuído como VIP. Você pode atribuir endereços IP públicos a instâncias de função de VMs ou serviços de nuvem individuais implantados por meio do modelo de implantação clássico. Eles são chamados de [endereços IP públicos em nível de instância (ILPIP)](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
+* **Público:** opcionalmente atribuído a NICs anexadas a VMs implantadas por meio do modelo de implantação do Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estática ou dinâmica. Todas as instâncias de função de VMs e Serviços de Nuvem implantadas por meio do modelo de implantação clássico existem dentro de um serviço de nuvem, ao qual é atribuído um endereço IP endereço virtual IP (VIP) *dinâmico* e público. Um endereço IP público e *estático* , chamado de [endereço IP Reservado](virtual-networks-reserved-public-ip.md), pode ser atribuído como VIP. Você pode atribuir endereços IP públicos a instâncias de função de VMs ou serviços de nuvem individuais implantados por meio do modelo de implantação clássico. Eles são chamados de [endereços IP públicos em nível de instância (ILPIP)](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Posso reservar um endereço IP privado para uma VM que vou criar mais tarde?
 Não. Não é possível reservar um endereço IP privado. Se um endereço IP privado estiver disponível, será atribuído a uma VM ou instância de função pelo servidor DHCP. A VM pode ou não ser aquela à qual você deseja que o endereço IP privado seja atribuído. No entanto, você pode alterar o endereço IP privado de uma VM já criada para qualquer endereço IP privado disponível.
@@ -228,6 +228,9 @@ Sim. Você pode implantar [dispositivos virtuais de rede de firewall](https://az
 ### <a name="is-there-information-available-about-securing-vnets"></a>Existem informações disponíveis sobre como proteger redes virtuais?
 Sim. Para obter detalhes, consulte [Visão geral da segurança de rede do Azure](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### <a name="do-virtual-networks-store-customer-data"></a>As redes virtuais armazenam dados do cliente?
+Não. As redes virtuais não armazenam nenhum dado do cliente. 
+
 ## <a name="apis-schemas-and-tools"></a>APIs, esquemas e ferramentas
 
 ### <a name="can-i-manage-vnets-from-code"></a>Posso gerenciar redes virtuais usando código?
@@ -267,10 +270,10 @@ Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>É possível habilitar emparelhamento VNet se as redes virtuais pertencerem a assinaturas em diferentes locatários do Azure Active Directory?
 Sim. É possível estabelecer Emparelhamento de VNet (local ou global) se as assinaturas pertencerem a diferentes locatários do Azure Active Directory. Você pode fazer isso por meio do portal, do PowerShell ou da CLI.
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>A conexão de emparelhamento VNet está no estado *Iniciado*, por que não consigo conectar?
-Se a conexão de emparelhamento estiver em um estado *iniciado* , isso significa que você criou apenas um link. Um link bidirecional deve ser criado para estabelecer uma conexão com êxito. Por exemplo, para emparelhar VNet A a VNet B, um vínculo deve ser criado da VNetA para VNetB e da VNetB para VNetA. A criação de ambos os links alterará o estado para *conectado*.
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>A conexão de emparelhamento VNet está no estado *Iniciado* , por que não consigo conectar?
+Se a conexão de emparelhamento estiver em um estado *iniciado* , isso significa que você criou apenas um link. Um link bidirecional deve ser criado para estabelecer uma conexão com êxito. Por exemplo, para emparelhar VNet A a VNet B, um vínculo deve ser criado da VNetA para VNetB e da VNetB para VNetA. A criação de ambos os links alterará o estado para *conectado* .
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Minha conexão de emparelhamento VNet está no estado *Desconectado*, por que não consigo criar uma conexão de emparelhamento?
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Minha conexão de emparelhamento VNet está no estado *Desconectado* , por que não consigo criar uma conexão de emparelhamento?
 Se a conexão de emparelhamento VNet estiver em um estado *desconectado* , isso significará que um dos links criados foi excluído. Para restabelecer uma conexão de emparelhamento, será necessário excluir o link e recriá-lo.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>Eu posso emparelhar minha VNet com uma VNet em uma assinatura diferente?
@@ -331,7 +334,7 @@ A primeira etapa é uma operação de rede; a segunda é uma operação do recur
 >[!NOTE]
 > As duas operações descritas anteriormente precisam ser concluídas antes de limitar o acesso ao serviço do Azure para a VNet e a sub-rede permitidas. Ativar somente os pontos de extremidade de serviço do Azure na rede não oferece acesso limitado. Além disso, também é necessário configurar as ACLs da VNet no serviço do Azure.
 
-Determinados serviços (como SQL e CosmosDB) permitem exceções à sequência acima por meio do sinalizador **IgnoreMissingVnetServiceEndpoint** . Depois que o sinalizador é definido como **true**, as ACLs de VNet podem ser definidas no lado do serviço do Azure antes de configurar os pontos de extremidade de serviço no lado da rede. Esse sinalizador é oferecido para ajudar os clientes nos casos em que firewalls de IPs específicos estão configurados nos serviços do Azure e ativar os pontos de extremidade de serviço na rede pode gerar uma queda na conectividade, pois o IP de origem é alterado de um endereço IPv4 público para um endereço privado. Configurar as ACLs da VNet no serviço do Azure antes de configurar os pontos de extremidade de serviço na rede pode ajudar a evitar quedas na conectividade.
+Determinados serviços (como SQL e CosmosDB) permitem exceções à sequência acima por meio do sinalizador **IgnoreMissingVnetServiceEndpoint** . Depois que o sinalizador é definido como **true** , as ACLs de VNet podem ser definidas no lado do serviço do Azure antes de configurar os pontos de extremidade de serviço no lado da rede. Esse sinalizador é oferecido para ajudar os clientes nos casos em que firewalls de IPs específicos estão configurados nos serviços do Azure e ativar os pontos de extremidade de serviço na rede pode gerar uma queda na conectividade, pois o IP de origem é alterado de um endereço IPv4 público para um endereço privado. Configurar as ACLs da VNet no serviço do Azure antes de configurar os pontos de extremidade de serviço na rede pode ajudar a evitar quedas na conectividade.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Todos os serviços do Azure residem na rede virtual do Azure fornecida pelo cliente? Como o ponto de extremidade de serviço da VNet funciona com os serviços do Azure?
 
