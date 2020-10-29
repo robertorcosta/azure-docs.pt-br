@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2cf1b643caef515411842d6aaf668708e873e96d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: de587483f5dc15b17fa32e044b569ef9d7f007f7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367883"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792949"
 ---
 # <a name="azure-storage-samples"></a>Exemplos do Armazenamento do Azure
 
@@ -60,15 +60,15 @@ Para explorar os exemplos de C++, obtenha a [Biblioteca de Clientes do Armazenam
 Para explorar os exemplos da CLI do Azure, primeiro [instale a CLI do Azure](/cli/azure/install-azure-cli).
 
 * [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli)
-* [Exemplos do Armazenamento do Azure que usam a CLI do Azure](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Exemplos do Armazenamento do Azure que usam a CLI do Azure](../blobs/storage-samples-blobs-cli.md)
 * [Artigos populares sobre como usar a CLI do Azure com o Armazenamento do Azure](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## <a name="api-reference-and-source-code"></a>Referência de API e código-fonte
 
 | Linguagem | Referência de API | Código-fonte |
 |----------|---------------|-------------|
-| .NET | [Referência da Biblioteca do Cliente do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Código-fonte da biblioteca do cliente de armazenamento do .NET](https://github.com/Azure/azure-storage-net) |
-| Java | [Referência da Biblioteca do Cliente do Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Código-fonte da biblioteca do cliente de armazenamento do Java](https://github.com/azure/azure-storage-java) |
+| .NET | [Referência da Biblioteca do Cliente do .NET](/dotnet/api/overview/azure/storage) | [Código-fonte da biblioteca do cliente de armazenamento do .NET](https://github.com/Azure/azure-storage-net) |
+| Java | [Referência da Biblioteca do Cliente do Java](/java/api/overview/azure/storage) | [Código-fonte da biblioteca do cliente de armazenamento do Java](https://github.com/azure/azure-storage-java) |
 | Python | [Referência da Biblioteca de Clientes de Python](https://azure-storage.readthedocs.io/) | [Código-fonte da biblioteca do cliente de armazenamento de Python](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Referência da Biblioteca do Cliente do Node.js](https://azure.github.io/azure-storage-node) | [Código-fonte da biblioteca do cliente de armazenamento do Node.js](https://github.com/Azure/azure-storage-node) |
 | C++ | [Referência da Biblioteca do Cliente do C++](https://azure.github.io/azure-sdk-for-cpp/) | [Código-fonte da biblioteca do cliente de armazenamento do C++](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|
@@ -83,4 +83,4 @@ Os artigos a seguir indexam cada uma das amostras por serviço (blob, arquivo, f
 * [Exemplos do Armazenamento do Azure que usam JavaScript](storage-samples-javascript.md)
 * [Exemplos do Armazenamento do Azure usando Python](storage-samples-python.md)
 * [Exemplos do Armazenamento do Azure usando C++](storage-samples-c-plus-plus.md)
-* [Exemplos do Armazenamento do Azure que usam a CLI do Azure](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Exemplos do Armazenamento do Azure que usam a CLI do Azure](../blobs/storage-samples-blobs-cli.md)

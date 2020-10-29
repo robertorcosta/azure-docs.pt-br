@@ -1509,6 +1509,8 @@
           href: sendsafely-tutorial.md
         - name: SensoScientific Wireless Temperature Monitoring System
           href: sensoscientific-tutorial.md
+        - name: Sentry
+          href: sentry-tutorial.md
         - name: Sequr
           href: sequr-tutorial.md
         - name: Soluções de software de utilização de espaço Serraview
@@ -1857,6 +1859,8 @@
           href: workboard-tutorial.md
         - name: Workday
           href: workday-tutorial.md
+        - name: Aplicativo móvel do Workday
+          href: workday-mobile-tutorial.md
         - name: Workfront
           href: workfront-tutorial.md
         - name: Workgrid
@@ -1952,6 +1956,8 @@
       items:
         - name: AirStack
           href: airstack-provisioning-tutorial.md
+        - name: AlertMedia
+          href: alertmedia-provisioning-tutorial.md
         - name: AWS (Amazon Web Services) – Provisionamento de funções
           href: amazon-web-service-tutorial.md#configure-azure-ad-sso
         - name: Apple Business Manager
@@ -1982,6 +1988,8 @@
           href: cinode-provisioning-tutorial.md
         - name: Cisco Webex
           href: cisco-webex-provisioning-tutorial.md
+        - name: Clarizen One
+          href: clarizen-one-provisioning-tutorial.md
         - name: Coda
           href: coda-provisioning-tutorial.md
         - name: Code42
@@ -2022,6 +2030,8 @@
           href: google-apps-provisioning-tutorial.md
         - name: GitHub
           href: github-provisioning-tutorial.md
+        - name: Sincronização Global de Identidade de Retransmissão
+          href: global-relay-identity-sync-provisioning-tutorial.md
         - name: GoToMeeting
           href: citrixgotomeeting-provisioning-tutorial.md
         - name: Harness
@@ -2084,6 +2094,8 @@
           href: netsuite-provisioning-tutorial.md
         - name: OfficeSpace Software
           href: officespace-software-provisioning-tutorial.md
+        - name: Serviços de Diretório OpenText
+          href: open-text-directory-services-provisioning-tutorial.md
         - name: Console da Infraestrutura de Nuvem da Oracle
           href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
         - name: Oracle Fusion ERP
@@ -2154,6 +2166,8 @@
           href: teamviewer-provisioning-tutorial.md
         - name: ThousandEyes
           href: thousandeyes-provisioning-tutorial.md
+        - name: Tic-Tac Mobile
+          href: tic-tac-mobile-provisioning-tutorial.md
         - name: Templafy
           href: templafy-provisioning-tutorial.md
         - name: TheOrgWiki

@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358909"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790229"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para o SQL Server em máquinas virtuais RHEL no Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -242,7 +242,7 @@ Você deverá obter os seguintes resultados depois que o comando for concluído:
     done
     ```
 
-O comando acima cria as VMs e uma VNet padrão para essas VMs. Para obter mais informações sobre as diferentes configurações, confira o artigo [az vm create](https://docs.microsoft.com/cli/azure/vm).
+O comando acima cria as VMs e uma VNet padrão para essas VMs. Para obter mais informações sobre as diferentes configurações, confira o artigo [az vm create](/cli/azure/vm).
 
 Depois que o comando for concluído para cada VM, você deverá obter resultados semelhantes aos seguintes:
 
@@ -304,7 +304,7 @@ Conecte-se a cada nó da VM e siga a guia abaixo para habilitar a HA. Para obter
 1. Atualize e instale os pacotes do Pacemaker em todos os nós usando os seguintes comandos:
 
     > [!NOTE]
-    > **nmap** está instalado como parte desse bloco de comandos como uma ferramenta para localizar endereços IP disponíveis em sua rede. Você não precisa instalar **nmap**, mas ele será útil posteriormente neste tutorial.
+    > **nmap** está instalado como parte desse bloco de comandos como uma ferramenta para localizar endereços IP disponíveis em sua rede. Você não precisa instalar **nmap** , mas ele será útil posteriormente neste tutorial.
 
     ```bash
     sudo yum update -y
@@ -324,7 +324,7 @@ Conecte-se a cada nó da VM e siga a guia abaixo para habilitar a HA. Para obter
     sudo vi /etc/hosts
     ```
 
-    No editor **vi**, digite `i` para inserir texto e, em uma linha em branco, adicione o **IP Privado** da VM correspondente. Em seguida, adicione o nome da VM após um espaço ao lado do IP. Cada linha deve ter uma entrada separada.
+    No editor **vi** , digite `i` para inserir texto e, em uma linha em branco, adicione o **IP Privado** da VM correspondente. Em seguida, adicione o nome da VM após um espaço ao lado do IP. Cada linha deve ter uma entrada separada.
 
     ```output
     <IP1> <VM1>
@@ -335,7 +335,7 @@ Conecte-se a cada nó da VM e siga a guia abaixo para habilitar a HA. Para obter
     > [!IMPORTANT]
     > Recomendamos que você use seu endereço **IP Privado** acima. Usar o endereço IP Público nessa configuração fará a instalação falhar e não recomendamos expor sua VM a redes externas.
 
-    Para sair do editor **vi**, primeiro pressione a tecla **Esc** e, em seguida, insira o comando `:wq` para gravar o arquivo e encerrar.
+    Para sair do editor **vi** , primeiro pressione a tecla **Esc** e, em seguida, insira o comando `:wq` para gravar o arquivo e encerrar.
 
 ## <a name="create-the-pacemaker-cluster"></a>Criar o cluster do Pacemaker
 
@@ -489,11 +489,11 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Clique em [**Registros de aplicativo**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Clique em **Novo registro**
  5. Insira um **Nome** como `<resourceGroupName>-app`, selecione **Contas apenas neste diretório de organização**
- 6. Selecione um Tipo de Aplicativo **Web**, insira uma URL de logon (por exemplo http://localhost) e clique em Adicionar. A URL de logon não é usada e pode ser qualquer URL válida. Quando terminar, clique em **Registrar**
+ 6. Selecione um Tipo de Aplicativo **Web** , insira uma URL de logon (por exemplo http://localhost) e clique em Adicionar. A URL de logon não é usada e pode ser qualquer URL válida. Quando terminar, clique em **Registrar**
  7. Selecione **Certificados e segredos** para seu novo Registro de aplicativo e clique em **Novo segredo do cliente**
  8. Insira uma descrição para uma nova chave (segredo do cliente), selecione **Nunca expira** e clique em **Adicionar**
  9. Anote o valor do segredo. Ele é usado como senha da Entidade de Serviço
-10. Selecione **Visão geral**. Anote a ID do Aplicativo. Ela é usada como nome de usuário (ID de logon nas etapas abaixo) da Entidade de Serviço
+10. Selecione **Visão geral** . Anote a ID do Aplicativo. Ela é usada como nome de usuário (ID de logon nas etapas abaixo) da Entidade de Serviço
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Criar uma função personalizada para o agente de limite
 
@@ -570,7 +570,7 @@ Atribua a função personalizada `Linux Fence Agent Role-<username>` que foi cri
 4. Clique em **Controle de acesso (IAM)**
 5. Clique em **Adicionar uma atribuição de função**
 6. Selecione a função `Linux Fence Agent Role-<username>` na lista **Função**
-7. Na lista **Selecionar**, insira o nome do aplicativo criado acima, `<resourceGroupName>-app`
+7. Na lista **Selecionar** , insira o nome do aplicativo criado acima, `<resourceGroupName>-app`
 8. Clique em **Salvar**
 9. Repita as etapas acima para todos os nós do cluster.
 
@@ -868,7 +868,7 @@ Em todas as instâncias do SQL Server, salve as credenciais usadas para o logon 
     <password>
     ```
 
-    Para sair do editor **vi**, primeiro pressione a tecla **Esc** e, em seguida, insira o comando `:wq` para gravar o arquivo e encerrar.
+    Para sair do editor **vi** , primeiro pressione a tecla **Esc** e, em seguida, insira o comando `:wq` para gravar o arquivo e encerrar.
 
 1. Torne o arquivo apenas legível pela raiz:
 
@@ -906,7 +906,7 @@ Em todas as instâncias do SQL Server, salve as credenciais usadas para o logon 
     GO
     ```
 
-1. Depois que as réplicas secundárias forem ingressadas, você poderá vê-las no Pesquisador de Objetos do SSMS expandindo o nó **Alta Disponibilidade Always On**:
+1. Depois que as réplicas secundárias forem ingressadas, você poderá vê-las no Pesquisador de Objetos do SSMS expandindo o nó **Alta Disponibilidade Always On** :
 
     ![A captura de tela mostra as réplicas de disponibilidade primárias e secundárias.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
