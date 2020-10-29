@@ -4,13 +4,13 @@ description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você cria
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: bf2ea5c7ea0c2f3ae90f9d98d8009915d5ced6f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576267"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747075"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: implantar e usar o Registro de Contêiner do Azure
 
@@ -34,7 +34,7 @@ Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Ex
 
 Para criar um Registro de Contêiner do Azure, primeiro você precisa de um grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo a seguir, um grupo de recursos chamado *myResourceGroup* é criado na região *eastus*:
+Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo a seguir, um grupo de recursos chamado *myResourceGroup* é criado na região *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

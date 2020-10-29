@@ -13,13 +13,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3cdb7796f3f8c877f130f47b971dc66c113c4d36
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 849f25f6fdd3fef2e1ebca7dae397d96e6849f10
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070105"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748853"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Usar as referências do Key Vault em um aplicativo Java Spring
 
@@ -54,14 +54,14 @@ Neste tutorial, você aprenderá como:
     ![Saída após a conclusão da criação do cofre de chaves](./media/quickstarts/search-services.png)
 1. Digite **Key Vault** na caixa de pesquisa.
 1. Na lista de resultados, selecione **Cofres de chaves** à esquerda.
-1. Em **Cofres de chaves**, selecione **Adicionar**.
-1. À direita, na seção **Criar cofre de chaves**, forneça as seguintes informações:
+1. Em **Cofres de chaves** , selecione **Adicionar** .
+1. À direita, na seção **Criar cofre de chaves** , forneça as seguintes informações:
     * Selecione **Assinatura** para escolher uma assinatura.
-    * Em **Grupo de Recursos**, selecione **Criar novo** e digite um nome para o grupo de recursos.
-    * Em **Nome do cofre de chaves**, é necessário um nome exclusivo. Para este tutorial, insira **Contoso-vault2**.
-    * Na lista suspensa **Região**, escolha uma localização.
+    * Em **Grupo de Recursos** , selecione **Criar novo** e digite um nome para o grupo de recursos.
+    * Em **Nome do cofre de chaves** , é necessário um nome exclusivo. Para este tutorial, insira **Contoso-vault2** .
+    * Na lista suspensa **Região** , escolha uma localização.
 1. Deixe as outras opções de **Criar cofre de chaves** com os valores padrão.
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
 Nesse ponto, sua conta do Azure é a única autorizada a acessar esse novo cofre.
 
@@ -71,26 +71,26 @@ Nesse ponto, sua conta do Azure é a única autorizada a acessar esse novo cofre
 
 Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Nesse caso, adicione uma mensagem que você possa usar para testar a recuperação do Key Vault. A mensagem é chamada de **Mensagem** e você armazena nela o valor de "Olá do Key Vault".
 
-1. Na página de propriedades do Key Vault, selecione **Segredos**.
-1. Selecione **Gerar/Importar**.
-1. No painel **Criar um segredo**, insira os seguintes valores:
-    * **Opções de upload**: insira **Manual**.
-    * **Name**: insira **Mensagem**.
-    * **Valor**: insira **Olá do Key Vault**.
+1. Na página de propriedades do Key Vault, selecione **Segredos** .
+1. Selecione **Gerar/Importar** .
+1. No painel **Criar um segredo** , insira os seguintes valores:
+    * **Opções de upload** : insira **Manual** .
+    * **Name** : insira **Mensagem** .
+    * **Valor** : insira **Olá do Key Vault** .
 1. Deixe as outras propriedades de **Criar um segredo** com os valores padrão.
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicionar uma referência do Key Vault à Configuração de Aplicativos
 
 1. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e depois escolha a instância do repositório de Configurações de Aplicativos que você criou no início rápido.
 
-1. Selecione **Gerenciador de Configurações**.
+1. Selecione **Gerenciador de Configurações** .
 
 1. Clique em **+ Criar** > **Referência do Key Vault** e especifique os seguintes valores:
-    * **Chave**: Selecione **/application/config.keyvaultmessage**
-    * **Rótulo**: deixe esse valor em branco.
-    * **Assinatura**, **Grupo de recursos** e **Cofre de chaves**: Insira os valores correspondentes aos valores no cofre de chaves que você criou na seção anterior.
-    * **Segredo**: selecione o segredo chamado **Mensagem** criado na seção anterior.
+    * **Chave** : Selecione **/application/config.keyvaultmessage**
+    * **Rótulo** : deixe esse valor em branco.
+    * **Assinatura** , **Grupo de recursos** e **Cofre de chaves** : Insira os valores correspondentes aos valores no cofre de chaves que você criou na seção anterior.
+    * **Segredo** : selecione o segredo chamado **Mensagem** criado na seção anterior.
 
 ## <a name="connect-to-key-vault"></a>Conectar-se ao Key Vault
 
@@ -129,7 +129,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. Crie as variáveis de ambiente **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET** e **AZURE_TENANT_ID**. Use os valores da entidade de serviço que foram exibidos nas etapas anteriores. Na linha de comando, execute os seguintes comandos e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Crie as variáveis de ambiente **AZURE_CLIENT_ID** , **AZURE_CLIENT_SECRET** e **AZURE_TENANT_ID** . Use os valores da entidade de serviço que foram exibidos nas etapas anteriores. Na linha de comando, execute os seguintes comandos e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
     ```cmd
     setx AZURE_CLIENT_ID "clientId"
@@ -159,16 +159,16 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Atualizar o código para usar uma referência do Key Vault
 
-1. Crie uma variável de ambiente chamada **APP_CONFIGURATION_ENDPOINT**. Defina seu valor como o ponto de extremidade do repositório de Configuração de Aplicativos. Você pode encontrar o ponto de extremidade na folha **Chaves de Acesso** no portal do Azure. Reinicie o prompt de comando para permitir que a alteração entre em vigor. 
+1. Crie uma variável de ambiente chamada **APP_CONFIGURATION_ENDPOINT** . Defina seu valor como o ponto de extremidade do repositório de Configuração de Aplicativos. Você pode encontrar o ponto de extremidade na folha **Chaves de Acesso** no portal do Azure. Reinicie o prompt de comando para permitir que a alteração entre em vigor. 
 
 
-1. Abra *bootstrap.properties* na pasta *recursos*. Atualize esse arquivo para usar o valor **APP_CONFIGURATION_ENDPOINT**. Remova todas as referências a uma cadeia de conexão neste arquivo. 
+1. Abra *bootstrap.properties* na pasta *recursos* . Atualize esse arquivo para usar o valor **APP_CONFIGURATION_ENDPOINT** . Remova todas as referências a uma cadeia de conexão neste arquivo. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
 
-1. Abra *MessageProperties.java*. Adicione uma nova variável chamada *keyVaultMessage*:
+1. Abra *MessageProperties.java* . Adicione uma nova variável chamada *keyVaultMessage* :
 
     ```java
     private String keyVaultMessage;
@@ -182,7 +182,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
     }
     ```
 
-1. Abra *HelloController.java*. Atualize o método *getMessage* para incluir a mensagem recuperada do Key Vault.
+1. Abra *HelloController.java* . Atualize o método *getMessage* para incluir a mensagem recuperada do Key Vault.
 
     ```java
     @GetMapping
@@ -220,7 +220,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
     }
     ```
 
-1. Crie um arquivo chamado *AppConfiguration.java*. Além disso, adicione o código abaixo.
+1. Crie um arquivo chamado *AppConfiguration.java* . Além disso, adicione o código abaixo.
 
     ```java
     package com.example.demo;

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 57e336093ece0906033b86cefe72ed9f2b940573
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 456c42dc0b25e168744ce283cddbd63b877813ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279341"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747152"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como usar a inicialização de nuvem para personalizar uma máquina virtual do Linux no Azure na primeira inicialização
 
@@ -102,13 +102,13 @@ runcmd:
 Para obter mais informações sobre opções de configuração de inicialização de nuvem, consulte [exemplos de configuração de inicialização de nuvem](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
-Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#az-group-create). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupAutomate* no local *eastus*:
+Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group#az-group-create). O seguinte exemplo cria um grupo de recursos chamado *myResourceGroupAutomate* no local *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utiçize o `--custom-data` parâmetro para passar no arquivo de configuração de inicialização de nuvem. Forneça o caminho completo para a configuração *cloud-init.txt* se você salvou o arquivo fora do seu diretório de trabalho atual. O exemplo a seguir cria uma VM chamada *myVM*:
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utiçize o `--custom-data` parâmetro para passar no arquivo de configuração de inicialização de nuvem. Forneça o caminho completo para a configuração *cloud-init.txt* se você salvou o arquivo fora do seu diretório de trabalho atual. O exemplo a seguir cria uma VM chamada *myVM* :
 
 ```azurecli-interactive
 az vm create \

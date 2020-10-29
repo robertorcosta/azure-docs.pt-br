@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: eea00fe80b71f97ea280a3a76de5012175bcd61c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841978"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747858"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutorial: Atualizar um aplicativo do Service Fabric em execução na Malha do Service Fabric
 
@@ -50,7 +50,7 @@ Este tutorial usa uma lista de tarefas como exemplo, que [já foi implantada](se
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-No modelo de implantação do recurso de aplicativo, cada serviço tem uma propriedade *cpu* que pode ser usada para definir os recursos de CPU solicitados. Um aplicativo pode consistir em vários serviços, cada serviço com uma única configuração de *cpu*, que são implantados e gerenciados em conjunto. Para aumentar os recursos de CPU do serviço de front-end da Web, modifique o valor de *cpue* no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
+No modelo de implantação do recurso de aplicativo, cada serviço tem uma propriedade *cpu* que pode ser usada para definir os recursos de CPU solicitados. Um aplicativo pode consistir em vários serviços, cada serviço com uma única configuração de *cpu* , que são implantados e gerenciados em conjunto. Para aumentar os recursos de CPU do serviço de front-end da Web, modifique o valor de *cpue* no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificar os parâmetros do modelo de implantação
 
@@ -80,7 +80,7 @@ O parâmetro *frontEndCpu* é declarado na seção *parameters* do [modelo de im
 }
 ```
 
-A propriedade *codePackages->resources->requests->cpu* do serviço WebFrontEnd referencia o parâmetro *frontEndCpu*:
+A propriedade *codePackages->resources->requests->cpu* do serviço WebFrontEnd referencia o parâmetro *frontEndCpu* :
 
 ```json
     "services": [

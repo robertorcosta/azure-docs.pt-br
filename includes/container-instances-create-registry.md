@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: danlep
-ms.custom: include file
-ms.openlocfilehash: 2b1d9b7f9ff07a3e0c7745191decc3e82181553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 173c9156f253e43111299b53287e97ab7b2c0aa5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708012"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746925"
 ---
 ## <a name="create-azure-container-registry"></a>Crie um registro de contêiner do Azure
 
 Antes de criar o registro de contêiner, é necessário um *grupo de recursos* para implantá-lo. O grupo de recursos é uma coleção lógica na qual todos os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo a seguir, um grupo de recursos chamado *myResourceGroup* é criado na região *eastus*:
+Crie um grupo de recursos com o comando [az group create][az-group-create]. No exemplo a seguir, um grupo de recursos chamado *myResourceGroup* é criado na região *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ Após criar o grupo de recursos, crie um registro de contêiner do Azure com o c
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Aqui está uma saída parcial para um novo registro de contêiner do Azure denominado *mycontainerregistry082*:
+Aqui está uma saída parcial para um novo registro de contêiner do Azure denominado *mycontainerregistry082* :
 
 ```output
 {
