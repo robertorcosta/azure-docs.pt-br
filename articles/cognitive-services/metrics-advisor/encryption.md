@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 9a7a914acd1358243c1e8a29f59dadf4fac46957
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5d41500a9c53e38cd36f0feba602e0e1baa5da2c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046920"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909736"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>Criptografia do serviço do assistente de métricas de dados em repouso
 
@@ -32,4 +32,4 @@ O serviço do revisor de métricas criptografa automaticamente seus dados quando
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Formulário de solicitação de chave Customer-Managed serviço do supervisor de métrica](https://aka.ms/cogsvc-cmk)
-* [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Saiba mais sobre o Azure Key Vault](../../key-vault/general/overview.md)
