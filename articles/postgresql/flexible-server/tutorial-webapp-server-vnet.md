@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 20401a3c96a9a20399c07d1a30370d27f2858e29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929188"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546561"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor Flexível com aplicativo Web dos Serviços de Aplicativos na rede virtual
 
 > [!IMPORTANT]
 > O Servidor Flexível do Banco de Dados do Azure para PostgreSQL está em versão prévia
 
-Este tutorial mostra como criar um aplicativo Web do Serviço de Aplicativo do Azure com o Banco de Dados do Azure para PostgreSQL – Servidor Flexível (versão prévia) dentro de uma [Rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Este tutorial mostra como criar um aplicativo Web do Serviço de Aplicativo do Azure com o Banco de Dados do Azure para PostgreSQL – Servidor Flexível (versão prévia) dentro de uma [Rede virtual](../../virtual-network/virtual-networks-overview.md).
 
 Neste tutorial, você vai
 >[!div class="checklist"]
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará fazer logon em sua conta usando o comando [login az](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
+Você precisará fazer logon em sua conta usando o comando [login az](/cli/azure/authenticate-azure-cli). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
 
 ```azurecli
 az login
@@ -121,4 +121,4 @@ az group delete -n myresourcegroup
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](../../app-service/app-service-web-tutorial-custom-domain.md)

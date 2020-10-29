@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 0d886fc6797011ff3a0adeb69f50358ece9c5f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf1c558474cfde85dd2c9ba8c85dc553fe5d9b56
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252146"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547496"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Usar um dispositivo simulado para testar a conectividade com o hub IoT
 
@@ -72,21 +72,21 @@ Se você criou um Hub IoT de camada Standard ou gratuita em um início rápido o
 
 Um dispositivo deve autenticar-se com o hub antes que ele possa trocar dados com o hub. Você pode usar a ferramenta de **Dispositivos IoT** na seção **Gerenciamento de Dispositivos** do portal para gerenciar os dispositivos e verificar as chaves de autenticação que estão utilizando. Nesta seção do tutorial, você adiciona um novo dispositivo de teste, recupera a chave e verifica se o dispositivo de teste pode conectar-se ao hub. Posteriormente, você redefinirá a chave de autenticação para observar o que acontece quando um dispositivo tenta usar uma chave desatualizada. Esta seção do tutorial usa o portal do Azure para criar, gerenciar e monitorar um dispositivo e o simulador de dispositivo Node.js de exemplo.
 
-Entre no portal e navegue até o Hub IoT. Em seguida, navegue até a ferramenta de **Dispositivos IoT**:
+Entre no portal e navegue até o Hub IoT. Em seguida, navegue até a ferramenta de **Dispositivos IoT** :
 
 ![Ferramenta de Dispositivos IoT](media/tutorial-connectivity/iot-devices-tool.png)
 
-Para registrar um novo dispositivo, clique em **+ Adicionar**, defina **ID do Dispositivo** para **MyTestDevice** e clique em **Salvar**:
+Para registrar um novo dispositivo, clique em **+ Adicionar** , defina **ID do Dispositivo** para **MyTestDevice** e clique em **Salvar** :
 
 ![Adicionar novo dispositivo](media/tutorial-connectivity/add-device.png)
 
-Para recuperar a cadeia de conexão para **MyTestDevice**, clique nela na lista de dispositivos e copie o valor da **chave primária da cadeia de conexão**. A cadeia de conexão inclui a *chave de acesso compartilhado* do dispositivo.
+Para recuperar a cadeia de conexão para **MyTestDevice** , clique nela na lista de dispositivos e copie o valor da **chave primária da cadeia de conexão** . A cadeia de conexão inclui a *chave de acesso compartilhado* do dispositivo.
 
 ![Recuperar cadeia de conexão de dispositivo](media/tutorial-connectivity/copy-connection-string.png)
 
 Para simular **MyTestDevice** enviando telemetria para o Hub IoT, execute o aplicativo de dispositivo simulado Node.js que você baixou anteriormente.
 
-Em uma janela de terminal no computador de desenvolvimento, navegue até a pasta raiz do projeto Node.js de exemplo que você baixou. Em seguida, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests**.
+Em uma janela de terminal no computador de desenvolvimento, navegue até a pasta raiz do projeto Node.js de exemplo que você baixou. Em seguida, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests** .
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de dispositivo simulado. Use a cadeia de conexão do dispositivo que você anotou quando adicionou o dispositivo no portal.
 
@@ -105,7 +105,7 @@ Agora, você autenticou com êxito a partir de um dispositivo usando uma chave d
 
 Nesta seção, você redefine a chave do dispositivo e observa o erro quando o dispositivo simulado tenta conectar-se.
 
-Para redefinir a chave do dispositivo primário para **MyTestDevice**, execute os comandos a segur:
+Para redefinir a chave do dispositivo primário para **MyTestDevice** , execute os comandos a segur:
 
 ```azurecli-interactive
 # Generate a new Base64 encoded key using the current date
@@ -146,7 +146,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Anote o texto completo do token SAS gerado. Um token SAS é semelhante ao seguinte: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Em uma janela de terminal no computador de desenvolvimento, navegue até a pasta raiz do projeto Node.js de exemplo que você baixou. Em seguida, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests**.
+Em uma janela de terminal no computador de desenvolvimento, navegue até a pasta raiz do projeto Node.js de exemplo que você baixou. Em seguida, navegue até a pasta **iot-hub\Tutorials\ConnectivityTests** .
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de dispositivo simulado:
 
@@ -200,7 +200,7 @@ A janela do terminal exibe informações conforme envia a telemetria para o hub:
 
 ![Dispositivo simulado enviando mensagens](media/tutorial-connectivity/sim-3-sending.png)
 
-Você pode usar **Métricas** no portal para verificar se as mensagens de telemetria estão alcançando o hub IoT. Selecione o Hub IoT na lista suspensa **Recurso**, selecione **Mensagens de telemetria enviadas** omo a métrica e defina o intervalo de tempo para **Última hora**. O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
+Você pode usar **Métricas** no portal para verificar se as mensagens de telemetria estão alcançando o hub IoT. Selecione o Hub IoT na lista suspensa **Recurso** , selecione **Mensagens de telemetria enviadas** omo a métrica e defina o intervalo de tempo para **Última hora** . O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
 
 ![Mostrar métricas do Hub IoT](media/tutorial-connectivity/metrics-portal.png)
 
@@ -266,11 +266,11 @@ Além de receber alterações de propriedades desejadas conforme elas são feita
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos no portal. Para fazer isso, selecione o grupo de recursos **tutorials-iot-hub-rg** que contém o Hub IoT e clique em **Excluir**.
+Se você não precisar mais do hub IoT, exclua-o junto com o grupo de recursos no portal. Para fazer isso, selecione o grupo de recursos **tutorials-iot-hub-rg** que contém o Hub IoT e clique em **Excluir** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu como verificar as chaves do dispositivo, verificar conectividade de dispositivo para nuvem, verificar conectividade de nuvem para dispositivo e verificar a sincronização de dispositivo gêmeo. Para saber mais sobre como monitorar o Hub IoT, visite o artigo sobre como fazer monitoramento do Hub IoT.
 
 > [!div class="nextstepaction"]
-> [Monitorar com o diagnóstico](iot-hub-monitor-resource-health.md)
+> [Monitorar o Hub IoT](monitor-iot-hub.md)

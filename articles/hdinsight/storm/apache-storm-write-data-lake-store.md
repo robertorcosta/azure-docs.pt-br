@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cdcc60e6eeec22e202d670c3fc057711bd432a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73241199"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545439"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Gravar no HDFS do Apache Hadoop usando o Apache Storm no Azure HDInsight
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
+* [JDK (Java Developer Kit) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
 
@@ -160,7 +160,7 @@ Para obter informações sobre como usar esse script com o cluster, consulte o d
     hdfs.url: wasbs:///
     ```
 
-    Para salvar o arquivo, use __Ctrl + X__, em seguida, __Y__ e, por fim, __Enter__. Os valores desse arquivo definem a URL do armazenamento e o nome do diretório no qual os dados são gravados.
+    Para salvar o arquivo, use __Ctrl + X__ , em seguida, __Y__ e, por fim, __Enter__ . Os valores desse arquivo definem a URL do armazenamento e o nome do diretório no qual os dados são gravados.
 
 1. Use o seguinte comando para iniciar a topologia:
 
