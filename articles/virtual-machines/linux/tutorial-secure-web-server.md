@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 7964f96afc59464c28cabb9e1d5c7961fc765a3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 4a790c51cd0caa2c81275e7eafdd663f2f2f0116
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86501765"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740204"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web em uma máquina virtual do Linux no Azure com certificados TLS/SSL armazenados no Key Vault
 Para proteger servidores Web, um certificado de protocolo TLS, anteriormente conhecido como protocolo SSL, pode ser usado para criptografar o tráfego da Web. Esses certificados TLS/SSL podem ser armazenados no Azure Key Vault e permitem implantações seguras de certificados em VMs (máquinas virtuais) do Linux no Azure. Neste tutorial, você aprenderá a:
@@ -42,7 +42,7 @@ Em vez de usar uma imagem de VM personalizada que inclui certificados incorporad
 
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Cofre de chaves do Azure
-Antes de criar um Key Vault e os certificados, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSecureWeb* no local *eastus*:
+Antes de criar um Key Vault e os certificados, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSecureWeb* no local *eastus* :
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus

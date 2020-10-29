@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: e5a7984cd868e7fbac08ec80f92fe28ad13d84e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308088"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676208"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Criar um teste do Analisador de Internet usando a CLI (versão prévia)
 
@@ -37,7 +37,7 @@ A CLI do analisador de Internet expõe os seguintes tipos de recursos:
 
 ## <a name="profile-and-test-creation"></a>Criação de perfil e teste
 1. Obtenha acesso à versão prévia do Analisador de Internet seguindo as instruções em **Como fazer para participar da versão prévia?** nas [Perguntas frequentes do Analisador de Internet do Azure](internet-analyzer-faq.md).
-2. [Instale a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Instale a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Execute o `login` comando para iniciar uma sessão de CLI:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ A CLI do analisador de Internet expõe os seguintes tipos de recursos:
 
 5. Selecione sua ID de assinatura que tenha recebido acesso à visualização pública do analisador da Internet.
 
-    Depois de entrar, você deve ver uma lista de assinaturas associadas à sua conta do Azure. A informação de assinatura com `isDefault: true` é a assinatura ativada no momento depois de entrar. Para selecionar outra assinatura, use o comando [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) com a ID da assinatura para a qual alternar. Para obter mais informações sobre a seleção da assinatura, confira [Usar várias assinaturas do Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Depois de entrar, você deve ver uma lista de assinaturas associadas à sua conta do Azure. A informação de assinatura com `isDefault: true` é a assinatura ativada no momento depois de entrar. Para selecionar outra assinatura, use o comando [az account set](/cli/azure/account#az-account-set) com a ID da assinatura para a qual alternar. Para obter mais informações sobre a seleção da assinatura, confira [Usar várias assinaturas do Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    Há maneiras de entrar de modo não interativo, como mostrado em detalhes em [Entrar com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Há maneiras de entrar de modo não interativo, como mostrado em detalhes em [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 6. **[Opcional]** Criar um novo grupo de recursos do Azure:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ A CLI do analisador de Internet expõe os seguintes tipos de recursos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Procure a [referência à CLI do Analisador de Internet](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para obter a lista completa de comandos e exemplos de uso com suporte.
+* Procure a [referência à CLI do Analisador de Internet](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para obter a lista completa de comandos e exemplos de uso com suporte.
 * Leia as [Perguntas frequentes sobre o Analisador de Internet](internet-analyzer-faq.md).
-* Saiba mais sobre como inserir o [Cliente do Analisador de Internet](internet-analyzer-embed-client.md) e criar um [ponto de extremidade personalizado](internet-analyzer-custom-endpoint.md). 
+* Saiba mais sobre como inserir o [Cliente do Analisador de Internet](internet-analyzer-embed-client.md) e criar um [ponto de extremidade personalizado](internet-analyzer-custom-endpoint.md).

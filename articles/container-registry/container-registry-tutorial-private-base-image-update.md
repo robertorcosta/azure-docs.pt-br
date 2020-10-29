@@ -3,13 +3,13 @@ title: Tutorial – Disparar o build da imagem na atualização da imagem base p
 description: Neste tutorial, você vai configurar uma Tarefa do Registro de Contêiner do Azure para disparar automaticamente builds de imagem de contêiner na nuvem quando uma imagem base em outro Registro de Contêiner do Azure particular for atualizada.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7dda7c54c51c31e750083f302ca558ff7ef548ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270960"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739559"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutorial: Automatizar builds de imagem de contêiner quando uma imagem base é atualizada em outro registro de contêiner particular 
 
@@ -204,7 +204,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 ## <a name="update-the-base-image"></a>Atualizar a imagem base
 
-Aqui você pode simular um patch de estrutura na imagem base. Edite **Dockerfile-base**e adicione um "a" depois do número de versão definido em `NODE_VERSION`:
+Aqui você pode simular um patch de estrutura na imagem base. Edite **Dockerfile-base** e adicione um "a" depois do número de versão definido em `NODE_VERSION`:
 
 ```Dockerfile
 ENV NODE_VERSION 9.11.2a

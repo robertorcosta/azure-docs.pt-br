@@ -7,13 +7,13 @@ ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js
-ms.openlocfilehash: ea7b1ba159aa5d11a20ff565390ce0b24e38c1d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 2f0bf3b4b6e7091222b98e1743f0fb4f431fdd12
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577179"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736045"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-nodejs"></a>Tutorial: Conectar um aplicativo de exemplo de dispositivo de vários componentes do IoT Plug and Play ao Hub IoT (Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 Use o SDK do dispositivo para criar o código de exemplo incluído. O aplicativo que você cria simula um dispositivo Plug and Play com vários componentes que se conectam a um hub IoT. O aplicativo envia a telemetria e as propriedades e recebe comandos.
 
-1. Em uma janela de terminal local, acesse a pasta do repositório clonado e navegue até a pasta */azure-iot-sdk-node/device/samples/pnp*. Em seguida, execute o seguinte comando para instalar as bibliotecas necessárias:
+1. Em uma janela de terminal local, acesse a pasta do repositório clonado e navegue até a pasta */azure-iot-sdk-node/device/samples/pnp* . Em seguida, execute o seguinte comando para instalar as bibliotecas necessárias:
 
 ```cmd/sh
 npm install
@@ -57,7 +57,7 @@ Isso instalará os arquivos npm relevantes necessários para executar os exemplo
 
 ## <a name="review-the-code"></a>Examine o código
 
-Navegue até a pasta *azure-iot-sdk-node\device\samples\pnp*.
+Navegue até a pasta *azure-iot-sdk-node\device\samples\pnp* .
 
 A pasta *azure-iot-sdk-node\device\samples\pnp* contém o código de exemplo do dispositivo controlador de temperatura do IoT Plug and Play.
 
@@ -105,7 +105,7 @@ Abra o arquivo *pnpTemperatureController.js* em um editor de código de sua esco
 
   - Usa `desiredPropertyPatchListener` para escutar atualizações de propriedade.
 
-  - Desabilita todos os ouvintes e tarefas e sai do loop quando você pressiona **Q** ou **q**.
+  - Desabilita todos os ouvintes e tarefas e sai do loop quando você pressiona **Q** ou **q** .
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

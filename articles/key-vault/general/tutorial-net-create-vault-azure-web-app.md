@@ -9,13 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 77845a91ed2d185c0fe05e2f40e53b2edf3d1ca7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336676"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741390"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Usar uma identidade gerenciada para conectar o Key Vault a um Aplicativo Web do Azure com o .NET
 
@@ -95,7 +95,7 @@ git commit -m "first commit"
 
 ### <a name="configure-a-deployment-user"></a>Configurar um usuário de implantação
 
-O FTP e o Git local podem implantar em um aplicativo Web do Azure usando um *usuário de implantação*. Após configurar o usuário de implantação, use-o em todas as implantações do Azure. O nome de usuário e a senha da implantação no nível da conta são diferentes das credenciais de assinatura do Azure. 
+O FTP e o Git local podem implantar em um aplicativo Web do Azure usando um *usuário de implantação* . Após configurar o usuário de implantação, use-o em todas as implantações do Azure. O nome de usuário e a senha da implantação no nível da conta são diferentes das credenciais de assinatura do Azure. 
 
 Para configurar o usuário de implantação, execute o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Escolha um nome de usuário e senha que sigam estas diretrizes: 
 
@@ -112,7 +112,7 @@ Registre seu nome de usuário e senha para usá-los na implantação de aplicati
 
 ### <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
-Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) da CLI do Azure. O seguinte exemplo cria um plano do Serviço de Aplicativo denominado `myAppServicePlan` usando o tipo de preço **Gratuita**:
+Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) da CLI do Azure. O seguinte exemplo cria um plano do Serviço de Aplicativo denominado `myAppServicePlan` usando o tipo de preço **Gratuita** :
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -323,7 +323,7 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Em que, antes de ver **Olá, Mundo**, agora você deve ver o valor do seu segredo exibido: **Êxito!**
+Em que, antes de ver **Olá, Mundo** , agora você deve ver o valor do seu segredo exibido: **Êxito!**
 
 ## <a name="next-steps"></a>Próximas etapas
 

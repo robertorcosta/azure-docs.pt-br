@@ -4,19 +4,19 @@ description: Use o script de exemplo da CLI do Azure para criar um banco de dado
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 07/16/2019
-ms.openlocfilehash: 48f82dcc1fa9e1f6843df4e89daca6a01c57ed63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e102f0161a50fe6f65558fef77549b86c5c3eae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321439"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742243"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Usar a CLI do Azure para adicionar um banco de dados a um grupo de failover
 

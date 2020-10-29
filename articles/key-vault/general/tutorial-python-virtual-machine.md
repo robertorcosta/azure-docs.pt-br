@@ -8,13 +8,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 8980505ac34e32a29403060a7cf3cfaec077d8af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 89118f13bc009ce60d4fd1c82dfe7688bf1e551b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336693"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741268"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual no Python
 
@@ -66,7 +66,7 @@ Crie uma VM chamada **myVM** usando um dos seguintes métodos:
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) | [O portal do Azure](../../virtual-machines/windows/quick-create-portal.md) |
 
-Para criar uma VM Linux usando a CLI do Azure, use o comando [az vm create](/cli/azure/vm).  O exemplo a seguir cria uma conta de usuário chamada *azureuser*. O parâmetro `--generate-ssh-keys` é usado para gerar automaticamente uma chave SSH e colocá-la no local de chave padrão ( *~/.ssh*). 
+Para criar uma VM Linux usando a CLI do Azure, use o comando [az vm create](/cli/azure/vm).  O exemplo a seguir cria uma conta de usuário chamada *azureuser* . O parâmetro `--generate-ssh-keys` é usado para gerar automaticamente uma chave SSH e colocá-la no local de chave padrão ( *~/.ssh* ). 
 
 ```azurecli-interactive
 az vm create \
@@ -129,7 +129,7 @@ pip3 install azure.identity
 
 ## <a name="create-and-edit-the-sample-python-script"></a>Criar e editar o script de exemplo do Python
 
-Na máquina virtual, crie um arquivo Python chamado **sample.py**. Edite o arquivo para que ele contenha o seguinte código, substituindo <seu-nome-de-cofre-de-chaves-exclusivo> pelo nome do seu cofre de chaves:
+Na máquina virtual, crie um arquivo Python chamado **sample.py** . Edite o arquivo para que ele contenha o seguinte código, substituindo <seu-nome-de-cofre-de-chaves-exclusivo> pelo nome do seu cofre de chaves:
 
 ```python
 from azure.keyvault.secrets import SecretClient
@@ -148,7 +148,7 @@ print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_s
 
 ## <a name="run-the-sample-python-app"></a>Executar o aplicativo Python de exemplo
 
-Execute **sample.py**. Se tudo correr bem, ele retornará o valor de seu segredo:
+Execute **sample.py** . Se tudo correr bem, ele retornará o valor de seu segredo:
 
 ```bash
 python3 sample.py

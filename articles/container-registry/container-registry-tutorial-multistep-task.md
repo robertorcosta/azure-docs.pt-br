@@ -3,13 +3,13 @@ title: Tutorial – Tarefa de ACR de várias etapas
 description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registro de Contêiner do Azure para disparar automaticamente um fluxo de trabalho de várias etapas para criar, executar e enviar e imagens de contêiner por push na nuvem ao fazer commit do código-fonte em um repositório Git.
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 6ba3b276c68885a0811ee445d965c486f158d193
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402310"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739612"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao fazer commit do código-fonte
 
@@ -316,7 +316,7 @@ Essa tarefa de várias etapa faz o seguinte:
 
 ### <a name="task-command"></a>Comando de tarefa
 
-Usando as variáveis de ambiente do shell definidas anteriormente, crie a tarefa por meio da execução do seguinte comando [az acr task create][az-acr-task-create]. Substitua o nome do registro por *mycontainerregistrydate*.
+Usando as variáveis de ambiente do shell definidas anteriormente, crie a tarefa por meio da execução do seguinte comando [az acr task create][az-acr-task-create]. Substitua o nome do registro por *mycontainerregistrydate* .
 
 ```azurecli-interactive
 az acr task create \
@@ -332,7 +332,7 @@ az acr task create \
 
 Para efetuar push das imagens ao registro identificado pelo valor de `regDate`, use o comando [az acr task credential add][az-acr-task-credential-add] para adicionar credenciais de logon para esse registro para a tarefa.
 
-Neste exemplo, é recomendável que você crie uma [entidade de serviço](container-registry-auth-service-principal.md) com acesso ao registro no escopo da função *AcrPush*. Para criar a entidade de serviço, confira esse [script da CLI do Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+Neste exemplo, é recomendável que você crie uma [entidade de serviço](container-registry-auth-service-principal.md) com acesso ao registro no escopo da função *AcrPush* . Para criar a entidade de serviço, confira esse [script da CLI do Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
 Passar a ID do aplicativo e a senha da entidade de serviço no seguinte comando `az acr task credential add`:
 

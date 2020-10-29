@@ -3,13 +3,13 @@ title: Tutorial – Criação rápida de imagem de contêiner
 description: Neste tutorial, você aprenderá como criar uma imagem de contêiner de Docker no Azure com as Tarefas do ACR (Tarefas do Registro de Contêiner do Azure) e implantá-la em Instâncias de Contêiner do Azure.
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259496"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739536"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure
 
@@ -87,7 +87,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Agora que você tem um Registro, use as Tarefas do ACR para compilar uma imagem de contêiner com base no código de exemplo. Execute o comando [az acr build][az-acr-build] para executar uma *tarefa rápida*:
+Agora que você tem um Registro, use as Tarefas do ACR para compilar uma imagem de contêiner com base no código de exemplo. Execute o comando [az acr build][az-acr-build] para executar uma *tarefa rápida* :
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -203,7 +203,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O argumento `--role` no comando anterior configura a entidade de serviço com a função *acrpull*, que permite a ela acesso somente de pull ao Registro. Para permitir acesso de push e pull, altere o argumento `--role` para *acrpush*.
+O argumento `--role` no comando anterior configura a entidade de serviço com a função *acrpull* , que permite a ela acesso somente de pull ao Registro. Para permitir acesso de push e pull, altere o argumento `--role` para *acrpush* .
 
 Em seguida, armazene o *appId* da entidade de serviço no cofre, que é o **nome de usuário** que você passa para o Registro de Contêiner do Azure para autenticação:
 
