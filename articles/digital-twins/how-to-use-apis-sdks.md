@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 89fb0e8435bd1804193db5b0f8c0596733a7e674
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913765"
+ms.locfileid: "93026132"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -306,7 +306,7 @@ A partir daqui, você pode exibir as métricas para sua instância e criar exibi
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte como usar as APIs para configurar uma instância e autenticação do gêmeos digital do Azure:
-* [*Como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md)
+* [*Como: configurar uma instância e uma autenticação*](how-to-set-up-instance-cli.md)
 
 Ou então, percorra as etapas para criar um aplicativo cliente como aquele usado nestas instruções:
 * [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md)

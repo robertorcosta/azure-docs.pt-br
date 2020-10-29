@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707975"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026948"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
@@ -20,7 +20,7 @@ Este artigo responde às perguntas mais frequentes sobre o marketplace comercial
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-the-microsoft-commercial-marketplace"></a>O que é o Microsoft Commercial Marketplace?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>O que é o marketplace comercial da Microsoft?
 
 O marketplace comercial conecta as agências corporativas e governamentais com soluções criadas por nossos parceiros. Nossos parceiros criam e gerenciam ofertas no Partner Center, e os clientes podem descobrir e comprar soluções por meio de experiências no produto, como Microsoft AppSource, Azure Marketplace, revendedores no programa de provedor de soluções de nuvem e nossas equipes de vendas por meio do programa de venda conjunta.
 
@@ -58,10 +58,10 @@ Para inscrever-se para ser um editor do marketplace comercial, acesse o [Partner
 
 As maneiras como os clientes podem usar sua oferta do marketplace comercial dependem de como você cria as ofertas.
 
-- Para soluções que você fornece automaticamente, sejam elas pagas, BYOL (traga sua própria licença) ou gratuitas, os clientes são incentivados a *Obtê-las agora*.
-- Ofertas que dão suporte a um test drive (demonstração) solicitam que o cliente faça o *Test Drive*. 
-- As ofertas de SaaS (software como serviço) fornecem uma avaliação fora do mercado comercial, digamos que a *avaliação gratuita*.
-- As listagens simples permitem que o cliente solicite contato por meio da opção *Entre em Contato Comigo*.
+- Para soluções que você fornece automaticamente, sejam elas pagas, BYOL (traga sua própria licença) ou gratuitas, os clientes são incentivados a *Obtê-las agora* .
+- Ofertas que dão suporte a um test drive (demonstração) solicitam que o cliente faça o *Test Drive* . 
+- As ofertas de SaaS (software como serviço) fornecem uma avaliação fora do mercado comercial, digamos que a *avaliação gratuita* .
+- As listagens simples permitem que o cliente solicite contato por meio da opção *Entre em Contato Comigo* .
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Como faço para criar ofertas para o marketplace comercial?
 
@@ -99,10 +99,10 @@ Sim, o Azure Government Marketplace está disponível nas regiões do Azure Gove
 
 Há quatro funções relevantes que regem o acesso ao Partner Center.
 
-- *Gerente*: Fornece permissões para gerenciar usuários do Partner Center no diretório e criar e atualizar ofertas.
-- *Desenvolvedor*: Permite que um usuário crie e atualize ofertas.
-- *Colaborador financeiro*: fornece permissões para exibir o relatório de pagamento.
-- *Proprietário*: Pode configurar a conta de pagamento e o perfil de imposto. O usuário que aceitou o Contrato de Editor se torna o proprietário por padrão.
+- *Gerente* : Fornece permissões para gerenciar usuários do Partner Center no diretório e criar e atualizar ofertas.
+- *Desenvolvedor* : Permite que um usuário crie e atualize ofertas.
+- *Colaborador financeiro* : fornece permissões para exibir o relatório de pagamento.
+- *Proprietário* : Pode configurar a conta de pagamento e o perfil de imposto. O usuário que aceitou o Contrato de Editor se torna o proprietário por padrão.
 
 As permissões de *administrador global* do Azure AD (Azure Active Directory) são necessárias para criar novas contas de usuário ou convidar contas de convidado no diretório subjacente. O Partner Center aplica o Azure AD ao modelo de identidade, e uma instância do Azure AD de uma organização é geralmente gerenciada e controlada por suas equipes de TI ou de segurança.
 
@@ -140,7 +140,7 @@ As ofertas são apresentadas aos clientes por meio de experiências no produto, 
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>Minha oferta pode aparecer tanto no Microsoft AppSource quanto no Azure Marketplace?
 
-O Microsoft AppSource é o destino para soluções de negócios e do setor e o Azure Marketplace foi projetado para soluções de TI e de desenvolvedores. As ofertas estão disponíveis em cada uma das lojas online com base em categorias e setores que você selecionou durante a criação da oferta. No caso raro de a oferta ser relevante para os usuários de ambas as lojas online, ela pode aparecer em ambos.
+O Microsoft AppSource é o destino para soluções de negócios e do setor e o Azure Marketplace foi projetado para soluções de TI e de desenvolvedores. As ofertas estão disponíveis em cada uma das lojas online com base em categorias e setores que você selecionou durante a criação da oferta. No caso raro de a oferta ser relevante para os usuários de ambas as lojas online, ela pode aparecer nas duas.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>O que é o programa do Provedor de Soluções na Nuvem?
 
@@ -303,7 +303,7 @@ Para obter mais informações, consulte [configurar sua conta de pagamento e for
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Há suporte para devoluções e reembolsos no marketplace comercial?
 
-Para receber reembolsos, os clientes podem cancelar assinaturas em um período especificado. Para assinaturas mensais, são 24 horas; para assinaturas anuais, são 14 dias. Ofertas que são cobradas de acordo com o consumo depois que uma solução é usada não se qualificam para reembolsos.
+Os reembolsos estão disponíveis para clientes sob determinadas condições e para determinados encargos. As solicitações de reembolsos de encargos recorrentes cobradas mensalmente devem ser recebidas dentro de 24 horas após a compra ou a renovação. Da mesma forma, as solicitações de reembolsos de encargos recorrentes cobrados anualmente devem ser recebidas dentro de 14 dias após a compra ou a renovação. Esse tipo de reembolso não se aplica a encargos resultantes do uso (de ofertas de máquina virtual ou cobrança limitada).
 
 ## <a name="resources"></a>Recursos
 
@@ -311,7 +311,7 @@ Para receber reembolsos, os clientes podem cancelar assinaturas em um período e
 
 Aqui estão alguns recursos para começar:
 
-- [O que é o Microsoft Commercial Marketplace?](overview.md)
+- [O que é o marketplace comercial da Microsoft?](overview.md)
 - [Hub do parceiro do marketplace comercial da Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Como posso me engajar com a Microsoft e com outros parceiros?

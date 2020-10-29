@@ -8,16 +8,16 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047379"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026489"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância do gêmeos digital do Azure para uma região diferente do Azure
 
-Se você precisar mover sua instância do gêmeos digital do Azure de uma região para outra, o processo atual será **recriar os recursos na nova região**e, em seguida, excluir os recursos originais. No final desse processo, você trabalhará com uma nova instância de gêmeos digital do Azure que é idêntica à primeira, exceto para o local atualizado.
+Se você precisar mover sua instância do gêmeos digital do Azure de uma região para outra, o processo atual será **recriar os recursos na nova região** e, em seguida, excluir os recursos originais. No final desse processo, você trabalhará com uma nova instância de gêmeos digital do Azure que é idêntica à primeira, exceto para o local atualizado.
 
 Este artigo fornece orientação sobre como fazer uma movimentação completa, copiando tudo o que será necessário para que a nova instância corresponda ao original.
 
@@ -40,9 +40,9 @@ Aqui estão algumas perguntas que talvez você queira considerar:
 * Qual é a forma geral do **grafo** na minha instância? Quantas relações existem?
 * Quais **pontos de extremidade** eu tenho em minha instância?
 * Quais **rotas** tenho em minha instância? Eles têm filtros?
-* Onde a minha instância **se conecta a outros serviços do Azure**? Alguns pontos de integração comuns incluem...
+* Onde a minha instância **se conecta a outros serviços do Azure** ? Alguns pontos de integração comuns incluem...
     - Grade de eventos, Hub de eventos ou barramento de serviço
-    - Funções do Azure
+    - Azure Functions
     - Aplicativos Lógicos
     - Time Series Insights
     - Mapas do Azure
@@ -76,11 +76,13 @@ Se o exemplo não for capaz de lidar com o tamanho do grafo, você poderá expor
 
 Para prosseguir com o ADT Explorer, primeiro Baixe o código do aplicativo de exemplo e configure-o para ser executado em seu computador. 
 
-Navegue até o exemplo aqui: [Gerenciador de gêmeos digital do Azure (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Clique no botão *Baixar o ZIP* para baixar um arquivo *.ZIP* deste código de exemplo em seu computador como _**ADT_Explorer.zip**_. Descompacte o arquivo.
+Navegue até o exemplo aqui: [Gerenciador de gêmeos digital do Azure (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Clique no botão *Baixar o ZIP* para baixar um arquivo *.ZIP* desse código de exemplo em seu computador como _**Azure_Digital_Twins__ADT__explorer.zip**_ . Descompacte o arquivo.
 
-Em seguida, configure as permissões para que o ADT Explorer seja executado em seu computador. Para fazer isso, siga as etapas na seção [*set ADT Explorer Permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) do início rápido do Azure digital gêmeos.
-
-Por fim, execute e configure o ADT Explorer para se conectar à instância original do Azure digital gêmeos. Siga as etapas na seção [*executar e configurar o ADT Explorer*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) do guia de início rápido.
+Em seguida, configure e configure permissões para o ADT Explorer. Para fazer isso, siga as instruções na seção [*Configurar o gêmeos do Azure digital e o ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) do guia de início rápido do gêmeos do Azure digital. Esta seção orienta você pelas seguintes etapas:
+1. Configurar uma instância do gêmeos digital do Azure (você pode ignorar essa parte porque já tem uma instância)
+2. Configurar um **registro de aplicativo do Azure ad** para fornecer acesso à sua instância
+3. Configurar permissões para o ADT Explorer ser executado em seu computador
+4. Execute o ADT Explorer e configure-o para se conectar à sua instância. Você usará o **nome do host** da instância do Azure digital gêmeos original que está movendo e a **ID do cliente** e a **ID do locatário** do registro do aplicativo.
 
 Agora você deve ter o aplicativo de exemplo do ADT Explorer em execução em um navegador em seu computador. O exemplo deve ser conectado à instância original do Azure digital gêmeos.
 
@@ -102,10 +104,10 @@ Em seguida, clique no ícone *Exportar grafo* na caixa *exibição do gráfico* 
 
 :::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Isso habilitará um link de *Download* no *modo de exibição de gráfico*. Selecione-o para baixar uma representação baseada em JSON do resultado da consulta, incluindo seus modelos, gêmeos e relações. Isso deve baixar um arquivo *. JSON* em seu computador.
+Isso habilitará um link de *Download* no *modo de exibição de gráfico* . Selecione-o para baixar uma representação baseada em JSON do resultado da consulta, incluindo seus modelos, gêmeos e relações. Isso deve baixar um arquivo *. JSON* em seu computador.
 
 >[!NOTE]
->Se o arquivo baixado parecer ter uma extensão de arquivo diferente, tente editar a extensão diretamente e alterá-la para *. JSON*.
+>Se o arquivo baixado parecer ter uma extensão de arquivo diferente, tente editar a extensão diretamente e alterá-la para *. JSON* .
 
 ## <a name="move"></a>Mover
 
@@ -113,12 +115,9 @@ Em seguida, você concluirá a "movimentação" de sua instância criando uma no
 
 ### <a name="create-a-new-instance"></a>Criar uma nova instância
 
-Primeiro, **crie uma nova instância do Azure digital gêmeos em sua região de destino**. Para fazer isso, siga as etapas em [*como: configurar uma instância e autenticação*](how-to-set-up-instance-portal.md), mantendo esses ponteiros em mente:
+Primeiro, **crie uma nova instância do Azure digital gêmeos em sua região de destino** . Para fazer isso, siga as etapas em [*como: configurar uma instância e autenticação*](how-to-set-up-instance-portal.md), mantendo esses ponteiros em mente:
 * Você pode manter o mesmo nome para a nova instância **se** ela estiver em um grupo de recursos diferente. Se você precisar usar o mesmo grupo de recursos que contém sua instância original, sua nova instância precisará de seu próprio nome distinto.
 * Insira a nova região de destino quando for solicitada uma localização.
-* Você **não precisa** recriar o registro do aplicativo. Sua nova instância pode reutilizar o mesmo registro de aplicativo que você já tem.
-    - Se estiver usando o artigo de instalação com [script](how-to-set-up-instance-scripted.md) , você poderá inserir novamente os detalhes do registro do aplicativo existente em vez de inserir um novo nome quando solicitado.
-    - Se estiver usando o [portal](how-to-set-up-instance-portal.md) manual ou os artigos de instalação da [CLI](how-to-set-up-instance-cli.md) , você poderá parar após a *criação da instância do Azure digital gêmeos* e configurar as etapas de *permissões de acesso do usuário* . Não é necessário continuar com a *configuração de permissões de acesso para aplicativos cliente*.
 
 Quando isso for concluído, você precisará do **nome de host** da sua nova instância para continuar a configurá-lo com seus dados. Se você não fez uma observação sobre isso durante a instalação, você pode seguir [estas instruções](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) para obtê-las agora na portal do Azure.
 
@@ -138,23 +137,23 @@ Atualmente, o ADT Explorer está conectado à instância original do Azure digit
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Como você está reutilizando o registro do aplicativo, você só precisa substituir a *URL ADT*. Altere esse valor para que ele leia *https://{nova instância hostname}*.
+Você pode reutilizar o mesmo registro de aplicativo, portanto, você só precisa substituir a *URL ADT* para refletir a nova instância. Altere esse valor para que ele leia *https://{nova instância hostname}* .
 
-Clique em *conectar*. Você pode ser solicitado a fazer logon novamente com suas credenciais do Azure e/ou conceder a este consentimento de aplicativo para sua instância.
+Clique em *conectar* . Você pode ser solicitado a fazer logon novamente com suas credenciais do Azure e/ou conceder a este consentimento de aplicativo para sua instância.
 
 ##### <a name="upload-models-twins-and-graph"></a>Carregar modelos, gêmeos e grafo
 
 Em seguida, carregue os componentes da solução que você baixou anteriormente para sua nova instância.
 
-Para carregar seus **modelos, gêmeos e grafo**, clique no ícone *importar grafo* na caixa de *exibição de gráfico* . Esta opção carregará todos os três componentes de uma vez (mesmo modelos que não estão sendo usados atualmente no grafo).
+Para carregar seus **modelos, gêmeos e grafo** , clique no ícone *importar grafo* na caixa de *exibição de gráfico* . Esta opção carregará todos os três componentes de uma vez (mesmo modelos que não estão sendo usados atualmente no grafo).
 
 :::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/import-graph.png":::
 
-Na caixa seletor de arquivo, navegue até o grafo baixado. Selecione o arquivo Graph *. JSON* e clique em *abrir*.
+Na caixa seletor de arquivo, navegue até o grafo baixado. Selecione o arquivo Graph *. JSON* e clique em *abrir* .
 
 Depois de alguns segundos, o ADT Explorer abrirá uma exibição *Importar* mostrando uma visualização do grafo que será carregado.
 
-Para confirmar o upload do grafo, clique no ícone *Salvar* no canto superior direito da *EXIBIÇÃO DE GRAFO*:
+Para confirmar o upload do grafo, clique no ícone *Salvar* no canto superior direito da *EXIBIÇÃO DE GRAFO* :
 
 :::row:::
     :::column:::
@@ -176,7 +175,7 @@ Agora, o ADT Explorer carregará seus modelos e o grafo (incluindo o gêmeos e a
     :::column-end:::
 :::row-end:::
 
-Para verificar se tudo foi carregado com êxito, clique no botão *Executar consulta* na caixa *Gerenciador de gráficos* para executar a consulta padrão que exibe todas as gêmeos e relações no grafo. Isso também atualizará a lista de modelos no *modo de exibição de modelo*.
+Para verificar se tudo foi carregado com êxito, clique no botão *Executar consulta* na caixa *Gerenciador de gráficos* para executar a consulta padrão que exibe todas as gêmeos e relações no grafo. Isso também atualizará a lista de modelos no *modo de exibição de modelo* .
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -191,8 +190,8 @@ Isso confirma que seus modelos, gêmeos e grafo foram carregados novamente para 
 Se você tiver **pontos de extremidade e/ou rotas** em sua instância original, precisará recriá-los em sua nova instância. Se você não tiver pontos de extremidade ou rotas em sua instância original ou não quiser movê-los para a nova instância, poderá pular para a [próxima seção](#re-link-connected-resources).
 
 Caso contrário, continue, siga as etapas em [*como gerenciar pontos de extremidade e rotas*](how-to-manage-routes-portal.md) usando a nova instância, mantendo esses ponteiros em mente: 
-* Você **não precisa** recriar a grade de eventos, o Hub de eventos ou o recurso do barramento de serviço que você está usando para o ponto de extremidade (seções de*pré-requisito* nas instruções do ponto de extremidade). Você só precisa recriar o ponto de extremidade na instância do gêmeos digital do Azure.
-* Você pode reutilizar os **nomes**de ponto de extremidade e de rota, já que eles estão no escopo de uma instância diferente.
+* Você **não precisa** recriar a grade de eventos, o Hub de eventos ou o recurso do barramento de serviço que você está usando para o ponto de extremidade (seções de *pré-requisito* nas instruções do ponto de extremidade). Você só precisa recriar o ponto de extremidade na instância do gêmeos digital do Azure.
+* Você pode reutilizar os **nomes** de ponto de extremidade e de rota, já que eles estão no escopo de uma instância diferente.
 * Lembre-se de adicionar todos os **filtros** necessários às rotas que você criar.
 
 #### <a name="re-link-connected-resources"></a>Vincular novamente os recursos conectados
@@ -201,7 +200,7 @@ Se tiver outros aplicativos ou recursos do Azure conectados à instância origin
 
 Se você não tiver outros recursos conectados à sua instância original ou não quiser movê-los para a nova instância, poderá pular para a [próxima seção](#verify).
 
-Caso contrário, para continuar, considere os recursos conectados em seu cenário. Você não precisa excluir e recriar os recursos conectados; em vez disso, você só precisa editar os pontos onde eles se conectam a uma instância do gêmeos digital do Azure por meio de seu **nome de host**e atualizá-lo para usar o nome do host da nova instância em vez do original.
+Caso contrário, para continuar, considere os recursos conectados em seu cenário. Você não precisa excluir e recriar os recursos conectados; em vez disso, você só precisa editar os pontos onde eles se conectam a uma instância do gêmeos digital do Azure por meio de seu **nome de host** e atualizá-lo para usar o nome do host da nova instância em vez do original.
 
 Os recursos exatos que você precisa editar dependem do seu cenário, mas aqui estão alguns pontos de integração comuns:
 * Azure Functions. Se você tiver uma função do Azure cujo código inclui o nome do host da instância original, deverá atualizar esse valor para o nome de host da nova instância e publicar novamente a função.
@@ -226,7 +225,7 @@ Você também pode tentar executar qualquer aplicativo personalizado ou fluxos d
 
 ## <a name="clean-up-source-resources"></a>Limpar recursos de origem
 
-Agora que a nova instância está configurada na região de destino com uma cópia dos dados e das conexões da instância original, você pode **excluir a instância original**.
+Agora que a nova instância está configurada na região de destino com uma cópia dos dados e das conexões da instância original, você pode **excluir a instância original** .
 
 Você pode fazer isso no [portal do Azure](https://portal.azure.com), com a [CLI](how-to-use-cli.md)ou com as APIs do [plano de controle](how-to-use-apis-sdks.md#overview-control-plane-apis).
 

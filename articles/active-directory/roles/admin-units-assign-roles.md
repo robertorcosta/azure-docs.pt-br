@@ -1,6 +1,6 @@
 ---
 title: Atribuir e listar funções com escopo de unidade administrativa-Azure Active Directory | Microsoft Docs
-description: Usando unidades administrativas para restringir o escopo de atribuições de função no Azure Active Directory
+description: Use unidades administrativas para restringir o escopo de atribuições de função no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,25 +14,25 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a4810b3a84cac55a49744025b6ac71c3f1c0a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374704"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026591"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções com escopo a uma unidade administrativa
 
-No Azure Active Directory (AD do Azure), você pode atribuir usuários a uma função do Azure AD com um escopo limitado a uma ou mais unidades administrativas (AUs) para um controle administrativo mais granular.
+No Azure Active Directory (AD do Azure), para controle administrativo mais granular, você pode atribuir usuários a uma função do Azure AD com um escopo limitado a uma ou mais unidades administrativas.
 
-Para saber como se preparar para usar o PowerShell e o Microsoft Graph para o gerenciamento de unidade administrativa, consulte a [Introdução](admin-units-manage.md#get-started).
+Para se preparar para usar o PowerShell e Microsoft Graph para o gerenciamento de unidade administrativa [, consulte Introdução](admin-units-manage.md#get-started).
 
-## <a name="roles-available"></a>Funções disponíveis
+## <a name="available-roles"></a>Funções disponíveis
 
 Função  |  Descrição
 ----- |  -----------
 Administrador de Autenticação  |  Tem acesso para exibir, definir e redefinir informações do método de autenticação para qualquer usuário não administrador somente na unidade administrativa atribuída.
-Administrador de Grupos  |  Pode gerenciar todos os aspectos de grupos e configurações de grupos, como políticas de nomenclatura e expiração somente na unidade administrativa atribuída.
+Administrador de Grupos  |  Pode gerenciar todos os aspectos de configurações de grupos e grupos, como políticas de nomenclatura e expiração, somente na unidade administrativa atribuída.
 Administrador de assistência técnica  |  O pode redefinir senhas para não administradores e administradores de assistência técnica somente na unidade administrativa atribuída.
 Administrador de Licenças  |  Pode atribuir, remover e atualizar atribuições de licença somente dentro da unidade administrativa.
 Administrador de senha  |  O pode redefinir senhas para não administradores e administradores de senha somente dentro da unidade administrativa atribuída.
@@ -43,26 +43,33 @@ Administrador de usuários  |  Pode gerenciar todos os aspectos de usuários e g
 As entidades de segurança a seguir podem ser atribuídas a uma função com um escopo de unidade administrativa:
 
 * Usuários
-* Grupos de nuvem atribuíveis de função (visualização)
+* Grupos de nuvem de atribuição de função (visualização)
 * SPN (Nome da Entidade de Serviço)
 
 ## <a name="assign-a-scoped-role"></a>Atribuir uma função com escopo
 
-### <a name="azure-portal"></a>Portal do Azure
+Você pode atribuir uma função com escopo usando o portal do Azure, o PowerShell ou o Microsoft Graph.
 
-Vá para **Azure Active Directory > Unidades administrativas** no portal. Selecione a unidade administrativa sobre a qual você deseja atribuir a função a um usuário. No painel esquerdo, selecione funções e administradores para listar todas as funções disponíveis.
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
-![Selecionar uma unidade administrativa para alterar o escopo da função](./media/admin-units-assign-roles/select-role-to-scope.png)
+1. Na portal do Azure, vá para **Azure ad** .
 
-Selecione a função a ser atribuída e, em seguida, selecione **Adicionar atribuições**. Um painel é aberto à direita onde você pode selecionar um ou mais usuários a serem atribuídos à função.
+1. Selecione **unidades administrativas** e, em seguida, selecione a unidade administrativa à qual você deseja atribuir um escopo de função de usuário. 
 
-![Selecione a função para o escopo e, em seguida, selecione Adicionar atribuições](./media/admin-units-assign-roles/select-add-assignment.png)
+1. No painel esquerdo, selecione **funções e administradores** para listar todas as funções disponíveis.
+
+   ![Captura de tela do painel "função e administradores" para selecionar uma unidade administrativa cujo escopo de função você deseja atribuir.](./media/admin-units-assign-roles/select-role-to-scope.png)
+
+1. Selecione a função a ser atribuída e, em seguida, selecione **Adicionar atribuições** . 
+
+1. No painel **Adicionar atribuições** , selecione um ou mais usuários a serem atribuídos à função.
+
+   ![Selecione a função para o escopo e, em seguida, selecione Adicionar atribuições](./media/admin-units-assign-roles/select-add-assignment.png)
 
 > [!Note]
->
-> Para atribuir uma função em uma unidade administrativa usando o PIM, siga as etapas [aqui](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
+> Para atribuir uma função em uma unidade administrativa usando Azure AD Privileged Identity Management (PIM), consulte [atribuir funções do Azure AD no PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### <a name="powershell"></a>PowerShell
+### <a name="use-powershell"></a>Usar o PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -73,9 +80,9 @@ $RoleMember.ObjectId = $AdminUser.ObjectId
 Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
-A seção realçada pode ser alterada conforme necessário para o ambiente específico.
+Você pode alterar a seção realçada conforme necessário para o ambiente específico.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
 ```http
 Http request
@@ -90,22 +97,30 @@ Request body
 }
 ```
 
-## <a name="list-the-scoped-admins-on-an-au"></a>Listar os administradores com escopo em uma AU
+## <a name="view-a-list-of-the-scoped-admins-in-an-administrative-unit"></a>Exibir uma lista de administradores com escopo em uma unidade administrativa
 
-### <a name="azure-portal"></a>Portal do Azure
+Você pode exibir uma lista de administradores com escopo usando o portal do Azure, o PowerShell ou o Microsoft Graph.
 
-Todas as atribuições de função feitas com um escopo de unidade administrativa podem ser exibidas na [seção unidades administrativas do Azure ad](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Vá para **Azure Active Directory > Unidades administrativas** no portal. Selecione a unidade de administrador para as atribuições de função que você deseja listar. Selecione **funções e administradores** e abra uma função para exibir as atribuições na unidade do administrador.
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
-### <a name="powershell"></a>PowerShell
+Você pode exibir todas as atribuições de função criadas com um escopo de unidade administrativa na [seção unidades administrativas do Azure ad](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
+
+1. Na portal do Azure, vá para **Azure ad** .
+
+1. No painel esquerdo, selecione **unidades administrativas** e, em seguida, selecione a unidade administrativa para a lista de atribuições de função que você deseja exibir. 
+
+1. Selecione **funções e administradores** e, em seguida, abra uma função para exibir as atribuições na unidade administrativa.
+
+### <a name="use-powershell"></a>Usar o PowerShell
 
 ```powershell
 $administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
-A seção realçada pode ser alterada conforme necessário para o ambiente específico.
+Você pode alterar a seção realçada conforme necessário para seu ambiente específico.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
 ```http
 Http request
@@ -117,4 +132,4 @@ Request body
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Usar grupos de nuvem para gerenciar atribuições de função](groups-concept.md)
-- [Solução de problemas de funções atribuídas a grupos de nuvem](groups-faq-troubleshooting.md)
+- [Solucionar problemas de funções atribuídas a grupos de nuvem](groups-faq-troubleshooting.md)

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211554"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025945"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitorar carga de trabalho-portal do Azure
 
@@ -26,15 +26,15 @@ Este artigo descreve como usar o portal do Azure para monitorar sua carga de tra
 - Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Pool do SQL: coletaremos logs para um pool do SQL. Se você não tiver um pool do SQL provisionado, consulte as instruções em [criar um pool do SQL](load-data-from-azure-blob-storage-using-polybase.md).
 
-## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
 
 Navegue até a folha procurar por Log Analytics espaços de trabalho e crie um espaço de trabalho
 
 ![Workspaces do Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![Adicionar espaço de trabalho de análise](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![Captura de tela mostra os espaços de trabalho Log Analytics onde você pode selecionar Adicionar.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![Adicionar espaço de trabalho de análise](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![Captura de tela mostra o espaço de trabalho Log Analytics onde você pode inserir valores.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
 Para obter mais detalhes sobre espaços de trabalho, visite a [documentação](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)a seguir.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4f84ccbddc6f5244ac8f4334b716d770e0ed4afc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328914"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027254"
 ---
 # <a name="http-features"></a>Recursos de HTTP
 
@@ -57,7 +57,7 @@ A [Associação de cliente de orquestração](durable-functions-bindings.md#orch
 
 # <a name="python"></a>[Python](#tab/python)
 
-**__init__. py**
+**__init__ . py**
 
 ```python
 import logging
@@ -140,7 +140,7 @@ Para obter uma descrição de todas as APIs HTTP internas, consulte a [referênc
 
 ### <a name="async-operation-tracking"></a>Acompanhamento de operação assíncrona
 
-A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar APIs assíncronas HTTP de execução longa com as Durable Functions. Esse padrão é, às vezes, chamado de *padrão de consumidor de sondagem*. O fluxo de cliente/servidor funciona da seguinte maneira:
+A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar APIs assíncronas HTTP de execução longa com as Durable Functions. Esse padrão é, às vezes, chamado de *padrão de consumidor de sondagem* . O fluxo de cliente/servidor funciona da seguinte maneira:
 
 1. O cliente emite uma solicitação HTTP para iniciar um processo de execução longa, como uma função de orquestrador.
 1. O gatilho HTTP de destino retorna uma resposta HTTP 202 com um cabeçalho Location que tem o valor "statusQueryGetUri".
@@ -304,7 +304,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     # get a list of the Azure subscriptions that I have access to
     restart_response = yield context.call_http("POST", 
-        f"https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Compute/virtualMachines/${vm_name}/restart?api-version=${api_version}",
+        f"https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}/restart?api-version={api_version}",
         None,
         None,
         token_source)

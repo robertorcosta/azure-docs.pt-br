@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539122"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027152"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas em log e pré-agregadas no Application Insights
 
@@ -40,6 +40,28 @@ Os SDKs mais recentes ([Application Insights 2,7](https://www.nuget.org/packages
 Para os SDKs que não implementam a pré-autenticação (ou seja, versões mais antigas de SDKs de Application Insights ou instrumentação de navegador), o back-end Application Insights ainda preenche as novas métricas agregando os eventos recebidos pelo ponto de extremidade de coleta de eventos Application Insights. Isso significa que, embora você não se beneficie do volume reduzido de dados transmitidos pela rede, ainda poderá usar as métricas previamente agregadas e experimentar um melhor desempenho e suporte do alerta dimensional quase em tempo real com SDKs que não agregam métricas durante a coleta.
 
 Vale a pena mencionar que o ponto de extremidade de coleta pré-agrega eventos antes da amostragem de ingestão, o que significa que a [amostragem de ingestão](./sampling.md) nunca afetará a precisão das métricas pré-agregadas, independentemente da versão de SDK usada com o aplicativo.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>Tabela de métricas previamente agregadas com suporte do SDK
+
+| SDKs de produção atuais | Métricas padrão (pré-agregação do SDK) | Métricas personalizadas (sem pré-agregação do SDK) | Métricas personalizadas (com pré-agregação do SDK)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core e .NET Framework | Com suporte (V 2.13.1 +)| Com suporte via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Com suporte (V 2.7.2 +) via [Getmetric](get-metric.md) |
+| Java                         | Sem suporte       | Com suporte via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Sem suporte                           |
+| Node.js                      | Sem suporte       | Com suporte via  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Sem suporte                           |
+| Python                       | Sem suporte       | Com suporte                                 | Com suporte via [OpenCensus. stats](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabela de métricas previamente agregadas com suporte sem código
+
+| SDKs de produção atuais | Métricas padrão (pré-agregação do SDK) | Métricas personalizadas (sem pré-agregação do SDK) | Métricas personalizadas (com pré-agregação do SDK)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Com suporte <sup> 1<sup>    | Sem suporte                             | Sem suporte                           |
+| ASP.NET Core            | Com suporte <sup> 2<sup>    | Sem suporte                             | Sem suporte                           |
+| Java                    | Sem suporte            | Sem suporte                             | [Com suporte](java-in-process-agent.md#metrics) |
+| Node.js                 | Sem suporte            | Sem suporte                             | Sem suporte                           |
+
+1. A anexação de código ASP.NET no serviço de aplicativo só emite métricas no modo de monitoramento "completo". A anexação sem código do ASP.NET no serviço de aplicativo, VM/VMSS e no local emite métricas padrão sem dimensões. O SDK é necessário para todas as dimensões.
+2. ASP.NET Core a anexação sem código no serviço de aplicativo emite métricas padrão que não têm dimensões. O SDK é necessário para todas as dimensões.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Usando a pré-agregação com métricas personalizadas do Application Insights
 

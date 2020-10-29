@@ -1,15 +1,15 @@
 ---
 title: Exportar recursos do Azure Policy
 description: Aprenda a exportar recursos do Azure Policy para o GitHub, como definições de política e atribuições de política.
-ms.date: 09/30/2020
+ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16ceed755cab3228b8f9e401f486a0629f3a60d
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777081"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025707"
 ---
 # <a name="export-azure-policy-resources"></a>Exportar recursos do Azure Policy
 
@@ -17,37 +17,37 @@ Este artigo fornece informações sobre como exportar os recursos existentes do 
 
 ## <a name="export-with-azure-portal"></a>Exportar com portal do Azure
 
-Para exportar uma definição de política de portal do Azure, siga estas etapas:
+Para exportar uma definição de política do portal do Azure, siga estas etapas:
 
-1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
+1. Inicie o serviço de Azure Policy no portal do Azure clicando em **Todos os serviços** , em seguida pesquisando e selecionando **Política** .
 
-1. Selecione **definições** no lado esquerdo da página Azure Policy.
+1. Selecione **Definições** no lado esquerdo da página do Azure Policy.
 
-1. Use o botão **exportar definições** ou selecione as reticências na linha de uma definição de política e, em seguida, selecione **Exportar definição**.
+1. Use o botão **Exportar definições** ou selecione as reticências na linha de uma definição de política. Em seguida, selecione **Exportar definição** .
 
-1. Selecione o botão **entrar com o GitHub** . Se você ainda não tiver autenticado com o GitHub para autorizar Azure Policy para exportar o recurso, revise o acesso que a [ação do GitHub](https://github.com/features/actions) precisa na nova janela que é aberta e selecione **autorizar AzureGitHubActions** para continuar com o processo de exportação. Depois de concluído, a nova janela é fechada automaticamente.
+1. Selecione o botão **Entrar com o GitHub** . Se você ainda não tiver feito a autenticação com o GitHub para autorizar o Azure Policy a exportar o recurso, examine o acesso de que a [Ação do GitHub](https://github.com/features/actions) precisa na nova janela aberta e selecione **Autorizar AzureGitHubActions** para dar continuidade ao processo de exportação. Após a conclusão, a nova janela será fechada automaticamente.
 
-1. Na guia **noções básicas** , defina as seguintes opções e, em seguida, selecione a guia **políticas** ou **próximo: botão políticas** na parte inferior da página.
+1. Na guia **Noções Básicas** , defina as seguintes opções e selecione a guia **Políticas** ou o botão **Avançar: Políticas** na parte inferior da página.
 
-   - **Filtro de repositório**: Defina como _meus repositórios_ para ver apenas os repositórios que você possui ou _todos os repositórios_ para ver tudo o que você concedeu acesso à ação do github.
-   - **Repositório**: defina para o repositório para o qual você deseja exportar os recursos de Azure Policy.
-   - **Branch**: defina a ramificação no repositório. Usar uma ramificação que não seja o padrão é uma boa maneira de validar suas atualizações antes de mesclá-las em seu código-fonte.
-   - **Diretório**: a _pasta de nível raiz_ para a qual exportar os recursos de Azure Policy. As subpastas nesse diretório são criadas com base em quais recursos são exportados.
+   - **Filtro de repositório** : defina como _Meus repositórios_ para ver apenas os repositórios que você tem ou _Todos os repositórios_ para ver todos aqueles aos quais você concedeu à Ação do GitHub acesso.
+   - **Repositório** : defina como o repositório ao qual você deseja exportar os recursos do Azure Policy.
+   - **Branch** : defina o branch no repositório. Usar um branch diferente do padrão é uma boa maneira de validar suas atualizações antes de mesclá-las em seu código-fonte.
+   - **Diretório** : a _pasta de nível raiz_ à qual exportar os recursos do Azure Policy. As subpastas nesse diretório são criadas com base em quais recursos são exportados.
 
-1. Na guia **políticas** , defina o escopo a ser pesquisado selecionando as reticências e escolhendo uma combinação de grupos de gerenciamento, assinaturas ou grupos de recursos.
+1. Na guia **Políticas** , defina o escopo a ser pesquisado selecionando as reticências e escolhendo uma combinação de grupos de gerenciamento, assinaturas ou grupos de recursos.
    
-1. Use o botão **Adicionar definição (ões) de política** para pesquisar o escopo para os objetos a serem exportados. Na janela lateral que é aberta, selecione cada objeto a ser exportado. Filtre a seleção pela caixa de pesquisa ou pelo tipo. Depois de selecionar todos os objetos a serem exportados, use o botão **Adicionar** na parte inferior da página.
+1. Use o botão **Adicionar definições de política** para pesquisar o escopo para os objetos a serem exportados. Na janela lateral aberta, selecione cada objeto a ser exportado. Filtre a seleção pela caixa de pesquisa ou pelo tipo. Após selecionar todos os objetos a serem exportados, use o botão **Adicionar** na parte inferior da página.
 
-1. Para cada objeto selecionado, selecione as opções de exportação desejadas, como _somente definição_ ou _definição e atribuição (ões)_ para uma definição de política. Em seguida, selecione a guia **revisar + exportar** ou **próximo: botão revisar + exportar** na parte inferior da página.
+1. Para cada objeto selecionado, selecione as opções de exportação desejadas, como _Somente Definição_ ou _Definição e Atribuições_ para uma definição de política. Em seguida, selecione a guia **Examinar + Exportar** ou o botão **Avançar: Examinar + Exportar** na parte inferior da página.
 
    > [!NOTE]
-   > Se a _definição de opção e a atribuição (ões)_ forem escolhidas, somente as atribuições de política dentro do escopo definido pelo filtro quando a definição de política for adicionada serão exportadas.
+   > Se a opção _Definição e Atribuições_ for escolhida, somente serão exportadas as atribuições de política dentro do escopo definido pelo filtro quando a definição de política for adicionada.
 
-1. Na guia **revisar + exportar** , verifique a correspondência de detalhes e, em seguida, use o botão **Exportar** na parte inferior da página.
+1. Na guia **Examinar + Exportar** , verifique se os detalhes coincidem e use o botão **Exportar** na parte inferior da página.
 
-1. Verifique o repositório do GitHub, a ramificação e a _pasta de nível raiz_ para ver que os recursos selecionados agora são exportados para o controle do código-fonte.
+1. Verifique seu repositório do GitHub, o branch e a _pasta de nível raiz_ para ver que os recursos selecionados agora são exportados para o controle do código-fonte.
 
-Os recursos de Azure Policy são exportados para a seguinte estrutura dentro do repositório GitHub selecionado e da _pasta de nível raiz_:
+Os recursos do Azure Policy são exportados para a seguinte estrutura dentro do repositório GitHub selecionado e da _pasta de nível raiz_ :
 
 ```text
 |
@@ -67,7 +67,7 @@ Azure Policy definições, iniciativas e atribuições podem ser exportadas como
 - Iniciativa- [conjunto de políticas de AZ-definição de definições](/cli/azure/policy/set-definition#az-policy-set-definition-show)
 - Atribuição- [AZ política de atribuição mostrar](/cli/azure/policy/assignment#az-policy-assignment-show)
 
-Aqui está um exemplo de como obter o JSON para uma definição de política com o **nome** de _VirtualMachineStorage_:
+Aqui está um exemplo de como obter o JSON para uma definição de política com o **nome** de _VirtualMachineStorage_ :
 
 ```azurecli-interactive
 az policy definition show --name 'VirtualMachineStorage'
@@ -81,10 +81,10 @@ Azure Policy definições, iniciativas e atribuições podem ser exportadas como
 - Iniciativa- [Get-AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
 - Atribuição- [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
 
-Aqui está um exemplo de como obter o JSON para uma definição de política com o **nome** de _VirtualMachineStorage_:
+Aqui está um exemplo de como obter o JSON para uma definição de política com o **nome** de _VirtualMachineStorage_ :
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461066"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027543"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
@@ -40,21 +40,21 @@ Você também precisará concluir os seguintes itens como parte da configuraçã
 
 Para conectar uma instância do gêmeos digital do Azure a aplicativos lógicos neste artigo, você precisará ter a **instância do gêmeos digital do Azure** já configurada. 
 
-Primeiro, **Configure uma instância de gêmeos digital do Azure** e a autenticação necessária para poder trabalhar com ela. Para fazer isso, siga as instruções em [*Como configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de instalação é oferecido para o [portal do Azure](how-to-set-up-instance-portal.md), a [CLI](how-to-set-up-instance-cli.md) ou o [exemplo de script de implantação do Cloud Shell automatizada](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm etapas para confirmar se você concluiu cada etapa com êxito e está pronto para passar a usar sua nova instância.
-* Depois de configurar sua instância do gêmeos digital do Azure, você precisará do **_nome do host_** da instância ([localize na portal do Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+Primeiro, **configure uma instância de Gêmeos Digitais do Azure** e a autenticação necessária para poder trabalhar com ela. Para fazer isso, siga as instruções em [*Como configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md).
+* Depois de configurar sua instância do gêmeos digital do Azure, você precisará do **_nome do host_** da instância ( [localize na portal do Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-Para autenticar o conector, você também precisará configurar um **registro de aplicativo**. Siga as instruções em [*como criar um registro de aplicativo*](how-to-create-app-registration.md) para configurá-lo. 
-* Depois de ter um registro de aplicativo, você precisará da **_ID do aplicativo (cliente)_** do registro e da **_ID do diretório (locatário)_** ([localize no portal do Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
+Para autenticar o conector, você também precisará configurar um **registro de aplicativo** . Siga as instruções descritas em [*Como criar um registro de aplicativo*](how-to-create-app-registration.md) para configurar isso. 
+* Depois de ter um registro de aplicativo, você precisará da **_ID do aplicativo (cliente)_** do registro e da **_ID do diretório (locatário)_** ( [localize no portal do Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Obter segredo do cliente de registro de aplicativo
 
 Você também precisará criar um **_segredo do cliente_** para o registro do aplicativo do Azure AD. Para fazer isso, navegue até a página de [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure (você pode usar este link ou procurá-lo na barra de pesquisa do Portal). Selecione o registro que você criou na seção anterior na lista para abrir seus detalhes. 
 
-Clique em *certificados e segredos* no menu do registro e selecione *+ novo segredo do cliente*.
+Clique em *certificados e segredos* no menu do registro e selecione *+ novo segredo do cliente* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
-Insira os valores que você deseja para descrição e expirar e clique em *Adicionar*.
+Insira os valores que você deseja para descrição e expirar e clique em *Adicionar* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
@@ -74,11 +74,11 @@ Você precisará da **_ID_** de cópia de um matreme em sua instância que você
 
 Nesta etapa, você criará um [conector de aplicativos lógicos personalizados](../logic-apps/custom-connector-overview.md) para as APIs do Azure digital gêmeos. Depois de fazer isso, você poderá conectar o gêmeos digital do Azure ao criar um aplicativo lógico na próxima seção.
 
-Navegue até a página do [conector personalizado dos aplicativos lógicos](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) na portal do Azure (você pode usar este link ou pesquisá-lo na barra de pesquisa do Portal). Clique em *+ Adicionar*.
+Navegue até a página do [conector personalizado dos aplicativos lógicos](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) na portal do Azure (você pode usar este link ou pesquisá-lo na barra de pesquisa do Portal). Clique em *+ Adicionar* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
-Na página *criar conector personalizado dos aplicativos lógicos* a seguir, selecione sua assinatura e o grupo de recursos e um nome e um local de implantação para o novo conector. Pressione *examinar + criar*. 
+Na página *criar conector personalizado dos aplicativos lógicos* a seguir, selecione sua assinatura e o grupo de recursos e um nome e um local de implantação para o novo conector. Pressione *examinar + criar* . 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
@@ -94,12 +94,12 @@ Em seguida, você configurará o conector que criou para alcançar o gêmeos dig
 
 Primeiro, baixe um Swagger personalizado do Azure digital gêmeos que foi modificado para funcionar com aplicativos lógicos. Baixe o exemplo de **Swagger (conector de aplicativos lógicos) do Azure digital gêmeos personalizado** desse [**link**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) pressionando o botão *baixar zip* . Navegue até a pasta *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* baixada e descompacte-a. 
 
-O Swagger personalizado para este tutorial está localizado na pasta _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_. Esta pasta contém subpastas chamadas *stable* e *Preview*, que contêm diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a cópia mais recente do Swagger. Seja qual for a versão selecionada, o arquivo Swagger é nomeado _** digitaltwins.jsem * * _.
+O Swagger personalizado para este tutorial está localizado na pasta _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps **_. Esta pasta contém subpastas chamadas *stable* e *Preview* , que contêm diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a cópia mais recente do Swagger. Seja qual for a versão selecionada, o arquivo Swagger é nomeado _** digitaltwins.jsem * * _.
 
 > [!NOTE]
 > A menos que você esteja trabalhando com um recurso de visualização, geralmente é recomendável usar a versão *estável* mais recente do Swagger. No entanto, versões anteriores e versões prévias do Swagger também têm suporte. 
 
-Em seguida, vá para a página Visão geral do conector na [portal do Azure](https://portal.azure.com) e clique em *Editar*.
+Em seguida, vá para a página Visão geral do conector na [portal do Azure](https://portal.azure.com) e clique em *Editar* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
@@ -107,7 +107,7 @@ Na página *Editar conector personalizado dos aplicativos lógicos* a seguir, co
 * **Conectores personalizados**
     - Ponto de extremidade de API: REST (Mantenha o padrão)
     - Modo de importação: arquivo OpenAPI (Mantenha o padrão)
-    - Arquivo: esse será o arquivo Swagger personalizado que você baixou anteriormente. Clique em *importar*, localize o arquivo em seu computador (*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps \...\digitaltwins.js*) e clique em *abrir*.
+    - Arquivo: esse será o arquivo Swagger personalizado que você baixou anteriormente. Clique em *importar* , localize o arquivo em seu computador ( *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps \...\digitaltwins.js* ) e clique em *abrir* .
 * **Informações gerais**
     - Ícone: carregar um ícone que você deseja
     - Cor do plano de fundo do ícone: Insira o código hexadecimal no formato ' #xxxxxx ' para sua cor.
@@ -121,8 +121,8 @@ Em seguida, clique no botão *segurança* na parte inferior da janela para conti
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
 Na etapa segurança, clique em *Editar* e configure essas informações:
-* **Tipo de autenticação**: OAuth 2,0
-* **OAuth 2,0**:
+* **Tipo de autenticação** : OAuth 2,0
+* **OAuth 2,0** :
     - Provedor de identidade: Azure Active Directory
     - ID do cliente: a *ID do aplicativo (cliente)* para o registro do aplicativo do Azure AD
     - Segredo do cliente: o *segredo do cliente* que você criou em [*pré-requisitos*](#prerequisites) para o registro do aplicativo do Azure AD
@@ -132,7 +132,7 @@ Na etapa segurança, clique em *Editar* e configure essas informações:
     - Escopo: Directory. AccessAsUser. All
     - URL de redirecionamento: (Mantenha o padrão por enquanto)
 
-Observe que o campo URL de redirecionamento diz *salvar o conector personalizado para gerar a URL de redirecionamento*. Faça isso agora pressionando o *conector de atualização* na parte superior do painel para confirmar as configurações do conector.
+Observe que o campo URL de redirecionamento diz *salvar o conector personalizado para gerar a URL de redirecionamento* . Faça isso agora pressionando o *conector de atualização* na parte superior do painel para confirmar as configurações do conector.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
@@ -177,30 +177,30 @@ Pressione o botão _revisar + criar_ .
 
 Isso levará você para a guia *revisar + criar* , na qual você pode revisar seus detalhes e clicar em *criar* na parte inferior para criar o recurso.
 
-Você será levado para a página de implantação do aplicativo lógico. Quando terminar a implantação, pressione o botão *ir para recurso* para continuar com o designer de *aplicativos lógicos*, no qual você preencherá a lógica do fluxo de trabalho.
+Você será levado para a página de implantação do aplicativo lógico. Quando terminar a implantação, pressione o botão *ir para recurso* para continuar com o designer de *aplicativos lógicos* , no qual você preencherá a lógica do fluxo de trabalho.
 
 ### <a name="design-workflow"></a>Fluxo de trabalho de design
 
-No *Designer de aplicativos lógicos*, em *Iniciar com um gatilho comum*, selecione _**recorrência**_.
+No *Designer de aplicativos lógicos* , em *Iniciar com um gatilho comum* , selecione _**recorrência**_ .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
-Na página *Designer de aplicativos lógicos* a seguir, altere a frequência de **recorrência** para *segundo*, para que o evento seja disparado a cada 3 segundos. Isso facilitará a visualização dos resultados mais tarde, sem a necessidade de esperar muito tempo.
+Na página *Designer de aplicativos lógicos* a seguir, altere a frequência de **recorrência** para *segundo* , para que o evento seja disparado a cada 3 segundos. Isso facilitará a visualização dos resultados mais tarde, sem a necessidade de esperar muito tempo.
 
-Pressione *+ nova etapa*.
+Pressione *+ nova etapa* .
 
 Isso abrirá uma caixa *escolher uma ação* . Alterne para a guia *personalizado* . Você deve ver seu conector personalizado do mais cedo na caixa superior.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre &quot;certificados e segredos&quot; no menu de recursos e um realce na página ao nosso &quot;novo segredo do cliente&quot;":::
 
-Selecione-o para exibir a lista de APIs contidas nesse conector. Use a barra de pesquisa ou role a lista para selecionar **DigitalTwins_Add**. (Essa é a API usada neste artigo, mas você também pode selecionar qualquer outra API como uma opção válida para uma conexão de aplicativos lógicos).
+Selecione-o para exibir a lista de APIs contidas nesse conector. Use a barra de pesquisa ou role a lista para selecionar **DigitalTwins_Add** . (Essa é a API usada neste artigo, mas você também pode selecionar qualquer outra API como uma opção válida para uma conexão de aplicativos lógicos).
 
 Talvez seja solicitado que você entre com suas credenciais do Azure para se conectar ao conector. Se você receber uma caixa de diálogo de *permissões solicitadas* , siga os prompts para conceder consentimento para seu aplicativo e aceitar.
 
 Na caixa novo *DigitalTwinsAdd* , preencha os campos da seguinte maneira:
-* _ID_: Preencha a *ID* do cópia do cópia digital em sua instância que você deseja que o aplicativo lógico atualize.
-* texto _: este_campo é onde você inserirá o corpo que a solicitação de API escolhida requer. Para *DigitalTwinsUpdate*, esse corpo está na forma de código de patch JSON. Para obter mais informações sobre como estruturar um patch JSON para atualizar seu número de atualizações, consulte a seção [atualizar uma atualização digital](how-to-manage-twin.md#update-a-digital-twin) de informações de *como: gerenciar gêmeos digitais*.
-* _versão_da API: a versão mais recente da API. Atualmente, esse valor é *2020-10-31*.
+* _ID_ : Preencha a *ID* do cópia do cópia digital em sua instância que você deseja que o aplicativo lógico atualize.
+* texto _: este_ campo é onde você inserirá o corpo que a solicitação de API escolhida requer. Para *DigitalTwinsUpdate* , esse corpo está na forma de código de patch JSON. Para obter mais informações sobre como estruturar um patch JSON para atualizar seu número de atualizações, consulte a seção [atualizar uma atualização digital](how-to-manage-twin.md#update-a-digital-twin) de informações de *como: gerenciar gêmeos digitais* .
+* _versão_ da API: a versão mais recente da API. Atualmente, esse valor é *2020-10-31* .
 
 Clique em *salvar* no designer de aplicativos lógicos.
 

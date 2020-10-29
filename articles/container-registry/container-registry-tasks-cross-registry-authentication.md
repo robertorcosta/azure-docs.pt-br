@@ -3,12 +3,12 @@ title: Autenticação entre registros da tarefa do ACR
 description: Configurar uma Tarefa do ACR (Tarefa de Registro de Contêiner do Azure) para acessar outro registro privado de contêiner do Azure, usando uma identidade gerenciada para os recursos Azure
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057341"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026251"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação entre registros em uma tarefa do ACR usando uma identidade gerenciada do Azure 
 
@@ -30,8 +30,8 @@ Em um cenário real, uma organização pode manter um conjunto de imagens base u
 
 Para este artigo, você precisa de dois registros de contêiner do Azure:
 
-* Você usa o primeiro registro para criar e executar tarefas do ACR. Neste artigo, esse registro é nomeado *myregistry*. 
-* O segundo registro hospeda uma imagem base usada para que a tarefa compile uma imagem. Neste artigo, o segundo registro é nomeado *mybaseregistry*. 
+* Você usa o primeiro registro para criar e executar tarefas do ACR. Neste artigo, esse registro é nomeado *myregistry* . 
+* O segundo registro hospeda uma imagem base usada para que a tarefa compile uma imagem. Neste artigo, o segundo registro é nomeado *mybaseregistry* . 
 
 Substitua por seus próprios nomes de registro em etapas posteriores.
 
@@ -39,16 +39,12 @@ Se você ainda não tem os registros de contêiner do Azure necessários, consul
 
 ## <a name="prepare-base-registry"></a>Preparar registro base
 
-Primeiro, crie um diretório de trabalho e depois crie um arquivo chamado Dockerfile com o conteúdo a seguir. Este exemplo simples compila uma imagem base do Node.js com base em uma imagem pública no Docker Hub.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+Para fins de demonstração, como uma operação única, execute [AZ ACR Import] [AZ-ACR-Import] para importar uma imagem de Node.js pública do Hub do Docker para o registro base. Na prática, outra equipe ou processo na organização pode manter imagens no registro base.
 
-No diretório atual, execute o comando [az acr build][az-acr-build] para compilar e enviar a imagem base por push para o registro base. Na prática, outra equipe ou processo da organização poderá manter o cadastro básico.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>Definir as etapas de tarefa no arquivo YAML
@@ -88,7 +84,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Dar permissões de pull de identidade para o registro base
 
-Nesta seção, dê as permissões de identidade gerenciada para efetuar pull do registro base, *mybaseregistry*.
+Nesta seção, dê as permissões de identidade gerenciada para efetuar pull do registro base, *mybaseregistry* .
 
 Use o comando [az acr show][az-acr-show] para obter a ID do recurso do registro base e armazená-la em uma variável:
 
@@ -127,7 +123,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Dar permissões de pull de identidade para o registro base
 
-Nesta seção, dê as permissões de identidade gerenciada para efetuar pull do registro base, *mybaseregistry*.
+Nesta seção, dê as permissões de identidade gerenciada para efetuar pull do registro base, *mybaseregistry* .
 
 Use o comando [az acr show][az-acr-show] para obter a ID do recurso do registro base e armazená-la em uma variável:
 
@@ -223,7 +219,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-Execute o comando [az acr repository show-tags][az-acr-repository-show-tags] para verificar se a imagem foi compilada e se foi enviada por push com sucesso para *myregistry*:
+Execute o comando [az acr repository show-tags][az-acr-repository-show-tags] para verificar se a imagem foi compilada e se foi enviada por push com sucesso para *myregistry* :
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv

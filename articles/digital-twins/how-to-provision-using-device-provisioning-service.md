@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494754"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026438"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gerenciar dispositivos automaticamente no gêmeos digital do Azure usando o DPS (serviço de provisionamento de dispositivos)
 
@@ -20,7 +20,7 @@ Neste artigo, você aprenderá a integrar o Azure digital gêmeos ao [DPS (servi
 
 A solução descrita neste artigo permitirá que você automatize o processo para **_provisionar_** e **_desativar_** dispositivos do Hub IOT no gêmeos digital do Azure usando o serviço de provisionamento de dispositivos. 
 
-Para obter mais informações sobre os estágios de _provisionamento_ e _desativação_ , e entender melhor o conjunto de estágios gerais de gerenciamento de dispositivos que são comuns a todos os projetos de IOT corporativos, consulte a [seção *ciclo de vida do dispositivo* ](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) da documentação de gerenciamento de dispositivos do Hub IOT.
+Para obter mais informações sobre os estágios de _provisionamento_ e _desativação_ , e entender melhor o conjunto de estágios gerais de gerenciamento de dispositivos que são comuns a todos os projetos de IOT corporativos, consulte a [seção *ciclo de vida do dispositivo*](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) da documentação de gerenciamento de dispositivos do Hub IOT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,12 +29,12 @@ Antes de configurar o provisionamento, você precisa ter uma **instância do gê
 Se você ainda não tiver essa configuração, poderá criá-la seguindo o tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md). O tutorial irá orientá-lo na configuração de uma instância do gêmeos digital do Azure com modelos e gêmeos, um [Hub IOT](../iot-hub/about-iot-hub.md)do Azure conectado e várias [funções do Azure](../azure-functions/functions-overview.md) para propagar o fluxo de dados.
 
 Você precisará dos seguintes valores posteriormente neste artigo de quando você configurar sua instância. Se você precisar reunir esses valores novamente, use os links abaixo para obter instruções.
-* A instância de Gêmeos Digitais do Azure **_nome do host_** ([localizar no portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* **_Cadeia de conexão_** da cadeia de conexão dos hubs de eventos do Azure ([Localizar no portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+* A instância de Gêmeos Digitais do Azure **_nome do host_** ( [localizar no portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* **_Cadeia de conexão_** da cadeia de conexão dos hubs de eventos do Azure ( [Localizar no portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 Este exemplo também usa um **simulador de dispositivo** que inclui o provisionamento usando o serviço de provisionamento de dispositivos. O simulador de dispositivo está localizado aqui: [exemplo de integração do Hub IOT e gêmeos digital do Azure](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Obtenha o projeto de exemplo em seu computador navegando até o link de exemplo e selecionando o botão *baixar zip* abaixo do título. Descompacte a pasta baixada.
 
-O simulador de dispositivo se baseia em **Node.js**, versão 10.0. x ou posterior. [*Preparar seu ambiente de desenvolvimento*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descreve como instalar Node.js para este tutorial no Windows ou no Linux.
+O simulador de dispositivo se baseia em **Node.js** , versão 10.0. x ou posterior. [*Preparar seu ambiente de desenvolvimento*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descreve como instalar Node.js para este tutorial no Windows ou no Linux.
 
 ## <a name="solution-architecture"></a>Arquitetura da solução
 
@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Em seguida, você criará uma função HTTP disparada por solicitação dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio.
+Em seguida, você criará uma função HTTP disparada por solicitação dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio.
 
 Essa função será usada pelo serviço de provisionamento de dispositivos em uma política de [alocação personalizada](../iot-dps/how-to-use-custom-allocation-policies.md) para provisionar um novo dispositivo. Para obter mais informações sobre como usar solicitações HTTP com o Azure functions, consulte [*gatilho de solicitação de http do Azure para Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
@@ -233,7 +233,7 @@ Salve o arquivo e, em seguida, publique novamente seu aplicativo de funções. P
 
 ### <a name="configure-your-function"></a>Configurar sua função
 
-Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou. Se você usou o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), a configuração já estará configurada.
+Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou. Se você usou o tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), a configuração já estará configurada.
 
 Adicione a configuração com este CLI do Azure comando:
 
@@ -243,18 +243,11 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Verifique se as permissões e a atribuição da função de identidade gerenciada estão configuradas corretamente para o aplicativo de funções, conforme descrito na seção [*atribuir permissões ao aplicativo de funções*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) no tutorial de ponta a ponta.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>Criar registro de provisionamento de dispositivos
 
-Em seguida, você precisará criar um registro no serviço de provisionamento de dispositivos usando uma **função de alocação personalizada**. Siga as instruções para fazer isso nas seções [*criar o registro*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) e [*derivar chaves de dispositivo exclusivas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) do artigo serviços de provisionamento de dispositivos sobre políticas de alocação personalizadas.
+Em seguida, você precisará criar um registro no serviço de provisionamento de dispositivos usando uma **função de alocação personalizada** . Siga as instruções para fazer isso nas seções [*criar o registro*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) e [*derivar chaves de dispositivo exclusivas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) do artigo serviços de provisionamento de dispositivos sobre políticas de alocação personalizadas.
 
-Ao passar pelo fluxo, você vinculará o registro à função que acabou de criar selecionando a função durante a etapa para **selecionar como deseja atribuir dispositivos a hubs**. Depois de criar o registro, o nome de registro e a chave SAS primária ou secundária serão usados posteriormente para configurar o simulador de dispositivo para este artigo.
+Ao passar pelo fluxo, você vinculará o registro à função que acabou de criar selecionando a função durante a etapa para **selecionar como deseja atribuir dispositivos a hubs** . Depois de criar o registro, o nome de registro e a chave SAS primária ou secundária serão usados posteriormente para configurar o simulador de dispositivo para este artigo.
 
 ### <a name="set-up-the-device-simulator"></a>Configurar o simulador de dispositivo
 
@@ -266,7 +259,7 @@ Abra uma janela de comando e navegue até a pasta baixada e, em seguida, no dire
 npm install
 ```
 
-Em seguida, copie o arquivo *. env. Template* para um novo arquivo chamado *. env*e preencha estas configurações:
+Em seguida, copie o arquivo *. env. Template* para um novo arquivo chamado *. env* e preencha estas configurações:
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
@@ -313,18 +306,18 @@ As seções a seguir percorrem as etapas para configurar esse fluxo de dispositi
 Agora você precisa criar um hub de [eventos](../event-hubs/event-hubs-about.md)do Azure, que será usado para receber os eventos do ciclo de vida do Hub IOT. 
 
 Percorra as etapas descritas no início rápido [*criar um hub de eventos*](../event-hubs/event-hubs-create.md) , usando as seguintes informações:
-* Se você estiver usando o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), poderá reutilizar o grupo de recursos criado para o tutorial de ponta a ponta.
-* Nomeie seu *lifecycleevents*de Hub de eventos ou outra coisa de sua escolha e lembre-se do namespace que você criou. Você os usará quando configurar a função de ciclo de vida e a rota do Hub IoT nas próximas seções.
+* Se você estiver usando o tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), poderá reutilizar o grupo de recursos criado para o tutorial de ponta a ponta.
+* Nomeie seu *lifecycleevents* de Hub de eventos ou outra coisa de sua escolha e lembre-se do namespace que você criou. Você os usará quando configurar a função de ciclo de vida e a rota do Hub IoT nas próximas seções.
 
 ### <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Em seguida, você criará uma função disparada por hubs de eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio. 
+Em seguida, você criará uma função disparada por hubs de eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio. 
 
-Dê um nome ao seu hub de eventos disparado *lifecycleevents*e conecte o gatilho do hub de eventos ao Hub de eventos criado na etapa anterior. Se você usou um nome de Hub de eventos diferente, altere-o para corresponder ao nome do gatilho abaixo.
+Dê um nome ao seu hub de eventos disparado *lifecycleevents* e conecte o gatilho do hub de eventos ao Hub de eventos criado na etapa anterior. Se você usou um nome de Hub de eventos diferente, altere-o para corresponder ao nome do gatilho abaixo.
 
 Esta função usará o evento de ciclo de vida do dispositivo do Hub IoT para desativar um dispositivo existente. Para obter mais informações sobre eventos do ciclo de vida, consulte [*eventos de não telemetria do Hub IOT*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Para obter mais informações sobre como usar hubs de eventos com o Azure functions, consulte [*gatilho de hubs de eventos do Azure para Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Dentro de seu aplicativo de funções publicado, adicione uma nova classe de função do tipo *gatilho de Hub de eventos*e cole no código abaixo.
+Dentro de seu aplicativo de funções publicado, adicione uma nova classe de função do tipo *gatilho de Hub de eventos* e cole no código abaixo.
 
 ```C#
 using System;
@@ -440,7 +433,7 @@ Salve o projeto e, em seguida, publique o aplicativo de funções novamente. Par
 
 ### <a name="configure-your-function"></a>Configurar sua função
 
-Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou e o Hub de eventos. Se você usou o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)), a primeira configuração já estará configurada.
+Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou e o Hub de eventos. Se você usou o tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)), a primeira configuração já estará configurada.
 
 Adicione a configuração com este comando CLI do Azure. O comando pode ser executado no [Cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 

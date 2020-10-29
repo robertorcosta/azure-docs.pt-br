@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085086"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026982"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeando o modo de depuração do fluxo de dados
 
@@ -60,7 +60,7 @@ O IR padrão usado para o modo de depuração em fluxos de dados do ADF é um n�
 
 Com a depuração ativa, a guia Visualização dos Dados fica destacada no painel inferior. Sem o modo de depuração ativado, o fluxo de dados mostrará apenas os metadados atuais dentro e fora de cada uma de suas transformações na guia inspecionar. A visualização de dados somente consultará o número de linhas que você definiu como seu limite nas configurações de depuração. Clique em **Atualizar** para buscar a visualização de dados.
 
-![Visualização de dados](media/data-flow/datapreview.png "Visualização dos dados")
+![Visualização dos dados](media/data-flow/datapreview.png "Visualização dos dados")
 
 > [!NOTE]
 > As fontes de arquivo limitam apenas as linhas que você vê, não as linhas que estão sendo lidas. Para conjuntos de grandes volumes de arquivos, é recomendável que você faça uma pequena parte desse arquivo e use-o para seu teste. Você pode selecionar um arquivo temporário nas configurações de depuração para cada fonte que seja um tipo de conjunto de um arquivo.
@@ -77,15 +77,15 @@ Quando o teste de unidade une as transformações, existe ou pesquisa, certifiqu
 
 Depois de ver a visualização de dados, você pode gerar uma transformação rápida para conversão, remover ou fazer uma modificação em uma coluna. Clique no cabeçalho da coluna e selecione uma das opções da barra de ferramentas de visualização de dados.
 
-![Ações rápidas](media/data-flow/quick-actions1.png "Ações rápidas")
+![Captura de tela mostra a barra de ferramentas de visualização de dados com opções: conversão, modificar, estatísticas e remover.](media/data-flow/quick-actions1.png "Ações rápidas")
 
 Depois de selecionar uma modificação, a visualização de dados será atualizada imediatamente. Clique em **confirmar** no canto superior direito para gerar uma nova transformação.
 
-![Ações rápidas](media/data-flow/quick-actions2.png "Ações rápidas")
+![Captura de tela mostra o botão confirmar.](media/data-flow/quick-actions2.png "Ações rápidas")
 
 **Conversão** e **Modify** irão gerar uma transformação de coluna derivada e **Remove** irá gerar uma transformação SELECT.
 
-![Ações rápidas](media/data-flow/quick-actions3.png "Ações rápidas")
+![Captura de tela mostra as configurações da coluna derivada.](media/data-flow/quick-actions3.png "Ações rápidas")
 
 > [!NOTE]
 > Se você editar o fluxo de dados, precisará buscar novamente a visualização de dados antes de adicionar uma transformação rápida.

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370905"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027594"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeando fluxos de dados em Azure Data Factory
 
@@ -27,7 +27,7 @@ O mapeamento de fluxos de dados fornece uma experiência totalmente visual sem a
 
 ## <a name="getting-started"></a>Introdução
 
-Os fluxos de dados são criados no painel recursos de fábrica como pipelines e conjuntos de dados. Para criar um fluxo de dados, selecione o sinal de adição ao lado de **recursos de fábrica**e, em seguida, selecione **fluxo de dados**. 
+Os fluxos de dados são criados no painel recursos de fábrica como pipelines e conjuntos de dados. Para criar um fluxo de dados, selecione o sinal de adição ao lado de **recursos de fábrica** e, em seguida, selecione **fluxo de dados** . 
 
 ![Novo fluxo de dados](media/data-flow/new-data-flow.png "novo fluxo de dados")
 
@@ -37,13 +37,13 @@ Essa ação leva você para a tela de fluxo de dados, na qual você pode criar a
 
 O mapeamento de fluxo de dados tem uma tela de criação exclusiva projetada para facilitar a criação da lógica de transformação. A tela de fluxo de dados é separada em três partes: a barra superior, o grafo e o painel de configuração. 
 
-![Tela](media/data-flow/canvas1.png "Canvas")
+![A captura de tela mostra as telas de fluxo de dados com barra superior, grafo e painel de configuração rotulados.](media/data-flow/canvas1.png "Tela")
 
 ### <a name="graph"></a>Grafo
 
-O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente. Saiba mais sobre como [gerenciar o grafo de fluxo de dados](concepts-data-flow-manage-graph.md).
+O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem** . Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente. Saiba mais sobre como [gerenciar o grafo de fluxo de dados](concepts-data-flow-manage-graph.md).
 
-![Tela](media/data-flow/canvas2.png "Canvas")
+![Captura de tela mostra a parte gráfica do Canvas com uma caixa de texto de pesquisa.](media/data-flow/canvas2.png "Tela")
 
 ### <a name="configuration-panel"></a>Painel de configuração
 
@@ -106,7 +106,7 @@ Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
 |  Austrália Central | | |  
 | Austrália Central 2 | | |
 | Leste da Austrália | ✓ |  ✓ |
-| Australia Southeast   | ✓ | ✓ |
+| Sudeste da Austrália   | ✓ | ✓ |
 | Sul do Brasil  | ✓ |  |
 | Canadá Central | ✓ |  |
 | Índia Central | ✓ |   ✓ |
@@ -126,7 +126,7 @@ Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
 | Norte da Alemanha (público) | | |
 | Nordeste da Alemanha (soberanas) | | |
 | Centro-oeste da Alemanha (público) |  | ✓ |
-| Japan East | ✓ |  |
+| Leste do Japão | ✓ |  |
 | Oeste do Japão |  | |
 | Coreia Central | ✓ |  |
 | Sul da Coreia | | |
