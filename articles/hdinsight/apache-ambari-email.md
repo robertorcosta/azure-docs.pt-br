@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541655"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542549"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutorial: Configurar notificações por email do Apache Ambari no Azure HDInsight
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta de email do SendGrid. Confira [Como enviar emails usando o SendGrid com o Azure](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) para obter instruções.
+* Uma conta de email do SendGrid. Confira [Como enviar emails usando o SendGrid com o Azure](../sendgrid-dotnet-how-to-send-email.md) para obter instruções.
 
 * Um cluster HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -34,15 +34,15 @@ Neste tutorial, você aprenderá como:
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o recurso do SendGrid.
 
-1. Na página Visão Geral, selecione **Gerenciar**, acesse a página do SendGrid da sua conta.
+1. Na página Visão Geral, selecione **Gerenciar** , acesse a página do SendGrid da sua conta.
 
     ![Visão geral do SendGrid no portal do azure](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. No menu esquerdo, navegue até o nome da sua conta e, em seguida, **Detalhes da Conta**.
+1. No menu esquerdo, navegue até o nome da sua conta e, em seguida, **Detalhes da Conta** .
 
     ![Navegação do painel do SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. Na página **Detalhes da Conta**, registre o **Nome de Usuário**.
+1. Na página **Detalhes da Conta** , registre o **Nome de Usuário** .
 
     ![Detalhes da conta do SendGrid](./media/apache-ambari-email/sendgrid-account-details.png)
 
@@ -50,13 +50,13 @@ Neste tutorial, você aprenderá como:
 
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`, em que `CLUSTERNAME` é o nome do cluster.
 
-1. Na lista suspensa **Ações**, selecione **Gerenciar notificações**.
+1. Na lista suspensa **Ações** , selecione **Gerenciar notificações** .
 
-1. Na janela **Gerenciar notificações de alerta**, selecione o ícone **+** .
+1. Na janela **Gerenciar notificações de alerta** , selecione o ícone **+** .
 
     ![A captura de tela mostra a caixa de diálogo Gerenciar Notificações de Alerta.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
-1. Na caixa de diálogo **Criar Notificação de Alerta**, forneça as seguintes informações:
+1. Na caixa de diálogo **Criar Notificação de Alerta** , forneça as seguintes informações:
 
     |Propriedade |Descrição |
     |---|---|
@@ -64,7 +64,7 @@ Neste tutorial, você aprenderá como:
     |Grupos|Configure-a, conforme desejado.|
     |Severity|Configure-a, conforme desejado.|
     |Descrição|Opcional.|
-    |Método|Deixe como **EMAIL**.|
+    |Método|Deixe como **EMAIL** .|
     |Email Para|Fornecer email para receber notificações, separados por uma vírgula.|
     |Servidor SMTP|`smtp.sendgrid.net`|
     |Porta SMTP|25 ou 587 (para conexões não criptografadas/TLS).|
@@ -77,9 +77,9 @@ Neste tutorial, você aprenderá como:
 
     ![A captura de tela mostra a caixa de diálogo Criar Notificação de Alerta.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    Clique em **Salvar**. Você voltará para a janela **Gerenciar Notificações de Alerta**.
+    Clique em **Salvar** . Você voltará para a janela **Gerenciar Notificações de Alerta** .
 
-1. Na janela **Gerenciar Notificações de Alerta**, selecione **Fechar**.
+1. Na janela **Gerenciar Notificações de Alerta** , selecione **Fechar** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

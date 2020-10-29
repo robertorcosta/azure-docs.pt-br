@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9cbcbeb9d9e216a0b686cba258288db8439e0a9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929186"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534049"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutorial: Criar um Banco de Dados do Azure para MySQL – Servidor Flexível (versão prévia) com aplicativo Web dos Serviços de Aplicativos na rede virtual
 
 > [!IMPORTANT]
 > O Banco de Dados do Azure para MySQL – Servidor Flexível está atualmente na versão prévia pública.
 
-Este tutorial mostra como criar um aplicativo Web do Serviço de Aplicativo do Azure com o Servidor Flexível do MySQL (versão prévia) dentro de uma [rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Este tutorial mostra como criar um aplicativo Web do Serviço de Aplicativo do Azure com o Servidor Flexível do MySQL (versão prévia) dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará fazer logon em sua conta usando o comando [login az](https://docs.microsoft.com/cli/azure/reference-index#az-login). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
+Você precisará fazer logon em sua conta usando o comando [login az](/cli/azure/reference-index#az-login). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
 
 ```azurecli
 az login
@@ -111,4 +111,4 @@ az group delete -n myresourcegroup
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](../../app-service/app-service-web-tutorial-custom-domain.md)
