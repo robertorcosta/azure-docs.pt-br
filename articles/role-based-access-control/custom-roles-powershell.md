@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd518828668ed20a4fa7be0cd6c9798a013055a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790204"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909566"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Criar ou atualizar funções personalizadas do Azure usando o Azure PowerShell
 
@@ -63,7 +63,7 @@ API Management Service Contributor                   False
 O exemplo a seguir lista apenas as funções personalizadas disponíveis para atribuição na assinatura selecionada.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -163,7 +163,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 Ao usar o PowerShell para criar uma função personalizada, é possível usar uma das [funções internas](built-in-roles.md) como ponto de partida ou começar do zero. O primeiro exemplo nesta seção começa com uma função interna e, em seguida, a personaliza com mais permissões. Edite os atributos para adicionar o `Actions`, o `NotActions` ou o `AssignableScopes` desejado e salve as alterações como uma nova função.
 
-O exemplo a seguir inicia com a função interna [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) para criar uma função personalizada denominada *Operador de Máquina Virtual*. A nova função concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede acesso para iniciar, reiniciar e monitorar as máquinas virtuais. A função personalizada pode ser usada em duas assinaturas.
+O exemplo a seguir inicia com a função interna [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) para criar uma função personalizada denominada *Operador de Máquina Virtual* . A nova função concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute* , *Microsoft.Storage* e *Microsoft.Network* e concede acesso para iniciar, reiniciar e monitorar as máquinas virtuais. A função personalizada pode ser usada em duas assinaturas.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"

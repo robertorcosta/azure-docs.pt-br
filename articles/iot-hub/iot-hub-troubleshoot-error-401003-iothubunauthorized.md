@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538265"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909634"
 ---
 # <a name="401003-iothubunauthorized"></a>IoTHubUnauthorized 401003
 
@@ -52,7 +52,7 @@ Para MQTT, alguns SDKs dependem do Hub IoT para emitir a desconexão quando o to
 
 ### <a name="cause-2"></a>Causa 2
 
-O Hub IoT não pôde autenticar o cabeçalho de autenticação, a regra ou a chave.
+O Hub IoT não pôde autenticar o cabeçalho de autenticação, a regra ou a chave. Isso pode ser devido a qualquer uma das razões citadas nos sintomas.
 
 ## <a name="solution"></a>Solução
 
@@ -66,10 +66,13 @@ Se o volume de erros for uma preocupação, mude para o SDK do C, que renova o t
 
 Em geral, a mensagem de erro apresentada deve explicar como corrigir o erro. Se, por alguma razão, você não tiver acesso aos detalhes da mensagem de erro, verifique se:
 
-- A SAS ou outro token de segurança que você usa não expirou. 
-- A credencial de autorização é bem formada para o protocolo que você usa. Para saber mais, confira [controle de acesso do Hub IOT](iot-hub-devguide-security.md).
+- A SAS ou outro token de segurança que você usa não expirou.
+- Para a autenticação de certificado X. 509, o certificado do dispositivo ou o certificado de autoridade de certificação associado ao dispositivo não está expirado. Para saber como registrar os certificados de autoridade de certificação X. 509 com o Hub IoT, confira [Configurar a segurança x. 509 no Hub IOT do Azure](iot-hub-security-x509-get-started.md).
+- Para a autenticação de impressão digital do certificado X. 509, a impressão digital do certificado do dispositivo é registrada com o Hub IoT.
+- A credencial de autorização é bem formada para o protocolo que você usa. Para saber mais, confira [controlar o acesso ao Hub IOT](iot-hub-devguide-security.md).
 - A regra de autorização usada tem a permissão para a operação solicitada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para facilitar a autenticação no Hub IoT, é recomendável usar [SDKs do IOT do Azure](iot-hub-devguide-sdks.md).
+- Para facilitar a autenticação no Hub IoT, é recomendável usar [SDKs do IOT do Azure](iot-hub-devguide-sdks.md).
+- Para obter detalhes sobre a autenticação com o Hub IoT, consulte [controlar o acesso ao Hub IOT](iot-hub-devguide-security.md).

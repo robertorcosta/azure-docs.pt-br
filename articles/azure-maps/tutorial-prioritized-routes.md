@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321740"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896694"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: localizar e exibir rotas para diferentes modos de viagem usando o Azure Mapas
 
-Este tutorial mostra como usar o [serviço Roteiros](https://docs.microsoft.com/rest/api/maps/route) e o [Controle de Mapeamento](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) dos Azure Mapas a fim de exibir trajetos de rota para veículos particulares e comerciais (caminhões) com o tipo de carga `USHazmatClass2`. Além disso, mostraremos como visualizar os dados de tráfego em tempo real em um mapa. Neste tutorial, você aprenderá como:
+Este tutorial mostra como usar o [serviço Roteiros](/rest/api/maps/route) e o [Controle de Mapeamento](./how-to-use-map-control.md) dos Azure Mapas a fim de exibir trajetos de rota para veículos particulares e comerciais (caminhões) com o tipo de carga `USHazmatClass2`. Além disso, mostraremos como visualizar os dados de tráfego em tempo real em um mapa. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar e exibir o Controle de Mapeamento em uma página da Web
@@ -39,7 +39,7 @@ Você pode obter o código-fonte completo para o exemplo [aqui](https://github.c
 
 As etapas a seguir mostram como criar e exibir o Controle de Mapeamento em uma página da Web.
 
-1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapTruckRoute.html**.
+1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapTruckRoute.html** .
 2. Copie/cole a marcação HTML a seguir no arquivo.
 
     ```HTML
@@ -117,7 +117,7 @@ As etapas a seguir mostram como criar e exibir o Controle de Mapeamento em uma p
     });
     ```
 
-    No manipulador `ready` de eventos do mapa, a configuração do fluxo de tráfego no mapa é definida como `relative`, que é a velocidade da estrada em relação ao fluxo livre. Confira mais opções de tráfego na [Interface TrafficOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions?view=azure-maps-typescript-latest&preserve-view=false).
+    No manipulador `ready` de eventos do mapa, a configuração do fluxo de tráfego no mapa é definida como `relative`, que é a velocidade da estrada em relação ao fluxo livre. Confira mais opções de tráfego na [Interface TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions?preserve-view=false&view=azure-maps-typescript-latest).
 
 2. Salve o arquivo **MapTruckRoute.html** e atualize a página em seu navegador. Se você ampliar o mapa de qualquer cidade, como Los Angeles, verá que as ruas aparecem com o fluxo de tráfego atual.
 
@@ -193,7 +193,7 @@ Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. A primeira 
 
     Esse código cria dois [objetos de Ponto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos inicial e final, que são então adicionados à fonte de dados.
 
-    O último bloco de código define a exibição da câmera usando a latitude e a longitude dos pontos inicial e final. Os pontos de partida e chegada são adicionados à fonte de dados. A caixa delimitadora dos pontos de partida e chegada é calculada com a função `atlas.data.BoundingBox.fromData`. Essa caixa delimitadora é usada para definir o modo de exibição das câmeras por toda a rota usando a função `map.setCamera`. Um preenchimento é adicionado para compensar as dimensões de pixel dos ícones de símbolo. Para obter mais informações sobre a propriedade setCamera do Controle de Mapeamento, confira a propriedade [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
+    O último bloco de código define a exibição da câmera usando a latitude e a longitude dos pontos inicial e final. Os pontos de partida e chegada são adicionados à fonte de dados. A caixa delimitadora dos pontos de partida e chegada é calculada com a função `atlas.data.BoundingBox.fromData`. Essa caixa delimitadora é usada para definir o modo de exibição das câmeras por toda a rota usando a função `map.setCamera`. Um preenchimento é adicionado para compensar as dimensões de pixel dos ícones de símbolo. Para obter mais informações sobre a propriedade setCamera do Controle de Mapeamento, confira a propriedade [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
 
 3. Salve **TruckRoute.html** e atualize o navegador. Agora o mapa está centralizado em Seattle. O alfinete azul em formato de lágrima marca o ponto inicial. O alfinete azul redondo marca o ponto final.
 
@@ -206,7 +206,7 @@ Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. A primeira 
 Esta seção mostra como usar o serviço Roteiros do Azure Mapas para obter o trajeto de um ponto a outro com base no seu meio de transporte. Usaremos dois meios de transporte: caminhão e carro.
 
 >[!TIP]
->O serviço Roteiros fornece APIs para planejar rotas *mais rápidas*, *mais curtas*, *econômicas* ou *emocionantes* com base na distância, nas condições de trânsito e no meio de transporte usado. O serviço também permite que os usuários planejem rotas futuras com base nas condições históricas de tráfego. Os usuários podem ver a previsão de durações de rota para qualquer determinado horário. Para obter mais informações, confira [API de Obtenção de trajeto de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+>O serviço Roteiros fornece APIs para planejar rotas *mais rápidas* , *mais curtas* , *econômicas* ou *emocionantes* com base na distância, nas condições de trânsito e no meio de transporte usado. O serviço também permite que os usuários planejem rotas futuras com base nas condições históricas de tráfego. Os usuários podem ver a previsão de durações de rota para qualquer determinado horário. Para obter mais informações, confira [API de Obtenção de trajeto de rota](/rest/api/maps/route/getroutedirections).
 
 1. Na função `GetMap`, dentro do manipulador de eventos `ready` do controle, adicione o seguinte ao código JavaScript.
 
@@ -221,7 +221,7 @@ Esta seção mostra como usar o serviço Roteiros do Azure Mapas para obter o tr
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para Azure Mapas com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). O `routeURL` representa uma URL para as operações de [rota](https://docs.microsoft.com/rest/api/maps/route) do Azure Mapas.
+   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para Azure Mapas com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline). O `routeURL` representa uma URL para as operações de [rota](/rest/api/maps/route) do Azure Mapas.
 
 2. Depois de configurar as credenciais e a URL, adicione o código JavaScript a seguir para construir uma rota de caminhão do ponto inicial ao final. Essa rota é criada e exibida para um caminhão transportando carga com classificação `USHazmatClass2`.
 
@@ -250,10 +250,10 @@ Esta seção mostra como usar o serviço Roteiros do Azure Mapas para obter o tr
     });
     ```
 
-    O código acima consulta o serviço Roteiros dos Azure Mapas por meio da [API de Trajetos de Rota dos Azure Mapas](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). A linha de rota, em seguida, é extraída da coleção de recursos GeoJSON, mais precisamente da resposta que é extraída usando o método `geojson.getFeatures()`. Por fim, a linha da rota é adicionada à fonte de dados. Estamos adicionando-a ao índice 0, para garantir que a rota de caminhão seja renderizada antes de qualquer outra linha na fonte de dados, porque o cálculo da rota de caminhão, em geral, será mais lento do que um cálculo de rota de carro. Se a linha de rota de caminhão for adicionada à fonte de dados após a rota de carro, ela será renderizada acima dela. Duas propriedades são adicionadas à linha de rota de caminhão: uma cor de traço azul e uma largura de traço de nove pixels.
+    O código acima consulta o serviço Roteiros dos Azure Mapas por meio da [API de Trajetos de Rota dos Azure Mapas](/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). A linha de rota, em seguida, é extraída da coleção de recursos GeoJSON, mais precisamente da resposta que é extraída usando o método `geojson.getFeatures()`. Por fim, a linha da rota é adicionada à fonte de dados. Estamos adicionando-a ao índice 0, para garantir que a rota de caminhão seja renderizada antes de qualquer outra linha na fonte de dados, porque o cálculo da rota de caminhão, em geral, será mais lento do que um cálculo de rota de carro. Se a linha de rota de caminhão for adicionada à fonte de dados após a rota de carro, ela será renderizada acima dela. Duas propriedades são adicionadas à linha de rota de caminhão: uma cor de traço azul e uma largura de traço de nove pixels.
 
     >[!TIP]
-    > Para ver todas as opções e valores possíveis para a API de Trajetos de Rota do Azure Mapas, confira [Parâmetros de URI para Trajetos de Rota POST](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#uri-parameters).
+    > Para ver todas as opções e valores possíveis para a API de Trajetos de Rota do Azure Mapas, confira [Parâmetros de URI para Trajetos de Rota POST](/rest/api/maps/route/postroutedirections#uri-parameters).
 
 3. Agora, adicione o código JavaScript a seguir para construir uma rota de carro.
 
@@ -273,7 +273,7 @@ Esta seção mostra como usar o serviço Roteiros do Azure Mapas para obter o tr
     });
     ```
 
-    O código acima consulta o serviço de rotas do Azure Mapas por meio do método [API de Trajetos de Rota do Azure Mapas](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). A linha de rota, em seguida, é extraída da coleção de recursos GeoJSON, mais precisamente da resposta que é extraída usando o método `geojson.getFeatures()`. Por fim, a linha da rota é adicionada à fonte de dados. Duas propriedades são adicionadas à linha de rota de caminhão: uma cor de traço roxa e uma largura de traço de cinco pixels.
+    O código acima consulta o serviço de rotas do Azure Mapas por meio do método [API de Trajetos de Rota do Azure Mapas](/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). A linha de rota, em seguida, é extraída da coleção de recursos GeoJSON, mais precisamente da resposta que é extraída usando o método `geojson.getFeatures()`. Por fim, a linha da rota é adicionada à fonte de dados. Duas propriedades são adicionadas à linha de rota de caminhão: uma cor de traço roxa e uma largura de traço de cinco pixels.
 
 4. Salve o arquivo **TruckRoute.html** e atualize seu navegador da Web. Agora, o mapa exibirá as rotas de caminhão e de carro.
 

@@ -655,6 +655,9 @@
         - name: Gerenciador de Firewall
           tocHref: /azure/firewall-manager/
           topicHref: /azure/firewall-manager/
+        - name: Proteção contra DDoS Standard
+          tocHref: /azure/ddos-protection/
+          topicHref: /azure/ddos-protection/
         - name: Serviço de Front Door
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/

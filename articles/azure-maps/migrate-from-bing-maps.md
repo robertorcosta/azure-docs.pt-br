@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ab4b4e0ab7d0474dc4fe7692cfe3c46835095f45
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0045520849ea20d3e53a30101e6db0f5d495ab15
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873737"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897000"
 ---
 # <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>Tutorial – Fazer migração do Bing Mapas para o Azure Mapas
 
@@ -69,7 +69,7 @@ Veja abaixo alguns recursos relacionados ao licenciamento do Azure Mapas:
 -   [Página de preços do Azure Mapas](https://azure.microsoft.com/pricing/details/azure-maps/)
 -   [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 -   [Termo de uso do Azure Mapas](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (incluído nos termos do Microsoft Online Services)
--   [Escolha o tipo de preço certo no Azure Mapas](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+-   [Escolha o tipo de preço certo no Azure Mapas](./choose-pricing-tier.md)
 
 ## <a name="suggested-migration-plan"></a>Plano de migração sugerido
 
@@ -77,7 +77,7 @@ O plano de migração a seguir é de alto nível.
 
 1.  Faça um inventário de quais SDKs e serviços do Bing Maps seu aplicativo está usando e verifique se o Azure Mapas fornece SDKs e serviços alternativos para os quais você poderá migrar.
 2.  Crie uma assinatura do Azure (caso você ainda não tenha uma) em <https://azure.com>.
-3.  Crie uma conta ([documentação](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) e chave de autenticação do Azure Mapas ou do Azure Active Directory ([documentação](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
+3.  Crie uma conta ([documentação](./how-to-manage-account-keys.md)) e chave de autenticação do Azure Mapas ou do Azure Active Directory ([documentação](./how-to-manage-authentication.md)).
 4.  Migre o código do aplicativo.
 5.  Teste seu aplicativo migrado.
 6.  Implante seu aplicativo migrado para produção.
@@ -88,8 +88,8 @@ Para criar uma conta do Azure Mapas e obter acesso à plataforma do Azure Mapas,
 
 1. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 2. Entre no [portal do Azure](https://portal.azure.com/).
-3. Crie uma [conta do Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
-4. [Obtenha a chave de assinatura do Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) ou configure a autenticação do Azure Active Directory para aumentar a segurança.
+3. Crie uma [conta do Azure Mapas](./how-to-manage-account-keys.md). 
+4. [Obtenha a chave de assinatura do Azure Mapas](./how-to-manage-authentication.md#view-authentication-details) ou configure a autenticação do Azure Active Directory para aumentar a segurança.
 
 ## <a name="azure-maps-technical-resources"></a>Recursos técnicos do Azure Mapas
 
@@ -105,7 +105,7 @@ Aqui está uma lista de recursos técnicos úteis para o Azure Mapas.
 
 ## <a name="migration-support"></a>Suporte à migração
 
-Os desenvolvedores podem buscar suporte à migração por meio dos [fóruns](https://aka.ms/AzureMapsForums) ou por meio de uma das muitas opções de Suporte do Azure: <https://azure.microsoft.com/support/options/>
+Os desenvolvedores podem buscar suporte à migração por meio dos [fóruns](/answers/topics/azure-maps.html) ou por meio de uma das muitas opções de Suporte do Azure: <https://azure.microsoft.com/support/options/>
 
 ## <a name="new-terminology"></a>Nova terminologia 
 

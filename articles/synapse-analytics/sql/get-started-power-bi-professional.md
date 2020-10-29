@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Power BI Professional
+title: Conectar-se ao Synapse SQL com o Power BI Professional
 description: Neste tutorial, percorreremos as etapas de como conectar o Power BI Desktop ao SQL sob demanda (versão prévia).
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288691"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899115"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conectar-se ao Synapse SQL com o Power BI Professional
 
@@ -75,7 +75,7 @@ Precisaremos criar credenciais antes que você execute consultas. Esta credencia
 > [!NOTE]
 > Você precisa criar credenciais de acesso à conta de armazenamento. Embora o SQL sob demanda possa acessar armazenamentos de diferentes regiões, ter o armazenamento e o workspace do Azure Synapse na mesma região proporcionará uma experiência com melhor desempenho.
 
-**Snippet de código sobre como criar credenciais para contêineres de dados do censo**, execute:
+**Snippet de código sobre como criar credenciais para contêineres de dados do censo** , execute:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -92,13 +92,13 @@ GO
 
 ## <a name="create-a-power-bi-desktop-report"></a>Criar um relatório do Power BI Desktop
 
-Abra o aplicativo Power BI Desktop e selecione a opção **Obter dados**.
+Abra o aplicativo Power BI Desktop e selecione a opção **Obter dados** .
 
 ![Abra o aplicativo Power BI Desktop e selecione Obter dados.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Etapa 1 – Selecionar fonte de dados
 
-Selecione **Azure** no menu e, em seguida, **Banco de Dados SQL do Azure**.
+Selecione **Azure** no menu e, em seguida, **Banco de Dados SQL do Azure** .
 ![Selecione uma fonte de dados.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Etapa 2 – Selecionar banco de dados

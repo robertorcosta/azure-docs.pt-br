@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321689"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896653"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -41,7 +41,7 @@ Este tutorial mostra como configurar uma conta dos Mapas do Azure e depois usar 
 
 A API de Controle de Mapeamento é uma biblioteca de clientes conveniente. Essa API permite que você integre com facilidade os Mapas ao seu aplicativo Web. Ela oculta a complexidade das chamadas básicas de serviço REST e aumenta a produtividade com os componentes personalizáveis. As etapas a seguir mostra como criar uma página HTML estática inserida com a API do Controle de Mapeamento.
 
-1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapSearch.html**.
+1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapSearch.html** .
 2. Adicione os seguintes componentes HTML ao arquivo:
 
    ```HTML
@@ -139,7 +139,7 @@ A API de Controle de Mapeamento é uma biblioteca de clientes conveniente. Essa 
 
 ## <a name="add-search-capabilities"></a>Adicionar recursos de pesquisa
 
-Esta seção mostra como usar a [API de Pesquisa](https://docs.microsoft.com/rest/api/maps/search) dos Mapas do Azure para encontrar um ponto de interesse em seu mapa. Trata-se de uma API RESTful projetada para desenvolvedores para pesquisa de endereços, pontos de interesse e outras informações geográficas. O serviço de Pesquisa atribui informações de latitude e longitude a um endereço especificado. O **Módulo de Serviço** explicado a seguir pode ser usado para procurar um local usando a API de Pesquisa de Mapas.
+Esta seção mostra como usar a [API de Pesquisa](/rest/api/maps/search) dos Mapas do Azure para encontrar um ponto de interesse em seu mapa. Trata-se de uma API RESTful projetada para desenvolvedores para pesquisa de endereços, pontos de interesse e outras informações geográficas. O serviço de Pesquisa atribui informações de latitude e longitude a um endereço especificado. O **Módulo de Serviço** explicado a seguir pode ser usado para procurar um local usando a API de Pesquisa de Mapas.
 
 ### <a name="service-module"></a>Módulo de serviço
 
@@ -156,7 +156,7 @@ Esta seção mostra como usar a [API de Pesquisa](https://docs.microsoft.com/res
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para Azure Mapas com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). O `searchURL` representa uma URL para as operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Mapas.
+   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para Azure Mapas com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline). O `searchURL` representa uma URL para as operações de [pesquisa](/rest/api/maps/search) do Azure Mapas.
 
 2. Adicione o bloco de script a seguir para criar a consulta de pesquisa. Ele usa o Serviço de Pesquisa Difusa, que é uma API de pesquisa básica do Serviço de Pesquisa. O Serviço de Pesquisa Difusa trata a maioria das entradas difusas, como endereços, locais e POI (pontos de interesse). Esse código pesquisa postos de gasolina próximos em um raio especificado das coordenadas de latitude e longitude fornecidas. A coleção do recurso GeoJSON da resposta é então extraída usando o método `geojson.getFeatures()` e adicionado à fonte de dados, que automaticamente faz com que os dados sejam renderizados no mapa através da camada do símbolo. A última parte do script define a exibição de câmera dos mapas usando a caixa delimitadora dos resultados com a propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do mapa.
 
