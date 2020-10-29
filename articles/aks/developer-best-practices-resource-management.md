@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986785"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900357"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os desenvolvedores de aplicativos gerenciarem os recursos no serviço de Kubernetes do Azure (AKS)
 
@@ -27,7 +27,7 @@ Este artigo sobre práticas recomendadas se concentra em como executar suas carg
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Defina as solicitações e limites de recurso de pod
 
-**Diretrizes de práticas recomendadas** – defina as solicitações e limites de pod em todos os pods em seus manifestos YAML. Se o cluster AKS usar *cotas de recursos*, sua implantação pode ser rejeitada se você não definir esses valores.
+**Diretrizes de práticas recomendadas** – defina as solicitações e limites de pod em todos os pods em seus manifestos YAML. Se o cluster AKS usar *cotas de recursos* , sua implantação pode ser rejeitada se você não definir esses valores.
 
 Um meio principal para gerenciar os recursos de computação dentro de um cluster do AKS é usar limites e solicitações de pod. Essas solicitações e limites permitem que o Agendador Kubernetes saiba o que deve ser atribuído a um pod de recursos de computação.
 
@@ -50,7 +50,7 @@ Ao definir uma solicitação de CPU ou o limite, o valor é medido em unidades d
 * A mesma medida é usada para GPUs.
 * Você pode definir frações medidas em milicores. Por exemplo, *100 milhões* é *0,1* de um núcleo vCPU subjacente.
 
-No exemplo a seguir básico para um único pod NGINX, o pod solicita *100m* de tempo de CPU, e *128Mi* de memória. Os limites de recursos para o pod são definidos como *250m* CPU e memória de *256Mi*:
+No exemplo a seguir básico para um único pod NGINX, o pod solicita *100m* de tempo de CPU, e *128Mi* de memória. Os limites de recursos para o pod são definidos como *250m* CPU e memória de *256Mi* :
 
 ```yaml
 kind: Pod
@@ -60,7 +60,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

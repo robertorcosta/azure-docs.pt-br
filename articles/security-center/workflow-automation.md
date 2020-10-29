@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cbe6adc37025f0b727fa5f5d3ace46ed34afaa9e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895215"
+ms.locfileid: "92900833"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizar respostas para gatilhos da central de segurança
 
@@ -74,7 +74,7 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 1. Em seu novo aplicativo lógico, você pode escolher entre modelos predefinidos internos da categoria segurança. Ou você pode definir um fluxo de eventos personalizado para ocorrer quando esse processo é disparado.
 
     > [!TIP]
-    > Às vezes, em um aplicativo lógico, os parâmetros são incluídos no conector como parte de uma cadeia de caracteres e não em seu próprio campo. Para obter um exemplo de como extrair parâmetros, consulte a etapa #14 de [trabalhar com parâmetros de aplicativo lógico ao criar automaçãos de fluxo de trabalho da central de segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
+    > Às vezes, em um aplicativo lógico, os parâmetros são incluídos no conector como parte de uma cadeia de caracteres e não em seu próprio campo. Para obter um exemplo de como extrair parâmetros, consulte etapa #14 de [trabalhando com parâmetros de aplicativo lógico ao criar automaçãos de fluxo de trabalho da central de segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
 
     O designer do aplicativo lógico dá suporte a esses gatilhos da central de segurança:
 

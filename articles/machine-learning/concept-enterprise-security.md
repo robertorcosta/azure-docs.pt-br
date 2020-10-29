@@ -1,5 +1,5 @@
 ---
-title: Segurança do Enterprise
+title: Segurança e governança corporativas
 titleSuffix: Azure Machine Learning
 description: 'Use o Azure Machine Learning com segurança: autenticação, autorização, segurança de rede, criptografia de dados e monitoramento.'
 services: machine-learning
@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637081"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899323"
 ---
-# <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para o Azure Machine Learning
+# <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governança corporativas para Azure Machine Learning
 
 Neste artigo, você aprenderá sobre os recursos de segurança disponíveis para o Azure Machine Learning.
 
-Ao usar um serviço de nuvem, um tipo de melhor prática é restringir o acesso somente aos usuários que precisam dele. Comece entendendo o modelo de autenticação e autorização usado pelo serviço. É possível que você também queira restringir o acesso à rede ou unir recursos de modo seguro em sua rede local com a nuvem. A criptografia de dados também é vital, tanto em repouso quanto durante o tráfego de dados entre os serviços. Por fim, você precisa ser capaz de monitorar o serviço e produzir um log de auditoria de todas as atividades.
+Ao usar um serviço de nuvem, um tipo de melhor prática é restringir o acesso somente aos usuários que precisam dele. Comece entendendo o modelo de autenticação e autorização usado pelo serviço. É possível que você também queira restringir o acesso à rede ou unir recursos de modo seguro em sua rede local com a nuvem. A criptografia de dados também é vital, tanto em repouso quanto durante o tráfego de dados entre os serviços. Talvez você também queira criar políticas para impor determinadas configurações ou log quando configurações sem conformidade forem criadas. Por fim, você precisa ser capaz de monitorar o serviço e produzir um log de auditoria de todas as atividades.
 
 > [!NOTE]
 > As informações presentes neste artigo funcionam com o SDK do Python do Azure Machine Learning versão 1.0.83.1 ou superior.

@@ -4,12 +4,12 @@ description: Conheça as diferentes maneiras como você pode implantar código p
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641952"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900170"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -33,7 +33,7 @@ Embora implantações de funções específicas usem a melhor tecnologia com bas
 
 O Azure Functions dá suporte ao desenvolvimento local de plataforma cruzada e à hospedagem no Windows e no Linux. Atualmente, três planos de hospedagem estão disponíveis:
 
-+ [Consumo](functions-scale.md#consumption-plan)
++ [Utilização](functions-scale.md#consumption-plan)
 + [Premium](functions-scale.md#premium-plan)
 + [Dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan)
 
@@ -128,7 +128,7 @@ Você pode implantar uma imagem de contêiner do Linux que contém seu aplicativ
 
 >__Como usá-lo:__ Crie um aplicativo de funções do Linux no plano Premium ou dedicado e especifique a imagem de contêiner a ser executada. É possível fazer isso de duas formas:
 >
->* Crie um aplicativo de funções do Linux em um plano de serviço Azure App no portal do Azure. Para **publicar**, selecione **imagem do Docker**e configure o contêiner. Insira o local onde a imagem está hospedada.
+>* Crie um aplicativo de funções do Linux em um plano de serviço Azure App no portal do Azure. Para **publicar** , selecione **imagem do Docker** e configure o contêiner. Insira o local onde a imagem está hospedada.
 >* Crie um aplicativo de funções do Linux em um plano do serviço de aplicativo usando o CLI do Azure. Para saber como, consulte [criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Para implantar em um aplicativo existente usando um contêiner personalizado, em [Azure Functions Core Tools](functions-run-local.md), use o [`func deploy`](functions-run-local.md#publish) comando.
@@ -191,7 +191,7 @@ No editor baseado em portal, você pode editar diretamente os arquivos que estã
 
 A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à edição do portal:
 
-| Linguagem | Consumo do Windows | Windows Premium | Windows dedicado | Consumo do Linux | Linux Premium | Linux dedicado |
+| Idioma | Consumo do Windows | Windows Premium | Windows dedicado | Consumo do Linux | Linux Premium | Linux dedicado |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | Script do C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -212,7 +212,7 @@ Se precisar de mais controle sobre essa transição, você deverá usar slots de
 
 ## <a name="deployment-slots"></a>Slots de implantação
 
-Ao implantar seu aplicativo de funções no Azure, você pode implantar em um slot de implantação separado em vez de diretamente na produção. Para obter mais informações sobre slots de implantação, consulte a documentação dos [Slots de implantação do Azure Functions](../app-service/deploy-staging-slots.md) para obter detalhes.
+Ao implantar seu aplicativo de funções no Azure, você pode implantar em um slot de implantação separado em vez de diretamente na produção. Para obter mais informações sobre slots de implantação, consulte a documentação dos [Slots de implantação do Azure Functions](functions-deployment-slots.md) para obter detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

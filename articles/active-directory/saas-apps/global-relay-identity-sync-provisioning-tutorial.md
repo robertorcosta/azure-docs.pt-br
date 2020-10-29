@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514377"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900291"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: configurar a sincronização de identidade de retransmissão global para provisionamento automático de usuário
 
-Este tutorial descreve as etapas que você precisa executar tanto na sincronização de identidades de retransmissão global quanto no Azure Active Directory (AD do Azure) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para [sincronização de identidade de retransmissão global](https://portalalpha1.globalrelay.com/) usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
+Este tutorial descreve as etapas que você precisa executar tanto na sincronização de identidades de retransmissão global quanto no Azure Active Directory (AD do Azure) para configurar o provisionamento automático de usuário. Quando configurado, o Azure AD provisiona e desprovisiona automaticamente usuários e grupos para sincronização de identidade de retransmissão global usando o serviço de provisionamento do Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades com suporte
@@ -67,33 +67,33 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para sincronização de identidade de retransmissão global no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **sincronização de identidade de retransmissão global**.
+2. Na lista de aplicativos, selecione **sincronização de identidade de retransmissão global** .
 
     ![O link de sincronização de identidade de retransmissão global na lista de aplicativos](common/all-applications.png)
 
-3. Selecione a guia **Provisionamento**.
+3. Selecione a guia **Provisionamento** .
 
     ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **Modo de Provisionamento** como **Automático** .
 
     ![Guia de provisionamento automático](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira sua **URL de locatário**de sincronização de identidade de retransmissão global. Clique em **testar conexão** para garantir que o Azure ad possa se conectar à sincronização de identidade de retransmissão global. Se a conexão falhar, verifique se sua conta de sincronização de identidade de retransmissão global tem permissões de administrador e entre em contato com seu representante de retransmissão global para resolver o problema.
+5. Na seção **credenciais de administrador** , insira sua **URL de locatário** de sincronização de identidade de retransmissão global. Clique em **testar conexão** para garantir que o Azure ad possa se conectar à sincronização de identidade de retransmissão global. Se a conexão falhar, verifique se sua conta de sincronização de identidade de retransmissão global tem permissões de administrador e entre em contato com seu representante de retransmissão global para resolver o problema.
 
     ![Botão de autorização](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Salvar** .
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para sincronização de identidade de retransmissão global**.
+8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para sincronização de identidade de retransmissão global** .
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para a sincronização de identidade de retransmissão global na seção **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário na sincronização de identidade de retransmissão global para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que a API de sincronização de identidade de retransmissão global ofereça suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
@@ -103,7 +103,6 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |ativo|Boolean|
    |displayName|String|
    |título|String|
-   |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |name.givenName|String|
    |name.familyName|String|
@@ -126,23 +125,23 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |userType|String|
    |localidade|String|
    |timezone|String|
-   |emails [tipo EQ "início"]. valor|Cadeia de caracteres|
-   |emails [tipo EQ "other"]. valor|Cadeia de caracteres|
-   |phoneNumbers [type EQ "Home"]. valor|Cadeia de caracteres|
-   |phoneNumbers [tipo EQ "other"]. valor|Cadeia de caracteres|
-   |phoneNumbers [type EQ "pager"]. valor|Cadeia de caracteres|
-   |endereços [type EQ "Home"]. streetAddress|Cadeia de caracteres|
-   |endereços [tipo EQ "início"]. localidade|Cadeia de caracteres|
-   |endereços [tipo EQ "início"]. região|Cadeia de caracteres|
-   |endereços [type EQ "Home"]. postalCode|Cadeia de caracteres|
-   |endereços [tipo EQ "início"]. país|Cadeia de caracteres|
-   |endereços [type EQ "Home"]. formatado|Cadeia de caracteres|
-   |endereços [tipo EQ "other"]. streetAddress|Cadeia de caracteres|
-   |endereços [tipo EQ "other"]. localidade|Cadeia de caracteres|
-   |endereços [tipo EQ "other"]. região|Cadeia de caracteres|
-   |endereços [tipo EQ "other"]. postalCode|Cadeia de caracteres|
-   |endereços [tipo EQ "other"]. país|Cadeia de caracteres|
-   |funções [EQ principal "true"]. display|Cadeia de caracteres|
+   |emails [tipo EQ "início"]. valor|String|
+   |emails [tipo EQ "other"]. valor|String|
+   |phoneNumbers [type EQ "Home"]. valor|String|
+   |phoneNumbers [tipo EQ "other"]. valor|String|
+   |phoneNumbers [type EQ "pager"]. valor|String|
+   |endereços [type EQ "Home"]. streetAddress|String|
+   |endereços [tipo EQ "início"]. localidade|String|
+   |endereços [tipo EQ "início"]. região|String|
+   |endereços [type EQ "Home"]. postalCode|String|
+   |endereços [tipo EQ "início"]. país|String|
+   |endereços [type EQ "Home"]. formatado|String|
+   |endereços [tipo EQ "other"]. streetAddress|String|
+   |endereços [tipo EQ "other"]. localidade|String|
+   |endereços [tipo EQ "other"]. região|String|
+   |endereços [tipo EQ "other"]. postalCode|String|
+   |endereços [tipo EQ "other"]. país|String|
+   |funções [EQ principal "true"]. display|String|
    |funções [EQ principal "true"]. Type|String|
    |roles[primary eq "True"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
@@ -151,26 +150,26 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: proxyAddresses|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute1|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute2|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute3|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute4|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute5|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute6|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute7|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute8|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute9|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute10|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute11|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute12|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute13|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute14|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute15|Cadeia de caracteres|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: proxyAddresses|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute1|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute2|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute3|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute4|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute5|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute6|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute7|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute8|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute9|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute10|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute11|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute12|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute13|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute14|String|
+   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: User: extensionAttribute15|String|
 
 
 
-10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para sincronização de identidade de retransmissão global**.
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para sincronização de identidade de retransmissão global** .
 
 11. Examine os atributos de grupo que são sincronizados do Azure AD para a sincronização de identidade de retransmissão global na seção **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos na sincronização de identidade de retransmissão global para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
@@ -189,11 +188,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para provisionar, clique em **Salvar**.
+15. Quando estiver pronto para provisionar, clique em **Salvar** .
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
+Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações** . O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:

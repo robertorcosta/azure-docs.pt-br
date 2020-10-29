@@ -4,12 +4,12 @@ description: Saiba como controlar as inmissões Pod usando o PodSecurityPolicy n
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9f6ead7edea7a3a6240e116d3073ea01fa9f6bb
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669298"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900100"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Visualização – Proteja seu cluster usando políticas de segurança pod no serviço de kubernetes do Azure (AKS)
 
@@ -28,7 +28,7 @@ Para melhorar a segurança do cluster AKS, você pode limitar o que o pods pode 
 
 Este artigo considera que já existe um cluster do AKS. Se precisar de um cluster do AKS, veja o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
-Você precisará da CLI do Azure versão 2.0.61 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisará da CLI do Azure versão 2.0.61 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
@@ -52,7 +52,7 @@ Para criar ou atualizar um cluster AKS para usar políticas de segurança de Pod
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
+Demora alguns minutos para o status exibir *Registrado* . Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
@@ -80,7 +80,7 @@ Para mostrar como as políticas padrão limitam as implantações de Pod, neste 
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Habilitar política de segurança de pod em um cluster AKS
 
-Você pode habilitar ou desabilitar a política de segurança Pod usando o comando [AZ AKs Update][az-aks-update] . O exemplo a seguir habilita a política de segurança de Pod no nome do cluster *myAKSCluster* no grupo de recursos chamado *MyResource*Group.
+Você pode habilitar ou desabilitar a política de segurança Pod usando o comando [AZ AKs Update][az-aks-update] . O exemplo a seguir habilita a política de segurança de Pod no nome do cluster *myAKSCluster* no grupo de recursos chamado *MyResource* Group.
 
 > [!NOTE]
 > Para uso do mundo real, não habilite a política de segurança Pod até definir suas próprias políticas personalizadas. Neste artigo, você habilita a política de segurança Pod como a primeira etapa para ver como as políticas padrão limitam as implantações de Pod.
@@ -94,7 +94,7 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>Políticas de AKS padrão
 
-Quando você habilita a política de segurança Pod, o AKS cria uma política padrão chamada *Privileged*. Não edite ou remova a política padrão. Em vez disso, crie suas próprias políticas que definam as configurações que você deseja controlar. Primeiro, vamos examinar o que essas políticas padrão são como elas afetam as implantações de Pod.
+Quando você habilita a política de segurança Pod, o AKS cria uma política padrão chamada *Privileged* . Não edite ou remova a política padrão. Em vez disso, crie suas próprias políticas que definam as configurações que você deseja controlar. Primeiro, vamos examinar o que essas políticas padrão são como elas afetam as implantações de Pod.
 
 Para exibir as políticas disponíveis, use o comando [kubectl Get PSP][kubectl-get] , conforme mostrado no exemplo a seguir
 
@@ -181,7 +181,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         privileged: true
 ```
@@ -216,7 +216,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
 ```
 
 Crie o Pod usando o comando [kubectl Apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
@@ -249,7 +249,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         runAsUser: 2000
 ```
@@ -274,7 +274,7 @@ O Pod não chega ao estágio de agendamento, portanto, não há recursos a serem
 
 Agora que você viu o comportamento das políticas de segurança de Pod padrão, vamos fornecer uma maneira para o *usuário não administrador* agendasse com êxito o pods.
 
-Vamos criar uma política para rejeitar pods que solicitam acesso privilegiado. Outras opções, como *runAsUser* ou *volumes*permitidos, não são explicitamente restritas. Esse tipo de política nega uma solicitação de acesso privilegiado, mas, caso contrário, permite que o cluster execute o pods solicitado.
+Vamos criar uma política para rejeitar pods que solicitam acesso privilegiado. Outras opções, como *runAsUser* ou *volumes* permitidos, não são explicitamente restritas. Esse tipo de política nega uma solicitação de acesso privilegiado, mas, caso contrário, permite que o cluster execute o pods solicitado.
 
 Crie um arquivo chamado `psp-deny-privileged.yaml` e cole o seguinte manifesto YAML:
 
@@ -315,7 +315,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Permitir que a conta de usuário use a política de segurança de Pod personalizada
 
-Na etapa anterior, você criou uma política de segurança de pod para rejeitar pods que solicitam acesso privilegiado. Para permitir que a política seja usada, você cria uma *função* ou um *ClusterRole*. Em seguida, você associa uma dessas funções usando uma *rolebinding* ou *ClusterRoleBinding*.
+Na etapa anterior, você criou uma política de segurança de pod para rejeitar pods que solicitam acesso privilegiado. Para permitir que a política seja usada, você cria uma *função* ou um *ClusterRole* . Em seguida, você associa uma dessas funções usando uma *rolebinding* ou *ClusterRoleBinding* .
 
 Para este exemplo, crie um ClusterRole que permita que você *use* a política com *privilégios de PSP-Deny* criada na etapa anterior. Crie um arquivo chamado `psp-deny-privileged-clusterrole.yaml` e cole o seguinte manifesto YAML:
 
@@ -375,7 +375,7 @@ Com a política de segurança de Pod personalizada aplicada e uma associação p
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-O Pod foi agendado com êxito. Quando você verifica o status do pod usando o comando [kubectl Get pods][kubectl-get] , o Pod está *em execução*:
+O Pod foi agendado com êxito. Quando você verifica o status do pod usando o comando [kubectl Get pods][kubectl-get] , o Pod está *em execução* :
 
 ```
 $ kubectl-nonadminuser get pods
@@ -394,7 +394,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para desabilitar a política de segurança de Pod, use o comando [AZ AKs Update][az-aks-update] novamente. O exemplo a seguir desabilita a política de segurança de Pod no nome do cluster *myAKSCluster* no grupo de recursos chamado *MyResource*Group:
+Para desabilitar a política de segurança de Pod, use o comando [AZ AKs Update][az-aks-update] novamente. O exemplo a seguir desabilita a política de segurança de Pod no nome do cluster *myAKSCluster* no grupo de recursos chamado *MyResource* Group:
 
 ```azurecli-interactive
 az aks update \

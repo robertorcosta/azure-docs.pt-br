@@ -3,13 +3,13 @@ title: Integrar Azure NetApp Files com o serviço kubernetes do Azure
 description: Saiba como integrar o Azure NetApp Files com o serviço kubernetes do Azure
 services: container-service
 ms.topic: article
-ms.date: 09/26/2019
-ms.openlocfilehash: 76bbf0ccaffecd05570848ab487f6d35f5ae5f01
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 10/23/2020
+ms.openlocfilehash: 78119d3d7ff83ca237c1e668785439d943dcfd14
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791555"
+ms.locfileid: "92900413"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar Azure NetApp Files com o serviço kubernetes do Azure
 
@@ -217,7 +217,7 @@ metadata:
   name: nginx-nfs
 spec:
   containers:
-  - image: nginx
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: nginx-nfs
     command:
     - "/bin/sh"
@@ -247,11 +247,11 @@ kubectl describe pod nginx-nfs
 Verifique se o volume foi montado no pod usando o [kubectl exec][kubectl-exec] para se conectar ao pod e `df -h` Verifique se o volume está montado.
 
 ```console
-$ kubectl exec -it nginx-nfs -- bash
+$ kubectl exec -it nginx-nfs -- sh
 ```
 
 ```output
-root@nginx-nfs:/# df -h
+/ # df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...
 10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure

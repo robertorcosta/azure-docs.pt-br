@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
-ms.date: 08/12/2020
-ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 10/28/2020
+ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791776"
+ms.locfileid: "92901310"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -116,7 +116,7 @@ A [ADR (recuperação de banco de dados acelerada)](../accelerated-database-reco
 
 ## <a name="testing-application-fault-resiliency"></a>Testando a resiliência de falha do aplicativo
 
-A alta disponibilidade é uma parte fundamental do Banco de Dados SQL e da plataforma de Instância Gerenciada de SQL que funciona de forma transparente para o aplicativo de banco de dados. No entanto, reconhecemos que talvez você queira testar como as operações de failover automático iniciadas durante os eventos planejados ou não planejados afetariam um aplicativo antes de implantá-lo na produção. Você pode disparar um failover manualmente chamando uma API especial para reiniciar um banco de dados, um pool elástico ou uma instância gerenciada. No caso de um banco de dados com redundância de zona ou pool elástico, a chamada à API resultaria no redirecionamento de conexões de cliente para o novo primário em uma zona de disponibilidade diferente da zona de disponibilidade do primário antigo. Assim, além de testar como o failover afeta as sessões de banco de dados existentes, você também pode verificar se ele altera o desempenho de ponta a ponta devido a alterações na latência de rede. Como a operação de reinicialização é intrusiva e um grande número delas poderia enfatizar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada banco de dados, pool elástico ou instância gerenciada.
+A alta disponibilidade é uma parte fundamental do Banco de Dados SQL e da plataforma de Instância Gerenciada de SQL que funciona de forma transparente para o aplicativo de banco de dados. No entanto, reconhecemos que talvez você queira testar como as operações de failover automático iniciadas durante os eventos planejados ou não planejados afetariam um aplicativo antes de implantá-lo na produção. Você pode disparar um failover manualmente chamando uma API especial para reiniciar um banco de dados, um pool elástico ou uma instância gerenciada. No caso de um banco de dados com redundância de zona ou pool elástico, a chamada à API resultaria no redirecionamento de conexões de cliente para o novo primário em uma zona de disponibilidade diferente da zona de disponibilidade do primário antigo. Assim, além de testar como o failover afeta as sessões de banco de dados existentes, você também pode verificar se ele altera o desempenho de ponta a ponta devido a alterações na latência de rede. Como a operação de reinicialização é intrusiva e um grande número delas poderia enfatizar a plataforma, apenas uma chamada de failover é permitida a cada 15 minutos para cada banco de dados, pool elástico ou instância gerenciada.
 
 Um failover pode ser iniciado usando o PowerShell, a API REST ou CLI do Azure:
 

@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/23/2020
+ms.date: 10/27/2020
 ms.custom: generated
-ms.openlocfilehash: ed5d7c3007cf8471da453db93be0ab716805908c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60e9ec88fd07d8b04254c5d3917aab09d671f517
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742949"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900867"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -9225,12 +9225,12 @@ Função de acesso completo para digital gêmeos data-plano [saiba mais](../digi
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Commands/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Relationships/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Models/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Query/* |  |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Ler, excluir, criar ou atualizar qualquer rota de evento |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Ler, criar, atualizar ou excluir qualquer atualização digital |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Commands/* | Invocar qualquer comando em um teledigital |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Relationships/* | Ler, criar, atualizar ou excluir qualquer relacionamento de atualização digital |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Models/* | Ler, criar, atualizar ou excluir qualquer modelo |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Query/* | Consultar qualquer grafo gêmeos digital |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 

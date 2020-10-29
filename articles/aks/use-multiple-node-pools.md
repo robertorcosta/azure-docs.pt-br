@@ -4,16 +4,16 @@ description: Saiba como criar e gerenciar vários pools de nós para um cluster 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074508"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900095"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no AKS (Serviço de Kubernetes do Azure)
 
-No AKS (serviço kubernetes do Azure), os nós da mesma configuração são agrupados em *pools de nós*. Esses pools de nós contêm as VMs subjacentes que executam seus aplicativos. O número inicial de nós e seu tamanho (SKU) é definido quando você cria um cluster AKS, que cria um [pool de nós do sistema][use-system-pool]. Para dar suporte a aplicativos que têm demandas de armazenamento ou de computação diferentes, você pode criar *pools de nó de usuário*adicionais. Os pools de nó do sistema servem a principal finalidade de hospedar pods críticos do sistema, como CoreDNS e tunnelfront. Os pools de nó de usuário servem a principal finalidade de hospedar o pods do aplicativo. No entanto, os pods de aplicativo podem ser agendados em pools de nós do sistema se você quiser ter apenas um pool no cluster AKS. Os pools de nós de usuário são onde você coloca os pods específicos do aplicativo. Por exemplo, use esses pools de nó de usuário adicionais para fornecer GPUs para aplicativos de computação intensiva ou acesso ao armazenamento SSD de alto desempenho.
+No AKS (serviço kubernetes do Azure), os nós da mesma configuração são agrupados em *pools de nós* . Esses pools de nós contêm as VMs subjacentes que executam seus aplicativos. O número inicial de nós e seu tamanho (SKU) é definido quando você cria um cluster AKS, que cria um [pool de nós do sistema][use-system-pool]. Para dar suporte a aplicativos que têm demandas de armazenamento ou de computação diferentes, você pode criar *pools de nó de usuário* adicionais. Os pools de nó do sistema servem a principal finalidade de hospedar pods críticos do sistema, como CoreDNS e tunnelfront. Os pools de nó de usuário servem a principal finalidade de hospedar o pods do aplicativo. No entanto, os pods de aplicativo podem ser agendados em pools de nós do sistema se você quiser ter apenas um pool no cluster AKS. Os pools de nós de usuário são onde você coloca os pods específicos do aplicativo. Por exemplo, use esses pools de nó de usuário adicionais para fornecer GPUs para aplicativos de computação intensiva ou acesso ao armazenamento SSD de alto desempenho.
 
 > [!NOTE]
 > Esse recurso permite maior controle sobre como criar e gerenciar vários pools de nós. Como resultado, comandos separados são necessários para criar/atualizar/excluir. Anteriormente, as operações de cluster por meio `az aks create` `az aks update` do ou usaram a API managedCluster e eram a única opção para alterar o plano de controle e um único pool de nós. Esse recurso expõe uma operação separada definida para pools de agente por meio da API agentPool e requer o uso do `az aks nodepool` conjunto de comandos para executar operações em um pool de nós individual.
@@ -93,7 +93,7 @@ Para ver o status dos pools de nós, use o comando [AZ AKs node pool List][az-ak
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-A saída de exemplo a seguir mostra que *mynodepool* foi criado com êxito com três nós no pool de nós. Quando o cluster AKS foi criado na etapa anterior, um *nodepool1* padrão foi criado com uma contagem de nós de *2*.
+A saída de exemplo a seguir mostra que *mynodepool* foi criado com êxito com três nós no pool de nós. Quando o cluster AKS foi criado na etapa anterior, um *nodepool1* padrão foi criado com uma contagem de nós de *2* .
 
 ```output
 [
@@ -161,7 +161,7 @@ Como há dois pools de nós neste exemplo, devemos usar [AZ AKs nodepool upgrade
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Vamos atualizar o *mynodepool*. Use o comando [AZ AKs nodepool upgrade][az-aks-nodepool-upgrade] para atualizar o pool de nós, conforme mostrado no exemplo a seguir:
+Vamos atualizar o *mynodepool* . Use o comando [AZ AKs nodepool upgrade][az-aks-nodepool-upgrade] para atualizar o pool de nós, conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Liste o status dos pools de nós novamente usando o comando [AZ AKs node pool List][az-aks-nodepool-list] . O exemplo a seguir mostra que *mynodepool* está no estado *atualizando* para *KUBERNETES_VERSION*:
+Liste o status dos pools de nós novamente usando o comando [AZ AKs node pool List][az-aks-nodepool-list] . O exemplo a seguir mostra que *mynodepool* está no estado *atualizando* para *KUBERNETES_VERSION* :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ Como prática recomendada, você deve atualizar todos os pools de nós em um clu
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Atualizar um plano de controle de cluster com vários pools de nós
 
 > [!NOTE]
-> Kubernetes usa o esquema de controle de versão de [controle semântico](https://semver.org/) de versão padrão. O número de versão é expresso como *x. y. z*, em que *x* é a versão principal, *y* é a versão secundária e *z* é a versão do patch. Por exemplo, na versão *1.12.6*, 1 é a versão principal, 12 é a versão secundária e 6 é a versão do patch. A versão kubernetes do plano de controle e o pool de nós inicial são definidos durante a criação do cluster. Todos os pools de nós adicionais têm sua versão kubernetes definida quando são adicionados ao cluster. As versões do kubernetes podem ser diferentes entre pools de nós, bem como entre um pool de nós e o plano de controle.
+> Kubernetes usa o esquema de controle de versão de [controle semântico](https://semver.org/) de versão padrão. O número de versão é expresso como *x. y. z* , em que *x* é a versão principal, *y* é a versão secundária e *z* é a versão do patch. Por exemplo, na versão *1.12.6* , 1 é a versão principal, 12 é a versão secundária e 6 é a versão do patch. A versão kubernetes do plano de controle e o pool de nós inicial são definidos durante a criação do cluster. Todos os pools de nós adicionais têm sua versão kubernetes definida quando são adicionados ao cluster. As versões do kubernetes podem ser diferentes entre pools de nós, bem como entre um pool de nós e o plano de controle.
 
 Um cluster AKS tem dois objetos de recurso de cluster com versões do kubernetes associadas.
 
@@ -249,7 +249,7 @@ As atualizações de kubernetes válidas para o plano de controle e os pools de 
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Para dimensionar o número de nós em um pool de nós, use o comando [AZ AKs node pool Scale][az-aks-nodepool-scale] . O exemplo a seguir dimensiona o número de nós em *mynodepool* para *5*:
+Para dimensionar o número de nós em um pool de nós, use o comando [AZ AKs node pool Scale][az-aks-nodepool-scale] . O exemplo a seguir dimensiona o número de nós em *mynodepool* para *5* :
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -351,11 +351,11 @@ Leva alguns minutos para excluir os nós e o pool de nós.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Especificar um tamanho de VM para um pool de nós
 
-Nos exemplos anteriores para criar um pool de nós, um tamanho de VM padrão foi usado para os nós criados no cluster. Um cenário mais comum é criar pools de nós com diferentes tamanhos e recursos de VM. Por exemplo, você pode criar um pool de nós que contém nós com grandes quantidades de CPU ou memória, ou um pool de nós que fornece suporte à GPU. Na próxima etapa, você [usa os tolerationss e](#schedule-pods-using-taints-and-tolerations) os informativos para informar ao agendador de kubernetes como limitar o acesso a pods que pode ser executado nesses nós.
+Nos exemplos anteriores para criar um pool de nós, um tamanho de VM padrão foi usado para os nós criados no cluster. Um cenário mais comum é criar pools de nós com diferentes tamanhos e recursos de VM. Por exemplo, você pode criar um pool de nós que contém nós com grandes quantidades de CPU ou memória, ou um pool de nós que fornece suporte à GPU. Na próxima etapa, você [usa os tolerationss e](#setting-nodepool-taints) os informativos para informar ao agendador de kubernetes como limitar o acesso a pods que pode ser executado nesses nós.
 
 No exemplo a seguir, crie um pool de nós baseado em GPU que usa o tamanho da VM *Standard_NC6* . Essas VMs são alimentadas pelo cartão NVIDIA Tesla K80. Para obter informações sobre tamanhos de VM disponíveis, consulte [tamanhos de máquinas virtuais do Linux no Azure][vm-sizes].
 
-Crie um pool de nós usando o comando [AZ AKs node pool Add][az-aks-nodepool-add] novamente. Desta vez, especifique o nome *gpunodepool*e use o `--node-vm-size` parâmetro para especificar o tamanho do *Standard_NC6* :
+Crie um pool de nós usando o comando [AZ AKs node pool Add][az-aks-nodepool-add] novamente. Desta vez, especifique o nome *gpunodepool* e use o `--node-vm-size` parâmetro para especificar o tamanho do *Standard_NC6* :
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -367,7 +367,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-A saída de exemplo a seguir do comando [AZ AKs node pool List][az-aks-nodepool-list] mostra que *gpunodepool* está *criando* nós com o *VmSize*especificado:
+A saída de exemplo a seguir do comando [AZ AKs node pool List][az-aks-nodepool-list] mostra que *gpunodepool* está *criando* nós com o *VmSize* especificado:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -404,89 +404,6 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Leva alguns minutos para que o *gpunodepool* seja criado com êxito.
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>Agendar pods usando os e Tolerations
-
-Agora você tem dois pools de nós no cluster – o pool de nós padrão inicialmente criado e o pool de nós baseado em GPU. Use o comando [kubectl Get Nodes][kubectl-get] para exibir os nós no cluster. A saída de exemplo a seguir mostra os nós:
-
-```console
-kubectl get nodes
-```
-
-```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
-```
-
-O Agendador Kubernetes pode usar taints e tolerations para restringir quais cargas de trabalho podem ser executados em nós.
-
-* Um **taint** é aplicado a um nó que indica que apenas os pods específicos podem ser agendados neles.
-* Um **toleration**, em seguida, é aplicado a um pod que lhes permite *tolerar* um taint de nó.
-
-Para obter mais informações sobre como usar os recursos agendados do kubernetes avançados, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][taints-tolerations]
-
-Neste exemplo, aplique um o seu nó baseado em GPU usando o comando--node-comparações. Especifique o nome do nó baseado em GPU da saída do `kubectl get nodes` comando anterior. O seu que é aplicado como um par *chave = valor* e uma opção de agendamento. O exemplo a seguir usa o par *SKU = GPU* e define pods, caso contrário, tem a capacidade *NoSchedule* :
-
-```console
-az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
-```
-
-O manifesto YAML de exemplo básico a seguir usa um toleration para permitir que o Agendador de kubernetes execute um pod NGINX no nó baseado em GPU. Para obter um exemplo mais apropriado, mas com uso intensivo de tempo para executar um trabalho do Tensorflow no conjunto de informações do MNIST, consulte [usar GPUs para cargas de trabalhos com uso intensivo de computação no AKs][gpu-cluster].
-
-Crie um arquivo chamado `gpu-toleration.yaml` e copie no exemplo YAML a seguir:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: nginx:1.15.9
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1
-        memory: 2G
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-```
-
-Agende o Pod usando o `kubectl apply -f gpu-toleration.yaml` comando:
-
-```console
-kubectl apply -f gpu-toleration.yaml
-```
-
-Leva alguns segundos para agendar o pod e efetuar pull da imagem NGINX. Use o comando [kubectl para descrever o Pod][kubectl-describe] para exibir o status do pod. A saída de exemplo condensada a seguir mostra o *SKU = GPU: NoSchedule* toleration é aplicado. Na seção de eventos, o Agendador atribuiu o Pod ao nó baseado em *AKs-gpunodepool-28993262-vmss000000* :
-
-```console
-kubectl describe pod mypod
-```
-
-```output
-[...]
-Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-                 node.kubernetes.io/unreachable:NoExecute for 300s
-                 sku=gpu:NoSchedule
-Events:
-  Type    Reason     Age    From                                          Message
-  ----    ------     ----   ----                                          -------
-  Normal  Scheduled  4m48s  default-scheduler                             Successfully assigned default/mypod to aks-gpunodepool-28993262-vmss000000
-  Normal  Pulling    4m47s  kubelet, aks-gpunodepool-28993262-vmss000000  pulling image "nginx:1.15.9"
-  Normal  Pulled     4m43s  kubelet, aks-gpunodepool-28993262-vmss000000  Successfully pulled image "nginx:1.15.9"
-  Normal  Created    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Created container
-  Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
-```
-
-Somente os pods que têm esse toleration aplicado podem ser agendados em nós em *gpunodepool*. Qualquer outro pod seria agendado no pool de nós *nodepool1* . Se você criar pools de nós adicionais, poderá usar os conteúdo e os Tolerations adicionais para limitar o que os pods podem ser agendados nesses recursos de nó.
-
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especificar um seu, rótulo ou uma marca para um pool de nós
 
 ### <a name="setting-nodepool-taints"></a>Configurando nodepools
@@ -508,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > Um não pode ser definido apenas para pools de nós durante a criação do pool de nós.
 
-A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *taintnp* está *criando* nós com o *nodeTaints*especificado:
+A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *taintnp* está *criando* nós com o *nodeTaints* especificado:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -532,7 +449,68 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-As informações de seu kubernetes são visíveis no entanto para manipular regras de agendamento para nós.
+As informações de seu kubernetes são visíveis no entanto para manipular regras de agendamento para nós. O Agendador Kubernetes pode usar taints e tolerations para restringir quais cargas de trabalho podem ser executados em nós.
+
+* Um **taint** é aplicado a um nó que indica que apenas os pods específicos podem ser agendados neles.
+* Um **toleration** , em seguida, é aplicado a um pod que lhes permite *tolerar* um taint de nó.
+
+Para obter mais informações sobre como usar os recursos agendados do kubernetes avançados, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][taints-tolerations]
+
+Na etapa anterior, você aplicou a *SKU = GPU: NoSchedule* contra o que você criou no pool de nós. O manifesto YAML de exemplo básico a seguir usa um toleration para permitir que o Agendador de kubernetes execute um pod NGINX em um nó nesse pool de nós.
+
+Crie um arquivo chamado `nginx-toleration.yaml` e copie no exemplo YAML a seguir:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1
+        memory: 2G
+  tolerations:
+  - key: "sku"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+```
+
+Agende o Pod usando o `kubectl apply -f nginx-toleration.yaml` comando:
+
+```console
+kubectl apply -f nginx-toleration.yaml
+```
+
+Leva alguns segundos para agendar o pod e efetuar pull da imagem NGINX. Use o comando [kubectl para descrever o Pod][kubectl-describe] para exibir o status do pod. A saída de exemplo condensada a seguir mostra o *SKU = GPU: NoSchedule* toleration é aplicado. Na seção de eventos, o Agendador atribuiu o Pod ao nó *AKs-taintnp-28993262-vmss000000* :
+
+```console
+kubectl describe pod mypod
+```
+
+```output
+[...]
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+                 sku=gpu:NoSchedule
+Events:
+  Type    Reason     Age    From                Message
+  ----    ------     ----   ----                -------
+  Normal  Scheduled  4m48s  default-scheduler   Successfully assigned default/mypod to aks-taintnp-28993262-vmss000000
+  Normal  Pulling    4m47s  kubelet             pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Pulled     4m43s  kubelet             Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Created    4m40s  kubelet             Created container
+  Normal  Started    4m40s  kubelet             Started container
+```
+
+Somente os pods que têm esse toleration aplicado podem ser agendados em nós em *taintnp* . Qualquer outro pod seria agendado no pool de nós *nodepool1* . Se você criar pools de nós adicionais, poderá usar os conteúdo e os Tolerations adicionais para limitar o que os pods podem ser agendados nesses recursos de nó.
 
 ### <a name="setting-nodepool-labels"></a>Configurando rótulos de nodepool
 
@@ -553,7 +531,7 @@ az aks nodepool add \
 > [!NOTE]
 > O rótulo só pode ser definido para pools de nós durante a criação do pool de nós. Os rótulos também devem ser um par chave/valor e ter uma [sintaxe válida][kubernetes-label-syntax].
 
-A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *labelnp* está *criando* nós com o *nodeLabels*especificado:
+A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *labelnp* está *criando* nós com o *nodeLabels* especificado:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -599,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Você também pode usar o `--tags` parâmetro ao usar o comando [AZ AKs nodepool Update][az-aks-nodepool-update] , bem como durante a criação do cluster. Durante a criação do cluster, o `--tags` parâmetro aplica a marca ao pool de nós inicial criado com o cluster. Todos os nomes de marca devem aderir às limitações nas [marcas de uso para organizar os recursos do Azure][tag-limitation]. A atualização de um pool de nós com o `--tags` parâmetro atualiza quaisquer valores de marca existentes e acrescenta quaisquer novas marcas. Por exemplo, se o pool de nós tiver o *Dept = it* e o *costcenter = 9999* para marcas e você o tiver atualizado com *Team = dev* e *costcenter = 111* para marcas, você nodepool teria *Dept = it*, *costcenter = 111*e *Team = dev* para marcas.
+> Você também pode usar o `--tags` parâmetro ao usar o comando [AZ AKs nodepool Update][az-aks-nodepool-update] , bem como durante a criação do cluster. Durante a criação do cluster, o `--tags` parâmetro aplica a marca ao pool de nós inicial criado com o cluster. Todos os nomes de marca devem aderir às limitações nas [marcas de uso para organizar os recursos do Azure][tag-limitation]. A atualização de um pool de nós com o `--tags` parâmetro atualiza quaisquer valores de marca existentes e acrescenta quaisquer novas marcas. Por exemplo, se o pool de nós tiver o *Dept = it* e o *costcenter = 9999* para marcas e você o tiver atualizado com *Team = dev* e *costcenter = 111* para marcas, você nodepool teria *Dept = it* , *costcenter = 111* e *Team = dev* para marcas.
 
-A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *tagnodepool* está *criando* nós com a *marca*especificada:
+A saída de exemplo a seguir do comando [AZ AKs nodepool List][az-aks-nodepool-list] mostra que *tagnodepool* está *criando* nós com a *marca* especificada:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -635,8 +613,8 @@ Ao usar um modelo de Azure Resource Manager para criar e gerenciar recursos, voc
 Crie um modelo, como `aks-agentpools.json` e cole o exemplo de manifesto a seguir. Este modelo de exemplo define as seguintes configurações:
 
 * Atualiza o pool de nós do *Linux* chamado *myagentpool* para executar três nós.
-* Define os nós no pool de nós para executar o kubernetes versão *1.15.7*.
-* Define o tamanho do nó como *Standard_DS2_v2*.
+* Define os nós no pool de nós para executar o kubernetes versão *1.15.7* .
+* Define o tamanho do nó como *Standard_DS2_v2* .
 
 Edite esses valores conforme necessário para atualizar, adicionar ou excluir pools de nós conforme necessário:
 
@@ -798,7 +776,7 @@ az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Neste artigo, você criou um cluster AKS que inclui nós baseados em GPU. Para reduzir o custo desnecessário, talvez você queira excluir o *gpunodepool*ou todo o cluster AKs.
+Neste artigo, você criou um cluster AKS que inclui nós baseados em GPU. Para reduzir o custo desnecessário, talvez você queira excluir o *gpunodepool* ou todo o cluster AKs.
 
 Para excluir o pool de nós baseado em GPU, use o comando [AZ AKs nodepool Delete][az-aks-nodepool-delete] , conforme mostrado no exemplo a seguir:
 

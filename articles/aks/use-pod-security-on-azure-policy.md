@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: b833b45f5243e446ac507ee913abe256a12ac01d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368461"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900114"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Proteger pods com Azure Policy
 
@@ -61,7 +61,7 @@ As seguintes limitações gerais se aplicam ao complemento de Azure Policy para 
 As seguintes limitações se aplicam somente ao complemento Azure Policy para AKS:
 
 - A [política de segurança de Pod AKs (versão prévia)](use-pod-security-policies.md) e o complemento Azure Policy para AKs não podem ser habilitados. 
-- Namespaces excluídos automaticamente por Azure Policy complemento para avaliação: _Kube-System_, _gatekeeper-System_e _AKs-Periscope_.
+- Namespaces excluídos automaticamente por Azure Policy complemento para avaliação: _Kube-System_ , _gatekeeper-System_ e _AKs-Periscope_ .
 
 ### <a name="recommendations"></a>Recomendações
 
@@ -150,7 +150,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > Os pods em namespaces de administrador, como Kube, devem ser executados para que um cluster permaneça íntegro, removendo um namespace necessário da lista de namespaces padrão excluídos pode disparar violações de política devido a um pod de sistema necessário.
 
-O AKS exige que o pods do sistema seja executado em um cluster para fornecer serviços críticos, como a resolução DNS. Políticas que limitam a funcionalidade Pod podem afetar a estabilidade do Pod do sistema. Como resultado, os namespaces a seguir são **excluídos da avaliação de política durante solicitações de admissão durante a criação, atualização e auditoria de política**. Isso força as novas implantações a esses namespaces serem excluídas das políticas do Azure.
+O AKS exige que o pods do sistema seja executado em um cluster para fornecer serviços críticos, como a resolução DNS. Políticas que limitam a funcionalidade Pod podem afetar a estabilidade do Pod do sistema. Como resultado, os namespaces a seguir são **excluídos da avaliação de política durante solicitações de admissão durante a criação, atualização e auditoria de política** . Isso força as novas implantações a esses namespaces serem excluídas das políticas do Azure.
 
 1. Kube-sistema
 1. sistema gatekeeper
@@ -209,7 +209,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         privileged: true
 ```
@@ -244,7 +244,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 Crie o Pod usando o comando [kubectl Apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
@@ -253,7 +253,7 @@ Crie o Pod usando o comando [kubectl Apply][kubectl-apply] e especifique o nome 
 kubectl apply -f nginx-unprivileged.yaml
 ```
 
-O Pod foi agendado com êxito. Quando você verifica o status do pod usando o comando [kubectl Get pods][kubectl-get] , o Pod está *em execução*:
+O Pod foi agendado com êxito. Quando você verifica o status do pod usando o comando [kubectl Get pods][kubectl-get] , o Pod está *em execução* :
 
 ```console
 $ kubectl get pods

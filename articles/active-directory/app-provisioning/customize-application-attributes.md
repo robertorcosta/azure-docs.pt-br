@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781474"
+ms.locfileid: "92899188"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -142,10 +142,7 @@ O RFC do SCIM define um esquema de usuário e grupo principal, permitindo també
    4. Selecione **Editar lista de atributos do AppName** .
    5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar Atributo** .
 
-Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos de seu aplicativo, por exemplo:  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
- * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn: IETF: params: SCIM: esquemas: extensão: CustomExtensionName: 2.0: User: CustomAttributeName: Value
+Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: usuário: CustomAttribute 
 
 Essas instruções são aplicáveis somente a aplicativos habilitados para o SCIM. Aplicativos como o ServiceNow e o Salesforce não são integrados ao Azure AD usando o SCIM e, portanto, não exigem esse namespace específico ao adicionar um atributo personalizado.
 

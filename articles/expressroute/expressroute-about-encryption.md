@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 83fa16265106e1033cb77ab4175b606714ec66d7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996845"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899864"
 ---
 # <a name="expressroute-encryption"></a>Criptografia do ExpressRoute
  
@@ -31,7 +31,7 @@ Não. Se MACsec estiver configurado e ocorrer uma incompatibilidade de chave, vo
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Permitirá que o MACsec no ExpressRoute direcione o desempenho da rede?
 A criptografia e a descriptografia do MACsec ocorrem no hardware nos roteadores que usamos. Não há impacto no desempenho em nosso lado. No entanto, você deve verificar com o fornecedor de rede os dispositivos que você usa e ver se MACsec tem alguma implicação de desempenho.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>Quais conjuntos de codificação têm suporte para criptografia?
-Damos suporte apenas à versão de [numeração de pacotes estendida](https://1.ieee802.org/security/802-1aebw/) de aes128 e aes256. Além disso, desabilite o [Sci (identificador de canal seguro)](https://en.wikipedia.org/wiki/IEEE_802.1AE) na configuração do MACsec em seu dispositivo. 
+Damos suporte apenas à versão de [numeração de pacotes estendida](https://1.ieee802.org/security/802-1aebw/) de aes-128 e aes-256. Além disso, você deve desabilitar o [Sci (identificador de canal seguro)](https://wikipedia.org/wiki/IEEE_802.1AE) na configuração do MACsec em seu dispositivo. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Perguntas frequentes sobre criptografia de ponta a ponta por IPsec
 O IPsec é um [padrão IETF](https://tools.ietf.org/html/rfc6071). Ele criptografa dados no nível do protocolo IP ou na camada de rede 3. Você pode usar o IPsec para criptografar uma conexão de ponta a ponta entre sua rede local e sua rede virtual (VNET) no Azure. Veja outras perguntas frequentes abaixo.
