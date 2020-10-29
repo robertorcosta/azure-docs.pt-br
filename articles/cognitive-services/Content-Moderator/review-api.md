@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872044"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912949"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Análises, fluxos de trabalho e trabalhos de moderação de conteúdo
 
@@ -29,13 +29,13 @@ Em uma revisão, o conteúdo é carregado para a ferramenta de revisão e aparec
 
 Consulte o [Guia de ferramentas de revisão](./review-tool-user-guide/review-moderated-images.md) para começar a criar revisões ou consulte o [guia da API REST](./try-review-api-review.md) para saber como fazer isso programaticamente.
 
-## <a name="workflows"></a>Fluxos de trabalho
+## <a name="workflows"></a>Fluxos de Trabalho
 
 Um fluxo de trabalho é um filtro personalizado baseado em nuvem para conteúdo. Os fluxos de trabalho podem se conectar a uma variedade de serviços para filtrar conteúdo de maneiras diferentes e, em seguida, executar a ação apropriada. Com o conector de Content Moderator, um fluxo de trabalho pode aplicar automaticamente marcas de moderação e criar revisões com conteúdo enviado.
 
 ### <a name="view-workflows"></a>Exibir fluxos de trabalho
 
-Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione **configurações**  >  **fluxos de trabalho**.
+Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione **configurações**  >  **fluxos de trabalho** .
 
 ![Fluxo de trabalho padrão](images/default-workflow-listed.PNG)
 
@@ -75,5 +75,5 @@ Consulte o [guia da API REST](./try-review-api-job.md) para começar a usar os t
 ## <a name="next-steps"></a>Próximas etapas
 
 * Teste o [Console de API de Trabalho](try-review-api-job.md) e use os exemplos de código de API REST. Se você estiver familiarizado com Visual Studio e C#, consulte também o [Início rápido do .NET de Trabalhos](moderation-jobs-quickstart-dotnet.md). 
-* Para revisões, comece com o [console de API de revisão](try-review-api-review.md) e use os exemplos de código da API REST. Em seguida, consulte a seção de revisões do [início rápido do .net](dotnet-sdk-quickstart.md).
+* Para revisões, comece com o [console de API de revisão](try-review-api-review.md) e use os exemplos de código da API REST. Em seguida, consulte a seção de revisões do [início rápido do .net](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
 * Para análises de vídeos, use o [Início rápido de análise de vídeo](video-reviews-quickstart-dotnet.md)e saiba como [adicionar transcrições para a análise de vídeo](video-transcript-reviews-quickstart-dotnet.md).
