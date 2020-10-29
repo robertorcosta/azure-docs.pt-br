@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 5fddf5cb77cbcb1fb061ffd958fba4bf4ab2c9e7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b7de874cc074faa63203c58638fb04cc5cb2282b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127464"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutorial: Integração do Azure Active Directory com o SmartRecruiters
 
@@ -27,7 +27,7 @@ A integração do SmartRecruiters ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários entrem automaticamente nos SmartRecruiters (Logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -207,19 +207,18 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-smartrecruiters-test-user"></a>Criar usuário de teste do SmartRecruiters
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no SmartRecruiters. Trabalhe com a  [equipe de suporte do SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/) para adicionar os usuários à plataforma SmartRecruiters. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no SmartRecruiters. Trabalhe com a [equipe de suporte do SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/) para adicionar os usuários à plataforma SmartRecruiters. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do SmartRecruiters no Painel de Acesso, você deverá entrar automaticamente no SmartRecruiters para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do SmartRecruiters no Painel de Acesso, você deverá entrar automaticamente no SmartRecruiters para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

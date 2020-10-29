@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f67d1bb1e4502d918cd7af6d98ce5ed5f76c969
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 638b6899331aa1414a730045e6ce9d1e5d332569
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102282"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integração do Azure Active Directory ao RStudio Connect
 
@@ -27,7 +27,7 @@ A integração do RStudio Connect ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que seus usuários entrem automaticamente no RStudio Connect (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -51,11 +51,11 @@ Para configurar a integração do RStudio Connect ao Azure AD, você precisa adi
 
 **Para adicionar o RStudio Connect por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -63,13 +63,13 @@ Para configurar a integração do RStudio Connect ao Azure AD, você precisa adi
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **RStudio Connect**, selecione **RStudio Connect** no painel de resultados e, em seguida, clique no botão **Adicionar** botão para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **RStudio Connect** , selecione **RStudio Connect** no painel de resultados e, em seguida, clique no botão **Adicionar** botão para adicionar o aplicativo.
 
     ![RStudio Connect na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o RStudio Connect com base em uma usuária de teste chamada **Brenda Fernandes**.
+Nesta seção, você configurará e testará o logon único do Azure AD com o RStudio Connect com base em uma usuária de teste chamada **Brenda Fernandes** .
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do RStudio Connect.
 
 Para configurar e testar o logon único do Azure AD com o RStudio Connect, você precisa concluir os seguintes blocos de construção:
@@ -87,19 +87,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o RStudio Connect, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **RStudio Connect**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **RStudio Connect** , selecione **Logon único** .
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas, substituindo `<example.com>` pela porta e endereço do servidor do RStudio Connect:
+4. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas, substituindo `<example.com>` pela porta e endereço do servidor do RStudio Connect:
 
     ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
@@ -111,22 +111,22 @@ Para configurar o logon único do Azure AD com o RStudio Connect, execute as seg
 
     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<example.com>/`
+    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<example.com>/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Eles são determinados com base no endereço do Servidor do RStudio Connect (`https://example.com` nos exemplos acima). Entre em contato com a [equipe de suporte do RStudio Connect](mailto:support@rstudio.com) se você tiver problemas. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. Seu aplicativo RStudio Connect espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo do RStudio Connect espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
+6. Seu aplicativo RStudio Connect espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname** . O aplicativo do RStudio Connect espera que **nameidentifier** seja mapeado com **user.mail** . Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
     ![image](common/edit-attribute.png)
 
-7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
+7. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Configurar o logon único do RStudio Connect
 
-Para configurar o logon único para o **RStudio Connect**, você precisa usar o **Url de metadados da Federação de Aplicativos** e o **Endereço do Servidor** usado acima. Isso é feito no arquivo de configuração do RStudio Connect em `/etc/rstudio-connect/rstudio-connect.gcfg`.
+Para configurar o logon único para o **RStudio Connect** , você precisa usar o **Url de metadados da Federação de Aplicativos** e o **Endereço do Servidor** usado acima. Isso é feito no arquivo de configuração do RStudio Connect em `/etc/rstudio-connect/rstudio-connect.gcfg`.
 
 Esse é um arquivo de configuração de exemplo:
 
@@ -161,7 +161,7 @@ Se você tiver problemas com a configuração, pode ler o [Guia do Administrador
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -173,39 +173,39 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes** .
   
-    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao RStudio Connect.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **RStudio Connect**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, selecione **RStudio Connect** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **RStudio Connect**.
+2. Na lista de aplicativos, selecione **RStudio Connect** .
 
     ![O link do RStudio Connect na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos**.
+3. No menu à esquerda, selecione **Usuários e grupos** .
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
 
 ### <a name="create-rstudio-connect-test-user"></a>Criar um usuário de teste do RStudio Connect
 
@@ -215,13 +215,12 @@ Nesta seção, um usuário chamado Brenda Fernandes será criado no RStudio Conn
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do RStudio Connect no painel de acesso, você será conectado automaticamente ao RStudio Connect no qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do RStudio Connect no painel de acesso, você será conectado automaticamente ao RStudio Connect no qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
