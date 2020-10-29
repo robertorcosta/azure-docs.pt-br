@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f4e429d9c5eeee382d59a294a11204f674b1f546
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2d5a6949c5dbe1e4c3c668dcb9eae6e51e5806f7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911504"
+ms.locfileid: "92926029"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
@@ -216,12 +216,11 @@ Por favor esteja ciente das seguintes restrições/exigências:
   - Ele deve existir no momento da implantação 
   - A política de acesso de Key Vault deve ser definida para a identidade VM/VMSS usando uma identidade gerenciada. Consulte [como autenticar para Key Vault](../../key-vault/general/authentication.md) e [atribuir uma política de acesso de Key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
-## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
-
 ### <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 * Há um limite no número de observedCertificates que você pode configurar?
   Não, Key Vault extensão de VM não tem limite no número de observedCertificates.
+
 
 ### <a name="troubleshoot"></a>Solucionar problemas
 
@@ -243,6 +242,14 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
 /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
 ```
+### <a name="using-symlink"></a>Usando symlink
+
+Links simbólicos ou symlinks são basicamente atalhos avançados. Para evitar o monitoramento da pasta e obter o certificado mais recente automaticamente, você pode usar esse symlink `([VaultName].[CertificateName])` para obter a versão mais recente do certificado no Linux.
+
+### <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+* Há um limite no número de observedCertificates que você pode configurar?
+  Não, Key Vault extensão de VM não tem limite no número de observedCertificates.
 
 ### <a name="support"></a>Suporte
 

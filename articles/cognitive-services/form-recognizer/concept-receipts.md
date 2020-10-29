@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893679"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913187"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recebimento
 
@@ -88,7 +88,7 @@ A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/
 
 A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada. |
 | |  | em execução: a operação de análise está em andamento. |
@@ -449,7 +449,7 @@ A saída de recebimento também é útil para o livro geral-mantendo para uso pe
 
 Os recibos contêm dados úteis que você pode usar para analisar o comportamento do consumidor e as tendências de compra.
 
-A API de recebimento também alimenta o [recurso de processamento de recibo AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+A API de recebimento também alimenta o [recurso de processamento de recibo AIBuilder](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -459,4 +459,4 @@ A API de recebimento também alimenta o [recurso de processamento de recibo AIBu
 ## <a name="see-also"></a>Confira também
 
 * [O que é o Reconhecimento de Formulários?](./overview.md)
-* [Documentos de referência da API REST](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)
+* [Documentos de referência da API REST](./index.yml)

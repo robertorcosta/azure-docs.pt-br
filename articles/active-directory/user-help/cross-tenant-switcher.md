@@ -12,12 +12,12 @@ ms.date: 10/27/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a8e3b6cfce9bff76ec3989273cadadebb23d6d40
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795095"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913238"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Alternando organizações em um portal
 
@@ -32,9 +32,9 @@ O alternador de organização está disponível nos seguintes portais:
 
 A alternância de organizações não está disponível para **minhas entradas** , **informações de segurança** ou **meus grupos** .
 
-## <a name="switch-organizations"></a>Trocar organizações
+## <a name="switch-organizations"></a>Alternar organizações
 
-Veja como alternar para outra organização. Este exemplo usa no portal **minha conta** , mas o ícone e posicionamento do alternador também são semelhantes em outros portais.
+Veja como alternar para outra organização. Este exemplo usa o portal **minha conta** , mas o ícone e posicionamento do alternador também são semelhantes em outros portais.
 
 1. Entre em sua conta corporativa ou de estudante e, em seguida, abra a página [minha conta](https://myaccount.microsoft.com) .
 1. Selecione o alternador de organização :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="o ícone para o alternador de organização"::: na parte superior da página, ao lado de sua foto de conta.

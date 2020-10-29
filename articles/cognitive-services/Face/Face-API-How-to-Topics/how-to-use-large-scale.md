@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332382"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913510"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exemplo: Use o recurso de larga escala
 
@@ -232,7 +232,7 @@ Fluxo de trabalho de exemplo:
 
 Se uma latência relativamente longa for aceitável, não será necessário acionar a operação Treinar, logo após adicionar novos dados. Em vez disso, a operação de treinamento pode dividir da lógica principal e disparada regularmente. Esta estratégia é adequada para cenários dinâmicos com uma latência aceitável. É possível aplicá-la a cenários estáticos para reduzir ainda mais a frequência da operação Treinar.
 
-Digamos que haja uma função `TrainLargePersonGroup` semelhante a `TrainLargeFaceList`. Uma implementação típica de treinamento autônomo em um objeto LargePersonGroup invocando a classe [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx), em `System.Timers`, seria:
+Digamos que haja uma função `TrainLargePersonGroup` semelhante a `TrainLargeFaceList`. Uma implementação típica de treinamento autônomo em um objeto LargePersonGroup invocando a classe [`Timer`](/dotnet/api/system.timers.timer), em `System.Timers`, seria:
 
 ```csharp
 private static void Main()

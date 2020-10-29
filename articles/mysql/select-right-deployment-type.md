@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543773"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926182"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção de servidor MySQL correta no Azure
 
@@ -47,7 +47,7 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 | Dimensionamento de computação | Com suporte (não há suporte para dimensionar de e para a camada básica)| Com suporte | Com suporte|
 | Tamanho de armazenamento | 5 GiB a 16 TiB| 5 GiB a 16 TiB | 32 GiB a 32.767 GiB|
 | Dimensionamento de armazenamento online | Com suporte| Com suporte| Sem suporte|
-| Dimensionamento automático do armazenamento | Compatível| Sem suporte na visualização| Sem suporte|
+| Dimensionamento automático do armazenamento | Com suporte| Sem suporte na visualização| Sem suporte|
 | Conectividade de rede | -Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com suporte a link privado.|-Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com integração de rede virtual.| -Pontos de extremidade públicos com o Firewall do servidor.<br/> -Acesso privado com suporte a link privado.|
 | SLA (Contrato de Nível de Serviço) | SLA de disponibilidade de 99,99% |Nenhum SLA na versão prévia| 99,99% usando Zonas de Disponibilidade|
 | Aplicação de patch do sistema operacional| Automática  | Automático com controle de janela de manutenção personalizada | Gerenciado por usuários finais |
@@ -55,13 +55,13 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 | Alta disponibilidade | HA interna dentro da zona de disponibilidade única| HA interna dentro e entre zonas de disponibilidade | Gerenciados personalizados usando clustering, replicação, etc.|
 | Redundância de zona | Sem suporte | Com suporte | Com suporte|
 | Cenários híbridos | Com suporte com [replicação de dados](./concepts-data-in-replication.md)| Não disponível no modo visualização | Gerenciado por usuários finais |
-| Réplicas de leitura | Com suporte| Com suporte | Gerenciado por usuários finais |
+| Réplicas de leitura | Com suporte (até 5 réplicas)| Com suporte (até 10 réplicas)| Gerenciado por usuários finais |
 | Backup | Automatizado com retenção de 7-35 dias | Automatizado com retenção de 1-35 dias | Gerenciado por usuários finais |
 | Operações de banco de dados de monitoramento | Com suporte | Com suporte | Gerenciado por usuários finais |
 | Recuperação de desastre | Com suporte com armazenamento de backup com redundância geográfica e réplicas de leitura entre regiões | Sem suporte na visualização| Gerenciado personalizado com tecnologias de replicação |
-| Insights de Desempenho de Consulta | Compatível | Não disponível no modo visualização| Gerenciado por usuários finais |
-| Preço de Instância Reservada | Compatível | Não disponível no modo visualização | Compatível |
-| Autenticação do Azure AD | Compatível | Não disponível no modo visualização | Sem suporte|
+| Insights de Desempenho de Consulta | Com suporte | Não disponível no modo visualização| Gerenciado por usuários finais |
+| Preço de Instância Reservada | Com suporte | Não disponível no modo visualização | Com suporte |
+| Autenticação do Azure AD | Com suporte | Não disponível no modo visualização | Sem suporte|
 | Criptografia de dados em repouso | Com suporte com chaves gerenciadas pelo cliente | Com suporte com chaves gerenciadas pelo serviço | Sem suporte|
 | SSL/TLS | Habilitado por padrão com suporte para TLS v 1.2, 1,1 e 1,0 | Imposto com TLS v 1.2 | Com suporte com TLS v 1.2, 1,1 e 1,0 |
 | Gerenciamento de frota | Com suporte com CLI do Azure, PowerShell, REST e Azure Resource Manager | Com suporte com CLI do Azure, PowerShell, REST e Azure Resource Manager  | Com suporte para VMs com CLI do Azure, PowerShell, REST e Azure Resource Manager |

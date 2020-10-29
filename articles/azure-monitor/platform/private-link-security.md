@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 42419247de537f9a166c3cdca2fd5a832ade6a5f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461423"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926794"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
 
@@ -90,47 +90,50 @@ Na topologia abaixo:
 
 Comece criando um recurso de Escopo de Link Privado do Azure Monitor.
 
-1. No portal do Azure, acesse **Criar um recurso** e procure por **Escopo de Link Privado do Azure Monitor**.
+1. No portal do Azure, acesse **Criar um recurso** e procure por **Escopo de Link Privado do Azure Monitor** .
 
    ![Localizar Azure Monitor escopo de link privado](./media/private-link-security/ampls-find-1c.png)
 
-2. Clique em **Criar**.
+2. Clique em **Criar** .
 3. Escolha uma assinatura e um grupo de recursos.
 4. Nomeie o AMPLS. Recomendamos usar um nome que esclareça a finalidade e o limite de segurança definidos para o uso do Escopo, de modo que ninguém viole acidentalmente os limites de segurança da rede. Por exemplo, "TelemProdServAplic".
-5. Clique em **Examinar + Criar**. 
+5. Clique em **Examinar + Criar** . 
 
    ![Criar Azure Monitor escopo de link privado](./media/private-link-security/ampls-create-1d.png)
 
-6. Espere a validação ser aprovada e clique em **Criar**.
+6. Espere a validação ser aprovada e clique em **Criar** .
 
 ## <a name="connect-azure-monitor-resources"></a>Conectar recursos do Azure Monitor
 
 Você pode conectar seu AMPLS primeiro aos pontos de extremidade privados e, em seguida, aos recursos do Azure Monitor ou vice-versa. Mas o processo de conexão será mais rápido se você iniciar com os recursos do Azure Monitor. Confira como conectar os workspaces do Log Analytics do Azure Monitor e os componentes do Application Insights a um AMPLS
 
-1. No Escopo de Link Privado do Azure Monitor, clique em **Recursos do Azure Monitor**, no menu à esquerda. Clique no botão **Adicionar** .
+1. No Escopo de Link Privado do Azure Monitor, clique em **Recursos do Azure Monitor** , no menu à esquerda. Clique no botão **Adicionar** .
 2. Adicione o workspace ou componente. Clique em **Adicionar** para exibir a caixa de diálogo na qual você poderá selecionar os recursos do Azure Monitor. Você pode navegar por suas assinaturas e seus grupos de recursos ou digitar o nome deles para filtrá-los. Selecione o workspace ou componente e clique em **Aplicar** para adicioná-los ao seu escopo.
 
     ![Captura de tela com a experiência de usuário Selecionar um escopo](./media/private-link-security/ampls-select-2.png)
+
+> [!NOTE]
+> A exclusão de Azure Monitor recursos exige que você os Desconecte primeiro de todos os objetos AMPLS aos quais eles estão conectados. Não é possível excluir recursos conectados a um AMPLS.
 
 ### <a name="connect-to-a-private-endpoint"></a>Conectar-se a um ponto de extremidade privado
 
 Agora que os recursos estão conectados a seu AMPLS, crie um ponto de extremidade privado para conectar nossa rede. Você pode realizar essa tarefa no [Centro de Links Privados do portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) ou no Escopo de Link Privado do Azure Monitor, conforme feito neste exemplo.
 
-1. No seu recurso de escopo, clique em **Conexões de ponto de extremidade privado**, no menu de recursos à esquerda. Clique em **Ponto de extremidade privado** para iniciar o processo de criação. Você também pode aprovar as conexões iniciadas no Centro de Links Privados aqui. Basta selecioná-las e clicar em **Aprovar**.
+1. No seu recurso de escopo, clique em **Conexões de ponto de extremidade privado** , no menu de recursos à esquerda. Clique em **Ponto de extremidade privado** para iniciar o processo de criação. Você também pode aprovar as conexões iniciadas no Centro de Links Privados aqui. Basta selecioná-las e clicar em **Aprovar** .
 
     ![Captura de tela da experiência de usuário Conexões de Ponto de Extremidade Privado](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
 
 2. Escolha a assinatura, o grupo de recursos, o nome do ponto de extremidade e a região em que ele deve ser alocado. A região precisa ser a mesma da rede virtual em que ocorrerá a conexão.
 
-3. Clique em **Avançar: Recurso**. 
+3. Clique em **Avançar: Recurso** . 
 
 4. Na tela de recursos,
 
    a. Escolha a **Assinatura** que contém seu recurso de Escopo Privado do Azure Monitor. 
 
-   b. Em **tipo de recurso**, escolha **Microsoft.insights/privateLinkScopes**. 
+   b. Em **tipo de recurso** , escolha **Microsoft.insights/privateLinkScopes** . 
 
-   c. Na lista suspensa de **recursos**, escolha o escopo de Link Privado que você criou anteriormente. 
+   c. Na lista suspensa de **recursos** , escolha o escopo de Link Privado que você criou anteriormente. 
 
    d. Clique em **Avançar: Configuração >** .
       ![Captura de tela com a opção Criar Ponto de Extremidade privado](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
@@ -139,13 +142,15 @@ Agora que os recursos estão conectados a seu AMPLS, crie um ponto de extremidad
 
    a.    Escolha a **rede virtual** e a **sub-rede** que você deseja conectar aos recursos do Azure Monitor. 
  
-   b.    Na opção **Integrar à zona DNS privada**, escolha **Sim** e aguarde enquanto ela cria automaticamente uma Zona DNS Privada. As zonas DNS reais podem ser diferentes do que é mostrado na captura de tela abaixo. 
+   b.    Na opção **Integrar à zona DNS privada** , escolha **Sim** e aguarde enquanto ela cria automaticamente uma Zona DNS Privada. As zonas DNS reais podem ser diferentes do que é mostrado na captura de tela abaixo. 
+   > [!NOTE]
+   > Se você escolher **não** e preferir gerenciar manualmente os registros DNS, primeiro conclua a configuração de seu link privado, incluindo esse ponto de extremidade privado e a configuração AMPLS. Em seguida, configure o DNS de acordo com as instruções em [configuração de DNS do ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Certifique-se de não criar registros vazios como preparação para a configuração do seu link privado. Os registros DNS que você cria podem substituir as configurações existentes e impactar a conectividade com Azure Monitor.
  
-   c.    Clique em **Revisar + Criar**.
+   c.    Clique em **Revisar + Criar** .
  
    d.    Aguarde a aprovação de validação. 
  
-   e.    Clique em **Criar**. 
+   e.    Clique em **Criar** . 
 
     ![Captura de tela com a opção Criar Ponto de Extremidade Privado2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -159,7 +164,7 @@ Vá para o portal do Azure. No recurso de espaço de trabalho Log Analytics há 
 
 Primeiro, você pode conectar esse recurso do Log Analytics a qualquer escopo de Link Privado do Azure Monitor ao qual você tenha acesso. Clique em **Adicionar** e selecione o Escopo de Link Privado do Azure Monitor.  Clique em **Aplicar** para conectá-lo. Todos os escopos conectados são exibidos nessa tela. Essa conexão permite que o tráfego nas redes virtuais conectadas acessem esse workspace. Essa conexão tem o mesmo efeito que o executado por meio do escopo, como fizemos em [Conectar recursos do Azure Monitor](#connect-azure-monitor-resources).  
 
-Em segundo lugar, você pode controlar como esse recurso pode ser acessado de um local externo ao dos escopos de link privado listados acima. Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não**, os computadores fora dos escopos conectados não poderão carregar dados nesse workspace. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não**, os computadores fora dos escopos não poderão acessar dados nesse workspace. Esses dados incluem acesso a pastas de trabalho, dashboards, experiências de clientes baseadas em API de consulta, insights no portal do Azure e muito mais. As experiências em execução fora do portal do Azure e essa consulta Log Analytics dados também precisam estar em execução na VNET vinculada ao privado.
+Em segundo lugar, você pode controlar como esse recurso pode ser acessado de um local externo ao dos escopos de link privado listados acima. Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não** , os computadores fora dos escopos conectados não poderão carregar dados nesse workspace. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não** , os computadores fora dos escopos não poderão acessar dados nesse workspace. Esses dados incluem acesso a pastas de trabalho, dashboards, experiências de clientes baseadas em API de consulta, insights no portal do Azure e muito mais. As experiências em execução fora do portal do Azure e essa consulta Log Analytics dados também precisam estar em execução na VNET vinculada ao privado.
 
 Restringir o acesso dessa maneira não se aplica ao Azure Resource Manager e, portanto, tem as seguintes limitações:
 * O acesso a dados-enquanto o bloqueio de consultas de redes públicas se aplica à maioria das experiências de Log Analytics, algumas experiências consultam dados por meio de Azure Resource Manager e, portanto, não poderão consultar dados, a menos que as configurações de vínculo privado sejam aplicadas ao Gerenciador de recursos também (o recurso será lançado em breve). Isso inclui, por exemplo, soluções de Azure Monitor, pastas de trabalho e ideias e o conector do LogicApp.
@@ -181,13 +186,13 @@ Para permitir que o agente do Log Analytics baixe pacotes de soluções, adicion
 
 ## <a name="configure-application-insights"></a>Configurar o Application Insights
 
-Vá para o portal do Azure. No recurso do componente do Application Insights do Azure Monitor, há um item de menu do lado esquerdo chamado **Isolamento de Rede**. Nesse menu, é possível controlar dois estados diferentes.
+Vá para o portal do Azure. No recurso do componente do Application Insights do Azure Monitor, há um item de menu do lado esquerdo chamado **Isolamento de Rede** . Nesse menu, é possível controlar dois estados diferentes.
 
 ![Isolamento da rede de IA](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-Primeiro, você pode conectar esse recurso do Application Insights aos escopos de Link Privado do Azure Monitor aos quais você tem acesso. Clique em **Adicionar** e selecione o **Escopo de Link Privado do Azure Monitor**. Clique em Aplicar para conectá-lo. Todos os escopos conectados são exibidos nessa tela. Essa conexão permite que o tráfego nas redes virtuais conectadas acessem esse componente. Essa conexão tem o mesmo efeito que o executado por meio do escopo, como fizemos em [Conectar recursos do Azure Monitor](#connect-azure-monitor-resources). 
+Primeiro, você pode conectar esse recurso do Application Insights aos escopos de Link Privado do Azure Monitor aos quais você tem acesso. Clique em **Adicionar** e selecione o **Escopo de Link Privado do Azure Monitor** . Clique em Aplicar para conectá-lo. Todos os escopos conectados são exibidos nessa tela. Essa conexão permite que o tráfego nas redes virtuais conectadas acessem esse componente. Essa conexão tem o mesmo efeito que o executado por meio do escopo, como fizemos em [Conectar recursos do Azure Monitor](#connect-azure-monitor-resources). 
 
-Em segundo lugar, você pode controlar como esse recurso pode ser acessado de um local externo ao dos escopos de link privado listados anteriormente. Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não**, os computadores ou SDKs fora dos escopos conectados não poderão carregar os dados para esse componente. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não**, os computadores fora dos escopos não poderão acessar dados nesse recurso do Application Insights. Esses dados incluem acesso a logs de APM, métricas e fluxo de métricas em tempo real, além de experiências baseadas nesses parâmetros, como pastas de trabalho, dashboards, experiências de clientes baseadas em API de consulta, insights no portal do Azure e muito mais. 
+Em segundo lugar, você pode controlar como esse recurso pode ser acessado de um local externo ao dos escopos de link privado listados anteriormente. Se você definir a opção **Permitir acesso à rede pública para ingestão** como **Não** , os computadores ou SDKs fora dos escopos conectados não poderão carregar os dados para esse componente. Se você definir a opção **Permitir acesso à rede pública para consultas** como **Não** , os computadores fora dos escopos não poderão acessar dados nesse recurso do Application Insights. Esses dados incluem acesso a logs de APM, métricas e fluxo de métricas em tempo real, além de experiências baseadas nesses parâmetros, como pastas de trabalho, dashboards, experiências de clientes baseadas em API de consulta, insights no portal do Azure e muito mais. 
 
 Observe que as experiências de consumo fora do portal também precisam estar em execução na VNET vinculada privada que inclui as cargas de trabalho monitoradas. 
 
@@ -235,7 +240,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para usar as experiências do portal do Azure Monitor, como Application Insights e Log Analytics, você precisa permitir que o portal do Azure e as extensões do Azure Monitor estejam acessíveis nas redes privadas. Adicione as [marcas de serviço](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**e **AzureFrontDoor. frontend** ao seu grupo de segurança de rede.
+Para usar as experiências do portal do Azure Monitor, como Application Insights e Log Analytics, você precisa permitir que o portal do Azure e as extensões do Azure Monitor estejam acessíveis nas redes privadas. Adicione as [marcas de serviço](../../firewall/service-tags.md) **AzureActiveDirectory** , **AzureResourceManager** , **AzureFrontDoor. FirstParty** e **AzureFrontDoor. frontend** ao seu grupo de segurança de rede.
 
 ### <a name="programmatic-access"></a>Acesso Programático
 

@@ -5,14 +5,14 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 10/28/2020
 ms.author: sngun
-ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319713cd631b87d9f97af0db3d4a7b3af1c580ec
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801410"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926114"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorar dados de Azure Cosmos DB usando as configurações de diagnóstico no Azure
 
@@ -26,47 +26,47 @@ As métricas de plataforma e os logs de atividade são coletados automaticamente
 
 1. No painel **configurações de diagnóstico** , preencha o formulário com os seguintes detalhes: 
 
-    * **Nome**: insira um nome para os logs a serem criados.
+    * **Nome** : insira um nome para os logs a serem criados.
 
-    * Você pode armazenar os logs para **arquivar em uma conta de armazenamento**, **transmitir para um hub de eventos** ou **Enviar para log Analytics**
+    * Você pode armazenar os logs para **arquivar em uma conta de armazenamento** , **transmitir para um hub de eventos** ou **Enviar para log Analytics**
 
 1. Ao criar uma configuração de diagnóstico, você especifica qual categoria de logs coletar. As categorias de logs com suporte pelo Azure Cosmos DB estão listadas abaixo, juntamente com o log de exemplo coletado por eles:
 
- * **DataPlaneRequests**: Selecione esta opção para registrar solicitações de back-end para todas as APIs, que incluem as contas SQL, Graph, MongoDB, Cassandra e API de Tabela no Azure Cosmos DB. As propriedades de chave a serem observadas são: `Requestcharge` , `statusCode` , `clientIPaddress` e `partitionID` .
+ * **DataPlaneRequests** : Selecione esta opção para registrar solicitações de back-end para todas as APIs, que incluem as contas SQL, Graph, MongoDB, Cassandra e API de Tabela no Azure Cosmos DB. As propriedades de chave a serem observadas são: `Requestcharge` ,, `statusCode` ,, `clientIPaddress` `partitionID` `resourceTokenPermissionId` e `resourceTokenPermissionMode` .
 
     ```json
-    { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+    { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: Selecione esta opção para registrar solicitações iniciadas pelo usuário do front-end para atender a solicitações para a API do Azure Cosmos DB para MongoDB. Esse tipo de log não está disponível para outras contas de API. As propriedades de chave a serem observadas são: `Requestcharge` , `opCode` . Ao habilitar o MongoRequests nos logs de diagnóstico, desative o DataPlaneRequests. Você veria um log para cada solicitação feita na API.
+* **MongoRequests** : Selecione esta opção para registrar solicitações iniciadas pelo usuário do front-end para atender a solicitações para a API do Azure Cosmos DB para MongoDB. Esse tipo de log não está disponível para outras contas de API. As propriedades de chave a serem observadas são: `Requestcharge` , `opCode` . Ao habilitar o MongoRequests nos logs de diagnóstico, desative o DataPlaneRequests. Você veria um log para cada solicitação feita na API.
 
     ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **CassandraRequests**: Selecione esta opção para registrar solicitações iniciadas pelo usuário do front-end para atender a solicitações à API de Azure Cosmos DB para Cassandra. Esse tipo de log não está disponível para outras contas de API. As propriedades de chave a serem observadas são `operationName` , `requestCharge` , `piiCommandText` . Ao habilitar o CassandraRequests nos logs de diagnóstico, desative o DataPlaneRequests. Você veria um log para cada solicitação feita na API.
+* **CassandraRequests** : Selecione esta opção para registrar solicitações iniciadas pelo usuário do front-end para atender a solicitações à API de Azure Cosmos DB para Cassandra. Esse tipo de log não está disponível para outras contas de API. As propriedades de chave a serem observadas são `operationName` , `requestCharge` , `piiCommandText` . Ao habilitar o CassandraRequests nos logs de diagnóstico, desative o DataPlaneRequests. Você veria um log para cada solicitação feita na API.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
    ```
 
-* **QueryRuntimeStatistics**: Selecione esta opção para registrar o texto da consulta que foi executado. Esse tipo de log está disponível somente para contas da API do SQL.
+* **QueryRuntimeStatistics** : Selecione esta opção para registrar o texto da consulta que foi executado. Esse tipo de log está disponível somente para contas da API do SQL.
 
     ```json
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
-* **PartitionKeyStatistics**: Selecione esta opção para registrar as estatísticas das chaves de partição. Atualmente, isso é representado com o tamanho do armazenamento (KB) das chaves de partição. Consulte a seção [Solucionando problemas usando consultas de diagnóstico do Azure](#diagnostic-queries) deste artigo. Por exemplo, consultas que usam "PartitionKeyStatistics". O log é emitido em relação às três primeiras chaves de partição que ocupam a maior parte do armazenamento de dados. Esse log contém dados como a ID da assinatura, o nome da região, o nome do banco de dado, o nome da coleção, a chave de partição e o tamanho do armazenamento em KB.
+* **PartitionKeyStatistics** : Selecione esta opção para registrar as estatísticas das chaves de partição. Atualmente, isso é representado com o tamanho do armazenamento (KB) das chaves de partição. Consulte a seção [Solucionando problemas usando consultas de diagnóstico do Azure](#diagnostic-queries) deste artigo. Por exemplo, consultas que usam "PartitionKeyStatistics". O log é emitido em relação às três primeiras chaves de partição que ocupam a maior parte do armazenamento de dados. Esse log contém dados como a ID da assinatura, o nome da região, o nome do banco de dado, o nome da coleção, a chave de partição e o tamanho do armazenamento em KB.
 
     ```json
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
-* **PartitionKeyRUConsumption**: esse log relata o consumo de ru/s agregado por segundo de chaves de partição. Atualmente, Azure Cosmos DB relata chaves de partição somente para contas de API do SQL e para operações de ponto de leitura/gravação e procedimento armazenado. Não há suporte para outros tipos de operação e APIs. Para outras APIs, a coluna de chave de partição na tabela de log de diagnóstico estará vazia. Esse log contém dados como a ID da assinatura, o nome da região, o nome do banco, o nome da coleção, a chave de partição, o tipo de operação e o encargo da solicitação. Consulte a seção [Solucionando problemas usando consultas de diagnóstico do Azure](#diagnostic-queries) deste artigo. Por exemplo, consultas que usam "PartitionKeyRUConsumption". 
+* **PartitionKeyRUConsumption** : esse log relata o consumo de ru/s agregado por segundo de chaves de partição. Atualmente, Azure Cosmos DB relata chaves de partição somente para contas de API do SQL e para operações de ponto de leitura/gravação e procedimento armazenado. Não há suporte para outros tipos de operação e APIs. Para outras APIs, a coluna de chave de partição na tabela de log de diagnóstico estará vazia. Esse log contém dados como a ID da assinatura, o nome da região, o nome do banco, o nome da coleção, a chave de partição, o tipo de operação e o encargo da solicitação. Consulte a seção [Solucionando problemas usando consultas de diagnóstico do Azure](#diagnostic-queries) deste artigo. Por exemplo, consultas que usam "PartitionKeyRUConsumption". 
 
-* **ControlPlaneRequests**: esse log contém detalhes sobre as operações do plano de controle, como criar uma conta, adicionar ou remover uma região, atualizar as configurações de replicação da conta, etc. Esse tipo de log está disponível para todos os tipos de API que incluem SQL (Core), MongoDB, Gremlin, Cassandra, API de Tabela.
+* **ControlPlaneRequests** : esse log contém detalhes sobre as operações do plano de controle, como criar uma conta, adicionar ou remover uma região, atualizar as configurações de replicação da conta, etc. Esse tipo de log está disponível para todos os tipos de API que incluem SQL (Core), MongoDB, Gremlin, Cassandra, API de Tabela.
 
-* **Solicitações**: Selecione esta opção para coletar dados de métrica de Azure Cosmos DB para os destinos na configuração de diagnóstico. Esses são os mesmos dados coletados automaticamente nas métricas do Azure. Coletar dados de métrica com logs de recursos para analisar os dois tipos de dados juntos e enviar dados de métricas fora do Azure Monitor.
+* **Solicitações** : Selecione esta opção para coletar dados de métrica de Azure Cosmos DB para os destinos na configuração de diagnóstico. Esses são os mesmos dados coletados automaticamente nas métricas do Azure. Coletar dados de métrica com logs de recursos para analisar os dois tipos de dados juntos e enviar dados de métricas fora do Azure Monitor.
 
 Para obter informações detalhadas sobre como criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no artigo do Azure](../azure-monitor/platform/diagnostic-settings.md) .
 
@@ -131,7 +131,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
 
-1. Como obter todas as consultas que estão consumindo mais de 100 RU/s Unidas com dados de **DataPlaneRequests** e **QueryRunTimeStatistics**.
+1. Como obter todas as consultas que estão consumindo mais de 100 RU/s Unidas com dados de **DataPlaneRequests** e **QueryRunTimeStatistics** .
 
    ```Kusto
    AzureDiagnostics
@@ -228,7 +228,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
  
-1. Como obter logs do Controlplane?
+1. Como obter logs do ControlPlane?
  
    Lembre-se de alternar para o sinalizador conforme descrito no artigo [desabilitar acesso de gravação de metadados baseado em chave](audit-control-plane-logs.md#disable-key-based-metadata-write-access) e executar as operações usando Azure PowerShell, CLI do Azure ou Azure Resource Manager.
  
@@ -237,7 +237,6 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | where Category =="ControlPlaneRequests"
    | summarize by OperationName 
    ```
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

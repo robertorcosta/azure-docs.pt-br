@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 09/30/2020
+ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef588bd3fd8afcf1f1139f97d5df2d48a14b4dd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c3ad55a0f1af623211852c02aabd37560c00bc6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578522"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926080"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -33,18 +33,19 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 |AdvisorResources |Inclui recursos _relacionados_ ao `Microsoft.Advisor`. |
 |AlertsManagementResources |Inclui recursos _relacionados_ ao `Microsoft.AlertsManagement`. |
 |GuestConfigurationResources |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
-|HealthResources |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
 |MaintenanceResources |Inclui recursos _relacionados_ ao `Microsoft.Maintenance`. |
+|PolicyResources |Inclui recursos _relacionados_ ao `Microsoft.PolicyInsights`. ( **Visualização** )|
 |SecurityResources |Inclui recursos _relacionados_ ao `Microsoft.Security`. |
+|ServiceHealthResources |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
 
 Para obter uma lista completa, incluindo os tipos de recursos, veja a Referência de [: tabelas e tipos de recursos com suporte](../reference/supported-tables-resources.md).
 
 > [!NOTE]
-> _Resources_ é a tabela padrão. Durante a consulta da tabela _Resources_, não é necessário fornecer o nome da tabela, salvo se `join` ou `union` forem usados. No entanto, recomenda-se incluir sempre a tabela inicial na consulta.
+> _Resources_ é a tabela padrão. Durante a consulta da tabela _Resources_ , não é necessário fornecer o nome da tabela, salvo se `join` ou `union` forem usados. No entanto, recomenda-se incluir sempre a tabela inicial na consulta.
 
 Use o Explorer do Resource Graph no portal para descobrir quais os tipos de recursos que estão disponíveis em cada tabela. Como alternativa, use uma consulta como `<tableName> | distinct type` para obter uma lista dos tipos de recursos que a tabela do Resource Graph fornecida dá suporte e que existem em seu ambiente.
 
-A consulta a seguir mostra uma consulta `join` simples. O resultado da consulta combina as colunas e quaisquer nomes de coluna duplicados da tabela unida, _ResourceContainers_ neste exemplo, são seguidos do número **1**. Como a tabela _ResourceContainers_ possui tipos para assinaturas e grupos de recursos, qualquer tipo pode ser usado para união com o recurso da tabela _Resources_.
+A consulta a seguir mostra uma consulta `join` simples. O resultado da consulta combina as colunas e quaisquer nomes de coluna duplicados da tabela unida, _ResourceContainers_ neste exemplo, são seguidos do número **1** . Como a tabela _ResourceContainers_ possui tipos para assinaturas e grupos de recursos, qualquer tipo pode ser usado para união com o recurso da tabela _Resources_ .
 
 ```kusto
 Resources
@@ -52,7 +53,7 @@ Resources
 | limit 1
 ```
 
-A consulta a seguir mostra um uso mais complexo da consulta `join`. A consulta limita a tabela ingressada aos recursos de assinaturas e com `project` para incluir apenas o campo original _subscriptionId_ e o campo _name_ renomeado para _SubName_. A renomeação do campo evita que `join` o adicione como _name1_, uma vez que o campo já existe em _Resources_. A tabela original é filtrada com `where` e o `project` a seguir inclui colunas das duas tabelas. O resultado da consulta é um cofre de chaves único exibindo o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
+A consulta a seguir mostra um uso mais complexo da consulta `join`. A consulta limita a tabela ingressada aos recursos de assinaturas e com `project` para incluir apenas o campo original _subscriptionId_ e o campo _name_ renomeado para _SubName_ . A renomeação do campo evita que `join` o adicione como _name1_ , uma vez que o campo já existe em _Resources_ . A tabela original é filtrada com `where` e o `project` a seguir inclui colunas das duas tabelas. O resultado da consulta é um cofre de chaves único exibindo o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
 
 ```kusto
 Resources
@@ -67,7 +68,7 @@ Resources
 
 ## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Propriedades estendidas (visualização)
 
-Como um recurso de _Visualização_ , alguns dos tipos de recursos no grafo de recursos têm propriedades adicionais relacionadas a tipos disponíveis para consulta além das propriedades fornecidas pelo Azure Resource Manager. Esse conjunto de valores, conhecido como _Propriedades estendidas_, existe em um tipo de recurso com suporte no `properties.extended` . Para ver quais tipos de recursos têm _Propriedades estendidas_, use a seguinte consulta:
+Como um recurso de _Visualização_ , alguns dos tipos de recursos no grafo de recursos têm propriedades adicionais relacionadas a tipos disponíveis para consulta além das propriedades fornecidas pelo Azure Resource Manager. Esse conjunto de valores, conhecido como _Propriedades estendidas_ , existe em um tipo de recurso com suporte no `properties.extended` . Para ver quais tipos de recursos têm _Propriedades estendidas_ , use a seguinte consulta:
 
 ```kusto
 Resources
@@ -124,7 +125,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 |[contagem](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contagem de máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de união com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Há um limite de 3 `join` em uma única consulta. Estratégias de união personalizadas, como união difundida, não são permitidas. Elas podem ser usadas para uma única tabela ou entre as tabelas _Resources_ e _ResourceContainers_. |
+|[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de união com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Há um limite de 3 `join` em uma única consulta. Estratégias de união personalizadas, como união difundida, não são permitidas. Elas podem ser usadas para uma única tabela ou entre as tabelas _Resources_ e _ResourceContainers_ . |
 |[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` . Não funciona com [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador herdado, use `mv-expand` como substituto. _RowLimit_ com limite máximo de 400. O padrão é 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ com limite máximo de 400. O padrão é 128. |
@@ -135,7 +136,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 |[summarize](/azure/kusto/query/summarizeoperator) |[Recursos do Count Azure](../samples/starter.md#count-resources) |Somente a primeira página simplificada |
 |[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `limit` . Não funciona com [Skip](./work-with-data.md#skipping-records). |
 |[início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais por nome e tipo do sistema operacional](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Tabela individual permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Há um limite de 3 expressões de `union` em uma única consulta. A resolução difusa de tabelas da expressão de `union` não é permitida. Elas podem ser usadas para uma única tabela ou entre as tabelas _Resources_ e _ResourceContainers_. |
+|[union](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Tabela individual permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_ . Há um limite de 3 expressões de `union` em uma única consulta. A resolução difusa de tabelas da expressão de `union` não é permitida. Elas podem ser usadas para uma única tabela ou entre as tabelas _Resources_ e _ResourceContainers_ . |
 |[where](/azure/kusto/query/whereoperator) |[Mostrar recursos que contêm o armazenamento](../samples/starter.md#show-storage) | |
 
 ## <a name="query-scope"></a>Escopo da consulta
@@ -143,7 +144,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 O escopo das assinaturas dos quais os recursos são retornados por uma consulta depende do método de acesso ao grafo de recursos. CLI do Azure e Azure PowerShell popular a lista de assinaturas a serem incluídas na solicitação com base no contexto do usuário autorizado. A lista de assinaturas pode ser definida manualmente para cada uma com as **assinaturas** e os parâmetros de **assinatura** , respectivamente.
 Na API REST e em todos os outros SDKs, a lista de assinaturas para incluir recursos deve ser explicitamente definida como parte da solicitação.
 
-Como uma **Visualização**, a versão da API REST `2020-04-01-preview` adiciona uma propriedade para o escopo da consulta a um [grupo de gerenciamento](../../management-groups/overview.md). Essa API de visualização também torna a propriedade de assinatura opcional. Se um grupo de gerenciamento ou uma lista de assinaturas não estiver definida, o escopo da consulta será todos os recursos, que inclui recursos delegados do [Lighthouse do Azure](../../../lighthouse/concepts/azure-delegated-resource-management.md) , que o usuário autenticado pode acessar. A nova `managementGroupId` propriedade usa a ID do grupo de gerenciamento, que é diferente do nome do grupo de gerenciamento. Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId` Não pode ser usado ao mesmo tempo que `subscriptions` .
+Como uma **Visualização** , a versão da API REST `2020-04-01-preview` adiciona uma propriedade para o escopo da consulta a um [grupo de gerenciamento](../../management-groups/overview.md). Essa API de visualização também torna a propriedade de assinatura opcional. Se um grupo de gerenciamento ou uma lista de assinaturas não estiver definida, o escopo da consulta será todos os recursos, que inclui recursos delegados do [Lighthouse do Azure](../../../lighthouse/concepts/azure-delegated-resource-management.md) , que o usuário autenticado pode acessar. A nova `managementGroupId` propriedade usa a ID do grupo de gerenciamento, que é diferente do nome do grupo de gerenciamento. Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId` Não pode ser usado ao mesmo tempo que `subscriptions` .
 
 Exemplo: consultar todos os recursos na hierarquia do grupo de gerenciamento denominado ' meu grupo de gerenciamento ' com a ID ' myMG '.
 
@@ -168,7 +169,7 @@ Alguns nomes de propriedade, como aqueles que incluem `.` ou `$`, devem ser enca
 
 - `.` - Encapsule o nome da propriedade da seguinte maneira: `['propertyname.withaperiod']`
   
-  Exemplo de consulta que encapsula a propriedade _odata.type_:
+  Exemplo de consulta que encapsula a propriedade _odata.type_ :
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 21c2329ec58e414ebfedaa4c49d5f690f47cac72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896575"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913884"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grade lado a lado
 
@@ -34,35 +34,35 @@ Cada nível de zoom adicional cria quatro vezes os blocos do anterior, criando u
 
 Os controles de mapa interativos do Azure Maps para Web e Android dão suporte a 25 níveis de zoom, numerados de 0 a 24. Embora os dados de estrada só estejam disponíveis nos níveis de zoom, quando os blocos estão disponíveis.
 
-A tabela a seguir fornece a lista completa de valores para níveis de zoom em que o tamanho do bloco é de 512 pixels quadrado:
+A tabela a seguir fornece a lista completa de valores para níveis de zoom em que o tamanho do bloco é de 512 pixels quadrados no latitude 0:
 
 |Nível de zoom|Medidores/pixel|Medidores/lado a lado|
 |--- |--- |--- |
-|0|156543|40075008|
-|1|78271.5|20037504|
-|2|39135.8|10018764.8|
-|3|19567.9|5009382.4|
-|4|9783.9|2504678.4|
-|5|4892|1252352|
-|6|2446|626176|
-|7|1223|313088|
-|8|611.5|156544|
-|9|305.7|78259.2|
-|10|152.9|39142.4|
-|11|76.4|19558.4|
-|12|38.2|9779.2|
-|13|19.1|4889.6|
-|14|9.6.|2457.6|
-|15|4.8|1228.8|
-|16|2.4|614.4|
-|17|1.2|307.2|
-|18|0,6|152.8|
-|19|0.3|76.4|
-|20|0.15|38.2|
-|21|0.075|19.1|
-|22|0.0375|9.55|
-|23|0, 1875|4,775|
-|24|0, 9375|2,3875|
+| 0 | 156543 | 40075017 |
+| 1 | 78271.5 | 20037508 |
+| 2 | 39135.8 | 10018754 |
+| 3 | 19567,88 | 5009377,1 |
+| 4 | 9783,94 | 2504688,5 |
+| 5 | 4891,97 | 1252344,3 |
+| 6 | 2445,98 | 626172,1 |
+| 7 | 1222,99 | 313086,1 |
+| 8 | 611.5 | 156543 |
+| 9 | 305,75 | 78271.5 |
+| 10 | 152,87 | 39135.8 |
+| 11 | 76,44 | 19567.9 |
+| 12 | 38,219 | 9783,94 |
+| 13 | 19,109 | 4891,97 |
+| 14 | 9,555 | 2445,98 |
+| 15 | 4,777 | 1222,99 |
+| 16 | 2,3887 | 611,496 |
+| 17 | 1,1943 | 305,748 |
+| 18 | 0,5972 | 152,874 |
+| 19 | 0,14929 | 76,437 |
+| 20 | 0,14929 | 38,2185 |
+| 21 | 0, 74646 | 19,10926 |
+| 22 | 0, 37323 | 9,55463 |
+| 23 | 0, 186615 | 4,777315 |
+| 24 | 0, 933075 | 2,3886575 |
 
 ## <a name="pixel-coordinates"></a>Coordenadas de pixel
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1157a18954c30e1f1d93aa33dbea6104491b5353
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7e019e7759e22e945bddee477a4cb77f17350b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396444"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913816"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption em uma rede isolada
 
@@ -25,18 +25,18 @@ Azure Disk Encryption depende de vários componentes, que são normalmente insta
 
 Aqui estão os pacotes necessários para cada distribuição. Para obter uma lista completa dos tipos de volume e distribuições com suporte, consulte [VMs e sistemas operacionais com suporte](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
-- **Ubuntu 14, 4, 16, 4, 18, 4**: lsscsi, psmisc, at, cryptsetup-bin, Python-in, Python-seis, procps
-- **CentOS 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, em, patch, cryptsetup, cryptsetup-recriptografar, pyparted, procps-ng, util-linux
-- **CentOS 6,8**: lsscsi, psmisc, lvm2, UUID, at, cryptsetup – recriptografar, pyparted, Python-seis
-- **RedHat 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, em, patch, cryptsetup, cryptsetup-recriptografar, procps-ng, util-linux
-- **RedHat 6,8**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup – recriptografar
-- **openSUSE 42,3, SLES 12-SP4, 12-SP3**: lsscsi, cryptsetup
+- **Ubuntu 14, 4, 16, 4, 18, 4** : lsscsi, psmisc, at, cryptsetup-bin, Python-in, Python-seis, procps, grub-pc-bin
+- **CentOS 7,2-7,7** : lsscsi, psmisc, lvm2, UUID, em, patch, cryptsetup, cryptsetup-recriptografar, pyparted, procps-ng, util-linux
+- **CentOS 6,8** : lsscsi, psmisc, lvm2, UUID, at, cryptsetup – recriptografar, pyparted, Python-seis
+- **RedHat 7,2-7,7** : lsscsi, psmisc, lvm2, UUID, em, patch, cryptsetup, cryptsetup-recriptografar, procps-ng, util-linux
+- **RedHat 6,8** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup – recriptografar
+- **openSUSE 42,3, SLES 12-SP4, 12-SP3** : lsscsi, cryptsetup
 
 No Red Hat, quando um proxy é necessário, é preciso garantir que o gerenciador de assinaturas e o yum sejam configurados corretamente. Para saber mais, confira [How to troubleshoot subscription-manager and yum problems](https://access.redhat.com/solutions/189533) (Como solucionar problemas do gerenciador de assinaturas e do yum).  
 
 Quando os pacotes são instalados manualmente, eles também devem ser atualizados manualmente conforme novas versões são lançadas.
 
-## <a name="network-security-groups"></a>Grupos de segurança de rede
+## <a name="network-security-groups"></a>Grupos de Segurança de Rede
 Qualquer configuração do grupo de segurança de rede aplicada ainda deve permitir que o ponto de extremidade atenda aos pré-requisitos da configuração de rede documentada para criptografia de disco.  Consulte [Azure Disk Encryption: requisitos de rede](disk-encryption-overview.md#networking-requirements)
 
 ## <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure Disk Encryption com o Azure AD (versão anterior)

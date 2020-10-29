@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717890"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913102"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -42,8 +42,8 @@ Antes de começar, é importante observar que há duas maneiras de implantar a f
 Siga estas etapas para criar um novo recurso usando o portal do Azure: 
 
 1. Entre no [portal do Azure](https://portal.azure.com/signin/index/).
-2. Selecione **Criar um recurso**. 
-3. Em seguida, selecione **aplicativo Web**. 
+2. Selecione **Criar um recurso** . 
+3. Em seguida, selecione **aplicativo Web** . 
 
    > [!div class="mx-imgBorder"]
    > ![Selecionar aplicativo Web](./media/quickstarts/formre-create-web-app.png)
@@ -95,14 +95,14 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
    > [!div class="mx-imgBorder"]
    > ![Configurar o Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. É isso. Em seguida, selecione **revisar + criar**e **criar** para implantar seu aplicativo Web. Ao concluir, você pode acessar seu aplicativo Web na URL fornecida na **visão geral** do seu recurso.
+7. É isso. Em seguida, selecione **revisar + criar** e **criar** para implantar seu aplicativo Web. Ao concluir, você pode acessar seu aplicativo Web na URL fornecida na **visão geral** do seu recurso.
 
 > [!NOTE]
 > Ao criar seu aplicativo Web, você também pode configurar a autorização/autenticação. Isso não é necessário para começar. 
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Como alternativa ao uso do portal do Azure, você pode criar um recurso usando o CLI do Azure. Antes de continuar, você precisará instalar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Você pode ignorar esta etapa se já estiver trabalhando com o CLI do Azure. 
+Como alternativa ao uso do portal do Azure, você pode criar um recurso usando o CLI do Azure. Antes de continuar, você precisará instalar o [CLI do Azure](/cli/azure/install-azure-cli). Você pode ignorar esta etapa se já estiver trabalhando com o CLI do Azure. 
 
 Há algumas coisas que você precisa saber sobre este comando:
 
@@ -149,7 +149,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Conectar-se ao Azure AD para autorização
 
-É recomendável que você conecte seu aplicativo Web ao Azure Active Directory. Isso garante que somente os usuários com credenciais válidas possam entrar e usar seu aplicativo Web. Siga as instruções em [configurar seu aplicativo do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) para se conectar ao Azure Active Directory.
+É recomendável que você conecte seu aplicativo Web ao Azure Active Directory. Isso garante que somente os usuários com credenciais válidas possam entrar e usar seu aplicativo Web. Siga as instruções em [configurar seu aplicativo do serviço de aplicativo](../../app-service/configure-authentication-provider-aad.md) para se conectar ao Azure Active Directory.
 
 ## <a name="open-source-on-github"></a>Código-fonte aberto no GitHub
 

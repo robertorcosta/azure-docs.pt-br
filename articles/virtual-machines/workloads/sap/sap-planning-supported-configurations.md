@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec29b6489712eeb67783aef03261a3606a390125
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88648982"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926607"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho do SAP em cenários compatíveis com a máquina virtual do Azure
 A criação da arquitetura de sistemas SAP NetWeaver, Business One `Hybris` ou S/4HANA no Azure abre muitas oportunidades diferentes para várias arquiteturas e ferramentas a serem usadas para chegar a uma implantação escalonável, eficiente e altamente disponível. Embora dependam do sistema operacional ou do DBMS usado, há restrições. Além disso, nem todos os cenários com suporte no local têm suporte da mesma maneira no Azure. Este documento orientará as configurações de não alta disponibilidade e as arquiteturas e configurações de alta disponibilidade com suporte usando VMs do Azure exclusivamente. Para cenários com suporte com [instâncias grandes do Hana](./hana-overview-architecture.md), verifique o artigo [cenários com suporte para instâncias grandes do Hana](./hana-supported-scenario.md). 
@@ -46,7 +46,7 @@ Nessas configurações, você separa a camada de aplicativo SAP e a camada DBMS 
 
 A representação gráfica é semelhante a:
 
-![Configuração de duas camadas simples](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![Diagrama que mostra uma configuração simples de três camadas.](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 Esse tipo de configuração tem suporte no Windows, Red Hat, SUSE e Oracle Linux para os sistemas DBMS do SQL Server, Oracle, DB2, SAP HANA, maxDB e SAP ASE para casos de produção e não produção. Essa é a configuração de implantação padrão para [instâncias grandes do Azure Hana](./hana-overview-architecture.md). Para simplificar, não nos distinguemos entre os serviços SAP central e as instâncias de diálogo SAP na camada de aplicativo SAP. Nessa configuração simples de três camadas, não haveria proteção de alta disponibilidade para os serviços SAP central.
 
@@ -83,7 +83,7 @@ Em muitos casos, várias instâncias de caixa de diálogo foram implantadas em s
 
 Na configuração de três camadas, em que várias instâncias de caixa de diálogo do SAP são executadas em VMs do Azure podem ser semelhantes a:
 
-![Várias instâncias DBMS em uma unidade](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![Diagrama que mostra uma configuração de três camadas em que várias instâncias de caixa de diálogo do SAP são executadas em VMs do Azure.](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 Para simplificar, não nos distinguemos entre os serviços SAP central e as instâncias de diálogo SAP na camada de aplicativo SAP. Nessa configuração simples de três camadas, não haveria proteção de alta disponibilidade para os serviços SAP central. Para sistemas de produção, não é recomendável deixar os serviços centrais do SAP desprotegidos. Para obter informações específicas sobre como chamadas de configurações de vários SID em relação às instâncias do SAP central e à alta disponibilidade dessas configurações de vários SID, consulte as seções posteriores deste documento.
 
@@ -208,7 +208,7 @@ A configuração está documentada em [alta disponibilidade para SAP NetWeaver e
 
 Um cluster de vários SID com o Queue Replication Server tem a aparência esquemático
 
-![Configuração de alta disponibilidade do DBMS e do ASCS](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![Diagrama que mostra um cluster de vários SID com o servidor de replicação de enfileiramento.](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## <a name="sap-hana-scale-out-scenarios"></a>Cenários de escala horizontal SAP HANA

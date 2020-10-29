@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: af03dde724b4f1ec75c9505bb2f9311ad09f5fd0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: 5969c449afe203ec9a014d2da78b56eeeb837590
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635908"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913357"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no Armazenamento de Blobs do Azure usando o Azure Data Factory
 
@@ -48,9 +48,6 @@ Para a atividade de cópia, esse conector de armazenamento de BLOBs dá suporte 
 - Copiando BLOBs como está ou analisando ou gerando BLOBs com [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 - [Preservando os metadados do arquivo durante a cópia](#preserving-metadata-during-copy).
 
->[!IMPORTANT]
->Se você habilitar a opção **permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento** nas configurações do firewall do armazenamento do Azure e quiser usar o tempo de execução de integração do Azure para se conectar ao armazenamento de BLOBs, você deverá usar a [autenticação de identidade gerenciada](#managed-identity).
-
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -67,7 +64,8 @@ Este conector de armazenamento de BLOBs dá suporte aos seguintes tipos de auten
 - [Identidades gerenciadas para a autenticação de recursos do Azure](#managed-identity)
 
 >[!NOTE]
->Quando você estiver usando o polybase para carregar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse), se o armazenamento de blob de origem ou de preparo estiver configurado com um ponto de extremidade de rede virtual do Azure, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo polybase. Você também deve usar o Integration Runtime de hospedagem interna com a versão 3,18 ou posterior. Consulte a seção [autenticação de identidade gerenciada](#managed-identity) para obter mais pré-requisitos de configuração.
+>- Se quiser usar o tempo de execução de integração do Azure público para se conectar ao armazenamento de BLOBs, aproveitando a opção **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** habilitada no firewall do armazenamento do Azure, você deve usar a [autenticação de identidade gerenciada](#managed-identity).
+>- Ao usar o polybase ou a instrução de cópia para carregar dados no Azure Synapse Analytics, se o armazenamento de blob de origem ou de preparo estiver configurado com um ponto de extremidade de rede virtual do Azure, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo Synapse. Consulte a seção [autenticação de identidade gerenciada](#managed-identity) para obter mais pré-requisitos de configuração.
 
 >[!NOTE]
 >As atividades do Azure HDInsight e Azure Machine Learning só dão suporte à autenticação que usa chaves de conta de armazenamento de BLOBs do Azure.
@@ -286,7 +284,7 @@ Para obter informações gerais sobre a autenticação de armazenamento do Azure
     - **Como coletor** , no **controle de acesso (iam)** , conceda pelo menos a função de **colaborador de dados de blob de armazenamento** .
 
 >[!IMPORTANT]
->Se você usar o polybase para carregar dados do armazenamento de BLOBs (como uma origem ou como preparo) no Azure Synapse Analytics (anteriormente SQL Data Warehouse), quando estiver usando a autenticação de identidade gerenciada para o armazenamento de BLOBs, siga as etapas 1 e 2 nesta [diretriz](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Essas etapas registrarão o servidor no Azure AD e atribuirão a função de colaborador de dados de blob de armazenamento ao servidor. Data Factory lida com o restante. Se você configurou o armazenamento de BLOBs com um ponto de extremidade de rede virtual do Azure, para usar o polybase para carregar dados dele, você deve usar a autenticação de identidade gerenciada conforme exigido pelo polybase.
+>Se você usar o polybase ou a instrução de cópia para carregar dados do armazenamento de BLOBs (como uma origem ou como um preparo) no Azure Synapse Analytics, ao usar a autenticação de identidade gerenciada para o armazenamento de BLOBs, certifique-se de também seguir as etapas 1 a 3 nesta [diretriz](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Essas etapas registrarão o servidor no Azure AD e atribuirão a função de colaborador de dados de blob de armazenamento ao servidor. Data Factory lida com o restante. Se você configurar o armazenamento de BLOBs com um ponto de extremidade de rede virtual do Azure, você também precisará **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** ativada em firewalls da conta de armazenamento do Azure e no menu de configurações de **redes virtuais** , conforme exigido pelo Synapse.
 
 Estas propriedades são suportadas por um serviço vinculado de armazenamento de Blob do Azure:
 

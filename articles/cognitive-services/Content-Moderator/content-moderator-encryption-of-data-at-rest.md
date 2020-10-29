@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 38fc21ee45db25f015a6b8b534b0d922efa636f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1401108a594e30790e842ec379724603f11d493f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84310539"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913697"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>Content Moderator criptografia de dados em repouso
 
@@ -39,6 +39,5 @@ Para habilitar a criptografia de dados para sua equipe de revisão de Content Mo
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma lista completa de serviços que dão suporte a CMK, consulte [chaves gerenciadas pelo cliente para serviços cognitivas](../encryption/cognitive-services-encryption-keys-portal.md)
-* [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [O que é Azure Key Vault](../../key-vault/general/overview.md)?
 * [Customer-Managed formulário de solicitação de chave de serviços cognitivas](https://aka.ms/cogsvc-cmk)
-

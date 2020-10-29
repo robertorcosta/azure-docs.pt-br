@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172828"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925570"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -76,6 +76,10 @@ Sim. Você pode cancelar o trabalho de backup em um estado de **captura de insta
 Se você bloquear o grupo de recursos criado pelo serviço de backup do Azure, os backups começarão a falhar, pois há um limite máximo de 18 pontos de restauração.
 
 Remova o bloqueio e desmarque a coleção de pontos de restauração desse grupo de recursos para que os backups futuros sejam bem-sucedidos. [Siga estas etapas](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de pontos de restauração.
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>Tenho um bloqueio no nível do grupo de recursos que contém todos os recursos relacionados à minha máquina virtual. Meu backup funcionará?
+
+O backup do Azure cria um grupo de recursos separado no formato `AzureBackupRG_<geo>_<number>` para armazenar objetos ResourcePointCollections. Como esse grupo de recursos é de Propriedade do serviço, bloqueá-lo fará com que os backups falhem. Os bloqueios só podem ser aplicados a grupos de recursos criados pelo cliente.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O backup do Azure dá suporte a discos gerenciados por SSD padrão?
 
@@ -145,7 +149,7 @@ Sim. Mesmo se você excluir a VM, poderá ir para o item de backup correspondent
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como fazer restaurar uma VM para os mesmos conjuntos de disponibilidade?
 
-Para as VMs do Azure de disco gerenciado, a restauração para os conjuntos de disponibilidade é habilitada fornecendo uma opção no modelo durante a restauração como discos gerenciados. Este modelo tem o parâmetro de entrada chamado **Conjuntos de disponibilidade**.
+Para as VMs do Azure de disco gerenciado, a restauração para os conjuntos de disponibilidade é habilitada fornecendo uma opção no modelo durante a restauração como discos gerenciados. Este modelo tem o parâmetro de entrada chamado **Conjuntos de disponibilidade** .
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como conseguimos desempenhos de restauração mais rápidos?
 
@@ -181,7 +185,7 @@ O backup da VM é feito usando as configurações de retenção e agendamento na
 
    1. Localize o local da sua máquina virtual.
    2. Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
-   3. Na portal do Azure, marque **Mostrar tipos ocultos**.
+   3. Na portal do Azure, marque **Mostrar tipos ocultos** .
    4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
    6. Depois que a operação de exclusão for concluída, você poderá mover sua máquina virtual.
@@ -199,7 +203,7 @@ Depois de mover a VM para um novo grupo de recursos, você pode proteger novamen
 
 Os pontos de restauração da VM antiga estarão disponíveis para restauração, se necessário. Se você não precisar desses dados de backup, poderá parar de proteger sua VM antiga com excluir dados.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Há um limite para o número de VMs que podem ser associadas à mesma política de backup?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>Há um limite para o número de VMs que podem ser associadas à mesma política de backup?
 
 Sim, há um limite de 100 VMs que podem ser associadas à mesma política de backup do Portal. Recomendamos que, para mais de 100 VMs, crie várias políticas de backup com o mesmo agendamento ou agendamento diferente.
 

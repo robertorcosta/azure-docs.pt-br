@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc8e7314c941035207ecf809a9d85ef46bd58379
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306626"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913748"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Usar o link privado na WAN virtual
 
@@ -72,7 +72,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 10.1.3.75
 ```
 
-Como você pode ver, estamos usando uma consulta SQL especial que nos fornece o endereço IP de origem que o SQL Server vê do cliente. Nesse caso, o servidor vê o cliente com seu IP privado ( `10.1.3.75` ), o que significa que o tráfego não viaja pela Internet pública, mas vai diretamente para o ponto de extremidade privado.
+Como você pode ver, estamos usando uma consulta SQL especial que nos fornece o endereço IP de origem que o SQL Server vê do cliente. Nesse caso, o servidor vê o cliente com seu IP privado ( `10.1.3.75` ), o que significa que o tráfego vai da VNet diretamente para o ponto de extremidade privado.
 
 Observe que você precisa definir as variáveis `username` e `password` para corresponder às credenciais definidas no banco de dados SQL do Azure para fazer com que os exemplos neste guia funcionem.
 

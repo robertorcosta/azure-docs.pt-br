@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: ecca75f294cf70ba8f7d82fcce7bdd3e9611b21a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 74cfabff22074ee405d7b417e306da62ef69ae19
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636333"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927101"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato do Excel no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,15 +31,15 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Excel** .   | Sim      |
-| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` . | Sim      |
-| sheetName        | O nome da planilha do Excel para ler os dados.                       | Sim      |
-| range            | O intervalo de células na planilha fornecida para localizar os dados seletivos, por exemplo:<br>-Não especificado: lê a planilha inteira como uma tabela da primeira linha e coluna não vazias<br>- `A3`: lê uma tabela a partir da célula especificada, detecta dinamicamente todas as linhas abaixo e todas as colunas à direita<br>- `A3:H5`: lê este intervalo fixo como uma tabela<br>- `A3:A3`: lê esta única célula | Não       |
-| firstRowAsHeader | Especifica se deve tratar a primeira linha na planilha/intervalo fornecido como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **true** e **false** (padrão). | Não       |
-| nullValue        | Especifica a representação de cadeia de caracteres do valor nulo. <br>O valor padrão é uma **cadeia de caracteres vazia** . | Não       |
+| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Excel** .   | Yes      |
+| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` . | Yes      |
+| sheetName        | O nome da planilha do Excel para ler os dados.                       | Yes      |
+| range            | O intervalo de células na planilha fornecida para localizar os dados seletivos, por exemplo:<br>-Não especificado: lê a planilha inteira como uma tabela da primeira linha e coluna não vazias<br>- `A3`: lê uma tabela a partir da célula especificada, detecta dinamicamente todas as linhas abaixo e todas as colunas à direita<br>- `A3:H5`: lê este intervalo fixo como uma tabela<br>- `A3:A3`: lê esta única célula | No       |
+| firstRowAsHeader | Especifica se deve tratar a primeira linha na planilha/intervalo fornecido como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **true** e **false** (padrão). | No       |
+| nullValue        | Especifica a representação de cadeia de caracteres do valor nulo. <br>O valor padrão é uma **cadeia de caracteres vazia** . | No       |
 | compactação | Grupo de propriedades para configurar a compactação de arquivo. Configure esta seção quando desejar fazer compactação/descompactação durante a execução da atividade. | Não |
-| type<br/>( *em `compression`* ) | O codec de compactação usado para ler/gravar arquivos JSON. <br>Os valores permitidos **são bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **encaixado** ou **lz4** . O padrão não é compactado.<br>**Observação** a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4" e o fluxo de dados de mapeamento não dá suporte a "ZipDeflate".<br>**Observação** ao usar a atividade de cópia para descompactar arquivo (s) **ZipDeflate** e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` . | Não.  |
-| nível<br/>( *em `compression`* ) | A taxa de compactação. <br>Os valores permitidos são **ideal** ou **mais rápido** .<br>- **Mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **Ideal** : a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](/dotnet/api/system.io.compression.compressionlevel) . | Não       |
+| type<br/>( *em `compression`* ) | O codec de compactação usado para ler/gravar arquivos JSON. <br>Os valores permitidos são **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **tar** , **snapshot** ou **lz4** . O padrão não é compactado.<br>**Observação** a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4" e o fluxo de dados de mapeamento não dá suporte a "ZipDeflate", "TarGzip" e "tar".<br>**Observação** ao usar a atividade de cópia para descompactar arquivo (s) **ZipDeflate** e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` . | Não.  |
+| nível<br/>( *em `compression`* ) | A taxa de compactação. <br>Os valores permitidos são **ideal** ou **mais rápido** .<br>- **Mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **Ideal** : a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 Veja abaixo um exemplo de conjunto de um banco de uma no armazenamento de BLOBs do Azure:
 
@@ -77,8 +77,8 @@ As propriedades a seguir têm suporte na seção atividade de cópia **_ \_ orig
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **Excel** . | Sim      |
-| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings` . | Não       |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **Excel** . | Yes      |
+| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings` . | No       |
 
 ```json
 "activities": [
@@ -108,7 +108,7 @@ No mapeamento de fluxos de dados, você pode ler o formato do Excel nos seguinte
 
 A tabela abaixo lista as propriedades com suporte por uma origem do Excel. Você pode editar essas propriedades na guia **Opções de origem** . Ao usar o conjunto de linhas embutido, você verá configurações de arquivo adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores.
 
-| Nome                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
+| Name                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Caminhos curinga           | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no       | String[]                                                  | wildcardPaths                     |
 | Caminho raiz da partição       | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | no       | String                                                    | partitionRootPath                 |

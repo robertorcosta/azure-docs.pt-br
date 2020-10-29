@@ -2,13 +2,13 @@
 title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos do Azure que podem ter mais de 800 instâncias em um grupo de recursos.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330750"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913493"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -81,6 +81,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
+* Labs/virtualMachines-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 * schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
@@ -173,6 +174,10 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 * workspaceCollections-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+
+* capacidades – por padrão, limitadas a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
+
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 * namespaces
@@ -185,18 +190,21 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 * namespaces
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftsingularity"></a>Microsoft. singularidade
 
-* de dimensionamento da Web
-* containerGroups
-* gateways
-* networks
-* segredos
-* volumes
+* accounts
+* contas/accountQuotaPolicies
+* contas/groupPolicies
+* contas/trabalhos
+* contas/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
+
+## <a name="microsoftsql"></a>Microsoft.Sql
+
+* servers/databases
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 

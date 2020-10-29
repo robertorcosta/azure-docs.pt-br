@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9aae410d320713650704e175006a6593b30f52a7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6d105528404c99f7273687fcdea6972b4212fcf1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504149"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913680"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderar imagens de produto de comércio eletrônico com o Azure Content Moderator
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço Content Moderator e obter sua chave.
+- Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](../cognitive-services-apis-create-account.md) para assinar o serviço Content Moderator e obter sua chave.
 - Uma chave de assinatura da Pesquisa Visual Computacional (mesmas instruções acima).
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 - Um conjunto de imagens para cada rótulo que será usado pelo classificador da Visão Personalizada (nesse caso, brinquedos, canetas e bandeiras dos EUA).
@@ -48,7 +48,7 @@ Veja o início rápido [Familiarize-se com o Content Moderator](quick-start.md) 
 
 ## <a name="create-custom-moderation-tags"></a>Criar marcas de moderação personalizadas
 
-Em seguida, crie marcas personalizadas na ferramenta de Análise (confira o artigo [Marcas](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) caso precise obter ajuda com esse processo). Nesse caso, adicionaremos as seguintes marcas: **celebridade** , **EUA** , **bandeira** , **brinquedo** e **caneta** . Nem todas as marcas precisam ser categorias detectáveis na Pesquisa Visual Computacional (como **celebridade** ); você pode adicionar suas próprias marcas personalizadas, desde que treine o classificador da Visão Personalizada para detectá-las mais tarde.
+Em seguida, crie marcas personalizadas na ferramenta de Análise (confira o artigo [Marcas](./review-tool-user-guide/configure.md#tags) caso precise obter ajuda com esse processo). Nesse caso, adicionaremos as seguintes marcas: **celebridade** , **EUA** , **bandeira** , **brinquedo** e **caneta** . Nem todas as marcas precisam ser categorias detectáveis na Pesquisa Visual Computacional (como **celebridade** ); você pode adicionar suas próprias marcas personalizadas, desde que treine o classificador da Visão Personalizada para detectá-las mais tarde.
 
 ![Configurar marcas personalizadas](images/tutorial-ecommerce-tags2.PNG)
 
@@ -90,11 +90,11 @@ O próximo método usa uma URL de imagem e suas informações de assinatura da P
 
 ## <a name="evaluatecustomvisiontags-method"></a>Método EvaluateCustomVisionTags
 
-Em seguida, confira o método **EvaluateCustomVisionTags** , que classifica os produtos reais – nesse caso, bandeiras, brinquedos e canetas. Siga as instruções do guia [Como criar um classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para criar seu próprio classificador de imagens personalizado e detectar bandeiras, brinquedos e canetas (ou qualquer coisa que você escolha como marcas personalizadas) nas imagens. Você pode usar as imagens na pasta **sample-images** do [repositório GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) para treinar rapidamente algumas das categorias neste exemplo.
+Em seguida, confira o método **EvaluateCustomVisionTags** , que classifica os produtos reais – nesse caso, bandeiras, brinquedos e canetas. Siga as instruções do guia [Como criar um classificador](../custom-vision-service/getting-started-build-a-classifier.md) para criar seu próprio classificador de imagens personalizado e detectar bandeiras, brinquedos e canetas (ou qualquer coisa que você escolha como marcas personalizadas) nas imagens. Você pode usar as imagens na pasta **sample-images** do [repositório GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) para treinar rapidamente algumas das categorias neste exemplo.
 
 ![Página da Web da Visão Personalizada com imagens de treinamento de canetas, brinquedos e bandeiras](images/tutorial-ecommerce-custom-vision.PNG)
 
-Depois de treinar o classificador, obtenha a chave de previsão e a URL de ponto de extremidade de previsão (confira [Obter a URL e a chave de previsão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) caso precise de ajuda para recuperá-las) e atribua esses valores aos campos `CustomVisionKey` e `CustomVisionUri`, respectivamente. O método usa esses valores para consultar o classificador. Se o classificador encontrar uma ou mais das marcas personalizadas na imagem, esse método definirá os valores correspondentes na matriz **ReviewTags** como **True** .
+Depois de treinar o classificador, obtenha a chave de previsão e a URL de ponto de extremidade de previsão (confira [Obter a URL e a chave de previsão](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key) caso precise de ajuda para recuperá-las) e atribua esses valores aos campos `CustomVisionKey` e `CustomVisionUri`, respectivamente. O método usa esses valores para consultar o classificador. Se o classificador encontrar uma ou mais das marcas personalizadas na imagem, esse método definirá os valores correspondentes na matriz **ReviewTags** como **True** .
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757037"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913714"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o link privado do Azure
 
@@ -20,8 +20,8 @@ ms.locfileid: "91757037"
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>O que é o ponto de extremidade privado do Azure e o serviço de vínculo privado do Azure?
 
-- **[Ponto de extremidade privado do Azure](private-endpoint-overview.md)**: o ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura a um serviço da plataforma de link privado do Azure. Você pode usar pontos de extremidade privados para se conectar a um serviço de PaaS do Azure que dá suporte ao link privado ou ao seu próprio serviço de vínculo privado.
-- **[Serviço de vínculo privado do Azure](private-link-service-overview.md)**: o serviço de vínculo privado do Azure é um serviço criado por um provedor de serviços. Atualmente, um serviço de vínculo privado pode ser anexado à configuração de IP de front-end de um Standard Load Balancer. 
+- **[Ponto de extremidade privado do Azure](private-endpoint-overview.md)** : o ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura a um serviço da plataforma de link privado do Azure. Você pode usar pontos de extremidade privados para se conectar a um serviço de PaaS do Azure que dá suporte ao link privado ou ao seu próprio serviço de vínculo privado.
+- **[Serviço de vínculo privado do Azure](private-link-service-overview.md)** : o serviço de vínculo privado do Azure é um serviço criado por um provedor de serviços. Atualmente, um serviço de vínculo privado pode ser anexado à configuração de IP de front-end de um Standard Load Balancer. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Como o tráfego é enviado ao usar o link privado?
 O tráfego é enviado de forma privada usando o backbone da Microsoft. Ele não atravessa a Internet. O link privado do Azure não armazena dados do cliente.
@@ -48,6 +48,9 @@ Sim. Pontos de extremidade privados podem se conectar a serviços de vínculo pr
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>O ponto de extremidade privado pode se conectar aos recursos de PaaS do Azure nas regiões do Azure?
 Sim. Pontos de extremidade privados podem se conectar aos recursos de PaaS do Azure nas regiões do Azure.
+
+### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Posso modificar minha NIC (interface de rede de ponto de extremidade) privada?
+Quando um ponto de extremidade privado é criado, uma NIC somente leitura é atribuída. Isso não pode ser modificado e permanecerá para o ciclo de vida do ponto de extremidade privado.
 
 ## <a name="private-link-service"></a>Serviço de Link Privado
  

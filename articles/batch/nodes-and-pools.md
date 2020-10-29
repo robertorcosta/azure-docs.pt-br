@@ -3,16 +3,16 @@ title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371436"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913799"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
-Em um fluxo de trabalho do Lote do Azure, um *nó de computação* (ou *nó*) é uma máquina virtual que processa uma parte da carga de trabalho do aplicativo. Um *pool* é uma coleção desses nós para execução do aplicativo. Este artigo explica melhor nós e pools, juntamente com considerações ao criá-los e usá-los em um fluxo de trabalho do Lote do Azure.
+Em um fluxo de trabalho do Lote do Azure, um *nó de computação* (ou *nó* ) é uma máquina virtual que processa uma parte da carga de trabalho do aplicativo. Um *pool* é uma coleção desses nós para execução do aplicativo. Este artigo explica melhor nós e pools, juntamente com considerações ao criá-los e usá-los em um fluxo de trabalho do Lote do Azure.
 
 ## <a name="nodes"></a>Nós
 
@@ -68,7 +68,7 @@ Existem dois tipos de configuração de pool disponíveis no Lote.
 
 A **Configuração de Máquina Virtual** especifica que o pool é composto de máquinas virtuais do Azure. Essas máquinas virtuais podem ser criadas de imagens Linux ou Windows.
 
-Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md). Opcionalmente, você pode anexar um ou mais discos de dados vazios ao pool de máquinas virtuais criadas desde imagens do Marketplace ou incluir discos de dados em imagens personalizadas usadas para criar as máquinas virtuais. Quando incluir discos de dados, você precisará montar e formatar os discos de dentro de uma VM para usá-los.
+O [agente de nó de lote](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. Há diferentes implementações do agente do nó, conhecido como SKUs, para diferentes sistemas operacionais. Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md). Opcionalmente, você pode anexar um ou mais discos de dados vazios ao pool de máquinas virtuais criadas desde imagens do Marketplace ou incluir discos de dados em imagens personalizadas usadas para criar as máquinas virtuais. Quando incluir discos de dados, você precisará montar e formatar os discos de dentro de uma VM para usá-los.
 
 ### <a name="cloud-services-configuration"></a>Configuração de Serviços de Nuvem
 
@@ -127,7 +127,7 @@ Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 
 - **métricas do tempo** são baseadas nas estatísticas coletadas a cada cinco minutos no número de horas especificado.
 - **métricas do recurso** são baseadas nos usos da CPU, da largura de banda e da memória, e no número de nós.
-- As **métricas de tarefa** são baseadas no estado da tarefa, como *Ativa* (na fila), *Em execução* ou *Concluída*.
+- As **métricas de tarefa** são baseadas no estado da tarefa, como *Ativa* (na fila), *Em execução* ou *Concluída* .
 
 Quando o dimensionamento automático diminui o número de nós de computação em um pool, você deve considerar como lidar com as tarefas em execução no momento da operação de redução. Para aceitar isso, o Lote fornece uma [*opção de desalocação do nó*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que você pode incluir em suas fórmulas. Por exemplo, você pode especificar que as tarefas em execução sejam interrompidas imediatamente e colocadas novamente na fila para execução em outro nó ou concluídas antes que o nó seja removido do pool. Observe que definir a opção de desalocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de pool até que todas as tarefas sejam concluídas ou que todos os períodos de retenção da tarefa tenham expirado, respectivamente.
 
@@ -148,7 +148,7 @@ Você também pode especificar um *tipo de preenchimento* que determina se o Lot
 
 Na maioria dos cenários, as tarefas operam de forma independente e não precisam comunicar-se umas com as outras. No entanto, há alguns aplicativos em que as tarefas precisam se comunicar, como os [cenários MPI](batch-mpi.md).
 
-Você pode configurar um pool para permitir a  **comunicação entre os nós**, de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
+Você pode configurar um pool para permitir a  **comunicação entre os nós** , de modo que os nós em um pool possam comunicar-se durante a execução. Quando a comunicação entre nós é habilitada, os nós nos pools de Configuração dos Serviços de Nuvem podem comunicar-se uns com os outros nas portas acima de 1100 e os pools de Configuração da Máquina Virtual não restringem o tráfego em nenhuma porta.
 
 Habilitar a comunicação entre nós também afeta a colocação dos nós nos clusters e pode limitar o número máximo de nós em um pool devido às restrições da implantação. Se seu aplicativo não precisar da comunicação entre os nós, o serviço de Lote poderá alocar um número potencialmente grande de nós para o pool a partir de vários clusters e data centers diferentes para permitir uma capacidade maior do processamento paralelo.
 

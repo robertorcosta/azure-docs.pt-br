@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548463"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926250"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorando o Hub IoT do Azure
 
@@ -54,11 +54,14 @@ As métricas de plataforma e o log de atividades são coletados e armazenados au
 
 Os logs de recursos não são coletados e armazenados até você criar uma configuração de diagnóstico e roteá-los para um ou mais locais.
 
-As métricas e os logs podem ser roteados para um espaço de trabalho Log Analytics, no qual eles podem ser analisados usando logs de Azure Monitor; para o armazenamento do Azure para arquivamento e análise offline; ou para um ponto de extremidade de hubs de eventos, onde eles podem ser lidos por aplicativos externos, por exemplo, ferramentas SIEM de terceiros.
+As métricas e os logs podem ser roteados para vários locais, incluindo:
+- O repositório de logs de Azure Monitor por meio de um espaço de trabalho Log Analytics associado. Lá, eles podem ser analisados usando Log Analytics.
+- Armazenamento do Azure para arquivamento e análise offline 
+- Um ponto de extremidade de hubs de eventos onde eles podem ser lidos por aplicativos externos, por exemplo, ferramentas SIEM de terceiros.
 
 No portal do Azure, você pode selecionar **configurações de diagnóstico** em **monitoramento** no painel esquerdo do Hub IOT seguido de **Adicionar configuração de diagnóstico** para criar configurações de diagnóstico com escopo para os logs e métricas de plataforma emitidos pelo Hub IOT.
 
-A captura de tela a seguir mostra uma configuração de diagnóstico para roteamento de operações de conexão nos logs de recursos e todas as métricas de plataforma para um espaço de trabalho Log Analytics.
+A captura de tela a seguir mostra uma configuração de diagnóstico para rotear as *operações de conexão* do tipo log de recursos e todas as métricas de plataforma para um espaço de trabalho log Analytics.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Gráficos de métrica padrão na página de visão geral do Hub IoT.":::
 
@@ -86,7 +89,7 @@ Algumas métricas do Hub IoT, como [métricas de roteamento](monitor-iot-hub-ref
 
 ## <a name="analyzing-logs"></a>Análise de logs
 
-Os dados em logs de Azure Monitor são armazenados em tabelas em que cada tabela tem seu próprio conjunto de propriedades exclusivas. Para saber mais sobre logs de Azure Monitor, consulte [visão geral de logs de Azure monitor](/azure/azure-monitor/platform/data-platform-logs) na documentação do Azure monitor. 
+Os dados em logs de Azure Monitor são armazenados em tabelas em que cada tabela tem seu próprio conjunto de propriedades exclusivas. Os dados nessas tabelas são associados a um espaço de trabalho Log Analytics e podem ser consultados em Log Analytics. Para saber mais sobre logs de Azure Monitor, consulte [visão geral de logs de Azure monitor](/azure/azure-monitor/platform/data-platform-logs) na documentação do Azure monitor. 
 
 Para rotear dados para logs de Azure Monitor, você deve criar uma configuração de diagnóstico para enviar logs de recursos ou métricas de plataforma para um espaço de trabalho Log Analytics. Para saber mais, consulte [coleta e roteamento](#collection-and-routing).
 
@@ -114,7 +117,7 @@ Algumas operações nos logs de recursos do Hub IoT retornam uma `sdkVersion` pr
 
 A tabela a seguir mostra o nome do SDK usado para SDKs diferentes do Azure IoT:
 
-| Nome do SDK na propriedade sdkVersion | Linguagem |
+| Nome do SDK na propriedade sdkVersion | Idioma |
 |----------|----------|
 | .NET | .NET (C#) |
 | Microsoft. Azure. Devices | SDK do serviço .NET (C#) |
