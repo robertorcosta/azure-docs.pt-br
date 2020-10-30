@@ -5,17 +5,17 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 5de121a1a905a58f8b5eaf8e60c1f8da71ee8cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3d24ce4dd42ea8122610943379160ca93406c21
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276928"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548135"
 ---
 O Reconhecimento de Formulários funciona em documentos de entrada que atendem aos seguintes requisitos:
 
 * O formato deve ser JPG, PNG, PDF (texto ou digitalizado) ou TIFF. PDFs com texto inserido são o melhor porque não há nenhuma possibilidade de erro na extração e na localização de caracteres.
-* O tamanho do arquivo deve ser inferior a 20 MB.
+* O tamanho do arquivo precisa ser inferior a 50 MB.
 * As imagens de dimensões devem estar entre 50 x 50 pixels e 10.000 x 10.000 pixels.
 * As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondentes aos tamanhos de papel ofício ou A3 e menores.
 * Para PDF e TIFF, somente as primeiras 200 páginas são processadas (com uma assinatura de camada gratuita, somente as duas primeiras páginas são processadas).

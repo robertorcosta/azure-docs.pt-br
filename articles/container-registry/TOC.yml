@@ -59,6 +59,8 @@
           href: container-registry-geo-replication.md
         - name: Práticas recomendadas do registro
           href: container-registry-best-practices.md
+        - name: Gerenciar imagens públicas
+          href: buffer-gate-public-content.md
     - name: Guias de instruções
       expanded: false
       items:

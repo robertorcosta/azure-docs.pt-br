@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275955"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558628"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
@@ -37,11 +37,11 @@ Notificando você apenas quando há problemas, a Central de Segurança reduz o p
 
 Há três gatilhos para uma verificação de imagem:
 
-- **No momento do push**: sempre que uma imagem é enviada por push ao registro, a Central de Segurança verifica automaticamente essa imagem. Para disparar a verificação de uma imagem, envie-a por push ao repositório.
+- **No momento do push** : sempre que uma imagem é enviada por push ao registro, a Central de Segurança verifica automaticamente essa imagem. Para disparar a verificação de uma imagem, envie-a por push ao repositório.
 
-- **Recém-extraída**: como novas vulnerabilidades são descobertas todos os dias, o **Azure Defender para registros de contêiner** também verifica qualquer imagem que tenha sido extraída nos últimos 30 dias. Não há nenhum custo adicional para um novo exame; conforme mencionado acima, você é cobrado uma vez por imagem.
+- **Recém-extraída** : como novas vulnerabilidades são descobertas todos os dias, o **Azure Defender para registros de contêiner** também verifica qualquer imagem que tenha sido extraída nos últimos 30 dias. Não há nenhum custo adicional para um novo exame; conforme mencionado acima, você é cobrado uma vez por imagem.
 
-- **No momento da importação**: o Registro de Contêiner do Azure tem ferramentas de importação para levar as imagens do Docker Hub, do Registro de Contêiner da Microsoft ou de outro registro de contêiner do Azure para o seu registro. O **Azure Defender para registros de contêiner** examina as imagens compatíveis importadas. Saiba mais em [Importar imagens de contêiner para um registro de contêiner](../container-registry/container-registry-import-images.md).
+- **No momento da importação** : o Registro de Contêiner do Azure tem ferramentas de importação para levar as imagens do Docker Hub, do Registro de Contêiner da Microsoft ou de outro registro de contêiner do Azure para o seu registro. O **Azure Defender para registros de contêiner** examina as imagens compatíveis importadas. Saiba mais em [Importar imagens de contêiner para um registro de contêiner](../container-registry/container-registry-import-images.md).
  
 Normalmente, a verificação é concluída em 2 minutos, mas pode levar até 15 minutos. As descobertas são disponibilizadas como recomendações da Central de Segurança, como esta:
 
@@ -71,6 +71,12 @@ Sim. Os resultados ficam na [API REST de Subavaliações](/rest/api/securitycent
 Para obter uma lista dos tipos de registros de contêiner compatíveis com o Azure Defender para registros de contêiner, confira [Disponibilidade](defender-for-container-registries-usage.md#availability).
 
 Se você conectar registros sem suporte à sua assinatura do Azure, eles não serão verificados e você não será cobrado por eles.
+
+### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>Posso personalizar as descobertas do verificador de vulnerabilidades?
+Sim. Caso você tenha uma necessidade organizacional para ignorar uma descoberta, em vez de corrigi-la, você pode opcionalmente desabilitá-la. As descobertas desabilitadas não afetam sua classificação de segurança nem geram um ruído indesejado.
+
+[Saiba mais sobre como criar regras para desabilitar as descobertas da ferramenta de avaliação de vulnerabilidade integrada](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

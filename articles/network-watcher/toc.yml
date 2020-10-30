@@ -13,7 +13,8 @@
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnosticar o problema de filtro de tráfego da VM - CLI do Azure
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
-    - name: Configurar os logs de fluxo NSG usando o modelo ARM
+    - name: Configurar os logs de fluxo NSG usando o modelo do ARM
+      displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutoriais
   items:

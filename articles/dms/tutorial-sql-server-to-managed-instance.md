@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: defe7cb8ec727ac358789368f0897639fa109b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 592d96195d1c70c73e32589fe764a8747b0b66e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308598"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546765"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerenciada de SQL do Azure offline usando DMS
 
@@ -66,7 +66,7 @@ Para concluir este tutorial, você precisará:
     >[!NOTE]
     >Por padrão, o Serviço de Migração de Banco de Dados do Azure é compatível apenas com a migração de logons SQL. No entanto, você pode habilitar a capacidade de migrar logons do Windows executando as seguintes ações:
     >
-    >- Garantindo que a Instância Gerenciada de SQL de destino tenha acesso de leitura ao AAD, que pode ser configurado por meio do portal do Azure por um usuário com a função de **Administrador da empresa**ou **Administrador global**".
+    >- Garantindo que a Instância Gerenciada de SQL de destino tenha acesso de leitura ao AAD, que pode ser configurado por meio do portal do Azure por um usuário com a função de **Administrador da empresa** ou **Administrador global** ".
     >- Configurando sua instância do Serviço de Migração de Banco de Dados do Azure para habilitar as migrações de logon de usuário/grupo do Windows, que são configuradas por meio do portal do Azure, na página de Configuração. Depois de habilitar essa configuração, reinicie o serviço para que as alterações entrem em vigor.
     >
     > Depois de reiniciar o serviço, os logons de usuário/grupo do Windows aparecerão na lista de logons disponíveis para migração. Para todo logon de usuário/grupo do Windows que você migrar, será solicitado que forneça o nome de domínio associado. As contas de usuário de serviço (conta com nome de domínio NT AUTHORITY) e as contas de usuário virtual (nome da conta com o nome de domínio NT SERVICE) não são compatíveis.
@@ -81,29 +81,29 @@ Para concluir este tutorial, você precisará:
     
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrar o provedor de recursos Microsoft.DataMigration
 
-1. Entre no portal do Azure, selecione **Todos os serviços** e selecione **Assinaturas**.
+1. Entre no portal do Azure, selecione **Todos os serviços** e selecione **Assinaturas** .
 
     ![Mostrar assinaturas do portal](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)
 
-2. Selecione a assinatura na qual deseja criar a instância do Serviço de Migração de Banco de Dados do Azure e, em seguida, selecione **Provedores de recursos**.
+2. Selecione a assinatura na qual deseja criar a instância do Serviço de Migração de Banco de Dados do Azure e, em seguida, selecione **Provedores de recursos** .
 
     ![Exibir provedores de recursos](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
 
-3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **Registrar**.
+3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration** , selecione **Registrar** .
 
     ![Registrar provedor de recursos](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Criar uma instância do Serviço de Migração de Banco de Dados do Azure
 
-1. No portal do Azure, selecione + **Criar um recurso**, pesquise **Serviço de Migração de Banco de Dados do Azure** e, em seguida, selecione **Serviço de Migração de Banco de Dados do Azure** na lista suspensa.
+1. No portal do Azure, selecione + **Criar um recurso** , pesquise **Serviço de Migração de Banco de Dados do Azure** e, em seguida, selecione **Serviço de Migração de Banco de Dados do Azure** na lista suspensa.
 
     ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
 
-2. Na tela **Serviço de Migração de Banco de Dados do Azure**, selecione **Criar**.
+2. Na tela **Serviço de Migração de Banco de Dados do Azure** , selecione **Criar** .
 
     ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-managed-instance/dms-create1.png)
 
-3. Na tela **Criar Serviço de Migração**, especifique um nome para o serviço, a assinatura e um grupo de recurso novo ou existente.
+3. Na tela **Criar Serviço de Migração** , especifique um nome para o serviço, a assinatura e um grupo de recurso novo ou existente.
 
 4. Selecione o local no qual você deseja criar a instância do DMS.
 
@@ -127,15 +127,15 @@ Para concluir este tutorial, você precisará:
 
 Depois que uma instância do serviço é criada, localize-a no portal do Azure, abra-a e, em seguida, crie um novo projeto de migração.
 
-1. Faça logon no portal do Azure, selecione **+ criar um recurso**, procure o serviço de migração de banco de dados do Azure e, em seguida, selecione **serviço de migração de banco de dados do Azure** na lista suspensa.
+1. Faça logon no portal do Azure, selecione **+ criar um recurso** , procure o serviço de migração de banco de dados do Azure e, em seguida, selecione **serviço de migração de banco de dados do Azure** na lista suspensa.
 
     ![Localize todas as instâncias do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-managed-instance/dms-search.png)
 
-2. Na tela **Serviço de Migração de Banco de Dados do Azure**, procure o nome da instância que você criou e, em seguida, selecione-a.
+2. Na tela **Serviço de Migração de Banco de Dados do Azure** , procure o nome da instância que você criou e, em seguida, selecione-a.
 
-3. Selecione + **Novo Projeto de Migração**.
+3. Selecione + **Novo Projeto de Migração** .
 
-4. Na tela **Novo projeto de migração**, especifique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server**; na caixa de texto **Tipo de servidor de destino**, selecione **Instância Gerenciada de SQL do Azure**; e, em **Escolher tipo de atividade**, selecione **Migração de dados offline**.
+4. Na tela **Novo projeto de migração** , especifique um nome para o projeto, na caixa de texto **Tipo de servidor de origem** , selecione **SQL Server** ; na caixa de texto **Tipo de servidor de destino** , selecione **Instância Gerenciada de SQL do Azure** ; e, em **Escolher tipo de atividade** , selecione **Migração de dados offline** .
 
    ![Criar projeto do DMS](media/tutorial-sql-server-to-managed-instance/dms-create-project2.png)
 
@@ -143,9 +143,9 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 ## <a name="specify-source-details"></a>Especifique as configurações de origem
 
-1. Na tela **Detalhe de origem de migração**, especifique os detalhes da conexão do SQL Server de origem.
+1. Na tela **Detalhe de origem de migração** , especifique os detalhes da conexão do SQL Server de origem.
 
-2. Caso não tenha instalado um certificado confiável no servidor, selecione a caixa de seleção **Certificado de servidor confiável**.
+2. Caso não tenha instalado um certificado confiável no servidor, selecione a caixa de seleção **Certificado de servidor confiável** .
 
     Quando não houver um certificado confiável instalado, o SQL Server gerará um certificado autoassinado quando a instância for iniciada. Esse certificado é usado para criptografar as credenciais das conexões de cliente.
 
@@ -154,49 +154,49 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
    ![Detalhes da origem](media/tutorial-sql-server-to-managed-instance/dms-source-details1.png)
 
-3. Clique em **Salvar**.
+3. Clique em **Salvar** .
 
-4. Na tela **Selecionar bancos de dados de origem**, selecione o banco de dados **Adventureworks2012** para migração.
+4. Na tela **Selecionar bancos de dados de origem** , selecione o banco de dados **Adventureworks2012** para migração.
 
    ![Selecionar bancos de dados de origem](media/tutorial-sql-server-to-managed-instance/dms-source-database1.png)
 
     > [!IMPORTANT]
     > Se você usa o SSIS (SQL Server Integration Services), no momento, o DMS não dá suporte à migração do banco de dados de catálogo dos seus projetos e pacotes do SSIS (SSISDB) do SQL Server para a Instância Gerenciada de SQL. No entanto, é possível provisionar o SSIS no ADF (Azure Data Factory) e reimplantar os projetos e os pacotes do SSIS no SSISDB de destino hospedado pela Instância Gerenciada de SQL. Para saber mais sobre como migrar pacotes SSIS, confira o artigo [Migrar pacotes do SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
-5. Clique em **Salvar**.
+5. Clique em **Salvar** .
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
-1. Na tela **Detalhes do destino de migração**, especifique os detalhes da conexão de destino, que é a Instância Gerenciada de SQL pré-provisionada para a qual o banco de dados **AdventureWorks2012** está sendo migrado.
+1. Na tela **Detalhes do destino de migração** , especifique os detalhes da conexão de destino, que é a Instância Gerenciada de SQL pré-provisionada para a qual o banco de dados **AdventureWorks2012** está sendo migrado.
 
     Se você ainda não provisionou a Instância Gerenciada de SQL, clique no [link](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) para obter ajuda nessa tarefa. É possível continuar assim mesmo com a criação do projeto e, em seguida, quando a Instância Gerenciada de SQL estiver pronta, retornar a este projeto específico para executar a migração.
 
     ![Selecionar o destino](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
-2. Clique em **Salvar**.
+2. Clique em **Salvar** .
 
 ## <a name="select-source-databases"></a>Selecionar bancos de dados de origem
 
-1. Na tela **Selecionar bancos de dados de destino**, selecione o banco de dados de origem que você deseja migrar.
+1. Na tela **Selecionar bancos de dados de destino** , selecione o banco de dados de origem que você deseja migrar.
 
     ![Selecionar bancos de dados de origem](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
 
-2. Clique em **Salvar**.
+2. Clique em **Salvar** .
 
 ## <a name="select-logins"></a>Selecionar logons
 
-1. Na tela **Selecionar logons**, selecione os logons que deseja migrar.
+1. Na tela **Selecionar logons** , selecione os logons que deseja migrar.
 
     >[!NOTE]
     >Por padrão, o Serviço de Migração de Banco de Dados do Azure é compatível apenas com a migração de logons SQL. Para habilitar o suporte à migração de logons do Windows, consulte a seção **Pré-requisitos** deste tutorial.
 
     ![Selecionar logons](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
-2. Clique em **Salvar**.
+2. Clique em **Salvar** .
 
 ## <a name="configure-migration-settings"></a>Definir as configurações de migração
 
-1. Na tela **Definir as configurações de migração**, forneça os seguintes detalhes:
+1. Na tela **Definir as configurações de migração** , forneça os seguintes detalhes:
 
     | | |
     |--------|---------|
@@ -209,31 +209,31 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Definir as configurações de migração](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 
-2. Clique em **Salvar**.
+2. Clique em **Salvar** .
 
 ## <a name="review-the-migration-summary"></a>Análise do resumo da migração
 
-1. Na tela **Resumo de migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração.
+1. Na tela **Resumo de migração** , na caixa de texto **Nome da atividade** , especifique um nome para a atividade de migração.
 
-2. Expanda a seção **Opção de validação** para exibir a tela **Escolher a opção de validação**, especifique se é preciso validar os bancos de dados migrados para correção do esquema e, em seguida, selecione **Salvar**.
+2. Expanda a seção **Opção de validação** para exibir a tela **Escolher a opção de validação** , especifique se é preciso validar os bancos de dados migrados para correção do esquema e, em seguida, selecione **Salvar** .
 
 3. Analise e verifique os detalhes associados ao projeto de migração.
 
     ![Resumo do projeto de migração](media/tutorial-sql-server-to-managed-instance/dms-project-summary2.png)
 
-4. Clique em **Salvar**.
+4. Clique em **Salvar** .
 
 ## <a name="run-the-migration"></a>Execute a migração
 
-- Selecione **Executar migração**.
+- Selecione **Executar migração** .
 
-  A janela de atividade de migração aparece e o status da atividade está **Pendente**.
+  A janela de atividade de migração aparece e o status da atividade está **Pendente** .
 
 ## <a name="monitor-the-migration"></a>Monitorar a migração
 
 1. Na tela da atividade de migração, selecione **Atualizar** para atualizar a exibição.
 
-   ![Atividade de migração em andamento](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
+   ![Captura de tela que mostra a tela de atividade de migração e o botão Atualizar.](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
 
     É possível expandir ainda mais as categorias de logon e banco de dados para monitorar o status da migração dos respectivos objetos de servidor.
 
