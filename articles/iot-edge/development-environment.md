@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 17531c6e38447fba7fe8761a963be39ecfc8f489
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044149"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041372"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Prepare o ambiente de desenvolvimento e teste para o IoT Edge
 
@@ -55,7 +55,7 @@ Os modelos de módulo para algumas linguagens e serviços têm os pré-requisito
 
 | Modelo do módulo | Pré-requisito |
 | --------------- | ------------ |
-| Funções do Azure | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
+| Azure Functions | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
 | C# | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Defina a variável de ambiente JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
@@ -83,7 +83,7 @@ Apenas o runtime do IoT Edge tem suporte para implantações de produção, mas 
 | Ferramenta | Também conhecida como | Plataformas compatíveis | Mais adequado para |
 | ---- | ------------- | ------------------- | --------- |
 | Ferramenta de desenvolvimento de IoT EdgeHub  | iotedgehubdev | Windows, Linux, macOS | Simular um dispositivo para depurar os módulos. |
-| Contêiner de desenvolvimento de IoT Edge | microsoft/iotedgedev | Windows, Linux, macOS | Desenvolvimento sem instalar as dependências. |
+| Contêiner de desenvolvimento de IoT Edge | iotedgedev | Windows, Linux, macOS | Desenvolvimento sem instalar as dependências. |
 | runtime do IoT Edge em um contêiner | iotedgec | Windows, Linux, macOS, ARM | Testar em um dispositivo que pode não oferecer suporte ao runtime. |
 | Contêiner de desenvolvimento de IoT Edge | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Testar um cenário com vários dispositivos de IoT Edge em escala. |
 
@@ -99,7 +99,7 @@ Para obter mais informações e para instalar, consulte [Ferramenta de desenvolv
 
 O contêiner de desenvolvimento do Azure IoT Edge é um contêiner do Docker que tem todas as dependências que você precisa para desenvolvimento de IoT Edge. Esse contêiner torna mais fácil começar com a linguagem que você deseja desenvolver, inclusive C#, Python, Node. js e Java. Você só precisa instalar um mecanismo de contêiner, como Docker ou Moby, para efetuar pull no contêiner para seu computador de desenvolvimento.
 
-Para obter mais informações, consulte[ Contêiner de desenvolvimento do Azure IoT Edge](https://hub.docker.com/r/microsoft/iotedgedev/).
+Para obter mais informações, consulte[ Contêiner de desenvolvimento do Azure IoT Edge](https://github.com/Azure/iotedgedev/wiki/quickstart-with-iot-edge-dev-container).
 
 ### <a name="iot-edge-runtime-in-a-container"></a>runtime do IoT Edge em um contêiner
 

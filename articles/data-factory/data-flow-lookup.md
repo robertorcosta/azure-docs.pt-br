@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187605"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040190"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de pesquisa no fluxo de dados de mapeamento
 
@@ -27,7 +27,7 @@ Uma transformação de pesquisa é semelhante a uma união externa esquerda. Tod
 
 ## <a name="configuration"></a>Configuração
 
-![Transformação Pesquisa](media/data-flow/lookup1.png "Pesquisa")
+![Captura de tela mostra a guia Configurações de pesquisa com os rótulos descritos no texto a seguir.](media/data-flow/lookup1.png "Pesquisa")
 
 **Fluxo primário:** O fluxo de entrada de dados. Esse fluxo é equivalente ao lado esquerdo de uma união.
 
@@ -45,7 +45,7 @@ Todas as colunas de ambos os fluxos são incluídas nos dados de saída. Para re
 
 ### <a name="non-equi-joins"></a>Uniões não equivalentes
 
-Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de pesquisa, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar**.
+Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de pesquisa, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar** .
 
 ![Pesquisa sem equivalência](media/data-flow/non-equi-lookup.png "Pesquisa sem equivalência")
 
@@ -65,9 +65,9 @@ Ao testar a transformação de pesquisa com a visualização de dados no modo de
 
 ![União de transmissão](media/data-flow/broadcast.png "União de transmissão")
 
-Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão**. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo**.
+Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão** . Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo** .
 
-Não é recomendável desabilitar a transmissão por meio da opção **Desativar**, a menos que suas uniões estejam tendo erros de tempo limite.
+Não é recomendável desabilitar a transmissão por meio da opção **Desativar** , a menos que suas uniões estejam tendo erros de tempo limite.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -85,7 +85,7 @@ Não é recomendável desabilitar a transmissão por meio da opção **Desativar
 ```
 ### <a name="example"></a>Exemplo
 
-![Transformação Pesquisa](media/data-flow/lookup-dsl-example.png "Pesquisa")
+![Captura de tela mostra a guia Configurações de pesquisa do código a seguir.](media/data-flow/lookup-dsl-example.png "Pesquisa")
 
 O script de fluxo de dados para a configuração de pesquisa acima está no trecho de código abaixo.
 

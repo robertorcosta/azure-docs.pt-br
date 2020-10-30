@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 15b876104dfa1a35077a34aa178d650e2d68855e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040730"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Executar transmissão ao vivo com codificadores locais usando portal do Azure
 
@@ -55,7 +55,7 @@ Os itens a seguir são necessários para concluir o tutorial:
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo que usam canais configurados para entrega de passagem. Este tutorial mostra como criar e gerenciar um canal de passagem e eventos ao vivo.
 
 > [!NOTE]
-> Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando**. 
+> Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando** . 
     
 1. Conecte uma câmera de vídeo a um computador. <br/>Para obter ideias de instalação, confira [Configuração da engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
 1. Inicie e configure um codificador ao vivo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 Fragmentado. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Além disso, confira este blog: [produção de transmissão ao vivo com Obs](https://link.medium.com/ttuwHpaJeT).
@@ -112,7 +112,7 @@ Esta seção mostra como usar a opção **Criação Rápida** para criar um cana
 Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Na janela **Configurações**, clique em **Transmissão ao vivo**. 
+2. Na janela **Configurações** , clique em **Transmissão ao vivo** . 
    
     ![Introdução](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
@@ -120,7 +120,7 @@ Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo
 3. Clique em **Criação Rápida** para criar um canal de passagem com o protocolo de ingestão RTMP.
    
     A janela **CRIAR UM NOVO CANAL** é exibida.
-4. Nomeie o novo canal e clique em **Criar**. 
+4. Nomeie o novo canal e clique em **Criar** . 
    
     Isso cria um canal de passagem com o protocolo de ingestão RTMP.
 
@@ -133,7 +133,7 @@ Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo
 ## <a name="get-ingest-urls"></a>Obter URLs de ingestão
 Depois que o canal é criado, você pode obter URLs de ingestão que você fornecerá ao codificador ao vivo. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
 
-![Criado](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Captura de tela que mostra a página "transmissão ao vivo" com um canal selecionado e o painel canal exibido.](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>Assistir ao evento
 Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL de transmissão e use um player de sua escolha. 
@@ -151,7 +151,7 @@ Para obter mais detalhes sobre os canais de passagem, veja [Transmissão ao vivo
 ## <a name="view-archived-content"></a>Exibir conteúdo arquivado
 Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro. 
 
-Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
+Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos** .
 
 ![Ativos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 

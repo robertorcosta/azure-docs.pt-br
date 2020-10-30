@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018875"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040091"
 ---
 # <a name="animated-character-detection-preview"></a>Detecção de caracteres animados (versão prévia)
 
@@ -75,11 +75,11 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
     > [!NOTE]
     > Para fornecer todas as chaves, você precisa ter dois recursos separados no Visão Personalizada, um para treinamento e outro para previsão.
 1. Navegue e entre no [Video indexer](https://vi.microsoft.com/).
-1. Clique no ponto de interrogação no canto superior direito da página e escolha referência de **API**.
+1. Clique no ponto de interrogação no canto superior direito da página e escolha referência de **API** .
 1. Certifique-se de que você está inscrito no gerenciamento de API clicando na guia **produtos** . Se você tiver uma API conectada, poderá continuar na próxima etapa, caso contrário, assinar. 
-1. No portal do desenvolvedor, clique na **referência de API completa** e navegue até **operações**.  
-1. Selecione **conectar visão personalizada conta (versão prévia)** e clique em **experimentar**.
-1. Preencha os campos obrigatórios, bem como o token de acesso e clique em **Enviar**. 
+1. No portal do desenvolvedor, clique na **referência de API completa** e navegue até **operações** .  
+1. Selecione **conectar visão personalizada conta (versão prévia)** e clique em **experimentar** .
+1. Preencha os campos obrigatórios, bem como o token de acesso e clique em **Enviar** . 
 
     Para obter mais informações sobre como obter o token de acesso de Video Indexer, acesse o [portal do desenvolvedor](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)e veja a [documentação relevante](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Depois que a chamada retornar 200 OK, sua conta estará conectada.
@@ -96,9 +96,9 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 1. Navegue até o site do [Video Indexer](https://vi.microsoft.com/) e entre.
 1. Clique no botão personalização do modelo de conteúdo no canto superior direito da página.
 
-    ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization.png)
+    ![Captura de tela que mostra a página "Video Indexer" com o botão "personalização do modelo de conteúdo" selecionado no canto superior direito.](./media/animated-characters-recognition/content-model-customization.png)
 1. Vá para a guia **caracteres animados** na seção personalização do modelo.
-1. Clique em **Adicionar modelo**.
+1. Clique em **Adicionar modelo** .
 1. Nomeie-o como modelo e clique em Enter para salvar o nome.
 
 > [!NOTE]
@@ -108,8 +108,8 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 
 1. Clique no botão **carregar** no menu superior.
 1. Escolha um vídeo para carregar (de um arquivo ou de uma URL).
-1. Clique em **Opções avançadas**.
-1. Em **pessoas/caracteres animados** , escolha **modelos de animação**.
+1. Clique em **Opções avançadas** .
+1. Em **pessoas/caracteres animados** , escolha **modelos de animação** .
 1. Se você tiver um modelo, ele será escolhido automaticamente e, se você tiver vários modelos, poderá escolher o que é relevante no menu suspenso.
 1. Clique em carregar.
 1. Depois que o vídeo for indexado, você verá os caracteres detectados na seção **caracteres animados** no painel **insights** .
@@ -129,7 +129,7 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 
         Abra a página personalização e clique na guia **caracteres animados** e, em seguida, clique no botão **treinar** para treinar seu modelo.
          
-        Se você tiver uma conta paga, poderá clicar no link **gerenciar modelos no Customer Vision** (como mostrado abaixo). Em seguida, você será encaminhado para a página do modelo em **visão personalizada**.
+        Se você tiver uma conta paga, poderá clicar no link **gerenciar modelos no Customer Vision** (como mostrado abaixo). Em seguida, você será encaminhado para a página do modelo em **visão personalizada** .
  
         ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization-tab.png)
 

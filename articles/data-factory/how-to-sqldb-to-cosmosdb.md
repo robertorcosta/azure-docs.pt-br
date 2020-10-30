@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
-ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82691894"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041629"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar um esquema de banco de dados normalizado do Banco de Dados SQL do Azure para um contêiner desnormalizado do Azure CosmosDB
 
@@ -50,7 +50,7 @@ O contêiner CosmosDB resultante incorporará a consulta interna em um único do
 
 2. Adicionar uma atividade de fluxo de dados
 
-3. Na atividade fluxo de dados, selecione **novo mapeamento fluxo de dados**.
+3. Na atividade fluxo de dados, selecione **novo mapeamento fluxo de dados** .
 
 4. Criaremos este gráfico de fluxo de dados abaixo
 
@@ -96,11 +96,11 @@ O contêiner CosmosDB resultante incorporará a consulta interna em um único do
 
 19. Em configurações do coletor, chave de partição para ```\SalesOrderID``` e ação de coleção para "recriar". Verifique se a guia mapeamento tem esta aparência:
 
-![Configurações do coletor](media/data-flow/cosmosb7.png)
+![Captura de tela mostra a guia mapeamento.](media/data-flow/cosmosb7.png)
 
 20. Clique em visualização de dados para certificar-se de que você está vendo essas 32 linhas definidas como inserir como novos documentos no novo contêiner:
 
-![Configurações do coletor](media/data-flow/cosmosb8.png)
+![Captura de tela mostra a guia Visualização de dados.](media/data-flow/cosmosb8.png)
 
 Se tudo estiver correto, agora você estará pronto para criar um novo pipeline, adicionar essa atividade de fluxo de dados a esse pipeline e executá-lo. Você pode executar a partir de debug ou de uma execução disparada. Após alguns minutos, você deve ter um novo contêiner desnormalizado de pedidos chamado "pedidos" no banco de dados CosmosDB.
 

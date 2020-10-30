@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121904"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042383"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de blobs do Azure para gerenciar clientes potenciais do Marketplace comercial
 
@@ -32,7 +32,7 @@ ms.locfileid: "86121904"
 
 3. No portal do Azure, use o procedimento a seguir para criar uma conta de armazenamento.  
     1. Selecione **+Criar um recurso** na barra de menu esquerda.  O painel (folha) **Novo** será exibido à direita.
-    2. Selecione **Armazenamento** no painel **Novo**.  Uma lista **Em destaque** aparece à direita.
+    2. Selecione **Armazenamento** no painel **Novo** .  Uma lista **Em destaque** aparece à direita.
     3. Selecione a **conta de armazenamento**  para iniciar a criação da conta.  Siga as instruções no artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
     ![Etapas para criar uma conta de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
@@ -51,13 +51,13 @@ ms.locfileid: "86121904"
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Chave de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Captura de tela que mostra a página "chaves de acesso" com a caixa de texto "cadeia de conexão" realçada.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Na página da conta de armazenamento, selecione **Blobs**.
+6. Na página da conta de armazenamento, selecione **Blobs** .
 
    ![Chave de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
-7. Uma vez na página de blobs, selecione o botão **+ Contêiner**.
+7. Uma vez na página de blobs, selecione o botão **+ Contêiner** .
 
 8. Digite um **nome** para o novo contêiner. O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere traço (-). Para obter mais informações sobre nomes de contêiner e de blobs, confira [Nomeando e referenciando contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -74,7 +74,7 @@ ms.locfileid: "86121904"
 Quando estiver pronto para configurar as informações de gerenciamento de clientes potenciais para a oferta no portal de publicação, siga as etapas abaixo:
 
 1. Vá para a página **Configuração de oferta** da sua oferta.
-2. Na seção **Clientes potenciais**, selecione **Conectar**.
+2. Na seção **Clientes potenciais** , selecione **Conectar** .
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Clientes potenciais":::
 
@@ -87,7 +87,7 @@ Quando estiver pronto para configurar as informações de gerenciamento de clien
     * Exemplo de nome de contêiner: `marketplaceleadcontainer`
     * Exemplo de cadeia de conexão da conta de armazenamento: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. Clique em **Salvar**.
+5. Clique em **Salvar** .
 
     > [!NOTE]
     > Conclua a configuração do restante da oferta e publique-a antes de receber clientes potenciais para a oferta.

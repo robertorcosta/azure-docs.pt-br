@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259628"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040464"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
 Os resolvedores de declaração em [políticas personalizadas](custom-policy-overview.md) de Azure Active Directory B2C (Azure ad B2C) fornecem informações de contexto sobre uma solicitação de autorização, como o nome da política, ID de correlação de solicitação, idioma da interface do usuário e muito mais.
 
-Para usar um resolvedor de declaração em uma declaração de entrada ou saída, você define uma cadeia de caracteres **ClaimType**, no elemento [ClaimsSchema](claimsschema.md) e, em seguida, define **DefaultValue** como o resolvedor de declaração no elemento de declaração de entrada ou saída. O Azure AD B2C lê o valor do resolvedor de declaração e usa o valor no perfil técnico.
+Para usar um resolvedor de declaração em uma declaração de entrada ou saída, você define uma cadeia de caracteres **ClaimType** , no elemento [ClaimsSchema](claimsschema.md) e, em seguida, define **DefaultValue** como o resolvedor de declaração no elemento de declaração de entrada ou saída. O Azure AD B2C lê o valor do resolvedor de declaração e usa o valor no perfil técnico.
 
 No exemplo a seguir, um tipo de declaração denominado `correlationId` é definido com um **DataType** de `string`.
 
@@ -123,10 +123,11 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 | {SAML: AuthnContextClassReferences} | O `AuthnContextClassRef` valor do elemento, da solicitação SAML. | urn: Oasis: names: TC: SAML: 2.0: AC: classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | O `Format` atributo, do `NameIDPolicy` elemento da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | {SAML: emissor} |  O `Issuer` valor do elemento SAML da solicitação SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | True |
-| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | True |
+| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | Verdadeiro |
+| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | Verdadeiro |
 | {SAML: ProviderName} | O `ProviderName` valor do atributo, do `AuthnRequest` elemento da solicitação SAML.| Contoso.com |
 | {SAML: Relaystate} | O parâmetro de cadeia de caracteres da consulta `RelayState`.| 
+| {SAML: subject} | O `Subject` do elemento NameID da solicitação do SAML Authn.| 
 
 ## <a name="using-claim-resolvers"></a>Usando resolvedores de declaração
 

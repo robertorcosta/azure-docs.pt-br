@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 922f4a2785a0b7260bcd0aae19c0172a2fa7a782
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bc5e98484560fcc15e0ea3e289069c84687f158c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283564"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040521"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Como criar planos para uma oferta de máquina virtual
 
@@ -30,21 +30,21 @@ Depois de criar seus planos, selecione a guia **Visão geral do plano** para exi
 
 As ações disponíveis no painel **Visão geral do plano** variam de acordo com o status atual do plano.
 
-- Se o status do plano for um rascunho, selecione **Excluir rascunho**.
-- Se o status do plano for publicado e estiver ativo, selecione **Interromper o plano de venda** ou **Sincronizar público-alvo privado**.
+- Se o status do plano for um rascunho, selecione **Excluir rascunho** .
+- Se o status do plano for publicado e estiver ativo, selecione **Interromper o plano de venda** ou **Sincronizar público-alvo privado** .
 
 ## <a name="create-a-new-plan"></a>Criar um plano
 
 Selecione **Criar plano** na parte superior. A caixa de diálogo **Novo plano** é exibida.
 
-Na caixa **ID do plano**, crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes no endereço Web do produto. Use apenas letras minúsculas e números, traços ou sublinhados e, no máximo, 50 caracteres.
+Na caixa **ID do plano** , crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes no endereço Web do produto. Use apenas letras minúsculas e números, traços ou sublinhados e, no máximo, 50 caracteres.
 
 > [!NOTE]
-> A ID do plano não poderá ser alterada depois que você selecionar a opção **Criar**.
+> A ID do plano não poderá ser alterada depois que você selecionar a opção **Criar** .
 
-Na caixa **Nome do plano**, insira um nome para esse plano. Os clientes veem esse nome quando estão decidindo qual plano selecionar dentro de sua oferta. Crie um nome exclusivo que indica claramente as diferenças entre os planos. Por exemplo, você pode inserir os planos **Windows Server** com *Pago conforme o uso*, *BYOL*, *Avançado* e *Enterprise*.
+Na caixa **Nome do plano** , insira um nome para esse plano. Os clientes veem esse nome quando estão decidindo qual plano selecionar dentro de sua oferta. Crie um nome exclusivo que indica claramente as diferenças entre os planos. Por exemplo, você pode inserir os planos **Windows Server** com *Pago conforme o uso* , *BYOL* , *Avançado* e *Enterprise* .
 
-Selecione **Criar**.
+Selecione **Criar** .
 
 ## <a name="plan-setup"></a>Configuração do plano
 
@@ -52,7 +52,7 @@ Defina a configuração de alto nível para o tipo de plano, especifique se ele 
 
 ### <a name="reuse-a-technical-configuration"></a>Reutilizar uma configuração técnica
 
-Se você tiver mais de um plano do mesmo tipo e os pacotes forem idênticos entre eles, você poderá selecionar **Este plano reutiliza a configuração técnica de outro plano**. Essa opção permite selecionar um dos outros planos do mesmo tipo para essa oferta e permite que você reutilize a configuração técnica dele.
+Se você tiver mais de um plano do mesmo tipo e os pacotes forem idênticos entre eles, você poderá selecionar **Este plano reutiliza a configuração técnica de outro plano** . Essa opção permite selecionar um dos outros planos do mesmo tipo para essa oferta e permite que você reutilize a configuração técnica dele.
 
 > [!NOTE]
 > Quando você reutiliza a configuração técnica de outro plano, toda a guia de **Configuração técnica** desaparece desse plano. Os detalhes de configuração técnica do outro plano, incluindo todas as atualizações que você fizer no futuro, também serão usadas para esse plano. Essa configuração não pode ser alterada após a publicação do plano.
@@ -106,7 +106,7 @@ Neste painel, você configura:
 
 ### <a name="markets"></a>Mercados
 
-Cada plano precisa estar disponível em pelo menos um mercado. Marque a caixa de seleção para cada localização do mercado em que esse plano deve estar disponível para compra. (Os usuários nesses mercados ainda podem implantar a oferta em todas as regiões do Azure selecionadas na seção ["Configuração do plano"](#plan-setup).) O botão **Imposto Remetido** mostra países/regiões nos quais a Microsoft remete o imposto de vendas e uso em seu nome. A publicação na China é limitada a planos que são *Gratuitos* ou BYOL (*traga sua própria licença*).
+Cada plano precisa estar disponível em pelo menos um mercado. Marque a caixa de seleção para cada localização do mercado em que esse plano deve estar disponível para compra. (Os usuários nesses mercados ainda podem implantar a oferta em todas as regiões do Azure selecionadas na seção ["Configuração do plano"](#plan-setup).) O botão **Imposto Remetido** mostra países/regiões nos quais a Microsoft remete o imposto de vendas e uso em seu nome. A publicação na China é limitada a planos que são *Gratuitos* ou BYOL ( *traga sua própria licença* ).
 
 Se você já tiver definido preços para seu plano em dólares americanos (US$) e adicionar outra localização de mercado, o preço do novo mercado será calculado de acordo com as tarifas de câmbio atuais. Sempre examine o preço de cada mercado antes de publicar. Examine seus preços selecionando **Exportar preços (xlsx)** depois de salvar as alterações.
 
@@ -114,13 +114,13 @@ Quando você remove um mercado, os clientes desse mercado que estiverem usando i
 
 ### <a name="pricing"></a>Preços
 
-Para o **Modelo de licença**, selecione **Plano faturado mensalmente baseado em uso** para configurar os preços para esse plano ou selecione **Traga sua própria licença** para permitir que os clientes usem esse plano com a licença existente deles.
+Para o **Modelo de licença** , selecione **Plano faturado mensalmente baseado em uso** para configurar os preços para esse plano ou selecione **Traga sua própria licença** para permitir que os clientes usem esse plano com a licença existente deles.
 
 Para um plano cobrado mensalmente baseado em uso, use uma das seguintes três opções de entrada de preços:
 
-- **Por núcleo**: forneça preços por núcleo em US$. A Microsoft calcula o preço por tamanho de núcleo e o converte em moedas locais usando a taxa de câmbio atual.
-- **Por tamanho de núcleo**: forneça preços por tamanho de núcleo em US$. A Microsoft calcula o preço e o converte em moedas locais usando a taxa de câmbio atual.
-- **Por mercado e tamanho de núcleo**: forneça preços para cada tamanho de núcleo para todos os mercados. Você pode importar os preços de uma planilha.
+- **Por núcleo** : forneça preços por núcleo em US$. A Microsoft calcula o preço por tamanho de núcleo e o converte em moedas locais usando a taxa de câmbio atual.
+- **Por tamanho de núcleo** : forneça preços por tamanho de núcleo em US$. A Microsoft calcula o preço e o converte em moedas locais usando a taxa de câmbio atual.
+- **Por mercado e tamanho de núcleo** : forneça preços para cada tamanho de núcleo para todos os mercados. Você pode importar os preços de uma planilha.
 
 > [!NOTE]
 > Salve as alterações de preços para habilitar a exportação de dados sobre preços. Depois que um preço para um mercado em seu plano for publicado, ele não poderá ser alterado posteriormente. Para garantir que os preços sejam adequados antes de publicá-los, exporte a planilha de preços e examine os preços em cada mercado.
@@ -133,12 +133,12 @@ Você pode oferecer uma *avaliação gratuita* de um mês ou três meses ou de s
 
 Você pode criar cada plano para ser visível para todos ou apenas a um público-alvo previamente selecionado. Atribua associações neste público-alvo restrito usando as IDs da assinatura do Azure.
 
-**Público**: seu plano pode ser visto por todos.
+**Público** : seu plano pode ser visto por todos.
 
-**Público-alvo privado**: torne seu plano visível apenas para um público-alvo pré-selecionado. Depois de ele ser publicado como um plano privado, você pode atualizar o público-alvo ou alterá-lo para público. Depois de você tornar um plano público, ele precisa permanecer como público. Ele não pode ser alterado de volta para um plano privado.
+**Público-alvo privado** : torne seu plano visível apenas para um público-alvo pré-selecionado. Depois de ele ser publicado como um plano privado, você pode atualizar o público-alvo ou alterá-lo para público. Depois de você tornar um plano público, ele precisa permanecer como público. Ele não pode ser alterado de volta para um plano privado.
 
 > [!NOTE]
-> Um público-alvo privado ou restrito é diferente do público-alvo de versão prévia que você definiu no painel **Versão prévia**. Um público-alvo de versão prévia pode acessar sua oferta _antes_ de ela ser publicada como ativa no Azure Marketplace. Embora a escolha de público-alvo privado se aplique somente a um plano específico, o público-alvo da versão prévia pode ver todos os planos públicos e privados para fins de validação.
+> Um público-alvo privado ou restrito é diferente do público-alvo de versão prévia que você definiu no painel **Versão prévia** . Um público-alvo de versão prévia pode acessar sua oferta _antes_ de ela ser publicada como ativa no Azure Marketplace. Embora a escolha de público-alvo privado se aplique somente a um plano específico, o público-alvo da versão prévia pode ver todos os planos públicos e privados para fins de validação.
 
 **Público-alvo restrito (IDs da assinatura do Azure)** : atribua o público-alvo que terá acesso a esse plano privado usando as IDs da assinatura do Azure. Opcionalmente, inclua uma descrição de cada ID de assinatura do Azure que você atribuiu. Adicione até dez IDs de assinatura manualmente ou até 20 mil IDs se você estiver importando uma planilha CSV. As IDs de assinatura do Azure são representadas como GUIDs e todas as letras precisam estar em minúsculas.
 
@@ -159,15 +159,15 @@ Selecione **Salvar rascunho** para continuar.
 Forneça as imagens e outras propriedades técnicas associadas a este plano. Para obter mais informações, consulte [Configure VM offer List Details](azure-vm-create-listing.md).
 
 > [!NOTE]
-> A guia **Configuração técnica** não será exibida se você tiver configurado esse plano para reutilizar pacotes de outro plano na guia **Configuração do plano**.
+> A guia **Configuração técnica** não será exibida se você tiver configurado esse plano para reutilizar pacotes de outro plano na guia **Configuração do plano** .
 
 ### <a name="operating-system"></a>Sistema operacional
 
-No painel **Sistema operacional**, faça o seguinte:
+No painel **Sistema operacional** , faça o seguinte:
 
-- Para **Família de sistemas operacionais**, selecione o sistema operacional **Windows** ou **Linux**.
-- Para **Versão** ou **Fornecedor**, selecione a versão do Windows ou o fornecedor do Linux.
-- Para **Nome amigável do sistema operacional**, insira um nome de sistema operacional amigável. Esse nome é visível para os clientes.
+- Para **Família de sistemas operacionais** , selecione o sistema operacional **Windows** ou **Linux** .
+- Para **Versão** ou **Fornecedor** , selecione a versão do Windows ou o fornecedor do Linux.
+- Para **Nome amigável do sistema operacional** , insira um nome de sistema operacional amigável. Esse nome é visível para os clientes.
 
 ### <a name="recommended-vm-sizes"></a>Tamanhos de VM recomendados
 
@@ -179,24 +179,48 @@ Abra portas públicas ou privadas em uma máquina virtual implantada.
 
 ### <a name="storage-option-for-deployment"></a>Opção de armazenamento para implantação
 
-Para **Opção de implantação de disco**, selecione o tipo de implantação de disco que seus clientes podem usar para a máquina virtual. A Microsoft recomenda limitar a implantação para somente **Implantação de disco gerenciado**.
+Para **Opção de implantação de disco** , selecione o tipo de implantação de disco que seus clientes podem usar para a máquina virtual. A Microsoft recomenda limitar a implantação para somente **Implantação de disco gerenciado** .
 
 ### <a name="properties"></a>Propriedades
 
-Para **Suporte à Rede Acelerada**, selecione se sua VM é ou não compatível com [Rede Acelerada](https://go.microsoft.com/fwlink/?linkid=2124513).
+Para **Suporte à Rede Acelerada** , selecione se sua VM é ou não compatível com [Rede Acelerada](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+### <a name="generations"></a>Gerações
+
+A geração de uma máquina virtual define o hardware virtual que ele usa. Com base nas necessidades do seu cliente, você pode publicar uma VM de geração 1, uma VM de geração 2 ou ambas.
+
+1. Ao criar uma nova oferta, selecione um **tipo de geração** e insira os detalhes da imagem solicitada:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="Uma exibição da caixa suspensa geração.":::
+
+2. Para adicionar outra geração a um plano, selecione **Adicionar geração** :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="Uma exibição da caixa suspensa geração.":::
+
+    Em seguida, insira os detalhes da geração:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="Uma exibição da caixa suspensa geração.":::
+
+    A **ID de geração** que você escolher ficará visível para os clientes em locais como URLs de produto e modelos de ARM (se aplicável). Use somente caracteres minúsculos, alfanuméricos, traços ou sublinhados; Ela não pode ser modificada depois de publicada.
+
+3. Para atualizar uma VM existente que tenha uma geração 1 já publicada, basta editar detalhes na página de **configuração técnica** :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Uma exibição da caixa suspensa geração.":::
+
+Para saber mais sobre as diferenças entre os recursos de geração 1 e geração 2, consulte [suporte para VMs de geração 2 no Azure](../virtual-machines/generation-2.md).
 
 ### <a name="vm-images"></a>Imagens de VM
 
 Forneça uma versão de disco e o URI de SAS (Assinatura de Acesso Compartilhado) para as imagens de máquina virtual. Adicione até 16 discos de dados para cada imagem de VM. Forneça apenas uma nova versão de imagem por plano em um envio especificado. Depois que uma imagem for publicada, você não poderá editá-la, mas poderá excluí-la. A exclusão de uma versão impede que os usuários novos e existentes implantem uma nova instância da versão excluída.
 
-- **Versão do disco**: a versão da imagem que você está fornecendo.
-- **URI da SAS**: a localização na sua conta de armazenamento do Azure em que você armazenou o VHD do sistema operacional. Para saber como obter um URI de SAS, consulte [obter URI de assinatura de acesso compartilhado para sua imagem de VM](azure-vm-get-sas-uri.md).
+- **Versão do disco** : a versão da imagem que você está fornecendo.
+- **URI da SAS** : a localização na sua conta de armazenamento do Azure em que você armazenou o VHD do sistema operacional. Para saber como obter um URI de SAS, consulte [obter URI de assinatura de acesso compartilhado para sua imagem de VM](azure-vm-get-sas-uri.md).
 - As imagens de disco de dados também são URIs de assinatura de acesso compartilhado de VHD que são armazenadas nas respectivas contas de armazenamento do Azure.
 - Adicione apenas uma imagem por envio em um plano.
 
 Independentemente de qual sistema operacional que você usa, adicione apenas o número mínimo de discos de dados que a solução exige. Durante a implantação, os clientes não podem remover discos que fazem parte de uma imagem, mas podem sempre adicionar discos durante ou após a implantação.
 
-Selecione **Salvar rascunho** antes de continuar e retornar para **Visão geral do plano**.
+Selecione **Salvar rascunho** antes de continuar e retornar para **Visão geral do plano** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

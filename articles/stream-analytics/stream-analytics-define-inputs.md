@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027577"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042452"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -21,6 +21,7 @@ O Stream Analytics tem integração de primeira classe com fluxos de dados do Az
 - [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
 - [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) 
 - [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 Esses recursos de entrada podem residir na mesma assinatura do Azure que o trabalho do Stream Analytics, ou em uma assinatura diferente.
 
@@ -125,18 +126,18 @@ Ao usar dados de fluxo provenientes de um Hub IoT, você poderá acessar alguns 
 | **IoTHub.EnqueuedTime** | A hora do recebimento da mensagem pelo Hub IoT. |
 
 
-## <a name="stream-data-from-blob-storage"></a>Transmitir dados do armazenamento de blobs
-Para cenários com grandes quantidades de dados não estruturados para repositório na nuvem, o Armazenamento de Blobs do Azure oferece uma solução econômica e escalonável. Os dados no Armazenamento de Blobs são geralmente considerados dados em repouso; no entanto, eles podem ser processados como um fluxo de dados pelo Stream Analytics. 
+## <a name="stream-data-from-blob-storage-or-data-lake-storage-gen2"></a>Transmitir dados do armazenamento de BLOBs ou Data Lake Storage Gen2
+Para cenários com grandes quantidades de dados não estruturados para armazenar na nuvem, o armazenamento de BLOBs do Azure ou o Azure Data Lake Storage Gen2 (ADLS Gen2) oferece uma solução econômica e escalonável. Os dados no armazenamento de BLOBs ou ADLS Gen2 geralmente são considerados dados em repouso; no entanto, esses dados podem ser processados como um fluxo de dados por Stream Analytics. 
 
-O processamento de log é um cenário bastante usado para o uso de entradas de armazenamento de Blobs com o Stream Analytics. Nesse cenário, os arquivos de dados telemétricos foram capturados de um sistema e precisam ser analisados e processados para extrair dados significativos.
+O processamento de log é um cenário comumente usado para usar essas entradas com Stream Analytics. Nesse cenário, os arquivos de dados telemétricos foram capturados de um sistema e precisam ser analisados e processados para extrair dados significativos.
 
-O carimbo de data/hora padrão de eventos de Armazenamento de Blobs no Stream Analytics é o carimbo de data/hora que o blob foi modificado pela última vez, que é `BlobLastModifiedUtcTime`. Se um blob for carregado em uma conta de armazenamento às 13:00 e o trabalho do Azure Stream Analytics for iniciado usando a opção *Agora* às 13:01, o blob não será selecionado, pois sua hora modificada fica fora do período de execução do trabalho.
+O carimbo de data/hora padrão de um armazenamento de BLOBs ou ADLS Gen2 evento em Stream Analytics é o carimbo de data/hora em que foi modificado pela última vez, que é `BlobLastModifiedUtcTime` . Se um blob for carregado em uma conta de armazenamento em 13:00 e o trabalho de Azure Stream Analytics for iniciado usando a opção *agora* às 13:01, ele não será selecionado, pois sua hora modificada fica fora do período de execução do trabalho.
 
 Se um blob for carregado em um contêiner da conta de armazenamento às 13:00 e o trabalho do Azure Stream Analytics for iniciado usando a opção *Agora* às 13:00 ou antes, o blob não será selecionado, pois sua hora de modificação fica fora do período de execução do trabalho.
 
 Se um trabalho do Azure Stream Analytics for iniciado usando *Agora* às 13:00 e um blob for carregado para o contêiner da conta de armazenamento às 13:01, o Azure Stream Analytics selecionará o blob. O carimbo de data/hora atribuído a cada blob é baseado apenas no `BlobLastModifiedTime`. A pasta em que o blob está não tem nenhuma relação com o carimbo de data/hora atribuído. Por exemplo, se houver um blob *2019/10-01/00/b1. txt* com um `BlobLastModifiedTime` de 2019-11-11, o carimbo de data/hora atribuído a esse blob será 2019-11-11.
 
-Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Um trabalho do Stream Analytics extrai dados de entrada do armazenamento de BLOBs do Azure cada segundo se o arquivo de blob estiver disponível. Se o arquivo de blob não estiver disponível, não há uma retirada exponencial com um atraso de tempo máximo de 90 segundos.
+Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Um trabalho Stream Analytics efetua pull de dados do armazenamento de BLOBs do Azure ou ADLS Gen2 entrada a cada segundo se o arquivo de blob estiver disponível. Se o arquivo de blob não estiver disponível, não há uma retirada exponencial com um atraso de tempo máximo de 90 segundos.
 
 As entradas formatadas em CSV exigem uma linha de cabeçalho para definir os campos do conjunto de dados, e todos os campos de linha de cabeçalho devem ser exclusivos.
 
@@ -152,10 +153,10 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 | Propriedade | Descrição |
 | --- | --- |
 | **Alias de entrada** | Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada. |
-| **Assinatura** | Escolha a assinatura na qual existem os recursos de Hub IoT existentes. | 
+| **Assinatura** | Escolha a assinatura na qual o recurso de armazenamento existe. | 
 | **Conta de armazenamento** | O nome da conta de armazenamento em que estão localizados os arquivos de blob. |
-| **Chave de conta de armazenamento** | A chave secreta associada à conta de armazenamento. Essa opção é preenchida automaticamente, a menos que você selecione a opção de fornecer as configurações do Armazenamento de Blobs manualmente. |
-| **Contêiner** | O contêiner para o blob de entrada. Os contêineres fornecem um agrupamento lógico de blobs armazenados no serviço Blob do Microsoft Azure. Quando você carrega um blob no serviço de Armazenamento de Blobs do Azure, você deve especificar um contêiner para aquele blob. Você pode escolher **Usar contêiner existente** ou **Criar novo** para ter um novo contêiner criado.|
+| **Chave de conta de armazenamento** | A chave secreta associada à conta de armazenamento. Essa opção é preenchida automaticamente no, a menos que você selecione a opção para fornecer as configurações manualmente. |
+| **Contêiner** | Os contêineres fornecem um agrupamento lógico para BLOBs. Você pode escolher **Usar contêiner existente** ou **Criar novo** para ter um novo contêiner criado.|
 | **Padrão do caminho** (opcional) | O caminho do arquivo usado para localizar os blobs no contêiner especificado. Se você quiser ler os blobs da raiz do contêiner, não defina um padrão de caminho. No caminho, você pode optar por especificar uma ou mais instâncias das três variáveis a seguir: `{date}`, `{time}` ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O caractere `*` não é um valor permitido para o prefixo de caminho. Apenas <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de blobs do Azure</a> válidos são permitidos. Não inclua nomes de contêiner ou de arquivo. |
 | **Formato de data** (opcional) | Se você usar a variável de data no caminho, o formato de data no qual os arquivos são organizados. Exemplo: `YYYY/MM/DD` <br/><br/> Quando a entrada do blob tem `{date}` ou `{time}` no caminho, as pastas são examinadas em ordem de tempo crescente.|
 | **Formato de hora** (opcional) |  Se você usar a variável de data no caminho, o formato de data no qual os arquivos são organizados. Atualmente, o único valor com suporte é `HH` para horas. |

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827899"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040515"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes sobre a proteção de identidade em Azure Active Directory
 
 ## <a name="dismiss-user-risk-known-issues"></a>Ignorar problemas conhecidos de risco do usuário
 
-**Ignorar o risco do usuário** na proteção de identidade clássica define o ator no histórico de riscos do usuário em identidade Protection para o **Azure ad**.
+**Ignorar o risco do usuário** na proteção de identidade clássica define o ator no histórico de riscos do usuário em identidade Protection para o **Azure ad** .
 
 **Ignorar o risco do usuário** no Identity Protection define o ator no histórico de riscos do usuário em Identity Protection para **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
@@ -32,19 +32,25 @@ Há um problema atual conhecido causando latência no fluxo de perda de risco do
 
 As consultas no campo **nome de usuário** diferenciam maiúsculas de minúsculas, enquanto consultas no campo **nome** não diferenciam.
 
-Ativar/desativar **Mostrar datas como** oculta a coluna **ÚLTIMA ATUALIZAÇÃO DO RISCO**. Para adicionar novamente o clique de coluna **Colunas** na parte superior da folha Usuários Arriscados.
+Ativar/desativar **Mostrar datas como** oculta a coluna **ÚLTIMA ATUALIZAÇÃO DO RISCO** . Para adicionar novamente o clique de coluna **Colunas** na parte superior da folha Usuários Arriscados.
 
-**Ignorar todos os eventos** em clássico identidade Protection define o status das detecções de risco para **fechado (resolvido)**.
+**Ignorar todos os eventos** em clássico identidade Protection define o status das detecções de risco para **fechado (resolvido)** .
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Problemas conhecidos do relatório de entradas arriscadas
 
-**Resolver** em uma detecção de risco define o status para **os usuários passaram pela MFA controlada pela política baseada em risco**.
+**Resolver** em uma detecção de risco define o status para **os usuários passaram pela MFA controlada pela política baseada em risco** .
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="why-is-a-user-is-at-risk"></a>Por que um usuário está em risco?
 
 Se você for um cliente Azure AD Identity Protection, vá para a exibição [usuários arriscados](howto-identity-protection-investigate-risk.md#risky-users) e clique em um usuário de risco. Na gaveta na parte inferior, a guia "histórico de risco" mostrará todos os eventos que levaram a uma alteração de risco do usuário. Para ver todas as entradas arriscadas do usuário, clique em ' entradas arriscadas ' do usuário. Para ver todas as detecções de risco para esse usuário, clique em "detecções de risco do usuário".
+
+## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Por que minha entrada foi bloqueada, mas a proteção de identidade não gerou uma detecção de risco?
+Entradas podem ser bloqueadas por vários motivos. É importante observar que a proteção de identidade gera apenas detecções de risco quando as credenciais corretas são usadas na solicitação de autenticação. Se um usuário usar credenciais incorretas, ele não será sinalizado pela proteção de identidade, pois não há risco de comprometimento de credenciais, a menos que um ator incorreto use as credenciais corretas. Alguns motivos pelos quais um usuário pode ser impedido de assinar que não geram uma detecção de proteção de identidade incluem:
+* O **IP pode ser bloqueado** devido a atividades mal-intencionadas do endereço IP. A mensagem bloqueada por IP não diferencia se as credenciais estavam corretas ou não. Se o IP estiver bloqueado e as credenciais corretas não forem usadas, ele não gerará uma detecção de proteção de identidade
+* O **[bloqueio inteligente](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** pode bloquear a conta de entrar após várias tentativas com falha
+* Uma **política de acesso condicional** pode ser imposta que usa condições diferentes de nível de risco para bloquear uma solicitação de autenticação
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Como posso obter um relatório de detecções de um tipo específico?
 
@@ -76,16 +82,16 @@ Todas as detecções de riscos são documentadas no artigo [o que é risco](conc
 
 **Confirmar como comprometido** (em uma entrada) – informa o Azure AD Identity Protection que a entrada não foi executada pelo proprietário da identidade e indica um comprometimento.
 
-- Depois de receber seus comentários, movemos o estado de risco de entrada e de usuário para **Confirmado como comprometido** e o nível de risco para **Alto**.
+- Depois de receber seus comentários, movemos o estado de risco de entrada e de usuário para **Confirmado como comprometido** e o nível de risco para **Alto** .
 
 - Além disso, fornecemos as informações para nossos sistemas de aprendizado de máquina para futuras melhorias na avaliação de risco.
 
     > [!NOTE]
-    > Se o usuário já foi corrigido, não clique em **Confirmar como comprometido** porque ele muda o estado de risco de entrada e de usuário para **Confirmado como comprometido** e o nível de risco para **Alto**.
+    > Se o usuário já foi corrigido, não clique em **Confirmar como comprometido** porque ele muda o estado de risco de entrada e de usuário para **Confirmado como comprometido** e o nível de risco para **Alto** .
 
 **Confirmar como seguro** (em uma entrada) – informa o Azure AD Identity Protection que a entrada foi executada pelo proprietário da identidade e não indica um comprometimento.
 
-- Depois de receber esses comentários, movemos o estado de risco de entrada (não o de usuário) para **Confirmado como seguro** e o nível de risco para **-**.
+- Depois de receber esses comentários, movemos o estado de risco de entrada (não o de usuário) para **Confirmado como seguro** e o nível de risco para **-** .
 
 - Além disso, fornecemos as informações para nossos sistemas de aprendizado de máquina para futuras melhorias na avaliação de risco.
 

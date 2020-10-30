@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: eaf12fe1d757c3a5a76307d87151bf71aa720b2b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460862"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042390"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente do Log Analytics para Linux 
 
@@ -54,6 +54,15 @@ Para obter mais detalhes, consulte nossa [documentação do GitHub](https://gith
 
  >[!NOTE]
  >Execute a ferramenta coletor de logs quando ocorrer um problema. Inicialmente, ter os logs ajudará muito a nossa equipe de suporte a solucionar o problema mais rapidamente.
+
+## <a name="purge-and-re-install-the-linux-agent"></a>Limpar e Re-Install o agente do Linux
+
+Vimos que uma reinstalação limpa do agente corrigirá a maioria dos problemas. Na verdade, essa pode ser a primeira sugestão do suporte para colocar o agente em um estado uncurropted de nossa equipe de suporte. Executar a solução de problemas, coletar logs e tentar uma reinstalação limpa ajudará a resolver problemas mais rapidamente.
+
+1. Baixe o script de limpeza:
+- `$ wget https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/tools/purge_omsagent.sh`
+2. Execute o script de limpeza (com permissões sudo):
+- `$ sudo sh purge_omsagent.sh`
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Ferramenta do coletor de Log e locais de logs importantes
 
@@ -396,7 +405,7 @@ Esse erro indica que a extensão de diagnóstico do Linux (LAD) é instalada lad
 * As configurações alteradas no portal não foram aplicadas
 
 ### <a name="resolution"></a>Resolução
-**Background: ** `omsconfig` é o agente do Log Analytics para o agente de configuração do Linux que procura nova configuração do lado do portal a cada cinco minutos. Essa configuração é então aplicada ao agente do Log Analytics para arquivos de configuração do Linux localizados em /etc/opt/microsoft/omsagent/conf/omsagent.conf.
+**Background:** `omsconfig` é o agente do Log Analytics para o agente de configuração do Linux que procura nova configuração do lado do portal a cada cinco minutos. Essa configuração é então aplicada ao agente do Log Analytics para arquivos de configuração do Linux localizados em /etc/opt/microsoft/omsagent/conf/omsagent.conf.
 
 * Em alguns casos, o agente de configuração do Log Analytics Agent for Linux pode não conseguir se comunicar com o serviço de configuração do portal, fazendo com que a configuração mais recente não seja aplicada.
   1. Verifique se o agente `omsconfig` está instalado executando `dpkg --list omsconfig` ou `rpm -qi omsconfig`.  Se não estiver instalado, reinstale a versão mais recente do agente Log Analytics para Linux.
@@ -422,7 +431,7 @@ Esse erro indica que a extensão de diagnóstico do Linux (LAD) é instalada lad
 
 2. Verifique se o `omsconfig` agente pode se comunicar com Azure monitor executando o comando a seguir `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'` .  Esse comando retorna a configuração que o agente recebe do serviço, incluindo configurações de Syslog, contadores de desempenho do Linux e logs personalizados. Se este comando falhar, execute o seguinte comando `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. Esse comando força o agente programa omsconfig a se comunicar com Azure Monitor e recuperar a configuração mais recente.
 
-**Background: ** Em vez do agente do Log Analytics para Linux sendo executado como um usuário privilegiado - `root`, o agente é executado como o usuário `omsagent`. Na maioria dos casos, a permissão explícita deve ser concedida a esse usuário para que determinados arquivos sejam lidos. Para conceder permissão para o usuário `omsagent`, execute os seguintes comandos:
+**Background:** Em vez do agente do Log Analytics para Linux sendo executado como um usuário privilegiado - `root`, o agente é executado como o usuário `omsagent`. Na maioria dos casos, a permissão explícita deve ser concedida a esse usuário para que determinados arquivos sejam lidos. Para conceder permissão para o usuário `omsagent`, execute os seguintes comandos:
 
 1. Adicione o usuário `omsagent` ao grupo específico `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 2. Conceda acesso de leitura universal para o arquivo necessário `sudo chmod -R ugo+rx <FILE DIRECTORY>`
@@ -454,7 +463,7 @@ Execute os seguintes passos para corrigir o problema.
 1. Remova a extensão do portal do Azure.
 2. Instale o agente seguindo as [instruções](../learn/quick-collect-linux-computer.md).
 3. Reinicie o agente executando o seguinte comando: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-* Aguarde alguns minutos e o estado de aprovisionamento muda para **Provisioning sucedeu**.
+* Aguarde alguns minutos e o estado de aprovisionamento muda para **Provisioning sucedeu** .
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problema: a atualização do agente do Log Analytics sob demanda

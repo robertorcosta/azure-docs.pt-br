@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212148"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040936"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Associação de saída do barramento de serviço do Azure para Azure Functions
 
 Use a associação de saída do barramento de serviço do Azure para enviar mensagens de fila ou de tópico.
 
-Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-service-bus-output.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -40,7 +40,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 
 O exemplo a seguir mostra uma associação de saída de Barramento de Serviço em um arquivo *function.json* e uma [função script C#](functions-reference-csharp.md) que usa a associação. A função usa um gatilho de timer para enviar uma mensagem da fila a cada 15 segundos.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui estão os dados de associação no arquivo *function.json* :
 
 ```json
 {
@@ -91,7 +91,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 
 O exemplo a seguir mostra uma associação de saída de Barramento de Serviço em um arquivo *function.json* e uma [função JavaScript C#](functions-reference-node.md) que usa a associação. A função usa um gatilho de timer para enviar uma mensagem da fila a cada 15 segundos.
 
-Aqui estão os dados de associação no arquivo *function.json*:
+Aqui estão os dados de associação no arquivo *function.json* :
 
 ```json
 {
@@ -175,7 +175,7 @@ Uma definição de associação do barramento de serviço é definida em *functi
 }
 ```
 
-Em * _ \_ init_ \_ . py*, você pode gravar uma mensagem na fila passando um valor para o `set` método.
+Em *_\_ init_ \_ . py* , você pode gravar uma mensagem na fila passando um valor para o `set` método.
 
 ```python
 import azure.functions as func
@@ -288,7 +288,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**queueName**|**QueueName**|Nome da fila.  Defina somente se for enviar mensagens da fila, não para um tópico.
 |**topicName**|**Topicname**|Nome do tópico. Defina somente se for enviar mensagens do tópico, não para uma fila.|
 |**connection**|**Conexão**|O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Barramento de Serviço para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome. Por exemplo, se você definir `connection` como "MyServiceBus", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyServiceBus". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão do Barramento de serviço na configuração de aplicativo chamada "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de conexão, siga as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico.|
-|**accessRights** (somente v1)|**Acesso**|Direitos de acesso para a cadeia de caracteres de conexão. Os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como "escutar". Caso contrário, o runtime do Functions talvez falhe ao tentar executar operações que exigem o gerenciamento de direitos. No Azure Functions versão 2. x e superior, essa propriedade não está disponível porque a versão mais recente do SDK do barramento de serviço não dá suporte a operações de gerenciamento.|
+|**accessRights** (somente v1)|**Acesso**|Direitos de acesso para a cadeia de caracteres de conexão. Os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar** . Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar** , defina `accessRights` como "escutar". Caso contrário, o runtime do Functions talvez falhe ao tentar executar operações que exigem o gerenciamento de direitos. No Azure Functions versão 2. x e superior, essa propriedade não está disponível porque a versão mais recente do SDK do barramento de serviço não dá suporte a operações de gerenciamento.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
