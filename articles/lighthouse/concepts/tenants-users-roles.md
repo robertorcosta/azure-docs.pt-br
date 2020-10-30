@@ -1,16 +1,16 @@
 ---
-title: Locatários, funções e usuários em cenários do Azure Lighthouse
+title: Locatários, usuários e funções em cenários de Lighthouse do Azure
 description: Entenda os conceitos de locatários, usuários e funções do Azure Active Directory, além de como eles podem ser usados em cenários do Azure Lighthouse.
-ms.date: 07/03/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043047"
 ---
-# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locatários, funções e usuários em cenários do Azure Lighthouse
+# <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Locatários, usuários e funções em cenários de Lighthouse do Azure
 
 Antes de integrar os clientes do [Azure Lighthouse](../overview.md), é importante entender como os locatários, os usuários e as funções do Azure Active Directory (Azure AD) funcionam, além de como eles podem ser usados em cenários de Lighthouse do Azure.
 
@@ -18,7 +18,19 @@ Um *locatário* é uma instância dedicada e confiável do Azure AD. Normalmente
 
 Para alcançar essa projeção lógica, uma assinatura (ou um ou mais grupos de recursos em uma assinatura) no locatário do cliente deve ser *integrada* ao Azure Lighthouse. Esse processo de integração pode ser feito [por meio de modelos do Azure Resource Manager](../how-to/onboard-customer.md) ou ao [publicar uma oferta pública ou privada no Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Seja qual for o método de integração que você escolher, será necessário definir as *autorizações*. Cada autorização especifica uma conta de usuário no locatário de gerenciamento que terá acesso aos recursos delegados e uma função interna que define as permissões que cada um desses usuários terá para esses recursos.
+Seja qual for o método de integração que você escolher, será necessário definir as *autorizações* . Cada autorização especifica uma conta de usuário no locatário de gerenciamento que terá acesso aos recursos delegados e uma função interna que define as permissões que cada um desses usuários terá para esses recursos.
+
+## <a name="best-practices-for-defining-users-and-roles"></a>Práticas recomendadas para definir usuários e funções
+
+Ao criar suas autorizações, recomendamos as melhores práticas abaixo:
+
+- Na maioria dos casos, é melhor atribuir permissões a um grupo de usuários ou entidade de serviço do Azure AD, em vez de a uma série de contas de usuário individuais. Assim você pode adicionar ou remover o acesso de usuários individuais sem precisar atualizar e publicar o plano novamente quando os requisitos de acesso forem alterados.
+- Siga o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho, ajudando a reduzir a chance de erros acidentais. Para obter mais informações, consulte [práticas recomendadas de segurança](../concepts/recommended-security-practices.md).
+- Inclua um usuário com a [Função Excluir Atribuição de Registro de Serviços Gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que você possa [remover o acesso à delegação](../how-to/remove-delegation.md) posteriormente, se necessário. Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
+- Certifique-se de que qualquer usuário que precise [exibir a página Meus clientes no portal do Azure](../how-to/view-manage-customers.md) tenha a função [Leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitura).
+
+> [!IMPORTANT]
+> Para adicionar permissões para um grupo do Azure AD, o **tipo de grupo** deve ser definido como **segurança** . Essa opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="role-support-for-azure-lighthouse"></a>Suporte de função para Lighthouse do Azure
 
@@ -32,18 +44,6 @@ Atualmente, todas as [funções internas](../../role-based-access-control/built-
 
 > [!NOTE]
 > Depois que uma nova função interna aplicável for adicionada ao Azure, ela poderá ser atribuída durante a [integração de um cliente usando modelos de Azure Resource Manager](../how-to/onboard-customer.md). Pode haver um atraso antes que a função recém-adicionada fique disponível no Partner Center ao [publicar uma oferta de serviço gerenciado](../how-to/publish-managed-services-offers.md).
-
-## <a name="best-practices-for-defining-users-and-roles"></a>Práticas recomendadas para definir usuários e funções
-
-Ao criar suas autorizações, recomendamos as melhores práticas abaixo:
-
-- Na maioria dos casos, é melhor atribuir permissões a um grupo de usuários ou entidade de serviço do Azure AD, em vez de a uma série de contas de usuário individuais. Assim você pode adicionar ou remover o acesso de usuários individuais sem precisar atualizar e publicar o plano novamente quando os requisitos de acesso forem alterados.
-- Siga o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho, ajudando a reduzir a chance de erros acidentais. Para obter mais informações, consulte [práticas recomendadas de segurança](../concepts/recommended-security-practices.md).
-- Inclua um usuário com a [Função Excluir Atribuição de Registro de Serviços Gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que você possa [remover o acesso à delegação](../how-to/remove-delegation.md) posteriormente, se necessário. Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
-- Certifique-se de que qualquer usuário que precise [exibir a página Meus clientes no portal do Azure](../how-to/view-manage-customers.md) tenha a função [Leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitura).
-
-> [!IMPORTANT]
-> Para adicionar permissões para um grupo do Azure AD, o **tipo de grupo** deve ser definido como **segurança**. Essa opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

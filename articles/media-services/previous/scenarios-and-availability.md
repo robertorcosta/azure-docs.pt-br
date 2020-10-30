@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 58ecca6251e4c428ae5f834379e8b45059b0efc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014402"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042768"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -41,9 +41,9 @@ Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
 * Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-portal-create-account.md).
-* O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**.
+* O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando** .
 
-    Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o empacotamento e a criptografia dinâmicos, o ponto de extremidade de streaming deve estar no estado **Em execução**.
+    Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o empacotamento e a criptografia dinâmicos, o ponto de extremidade de streaming deve estar no estado **Em execução** .
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Os objetos normalmente usados durante o desenvolvimento no modelo AMS OData
 
@@ -123,7 +123,7 @@ Ao fazer o streaming ao vivo, você pode escolher uma das seguintes rotas:
 
 O diagrama a seguir mostra as partes principais da plataforma AMS que estão envolvidas no fluxo de trabalho de **passagem** .
 
-![Fluxo de trabalho ao vivo](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![Diagrama que mostra as partes principais da plataforma M de uma parte envolvida no fluxo de trabalho de "passagem".](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -149,11 +149,11 @@ Os Serviços de Mídia dão suporte à integração com o CDN do Azure. Para obt
 
 Os clientes AMS podem dimensionar os pontos de extremidade do streaming, processamento de mídia e armazenamento em suas contas AMS.
 
-* Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**. Um ponto de extremidade de streaming **Standard** é adequado para a maior parte das cargas de trabalho do streaming. Isso inclui os mesmos recursos dos pontos de extremidade do streaming **Premium** e dimensiona a largura de banda de saída automaticamente. 
+* Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium** . Um ponto de extremidade de streaming **Standard** é adequado para a maior parte das cargas de trabalho do streaming. Isso inclui os mesmos recursos dos pontos de extremidade do streaming **Premium** e dimensiona a largura de banda de saída automaticamente. 
 
-    Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium**, por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada US fornece uma capacidade de largura de banda adicional para o aplicativo. Para obter mais informações sobre como dimensionar os pontos de extremidade do streaming **Premium**, consulte o tópico [Dimensionando os pontos de extremidade do streaming](media-services-portal-scale-streaming-endpoints.md).
+    Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. Os clientes que têm um ponto de extremidade de streaming **Premium** , por padrão, obtêm uma US (Unidade de Streaming). O ponto de extremidade de streaming pode ser dimensionado adicionando USs. Cada US fornece uma capacidade de largura de banda adicional para o aplicativo. Para obter mais informações sobre como dimensionar os pontos de extremidade do streaming **Premium** , consulte o tópico [Dimensionando os pontos de extremidade do streaming](media-services-portal-scale-streaming-endpoints.md).
 
-* Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
+* Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1** , **S2** ou **S3** . Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1** .
 
     Além de especificar o tipo de unidade reservada, você pode especificar para provisionar sua conta com **unidades reservadas** (RUs). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
 
@@ -175,7 +175,7 @@ Use os [produtos do Azure por região](https://azure.microsoft.com/global-infras
 
 ### <a name="streaming-endpoints"></a>Pontos de extremidade de streaming 
 
-Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**. Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
+Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium** . Para obter mais informações, consulte a seção sobre [dimensionamento](#scaling).
 
 #### <a name="availability"></a>Disponibilidade
 
@@ -192,7 +192,7 @@ Disponível em todos os datacenters, exceto: Alemanha, sul do Brasil, Oeste da �
 
 ### <a name="encoding-media-processors"></a>Codificando processadores de mídia
 
-A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **Fluxo de Trabalho do Media Encoder Premium**. Para obter mais informações, consulte [Visão geral e comparação dos codificadores de mídia sob demanda do Azure](media-services-encode-asset.md). 
+A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **Fluxo de Trabalho do Media Encoder Premium** . Para obter mais informações, consulte [Visão geral e comparação dos codificadores de mídia sob demanda do Azure](media-services-encode-asset.md). 
 
 #### <a name="availability"></a>Disponibilidade
 

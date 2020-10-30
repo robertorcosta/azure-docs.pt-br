@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1da7221b511cb07e5000f09e4015fc8bd4a0a928
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745723"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043317"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -57,7 +57,7 @@ Antes de criar uma conexão, é necessário adicionar a Solução Conector ITSM.
 3. Na seção **Workspace do OMS** , selecione o espaço de trabalho do Azure Log Analytics no qual deseja instalar a solução.
    >[!NOTE]
    > * Como parte da transição do Microsoft Operations Management Suite (OMS) em andamento para o Azure Monitor, os Workspaces do OMS agora são conhecidos como workspaces do Log Analytics.
-   > * O Conector ITSM só pode ser instalado em workspaces do Log Analytics nas seguintes regiões: Leste dos EUA, Oeste dos EUA 2, Centro-Sul dos EUA, EUA Central, Centro-Oeste dos EUA, Fairfax, Canadá Central, Oeste da Europa, Sul do Reino Unido, Sudeste Asiático, Leste do Japão, Índia Central, Sudeste da Austrália.
+   > * O Conector ITSM só pode ser instalado nos espaços de trabalho Log Analytics nas seguintes regiões: leste dos EUA, oeste dos EUA 2, Sul EUA Central, Oeste EUA Central, US Gov Arizona, US Gov-Virgínia, centro-Canadá, Europa Ocidental, sul do Reino Unido, Sudeste Asiático, leste do Japão, Índia central, sudeste da Austrália.
 
 4. Na seção **Configurações de Workspace do OMS** , selecione o ResourceGroup em que deseja criar o recurso de solução.
 

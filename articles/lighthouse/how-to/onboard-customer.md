@@ -3,12 +3,12 @@ title: Integrar um cliente ao Azure Lighthouse
 description: Saiba como integrar um cliente ao Azure Lighthouse, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário usando o gerenciamento de recursos delegado do Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426346"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042854"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Integrar um cliente ao Azure Lighthouse
 
@@ -38,7 +38,7 @@ Se ainda não tiver esses valores de ID, você pode recuperá-los de uma das man
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Você pode ver a sua ID de locatário passando o mouse sobre o nome da sua conta no lado superior direito do portal do Azure ou selecionando **Mudar diretório**. Para selecionar e copiar sua ID de locatário, pesquise "Azure Active Directory" no portal, selecione **Propriedades** e copie o valor mostrado no campo **ID de diretório**. Para localizar a ID de uma assinatura em um locatário de cliente, pesquise por "Assinaturas" e selecione a ID da assinatura apropriada.
+Você pode ver a sua ID de locatário passando o mouse sobre o nome da sua conta no lado superior direito do portal do Azure ou selecionando **Mudar diretório** . Para selecionar e copiar sua ID de locatário, pesquise "Azure Active Directory" no portal, selecione **Propriedades** e copie o valor mostrado no campo **ID de diretório** . Para localizar a ID de uma assinatura em um locatário de cliente, pesquise por "Assinaturas" e selecione a ID da assinatura apropriada.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -66,10 +66,10 @@ Como provedor de serviços, talvez você queira executar várias tarefas para um
 
 Para facilitar o gerenciamento, recomendamos o uso de grupos de usuários do Azure AD para cada função. Isso oferece a flexibilidade para adicionar ou remover usuários individuais do grupo que tem acesso, para que você não precise repetir o processo de integração para fazer alterações no usuário. Você pode atribuir funções a uma entidade de serviço, que pode ser útil para cenários de automação.
 
-Ao definir suas autorizações, certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho. Para obter diretrizes e informações sobre as funções com suporte, consulte [locatários, usuários e funções em cenários de Lighthouse do Azure](../concepts/tenants-users-roles.md).
-
 > [!IMPORTANT]
-> Para adicionar permissões para um grupo do Azure AD, o **tipo de grupo** deve ser definido como **segurança**. Essa opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Para adicionar permissões para um grupo do Azure AD, o **tipo de grupo** deve ser definido como **segurança** . Essa opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+Ao definir suas autorizações, certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho. Para obter diretrizes e informações sobre as funções com suporte, consulte [locatários, usuários e funções em cenários de Lighthouse do Azure](../concepts/tenants-users-roles.md).
 
 Para definir autorizações, você precisará saber os valores de ID para cada usuário, grupo de usuários ou entidade de serviço no locatário do provedor de serviços ao qual você deseja conceder acesso. Você também precisa da ID de definição de função para cada função interna que deseja atribuir. Se você ainda não tiver essas informações, pode recuperá-las executando os comandos abaixo no locatário do provedor de serviços.
 
@@ -211,8 +211,8 @@ A implantação pode ser feita no portal do Azure, usando o PowerShell ou usando
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. Em nosso [repositório GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), selecione o botão **implantar no Azure** mostrado ao lado do modelo que você deseja usar. O modelo será aberto no portal do Azure.
-1. Insira seus valores para **nome da oferta MSP**, **Descrição da oferta MSP**, **gerenciado por ID do locatário**e **autorizações**. Se preferir, você pode selecionar **Editar parâmetros** para inserir valores para `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` e `authorizations` diretamente no arquivo de parâmetro. Certifique-se de atualizar esses valores em vez de usar os valores padrão do modelo.
-1. Selecione **revisar e criar e**, em seguida, selecionar **criar**.
+1. Insira seus valores para **nome da oferta MSP** , **Descrição da oferta MSP** , **gerenciado por ID do locatário** e **autorizações** . Se preferir, você pode selecionar **Editar parâmetros** para inserir valores para `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` e `authorizations` diretamente no arquivo de parâmetro. Certifique-se de atualizar esses valores em vez de usar os valores padrão do modelo.
+1. Selecione **revisar e criar e** , em seguida, selecionar **criar** .
 
 Após alguns minutos, você deverá ver uma notificação informando que a implantação foi concluída.
 
@@ -265,7 +265,7 @@ Quando uma assinatura de cliente tiver sido integrada com êxito ao Lighthouse d
 No locatário do provedor de serviços:
 
 1. Navegue até a [página Meus clientes](view-manage-customers.md).
-2. Selecione **Clientes**.
+2. Selecione **Clientes** .
 3. Confirme que você consegue ver as assinaturas com o nome da oferta fornecido no modelo do Resource Manager.
 
 > [!IMPORTANT]
@@ -274,7 +274,7 @@ No locatário do provedor de serviços:
 No locatário do cliente:
 
 1. Navegue até a [página Provedores de serviços](view-manage-service-providers.md).
-2. Selecione **Ofertas do provedor de serviços**.
+2. Selecione **Ofertas do provedor de serviços** .
 3. Confirme que você consegue ver as assinaturas com o nome da oferta fornecido no modelo do Resource Manager.
 
 > [!NOTE]

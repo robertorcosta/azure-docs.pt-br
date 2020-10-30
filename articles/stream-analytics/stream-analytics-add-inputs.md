@@ -6,13 +6,13 @@ ms.author: krishmam
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: b58a2b4cb5cd083f837eb598d4e5f330783181c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: f49ba8a907a65180061ef3973ae30b4438a945a2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279987"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043014"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Entender as entradas para o Azure Stream Analytics
 
@@ -22,7 +22,7 @@ Stream Analytics tem integração de primeira classe com quatro tipos de recurso
 - [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
 - [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) 
 - [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
-- [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 Esses recursos de entrada podem residir na mesma assinatura do Azure que seu trabalho de Stream Analytics ou em uma assinatura diferente.
 
@@ -37,7 +37,7 @@ Um fluxo de dados é uma sequência ilimitada de eventos ao longo do tempo. Os t
 Para obter mais informações sobre entradas de dados de streaming, consulte [Dados de streaming como entrada no Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Entrada de dados de referência
-O Stream Analytics também dá suporte à entrada conhecida como *dados de referência*. Dados de referência são totalmente estáticos ou são alterados lentamente. Normalmente, eles são usados para executar correlação e pesquisas. Por exemplo, você pode unir dados na entrada de fluxo de dados a dados nos dados de referência, assim como você realizaria uma junção SQL para pesquisar valores estáticos. O armazenamento de BLOBs do Azure, o Azure Data Lake Storage Gen2 e o banco de dados SQL do Azure são atualmente compatíveis como fontes de entrada para os mesmos. Os blobs de fonte de dados de referência têm um limite de até 300 MB de tamanho, dependendo da complexidade da consulta e das unidades de streaming alocadas (consulte a seção [limitação de tamanho](stream-analytics-use-reference-data.md#size-limitation) da documentação de dados de referência para obter mais detalhes).
+O Stream Analytics também dá suporte à entrada conhecida como *dados de referência* . Dados de referência são totalmente estáticos ou são alterados lentamente. Normalmente, eles são usados para executar correlação e pesquisas. Por exemplo, você pode unir dados na entrada de fluxo de dados a dados nos dados de referência, assim como você realizaria uma junção SQL para pesquisar valores estáticos. O armazenamento de BLOBs do Azure, o Azure Data Lake Storage Gen2 e o banco de dados SQL do Azure são atualmente compatíveis como fontes de entrada para os mesmos. Os blobs de fonte de dados de referência têm um limite de até 300 MB de tamanho, dependendo da complexidade da consulta e das unidades de streaming alocadas (consulte a seção [limitação de tamanho](stream-analytics-use-reference-data.md#size-limitation) da documentação de dados de referência para obter mais detalhes).
 
 Para obter mais informações sobre entradas de dados de referência, consulte [Usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md)
 

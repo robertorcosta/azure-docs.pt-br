@@ -5,18 +5,18 @@ description: Uma descrição das restrições e limitações do formato URI de r
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 08/07/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: marsma, lenalepa, manrath
+ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030303"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042910"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restrições e limitações do URI de redirecionamento (URL de resposta)
 
@@ -24,7 +24,7 @@ Um URI de redirecionamento, ou URL de resposta, é o local onde o servidor de au
 
  As restrições a seguir se aplicam a URLs de redirecionamento:
 
-* O URI de redirecionamento deve começar com o esquema `https` .
+* O URI de redirecionamento deve começar com o esquema `https` . Há algumas [exceções para URIs de](#localhost-exceptions) redirecionamento de localhost.
 
 * O URI de redirecionamento diferencia maiúsculas de minúsculas. As letras maiúsculas e minúsculas devem corresponder às letras maiúsculas e minúsculas do caminho da URL do aplicativo em execução. Por exemplo, se seu aplicativo incluir como parte de seu caminho `.../abc/response-oidc` , não especifique `.../ABC/response-oidc` no URI de redirecionamento. Como o navegador da Web trata os caminhos diferenciando maiúsculas de minúsculas, os cookies associados a `.../abc/response-oidc` podem ser excluídos se forem redirecionados para a URL de `.../ABC/response-oidc` com maiúsculas e minúsculas não correspondentes.
 
@@ -34,8 +34,8 @@ Esta tabela mostra o número máximo de URIs de redirecionamento que você pode 
 
 | Contas sendo conectadas | Número máximo de URIs de redirecionamento | Descrição |
 |--------------------------|---------------------------------|-------------|
-| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs*. |
-| Contas pessoais e contas corporativas e de estudante da Microsoft | 100 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount*. |
+| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* . |
+| Contas pessoais e contas corporativas e de estudante da Microsoft | 100 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount* . |
 
 ## <a name="maximum-uri-length"></a>Tamanho máximo do URI
 
@@ -64,11 +64,10 @@ Do ponto de vista do desenvolvimento, isso significa algumas coisas:
 
 * Não registre vários URIs de redirecionamento onde apenas a porta difere. O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de redirecionamento (por exemplo, se for `web` -, `native` -ou `spa` -Type Redirecionado).
 * Se você precisar registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não corresponde `http://127.0.0.1/MyNativeApp` .
-* Por diretrizes da RFC, você não deve usar `localhost` o no URI de redirecionamento. Em vez disso, use o endereço IP de loopback real, `127.0.0.1` . Isso impede que seu aplicativo seja interrompido por firewalls configurados incorretamente ou por interfaces de rede renomeadas.
+* O endereço de loopback IPv6 ( `[::1]` ) não tem suporte no momento.
+* Para impedir que seu aplicativo seja interrompido por firewalls configurados incorretamente ou por interfaces de rede renomeadas, use o endereço IP literal loopback `127.0.0.1` no URI de redirecionamento em vez de `localhost` .
 
-    Para usar o `http` esquema com o endereço de loopback (127.0.0.1) em vez de localhost, você deve editar o [manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
-
-    O endereço de loopback IPv6 ( `[::1]` ) não tem suporte no momento.
+    Para usar o `http` esquema com o endereço de loopback literal de IP `127.0.0.1` , você deve modificar atualmente o atributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) no [manifesto do aplicativo](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrições em curingas em URIs de redirecionamento
 
@@ -78,9 +77,9 @@ Atualmente, não há suporte para URIs curinga em registros de aplicativo config
 
 Para adicionar URIs de redirecionamento com caracteres curinga aos registros de aplicativo que entram em contas corporativas ou de estudante, você precisa usar o editor de manifesto do aplicativo no [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Embora seja possível definir um URI de redirecionamento com um curinga usando o editor de manifesto, é *altamente* recomendável aderir à [seção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e usar apenas URIs absolutos.
 
-Se seu cenário exigir mais URIs de redirecionamento do que o limite máximo permitido, considere a [abordagem a seguir](#use-a-state-parameter) , em vez de adicionar um URI de redirecionamento de caractere curinga.
+Se seu cenário exigir mais URIs de redirecionamento do que o limite máximo permitido, considere a seguinte [abordagem de parâmetro de estado](#use-a-state-parameter) em vez de adicionar um URI de redirecionamento de caractere curinga.
 
-### <a name="use-a-state-parameter"></a>Usar um parâmetro de estado
+#### <a name="use-a-state-parameter"></a>Usar um parâmetro de estado
 
 Se você tiver vários subdomínios e seu cenário exigir que, após a autenticação bem-sucedida, você redirecione os usuários para a mesma página da qual eles foram iniciados, o uso de um parâmetro de estado pode ser útil.
 

@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165752"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043221"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -49,7 +49,7 @@ Por padrão, os [proxies do Functions](functions-proxies.md) usam um atalho para
 |Chave|Valor|Descrição|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no aplicativo de função local não serão enviadas diretamente para a função. Em vez disso, as solicitações são direcionadas de volta para o front-end HTTP para o aplicativo de funções.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Este é o valor padrão. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Esse é o valor padrão. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -226,6 +226,14 @@ Para consumo & apenas planos Premium. Cadeia de conexão para a conta de armazen
 |Chave|Valor de exemplo|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+## <a name="website_contentovervnet"></a>CONTENTOVERVNET do site \_
+
+Somente para planos Premium. Um valor `1` permite que seu aplicativo de funções seja dimensionado quando você tiver sua conta de armazenamento restrita a uma rede virtual. Você deve habilitar essa configuração ao restringir sua conta de armazenamento a uma rede virtual. Para saber mais, confira [restringir sua conta de armazenamento a uma rede virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Chave|Valor de exemplo|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 

@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259944"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043372"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usar Azure Functions para gerenciar recursos de computação no pool do SQL do Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
 
 ## <a name="change-the-compute-level"></a>Alterar o nível de computação
 
-1. Navegue até o serviço d do Aplicativo de funções. Se você implantou o modelo com os valores padrão, esse serviço deve ser chamado *DWOperations*. Quando seu Aplicativo de funções for aberto, você deve observar que há cinco funções implantadas para a função do Serviço de Aplicativo de funções.
+1. Navegue até o serviço d do Aplicativo de funções. Se você implantou o modelo com os valores padrão, esse serviço deve ser chamado *DWOperations* . Quando seu Aplicativo de funções for aberto, você deve observar que há cinco funções implantadas para a função do Serviço de Aplicativo de funções.
 
    ![Funções implantadas com o modelo](./media/manage-compute-with-azure-functions/five-functions.png)
 
@@ -52,7 +52,7 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
 
    ![Selecione Integrar para a função](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. O valor exibido deve ser *ScaleDownTime %* ou *ScaleUpTime %*. Esses valores indicam que o agendamento se baseia nos valores definidos nas suas [Configurações do aplicativo](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por enquanto, você pode ignorar esse valor e alterar o agendamento para a hora de sua preferência com base nas próximas etapas.
+3. O valor exibido deve ser *ScaleDownTime %* ou *ScaleUpTime %* . Esses valores indicam que o agendamento se baseia nos valores definidos nas suas [Configurações do aplicativo](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por enquanto, você pode ignorar esse valor e alterar o agendamento para a hora de sua preferência com base nas próximas etapas.
 
 4. Na área agenda, adicione a hora da expressão CRON que você gostaria de refletir a frequência com que deseja que a análise de Synapse do Azure seja expandida.
 
@@ -68,9 +68,9 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Altere o tempo da operação de escala
 
-1. Navegue até o serviço d do Aplicativo de funções. Se você implantou o modelo com os valores padrão, esse serviço deve ser chamado *DWOperations*. Quando seu Aplicativo de funções for aberto, você deve observar que há cinco funções implantadas para a função do Serviço de Aplicativo de funções.
+1. Navegue até o serviço d do Aplicativo de funções. Se você implantou o modelo com os valores padrão, esse serviço deve ser chamado *DWOperations* . Quando seu Aplicativo de funções for aberto, você deve observar que há cinco funções implantadas para a função do Serviço de Aplicativo de funções.
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* dependendo se você deseja alterar o valor de computação para escalar ou reduzir verticalmente. Ao selecionar as funções, o painel deve mostrar o arquivo *index.js*.
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* dependendo se você deseja alterar o valor de computação para escalar ou reduzir verticalmente. Ao selecionar as funções, o painel deve mostrar o arquivo *index.js* .
 
    ![Alterar o nível de computação do gatilho da função](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -78,7 +78,7 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Usar pausar ou retomar em vez do dimensionamento
 
-Atualmente, as funções habilitadas por padrão são *DWScaleDownTrigger* e *DWScaleUpTrigger*. No entanto, se você quiser usar a funcionalidade de pausar e retomar, você pode habilitar *DWPauseTrigger* ou *DWResumeTrigger*.
+Atualmente, as funções habilitadas por padrão são *DWScaleDownTrigger* e *DWScaleUpTrigger* . No entanto, se você quiser usar a funcionalidade de pausar e retomar, você pode habilitar *DWPauseTrigger* ou *DWResumeTrigger* .
 
 1. Navegue até o painel Funções.
 
@@ -97,9 +97,9 @@ Atualmente, há apenas duas funções de dimensionamento incluídas no modelo. C
 
 1. Criar uma nova função em branco. Selecione o *+* botão próximo ao local de funções para mostrar o painel de modelo de função.
 
-   ![Criar nova função](./media/manage-compute-with-azure-functions/create-new-function.png)
+   ![Captura de tela que mostra o menu "aplicativos de função" com o ícone "mais" ao lado de "funções" selecionado.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Em idioma, selecione *JavaScript*e, em seguida, selecione *TimerTrigger*.
+2. Em idioma, selecione *JavaScript* e, em seguida, selecione *TimerTrigger* .
 
    ![Criar nova função](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -139,7 +139,7 @@ Esta seção demonstra brevemente o que é necessário para aproveitar mais os r
 
 Escale verticalmente diariamente às 8:00 até DW600c e reduza às 20:00 para DW200c.
 
-| Função  | Agendamento     | Operação                                |
+| Função  | Agenda     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
@@ -148,17 +148,17 @@ Escale verticalmente diariamente às 8:00 até DW600c e reduza às 20:00 para DW
 
 Escalar verticalmente verticalmente às 8:00 para DW1000c, reduzir horizontalmente uma vez para DW600 em 16:00 e reduzir verticalmente em 19:10 para DW200c.
 
-| Função  | Agendamento     | Operação                                |
+| Função  | Agenda     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
 | Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
-### <a name="example-3"></a>Exemplo 3
+### <a name="example-3"></a>Exemplo 3:
 
 Escale verticalmente às 8:00 até DW1000c, escale para baixo uma vez para DW600c às 16:00 nos dias da semana. Pausar sexta-feira às 23:00, retomar segunda-feira de manhã às 7:00.
 
-| Função  | Agendamento       | Operação                                |
+| Função  | Agenda       | Operação                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |

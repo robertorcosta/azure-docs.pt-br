@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e899a9d98d43f826bfa63e62458adf1601f071
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265959"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042998"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia
 
@@ -53,11 +53,11 @@ Com os serviços de mídia, você pode aproveitar o [empacotamento dinâmico](me
 
 ## <a name="streaming-endpoints-channels-programs"></a>Pontos de extremidade de streaming, canais, programas
 
-Nos Serviços de Mídia do Azure, **Canais** e **Programas**, e **StreamingEndpoints** tratam de todas as funcionalidades de transmissão ao vivo, incluindo ingestão, formatação, DVR, segurança, escalabilidade e redundância.
+Nos Serviços de Mídia do Azure, **Canais** e **Programas** , e **StreamingEndpoints** tratam de todas as funcionalidades de transmissão ao vivo, incluindo ingestão, formatação, DVR, segurança, escalabilidade e redundância.
 
 Um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
 
-* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: Telestream Wirecast, HaiVision e transcodificadores de Teradek.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem** . A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai** s sem nenhum processamento adicional. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: Telestream Wirecast, HaiVision e transcodificadores de Teradek.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
   > [!NOTE]
   > Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Consulte os detalhes de [preços](https://azure.microsoft.com/pricing/details/media-services/) .
@@ -84,15 +84,15 @@ A tabela a seguir fornece um guia de comparação dos dois tipos de Canal com su
 | Suporte para inserção de imagens fixas |Não |Sim |
 | Suporte para sinalização de anúncios |Não |Sim |
 | Legendas CEA 608/708 de passagem |Sim |Sim |
-| Suporte para GOPs de entrada não uniforme |Sim |Não – a entrada deve ser GOPs de 2 s fixos |
-| Suporte para entrada de taxa de quadros variável |Sim |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
-| Desligamento automático de Canais quando há perda do feed de entrada |Não |Após 12 horas, se não houver nenhum Programa em execução |
+| Suporte para GOPs de entrada não uniforme |Yes |Não – a entrada deve ser GOPs de 2 s fixos |
+| Suporte para entrada de taxa de quadros variável |Yes |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
+| Desligamento automático de Canais quando há perda do feed de entrada |No |Após 12 horas, se não houver nenhum Programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhando com canais que recebem a transmissão ao vivo de taxa de bits múltipla de codificadores locais (passagem)
 
 O diagrama a seguir mostra as partes principais da plataforma AMS que estão envolvidas no fluxo de trabalho de **passagem** .
 
-![Fluxo de trabalho ao vivo](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagrama que mostra as partes principais da plataforma M S para o fluxo de trabalho "passagem".](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -142,11 +142,11 @@ Você é responsável por parar seus canais quando terminar com o canal. A falha
 ### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
 O estado atual de um canal. Os valores possíveis incluem:
 
-* **Parado**. Esse é o estado inicial do canal após sua criação (a menos que AutoStart tenha sido selecionado no Portal). Nenhuma cobrança ocorre nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
-* **Iniciando**. O canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
-* **Em execução**. O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional.
-* **Parando**. O canal está sendo parado. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
-* **Excluindo**. O canal está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
+* **Parado** . Esse é o estado inicial do canal após sua criação (a menos que AutoStart tenha sido selecionado no Portal). Nenhuma cobrança ocorre nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
+* **Iniciando** . O canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
+* **Em execução** . O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional.
+* **Parando** . O canal está sendo parado. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
+* **Excluindo** . O canal está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
 
 A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.
 
@@ -155,7 +155,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Iniciando |Iniciando |Nenhum (estado transitório) |
 | Executando |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |YES |
 | Parando |Parando |Nenhum (estado transitório) |
-| Parado |Parado |Não |
+| Parado |Parado |No |
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

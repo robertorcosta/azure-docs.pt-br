@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164815"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043106"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -107,13 +107,13 @@ Em JavaScript, [ligações](functions-triggers-bindings.md) são configuradas e 
 
 ### <a name="inputs"></a>Entradas
 As entradas são divididas em duas categorias no Azure Functions: uma é a entrada de gatilho e a outra é a entrada adicional. Trigger e outras ligações de entrada (ligações de `direction === "in"`) podem ser lidas por uma função de três maneiras:
- - **_ [Recomendado] _ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json*. A `name` propriedade definida no *function.jsem* não precisa corresponder ao nome do parâmetro, embora deva ser.
+ - **_[Recomendado]_ Como parâmetros passados para sua função.** Eles são passados para a função na mesma ordem em que são definidos *function.json* . A `name` propriedade definida no *function.jsem* não precisa corresponder ao nome do parâmetro, embora deva ser.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como os membros de [`context.bindings`](#contextbindings-property) objeto.** Observe que a propriedade `name` definida em * function.json * não precisa corresponder ao nome do seu parâmetro, embora deva....
+ - **Como os membros de [`context.bindings`](#contextbindings-property) objeto.** Observe que a propriedade `name` definida em *function.json* não precisa corresponder ao nome do seu parâmetro, embora deva....
  
    ```javascript
    module.exports = async function(context) { 
@@ -134,11 +134,11 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
    ```
 
 ### <a name="outputs"></a>Saídas
-As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em * function.json *, corresponde ao nome do membro do objeto gravado na sua função. 
+As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em *function.json* , corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a associações de saída de uma das seguintes maneiras (não Combine esses métodos):
 
-- **_ [Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno de Async/Promise, poderá retornar um objeto com os dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
+- **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno de Async/Promise, poderá retornar um objeto com os dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json* .
 
   ```javascript
   module.exports = async function(context) {
@@ -317,7 +317,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 > [!NOTE]  
-> Não usar `console.log` para gravar saídas de rastreamento. Como a saída de `console.log` é capturada no nível do aplicativo de funções, ela não está vinculada a uma invocação de função específica e não é exibida em logs de uma função específica. Além disso, a versão 1. x do tempo de execução do Functions não dá suporte ao uso do `console.log` para gravar no console.
+> Não use `console.log` para gravar saídas de rastreamento. Como a saída de `console.log` é capturada no nível do aplicativo de funções, ela não está vinculada a uma invocação de função específica e não é exibida em logs de uma função específica. Além disso, a versão 1. x do tempo de execução do Functions não dá suporte ao uso do `console.log` para gravar no console.
 
 ### <a name="trace-levels"></a>Níveis de rastreamento
 
@@ -325,10 +325,10 @@ Além do nível padrão, os seguintes métodos de log estão disponíveis para p
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| **erro (_mensagem_)**   | Grava um evento de nível de erro nos logs.   |
-| **warn(_message_)**    | Grava um evento no nível de aviso nos logs. |
-| **info(_message_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
-| **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
+| **erro ( _mensagem_ )**   | Grava um evento de nível de erro nos logs.   |
+| **warn( _message_ )**    | Grava um evento no nível de aviso nos logs. |
+| **info( _message_ )**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
+| **verbose( _message_ )** | Grava no registro em log no nível detalhado.           |
 
 O exemplo a seguir grava o mesmo log no nível de rastreamento de aviso, em vez do nível de informações:
 
@@ -358,7 +358,7 @@ Para definir o limite para todos os rastreamentos gravados nos logs e o console,
 }  
 ```
 
-Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_. Para obter mais informações, consulte [host.jsna referência v1. x](functions-host-json-v1.md).
+Os valores de **consoleLevel** correspondem aos nomes dos métodos `context.log`. Para desabilitar todo o registro em log do rastreamento no console, defina **consoleLevel** como _off_ . Para obter mais informações, consulte [host.jsna referência v1. x](functions-host-json-v1.md).
 
 ---
 
@@ -507,7 +507,7 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 
 | Versão do Functions | Versão do nó (Windows) | Versão do nó (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (bloqueada pelo runtime) | n/a |
+| 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
 | 2. x  | ~ 8<br/>~ 10 (recomendado)<br/>aproximadamente 12<sup>*</sup> | ~ 8 (recomendado)<br/>~ 10  |
 | 3.x | ~ 10<br/>~ 12 (recomendado)  | ~ 10<br/>~ 12 (recomendado) |
 
@@ -543,14 +543,14 @@ Há duas maneiras de instalar pacotes no aplicativo de funções:
 
 
 ### <a name="using-kudu"></a>Usando o Kudu
-1. Acesse `https://<function_app_name>.scm.azurewebsites.net`.
+1. Ir para `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Clique em **console de depuração**  >  **cmd**.
+2. Clique em **console de depuração**  >  **cmd** .
 
 3. Acesse `D:\home\site\wwwroot`e arraste o arquivo package.json para a pasta **wwwroot** na metade superior da página.  
     Também há outras maneiras de carregar arquivos em seu aplicativo de função. Para saber mais, confira [Como atualizar os arquivos do aplicativo de função](functions-reference.md#fileupdate). 
 
-4. Depois que o arquivo package.json é carregado, execute o comando `npm install` no **console de execução remota do Kudu**.  
+4. Depois que o arquivo package.json é carregado, execute o comando `npm install` no **console de execução remota do Kudu** .  
     Essa ação baixa os pacotes indicados no arquivo package.json e reinicia o aplicativo de função.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente

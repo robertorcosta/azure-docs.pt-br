@@ -2,13 +2,13 @@
 title: Entrega e repetição da Grade de Eventos do Azure
 description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324086"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042964"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -78,14 +78,16 @@ Como um ponto de extremidade apresenta falhas de entrega, a grade de eventos com
 A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
-Quando a grade de eventos não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. A grade de eventos não segue um evento quando **uma das condições a seguir** é atendida. 
+Quando a grade de eventos não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas** . A grade de eventos não segue um evento quando **uma das condições a seguir** é atendida. 
 
-- O evento não é entregue dentro do período de vida útil
-- O número de tentativas para entregar o evento excedeu o limite
+- O evento não é entregue dentro do período de **vida útil** . 
+- O **número de tentativas** de entregar o evento excedeu o limite.
 
 Se qualquer uma das condições for atendida, o evento será descartado ou inativo.  Por padrão, a Grade de Eventos não ativa o armazenamento de mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para reter eventos que não foram entregues ao criar a assinatura do evento. Você aciona eventos dessa conta de armazenamento para resolver as entregas.
 
 A Grade de Eventos enviará um evento ao local de mensagens mortas quando ela tiver tentado todas as suas tentativas de repetição. Se a Grade de Eventos receber um código de resposta 400 (Solicitação incorreta) ou 413 (A entidade da solicitação é grande demais), ela enviará o evento imediatamente ao ponto de extremidade de mensagens mortas. Esses códigos de resposta indicam que a entrega do evento nunca terá êxito.
+
+A expiração de vida útil é verificada apenas na próxima tentativa de entrega agendada. Portanto, mesmo se o tempo de vida expirar antes da próxima tentativa de entrega agendada, a expiração do evento será verificada somente no momento da próxima entrega e, em seguida, mensagens mortas em seguida. 
 
 Há um atraso de cinco minutos entre a última tentativa de entregar de um evento e quando ela é entregue para o local de inatividade. Esse atraso tem como objetivo reduzir o número de operações de armazenamento Blob. Se o local de mensagens mortas não estiver disponível por quatro horas, o evento será descartado.
 
