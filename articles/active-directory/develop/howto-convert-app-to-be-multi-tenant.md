@@ -9,27 +9,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/17/2020
+ms.date: 10/27/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
+ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c5b06fd14f526ca90b1b922be281af55ba00116
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631300"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077482"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
 
-Se você oferecer um aplicativo de Software como Serviço (SaaS) para muitas organizações, poderá configurar seu aplicativo para aceitar logins de qualquer locatário do Azure AD (Azure Active Directory). Essa configuração é chamada *de tornar seu aplicativo multilocatário*. Os usuários em qualquer locatário do Azure AD poderão entrar em seu aplicativo após o consentimento para usar sua conta com o aplicativo.
+Se você oferecer um aplicativo de Software como Serviço (SaaS) para muitas organizações, poderá configurar seu aplicativo para aceitar logins de qualquer locatário do Azure AD (Azure Active Directory). Essa configuração é chamada *de tornar seu aplicativo multilocatário* . Os usuários em qualquer locatário do Azure AD poderão entrar em seu aplicativo após o consentimento para usar sua conta com o aplicativo.
 
 Se você tiver um aplicativo que tem seu próprio sistema de contas ou que dá suporte a outros tipos de conexão por meio de outros provedores de nuvem, a adição da conexão do Azure AD em qualquer locatário será simples. Basta registrar seu aplicativo, adicionar código de entrada via OAuth2, OpenID Connect ou SAML e colocar um [botão "entrar com a conta da Microsoft"][AAD-App-Branding] em seu aplicativo.
 
 > [!NOTE]
-> Este artigo pressupõe que você já está familiarizado com a criação de um aplicativo de locatário único do Azure AD. Se você não estiver, comece com uma das iniciações rápidas na [página inicial do guia do desenvolvedor][AAD-Dev-Guide].
+> Este artigo pressupõe que você já esteja familiarizado com a criação de um aplicativo de locatário único para o Azure AD. Se você não estiver, comece com uma das iniciações rápidas na [página inicial do guia do desenvolvedor][AAD-Dev-Guide].
 
-Há quatro etapas simples para converter seu aplicativo em um aplicativo multilocatário do Azure AD:
+Há quatro etapas para converter seu aplicativo em um aplicativo multilocatário do Azure AD:
 
 1. [Atualizar seu registro de aplicativo para ser multilocatário](#update-registration-to-be-multi-tenant)
 2. [Atualizar seu código para enviar solicitações para o ponto de extremidade /common](#update-your-code-to-send-requests-to-common)
@@ -40,18 +40,15 @@ Vamos examinar cada etapa detalhadamente. Você também pode saltar diretamente 
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Atualizar o registro para ser multilocatário
 
-Por padrão, os registros de API/aplicativo Web no Azure AD são de locatário único. Você pode tornar seu registro multilocatário localizando a opção de **tipos de conta com suporte** no painel de **autenticação** do registro do aplicativo no [portal do Azure][AZURE-portal] e definindo-o como **contas em qualquer diretório organizacional**.
+Por padrão, os registros de aplicativo/API Web no Azure AD são de locatário único. Você pode tornar seu registro multilocatário localizando a opção de **tipos de conta com suporte** no painel de **autenticação** do registro do aplicativo no [portal do Azure][AZURE-portal] e definindo-o como **contas em qualquer diretório organizacional** .
 
 Antes de um aplicativo poder ser definido como multilocatário, o Azure AD requer que o URI da ID do Aplicativo seja globalmente exclusivo. O URI da ID do Aplicativo é uma das maneiras que um aplicativo é identificado em mensagens de protocolo. Para um aplicativo de locatário único, é suficiente que o URI da ID do Aplicativo seja exclusivo nesse locatário. Para um aplicativo multilocatário, ele deve ser globalmente exclusivo para que o Azure AD possa localizar os aplicativos em todos os locatários. A exclusividade global é imposta exigindo o URI da ID do Aplicativo com um nome de host que corresponda a um domínio verificado do locatário do Azure AD.
 
 Por padrão, aplicativos criados por meio do portal do Azure têm um URI da ID do Aplicativo globalmente exclusivo definido na criação do aplicativo, mas é possível alterar esse valor. Por exemplo, se o nome do seu locatário fosse contoso.onmicrosoft.com, um URI da ID do Aplicativo válido seria `https://contoso.onmicrosoft.com/myapp`. Se seu locatário tivesse um domínio verificado de `contoso.com`, então um URI da ID do Aplicativo também seria `https://contoso.com/myapp`. A configuração de um aplicativo como multilocatário falhará se o URI da ID do Aplicativo não seguir esse padrão.
 
-> [!NOTE]
-> Os registros de cliente nativo, bem como [os aplicativos da plataforma Microsoft Identity](./v2-overview.md) , são multilocatários por padrão. Não é necessário realizar ações para transformar esses registros de aplicativo em multilocatários.
-
 ## <a name="update-your-code-to-send-requests-to-common"></a>Atualizar seu código para enviar solicitações para /common
 
-Em um aplicativo de locatário único, as solicitações de conexão são enviadas para o ponto de extremidade de conexão do locatário. Por exemplo, para contoso.onmicrosoft.com, o ponto de extremidade seria: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Solicitações enviadas para o ponto de extremidade de um locatário podem realizar a entrada de usuários (ou convidados) naquele locatário para aplicativos nele.
+Em um aplicativo de locatário único, as solicitações de entrada são enviadas para o ponto de extremidade de entrada do locatário. Por exemplo, para contoso.onmicrosoft.com, o ponto de extremidade seria: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Solicitações enviadas para o ponto de extremidade de um locatário podem realizar a entrada de usuários (ou convidados) naquele locatário para aplicativos nele.
 
 Com um aplicativo multilocatário, o aplicativo não sabe com antecedência de qual locatário o usuário é, portanto, você não pode enviar solicitações para o ponto de extremidade de um locatário. Em vez disso, as solicitações são enviadas para um ponto de extremidade que multiplexa entre todos os locatários do Azure AD: `https://login.microsoftonline.com/common`
 
@@ -67,34 +64,36 @@ Em seguida, a resposta de conexão para o aplicativo conterá um token que repre
 Aplicativos Web e APIs Web recebem e validam tokens da plataforma Microsoft Identity.
 
 > [!NOTE]
-> Embora aplicativos cliente nativos solicitem e recebam tokens da plataforma de identidade da Microsoft, eles fazem isso para enviá-los para APIs, onde eles são validados. Os aplicativos nativos não validam os tokens e devem tratá-los como opacos.
+> Embora aplicativos cliente nativos solicitem e recebam tokens da plataforma Microsoft Identity, eles fazem isso para enviá-los para APIs, onde eles são validados. Os aplicativos nativos não validam tokens de acesso e devem tratá-los como opacos.
 
-Vejamos como um aplicativo valida os tokens que ele recebe da plataforma de identidade da Microsoft. Um aplicativo de locatário único normalmente tem um valor de ponto de extremidade como:
-
-```http
-    https://login.microsoftonline.com/contoso.onmicrosoft.com
-```
-
-e o usará para criar uma URL de metadados (nesse caso, OpenID Connect) como:
+Vejamos como um aplicativo valida tokens que recebe da plataforma de identidade da Microsoft. Um aplicativo de locatário único normalmente usa um valor de ponto de extremidade como:
 
 ```http
-    https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+https://login.microsoftonline.com/contoso.onmicrosoft.com
 ```
 
-para baixar duas partes críticas de informações que são usadas para validar tokens: as chaves de assinatura do locatário e o valor de emissor. Cada locatário do Azure AD tem um valor de emissor exclusivo do formato:
+... e o usa para construir uma URL de metadados (neste caso, OpenID Connect) como:
 
 ```http
-    https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
 ```
 
-em que o valor de GUID é a versão à prova de renomeação da ID de locatário. Se você clicar no link de metadados anterior para `contoso.onmicrosoft.com`, poderá ver esse valor de emissor no documento.
+para baixar duas partes críticas de informações que são usadas para validar tokens: as chaves de assinatura do locatário e o valor de emissor.
 
-Quando um aplicativo de locatário único valida um token, ele verifica a assinatura do token em relação às chaves de autenticação do documento de metadados. Esse teste permite garantir que o valor do emissor no token corresponde ao que foi encontrado no documento de metadados.
+Cada locatário do Azure AD tem um valor de emissor exclusivo do formato:
+
+```http
+https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
+
+... em que o valor de GUID é a versão de renomeação segura da ID de locatário do locatário. Se você clicar no link de metadados anterior para `contoso.onmicrosoft.com`, poderá ver esse valor de emissor no documento.
+
+Quando um aplicativo de locatário único valida um token, ele verifica a assinatura do token em relação às chaves de assinatura do documento de metadados. Esse teste permite garantir que o valor do emissor no token corresponde ao que foi encontrado no documento de metadados.
 
 Como o ponto de extremidade /common não corresponde a um locatário e não é um emissor, ao examinar o valor do emissor nos metadados para /common, ele tem uma URL de modelo em vez de um valor real:
 
 ```http
-    https://sts.windows.net/{tenantid}/
+https://sts.windows.net/{tenantid}/
 ```
 
 Portanto, um aplicativo multilocatário não pode validar tokens apenas combinando o valor do emissor nos metadados com o valor `issuer` no token. Um aplicativo multilocatário precisa de lógica para decidir quais valores de emissor são válidos e quais não são baseados na parte da ID do locatário do valor do emissor.
@@ -105,7 +104,7 @@ Nas [amostras de multilocatário][AAD-Samples-MT], a validação do emissor est�
 
 ## <a name="understand-user-and-admin-consent"></a>Entenda o consentimento do usuário e do administrador
 
-Para um usuário entrar em um aplicativo no Azure AD, o aplicativo deve estar representado no locatário do usuário. Isso permite que a organização realize ações como aplicar políticas exclusivas quando usuários de seu locatário entrarem no aplicativo. Para um aplicativo de locatário único, esse registro é simples; é aquele que acontece quando você registra o aplicativo no [portal do Azure][AZURE-portal].
+Para um usuário entrar em um aplicativo no Azure AD, o aplicativo deve estar representado no locatário do usuário. Isso permite que a organização realize ações como aplicar políticas exclusivas quando usuários de seu locatário entrarem no aplicativo. Para um aplicativo de locatário único, esse registro é mais fácil; é aquele que acontece quando você registra o aplicativo no [portal do Azure][AZURE-portal].
 
 Para um aplicativo multilocatário, o registro inicial para o aplicativo reside no locatário do Azure AD usado pelo desenvolvedor. Quando um usuário de um locatário diferente entra no aplicativo pela primeira vez, o Azure AD solicita que ele consinta com as permissões solicitadas pelo aplicativo. Se ele fornecer o consentimento, uma representação do aplicativo chamada uma *entidade de serviço* será criada no locatário do usuário e o processo de conexão poderá continuar. Uma delegação também é criada no diretório que registra o consentimento do usuário para o aplicativo. Para obter detalhes sobre o aplicativo e os objetos do serviço de aplicativo e como eles se relacionam entre si, consulte [objetos de aplicativo e objetos de entidade de segurança][AAD-App-SP-Objects].
 
@@ -126,14 +125,11 @@ Algumas permissões delegadas também exigem o consentimento do administrador de
 
 Se o aplicativo usar permissões que exigem o consentimento do administrador, você precisará ter um gesto como um botão ou link, em que o administrador pode iniciar a ação. A solicitação que seu aplicativo envia para essa ação é uma solicitação de autorização do OAuth2/OpenID Connect normal, que também inclui o parâmetro de cadeia de caracteres de consulta `prompt=admin_consent`. Depois que o administrador fornecer seu consentimento e a entidade de serviço for criada no locatário do cliente, as próximas solicitações de conexão não precisarão do parâmetro `prompt=admin_consent`. Uma vez que o administrador tiver decidido que as permissões solicitadas forem aceitáveis, não será solicitado o consentimento de nenhum outro usuário no locatário daquele ponto em diante.
 
-Um administrador de locatários pode desabilitar a capacidade dos usuários regulares consentirem aplicativos. Se essa funcionalidade estiver desabilitada, o consentimento do administrador sempre será necessário para o aplicativo a ser usado no locatário. Se você quiser testar seu aplicativo com o consentimento do usuário final desabilitado, poderá encontrar a opção de configuração no [portal do Azure][AZURE-portal] na seção **[configurações do usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** em **aplicativos empresariais**.
+Um administrador de locatários pode desabilitar a capacidade dos usuários regulares consentirem aplicativos. Se essa funcionalidade estiver desabilitada, o consentimento do administrador sempre será necessário para o aplicativo a ser usado no locatário. Se você quiser testar seu aplicativo com o consentimento do usuário final desabilitado, poderá encontrar a opção de configuração no [portal do Azure][AZURE-portal] na seção **[configurações do usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** em **aplicativos empresariais** .
 
 O parâmetro `prompt=admin_consent` também pode ser usado por aplicativos que exigem permissões que não necessitam do consentimento do administrador. Um exemplo de como isso seria usado é quando o aplicativo exige uma experiência na qual o administrador de locatários “se inscreve” uma vez e não é solicitado o consentimento de nenhum outro usuário desse momento em diante.
 
-Se um aplicativo exigir o consentimento do administrador e um administrador fizer logon, mas o parâmetro `prompt=admin_consent` não for enviado, o administrador fornecerá consentimento ao aplicativo **somente para a conta de usuário dele**. Os usuários normais ainda não poderão entrar ou dar consentimento ao aplicativo. Esse recurso é útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir o acesso de outros usuários.
-
-> [!NOTE]
-> Alguns aplicativos desejam uma experiência em que os usuários normais podem consentir inicialmente e posteriormente o aplicativo pode envolver o administrador e solicitar permissões que exigem o consentimento do administrador. Não há como fazer isso com um registro de aplicativo v 1.0 no Azure AD hoje mesmo; no entanto, o uso do ponto de extremidade da plataforma Microsoft Identity (v 2.0) permite que os aplicativos solicitem permissões em tempo de execução em vez de no momento do registro, o que habilita esse cenário. Para obter mais informações, consulte [ponto de extremidade da plataforma de identidade da Microsoft][AAD-V2-Dev-Guide].
+Se um aplicativo exigir o consentimento do administrador e um administrador fizer logon, mas o parâmetro `prompt=admin_consent` não for enviado, o administrador fornecerá consentimento ao aplicativo **somente para a conta de usuário dele** . Os usuários normais ainda não poderão entrar ou dar consentimento ao aplicativo. Esse recurso é útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir o acesso de outros usuários.
 
 ### <a name="consent-and-multi-tier-applications"></a>Aplicativos de várias camadas e consentimento
 
@@ -141,10 +137,10 @@ Seu aplicativo pode ter várias camadas, cada uma representada por seu próprio 
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Várias camadas em um único locatário
 
-Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para permitir esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente como um `knownClientApplications` no [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo:
+Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para permitir esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente como um `knownClientApplications` no [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo: 
 
-```aad-app-manifest
-    knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```json
+"knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 ```
 
 Isso é demonstrado em uma amostra de chamada de cliente nativo de várias camadas à API da Web na seção [Conteúdo relacionado](#related-content) ao final deste artigo. O diagrama a seguir fornece uma visão geral de consentimento para um aplicativo de várias camadas registrado em um único locatário.
@@ -177,7 +173,7 @@ Se um administrador der o consentimento a um aplicativo para todos os usuários 
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Aplicativos multilocatários e caching de tokens de acesso
 
-Os aplicativos multilocatários também podem obter tokens de acesso para chamar APIs que são protegidas pelo Azure AD. Um erro comum ao usar a ADAL (Biblioteca de Autenticação do Active Directory) com um aplicativo multilocatário é solicitar inicialmente um token para um usuário usando /common, receber uma resposta e, depois, solicitar um próximo token para o mesmo usuário também usando /common. Como a resposta do Azure AD vem de um locatário, e não de /common, a ADAL armazena em cache o token como sendo do locatário. A chamada subsequente para /common para obter um token de acesso para o usuário perde a entrada de cache e o usuário é solicitado a entrar novamente. Para evitar a perda de cache, certifique-se de que as chamadas subsequentes para um usuário já conectado sejam feitas para o ponto de extremidade do locatário.
+Os aplicativos multilocatários também podem obter tokens de acesso para chamar APIs que são protegidas pelo Azure AD. Um erro comum ao usar a MSAL (biblioteca de autenticação da Microsoft) com um aplicativo multilocatário é solicitar inicialmente um token para um usuário usando/Common, receber uma resposta e solicitar um token subsequente para o mesmo usuário também usando/Common. Como a resposta do Azure AD vem de um locatário, não/Common, o MSAL armazena em cache o token como sendo do locatário. A chamada subsequente para /common para obter um token de acesso para o usuário perde a entrada de cache e o usuário é solicitado a entrar novamente. Para evitar a perda de cache, certifique-se de que as chamadas subsequentes para um usuário já conectado sejam feitas para o ponto de extremidade do locatário.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
@@ -190,7 +186,9 @@ Os aplicativos multilocatários também podem obter tokens de acesso para chamar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (Sign-On único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como Microsoft 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas à API para o Azure AD e Microsoft 365 serviços como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
+Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (Sign-On único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como Microsoft 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário.
+
+Para saber mais sobre como fazer chamadas à API para o Azure AD e Microsoft 365 serviços como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

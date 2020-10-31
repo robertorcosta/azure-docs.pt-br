@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 425ee90306de3961c64766f42bd28f668fc9396e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494786"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077941"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -35,14 +35,19 @@ Para criar um teledigital, você precisa fornecer:
 * A ID desejada para o teledigital
 * O [modelo](concepts-models.md) que você deseja usar
 
-Opcionalmente, você pode fornecer valores iniciais para todas as propriedades da digital. 
+Opcionalmente, você pode fornecer valores iniciais para todas as propriedades da digital. As propriedades são tratadas como opcionais e podem ser definidas posteriormente, mas **não aparecerão como parte de um vertical até que tenham sido definidas.**
 
-O modelo e os valores de propriedade inicial são fornecidos por meio do `initData` parâmetro, que é uma cadeia de caracteres JSON que contém os dados relevantes. Para obter mais informações sobre como estruturar esse objeto, vá para a próxima seção.
+>[!NOTE]
+>Embora as propriedades de biquery **não precisem** ser inicializadas, todos os [componentes](concepts-models.md#elements-of-a-model) em FileUp precisam ser definidos quando o conjunto de entrelaçamento é criado. Eles podem ser objetos vazios, mas os próprios componentes devem existir.
+
+O modelo e todos os valores de propriedade inicial são fornecidos por meio do `initData` parâmetro, que é uma cadeia de caracteres JSON que contém os dados relevantes. Para obter mais informações sobre como estruturar esse objeto, vá para a próxima seção.
 
 > [!TIP]
 > Depois de criar ou atualizar um vertical, pode haver uma latência de até 10 segundos antes que as alterações sejam refletidas nas [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [mais adiante neste artigo](#get-data-for-a-digital-twin)) não experimenta esse atraso, portanto, se você precisar de uma resposta instantânea, use a chamada à API em vez de consultar para ver seu gêmeos recém-criado. 
 
 ### <a name="initialize-model-and-properties"></a>Inicializar modelo e propriedades
+
+Você pode inicializar as propriedades de um entrelaçamento no momento em que o entrelaçamento é criado. 
 
 A API de criação de entrelaçamento aceita um objeto que é serializado em uma descrição JSON válida das propriedades de entrelaçamento. Consulte [*Concepts: digital gêmeos e o gráfico de bispersão*](concepts-twins-graph.md) para obter uma descrição do formato JSON para um "r". 
 
@@ -78,7 +83,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` os objetos vêm com um `Id` campo. Você pode deixar esse campo vazio, mas se você adicionar um valor de ID, ele precisará corresponder ao parâmetro de ID passado para a `CreateDigitalTwin()` chamada. Por exemplo:
+> `BasicDigitalTwin` os objetos vêm com um `Id` campo. Você pode deixar esse campo vazio, mas se você adicionar um valor de ID, ele precisará corresponder ao parâmetro de ID passado para a `CreateDigitalTwin()` chamada. Por exemplo: 
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -110,7 +115,7 @@ Somente as propriedades que foram definidas pelo menos uma vez são retornadas q
 
 Para recuperar vários gêmeos usando uma única chamada à API, consulte os exemplos de API de consulta em [*instruções: consultar o gráfico de entrelaçamento*](how-to-query-graph.md).
 
-Considere o modelo a seguir (escrito na [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) que define uma *lua*:
+Considere o modelo a seguir (escrito na [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) que define uma *lua* :
 
 ```json
 {
@@ -133,7 +138,7 @@ Considere o modelo a seguir (escrito na [DTDL (digital gêmeos Definition Langua
     ]
 }
 ```
-O resultado da chamada `object result = await client.GetDigitalTwinAsync("my-moon");` em um tipo de *lua*de texto pode ser semelhante ao seguinte:
+O resultado da chamada `object result = await client.GetDigitalTwinAsync("my-moon");` em um tipo de *lua* de texto pode ser semelhante ao seguinte:
 
 ```json
 {
@@ -276,8 +281,8 @@ Por exemplo, considere o seguinte documento de patch JSON que substitui o campo 
 Esta operação só terá sucesso se o tipo de atualização digital estiver sendo modificado pelo patch estiver em conformidade com o novo modelo. 
 
 Considere o seguinte exemplo:
-1. Imagine um "up digital" com um modelo de *foo_old*. *foo_old* define uma propriedade necessária *em massa*.
-2. O novo modelo *foo_new* define uma propriedade em massa e adiciona uma nova *temperatura*de propriedade necessária.
+1. Imagine um "up digital" com um modelo de *foo_old* . *foo_old* define uma propriedade necessária *em massa* .
+2. O novo modelo *foo_new* define uma propriedade em massa e adiciona uma nova *temperatura* de propriedade necessária.
 3. Após o patch, o FileUp digital deve ter uma propriedade Mass e de temperatura. 
 
 O patch para essa situação precisa atualizar o modelo e a propriedade de temperatura de entrelaçamento, desta forma:

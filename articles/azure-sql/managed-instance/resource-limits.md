@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790756"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077363"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ O SQL Instância Gerenciada tem duas camadas de serviço: [uso geral](../databas
 | Tamanho máximo de armazenamento de instância (reservado) | -2 TB para 4 vCores (somente Gen5)<br/>-8 TB para outros tamanhos | Gen4:1 TB <br/> Gen5: <br/>-1 TB para 4, 8, 16 vCores<br/>- 2 TB para 24 vCores<br/>- 4 TB para 32, 40, 64, 80 vCores |
 | Tamanho máximo do banco de dados | Até o tamanho da instância disponível no momento (máximo de 2 TB-8 TB, dependendo do número de vCores). | Até o tamanho da instância disponível no momento (máximo de 1 TB-4 TB, dependendo do número de vCores). |
 | Tamanho máximo de TempDB | Limitado a 24 GB/vCore (96-1.920 GB) e ao tamanho do armazenamento de instância disponível no momento.<br/>Adicione mais vCores para obter mais espaço de TempDB.<br/> O tamanho do arquivo de log é limitado a 120 GB.| Até o tamanho do armazenamento de instância disponível no momento. |
-| Número máximo de bancos de dados por instância | 100, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. | 100, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
+| Número máximo de bancos de dados por instância | 100 bancos de dados de usuário, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. | 100 bancos de dados de usuário, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
 | Número máximo de arquivos de banco de dados por instância | Até 280, a menos que o limite de tamanho do armazenamento de instância ou [do espaço de alocação do armazenamento em disco Premium do Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 arquivos por banco de dados, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do arquivo de dados | Limitado ao tamanho de armazenamento da instância disponível no momento (máx. 2 TB-8 TB) e ao [espaço de alocação do armazenamento em disco Premium do Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitado ao tamanho de armazenamento de instância disponível no momento (até 1 TB-4 TB). |
 | Tamanho máximo do arquivo de log | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. |

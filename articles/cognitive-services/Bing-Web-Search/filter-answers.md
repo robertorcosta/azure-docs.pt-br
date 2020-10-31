@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad021b4d219353a6037988c164bb34cac6761682
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696704"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078621"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrar as respostas que a resposta da pesquisa inclui  
+
+> [!WARNING]
+> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
+> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Quando você realiza uma consulta na Web, o Bing retorna todo o conteúdo relevante que ele encontra para a pesquisa. Por exemplo, se a consulta de pesquisa for "vela+barcos", a resposta poderá conter as seguintes respostas:
 
@@ -53,7 +58,7 @@ Para filtrar as respostas retornadas pelo Bing, use os parâmetros de consulta a
 
 Você pode filtrar os tipos de respostas que o Bing inclui na resposta (por exemplo, imagens, vídeos e notícias) usando o parâmetro de consulta [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) , que é uma lista delimitada por vírgulas de respostas. Uma resposta será incluída na resposta se o Bing encontrar o conteúdo relevante para ele. 
 
-Para excluir respostas específicas da resposta, como imagens, preceda um `-` caractere ao tipo de resposta. Por exemplo:
+Para excluir respostas específicas da resposta, como imagens, preceda um `-` caractere ao tipo de resposta. Por exemplo: 
 
 ```
 &responseFilter=-images,-videos
@@ -131,7 +136,7 @@ Os resultados podem incluir páginas da Web que se enquadram fora do período es
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limite o número de itens na resposta
 
-O Bing pode retornar vários tipos de resposta na resposta JSON. Por exemplo, se você consultar *velejando + Dinghies*, o Bing poderá retornar `webpages` , `images` , `videos` e `relatedSearches` .
+O Bing pode retornar vários tipos de resposta na resposta JSON. Por exemplo, se você consultar *velejando + Dinghies* , o Bing poderá retornar `webpages` , `images` , `videos` e `relatedSearches` .
 
 ```json
 {

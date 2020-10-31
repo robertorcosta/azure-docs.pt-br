@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f24eb64a5418a9963fd58611314ccbc6b72ec4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 27075af51c8deb886a060c81927f30bb70b5f638
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968456"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077652"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Perguntas frequentes locais sobre a proteção por senha do Azure AD
 
@@ -32,9 +32,9 @@ A diretriz atual da Microsoft sobre este tópico pode ser encontrada no seguinte
 
 **P: a proteção de senha do Azure AD local tem suporte em nuvens não públicas?**
 
-Não, locais de proteção por senha do Azure AD têm suporte apenas na nuvem pública. Não foi anunciada nenhuma data para a disponibilidade de nuvem não pública.
+A proteção de senha do Azure AD local tem suporte na nuvem pública e na nuvem Arlington. Nenhuma data foi anunciada para disponibilidade em outras nuvens.
 
-O portal do AD do Azure permite a modificação da configuração de "proteção por senha para Windows Server Active Directory" específica no local, mesmo em nuvens não públicas; essas alterações serão persistidas, mas, caso contrário, nunca entrarão em vigor. O registro de florestas ou agentes de proxy local não tem suporte quando credenciais de nuvem não públicas são usadas e qualquer tentativa de registro desse tipo sempre falhará.
+O portal do AD do Azure permite a modificação da configuração "proteção por senha para Windows Server Active Directory" específica local, mesmo em nuvens sem suporte; essas alterações serão persistidas, mas, caso contrário, nunca entrarão em vigor. O registro de florestas ou agentes de proxy local não é suportado em nuvens sem suporte e qualquer tentativa de registro desse tipo sempre falhará.
 
 **P: como posso aplicar os benefícios da proteção de senha do Azure AD a um subconjunto de meus usuários locais?**
 

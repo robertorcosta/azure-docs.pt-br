@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d860ad28ff54a9f300f5c90314b9a7c9f6943dd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d7a12e436fd3bc1700dc4a1d76dc2b80d861144
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490672"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078451"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-table-api"></a>Localizar o encargo de unidade de solicitação para operações executadas no Azure Cosmos DB API de Tabela
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 O Azure Cosmos DB dá suporte a muitas APIs como SQL, MongoDB, Cassandra, Gremlin e Table. Cada API tem seu próprio conjunto de operações de banco de dados. Essas operações variam de simples leituras e gravações de pontos a consultas complexas. Cada operação de banco de dados consome recursos do sistema com base na complexidade da operação.
 

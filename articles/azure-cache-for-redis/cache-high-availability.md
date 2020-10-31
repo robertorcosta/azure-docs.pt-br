@@ -4,27 +4,27 @@ description: Saiba mais sobre o cache do Azure para opções e recursos de alta 
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/28/2020
 ms.author: yegu
-ms.openlocfilehash: f0bb8fd2d0b0ac271a167ad5474a55646bdafc65
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e44aed1415f85bf4ea597eac6720207301946b97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536786"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076904"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidade para o cache do Azure para Redis
 
 O cache do Azure para Redis tem alta disponibilidade interna. O objetivo de sua arquitetura de alta disponibilidade é garantir que sua instância Redis gerenciada esteja funcionando mesmo quando suas VMs (máquinas virtuais) subjacentes forem afetadas por interrupções planejadas ou não planejadas. Ele fornece taxas de percentual muito maiores do que o que é atingível ao hospedar Redis em uma única VM.
 
-O cache do Azure para Redis implementa alta disponibilidade usando várias VMs, chamadas de *nós* , para um cache. Ele configura esses nós de modo que a replicação de dados e o failover ocorram no modos coordenado. Ele também orquestra operações de manutenção, como a aplicação de patches de software Redis. Várias opções de alta disponibilidade estão disponíveis nas camadas Standard e Premium:
+O cache do Azure para Redis implementa alta disponibilidade usando várias VMs, chamadas de *nós* , para um cache. Ele configura esses nós de modo que a replicação de dados e o failover ocorram no modos coordenado. Ele também orquestra operações de manutenção, como a aplicação de patches de software Redis. Várias opções de alta disponibilidade estão disponíveis nas camadas Standard, Premium e Enterprise:
 
-| Opção | Descrição | Disponibilidade | Standard | Premium |
-| ------------------- | ------- | ------- | :------: | :---: |
-| [Replicação padrão](#standard-replication)| Configuração replicada de nó duplo em um único datacenter ou em uma zona de disponibilidade (AZ) com failover automático | 99,9% |✔|✔|
-| [Várias réplicas](#multiple-replicas) | Configuração replicada de vários nós em um ou mais AZs, com failover automático | 99,95% (com redundância de zona) |-|✔|
-| [Redundância de zona](#zone-redundancy) | Configuração replicada de vários nós em AZs, com failover automático | 99,95% (com várias réplicas) |-|✔|
-| [Replicação geográfica](#geo-replication) | Instâncias de cache vinculadas em duas regiões, com failover controlado pelo usuário | 99,9% (para uma única região) |-|✔|
+| Opção | Descrição | Disponibilidade | Standard | Premium | Enterprise |
+| ------------------- | ------- | ------- | :------: | :---: | :---: |
+| [Replicação padrão](#standard-replication)| Configuração replicada de nó duplo em um único datacenter ou em uma zona de disponibilidade (AZ) com failover automático | 99,9% |✔|✔|-|
+| [Cluster corporativo](#enterprise-cluster) | Instâncias de cache vinculadas em duas regiões, com failover automático | 99,9% |-|-|✔|
+| [Redundância de zona](#zone-redundancy) | Configuração replicada de vários nós em AZs, com failover automático | 99,95% (replicação padrão), 99,99% (cluster corporativo) |-|✔|✔|
+| [Replicação geográfica](#geo-replication) | Instâncias de cache vinculadas em duas regiões, com failover controlado pelo usuário | 99,9% (para uma única região) |-|✔|-|
 
 ## <a name="standard-replication"></a>Replicação padrão
 
@@ -41,14 +41,23 @@ Se o nó primário em um cache Redis estiver indisponível, a réplica se promov
 
 Um nó primário pode sair do serviço como parte de uma atividade de manutenção planejada, como Redis software ou atualização do sistema operacional. Ele também pode parar de funcionar devido a eventos não planejados, como falhas em hardware, software ou rede subjacentes. [Failover e aplicação de patch para o cache do Azure para Redis](cache-failover.md) fornece uma explicação detalhada sobre os tipos de failovers do Redis. Um cache do Azure para Redis passará por vários failovers durante seu tempo de vida. A arquitetura de alta disponibilidade foi projetada para tornar essas alterações dentro de um cache tão transparente para seus clientes quanto possível.
 
-## <a name="multiple-replicas"></a>Várias réplicas
+>[!NOTE]
+>O seguinte está disponível como uma visualização.
+>
+>
+
+Além disso, o cache do Azure para Redis permite nós de réplica adicionais na camada Premium. Um [cache de várias réplicas](cache-how-to-multi-replicas.md) pode ser configurado com até três nós de réplica. Ter mais réplicas geralmente melhora a resiliência devido aos nós adicionais que fazem backup do primário. Mesmo com mais réplicas, um cache do Azure para instância Redis ainda pode ser seriamente impactado por uma interrupção de Datacenter ou AZ-Wide. Você pode aumentar a disponibilidade do cache usando várias réplicas em conjunto com a [redundância de zona](#zone-redundancy).
+
+## <a name="enterprise-cluster"></a>Cluster corporativo
 
 >[!NOTE]
 >Isso está disponível como uma visualização.
 >
 >
 
-O cache do Azure para Redis permite nós de réplica adicionais na camada Premium. Um [cache de várias réplicas](cache-how-to-multi-replicas.md) pode ser configurado com até três nós de réplica. Ter mais réplicas geralmente melhora a resiliência devido aos nós adicionais que fazem backup do primário. Mesmo com mais réplicas, um cache do Azure para instância Redis ainda pode ser seriamente impactado por uma interrupção de Datacenter ou AZ-Wide. Você pode aumentar a disponibilidade do cache usando várias réplicas em conjunto com a [redundância de zona](#zone-redundancy).
+Um cache em uma camada corporativa é executado em um cluster do Redis Enterprise. Ele requer um número ímpar de nós de servidor em todos os momentos para formar um quorum. Por padrão, ele é composto por três nós, cada um hospedado em uma VM dedicada. Um cache corporativo tem dois *nós de dados* de mesmo tamanho e um *nó de quorum* menor. Um cache flash corporativo tem três nós de dados de tamanho igual. O cluster corporativo divide os dados do Redis em partições internamente. Cada partição tem um *primário* e pelo menos uma *réplica* . Cada nó de dados contém uma ou mais partições. O cluster corporativo garante que as réplicas e primárias de qualquer partição nunca sejam colocalizadas no mesmo nó de dados. As partições replicam dados de forma assíncrona de primárias para suas réplicas correspondentes.
+
+Quando um nó de dados fica indisponível ou ocorre uma divisão de rede, um failover semelhante ao descrito na [replicação padrão](#standard-replication) ocorre. O cluster corporativo usa um modelo baseado em quorum para determinar quais nós sobreviventes participarão de um novo quorum. Ele também promove partições de réplica dentro desses nós para os primários, conforme necessário.
 
 ## <a name="zone-redundancy"></a>Redundância de zona
 
@@ -57,7 +66,7 @@ O cache do Azure para Redis permite nós de réplica adicionais na camada Premiu
 >
 >
 
-O cache do Azure para Redis dá suporte a configurações com redundância de zona na camada Premium. Um [cache com redundância de zona](cache-how-to-zone-redundancy.md) pode colocar seus nós entre diferentes [zonas de disponibilidade do Azure](../availability-zones/az-overview.md) na mesma região. Ele elimina o datacenter ou AZ a interrupção como um ponto único de falha e aumenta a disponibilidade geral do cache.
+O cache do Azure para Redis dá suporte a configurações com redundância de zona nas camadas Premium e Enterprise. Um [cache com redundância de zona](cache-how-to-zone-redundancy.md) pode colocar seus nós entre diferentes [zonas de disponibilidade do Azure](../availability-zones/az-overview.md) na mesma região. Ele elimina o datacenter ou AZ a interrupção como um ponto único de falha e aumenta a disponibilidade geral do cache.
 
 O diagrama a seguir ilustra a configuração com redundância de zona:
 

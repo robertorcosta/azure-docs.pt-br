@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60499875"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075680"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de uso e exibição da API de Pesquisa do Bing
+
+> [!WARNING]
+> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
+> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Esses requisitos de uso e exibição se aplicam a qualquer implementação do conteúdo e informações associadas das seguintes APIs de Pesquisa do Bing, incluindo relações, metadados e outros sinais.
 
@@ -38,7 +43,7 @@ Esses requisitos de uso e exibição se aplicam a qualquer implementação do co
 |---------|---------|
 |Resposta     | Uma categoria de resultados retornados em uma resposta. Por exemplo, uma resposta da API de Pesquisa de Web do Bing pode incluir respostas nas categorias de resultados de página da Web, imagens, vídeo, visual e notícias. |
 |Resposta     | Quaisquer respostas e dados associados recebidos em resposta a uma única chamada a uma API de Pesquisa. |
-|Result    | Um item de informação em uma resposta. Por exemplo, o conjunto de dados conectados com um artigo de notícias único é um resultado em uma resposta de notícias. |
+|Resultado    | Um item de informação em uma resposta. Por exemplo, o conjunto de dados conectados com um artigo de notícias único é um resultado em uma resposta de notícias. |
 |APIs de pesquisa    | coletivamente, a Pesquisa Personalizada do Bing, a Pesquisa de Entidade, a Pesquisa de Imagem, a Pesquisa de Notícias, a Pesquisa de Vídeo, a Pesquisa Visual, a Pesquisa de Empresas Locais e as APIs de Pesquisa na Web. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Restrições da API de Verificação Ortográfica do Bing e API de Sugestão Automática do Bing
@@ -99,7 +104,7 @@ Não:
 ### <a name="notices-and-branding"></a>Notificações e identidade visual 
 Você deve
 
-- Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Rotule o hiperlink **política de privacidade da Microsoft**.
+- Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Rotule o hiperlink **política de privacidade da Microsoft** .
 
 - Exibir em proeminentemente a identidade visual do Bing, consistente com as [Diretrizes de Uso da Marca Registrada do Bing](https://go.microsoft.com/fwlink/?linkid=833278), perto de cada ponto de UX que oferece a capacidade de uma consulta de pesquisa de entrada a um usuário. Essa marca deve claramente indicar ao usuário que a Microsoft está incluindo a experiência de pesquisa da Internet.
 
