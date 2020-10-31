@@ -12,18 +12,24 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 4585538e552e73f8f7a4b7b105153a9d26eeb4c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d6a0388507d836050550a3a98255deabb826cde
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934082"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128311"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usar a entrada de áudio compactada por codec com o SDK de fala
 
 A API de **fluxo de entrada de áudio compactada** do SDK do serviço de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando um `PullStream` ou o `PushStream` .
 
-O áudio de entrada compactado de streaming tem suporte no momento para C#, C++, Java e Python no Windows (não há suporte para aplicativos UWP) e Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 7/8, CentOS 7/8). Também há suporte para Java no Android.
+Plataforma | Idiomas | Versão do GStreamer com suporte
+| :--- | ---: | :---:
+Windows (exceto UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
+Linux  | C++, C#, Java, Python | [distribuições e arquiteturas de destino do Linux com suporte](~/articles/cognitive-services/speech-service/speech-sdk.md)
+Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
+
+## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>Versão do SDK de fala necessária para entrada de áudio compactado
 * O Speech SDK versão 1.10.0 ou posterior é necessário para o RHEL 8 e o CentOS 8
 * O Speech SDK versão 1.11.0 ou posterior é necessário para o para Windows.
 

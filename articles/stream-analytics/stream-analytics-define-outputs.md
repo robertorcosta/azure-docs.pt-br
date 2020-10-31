@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: 95607b78ff80566b76b8e6aa20462957249015b4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fdd610be1dd7c5fe9c7aa574fde33df866116dd2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097644"
+ms.locfileid: "93128827"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas de Azure Stream Analytics
 
-Um trabalho do Azure Stream Analytics consiste em uma entrada, uma consulta e uma saída. Há vários tipos de saída para os quais você pode enviar dados transformados. Este artigo lista as saídas de Stream Analytics com suporte. Quando você criar sua consulta do Stream Analytics, consulte o nome de saída usando a [cláusula INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Você pode usar uma única saída por trabalho ou várias saídas por trabalho de streaming (se precisar delas) adicionando várias cláusulas INTO à consulta.
+Um trabalho do Azure Stream Analytics consiste em uma entrada, uma consulta e uma saída. Há vários tipos de saída para os quais você pode enviar dados transformados. Este artigo lista as saídas de Stream Analytics com suporte. Quando você criar sua consulta do Stream Analytics, consulte o nome de saída usando a [cláusula INTO](/stream-analytics-query/into-azure-stream-analytics). Você pode usar uma única saída por trabalho ou várias saídas por trabalho de streaming (se precisar delas) adicionando várias cláusulas INTO à consulta.
 
-Para criar, editar e testar as saídas de trabalho do Stream Analytics, você pode usar o [Porta do Azure](stream-analytics-quick-create-portal.md#configure-job-output), o [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), o [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), o [REST API](https://docs.microsoft.com/rest/api/streamanalytics/) e o [Visual Studio](stream-analytics-quick-create-vs.md).
+Para criar, editar e testar as saídas de trabalho do Stream Analytics, você pode usar o [Porta do Azure](stream-analytics-quick-create-portal.md#configure-job-output), o [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), o [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), o [REST API](/rest/api/streamanalytics/) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [tamanhos de lote de saída](#output-batch-size) variam para otimizar a taxa de transferência. A tabela a seguir mostra os recursos que têm suporte para cada tipo de saída:
 
@@ -41,7 +41,7 @@ Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [ta
 
 Stream Analytics dá suporte a partições para todas as saídas, exceto para Power BI. Para obter mais informações sobre chaves de partição e o número de gravadores de saída, consulte o artigo para o tipo de saída específico em que você está interessado. Todos os artigos de saída são vinculados na seção anterior.  
 
-Além disso, para um ajuste mais avançado das partições, o número de gravadores de saída pode ser controlado usando uma `INTO <partition count>` cláusula (consulte [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) em sua consulta, o que pode ser útil para atingir uma topologia de trabalho desejada. Se o adaptador de saída não estiver particionado, a falta de dados em uma partição de entrada causará um atraso até o período de chegada atrasado. Nesses casos, a saída é mesclada em um único gravador, o que pode causar gargalos no pipeline. Para saber mais sobre a política de chegada tardia, consulte [Considerações sobre a ordem de evento do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Além disso, para um ajuste mais avançado das partições, o número de gravadores de saída pode ser controlado usando uma `INTO <partition count>` cláusula (consulte [into](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) em sua consulta, o que pode ser útil para atingir uma topologia de trabalho desejada. Se o adaptador de saída não estiver particionado, a falta de dados em uma partição de entrada causará um atraso até o período de chegada atrasado. Nesses casos, a saída é mesclada em um único gravador, o que pode causar gargalos no pipeline. Para saber mais sobre a política de chegada tardia, consulte [Considerações sobre a ordem de evento do Azure Stream Analytics](./stream-analytics-time-handling.md).
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
@@ -91,5 +91,5 @@ Essas propriedades da janela de envio em lote são suportadas apenas pela versã
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: b927e90c60110d6922649b75b6549528a2a9a40f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283549"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129109"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Como gerar um URI de SAS para uma imagem de VM
 
@@ -34,12 +34,12 @@ Há duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Usando a ferramenta 1: Gerenciador de Armazenamento do Azure
 
-1. Vá para sua **conta de armazenamento**.
-1. Abra **Gerenciador de armazenamento**.
+1. Vá para sua **conta de armazenamento** .
+1. Abra **Gerenciador de armazenamento** .
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Janela da conta de armazenamento.":::
 
-3. No **contêiner**, clique com o botão direito do mouse no arquivo VHD e selecione **obter assinatura de acesso de compartilhamento**.
+3. No **contêiner** , clique com o botão direito do mouse no arquivo VHD e selecione **obter assinatura de acesso de compartilhamento** .
 4. Na caixa de diálogo **assinatura de acesso compartilhado** , preencha os seguintes campos:
 
     1. Hora de início – Data de início de permissão para acesso ao VHD. Forneça uma data que é um dia antes da data atual.
@@ -49,7 +49,7 @@ Há duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
     ![Caixa de diálogo assinatura de acesso compartilhado.](media/vm/create-sas-uri-storage-explorer.png)
 
-5. Para criar o URI de SAS associado a este VHD, selecione **Criar**.
+5. Para criar o URI de SAS associado a este VHD, selecione **Criar** .
 6. Copie o URI e salve-o em um arquivo de texto em um local seguro. Esse URI de SAS é gerado para o acesso de nível de contêiner. Para torná-lo específico, edite o arquivo de texto para adicionar o nome do VHD.
 7. Insira seu nome de VHD após a cadeia de caracteres vhds no URI de SAS (incluir uma barra /). O URI de SAS final deve ficar assim:
 
@@ -59,7 +59,7 @@ Há duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
 ### <a name="using-tool-2-azure-cli"></a>Usando a ferramenta 2: CLI do Azure
 
-1. Baixe e instale o [Microsoft Azure CL](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)I. As versões estão disponíveis Windows. macOS e várias distribuições do Linux.
+1. Baixe e instale o [Microsoft Azure CL](/cli/azure/install-azure-cli)I. As versões estão disponíveis Windows. macOS e várias distribuições do Linux.
 2. Crie um arquivo PowerShell (extensão de arquivo .ps1), copie o código a seguir e salve-o localmente.
 
     ```JSON
@@ -81,8 +81,8 @@ Há duas ferramentas comuns usadas para criar um endereço SAS (URL):
 1. Salve as alterações.
 2. Usando um dos seguintes métodos, execute este script com privilégios administrativos para criar uma Cadeia de caracteres de conexão SAS para acesso do nível de contêiner:
 
-    - Execute o script a partir do console. No Windows, clique com o botão direito do mouse no script e selecione **Executar como administrador**.
-    - Execute o script em um editor de script do PowerShell, como [ISE do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Esta tela mostra a criação de uma cadeia de conexão de SAS dentro neste editor:
+    - Execute o script a partir do console. No Windows, clique com o botão direito do mouse no script e selecione **Executar como administrador** .
+    - Execute o script em um editor de script do PowerShell, como [ISE do Windows PowerShell](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Esta tela mostra a criação de uma cadeia de conexão de SAS dentro neste editor:
 
     [![criação de uma cadeia de conexão SAS no editor do PowerShell](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

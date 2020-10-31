@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/27/2020
-ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/30/2020
+ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484586"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128956"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar seu banco de dados MySQL para o Banco de Dados do Azure para MySQL usando despejo e restauração
 
@@ -20,6 +20,8 @@ ms.locfileid: "92484586"
 Este artigo descreve duas maneiras comuns de fazer backup e restaurar bancos de dados no seu Banco de dados do Azure para MySQL
 - Despejo e restauração da linha de comando (usando mysqldump)
 - Despejo e restauração usando o PHPMyAdmin
+
+Você também pode consultar o [Guia de migração de banco de dados](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) para obter informações detalhadas e casos de uso sobre como migrar bancos de dados para o banco de dados do Azure para MySQL. Este guia fornece diretrizes que levarão o planejamento e a execução bem-sucedidos de uma migração do MySQL para o Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para acompanhar este guia de instruções, você precisa do seguinte:
@@ -149,10 +151,10 @@ Siga estas etapas para despejar e restaurar um banco de dados usando o PHPMyadmi
 Para exportar, você pode usar a ferramenta phpMyAdmin que você pode já ter instalado localmente em seu ambiente. Para exportar o banco de dados MySQL usando PHPMyAdmin:
 1. Abra o phpMyAdmin.
 2. Selecione o banco de dados. Clique no nome do banco de dados na lista à esquerda.
-3. Clique no link **Exportar**. Aparece uma nova página para exibir o despejo do banco de dados.
+3. Clique no link **Exportar** . Aparece uma nova página para exibir o despejo do banco de dados.
 4. Na área de Exportação, clique no link **Selecionar Tudo** para selecionar as tabelas no banco de dados.
 5. Na área de opções do SQL, clique nas opções apropriadas.
-6. Clique na opção **Salvar como arquivo** e na opção de compactação correspondente e, em seguida, clique no botão **Ir**. Uma caixa de diálogo deve aparecer solicitando que você salve o arquivo localmente.
+6. Clique na opção **Salvar como arquivo** e na opção de compactação correspondente e, em seguida, clique no botão **Ir** . Uma caixa de diálogo deve aparecer solicitando que você salve o arquivo localmente.
 
 ### <a name="import-using-phpmyadmin"></a>Importar usando PHPMyAdmin
 Importar o banco de dados é semelhante à exportação. As seguintes ações ocorrem:
@@ -168,5 +170,5 @@ Para problemas conhecidos, dicas e truques, recomendamos consultar nosso [blog t
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Conectar aplicativos ao Banco de Dados do Azure para MySQL](./howto-connection-string.md).
-- Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para MySQL, confira o [Guia de Migração de Banco de Dados](https://aka.ms/datamigration).
+- Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para MySQL, confira o [Guia de Migração de Banco de Dados](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
 - Se você estiver procurando migrar grandes bancos de dados com tamanhos de banco de dados mais de 1 TBs, convém considerar o uso de ferramentas da Comunidade como **mydumpr/myuploader** , que dá suporte à importação e exportação paralelas. Saiba [como migrar grandes bancos de dados MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

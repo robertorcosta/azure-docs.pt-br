@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 577ec9e01310787dacb45a03e1efae128cbab872
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078213"
+ms.locfileid: "93128872"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorando o Hub IoT do Azure
 
@@ -23,7 +23,9 @@ A página de **visão geral** no portal do Azure para cada Hub IOT inclui gráfi
 
 :::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Gráficos de métrica padrão na página de visão geral do Hub IoT.":::
 
-Essas informações são úteis, mas representam apenas uma pequena quantidade de dados de monitoramento que estão disponíveis para um hub IoT. Alguns dados de monitoramento são coletados automaticamente e ficam disponíveis para análise assim que você cria o Hub IoT. Você pode habilitar tipos adicionais de coleta de dados com algumas configurações.
+Lembre-se de que o valor da contagem de mensagens pode ser atrasado em 1 minuto e isso, por motivos que têm a ver com a infraestrutura de serviço do Hub IoT, às vezes, o valor pode saltar entre valores mais altos e mais baixos na atualização. Esse contador só deve estar incorreto para valores acumulados no último minuto.
+
+As informações apresentadas no painel Visão geral são úteis, mas representam apenas uma pequena quantidade de dados de monitoramento que estão disponíveis para um hub IoT. Alguns dados de monitoramento são coletados automaticamente e ficam disponíveis para análise assim que você cria o Hub IoT. Você pode habilitar tipos adicionais de coleta de dados com algumas configurações.
 
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
 

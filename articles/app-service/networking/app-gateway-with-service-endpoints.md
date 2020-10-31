@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746199"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127817"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração do gateway de aplicativo com pontos de extremidade de serviço
 Há três variações do serviço de aplicativo que exigem uma configuração um pouco diferente da integração com Aplicativo Azure gateway. As variações incluem o serviço de aplicativo regular, também conhecido como ILB (multilocatário, Load Balancer interno) Ambiente do Serviço de Aplicativo (ASE) e ASE externo. Este artigo explicará como configurá-lo com o serviço de aplicativo (multilocatário) e discutirá considerações sobre o ILB e o ASE externo.
@@ -27,7 +27,7 @@ Há três variações do serviço de aplicativo que exigem uma configuração um
 ## <a name="integration-with-app-service-multi-tenant"></a>Integração com o serviço de aplicativo (multilocatário)
 O serviço de aplicativo (multilocatário) tem um ponto de extremidade público voltado para a Internet. Usando [pontos de extremidade de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md) , você pode permitir o tráfego somente de uma sub-rede específica dentro de uma rede virtual do Azure e bloquear todo o resto. No cenário a seguir, usaremos essa funcionalidade para garantir que uma instância do serviço de aplicativo só possa receber tráfego de uma instância específica do gateway de aplicativo.
 
-![Integração do gateway de aplicativo com o serviço de aplicativo](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+![O diagrama mostra o fluxo de Internet para um gateway de aplicativo em uma rede virtual do Azure e fluindo a partir daí por meio de um ícone de firewall para instâncias de aplicativos no serviço de aplicativo.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
 
 Há duas partes nessa configuração além da criação do serviço de aplicativo e do gateway de aplicativo. A primeira parte é habilitar os pontos de extremidade de serviço na sub-rede da rede virtual em que o gateway de aplicativo está implantado. Os pontos de extremidade de serviço garantirão que todo o tráfego de rede que sai da sub-rede para o serviço de aplicativo será marcado com a ID de sub-rede específica. A segunda parte é definir uma restrição de acesso do aplicativo Web específico para garantir que apenas o tráfego marcado com essa ID de sub-rede específica seja permitido. Você pode configurá-lo usando ferramentas diferentes, dependendo da preferência.
 
@@ -40,7 +40,7 @@ Com portal do Azure, siga quatro etapas para provisionar e configurar a instala�
 
 Agora você pode acessar o serviço de aplicativo por meio do gateway de aplicativo, mas se tentar acessar o serviço de aplicativo diretamente, você deverá receber um erro HTTP 403 indicando que o site está parado.
 
-![Integração do gateway de aplicativo com o serviço de aplicativo](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Captura de tela mostra o texto de um erro 403-este aplicativo Web é interrompido.](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
 O [modelo de implantação do Gerenciador de recursos][template-app-gateway-app-service-complete] provisionará um cenário completo. O cenário consiste em uma instância do serviço de aplicativo bloqueada com pontos de extremidade de serviço e restrição de acesso para receber somente o tráfego do gateway de aplicativo. O modelo inclui muitos padrões inteligentes e decorreções exclusivas adicionadas aos nomes de recursos para que seja simples. Para substituí-los, você precisará clonar o repositório ou baixar o modelo e editá-lo. 

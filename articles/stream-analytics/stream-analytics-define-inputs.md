@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042452"
+ms.locfileid: "93127562"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -38,7 +38,7 @@ Você pode usar o [Portal do Azure](stream-analytics-quick-create-portal.md), o 
 
 Os hubs de eventos do Azure fornecem investidores de eventos de publicação/assinatura altamente escalonáveis. Um Hub de Eventos pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Juntos, os Hubs de Eventos e o Stream Analytics fornecem uma solução de ponta a ponta para análise em tempo real. Os Hubs de Eventos permitem que você envie eventos para o Azure em tempo real, e os trabalhos do Stream Analytics podem processá-los em tempo real. Por exemplo, você pode enviar cliques da Web, leituras do sensor ou eventos de log online para Hubs de Eventos. Em seguida, você pode criar trabalhos do Stream Analytics para usar Hubs de Eventos como os fluxos de dados de entrada para filtragem, agregação e correlação em tempo real.
 
-`EventEnqueuedUtcTime` é o carimbo de data/hora da chegada de um evento em um hub de eventos e é o carimbo de data/hora padrão de eventos provenientes dos Hubs de Eventos para o Stream Analytics. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics).
+`EventEnqueuedUtcTime` é o carimbo de data/hora da chegada de um evento em um hub de eventos e é o carimbo de data/hora padrão de eventos provenientes dos Hubs de Eventos para o Stream Analytics. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics).
 
 ### <a name="event-hubs-consumer-groups"></a>Grupo de consumidores de Hubs de Eventos
 
@@ -56,7 +56,7 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 | **Nome do Hub de Eventos** | O nome do Hub de Eventos para usar como entrada. |
 | **Nome da política do Hub de Eventos** | A política de acesso compartilhado que fornece acesso ao Hub de Eventos. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. Essa opção é preenchida automaticamente, a menos que você selecione a opção de fornecer as configurações do Hub de Eventos manualmente.|
 | **Grupo de consumidores de Hub de Eventos** (recomendado) | É altamente recomendável usar um grupo de consumidores distinto para cada trabalho do Stream Analytics. Esta cadeia de caracteres identifica o grupo de consumidores a ser usado para ingerir dados do hub de eventos. Se nenhum grupo de consumidores for especificado, o trabalho do Stream Analytics usará o grupo de consumidores $Default.  |
-| **Chave de partição** | Este é um campo opcional disponível somente se o trabalho estiver configurado para usar o [nível de compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 ou superior. Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade aqui. Isso é usado para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. Se esse trabalho usa o nível de compatibilidade 1,2 ou superior, esse campo assume como padrão "PartitionID". |
+| **Chave de partição** | Este é um campo opcional disponível somente se o trabalho estiver configurado para usar o [nível de compatibilidade](./stream-analytics-compatibility-level.md) 1,2 ou superior. Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade aqui. Isso é usado para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. Se esse trabalho usa o nível de compatibilidade 1,2 ou superior, esse campo assume como padrão "PartitionID". |
 | **Formato de serialização do evento** | O formato de serialização (JSON, CSV, Avro ou [outros (Protobuf, XML, proprietário...)](custom-deserializer.md)) do fluxo de dados de entrada.  Verifique se o formato JSON está alinhado com a especificação e não inclui um 0 à esquerda para números decimais. |
 | **Codificação** | UTF-8 é o único formato de codificação com suporte no momento. |
 | **Tipo de compactação do evento** | O tipo de compactação usado para ler o fluxo de dados de entrada, como None (padrão), GZip ou Deflate. |
@@ -80,14 +80,14 @@ FROM Input
 ```
 
 > [!NOTE]
-> Ao usar o Hub de Eventos como um ponto de extremidade das Rotas do Hub IoT, é possível acessar os metadados do Hub IoT usando a [função GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue).
+> Ao usar o Hub de Eventos como um ponto de extremidade das Rotas do Hub IoT, é possível acessar os metadados do Hub IoT usando a [função GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Transmitir dados do Hub IoT
 
 O Hub IoT do Azure é um ingestor de eventos altamente escalonável de publicação/assinatura e otimizado para cenários de IoT.
 
-O carimbo de data/hora padrão de eventos provenientes de um Hub IoT no Stream Analytics é o carimbo de data/hora de que o evento foi recebido no Hub IoT, que é `EventEnqueuedUtcTime`. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics).
+O carimbo de data/hora padrão de eventos provenientes de um Hub IoT no Stream Analytics é o carimbo de data/hora de que o evento foi recebido no Hub IoT, que é `EventEnqueuedUtcTime`. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics).
 
 ### <a name="iot-hub-consumer-groups"></a>Grupo de consumidores do Hub IoT
 
@@ -106,7 +106,7 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 | **Nome da política de acesso compartilhado** | A política de acesso compartilhado que fornece acesso ao Hub IoT. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. |
 | **Chave da política de acesso compartilhado** | A chave de acesso compartilhado usada para autorizar o acesso ao Hub IoT.  Essa opção é preenchida automaticamente, a menos que você selecione a opção de fornecer as configurações do Hub IoT manualmente. |
 | **Grupo de consumidores** | É altamente recomendável usar um grupo de consumidores distinto para cada trabalho do Stream Analytics. O grupo de consumidores é usado para ingerir dados do Hub IoT. O Stream Analytics usa o grupo de consumidores $Default, a menos que você especifique o contrário.  |
-| **Chave de partição** | Este é um campo opcional disponível somente se o trabalho estiver configurado para usar o [nível de compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 ou superior. Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade aqui. Isso é usado para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. Se esse trabalho usa o nível de compatibilidade 1,2 ou superior, esse campo assume como padrão "PartitionID". |
+| **Chave de partição** | Este é um campo opcional disponível somente se o trabalho estiver configurado para usar o [nível de compatibilidade](./stream-analytics-compatibility-level.md) 1,2 ou superior. Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade aqui. Isso é usado para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. Se esse trabalho usa o nível de compatibilidade 1,2 ou superior, esse campo assume como padrão "PartitionID". |
 | **Formato de serialização do evento** | O formato de serialização (JSON, CSV, Avro ou [outros (Protobuf, XML, proprietário...)](custom-deserializer.md)) do fluxo de dados de entrada.  Verifique se o formato JSON está alinhado com a especificação e não inclui um 0 à esquerda para números decimais. |
 | **Codificação** | UTF-8 é o único formato de codificação com suporte no momento. |
 | **Tipo de compactação do evento** | O tipo de compactação usado para ler o fluxo de dados de entrada, como None (padrão), GZip ou Deflate. |
@@ -137,7 +137,7 @@ Se um blob for carregado em um contêiner da conta de armazenamento às 13:00 e 
 
 Se um trabalho do Azure Stream Analytics for iniciado usando *Agora* às 13:00 e um blob for carregado para o contêiner da conta de armazenamento às 13:01, o Azure Stream Analytics selecionará o blob. O carimbo de data/hora atribuído a cada blob é baseado apenas no `BlobLastModifiedTime`. A pasta em que o blob está não tem nenhuma relação com o carimbo de data/hora atribuído. Por exemplo, se houver um blob *2019/10-01/00/b1. txt* com um `BlobLastModifiedTime` de 2019-11-11, o carimbo de data/hora atribuído a esse blob será 2019-11-11.
 
-Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Um trabalho Stream Analytics efetua pull de dados do armazenamento de BLOBs do Azure ou ADLS Gen2 entrada a cada segundo se o arquivo de blob estiver disponível. Se o arquivo de blob não estiver disponível, não há uma retirada exponencial com um atraso de tempo máximo de 90 segundos.
+Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](/stream-analytics-query/stream-analytics-query-language-reference). Um trabalho Stream Analytics efetua pull de dados do armazenamento de BLOBs do Azure ou ADLS Gen2 entrada a cada segundo se o arquivo de blob estiver disponível. Se o arquivo de blob não estiver disponível, não há uma retirada exponencial com um atraso de tempo máximo de 90 segundos.
 
 As entradas formatadas em CSV exigem uma linha de cabeçalho para definir os campos do conjunto de dados, e todos os campos de linha de cabeçalho devem ser exclusivos.
 
@@ -157,10 +157,10 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 | **Conta de armazenamento** | O nome da conta de armazenamento em que estão localizados os arquivos de blob. |
 | **Chave de conta de armazenamento** | A chave secreta associada à conta de armazenamento. Essa opção é preenchida automaticamente no, a menos que você selecione a opção para fornecer as configurações manualmente. |
 | **Contêiner** | Os contêineres fornecem um agrupamento lógico para BLOBs. Você pode escolher **Usar contêiner existente** ou **Criar novo** para ter um novo contêiner criado.|
-| **Padrão do caminho** (opcional) | O caminho do arquivo usado para localizar os blobs no contêiner especificado. Se você quiser ler os blobs da raiz do contêiner, não defina um padrão de caminho. No caminho, você pode optar por especificar uma ou mais instâncias das três variáveis a seguir: `{date}`, `{time}` ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O caractere `*` não é um valor permitido para o prefixo de caminho. Apenas <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de blobs do Azure</a> válidos são permitidos. Não inclua nomes de contêiner ou de arquivo. |
+| **Padrão do caminho** (opcional) | O caminho do arquivo usado para localizar os blobs no contêiner especificado. Se você quiser ler os blobs da raiz do contêiner, não defina um padrão de caminho. No caminho, você pode optar por especificar uma ou mais instâncias das três variáveis a seguir: `{date}`, `{time}` ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O caractere `*` não é um valor permitido para o prefixo de caminho. Apenas <a HREF="/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">caracteres de blobs do Azure</a> válidos são permitidos. Não inclua nomes de contêiner ou de arquivo. |
 | **Formato de data** (opcional) | Se você usar a variável de data no caminho, o formato de data no qual os arquivos são organizados. Exemplo: `YYYY/MM/DD` <br/><br/> Quando a entrada do blob tem `{date}` ou `{time}` no caminho, as pastas são examinadas em ordem de tempo crescente.|
 | **Formato de hora** (opcional) |  Se você usar a variável de data no caminho, o formato de data no qual os arquivos são organizados. Atualmente, o único valor com suporte é `HH` para horas. |
-| **Chave de partição** | Este é um campo opcional disponível somente se o trabalho estiver configurado para usar o [nível de compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 ou superior. Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade aqui. Isso é usado para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. Se esse trabalho usa o nível de compatibilidade 1,2 ou superior, esse campo assume como padrão "PartitionID". |
+| **Chave de partição** | Este é um campo opcional disponível somente se o trabalho estiver configurado para usar o [nível de compatibilidade](./stream-analytics-compatibility-level.md) 1,2 ou superior. Se a entrada for particionada por uma propriedade, você poderá adicionar o nome dessa propriedade aqui. Isso é usado para melhorar o desempenho da consulta se ela incluir uma cláusula PARTITION BY ou GROUP BY nessa propriedade. Se esse trabalho usa o nível de compatibilidade 1,2 ou superior, esse campo assume como padrão "PartitionID". |
 | **Contagem de partições de entrada** | Este campo está presente somente quando {Partition} está presente no padrão de caminho. O valor dessa propriedade é um inteiro >= 1. Sempre que {Partition} aparecer em pathPattern, um número entre 0 e o valor desse campo-1 será usado. |
 | **Formato de serialização do evento** | O formato de serialização (JSON, CSV, Avro ou [outros (Protobuf, XML, proprietário...)](custom-deserializer.md)) do fluxo de dados de entrada.  Verifique se o formato JSON está alinhado com a especificação e não inclui um 0 à esquerda para números decimais. |
 | **Codificação** | Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
@@ -194,5 +194,5 @@ FROM Input
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

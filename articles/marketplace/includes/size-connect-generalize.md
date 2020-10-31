@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283555"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129262"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
@@ -20,7 +20,7 @@ Todas as imagens do Azure Marketplace devem ser reutilizáveis de uma forma gen�
 
 ### <a name="for-windows"></a>Para Windows
 
-Os discos do sistema operacional Windows são generalizados com a ferramenta [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) . Se, mais tarde, você atualizar ou reconfigurar o sistema operacional, deverá executar novamente o Sysprep.
+Os discos do sistema operacional Windows são generalizados com a ferramenta [Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) . Se, mais tarde, você atualizar ou reconfigurar o sistema operacional, deverá executar novamente o Sysprep.
 
 > [!WARNING]
 > Depois de executar o Sysprep, desligue a VM até que ela seja implantada, pois as atualizações podem ser executadas automaticamente. Esse desligamento evitará atualizações subsequentes de alterações específicas da instância no sistema operacional ou serviços instalados. Para obter mais informações sobre como executar o sysprep, confira [Etapas para generalizar um VHD](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
@@ -41,13 +41,13 @@ O processo a seguir generalizará uma VM do Linux e a reimplantará como uma VM 
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Tirar um instantâneo do disco da VM
 
 1. Entre no [portal do Azure](https://ms.portal.azure.com/).
-2. Começando no canto superior esquerdo, selecione **criar um recurso**, em seguida, pesquise e selecione **instantâneo**.
-3. Na folha instantâneo, selecione  **criar**.
+2. Começando no canto superior esquerdo, selecione **criar um recurso** , em seguida, pesquise e selecione **instantâneo** .
+3. Na folha instantâneo, selecione  **criar** .
 4. Insira um **Nome** para o instantâneo.
 5. Selecione um grupo de recursos existente ou insira o nome de um novo.
-6. Para **Disco de origem**, selecione o disco gerenciado para instantâneo.
-7. Escolha o **Tipo de conta** a ser usado para armazenar o instantâneo. Use **HD Standard**, a menos que você precise dele armazenado em um SSD de alto desempenho.
-8. Selecione **Criar**.
+6. Para **Disco de origem** , selecione o disco gerenciado para instantâneo.
+7. Escolha o **Tipo de conta** a ser usado para armazenar o instantâneo. Use **HD Standard** , a menos que você precise dele armazenado em um SSD de alto desempenho.
+8. Selecione **Criar** .
 
 #### <a name="extract-the-vhd"></a>Extrair o VHD
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e90c023fa74711246c2e6e69eb576695e86a457
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250140"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128497"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
 
@@ -33,15 +33,15 @@ Você pode adicionar APIs sem servidor a aplicativos Web Estáticos do Azure por
 As etapas a seguir demonstram como criar um novo repositório e clonar os arquivos para o computador.
 
 1. Verifique se você está conectado ao GitHub e, em seguida, navegue até https://github.com/staticwebdev/vanilla-basic/generate para criar um novo repositório.
-1. Na caixa _Nome do repositório_, insira **my-vanilla-api**.
-1. Clique em **Criar repositório do modelo**.
+1. Na caixa _Nome do repositório_ , insira **my-vanilla-api** .
+1. Clique em **Criar repositório do modelo** .
 
    :::image type="content" source="media/add-api/create-repository.png" alt-text="Criar um novo repositório do vanilla-basic":::
 
 Depois que o projeto for criado, copie a URL no navegador para o novo repositório. Use essa URL no Visual Studio Code para clonar o repositório git.
 
 1. Pressione **F1** para abrir o comando da Paleta de Comandos.
-1. Cole a URL no arquivo no _Git: Clone_ o prompt e pressione **Enter**.
+1. Cole a URL no arquivo no _Git: Clone_ o prompt e pressione **Enter** .
 
    :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Criar um novo repositório do vanilla-basic":::
 
@@ -51,7 +51,7 @@ Depois que o projeto for criado, copie a URL no navegador para o novo repositór
 
 Em seguida, você cria um projeto Azure Functions como a API do aplicativo. 
 
-1. Dentro do projeto _my-vanilla-api_, crie uma subpasta chamada **api**.
+1. Dentro do projeto _my-vanilla-api_ , crie uma subpasta chamada **api** .
 1. Pressione **F1** para abrir a Paleta de Comandos
 1. Digite **Azure Functions: Crie um Novo Projeto...**
 1. Pressione **Enter**
@@ -63,10 +63,10 @@ Em seguida, você cria um projeto Azure Functions como a API do aplicativo.
 
 1. Forneça as seguintes informações nos prompts:
 
-    - _Selecione um idioma_: escolha **JavaScript**
-    - _Selecione um modelo para a primeira função do projeto_: Escolha o **gatilho HTTP**
-    - _Forneça um nome de função_: digite **GetMessage**
-    - _Nível de autorização_: Escolha **Anônimo**, que permite que qualquer pessoa chame seu ponto de extremidade de função.
+    - _Selecione um idioma_ : escolha **JavaScript**
+    - _Selecione um modelo para a primeira função do projeto_ : Escolha o **gatilho HTTP**
+    - _Forneça um nome de função_ : digite **GetMessage**
+    - _Nível de autorização_ : Escolha **Anônimo** , que permite que qualquer pessoa chame seu ponto de extremidade de função.
         - Para saber mais sobre os níveis de autorização, consulte [Chaves de autorização](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 Visual Studio Code gera um projeto de Azure Functions com uma função disparada por HTTP.
@@ -195,7 +195,7 @@ Quando implantado no Azure, as solicitações para a API são automaticamente ro
 
 1. Pressione **F5** para iniciar o projeto de API.
 
-1. Pressione **F1** e escolha **Live Server: Abrir com Live Server**.
+1. Pressione **F1** e escolha **Live Server: Abrir com Live Server** .
 
     Agora você deve ver a mensagem da API na página da Web.
 
@@ -226,9 +226,9 @@ Ao usar o Visual Studio Code, confirme e envie por push suas alterações para o
 
 Em seguida, adicione as configurações específicas do aplicativo.
 
-1. Selecione sua _Assinatura do Azure_.
+1. Selecione sua _Assinatura do Azure_ .
 1. Selecione ou crie um novo _Grupo de Recursos_
-1. Nomeie o aplicativo **my-baunilha-api**.
+1. Nomeie o aplicativo **my-baunilha-api** .
 1. Selecione a _Região_ mais próxima de você
 1. Selecione o **SKU** _gratuito_
 1. Clique no botão **Entrar com o GitHub** e autentique-se com o GitHub.
@@ -239,10 +239,10 @@ Em seguida, adicione as configurações específicas do aplicativo.
 
 Em seguida, adicione os seguintes detalhes de build.
 
-1. Insira **/** para o _local do aplicativo_.
-1. Insira a **API** na caixa da _localização de API_.
-1. Limpe o valor padrão fora do _Local do artefato de aplicativo_, deixando a caixa vazia.
-1. Clique em **Revisar + Criar**.
+1. Insira **/** para o _local do aplicativo_ .
+1. Insira a **API** na caixa da _localização de API_ .
+1. Limpe o valor padrão fora do _Local do artefato de aplicativo_ , deixando a caixa vazia.
+1. Clique em **Revisar + Criar** .
 1. Clique no botão **Criar**
 
     Depois de clicar no botão _criar_ , o Azure faz duas coisas. Primeiro, os serviços de nuvem subjacentes são criados para dar suporte ao aplicativo. Em seguida, um processo em segundo plano começa a compilar e implantar o aplicativo.
@@ -265,10 +265,10 @@ Se você não quiser manter esse aplicativo para uso adicional, poderá usar as 
 1. Na barra de pesquisa superior, digite **Grupos de recursos**
 1. Clique em **Grupos de recursos**
 1. Selecione **myResourceGroup**
-1. Na página _myResourceGroup_, certifique-se de que os recursos listados são aqueles que deseja excluir.
+1. Na página _myResourceGroup_ , certifique-se de que os recursos listados são aqueles que deseja excluir.
 1. Selecione **Excluir**
 1. Digite **myResourceGroup** na caixa de entrada
-1. Selecione **Excluir**.
+1. Selecione **Excluir** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
