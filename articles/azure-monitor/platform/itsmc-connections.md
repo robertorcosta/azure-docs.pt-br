@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 69c8f9f01241100a81ddd1707dbd226e6bf56c2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677134"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089008"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](./itsmc-overview.md).
@@ -36,7 +36,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto System Ce
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
-- ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - O aplicativo Web do Service Manager (aplicativo da Web) é implantado e configurado. Veja informações sobre o aplicativo Web [aqui](#create-and-deploy-service-manager-web-app-service).
 - Conexão híbrida criada e configurada. Mais informações: [Configurar a conexão híbrida](#configure-the-hybrid-connection).
 - Versões do Service Manager com suporte:  2012 R2 ou 2016.
@@ -184,7 +184,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto ServiceNo
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Verifique se os seguintes pré-requisitos foram atendidos:
-- ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - Versões com suporte do ServiceNow: Orlando, Nova York, Madri, Londres, Kingston, Jacarta, Istambul, Helsinque, Geneva.
 > [!NOTE]
 > O ITSMC dá suporte apenas à oferta de SaaS oficial do Service Now. Não há suporte para implantações particulares do Service Now. 
@@ -316,7 +316,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto Provance 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
 
-- ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - Provance aplicativo deve ser registrado com o Azure AD - ID do cliente é disponibilizada. Para obter informações detalhadas, consulte [como configurar a autenticação do active directory](../../app-service/configure-authentication-provider-aad.md).
 
 - Função de usuário:  Administrador.
@@ -373,7 +373,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto Cherwell 
 
 Verifique se os seguintes pré-requisitos foram atendidos:
 
-- ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - ID do Cliente gerada. Mais informações: [Gerar a ID do Cliente do Cherwell](#generate-client-id-for-cherwell).
 - Função de usuário:  Administrador.
 

@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
-ms.openlocfilehash: 662b85bb2b928cbbcfb1b88adecb2c125c9ae5df
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d25e168e342e22af9dc41d31dd7e18530aaa22b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486609"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090504"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conecte-se à API do Cassandra do Azure Cosmos DB usando o Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo está entre uma série de artigos sobre a integração da API do Cassandra do Azure Cosmos DB usando o Spark. Os artigos abordam conectividade, operações de DDL (linguagem de definição de dados), operações de DML (linguagem de manipulação de dados) e integração avançada da API do Cassandra do Azure Cosmos DB usando o Spark. 
 

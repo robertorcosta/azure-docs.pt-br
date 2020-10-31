@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566611"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088566"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usar identidades gerenciadas atribuídas pelo sistema para acessar dados de Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Neste artigo, você vai configurar uma solução *robusta de rotação de chave independente* para acessar chaves de Azure Cosmos DB usando [identidades gerenciadas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). O exemplo neste artigo usa Azure Functions, mas você pode usar qualquer serviço que ofereça suporte a identidades gerenciadas. 
 
@@ -29,11 +30,11 @@ Nesta etapa, você atribuirá uma identidade gerenciada atribuída pelo sistema 
 
 1. No [portal do Azure](https://portal.azure.com/), abra o painel de **funções do Azure** e vá para seu aplicativo de funções. 
 
-1. Abra a **Platform features**  >  guia**identidade** de recursos da plataforma: 
+1. Abra a **Platform features**  >  guia **identidade** de recursos da plataforma: 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
-1. Na guia **identidade** , ative o **status** **de identidade** do sistema e selecione **salvar**. O painel **identidade** deve ter a seguinte aparência:  
+1. Na guia **identidade** , ative o **status** **de identidade** do sistema e selecione **salvar** . O painel **identidade** deve ter a seguinte aparência:  
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
@@ -60,19 +61,19 @@ Nesse cenário, o aplicativo de funções lerá a temperatura do aquário e, em 
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
-1. Selecione **+Adicionar** > **Adicionar atribuição de função**.
+1. Selecione **+Adicionar** > **Adicionar atribuição de função** .
 
 1. O painel **Adicionar atribuição de função** é aberto à direita:
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
-   * **Função**: selecione **colaborador de conta do DocumentDB**
-   * **Atribuir acesso a**: na subseção **selecionar identidade gerenciada atribuída pelo sistema** , selecione **aplicativo de funções**.
-   * **Select**: o painel será preenchido com todos os aplicativos de funções em sua assinatura que têm uma **identidade de sistema gerenciada**. Nesse caso, selecione o aplicativo de funções **FishTankTemperatureService** : 
+   * **Função** : selecione **colaborador de conta do DocumentDB**
+   * **Atribuir acesso a** : na subseção **selecionar identidade gerenciada atribuída pelo sistema** , selecione **aplicativo de funções** .
+   * **Select** : o painel será preenchido com todos os aplicativos de funções em sua assinatura que têm uma **identidade de sistema gerenciada** . Nesse caso, selecione o aplicativo de funções **FishTankTemperatureService** : 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
-1. Depois de selecionar seu aplicativo de funções, selecione **salvar**.
+1. Depois de selecionar seu aplicativo de funções, selecione **salvar** .
 
 ### <a name="assign-the-role-using-azure-cli"></a>Atribuir a função usando CLI do Azure
 

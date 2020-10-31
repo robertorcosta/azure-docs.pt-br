@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c206c89bf8e9abae219ce863a8b08f4b0e7041c3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362003"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089909"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implantar Azure Cosmos DB e Azure App serviço com um aplicativo Web do GitHub usando um modelo de Azure Resource Manager
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este tutorial mostra como fazer uma implantação "no touch" de um aplicativo Web que se conecta a Azure Cosmos DB na primeira execução sem precisar recortar e colar as informações de conexão de Azure Cosmos DB para `appsettings.json` ou para as configurações do aplicativo Azure app Services no portal do Azure. Todas essas ações são realizadas usando um modelo de Azure Resource Manager em uma única operação. Neste exemplo, vamos implantar o [Azure Cosmos DB todo o exemplo](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) de um [tutorial de aplicativo Web](sql-api-dotnet-application.md).
 

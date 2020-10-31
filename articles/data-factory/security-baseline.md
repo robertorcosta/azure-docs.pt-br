@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a917ade5da6938487076b983bd42ce9b27672c49
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 09c35ff8c045fa7d912324886fb31b02e606d2f8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636996"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089076"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de base de segurança do Azure para Azure Data Factory
 
@@ -688,9 +688,9 @@ Se você estiver executando seu Integration Runtime em uma VM (máquina virtual)
 
 Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e faz todo o esforço possível para proteger contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
-* [Solução Gerenciamento de Atualizações no Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solução Gerenciamento de Atualizações no Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Gerenciar atualizações e patches para as VMs do Azure](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 * [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -702,9 +702,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes** : se você estiver executando seu Integration Runtime em uma VM (máquina virtual) do Azure, poderá usar uma solução de gerenciamento de patches de terceiros. Você pode usar a solução de Gerenciamento de Atualizações do Azure para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Solução Gerenciamento de Atualizações no Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Solução Gerenciamento de Atualizações no Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Gerenciar atualizações e patches para as VMs do Azure](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 **Monitoramento da Central de Segurança do Azure** : Não disponível no momento
 

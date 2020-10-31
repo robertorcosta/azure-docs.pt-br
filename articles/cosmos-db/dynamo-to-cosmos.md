@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
-ms.openlocfilehash: 167d1f21a2eb7ea4c685b5bbbb5d8d64fcc1367e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c621f11e00d418ca46be1bc04676403e6b0e2357
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278694"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089756"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Migre seu aplicativo do Amazon DynamoDB para o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O Azure Cosmos DB é um banco de dados escalonável, distribuído globalmente e totalmente gerenciado. Ele fornece acesso garantido de baixa latência aos seus dados. Para saber mais sobre a API do Azure Cosmos DB, veja o artigo de [visão geral](introduction.md). Este artigo descreve como migrar seu aplicativo .NET do DynamoDB para o Azure Cosmos DB com alterações mínimas de código.
 
@@ -39,7 +40,7 @@ Estas são as principais diferenças conceituais entre o Azure Cosmos DB e o Dyn
 
 O Azure Cosmos DB tem uma estrutura JSON mais simples em comparação à do DynamoDB. O exemplo a seguir mostra as diferenças
 
-**DynamoDB**:
+**DynamoDB** :
 
 O objeto JSON a seguir representa o formato de dados no DynamoDB
 
@@ -73,7 +74,7 @@ ProvisionedThroughput: {
 }
  ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 O objeto JSON a seguir representa o formato de dados no Azure Cosmos DB
 
@@ -122,7 +123,7 @@ Install-Package Microsoft.Azure.Cosmos
 
 ### <a name="establish-connection"></a>estabelecer conexão
 
-**DynamoDB**:
+**DynamoDB** :
 
 No Amazon DynamoDB, o seguinte código é usado para se conectar:
 
@@ -132,7 +133,7 @@ No Amazon DynamoDB, o seguinte código é usado para se conectar:
         try { aws_dynamodbclient = new AmazonDynamoDBClient( addbConfig ); }
 ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 Para conectar o Azure Cosmos DB, atualize seu código para:
 
@@ -164,7 +165,7 @@ Com o Azure Cosmos DB, você pode usar as seguintes opções para otimizar sua c
 
 ### <a name="provision-the-container"></a>Provisionar o contêiner
 
-**DynamoDB**:
+**DynamoDB** :
 
 Para armazenar os dados no Amazon DynamoDB, você precisa criar a tabela primeiro. Nesse processo, você define o esquema, o tipo de chave e os atributos, conforme mostrado no seguinte código:
 
@@ -220,7 +221,7 @@ request = new CreateTableRequest
 };
 ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 No Amazon DynamoDB, você precisa provisionar as unidades de computação de leitura e gravar unidades de computação. No Azure Cosmos DB você especifica a taxa de transferência como [RU/s (Unidades de Solicitação)](request-units.md), que pode ser usada para qualquer operação dinamicamente. Os dados são organizados como banco de dados --> contêiner --> item. Você pode especificar a taxa de transferência no nível do banco de dados ou no nível de coleção ou em ambos.
 
@@ -238,7 +239,7 @@ await cosmosDatabase.CreateContainerIfNotExistsAsync(new ContainerProperties() {
 
 ### <a name="load-the-data"></a>Carregar os dados
 
-**DynamoDB**:
+**DynamoDB** :
 
 O código a seguir mostra como carregar os dados no Amazon DynamoDB. O moviesArray consiste em uma lista de documentos JSON, então, você precisa iterar e carregar o documento JSON para o Amazon DynamoDB:
 
@@ -262,7 +263,7 @@ for( int i = 0, j = 99; i < n; i++ )
     await putItem;
 ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 No Azure Cosmos DB, você pode optar por transmitir e gravar com `moviesContainer.CreateItemStreamAsync()`. No entanto, neste exemplo, o JSON será desserializado no tipo *MovieModel* para demonstrar o recurso de conversão de tipo. O código é multi-threaded, que usará a arquitetura distribuída do Azure Cosmos DB e acelerará o carregamento:
 
@@ -297,7 +298,7 @@ await Task.WhenAll(concurrentTasks);
 
 ### <a name="create-a-document"></a>Criar um documento
 
-**DynamoDB**:
+**DynamoDB** :
 
 Escrever um novo documento no Amazon DynamoDB não tem segurança de tipos, o seguinte exemplo usa newItem como tipo de documento:
 
@@ -306,7 +307,7 @@ Task<Document> writeNew = moviesTable.PutItemAsync(newItem, token);
 await writeNew;
 ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 O Azure Cosmos DB fornece segurança de tipos por meio do modelo de dados. Usamos o modelo de dados chamado 'MovieModel':
 
@@ -357,7 +358,7 @@ No Azure Cosmos DB, newItem será MovieModel:
 
 ### <a name="read-a-document"></a>Ler um documento
 
-**DynamoDB**:
+**DynamoDB** :
 
 Para ler o Amazon DynamoDB, você precisa definir primitivos:
 
@@ -370,7 +371,7 @@ Primitive range = new Primitive(title, false);
   movie_record = await readMovie;
 ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 No entanto, com o Azure Cosmos DB, a consulta é natural (linq):
 
@@ -391,13 +392,13 @@ A coleção de documentos no exemplo acima será:
 
 ### <a name="update-an-item"></a>Atualizar um item
 
-**DynamoDB**: Para atualizar o item no Amazon DynamoDB:
+**DynamoDB** : Para atualizar o item no Amazon DynamoDB:
 
 ```csharp
 updateResponse = await client.UpdateItemAsync( updateRequest );
 ````
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 No Azure Cosmos DB, a atualização será tratada como operação Upsert, o que significa inserir o documento, caso ele não exista:
 
@@ -407,7 +408,7 @@ await moviesContainer.UpsertItemAsync<MovieModel>(updatedMovieModel);
 
 ### <a name="delete-a-document"></a>Excluir um documento
 
-**DynamoDB**:
+**DynamoDB** :
 
 Para excluir um item no Amazon DynamoDB, você precisará se enquadrar nos primitivos:
 
@@ -422,7 +423,7 @@ Primitive hash = new Primitive(year.ToString(), true);
         deletedItem = await delItem;
 ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 No Azure Cosmos DB, podemos obter o documento e excluí-los de modo assíncrono:
 
@@ -440,7 +441,7 @@ while (result.HasMoreResults)
 
 ### <a name="query-documents"></a>Consultar documentos
 
-**DynamoDB**:
+**DynamoDB** :
 
 No Amazon DynamoDB, as funções de API são necessárias para consultar os dados:
 
@@ -454,7 +455,7 @@ QueryOperationConfig config = new QueryOperationConfig( );
   search = moviesTable.Query( config ); 
 ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 No Azure Cosmos DB, você pode fazer a projeção e o filtro dentro de uma consulta SQL simples:
 
@@ -494,7 +495,7 @@ var result = moviesContainer.GetItemQueryIterator<MovieModel>(
 
 ### <a name="delete-a-container"></a>Excluir um contêiner
 
-**DynamoDB**:
+**DynamoDB** :
 
 Para excluir a tabela no Amazon DynamoDB, você pode especificar:
 
@@ -502,7 +503,7 @@ Para excluir a tabela no Amazon DynamoDB, você pode especificar:
 client.DeleteTableAsync( tableName );
 ```
 
-**Azure Cosmos DB**:
+**Azure Cosmos DB** :
 
 Para excluir a coleção no Azure Cosmos DB, você pode especificar:
 

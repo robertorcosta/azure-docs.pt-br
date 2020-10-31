@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7aa2b75a6f6e95bdeff4176ee2ad852de3d7169
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072781"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090691"
 ---
 # <a name="custom-search"></a>Pesquisa Personalizada
+
+> [!WARNING]
+> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
+> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Os usuários veem os resultados da pesquisa personalizados ao conteúdo importante para eles, em vez de terem que acessar os resultados da pesquisa com conteúdo irrelevante.
 
 ## <a name="custom-search-endpoint"></a>Ponto de Extremidade da Pesquisa Personalizada do Bing
@@ -58,7 +63,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 Para saber mais sobre como configurar uma instância da Pesquisa Personalizada, veja [Configurar sua experiência de pesquisa personalizada](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
 
 ## <a name="next-steps"></a>Próximas etapas
-As APIs do **Bing** dão suporte a ações de pesquisa que retornam os resultados de acordo com seu tipo.Todos os pontos de extremidade de pesquisa retornam os resultados como objetos de resposta JSON. Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou um local específico por longitude, latitude e raio de pesquisa.
+As APIs do **Bing** dão suporte a ações de pesquisa que retornam os resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam os resultados como objetos de resposta JSON.  Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou um local específico por longitude, latitude e raio de pesquisa.
 
 Para obter informações completas sobre os parâmetros compatíveis com cada ponto de extremidade, confira as páginas de referência de cada tipo.
 Para obter exemplos de solicitações básicas usando a API de Pesquisa Personalizada, veja [Inícios rápidos sobre a Pesquisa Personalizada](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)

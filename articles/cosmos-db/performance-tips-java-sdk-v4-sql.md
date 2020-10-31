@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475219"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091269"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para o SDK do Java v4 do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK do Java v4](performance-tips-java-sdk-v4-sql.md)
@@ -38,7 +39,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 * **Modo de Conexão: Usar o modo Direto**
 <a id="direct-connection"></a>
     
-    O modo de conexão padrão do SDK do Java é direto. Você pode configurar o modo de conexão no construtor de cliente usando os métodos *directmode ()* ou *gatewaymode ()* , conforme mostrado abaixo. Para configurar qualquer modo com as configurações padrão, chame um dos métodos sem argumentos. Caso contrário, passe uma instância de classe de definições de configuração como o argumento (*DirectConnectionConfig* para *directmode ()*,  *GatewayConnectionConfig* para *gatewaymode ()*.). Para saber mais sobre as diferentes opções de conectividade, consulte o artigo [modos de conectividade](sql-sdk-connection-modes.md) .
+    O modo de conexão padrão do SDK do Java é direto. Você pode configurar o modo de conexão no construtor de cliente usando os métodos *directmode ()* ou *gatewaymode ()* , conforme mostrado abaixo. Para configurar qualquer modo com as configurações padrão, chame um dos métodos sem argumentos. Caso contrário, passe uma instância de classe de definições de configuração como o argumento ( *DirectConnectionConfig* para *directmode ()* ,  *GatewayConnectionConfig* para *gatewaymode ()* .). Para saber mais sobre as diferentes opções de conectividade, consulte o artigo [modos de conectividade](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK do Java v4
 
@@ -106,7 +107,7 @@ Confira as instruções do [Windows](../virtual-network/create-vm-accelerated-ne
 
 * **Use o nível de consistência mais baixo necessário para seu aplicativo**
 
-    Quando você cria um *CosmosClient*, a consistência padrão usada se não for definido explicitamente é *Sessão*. Se a consistência de *Sessão* não for exigida pela lógica do aplicativo, defina a *Consistência* como *Eventual*. Observação: é recomendável usar pelo menos a consistência de *Sessão* em aplicativos que empregam o processador do feed de alterações do Azure Cosmos DB.
+    Quando você cria um *CosmosClient* , a consistência padrão usada se não for definido explicitamente é *Sessão* . Se a consistência de *Sessão* não for exigida pela lógica do aplicativo, defina a *Consistência* como *Eventual* . Observação: é recomendável usar pelo menos a consistência de *Sessão* em aplicativos que empregam o processador do feed de alterações do Azure Cosmos DB.
 
 * **Usar a API assíncrona para obter a taxa de transferência máxima provisionada**
 
@@ -148,13 +149,13 @@ Confira as instruções do [Windows](../virtual-network/create-vm-accelerated-ne
 
     No SDK do Java v4 do Azure Cosmos DB, o modo direto é a melhor opção para melhorar o desempenho do banco de dados com a maioria das cargas de trabalho. 
 
-    * ***Visão geral do modo direto**_
+    * ***Visão geral do modo direto** _
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da política de conexão do Azure Cosmos DB" border="false":::
 
-        A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas do Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 _*canais** no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme o necessário pelo **Ponto de Extremidade de Serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
+        A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas do Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 _ *canais* * no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme o necessário pelo **Ponto de Extremidade de Serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
 
-    * ***Opções de configuração para o modo direto**_
+    * ***Opções de configuração para o modo direto** _
 
         Se o comportamento de modo direto não padrão for desejado, crie uma instância _DirectConnectionConfig * e personalize suas propriedades e, em seguida, passe a instância de propriedade personalizada para o método *directmode ()* no construtor de cliente Azure Cosmos DB.
 
@@ -180,7 +181,7 @@ Confira as instruções do [Windows](../virtual-network/create-vm-accelerated-ne
 
         É importante observar que as consultas paralelas produzirão os melhores benefícios se os dados forem distribuídos uniformemente em todas as partições com relação à consulta. Se a coleção particionada for particionada de uma forma que todos ou a maioria dos dados retornados por uma consulta ficarem concentrados em algumas partições (uma partição, na pior das hipóteses), o desempenho da consulta seria um gargalo dessas partições.
 
-    _ ***Ajustando \: setMaxBufferedItemCount**_
+    _ * **Ajustando \: setMaxBufferedItemCount** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
@@ -196,7 +197,7 @@ _ **Escalar horizontalmente sua carga de trabalho do cliente**
 
 * **Ajustar o tamanho da página para os feeds de leitura/consultas para ter o melhor desempenho**
 
-    Ao executar uma leitura em massa dos documentos usando a funcionalidade do feed de leitura (por exemplo, *readItems*) ou ao enviar uma consulta SQL (*queryItems*), os resultados serão retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
+    Ao executar uma leitura em massa dos documentos usando a funcionalidade do feed de leitura (por exemplo, *readItems* ) ou ao enviar uma consulta SQL ( *queryItems* ), os resultados serão retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
 
     Suponha que seu aplicativo emita uma consulta para o Azure Cosmos DB e suponha que seu aplicativo exija o conjunto completo de resultados da consulta para concluir sua tarefa. Para reduzir o número idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página ajustando o campo do cabeçalho de solicitação [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). 
 
@@ -206,7 +207,7 @@ _ **Escalar horizontalmente sua carga de trabalho do cliente**
     
     Em alguns aplicativos, talvez você não precise do conjunto completo de resultados da consulta. Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas 10 resultados de uma vez, também será possível diminuir o tamanho da página para 10 para reduzir a taxa de transferência consumida pelas leituras e consultas.
 
-    Você também pode definir o argumento de tamanho de página preferencial do método *byPage*, em vez de modificar diretamente o campo de cabeçalho REST. Lembre-se de que [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) ou o argumento de tamanho de página preferencial de *byPage* estão definindo apenas um limite superior no tamanho da página, não um requisito absoluto; portanto, por vários motivos, você pode ver o Azure Cosmos DB retornar páginas que são menores do que o tamanho preferencial de sua página. 
+    Você também pode definir o argumento de tamanho de página preferencial do método *byPage* , em vez de modificar diretamente o campo de cabeçalho REST. Lembre-se de que [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) ou o argumento de tamanho de página preferencial de *byPage* estão definindo apenas um limite superior no tamanho da página, não um requisito absoluto; portanto, por vários motivos, você pode ver o Azure Cosmos DB retornar páginas que são menores do que o tamanho preferencial de sua página. 
 
 * **Usar o Agendador Apropriado (Evitar roubo de threads Netty de E/S Eventloop)**
 
@@ -231,11 +232,11 @@ _ **Escalar horizontalmente sua carga de trabalho do cliente**
 
     Por vários motivos, talvez você queira ou precise adicionar o registro em log em uma thread que está gerando alta taxa de transferência de solicitação. Se seu objetivo for saturar completamente a taxa de transferência provisionada de um contêiner com solicitações geradas por essa thread, as otimizações de log poderão melhorar significativamente o desempenho.
 
-    * ***Configurar um agente assíncrono**_
+    * ***Configurar um agente assíncrono** _
 
         A latência de um agente síncrono é necessariamente um dos fatores do cálculo de latência geral da sua thread de geração de solicitação. Um agente assíncrono, como [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0), é recomendado para desacoplar a sobrecarga de log de suas threads de aplicativos de alto desempenho.
 
-    _ ***Desabilitar registro em log da sub-rede**_
+    _ * **Desabilitar registro em log da sub-rede** _
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 

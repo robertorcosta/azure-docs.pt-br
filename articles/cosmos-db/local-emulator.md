@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b1a0382b6bb650b6761897f4a16f988e5ce00c1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088719"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instalar e usar o emulador Cosmos do Azure para desenvolvimento e teste locais
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O emulador Cosmos do Azure fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento. Usando o emulador Cosmos do Azure, você pode desenvolver e testar seu aplicativo localmente, sem criar uma assinatura do Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento do seu aplicativo no emulador Cosmos do Azure, você poderá alternar para o uso de uma conta do Azure Cosmos na nuvem. Este artigo descreve como instalar e usar o emulador em ambientes Windows, Linux, macOS e Windows Docker.
 
@@ -98,7 +99,7 @@ Por padrão, o emulador Cosmos do Azure é executado no computador local ("local
 
 Você pode executar o emulador Cosmos do Azure no contêiner do Docker do Windows. Consulte o [Hub do Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) para o comando Docker pull e o [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) para obter as `Dockerfile` informações e mais. Atualmente, o emulador não funciona no Docker para Oracle Linux. Use as instruções a seguir para executar o emulador no Docker for Windows:
 
-1. Depois de instalar o [Docker for Windows](https://www.docker.com/docker-windows) , alterne para contêineres do Windows clicando com o botão direito do mouse no ícone do Docker na barra de ferramentas e selecionando **alternar para contêineres do Windows**.
+1. Depois de instalar o [Docker for Windows](https://www.docker.com/docker-windows) , alterne para contêineres do Windows clicando com o botão direito do mouse no ícone do Docker na barra de ferramentas e selecionando **alternar para contêineres do Windows** .
 
 1. Em seguida, efetue pull da imagem do emulador do Hub do Docker, executando o comando a seguir do seu shell favorito.
 
@@ -293,7 +294,7 @@ Use as seguintes etapas se estiver trabalhando no Mac:
 
 1. Abra a lista de certificados e identifique aquele com o nome `localhost`.
 
-1. Abra o menu de contexto desse item específico, selecione *Obter Item* e, na opção *Confiar* > *Ao usar este certificado*, selecione *Sempre Confiar*. 
+1. Abra o menu de contexto desse item específico, selecione *Obter Item* e, na opção *Confiar* > *Ao usar este certificado* , selecione *Sempre Confiar* . 
 
    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Selecione o botão iniciar ou pressione a tecla Windows, comece digitando emulador Cosmos do Azure e selecione o emulador na lista de aplicativos":::
   
@@ -328,7 +329,7 @@ Se você tiver vários computadores usando uma única rede, e se configurar o em
 
 Você pode executar o emulador em uma rede local. Para habilitar o acesso à rede, especifique a opção `/AllowNetworkAccess` na [linha de comando](emulator-command-line-parameters.md), o que também requer que você especifique `/Key=key_string` ou `/KeyFile=file_name`. Você pode usar `/GenKeyFile=file_name` para gerar um arquivo com uma chave aleatória antecipadamente. Em seguida, você pode passá-lo para `/KeyFile=file_name` ou `/Key=contents_of_file`.
 
-Para habilitar o acesso à rede pela primeira vez, o usuário deve desligar o emulador e excluir o diretório de dados do emulador *%LocalAppData%\CosmosDBEmulator*.
+Para habilitar o acesso à rede pela primeira vez, o usuário deve desligar o emulador e excluir o diretório de dados do emulador *%LocalAppData%\CosmosDBEmulator* .
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autenticar conexões ao usar o emulador
 
@@ -458,11 +459,11 @@ Inicie o emulador de um [prompt de comando](emulator-command-line-parameters.md)
 
 Use as seguintes etapas para desinstalar o emulador:
 
-1. Saia de todas as instâncias abertas do emulador local clicando com o botão direito do mouse no ícone do **emulador Cosmos do Azure** na bandeja do sistema e selecione **sair**. Pode levar um minuto para que todas as instâncias saiam.
+1. Saia de todas as instâncias abertas do emulador local clicando com o botão direito do mouse no ícone do **emulador Cosmos do Azure** na bandeja do sistema e selecione **sair** . Pode levar um minuto para que todas as instâncias saiam.
 
 1. Na caixa de pesquisa do Windows, digite **aplicativos & recursos** e selecione **aplicativos & os recursos (configurações do sistema)** resultado.
 
-1. Na lista de aplicativos, role até o **emulador Azure Cosmos DB**, selecione-o, clique em **desinstalar**, confirme e selecione **desinstalar** novamente.
+1. Na lista de aplicativos, role até o **emulador Azure Cosmos DB** , selecione-o, clique em **desinstalar** , confirme e selecione **desinstalar** novamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

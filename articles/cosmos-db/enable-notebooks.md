@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf8da4379a7770e44e86663c02cc7a57da9d3452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261895"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089766"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitar blocos de anotações para contas de Azure Cosmos DB (versão prévia)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > Os blocos de anotações internos para Azure Cosmos DB estão disponíveis atualmente nas seguintes regiões do Azure: leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental e oeste dos EUA 2. Para usar blocos de anotações, [crie uma nova conta com blocos de anotações](#enable-notebooks-in-a-new-cosmos-account) ou [habilite blocos de anotações em uma conta existente](#enable-notebooks-in-an-existing-cosmos-account) em uma dessas regiões.
@@ -22,14 +23,14 @@ Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e vi
 
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Habilitar blocos de anotações em uma nova conta do cosmos
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-1. Selecione **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**.
-1. Na página **criar conta de Azure Cosmos DB** , selecione **notebooks**. 
+1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Selecione **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB** .
+1. Na página **criar conta de Azure Cosmos DB** , selecione **notebooks** . 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
-1. Selecione **Examinar + criar**. Você pode ignorar a opção de **rede** e **marcas** . 
-1. Examine as configurações da conta e selecione **Criar**. São necessários alguns minutos para criar a conta. Aguarde até que a página do portal exiba **Sua implantação está concluída**. 
+1. Selecione **Examinar + criar** . Você pode ignorar a opção de **rede** e **marcas** . 
+1. Examine as configurações da conta e selecione **Criar** . São necessários alguns minutos para criar a conta. Aguarde até que a página do portal exiba **Sua implantação está concluída** . 
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
@@ -46,7 +47,7 @@ Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e vi
 Você também pode habilitar blocos de anotações em contas existentes. Esta etapa precisa ser feita apenas uma vez por conta.
 
 1. Navegue até o painel de **Data Explorer** em sua conta do cosmos.
-1. Selecione **habilitar blocos de anotações**.
+1. Selecione **habilitar blocos de anotações** .
 
     :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 
@@ -57,7 +58,7 @@ Você também pode habilitar blocos de anotações em contas existentes. Esta et
 
 Para verificar se você pode usar blocos de anotações, selecione um dos blocos de anotações em blocos de anotações de exemplo. Isso salvará uma cópia do bloco de anotações no espaço de trabalho e o abrirá.
 
-Neste exemplo, usaremos **gettingstarted. ipynb**. 
+Neste exemplo, usaremos **gettingstarted. ipynb** . 
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Opção selecionar blocos de anotações na folha Azure Cosmos DB criar":::
 

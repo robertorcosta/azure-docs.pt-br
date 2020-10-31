@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485028"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089229"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginação no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 No Azure Cosmos DB, as consultas podem ter várias páginas de resultados. Este documento explica os critérios que o mecanismo de consulta do Azure Cosmos DB usa para decidir se os resultados da consulta devem ser divididos em várias páginas. Opcionalmente, você pode usar tokens de continuação para gerenciar os resultados da consulta que abrangem várias páginas.
 
@@ -45,12 +46,13 @@ Aqui estão alguns exemplos para processar resultados de consultas com várias p
 
 ## <a name="continuation-tokens"></a>Tokens de continuação
 
-No SDK do .NET e no SDK do Java, você pode opcionalmente usar tokens de continuação como um indicador para o progresso da consulta. Azure Cosmos DB execuções de consulta são sem monitoração de estado no lado do servidor e podem ser retomadas a qualquer momento usando o token de continuação. Não há suporte para tokens de continuação no SDK Node.js ou no SDK do Python.
+No SDK do .NET e no SDK do Java, você pode opcionalmente usar tokens de continuação como um indicador para o progresso da consulta. Azure Cosmos DB execuções de consulta são sem monitoração de estado no lado do servidor e podem ser retomadas a qualquer momento usando o token de continuação. Não há suporte para tokens de continuação no SDK do Node.js. Para o SDK do Python, há suporte para consultas de partição única e a CP deve ser especificada no objeto Options porque não é suficiente para tê-la na própria consulta.
 
 Aqui estão alguns exemplos de uso de tokens de continuação:
 
 - [SDK .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [SDK do Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Se a consulta retornar um token de continuação, haverá resultados de consulta adicionais.
 

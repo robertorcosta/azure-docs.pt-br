@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 10f2158edc12e7242c65a2e8ba58a18d390d47c8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791963"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091303"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -188,7 +188,7 @@ Os usuários no servidor de origem são replicados para as réplicas de leitura.
 Para impedir que os dados fiquem fora de sincronia e evitar possíveis perdas de dados ou danos, alguns parâmetros de servidor estão bloqueados para serem atualizados ao usar réplicas de leitura.
 
 Os seguintes parâmetros de servidor estão bloqueados nos servidores de origem e de réplica:
-- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
+- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 O parâmetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) está bloqueado nos servidores de réplica. 
@@ -205,7 +205,7 @@ GTID está desativado por padrão. Quando o GTID estiver habilitado, você não 
 
 Se o GTID estiver habilitado em um servidor de origem, as réplicas recém-criadas também terão GTID habilitado e usarão a replicação GTID. Para manter a replicação consistente, você não pode atualizar `gtid_mode` no (s) servidor (es) de origem ou de réplica.
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 
 - A criação de uma réplica de uma réplica não é suportada.
 - Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Esta é uma limitação da tecnologia de replicação do MySQL. Leia mais na [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para mais informações.

@@ -3,12 +3,12 @@ title: Tutorial – implantar grupo com vários contêineres – YAML
 description: Neste tutorial, saiba como implantar um grupo de contêiner com vários contêineres nas Instâncias de Contêiner do Azure usando um arquivo YAML com a CLI do Azure.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: f6ba9152003c68192ddc0fdffa5652bc0b6daa86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f1f13d4fa7e32b76988cdf356d5d1bb0528f824
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88750908"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091286"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implantar um grupo com vários contêineres usando um arquivo YAML
 
@@ -29,15 +29,15 @@ Neste tutorial, você seguirá as etapas para executar uma configuração simple
 > [!NOTE]
 > Grupos com vários contêineres são atualmente restritos a contêineres do Linux.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="configure-a-yaml-file"></a>Configurar um arquivo YAML
 
 Para implantar um grupo com vários contêineres com o comando [az container create][az-container-create] na CLI do Azure, você precisa especificar a configuração do grupo de contêineres em um arquivo YAML. Em seguida, passe o arquivo YAML como um parâmetro para o comando.
 
-Comece copiando o YAML a seguir em um novo arquivo chamado **deploy-aci.yaml**. No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+Comece copiando o YAML a seguir em um novo arquivo chamado **deploy-aci.yaml** . No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
 
 ```
 code deploy-aci.yaml
@@ -115,7 +115,7 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 
 Se quiser exibir o aplicativo em execução, navegue até o endereço IP dele em seu navegador. Por exemplo, o IP é `52.168.26.124` nesta saída de exemplo:
 
-```bash
+```console
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus

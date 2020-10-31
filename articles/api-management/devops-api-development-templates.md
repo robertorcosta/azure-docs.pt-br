@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: c37224a3a455abcf3de62998cb65e1d66a1bb0f2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910705"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088872"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD para gerenciamento de API usando modelos de Azure Resource Manager
 
@@ -67,7 +67,8 @@ Os desenvolvedores de API enfrentam desafios ao trabalhar com modelos do Resourc
 
 * Os editores de API podem validar a solicitação de pull e garantir que as alterações sejam seguras e em conformidade. Por exemplo, eles podem verificar se apenas HTTPS tem permissão para se comunicar com a API. A maioria das validações pode ser automatizada como uma etapa no pipeline de CI/CD.
 
-* Depois que as alterações são aprovadas e mescladas com êxito, os editores de API podem optar por implantá-las na instância de produção, seja no agendamento ou sob demanda. Eles podem automatizar a implantação dos modelos usando ações do [GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure pipelines](/devops/pipelines/), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), o [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)ou outras ferramentas.
+* Depois que as alterações forem aprovadas e mescladas com êxito, os editores de API poderão optar por implantá-las na instância de produção, seja no agendamento ou sob demanda. A implantação dos modelos pode ser automatizada usando [ações do GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)ou outras ferramentas.
+
 
 Com essa abordagem, uma organização pode automatizar a implantação de alterações de API em instâncias de gerenciamento de API e é fácil promover alterações de um ambiente para outro. Como as diferentes equipes de desenvolvimento de API estarão trabalhando em diferentes conjuntos de arquivos e modelos de API, isso impede a interferência entre diferentes equipes.
 
