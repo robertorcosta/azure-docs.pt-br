@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100687"
+ms.locfileid: "93130333"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Visão geral do Controle de Alterações e Inventário
 
@@ -93,7 +93,7 @@ Para rastrear alterações em arquivos no Windows e Linux, o Controle de Altera�
 
 ## <a name="tracking-file-content-changes"></a>Acompanhamento de alterações de conteúdo do arquivo
 
-Controle de Alterações e inventário permite que você exiba o conteúdo de um arquivo do Windows ou Linux. Para cada alteração em um arquivo, o Controle de Alterações e Inventário armazena o conteúdo do arquivo em uma [conta de Armazenamento do Azure](/azure/storage/common/storage-account-create). Quando você estiver acompanhando um arquivo, poderá exibir seu conteúdo antes ou depois de uma alteração. O conteúdo do arquivo pode ser exibido embutido ou lado a lado.
+Controle de Alterações e inventário permite que você exiba o conteúdo de um arquivo do Windows ou Linux. Para cada alteração em um arquivo, o Controle de Alterações e Inventário armazena o conteúdo do arquivo em uma [conta de Armazenamento do Azure](../../storage/common/storage-account-create.md). Quando você estiver acompanhando um arquivo, poderá exibir seu conteúdo antes ou depois de uma alteração. O conteúdo do arquivo pode ser exibido embutido ou lado a lado.
 
 ![Exibir alterações em um arquivo](./media/overview/view-file-changes.png)
 
@@ -158,7 +158,7 @@ A tabela a seguir mostra os limites de item controlados por máquina para Contro
 |Serviços|250|
 |Daemons|250|
 
-O uso médio de dados do Log Analytics para uma máquina usando o Controle de Alterações e Inventário é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com o recurso de uso e custos estimados do espaço de trabalho Log Analytics, você pode exibir os dados ingeridos por Controle de Alterações e inventário em um gráfico de uso. Use esta exibição de dados para avaliar o uso de dados e determinar como ele afeta sua fatura. Confira [Entender seu uso e estimar os custos](/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+O uso médio de dados do Log Analytics para uma máquina usando o Controle de Alterações e Inventário é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com o recurso de uso e custos estimados do espaço de trabalho Log Analytics, você pode exibir os dados ingeridos por Controle de Alterações e inventário em um gráfico de uso. Use esta exibição de dados para avaliar o uso de dados e determinar como ele afeta sua fatura. Confira [Entender seu uso e estimar os custos](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dados de serviço da Microsoft
 

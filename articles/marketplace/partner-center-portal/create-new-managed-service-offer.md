@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 34af52b32d9e31ad003c5e95e288f88b157a944a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d253bda69839c76aed0170f9a79a03b7d4bf1a79
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130099"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de serviço gerenciado
 
@@ -23,8 +23,8 @@ Você deve ter um [nível de competência de plataforma de nuvem Prata ou Ouro](
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral**.
-3. Na página Visão geral, selecione **+ Nova oferta** > **Serviço Gerenciado**.
+2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral** .
+3. Na página Visão geral, selecione **+ Nova oferta** > **Serviço Gerenciado** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-managed-service.png)
 
@@ -33,16 +33,16 @@ Você deve ter um [nível de competência de plataforma de nuvem Prata ou Ouro](
 
 ## <a name="new-offer"></a>Nova oferta
 
-Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
+Insira uma **ID da oferta** . Esse é um identificador exclusivo para cada oferta em sua conta.
 
 * Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
-* Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1**, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-* A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
+* Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1** , o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* A ID da oferta não pode ser alterada depois que você seleciona **Criar** .
 
-Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
+Insira um **Alias da oferta** . Esse é o nome usado para a oferta no Partner Center.
 
 * Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
-* O Alias da oferta não poderá ser alterado depois que você selecionar a opção **Criar**.
+* O Alias da oferta não poderá ser alterado depois que você selecionar a opção **Criar** .
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -52,7 +52,7 @@ Selecione **Criar** para gerar a oferta e continuar.
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Observe que, de acordo com as [políticas de certificação de Serviços Gerenciados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), é necessário um **Destino de Lead**. Isso criará um registro em seu sistema CRM cada vez que um cliente implantar sua oferta.
+Observe que, de acordo com as [políticas de certificação de Serviços Gerenciados](/legal/marketplace/certification-policies#700-managed-services), é necessário um **Destino de Lead** . Isso criará um registro em seu sistema CRM cada vez que um cliente implantar sua oferta.
 
 Para obter mais informações, confira [Visão geral de gerenciamento de clientes potenciais](./commercial-marketplace-get-customer-leads.md).
 
@@ -68,7 +68,7 @@ Selecione no mínimo uma e no máximo cinco categorias que serão usadas para po
 
 ### <a name="terms-and-conditions"></a>Termos e condições
 
-Forneça seus termos e condições legais no campo **Termos e condições**. Você também pode fornecer a URL em que os termos e condições podem ser encontrados. Os clientes precisarão aceitar esses termos antes de poderem testar a oferta.
+Forneça seus termos e condições legais no campo **Termos e condições** . Você também pode fornecer a URL em que os termos e condições podem ser encontrados. Os clientes precisarão aceitar esses termos antes de poderem testar a oferta.
 
 Selecione **Salvar rascunho** antes de continuar.
 
@@ -116,15 +116,15 @@ Insira a URL da política de privacidade da sua organização (hospedada no seu 
 
 ### <a name="useful-links"></a>Links úteis
 
-Forneça documentos complementares opcionais on-line sobre sua solução. Adicione links úteis adicionais clicando em **+ Adicionar um link**.
+Forneça documentos complementares opcionais on-line sobre sua solução. Adicione links úteis adicionais clicando em **+ Adicionar um link** .
 
 ### <a name="contact-information"></a>Informações de contato
 
-Nessa seção, você deve fornecer o nome, o email e o número de telefone de um **Contato de suporte** e de um **Contato de engenharia**. Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
+Nessa seção, você deve fornecer o nome, o email e o número de telefone de um **Contato de suporte** e de um **Contato de engenharia** . Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
 
 ### <a name="support-urls"></a>URLs de suporte
 
-Se você tiver sites de suporte para **Clientes Globais do Azure** e/ou **Clientes do Azure Governamental**, forneça essas URLs aqui.
+Se você tiver sites de suporte para **Clientes Globais do Azure** e/ou **Clientes do Azure Governamental** , forneça essas URLs aqui.
 
 ### <a name="marketplace-images"></a>Imagens do Marketplace
 
@@ -167,7 +167,7 @@ Selecione **Salvar rascunho** antes de continuar.
 
 Antes de publicar sua oferta como ativa para a oferta de Marketplace mais ampla, primeiro você precisará disponibilizá-la para um público-alvo de versão prévia limitado. Isso permite que você confirme como a oferta é exibida no Azure Marketplace antes de disponibilizá-la para os clientes. As equipes de suporte e engenharia da Microsoft também poderão exibir a oferta durante esse período de versão prévia.
 
-Você pode definir o público de visualização inserindo IDs de assinatura do Azure na seção **Pré-visualização de Público-alvo**. Você pode inserir até 10 IDs de assinatura manualmente ou carregar um arquivo. csv com até 100 IDs de assinatura.
+Você pode definir o público de visualização inserindo IDs de assinatura do Azure na seção **Pré-visualização de Público-alvo** . Você pode inserir até 10 IDs de assinatura manualmente ou carregar um arquivo. csv com até 100 IDs de assinatura.
 
 Todos os clientes associados a essas assinaturas poderão exibir a oferta no Azure Marketplace antes que ela fique ativa. Certifique-se de incluir suas próprias assinaturas aqui para poder visualizar sua oferta.
 
@@ -179,9 +179,9 @@ Cada oferta deve ter um ou mais planos (anteriormente chamados de SKUs). Você p
 
 Você pode criar até 100 planos para cada oferta: até 45 deles podem ser privados. Saiba mais sobre planos privados em [ofertas privadas no Microsoft Commercial Marketplace](../private-offers.md).
 
-Na página **Visão geral do plano**, selecione **+ Criar novo plano**. Em seguida, insira uma **ID de plano** e um **Nome de plano**. Ambos os valores podem conter apenas caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Esses valores podem ser visíveis para os clientes e não podem ser alterados depois que você publicar a oferta.
+Na página **Visão geral do plano** , selecione **+ Criar novo plano** . Em seguida, insira uma **ID de plano** e um **Nome de plano** . Ambos os valores podem conter apenas caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Esses valores podem ser visíveis para os clientes e não podem ser alterados depois que você publicar a oferta.
 
-Selecione **Criar** depois de inserir esses valores para continuar trabalhando em seu plano. Há três seções a serem preenchidas: **Listagem de plano**, **Preços e disponibilidade** e **Configuração técnica**.
+Selecione **Criar** depois de inserir esses valores para continuar trabalhando em seu plano. Há três seções a serem preenchidas: **Listagem de plano** , **Preços e disponibilidade** e **Configuração técnica** .
 
 ### <a name="plan-listing"></a>Listagem de planos
 
@@ -198,7 +198,7 @@ A seção **Visibilidade do plano** permite que você indique se esse plano deve
 > [!NOTE]
 > Não há suporte para planos privados com assinaturas estabelecidas por meio de um revendedor do programa CSP (provedor de soluções na nuvem).
 
-Para disponibilizar esse plano somente para clientes específicos, selecione **Sim**. Ao fazer isso, você precisará identificar os clientes fornecendo suas IDs de assinatura. Eles podem ser inseridos um por um (para até 10 assinaturas) ou carregando um arquivo. csv (para um máximo de 10.000 assinaturas em todos os planos). Inclua suas próprias assinaturas aqui para que você possa testar e validar a oferta.
+Para disponibilizar esse plano somente para clientes específicos, selecione **Sim** . Ao fazer isso, você precisará identificar os clientes fornecendo suas IDs de assinatura. Eles podem ser inseridos um por um (para até 10 assinaturas) ou carregando um arquivo. csv (para um máximo de 10.000 assinaturas em todos os planos). Inclua suas próprias assinaturas aqui para que você possa testar e validar a oferta.
 
 > [!IMPORTANT]
 > Depois que um plano tiver sido publicado como público, você não poderá alterá-lo para privado. Para controlar quais clientes podem aceitar sua oferta e delegar recursos, use um plano privado. Com um plano público, não é possível restringir a disponibilidade para determinados clientes ou até mesmo para um determinado número de clientes (embora você possa deixar de vender completamente o plano se optar por fazê-lo). Você pode [remover o acesso a uma delegação](../../lighthouse/how-to/remove-delegation.md) depois que um cliente aceitar uma oferta somente se você tiver incluído uma **Autorização** com a **Definição de função** definida como [Função de exclusão de registro de serviços gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao publicar a oferta. Você também pode entrar em contato com o cliente e pedir a eles para [remover seu acesso](../../lighthouse/how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
@@ -216,9 +216,9 @@ Certifique-se de examinar [Locatários, funções e usuários em cenários de Li
 
 Primeiro, forneça uma **Versão** para o manifesto. Use o formato *n.n.n* (por exemplo, 1.2.5).
 
-Em seguida, insira sua **ID de Locatário**. Este é um GUID associado à ID de locatário do Azure Active Directory (Azure AD) da sua organização; ou seja, o locatário de gerenciamento do qual você vai acessar os recursos de seus clientes. Se você não tiver isso à mão, poderá encontrá-lo passando o mouse sobre o nome da conta no lado superior direito do portal do Azure ou selecionando o **Mudar diretório**.
+Em seguida, insira sua **ID de Locatário** . Este é um GUID associado à ID de locatário do Azure Active Directory (Azure AD) da sua organização; ou seja, o locatário de gerenciamento do qual você vai acessar os recursos de seus clientes. Se você não tiver isso à mão, poderá encontrá-lo passando o mouse sobre o nome da conta no lado superior direito do portal do Azure ou selecionando o **Mudar diretório** .
 
-Se você publicar uma nova versão da sua oferta e precisar criar um manifesto atualizado, selecione **+ Novo manifesto**. Certifique-se de aumentar o número de versão da versão de manifesto anterior.
+Se você publicar uma nova versão da sua oferta e precisar criar um manifesto atualizado, selecione **+ Novo manifesto** . Certifique-se de aumentar o número de versão da versão de manifesto anterior.
 
 #### <a name="authorization"></a>Autorização
 
@@ -229,19 +229,19 @@ Você pode criar até vinte autorizações para cada plano.
 > [!TIP]
 > Na maioria dos casos, você desejará atribuir funções a um grupo de usuários ou entidade de serviço do Azure AD, em vez de uma série de contas de usuário individuais. Assim você pode adicionar ou remover o acesso de usuários individuais sem precisar atualizar e publicar o plano novamente quando os requisitos de acesso forem alterados. Ao atribuir funções aos grupos do Azure AD, [certifique-se de que o **Tipo de grupo** é **Segurança** e não **Office 365**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Para obter recomendações adicionais, confira [Locatários, funções e usuários em cenários do Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md).
 
-Para cada **Autorização**, você precisará fornecer o seguinte. Em seguida, você pode selecionar **+ Adicionar autorização** quantas vezes forem necessárias para adicionar mais usuários e definições de função.
+Para cada **Autorização** , você precisará fornecer o seguinte. Em seguida, você pode selecionar **+ Adicionar autorização** quantas vezes forem necessárias para adicionar mais usuários e definições de função.
 
-- **ID do Objeto do Azure AD**: O identificador do Azure AD de um usuário, grupo de usuários ou aplicativo que receberá determinadas permissões (conforme definido pela definição de função) aos recursos de seus clientes.
-- **Nome de exibição do objeto do Azure AD**: um nome amigável para ajudar o cliente a entender a finalidade da autorização. O cliente verá esse nome ao delegar recursos.
-- **Definição de Função**: Selecione uma das funções internas do Azure AD disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID do Objeto do Azure AD** terá nos recursos dos clientes. Para obter descrições dessas funções, consulte [funções internas](../../role-based-access-control/built-in-roles.md) e [suporte de função para o Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
+- **ID do Objeto do Azure AD** : O identificador do Azure AD de um usuário, grupo de usuários ou aplicativo que receberá determinadas permissões (conforme definido pela definição de função) aos recursos de seus clientes.
+- **Nome de exibição do objeto do Azure AD** : um nome amigável para ajudar o cliente a entender a finalidade da autorização. O cliente verá esse nome ao delegar recursos.
+- **Definição de Função** : Selecione uma das funções internas do Azure AD disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID do Objeto do Azure AD** terá nos recursos dos clientes. Para obter descrições dessas funções, consulte [funções internas](../../role-based-access-control/built-in-roles.md) e [suporte de função para o Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > Conforme as novas funções internas aplicáveis forem adicionadas ao Azure, elas ficarão disponíveis aqui, embora possa haver algum atraso antes que elas apareçam.
-- **Funções atribuíveis**: Essa opção será exibida somente se você tiver selecionado administrador de acesso de usuário na **Definição de função** para essa autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure AD** poderá atribuir essas funções para [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md), o que é necessário para [implantar políticas que podem ser remediadas](../../lighthouse/how-to/deploy-policy-remediation.md). Observe que nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário.
+- **Funções atribuíveis** : Essa opção será exibida somente se você tiver selecionado administrador de acesso de usuário na **Definição de função** para essa autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure AD** poderá atribuir essas funções para [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md), o que é necessário para [implantar políticas que podem ser remediadas](../../lighthouse/how-to/deploy-policy-remediation.md). Observe que nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário.
 
 > [!TIP]
 > Para garantir que você possa [remover o acesso a uma delegação](../../lighthouse/how-to/remove-delegation.md) se necessário, inclua uma **Autorização** com a **Definição de função** definida como [Função Excluir Atribuição de Registro de Serviços Gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
 
-Depois de concluir todas as seções do plano, você poderá selecionar **+ Criar novo plano** quantas vezes precisar para criar planos adicionais. Quando terminar, selecione **Salvar**.
+Depois de concluir todas as seções do plano, você poderá selecionar **+ Criar novo plano** quantas vezes precisar para criar planos adicionais. Quando terminar, selecione **Salvar** .
 
 Selecione **Salvar rascunho** antes de continuar.
 
@@ -257,8 +257,8 @@ Se for a primeira vez que você publicar essa oferta, você poderá:
   - **Não iniciada** –  A seção não foi tocada e precisa ser concluída.
   - **Incompleta** –  A seção tem erros que precisam ser corrigidos ou requer que mais informações sejam fornecidas. Volte para as seções e atualize-as.
   - **Concluída** - A seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você possa enviar a oferta.
-- Na seção **Notas para certificação**, forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
-- Envie a oferta para publicação selecionando **Enviar**. Nós lhe enviaremos um e-mail quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Ativar** a oferta para publicar sua oferta para o público (ou, se uma oferta privada, para o público-alvo privado).
+- Na seção **Notas para certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
+- Envie a oferta para publicação selecionando **Enviar** . Nós lhe enviaremos um e-mail quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Ativar** a oferta para publicar sua oferta para o público (ou, se uma oferta privada, para o público-alvo privado).
 
 ### <a name="customer-experience-and-offer-management"></a>Experiência do cliente e gerenciamento de ofertas
 

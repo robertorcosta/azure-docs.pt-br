@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707550"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129696"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela do Stream Analytics
 
 Em cenários de streaming em tempo real, executar operações nos dados contidos nas janelas temporais é um padrão comum. O Stream Analytics tem suporte nativo para funções de janela, permitindo que os desenvolvedores criem trabalhos de processamento de streaming complexos com o mínimo de esforço.
 
-Há cinco tipos de janelas temporais para escolher: [**em cascata**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**salto**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**deslizante**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), [**sessão**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)e janelas de [**instantâneo**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) .  Use as funções de janela na cláusula [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) da sintaxe de consulta em seus trabalhos do Stream Analytics. Você também pode agregar eventos em várias janelas usando a [função **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Há cinco tipos de janelas temporais para escolher: [**em cascata**](/stream-analytics-query/tumbling-window-azure-stream-analytics), [**salto**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**deslizante**](/stream-analytics-query/sliding-window-azure-stream-analytics), [**sessão**](/stream-analytics-query/session-window-azure-stream-analytics)e janelas de [**instantâneo**](/stream-analytics-query/snapshot-window-azure-stream-analytics) .  Use as funções de janela na cláusula [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics) da sintaxe de consulta em seus trabalhos do Stream Analytics. Você também pode agregar eventos em várias janelas usando a [função **Windows ()**](/stream-analytics-query/windows-azure-stream-analytics).
 
-Todas as operações de [janela](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) resultam no **fim** da janela. Observe que quando você inicia um trabalho do Stream Analytics, você pode especificar a *hora de início da saída do trabalho* e o sistema buscará automaticamente eventos anteriores nos fluxos de entrada para gerar a primeira janela no horário especificado; por exemplo, quando você começa com a opção *Now* , ele começará a emitir dados imediatamente. A saída da janela será um evento único baseado na função agregada usada. O evento de saída terá o carimbo de data/hora do término da janela e todas as funções de janela serão definidas com um comprimento fixo. 
+Todas as operações de [janela](/stream-analytics-query/windowing-azure-stream-analytics) resultam no **fim** da janela. Observe que quando você inicia um trabalho do Stream Analytics, você pode especificar a *hora de início da saída do trabalho* e o sistema buscará automaticamente eventos anteriores nos fluxos de entrada para gerar a primeira janela no horário especificado; por exemplo, quando você começa com a opção *Now* , ele começará a emitir dados imediatamente. A saída da janela será um evento único baseado na função agregada usada. O evento de saída terá o carimbo de data/hora do término da janela e todas as funções de janela serão definidas com um comprimento fixo. 
 
 ![Conceitos de funções de janela do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -53,7 +53,7 @@ Quando uma chave de partição é fornecida, os eventos são agrupados pela chav
 
 ## <a name="snapshot-window"></a>Janela de instantâneo
 
-Instantâneos agrupam eventos que têm o mesmo carimbo de data/hora. Ao contrário de outros tipos de janela, que exigem uma função de janela específica (como [SessionWindow ()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), você pode aplicar uma janela de instantâneo adicionando System. Timestamp () à cláusula Group by.
+Instantâneos agrupam eventos que têm o mesmo carimbo de data/hora. Ao contrário de outros tipos de janela, que exigem uma função de janela específica (como [SessionWindow ()](/stream-analytics-query/session-window-azure-stream-analytics), você pode aplicar uma janela de instantâneo adicionando System. Timestamp () à cláusula Group by.
 
 ![Stream Analytics janela de instantâneo](media/stream-analytics-window-functions/snapshot.png)
 
@@ -61,6 +61,5 @@ Instantâneos agrupam eventos que têm o mesmo carimbo de data/hora. Ao contrár
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

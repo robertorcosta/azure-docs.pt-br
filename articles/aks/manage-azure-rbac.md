@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329084"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129551"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
 
@@ -75,6 +75,7 @@ az extension update --name aks-preview
 - Durante a visualização, você só pode adicionar permissões em *nível de namespace* por meio do CLI do Azure.
 - Se você tiver CRDs e estiver fazendo definições de função personalizadas, a única maneira de abordar o CRDs hoje é fornecer `Microsoft.ContainerService/managedClusters/*/read` . O AKS está trabalhando para fornecer permissões mais granulares para CRDs. Para os objetos restantes, você pode usar os grupos de API específicos, por exemplo: `Microsoft.ContainerService/apps/deployments/read` .
 - As novas atribuições de função podem levar até 5 min para serem propagadas e atualizadas pelo servidor de autorização.
+- Requer que o locatário do Azure AD configurado para autenticação seja o mesmo que o locatário para a assinatura que contém o cluster AKS. 
 
 ## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>Criar um novo cluster usando o RBAC do Azure e a integração do Azure AD gerenciada
 

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892314"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129449"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiar ou fazer backup de trabalhos de Azure Stream Analytics
 
-Você pode copiar ou fazer backup de seus trabalhos de Azure Stream Analytics implantados usando o Visual Studio Code ou o Visual Studio. Copiar um trabalho para outra região não copia a hora da última saída. Portanto, você não pode usar a opção [**quando a última parada**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) ao iniciar o trabalho copiado.
+Você pode copiar ou fazer backup de seus trabalhos de Azure Stream Analytics implantados usando o Visual Studio Code ou o Visual Studio. Copiar um trabalho para outra região não copia a hora da última saída. Portanto, você não pode usar a opção [**quando a última parada**](./start-job.md#start-options) ao iniciar o trabalho copiado.
 
 ## <a name="before-you-begin"></a>Antes de começar
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
@@ -45,7 +45,7 @@ Você pode copiar ou fazer backup de seus trabalhos de Azure Stream Analytics im
 
 ## <a name="visual-studio"></a>Visual Studio
 
-1. Siga o [trabalho exportar um Azure Stream Analytics implantado para uma instrução de projeto](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project).
+1. Siga o [trabalho exportar um Azure Stream Analytics implantado para uma instrução de projeto](./stream-analytics-vs-tools.md#export-jobs-to-a-project).
 
 2. Abra o \* arquivo. asaql no editor de consultas, selecione **Enviar para o Azure** no editor de scripts e siga as instruções para publicar o trabalho em outra região ou backup usando um novo nome.
 

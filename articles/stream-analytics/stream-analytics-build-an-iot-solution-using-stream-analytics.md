@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044576"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130792"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -43,7 +43,7 @@ Essa solução funciona com dois fluxos de dados. Sensores instalados na entrada
 ### <a name="entry-data-stream"></a>Fluxo de dados de entrada
 O fluxo de dados de entrada contém informações sobre os carros que entram nas praças de pedágio. Os eventos de dados de saída são transmitidos em tempo real para uma fila do Hub de Eventos a partir de um aplicativo Web incluído no aplicativo de exemplo.
 
-| TollID | EntryTime | PlacaDeCarro | Estado | Faça | Modelar | VehicleType | VehicleWeight | Pedágio | Marca |
+| TollID | EntryTime | PlacaDeCarro | Estado | Faça | Modelo | VehicleType | VehicleWeight | Pedágio | Marca |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NOVA IORQUE |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |1001 YXZ |NOVA IORQUE |Toyota |Camry |1 |0 |4 |123456789 |
@@ -61,7 +61,7 @@ Aqui está uma breve descrição das colunas:
 | PlacaDeCarro |O número da placa de licença do veículo |
 | Estado |Um estado nos Estados Unidos |
 | Faça |O fabricante do automóvel |
-| Modelar |O número do modelo do automóvel |
+| Modelo |O número do modelo do automóvel |
 | VehicleType |1 para veículos de passageiros ou 2 para veículos comerciais |
 | WeightType |Peso do veículo em toneladas; 0 para veículos de passageiros |
 | Pedágio |Valor do pedágio em dólares americanos |
@@ -134,7 +134,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 
 9. Selecione **Comprar** para implantar o modelo de exemplo.
 
-10. Após alguns instantes, uma notificação será exibida para confirmar a **Implantação com êxito**.
+10. Após alguns instantes, uma notificação será exibida para confirmar a **Implantação com êxito** .
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Examinar os recursos do TollApp do Azure Stream Analytics
 
@@ -163,7 +163,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 
    Para parafrasear a intenção da consulta, digamos que você precise contar a quantidade de veículos que entra no pedágio. Como um pedágio tem um fluxo contínuo de veículos entrando, esses são eventos de entrada análogos a um fluxo que nunca é interrompido. Para quantificar o fluxo, é necessário definir um "período de tempo" para medida suplementar. Vamos aprimorar ainda mais a questão: "Quantos veículos entram em um pedágio a cada três minutos?" Isso é conhecido como contagem em cascata.
 
-   Como você pode ver, o Stream Analytics do Azure usa uma linguagem de consulta parecida com SQL e adiciona algumas extensões para especificar aspectos da consulta relacionados ao tempo.  Para obter mais detalhes, leia sobre os constructos [Gerenciamento de Tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e [Janelas](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) usados na consulta.
+   Como você pode ver, o Stream Analytics do Azure usa uma linguagem de consulta parecida com SQL e adiciona algumas extensões para especificar aspectos da consulta relacionados ao tempo.  Para obter mais detalhes, leia sobre os constructos [Gerenciamento de Tempo](/stream-analytics-query/time-management-azure-stream-analytics) e [Janelas](/stream-analytics-query/windowing-azure-stream-analytics) usados na consulta.
 
 3. Examine as entradas do trabalho de exemplo do TollApp. Apenas a entrada EntryStream é usada na consulta atual.
    - A entrada **EntryStream** é uma conexão do Hub de Eventos que coloca os dados em fila, representando cada vez que um carro entra em um pedágio na rodovia. Um aplicativo Web que faz parte do exemplo está criando os eventos e esses dados são enfileirados nesse Hub de Eventos. Observe que essa entrada é consultada na cláusula FROM da consulta de streaming.
@@ -176,20 +176,20 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 ## <a name="start-the-tollapp-streaming-job"></a>Iniciar o trabalho de streaming do TollApp
 Siga estas etapas para iniciar o trabalho de streaming:
 
-1. Na página **Visão geral** do trabalho, selecione **Iniciar**.
+1. Na página **Visão geral** do trabalho, selecione **Iniciar** .
 
-2. No painel **Iniciar trabalho**, selecione **Agora**.
+2. No painel **Iniciar trabalho** , selecione **Agora** .
 
-3. Após alguns instantes, quando o trabalho estiver em execução, na página **Visão geral** do trabalho de streaming, exiba o gráfico de **Monitoramento**. O gráfico deve mostrar vários milhares de eventos de entrada e dezenas de eventos de saída.
+3. Após alguns instantes, quando o trabalho estiver em execução, na página **Visão geral** do trabalho de streaming, exiba o gráfico de **Monitoramento** . O gráfico deve mostrar vários milhares de eventos de entrada e dezenas de eventos de saída.
 
 ## <a name="review-the-cosmosdb-output-data"></a>Examinar os dados de saída CosmosDB
 1. Localize o grupo de recursos que contém os recursos do TollApp.
 
-2. Selecione a conta do Azure Cosmos DB com o nome padrão **tollapp\<random\>-cosmos**.
+2. Selecione a conta do Azure Cosmos DB com o nome padrão **tollapp\<random\>-cosmos** .
 
 3. Selecione o cabeçalho **Data Explorer** para abrir a página do Data Explorer.
 
-4. Expanda os documentos do **tollAppDatabase**  >  **tollAppCollection**  >  **Documents**.
+4. Expanda os documentos do **tollAppDatabase**  >  **tollAppCollection**  >  **Documents** .
 
 5. Na lista de IDs, vários documentos serão mostrados quando a saída estiver disponível.
 
@@ -201,7 +201,7 @@ Siga estas etapas para iniciar o trabalho de streaming:
 ## <a name="report-total-time-for-each-car"></a>Relatar o tempo total de cada carro
 O tempo médio necessário para um carro passar pela cabine de pedágio ajuda a avaliar a eficiência do processo e a experiência do cliente.
 
-Para localizar o tempo total, faça a junção do fluxo EntryTime com o fluxo ExitTime. Junte os dois fluxos de entrada nas colunas TollId e LicencePlate de correspondência igual. O operador **JOIN** exige a especificação de um espaço de manobra temporal que descreve a diferença de tempo aceitável entre os eventos associados. Use a função **DATEDIFF** para especificar que os eventos não deverão ter mais de 15 minutos um do outro. Aplique também a função **DATEDIFF** para sair e os tempos de entrada para calcular o tempo real que um carro passa na estação de pedágio. Observe a diferença do uso da **DATEDIFF** quando usada em uma instrução **SELECT** em comparação com uma condição **JOIN**.
+Para localizar o tempo total, faça a junção do fluxo EntryTime com o fluxo ExitTime. Junte os dois fluxos de entrada nas colunas TollId e LicencePlate de correspondência igual. O operador **JOIN** exige a especificação de um espaço de manobra temporal que descreve a diferença de tempo aceitável entre os eventos associados. Use a função **DATEDIFF** para especificar que os eventos não deverão ter mais de 15 minutos um do outro. Aplique também a função **DATEDIFF** para sair e os tempos de entrada para calcular o tempo real que um carro passa na estação de pedágio. Observe a diferença do uso da **DATEDIFF** quando usada em uma instrução **SELECT** em comparação com uma condição **JOIN** .
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -214,7 +214,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Para atualizar a sintaxe de consulta do trabalho de streaming do TollApp:
 
-1. Na página **Visão geral** do trabalho, selecione **Parar**.
+1. Na página **Visão geral** do trabalho, selecione **Parar** .
 
 2. Aguarde alguns instantes pela notificação de que o trabalho parou.
 
@@ -224,9 +224,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 5. Selecione **Salvar** para salvar a consulta. Confirme **Sim** para salvar as alterações.
 
-6. Na página **Visão geral** do trabalho, selecione **Iniciar**.
+6. Na página **Visão geral** do trabalho, selecione **Iniciar** .
 
-7. No painel **Iniciar trabalho**, selecione **Agora**.
+7. No painel **Iniciar trabalho** , selecione **Agora** .
 
 ### <a name="review-the-total-time-in-the-output"></a>Examinar o tempo total na saída
 Repita as etapas na seção anterior para examinar os dados de saída do CosmosDB do trabalho de streaming. Examinar os últimos documentos JSON.
@@ -301,9 +301,9 @@ Para escalar verticalmente o trabalho de streaming para mais unidades de streami
 
 2. Atualize a sintaxe de consulta na página **< > Consulta** e salve as alterações.
 
-3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar**.
+3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar** .
 
-4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Clique em **Salvar**.
+4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Selecione **Salvar** .
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY.
 
@@ -319,7 +319,7 @@ Você também pode acessar **Logs de Atividade** na área **Configurações** do
 
 2. Localize o grupo de recursos que contém oito recursos relacionados ao modelo do TollApp.
 
-3. Selecione **Excluir grupo de recursos**. Digite o nome do grupo de recursos para confirmar a exclusão.
+3. Selecione **Excluir grupo de recursos** . Digite o nome do grupo de recursos para confirmar a exclusão.
 
 ## <a name="conclusion"></a>Conclusão
 Esta solução apresentou o serviço do Azure Stream Analytics. Ele demonstrou como configurar entradas e saídas para o trabalho do Stream Analytics. Usando o cenário de Toll Data, a solução explicou tipos comuns de problemas que surgem no espaço de dados em movimento e como eles podem ser resolvidos com consultas simples como SQL no Azure Stream Analytics. A solução descreveu constructos de extensão de SQL para trabalhar com dados temporais. Ele mostrou como combinar transmissões de dados, como aprimorar a transmissão de dados com os dados de referência estáticos e como escalar horizontalmente uma consulta para aumentar a taxa de transferência.

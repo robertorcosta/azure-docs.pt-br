@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329025"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129585"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planejar uma oferta de máquina virtual
 
 Este artigo explica as diferentes opções e requisitos para publicar uma oferta de VM (máquina virtual) no Marketplace comercial. As ofertas de VM são ofertas que podem ser implantadas e cobradas por meio do Azure Marketplace.
 
-Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e verifique se sua conta está inscrita no programa comercial do Marketplace.
+Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](./partner-center-portal/create-account.md) e verifique se sua conta está inscrita no programa comercial do Marketplace.
 
 ### <a name="technical-fundamentals"></a>Conceitos técnicos
 
@@ -70,7 +70,7 @@ Você pode enviar convites para endereços de email da MSA (conta da Microsoft) 
 
 As ofertas de VM exigem pelo menos um plano. Um plano define o escopo e os limites da solução e os preços associados. Você pode criar vários planos para sua oferta a fim de fornecer a seus clientes opções de licenciamento e técnicas diferentes, bem como avaliações gratuitas. Consulte [planos e preços para ofertas de mercado comercial](plans-pricing.md) para obter diretrizes gerais sobre planos, incluindo modelos de preços, avaliações gratuitas e planos privados. 
 
-As VMs são totalmente habilitadas para comércio, usando modelos de licenciamento pago pelo uso ou BYOL (traga sua própria licença). A Microsoft hospeda a transação comercial e cobra o cliente em seu nome. Você tem a vantagem de usar a relação de pagamento preferencial entre o cliente e a Microsoft, incluindo os Contratos Enterprise. Para obter mais informações, consulte [recursos de transação do Marketplace comercial](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+As VMs são totalmente habilitadas para comércio, usando modelos de licenciamento pago pelo uso ou BYOL (traga sua própria licença). A Microsoft hospeda a transação comercial e cobra o cliente em seu nome. Você tem a vantagem de usar a relação de pagamento preferencial entre o cliente e a Microsoft, incluindo os Contratos Enterprise. Para obter mais informações, consulte [recursos de transação do Marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
 > Os compromissos monetários associados a um Enterprise Agreement podem ser usados no uso do Azure de sua VM, mas não em relação às taxas de licenciamento de software.
@@ -84,7 +84,7 @@ Estas são as opções de licenciamento disponíveis para as ofertas de VM:
 | Opção de licenciamento | Processo de transação |
 | --- | --- |
 | Avaliação gratuita | Ofereça aos seus clientes uma avaliação gratuita de um, três ou seis meses. |
-| Test drive | Essa opção permite que seus clientes avaliem as VMs sem custo adicional para elas. Eles não precisam ser um cliente do Azure existente para se envolver com a experiência de avaliação. Para obter detalhes, consulte [o que é um test drive?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| Test drive | Essa opção permite que seus clientes avaliem as VMs sem custo adicional para elas. Eles não precisam ser um cliente do Azure existente para se envolver com a experiência de avaliação. Para obter detalhes, consulte [o que é um test drive?](./what-is-test-drive.md) |
 | BYOL | A opção traga seu próprio licenciamento permite que seus clientes tragam licenças de software existentes para o Azure.\* |
 | Com base no uso | Também conhecido como pré-pago, essa opção permite que seus clientes paguem por hora. |
 | Demonstração interativa  | Dê aos seus clientes uma experiência guiada de sua solução usando uma demonstração interativa. O benefício é que você pode oferecer uma experiência de avaliação sem ter que fornecer uma configuração complicada de sua solução complexa. |
@@ -129,7 +129,7 @@ Se você optar por usar o contrato padrão, terá a opção de adicionar os term
 Ao criar sua oferta no Partner Center, você verá a guia **revender por meio de CSPs** . Essa opção permite que os parceiros que fazem parte do programa CSP (provedores de soluções de Microsoft Cloud) revendam sua VM como parte de uma oferta agrupada. Todos os planos BYOL (traga sua própria licença) são automaticamente aceitos para o programa. Você também pode optar por aceitar seus planos não BYOL. Consulte [programa do provedor de soluções na nuvem](cloud-solution-providers.md) para obter mais informações. 
 
 > [!NOTE]
-> A aceitação do canal de parceiros do CSP (provedor de soluções na nuvem) já está disponível. Para obter mais informações sobre como comercializar sua oferta por meio de canais de parceiros do Microsoft CSP, consulte [**provedores de soluções de nuvem**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+> A aceitação do canal de parceiros do CSP (provedor de soluções na nuvem) já está disponível. Para obter mais informações sobre como comercializar sua oferta por meio de canais de parceiros do Microsoft CSP, consulte [**provedores de soluções de nuvem**](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

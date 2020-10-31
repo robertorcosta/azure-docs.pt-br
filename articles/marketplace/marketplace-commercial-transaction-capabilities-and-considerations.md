@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006390"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130316"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Recursos de transação do marketplace comercial
 
@@ -24,7 +24,7 @@ O editor ou a Microsoft é responsável por gerenciar transações de licença d
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Contate-me, avaliação gratuita e opções de BYOL
 
-Os editores podem escolher o _contato comigo_ e a _avaliação gratuita_, opções para fins de aquisição promocional e de usuário. Para alguns tipos de oferta, os editores podem escolher a opção BYOL (traga sua própria licença) para permitir que os clientes comprem uma assinatura para sua oferta usando uma licença que adquiriu diretamente de você. Com essas opções, a Microsoft não participa diretamente das transações de licença de software do editor e não há nenhum valor de transação associado. 
+Os editores podem escolher o _contato comigo_ e a _avaliação gratuita_ , opções para fins de aquisição promocional e de usuário. Para alguns tipos de oferta, os editores podem escolher a opção BYOL (traga sua própria licença) para permitir que os clientes comprem uma assinatura para sua oferta usando uma licença que adquiriu diretamente de você. Com essas opções, a Microsoft não participa diretamente das transações de licença de software do editor e não há nenhum valor de transação associado. 
 
 Os Publicadores são responsáveis por dar suporte a todos os aspectos da transação de licença de software. Isso inclui, mas não se limita a ordem, preenchimento, medição, cobrança, faturamento, pagamento e coleção. Com a opção de listagem entre em contato comigo, os editores mantêm 100% das taxas de licenciamento de software do Publicador coletadas do cliente.
 
@@ -46,9 +46,9 @@ Atualmente, a opção de publicação de transação tem suporte para os seguint
 
 ### <a name="billing-infrastructure-costs"></a>Custos de infra-estrutura de faturamento
 
-Para **máquinas virtuais** e **aplicativos do Azure**, as tarifas de uso da infraestrutura do Azure são cobradas na assinatura do Azure do cliente. Os valores de uso da infraestrutura são precificados e apresentados separadamente dos valores de licenciamento do provedor de software na fatura do cliente.
+Para **máquinas virtuais** e **aplicativos do Azure** , as tarifas de uso da infraestrutura do Azure são cobradas na assinatura do Azure do cliente. Os valores de uso da infraestrutura são precificados e apresentados separadamente dos valores de licenciamento do provedor de software na fatura do cliente.
 
-Para **Aplicativos SaaS**, você como editor deve contabilizar os valores de uso da infraestrutura do Azure e os valores de licenciamento de software como um item de custo único.  Ele é representado como um valor fixo para o cliente. O uso da infraestrutura do Azure é gerenciado e cobrado diretamente no Publicador. Os valores reais de uso da infraestrutura não são vistos pelo cliente. Em geral, os editores optam por incluir os valores de uso da infraestrutura do Azure em seus preços de licença de software. As taxas de licenciamento de software não são limitadas ou baseadas no consumo do usuário.
+Para **Aplicativos SaaS** , você como editor deve contabilizar os valores de uso da infraestrutura do Azure e os valores de licenciamento de software como um item de custo único.  Ele é representado como um valor fixo para o cliente. O uso da infraestrutura do Azure é gerenciado e cobrado diretamente no Publicador. Os valores reais de uso da infraestrutura não são vistos pelo cliente. Em geral, os editores optam por incluir os valores de uso da infraestrutura do Azure em seus preços de licença de software. As taxas de licenciamento de software não são limitadas ou baseadas no consumo do usuário.
 
 ## <a name="pricing-models"></a>Modelos de preço
 
@@ -197,7 +197,7 @@ A opção de publicação de transações está disponível apenas para uso com 
 
 - **Aplicativo do Azure: modelo de solução ou aplicativo gerenciado** – deve provisionar uma ou mais máquinas virtuais e efetuar pull da soma dos preços da máquina virtual. Para aplicativos gerenciados em um único plano, uma assinatura mensal de taxa fixa pode ser selecionada como o modelo de preço, em vez do preço da máquina virtual. Em alguns os casos, os valores de uso da infraestrutura do Azure são passados para o cliente separadamente dos valores de licença de software, mas no mesmo extrato de faturamento. No entanto, se você configurar uma oferta de aplicativo gerenciado para encargos de infraestrutura de ISV, os recursos do Azure serão cobrados para o Publicador e o cliente receberá uma tarifa fixa que inclui o custo de infraestrutura, licenças de software e serviços de gerenciamento.
 
-- **Aplicativo SaaS** -deve ser uma solução multilocatário, usar [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticação e integrá-lo com as [APIs de cumprimento de SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). O uso da infraestrutura do Azure é gerenciado e cobrado diretamente para você (o parceiro), portanto, você deve considerar as taxas de uso da infraestrutura do Azure e as taxas de licenciamento de software como um único item de custo. Para obter diretrizes detalhadas, consulte [criar uma nova oferta de SaaS no Marketplace comercial](partner-center-portal/create-new-saas-offer.md).
+- **Aplicativo SaaS** -deve ser uma solução multilocatário, usar [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticação e integrá-lo com as [APIs de cumprimento de SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). O uso da infraestrutura do Azure é gerenciado e cobrado diretamente para você (o parceiro), portanto, você deve considerar as taxas de uso da infraestrutura do Azure e as taxas de licenciamento de software como um único item de custo. Para obter diretrizes detalhadas, consulte [criar uma nova oferta de SaaS no Marketplace comercial](./create-new-saas-offer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196432"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129721"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 
-Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza, usados para executar uma pesquisa ou para aumentar seus fluxos de dados. Por exemplo, em um cenário de IoT, você pode armazenar metadados sobre sensores (que não são alterados com frequência) em dados de referência e uni-los a fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para fazer uso de dados de referência em seu trabalho de Azure Stream Analytics, você geralmente usará uma [junção de dados de referência](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. 
+Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza, usados para executar uma pesquisa ou para aumentar seus fluxos de dados. Por exemplo, em um cenário de IoT, você pode armazenar metadados sobre sensores (que não são alterados com frequência) em dados de referência e uni-los a fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para fazer uso de dados de referência em seu trabalho de Azure Stream Analytics, você geralmente usará uma [junção de dados de referência](/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. 
 
 ## <a name="example"></a>Exemplo  
 Você pode ter um fluxo em tempo real de eventos gerados quando carros passarem um estande de chamada. O estande de chamada pode capturar a placa de licença em tempo real e ingressar com um conjunto de informações estático que tem detalhes de registro para identificar as placas de licença que expiraram.  
@@ -37,7 +37,7 @@ Dados de referência são modelados como uma sequência de blobs (definidos na c
 
 ### <a name="configure-blob-reference-data"></a>Configurar dados de referência de blob
 
-Para configurar os dados de referência, você primeiro precisa criar uma entrada que seja do tipo **Dados de Referência**. A tabela a seguir explica cada propriedade que você precisará fornecer ao criar os entrada de dados de referência com sua descrição:
+Para configurar os dados de referência, você primeiro precisa criar uma entrada que seja do tipo **Dados de Referência** . A tabela a seguir explica cada propriedade que você precisará fornecer ao criar os entrada de dados de referência com sua descrição:
 
 |**Nome da propriedade**  |**Descrição**  |
 |---------|---------|
@@ -94,14 +94,14 @@ Com a opção de consulta delta, o Stream Analytics executa a consulta de instan
 
 ### <a name="configure-sql-database-reference"></a>Configurar a referência do Banco de Dados SQL
 
-Para configurar os dados de referência do Banco de Dados SQL, primeiro você precisará criar a entrada **Dados de Referência**. A tabela abaixo explica cada propriedade que você precisará fornecer ao criar a entrada de dados de referência com sua descrição. Para obter mais informações, confira [Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics](sql-reference-data.md).
+Para configurar os dados de referência do Banco de Dados SQL, primeiro você precisará criar a entrada **Dados de Referência** . A tabela abaixo explica cada propriedade que você precisará fornecer ao criar a entrada de dados de referência com sua descrição. Para obter mais informações, confira [Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics](sql-reference-data.md).
 
-Você pode usar o [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como uma entrada de dados de referência. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
+Você pode usar o [Azure SQL instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) como uma entrada de dados de referência. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](../azure-sql/managed-instance/public-endpoint-configure.md) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
 
 |**Nome da propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.|
-|Subscription|Escolha sua assinatura|
+|Assinatura|Escolha sua assinatura|
 |Banco de dados|O Banco de Dados SQL do Azure que contém os dados de referência. Para o SQL Instância Gerenciada, é necessário especificar a porta 3342. Por exemplo, *sampleserver.public.database.windows.net,3342*|
 |Nome de Usuário|O nome de usuário associado ao Banco de Dados SQL do Azure.|
 |Senha|A senha associada ao Banco de Dados SQL do Azure.|
@@ -146,6 +146,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

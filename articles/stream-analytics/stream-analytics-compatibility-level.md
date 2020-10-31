@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097729"
+ms.locfileid: "93129806"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -33,7 +33,7 @@ Quando você cria um novo trabalho de Stream Analytics, é uma prática recomend
 
 ## <a name="set-the-compatibility-level"></a>Definir o nível de compatibilidade
 
-Você pode definir o nível de compatibilidade para um trabalho de Stream Analytics no portal do Azure ou usando a [chamada de API REST de trabalho Create](/azure/stream-analytics/stream-analytics-quick-create-portal).
+Você pode definir o nível de compatibilidade para um trabalho de Stream Analytics no portal do Azure ou usando a [chamada de API REST de trabalho Create](./stream-analytics-quick-create-portal.md).
 
 Para atualizar o nível de compatibilidade do trabalho no portal do Azure:
 
@@ -77,13 +77,13 @@ Para obter mais informações, consulte [atualizações para recursos geoespacia
 
 **Níveis anteriores:** O comportamento de Upsert foi *INSERT ou Merge* .
 
-**nível de 1,2:** A integração de API em massa nativa com saída CosmosDB maximiza a taxa de transferência e manipula com eficiência as solicitações de limitação. Para obter mais informações, consulte [a página Azure Stream Analytics saída para Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
+**nível de 1,2:** A integração de API em massa nativa com saída CosmosDB maximiza a taxa de transferência e manipula com eficiência as solicitações de limitação. Para obter mais informações, consulte [a página Azure Stream Analytics saída para Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
 O comportamento de Upsert é *Inserir ou substituir* .
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset ao gravar na saída do SQL
 
-**Níveis anteriores: os** tipos de [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) foram ajustados para UTC.
+**Níveis anteriores: os** tipos de [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) foram ajustados para UTC.
 
 **nível de 1,2:** DateTimeOffset não está mais ajustado.
 
@@ -151,4 +151,4 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Solucionar problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
-* [Stream Analytics o Resource Health](stream-analytics-resource-health.md)
+* [Stream Analytics o Resource Health](./stream-analytics-troubleshoot-query.md)

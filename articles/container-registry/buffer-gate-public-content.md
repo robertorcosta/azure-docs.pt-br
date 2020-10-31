@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: c7beddda0d344f6b7606f3e2d3624bee39009c66
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043483"
+ms.locfileid: "93130843"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gerenciar conteúdo público com o registro de contêiner do Azure
 
@@ -21,7 +21,7 @@ Este artigo é uma visão geral de práticas e fluxos de trabalho para usar um r
 
 Seu ambiente pode ter dependências de conteúdo público, como imagens de contêiner público, [gráficos de Helm](https://helm.sh/), políticas de Opa ( [Open Policy Agent](https://www.openpolicyagent.org/) ) ou outros artefatos. Por exemplo, você pode executar [Nginx](https://hub.docker.com/_/nginx) para roteamento de serviço ou `docker build FROM alpine` puxando imagens diretamente do Hub do Docker ou outro registro público. 
 
-Sem os controles adequados, ter dependências do conteúdo do registro público pode introduzir riscos aos fluxos de trabalho de desenvolvimento e implantação de imagens. Para atenuar os riscos, mantenha cópias locais do conteúdo público quando possível. Para obter detalhes, consulte o [blog Open container Initiative](https://opencontainers.org/posts/blog). 
+Sem os controles adequados, ter dependências do conteúdo do registro público pode introduzir riscos aos fluxos de trabalho de desenvolvimento e implantação de imagens. Para atenuar os riscos, mantenha cópias locais do conteúdo público quando possível. Para obter detalhes, consulte o [blog Open container Initiative](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/). 
 
 ## <a name="authenticate-with-docker-hub"></a>Autenticar com o Hub do Docker
 
@@ -33,8 +33,6 @@ Como uma primeira etapa, se você efetuar pull de imagens públicas do Hub do Do
 > Ao estimar o número de solicitações pull, leve em conta que ao usar os serviços do provedor de nuvem ou trabalhando atrás de um NAT corporativo, vários usuários serão apresentados ao Hub do Docker em agregação como um subconjunto de endereços IP.  Adicionar a autenticação de conta paga do Docker às solicitações feitas ao Hub do Docker evitará possíveis interrupções de serviço devido à limitação de limite de taxa.
 >
 > Para obter detalhes, consulte [preços e assinaturas do Docker](https://www.docker.com/pricing) e os [termos de serviço do Docker](https://www.docker.com/legal/docker-terms-service).
-
-
 
 Para exemplos de autenticação e cenários, consulte [limite de taxa de download](https://docs.docker.com/docker-hub/download-rate-limit/).
 
@@ -72,7 +70,7 @@ Para começar a gerenciar cópias de imagens públicas, você poderá criar um r
 
 Como uma etapa única recomendada, [importe](container-registry-import-images.md) imagens base e outros conteúdos públicos para o registro de contêiner do Azure. O comando [AZ ACR Import](/cli/azure/acr#az_acr_import) no CLI do Azure dá suporte à importação de imagem de registros públicos, como o Hub do Docker e o registro de contêiner da Microsoft e de outros registros de contêineres privados. 
 
-`az acr import` Não requer uma instalação local do Docker. Você pode executá-lo com uma instalação local do CLI do Azure ou diretamente no Azure Cloud Shell com suporte para qualquer tipo de imagens de sistema operacional, imagens de várias arquiteturas ou artefatos de OCI, como gráficos Helm.
+`az acr import` Não requer uma instalação local do Docker. Você pode executá-lo com uma instalação local do CLI do Azure ou diretamente no Azure Cloud Shell. Ele dá suporte a imagens de qualquer tipo de sistema operacional, imagens de várias arquiteturas ou artefatos de OCI, como gráficos Helm.
 
 Exemplo:
 
@@ -82,7 +80,7 @@ az acr import \
   --source docker.io/library/hello-world:latest \
   --image hello-world:latest \
   --username <Docker Hub username> \
-  --password <Docker Hub password>
+  --password <Docker Hub token>
 ```
 
 Dependendo das necessidades da sua organização, você pode importar para um registro dedicado ou um repositório em um registro compartilhado.
@@ -93,7 +91,7 @@ Os desenvolvedores de imagens de aplicativos devem garantir que seu código faç
 
 Expandindo a importação de imagem, configure uma [tarefa de registro de contêiner do Azure](container-registry-tasks-overview.md) para automatizar compilações de imagem de aplicativo quando as imagens base são atualizadas. Uma tarefa de compilação automatizada pode controlar as atualizações de [imagem base](container-registry-tasks-base-images.md) e [as atualizações de código-fonte](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
-Para obter um exemplo detalhado, consulte [como consumir e manter conteúdo público com tarefas de registro de contêiner do Azure](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md). 
+Para obter um exemplo detalhado, consulte [como consumir e manter conteúdo público com tarefas de registro de contêiner do Azure](tasks-consume-public-content.md). 
 
 > [!NOTE]
 > Uma única tarefa pré-configurada pode recriar automaticamente todas as imagens do aplicativo que fazem referência a uma imagem base dependente. 
@@ -101,4 +99,5 @@ Para obter um exemplo detalhado, consulte [como consumir e manter conteúdo púb
 ## <a name="next-steps"></a>Próximas etapas
  
 * Saiba mais sobre [as tarefas do ACR](container-registry-tasks-overview.md) para compilar, executar, enviar por push e corrigir imagens de contêiner no Azure.
+* Consulte [como consumir e manter conteúdo público com tarefas de registro de contêiner do Azure](tasks-consume-public-content.md) para um fluxo de trabalho de retenção automatizada para atualizar as imagens base para o seu ambiente. 
 * Consulte os [tutoriais de tarefas do ACR](container-registry-tutorial-quick-task.md) para obter mais exemplos para automatizar compilações e atualizações de imagem.

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a9063a202ba542279efd8017d282fe0aa78d42
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261026"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129857"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Resultados da saída dos tópicos do barramento de serviço de Azure Stream Analytics
 
-As filas do Barramento de Serviço fornecem um método de comunicação um-para-um do remetente para o destinatário. [Os tópicos do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação de um-para-muitos.
+As filas do Barramento de Serviço fornecem um método de comunicação um-para-um do remetente para o destinatário. [Os tópicos do Barramento de Serviço](/previous-versions/azure/hh367516(v=azure.100)) fornecem uma forma de comunicação de um-para-muitos.
 
 A tabela a seguir lista os nomes de propriedade e suas descrições para a criação de uma saída de tópico do Barramento de Serviço.
 
@@ -65,7 +65,7 @@ A imagem a seguir é das propriedades de mensagem de saída esperadas inspeciona
 
 ## <a name="system-properties"></a>Propriedades do sistema
 
-Você pode anexar colunas de consulta como [propriedades do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) às suas mensagens da fila ou do tópico do Barramento de Serviço de saída. Essas colunas não entram no conteúdo, em vez disso, a [propriedade do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage correspondente é preenchida com os valores da coluna de consulta.
+Você pode anexar colunas de consulta como [propriedades do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) às suas mensagens da fila ou do tópico do Barramento de Serviço de saída. Essas colunas não entram no conteúdo, em vez disso, a [propriedade do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage correspondente é preenchida com os valores da coluna de consulta.
 Estas propriedades do sistema têm suporte: `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 Os valores de cadeia de caracteres dessas colunas são analisados como o tipo de valor de propriedade do sistema correspondente, e quaisquer falhas de análise são tratadas como erros de dados.

@@ -6,21 +6,18 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: 9704ff7dec02a0de044863ec2da6280d65b30ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043484"
+ms.locfileid: "93131149"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Camada Premium para Azure Data Lake Storage
 
-O Azure Data Lake Storage Gen2 agora dá suporte ao [nível de desempenho premium](storage-blob-performance-tiers.md#premium-performance). O nível de desempenho Premium é ideal para aplicativos de análise de Big Data e cargas de trabalho que exigem baixa latência consistente e têm um grande número de transações. 
-
-> [!NOTE]
-> A camada Premium para Azure Data Lake Storage está em visualização pública. Consulte [disponibilidade regional](#regional-availability).
+O Azure Data Lake Storage Gen2 agora dá suporte ao [nível de desempenho premium](storage-blob-performance-tiers.md#premium-performance). O nível de desempenho Premium é ideal para aplicativos de análise de Big Data e cargas de trabalho que exigem baixa latência consistente e têm um grande número de transações.
 
 ## <a name="workloads-that-can-benefit-from-the-premium-performance-tier"></a>Cargas de trabalho que podem se beneficiar do nível de desempenho premium
 
@@ -100,14 +97,9 @@ A camada Premium para Azure Data Lake Storage está disponível nas regiões a s
 |Índia Central|LRS|
 |Oeste da Índia|LRS|
 |Norte dos EAU|LRS|
-|Leste do Japão|LRS|
+|Japan East|LRS|
 |Oeste do Japão|LRS|
 |Sudeste da Ásia|LRS, ZRS|
 |Leste da Austrália|LRS, ZRS|
 |Sudeste da Austrália|LRS|
-|Sul do Brasil|LRS|
-
-
-## <a name="next-steps"></a>Próximas etapas
-
-Consulte a camada Premium para obter Azure Data Lake Storage [comunicado de blog](https://www.microsoft.com).
+|Brazil South|LRS|

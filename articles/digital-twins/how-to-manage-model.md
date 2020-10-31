@@ -7,18 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494846"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130368"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
 Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINMODELS**](/rest/api/digital-twins/dataplane/models), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
 
 As operações de gerenciamento incluem carregamento, validação, recuperação e exclusão de modelos. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-models"></a>Criar modelos
 
@@ -61,7 +65,7 @@ A primeira etapa em direção à solução é criar modelos para representar asp
 > [!NOTE]
 > Este é um corpo de exemplo para um arquivo. JSON no qual um modelo é definido e salvo, para ser carregado como parte de um projeto de cliente. Por outro lado, a chamada à API REST usa uma matriz de definições de modelo como a acima (que é mapeada para um `IEnumerable<string>` no SDK do .net). Portanto, para usar esse modelo na API REST diretamente, coloque-o entre colchetes.
 
-Esse modelo define um nome e uma ID exclusiva para a sala do paciente e propriedades para representar a contagem de visitantes e o status de mão-desbotado (esses contadores serão atualizados dos sensores de movimento e dos dispensadores do Smart SOAP e serão usados em conjunto para calcular uma propriedade de *porcentagem de handwash* ). O modelo também define uma relação *hasDevices*, que será usada para conectar qualquer [gêmeos digital](concepts-twins-graph.md) com base nesse modelo de *sala* aos dispositivos reais.
+Esse modelo define um nome e uma ID exclusiva para a sala do paciente e propriedades para representar a contagem de visitantes e o status de mão-desbotado (esses contadores serão atualizados dos sensores de movimento e dos dispensadores do Smart SOAP e serão usados em conjunto para calcular uma propriedade de *porcentagem de handwash* ). O modelo também define uma relação *hasDevices* , que será usada para conectar qualquer [gêmeos digital](concepts-twins-graph.md) com base nesse modelo de *sala* aos dispositivos reais.
 
 Seguindo esse método, você pode ir para definir modelos para as regiões, zonas ou o próprio hospital do hospital.
 
@@ -113,7 +117,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Os arquivos de modelo podem conter mais de um único modelo. Nesse caso, os modelos precisam ser colocados em uma matriz JSON. Por exemplo:
+Os arquivos de modelo podem conter mais de um único modelo. Nesse caso, os modelos precisam ser colocados em uma matriz JSON. Por exemplo: 
 
 ```json
 [
@@ -200,7 +204,7 @@ Quando você cria um novo "/", uma vez que a nova versão do modelo e a versão 
 
 Isso também significa que o carregamento de uma nova versão de um modelo não afeta automaticamente o gêmeos existente. O gêmeos existente só permanecerá com instâncias da versão antiga do modelo.
 
-Você pode atualizar esses gêmeos existentes para a nova versão do modelo, aplicando patches a eles, conforme descrito na seção [*atualizar um modelo do digital r*](how-to-manage-twin.md#update-a-digital-twins-model) de " *como": gerenciar o digital gêmeos*. No mesmo patch, você deve atualizar a ID do **modelo** (para a nova versão) e **todos os campos que devem ser alterados no campo de atualização para torná-lo compatível com o novo modelo**.
+Você pode atualizar esses gêmeos existentes para a nova versão do modelo, aplicando patches a eles, conforme descrito na seção [*atualizar um modelo do digital r*](how-to-manage-twin.md#update-a-digital-twins-model) de " *como": gerenciar o digital gêmeos* . No mesmo patch, você deve atualizar a ID do **modelo** (para a nova versão) e **todos os campos que devem ser alterados no campo de atualização para torná-lo compatível com o novo modelo** .
 
 ### <a name="remove-models"></a>Remover modelos
 

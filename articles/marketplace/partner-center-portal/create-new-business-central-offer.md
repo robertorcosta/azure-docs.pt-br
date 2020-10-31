@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774571"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130146"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -23,8 +23,8 @@ Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](c
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral**.
-3. Na página Visão geral, selecione **+ Nova oferta** > **Dynamics 365 Business Central**.
+2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral** .
+3. Na página Visão geral, selecione **+ Nova oferta** > **Dynamics 365 Business Central** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-business-central.png)
 
@@ -33,17 +33,17 @@ Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](c
 
 ## <a name="new-offer"></a>Nova oferta
 
-Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
+Insira uma **ID da oferta** . Esse é um identificador exclusivo para cada oferta em sua conta.
 
 - Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
 - A ID da oferta combinada com a ID do Publicador deve ter menos de 40 caracteres de comprimento.
 - Use apenas letras minúsculas e números. Ele pode incluir hifens e sublinhados, mas sem espaços. Por exemplo, se sua ID de editor for testpublisherid e você inserir **Test-offer-1** aqui, o endereço Web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
+- A ID da oferta não pode ser alterada depois que você seleciona **Criar** .
 
-Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
+Insira um **Alias da oferta** . Esse é o nome usado para a oferta no Partner Center.
 
 - Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
-- O Alias da oferta não poderá ser alterado depois que você selecionar a opção **Criar**.
+- O Alias da oferta não poderá ser alterado depois que você selecionar a opção **Criar** .
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -91,7 +91,7 @@ Essa página permite que você defina as categorias e os setores usados para agr
 Selecione categorias e subcategorias para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável** .
 
 Veja a lista completa de categorias e subcategorias nas [melhores práticas de listagem de ofertas](../gtm-offer-listing-best-practices.md).
 
@@ -105,7 +105,7 @@ Insira o número de versão da sua oferta. Os clientes verão essa versão lista
 
 ### <a name="terms-and-conditions"></a>Termos e condições
 
-Forneça seus termos e condições legais no campo **Termos e condições**. Você também pode fornecer a URL na qual os termos e condições podem ser encontrados. Os clientes precisarão aceitar esses termos antes de poderem testar a oferta.
+Forneça seus termos e condições legais no campo **Termos e condições** . Você também pode fornecer a URL na qual os termos e condições podem ser encontrados. Os clientes precisarão aceitar esses termos antes de poderem testar a oferta.
 
 Selecione **Salvar rascunho** antes de continuar.
 
@@ -171,9 +171,9 @@ Insira a URL da política de privacidade da sua organização. Você é respons�
 
 ### <a name="contact-information"></a>Informações de contato
 
-Nessa seção, você deve fornecer o nome, o email e o número de telefone de um **Contato de suporte** e de um **Contato de engenharia**. Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
+Nessa seção, você deve fornecer o nome, o email e o número de telefone de um **Contato de suporte** e de um **Contato de engenharia** . Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
 
-Na seção **Contato de suporte**, forneça também a **URL de suporte** em que os parceiros do CSP podem encontrar suporte para sua oferta. Sua URL de suporte não pode ser a mesma do seu **Link de ajuda**.
+Na seção **Contato de suporte** , forneça também a **URL de suporte** em que os parceiros do CSP podem encontrar suporte para sua oferta. Sua URL de suporte não pode ser a mesma do seu **Link de ajuda** .
 
 ### <a name="supporting-documents"></a>Documentos de suporte
 
@@ -215,7 +215,7 @@ Esta página fornece opções sobre onde e como tornar sua oferta disponível.
 
 ### <a name="markets"></a>Mercados
 
-Essa seção permite que você especifique os mercados nos quais sua oferta deve estar disponível. Para fazer isso, selecione **Editar mercados**, que exibirá a janela pop-up **Seleção de mercado**.
+Essa seção permite que você especifique os mercados nos quais sua oferta deve estar disponível. Para fazer isso, selecione **Editar mercados** , que exibirá a janela pop-up **Seleção de mercado** .
 
 Selecione pelo menos um mercado para publicar sua oferta. Escolha **Selecionar todos** para disponibilizar sua oferta em todos os possíveis mercados ou selecione os mercados específicos que você deseja adicionar.
 
@@ -242,8 +242,8 @@ Esta página define os detalhes técnicos usados para se conectar à sua oferta.
 
 Selecione a opção que se aplica à sua oferta:
 
-* **Complemento** – um aplicativo de complemento estende a experiência e a funcionalidade existente do Dynamics 365 Business Central. Para obter detalhes, consulte [Aplicativos de complemento](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-* **Conexão** – um aplicativo de conexão pode ser usado no cenário em que deve ser estabelecida uma conexão ponto a ponto entre o Dynamics 365 Business Central e uma solução ou um serviço de terceiros. Para obter detalhes, consulte [Aplicativos de conexão](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Complemento** – um aplicativo de complemento estende a experiência e a funcionalidade existente do Dynamics 365 Business Central. Para obter detalhes, consulte [Aplicativos de complemento](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Conexão** – um aplicativo de conexão pode ser usado no cenário em que deve ser estabelecida uma conexão ponto a ponto entre o Dynamics 365 Business Central e uma solução ou um serviço de terceiros. Para obter detalhes, consulte [Aplicativos de conexão](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Upload de arquivos
 
@@ -280,11 +280,11 @@ Esta página permite que você forneça informações adicionais sobre sua ofert
 
 ### <a name="target-release"></a>Versão de destino
 
-Indique à qual versão do Microsoft Dynamics Business Central sua solução se destina: **Atual**, **Próxima importante** ou **Próxima secundária**. Essas informações permitem que testemos sua solução adequadamente.
+Indique à qual versão do Microsoft Dynamics Business Central sua solução se destina: **Atual** , **Próxima importante** ou **Próxima secundária** . Essas informações permitem que testemos sua solução adequadamente.
 
 ### <a name="supported-editions"></a>Edições com suporte
 
-Caso sua oferta exija a edição Premium do Microsoft Dynamics 365 Business Central, selecione apenas **Premium**. Caso contrário, selecione **Essentials** e **Premium**.
+Caso sua oferta exija a edição Premium do Microsoft Dynamics 365 Business Central, selecione apenas **Premium** . Caso contrário, selecione **Essentials** e **Premium** .
 
 ### <a name="key-usage-scenario"></a>Principais cenários de uso
 
@@ -302,7 +302,7 @@ Caso uma conta de teste seja necessária para que nossa equipe de certificação
 
 ### <a name="submit-offer-to-preview"></a>Enviar oferta para versão prévia
 
-Depois de concluir todas as seções necessárias da oferta, selecione **publicar** no canto superior direito do Portal. Você será redirecionado para a página **Revisar e publicar**. 
+Depois de concluir todas as seções necessárias da oferta, selecione **publicar** no canto superior direito do Portal. Você será redirecionado para a página **Revisar e publicar** . 
 
 Se for a primeira vez que você publicar essa oferta, você poderá:
 
@@ -310,8 +310,8 @@ Se for a primeira vez que você publicar essa oferta, você poderá:
     - *Não iniciada* – significa que a seção não foi tocada e precisa ser concluída.
     - *Incompleta* – significa que a seção tem erros que precisam ser corrigidos ou requer que mais informações sejam fornecidas. Volte para as seções e atualize-as.
     - *Concluída* – significa que a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você possa enviar a oferta.
-- Na seção **Notas para certificação**, forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
-- Envie a oferta para publicação selecionando **Enviar**. Nós enviaremos um e-mail a você quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Go-Live** para a oferta para publicar sua oferta no público.
+- Na seção **Notas para certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
+- Envie a oferta para publicação selecionando **Enviar** . Nós enviaremos um e-mail a você quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Go-Live** para a oferta para publicar sua oferta no público.
 
 ## <a name="next-steps"></a>Próximas etapas
 

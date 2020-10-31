@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac08b5af0afbf43c7b13808fac06c40066e48b7a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87f3e2014281580cc35f941ad62046dcb24539df
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074226"
+ms.locfileid: "93129398"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Ler entradas em qualquer formato usando desserializadores .NET personalizados
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>Formato de serialização para APIs REST
 
-Cada entrada do Azure Stream Analytics tem um **formato de serialização** . Para obter mais informações sobre opções de entrada, consulte a documentação [API REST de entrada](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs).
+Cada entrada do Azure Stream Analytics tem um **formato de serialização** . Para obter mais informações sobre opções de entrada, consulte a documentação [API REST de entrada](./stream-analytics-define-inputs.md).
 
 O código JavaScript a seguir é um exemplo do formato de serialização do desserializador do .NET ao se usar a API REST:
 
@@ -239,7 +239,7 @@ Você pode [solicitar suporte](https://aka.ms/ccodereqregion) para outras regiõ
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>Quando esse recurso estará disponível em todas as regiões do Azure?
 
-Esse recurso está disponível em [6 regiões](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Se você estiver interessado em usar essa funcionalidade em outra região, [envie uma solicitação](https://aka.ms/ccodereqregion). Estamos trabalhando para oferecer suporte a todas as regiões do Azure.
+Esse recurso está disponível em [6 regiões](#region-support). Se você estiver interessado em usar essa funcionalidade em outra região, [envie uma solicitação](https://aka.ms/ccodereqregion). Estamos trabalhando para oferecer suporte a todas as regiões do Azure.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Posso acessar o MetadataPropertyValue de minhas entradas semelhantes à função GetMetadataPropertyValue?
 

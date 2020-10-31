@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 85925369da8fec83a613226fe248b396fd88105a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81b6dabbd9053a69ff60d1a3c71d03fff38f627
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613407"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129755"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Use a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI
 
@@ -23,19 +23,19 @@ Este artigo mostra como habilitar a identidade gerenciada para o Power BI saída
 
 Os itens a seguir são necessários para usar esse recurso:
 
-- Uma conta de Power BI com uma [licença pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+- Uma conta de Power BI com uma [licença pro](/power-bi/service-admin-purchasing-power-bi-pro).
 
 - Um espaço de trabalho atualizado dentro de sua conta de Power BI. Consulte o [comunicado do Power bi](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) sobre esse recurso para obter mais detalhes.
 
 ## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Criar um trabalho de Stream Analytics usando o portal do Azure
 
-1. Crie um novo trabalho de Stream Analytics ou abra um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **identidade gerenciada** localizada em **Configurar**. Certifique-se de que "usar identidade gerenciada atribuída pelo sistema" esteja selecionado e, em seguida, selecione o botão **salvar** na parte inferior da tela.
+1. Crie um novo trabalho de Stream Analytics ou abra um trabalho existente no portal do Azure. Na barra de menus localizada no lado esquerdo da tela, selecione **identidade gerenciada** localizada em **Configurar** . Certifique-se de que "usar identidade gerenciada atribuída pelo sistema" esteja selecionado e, em seguida, selecione o botão **salvar** na parte inferior da tela.
 
    ![Configurar Stream Analytics identidade gerenciada](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Antes de configurar a saída, conceda ao trabalho de Stream Analytics acesso ao seu espaço de trabalho do Power BI seguindo as instruções na seção [fornecer ao trabalho de Stream Analytics acesso ao seu espaço de trabalho do Power bi](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) deste artigo.
 
-3. Navegue até a seção de **saídas** do trabalho do seu fluxo analítico, selecione **+ Adicionar**e, em seguida, escolha **Power bi**. Em seguida, selecione o botão **autorizar** e faça logon com sua conta de Power bi.
+3. Navegue até a seção de **saídas** do trabalho do seu fluxo analítico, selecione **+ Adicionar** e, em seguida, escolha **Power bi** . Em seguida, selecione o botão **autorizar** e faça logon com sua conta de Power bi.
 
    ![Autorizar com Power BI conta](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ Os itens a seguir são necessários para usar esse recurso:
 
 ## <a name="azure-resource-manager-deployment"></a>Implantação do Azure Resource Manager
 
-Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Os exemplos a seguir usam o CLI do Azure.
+Azure Resource Manager permite automatizar totalmente a implantação de seu trabalho de Stream Analytics. Você pode implantar modelos do Resource Manager usando Azure PowerShell ou o [CLI do Azure](/cli/azure/?view=azure-cli-latest). Os exemplos a seguir usam o CLI do Azure.
 
 
 1. Você pode criar um recurso **Microsoft. StreamAnalytics/streamingjobs** com uma identidade gerenciada, incluindo a seguinte propriedade na seção de recursos do seu modelo do Resource Manager:
@@ -160,9 +160,9 @@ Agora que o trabalho de Stream Analytics foi criado, ele pode receber acesso a u
 ### <a name="use-the-power-bi-ui"></a>Usar a interface do usuário do Power BI
 
    > [!Note]
-   > Para adicionar o trabalho de Stream Analytics ao seu espaço de trabalho do Power BI usando a interface do usuário, você também precisa habilitar o acesso à entidade de serviço nas **configurações do desenvolvedor** no portal de administração do Power bi. Consulte [introdução a uma entidade de serviço](https://docs.microsoft.com/power-bi/developer/embed-service-principal) para obter mais detalhes.
+   > Para adicionar o trabalho de Stream Analytics ao seu espaço de trabalho do Power BI usando a interface do usuário, você também precisa habilitar o acesso à entidade de serviço nas **configurações do desenvolvedor** no portal de administração do Power bi. Consulte [introdução a uma entidade de serviço](/power-bi/developer/embed-service-principal) para obter mais detalhes.
 
-1. Navegue até as configurações de acesso do espaço de trabalho. Consulte este artigo para obter mais detalhes: [conceder acesso ao seu espaço de trabalho](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
+1. Navegue até as configurações de acesso do espaço de trabalho. Consulte este artigo para obter mais detalhes: [conceder acesso ao seu espaço de trabalho](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
 2. Digite o nome do seu trabalho de Stream Analytics na caixa de texto e selecione **colaborador** como o nível de acesso.
 
@@ -195,7 +195,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### <a name="use-the-power-bi-rest-api"></a>Usar a API REST do Power BI
 
-O trabalho de Stream Analytics também pode ser adicionado como um colaborador ao espaço de trabalho usando a API REST "Adicionar usuário de grupo" diretamente. A documentação completa para essa API pode ser encontrada aqui: [grupos-Adicionar usuário do grupo](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
+O trabalho de Stream Analytics também pode ser adicionado como um colaborador ao espaço de trabalho usando a API REST "Adicionar usuário de grupo" diretamente. A documentação completa para essa API pode ser encontrada aqui: [grupos-Adicionar usuário do grupo](/rest/api/power-bi/groups/addgroupuser).
 
 **Exemplo de solicitação**
 ```http

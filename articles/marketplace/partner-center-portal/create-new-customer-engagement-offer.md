@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bcb14c786ab652b1c51a3d3bf487e39fd0ebfdb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96bdfc513023cafb2d94a68c06f1065cf20c3ba8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710678"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130163"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement e PowerApps
 
@@ -23,8 +23,8 @@ Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](c
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral**.
-3. Na página Visão geral, selecione **+ Nova oferta** > **Dynamics 365 for Customer Engagement e PowerApps**.
+2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral** .
+3. Na página Visão geral, selecione **+ Nova oferta** > **Dynamics 365 for Customer Engagement e PowerApps** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
 
@@ -33,17 +33,17 @@ Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](c
 
 ## <a name="new-offer"></a>Nova oferta
 
-Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
+Insira uma **ID da oferta** . Esse é um identificador exclusivo para cada oferta em sua conta.
 
 - Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
 - A ID da oferta combinada com a ID do Publicador deve ter menos de 40 caracteres de comprimento.
-- Use apenas letras minúsculas e números. Ele pode incluir hifens e sublinhados, mas sem espaços. Por exemplo, se sua ID de editor for testpublisherid e você inserir **Test-offer-1**, o endereço Web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
+- Use apenas letras minúsculas e números. Ele pode incluir hifens e sublinhados, mas sem espaços. Por exemplo, se sua ID de editor for testpublisherid e você inserir **Test-offer-1** , o endereço Web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
+- A ID da oferta não pode ser alterada depois que você seleciona **Criar** .
 
-Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
+Insira um **Alias da oferta** . Esse é o nome usado para a oferta no Partner Center.
 
 - Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
-- Ele não poderá ser alterado depois que você selecionar **Criar**.
+- Ele não poderá ser alterado depois que você selecionar **Criar** .
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -76,7 +76,7 @@ Selecione **Salvar rascunho** antes de continuar.
 
 Um test drive é uma ótima maneira de demonstrar sua oferta para clientes potenciais oferecendo a eles a opção de experimentar antes de comprar, o que resulta no aumento da conversão e na geração de clientes potenciais altamente qualificados. Para saber mais, comece com [o que é Test Drive](../what-is-test-drive.md).
 
-Para habilitar um test drive por um período de tempo fixo, marque a caixa de seleção **Habilitar um test drive**. Para remover o test drive de sua oferta, desmarque essa caixa de seleção.
+Para habilitar um test drive por um período de tempo fixo, marque a caixa de seleção **Habilitar um test drive** . Para remover o test drive de sua oferta, desmarque essa caixa de seleção.
 
 ### <a name="customer-leads"></a>Clientes potenciais
 
@@ -95,7 +95,7 @@ Essa página permite que você defina as categorias e os setores usados para agr
 Selecione categorias e subcategorias para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável** .
 
 Veja a lista completa de categorias e subcategorias nas [melhores práticas de listagem de ofertas](../gtm-offer-listing-best-practices.md).
 
@@ -109,7 +109,7 @@ Selecione todos os produtos do Dynamics 365 a que essa oferta se aplica.
 
 ### <a name="app-version"></a>Versão do aplicativo
 
-Insira o número de versão da sua oferta. Os clientes verão essa versão listada na página de detalhes da oferta. Se você estiver atualizando o número de versão apenas devido a alterações de marketing/descritivas, marque a caixa **Somente alterações de marketing**. Essa opção permite que a oferta ignore os estágios de certificação e provisionamento.
+Insira o número de versão da sua oferta. Os clientes verão essa versão listada na página de detalhes da oferta. Se você estiver atualizando o número de versão apenas devido a alterações de marketing/descritivas, marque a caixa **Somente alterações de marketing** . Essa opção permite que a oferta ignore os estágios de certificação e provisionamento.
 
 ### <a name="terms-and-conditions"></a>Termos e condições
 
@@ -179,9 +179,9 @@ Insira o endereço da política de privacidade da sua organização. Você é re
 
 ### <a name="contacts"></a>Contatos
 
-Forneça o nome, o email e o número de telefone de um **Contato de suporte** e de um **Contato de engenharia**. Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
+Forneça o nome, o email e o número de telefone de um **Contato de suporte** e de um **Contato de engenharia** . Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
 
-Na seção **Contato de suporte**, forneça também a **URL de suporte** em que os parceiros do CSP podem encontrar suporte para sua oferta.
+Na seção **Contato de suporte** , forneça também a **URL de suporte** em que os parceiros do CSP podem encontrar suporte para sua oferta.
 
 ### <a name="supporting-documents"></a>Documentos de suporte
 
@@ -229,7 +229,7 @@ Essa página permite que você defina onde e como tornar sua oferta disponível.
 
 ### <a name="markets"></a>Mercados
 
-Especifique os mercados nos quais sua oferta deve estar disponível. Para fazer isso, selecione **Editar mercados**, que exibirá a janela pop-up **Seleção de mercado**.
+Especifique os mercados nos quais sua oferta deve estar disponível. Para fazer isso, selecione **Editar mercados** , que exibirá a janela pop-up **Seleção de mercado** .
 
 Nenhum mercado é selecionado por padrão, mas você deve selecionar pelo menos um mercado para publicar sua oferta. Escolha **Selecionar todos** para disponibilizar sua oferta em todos os possíveis mercados ou selecione os mercados específicos que você deseja adicionar.
 
@@ -264,14 +264,14 @@ Forneça a URL para a página da Web de configuração que permite ao cliente co
 
 ### <a name="crm-package"></a>Pacote CRM
 
-No campo **URL do local do pacote**, insira a URL de uma conta do Armazenamento de Blobs do Azure que contenha o arquivo .zip do pacote CRM carregado. Inclua uma chave de SAS somente leitura na URL para que a Microsoft possa selecionar seu pacote para verificação.
+No campo **URL do local do pacote** , insira a URL de uma conta do Armazenamento de Blobs do Azure que contenha o arquivo .zip do pacote CRM carregado. Inclua uma chave de SAS somente leitura na URL para que a Microsoft possa selecionar seu pacote para verificação.
 
 > [!IMPORTANT]
 > Para evitar a publicação de um bloco, verifique se a data de expiração na URL do seu Armazenamento de Blobs não expirou. Você pode revisar a data acessando sua política. Recomendamos que o **Tempo de validade** seja pelo menos um mês adiante.
 
-Selecione a caixa rotulada **Há mais de um pacote CRM no arquivo de pacote**, se for o caso. Nesse caso, inclua todos os pacotes em seu arquivo .zip.
+Selecione a caixa rotulada **Há mais de um pacote CRM no arquivo de pacote** , se for o caso. Nesse caso, inclua todos os pacotes em seu arquivo .zip.
 
-Para obter informações detalhadas sobre como criar seu pacote e atualizar sua estrutura, consulte [Etapa 3: Criar um pacote AppSource para seu aplicativo](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource).
+Para obter informações detalhadas sobre como criar seu pacote e atualizar sua estrutura, consulte [Etapa 3: Criar um pacote AppSource para seu aplicativo](/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### <a name="crm-package-availability"></a>Disponibilidade do pacote CRM
 
@@ -308,11 +308,11 @@ Depois de concluir todas as seções necessárias da oferta, selecione **Examina
 Se for a primeira vez que você publicar essa oferta, você poderá:
 
 - Ver o status de conclusão de cada seção da oferta.
-    - **Não iniciada**: a seção não foi tocada e deve ser concluída.
-    - **Incompleta**: a seção tem erros que precisam ser corrigidos ou requer que mais informações sejam fornecidas. Volte para as seções e atualize-as.
-    - **Concluída**: a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você possa enviar a oferta.
-- Na seção **Notas para certificação**, forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
-- Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para exame e aprovação. Retorne ao Partner Center e selecione **Go-Live** para que a oferta seja publicada no público.
+    - **Não iniciada** : a seção não foi tocada e deve ser concluída.
+    - **Incompleta** : a seção tem erros que precisam ser corrigidos ou requer que mais informações sejam fornecidas. Volte para as seções e atualize-as.
+    - **Concluída** : a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você possa enviar a oferta.
+- Na seção **Notas para certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
+- Envie a oferta para publicação selecionando **Enviar** . Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para exame e aprovação. Retorne ao Partner Center e selecione **Go-Live** para que a oferta seja publicada no público.
 
 ## <a name="next-step"></a>Próxima etapa
 

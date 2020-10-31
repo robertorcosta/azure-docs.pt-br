@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e445f6d1dce8193109d6b5ad1742210458e74c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75426234"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130401"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introdução às funções geoespaciais do Stream Analytics
 
@@ -26,7 +26,7 @@ Exemplos de cenários que podem se beneficiar de funções geoespaciais incluem:
 * Isolamento geográfico
 * Rastreamento por telefone em sites de celular
 
-A Linguagem de Consulta do Stream Analytics tem sete funções geoespaciais internas: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS** e **ST_WITHIN**.
+A Linguagem de Consulta do Stream Analytics tem sete funções geoespaciais internas: **CreateLineString** , **CreatePoint** , **CreatePolygon** , **ST_DISTANCE** , **ST_OVERLAPS** , **ST_INTERSECTS** e **ST_WITHIN** .
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -53,11 +53,11 @@ FROM input
 
  {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-Para saber mais, visite a referência [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring).
+Para saber mais, visite a referência [CreateLineString](/stream-analytics-query/createlinestring).
 
 ## <a name="createpoint"></a>CreatePoint
 
-A função `CreatePoint` aceita uma latitude e longitude e retorna um ponto GeoJSON, que pode ser plotado em um mapa. As latitudes e longitudes devem ser um tipo de dados **float**.
+A função `CreatePoint` aceita uma latitude e longitude e retorna um ponto GeoJSON, que pode ser plotado em um mapa. As latitudes e longitudes devem ser um tipo de dados **float** .
 
 A consulta de exemplo a seguir usa `CreatePoint` para criar um ponto usando latitudes e longitudes dos dados de entrada de streaming.
 
@@ -80,7 +80,7 @@ FROM input
   
  {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
 
-Para saber mais, visite a referência [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint).
+Para saber mais, visite a referência [CreatePoint](/stream-analytics-query/createpoint).
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -107,7 +107,7 @@ FROM input
  
  {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-Para saber mais, visite a referência [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon).
+Para saber mais, visite a referência [CreatePolygon](/stream-analytics-query/createpolygon).
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
@@ -121,7 +121,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Para saber mais, visite a referência [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance).
+Para saber mais, visite a referência [ST_DISTANCE](/stream-analytics-query/st-distance).
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
 A função `ST_OVERLAPS` compara dois polígonos. Se os polígonos se sobrepuserem, a função retornará um 1. A função retornará 0, se os polígonos não se sobrepuserem. 
@@ -142,7 +142,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Para saber mais, visite a referência [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps).
+Para saber mais, visite a referência [ST_OVERLAPS](/stream-analytics-query/st-overlaps).
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
 A função `ST_INTERSECTS` compara dois LineString. Se o LineString interseccionar, a função retornará 1. A função retornará 0, se a LineString não interseccionar.
@@ -168,7 +168,7 @@ FROM input
   
  0  
 
-Para saber mais, visite a referência[ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects).
+Para saber mais, visite a referência[ST_INTERSECTS](/stream-analytics-query/st-intersects).
 
 ## <a name="st_within"></a>ST_WITHIN
 A função `ST_WITHIN` determina se um ponto ou polígono está dentro de um polígono. Se o polígono contiver o ponto ou polígono, a função retornará 1. A função retornará 0, se o ponto ou polígono não estiver localizado no polígono declarado.
@@ -194,12 +194,12 @@ FROM input
   
  1  
 
-Para saber mais, visite a referência [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within).
+Para saber mais, visite a referência [ST_WITHIN](/stream-analytics-query/st-within).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

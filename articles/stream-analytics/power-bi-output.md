@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129772"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI saída de Azure Stream Analytics
 
@@ -51,7 +51,7 @@ O Power BI usa a política de retenção de PEPS (primeiro a entrar, primeiro a 
 
 O Stream Analytics do Azure atualiza o modelo de dados dinamicamente no runtime se o esquema de saída mudar. Alterações de nome de coluna, alterações de tipo de coluna e a adição ou remoção de colunas são controladas.
 
-Esta tabela abrange as conversões de tipo de dados dos [Tipos de dados do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) para [Tipos de EDM (Modelo de Dados de Entidade)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) do Power BI caso não existam um conjunto de dados e uma tabela do Power BI.
+Esta tabela abrange as conversões de tipo de dados dos [Tipos de dados do Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics) para [Tipos de EDM (Modelo de Dados de Entidade)](/dotnet/framework/data/adonet/entity-data-model) do Power BI caso não existam um conjunto de dados e uma tabela do Power BI.
 
 Do Stream Analytics | Para o Power BI
 -----|-----
@@ -76,7 +76,7 @@ Datetime | String | String |  Datetime | String
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
-Para o tamanho do lote de saída, confira [Power bi limites da API REST](https://msdn.microsoft.com/library/dn950053.aspx).
+Para o tamanho do lote de saída, confira [Power bi limites da API REST](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Próximas etapas
 

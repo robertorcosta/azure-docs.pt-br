@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230612"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131047"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -52,7 +52,7 @@ Você pode usar a filtragem avançada no relatório de auditoria para acessar um
 
 As categorias incluem:
 
-- Todos
+- Tudo
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
@@ -63,7 +63,7 @@ As categorias incluem:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Outros
+- Outro
 - Política
 - ResourceManagement
 - RoleManagement
@@ -73,13 +73,13 @@ Você também pode filtrar em um serviço específico usando o filtro suspenso d
 
 Os serviços incluem:
 
-- Todos
+- Tudo
 - Revisões de acesso
 - Provisionamento de conta de usuário 
 - SSO de aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso condicional
+- Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Identity Protection
@@ -91,7 +91,7 @@ Os serviços incluem:
 
 ## <a name="sign-ins-report"></a>Relatório de entradas 
 
-A exibição **Entradas** inclui todas as entradas do usuário, bem como o relatório **Uso do Aplicativo**. Também é possível exibir as informações de uso do aplicativo na seção **Gerenciar** da visão geral dos **Aplicativos empresariais**.
+A exibição **Entradas** inclui todas as entradas do usuário, bem como o relatório **Uso do Aplicativo** . Também é possível exibir as informações de uso do aplicativo na seção **Gerenciar** da visão geral dos **Aplicativos empresariais** .
 
 Para acessar o relatório de entradas:
 
@@ -149,7 +149,7 @@ Você pode acessar relatórios sobre as detecções de risco detectadas na seç�
 
 Baixei os logs de atividade (auditoria ou entradas) e não vejo todos os registros para o momento que escolhi. Por quê? 
 
- ![Relatórios](./media/troubleshoot-missing-data-download/01.png)
+ ![Captura de tela mostra o botão baixar no relatório de atividade.](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -165,7 +165,7 @@ Você pode aproveitar as [APIs de relatórios do Azure AD](concept-reporting-api
 
 Eu executei algumas ações no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Audit Logs`, mas não é possível encontrá-los.
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/01.png)
+ ![Captura de tela mostra o relatório de atividade.](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -186,7 +186,7 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Eu entrei recentemente no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Sign-ins`, mas não é possível encontrá-los.
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/02.png)
+ ![Captura de tela mostra entradas para Azure Active Directory.](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
@@ -207,7 +207,7 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Não consigo exibir mais de 30 dias de dados de entrada e de auditoria no portal do Azure. Por quê? 
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/03.png)
+ ![Captura de tela mostra o menu de data.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 

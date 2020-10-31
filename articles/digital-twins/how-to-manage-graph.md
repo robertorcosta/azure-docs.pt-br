@@ -7,21 +7,25 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 28551cb201ab964a21461d6b3f97ce439e446011
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495773"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130282"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
-O coração do Azure digital gêmeos é o [grafo de entrelaçamento](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico de entrelaçamento é feito de gêmeos digitais individuais conectados por meio de **relações**. 
+O coração do Azure digital gêmeos é o [grafo de entrelaçamento](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico de entrelaçamento é feito de gêmeos digitais individuais conectados por meio de **relações** . 
 
 Depois que você tiver uma [instância do gêmeos do Azure digital](how-to-set-up-instance-portal.md) em funcionamento e tiver configurado o código de [autenticação](how-to-authenticate-client.md) em seu aplicativo cliente, poderá usar as [**APIs do DigitalTwins**](/rest/api/digital-twins/dataplane/twins) para criar, modificar e excluir gêmeos digitais e suas relações em uma instância do gêmeos digital do Azure. Você também pode usar o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
 
 Este artigo se concentra no gerenciamento de relações e no grafo como um todo; para trabalhar com gêmeos digitais individuais, consulte [*como gerenciar o digital gêmeos*](how-to-manage-twin.md).
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+    
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Criar relações
@@ -33,11 +37,11 @@ As relações são criadas usando a `CreateRelationship()` chamada.
 Para criar uma relação, você precisa especificar:
 * A ID de fonte de origem ( `srcId` no exemplo de código abaixo): a ID do "My" para onde a relação se origina.
 * O ID de entrelaçamento de destino ( `targetId` no exemplo de código abaixo): a ID do ' filetreme "onde a relação chega.
-* Um nome de relação ( `relName` no exemplo de código abaixo): o tipo genérico de relationship, algo como _Contains_.
-* Uma ID de relação ( `relId` no exemplo de código abaixo): o nome específico para essa relação, algo como _Relationship1_.
+* Um nome de relação ( `relName` no exemplo de código abaixo): o tipo genérico de relationship, algo como _Contains_ .
+* Uma ID de relação ( `relId` no exemplo de código abaixo): o nome específico para essa relação, algo como _Relationship1_ .
 
 A ID da relação deve ser exclusiva dentro da fonte fornecida. Ele não precisa ser globalmente exclusivo.
-Por exemplo, para o *filefoo*, cada ID de relação específica deve ser exclusiva. No entanto, outra *barra* de entrelaçamento pode ter uma relação de saída que corresponde à mesma ID de uma relação *foo* .
+Por exemplo, para o *filefoo* , cada ID de relação específica deve ser exclusiva. No entanto, outra *barra* de entrelaçamento pode ter uma relação de saída que corresponde à mesma ID de uma relação *foo* .
 
 O exemplo de código a seguir ilustra como criar uma relação em sua instância de gêmeos digital do Azure.
 
@@ -81,9 +85,9 @@ As relações podem ser classificadas como:
 
 Não há nenhuma restrição quanto ao número de relações que você pode ter entre dois gêmeos — você pode ter quantas relações entre gêmeos desejar. 
 
-Isso significa que você pode expressar vários tipos diferentes de relações entre duas gêmeos ao mesmo tempo. Por exemplo, *a* bificar a pode ter uma relação *armazenada* e uma relação *fabricada* com a *n º B*.
+Isso significa que você pode expressar vários tipos diferentes de relações entre duas gêmeos ao mesmo tempo. Por exemplo, *a* bificar a pode ter uma relação *armazenada* e uma relação *fabricada* com a *n º B* .
 
-Você pode até mesmo criar várias instâncias do mesmo tipo de relação entre os mesmos dois gêmeos, se desejar. Neste exemplo, a "n" pode ter duas relações *armazenadas* diferentes com a *n*º de cima, desde que as relações tenham *IDs de relação* diferentes.
+Você pode até mesmo criar várias instâncias do mesmo tipo de relação entre os mesmos dois gêmeos, se desejar. Neste exemplo, a "n" pode ter duas relações *armazenadas* diferentes com a *n* º de cima, desde que as relações tenham *IDs de relação* diferentes.
 
 ## <a name="list-relationships"></a>Listar relações
 
@@ -132,7 +136,7 @@ Você pode usar as relações recuperadas para navegar para outros gêmeos em se
 
 ### <a name="find-incoming-relationships-to-a-digital-twin"></a>Localizar relações de entrada para um email digital
 
-O Azure digital gêmeos também tem uma API para localizar todas as _ relações * de*entrada*para um determinado 1. Isso geralmente é útil para navegação reversa ou ao excluir um "r".
+O Azure digital gêmeos também tem uma API para localizar todas as _ relações * de *entrada* para um determinado 1. Isso geralmente é útil para navegação reversa ou ao excluir um "r".
 
 O exemplo de código anterior se concentrou na localização de relações de saída de um ".". O exemplo a seguir é estruturado da mesma forma, mas localiza as relações de *entrada* para a.
 

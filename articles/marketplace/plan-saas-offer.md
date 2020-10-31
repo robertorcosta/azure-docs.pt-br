@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3f3b2c5927b31bde4575a08888e8844f2a1027
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819927"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129993"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
@@ -47,7 +47,7 @@ Os requisitos técnicos diferem de acordo com a opção de listagem escolhida pa
 
 A opção de listagem _entre em contato comigo_ não tem requisitos técnicos. Você tem a opção de conectar um sistema CRM para gerenciar leads do cliente, que é descrito na seção [leads do cliente](#customer-leads) , mais adiante neste artigo.
 
-As opções de listagem _obter agora (gratuito)_, _avaliação gratuita_e _vender por meio da Microsoft_ têm os seguintes requisitos técnicos:
+As opções de listagem _obter agora (gratuito)_ , _avaliação gratuita_ e _vender por meio da Microsoft_ têm os seguintes requisitos técnicos:
 
 - Seu aplicativo SaaS deve ser uma solução multilocatário.
 - Você pode habilitar as contas da Microsoft (MSA) e o [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) para autenticar usuários.
@@ -59,14 +59,14 @@ Esses requisitos técnicos adicionais se aplicam apenas à opção de listagem _
 
 - O Azure AD com autenticação e gerenciamento de identidade de SSO (logon único) é necessário para que o usuário de compra acesse a página de aterrissagem. Para obter diretrizes detalhadas, consulte [Azure AD e ofertas de SaaS transactáveis no Marketplace comercial](azure-ad-saas.md).
 - Você deve usar as [APIs de preenchimento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) para integrar com o Azure Marketplace e Microsoft AppSource. Você precisa expor um serviço que pode interagir com a assinatura de SaaS para criar, atualizar e excluir uma conta de usuário e um plano de serviço. As alterações críticas na API devem ter suporte em até 24 horas. As alterações não críticas de API serão lançadas periodicamente. Os diagramas e explicações detalhadas que descrevem o uso dos campos coletados estão disponíveis na documentação para as [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
-- Você deve criar pelo menos um plano para sua oferta. Seu plano é cobrado com base no modelo de preços selecionado antes da publicação: _taxa fixa_ ou _por usuário_. Mais detalhes sobre os [planos](#plans) são fornecidos posteriormente neste artigo.
+- Você deve criar pelo menos um plano para sua oferta. Seu plano é cobrado com base no modelo de preços selecionado antes da publicação: _taxa fixa_ ou _por usuário_ . Mais detalhes sobre os [planos](#plans) são fornecidos posteriormente neste artigo.
 - O cliente pode cancelar sua oferta a qualquer momento.
 
 ### <a name="technical-information"></a>Informações técnicas
 
 Se você estiver criando uma oferta de transação, precisará reunir as informações a seguir para a página de **configuração técnica** . Se você optar por processar as transações de forma independente em vez de criar uma oferta de transação, pule esta seção e vá para [test drives](#test-drives).
 
-- **URL da página de aterrissagem**: a URL do site de SaaS (por exemplo: `https://contoso.com/signup` ) para a qual os usuários serão direcionados depois de adquirir sua oferta do Marketplace comercial, disparando o processo de configuração da assinatura SaaS recém-criada. Essa URL receberá um token que pode ser usado para chamar as APIs de preenchimento para obter detalhes de provisionamento para sua página de registro interativa.
+- **URL da página de aterrissagem** : a URL do site de SaaS (por exemplo: `https://contoso.com/signup` ) para a qual os usuários serão direcionados depois de adquirir sua oferta do Marketplace comercial, disparando o processo de configuração da assinatura SaaS recém-criada. Essa URL receberá um token que pode ser usado para chamar as APIs de preenchimento para obter detalhes de provisionamento para sua página de registro interativa.
 
   Essa URL será chamada com o parâmetro de token de identificação de compra do Marketplace que identifica exclusivamente a compra de SaaS do cliente específico. Você deve trocar esse token para os detalhes da assinatura SaaS correspondente usando a [API de resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Esses detalhes e quaisquer outros que você queira coletar devem ser usados como parte de uma página da Web interativa para o cliente, criada em sua experiência para concluir o registro do cliente e ativar sua compra. Nessa página, o usuário deve se inscrever através da autenticação com um clique usando Azure Active Directory (AD do Azure).
 
@@ -74,16 +74,16 @@ Se você estiver criando uma oferta de transação, precisará reunir as informa
 
     A página de aterrissagem configurada deve estar em funcionamento em execução 24/7. Essa é a única maneira de você ser notificado sobre novas compras de suas ofertas de SaaS feitas no Marketplace comercial ou solicitações de configuração para uma assinatura ativa de uma oferta.
 
-- **Webhook de conexão**: para todos os eventos assíncronos que a Microsoft precisa enviar para você (por exemplo, quando uma assinatura de SaaS tiver sido cancelada), exigimos que você forneça uma URL de webhook de conexão. Chamaremos essa URL para notificá-lo sobre o evento.
+- **Webhook de conexão** : para todos os eventos assíncronos que a Microsoft precisa enviar para você (por exemplo, quando uma assinatura de SaaS tiver sido cancelada), exigimos que você forneça uma URL de webhook de conexão. Chamaremos essa URL para notificá-lo sobre o evento.
 
   O webhook que você fornece deve estar em execução em 24/7, pois essa é a única maneira de você ser notificado sobre atualizações sobre as assinaturas de SaaS de seus clientes adquiridas por meio do Marketplace comercial.
 
   > [!NOTE]
-  > Dentro do portal do Azure, exigimos que você crie um aplicativo de Azure Active Directory de locatário único [(AD do Azure)](../active-directory/develop/howto-create-service-principal-portal.md) para habilitar uma ID de Azure app a ser usada para autenticar a conexão entre nossos dois serviços. Para localizar a [ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vá para o Azure Active Directory e selecione **Propriedades**e procure o número de ID de diretório listado. Por exemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Dentro do portal do Azure, exigimos que você crie um aplicativo de Azure Active Directory de locatário único [(AD do Azure)](../active-directory/develop/howto-create-service-principal-portal.md) para habilitar uma ID de Azure app a ser usada para autenticar a conexão entre nossos dois serviços. Para localizar a [ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vá para o Azure Active Directory e selecione **Propriedades** e procure o número de ID de diretório listado. Por exemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **ID de locatário Azure Active Directory**: (também conhecido como ID de diretório). Dentro do portal do Azure, exigimos que você [registre um aplicativo Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) para que possamos adicioná-lo à ACL (lista de controle de acesso) da API para garantir que você está autorizado a chamá-lo. Para localizar a ID do locatário para seu aplicativo Azure Active Directory (AD), vá para a folha [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) em Azure Active Directory. Na coluna **nome de exibição** , selecione o aplicativo. Em seguida, procure o número de **ID do diretório (locatário)** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **ID de locatário Azure Active Directory** : (também conhecido como ID de diretório). Dentro do portal do Azure, exigimos que você [registre um aplicativo Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) para que possamos adicioná-lo à ACL (lista de controle de acesso) da API para garantir que você está autorizado a chamá-lo. Para localizar a ID do locatário para seu aplicativo Azure Active Directory (AD), vá para a folha [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) em Azure Active Directory. Na coluna **nome de exibição** , selecione o aplicativo. Em seguida, procure o número de **ID do diretório (locatário)** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **ID do aplicativo Azure Active Directory**: você também precisa da [ID do aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Para obter seu valor, vá para a folha de [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) em Azure Active Directory. Na coluna **nome de exibição** , selecione o aplicativo. Em seguida, procure o número de ID do aplicativo (cliente) listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **ID do aplicativo Azure Active Directory** : você também precisa da [ID do aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Para obter seu valor, vá para a folha de [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) em Azure Active Directory. Na coluna **nome de exibição** , selecione o aplicativo. Em seguida, procure o número de ID do aplicativo (cliente) listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
   A ID do aplicativo do Azure AD está associada à sua ID de editor em sua conta do Partner Center. Você deve usar a mesma ID de aplicativo para todas as ofertas nessa conta.
 
@@ -151,22 +151,22 @@ O exemplo a seguir mostra uma listagem de oferta no portal do Azure.
 
 Para ajudar a criar sua oferta com mais facilidade, prepare alguns desses itens antecipadamente. Os itens a seguir são necessários, salvo indicação em contrário.
 
-- **Nome**: esse nome será exibido como o título da sua listagem de ofertas no Marketplace comercial. Uma marca comercial pode ser atribuída ao nome. Ele não pode conter emojis (a menos que sejam os símbolos de marca registrada e direitos autorais) e precisam ser limitados a 50 caracteres.
-- **Resumo dos resultados da pesquisa**: Descreva a finalidade ou a função de sua oferta como uma única frase sem quebras de linha em 100 caracteres ou menos. Esse resumo é usado nos resultados da pesquisa de listagem (s) do Marketplace comercial.
-- **Descrição**: essa descrição será exibida na visão geral de listagem (s) do Marketplace comercial. Considere incluir uma proposta de valor, os principais benefícios, a base de usuários pretendida, qualquer associação de categoria ou do setor, oportunidades de compra no aplicativo, todas as divulgações necessárias e um link para saber mais.
+- **Nome** : esse nome será exibido como o título da sua listagem de ofertas no Marketplace comercial. Uma marca comercial pode ser atribuída ao nome. Ele não pode conter emojis (a menos que sejam os símbolos de marca registrada e direitos autorais) e precisam ser limitados a 50 caracteres.
+- **Resumo dos resultados da pesquisa** : Descreva a finalidade ou a função de sua oferta como uma única frase sem quebras de linha em 100 caracteres ou menos. Esse resumo é usado nos resultados da pesquisa de listagem (s) do Marketplace comercial.
+- **Descrição** : essa descrição será exibida na visão geral de listagem (s) do Marketplace comercial. Considere incluir uma proposta de valor, os principais benefícios, a base de usuários pretendida, qualquer associação de categoria ou do setor, oportunidades de compra no aplicativo, todas as divulgações necessárias e um link para saber mais.
     
-    Essa caixa de texto tem controles de editor de texto avançado que você pode usar para tornar sua descrição mais atraente. Você também pode usar marcas HTML para formatar sua descrição. Você pode inserir até 3.000 caracteres de texto nesta caixa, incluindo marcação HTML. Para obter dicas adicionais, confira [Escrever uma ótima descrição do aplicativo](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+    Essa caixa de texto tem controles de editor de texto avançado que você pode usar para tornar sua descrição mais atraente. Você também pode usar marcas HTML para formatar sua descrição. Você pode inserir até 3.000 caracteres de texto nesta caixa, incluindo marcação HTML. Para obter dicas adicionais, confira [Escrever uma ótima descrição do aplicativo](/windows/uwp/publish/write-a-great-app-description).
 
-- **Introdução instruções**: se você optar por vender sua oferta por meio da Microsoft (oferta de transação), esse campo será necessário. Estas são as instruções para ajudar os clientes a se conectarem à sua oferta de SaaS. Você pode adicionar até 3.000 caracteres de texto e links para uma documentação online mais detalhada.
-- **Pesquisar palavras-chave** (opcional): forneça até três palavras-chave de pesquisa que os clientes podem usar para localizar sua oferta nas lojas online. Você não precisa incluir o **nome** e a **Descrição**da oferta: esse texto é incluído automaticamente na pesquisa.
-- **Link de política de privacidade**: a URL para a política de privacidade da sua empresa. Você deve fornecer uma política de privacidade válida e é responsável por garantir que seu aplicativo esteja em conformidade com as leis e regulamentos de privacidade.
-- **Informações de contato**: você deve designar os seguintes contatos de sua organização:
-  - **Contato de suporte**: forneça o nome, o telefone e o email para que os parceiros da Microsoft usem quando seus clientes abrirem tíquetes. Você também deve incluir a URL para o site de suporte.
-  - **Contato de engenharia**: forneça o nome, telefone e email para a Microsoft usar diretamente quando houver problemas com sua oferta. Essas informações de contato não estão listadas no Marketplace comercial.
+- **Introdução instruções** : se você optar por vender sua oferta por meio da Microsoft (oferta de transação), esse campo será necessário. Estas são as instruções para ajudar os clientes a se conectarem à sua oferta de SaaS. Você pode adicionar até 3.000 caracteres de texto e links para uma documentação online mais detalhada.
+- **Pesquisar palavras-chave** (opcional): forneça até três palavras-chave de pesquisa que os clientes podem usar para localizar sua oferta nas lojas online. Você não precisa incluir o **nome** e a **Descrição** da oferta: esse texto é incluído automaticamente na pesquisa.
+- **Link de política de privacidade** : a URL para a política de privacidade da sua empresa. Você deve fornecer uma política de privacidade válida e é responsável por garantir que seu aplicativo esteja em conformidade com as leis e regulamentos de privacidade.
+- **Informações de contato** : você deve designar os seguintes contatos de sua organização:
+  - **Contato de suporte** : forneça o nome, o telefone e o email para que os parceiros da Microsoft usem quando seus clientes abrirem tíquetes. Você também deve incluir a URL para o site de suporte.
+  - **Contato de engenharia** : forneça o nome, telefone e email para a Microsoft usar diretamente quando houver problemas com sua oferta. Essas informações de contato não estão listadas no Marketplace comercial.
   - **Contato do programa CSP** (opcional): forneça o nome, telefone e email se você aceitar o programa CSP, para que esses parceiros possam contatá-lo com qualquer dúvida. Você também pode incluir uma URL para seus materiais de marketing.
 - **Links úteis** (opcional): você pode fornecer links para vários recursos para os usuários de sua oferta. Por exemplo, fóruns, perguntas frequentes e notas de versão.
-- **Documentos de suporte**: você pode fornecer até três documentos voltados para o cliente, como White papers, folhetos, listas de verificação ou apresentações do PowerPoint.
-- **Mídia – logotipos**: forneça um arquivo PNG para o logotipo de tamanho **grande** . O Partner Center usará isso para criar um logotipo **pequeno** e **médio** . Opcionalmente, você pode substituí-los por imagens diferentes posteriormente.
+- **Documentos de suporte** : você pode fornecer até três documentos voltados para o cliente, como White papers, folhetos, listas de verificação ou apresentações do PowerPoint.
+- **Mídia – logotipos** : forneça um arquivo PNG para o logotipo de tamanho **grande** . O Partner Center usará isso para criar um logotipo **pequeno** e **médio** . Opcionalmente, você pode substituí-los por imagens diferentes posteriormente.
 
    - Grande (de 216 x 216 a 350 x 350 px, required)
    - Médio (90 x 90 px, opcional)
@@ -178,17 +178,17 @@ Para ajudar a criar sua oferta com mais facilidade, prepare alguns desses itens 
   - O logotipo médio é exibido quando você cria um novo recurso no Microsoft Azure.
   - O logotipo grande aparece na sua página de listagem de ofertas no Azure Marketplace e Microsoft AppSource.
 
-- **Mídia – capturas de tela**: você deve adicionar pelo menos uma e até cinco capturas de tela com os seguintes requisitos, que mostram como sua oferta funciona:
+- **Mídia – capturas de tela** : você deve adicionar pelo menos uma e até cinco capturas de tela com os seguintes requisitos, que mostram como sua oferta funciona:
   - 1280 x 720 pixels
   - arquivo. png
   - Deve incluir uma legenda
 - **Mídia-vídeos** (opcional): você pode adicionar até quatro vídeos com os seguintes requisitos, que demonstram sua oferta:
-  - Nome
+  - Name
   - URL: deve ser hospedada somente no YouTube ou Vimeo.
   - Miniatura: 1280 x 720. arquivo PNG
 
 > [!Note]
-> Sua oferta deve atender as políticas gerais de [certificação do Marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) e as [políticas de software como serviço](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas) a serem publicadas no mercado comercial.
+> Sua oferta deve atender as políticas gerais de [certificação do Marketplace comercial](/legal/marketplace/certification-policies#100-general) e as [políticas de software como serviço](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) a serem publicadas no mercado comercial.
 
 ## <a name="preview-audience"></a>Público-alvo de versão prévia
 Um público de visualização pode acessar sua oferta antes de ser publicado em lojas online para testar a funcionalidade de ponta a ponta antes de você publicá-la em tempo real. Na página do **público de visualização** , você pode definir um público de visualização limitado. Essa configuração não estará disponível se você optar por processar as transações de forma independente, em vez de vender sua oferta pela Microsoft. Nesse caso, você pode ignorar esta seção e ir para [oportunidades de vendas adicionais](#additional-sales-opportunities).
@@ -206,7 +206,7 @@ Consulte [planos e preços para ofertas de mercado comercial](plans-pricing.md) 
 
 ### <a name="saas-pricing-models"></a>Modelos de preço do SaaS
 
-As ofertas de SaaS podem usar um dos dois modelos de preços com cada plano: uma _taxa fixa_ ou _por usuário_. Todos os planos na mesma oferta devem ser associados ao mesmo modelo de preços. Por exemplo, uma oferta não pode ter um plano que seja uma taxa fixa e outro plano por usuário.
+As ofertas de SaaS podem usar um dos dois modelos de preços com cada plano: uma _taxa fixa_ ou _por usuário_ . Todos os planos na mesma oferta devem ser associados ao mesmo modelo de preços. Por exemplo, uma oferta não pode ter um plano que seja uma taxa fixa e outro plano por usuário.
 
 **Taxa fixa** – habilite o acesso à sua oferta com um único preço de taxa mensal ou anual. Isso é, às vezes, chamado de preço baseado em site. Com esse modelo de preços, opcionalmente, você pode definir planos medidos que usam a API do serviço de medição do Marketplace para cobrar os clientes pelo uso que não está coberto pela taxa fixa. Para obter mais informações sobre cobrança limitada, consulte [cobrança limitada para SaaS usando o serviço de medição do Marketplace comercial](./partner-center-portal/saas-metered-billing.md). Você também deve usar essa opção se o comportamento de uso para o serviço SaaS estiver em intermitências.
 
@@ -231,15 +231,15 @@ Esta é uma análise de exemplo de custos e pagamentos para demonstrar o modelo 
 | A Microsoft paga para você 80% do seu custo de licença<br>`*` Para aplicativos SaaS qualificados, a Microsoft paga 90% do seu custo de licença| US $80,00 por mês<br>``*`` US $90,00 por mês |
 |||
 
-** `*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida para o mês. A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure covenda de VMs incentivados, aplicativos gerenciados e qualquer outra oferta de IaaS paga e qualificada disponibilizada por meio do Marketplace comercial.
+**`*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida para o mês. A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure covenda de VMs incentivados, aplicativos gerenciados e qualquer outra oferta de IaaS paga e qualificada disponibilizada por meio do Marketplace comercial.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de vendas adicionais
 
 Você pode optar por aceitar os canais de marketing e vendas com suporte da Microsoft. Ao criar sua oferta no Partner Center, você verá duas guias em direção ao final do processo:
 
-- **Revenda por meio de CSPs**: Use esta opção para permitir que os parceiros de CSP (provedores de soluções) Microsoft Cloud revendam sua solução como parte de uma oferta agrupada. Consulte [programa do provedor de soluções na nuvem](cloud-solution-providers.md) para obter mais informações.
+- **Revenda por meio de CSPs** : Use esta opção para permitir que os parceiros de CSP (provedores de soluções) Microsoft Cloud revendam sua solução como parte de uma oferta agrupada. Consulte [programa do provedor de soluções na nuvem](cloud-solution-providers.md) para obter mais informações.
 
-- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Consulte a [opção de venda em conjunto no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar sua oferta para avaliação.
+- **Covenda com a Microsoft** : essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Consulte a [opção de venda em conjunto no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar sua oferta para avaliação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

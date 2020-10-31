@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9ae770a21e93a0c8ab3827e91f15e163d7a875b4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428204"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130197"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -34,25 +34,25 @@ Projetar, criar e testar ofertas do aplicativo Azure exige conhecimento técnico
 
 Examine os seguintes recursos ao preparar sua oferta de aplicativo do Azure para o Marketplace comercial.
 
-* [Compreender os modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Compreender os modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 * Inícios Rápidos:
 
     * [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/)
     * [Guia de práticas recomendadas de modelos do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    * [Publicar definição do aplicativo](../../managed-applications/publish-service-catalog-app.md)
-    * [Implantar aplicativo do catálogo de serviços](../../managed-applications/deploy-service-catalog-quickstart.md)
+    * [Publicar definição do aplicativo](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Implantar aplicativo do catálogo de serviços](../../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
 
 * Tutoriais:
 
-    * [Criar arquivos de definição](../../managed-applications/publish-service-catalog-app.md)
-    * [Publicar o aplicativo do Marketplace](../../managed-applications/publish-marketplace-app.md)
+    * [Criar arquivos de definição](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Publicar o aplicativo do Marketplace]()
 
 * Exemplos:
 
-    * [CLI do Azure](../../managed-applications/cli-samples.md)
-    * [PowerShell do Azure](../../managed-applications/powershell-samples.md)
-    * [Soluções de aplicativo gerenciado](../../managed-applications/sample-projects.md)
+    * [CLI do Azure](../../azure-resource-manager/managed-applications/cli-samples.md)
+    * [PowerShell do Azure](../../azure-resource-manager/managed-applications/powershell-samples.md)
+    * [Soluções de aplicativo gerenciado](../../azure-resource-manager/managed-applications/sample-projects.md)
 
 O vídeo [Criação de modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) fornece uma introdução abrangente ao tipo de oferta de aplicativo do Azure:
 
@@ -67,8 +67,8 @@ O vídeo [Criação de modelos de solução e aplicativos gerenciados para o Azu
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar seu aplicativo Azure:
 
-* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/)
-* [CLI do Azure](https://docs.microsoft.com/cli/azure)
+* [PowerShell do Azure](/powershell/azure/)
+* [CLI do Azure](/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
@@ -84,17 +84,17 @@ Analise as ferramentas disponíveis na página [Ferramentas para Desenvolvedores
 
 Há dois tipos de aplicativos do Azure: aplicativos gerenciados e modelos de solução.
 
-* Os **modelos de solução** são uma das principais formas de publicar uma solução no Marketplace. Use esse tipo de plano quando sua solução requer implantação adicional e automação de configuração de mais de uma única VM (máquina virtual). Com um modelo de solução, você pode automatizar o fornecimento de mais de um recurso, incluindo VMs, redes e recursos de armazenamento para fornecer soluções complexas de IaaS.  Para obter mais informações sobre como criar modelos de solução, confira [Gerenciador de Recursos do Azure](../../azure-resource-manager/resource-group-overview.md).
+* Os **modelos de solução** são uma das principais formas de publicar uma solução no Marketplace. Use esse tipo de plano quando sua solução requer implantação adicional e automação de configuração de mais de uma única VM (máquina virtual). Com um modelo de solução, você pode automatizar o fornecimento de mais de um recurso, incluindo VMs, redes e recursos de armazenamento para fornecer soluções complexas de IaaS.  Para obter mais informações sobre como criar modelos de solução, confira [Gerenciador de Recursos do Azure](../../azure-resource-manager/management/overview.md).
 
-* **Aplicativos gerenciados** são semelhantes a modelos de solução do mercado, com uma diferença importante. Em um aplicativo gerenciado, os recursos são implantados em um grupo de recursos gerenciado pelo distribuidor do aplicativo. O grupo de recursos está presente na assinatura do consumidor, mas uma identidade no locatário do fornecedor tem acesso ao grupo de recursos. Como fornecedor, você deve especificar o custo do suporte contínuo da solução. Use os aplicativos gerenciados do Azure para criar e entregar facilmente aplicativos totalmente gerenciados e prontos para uso aos clientes.  Para obter mais informações sobre as vantagens e os tipos de aplicativos gerenciados, confira a [Visão geral dos aplicativos gerenciados do Azure](../../managed-applications/overview.md).
+* **Aplicativos gerenciados** são semelhantes a modelos de solução do mercado, com uma diferença importante. Em um aplicativo gerenciado, os recursos são implantados em um grupo de recursos gerenciado pelo distribuidor do aplicativo. O grupo de recursos está presente na assinatura do consumidor, mas uma identidade no locatário do fornecedor tem acesso ao grupo de recursos. Como fornecedor, você deve especificar o custo do suporte contínuo da solução. Use os aplicativos gerenciados do Azure para criar e entregar facilmente aplicativos totalmente gerenciados e prontos para uso aos clientes.  Para obter mais informações sobre as vantagens e os tipos de aplicativos gerenciados, confira a [Visão geral dos aplicativos gerenciados do Azure](../../azure-resource-manager/managed-applications/overview.md).
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
 Todos os aplicativos do Azure incluem pelo menos dois arquivos na pasta raiz de um arquivo de `.zip`:
 
-* Um arquivo de modelo do Resource Manager chamado [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md).  Este modelo define os recursos a serem implantados na assinatura do Azure do cliente. Para obter exemplos de modelos do Resource Manager, consulte a [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/) ou o [GitHub correspondente: Modelos de Início Rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates).
+* Um arquivo de modelo do Resource Manager chamado [mainTemplate.json](../../azure-resource-manager/management/overview.md).  Este modelo define os recursos a serem implantados na assinatura do Azure do cliente. Para obter exemplos de modelos do Resource Manager, consulte a [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/) ou o [GitHub correspondente: Modelos de Início Rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates).
 
-* Uma definição de interface do usuário para a experiência de criação do aplicativo do Azure denominada [createUiDefinition.json](../../managed-applications/create-uidefinition-overview.md).  Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
+* Uma definição de interface do usuário para a experiência de criação do aplicativo do Azure denominada [createUiDefinition.json](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).  Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
 
 Todas as novas ofertas de aplicativos do Azure devem incluir um [GUID de atribuição de uso do cliente de parceiro do Azure](../azure-partner-customer-usage-attribution.md). 
 
@@ -107,22 +107,22 @@ Para saber mais sobre os requisitos de publicação para cada plano de aplicativ
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral**.
+1. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral** .
 
-1. Na página Visão geral, selecione **+ Nova oferta** > **Aplicativo do Azure**.
+1. Na página Visão geral, selecione **+ Nova oferta** > **Aplicativo do Azure** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-app.png)
 
-1. Na página **Nova oferta**, insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
+1. Na página **Nova oferta** , insira uma **ID da oferta** . Esse é um identificador exclusivo para cada oferta em sua conta.
 
      * Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
-     * Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1**, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-     * A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
+     * Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1** , o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+     * A ID da oferta não pode ser alterada depois que você seleciona **Criar** .
 
-1. Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
+1. Insira um **Alias da oferta** . Esse é o nome usado para a oferta no Partner Center.
 
      * Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
-     * O Alias da oferta não pode ser alterado depois que você seleciona **Criar**.
+     * O Alias da oferta não pode ser alterado depois que você seleciona **Criar** .
 
 1. Selecione **Criar** para gerar a oferta e continuar.
 
@@ -134,9 +134,9 @@ A página **Configuração de oferta** é onde você pode configurar um test dri
 
 Um test drive é uma ótima maneira de demonstrar sua oferta para clientes potenciais oferecendo a eles a opção de experimentar antes de comprar, o que resulta no aumento da conversão e na geração de clientes potenciais altamente qualificados. [Saiba mais sobre test drives](../what-is-test-drive.md).
 
-Para habilitar um test drive por um período de tempo fixo, marque a caixa de seleção **Habilitar um test drive**. Para remover o test drive de sua oferta, desmarque essa caixa de seleção. Configure o ambiente de test drive na seção [Configuração técnica do test drive](#test-drive-technical-configuration), mais adiante neste tópico.
+Para habilitar um test drive por um período de tempo fixo, marque a caixa de seleção **Habilitar um test drive** . Para remover o test drive de sua oferta, desmarque essa caixa de seleção. Configure o ambiente de test drive na seção [Configuração técnica do test drive](#test-drive-technical-configuration), mais adiante neste tópico.
 
-Para obter informações adicionais, confira [Fazer test drive de sua oferta no marketplace comercial](test-drive.md). Você também pode ler sobre [melhores práticas de test drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) e baixar o [PDF de visão geral do test drive](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (verifique se o bloqueador de pop-ups está desativado)
+Para obter informações adicionais, confira [Fazer test drive de sua oferta no marketplace comercial](../what-is-test-drive.md). Você também pode ler sobre [melhores práticas de test drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) e baixar o [PDF de visão geral do test drive](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (verifique se o bloqueador de pop-ups está desativado)
 
 >[!Note]
 >Como todos os aplicativos do Azure são implementados usando um modelo de Azure Resource Manager, o único tipo de test drive disponível para um Aplicativo Azure é um [test drive baseado no Azure Resource Manager](../azure-resource-manager-test-drive.md).
@@ -158,7 +158,7 @@ A página de **Propriedades** é onde você define as categorias usadas para agr
 Selecione categorias e subcategorias para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável** .
 
 Veja a lista completa de categorias e subcategorias nas [melhores práticas de listagem de ofertas](../gtm-offer-listing-best-practices.md).
 
@@ -232,11 +232,11 @@ Insira a URL da política de privacidade da sua organização. Você é respons�
 
 ### <a name="useful-links"></a>Links úteis
 
-Adicione links a documentos opcionais online complementares sobre sua solução selecionando **+ Adicionar um link**.
+Adicione links a documentos opcionais online complementares sobre sua solução selecionando **+ Adicionar um link** .
 
 ### <a name="contact-information"></a>Informações de contato
 
-Forneça o nome, o email e o número de telefone de um **contato de suporte**, **contato de engenharia** e **contato de programa CSP**. Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP. Alguns contatos podem exigir informações adicionais.
+Forneça o nome, o email e o número de telefone de um **contato de suporte** , **contato de engenharia** e **contato de programa CSP** . Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP. Alguns contatos podem exigir informações adicionais.
 
 ### <a name="marketplace-media"></a>Mídia do marketplace
 
@@ -287,7 +287,7 @@ Seu público-alvo de versão prévia é identificado por GUIDs de ID da assinatu
 Adicione pelo menos uma ID da assinatura do Azure, seja individualmente (até 10) ou carregando um arquivo CSV (até 100). Ao adicionar essas IDs de assinatura, você define quem pode ter acesso à versão prévia de sua oferta antes que ela seja publicada como ativa. Se sua oferta já estiver ativa, você ainda poderá definir um público-alvo de versão prévia para as alterações de oferta de teste ou atualizações para sua oferta.
 
 > [!NOTE]
-> Um público-alvo de versão prévia difere de um público-alvo privado. Um público-alvo de versão prévia pode acessar sua oferta *antes* de ela ser publicada como ativa nos marketplaces. O público-alvo de versão prévia pode ver e validar todos os planos, incluindo aqueles que estarão disponíveis somente para um público-alvo privado depois que sua oferta for publicada integralmente no marketplace. Um público-alvo privado (definido na guia do plano **Preços e Disponibilidade**) tem acesso exclusivo a um plano específico.
+> Um público-alvo de versão prévia difere de um público-alvo privado. Um público-alvo de versão prévia pode acessar sua oferta *antes* de ela ser publicada como ativa nos marketplaces. O público-alvo de versão prévia pode ver e validar todos os planos, incluindo aqueles que estarão disponíveis somente para um público-alvo privado depois que sua oferta for publicada integralmente no marketplace. Um público-alvo privado (definido na guia do plano **Preços e Disponibilidade** ) tem acesso exclusivo a um plano específico.
 
 Selecione **Salvar rascunho** antes de continuar.
 
@@ -304,8 +304,8 @@ Selecione **Salvar rascunho** antes de continuar.
 
 A configuração técnica define os detalhes (ID do locatário e ID do aplicativo) usados para identificar seu serviço, o que emitirá eventos de medição para um aplicativo gerenciado usando as [APIs do serviço de medição Marketplace](./marketplace-metering-service-apis.md).  Insira a identidade que seu serviço usará ao emitir eventos de medição.
 
-* **ID do locatário do Azure ad** (obrigatório): dentro do portal do Azure, você deve [criar um aplicativo Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) para que possamos validar a conexão entre nossos dois serviços está por trás de uma comunicação autenticada. Para localizar a [ID de locatário](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), vá para o Azure Active Directory e selecione **Propriedades**e procure o número de **ID de diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
-* **ID do aplicativo do Azure ad** (obrigatório): você também precisa da [ID do aplicativo](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) e de uma chave de autenticação. Para obter esses valores, vá até o Azure Active Directory e selecione **Registros de aplicativo**,depois procure o número da **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para localizar a chave de autenticação, acesse **Configurações** e selecione **Chaves**. Você precisará fornecer uma descrição e uma duração e, em seguida, um valor numérico será fornecido.
+* **ID do locatário do Azure ad** (obrigatório): dentro do portal do Azure, você deve [criar um aplicativo Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) para que possamos validar a conexão entre nossos dois serviços está por trás de uma comunicação autenticada. Para localizar a [ID de locatário](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), vá para o Azure Active Directory e selecione **Propriedades** e procure o número de **ID de diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
+* **ID do aplicativo do Azure ad** (obrigatório): você também precisa da [ID do aplicativo](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) e de uma chave de autenticação. Para obter esses valores, vá até o Azure Active Directory e selecione **Registros de aplicativo** ,depois procure o número da **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para localizar a chave de autenticação, acesse **Configurações** e selecione **Chaves** . Você precisará fornecer uma descrição e uma duração e, em seguida, um valor numérico será fornecido.
 
 >[!Note]
 >A ID do aplicativo do Azure será associada à sua ID do editor e só poderá ser usada nesta conta do editor.
@@ -328,7 +328,7 @@ As **ações** disponíveis no painel **Visão geral do plano** variam de acordo
 
 ### <a name="create-new-plan"></a>Criar novo plano
 
-**_ID do plano_*_ – crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes na URL do produto.  Use apenas caracteres alfanuméricos minúsculos, traços ou sublinhados. Essa ID de plano pode conter no máximo 50 caracteres. A ID não pode ser modificada após a seleção de "criar".
+**_ID do plano_* _ – crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes na URL do produto.  Use apenas caracteres alfanuméricos minúsculos, traços ou sublinhados. Essa ID de plano pode conter no máximo 50 caracteres. A ID não pode ser modificada após a seleção de "criar".
 
 _*_Nome do plano_*_ – os clientes verão esse nome ao decidir qual plano selecionar dentro de sua oferta. Crie um nome da oferta exclusivo para cada plano nessa oferta. O nome do plano é usado para diferenciar os planos de software que podem fazer parte da mesma oferta (por exemplo, Nome da oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
 
@@ -337,11 +337,11 @@ _*_Nome do plano_*_ – os clientes verão esse nome ao decidir qual plano selec
 Esta guia permite que você defina a configuração de alto nível para o tipo de plano, se ele reutiliza pacotes de outro plano e em quais nuvens o plano deve estar disponível. Suas respostas nessa guia afetarão quais campos serão exibidos em outras guias para o mesmo plano.
 
 #### <a name="plan-type"></a>Tipo de plano
-Selecione o tipo de plano para sua oferta. Um plano do*modelo de solução** * é totalmente gerenciado pelo cliente. Um **Aplicativo gerenciado** permite que o publicador gerencie o aplicativo em nome do cliente. Para obter mais detalhes, consulte os [Tipos de planos de aplicativos do Azure](#types-of-azure-application-plans)
+Selecione o tipo de plano para sua oferta. Um plano do *modelo de solução* * * é totalmente gerenciado pelo cliente. Um **Aplicativo gerenciado** permite que o publicador gerencie o aplicativo em nome do cliente. Para obter mais detalhes, consulte os [Tipos de planos de aplicativos do Azure](#types-of-azure-application-plans)
 
 #### <a name="re-use-technical-configuration"></a>Reutilizar configurações técnicas
 
-Se você tiver mais de um plano do mesmo tipo e os pacotes forem idênticos entre eles, você poderá selecionar **Este plano reutiliza pacotes de outro plano**.  Ao selecionar essa opção, você poderá selecionar um dos outros planos do mesmo tipo dos quais esta oferta para reutilizará pacotes.
+Se você tiver mais de um plano do mesmo tipo e os pacotes forem idênticos entre eles, você poderá selecionar **Este plano reutiliza pacotes de outro plano** .  Ao selecionar essa opção, você poderá selecionar um dos outros planos do mesmo tipo dos quais esta oferta para reutilizará pacotes.
 
 >[!Note]
 >Quando você reutiliza pacotes outro plano, toda a guia de Configuração técnica desaparece desse plano. Os detalhes de configuração técnica do outro plano, incluindo todas as atualizações que você fizer no futuro, também serão usadas para esse plano.<br><br>Essa configuração não pode ser alterada após a publicação do plano.
@@ -361,7 +361,7 @@ Antes de publicar para o [Azure Government](../../azure-government/documentation
 
 #### <a name="azure-government-certifications"></a>Certificações do Azure Government
 
-Essa opção só estará visível se você tiver selecionado **Azure governamental**.
+Essa opção só estará visível se você tiver selecionado **Azure governamental** .
 
 Os serviços do Azure Government manipulam os dados que estão sujeitos a determinadas normas e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para oferecer reconhecimento das suas certificações para esses programas, você pode fornecer até 100 links que as descrevem. Eles podem ser links para sua listagem diretamente no programa ou links para descrições de sua conformidade com eles em seus próprios sites. Esses links são visíveis somente para clientes do Azure Government.
 
@@ -398,7 +398,7 @@ Selecione **Este é um plano privado** para tornar seu plano privado e visível 
 Se você tornar o plano privado, insira um **IDs de assinatura do Azure** e sua descrição. Cada um deles é um público que terá acesso a esse plano privado. O acesso é atribuído usando IDs de locatário com a opção de incluir uma descrição de cada ID do locatário atribuída. Adicione até 10 clientes IDs de assinatura individualmente ou 20.000 importando um arquivo CSV. As IDs de assinatura do Azure são representadas como GUIDs e todas as letras precisam estar em minúsculas.
 
 >[!Note]
->Um público-alvo privado ou restrito é diferente do público-alvo de versão prévia que você definiu no painel **Versão prévia**. Um público-alvo de versão prévia pode acessar sua oferta _antes_ de ela ser publicada como ativa nos marketplaces. Embora a escolha de público-alvo privado se aplique somente a um plano específico, o público-alvo da versão prévia pode ver todos os planos públicos e privados para fins de validação.
+>Um público-alvo privado ou restrito é diferente do público-alvo de versão prévia que você definiu no painel **Versão prévia** . Um público-alvo de versão prévia pode acessar sua oferta _antes_ de ela ser publicada como ativa nos marketplaces. Embora a escolha de público-alvo privado se aplique somente a um plano específico, o público-alvo da versão prévia pode ver todos os planos públicos e privados para fins de validação.
 
 #### <a name="hide-plan"></a>Ocultar plano
 
@@ -441,7 +441,7 @@ Você pode configurar cada plano para ser visível para todos ou apenas para um 
 Selecione **Este é um plano privado** para tornar seu plano privado e visível somente para o público-alvo restrito de sua escolha. Depois de publicado como um plano privado, você pode atualizar o público-alvo ou optar por disponibilizar o plano para todos. Depois que um plano é publicado como visível para todos, ele precisa permanecer visível para todos e não pode ser configurado como um plano privado novamente.
 
 >[!Note]
->Um público-alvo privado ou restrito é diferente do público-alvo de versão prévia que você definiu no painel **Versão prévia**. Um público-alvo de versão prévia pode acessar sua oferta _antes_ de ela ser publicada como ativa nos marketplaces. Embora a escolha de público-alvo privado se aplique somente a um plano específico, o público-alvo da versão prévia pode ver todos os planos públicos e privados para fins de validação.
+>Um público-alvo privado ou restrito é diferente do público-alvo de versão prévia que você definiu no painel **Versão prévia** . Um público-alvo de versão prévia pode acessar sua oferta _antes_ de ela ser publicada como ativa nos marketplaces. Embora a escolha de público-alvo privado se aplique somente a um plano específico, o público-alvo da versão prévia pode ver todos os planos públicos e privados para fins de validação.
 
 Se você tornar o plano privado, insira um **IDs de assinatura do Azure** e sua descrição. Cada um deles é um público que terá acesso a esse plano privado. O acesso é atribuído usando IDs de locatário com a opção de incluir uma descrição de cada ID do locatário atribuída. Adicione até 10 clientes IDs de assinatura individualmente ou 20.000 importando um arquivo CSV. As IDs de assinatura do Azure são representadas como GUIDs e todas as letras precisam estar em minúsculas.
 
@@ -453,7 +453,7 @@ Se você tornar o plano privado, insira um **IDs de assinatura do Azure** e sua 
 Esta guia permite que você carregue o pacote de implantação que permitirá que os clientes implantem seu plano.
 
 >[!Note]
->Essa guia não estará visível se você tiver configurado este plano para reutilizar pacotes de outro plano na guia **Configuração do plano**.
+>Essa guia não estará visível se você tiver configurado este plano para reutilizar pacotes de outro plano na guia **Configuração do plano** .
 
 #### <a name="package-details"></a>Detalhes do pacote
 
@@ -465,8 +465,8 @@ Esta guia permite que você edite a versão de rascunho de sua configuração t�
 
 Todos os pacotes de plano de aplicativos do Azure devem incluir pelo menos dois arquivos na pasta raiz de um arquivo de `.zip`:
 
-* Um arquivo de modelo do Resource Manager chamado [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md). Este modelo automatiza a implantação de recursos na assinatura do Azure dos clientes.  Para obter exemplos de modelos do Resource Manager, consulte a [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) ou o [GitHub correspondente: Modelos de Início Rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates).
-* Uma definição de interface do usuário para a experiência de criação do aplicativo do Azure denominada [createUiDefinition.json](../../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* Um arquivo de modelo do Resource Manager chamado [mainTemplate.json](../../azure-resource-manager/management/overview.md). Este modelo automatiza a implantação de recursos na assinatura do Azure dos clientes.  Para obter exemplos de modelos do Resource Manager, consulte a [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) ou o [GitHub correspondente: Modelos de Início Rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates).
+* Uma definição de interface do usuário para a experiência de criação do aplicativo do Azure denominada [createUiDefinition.json](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).
 
 Os tamanhos máximos de arquivo com suporte são:
 
@@ -486,7 +486,7 @@ A subguia **Pacotes publicados anteriormente** permite exibir todas as versões 
 
 #### <a name="enable-just-in-time-jit-access"></a>Habilitar acesso JIT (Just-In-Time)
 
-Selecione esta opção para habilitar o acesso JIT (just-in-time) para este plano.  O acesso JIT permite que você solicite acesso elevado a recursos de um aplicativo gerenciado para solução de problemas ou manutenção. Você sempre tem acesso somente leitura aos recursos, mas, para um período de tempo específico, você pode ter mais acesso.  Para obter mais informações, consulte [Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure](../../managed-applications/request-just-in-time-access.md).  Para exigir que consumidores do seu aplicativo gerenciado permitam à sua conta acesso permanente, deixe essa opção desmarcada.
+Selecione esta opção para habilitar o acesso JIT (just-in-time) para este plano.  O acesso JIT permite que você solicite acesso elevado a recursos de um aplicativo gerenciado para solução de problemas ou manutenção. Você sempre tem acesso somente leitura aos recursos, mas, para um período de tempo específico, você pode ter mais acesso.  Para obter mais informações, consulte [Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure](../../azure-resource-manager/managed-applications/request-just-in-time-access.md).  Para exigir que consumidores do seu aplicativo gerenciado permitam à sua conta acesso permanente, deixe essa opção desmarcada.
 
 >[!Note]
 >Certifique-se de atualizar o arquivo de `createUiDefinition.json` para dar suporte a esse recurso.  
@@ -495,10 +495,10 @@ Selecione esta opção para habilitar o acesso JIT (just-in-time) para este plan
 
 Selecione se deseja configurar o modo de implantação **Completo** ou **Incremental** ao implantar este plano: 
 
-* Em **modo completo**, uma reimplantação do aplicativo pelo cliente resultará na remoção de recursos no grupo de recursos gerenciados se os recursos não estiverem definidos no `mainTemplate.json`. 
-* Em **modo incremental**, uma reimplantação do aplicativo deixa os recursos existentes inalterados.
+* Em **modo completo** , uma reimplantação do aplicativo pelo cliente resultará na remoção de recursos no grupo de recursos gerenciados se os recursos não estiverem definidos no `mainTemplate.json`. 
+* Em **modo incremental** , uma reimplantação do aplicativo deixa os recursos existentes inalterados.
 
-Para saber mais sobre modos de implantação, confira [Modos de implantação do Azure Resource Manager](../../azure-resource-manager/deployment-modes.md).
+Para saber mais sobre modos de implantação, confira [Modos de implantação do Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
 #### <a name="notification-endpoint-url"></a>URL do ponto de extremidade de notificação
 
@@ -543,23 +543,23 @@ Selecione **Salvar rascunho** antes de continuar.
 
 ## <a name="test-drive"></a>Test drive
 
-Configure uma demonstração ("test drive") que permite que os clientes experimentem sua oferta antes de adquiri-la. Para criar um ambiente de demonstração que permita aos clientes experimentar sua oferta por um período fixo, consulte [Testar sua oferta no Marketplace comercial.](test-drive.md)
+Configure uma demonstração ("test drive") que permite que os clientes experimentem sua oferta antes de adquiri-la. Para criar um ambiente de demonstração que permita aos clientes experimentar sua oferta por um período fixo, consulte [Testar sua oferta no Marketplace comercial.](../what-is-test-drive.md)
 
 Para habilitar um test drive, selecione a caixa de seleção **Habilitar um test drive** na guia [Configuração da oferta](#test-drive). Para remover o test drive de sua oferta, desmarque essa caixa de seleção.
 
 ### <a name="test-drive-technical-configuration"></a>Configuração de técnicas de Test Drive
 
-- **ID do aplicativo do Azure ad** (obrigatório): Insira sua ID do [aplicativo](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)de Azure Active Directory (AD)). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **registros de aplicativo**e procure o número de **ID do aplicativo** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID do aplicativo do Azure ad** (obrigatório): Insira sua ID do [aplicativo](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)de Azure Active Directory (AD)). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **registros de aplicativo** e procure o número de **ID do aplicativo** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
 
 #### <a name="deployment-subscription-details"></a>Detalhes da assinatura de implantação
 
 Para permitir que o Test Drive seja implantado em seu nome, crie e forneça uma assinatura do Azure separada e exclusiva (não é necessária para unidades de teste do Power BI).
 
-* **ID da assinatura do Azure** (necessário para Azure Resource Manager e Aplicativos Lógicos) – insira a ID da assinatura para permitir acesso aos serviços de conta do Azure para cobrança e relatório de uso de recursos. Recomendamos que você considere [criar uma assinatura separada do Azure](../../billing/billing-create-subscription.md) para usar em test drives, caso ainda não tenha uma. Você pode encontrar sua ID da assinatura do Azure entrando no [portal do Azure](https://portal.azure.com/) e navegando até a guia **Assinaturas** no menu do lado esquerdo. A seleção da guia exibirá sua ID de assinatura (como "a83645ac-1234-5ab6-6789-1h234g764ghty").
+* **ID da assinatura do Azure** (necessário para Azure Resource Manager e Aplicativos Lógicos) – insira a ID da assinatura para permitir acesso aos serviços de conta do Azure para cobrança e relatório de uso de recursos. Recomendamos que você considere [criar uma assinatura separada do Azure](../../cost-management-billing/manage/create-subscription.md) para usar em test drives, caso ainda não tenha uma. Você pode encontrar sua ID da assinatura do Azure entrando no [portal do Azure](https://portal.azure.com/) e navegando até a guia **Assinaturas** no menu do lado esquerdo. A seleção da guia exibirá sua ID de assinatura (como "a83645ac-1234-5ab6-6789-1h234g764ghty").
 * **ID de locatário do Azure ad** (obrigatório) – Insira sua ID de [locatário](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)do Azure Active Directory (AD)). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **Propriedades** e, em seguida, procure o número da **ID do diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode procurar a ID do locatário da sua organização usando uma URL de nome de domínio em:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nome do locatário do Azure AD** (necessário para o Dynamics 365) – insira seu nome do Azure AD (Active Directory). Para localizar esse nome, entre no [portal do Azure](https://portal.azure.com/), no canto superior direito, o nome do locatário estará listado abaixo do seu nome de conta.
 * **ID do aplicativo do Azure ad** (obrigatório) – Insira sua ID do [aplicativo](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD)). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **Registros de aplicativo** e, em seguida, procure o número da **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Active Directory segredo do cliente do aplicativo** (obrigatório) – Insira o [segredo do cliente](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)do aplicativo do Azure AD). Para encontrar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **Registros de aplicativo** e, em seguida, selecione seu aplicativo de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo do cliente**, insira uma descrição, selecione **Nunca** em **Expira em** e, em seguida, escolha **Adicionar**. Certifique-se de copiar o valor antes de sair desta página.)
+* **Azure Active Directory segredo do cliente do aplicativo** (obrigatório) – Insira o [segredo do cliente](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)do aplicativo do Azure AD). Para encontrar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **Registros de aplicativo** e, em seguida, selecione seu aplicativo de test drive. Em seguida, selecione **Certificados e segredos** , selecione **Novo segredo do cliente** , insira uma descrição, selecione **Nunca** em **Expira em** e, em seguida, escolha **Adicionar** . Certifique-se de copiar o valor antes de sair desta página.)
 
 Selecione **Salvar rascunho** antes de continuar.
 

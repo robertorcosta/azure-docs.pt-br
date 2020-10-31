@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896459"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131013"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
 
@@ -64,7 +64,7 @@ O diagrama a seguir fornece uma visão geral de alto nível de como o Proxy de A
 
 ### <a name="lifecycle-management-policies"></a>Políticas de gerenciamento do ciclo de vida
 
-É possível gerenciar os objetos de usuário B2B local por meio das políticas de gerenciamento do ciclo de vida. Por exemplo:
+É possível gerenciar os objetos de usuário B2B local por meio das políticas de gerenciamento do ciclo de vida. Por exemplo: 
 
 - É possível configurar políticas de MFA (Autenticação Multifator) para o usuário Convidado, de modo que a MFA seja utilizada durante a autenticação do Proxy de Aplicativos. Para obter mais informações, consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md).
 - Quaisquer patrocínios, revisões de acesso, verificações de conta e etc. executadas no usuário B2B de nuvem aplicam-se aos usuários locais. Por exemplo, se o usuário de nuvem for excluído por meio de suas políticas de gerenciamento do ciclo de vida, o usuário local também será excluído pela sincronização do MIM ou por meio de sincronização de Azure AD Connect. Para obter mais informações, consulte [gerenciar o acesso de convidado com revisões de acesso do Azure ad](../governance/manage-guest-access-with-access-reviews.md).
@@ -77,7 +77,7 @@ Para obter informações sobre como usar o MIM 2016 Service Pack 1 e o agente de
 
 Há um script de amostra do PowerShell disponível que pode ser utilizado como ponto de partida para criar os objetos de usuário convidado no Active Directory local.
 
-É possível baixar o script e o arquivo Leiame do [Centro de Download](https://www.microsoft.com/download/details.aspx?id=51495). Escolha o arquivo **Script e Leiame para efetuar pull de usuários B2B do Microsoft Azure AD local.zip** .
+Você pode baixar o script e o arquivo Leiame dos [conectores para Microsoft Identity Manager 2016 e o Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). No pacote de download, escolha o **script e Leiame para extrair os usuários de on-prem.zipdo Azure ad B2B** .
 
 Antes de usar o script, certifique-se de revisar os pré-requisitos e as considerações importantes no arquivo Leiame associado. Além disso, entenda que o script é disponibilizado apenas como um exemplo. Sua equipe de desenvolvimento ou um parceiro deverá personalizar e revisar o script antes de executá-lo.
 

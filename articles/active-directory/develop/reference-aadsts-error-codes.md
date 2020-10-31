@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115094"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130180"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -78,7 +78,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 
 ## <a name="aadsts-error-codes"></a>Códigos de erro AADSTS
 
-| Erro do | Descrição |
+| Erro | Descrição |
 |---|---|
 | AADSTS16000 | SelectUserAccount - Esta é uma interrupção lançada pelo Azure AD, que resulta na interface do usuário que permite ao usuário selecionar entre várias sessões válidas do SSO. Esse erro é bastante comum e pode ser retornado ao aplicativo se `prompt=none` for especificado. |
 | AADSTS16001 | UserAccountSelectionInvalid - Você verá esse erro se o usuário clicar em um bloco que a lógica de seleção da sessão rejeitou. Quando acionado, esse erro permite que o usuário recupere escolhendo de uma lista atualizada de blocos / sessões ou escolhendo outra conta. Este erro pode ocorrer devido a um defeito de código ou condição de corrida. |
@@ -156,7 +156,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS50136 | RedirectMsaSessionToApp - sessão única do MSA detectada. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - A sessão é inválida devido a um token de atualização externo ausente. |
 | AADSTS50140 | KmsiInterrupt - Este erro ocorreu devido à interrupção "Mantenha-me conectado" quando o usuário estava fazendo login. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a ID de correlação, a ID da solicitação e o código de erro para obter mais detalhes. |
-| AADSTS50143 | Incompatibilidade de sessão – A sessão é inválida porque o locatário do usuário não corresponde à dica de domínio devido a diferentes recursos. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de erro, a ID da solicitação e a ID de correlação para obter mais detalhes. |
+| AADSTS50143 | Incompatibilidade de sessão – A sessão é inválida porque o locatário do usuário não corresponde a dica de domínio devido a diferentes recursos. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a ID de correlação, a ID da solicitação e o código de erro para obter mais detalhes. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword - A senha do Active Directory do usuário expirou. Gere uma nova senha para o usuário ou peça para o usuário usar a ferramenta de redefinição de autoatendimento para redefinir sua senha. |
 | AADSTS50146 | MissingCustomSigningKey - esse aplicativo precisa ser configurado com uma chave de assinatura específica do aplicativo. Ele não está configurado com uma, ou a chave expirou ou ainda não é válida. |
 | AADSTS50147 | MissingCodeChallenge - O tamanho do parâmetro de desafio de código não é válido. |
@@ -200,7 +200,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS70007 | UnsupportedResponseMode - O aplicativo retornou um valor não suportado de `response_mode` ao solicitar um token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - O token de atualização expirou devido à inatividade. O token foi emitido no XXX e ficou inativo por um determinado período. |
 | AADSTS70011 | InvalidScope - O escopo solicitado pelo aplicativo é inválido. |
-| AADSTS70012 | MsaServerError - Ocorreu um erro no servidor durante a autenticação de um usuário MSA (consumidor). Tente novamente. Se ele continuar falhando, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - Ocorreu um erro no servidor durante a autenticação de um usuário MSA (consumidor). Tente novamente. Se continuar a falhar, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - Erro no fluxo do dispositivo OAuth 2.0. A autorização está pendente. O dispositivo tentará novamente a consulta. |
 | AADSTS70018 | BadVerificationCode - Código de verificação inválido devido ao usuário digitar o código do usuário errado para o fluxo do código do dispositivo. Autorização não é aprovada. |
 | AADSTS70019 | CodeExpired - O código de verificação expirou. Solicite ao usuário que tente se conectar novamente. |
@@ -320,6 +320,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS1000000 | UserNotBoundError - A API de vinculação exige que o usuário do AD do Azure também se autentique com um IDP externo, o que ainda não aconteceu. |
 | AADSTS1000002 | BindCompleteInterruptError - A ligação foi concluída com êxito, mas o usuário deve ser informado. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled-o aplicativo está desabilitado. |
+| AADSTS7000114| O aplicativo ' appIdentifier ' não tem permissão para fazer chamadas em nome de aplicativo.|
 | AADSTS7500529 | O valor ' SAMLid-GUID ' não é uma ID SAML válida-o AD do Azure usa esse atributo para popular o atributo inresponseto da resposta retornada. A ID não deve começar com um número. Uma estratégia comum é anexar uma cadeia de caracteres como "id" à representação de cadeia de caracteres de um GUID. Por exemplo, id6c1c178c166d486687be4aaf5e482730 é uma ID válida. |
 
 ## <a name="next-steps"></a>Próximas etapas

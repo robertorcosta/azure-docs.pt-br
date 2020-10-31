@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869415"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129738"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
 
@@ -27,15 +27,15 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 - **Herdar Particionamento** – essa opção de configuração de saída SQL permite herdar o esquema de particionamento de sua entrada ou etapa de consulta anterior. Com esse recurso habilitado, gravando em uma tabela baseada em disco e tendo uma topologia [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para seu trabalho, espere ver melhores taxas de transferência. Esse particionamento já acontece automaticamente para muitas outras [saídas](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Bloqueio de tabela (TABLOCK) também será desabilitado para inserções em massa feitas com essa opção.
 
 > [!NOTE] 
-> Quando há mais de oito partições de entrada, a herança de entrada de esquema de particionamento pode não ser uma opção apropriada. Esse limite superior foi observado em uma tabela com uma coluna de identidade única e um índice clusterizado. Nesse caso, considere o uso [de 8 em sua consulta para especificar](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) explicitamente o número de gravadores de saída. Com base no seu esquema e na escolha de índices, suas observações podem variar.
+> Quando há mais de oito partições de entrada, a herança de entrada de esquema de particionamento pode não ser uma opção apropriada. Esse limite superior foi observado em uma tabela com uma coluna de identidade única e um índice clusterizado. Nesse caso, considere o uso [de 8 em sua consulta para especificar](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) explicitamente o número de gravadores de saída. Com base no seu esquema e na escolha de índices, suas observações podem variar.
 
-- **Tamanho do Lote** – a configuração de saída do SQL permite que você especifique o tamanho do lote máximo em uma saída do SQL do Azure Stream Analytics com base na natureza de sua tabela de destino/carga de trabalho. O tamanho do lote é o número máximo de registros enviados com cada transação de inserção em massa. Em índices columnstore clusterizados, tamanhos de lote próximos de [100 mil](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permitem mais paralelização, mínimo registro em log e otimizações de bloqueio. Em tabelas baseadas em disco, 10 mil (padrão) ou inferior pode ser ideal para sua solução, uma vez que tamanhos de lote maiores podem disparar escalonamento de bloqueio durante inserções em massa.
+- **Tamanho do Lote** – a configuração de saída do SQL permite que você especifique o tamanho do lote máximo em uma saída do SQL do Azure Stream Analytics com base na natureza de sua tabela de destino/carga de trabalho. O tamanho do lote é o número máximo de registros enviados com cada transação de inserção em massa. Em índices columnstore clusterizados, tamanhos de lote próximos de [100 mil](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permitem mais paralelização, mínimo registro em log e otimizações de bloqueio. Em tabelas baseadas em disco, 10 mil (padrão) ou inferior pode ser ideal para sua solução, uma vez que tamanhos de lote maiores podem disparar escalonamento de bloqueio durante inserções em massa.
 
 - **Ajuste de Mensagem de Entrada** – se você tiver otimizado usando particionamento de herança e tamanho de lote, aumentar o número de eventos de entrada por mensagem por partição ajudará a incrementar ainda mais sua taxa de transferência de gravação. O ajuste de mensagem de entrada permite que os tamanhos de lote do Azure Stream Analytics tenham até o tamanho de lote especificado, melhorando a taxa de transferência. Isso pode ser obtido usando [compactação](stream-analytics-define-inputs.md) ou aumentando os tamanhos de mensagem de entrada no EventHub ou no BLOB.
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Índices e Tabela Particionados** – usar uma tabela SQL [particionada](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e índices particionados na tabela com a mesma coluna como chave de partição (por exemplo, PartitionId) pode reduzir significativamente as contenções entre partições durante gravações. Para uma tabela particionada, você precisará criar uma [função de partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e um [esquema de partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de arquivos PRIMARY. Isso também aumentará a disponibilidade dos dados existentes enquanto novos dados estiverem sendo carregados. O limite de E/S de log pode ser atingido com base no número de partições, que pode ser aumentado atualizando a SKU.
+- **Índices e Tabela Particionados** – usar uma tabela SQL [particionada](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e índices particionados na tabela com a mesma coluna como chave de partição (por exemplo, PartitionId) pode reduzir significativamente as contenções entre partições durante gravações. Para uma tabela particionada, você precisará criar uma [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e um [esquema de partição](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de arquivos PRIMARY. Isso também aumentará a disponibilidade dos dados existentes enquanto novos dados estiverem sendo carregados. O limite de E/S de log pode ser atingido com base no número de partições, que pode ser aumentado atualizando a SKU.
 
 - **Evitar violações de chave exclusivas** – se você receber [várias mensagens de aviso de violação de chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) no Log de Atividades do Azure Stream Analytics, verifique se seu trabalho não é afetado por violações de restrição exclusivas que têm probabilidade de acontecer durante a casos de recuperação. Isso pode ser evitado configurando a opção [IGNORE\_DUP\_KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) em seus índices.
 

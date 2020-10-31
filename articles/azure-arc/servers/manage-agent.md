@@ -1,18 +1,18 @@
 ---
 title: Gerenciando o agente de servidores habilitados para Arc do Azure
 description: Este artigo descreve as diferentes tarefas de gerenciamento que você normalmente executará durante o ciclo de vida do agente de computador conectado de servidores habilitados para Arc do Azure.
-ms.date: 10/21/2020
+ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371419"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130962"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerenciando e mantendo o agente do Connected Machine
 
-Após a implantação inicial do agente de máquina conectado de servidores habilitados para Arc do Azure para Windows ou Linux, talvez seja necessário reconfigurar o agente, atualizá-lo ou removê-lo do computador se ele tiver atingido o estágio de aposentadoria em seu ciclo de vida. Você pode gerenciar facilmente essas tarefas de manutenção de rotina, manualmente ou por meio de automação, o que reduz o erro operacional e as despesas.
+Após a implantação inicial do agente de máquina conectado de servidores habilitados para Arc do Azure para Windows ou Linux, talvez seja necessário reconfigurar o agente, atualizá-lo ou removê-lo do computador. Você pode gerenciar facilmente essas tarefas de manutenção de rotina, manualmente ou por meio de automação, o que reduz o erro operacional e as despesas.
 
 ## <a name="before-uninstalling-agent"></a>Antes de desinstalar o agente
 
@@ -38,7 +38,11 @@ Para servidores ou máquinas que você não deseja mais gerenciar com os servido
 
 ## <a name="upgrading-agent"></a>Atualizando o agente
 
-O agente do Azure Connected Machine para Windows e Linux pode ser atualizado para a versão mais recente manual ou automaticamente dependendo de suas necessidades. A tabela a seguir descreve os métodos com suporte para realizar a atualização do agente.
+O agente do computador conectado do Azure é atualizado regularmente para resolver correções de bugs, aprimoramentos de estabilidade e novas funcionalidades. O [Azure Advisor](../../advisor/advisor-overview.md) identifica os recursos que não estão usando a versão mais recente do agente de máquina e recomenda que você atualize para a versão mais recente. Ele o notificará quando você selecionar o servidor habilitado para Arc apresentando uma faixa na página **visão geral** ou ao acessar o Advisor por meio da portal do Azure.
+
+O agente do Azure Connected Machine para Windows e Linux pode ser atualizado para a versão mais recente manual ou automaticamente dependendo de suas necessidades.
+
+A tabela a seguir descreve os métodos com suporte para realizar a atualização do agente.
 
 | Sistema operacional | Método de atualização |
 |------------------|----------------|
@@ -60,7 +64,7 @@ O pacote de atualização para o agente do Connected Machine para Windows está 
 O agente pode ser atualizado de acordo com uma variedade de métodos para dar suporte ao seu processo de gerenciamento de atualização de software. Tirando a obtenção do Microsoft Update, você pode baixar e executar manualmente do prompt de comando, de um script ou de outra solução de automação, ou do assistente de interface do usuário quando executa `AzureConnectedMachine.msi`.
 
 > [!NOTE]
-> * Para atualizar o agente, você deve ter permissões de *Administrador*.
+> * Para atualizar o agente, você deve ter permissões de *Administrador* .
 > * Para fazer upgrade manualmente, você precisará primeiro baixar e copiar o pacote do instalador para uma pasta no servidor de destino ou de uma pasta de rede compartilhada. 
 
 Se você não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, examine [Opções de linha de comando msiexec](/windows/win32/msi/standard-installer-command-line-options) e [Opções de linha de comando msiexec](/windows/win32/msi/command-line-options).
@@ -144,26 +148,26 @@ As ações do comando [zypper](https://en.opensuse.org/Portal:Zypper), como a in
 
 A ferramenta Azcmagent (Azcmagent.exe) é usada para configurar o agente de máquina conectado de servidores habilitados para o Azure Arc durante a instalação ou para modificar a configuração inicial do agente após a instalação. O Azcmagent.exe fornece parâmetros de linha de comando para personalizar o agente e exibir seu status:
 
-* **Connect**: para conectar o computador ao Azure Arc
+* **Connect** : para conectar o computador ao Azure Arc
 
-* **Disconnect**: para desconectar o computador do Azure Arc
+* **Disconnect** : para desconectar o computador do Azure Arc
 
-* **Show**: exiba o status do agente e suas propriedades de configuração (nome do grupo de recursos, ID da assinatura, versão, etc.), o que pode ajudar ao solucionar um problema com ele. Inclua o `-j` parâmetro para gerar os resultados no formato JSON.
+* **Show** : exiba o status do agente e suas propriedades de configuração (nome do grupo de recursos, ID da assinatura, versão, etc.), o que pode ajudar ao solucionar um problema com ele. Inclua o `-j` parâmetro para gerar os resultados no formato JSON.
 
 * **Logs** – cria um arquivo. zip no diretório atual que contém os logs para ajudá-lo durante a solução de problemas.
 
 * **Versão** -mostra a versão do agente do computador conectado.
 
-* **-h ou --help**: mostra os parâmetros de linha de comando disponíveis
+* **-h ou --help** : mostra os parâmetros de linha de comando disponíveis
 
-    Por exemplo, para ver a ajuda detalhada sobre o parâmetro **Reconnect**, digite `azcmagent reconnect -h`. 
+    Por exemplo, para ver a ajuda detalhada sobre o parâmetro **Reconnect** , digite `azcmagent reconnect -h`. 
 
-* **-v ou --verbose**: para habilitar o log detalhado
+* **-v ou --verbose** : para habilitar o log detalhado
 
 Você pode executar uma **conexão** e **Desconectar** manualmente enquanto estiver conectado interativamente, ou automatizar usando a mesma entidade de serviço usada para carregar vários agentes ou com um [token de acesso](../../active-directory/develop/access-tokens.md)da plataforma de identidade da Microsoft. Se você não usou uma entidade de serviço para registrar a máquina com os servidores habilitados para Arc do Azure, consulte o [artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) a seguir para criar uma entidade de serviço.
 
 >[!NOTE]
->Você deve ter permissões de acesso à *raiz* em computadores Linux para executar o **azcmagent**.
+>Você deve ter permissões de acesso à *raiz* em computadores Linux para executar o **azcmagent** .
 
 ### <a name="connect"></a>Connect
 
@@ -215,11 +219,11 @@ Os dois métodos a seguir removem o agente, mas não removem a pasta *C:\Program
 1. Para desinstalar o agente do Windows do computador, faça o seguinte:
 
     a. Entre no computador com uma conta que tenha permissões de administrador.  
-    b. No **Painel de Controle**, selecione **Programas e Recursos**.  
-    c. Em **Programas e Recursos**, selecione **Agente do Azure Connected Machine**, **Desinstalar** e, em seguida, **Sim**.  
+    b. No **Painel de Controle** , selecione **Programas e Recursos** .  
+    c. Em **Programas e Recursos** , selecione **Agente do Azure Connected Machine** , **Desinstalar** e, em seguida, **Sim** .  
 
     >[!NOTE]
-    > Execute também o assistente de instalação do agente clicando duas vezes no pacote do instalador **AzureConnectedMachineAgent.msi**.
+    > Execute também o assistente de instalação do agente clicando duas vezes no pacote do instalador **AzureConnectedMachineAgent.msi** .
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar usando a linha de comando
 
@@ -277,7 +281,7 @@ Se você estiver planejando parar de gerenciar o computador com serviços de sup
 
 1. Abra os servidores habilitados para Arc do Azure acessando o [portal do Azure](https://aka.ms/hybridmachineportal).
 
-2. Selecione o computador na lista, selecione as reticências ( **...** ) e, em seguida, selecione **Excluir**.
+2. Selecione o computador na lista, selecione as reticências ( **...** ) e, em seguida, selecione **Excluir** .
 
 ## <a name="update-or-remove-proxy-settings"></a>Atualizar ou remover configurações de proxy
 

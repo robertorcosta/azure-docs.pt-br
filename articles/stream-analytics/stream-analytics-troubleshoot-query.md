@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337799"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130248"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solucionar problemas de consultas do Azure Stream Analytics
 
@@ -25,26 +25,26 @@ Este artigo descreve problemas comuns com o desenvolvimento de consultas do Azur
 
 1.  Examine os erros testando localmente:
 
-    - No portal do Azure, na guia **Consulta**, selecione **Teste**. Use os dados de exemplo baixado para [testar a consulta](stream-analytics-test-query.md). Examine os erros e tente corrigi-los.   
+    - No portal do Azure, na guia **Consulta** , selecione **Teste** . Use os dados de exemplo baixado para [testar a consulta](stream-analytics-test-query.md). Examine os erros e tente corrigi-los.   
     - Você também pode [testar sua consulta localmente](stream-analytics-live-data-local-testing.md) usando as ferramentas do Azure Stream Analytics para Visual Studio ou [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Depurar consultas passo a passo localmente usando o diagrama de trabalho](debug-locally-using-job-diagram-vs-code.md) em ferramentas de Azure Stream Analytics para Visual Studio Code. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (hub de eventos, Hub IoT, etc.) por meio de várias etapas de consulta e finalmente para coletores de saída. Cada etapa da consulta é mapeada para um conjunto de resultados temporário definido no script usando a instrução WITH. Você pode exibir os dados, além das métricas, em cada conjunto de resultados intermediários para localizar a origem do problema.
 
     ![Resultado da visualização do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-3.  Se você usar [**Carimbo de Data/Hora Por**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), verifique se os eventos têm carimbos de data/hora maiores que a [hora de início do trabalho](stream-analytics-out-of-order-and-late-events.md).
+3.  Se você usar [**Carimbo de Data/Hora Por**](/stream-analytics-query/timestamp-by-azure-stream-analytics), verifique se os eventos têm carimbos de data/hora maiores que a [hora de início do trabalho](./stream-analytics-time-handling.md).
 
 4.  Elimine armadilhas comuns, como:
-    - Uma cláusula [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) na consulta filtrou todos os eventos, impedindo que uma saída seja gerada.
-    - Uma função [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) falha, causando a falha do trabalho. Nesse caso, para evitar falhas de conversão de tipo, use [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics).
+    - Uma cláusula [**WHERE**](/stream-analytics-query/where-azure-stream-analytics) na consulta filtrou todos os eventos, impedindo que uma saída seja gerada.
+    - Uma função [**CAST**](/stream-analytics-query/cast-azure-stream-analytics) falha, causando a falha do trabalho. Nesse caso, para evitar falhas de conversão de tipo, use [**TRY_CAST**](/stream-analytics-query/try-cast-azure-stream-analytics).
     - Ao usar funções de janela, aguarde a duração de toda a janela para ver uma saída da consulta.
     - O carimbo de hora de eventos precede a hora de início do trabalho e os eventos são removidos.
-    - As condições [**JOIN**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) não correspondem. Se não houver correspondência, não haverá saída.
+    - As condições [**JOIN**](/stream-analytics-query/join-azure-stream-analytics) não correspondem. Se não houver correspondência, não haverá saída.
 
-5.  Verifique se as políticas de ordenação de eventos estão configuradas conforme o esperado. Acesse **Configurações** e selecione [**Ordenação de eventos**](stream-analytics-out-of-order-and-late-events.md). A política *não* é aplicada quando você usa o botão **Testar** para testar a consulta. Esse resultado é uma das diferenças entre o teste no navegador comparado à execução do trabalho em produção. 
+5.  Verifique se as políticas de ordenação de eventos estão configuradas conforme o esperado. Acesse **Configurações** e selecione [**Ordenação de eventos**](./stream-analytics-time-handling.md). A política *não* é aplicada quando você usa o botão **Testar** para testar a consulta. Esse resultado é uma das diferenças entre o teste no navegador comparado à execução do trabalho em produção. 
 
 6. Depurar usando logs de atividade e de recursos:
-    - Use os [logs de atividade](../azure-resource-manager/resource-group-audit.md) e filtre para identificar e depurar erros.
+    - Use os [logs de atividade](../azure-resource-manager/management/view-activity-logs.md) e filtre para identificar e depurar erros.
     - Use [logs de recurso de trabalho](stream-analytics-job-diagnostic-logs.md) para identificar e depurar erros.
 
 ## <a name="resource-utilization-is-high"></a>A utilização de recursos está alta
@@ -61,7 +61,7 @@ O exemplo de consulta a seguir em um trabalho do Stream Analytics do Azure tem u
 
 ![No Stream Analytics, consulta SELECIONAR EM](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
-Observe que o trabalho está em execução, mas não há eventos sendo gerados na saída. No bloco **Monitoramento**, mostrado aqui, você pode ver que a entrada está gerando dados, mas não dá para saber qual etapa de **JOIN** fez com que todos os eventos fossem removidos.
+Observe que o trabalho está em execução, mas não há eventos sendo gerados na saída. No bloco **Monitoramento** , mostrado aqui, você pode ver que a entrada está gerando dados, mas não dá para saber qual etapa de **JOIN** fez com que todos os eventos fossem removidos.
 
 ![Bloco de Monitoramento do Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
 
@@ -103,12 +103,12 @@ Dessa vez, os dados na saída são formatados e preenchidos conforme esperado.
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais ajuda, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais ajuda, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

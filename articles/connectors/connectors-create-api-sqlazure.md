@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100704"
+ms.locfileid: "93130928"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para um banco de dados SQL usando aplicativos lógicos do Azure
 
@@ -96,9 +96,14 @@ Na primeira vez que você adicionar um [gatilho SQL](#add-sql-trigger) ou uma [a
    ||||
 
    > [!TIP]
-   > Você pode encontrar essas informações na cadeia de conexão do seu banco de dados. Por exemplo, no portal do Azure, localize e abra seu banco de dados. No menu banco de dados, selecione **cadeias de conexão** ou **Propriedades** onde você pode encontrar essa cadeia de caracteres:
+   > Para fornecer suas informações de banco de dados e de tabela, você tem estas opções:
+   > 
+   > * Localize essas informações na cadeia de conexão do seu banco de dados. Por exemplo, no portal do Azure, localize e abra seu banco de dados. No menu banco de dados, selecione **cadeias de conexão** ou **Propriedades** , onde você pode encontrar essa cadeia de caracteres:
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * Por padrão, as tabelas em bancos de dados do sistema são filtradas, portanto, elas podem não aparecer automaticamente quando você seleciona um banco de dados do sistema. Como alternativa, você pode inserir manualmente o nome da tabela depois de selecionar **Inserir valor personalizado** na lista banco de dados.
+   >
 
    Este exemplo mostra como esses valores podem parecer:
 

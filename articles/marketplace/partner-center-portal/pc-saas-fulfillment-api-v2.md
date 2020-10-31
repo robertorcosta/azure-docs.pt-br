@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275532"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130027"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>APIs de preenchimento de SaaS versão 2 no Marketplace comercial
 
@@ -28,7 +28,7 @@ Os Estados de uma assinatura de SaaS e as ações aplicáveis são mostrados.
 
 ![Ciclo de vida de uma assinatura de SaaS no Marketplace](./media/saas-subscription-lifecycle-api-v2.png)
 
-#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Adquirido mas ainda não ativado (*PendingFulfillmentStart*)
+#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Adquirido mas ainda não ativado ( *PendingFulfillmentStart* )
 
 Depois que um cliente final (ou CSP) comprar uma oferta de SaaS no Marketplace, o editor deverá ser notificado sobre a compra para que uma nova conta de SaaS seja criada e configurada para o cliente final no lado do Publicador.
 
@@ -51,7 +51,7 @@ Na página de aterrissagem, o cliente deve estar conectado à conta SaaS nova ou
 O Publicador deve implementar o logon de SSO para fornecer a experiência do usuário exigida pela Microsoft para esse fluxo.  Certifique-se de usar o aplicativo multilocatário do Azure AD, permitir contas corporativas e de estudante ou contas pessoais da Microsoft, ao configurar o SSO.  Esse requisito só se aplica à página de aterrissagem e para os usuários que são redirecionados para o serviço SaaS quando já estão conectados com as credenciais da Microsoft. Ele não se aplica a todos os logons no serviço SaaS.
 
 > [!NOTE]
->Se o logon de SSO exigir que um administrador Conceda permissão a um aplicativo, a descrição da oferta no Partner Center deverá divulgar o acesso de nível de administrador necessário. Isso é para atender às [políticas de certificação do Marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>Se o logon de SSO exigir que um administrador Conceda permissão a um aplicativo, a descrição da oferta no Partner Center deverá divulgar o acesso de nível de administrador necessário. Isso é para atender às [políticas de certificação do Marketplace comercial](/legal/marketplace/certification-policies#10003-authentication-options).
 
 Depois de conectado, o cliente deve concluir a configuração de SaaS no lado do Publicador. Em seguida, o Publicador deve chamar a [API ativar assinatura](#activate-a-subscription) para enviar um sinal ao Marketplace de que o provisionamento da conta SaaS foi concluído.
 Isso iniciará o ciclo de cobrança do cliente. Se a chamada à API ativar assinatura não for bem-sucedida, o cliente não será cobrado pela compra.
@@ -106,9 +106,9 @@ A sequência de chamadas à API para o cenário de atualização iniciado no lad
 
 ![Chamadas de API para uma atualização iniciada pelo Publicador](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
-#### <a name="suspended-suspended"></a>Suspenso (*suspenso*)
+#### <a name="suspended-suspended"></a>Suspenso ( *suspenso* )
 
-Esse estado indica que o pagamento de um cliente para o serviço SaaS não foi recebido. O Publicador será notificado dessa alteração no status da assinatura de SaaS pela Microsoft. A notificação é feita por meio de uma chamada para webhook com o parâmetro *Action* definido como *suspenso*.
+Esse estado indica que o pagamento de um cliente para o serviço SaaS não foi recebido. O Publicador será notificado dessa alteração no status da assinatura de SaaS pela Microsoft. A notificação é feita por meio de uma chamada para webhook com o parâmetro *Action* definido como *suspenso* .
 
 O Publicador pode ou não fazer alterações no serviço SaaS no lado do Publicador. Recomendamos que o Publicador disponibilize essas informações para o cliente suspenso e limite ou bloqueie o acesso do cliente ao serviço SaaS.  Há uma probabilidade de que o pagamento nunca seja recebido.
 
@@ -119,7 +119,7 @@ A Microsoft dá ao cliente um período de carência de 30 dias antes de cancelar
 
 O estado da assinatura é alterado para suspenso no lado da Microsoft antes de o Publicador executar qualquer ação. Somente assinaturas ativas podem ser suspensas.
 
-#### <a name="reinstated-suspended"></a>Restabelecido (*suspenso*)
+#### <a name="reinstated-suspended"></a>Restabelecido ( *suspenso* )
 
 A assinatura está sendo restabelecida.
 
@@ -135,7 +135,7 @@ Se o patch for enviado com o status de falha, o processo reinstatement não ser�
 
 Somente uma assinatura suspensa pode ser restabelecida.  Enquanto uma assinatura de SaaS está sendo restabelecida, seu estado permanece suspenso.  Quando essa operação for concluída, o status da assinatura ficará ativo.
 
-#### <a name="renewed-subscribed"></a>Renovado (*assinado*)
+#### <a name="renewed-subscribed"></a>Renovado ( *assinado* )
 
 No final do prazo da assinatura (depois de um mês ou ano), a assinatura de SaaS será renovada automaticamente pela Microsoft.  O padrão para a configuração de renovação automática é *verdadeiro* para todas as assinaturas de SaaS. As assinaturas SaaS ativas continuarão a ser renovadas com cadência regular. A Microsoft não notifica o Publicador quando uma assinatura está sendo renovada. Um cliente pode desativar a renovação automática de uma assinatura de SaaS por meio do portal de administração do M365 ou por meio de portal do Azure.  Nesse caso, a assinatura de SaaS será cancelada automaticamente no final da condição de cobrança atual.  Os clientes também podem cancelar a assinatura de SaaS em qualquer ponto no tempo.
 
@@ -143,7 +143,7 @@ Somente as assinaturas ativas são renovadas automaticamente.  As assinaturas pe
 
 Se uma renovação automática falhar devido a um problema com o pagamento, a assinatura será suspensa.  O Publicador será notificado.
 
-#### <a name="canceled-unsubscribed"></a>Cancelado (*cancelar assinatura*) 
+#### <a name="canceled-unsubscribed"></a>Cancelado ( *cancelar assinatura* ) 
 
 As assinaturas atingem esse estado em resposta a uma ação explícita de cliente ou CSP pelo cancelamento de uma assinatura no site do Publicador, portal do Azure ou no centro de administração do M365.  Uma assinatura também pode ser cancelada implicitamente, devido ao não pagamento de dívidas, depois de estar no estado suspenso por 30 dias.
 
@@ -788,9 +788,9 @@ Código: 500 erro interno do servidor. Repita a chamada à API.  Se o erro persi
 
 #### <a name="get-operation-status"></a>Obter status da operação
 
-Permite que o Publicador acompanhe o status da operação assíncrona especificada:  **cancelamento de assinatura**, **ChangePlan**ou **ChangeQuantity**.
+Permite que o Publicador acompanhe o status da operação assíncrona especificada:  **cancelamento de assinatura** , **ChangePlan** ou **ChangeQuantity** .
 
-O `operationId` para essa chamada à API pode ser recuperado do valor retornado por **Operation-Location**, obter chamada à API de operações pendentes ou o `<id>` valor de parâmetro recebido em uma chamada de webhook.
+O `operationId` para essa chamada à API pode ser recuperado do valor retornado por **Operation-Location** , obter chamada à API de operações pendentes ou o `<id>` valor de parâmetro recebido em uma chamada de webhook.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Obter `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,7 +850,7 @@ Código: 500 erro interno do servidor.  Repita a chamada à API.  Se o erro pers
 
 Atualize o status de uma operação pendente para indicar o êxito ou a falha da operação no lado do Publicador.
 
-O `operationId` para esta chamada à API pode ser recuperado do valor retornado pelo **local de operação**, obter chamada à API de operações pendentes ou o `<id>` valor de parâmetro recebido em uma chamada de webhook.
+O `operationId` para esta chamada à API pode ser recuperado do valor retornado pelo **local de operação** , obter chamada à API de operações pendentes ou o `<id>` valor de parâmetro recebido em uma chamada de webhook.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Distribuído `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -962,7 +962,7 @@ Quando o Publicador estiver pronto para o teste de ponta a ponta:
 
 Um fluxo de compra pode ser disparado a partir do portal do Azure ou Microsoft AppSource sites, dependendo de onde a oferta está sendo publicada.
 
-As ações *Alterar plano*, *Alterar quantidade*e *cancelar assinatura* são testadas no lado do Publicador.  Do lado da Microsoft, o *cancelamento da assinatura* pode ser disparado tanto do portal do Azure quanto do centro de administração (o portal em que Microsoft AppSource compras são gerenciadas).  *Alterar a quantidade e o plano* só podem ser disparados no centro de administração.
+As ações *Alterar plano* , *Alterar quantidade* e *cancelar assinatura* são testadas no lado do Publicador.  Do lado da Microsoft, o *cancelamento da assinatura* pode ser disparado tanto do portal do Azure quanto do centro de administração (o portal em que Microsoft AppSource compras são gerenciadas).  *Alterar a quantidade e o plano* só podem ser disparados no centro de administração.
 
 ## <a name="get-support"></a>Obter suporte
 
