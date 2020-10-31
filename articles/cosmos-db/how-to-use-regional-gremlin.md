@@ -8,14 +8,16 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085761"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos de extremidade regionais para a conta de grafo do Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 O banco de dados de grafo do Azure Cosmos DB é [distribuído globalmente](distribute-data-globally.md) para que os aplicativos possam usar vários pontos de extremidade de leitura. Os aplicativos que precisam de acesso de gravação em vários locais devem habilitar a capacidade de [gravações de várias regiões](how-to-multi-master.md) .
 
 Motivos para escolher mais de uma região:
@@ -28,7 +30,7 @@ O requisito de **residência de dados** é atendido definindo a política do Azu
 
 O mecanismo de banco de dados de grafo do Cosmos DB está em execução em várias regiões, cada uma das quais contém vários clusters. Cada cluster tem centenas de computadores. O CNAME DNS da conta de grafo do Cosmos DB *accountname.gremlin.cosmos.azure.com* resolve para o DNS um registro de um cluster. Um único endereço IP de um balanceador de carga oculta a topologia interna do cluster.
 
-Um registro CNAME DNS regional é criado para cada região da conta de grafo do Cosmos DB. O formato do ponto de extremidade regional é *accountname-region.gremlin.cosmos.azure.com*. O segmento de região do ponto de extremidade regional é obtido removendo todos os espaços do nome da [região do Azure](https://azure.microsoft.com/global-infrastructure/regions). Por exemplo, a região `"East US 2"` para a conta de banco de dados global `"contoso"` teria um CNAME DNS *contoso-eastus2.gremlin.cosmos.azure.com*
+Um registro CNAME DNS regional é criado para cada região da conta de grafo do Cosmos DB. O formato do ponto de extremidade regional é *accountname-region.gremlin.cosmos.azure.com* . O segmento de região do ponto de extremidade regional é obtido removendo todos os espaços do nome da [região do Azure](https://azure.microsoft.com/global-infrastructure/regions). Por exemplo, a região `"East US 2"` para a conta de banco de dados global `"contoso"` teria um CNAME DNS *contoso-eastus2.gremlin.cosmos.azure.com*
 
 O cliente do TinkerPop Gremlin foi criado para funcionar com um único servidor. O aplicativo pode usar o CNAME DNS gravável global para o tráfego de leitura e gravação. Os aplicativos com reconhecimento de região devem usar o ponto de extremidade regional para tráfego de leitura. Use o ponto de extremidade regional para o tráfego de gravação somente se a região específica estiver configurada para aceitar gravações. 
 

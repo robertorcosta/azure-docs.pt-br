@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357209"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085166"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer
 
@@ -69,7 +69,7 @@ O cluster contém duas subárvores: uma para aplicativos e outra para nós.
 
 Você pode usar a exibição de aplicativos para navegar pela hierarquia lógica do Service Fabric: aplicativos, serviços, partições e réplicas.
 
-No exemplo abaixo, o aplicativo **MyApp** é composto por dois serviços, **MyStatefulService** e **WebService**. Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService é sem monitoração de estado e contém uma única instância.
+No exemplo abaixo, o aplicativo **MyApp** é composto por dois serviços, **MyStatefulService** e **WebService** . Como o **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica principal e duas secundárias. Por outro lado, o WebSvcService é sem monitoração de estado e contém uma única instância.
 
 ![Exibição do aplicativo do Explorador do Service Fabric][sfx-application-tree]
 
@@ -83,7 +83,7 @@ A exibição de nós mostra o layout físico do cluster. Para um nó específico
 ## <a name="actions"></a>Ações
 O Explorador do Service Fabric oferece uma maneira rápida de invocar ações em nós, aplicativos e serviços no cluster.
 
-Por exemplo, para excluir uma instância do aplicativo, escolha o aplicativo na árvore à esquerda e, em seguida, escolha **ações**  >  **excluir aplicativo**.
+Por exemplo, para excluir uma instância do aplicativo, escolha o aplicativo na árvore à esquerda e, em seguida, escolha **ações**  >  **excluir aplicativo** .
 
 ![Excluir um aplicativo no Explorador do Service Fabric][sfx-delete-application]
 
@@ -117,7 +117,7 @@ O EventStore é um recurso oferecido pela plataforma que fornece eventos de plat
 ## <a name="image-store-viewer"></a>Visualizador de Repositório de Imagens
 O Visualizador de repositório de imagens é um recurso oferecido se o uso de Repositório de Imagens nativo permitir a exibição do conteúdo atual do repositório de imagens e a obtenção de informações de arquivos e pastas, juntamente com a remoção de arquivos/pastas.
 
-![Mapa de clusters do Explorador do Service Fabric][sfx-imagestore]
+![Captura de tela que mostra o Visualizador de Repositório de Imagens.][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Backup e restauração
 O Service Fabric Explorer oferece a capacidade de fazer a interface com [backup e restauração](./service-fabric-reliable-services-backup-restore.md). Para ver os recursos de backup e restauração no SFX, o modo avançado deve ser habilitado.

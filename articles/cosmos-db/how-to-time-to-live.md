@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7cf0f91a655901373b02a51004cf77eb25c8cf8e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485997"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085880"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 No Azure Cosmos DB, você pode optar por configurar a TTL (vida útil) no nível do contêiner ou substituí-la no nível de um item após a definição do contêiner. Você pode configurar a TTL para um contêiner usando o portal do Azure ou os SDKs específicos da linguagem. As substituições de TTL no nível do item podem ser configuradas usando os SDKs.
 
@@ -28,12 +29,12 @@ Use as etapas a seguir para habilitar a vida útil de um contêiner sem prazo de
 
 2. Crie uma nova conta do Cosmos ou selecione uma conta existente.
 
-3. Abra o painel **Data Explorer**.
+3. Abra o painel **Data Explorer** .
 
 4. Selecione um contêiner existente, expanda-o e modifique os valores abaixo:
 
-   * Abra a janela **Escala e Configurações**.
-   * Em **Configuração**, localize **Vida Útil**.
+   * Abra a janela **Escala e Configurações** .
+   * Em **Configuração** , localize **Vida Útil** .
    * Selecione **Ativado (não há padrão)** ou selecione **Ativado** e defina um valor de TTL
    * Clique em **Salvar** para salvar as alterações.
 
@@ -212,16 +213,16 @@ Use as etapas a seguir para habilitar a vida útil de um item:
 
 2. Crie uma nova conta do Cosmos ou selecione uma conta existente.
 
-3. Abra o painel **Data Explorer**.
+3. Abra o painel **Data Explorer** .
 
 4. Selecione um contêiner existente, expanda-o e modifique os valores abaixo:
 
-   * Abra a janela **Escala e Configurações**.
-   * Em **Configuração**, localize **Vida Útil**.
+   * Abra a janela **Escala e Configurações** .
+   * Em **Configuração** , localize **Vida Útil** .
    * Selecione **ativado (sem padrão)** ou selecione **ativado** e defina um valor TTL. 
    * Clique em **Salvar** para salvar as alterações.
 
-5. Em seguida, navegue até o item para o qual você deseja definir a vida útil, adicione a propriedade `ttl` e selecione **Atualizar**. 
+5. Em seguida, navegue até o item para o qual você deseja definir a vida útil, adicione a propriedade `ttl` e selecione **Atualizar** . 
 
    ```json
    {

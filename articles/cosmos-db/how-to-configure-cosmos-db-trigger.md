@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: 152454b3da0ff1efd33ac463aecec78155a8e6f7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c47d18726d9581b1b03aa2e676a71d6ca1bc1b7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490468"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086458"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Como configurar o log e a conectividade com o gatilho Azure Functions para Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo descreve as opções de configuração avançadas que você pode definir ao usar o gatilho de Azure Functions para Cosmos DB.
 
@@ -56,7 +57,7 @@ Há dois modos de conexão – modo Direto e o modo de Gateway. Para saber mais 
 
 ### <a name="changing-the-connection-mode-and-protocol"></a>Como alterar o modo de conexão e o protocolo
 
-Há duas definições de configuração principais disponíveis para configurar a política de conexão do cliente – o **modo de conexão** e o **protocolo de conexão**. Você pode alterar o modo e o protocolo de conexão padrões usados pelo gatilho do Azure Functions para o Cosmos DB e todas as [associações do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md). Para alterar as configurações padrão, você precisará localizar o arquivo `host.json` no projeto do Azure Functions ou no Aplicativo do Azure Functions e adicionar a seguinte [configuração extra](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings):
+Há duas definições de configuração principais disponíveis para configurar a política de conexão do cliente – o **modo de conexão** e o **protocolo de conexão** . Você pode alterar o modo e o protocolo de conexão padrões usados pelo gatilho do Azure Functions para o Cosmos DB e todas as [associações do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md). Para alterar as configurações padrão, você precisará localizar o arquivo `host.json` no projeto do Azure Functions ou no Aplicativo do Azure Functions e adicionar a seguinte [configuração extra](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings):
 
 ```js
 {

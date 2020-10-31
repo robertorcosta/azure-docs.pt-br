@@ -1,5 +1,5 @@
 ---
-title: Modelo de recurso Azure Cosmos DB
+title: Modelo de recurso do Azure Cosmos DB
 description: Este artigo descreve Azure Cosmos DB modelo de recurso que inclui a conta do Azure Cosmos, o banco de dados, o contêiner e os itens. Ele também aborda a hierarquia desses elementos em uma conta do Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1178a5e2850279820925c9bd02554ec7d5adf9e6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283505"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087920"
 ---
-# <a name="azure-cosmos-db-resource-model"></a>Modelo de recurso Azure Cosmos DB
+# <a name="azure-cosmos-db-resource-model"></a>Modelo de recurso do Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Cosmos DB é uma plataforma como serviço (PaaS) totalmente gerenciada. Para começar a usar Azure Cosmos DB, inicialmente você deve criar uma conta do Azure Cosmos em sua assinatura do Azure e bancos de dados, contêineres, itens sob ele. Este artigo descreve o modelo de recurso Azure Cosmos DB e entidades diferentes na hierarquia do modelo de recurso.
 
@@ -52,10 +53,10 @@ Você pode interagir com um banco de dados Cosmos do Azure com as APIs Cosmos do
 
 | Operação | CLI do Azure | API do SQL | API Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerar todos os bancos de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | NA | NA |
-|Ler banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | NA | NA |
-|Criar novo banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | NA | NA |
-|Atualizar banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Sim | NA | NA |
+|Enumerar todos os bancos de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Yes | NA | NA |
+|Ler banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Yes | NA | NA |
+|Criar novo banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Yes | NA | NA |
+|Atualizar banco de dados| Sim | Sim | Sim (o banco de dados é mapeado para um keyspace) | Yes | NA | NA |
 
 ## <a name="azure-cosmos-containers"></a>Contêineres do Azure Cosmos
 
@@ -63,16 +64,16 @@ Um contêiner Cosmos do Azure é a unidade de escalabilidade para taxa de transf
 
 Ao criar um contêiner, você configura a taxa de transferência em um dos seguintes modos:
 
-* **Modo de taxa de transferência provisionado dedicado**: a taxa de transferência provisionada em um contêiner é exclusivamente reservada para esse contêiner e é apoiada pelos SLAs. Para saber mais, confira [como provisionar a taxa de transferência em um contêiner](how-to-provision-container-throughput.md).
+* **Modo de taxa de transferência provisionado dedicado** : a taxa de transferência provisionada em um contêiner é exclusivamente reservada para esse contêiner e é apoiada pelos SLAs. Para saber mais, confira [como provisionar a taxa de transferência em um contêiner](how-to-provision-container-throughput.md).
 
-* **Modo de produtividade provisionada compartilhada**: esses contêineres compartilham a taxa de transferência provisionada com os outros contêineres no mesmo banco de dados (excluindo contêineres que foram configurados com taxa de transferência provisionada dedicada). Em outras palavras, a taxa de transferência provisionada no banco de dados é compartilhada entre todos os contêineres de "produtividade compartilhada". Para saber mais, confira [como provisionar a taxa de transferência em um banco de dados](how-to-provision-database-throughput.md).
+* **Modo de produtividade provisionada compartilhada** : esses contêineres compartilham a taxa de transferência provisionada com os outros contêineres no mesmo banco de dados (excluindo contêineres que foram configurados com taxa de transferência provisionada dedicada). Em outras palavras, a taxa de transferência provisionada no banco de dados é compartilhada entre todos os contêineres de "produtividade compartilhada". Para saber mais, confira [como provisionar a taxa de transferência em um banco de dados](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. Para alternar do modo de taxa de transferência dedicada para o modo de taxa de transferência compartilhada (e vice-versa) depois que o contêiner for criado, você precisará criar um novo contêiner e migrar os dados para o novo contêiner. Você pode migrar os dados usando o Azure Cosmos DB recurso de feed de alterações.
 
 Um contêiner Cosmos do Azure pode ser dimensionado de forma elástica, independentemente de você criar contêineres usando modos de taxa de transferência provisionada ou compartilhadas.
 
-Um contêiner é um contêiner de itens independente de esquema. Os itens em um contêiner podem ter esquemas arbitrários. Por exemplo, um item que representa uma pessoa e um item que representa um automóvel pode ser colocado no *mesmo contêiner*. Por padrão, todos os itens que você adiciona a um contêiner são indexados automaticamente sem a necessidade de um índice explícito ou gerenciamento de esquema. Você pode personalizar o comportamento de indexação Configurando a [política de indexação](index-overview.md) em um contêiner. 
+Um contêiner é um contêiner de itens independente de esquema. Os itens em um contêiner podem ter esquemas arbitrários. Por exemplo, um item que representa uma pessoa e um item que representa um automóvel pode ser colocado no *mesmo contêiner* . Por padrão, todos os itens que você adiciona a um contêiner são indexados automaticamente sem a necessidade de um índice explícito ou gerenciamento de esquema. Você pode personalizar o comportamento de indexação Configurando a [política de indexação](index-overview.md) em um contêiner. 
 
 Você pode definir [TTL (vida útil)](time-to-live.md) em itens selecionados em um contêiner ou para todo o contêiner para limpar normalmente esses itens do sistema. Azure Cosmos DB exclui automaticamente os itens quando eles expiram. Ele também garante que uma consulta executada no contêiner não retorne os itens expirados em um limite fixo. Para saber mais, consulte [Configurar TTL em seu contêiner](how-to-time-to-live.md).
 

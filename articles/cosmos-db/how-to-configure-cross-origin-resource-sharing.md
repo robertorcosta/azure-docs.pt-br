@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390866"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086391"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configurar CORS (Compartilhamento de Recursos entre Origens)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo Web em execução em um domínio acesse recursos em outro domínio. Os navegadores da Web implementam uma restrição de segurança, conhecida como política de mesma origem, que impede que uma página da Web chame APIs em um domínio diferente. No entanto, o CORS fornece uma maneira segura de permitir que o domínio de origem chame APIs em outro domínio. A API básica (SQL) no Azure Cosmos DB agora dá suporte ao compartilhamento de recursos entre origens (CORS) usando o cabeçalho "allowedOrigins". Após habilitar o suporte para CORS na conta do Azure Cosmos, somente as solicitações autenticadas serão avaliadas para determinar se são permitidas de acordo com as regras especificadas.
 
@@ -26,9 +27,9 @@ O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permi
 
 Use as etapas a seguir para habilitar o Compartilhamento de Recursos entre Origens, usando o portal do Azure:
 
-1. Navegue até a conta do Azure Cosmos DB. Abra a folha **CORS**.
+1. Navegue até a conta do Azure Cosmos DB. Abra a folha **CORS** .
 
-2. Especifique uma lista de origens separadas por vírgulas que pode fazer chamadas entre origens para a conta do Azure Cosmos DB. Por exemplo, `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. Também é possível usar um curinga "\*" para permitir todas as origens e selecione **Enviar**. 
+2. Especifique uma lista de origens separadas por vírgulas que pode fazer chamadas entre origens para a conta do Azure Cosmos DB. Por exemplo, `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. Também é possível usar um curinga "\*" para permitir todas as origens e selecione **Enviar** . 
 
    > [!NOTE]
    > Atualmente, não é possível usar curingas como parte do nome do domínio. Por exemplo, ainda não há suporte para o formato `https://*.mydomain.net`. 

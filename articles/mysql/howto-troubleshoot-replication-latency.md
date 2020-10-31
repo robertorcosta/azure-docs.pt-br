@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791572"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087019"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solucionar problemas de latência de replicação no Banco de Dados do Azure para MySQL
 
@@ -236,6 +236,9 @@ No banco de dados do Azure para MySQL, por padrão, a replicação é otimizada 
 O parâmetro binlog_group_commit_sync_delay controla o número de microssegundos que a confirmação de log binário aguarda antes de sincronizar o arquivo de log binário. O benefício desse parâmetro é que, em vez de aplicar imediatamente cada transação confirmada, o servidor de origem envia as atualizações de log binários em massa. Esse atraso reduz a e/s na réplica e ajuda a melhorar o desempenho. 
 
 Pode ser útil definir o parâmetro binlog_group_commit_sync_delay como 1000 ou assim por diante. Em seguida, monitore a latência de replicação. Defina esse parâmetro com cuidado e use-o apenas para cargas de trabalho de alta simultaneidade. 
+
+> [!IMPORTANT] 
+> No servidor de réplica, é recomendável que binlog_group_commit_sync_delay parâmetro seja 0. Isso é recomendado porque, diferentemente do servidor de origem, o servidor de réplica não terá alta simultaneidade e o aumento do valor para binlog_group_commit_sync_delay no servidor de réplica poderá inadvertidamente aumentar o aumento de replicação.
 
 Para cargas de trabalho de baixa simultaneidade que incluem muitas transações singleton, a configuração binlog_group_commit_sync_delay pode aumentar a latência. A latência pode aumentar porque o thread de e/s aguarda atualizações de log binário em massa, mesmo que apenas algumas transações sejam confirmadas. 
 

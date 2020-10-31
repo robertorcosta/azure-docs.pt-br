@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87449958"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087801"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Recomendações automatizadas para Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Todos os serviços de nuvem, incluindo Azure Cosmos DB obter atualizações frequentes com novos recursos, funcionalidades e aprimoramentos. É importante que seu aplicativo acompanhe o desempenho e as atualizações de segurança mais recentes. O portal do Azure oferece recomendações personalizadas que permitem que você maximize o desempenho do seu aplicativo. O mecanismo de consultoria do Azure Cosmos DB analisa continuamente o histórico de uso de seus recursos de Azure Cosmos DB e fornece recomendações com base em seus padrões de carga de trabalho. Essas recomendações correspondem a áreas como particionamento, indexação, rede, segurança, etc. Essas recomendações personalizadas ajudam você a melhorar o desempenho do seu aplicativo.
 
@@ -26,7 +27,7 @@ Você pode exibir recomendações para Azure Cosmos DB das seguintes maneiras:
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="Exibir recomendações do painel de Azure Cosmos DB":::
 
-- Você também pode encontrar as recomendações por meio do assistente [do Azure](../advisor/advisor-overview.md) em categorizadas por diferentes buckets, como custo, segurança, confiabilidade, desempenho e excelência operacional. Você pode selecionar assinaturas específicas e filtrar pelo tipo de recurso, que é **Azure Cosmos DB contas**.  Quando você seleciona uma recomendação específica, ela exibe as ações que você pode tomar para beneficiar suas cargas de trabalho.
+- Você também pode encontrar as recomendações por meio do assistente [do Azure](../advisor/advisor-overview.md) em categorizadas por diferentes buckets, como custo, segurança, confiabilidade, desempenho e excelência operacional. Você pode selecionar assinaturas específicas e filtrar pelo tipo de recurso, que é **Azure Cosmos DB contas** .  Quando você seleciona uma recomendação específica, ela exibe as ações que você pode tomar para beneficiar suas cargas de trabalho.
 
    :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Exibir recomendações do painel de Azure Cosmos DB":::
 
@@ -38,7 +39,7 @@ Atualmente Azure Cosmos DB dá suporte a recomendações nas áreas a seguir. Ca
 
 Nessa categoria, o orientador detecta o uso de uma versão antiga dos SDKs e recomenda que você atualize para uma versão mais recente para aproveitar as correções de bugs e melhorias de desempenho mais recentes. Atualmente, as seguintes recomendações específicas do SDK estão disponíveis:
 
-|Nome  |Descrição  |
+|Name  |Descrição  |
 |---------|---------|
 | Conector antigo do Spark | Detecta o uso de versões antigas do conector do Spark e recomenda a atualização. |
 | Antigo SDK do .NET | Detecta o uso de versões antigas do SDK do .NET e recomenda a atualização. |
@@ -48,7 +49,7 @@ Nessa categoria, o orientador detecta o uso de uma versão antiga dos SDKs e rec
 
 Nessa categoria, o orientador detecta o modo de indexação, a política de indexação, os caminhos indexados e recomenda a alteração se a configuração atual impacta o desempenho da consulta. Atualmente, as seguintes recomendações específicas de indexação estão disponíveis:
 
-|Nome  |Descrição  |
+|Name  |Descrição  |
 |---------|---------|
 | Indexação lenta | Detecta o uso do modo de indexação lento e recomenda usar o modo de indexação consistente em vez disso. A finalidade do modo de indexação lento do Azure Cosmos DB é limitada e pode afetar a atualização dos resultados da consulta em algumas situações, para que o modo de indexação consistente seja recomendado. |
 | Indexação de composição| Detecta as contas em que as consultas podem se beneficiar de índices compostos e recomenda usá-las. Os índices compostos podem melhorar drasticamente o consumo de desempenho e taxa de transferência de algumas consultas.|
@@ -60,7 +61,7 @@ Nessa categoria, o orientador detecta o modo de indexação, a política de inde
 
 Nessa categoria, o supervisor detecta o uso de RU/s e determina que você pode otimizar o preço fazendo algumas alterações em seus recursos ou aproveitando um modelo de preço diferente. Atualmente, as seguintes recomendações específicas de otimização de custo estão disponíveis:
 
-|Nome  |Descrição  |
+|Name  |Descrição  |
 |---------|---------|
 | Capacidade reservada | Detecta sua utilização de RU/s e recomenda instâncias reservadas para os usuários que podem se beneficiar dela. |
 | Contêineres inativos | Detecta os contêineres que não foram usados por mais de 30 dias e recomenda reduzir a taxa de transferência para esses contêineres ou excluí-los.|
@@ -70,7 +71,7 @@ Nessa categoria, o supervisor detecta o uso de RU/s e determina que você pode o
 
 Nessa categoria, o supervisor detecta que você está usando recursos herdados recomenda a migração para que você possa aproveitar a escalabilidade maciça do Azure Cosmos DB e outros benefícios. Atualmente, as seguintes recomendações específicas de migração estão disponíveis:
 
-|Nome  |Descrição  |
+|Name  |Descrição  |
 |---------|---------|
 | Contêineres não particionados | Detecta contêineres de tamanho fixo que estão se aproximando do limite máximo de armazenamento e recomenda migrá-los para os contêineres particionados.|
 
@@ -78,7 +79,7 @@ Nessa categoria, o supervisor detecta que você está usando recursos herdados r
 
 Nessa categoria, o orientador detecta a execução da consulta e identifica que o desempenho da consulta pode ser ajustado com algumas alterações. Atualmente, as seguintes recomendações de uso de consulta estão disponíveis:
 
-|Nome  |Descrição  |
+|Name  |Descrição  |
 |---------|---------|
 | Consultas com tamanho de página fixo | Detecta consultas emitidas com um tamanho de página fixo e recomenda o uso de-1 (sem limite no tamanho da página) em vez de definir um valor específico. Essa opção reduz o número de viagens de ida e volta da rede necessárias para recuperar todos os resultados. |
 

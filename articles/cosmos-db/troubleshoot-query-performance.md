@@ -8,14 +8,15 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476698"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087172"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo percorre uma abordagem geral recomendada para a solução de problemas de consultas no Azure Cosmos DB. Embora você não deva considerar as etapas descritas neste artigo uma defesa completa contra possíveis problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este artigo como um local de início para solucionar problemas de consultas lentas ou dispendiosas na API de núcleo do Azure Cosmos DB Core (SQL). Você também pode usar os [logs de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que são lentas ou que consomem quantidades significativas de taxa de transferência. Se você estiver usando a API do Azure Cosmos DB para MongoDB, deverá usar [a API do Azure Cosmos DB para o guia de solução de problemas de consulta do MongoDB](mongodb-troubleshoot-query.md)
 
@@ -44,13 +45,13 @@ Antes de ler este guia, é útil considerar problemas comuns do SDK que não est
 
 ## <a name="get-query-metrics"></a>Obter métricas de consulta
 
-Quando você otimiza uma consulta no Azure Cosmos DB, a primeira etapa é sempre [obter as métricas de consulta](profile-sql-api-query.md) para sua consulta. Essas métricas também estão disponíveis por meio do portal do Azure. Depois de executar a consulta no Data Explorer, as métricas de consulta ficam visíveis ao lado da guia **Resultados**:
+Quando você otimiza uma consulta no Azure Cosmos DB, a primeira etapa é sempre [obter as métricas de consulta](profile-sql-api-query.md) para sua consulta. Essas métricas também estão disponíveis por meio do portal do Azure. Depois de executar a consulta no Data Explorer, as métricas de consulta ficam visíveis ao lado da guia **Resultados** :
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Como obter métricas de consulta" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Depois de obter as métricas de consulta, compare a **Contagem de Documentos Recuperados** com a **Contagem de Documentos de Saída** para sua consulta. Use essa comparação para identificar as seções relevantes que serão examinadas neste artigo.
 
-A **Contagem de Documentos Recuperados** é o número de documentos que o mecanismo de consulta precisava carregar. A **Contagem de Documentos de Saída** é o número de documentos que foram necessários para os resultados da consulta. Se a **Contagem de Documentos Recuperada** for significativamente maior do que a **Contagem de Documentos de Saída**, haverá pelo menos uma parte da sua consulta que não conseguiu usar um índice e que precisava fazer uma verificação.
+A **Contagem de Documentos Recuperados** é o número de documentos que o mecanismo de consulta precisava carregar. A **Contagem de Documentos de Saída** é o número de documentos que foram necessários para os resultados da consulta. Se a **Contagem de Documentos Recuperada** for significativamente maior do que a **Contagem de Documentos de Saída** , haverá pelo menos uma parte da sua consulta que não conseguiu usar um índice e que precisava fazer uma verificação.
 
 Veja as seções a seguir para entender as otimizações de consulta relevantes para seu cenário.
 
@@ -92,7 +93,7 @@ Veja as seções a seguir para entender as otimizações de consulta relevantes 
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Consultas em que a Contagem de Documentos Recuperados excede a Contagem de Documentos de Saída
 
- A **Contagem de Documentos Recuperados** é o número de documentos que o mecanismo de consulta precisava carregar. A **Contagem de Documentos de Saída** é o número de documentos retornados pela consulta. Se a **Contagem de Documentos Recuperada** for significativamente maior do que a **Contagem de Documentos de Saída**, haverá pelo menos uma parte da sua consulta que não conseguiu usar um índice e que precisava fazer uma verificação.
+ A **Contagem de Documentos Recuperados** é o número de documentos que o mecanismo de consulta precisava carregar. A **Contagem de Documentos de Saída** é o número de documentos retornados pela consulta. Se a **Contagem de Documentos Recuperada** for significativamente maior do que a **Contagem de Documentos de Saída** , haverá pelo menos uma parte da sua consulta que não conseguiu usar um índice e que precisava fazer uma verificação.
 
 Veja um exemplo de consulta de verificação que não foi totalmente servida pelo índice:
 
@@ -384,7 +385,7 @@ Suponha que apenas um item na matriz de marcas corresponda ao filtro e que haja 
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Consultas em que a Contagem de Documentos Recuperados é igual à Contagem de Documentos de Saída
 
-Se a **Contagem de Documentos Recuperados** for aproximadamente igual à **Contagem de Documentos de Saída**, o mecanismo de consulta não precisará verificar muitos documentos desnecessários. Para muitas consultas, como as que usam a palavra-chave `TOP`, a **Contagem de Documentos Recuperados** pode a exceder **Contagem de Documentos de Saída** em 1. Você não precisa se preocupar com isso.
+Se a **Contagem de Documentos Recuperados** for aproximadamente igual à **Contagem de Documentos de Saída** , o mecanismo de consulta não precisará verificar muitos documentos desnecessários. Para muitas consultas, como as que usam a palavra-chave `TOP`, a **Contagem de Documentos Recuperados** pode a exceder **Contagem de Documentos de Saída** em 1. Você não precisa se preocupar com isso.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimizar consultas entre partições
 

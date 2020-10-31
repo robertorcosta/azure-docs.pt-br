@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0d77c93e4103082a759df64fcafaefc1a1069de8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490621"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087376"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo da API do Gremlin do Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 O documento a seguir foi desenvolvido para fornecer recomendações de modelagem de dados de grafo. Esta etapa é essencial para garantir a escalabilidade e o desempenho de um sistema de banco de dados de grafo conforme os dados evoluem. Um modelo de dados eficiente é especialmente importante com grafos em grande escala.
 
@@ -30,30 +31,30 @@ O processo descrito neste guia se baseia nas seguintes suposições:
 Uma solução de banco de dados de grafo pode ser aplicada de forma ideal se as entidades e as relações em um domínio de dados tem uma das seguintes características: 
 
 * As entidades são **altamente conectadas** por meio de relações descritivas. O benefício desse cenário é o fato de que as relações são persistidas no armazenamento.
-* Há **relações cíclicas** ou **entidades autorreferenciadas**. Esse padrão geralmente é um desafio ao usar bancos de dados relacionais ou de documentos.
+* Há **relações cíclicas** ou **entidades autorreferenciadas** . Esse padrão geralmente é um desafio ao usar bancos de dados relacionais ou de documentos.
 * Há **relações que evoluem dinamicamente** entre as entidades. Esse padrão é especialmente aplicável a dados hierárquicos ou com estrutura de árvore com muitos níveis.
 * Há **relações muitos para muitos** entre as entidades.
-* Há **requisitos de gravação e leitura nas entidades e nas relações**. 
+* Há **requisitos de gravação e leitura nas entidades e nas relações** . 
 
-Se os critérios acima forem atendidos, será provável que uma abordagem de banco de dados de grafo fornecerá vantagens para **complexidade da consulta**, **escalabilidade do modelo de dados** e **desempenho de consulta**.
+Se os critérios acima forem atendidos, será provável que uma abordagem de banco de dados de grafo fornecerá vantagens para **complexidade da consulta** , **escalabilidade do modelo de dados** e **desempenho de consulta** .
 
 A próxima etapa é determinar se o grafo será usado para fins analíticos ou transacionais. Se o grafo se destinar a ser usado para cargas de trabalho de processamento de dados e cálculo intensivos, valerá a pena explorar o [conector do Spark do Cosmos DB](./spark-connector.md) e o uso da [biblioteca do GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Como usar objetos de grafo
 
-O [padrão de grafo de propriedade do Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dois tipos de objetos: **Vértices** e **Bordas**. 
+O [padrão de grafo de propriedade do Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dois tipos de objetos: **Vértices** e **Bordas** . 
 
 Estas são as melhores práticas para as propriedades nos objetos de grafo:
 
 | Objeto | Propriedade | Type | Observações |
 | --- | --- | --- |  --- |
-| Vértice | ID | Cadeia de caracteres | Imposto com exclusividade por partição. Se um valor não for fornecido após a inserção, um GUID gerado automaticamente será armazenado. |
-| Vértice | label | Cadeia de caracteres | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
+| Vértice | ID | String | Imposto com exclusividade por partição. Se um valor não for fornecido após a inserção, um GUID gerado automaticamente será armazenado. |
+| Vértice | label | String | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
 | Vértice | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada vértice. |
 | Vértice | partition key | Cadeia de caracteres, booliano, numérico | Essa propriedade define em que local o vértice e suas bordas de saída serão armazenados. Leia mais sobre o [particionamento de grafo](graph-partitioning.md). |
-| Microsoft Edge | ID | Cadeia de caracteres | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
-| Microsoft Edge | label | Cadeia de caracteres | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
-| Microsoft Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
+| Edge | ID | String | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
+| Edge | label | String | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
+| Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
 
 > [!NOTE]
 > As bordas não exigem um valor de chave de partição, pois seu valor é atribuído automaticamente com base no vértice de origem. Saiba mais no artigo [Particionamento de grafo](graph-partitioning.md).
@@ -67,15 +68,15 @@ Veja a seguir um conjunto de diretrizes para abordar a modelagem de dados de um 
 
 ### <a name="modeling-vertices-and-properties"></a>Como modelar vértices e propriedades 
 
-A primeira etapa de um modelo de dados de grafo é mapear cada entidade identificada para um **objeto de vértice**. Um mapeamento um-para-um de todas as entidades para vértices deve ser uma etapa inicial e estar sujeito a alterações.
+A primeira etapa de um modelo de dados de grafo é mapear cada entidade identificada para um **objeto de vértice** . Um mapeamento um-para-um de todas as entidades para vértices deve ser uma etapa inicial e estar sujeito a alterações.
 
 Uma armadilha comum é mapear propriedades de uma única entidade como vértices separados. Considere o exemplo abaixo, em que a mesma entidade é representada de duas maneiras diferentes:
 
-* **Propriedades baseadas em vértice**: nessa abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar em latência adicionada, complexidade da consulta e custo de computação. Esse modelo também pode apresentar desafios no particionamento.
+* **Propriedades baseadas em vértice** : nessa abordagem, a entidade usa três vértices separados e duas bordas para descrever suas propriedades. Embora essa abordagem possa reduzir a redundância, ela aumenta a complexidade do modelo. Um aumento na complexidade do modelo pode resultar em latência adicionada, complexidade da consulta e custo de computação. Esse modelo também pode apresentar desafios no particionamento.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
-* **Vértices inseridos na propriedade**: essa abordagem aproveita a lista de pares chave-valor para representar todas as propriedades da entidade dentro de um vértice. Ela fornece complexidade reduzida do modelo, o que leva a consultas mais simples e travessias mais econômicas.
+* **Vértices inseridos na propriedade** : essa abordagem aproveita a lista de pares chave-valor para representar todas as propriedades da entidade dentro de um vértice. Ela fornece complexidade reduzida do modelo, o que leva a consultas mais simples e travessias mais econômicas.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
@@ -88,7 +89,7 @@ No entanto, há cenários em que a referência a uma propriedade pode oferecer v
 
 ### <a name="relationship-modeling-with-edge-directions"></a>Modelagem de relação com sentidos de borda
 
-Depois que os vértices são modelados, as bordas podem ser adicionadas para indicar as relações entre eles. O primeiro aspecto que precisa ser avaliado é a **direção da relação**. 
+Depois que os vértices são modelados, as bordas podem ser adicionadas para indicar as relações entre eles. O primeiro aspecto que precisa ser avaliado é a **direção da relação** . 
 
 Os objetos de borda têm uma direção padrão que é seguida por uma travessia ao usar a função `out()` ou `outE()`. O uso dessa direção natural resulta em uma operação eficiente, pois todos os vértices são armazenados com suas bordas de saída. 
 
