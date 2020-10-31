@@ -2,13 +2,13 @@
 title: Conceitos da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos. Define vários componentes importantes da Grade de Eventos.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116481"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075102"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -37,11 +37,11 @@ Para obter informações sobre como implementar qualquer uma das origens de Grad
 
 O tópico da grade de eventos fornece um ponto de extremidade em que a fonte envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
 
-Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure, como o armazenamento do Azure, os hubs de eventos do Azure e o barramento de serviço do Azure. Você pode criar tópicos do sistema em sua assinatura do Azure e assiná-los. Para obter mais informações, consulte [visão geral dos tópicos do sistema](system-topics.md). 
+Os **Tópicos do sistema** são tópicos internos fornecidos pelos serviços do Azure, como o armazenamento do Azure, os hubs de eventos do Azure e o barramento de serviço do Azure. Você pode criar tópicos do sistema em sua assinatura do Azure e assiná-los. Para obter mais informações, consulte [visão geral dos tópicos do sistema](system-topics.md). 
 
-Os tópicos personalizados são tópicos de aplicativo e de terceiros. Ao criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado em sua assinatura. Para obter mais informações, consulte [Custom topics](custom-topics.md).
+Os **Tópicos personalizados** são aplicativos e tópicos de terceiros. Ao criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado em sua assinatura. Para obter mais informações, consulte [Custom topics](custom-topics.md). Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções maiores, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuário e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
 
-Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções maiores, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuário e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
+Há outro tipo de tópico: **parceiro, tópico** . O recurso de [eventos de parceiro](partner-events-overview.md) permite que um provedor de SaaS de terceiros publique eventos de seus serviços para torná-los disponíveis para os consumidores que podem assinar esses eventos. O provedor de SaaS expõe um tipo de tópico, um **tópico de parceiro** , que os assinantes usam para consumir eventos. Ele também oferece um modelo de pub-sub limpo, separando as preocupações e a propriedade dos recursos usados por editores de eventos e assinantes.
 
 ## <a name="event-subscriptions"></a>Assinaturas de evento
 

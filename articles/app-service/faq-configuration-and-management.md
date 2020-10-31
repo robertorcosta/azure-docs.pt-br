@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962342"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074175"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -59,24 +59,26 @@ Para saber mais informações, consulte [Limitações do Serviço de Aplicativo]
 
 Para definir o fuso horário do servidor para o meu aplicativo web:
 
-1. No portal do Azure, na sua assinatura do Serviço de Aplicativo, vá até o menu **Configurações de aplicativo**.
-2. Em **Configurações do aplicativo**, adicionar essa configuração:
+1. No portal do Azure, na sua assinatura do Serviço de Aplicativo, vá até o menu **Configurações de aplicativo** .
+2. Em **Configurações do aplicativo** , adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
-3. Selecione **Salvar**.
+3. Selecione **Salvar** .
 
-Para os serviços de aplicativos que são executados no Windows, consulte a coluna **timezone** no artigo [fusos horários padrão](/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos. Para os serviços de aplicativos que são executados no Linux, defina o [nome do banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor de fuso horário. Aqui está um exemplo de nome do banco de dados TZ: America/Adak.
+Para os serviços de aplicativos que são executados no Windows, consulte a saída do `tzutil /L` comando do Windows. Use o valor da segunda linha de cada entrada. Por exemplo: "hora padrão de Tonga". Alguns desses valores também estão listados na coluna **timezone** em [fusos horários padrão](/windows-hardware/manufacture/desktop/default-time-zones).
+
+Para os serviços de aplicativos que são executados no Linux, defina um valor do [banco de dados de TZ da IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Por exemplo: "America/Adak".
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus WebJobs contínuos às vezes falham?
 
-Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Isso permite ao sistema conservar recursos. Em planos básico e padrão, você pode ativar a configuração **Sempre Ativo** para manter o aplicativo web carregado o tempo todo. Se seu aplicativo web executar continuamente WebJobs, você deve habilitar a opção **Sempre Ativo**; ou é possível que os WebJobs não sejam executados com segurança. Para obter mais informações, consulte [Criar um WebJob de execução contínua](webjobs-create.md#CreateContinuous).
+Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Isso permite ao sistema conservar recursos. Em planos básico e padrão, você pode ativar a configuração **Sempre Ativo** para manter o aplicativo web carregado o tempo todo. Se seu aplicativo web executar continuamente WebJobs, você deve habilitar a opção **Sempre Ativo** ; ou é possível que os WebJobs não sejam executados com segurança. Para obter mais informações, consulte [Criar um WebJob de execução contínua](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Como obter o endereço IP de saída para o meu aplicativo web?
 
 Para obter a lista de endereços IP de saída para seu aplicativo web:
 
-1. No portal do Azure, na folha seu aplicativo web, vá até o menu **Propriedades**.
-2. Pesquisar **endereços IP de saída**.
+1. No portal do Azure, na folha seu aplicativo web, vá até o menu **Propriedades** .
+2. Pesquisar **endereços IP de saída** .
 
 A lista de endereços IP de saída é exibida.
 
@@ -127,10 +129,10 @@ Para examinar os logs do WebJob:
 
 1. Entre no site do **kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Selecione o WebJob.
-3. Selecione o botão **Alternar saída**.
-4. Para baixar o arquivo de saída, selecione o link **Baixar**.
-5. Para execuções individuais, selecione **Invocar individuais**.
-6. Selecione o botão **Alternar saída**.
+3. Selecione o botão **Alternar saída** .
+4. Para baixar o arquivo de saída, selecione o link **Baixar** .
+5. Para execuções individuais, selecione **Invocar individuais** .
+6. Selecione o botão **Alternar saída** .
 7. Selecione o link Baixar.
 
 ## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou tentando usar conexões híbridas com o SQL Server. Por que vejo a mensagem "System. OverflowException: operação aritmética resultou em um excesso"?
@@ -175,16 +177,16 @@ Você tem duas opções para capturar um rastreamento F12:
 
 1. No Internet Explorer, vá para o seu site. É importante entrar antes de fazer as próximas etapas. Caso contrário, o rastreamento F12 captura dados confidenciais de entrada.
 2. Pressione F12.
-3. Verifique se a guia **Rede** está selecionada e, em seguida, selecione o botão verde **Reproduzir**.
+3. Verifique se a guia **Rede** está selecionada e, em seguida, selecione o botão verde **Reproduzir** .
 4. Siga as etapas que reproduza o problema.
-5. Selecione o botão vermelho **Parar**.
+5. Selecione o botão vermelho **Parar** .
 6. Selecione o botão **Salvar** (ícone de disco) e, em seguida, salve o arquivo HAR (no Internet Explorer e Microsoft Edge) *ou* clique com o botão direito do mouse no arquivo HAR e, em seguida, selecione **Salvar como HAR com conteúdo** (no Chrome).
 
 ### <a name="f12-console-output"></a>Saída do console F12
 
-1. Selecione a guia **Console**.
-2. Para cada guia que contém itens de maior que zero, selecione a guia (**Erro**, **Aviso**, ou **Informações**). Se a guia não estiver selecionada, o ícone de guia ficará cinza ou preto quando você mover o cursor para longe dele.
-3. Clique com o botão direito na área de mensagem do painel e, em seguida, selecione **Copiar tudo**.
+1. Selecione a guia **Console** .
+2. Para cada guia que contém itens de maior que zero, selecione a guia ( **Erro** , **Aviso** , ou **Informações** ). Se a guia não estiver selecionada, o ícone de guia ficará cinza ou preto quando você mover o cursor para longe dele.
+3. Clique com o botão direito na área de mensagem do painel e, em seguida, selecione **Copiar tudo** .
 4. Cole o texto copiado em um arquivo e, em seguida, salve o arquivo.
 
 Para exibir um arquivo HAR, você pode usar o [Visualizador HAR](http://www.softwareishard.com/har/viewer/).
@@ -282,7 +284,7 @@ Para obter documentação detalhada para autenticação e autorização no Servi
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como redirecionar o domínio padrão *. azurewebsites.net para o domínio personalizado do meu aplicativo web do Azure?
 
-Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename*.azurewebsites.net é atribuído ao seu site. Se você adicionar um nome de host personalizado ao seu site e não quiser que os usuários possam acessar seu domínio padrão *. azurewebsites.net, você poderá redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename* .azurewebsites.net é atribuído ao seu site. Se você adicionar um nome de host personalizado ao seu site e não quiser que os usuários possam acessar seu domínio padrão *. azurewebsites.net, você poderá redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como determinar qual versão do .NET versão está instalada no Serviço de Aplicativo?
 

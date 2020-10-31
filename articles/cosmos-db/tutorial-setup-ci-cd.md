@@ -8,14 +8,15 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7aace0b1ee6963aa220a60a11d02c370bf4d822a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2b74198f83ef972540038269d83048bfd1adda62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476545"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073886"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço do Azure Cosmos DB para fins de desenvolvimento. O emulador permite desenvolver e testar seu aplicativo localmente sem criar uma assinatura do Azure ne, incorrer em custos. 
 
@@ -44,7 +45,7 @@ Agora que a extensão está instalada, entre em sua organização do Azure DevOp
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Localizar e instalar a tarefa de build do Emulador do Azure Cosmos DB no Marketplace do Azure DevOps":::
 
-2. Selecione a **fonte**, o **projeto de equipe**, o **repositório**e o **branch Padrão desejados para builds manuais e agendados**. Depois de escolher as opções necessárias, selecione **Continuar**
+2. Selecione a **fonte** , o **projeto de equipe** , o **repositório** e o **branch Padrão desejados para builds manuais e agendados** . Depois de escolher as opções necessárias, selecione **Continuar**
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Localizar e instalar a tarefa de build do Emulador do Azure Cosmos DB no Marketplace do Azure DevOps":::
 
@@ -62,7 +63,7 @@ Start-CosmosDbEmulator
 
 ## <a name="add-the-task-to-a-build-pipeline"></a><a name="addEmulatorBuildTaskToBuildDefinition"></a>Adicionar a tarefa a um pipeline de build
 
-1. Antes de adicionar uma tarefa ao pipeline de build, você deve adicionar um trabalho de agente. Navegue até o pipeline de build, selecione o **...** e escolha **Adicionar um trabalho de agente**.
+1. Antes de adicionar uma tarefa ao pipeline de build, você deve adicionar um trabalho de agente. Navegue até o pipeline de build, selecione o **...** e escolha **Adicionar um trabalho de agente** .
 
 1. Em seguida, selecione o símbolo **+** ao lado do trabalho de agente para adicionar a tarefa de build do emulador. Pesquise **cosmos** na caixa de pesquisa, selecione **Emulador do Azure Cosmos DB** e adicione-o ao trabalho de agente. A tarefa de build iniciará um contêiner com uma instância do emulador do Cosmos DB já em execução. A tarefa do emulador do Azure Cosmos DB deve ser colocada antes de outras tarefas que estejam esperando o emulador ficar em execução.
 
@@ -92,9 +93,9 @@ Essa etapa é opcional e só será necessária se você estiver configurando o p
 
 Agora, vamos configurar nossos testes para usar o emulador. A tarefa de build do emulador exporta uma variável de ambiente – 'CosmosDbEmulator.Endpoint' – para a qual qualquer tarefa no pipeline de build pode emitir solicitações. 
 
-Neste tutorial, vamos usar a [tarefa de Teste do Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidade configuradas por meio de um arquivo **.RunSettings**. Para saber mais sobre a configuração do teste de unidade, leia a [documentação](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). O exemplo de código do aplicativo Todo completo usado neste documento está disponível no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+Neste tutorial, vamos usar a [tarefa de Teste do Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) para executar testes de unidade configuradas por meio de um arquivo **.RunSettings** . Para saber mais sobre a configuração do teste de unidade, leia a [documentação](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). O exemplo de código do aplicativo Todo completo usado neste documento está disponível no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
-Abaixo está um exemplo de um arquivo **.RunSettings** que define os parâmetros a serem passados para os testes de unidade do aplicativo. Observe que a variável `authKey` usada é a [chave bem conhecida](./local-emulator.md#authenticate-requests) para o emulador. Esta `authKey` é a chave esperada pela tarefa de build do emulador e deve ser definida em seu arquivo **.RunSettings**.
+Abaixo está um exemplo de um arquivo **.RunSettings** que define os parâmetros a serem passados para os testes de unidade do aplicativo. Observe que a variável `authKey` usada é a [chave bem conhecida](./local-emulator.md#authenticate-requests) para o emulador. Esta `authKey` é a chave esperada pela tarefa de build do emulador e deve ser definida em seu arquivo **.RunSettings** .
 
 ```csharp
 <RunSettings>
@@ -157,13 +158,13 @@ namespace todo.Tests
 }
 ```
 
-Navegue até as Opções de Execução na tarefa de Teste do Visual Studio. Na opção **Arquivo de configurações**, especifique que os testes são configurados usando o arquivo **.RunSettings**. Na opção **Substituir parâmetros de execução de teste**, adicione `-endpoint $(CosmosDbEmulator.Endpoint)`. Fazer isso configurará a tarefa de Teste para referir-se ao ponto de extremidade da tarefa de build do emulador, em vez daquele definido no arquivo **.RunSettings**.  
+Navegue até as Opções de Execução na tarefa de Teste do Visual Studio. Na opção **Arquivo de configurações** , especifique que os testes são configurados usando o arquivo **.RunSettings** . Na opção **Substituir parâmetros de execução de teste** , adicione `-endpoint $(CosmosDbEmulator.Endpoint)`. Fazer isso configurará a tarefa de Teste para referir-se ao ponto de extremidade da tarefa de build do emulador, em vez daquele definido no arquivo **.RunSettings** .  
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Localizar e instalar a tarefa de build do Emulador do Azure Cosmos DB no Marketplace do Azure DevOps":::
 
 ## <a name="run-the-build"></a>Executar a compilação
 
-Agora, **salve e coloque o build na fila**. 
+Agora, **salve e coloque o build na fila** . 
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/runBuild_1.png" alt-text="Localizar e instalar a tarefa de build do Emulador do Azure Cosmos DB no Marketplace do Azure DevOps":::
 

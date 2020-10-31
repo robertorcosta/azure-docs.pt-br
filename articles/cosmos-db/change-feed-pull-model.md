@@ -8,14 +8,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d2f39eae94b217ad1f95a6a559aa3e1044d10da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784670"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072665"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar o modelo de pull do feed de alterações no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Com o modelo de pull do feed de alterações, você pode consumir o feed de alterações do Azure Cosmos DB em seu próprio ritmo. Do mesmo modo já é possível fazer com o [processador do feed de alterações](change-feed-processor.md), você pode usar o modelo de pull do feed de alterações para paralelizar o processamento de alterações entre vários consumidores de feed de alterações.
 

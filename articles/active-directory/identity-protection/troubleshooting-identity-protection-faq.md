@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 42b1c0ef42454b085c5d4dbcdc14162b2c829c6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040515"
+ms.locfileid: "93074807"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes sobre a proteção de identidade em Azure Active Directory
 
@@ -36,9 +36,6 @@ Ativar/desativar **Mostrar datas como** oculta a coluna **ÚLTIMA ATUALIZAÇÃO 
 
 **Ignorar todos os eventos** em clássico identidade Protection define o status das detecções de risco para **fechado (resolvido)** .
 
-## <a name="risky-sign-ins-report-known-issues"></a>Problemas conhecidos do relatório de entradas arriscadas
-
-**Resolver** em uma detecção de risco define o status para **os usuários passaram pela MFA controlada pela política baseada em risco** .
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

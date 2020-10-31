@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperfq
-ms.openlocfilehash: 2dc19432d2185b95376717c570cd3165ebc85075
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: da0eb80352409bbbbe29a80fe18a52f54540ae62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027272"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071480"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -36,7 +36,7 @@ Uma vez no portal, comece selecionando _criar um recurso_ no menu Home Page de s
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecionando &quot;criar um recurso&quot; na home page da portal do Azure":::
 
-Pesquise *gêmeos digital do Azure* na caixa de pesquisa e escolha o serviço **gêmeos (versão prévia) do Azure digital** dos resultados. Selecione o botão _criar_ para criar uma nova instância do serviço.
+Pesquise *gêmeos do Azure digital* na caixa de pesquisa e escolha o serviço **gêmeos digital do Azure** nos resultados. Selecione o botão _criar_ para criar uma nova instância do serviço.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecionando &quot;criar um recurso&quot; na home page da portal do Azure":::
 

@@ -4,12 +4,12 @@ description: Configure testes da web no Application Insights. Obtenha alertas se
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56644a4eb2f91dcce3bc2ee557542da75408ca83
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986033"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075136"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorar a disponibilidade de qualquer site
 
@@ -37,7 +37,7 @@ No portal do Azure, selecione **criar um recurso**  >  **ferramentas para desenv
 
 O nome "teste de ping de URL" é um pouco de um nome. Para ser claro, esse teste não faz uso do ICMP (protocolo de mensagem de controle da Internet) para verificar a disponibilidade do site. Em vez disso, ele usa a funcionalidade de solicitação HTTP mais avançada para validar se um ponto de extremidade está respondendo. Ele também mede o desempenho associado a essa resposta e adiciona a capacidade de definir critérios de êxito personalizados acoplados a recursos mais avançados, como a análise de solicitações dependentes, além de permitir novas tentativas.
 
-Para criar sua primeira solicitação de disponibilidade, abra o painel disponibilidade e selecione **criar teste**.
+Para criar sua primeira solicitação de disponibilidade, abra o painel disponibilidade e selecione **criar teste** .
 
 ![Preencha pelo menos o URL do seu site](./media/monitor-web-app-availability/availability-create-test-001.png)
 
@@ -47,20 +47,20 @@ Para criar sua primeira solicitação de disponibilidade, abra o painel disponib
 |----|----|----|
 |**URL** |  A URL pode ser qualquer página da web que você deseja testar, mas ela deve estar visível na Internet pública. A URL pode incluir uma cadeia de consulta. Por exemplo, você pode utilizar um pouco seu banco de dados. Se a URL for resolvida para um redirecionamento, nós a seguiremos, até um máximo de 10 redirecionamentos.|
 |**Analisar solicitações dependentes**| Solicitações de teste imagens, scripts, arquivos de estilo e outros arquivos que fazem parte da página da Web em teste. O tempo de resposta gravado inclui o tempo necessário para obter esses arquivos. O teste falhará se qualquer um desses recursos não puder ser baixado com êxito dentro do tempo limite para o teste inteiro. Se a opção não estiver marcada, o teste solicitará apenas o arquivo na URL especificada. A habilitação dessa opção resulta em uma verificação mais estrita. O teste pode falhar para casos, o que pode não ser perceptível ao navegar manualmente no site.
-|**Habilitar novas tentativas**|Quando o teste falha, ele é repetido após um curto intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. **Recomendamos essa opção**. Em média, aproximadamente 80% das falhas desaparecem na repetição.|
+|**Habilitar novas tentativas**|Quando o teste falha, ele é repetido após um curto intervalo. Uma falha só será relatada se três tentativas sucessivas falharem. Testes subsequentes são então executados com a frequência de teste normal. A repetição é suspensa temporariamente até o próximo sucesso. Essa regra é aplicada independentemente em cada local de teste. **Recomendamos essa opção** . Em média, aproximadamente 80% das falhas desaparecem na repetição.|
 |**Frequência de teste**| define a frequência com que o teste é executado em cada localização de teste. Com uma frequência padrão de cinco minutos e cinco locais de teste, seu site é testado em média a cada minuto.|
-|**Locais de teste**| São os locais de onde nossos servidores enviam solicitações da Web para a sua URL. **O número mínimo de locais de teste recomendado é cinco**, para garantir que você possa diferenciar problemas no seu site de problemas na rede. Você pode selecionar até 16 locais.
+|**Locais de teste**| São os locais de onde nossos servidores enviam solicitações da Web para a sua URL. **O número mínimo de locais de teste recomendado é cinco** , para garantir que você possa diferenciar problemas no seu site de problemas na rede. Você pode selecionar até 16 locais.
 
-**Se a URL não estiver visível na Internet pública, você poderá optar por abrir seletivamente o firewall para permitir apenas as transações de teste**. Para saber mais sobre as exceções de firewall para nossos agentes de teste de disponibilidade, consulte o [Guia de endereço IP](./ip-addresses.md#availability-tests).
+**Se a URL não estiver visível na Internet pública, você poderá optar por abrir seletivamente o firewall para permitir apenas as transações de teste** . Para saber mais sobre as exceções de firewall para nossos agentes de teste de disponibilidade, consulte o [Guia de endereço IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
-> É altamente recomendável testar de vários locais com **um mínimo de cinco locais**. Isso é para evitar alarmes falsos que podem resultar de problemas temporários com um local específico. Além disso, descobrimos que a configuração ideal é ter o **número de locais de teste igual ao limite de local do alerta + 2**.
+> É altamente recomendável testar de vários locais com **um mínimo de cinco locais** . Isso é para evitar alarmes falsos que podem resultar de problemas temporários com um local específico. Além disso, descobrimos que a configuração ideal é ter o **número de locais de teste igual ao limite de local do alerta + 2** .
 
 ### <a name="success-criteria"></a>Critérios de êxito
 
 |Configuração| Explicação
 |----|----|----|
-| **Tempo limite de teste** |diminua esse valor para ser alertado sobre respostas lentas. O teste é considerado uma falha se as respostas de seu site não são recebidas dentro desse período. Se você tiver selecionado **Analisar solicitações dependentes**, todas as imagens, arquivos de estilo, scripts e outros recursos dependentes devem ter sido recebidos dentro desse período.|
+| **Tempo limite de teste** |diminua esse valor para ser alertado sobre respostas lentas. O teste é considerado uma falha se as respostas de seu site não são recebidas dentro desse período. Se você tiver selecionado **Analisar solicitações dependentes** , todas as imagens, arquivos de estilo, scripts e outros recursos dependentes devem ter sido recebidos dentro desse período.|
 | **Resposta HTTP** | o código de status retornado que é contado como êxito. 200 é o código que indica que uma página da Web normal foi retornada.|
 | **Correspondência de conteúdo** | Uma cadeia de caracteres como, por exemplo, “Bem-vindo!” Faremos o teste que uma correspondência exata de maiúsculas e minúsculas ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo. **Somente caracteres da língua inglesa têm suporte na correspondência de conteúdo** |
 
@@ -71,6 +71,55 @@ Para criar sua primeira solicitação de disponibilidade, abra o painel disponib
 |**Quase em tempo real (Versão prévia)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
 |**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
 |**Limite de locais de alerta**|é recomendável um mínimo de 3/5 locais. A relação ideal entre o limite de alertas locais e o número de locais de teste é o **limite de alertas locais** = **número de locais de teste - 2, com um mínimo de cinco locais de teste.**|
+
+### <a name="location-population-tags"></a>Marcas de população de local
+
+As seguintes marcas de população podem ser usadas para o atributo de localização geográfica ao implantar um teste de ping de URL de disponibilidade usando Azure Resource Manager.
+
+#### <a name="azure-gov"></a>Gov do Azure
+
+| Nome de exibição   | Nome da população     |
+|----------------|---------------------|
+| Gov. EUA – Virgínia | usgov-VA-AZR        |
+| Gov. EUA – Arizona  | usgov-PHX-AZR       |
+| Gov. EUA – Texas    | usgov-TX-AZR        |
+| Leste do USDoD     | usgov-ddeast-AZR    |
+| USDoD Central  | usgov-ddcentral-AZR |
+
+#### <a name="us-sec"></a>US s
+
+| Nome de exibição | Nome da população |
+|--------------|-----------------|
+| Oeste do USSec   | USSEC-West-AZR  |
+| Leste USSec   | USSEC-leste-AZR  |
+
+#### <a name="us-nat"></a>Nat dos EUA
+
+| Nome de exibição | Nome da população |
+|--------------|-----------------|
+| Leste USNat   | usnat-leste-AZR  |
+| Oeste do USNat   | usnat-West-AZR  |
+
+#### <a name="azure"></a>Azure
+
+| Nome de exibição                           | Nome da população   |
+|----------------------------------------|-------------------|
+| Leste da Austrália                         | EMEA-au-Syd-Edge  |
+| Brazil South                           | lata de-br-Gru-Edge |
+| Centro dos EUA                             | US-FL-Mia-Edge    |
+| Leste da Ásia                              | Pacífico-HK-hkn-AZR   |
+| Leste dos EUA                                | US-VA-Ash-AZR     |
+| Sul da França (antiga França central) | EMEA-ch-ZRH-Edge  |
+| França Central                         | EMEA-fr-pra-Edge  |
+| Japan East                             | alta-JP-Kaw-borda  |
+| Norte da Europa                           | EMEA-GB-DB3-AZR   |
+| Centro-Norte dos EUA                       | US-Il-CH1-AZR     |
+| Centro-Sul dos Estados Unidos                       | US-TX-SN1-AZR     |
+| Sudeste Asiático                         | alta-SG-Sin-AZR   |
+| Oeste do Reino Unido                                | EMEA-se-ARM-Edge  |
+| Europa Ocidental                            | EMEA-nl-AMS-AZR   |
+| Oeste dos EUA                                | US-CA-SJC-AZR     |
+| Sul do Reino Unido                               | EMEA-ru-MSA-Edge  |
 
 ## <a name="see-your-availability-test-results"></a>Ver os resultados de teste de disponibilidade
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746413"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074243"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados no Azure Stream Analytics 
 
@@ -73,6 +73,27 @@ Use as etapas a seguir para configurar sua conta de armazenamento para ativos de
 
    ![Configurações de conta de armazenamento de dados particulares](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>Ativos de dados privados que são armazenados
+
+Todos os dados privados que precisam ser persistidos pelo Stream Analytics são armazenados em sua conta de armazenamento. Exemplos de ativos de dados privados incluem: 
+
+* Consultas que você criou e suas configurações relacionadas  
+
+* Funções definidas pelo usuário 
+
+* Pontos de verificação necessários para o tempo de execução de Stream Analytics
+
+* Instantâneos de dados de referência 
+
+Os detalhes de conexão de seus recursos, que são usados pelo seu trabalho de Stream Analytics, também são armazenados. Criptografe sua conta de armazenamento para proteger todos os seus dados. 
+
+Para ajudá-lo a atender suas obrigações de conformidade em qualquer ambiente ou setor regulamentado, você pode ler mais sobre as [ofertas de conformidade da Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="enables-data-residency"></a>Habilita a residência de dados 
+Você pode usar esse recurso para impor quaisquer requisitos de residência de dados que você possa ter fornecendo uma conta de armazenamento de acordo.
+
+## <a name="known-issues"></a>Problemas conhecidos
+Há um problema conhecido em que um trabalho que usa a chave gerenciada pelo cliente é executado em falhas ao usar a identidade gerenciada para se autenticar em qualquer entrada ou saída. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

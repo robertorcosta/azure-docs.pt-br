@@ -7,23 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476392"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073818"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, Azure Cosmos DB simplifica a cobrança carregando apenas as operações de banco de dados e o armazenamento consumido. Não existem valores de licença adicionais, hardware, custos de utilitários ou custos de instalação, comparados com alternativas locais ou hospedadas em IaaS. Quando você considera os recursos multirregiões do Azure Cosmos DB, o serviço de banco de dados reduz os custos substancialmente em comparação com soluções de IaaS ou locais existentes.
 
-- **Operações de banco de dados**: a maneira como você é cobrado pelas operações de banco de dados depende do tipo de conta do Azure cosmos que você está usando.
+- **Operações de banco de dados** : a maneira como você é cobrado pelas operações de banco de dados depende do tipo de conta do Azure cosmos que você está usando.
 
-  - **Taxa de transferência provisionada**: você será cobrado por hora para obter a taxa de transferência máxima provisionada para uma determinada hora, em incrementos de 100 ru/s.
-  - Sem **servidor**: você é cobrado por hora para a quantidade total de unidades de solicitação consumidas pelas operações de banco de dados.
+  - **Taxa de transferência provisionada** : você será cobrado por hora para obter a taxa de transferência máxima provisionada para uma determinada hora, em incrementos de 100 ru/s.
+  - Sem **servidor** : você é cobrado por hora para a quantidade total de unidades de solicitação consumidas pelas operações de banco de dados.
 
-- **Armazenamento**: você é cobrado como uma taxa fixa para a quantidade total de armazenamento consumido por seus dados e índices para uma determinada hora.
+- **Armazenamento** : você é cobrado como uma taxa fixa para a quantidade total de armazenamento consumido por seus dados e índices para uma determinada hora.
 
 Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações de preços mais recentes.
 
