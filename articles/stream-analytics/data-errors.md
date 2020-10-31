@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071992"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131370"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 
@@ -168,7 +168,7 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 * Causa: a diferença entre a hora do aplicativo e a hora de chegada é maior do que a janela de tolerância de chegada tardia.
 * Notificação do portal fornecida: não
 * Nível de log de recursos: informações
-* Impacto: os eventos de entrada tardias são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto: os eventos de entrada tardias são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do log
    * Hora e hora de chegada do aplicativo. 
    * Carga real de até poucos kilobytes.
@@ -184,7 +184,7 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 * Causa: a diferença entre a hora do aplicativo e a hora de chegada é maior que 5 minutos.
 * Notificação do portal fornecida: não
 * Nível de log de recursos: informações
-* Impacto: os eventos de entrada antecipados são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto: os eventos de entrada antecipados são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do log
    * Hora e hora de chegada do aplicativo. 
    * Carga real de até poucos kilobytes.
@@ -200,7 +200,7 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 * Causa: o evento é considerado fora de ordem de acordo com a janela de tolerância para fora de ordem definida.
 * Notificação do portal fornecida: não
 * Nível de log de recursos: informações
-* Impacto: eventos fora de ordem são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto: eventos fora de ordem são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do log
    * Carga real de até poucos kilobytes.
 
@@ -221,7 +221,7 @@ Há vários erros de dados que só podem ser detectados depois de fazer uma cham
 * Causa: a coluna necessária para a saída não existe. Por exemplo, uma coluna definida como tabela do Azure PartitionKey does't existe.
 * Notificação do portal fornecida: Sim
 * Nível de log de recursos: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo a coluna necessária ausente, são tratados de acordo com a configuração de [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Impacto: todos os erros de conversão de dados de saída, incluindo a coluna necessária ausente, são tratados de acordo com a configuração de [política de dados de saída](./stream-analytics-output-error-policy.md) .
 * Detalhes do log
    * Nome da coluna e o identificador de registro ou parte do registro.
 
@@ -236,7 +236,7 @@ Há vários erros de dados que só podem ser detectados depois de fazer uma cham
 * Causa: o valor da coluna não está de acordo com a saída. Por exemplo, o nome da coluna não é uma coluna de tabela do Azure válida.
 * Notificação do portal fornecida: Sim
 * Nível de log de recursos: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo nome de coluna inválido, são tratados de acordo com a configuração de [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Impacto: todos os erros de conversão de dados de saída, incluindo nome de coluna inválido, são tratados de acordo com a configuração de [política de dados de saída](./stream-analytics-output-error-policy.md) .
 * Detalhes do log
    * Nome da coluna e o identificador de registro ou parte do registro.
 
@@ -251,7 +251,7 @@ Há vários erros de dados que só podem ser detectados depois de fazer uma cham
 * Causa: uma coluna não pode ser convertida em um tipo válido na saída. Por exemplo, o valor da coluna é incompatível com restrições ou tipo definido na tabela SQL.
 * Notificação do portal fornecida: Sim
 * Nível de log de recursos: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo erro de conversão de tipo, são tratados de acordo com a configuração de [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Impacto: todos os erros de conversão de dados de saída, incluindo erro de conversão de tipo, são tratados de acordo com a configuração de [política de dados de saída](./stream-analytics-output-error-policy.md)
 * Detalhes do log
    * Nome da coluna.
    * O identificador de registro ou parte do registro.
@@ -267,7 +267,7 @@ Há vários erros de dados que só podem ser detectados depois de fazer uma cham
 * Causa: o valor da mensagem é maior que o tamanho de saída com suporte. Por exemplo, um registro é maior que 1 MB para uma saída do hub de eventos.
 * Notificação do portal fornecida: Sim
 * Nível de log de recursos: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo o limite de tamanho excedido do registro, são manipulados de acordo com a configuração da [política de dados](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Impacto: todos os erros de conversão de dados de saída, incluindo o limite de tamanho excedido do registro, são manipulados de acordo com a configuração da [política de dados](./stream-analytics-output-error-policy.md)
 * Detalhes do log
    * O identificador de registro ou parte do registro.
 
@@ -282,7 +282,7 @@ Há vários erros de dados que só podem ser detectados depois de fazer uma cham
 * Causa: um registro já contém uma coluna com o mesmo nome de uma coluna do sistema. Por exemplo, CosmosDB saída com uma coluna chamada ID quando a coluna ID é para uma coluna diferente.
 * Notificação do portal fornecida: Sim
 * Nível de log de recursos: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo chave duplicada, são tratados de acordo com a configuração de [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Impacto: todos os erros de conversão de dados de saída, incluindo chave duplicada, são tratados de acordo com a configuração de [política de dados de saída](./stream-analytics-output-error-policy.md) .
 * Detalhes do log
    * Nome da coluna.
    * O identificador de registro ou parte do registro.

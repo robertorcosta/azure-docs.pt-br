@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/05/2020
-ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/30/2020
+ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675305"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131353"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -50,7 +50,7 @@ Para um banco de dados SQL, a redundância de armazenamento de backup pode ser c
 > Atualmente, o armazenamento com redundância de zona só está disponível em [determinadas regiões](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> A redundância de armazenamento de backup configurável para o banco de dados SQL do Azure está atualmente disponível somente na região sudeste asiático do Azure. Este recurso ainda não está disponível para a camada de hiperescala. 
+> A redundância de armazenamento de backup configurável para o banco de dados SQL do Azure está disponível atualmente na visualização pública no sul do Brasil e geralmente disponível somente na região do sudeste asiático do Azure. Este recurso ainda não está disponível para a camada de hiperescala. 
 
 ### <a name="backup-usage"></a>Uso do backup
 
@@ -371,7 +371,7 @@ Para obter mais informações, confira [API REST de retenção de backup](/rest/
 ## <a name="configure-backup-storage-redundancy"></a>Configurar a redundância de armazenamento de backup
 
 > [!NOTE]
-> A redundância de armazenamento configurável para backups para SQL Instância Gerenciada só pode ser especificada durante o processo de criação de instância gerenciada. Depois que o recurso for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup. Para o banco de dados SQL, a visualização pública desse recurso está disponível no momento apenas na região do sudeste asiático do Azure. 
+> A redundância de armazenamento configurável para backups para SQL Instância Gerenciada só pode ser especificada durante o processo de criação de instância gerenciada. Depois que o recurso for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup. Para o banco de dados SQL, a visualização pública desse recurso está disponível atualmente no sul do Brasil e está disponível na região sudeste asiático do Azure. 
 
 Uma redundância de armazenamento de backup de uma instância gerenciada pode ser definida somente durante a criação da instância. Para um banco de dados SQL, ele pode ser definido ao criar o banco de dados ou pode ser atualizado para um banco de dados existente. O valor padrão é armazenamento com redundância geográfica (RA-GRS). Para obter diferenças no preço entre o armazenamento de backup com redundância local (LRS), com redundância de zona (ZRS) e com redundância geográfica (RA-GRS), visite a [página de preços da instância gerenciada](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 

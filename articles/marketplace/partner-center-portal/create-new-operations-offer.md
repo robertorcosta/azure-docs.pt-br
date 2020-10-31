@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710627"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131506"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -26,8 +26,8 @@ Antes de começar, [crie uma conta do marketplace comercial no Partner Center](c
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral**.
-3. Na página Visão geral, selecione **+ Nova oferta** > **Dynamics 365 for Operations**.
+2. No menu de navegação esquerdo, selecione **Marketplace Comercial** > **Visão geral** .
+3. Na página Visão geral, selecione **+ Nova oferta** > **Dynamics 365 for Operations** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-operations.png)
 
@@ -36,14 +36,14 @@ Antes de começar, [crie uma conta do marketplace comercial no Partner Center](c
 
 ## <a name="new-offer"></a>Nova oferta
 
-Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
+Insira uma **ID da oferta** . Esse é um identificador exclusivo para cada oferta em sua conta.
 
 - Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
 - A ID da oferta combinada com a ID do Publicador deve ter menos de 40 caracteres de comprimento.
 - Use apenas letras minúsculas e números. Ele pode incluir hifens e sublinhados, mas sem espaços. Por exemplo, se sua ID de editor for testpublisherid e você inserir **Test-offer-1** aqui, o endereço Web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
+- A ID da oferta não pode ser alterada depois que você seleciona **Criar** .
 
-Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
+Insira um **Alias da oferta** . Esse é o nome usado para a oferta no Partner Center.
 
 - Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
 
@@ -74,7 +74,7 @@ Colete informações de contato do cliente conectando seu sistema de CRM (gerenc
 
 Um test drive é uma ótima maneira de demonstrar sua oferta para clientes potenciais oferecendo a eles a opção de experimentar antes de comprar, o que resulta no aumento da conversão e na geração de clientes potenciais altamente qualificados. Para saber mais, comece com [o que é Test Drive](../what-is-test-drive.md).
 
-Para habilitar um test drive por um período de tempo fixo, marque a caixa de seleção **Habilitar um test drive**. Para remover o test drive de sua oferta, desmarque essa caixa de seleção.
+Para habilitar um test drive por um período de tempo fixo, marque a caixa de seleção **Habilitar um test drive** . Para remover o test drive de sua oferta, desmarque essa caixa de seleção.
 
 ### <a name="customer-leads"></a>Clientes potenciais
 
@@ -93,7 +93,7 @@ Essa página permite que você defina as categorias e os setores usados para agr
 Selecione categorias e subcategorias para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável** .
 
 Veja a lista completa de categorias e subcategorias nas [melhores práticas de listagem de ofertas](../gtm-offer-listing-best-practices.md).
 
@@ -107,7 +107,7 @@ Insira o número de versão da sua oferta. Os clientes verão essa versão lista
 
 ### <a name="terms-and-conditions"></a>Termos e condições
 
-Forneça seus termos e condições legais no campo **Termos e condições**. Você também pode fornecer a URL na qual os termos e condições podem ser encontrados. Os clientes precisarão aceitar esses termos antes de poderem testar a oferta.
+Forneça seus termos e condições legais no campo **Termos e condições** . Você também pode fornecer a URL na qual os termos e condições podem ser encontrados. Os clientes precisarão aceitar esses termos antes de poderem testar a oferta.
 
 Selecione **Salvar rascunho** antes de continuar.
 
@@ -175,9 +175,9 @@ Insira a URL da política de privacidade da sua organização. Você é respons�
 
 ### <a name="contacts"></a>Contatos
 
-Nessa seção, forneça o nome, o email e o número de telefone de um **contato de suporte** e de um **contato de engenharia**. Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
+Nessa seção, forneça o nome, o email e o número de telefone de um **contato de suporte** e de um **contato de engenharia** . Essas informações não são mostradas aos clientes, mas estarão disponíveis para a Microsoft e podem ser fornecidas aos parceiros CSP.
 
-Na seção **Contato de suporte**, forneça a **URL de suporte** em que os parceiros do CSP podem encontrar suporte para sua oferta.
+Na seção **Contato de suporte** , forneça a **URL de suporte** em que os parceiros do CSP podem encontrar suporte para sua oferta.
 
 ### <a name="supporting-documents"></a>Documentos de suporte
 
@@ -225,9 +225,9 @@ Esta página fornece opções sobre onde e como tornar sua oferta disponível.
 
 ### <a name="markets"></a>Mercados
 
-Esta seção permite que você especifique os mercados nos quais sua oferta deve estar disponível. Para fazer isso, selecione **Editar mercados**, que exibirá a janela pop-up **Seleção de mercado**.
+Esta seção permite que você especifique os mercados nos quais sua oferta deve estar disponível. Para fazer isso, selecione **Editar mercados** , que exibirá a janela pop-up **Seleção de mercado** .
 
-Por padrão, nenhum mercado é selecionado. Selecione pelo menos um mercado para publicar sua oferta. Clique em **Selecionar todos** para disponibilizar sua oferta em todos os possíveis mercados ou selecione os mercados específicos que você deseja adicionar. Quando terminar, selecione **Salvar**.
+Por padrão, nenhum mercado é selecionado. Selecione pelo menos um mercado para publicar sua oferta. Clique em **Selecionar todos** para disponibilizar sua oferta em todos os possíveis mercados ou selecione os mercados específicos que você deseja adicionar. Quando terminar, selecione **Salvar** .
 
 Suas seleções aqui se aplicam somente a novas aquisições; se alguém já tiver seu aplicativo em um determinado mercado e você remover esse mercado posteriormente, as pessoas que já têm a oferta nesse mercado poderão continuar a usá-la, mas nenhum novo cliente nesse mercado poderá obter sua oferta.
 
@@ -254,8 +254,8 @@ Forneça o GUID (identificador de solução) para sua solução.
 
 Para encontrar o identificador da solução:
 
-1. No Microsoft Dynamics LCS (Lifecycle Services), selecione **Gerenciamento de Soluções**.
-2. Selecione sua solução e procure o **Identificador da Solução** na **Visão geral do pacote**. Se o identificador estiver em branco, selecione **Editar** e republique seu pacote, depois tente novamente.
+1. No Microsoft Dynamics LCS (Lifecycle Services), selecione **Gerenciamento de Soluções** .
+2. Selecione sua solução e procure o **Identificador da Solução** na **Visão geral do pacote** . Se o identificador estiver em branco, selecione **Editar** e republique seu pacote, depois tente novamente.
 
 ### <a name="release-version"></a>Versão de lançamento
 
@@ -277,17 +277,17 @@ Esta página permite que você forneça informações adicionais sobre sua ofert
 
 ### <a name="validation-assets"></a>Ativos de validação
 
-Carregue um [CAR (relatório de análise de personalização)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) nesta seção. Esse relatório é gerado analisando seus modelos de personalização e extensão, com base em um conjunto predefinido de regras de melhores práticas.
+Carregue um [CAR (relatório de análise de personalização)](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) nesta seção. Esse relatório é gerado analisando seus modelos de personalização e extensão, com base em um conjunto predefinido de regras de melhores práticas.
 
 Esse arquivo deve estar no formato .xls ou .xlsx. Se você tiver mais de um relatório, poderá carregar um arquivo .zip contendo todos os relatórios.
 
 ### <a name="does-solution-include-localizations"></a>A solução inclui localizações?
 
-Selecione **Sim** se a solução permitir o uso de políticas e padrões locais (por exemplo, se ele acomoda as regras de folha de pagamento diferentes exigidas por países/regiões diferentes). Caso contrário, selecione **Não**.
+Selecione **Sim** se a solução permitir o uso de políticas e padrões locais (por exemplo, se ele acomoda as regras de folha de pagamento diferentes exigidas por países/regiões diferentes). Caso contrário, selecione **Não** .
 
 ### <a name="does-solution-enable-translations"></a>A solução permite traduções?
 
-Responda **Sim** se o texto em sua solução puder ser traduzido para outros idiomas. Caso contrário, selecione **Não**.
+Responda **Sim** se o texto em sua solução puder ser traduzido para outros idiomas. Caso contrário, selecione **Não** .
 
 Selecione **Salvar rascunho** para continuar.
 
@@ -303,8 +303,8 @@ Se for a primeira vez que você publicar essa oferta, você poderá:
     - **Não iniciada** – a seção não foi tocada e deve ser concluída.
     - **Incompleta** – a seção tem erros que precisam ser corrigidos ou requer que mais informações sejam fornecidas. Volte para as seções e atualize-as.
     - **Concluída** – a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você envie a oferta.
-- Na seção **Notas para certificação**, forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo. Para obter mais informações sobre instruções de teste e como concluir uma primeira publicação, consulte [AppSource Dynamics 365 Finance and Operations funcional Validation](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
-- Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para exame e aprovação. Retorne ao Partner Center e selecione **Go-Live** para a oferta para publicar sua oferta no público.
+- Na seção **Notas para certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo. Para obter mais informações sobre instruções de teste e como concluir uma primeira publicação, consulte [AppSource Dynamics 365 Finance and Operations funcional Validation](../dynamics-365-finance-operations-functional-validation.md).
+- Envie a oferta para publicação selecionando **Enviar** . Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para exame e aprovação. Retorne ao Partner Center e selecione **Go-Live** para a oferta para publicar sua oferta no público.
 
 ## <a name="next-step"></a>Próxima etapa
 
