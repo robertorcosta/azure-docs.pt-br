@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79220298"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102217"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisar vídeos com a API de Pesquisa de Vídeo do Bing
+
+> [!WARNING]
+> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
+> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 A API de Pesquisa de Vídeo do Bing facilita a integração das funcionalidades de pesquisa cognitiva de notícias do Bing aos seus aplicativos. Embora a API encontre e retorne principalmente vídeos relevantes da Web, ela fornece vários recursos para a recuperação inteligente e focalizada de vídeos na Web.
 
@@ -144,9 +149,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expandindo a consulta
 
-Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) conterá o campo `queryExpansions`. Por exemplo, se a consulta for *Limpeza de Sarjetas*, as consultas expandidas poderão ser: **Ferramentas** de Limpeza de Sarjetas, Limpeza de Sarjetas **do Solo**, **Máquina** de Limpeza de Sarjetas e Limpeza de Sarjetas **fácil**.
+Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) conterá o campo `queryExpansions`. Por exemplo, se a consulta for *Limpeza de Sarjetas* , as consultas expandidas poderão ser: **Ferramentas** de Limpeza de Sarjetas, Limpeza de Sarjetas **do Solo** , **Máquina** de Limpeza de Sarjetas e Limpeza de Sarjetas **fácil** .
 
-O exemplo a seguir mostra as consultas expandidas para *Limpeza de Sarjetas*.
+O exemplo a seguir mostra as consultas expandidas para *Limpeza de Sarjetas* .
 
 ```json
 {
@@ -175,9 +180,9 @@ O campo `queryExpansions` contém uma lista de objetos de [Consulta](https://doc
 
 ## <a name="pivoting-the-query"></a>Dinamizando a consulta
 
-Se o Bing conseguir segmentar a consulta de pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contém o campo `pivotSuggestions`. Por exemplo, se a consulta original for *Limpeza de Sarjetas*, o Bing poderá segmentar a consulta em *Limpeza* e *Sarjetas*.
+Se o Bing conseguir segmentar a consulta de pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contém o campo `pivotSuggestions`. Por exemplo, se a consulta original for *Limpeza de Sarjetas* , o Bing poderá segmentar a consulta em *Limpeza* e *Sarjetas* .
 
-O seguinte exemplo mostra as sugestões de pivô para *Limpeza de Sarjetas*.
+O seguinte exemplo mostra as sugestões de pivô para *Limpeza de Sarjetas* .
 
 ```json
 {

@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100449"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de coerência no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Os bancos de dados distribuídos que dependem da replicação para alta disponibilidade, baixa latência ou ambos, devem fazer uma compensação fundamental entre a consistência de leitura, a disponibilidade, a latência e a taxa de transferência, conforme definido pelo [PACLC teorema](https://en.wikipedia.org/wiki/PACELC_theorem). O transação atômica do modelo de consistência forte é o padrão ouro de programação de dados. Mas ele adiciona um preço alto de latências de gravação maiores devido a dados que têm de ser replicados e confirmados em grandes distâncias. A consistência forte também pode ser afetada da disponibilidade reduzida (durante as falhas) porque os dados não podem ser replicados e confirmados em todas as regiões. A consistência eventual oferece maior disponibilidade e melhor desempenho, mas é mais difícil programar aplicativos, pois os dados podem não ser totalmente consistentes em todas as regiões.
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448885"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123278"
 ---
 # <a name="troubleshoot-input-connections"></a>Solucionar problemas de conexões de entrada
 
@@ -25,9 +25,9 @@ Esse artigo descreve problemas comuns com conexões de entrada do Azure Stream A
 
 2.  Examine os dados de entrada.
 
-    1. Use o botão [**Dados de Exemplo**](stream-analytics-sample-data-input.md) para cada entrada. Baixe os dados de exemplo de entrada.
+    1. Use o botão [**Dados de Exemplo**](./stream-analytics-test-query.md) para cada entrada. Baixe os dados de exemplo de entrada.
         
-    1. Inspecione os dados de exemplo para entender o esquema e os [tipos de dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Inspecione os dados de exemplo para entender o esquema e os [tipos de dados](/stream-analytics-query/data-types-azure-stream-analytics).
     
     1. Verifique as [Métricas do Hub de Eventos](../event-hubs/event-hubs-metrics-azure-monitor.md) para garantir que os eventos estejam sendo enviados. As métricas de mensagem devem ser maiores que zero se os Hubs de Eventos estiverem recebendo mensagens.
 
@@ -75,11 +75,11 @@ Para adicionar um novo grupo de consumidores à instância dos Hubs de Eventos, 
 
 2. Localize seu Hub de Eventos.
 
-3. Selecione **Hubs de Eventos** sob o **Entidades**.
+3. Selecione **Hubs de Eventos** sob o **Entidades** .
 
 4. Selecione o Hub de Eventos por nome.
 
-5. Na página **Instância de Hubs de Eventos** no cabeçalho **Entidades**, selecione **Grupos de consumidores**. Um grupo de consumidores com nome **$Default** está listado.
+5. Na página **Instância de Hubs de Eventos** no cabeçalho **Entidades** , selecione **Grupos de consumidores** . Um grupo de consumidores com nome **$Default** está listado.
 
 6. Selecione **+ Grupo de Consumidores** para adicionar um novo grupo de consumidores. 
 
@@ -163,16 +163,16 @@ SELECT foo FROM DataTwo
 
 ## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Os leitores por partição excedem o limite do Hub IoT
 
-Stream Analytics trabalhos usam o [ponto de extremidade compatível com o Hub de eventos](../iot-hub/iot-hub-devguide-messages-read-builtin.md) interno do Hub IOT para se conectar e ler eventos do Hub IOT. Se sua leitura por partição exceder os limites do Hub IoT, você poderá usar as [soluções para o Hub de eventos](#readers-per-partition-exceeds-event-hubs-limit) para resolvê-lo. Você pode criar um grupo de consumidores para o ponto de extremidade interno por meio da sessão de ponto de extremidade do portal do Hub IoT ou por meio do [SDK do Hub IOT](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
+Stream Analytics trabalhos usam o [ponto de extremidade compatível com o Hub de eventos](../iot-hub/iot-hub-devguide-messages-read-builtin.md) interno do Hub IOT para se conectar e ler eventos do Hub IOT. Se sua leitura por partição exceder os limites do Hub IoT, você poderá usar as [soluções para o Hub de eventos](#readers-per-partition-exceeds-event-hubs-limit) para resolvê-lo. Você pode criar um grupo de consumidores para o ponto de extremidade interno por meio da sessão de ponto de extremidade do portal do Hub IoT ou por meio do [SDK do Hub IOT](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, confira nossa [página de Perguntas e respostas do Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, confira nossa [página de Perguntas e respostas do Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

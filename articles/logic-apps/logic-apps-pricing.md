@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078156"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098477"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para os Aplicativos Lógicos do Azure
 
@@ -85,13 +85,13 @@ Os conectores de aplicativos lógicos do Azure ajudam seu aplicativo lógico a a
 
 Um gatilho é sempre a primeira etapa em um fluxo de trabalho de aplicativo lógico e é uma ação especial que cria e executa uma instância de aplicativo lógico quando critérios específicos são atendidos ou um evento específico ocorre. Dispara ações de diferentes formas, o que afeta o modo como o aplicativo lógico é monitorado. Aqui estão os vários tipos de gatilhos que existem nos aplicativos lógicos do Azure:
 
-* **Gatilho de recorrência**: você pode usar esse gatilho genérico, que não é específico de nenhum serviço ou sistema, para iniciar qualquer fluxo de trabalho de aplicativo lógico e criar uma instância de aplicativo lógico que é executada com base no intervalo de recorrência que você configurou no gatilho. Por exemplo, você pode configurar um gatilho de recorrência que é executado a cada três dias ou em uma agenda mais complexa.
+* **Gatilho de recorrência** : você pode usar esse gatilho genérico, que não é específico de nenhum serviço ou sistema, para iniciar qualquer fluxo de trabalho de aplicativo lógico e criar uma instância de aplicativo lógico que é executada com base no intervalo de recorrência que você configurou no gatilho. Por exemplo, você pode configurar um gatilho de recorrência que é executado a cada três dias ou em uma agenda mais complexa.
 
-* **Gatilho de sondagem**: você pode usar esse gatilho de recorrência mais especializado, que é geralmente associado ao conector gerenciado para um serviço ou sistema específico, para verificar se há eventos ou mensagens que atendam aos critérios para criar e executar a instância do aplicativo lógico com base no intervalo de recorrência que você configurou no gatilho. Mesmo quando nenhuma instância de aplicativo lógico é criada, por exemplo, quando os gatilhos são ignorados, o serviço de aplicativos lógicos mede cada solicitação de sondagem como uma execução. Para especificar o intervalo de sondagem, configure o gatilho no Designer de Aplicativos Lógicos.
+* **Gatilho de sondagem** : você pode usar esse gatilho de recorrência mais especializado, que é geralmente associado ao conector gerenciado para um serviço ou sistema específico, para verificar se há eventos ou mensagens que atendam aos critérios para criar e executar a instância do aplicativo lógico com base no intervalo de recorrência que você configurou no gatilho. Mesmo quando nenhuma instância de aplicativo lógico é criada, por exemplo, quando os gatilhos são ignorados, o serviço de aplicativos lógicos mede cada solicitação de sondagem como uma execução. Para especificar o intervalo de sondagem, configure o gatilho no Designer de Aplicativos Lógicos.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Gatilho de webhook**: em vez de usar um gatilho de sondagem, você pode usar um gatilho de webhook para aguardar que o cliente envie uma solicitação para seu aplicativo lógico em uma URL de ponto de extremidade específica. Cada solicitação enviada para o ponto de extremidade do webhook conta como uma execução de ação. Por exemplo, a solicitação e o gatilho de webhook HTTP são gatilhos de webhook genéricos. Alguns conectores para serviços ou sistemas também têm gatilhos de webhook.
+* **Gatilho de webhook** : em vez de usar um gatilho de sondagem, você pode usar um gatilho de webhook para aguardar que o cliente envie uma solicitação para seu aplicativo lógico em uma URL de ponto de extremidade específica. Cada solicitação enviada para o ponto de extremidade do webhook conta como uma execução de ação. Por exemplo, a solicitação e o gatilho de webhook HTTP são gatilhos de webhook genéricos. Alguns conectores para serviços ou sistemas também têm gatilhos de webhook.
 
 <a name="actions"></a>
 
@@ -122,11 +122,11 @@ Se você tiver um [ISE ( *ambiente do serviço de integração* )](../logic-apps
 
 Para escolher entre uma conta de integração gratuita, básica ou padrão, examine estas descrições de caso de uso:
 
-* **Gratuito**: para quando você quiser experimentar cenários exploratórios, não cenários de produção. Essa camada está disponível somente para regiões públicas no Azure, por exemplo, oeste dos EUA ou sudeste asiático, mas não para o [Azure China 21vianet](/azure/china/overview-operations) ou [Azure governamental](../azure-government/documentation-government-welcome.md).
+* **Gratuito** : para quando você quiser experimentar cenários exploratórios, não cenários de produção. Essa camada está disponível somente para regiões públicas no Azure, por exemplo, oeste dos EUA ou sudeste asiático, mas não para o [Azure China 21vianet](/azure/china/overview-operations) ou [Azure governamental](../azure-government/documentation-government-welcome.md).
 
-* **Básico**: para quando você desejar apenas a manipulação de mensagens ou para atuar como um pequeno parceiro comercial que tenha uma relação de parceiro comercial com uma entidade de negócios maior
+* **Básico** : para quando você desejar apenas a manipulação de mensagens ou para atuar como um pequeno parceiro comercial que tenha uma relação de parceiro comercial com uma entidade de negócios maior
 
-* **Standard**: para quando você tem relações B2B mais complexas e um número maior de entidades que você deve gerenciar
+* **Standard** : para quando você tem relações B2B mais complexas e um número maior de entidades que você deve gerenciar
 
 <a name="data-retention"></a>
 
@@ -137,6 +137,7 @@ Exceto para aplicativos lógicos que são executados em um ambiente do serviço 
 Para ajudá-lo a monitorar o consumo de armazenamento do aplicativo lógico, você pode:
 
 * Exiba o número de unidades de armazenamento em GB que seu aplicativo lógico usa mensalmente.
+
 * Exiba os tamanhos das entradas e saídas de uma ação específica no histórico de execução do aplicativo lógico.
 
 <a name="storage-consumption"></a>
@@ -145,11 +146,14 @@ Para ajudá-lo a monitorar o consumo de armazenamento do aplicativo lógico, voc
 
 1. No portal do Azure, encontre e abra seu aplicativo lógico.
 
-1. No menu do aplicativo lógico, em **monitoramento**, selecione **métricas**.
+1. No menu do aplicativo lógico, em **monitoramento** , selecione **métricas** .
 
-1. No painel direito, em **título do gráfico**, na lista **métrica** , selecione **uso de cobrança para execuções de consumo de armazenamento**.
+1. No painel direito, em **título do gráfico** , na lista **métrica** , selecione **uso de cobrança para execuções de consumo de armazenamento** .
 
    Essa métrica fornece o número de unidades de consumo de armazenamento em GB por mês que estão sendo cobradas.
+
+   > [!NOTE]
+   > As execuções que consomem menos de 500 MB no armazenamento podem não aparecer no modo de exibição monitoramento, mas ainda são cobradas.
 
 <a name="input-output-sizes"></a>
 
@@ -157,15 +161,18 @@ Para ajudá-lo a monitorar o consumo de armazenamento do aplicativo lógico, voc
 
 1. No portal do Azure, encontre e abra seu aplicativo lógico.
 
-1. No menu do aplicativo lógico, selecione **visão geral**.
+1. No menu do aplicativo lógico, selecione **visão geral** .
 
-1. No painel direito, em **histórico de execuções**, selecione a execução que tem as entradas e saídas que você deseja verificar.
+1. No painel direito, em **histórico de execuções** , selecione a execução que tem as entradas e saídas que você deseja verificar.
 
-1. Em **execução do aplicativo lógico**, escolha **detalhes da execução**.
+1. Em **execução do aplicativo lógico** , escolha **detalhes da execução** .
 
 1. No painel **detalhes de execução do aplicativo lógico** , na tabela ações, que lista o status e a duração de cada ação, selecione a ação que você deseja exibir.
 
-1. No painel de **ação do aplicativo lógico** , localize os tamanhos das entradas e saídas da ação, respectivamente, sob o link **entradas** e **saídas**.
+1. No painel de **ação do aplicativo lógico** , localize os tamanhos das entradas e saídas da ação. Em link de **entradas** e **link de saídas** , localize os links para essas entradas e saídas.
+
+   > [!NOTE]
+   > Para loops, somente as ações de nível superior mostram tamanhos para suas entradas e saídas. Para ações dentro de loops aninhados, entradas e saídas mostram tamanho zero e nenhum link.
 
 ## <a name="next-steps"></a>Próximas etapas
 

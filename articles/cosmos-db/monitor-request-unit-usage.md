@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
-ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6f0f30d7437b6f8ecc1d915eb3d3195f2504fec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260739"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098239"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Como monitorar a taxa de transferência ou o uso da unidade de solicitação de uma operação no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Monitor para Azure Cosmos DB fornece uma exibição de métricas para monitorar sua conta e criar painéis. As métricas do Azure Cosmos DB são coletadas por padrão, e esse recurso não exige que você habilite nem configure nada explicitamente. A métrica **Total de Unidades de Solicitação** é usada para obter o uso de unidades de solicitação para diferentes tipos de operações. Posteriormente, você pode analisar quais operações usaram a maior parte da taxa de transferência. Por padrão, os dados de taxa de transferência são agregados em um intervalo de um minuto. No entanto, você pode alterar a unidade de agregação alterando a opção de granularidade do tempo.
 
@@ -36,11 +37,11 @@ Se você observar que determinadas consultas estão usando mais unidades de soli
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Monitor** na barra de menus de navegação à esquerda e selecione **Métricas**.
+1. Selecione **Monitor** na barra de menus de navegação à esquerda e selecione **Métricas** .
 
    :::image type="content" source="./media/monitor-request-unit-usage/monitor-metrics-blade.png" alt-text="Painel Métricas no Azure Monitor":::
 
-1. No painel **Métricas** > **Selecionar um recurso** > escolha a **assinatura** e o **grupo de recursos** necessários. Para o **Tipo de recurso**, selecione **Contas do Azure Cosmos DB**, escolha uma das contas existentes do Azure Cosmos e selecione **Aplicar**.
+1. No painel **Métricas** > **Selecionar um recurso** > escolha a **assinatura** e o **grupo de recursos** necessários. Para o **Tipo de recurso** , selecione **Contas do Azure Cosmos DB** , escolha uma das contas existentes do Azure Cosmos e selecione **Aplicar** .
 
    :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Painel Métricas no Azure Monitor":::
 
@@ -50,7 +51,7 @@ Se você observar que determinadas consultas estão usando mais unidades de soli
 
 ## <a name="filters-for-request-unit-usage"></a>Filtros para o uso da unidade de solicitação
 
-Você também pode filtrar as métricas e obter os gráficos exibidos por um **CollectionName**, **DatabaseName**, **OperationType**, **Region**, **Status** e **StatusCode** específicos. As opções **Adicionar filtro** e **Aplicar divisão** permitem filtrar o uso da unidade de solicitação e agrupar as métricas.
+Você também pode filtrar as métricas e obter os gráficos exibidos por um **CollectionName** , **DatabaseName** , **OperationType** , **Region** , **Status** e **StatusCode** específicos. As opções **Adicionar filtro** e **Aplicar divisão** permitem filtrar o uso da unidade de solicitação e agrupar as métricas.
 
 Para obter o uso da unidade de solicitação de cada operação por total (soma) ou média, selecione **Aplicar divisão** e escolha **Tipo de operação** e o valor do filtro, conforme mostrado na seguinte imagem:
 

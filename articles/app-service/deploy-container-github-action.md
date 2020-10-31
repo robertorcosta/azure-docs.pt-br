@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 068fc9dcb9a4f4a62c2dd879bf8144097452f1e0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203187"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099021"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no serviço de aplicativo usando as ações do GitHub
 
@@ -24,7 +24,7 @@ Para um fluxo de trabalho de contêiner de serviço Azure App, o arquivo tem tr�
 
 |Seção  |Tarefas  |
 |---------|---------|
-|**Autenticação** | 1. recupere uma entidade de serviço ou um perfil de publicação. <br /> 2. Crie um segredo do GitHub. |
+|**Autenticação** | 1. recupere uma entidade de serviço ou um perfil de publicação. <br /> 2. Criar um segredo do GitHub. |
 |**Compilar** | 1. Crie o ambiente. <br /> 2. Crie a imagem de contêiner. |
 |**Implantar** | 1. implante a imagem de contêiner. |
 
@@ -35,7 +35,7 @@ Para um fluxo de trabalho de contêiner de serviço Azure App, o arquivo tem tr�
 - Um registro de contêiner em funcionamento e um aplicativo de serviço de Azure App para contêineres. Este exemplo usa o registro de contêiner do Azure. 
     - [Saiba como criar um aplicativo de Node.js em contêiner usando o Docker, enviar por push a imagem de contêiner para um registro e, em seguida, implantar a imagem no serviço Azure App](/azure/developer/javascript/tutorial-vscode-docker-node-01)
 
-## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
+## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
 A maneira recomendada de autenticar com os serviços Azure App para ações do GitHub é com um perfil de publicação. Você também pode autenticar com uma entidade de serviço, mas o processo requer mais etapas. 
 
@@ -47,13 +47,16 @@ Um perfil de publicação é uma credencial no nível do aplicativo. Configure s
 
 1. Vá para o serviço de aplicativo no portal do Azure. 
 
-1. Na página **visão geral** , selecione **obter perfil de publicação**.
+1. Na página **visão geral** , selecione **obter perfil de publicação** .
+
+    > [!NOTE]
+    > A partir de outubro de 2020, os aplicativos Web do Linux precisarão da configuração do aplicativo `WEBSITE_WEBDEPLOY_USE_SCM` definida como `true` **antes de baixar o arquivo** . Esse requisito será removido no futuro.
 
 1. Salve o arquivo baixado. Você usará o conteúdo do arquivo para criar um segredo do GitHub.
 
 # <a name="service-principal"></a>[Entidade de serviço](#tab/service-principal)
 
-Você pode criar uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute este comando com [Azure cloud Shell](https://shell.azure.com/) na portal do Azure ou selecionando o botão **experimentar** .
+Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -80,11 +83,11 @@ No exemplo, substitua os espaços reservados por sua ID de assinatura, nome do g
 
 ## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
 
-No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo**.
+No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo** .
 
 Cole o conteúdo da saída JSON como o valor da variável secreta. Dê ao segredo o nome como `AZURE_CREDENTIALS` .
 
-Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para a entrada `creds` da ação de logon do Azure. Por exemplo: 
+Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para o `creds` de entrada da ação de Logon do Azure. Por exemplo:
 
 ```yaml
 - uses: azure/login@v1
@@ -96,7 +99,7 @@ Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo
 
 # <a name="publish-profile"></a>[Perfil de publicação](#tab/publish-profile)
 
-No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo**.
+No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo** .
 
 Para usar [credenciais de nível de aplicativo](#generate-deployment-credentials), Cole o conteúdo do arquivo de perfil de publicação baixado no campo valor do segredo. Nomeie o segredo `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
@@ -110,11 +113,11 @@ Ao configurar o fluxo de trabalho do GitHub, você usa o `AZURE_WEBAPP_PUBLISH_P
 
 # <a name="service-principal"></a>[Entidade de serviço](#tab/service-principal)
 
-No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo**.
+No [GitHub](https://github.com/), procure seu repositório, selecione **configurações > segredos > adicionar um novo segredo** .
 
 Para usar [credenciais de nível de usuário](#generate-deployment-credentials), Cole toda a saída JSON do comando CLI do Azure no campo valor do segredo. Dê ao segredo o nome como `AZURE_CREDENTIALS` .
 
-Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para a entrada `creds` da ação de logon do Azure. Por exemplo: 
+Ao configurar o arquivo de fluxo de trabalho posteriormente, você usa o segredo para o `creds` de entrada da ação de Logon do Azure. Por exemplo:
 
 ```yaml
 - uses: azure/login@v1

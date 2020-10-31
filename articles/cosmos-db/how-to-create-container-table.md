@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 8c970c820417a5cff7030a8499cf0c3520465231
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fde3145e7bd7f4e53ae7a0c44f02e066c28ec785
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491131"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101571"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Criar um contêiner no Azure Cosmos DB API de Tabela
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Este artigo explica as diferentes maneiras de criar um contêiner no Azure Cosmos DB API de Tabela. Ele mostra como criar um contêiner usando portal do Azure, CLI do Azure, PowerShell ou SDKs com suporte. Este artigo demonstra como criar um contêiner, especificar a chave de partição e a taxa de transferência de provisionamento.
 
@@ -30,11 +31,11 @@ Este artigo explica as diferentes maneiras de criar um contêiner no Azure Cosmo
 
 1. [Crie uma nova conta do Azure Cosmos](create-table-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
-1. Abra o painel **Data Explorer** e selecione **nova tabela**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **nova tabela** . Em seguida, forneça os seguintes detalhes:
 
    * Insira uma ID da tabela.
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
-   * Selecione **OK**.
+   * Selecione **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Captura de tela da API de Tabela, caixa de diálogo Adicionar tabela":::
 

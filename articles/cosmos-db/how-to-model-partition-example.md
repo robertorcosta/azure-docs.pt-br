@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277980"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100241"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo se baseia em vários Azure Cosmos DB conceitos como [modelagem de dados](modeling-data.md), [particionamento](partitioning-overview.md)e [taxa de transferência provisionada](request-units.md) para demonstrar como lidar com um exercício de design de dados do mundo real.
 
@@ -22,10 +23,10 @@ Se normalmente trabalha com bancos de dados relacionais, você provavelmente cri
 
 ## <a name="the-scenario"></a>O cenário
 
-Para este exercício, vamos considerar o domínio de uma plataforma de blogs em que os *usuários* podem criar *posts*. Os usuários também podem *curtir* esses posts e adicionar *comentários* a elas.
+Para este exercício, vamos considerar o domínio de uma plataforma de blogs em que os *usuários* podem criar *posts* . Os usuários também podem *curtir* esses posts e adicionar *comentários* a elas.
 
 > [!TIP]
-> Destacamos algumas palavras em *itálico*; essas palavras identificam o tipo de "coisas" que nosso modelo precisará manipular.
+> Destacamos algumas palavras em *itálico* ; essas palavras identificam o tipo de "coisas" que nosso modelo precisará manipular.
 
 Adicionando mais requisitos para nossa especificação:
 
@@ -51,7 +52,7 @@ Aqui está a lista de solicitações que nossa plataforma terá de expor:
 - **[C3]** Criar um comentário
 - **[T4]** Listar comentários de uma postagem
 - **[C4]** Curtir um post
-- **[Q5] ** Listar as curtidas de um post
+- **[Q5]** Listar as curtidas de um post
 - **[P6]** Listar as postagens *x* mais recentes criadas em forma abreviada (feed)
 
 Neste estágio, não pensamos nos detalhes do que cada entidade (usuário, posta etc.) conterá. Essa etapa geralmente está entre os primeiros a serem resolvidos durante a criação em um relational store, pois precisamos descobrir como essas entidades serão traduzidas em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos uma preocupação com um banco de dados de documentos que não impõe nenhum esquema na gravação.
@@ -145,7 +146,7 @@ A recuperação de um usuário é realizada lendo-se o item correspondente do co
 
 ### <a name="c2-createedit-a-post"></a>[C2] Criar/editar um post
 
-Da mesma forma que **[C1]**, temos apenas que gravar o contêiner `posts`.
+Da mesma forma que **[C1]** , temos apenas que gravar o contêiner `posts`.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
 
@@ -204,7 +205,7 @@ Embora a consulta principal filtre na chave de partição do contêiner, agregar
 
 ### <a name="c4-like-a-post"></a>[C4] Curtir um post
 
-Assim como **[C3]**, criamos o item correspondente no contêiner `posts`.
+Assim como **[C3]** , criamos o item correspondente no contêiner `posts`.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
 
@@ -214,7 +215,7 @@ Assim como **[C3]**, criamos o item correspondente no contêiner `posts`.
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Listar as curtidas de um post
 
-Assim como em **[Q4]**, podemos consultar as curtidas desse post e, em seguida, agregar os respectivos nomes de usuário.
+Assim como em **[Q4]** , podemos consultar as curtidas desse post e, em seguida, agregar os respectivos nomes de usuário.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
 
@@ -291,7 +292,7 @@ Também podemos modificar itens de comentário e de curtida para adicionar o nom
 
 O que queremos alcançar é que, cada vez que adicionarmos um comentário ou uma curtida, possamos também aumentar o `commentCount` ou o `likeCount` no post correspondente. Como nosso contêiner `posts` é particionado por `postId`, o novo item (comentário ou curtida) e seu post correspondente ficam na mesma partição lógica. Como resultado, podemos usar um [procedimento armazenado](stored-procedures-triggers-udfs.md) para executar essa operação.
 
-Agora, durante a criação de um comentário (**[C3]**), em vez de apenas adicionar um novo item ao contêiner `posts`, podemos chamar o seguinte procedimento armazenado nesse contêiner:
+Agora, durante a criação de um comentário ( **[C3]** ), em vez de apenas adicionar um novo item ao contêiner `posts`, podemos chamar o seguinte procedimento armazenado nesse contêiner:
 
 ```javascript
 function createComment(postId, comment) {
@@ -405,7 +406,7 @@ Exatamente a mesma situação ao listar as curtidas.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: garantindo que todas as solicitações sejam escalonáveis
 
-Observando nossas melhorias de desempenho gerais, ainda existem duas solicitações que ainda não otimizamos totalmente: **[Q3]** e **[Q6]**. Elas são as solicitações que envolvem consultas que não filtram na chave de partição dos contêineres aos quais elas se destinam.
+Observando nossas melhorias de desempenho gerais, ainda existem duas solicitações que ainda não otimizamos totalmente: **[Q3]** e **[Q6]** . Elas são as solicitações que envolvem consultas que não filtram na chave de partição dos contêineres aos quais elas se destinam.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Listar os posts de um usuário na forma abreviada
 

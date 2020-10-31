@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 9a7f36299d235ca2578a1ff3518650c5632ef046
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 61ced7eda78d3ce56d78dfd6cc54e0e92d376e68
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209473"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100670"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Remover VMs do Controle de Alterações e do Inventário
 
@@ -22,7 +22,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="to-remove-your-vms"></a>Para remover suas VMs
 
-1. Na portal do Azure, inicie o **Cloud Shell** na navegação superior da portal do Azure. Se você não estiver familiarizado com Azure Cloud Shell, consulte [visão geral do Azure cloud Shell](/cloud-shell/overview).
+1. Na portal do Azure, inicie o **Cloud Shell** na navegação superior da portal do Azure. Se você não estiver familiarizado com Azure Cloud Shell, consulte [visão geral do Azure cloud Shell](/azure/cloud-shell/overview).
 
 2. Use o comando a seguir para identificar o UUID de um computador que você deseja remover do gerenciamento do.
 
@@ -30,7 +30,7 @@ Entre no [portal do Azure](https://portal.azure.com).
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. Na portal do Azure, navegue até **espaços de trabalho do log Analytics**. Selecione o workspace da lista.
+3. Na portal do Azure, navegue até **espaços de trabalho do log Analytics** . Selecione o workspace da lista.
 
 4. No espaço de trabalho Log Analytics, selecione **logs** e, em seguida, escolha **Gerenciador de consultas** no menu de ações superior.
 

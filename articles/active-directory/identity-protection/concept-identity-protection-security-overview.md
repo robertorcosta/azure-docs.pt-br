@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c589289d77597be2550673944c8fa21902e0fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024070"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098460"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection – visão geral de segurança
 
@@ -27,7 +27,7 @@ A "Visão geral de segurança" é amplamente dividida em duas seções:
 - Tendências, à esquerda, fornecem uma linha do tempo de risco em sua organização.
 - Blocos, à direita, realçam os principais problemas atuais em sua organização e sugerem como agir rapidamente.
 
-![Visão geral da segurança](./media/concept-identity-protection-security-overview/01.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/01.png" alt-text="Captura de tela da visão geral de segurança do portal do Azure. Os gráficos de barras mostram a contagem de riscos ao longo do tempo. Os blocos resumem informações sobre usuários e entradas." border="false":::
   
 ## <a name="trends"></a>Tendências
 
@@ -45,7 +45,7 @@ Este gráfico mostra o número de novas entradas arriscadas detectadas durante o
 
 O bloco "Usuários de risco alto" mostra a última contagem de usuários com alta probabilidade de comprometimento de identidade. Eles devem ser uma prioridade principal para investigação. Um clique no bloco "Usuários de risco alto" redirecionará para uma exibição filtrada do relatório "Usuários arriscados", mostrando apenas os usuários com um nível de risco alto. Usando esse relatório, você pode aprender mais e corrigir esses usuários com uma redefinição de senha.
 
-![Visão geral da segurança](./media/concept-identity-protection-security-overview/02.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Captura de tela da visão geral de segurança do portal do Azure. Os gráficos de barras mostram a contagem de riscos ao longo do tempo. Os blocos resumem informações sobre usuários e entradas." border="false":::
 
 ### <a name="medium-risk-users"></a>Usuários de risco médio
 O bloco "Usuários de risco médio" mostra a última contagem de usuários com probabilidade média de comprometimento de identidade. Um clique no bloco "Usuários de risco médio" redirecionará para uma exibição filtrada do relatório "Usuários arriscados", mostrando apenas os usuários com um nível de risco médio. Usando esse relatório, você pode investigar e corrigir ainda mais esses usuários.

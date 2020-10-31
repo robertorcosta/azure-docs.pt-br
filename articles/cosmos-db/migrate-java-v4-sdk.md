@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb2553346881bc2e8de631988bd11642b85aa847
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327847"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099633"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migre seu aplicativo para usar o SDK do Java do Azure Cosmos DB v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > Para obter mais informações sobre este SDK, veja as [Notas de versão](sql-api-sdk-java-v4.md) do SDK do Java do Azure Cosmos DB v4, [repositório do Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), [dicas de desempenho](performance-tips-java-sdk-v4-sql.md) do SDK do Java do Azure Cosmos DB v4 e [guia de solução de problemas](troubleshoot-java-sdk-v4-sql.md) do SDK do Java do Azure Cosmos DB v4.
@@ -62,11 +63,11 @@ Veja a seguir as alterações no nível da API no SDK do Java do Azure Cosmos DB
 
 * Os SDKs do Java do Azure Cosmos DB 3.x.x e 4.0 oferecem APIs Síncrona e Assíncrona.
 
-  * **SDK do Java 4.0**: Todas as classes pertencem à API Síncrona, a menos que o nome da classe seja anexado com `Async` depois de `Cosmos`.
+  * **SDK do Java 4.0** : Todas as classes pertencem à API Síncrona, a menos que o nome da classe seja anexado com `Async` depois de `Cosmos`.
 
-  * **SDK do Java 3.x.x**: Todas as classes pertencem à API Assíncrona, a menos que o nome da classe seja anexado com `Async` depois de `Cosmos`.
+  * **SDK do Java 3.x.x** : Todas as classes pertencem à API Assíncrona, a menos que o nome da classe seja anexado com `Async` depois de `Cosmos`.
 
-  * **SDK do Java Assíncrono 2.x.x**: Os nomes de classe são semelhantes aos do SDK do Java Síncrono 2.x.x, no entanto, o nome começa com *Assíncrono*.
+  * **SDK do Java Assíncrono 2.x.x** : Os nomes de classe são semelhantes aos do SDK do Java Síncrono 2.x.x, no entanto, o nome começa com *Assíncrono* .
 
 ### <a name="hierarchical-api-structure"></a>Estrutura hierárquica da API
 

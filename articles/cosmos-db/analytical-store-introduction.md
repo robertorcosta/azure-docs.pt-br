@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8add203fabf867e22dbfe98b2bc9c632e62018b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567138"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100517"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
 > O repositório analítico do Azure Cosmos DB está atualmente em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -146,10 +147,10 @@ Aqui está um mapa de todos os tipos de dados de propriedade e suas representaç
 
 |Tipo de dados original  |Sufixo  |Exemplo  |
 |---------|---------|---------|
-| Double |  ". float64" |    24,99|
+| Duplo |  ". float64" |    24,99|
 | Array | ". array" |    ["a", "b"]|
 |Binário | ". Binary" |0|
-|Boolean    | ". bool"   |True|
+|Booliano    | ". bool"   |Verdadeiro|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Nulo   | ". NULL"   | null|

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a6855a1c730c33a835e5033041ee7978be28fc6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278673"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100092"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Provisionar taxa de transferência padrão (manual) em um contêiner Cosmos do Azure-API do SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo explica como provisionar a taxa de transferência padrão (manual) em um contêiner em Azure Cosmos DB API do SQL. É possível provisionar a taxa de transferência em um único contêiner ou [provisionar a taxa de transferência em um banco de dados](how-to-provision-database-throughput.md) e compartilhá-la entre os contêineres no banco de dados. É possível provisionar a taxa de transferência em um contêiner usando o portal do Azure, a CLI do Azure ou SDKs do Azure Cosmos DB.
 
@@ -27,13 +28,13 @@ Se você estiver usando uma API diferente, confira [API para MongoDB](how-to-pro
 
 1. [Crie uma conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
 
-1. Abra o painel **Data Explorer** e selecione **novo contêiner**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **novo contêiner** . Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um banco de dados ou usando um existente.
    * Insira uma ID de contêiner.
    * Insira um valor de chave de partição (por exemplo, `/ItemID`).
    * Insira uma taxa de transferência que você deseja provisionar (por exemplo, 1.000 RUs).
-   * Selecione **OK**.
+   * Selecione **OK** .
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Captura de tela do Data Explorer, com Nova coleção realçado":::
 

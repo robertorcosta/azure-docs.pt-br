@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fab63a0a0a34cd0417eb0a891133ac256ef3ac0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019259"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099157"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Usar comandos e recursos de notebook integrado nos notebooks C# do Azure Cosmos DB (versão prévia)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e visualize os dados do portal do Azure. Este artigo descreve como usar os recursos e comandos do notebook integrado para realizar operações comuns nos notebooks C#.
 
@@ -113,7 +114,7 @@ for (int i = 0; i < 5; i++) {
 ## <a name="use-built-in-nteract-data-explorer"></a>Usar o explorador de dados interno nteract
 Você pode usar o [explorador de dados interno nteract](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) para filtrar e visualizar uma coleção de itens. Em uma célula, coloque a variável que você deseja visualizar na última linha, que é exibida automaticamente em nteract ao executar a célula.
 
-No exemplo *GetingStarted_Csharp.ipynb*, podemos imprimir a variável com nosso resultado, o ``telemetryEvents``. Confira o [notebook GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) para ver o exemplo inteiro. 
+No exemplo *GetingStarted_Csharp.ipynb* , podemos imprimir a variável com nosso resultado, o ``telemetryEvents``. Confira o [notebook GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) para ver o exemplo inteiro. 
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Célula de consulta do Csharp":::
 

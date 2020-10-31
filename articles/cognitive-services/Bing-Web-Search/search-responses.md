@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cea88c2e20c9e96c5ad5504815886b2cc771e44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297783"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100551"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta da API do Bing Web Search e tipos de resposta  
+
+> [!WARNING]
+> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
+> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela retorna um [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) objeto no corpo da resposta. O objeto inclui um campo para cada resposta que Bing considerou relevante para a consulta. Este exemplo ilustra um objeto de resposta caso o Bing retorne todas as respostas:
 
@@ -38,7 +43,7 @@ Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela re
 }, ...
 ```
 
-Normalmente, a Pesquisa na Web do Bing retorna um subconjunto das respostas. Por exemplo, se o termo de consulta era *velejando Dinghies*, a resposta pode incluir `webPages` , `images` e `rankingResponse` . A menos que você tenha usado [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar as páginas da Web, a resposta sempre incluirá as respostas `webpages` e `rankingResponse`.
+Normalmente, a Pesquisa na Web do Bing retorna um subconjunto das respostas. Por exemplo, se o termo de consulta era *velejando Dinghies* , a resposta pode incluir `webPages` , `images` e `rankingResponse` . A menos que você tenha usado [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar as páginas da Web, a resposta sempre incluirá as respostas `webpages` e `rankingResponse`.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -328,7 +333,7 @@ Expressões matemáticas que contenham variáveis (por exemplo, 4x+6=18, em que 
 
 ## <a name="timezone-answer"></a>Resposta de TimeZone
 
-Se o usuário inserir uma consulta de data ou hora, a resposta poderá conter uma resposta [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone). Essa resposta é compatível com consultas implícitas ou explícitas. Uma consulta implícita, como *Que horas são?*, retorna a hora local com base na localização do usuário. Uma consulta explícita, como *Que horas são em Seattle?*, retorna a hora local para Seattle, WA.
+Se o usuário inserir uma consulta de data ou hora, a resposta poderá conter uma resposta [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone). Essa resposta é compatível com consultas implícitas ou explícitas. Uma consulta implícita, como *Que horas são?* , retorna a hora local com base na localização do usuário. Uma consulta explícita, como *Que horas são em Seattle?* , retorna a hora local para Seattle, WA.
 
 A resposta `timeZone` fornece o nome do local, a data e a hora UTC atual no local especificado, e a diferença UTC. Se o limite do local estiver dentro de vários fusos horários, a resposta conterá a data e a hora UTC atual de todos os fusos horários dentro dos limites. Por exemplo, como o estado da Flórida está dentro de dois fusos horários, a resposta conteria a data e hora local em ambos os fusos horários.  
 
@@ -419,7 +424,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>Resposta de SpellSuggestion
 
-Se o Bing determinar que o usuário pode ter pretendido pesquisar algo diferente, a resposta incluirá um objeto [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions). Por exemplo, se o usuário pesquisar *carlos pensa*, o Bing pode determinar que o usuário provavelmente pretendia pesquisar Carlos Pena em vez disso (com base em pesquisas anteriores de *carlos pensa* feitas por outras pessoas). Veja a seguir um exemplo de resposta de ortografia.
+Se o Bing determinar que o usuário pode ter pretendido pesquisar algo diferente, a resposta incluirá um objeto [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions). Por exemplo, se o usuário pesquisar *carlos pensa* , o Bing pode determinar que o usuário provavelmente pretendia pesquisar Carlos Pena em vez disso (com base em pesquisas anteriores de *carlos pensa* feitas por outras pessoas). Veja a seguir um exemplo de resposta de ortografia.
 
 ```json
 "spellSuggestions": {
@@ -480,6 +485,6 @@ O exemplo a seguir mostra como o Bing usa a sugestão de ortografia.
 
 * Leia a documentação de [Limitação da solicitação](throttling-requests.md).  
 
-## <a name="see-also"></a>Confira também  
+## <a name="see-also"></a>Veja também  
 
 * [Referência da API de Pesquisa na Web do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

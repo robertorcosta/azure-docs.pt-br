@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2f79e2ca751ce9c1016f32effeca532d6ffe7fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498830"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101231"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo fornece detalhes sobre os vários operadores com suporte pelo Azure Cosmos DB.
 
@@ -54,8 +55,8 @@ Retorna `true` quando uma das condições é `true` .
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
 | **Verdadeiro** |True |True |True |
-| **Falso** |True |Falso |Indefinido |
-| **Indefinido** |True |Indefinido |Indefinido |
+| **Falso** |Verdadeiro |Falso |Indefinido |
+| **Indefinido** |Verdadeiro |Indefinido |Indefinido |
 
 **Operador AND**
 
@@ -63,7 +64,7 @@ Retorna `true` quando ambas as expressões são `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |True |Falso |Indefinido |
+| **Verdadeiro** |Verdadeiro |Falso |Indefinido |
 | **Falso** |Falso |Falso |Falso |
 | **Indefinido** |Indefinido |Falso |Indefinido |
 
@@ -74,7 +75,7 @@ Reverte o valor de qualquer expressão booleana.
 |  | **NOT** |
 | --- | --- |
 | **Verdadeiro** |Falso |
-| **Falso** |True |
+| **Falso** |Verdadeiro |
 | **Indefinido** |Indefinido |
 
 **Precedência de operador**

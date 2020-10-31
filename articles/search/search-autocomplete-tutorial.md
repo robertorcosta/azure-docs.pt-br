@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951393"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098443"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar preenchimento automático e sugestões aos aplicativos cliente
 
-O Search-as-Type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo usuário. No Azure Pesquisa Cognitiva, essa experiência tem suporte por meio de *preenchimento automático*, que termina um termo ou frase com base na entrada parcial (concluindo "micro" com "Microsoft"). Outro formulário é *sugestões*: uma lista curta de documentos correspondentes (retornando títulos de livros com uma ID para que você possa vincular a uma página de detalhes). O preenchimento automático e as sugestões são predicadas em uma correspondência no índice. O serviço não oferecerá consultas que retornam zero resultados.
+O Search-as-Type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo usuário. No Azure Pesquisa Cognitiva, essa experiência tem suporte por meio de *preenchimento automático* , que termina um termo ou frase com base na entrada parcial (concluindo "micro" com "Microsoft"). Outro formulário é *sugestões* : uma lista curta de documentos correspondentes (retornando títulos de livros com uma ID para que você possa vincular a uma página de detalhes). O preenchimento automático e as sugestões são predicadas em uma correspondência no índice. O serviço não oferecerá consultas que retornam zero resultados.
 
 Para implementar essas experiências no Azure Pesquisa Cognitiva, será necessário:
 
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>Habilitar realce
 
-O realce aplica o estilo da fonte aos caracteres no resultado que correspondem à entrada. Por exemplo, se a entrada parcial for "micro", o resultado apareceria como **micro**Soft, **micro**Scope e assim por diante. O realce é baseado nos parâmetros HighlightPreTag e HighlightPostTag, definidos embutidos com a função Suggestion.
+O realce aplica o estilo da fonte aos caracteres no resultado que correspondem à entrada. Por exemplo, se a entrada parcial for "micro", o resultado apareceria como **micro** Soft, **micro** Scope e assim por diante. O realce é baseado nos parâmetros HighlightPreTag e HighlightPostTag, definidos embutidos com a função Suggestion.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -181,7 +181,7 @@ A função Suggest utiliza dois parâmetros que determinam se os destaques de oc
 
 ## <a name="autocomplete"></a>Preenchimento automático
 
-Até agora, o código UX de pesquisa foi centralizado em sugestões. O próximo bloco de código mostra o preenchimento automático, usando a função de preenchimento automático da interface do usuário do XDSoft jQuery, passando uma solicitação para preenchimento automático de Pesquisa Cognitiva do Azure. Assim como nas sugestões, em um aplicativo C#, o código que dá suporte à interação do usuário vai em **index. cshtml**.
+Até agora, o código UX de pesquisa foi centralizado em sugestões. O próximo bloco de código mostra o preenchimento automático, usando a função de preenchimento automático da interface do usuário do XDSoft jQuery, passando uma solicitação para preenchimento automático de Pesquisa Cognitiva do Azure. Assim como nas sugestões, em um aplicativo C#, o código que dá suporte à interação do usuário vai em **index. cshtml** .
 
 ```javascript
 $(function () {
@@ -253,4 +253,4 @@ Siga estes links para obter instruções de ponta a ponta ou código que demonst
 
 + [Tutorial: criar seu primeiro aplicativo em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Exemplo de código C#: Azure-Search-dotnet-Samples/Create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# e JavaScript com a amostra de código lado a lado do REST](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
++ [C# e JavaScript com a amostra de código lado a lado do REST](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

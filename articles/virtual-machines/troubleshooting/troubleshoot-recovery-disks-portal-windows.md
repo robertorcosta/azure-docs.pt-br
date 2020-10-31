@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b7fc4a120f5a4b513e1852fc6e2cf5ab68e9631
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074349"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101248"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
 Se ocorrer um erro de disco ou de inicialização na VM (máquina virtual) Windows no Azure, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM Windows para corrigir erros e, em seguida, recriar a VM original. 
@@ -40,9 +40,9 @@ O processo de solução de problemas é o seguinte:
 Um instantâneo é uma cópia completa, somente leitura de um disco rígido virtual (VHD). Recomendamos que você desligue corretamente a VM antes de tirar um instantâneo, para limpar todos os processos em andamento. Para tirar um instantâneo de um disco do sistema operacional, siga estas etapas:
 
 1. Vá para [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
-1. No painel esquerdo, selecione **discos**e, em seguida, selecione o nome do disco do sistema operacional.
+1. No painel esquerdo, selecione **discos** e, em seguida, selecione o nome do disco do sistema operacional.
     ![Imagem sobre o nome do disco do sistema operacional](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. Na página **visão geral** do disco do sistema operacional, selecione **criar instantâneo**.
+1. Na página **visão geral** do disco do sistema operacional, selecione **criar instantâneo** .
 1. Crie um instantâneo no mesmo local que o disco do sistema operacional.
 
 ## <a name="create-a-disk-from-the-snapshot"></a>Criar um novo disco a partir do instantâneo
@@ -86,7 +86,7 @@ Para criar um disco a partir do instantâneo, siga estas etapas:
 ## <a name="attach-the-disk-to-another-vm"></a>Anexar o disco a outra VM
 Para as próximas etapas, você pode usar outra VM para fins de solução de problemas. Depois de anexar o disco à VM de solução de problemas, você pode procurar e editar o conteúdo do disco. Esse processo permite que você corrija quaisquer erros de configuração ou examine arquivos adicionais de log do sistema ou do aplicativo. Para anexar o disco a outra VM, siga estas etapas:
 
-1. Selecione o grupo de recursos no portal e a VM de solução de problemas. Selecione **discos**, selecione **Editar**e, em seguida, clique em **adicionar disco de dados**:
+1. Selecione o grupo de recursos no portal e a VM de solução de problemas. Selecione **discos** , selecione **Editar** e, em seguida, clique em **adicionar disco de dados** :
 
     ![Anexar um disco existente no portal](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
@@ -96,11 +96,11 @@ Para as próximas etapas, você pode usar outra VM para fins de solução de pro
 ## <a name="mount-the-attached-data-disk-to-the-vm"></a>Montar o disco de dados anexado para a VM
 
 1. Abra uma conexão de Área de Trabalho Remota para a VM de solução de problemas. 
-2. Na VM de solução de problemas, abra **Gerenciador do servidor**e, em seguida, selecione **serviços de arquivo e armazenamento**. 
+2. Na VM de solução de problemas, abra **Gerenciador do servidor** e, em seguida, selecione **serviços de arquivo e armazenamento** . 
 
     ![Selecionar Serviços de Arquivo e Armazenamento no Gerenciador do Servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. O disco de dados é detectado e anexado automaticamente. Para ver uma lista dos discos conectados, selecione **Discos**. É possível selecionar o disco de dados para exibir informações de volume, incluindo a letra da unidade. O seguinte exemplo mostra o disco de dados anexado e usando **F:**:
+3. O disco de dados é detectado e anexado automaticamente. Para ver uma lista dos discos conectados, selecione **Discos** . É possível selecionar o disco de dados para exibir informações de volume, incluindo a letra da unidade. O seguinte exemplo mostra o disco de dados anexado e usando **F:** :
 
     ![Disco anexado e informações de volume no Gerenciador do Servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 
@@ -110,27 +110,27 @@ Com o disco rígido virtual existente montado, agora você pode realizar as etap
 ## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Desmontar e desanexar o disco rígido virtual original
 Depois de resolver os erros, desanexe o disco rígido virtual existente da VM de solução de problemas. Não é possível usar o disco rígido virtual com nenhuma outra VM até que a concessão que anexa o disco rígido virtual à VM de solução de problemas seja liberada.
 
-1. Na sessão RDP da VM, abra **Gerenciador do Servidor** e selecione **Serviços de Arquivo e Armazenamento**:
+1. Na sessão RDP da VM, abra **Gerenciador do Servidor** e selecione **Serviços de Arquivo e Armazenamento** :
 
     ![Selecionar Serviços de Arquivo e Armazenamento no Gerenciador do Servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-2. Selecione **Discos** e, em seguida, o disco de dados. Clique com o botão direito do mouse no disco de dados e selecione **Colocar Offline**:
+2. Selecione **Discos** e, em seguida, o disco de dados. Clique com o botão direito do mouse no disco de dados e selecione **Colocar Offline** :
 
     ![Definir o disco de dados como offline no Gerenciador do Servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. Agora desanexe o disco rígido virtual da VM. Selecione a VM no portal do Azure e clique em **Discos**. 
-4. Selecione **Editar**, selecione o disco do sistema operacional que você anexou e clique em **desanexar**:
+3. Agora desanexe o disco rígido virtual da VM. Selecione a VM no portal do Azure e clique em **Discos** . 
+4. Selecione **Editar** , selecione o disco do sistema operacional que você anexou e clique em **excluir** :
 
     ![Desanexar um disco rígido virtual existente](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
-    Aguarde até que a VM tenha desanexo o disco de dados corretamente antes de continuar.
+    Aguarde até que a VM tenha sido excluída com êxito na VM IE. desanexe o disco de dados antes de continuar.
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Trocar o disco do sistema operacional da VM
 
-Portal do Azure agora dá suporte à alteração do disco do sistema operacional da VM. Para fazer isso, execute estas etapas:
+Portal do Azure agora dá suporte à alteração do disco do sistema operacional da VM. Para fazer isso, siga estas etapas:
 
 1. Vá para [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
-1. No painel esquerdo, selecione **discos**e, em seguida, selecione **trocar disco do sistema operacional**.
+1. No painel esquerdo, selecione **discos** e, em seguida, selecione **trocar disco do sistema operacional** .
         ![A imagem sobre o disco do sistema operacional de permuta no portal do Azure](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. Escolha o novo disco que você reparou e digite o nome da VM para confirmar a alteração. Se você não vir o disco na lista, aguarde 10 ~ 15 minutos depois de desanexar o disco da VM de solução de problemas. Verifique também se o disco está no mesmo local que a VM.

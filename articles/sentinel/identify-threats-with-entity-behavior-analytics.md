@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0486c9d2eb6c651b507f4b0a44f4a6fc2b018f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90994072"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100653"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com UEBA (análise de comportamentos de usuário e entidade) no Azure Sentinel
 
@@ -62,11 +62,43 @@ Cada atividade é pontuada com "Pontuação de prioridade de investigação" –
 
 Veja como a análise de comportamento é usada em [Microsoft Cloud app Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) para obter um exemplo de como isso funciona.
 
+## <a name="entities-in-azure-sentinel"></a>Entidades no Azure Sentinel
 
+### <a name="entity-identifiers"></a>Identificadores de entidade
 
-## <a name="entity-pages"></a>Páginas de entidade
+Quando os alertas são enviados para o Azure Sentinel, eles incluem elementos de dados que o Azure Sentinel identifica e classifica como entidades, como contas de usuário, hosts, endereços IP e outros. Na ocasião, essa identificação pode ser um desafio, se o alerta não contiver informações suficientes sobre a entidade.
 
-Quando você encontra qualquer entidade (atualmente limitada a usuários e hosts) em uma pesquisa, um alerta ou uma investigação, você pode selecionar a entidade e ser levado a uma **página de entidade**, uma folha de dados cheia de informações úteis sobre essa entidade. Os tipos de informações que você encontrará nesta página incluem fatos básicos sobre a entidade, uma linha do tempo de eventos notáveis relacionados a essa entidade e informações sobre o comportamento da entidade.
+Por exemplo, as contas de usuário podem ser identificadas de mais de uma maneira: usando um identificador numérico (GUID) da conta do Azure AD ou seu valor de nome principal do usuário (UPN) ou, como alternativa, usando uma combinação de seu nome de usuário e seu domínio do NT. Diferentes fontes de dados podem identificar o mesmo usuário de diferentes maneiras. Portanto, sempre que possível, o Azure Sentinel mescla esses identificadores em uma única entidade, para que possa ser identificado corretamente.
+
+No entanto, pode acontecer que um de seus provedores de recursos crie um alerta no qual uma entidade não está suficientemente identificada; por exemplo, um nome de usuário sem o contexto do nome de domínio. Nesse caso, a entidade de usuário não pode ser mesclada com outras instâncias da mesma conta de usuário, que seria identificada como uma entidade separada, e essas duas entidades permanecerão separadas em vez de unificadas.
+
+Para minimizar o risco de isso acontecer, você deve verificar se todos os seus provedores de alertas identificam corretamente as entidades nos alertas que eles produzem. Além disso, a sincronização de entidades de conta de usuário com Azure Active Directory pode criar um diretório unificado, que poderá mesclar entidades de conta de usuário.
+
+Os seguintes tipos de entidades estão atualmente identificados no Azure sentinela:
+
+- Conta de usuário (conta)
+- Host
+- Endereço IP (IP)
+- Malware
+- Arquivo
+- Processar
+- Aplicativo de nuvem (CloudApplication)
+- Nome de domínio (DNS)
+- Recursos do Azure
+- Arquivo (FileHash)
+- Chave do Registro
+- Valor do Registro
+- Grupo de segurança
+- URL
+- Dispositivo IoT
+- Mailbox
+- Cluster de emails
+- Mensagem de email
+- Email de envio
+
+### <a name="entity-pages"></a>Páginas de entidade
+
+Quando você encontra qualquer entidade (atualmente limitada a usuários e hosts) em uma pesquisa, um alerta ou uma investigação, você pode selecionar a entidade e ser levado a uma **página de entidade** , uma folha de dados cheia de informações úteis sobre essa entidade. Os tipos de informações que você encontrará nesta página incluem fatos básicos sobre a entidade, uma linha do tempo de eventos notáveis relacionados a essa entidade e informações sobre o comportamento da entidade.
  
 As páginas de entidade consistem em três partes:
 - O painel do lado esquerdo contém as informações de identificação da entidade, coletadas de fontes de dados como Azure Active Directory, Azure Monitor, central de segurança do Azure e Microsoft defender.
@@ -81,11 +113,11 @@ As páginas de entidade consistem em três partes:
 
 A linha do tempo é uma parte importante da contribuição da página de entidade para análise de comportamento no Azure Sentinel. Ele apresenta uma história sobre eventos relacionados a entidades, ajudando você a entender a atividade da entidade em um período de tempo específico.
 
-Você pode escolher o **intervalo de tempo** entre várias opções predefinidas (como *últimas 24 horas*) ou defini-las para qualquer período de tempo definido personalizado. Além disso, você pode definir filtros que limitam as informações na linha do tempo a tipos específicos de eventos ou alertas.
+Você pode escolher o **intervalo de tempo** entre várias opções predefinidas (como *últimas 24 horas* ) ou defini-las para qualquer período de tempo definido personalizado. Além disso, você pode definir filtros que limitam as informações na linha do tempo a tipos específicos de eventos ou alertas.
 
 Os seguintes tipos de itens estão incluídos na linha do tempo:
 
-- Alertas-todos os alertas nos quais a entidade é definida como uma **entidade mapeada**. Observe que, se a sua organização tiver criado [alertas personalizados usando regras de análise](./tutorial-detect-threats-custom.md), você deverá certificar-se de que o mapeamento de entidade das regras seja feito corretamente.
+- Alertas-todos os alertas nos quais a entidade é definida como uma **entidade mapeada** . Observe que, se a sua organização tiver criado [alertas personalizados usando regras de análise](./tutorial-detect-threats-custom.md), você deverá certificar-se de que o mapeamento de entidade das regras seja feito corretamente.
 
 - Indicadores-todos os indicadores que incluem a entidade específica mostrada na página.
 
@@ -162,7 +194,7 @@ Você pode usar o [Notebook Jupyter](https://github.com/Azure/Azure-Sentinel-Not
 
 A análise de permissões ajuda a determinar o impacto potencial da comprometente de um ativo organizacional por um invasor. Esse impacto também é conhecido como "raio de transmissão" do ativo. Os analistas de segurança podem usar essas informações para priorizar investigações e tratamento de incidentes.
 
-O Azure Sentinel determina os direitos de acesso direto e transitório mantidos por um determinado usuário aos recursos do Azure, avaliando as assinaturas do Azure que o usuário pode acessar diretamente ou por meio de grupos ou entidades de serviço. Essas informações, bem como a lista completa da associação do grupo de segurança do Azure AD do usuário, são armazenadas na tabela **UserAccessAnalytics** . A captura de tela abaixo mostra uma linha de exemplo na tabela UserAccessAnalytics para o usuário Alex Johnson. A **entidade de origem** é a conta de usuário ou entidade de serviço, e a entidade de **destino** é o recurso ao qual a entidade de origem tem acesso. Os valores de **nível de acesso** e **tipo de acesso** dependem do modelo de controle de acesso da entidade de destino. Você pode ver que Alex tem acesso de colaborador ao locatário de *hotéis da Contoso*da assinatura do Azure. O modelo de controle de acesso da assinatura é RBAC.   
+O Azure Sentinel determina os direitos de acesso direto e transitório mantidos por um determinado usuário aos recursos do Azure, avaliando as assinaturas do Azure que o usuário pode acessar diretamente ou por meio de grupos ou entidades de serviço. Essas informações, bem como a lista completa da associação do grupo de segurança do Azure AD do usuário, são armazenadas na tabela **UserAccessAnalytics** . A captura de tela abaixo mostra uma linha de exemplo na tabela UserAccessAnalytics para o usuário Alex Johnson. A **entidade de origem** é a conta de usuário ou entidade de serviço, e a entidade de **destino** é o recurso ao qual a entidade de origem tem acesso. Os valores de **nível de acesso** e **tipo de acesso** dependem do modelo de controle de acesso da entidade de destino. Você pode ver que Alex tem acesso de colaborador ao locatário de *hotéis da Contoso* da assinatura do Azure. O modelo de controle de acesso da assinatura é RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Arquitetura de análise de comportamento de entidade":::
 

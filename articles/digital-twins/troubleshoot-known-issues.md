@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489006"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100602"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conhecidos no Azure digital gêmeos
 
@@ -32,7 +32,7 @@ Isso pode ser resolvido com a reexecução do `az login` comando no Cloud Shell 
 
 Como alternativa, você pode abrir o painel de Cloud Shell no portal do Azure e concluir seu Cloud Shell trabalhar a partir daí:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Exibição do portal do Azure com o ícone ' Cloud Shell ' realçado e o Cloud Shell aparecendo na parte inferior da janela do portal":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Exibição do portal do Azure com o ícone 'Cloud Shell' realçado e o Cloud Shell aparecendo na parte inferior da janela do portal" lightbox="media/includes/portal-cloud-shell.png":::
 
 Por fim, outra solução é [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) em seu computador para que você possa executar CLI do Azure comandos localmente. A CLI local não enfrenta esse problema.
 
@@ -66,9 +66,9 @@ Para usuários conectados com um [MSA (conta Microsoft pessoal)](https://account
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema com a autenticação interativa do navegador
 
-Ao gravar o código de autenticação em seus aplicativos de gêmeos digital do Azure usando a versão **1.2.0** da biblioteca do ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) **, você pode enfrentar problemas com o método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
+Ao gravar o código de autenticação em seus aplicativos de gêmeos digital do Azure usando a versão **1.2.0** da biblioteca do **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** , você pode enfrentar problemas com o método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
 
-Esta não é a versão mais recente da biblioteca. A versão mais recente é **1.2.2**.
+Esta não é a versão mais recente da biblioteca. A versão mais recente é **1.2.2** .
 
 O método afetado é usado nos seguintes artigos: 
 * [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md)
@@ -79,11 +79,11 @@ O problema inclui uma resposta de erro "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-Para resolver, atualize seus aplicativos para usar a `Azure.Identity` versão **1.2.2**. Com esta versão da biblioteca, o navegador deve carregar e autenticar conforme o esperado.
+Para resolver, atualize seus aplicativos para usar a `Azure.Identity` versão **1.2.2** . Com esta versão da biblioteca, o navegador deve carregar e autenticar conforme o esperado.
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-Isso está relacionado a um problema aberto com a versão mais recente da `Azure.Identity` biblioteca (versão **1.2.0**): [*falha ao autenticar ao usar o InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
+Isso está relacionado a um problema aberto com a versão mais recente da `Azure.Identity` biblioteca (versão **1.2.0** ): [*falha ao autenticar ao usar o InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
 Você verá esse problema se usar a versão **1.2.0** em seu aplicativo gêmeos digital do Azure ou se adicionar a biblioteca ao seu projeto sem especificar uma versão (como isso também usa essa versão mais recente).
 

@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8e751d210ab472d82e4abd613d37069a8c591f52
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013926"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100721"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
@@ -33,14 +33,14 @@ Antes de concluir essa tarefa, você deverá ter uma entidade de serviço regist
 Você pode configurar administradores de servidor usando o SSMS (SQL Server Management Studio). Para concluir essa tarefa, você deve ter permissões de [administrador do servidor](analysis-services-server-admins.md) no servidor do AS do Azure. 
 
 1. No SSMS, conecte o servidor do AS do Azure.
-2. Em **Propriedades do Servidor** > **Segurança**, clique em **Adicionar**.
-3. Em **Selecionar Usuário ou Grupo**, procure o aplicativo registrado pelo nome, selecione e clique em**Adicionar**.
+2. Em **Propriedades do Servidor** > **Segurança** , clique em **Adicionar** .
+3. Em **Selecionar Usuário ou Grupo** , procure o aplicativo registrado pelo nome, selecione e clique em **Adicionar** .
 
     ![Pesquise a conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Verifique o ID da conta da entidade do serviço e clique em **OK**.
+4. Verifique o ID da conta da entidade do serviço e clique em **OK** .
     
-    ![Pesquise a conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Captura de tela que mostra a ID da conta da entidade de serviço e realça o botão OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Usar um modelo do Resource Manager
 

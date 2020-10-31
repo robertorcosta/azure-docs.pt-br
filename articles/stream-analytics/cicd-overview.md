@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: ec8f27d0376f7187fd36b3feba556dbced0946e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5057eb8c84e839f504060228986ea759c8bdc3d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932927"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123160"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>CI/CD (integração e implantação contínuas) para Azure Stream Analytics
 
@@ -27,7 +27,7 @@ Siga as etapas neste guia para criar um pipeline de CI/CD para Stream Analytics.
 
 1. Desenvolver uma consulta Azure Stream Analytics.
 
-   Use as ferramentas de Azure Stream Analytics para [Visual Studio Code](quick-create-vs-code.md) ou o [Visual Studio](stream-analytics-quick-create-vs.md) para [desenvolver e testar consultas localmente](develop-locally.md). Você também pode [exportar um trabalho existente](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) para um projeto local.
+   Use as ferramentas de Azure Stream Analytics para [Visual Studio Code](./quick-create-visual-studio-code.md) ou o [Visual Studio](stream-analytics-quick-create-vs.md) para [desenvolver e testar consultas localmente](develop-locally.md). Você também pode [exportar um trabalho existente](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) para um projeto local.
 
 2. Confirme seus projetos de Azure Stream Analytics para o sistema de controle do código-fonte, como um repositório git.
 

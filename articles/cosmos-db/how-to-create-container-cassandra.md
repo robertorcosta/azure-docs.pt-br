@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 54b58a07e3d6d4b330b6f97ef0f4a7bdd10293da
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 01030a563c15eee7786058c2eae30d23803dfe42
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490451"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101639"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-cassandra-api"></a>Criar um contêiner no Azure Cosmos DB API do Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo explica as diferentes maneiras de criar um contêiner no Azure Cosmos DB API do Cassandra. Ele mostra como criar um contêiner usando portal do Azure, CLI do Azure, PowerShell ou SDKs com suporte. Este artigo demonstra como criar um contêiner, especificar a chave de partição e a taxa de transferência de provisionamento.
 
@@ -30,13 +31,13 @@ Este artigo explica as diferentes maneiras de criar um contêiner no Azure Cosmo
 
 1. [Crie uma nova conta do Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
-1. Abra o painel **Data Explorer** e selecione **nova tabela**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **nova tabela** . Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um keyspace ou usando um existente.
    * Insira um nome de tabela.
    * Insira as propriedades e especifique uma chave primária.
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
-   * Selecione **OK**.
+   * Selecione **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Captura de tela da API do Cassandra, caixa de diálogo Adicionar tabela":::
 

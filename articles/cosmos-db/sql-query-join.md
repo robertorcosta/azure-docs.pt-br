@@ -6,20 +6,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4c754455e2a686274eab8b1f77713b8983251a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74871135"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100789"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junções no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Em um banco de dados relacional, as junções entre as tabelas são o registro lógico da criação de esquemas normalizados. Por outro lado, a API do SQL usa o modelo de dados desnormalizado de itens sem esquema, que é o equivalente lógico de uma *auto-associação*.
+Em um banco de dados relacional, as junções entre as tabelas são o registro lógico da criação de esquemas normalizados. Por outro lado, a API do SQL usa o modelo de dados desnormalizado de itens sem esquema, que é o equivalente lógico de uma *auto-associação* .
 
 Junções internas resultam em um produto completo cruzando os conjuntos associados à junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas.
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O idioma dá suporte à sintaxe `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` . Essa consulta retorna um conjunto de tuplas com `N` valores. Cada tupla possui valores produzidos pela iteração de todos os aliases de contêiner sobre seus respectivos conjuntos. 
 

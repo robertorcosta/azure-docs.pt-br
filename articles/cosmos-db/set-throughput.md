@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367118"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098766"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Cosmos DB permite que você defina a taxa de transferência nos seus banco de dados e contêineres. Há dois tipos de taxa de transferência provisionada, padrão (manual) ou dimensionamento automático. Este artigo fornece uma visão geral de como funciona a taxa de transferência provisionada. 
 
@@ -79,11 +80,11 @@ Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um 
 É possível combinar os dois modelos. É permitido provisionar a taxa de transferência tanto no banco de dados como no contêiner. O exemplo a seguir mostra como provisionar a taxa de transferência provisionada padrão (manual) em um banco de dados do Azure Cosmos e em um contêiner:
 
 * Você pode criar um banco de dados do Azure Cosmos *Z* com a taxa de transferência provisionada padrão (manual) de RUs *"K"* . 
-* Em seguida, crie cinco contêineres chamados *A*, *B*, *C*, *D* e *E* no banco de dados. Ao criar o contêiner B, habilite a opção **Provisionar taxa de transferência dedicada para esse contêiner** e configure explicitamente RUs *"P"* de taxa de transferência provisionada neste contêiner. Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
+* Em seguida, crie cinco contêineres chamados *A* , *B* , *C* , *D* e *E* no banco de dados. Ao criar o contêiner B, habilite a opção **Provisionar taxa de transferência dedicada para esse contêiner** e configure explicitamente RUs *"P"* de taxa de transferência provisionada neste contêiner. Você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partição física que hospeda uma ou mais partições lógicas de um contêiner":::
 
-* O *"K"* a taxa de transferência de RUs é compartilhada entre os quatro contêineres *A*, *C*, *D* e *E*. A quantidade exata de taxa de transferência disponível para *A*, *C*, *D*ou *E* varia. Não há SLAs para taxa de transferência de cada contêiner individual.
+* O *"K"* a taxa de transferência de RUs é compartilhada entre os quatro contêineres *A* , *C* , *D* e *E* . A quantidade exata de taxa de transferência disponível para *A* , *C* , *D* ou *E* varia. Não há SLAs para taxa de transferência de cada contêiner individual.
 * O contêiner nomeado *B* tem a garantia de obter a taxa de transferência de RUs *"P"* o tempo todo. É respaldado por SLAs.
 
 > [!NOTE]
@@ -119,9 +120,9 @@ Você pode dimensionar a taxa de transferência provisionada de um contêiner ou
 * [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) no SDK do .net.
 * [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) no SDK do Java.
 
-Se você estiver **reduzindo a taxa de transferência provisionada**, poderá fazer isso até o [mínimo](#current-provisioned-throughput).
+Se você estiver **reduzindo a taxa de transferência provisionada** , poderá fazer isso até o [mínimo](#current-provisioned-throughput).
 
-Se você estiver **aumentando a taxa de transferência provisionada**, na maioria das vezes, a operação será instantânea. No entanto, há casos em que a operação pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Nesse caso, uma tentativa de modificar a taxa de transferência provisionada enquanto essa operação está em andamento produzirá uma resposta HTTP 423 com uma mensagem de erro explicando que outra operação de dimensionamento está em andamento.
+Se você estiver **aumentando a taxa de transferência provisionada** , na maioria das vezes, a operação será instantânea. No entanto, há casos em que a operação pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Nesse caso, uma tentativa de modificar a taxa de transferência provisionada enquanto essa operação está em andamento produzirá uma resposta HTTP 423 com uma mensagem de erro explicando que outra operação de dimensionamento está em andamento.
 
 > [!NOTE]
 > Se você estiver planejando uma carga de trabalho de ingestão muito grande que exigirá um grande aumento na taxa de transferência provisionada, tenha em mente que a operação de dimensionamento não tem SLA e, como mencionado no parágrafo anterior, pode levar muito tempo quando o aumento for grande. Talvez você queira planejar com antecedência e iniciar o dimensionamento antes que a carga de trabalho comece e use os métodos abaixo para verificar o progresso.

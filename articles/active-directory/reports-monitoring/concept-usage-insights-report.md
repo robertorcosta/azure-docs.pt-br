@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74008256"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122734"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Relatório de uso e informações no portal de Azure Active Directory
 
@@ -42,10 +42,10 @@ Para acessar os dados do relatório de uso e informações, você precisa:
 ## <a name="access-the-usage-and-insights-report"></a>Acessar o relatório de uso e informações
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-2. Selecione o diretório certo e, em seguida, selecione **Azure Active Directory** e escolha **aplicativos empresariais**.
+2. Selecione o diretório certo e, em seguida, selecione **Azure Active Directory** e escolha **aplicativos empresariais** .
 3. Na seção **atividade** , selecione **uso & insights** para abrir o relatório. 
 
-![Relatório de uso e insights](./media/concept-usage-insights-report/main-menu.png)
+![Captura de tela mostra o uso & informações selecionadas na seção atividade.](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Usar o relatório
@@ -58,7 +58,7 @@ Você também pode definir o foco em um aplicativo específico. Selecione **Exib
 
 Ao selecionar um dia no grafo de uso do aplicativo, você obtém uma lista detalhada das atividades de entrada para o aplicativo.  
 
-![Relatório de uso e insights](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![A captura de tela mostra o uso & informações para a atividade do aplicativo, em que você pode selecionar um intervalo e exibir a atividade de entrada para aplicativos diferentes.](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

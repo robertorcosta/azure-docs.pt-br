@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdbe0f9754cc82ef790409cf2b36a7203b90855b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84484332"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099276"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A `ORDER BY` cláusula opcional especifica a ordem de classificação dos resultados retornados pela consulta.
 
@@ -79,7 +80,7 @@ Os resultados são:
     ]
 ```
 
-A consulta a seguir recupera a família `id` s em ordem de data de criação do item. Item `creationDate` é um número que representa o *tempo de época*ou tempo decorrido desde Jan. 1, 1970 em segundos.
+A consulta a seguir recupera a família `id` s em ordem de data de criação do item. Item `creationDate` é um número que representa o *tempo de época* ou tempo decorrido desde Jan. 1, 1970 em segundos.
 
 ```sql
     SELECT f.id, f.creationDate
