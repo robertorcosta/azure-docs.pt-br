@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330352"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092986"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -37,7 +37,7 @@ Azure Machine Learning usa a distribuição Anaconda do Python, que inclui muito
 
 Para obter uma lista completa, consulte a seção [pacotes python pré-instalados](#preinstalled-python-packages).
 
-Para instalar pacotes que não estão na lista pré-instalada (por exemplo, *scikit-misc*), adicione o seguinte código ao seu script: 
+Para instalar pacotes que não estão na lista pré-instalada (por exemplo, *scikit-misc* ), adicione o seguinte código ao seu script: 
 
 ```python
 import os
@@ -110,17 +110,17 @@ O módulo executar script Python contém o código Python de exemplo que você p
 
 1. Adicione o módulo **Executar script Python** ao seu pipeline.
 
-2. Adicione e conecte-se em **dataSet1** quaisquer conjuntos de dados do designer que você deseja usar para entrada. Referencie este conjunto de DataSet em seu script Python como **DataFrame1**.
+2. Adicione e conecte-se em **dataSet1** quaisquer conjuntos de dados do designer que você deseja usar para entrada. Referencie este conjunto de DataSet em seu script Python como **DataFrame1** .
 
     O uso de um conjunto de um DataSet é opcional. Use-o se você quiser gerar dados usando o Python ou usar o código Python para importar os dados diretamente para o módulo.
 
-    Este módulo dá suporte à adição de um segundo conjunto de uma em **Dataset2**. Referencie o segundo conjunto de DataSet em seu script Python como **DataFrame2**.
+    Este módulo dá suporte à adição de um segundo conjunto de uma em **Dataset2** . Referencie o segundo conjunto de DataSet em seu script Python como **DataFrame2** .
 
     Os conjuntos de dados armazenados em Azure Machine Learning são convertidos automaticamente em quadros de dado do pandas quando carregados com esse módulo.
 
     ![Executar mapa de entrada do Python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou códigos do Python, conecte o arquivo compactado que contém esses recursos personalizados à porta do **pacote de script** . Ou, se o seu script tiver mais de 16 KB, use a porta de **pacote de script** para evitar erros como *CommandLine excede o limite de 16597 caracteres*. 
+4. Para incluir novos pacotes ou códigos do Python, conecte o arquivo compactado que contém esses recursos personalizados à porta do **pacote de script** . Ou, se o seu script tiver mais de 16 KB, use a porta de **pacote de script** para evitar erros como *CommandLine excede o limite de 16597 caracteres* . 
 
     
     1. Agrupe o script e outros recursos personalizados em um arquivo zip.
@@ -129,7 +129,10 @@ O módulo executar script Python contém o código Python de exemplo que você p
     1. Conecte o módulo DataSet à porta do **pacote de script** do módulo **Executar script R** .
     
     Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada.
-    
+ 
+    > [!WARNING]
+    > **Não** use o **aplicativo** como o nome da pasta ou do seu script, pois o **aplicativo** é uma palavra reservada para serviços internos. Mas você pode usar outros namespaces como o `app123` .
+   
     Veja a seguir um exemplo de pacote de script, que contém um arquivo de script Python e um arquivo txt:
       
     > [!div class="mx-imgBorder"]
@@ -182,7 +185,7 @@ O módulo executar script Python contém o código Python de exemplo que você p
     Dois conjuntos de valores podem ser retornados para o designer, que deve ser uma sequência do tipo `pandas.DataFrame` . Você pode criar outras saídas em seu código Python e gravá-las diretamente no armazenamento do Azure.
 
     > [!WARNING]
-    > **Não** é recomendável conectar-se a um banco de dados ou a outros armazenamentos externos no **módulo executar script Python**. Você pode usar [módulo importar dados](./import-data.md) e [Exportar módulo de dados](./export-data.md)     
+    > **Não** é recomendável conectar-se a um banco de dados ou a outros armazenamentos externos no **módulo executar script Python** . Você pode usar [módulo importar dados](./import-data.md) e [Exportar módulo de dados](./export-data.md)     
 
 6. Envie o pipeline.
 
@@ -194,9 +197,9 @@ Os resultados de qualquer computação pelo código Python inserido devem ser fo
 
 O módulo retorna dois conjuntos de valores:  
   
-+ **Results DataSet 1**, definido pelo primeiro quadro de dados pandas retornado em um script Python.
++ **Results DataSet 1** , definido pelo primeiro quadro de dados pandas retornado em um script Python.
 
-+ O conjunto de dados de **resultado 2**, definido pelo segundo, retornou o quadro de dado pandas em um script Python.
++ O conjunto de dados de **resultado 2** , definido pelo segundo, retornou o quadro de dado pandas em um script Python.
 
 ## <a name="preinstalled-python-packages"></a>Pacotes python pré-instalados
 Os pacotes pré-instalados são:

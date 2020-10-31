@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18fdab8f4aa90e993f6802508c13a78565b9fa6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: fc8473f1caf4a17aea926d2729e7db7918db40d7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279918"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094040"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funções do sistema (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  O Cosmos DB fornece muitas funções SQL internas. As categorias de funções internas estão listadas abaixo.  
   
-|Grupo de funções|Descrição|Operações|  
+|Grupo de funções|Description|Operations|  
 |--------------|-----------------|-----------------| 
 |[Funções de matriz](sql-query-array-functions.md)|As funções de matriz executam uma operação em um valor de matriz de entrada e retornam um valor numérico, booliano ou um valor de matriz. | [ARRAY_CONCAT](sql-query-array-concat.md), [ARRAY_CONTAINS](sql-query-array-contains.md), [ARRAY_LENGTH](sql-query-array-length.md) [ARRAY_SLICE](sql-query-array-slice.md) |
 |[Funções de data e hora](sql-query-date-time-functions.md)|As funções de data e hora permitem que você obtenha a data e a hora UTC atuais em duas formas; um carimbo de data/hora numérico cujo valor é a época do UNIX em milissegundos ou como uma cadeia de caracteres que está de acordo com o formato ISO 8601. | [GetCurrentDateTime](sql-query-getcurrentdatetime.md), [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md) |

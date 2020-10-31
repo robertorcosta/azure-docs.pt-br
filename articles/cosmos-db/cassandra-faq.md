@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b467e191a8f009b85abb4866821dd64fc87ce657
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482597"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092374"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo descreve as diferenças de funcionalidade entre o Apache Cassandra e o API do Cassandra no Azure Cosmos DB. Ele também fornece respostas para perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB.
 
@@ -133,7 +134,7 @@ Sim, há suporte para TTL.
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>Como posso monitorar a infraestrutura junto com a taxa de transferência?
 
-O Azure Cosmos DB é um serviço de plataforma que ajuda a aumentar a produtividade e não se preocupar com o gerenciamento e monitoramento da infraestrutura. Por exemplo, você não precisa monitorar OS parâmetros status do nó, status da réplica, GC e so anteriormente com várias ferramentas. Você só precisa cuidar da taxa de transferência disponível nas métricas do portal para ver se você está ficando limitado e, em seguida, aumentar ou diminuir essa taxa de transferência. Você poderá:
+O Azure Cosmos DB é um serviço de plataforma que ajuda a aumentar a produtividade e não se preocupar com o gerenciamento e monitoramento da infraestrutura. Por exemplo, você não precisa monitorar OS parâmetros status do nó, status da réplica, GC e so anteriormente com várias ferramentas. Você só precisa cuidar da taxa de transferência disponível nas métricas do portal para ver se você está ficando limitado e, em seguida, aumentar ou diminuir essa taxa de transferência. Você pode:
 
 - Monitorar [SLAs](./monitor-cosmos-db.md)
 - Usar [métricas](use-metrics.md)

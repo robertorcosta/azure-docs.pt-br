@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787186"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091694"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solução de problemas do Azure digital gêmeos: métricas
 
@@ -64,7 +64,7 @@ Métricas que têm a ver com solicitações de API:
 Métricas que têm a ver com a cobrança:
 
 >[!NOTE]
-> Durante a visualização, a **cobrança é de custo zero** . Embora essas métricas ainda apareçam na lista selecionável, elas não se aplicam durante a visualização e permanecerão em zero até que o serviço se movimente além da visualização.
+>Embora essas métricas ainda sejam mostradas na lista selecionável, elas permanecerão em zero até que o novo preço no serviço fique disponível. Para saber mais, confira [*preços do Azure digital gêmeos*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 | Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |

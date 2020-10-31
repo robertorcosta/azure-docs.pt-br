@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047668"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091728"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
 
@@ -26,13 +26,13 @@ Aqui está como habilitar as configurações de diagnóstico para sua instância
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até sua instância do gêmeos digital do Azure. Você pode encontrá-lo digitando seu nome na barra de pesquisa do Portal. 
 
-2. Selecione **configurações de diagnóstico** no menu e, em seguida, **Adicionar configuração de diagnóstico**.
+2. Selecione **configurações de diagnóstico** no menu e, em seguida, **Adicionar configuração de diagnóstico** .
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de tela mostrando a página de configurações de diagnóstico e o botão para adicionar":::
 
 3. Na página a seguir, preencha os seguintes valores:
-     * **Nome da configuração de diagnóstico**: dê um nome às configurações de diagnóstico.
-     * **Detalhes da categoria**: escolha as operações que você deseja monitorar e marque as caixas para habilitar o diagnóstico para essas operações. As operações que podem ser informadas em configurações de diagnóstico são:
+     * **Nome da configuração de diagnóstico** : dê um nome às configurações de diagnóstico.
+     * **Detalhes da categoria** : escolha as operações que você deseja monitorar e marque as caixas para habilitar o diagnóstico para essas operações. As operações que podem ser informadas em configurações de diagnóstico são:
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -40,7 +40,7 @@ Aqui está como habilitar as configurações de diagnóstico para sua instância
         - AllMetrics
         
         Para obter mais detalhes sobre essas opções, consulte a seção [*detalhes da categoria*](#category-details) abaixo.
-     * **Detalhes de destino**: escolha onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções abaixo:
+     * **Detalhes de destino** : escolha onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções abaixo:
         - Enviar para o Log Analytics
         - Arquivar em uma conta de armazenamento
         - Transmitir para um hub de eventos
@@ -57,7 +57,7 @@ As novas configurações terão efeito em aproximadamente 10 minutos. Depois dis
 
 Aqui estão mais detalhes sobre as categorias de log que podem ser selecionadas em **detalhes da categoria** ao definir as configurações de diagnóstico.
 
-| Categoria do log | Description |
+| Categoria do log | Descrição |
 | --- | --- |
 | ADTModelsOperation | Registrar em log todas as chamadas de API pertencentes a modelos |
 | ADTQueryOperation | Registrar em log todas as chamadas de API pertencentes a consultas |
@@ -109,18 +109,18 @@ Aqui estão as descrições de campo e propriedade para logs de API.
 | Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
 | `Time` | Datetime | A data e a hora em que esse evento ocorreu, em UTC |
-| `ResourceID` | Cadeia de caracteres | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
-| `OperationName` | Cadeia de caracteres  | O tipo de ação que está sendo executada durante o evento |
-| `OperationVersion` | Cadeia de caracteres | A versão da API utilizada durante o evento |
-| `Category` | Cadeia de caracteres | O tipo de recurso que está sendo emitido |
-| `ResultType` | Cadeia de caracteres | Resultado do evento |
-| `ResultSignature` | Cadeia de caracteres | Código de status HTTP para o evento |
-| `ResultDescription` | Cadeia de caracteres | Detalhes adicionais sobre o evento |
-| `DurationMs` | Cadeia de caracteres | Quanto tempo demorou para executar o evento em milissegundos |
-| `CallerIpAddress` | Cadeia de caracteres | Um endereço IP de origem mascarado para o evento |
+| `ResourceID` | String | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
+| `OperationName` | String  | O tipo de ação que está sendo executada durante o evento |
+| `OperationVersion` | String | A versão da API utilizada durante o evento |
+| `Category` | String | O tipo de recurso que está sendo emitido |
+| `ResultType` | String | Resultado do evento |
+| `ResultSignature` | String | Código de status HTTP para o evento |
+| `ResultDescription` | String | Detalhes adicionais sobre o evento |
+| `DurationMs` | String | Quanto tempo demorou para executar o evento em milissegundos |
+| `CallerIpAddress` | String | Um endereço IP de origem mascarado para o evento |
 | `CorrelationId` | Guid | Identificador exclusivo fornecido pelo cliente para o evento |
-| `Level` | Cadeia de caracteres | A severidade de log do evento |
-| `Location` | Cadeia de caracteres | A região onde o evento ocorreu |
+| `Level` | String | A severidade de log do evento |
+| `Location` | String | A região onde o evento ocorreu |
 | `RequestUri` | Uri | O ponto de extremidade utilizado durante o evento |
 
 Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
@@ -132,7 +132,7 @@ Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
   "time": "2020-03-14T21:11:14.9918922Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "DigitalTwinOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -142,7 +142,7 @@ Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -153,7 +153,7 @@ Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
   "time": "2020-10-29T21:12:24.2337302Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/models/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "ModelsOperation",
   "resultType": "Success",
   "resultSignature": "201",
@@ -163,7 +163,7 @@ Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
 }
 ```
 
@@ -174,7 +174,7 @@ Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
   "time": "2020-12-04T21:11:44.1690031Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/query/action",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "QueryOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -184,7 +184,7 @@ Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
 }
 ```
 
@@ -195,13 +195,13 @@ Este é o esquema para `ADTEventRoutesOperation` logs. Eles contêm detalhes ref
 |Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
 | `Time` | Datetime | A data e a hora em que esse evento ocorreu, em UTC |
-| `ResourceId` | Cadeia de caracteres | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
-| `OperationName` | Cadeia de caracteres  | O tipo de ação que está sendo executada durante o evento |
-| `Category` | Cadeia de caracteres | O tipo de recurso que está sendo emitido |
-| `ResultDescription` | Cadeia de caracteres | Detalhes adicionais sobre o evento |
-| `Level` | Cadeia de caracteres | A severidade de log do evento |
-| `Location` | Cadeia de caracteres | A região onde o evento ocorreu |
-| `EndpointName` | Cadeia de caracteres | O nome do ponto de extremidade de egresso criado no gêmeos digital do Azure |
+| `ResourceId` | String | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
+| `OperationName` | String  | O tipo de ação que está sendo executada durante o evento |
+| `Category` | String | O tipo de recurso que está sendo emitido |
+| `ResultDescription` | String | Detalhes adicionais sobre o evento |
+| `Level` | String | A severidade de log do evento |
+| `Location` | String | A região onde o evento ocorreu |
+| `EndpointName` | String | O nome do ponto de extremidade de egresso criado no gêmeos digital do Azure |
 
 Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
 

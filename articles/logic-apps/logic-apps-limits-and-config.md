@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540713"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094499"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -81,7 +81,7 @@ Por exemplo, suponha que você reduza o limite de retenção de 90 dias para 30 
 
 1. Quando terminar, selecione **Salvar** na barra de ferramentas **Configurações do fluxo de trabalho** .
 
-Se você gerar um modelo de Azure Resource Manager para seu aplicativo lógico, essa configuração aparecerá como uma propriedade na definição de recurso do fluxo de trabalho, que é descrita na [referência do modelo de fluxos de trabalho Microsoft. Logic](/templates/microsoft.logic/workflows):
+Se você gerar um modelo de Azure Resource Manager para seu aplicativo lógico, essa configuração aparecerá como uma propriedade na definição de recurso do fluxo de trabalho, que é descrita na [referência do modelo de fluxos de trabalho Microsoft. Logic](/azure/templates/microsoft.logic/workflows):
 
 ```json
 {

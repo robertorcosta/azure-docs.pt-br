@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277966"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092680"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Com a taxa de transferência provisionada de dimensionamento automático, o Azure Cosmos DB automaticamente gerencia e dimensiona as RU/s do banco de dados ou contêiner com base no uso. Este artigo apresenta as respostas das perguntas frequentes sobre o dimensionamento automático.
 
@@ -108,9 +109,9 @@ Quando você envia uma solicitação para aumentar o máximo de RU/s `Tmax`, dep
 #### <a name="lowering-the-max-rus"></a>Redução do máximo de RU/s
 Quando você reduz o máximo de RU/s, o valor mínimo para o qual você pode defini-lo é: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, arredondado para as 1.000 RU/s mais próximas. 
 
-Exemplo nº 1: Suponha que você tenha um contêiner de dimensionamento automático com o máximo de 20.000 RU/s (o que é dimensionado entre 2.000 e 20.000 RU/s) e 50 GB de armazenamento. O menor valor mínimo possível para definir o máximo de RU/s é: MAX(4.000, 20.000 / 10, **50 * 100**) = 5.000 RU/s (o que é dimensionado entre 500 e 5.000 RU/s).
+Exemplo nº 1: Suponha que você tenha um contêiner de dimensionamento automático com o máximo de 20.000 RU/s (o que é dimensionado entre 2.000 e 20.000 RU/s) e 50 GB de armazenamento. O menor valor mínimo possível para definir o máximo de RU/s é: MAX(4.000, 20.000 / 10, **50 * 100** ) = 5.000 RU/s (o que é dimensionado entre 500 e 5.000 RU/s).
 
-Exemplo nº 2: Suponha que você tenha um contêiner de dimensionamento automático com o máximo de 100.000 RU/s e 100 GB de armazenamento. Agora, você dimensiona o máximo de RU/s até 150.000 (o que é dimensionado entre 15.000 e 150.000 RU/s). Agora, o menor valor mínimo possível para definir o máximo de RU/s é: MAX(4.000, **150.000 / 10**, 100 * 100) = 15.000 RU/s (o que é dimensionado entre 1.500 e 15.000 RU/s). 
+Exemplo nº 2: Suponha que você tenha um contêiner de dimensionamento automático com o máximo de 100.000 RU/s e 100 GB de armazenamento. Agora, você dimensiona o máximo de RU/s até 150.000 (o que é dimensionado entre 15.000 e 150.000 RU/s). Agora, o menor valor mínimo possível para definir o máximo de RU/s é: MAX(4.000, **150.000 / 10** , 100 * 100) = 15.000 RU/s (o que é dimensionado entre 1.500 e 15.000 RU/s). 
 
 Para um banco de dados de taxa de transferência compartilhada, quando você reduz o máximo de RU/s, o valor mínimo para o qual você pode defini-lo é: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arredondado para as 1.000 RU/s mais próximas.  
 

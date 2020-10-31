@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425682"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094414"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -25,6 +25,8 @@ As instâncias de computação facilitam a introdução ao desenvolvimento do Az
 Use uma instância de computação como seu ambiente de desenvolvimento totalmente configurado e gerenciado na nuvem para o aprendizado de máquina. Eles também podem ser usados como um destino de computação para treinamento e inferência para fins de desenvolvimento e teste.  
 
 Para treinamento de modelo de nível de produção, use um [cluster de computação Azure Machine Learning](how-to-create-attach-compute-cluster.md) com recursos de dimensionamento de vários nós. Para a implantação do modelo de nível de produção, use o [cluster do serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
+
+Para que a funcionalidade de Jupyter da instância de computação funcione, verifique se a comunicação do soquete da Web não está desabilitada. Verifique se a sua rede permite conexões WebSocket com *. instances.azureml.net e *. instances.azureml.ms.
 
 ## <a name="why-use-a-compute-instance"></a>Por que usar uma instância de computação?
 
@@ -82,7 +84,7 @@ As ferramentas e os ambientes a seguir já estão instalados na instância de co
 |Pacotes ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Exemplos do Python e R e de SDK do Azure Machine Learning||
 
-Os pacotes do Python são todos instalados no ambiente **Python 3.6 – AzureML**.  
+Os pacotes do Python são todos instalados no ambiente **Python 3.6 – AzureML** .  
 
 ## <a name="accessing-files"></a>Acessar arquivos
 

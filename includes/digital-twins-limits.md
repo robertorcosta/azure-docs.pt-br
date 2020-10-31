@@ -5,31 +5,31 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 60a5f62d4ea23db1052b2e40d10775dfaa33c632
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989475"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091762"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
-A tabela a seguir lista os limites funcionais do Azure digital gêmeos na visualização atual.
+A tabela a seguir lista os limites funcionais do Azure digital gêmeos.
 
 | Área | Funcionalidade | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | Recursos do Azure | Número de instâncias de gêmeos digitais do Azure em uma região, por assinatura | 10 | Sim |
-| Gêmeos Digitais | Número de gêmeos em uma instância de gêmeos digital do Azure | 200.000 | Sim |
-| Gêmeos Digitais | Número de relações de entrada para um único "n" | 5\.000 | Não |
-| Gêmeos Digitais | Número de relações de saída de um único n º | 5\.000 | Não |
-| Gêmeos Digitais | Tamanho máximo de um único número de | 32 KB | Não |
-| API gêmeos digital | Tamanho máximo da carga de solicitação | 32 KB | Não | 
-| Roteamento | Número de pontos de extremidade para uma única instância de gêmeos digital do Azure | 6 | Não |
+| Gêmeos Digitais | Número de gêmeos em uma instância de gêmeos digital do Azure | 200.000 | Yes |
+| Gêmeos Digitais | Número de relações de entrada para um único "n" | 5\.000 | No |
+| Gêmeos Digitais | Número de relações de saída de um único n º | 5\.000 | No |
+| Gêmeos Digitais | Tamanho máximo de um único número de | 32 KB | No |
+| Gêmeos Digitais | Tamanho máximo da carga de solicitação | 32 KB | No | 
+| Roteamento | Número de pontos de extremidade para uma única instância de gêmeos digital do Azure | 6 | No |
 | Roteamento | Número de rotas para uma única instância de gêmeos digital do Azure | 6 | Sim |
-| Modelos | Número de modelos em uma única instância de gêmeos digital do Azure | 10.000 | Sim |
-| Modelos | Número de modelos que podem ser carregados em uma única chamada à API | 250 | Não |
-| Modelos | Número de itens retornados em uma única página | 100 | Não |
-| Consulta | Número de itens retornados em uma única página | 100 | Não |
+| Modelos | Número de modelos em uma única instância de gêmeos digital do Azure | 10.000 | Yes |
+| Modelos | Número de modelos que podem ser carregados em uma única chamada à API | 250 | No |
+| Modelos | Número de itens retornados em uma única página | 100 | No |
+| Consulta | Número de itens retornados em uma única página | 100 | No |
 | Consulta | Número de `AND`  /  `OR` expressões em uma consulta | 50 | Sim |
 | Consulta | Número de itens de matriz em uma `IN`  /  `NOT IN` cláusula | 50 | Sim |
 | Consulta | Número de caracteres em uma consulta | 8,000 | Sim |
@@ -37,18 +37,20 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos na visual
 
 ### <a name="rate-limits"></a>Limites de taxa
 
-Esta tabela reflete os limites de taxa de APIs diferentes.
+A tabela a seguir reflete os limites de taxa de APIs diferentes.
 
 | API | Funcionalidade | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | API de modelos | Número de solicitações por segundo | 100 | Sim |
-| API gêmeos digital | Número de solicitações por segundo | 1,000 | Sim |
-| API de Consulta | Número de solicitações por segundo | 500 | Sim |
-| API de Consulta | [Unidades de consulta](../articles/digital-twins/concepts-query-units.md) por segundo | 4.000 | Sim |
+| API gêmeos digital | Número de solicitações por segundo | 2.000 | Yes |
+| API gêmeos digital | Número de operações de criação/exclusão por segundo em **todas as gêmeos e relações** | 50 | Sim |
+| API gêmeos digital | Número de operações de criação/atualização/exclusão por segundo em uma **única** ou suas relações | 10 | Não |
+| API de Consulta | Número de solicitações por segundo | 500 | Yes |
+| API de Consulta | [Unidades de consulta](../articles/digital-twins/concepts-query-units.md) por segundo | 4.000 | Yes |
 | API de rotas de eventos | Número de solicitações por segundo | 100 | Sim |
 
 ### <a name="other-limits"></a>Outros limites
 
 Os limites em tipos de dados e campos em documentos de DTDL para modelos de gêmeos digitais do Azure podem ser encontrados em sua documentação de especificações no GitHub: [*DTDL (digital gêmeos Definition Language)-versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Detalhes de latência de consulta e outras diretrizes sobre como escrever consultas durante a visualização podem ser encontrados em [*instruções: consultar o grafo de entrelaçamento*](../articles/digital-twins/how-to-query-graph.md).
+Detalhes de latência de consulta e outras limitações de consulta podem ser encontrados em [*instruções: consultar o grafo de entrelaçamento*](../articles/digital-twins/how-to-query-graph.md).

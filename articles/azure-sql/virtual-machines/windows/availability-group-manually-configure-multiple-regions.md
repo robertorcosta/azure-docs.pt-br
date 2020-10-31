@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f6d5a9da238c520e2e0ec70ac312dd112aad2fe8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789974"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094448"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurar um grupo de disponibilidade SQL Server Always On em diferentes regiões do Azure
 
@@ -31,7 +31,7 @@ Este artigo se aplica às máquinas virtuais do Azure no modo do Resource Manage
 
 A imagem a seguir mostra uma implementação comum de um grupo de disponibilidade em máquinas virtuais do Azure:
 
-   ![Grupo de disponibilidade](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   ![Diagrama que mostra o balanceador de carga do Azure e o conjunto de disponibilidade com um "cluster de failover do Windows Server" e "Always On grupo de disponibilidade".](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 Nessa implantação, todas as máquinas virtuais estão em uma região do Azure. As réplicas do grupo de disponibilidade podem ter de confirmação síncrona com failover automático no SQL-1 e SQL-2. Para criar essa arquitetura, veja [Modelo ou tutorial de Grupo de Disponibilidade](availability-group-overview.md).
 
@@ -53,7 +53,7 @@ Quando as réplicas de grupo de disponibilidade em máquinas virtuais do Azure e
 
 O diagrama a seguir mostra como as redes se comunicam entre data centers.
 
-   ![Grupo de disponibilidade](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![Diagrama que mostra as duas redes virtuais em diferentes regiões do Azure comunicando-se usando gateways V P N.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Essa arquitetura incorre em encargos de dados de saída para os dados replicados entre regiões do Azure. Veja [Preços de Largura de Banda](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -98,7 +98,7 @@ Para criar uma réplica em um data center remoto, execute as seguintes etapas:
 
    Você pode criar o recurso de endereço IP no Gerenciador de Cluster de Failover. Selecione o nome do cluster e clique com o botão direito do mouse no nome do cluster em **Recursos principais de cluster** e selecione **Propriedades** : 
 
-   ![Propriedades do cluster](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![Captura de tela que mostra o "Gerenciador de Cluster de Failover" com um nome de cluster, "nome do servidor" e "Propriedades" selecionado.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
    Na caixa de diálogo **Propriedades** , selecione **Adicionar** em **Endereço IP** e adicione o endereço IP do nome do cluster da região de rede remota. Selecione **OK** na caixa de diálogo **endereço IP** e, em seguida, selecione **OK** novamente na caixa de diálogo **Propriedades do cluster** para salvar o novo endereço IP. 
 
