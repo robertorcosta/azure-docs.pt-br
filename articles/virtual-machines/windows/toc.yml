@@ -322,7 +322,7 @@
         - name: Projetando para alto desempenho
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Intermitência de disco
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Metas da escalabilidade para os discos
           href: disk-scalability-targets.md
         - name: Backup e recuperação de desastres para discos

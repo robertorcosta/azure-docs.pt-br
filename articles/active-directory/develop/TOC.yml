@@ -559,6 +559,7 @@
           href: howto-add-branding-in-azure-ad-apps.md
         - name: Configurar o domínio do editor
           href: howto-configure-publisher-domain.md
+          displayName: 'verified domain, verified publisher domain'
         - name: Configurar os Termos de Serviço e a Política de Privacidade
           href: howto-add-terms-of-service-privacy-statement.md
         - name: Configurar a verificação do editor para seu aplicativo
