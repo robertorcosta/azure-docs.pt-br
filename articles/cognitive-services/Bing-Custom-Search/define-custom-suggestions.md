@@ -10,20 +10,25 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080967"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurar experiência de sugestão automática personalizada
+
+> [!WARNING]
+> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
+> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 A sugestão automática personalizada retorna uma lista de cadeias de consulta de pesquisa sugeridas que são relevantes para sua experiência de pesquisa. As cadeias de consulta sugeridas são baseadas em uma cadeia de consulta parcial que o usuário fornece na caixa de pesquisa. A lista conterá no máximo 10 sugestões. 
 
 Você especifique se deseja retornar somente as sugestões personalizadas ou para incluir também as sugestões do Bing. Se você incluir sugestões do Bing, as sugestões personalizadas aparecem antes das sugestões do Bing. Se você fornecer um número suficiente de sugestões relevantes, a lista de sugestões retornada poderá não incluir as sugestões do Bing. As sugestões do Bing estão sempre no contexto da instância de Pesquisa Personalizada. 
 
-Para configurar as sugestões de consulta de pesquisa para sua instância, clique na guia **Sugestão automática**.  
+Para configurar as sugestões de consulta de pesquisa para sua instância, clique na guia **Sugestão automática** .  
 
 > [!NOTE]
 > Para usar esse recurso, você precisa assinar a Pesquisa Personalizada no nível apropriado (confira os [preços](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)).
@@ -36,7 +41,7 @@ Para habilitar as sugestões do Bing, alterne o controle deslizante **Sugestões
 
 ## <a name="add-your-own-suggestions"></a>Adicionar suas próprias sugestões
 
-Para adicionar suas próprias sugestões de cadeia de consulta, adicione-as à lista em **Sugestões definidas pelo usuário**. Depois de adicionar uma sugestão na lista, pressione a tecla Enter ou clique no **+** ícone. Você pode especificar a sugestão em qualquer idioma. Você pode adicionar no máximo 5 mil sugestões de cadeia de consulta.
+Para adicionar suas próprias sugestões de cadeia de consulta, adicione-as à lista em **Sugestões definidas pelo usuário** . Depois de adicionar uma sugestão na lista, pressione a tecla Enter ou clique no **+** ícone. Você pode especificar a sugestão em qualquer idioma. Você pode adicionar no máximo 5 mil sugestões de cadeia de consulta.
 
 ## <a name="upload-suggestions"></a>Carregar sugestões
 
@@ -48,7 +53,7 @@ Para remover uma sugestão de cadeia de consulta, clique no ícone de remoção 
 
 ## <a name="block-suggestions"></a>Bloquear sugestões
 
-Ao incluir as sugestões do Bing, você poderá adicionar uma lista de cadeias de consulta de pesquisa, que você não quer o Bing retorne. Para adicionar cadeias de consulta bloqueadas, clique em **Mostrar sugestões bloqueadas**. Adicione a cadeia de caracteres de consulta à lista e pressione a tecla Enter ou clique no **+** ícone. Você pode adicionar no máximo 50 cadeias de consulta bloqueadas.
+Ao incluir as sugestões do Bing, você poderá adicionar uma lista de cadeias de consulta de pesquisa, que você não quer o Bing retorne. Para adicionar cadeias de consulta bloqueadas, clique em **Mostrar sugestões bloqueadas** . Adicione a cadeia de caracteres de consulta à lista e pressione a tecla Enter ou clique no **+** ícone. Você pode adicionar no máximo 50 cadeias de consulta bloqueadas.
 
 
 
@@ -60,7 +65,7 @@ Ao incluir as sugestões do Bing, você poderá adicionar uma lista de cadeias d
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Habilitando a sugestão automática na interface do usuário hospedada
 
-Para habilitar as sugestões de cadeia de consulta para a interface do usuário hospedada, clique em **Interface do usuário hospedada**. Role para baixo até a seção **Configuração Adicional**. Em **Pesquisa na Web**, selecione **Habilitado** para **Habilitar sugestão automática**. Para habilitar a sugestão automática, você precisa selecionar um layout que inclui uma caixa de pesquisa.
+Para habilitar as sugestões de cadeia de consulta para a interface do usuário hospedada, clique em **Interface do usuário hospedada** . Role para baixo até a seção **Configuração Adicional** . Em **Pesquisa na Web** , selecione **Habilitado** para **Habilitar sugestão automática** . Para habilitar a sugestão automática, você precisa selecionar um layout que inclui uma caixa de pesquisa.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Chamando a API de Sugestão Automática

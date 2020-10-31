@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0adb346a693beaa905438cfdc1249c1646c28811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608705"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079331"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Como escolher entre taxa de transferência provisionada e sem servidor
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB está disponível em dois modos de capacidade diferentes: [taxa de transferência provisionada](set-throughput.md) e sem [servidor](serverless.md). Você pode executar exatamente as mesmas operações de banco de dados em ambos os modos, mas a maneira como você é cobrado por essas operações é radicalmente diferente. O vídeo a seguir explica as principais diferenças entre esses modos e como eles se encaixam em diferentes tipos de cargas de trabalho:
 
@@ -42,20 +43,20 @@ Azure Cosmos DB está disponível em dois modos de capacidade diferentes: [taxa 
 Em algumas situações, pode ficar claro se a taxa de transferência provisionada ou sem servidor deve ser escolhida para uma determinada carga de trabalho. Para ajudar com essa decisão, você pode estimar:
 
 - O requisito de **intermitência** da carga de trabalho, é qual é a quantidade máxima de RUs que você pode precisar consumir em um segundo
-- O **consumo geral esperado**, que é o número total de RUs que você pode consumir durante um mês (você pode estimar isso com a ajuda da tabela mostrada [aqui](plan-manage-costs.md#estimating-serverless-costs))
+- O **consumo geral esperado** , que é o número total de RUs que você pode consumir durante um mês (você pode estimar isso com a ajuda da tabela mostrada [aqui](plan-manage-costs.md#estimating-serverless-costs))
 
 Se sua carga de trabalho exigir a intermitência acima de 5.000 RU por segundo, a taxa de transferência provisionada deverá ser escolhida porque os contêineres sem servidor não podem ultrapassar esse limite. Caso contrário, você pode comparar o custo de ambos os modos com base no consumo esperado.
 
-**Exemplo 1**: espera-se que uma carga de trabalho seja estourada para um máximo de 10.000 ru/s e consuma um total de 20 milhões RUs em um mês.
+**Exemplo 1** : espera-se que uma carga de trabalho seja estourada para um máximo de 10.000 ru/s e consuma um total de 20 milhões RUs em um mês.
 
 - Somente o modo de taxa de transferência provisionado pode fornecer uma taxa de transferência de 10.000 RU/s
 
-**Exemplo 2**: espera-se que uma carga de trabalho seja estourada para um máximo de 500 ru/s e consuma um total de 20 milhões RUs em um mês.
+**Exemplo 2** : espera-se que uma carga de trabalho seja estourada para um máximo de 500 ru/s e consuma um total de 20 milhões RUs em um mês.
 
 - No modo de taxa de transferência provisionado, você provisionia um contêiner com 500 RU/s por um custo mensal de: $0.08 * 5 * 730 = **$29.20**
 - No modo sem servidor, você pagaria pelo RUs consumido: $0.25 * 20 = **$5**
 
-**Exemplo 3**: espera-se que uma carga de trabalho seja estourada para um máximo de 500 ru/s e consuma um total de 250 milhões RUs em um mês.
+**Exemplo 3** : espera-se que uma carga de trabalho seja estourada para um máximo de 500 ru/s e consuma um total de 250 milhões RUs em um mês.
 
 - No modo de taxa de transferência provisionado, você provisionia um contêiner com 500 RU/s por um custo mensal de: $0.08 * 5 * 730 = **$29.20**
 - No modo sem servidor, você pagaria pelo RUs consumido: $0.25 * 250 = **$62.50**

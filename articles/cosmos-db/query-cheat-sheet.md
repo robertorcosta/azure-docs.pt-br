@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: d5683fb64c9b5df027ff8b0f50cec49e9bce5808
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475117"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081749"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referências de consulta do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 As folhas de referência de consulta do **Azure Cosmos DB** ajudam a gravar consultas rapidamente para os dados, exibindo consultas de banco de dados, operações, funções e operadores comuns em folhas de referência para facilitar impressão de PDF. As folhas de referências incluem informações de referência para SQL, MongoDB, Tabela e Gremlin. 
 

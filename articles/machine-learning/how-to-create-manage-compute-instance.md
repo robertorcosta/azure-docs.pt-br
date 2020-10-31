@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427528"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078978"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerenciar uma instância de computação Azure Machine Learning
 
@@ -42,7 +42,7 @@ As instâncias de computação podem executar trabalhos com segurança em um [am
 
 ## <a name="create"></a>Criar
 
-**Tempo estimado**: aproximadamente 5 minutos.
+**Tempo estimado** : aproximadamente 5 minutos.
 
 A criação de uma instância de computação é um processo único para o espaço de trabalho. Você pode reutilizar essa computação como uma estação de trabalho de desenvolvimento ou como um destino de computação para treinamento. Você pode ter várias instâncias de computação anexadas ao seu espaço de trabalho.
 
@@ -255,8 +255,10 @@ Você pode instalar pacotes diretamente em Jupyter Notebook ou RStudio:
 * RStudio Use a guia **Pacotes** no canto inferior direito ou a guia **Console** no canto superior esquerdo.  
 * Python: Adicione o código de instalação e execute em uma célula Jupyter Notebook.
 
-Ou você pode instalar a partir de uma janela de terminal. Instale os pacotes do Python no ambiente **python 3,6-AzureML** .  Instale os pacotes do R no ambiente do **R**.
-as funções mágicos% Pip e% Conda instalam automaticamente pacotes no kernel em execução no momento na sessão do Jupyter notebook.
+Ou você pode instalar a partir de uma janela de terminal. Instale os pacotes do Python no ambiente **python 3,6-AzureML** .  Instale os pacotes do R no ambiente do **R** .
+
+> [!NOTE]
+> Para o gerenciamento de pacotes em um notebook, use as funções mágicas **% Pip** ou **% Conda** para instalar pacotes automaticamente no **kernel em execução no momento** , em vez de **! Pip** ou **! Conda** que se refere a todos os pacotes (incluindo pacotes fora do kernel em execução no momento)
 
 ## <a name="add-new-kernels"></a>Adicionar novos kernels
 

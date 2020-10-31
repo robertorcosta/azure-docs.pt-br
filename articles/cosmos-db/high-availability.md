@@ -7,20 +7,21 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081868"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como o Azure Cosmos DB fornece alta disponibilidade
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Cosmos DB fornece alta disponibilidade de duas maneiras principais. Primeiro, Azure Cosmos DB replica dados entre regiões configuradas em uma conta do cosmos. Em segundo lugar, Azure Cosmos DB mantém 4 réplicas de dados em uma região.
 
 O Azure Cosmos DB é um serviço de banco de dados distribuído globalmente e é um serviço básico do Azure. Por padrão, o está disponível em [todas as regiões em que o Azure está disponível](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Você pode associar qualquer número de regiões do Azure à sua conta do Azure Cosmos e seus dados serão replicados de maneira automática e transparente. Você pode adicionar ou remover uma região da sua conta do Azure Cosmos a qualquer momento. O Cosmos DB está disponível em todos os cinco ambientes distintos de nuvem do Azure disponíveis para os clientes:
 
-* **Nuvem pública do Azure**, que está disponível globalmente.
+* **Nuvem pública do Azure** , que está disponível globalmente.
 
 * O **Azure China 21vianet** está disponível por meio de uma parceria exclusiva entre a Microsoft e a 21vianet, um dos maiores provedores de Internet do país na China.
 
@@ -73,7 +74,7 @@ Para casos raros de interrupção regional, o Azure Cosmos DB garante que seu ba
 * Depois que a região de gravação anteriormente afetada se recupera, ela fica automaticamente disponível como uma região de leitura. Você pode alternar de volta para a região recuperada como a região de gravação. Você pode alternar as regiões usando o [PowerShell, CLI do Azure ou portal do Azure](how-to-manage-database-account.md#manual-failover). Não há **perda de dados ou disponibilidade** antes, durante ou depois que você alterna a região de gravação e seu aplicativo continua a ser altamente disponível.
 
 > [!IMPORTANT]
-> É altamente recomendável que você configure as contas do Azure Cosmos usadas para cargas de trabalho de produção para **habilitar o failover automático**. O failover manual requer conectividade entre a região de gravação secundária e primária para concluir uma verificação de consistência para garantir que não haja perda de dados durante o failover. Se a região primária não estiver disponível, essa verificação de consistência não poderá ser concluída e o failover manual não terá sucesso, resultando em perda de disponibilidade de gravação durante a interrupção regional.
+> É altamente recomendável que você configure as contas do Azure Cosmos usadas para cargas de trabalho de produção para **habilitar o failover automático** . O failover manual requer conectividade entre a região de gravação secundária e primária para concluir uma verificação de consistência para garantir que não haja perda de dados durante o failover. Se a região primária não estiver disponível, essa verificação de consistência não poderá ser concluída e o failover manual não terá sucesso, resultando em perda de disponibilidade de gravação durante a interrupção regional.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Contas de várias regiões com uma região de gravação única (interrupção da região de leitura)
 
@@ -89,7 +90,7 @@ Para casos raros de interrupção regional, o Azure Cosmos DB garante que seu ba
 
 * As próximas leituras são redirecionadas para a região recuperada sem exigir nenhuma alteração do código do aplicativo. Durante o failover e a rejunção de uma região com falha anteriormente, as garantias de consistência de leitura continuam a ser respeitadas pelo Azure Cosmos DB.
 
-* Mesmo em um evento raro e infeliz quando a região do Azure for permanentemente irrecuperável, não haverá perda de dados se sua conta do Azure Cosmos de várias regiões estiver configurada com consistência *forte* . No caso de uma região de gravação permanentemente irrecuperável, uma conta do Azure Cosmos de várias regiões configurada com consistência de desatualização limitada, a janela potencial de perda de dados é restrita à janela de desatualização (*k* ou *T*) em que K = 100.000 atualizações e T = 5 minutos. Para os níveis de sessão, de prefixo consistente e de consistência eventual, a janela potencial de perda de dados é restrita a um máximo de 15 minutos. Para obter mais informações sobre os destinos RTO e RPO para Azure Cosmos DB, consulte [níveis de consistência e durabilidade de dados](./consistency-levels.md#rto)
+* Mesmo em um evento raro e infeliz quando a região do Azure for permanentemente irrecuperável, não haverá perda de dados se sua conta do Azure Cosmos de várias regiões estiver configurada com consistência *forte* . No caso de uma região de gravação permanentemente irrecuperável, uma conta do Azure Cosmos de várias regiões configurada com consistência de desatualização limitada, a janela potencial de perda de dados é restrita à janela de desatualização ( *k* ou *T* ) em que K = 100.000 atualizações e T = 5 minutos. Para os níveis de sessão, de prefixo consistente e de consistência eventual, a janela potencial de perda de dados é restrita a um máximo de 15 minutos. Para obter mais informações sobre os destinos RTO e RPO para Azure Cosmos DB, consulte [níveis de consistência e durabilidade de dados](./consistency-levels.md#rto)
 
 ## <a name="availability-zone-support"></a>Suporte à zona de disponibilidade
 

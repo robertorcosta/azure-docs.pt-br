@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5af62cd8c110e38ffd2a72ef2441a8e548e1ece
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 92bd3ff925080def4b2f074d07e662dfdbdbee01
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475474"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080843"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Otimizar o custo de armazenamento no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Cosmos DB oferece armazenamento ilimitado e taxa de transferência. Ao contrário de taxa de transferência, que você precisa provisionar/configurar em seus contêineres do Cosmos do Azure ou bancos de dados, o armazenamento é cobrado com base em uma base de consumo. Você será cobrado somente para o armazenamento lógico que você consumir e não precisa reservar nenhum armazenamento de antemão. O armazenamento é dimensionado e reduzido automaticamente com base nos dados que você adiciona ou remove a um contêiner Cosmos do Azure.
 

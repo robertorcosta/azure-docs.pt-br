@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627365"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079012"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -40,7 +40,7 @@ Este artigo fornece orientação para solução de possíveis problemas.
 
 - O ingresso de dispositivos Windows de versões anteriores no Azure AD híbrido funciona de forma um pouco diferente do que no Windows 10. Muitos clientes não percebem que precisam do AD FS (para domínios federados) ou do SSO contínuo configurado (para domínios gerenciados).
 - Para clientes com domínios federados, se o SCP (Ponto de Conexão do Serviço) tiver sido configurado de modo a apontar para o nome de domínio gerenciado (por exemplo, contoso.onmicrosoft.com, em vez de contoso.com), o Ingresso no Azure AD Híbrido de dispositivos Windows de versões anteriores não funcionará.
-- O mesmo dispositivo físico é exibido várias vezes no Azure AD quando vários usuários de domínio entram nos dispositivos de versões anteriores ingressados no Azure AD híbrido.  Por exemplo, se *jdoe* e *jharnett* entrarem no dispositivo, um registro separado (DeviceID) será criado para cada um desses usuários na guia de informações do **USUÁRIO**. 
+- O mesmo dispositivo físico é exibido várias vezes no Azure AD quando vários usuários de domínio entram nos dispositivos de versões anteriores ingressados no Azure AD híbrido.  Por exemplo, se *jdoe* e *jharnett* entrarem no dispositivo, um registro separado (DeviceID) será criado para cada um desses usuários na guia de informações do **USUÁRIO** . 
 - Você também pode obter várias entradas para um dispositivo na guia Informações do usuário devido a uma reinstalação do sistema operacional ou a um novo registro manual.
 - O registro inicial / junção de dispositivos é configurado para realizar uma tentativa de login ou bloqueio / desbloqueio. Pode haver um atraso de cinco minutos disparado por uma tarefa do agendador de tarefas. 
 - Certifique-se de que o [KB4284842](https://support.microsoft.com/help/4284842) está instalado, no caso do Windows 7 SP1 ou Windows Server 2008 R2 SP1. Essa atualização evita futuras falhas de autenticação devido à perda de acesso do cliente a chaves protegidas após a alteração da senha.
@@ -55,7 +55,7 @@ Este artigo fornece orientação para solução de possíveis problemas.
 
 Esse comando exibe uma caixa de diálogo que fornece detalhes sobre o status do ingresso.
 
-![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/01.png" alt-text="Captura de tela da caixa de diálogo Workplace Join para Windows. O texto que inclui um endereço de email informa que um determinado dispositivo ingressou em um local de trabalho." border="false":::
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Etapa 2: Avaliar o status do ingresso do Azure AD híbrido 
 
@@ -65,7 +65,7 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
 
 - Um AD FS configurado incorretamente ou problemas de rede ou no Azure AD
 
-    ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Captura de tela da caixa de diálogo Workplace Join para Windows. O texto que inclui um endereço de email informa que um determinado dispositivo ingressou em um local de trabalho." border="false":::
     
    - O Autoworkplace.exe não pode autenticar silenciosamente com o Microsoft Azure Active Directory ou o AD FS. Isso pode ser causado pela ausência de AD FS ou sua configuração incorreta (para domínios federados), ou ausência do Logon único contínuo do Azure AD ou sua configuração incorreta (para domínios gerenciados) ou problemas de rede. 
    - Pode ser que a MFA (autenticação multifator) esteja habilitada/configurada para o usuário e o WIAORMULTIAUTHN não esteja configurado no servidor de AD FS. 
@@ -76,7 +76,7 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
    - Sua organização usa o Logon Único Contínuo do Microsoft Azure Active Directory `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não está presente nas configurações de intranet do Internet Explorer do dispositivo, e **Permitir atualizações à barra de status por meio de script** não está habilitada para a zona da Intranet.
 - Você não está conectado como um usuário de domínio
 
-   ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Captura de tela da caixa de diálogo Workplace Join para Windows. O texto que inclui um endereço de email informa que um determinado dispositivo ingressou em um local de trabalho." border="false":::
 
    Há algumas razões diferentes pelas quais isso pode ocorrer:
 
@@ -84,11 +84,11 @@ Se o dispositivo não tiver ingressado no Azure AD híbrido, você poderá tenta
    - O cliente não é capaz de se conectar a um controlador de domínio.    
 - Você atingiu uma cota
 
-    ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Captura de tela da caixa de diálogo Workplace Join para Windows. O texto que inclui um endereço de email informa que um determinado dispositivo ingressou em um local de trabalho." border="false":::
 
 - O serviço não está respondendo 
 
-    ![Workplace Join para Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Captura de tela da caixa de diálogo Workplace Join para Windows. O texto que inclui um endereço de email informa que um determinado dispositivo ingressou em um local de trabalho." border="false":::
 
 Também é possível encontrar informações de status no log de eventos em: **Log de Aplicativos e Serviços\Microsoft-Workplace Join**
   
@@ -97,7 +97,7 @@ Também é possível encontrar informações de status no log de eventos em: **L
 - O computador não está conectado à rede interna da organização nem a uma VPN com conexão ao controlador de domínio do AD local.
 - Você está conectado ao computador com uma conta de computador local. 
 - Problemas de configuração do serviço: 
-   - O servidor do AD FS não foi configurado para compatibilidade com **WIAORMULTIAUTHN**. 
+   - O servidor do AD FS não foi configurado para compatibilidade com **WIAORMULTIAUTHN** . 
    - A floresta do seu computador não tem objeto de Ponto de Conexão de Serviço que aponta o seu nome de domínio verificado no Microsoft Azure Active Directory 
    - Ou, caso seu domínio seja gerenciado, o SSO contínuo não foi configurado ou não está funcionando.
    - Um usuário atingiu o limite de dispositivos. 

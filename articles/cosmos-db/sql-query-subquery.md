@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16be1b91d007ca2dbc88405cfc55ff519f51ee41
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870557"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081528"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos de subconsulta do SQL para Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Uma subconsulta é uma consulta aninhada dentro de outra consulta. Uma subconsulta também é chamada de consulta interna ou seleção interna. A instrução que contém uma subconsulta normalmente é chamada de consulta externa.
 
@@ -23,16 +24,16 @@ Este artigo descreve as subconsultas do SQL e seus casos de uso comuns no Azure 
 
 Há dois tipos principais de subconsultas:
 
-* **Correlacionado**: uma subconsulta que faz referência a valores da consulta externa. A subconsulta é avaliada uma vez para cada linha que a consulta externa processa.
-* **Não correlacionado**: uma subconsulta que é independente da consulta externa. Ele pode ser executado sozinho sem depender da consulta externa.
+* **Correlacionado** : uma subconsulta que faz referência a valores da consulta externa. A subconsulta é avaliada uma vez para cada linha que a consulta externa processa.
+* **Não correlacionado** : uma subconsulta que é independente da consulta externa. Ele pode ser executado sozinho sem depender da consulta externa.
 
 > [!NOTE]
 > Azure Cosmos DB dá suporte apenas a Subconsultas correlacionadas.
 
 As subconsultas podem ser classificadas com base no número de linhas e colunas que retornam. Há três tipos:
-* **Tabela**: retorna várias linhas e várias colunas.
-* **Vários valores**: retorna várias linhas e uma única coluna.
-* **Escalar**: retorna uma única linha e uma única coluna.
+* **Tabela** : retorna várias linhas e várias colunas.
+* **Vários valores** : retorna várias linhas e uma única coluna.
+* **Escalar** : retorna uma única linha e uma única coluna.
 
 As consultas SQL em Azure Cosmos DB sempre retornam uma única coluna (um valor simples ou um documento complexo). Portanto, somente subconsultas de valores múltiplos e escalares são aplicáveis em Azure Cosmos DB. Você pode usar uma subconsulta de vários valores somente na cláusula FROM como uma expressão relacional. Você pode usar uma subconsulta escalar como uma expressão escalar na cláusula SELECT ou WHERE ou como uma expressão relacional na cláusula FROM.
 
@@ -140,7 +141,7 @@ Por exemplo, considere este conjunto de dados de referência:
 | kJ       | Kilojoule           | 1,00 e + 03       | Joule         |
 | MJ       | Megajoule           | 1,00 e + 06       | Joule         |
 | GJ       | Gigajoule           | 1,00 e + 09       | Joule         |
-| cal      | Calorias             | 1,00 e + 00       | calorias       |
+| licença      | Calorias             | 1,00 e + 00       | calorias       |
 | kcal     | Calorias             | 1,00 e + 03       | calorias       |
 | IU       | Unidades internacionais |                |               |
 

@@ -7,14 +7,15 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3a1bb36910b09d24c3328c8fc8ae94e1e3321642
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482240"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080695"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planejar e gerenciar custos para Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Este artigo descreve como você pode planejar e gerenciar custos para Azure Cosmos DB:
 
@@ -56,7 +57,7 @@ Se você planeja usar Azure Cosmos DB no modo sem servidor, você precisa estima
 > [!IMPORTANT] 
 > Preste atenção às anotações da tabela acima. Para obter uma estimativa mais precisa dos custos reais de suas operações, você pode usar o [emulador Cosmos do Azure](local-emulator.md) e [medir o custo de ru exato de suas operações](find-request-unit-charge.md). Embora o emulador Cosmos do Azure não dê suporte a servidor, ele relata um encargo de RU padrão para operações de banco de dados e pode ser usado para essa estimativa.
 
-Depois de calcular o número total de unidades de solicitação e GB de armazenamento que você provavelmente consumirá em um mês, a fórmula a seguir retornará sua estimativa de custo: **([número de unidades de solicitação]/1 milhão * $0.25) + ([GB de armazenamento] * $0.25)**.
+Depois de calcular o número total de unidades de solicitação e GB de armazenamento que você provavelmente consumirá em um mês, a fórmula a seguir retornará sua estimativa de custo: **([número de unidades de solicitação]/1 milhão * $0.25) + ([GB de armazenamento] * $0.25)** .
 
 > [!NOTE]
 > Os custos mostrados no exemplo anterior são apenas para fins de demonstração. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações de preços mais recentes.
@@ -85,13 +86,13 @@ Ao usar recursos com Azure Cosmos DB, você incorre em custos. Os custos da unid
 
 Ao usar a análise de custo, você pode exibir os custos de Azure Cosmos DB em gráficos e tabelas para intervalos de tempo diferentes. Alguns exemplos são por dia, atual, mês anterior e ano. Você também pode exibir os custos em relação a orçamentos e custos previstos. Alternar para exibições mais longas ao longo do tempo pode ajudá-lo a identificar tendências de gastos e ver onde o excesso de gastos pode ter ocorrido. Se você tiver criado orçamentos, também poderá ver facilmente onde eles foram excedidos. Para exibir os custos de Azure Cosmos DB na análise de custo:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
-1. Abra a janela **Gerenciamento de custos + cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione análise de **custo**. Em seguida, você pode alterar o escopo de uma assinatura específica da lista suspensa **escopo** .
+1. Abra a janela **Gerenciamento de custos + cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione análise de **custo** . Em seguida, você pode alterar o escopo de uma assinatura específica da lista suspensa **escopo** .
 
 1. Por padrão, o custo de todos os serviços é mostrado no primeiro gráfico de rosca. Selecione a área no gráfico rotulada como "Azure Cosmos DB".
 
-1. Para restringir os custos de um único serviço, como Azure Cosmos DB, selecione **Adicionar filtro** e, em seguida, selecione **nome do serviço**. Em seguida, escolha **Azure Cosmos DB** na lista. Veja um exemplo que mostra os custos para apenas Azure Cosmos DB:
+1. Para restringir os custos de um único serviço, como Azure Cosmos DB, selecione **Adicionar filtro** e, em seguida, selecione **nome do serviço** . Em seguida, escolha **Azure Cosmos DB** na lista. Veja um exemplo que mostra os custos para apenas Azure Cosmos DB:
  
    :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Estimativa de custo na calculadora de capacidade Azure Cosmos DB":::
 

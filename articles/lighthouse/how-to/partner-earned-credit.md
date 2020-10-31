@@ -1,14 +1,14 @@
 ---
 title: Vincule sua ID de parceiro para acompanhar seu impacto em recursos delegados
 description: Saiba como associar sua ID de parceiro para receber o PEC (crédito ganho) do parceiro nos recursos do cliente que você gerencia por meio do Azure Lighthouse.
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 95483cfabb7632182a7c23ae4963f2d38a2bd2c3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019895"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080270"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Vincule sua ID de parceiro para acompanhar seu impacto em recursos delegados 
 
@@ -22,7 +22,7 @@ Se você integrar [clientes usando modelos de gerenciamento de recursos do Azure
 
 Ao integrar clientes por meio de modelos de Azure Resource Manager (modelos ARM), use o seguinte processo para vincular sua ID de parceiro (e habilitar crédito de parceiro obtido, se aplicável). Você precisará saber sua [ID de parceiro do MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) para concluir estas etapas. Use a **ID do MPN Associado** mostrada em seu perfil de parceiro.
 
-Para simplificar, é recomendável criar uma conta de entidade de serviço em seu locatário, vinculá-la à **ID do MPN associada**e, em seguida, conceder acesso a todos os clientes que você integrar com uma [função interna do Azure qualificada para o PEC](/partner-center/azure-roles-perms-pec).
+Para simplificar, é recomendável criar uma conta de entidade de serviço em seu locatário, vinculá-la à **ID do MPN associada** e, em seguida, conceder acesso a todos os clientes que você integrar com uma [função interna do Azure qualificada para o PEC](/partner-center/azure-roles-perms-pec).
 
 1. [Crie uma conta de entidade de serviço](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) no seu locatário de gerenciamento. Para este exemplo, usaremos a *conta de automação do provedor* de nomes para essa entidade de serviço.
 1. Usando essa conta de entidade de serviço, [vincule à sua ID de MPN associada](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) no seu locatário de gerenciamento. Você só precisa fazer isso uma vez.
@@ -42,7 +42,9 @@ Depois que a conta tiver sido [vinculada à ID de MPN associada](../../cost-mana
 
 Você pode [exibir os detalhes do PEC no portal do Azure](/partner-center/partner-earned-credit-explanation#azure-cost-management) e confirmar quais custos receberam o benefício do PEC. Lembre-se de que o PEC só se aplica aos clientes do CSP que assinaram o MCA e estão no plano do Azure.
 
-Se você seguiu as etapas acima e não vê a associação, abra uma solicitação de suporte no portal do Azure.
+Se você seguiu as etapas acima e não vê a associação esperada, abra uma solicitação de suporte no portal do Azure.
+
+Você também pode usar o [SDK do Partner Center](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) e filtrar `rateOfPartnerEarnedCredit` para automatizar a verificação de PEC para uma assinatura.
 
 ## <a name="next-steps"></a>Próximas etapas
 

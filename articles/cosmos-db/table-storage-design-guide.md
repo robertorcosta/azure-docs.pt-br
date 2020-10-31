@@ -8,14 +8,15 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477582"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079998"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design de tabela do armazenamento de Tabelas do Azure: Tabelas escalonáveis e de alto desempenho
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -123,7 +124,7 @@ O exemplo a seguir mostra uma estrutura de tabela simples para armazenar entidad
 </table>
 
 
-Até agora, esse design é semelhante a uma tabela em um banco de dados relacional. As principais diferenças são as colunas obrigatórias e a capacidade de armazenar vários tipos de entidade na mesma tabela. Além disso, cada uma das propriedades definidas pelo usuário, como **FirstName** ou **Age**, tem um tipo de dados, como número inteiro ou cadeia de caracteres, semelhante a uma coluna em um banco de dados relacional. Ao contrário de um banco de dados relacional, no entanto, a natureza sem esquema do armazenamento de Tabelas significa que uma propriedade não precisa ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos em uma única propriedade, você deve usar um formato serializado como JSON ou XML. Para obter informações, confira [Noções básicas sobre o modelo de dados do armazenamento de Tabelas](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Até agora, esse design é semelhante a uma tabela em um banco de dados relacional. As principais diferenças são as colunas obrigatórias e a capacidade de armazenar vários tipos de entidade na mesma tabela. Além disso, cada uma das propriedades definidas pelo usuário, como **FirstName** ou **Age** , tem um tipo de dados, como número inteiro ou cadeia de caracteres, semelhante a uma coluna em um banco de dados relacional. Ao contrário de um banco de dados relacional, no entanto, a natureza sem esquema do armazenamento de Tabelas significa que uma propriedade não precisa ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos em uma única propriedade, você deve usar um formato serializado como JSON ou XML. Para obter informações, confira [Noções básicas sobre o modelo de dados do armazenamento de Tabelas](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Sua escolha de `PartitionKey` e `RowKey` é fundamental para um bom design da tabela. Cada entidade armazenada em uma tabela deve ter uma combinação exclusiva de `PartitionKey` e `RowKey`. Assim como acontece com as chaves em uma tabela de banco de dados relacional, os valores `PartitionKey` e `RowKey` são indexados para criar um índice clusterizado que habilita pesquisas rápidas. O armazenamento de tabelas, no entanto, não cria índices secundários. Portanto, essas são as únicas duas propriedades indexadas (alguns dos padrões descritos posteriormente mostram como é possível contornar essa limitação visível).  
 
@@ -137,7 +138,7 @@ No armazenamento de Tabelas, um nó individual atende a uma ou mais partições 
 Para obter mais informações sobre os detalhes internos do armazenamento de Tabelas e, em particular, sobre como ele gerencia as partições, confira [Armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com coerência forte](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transações do grupo de entidades
-No armazenamento de Tabelas, EGTs (transações de grupo de entidades) são o único mecanismo interno para realizar atualizações atômicas entre várias entidades. EGTs também são conhecidas como *transações de lote*. EGTs só podem operar em entidades armazenadas na mesma partição (compartilhar a mesma chave de partição em uma tabela específica), portanto, portanto, sempre que você precisar de um comportamento transacional atômico em várias entidades, verifique se essas entidades estão na mesma partição. Isso geralmente é um motivo para manter vários tipos de entidade na mesma tabela (e partição) e não usar várias tabelas para tipos de entidade diferentes. Uma única EGT pode operar no máximo 100 entidades.  Se você enviar várias EGTs simultâneas para processamento, é importante garantir que essas EGTs não operem em entidades comuns entre as EGTs. Caso contrário, você correrá o risco de atrasar o processamento.
+No armazenamento de Tabelas, EGTs (transações de grupo de entidades) são o único mecanismo interno para realizar atualizações atômicas entre várias entidades. EGTs também são conhecidas como *transações de lote* . EGTs só podem operar em entidades armazenadas na mesma partição (compartilhar a mesma chave de partição em uma tabela específica), portanto, portanto, sempre que você precisar de um comportamento transacional atômico em várias entidades, verifique se essas entidades estão na mesma partição. Isso geralmente é um motivo para manter vários tipos de entidade na mesma tabela (e partição) e não usar várias tabelas para tipos de entidade diferentes. Uma única EGT pode operar no máximo 100 entidades.  Se você enviar várias EGTs simultâneas para processamento, é importante garantir que essas EGTs não operem em entidades comuns entre as EGTs. Caso contrário, você correrá o risco de atrasar o processamento.
 
 EGTs também apresentam uma desvantagem potencial para avaliar em seu design. Usar mais partições aumenta a escalabilidade do seu aplicativo, porque o Azure tem mais oportunidades para solicitações de balanceamento de carga entre nós. Mas isso pode limitar a capacidade de seu aplicativo para executar transações atômicas e manter a consistência sólida para seus dados. Além disso, existem destinos de escalabilidade específica no nível de uma partição que pode limitar a taxa de transferência de transações que você pode esperar para um único nó.
 
@@ -205,12 +206,12 @@ Os exemplos a seguir pressupõem que o armazenamento de Tabelas é armazenar ent
 Estas são algumas diretrizes gerais para a criação de consultas de armazenamento de Tabelas. A sintaxe de filtro usada nos exemplos a seguir é da API REST de armazenamento de Tabelas. Para obter mais informações, confira [Entidades de consulta](/rest/api/storageservices/Query-Entities).  
 
 * Uma *consulta de ponto* é a pesquisa mais eficiente a ser usada e é recomendada para pesquisas de alto volume ou pesquisas que exigem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de modo eficiente, especificando os valores `PartitionKey` e `RowKey`. Por exemplo: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
-* A segunda melhor é uma *consulta de intervalo*. Ela usa a `PartitionKey` e filtra em um intervalo de valores `RowKey` para retornar mais de uma entidade. O valor `PartitionKey` identifica uma partição específica e os valores `RowKey` identificam um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
-* A terceira melhor é uma *verificação de partição*. Ela usa a `PartitionKey` e filtra em outra propriedade não chave e pode retornar mais de uma entidade. O valor `PartitionKey` identifica uma partição específica e os valores de propriedades selecionados para um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
+* A segunda melhor é uma *consulta de intervalo* . Ela usa a `PartitionKey` e filtra em um intervalo de valores `RowKey` para retornar mais de uma entidade. O valor `PartitionKey` identifica uma partição específica e os valores `RowKey` identificam um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
+* A terceira melhor é uma *verificação de partição* . Ela usa a `PartitionKey` e filtra em outra propriedade não chave e pode retornar mais de uma entidade. O valor `PartitionKey` identifica uma partição específica e os valores de propriedades selecionados para um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Uma *verificação de tabela* não inclui a `PartitionKey` e é ineficiente, pois pesquisa todas as partições que, por sua vez, compõem sua tabela para qualquer entidade correspondente. A verificação da tabela é realizada, independentemente de o filtro usar ou não a `RowKey`. Por exemplo: `$filter=LastName eq 'Jones'`.  
 * As consultas de armazenamento de Tabelas do Azure que retornam várias entidades as classificam na ordem `PartitionKey` e `RowKey`. Para evitar reclassificar as entidades no cliente, escolha uma `RowKey` que define a ordem de classificação mais comum. Resultados de consulta retornados pela API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](table-api-faq.md#table-api-vs-table-storage).
 
-O uso de um operador "**or**" para especificar um filtro com base em valores `RowKey` resulta em uma verificação de partição, e não é tratado como uma consulta de intervalo. Portanto, evite consultas que usam filtros como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
+O uso de um operador " **or** " para especificar um filtro com base em valores `RowKey` resulta em uma verificação de partição, e não é tratado como uma consulta de intervalo. Portanto, evite consultas que usam filtros como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
 Para obter exemplos de código de cliente que usam a Biblioteca de Clientes de Armazenamento para executar consultas eficientes, confira:  
 
@@ -252,7 +253,7 @@ O armazenamento de Tabelas retorna os resultados da consulta classificados em or
 > [!NOTE]
 > Resultados de consulta retornados pela API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](table-api-faq.md#table-api-vs-table-storage).
 
-As chaves no armazenamento de Tabelas são valores da cadeia de caracteres. Para garantir que os valores numéricos sejam classificados corretamente, você deve convertê-los em um comprimento fixo e preenchê-los com zeros. Por exemplo, se o valor da ID de funcionário que você usa como a `RowKey` for um valor inteiro, você deverá converter a ID do funcionário **123** em **00000123**. 
+As chaves no armazenamento de Tabelas são valores da cadeia de caracteres. Para garantir que os valores numéricos sejam classificados corretamente, você deve convertê-los em um comprimento fixo e preenchê-los com zeros. Por exemplo, se o valor da ID de funcionário que você usa como a `RowKey` for um valor inteiro, você deverá converter a ID do funcionário **123** em **00000123** . 
 
 Muitos aplicativos têm requisitos para usar dados classificados em ordens diferentes: por exemplo, classificação de funcionários por nome ou por data de ingresso. Os seguintes padrões, na seção [Padrões de design de tabela](#table-design-patterns), abordam como alternar as ordens de classificação para suas entidades:  
 
@@ -494,7 +495,7 @@ Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma p
 
 Se você consultar um intervalo de entidades de funcionário, pode especificar um intervalo classificado em ordem de ID de funcionário ou um intervalo classificado em ordem de endereço de email. Consulta para entidades com o prefixo apropriado na `RowKey`.  
 
-* Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de **000100** a **000199**, classificados por ordem de ID de funcionário, use: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
+* Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de **000100** a **000199** , classificados por ordem de ID de funcionário, use: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
 * Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com "a", classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
 
 Observe que a sintaxe de filtro usada nos exemplos anteriores é da API REST de armazenamento de Tabelas. Para obter mais informações, confira [Entidades de consulta](/rest/api/storageservices/Query-Entities).  
@@ -544,18 +545,18 @@ EGTs habilitam transações atômicas entre várias entidades que compartilham a
 #### <a name="solution"></a>Solução
 Ao usar as filas do Azure, você pode implementar uma solução que fornece consistência eventual em duas ou mais partições ou sistemas de armazenamento.
 
-Para ilustrar essa abordagem, suponha que você tenha de ser capaz de arquivar entidades antigas de funcionário. Entidades antigas de funcionário raramente são consultadas e devem ser excluídas de todas as atividades que lidam com funcionários atuais. Para implementar esse requisito, armazene funcionários ativos na tabela **Atual** e funcionários antigos na tabela **Arquivo**. O arquivamento de um funcionário exige a exclusão da entidade da tabela **Atual** e a adição da entidade à tabela **Arquivo**.
+Para ilustrar essa abordagem, suponha que você tenha de ser capaz de arquivar entidades antigas de funcionário. Entidades antigas de funcionário raramente são consultadas e devem ser excluídas de todas as atividades que lidam com funcionários atuais. Para implementar esse requisito, armazene funcionários ativos na tabela **Atual** e funcionários antigos na tabela **Arquivo** . O arquivamento de um funcionário exige a exclusão da entidade da tabela **Atual** e a adição da entidade à tabela **Arquivo** .
 
 Mas não é possível usar uma EGT para executar essas duas operações. Para evitar o risco de que uma falha faça com que uma entidade seja exibida nas tabelas ou em nenhuma, a operação de arquivamento deve ser eventualmente consistente. O diagrama de sequência a seguir descreve as etapas nesta operação.  
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de funcionário":::
 
-Um cliente inicia a operação de arquivamento colocando uma mensagem em uma fila do Azure (neste exemplo para arquivar funcionário nº 456). Uma função de trabalho controla a fila para novas mensagens; quando encontra uma, lê a mensagem e deixa uma cópia oculta na fila. A função de trabalho, em seguida, busca uma cópia da entidade na tabela **Atual**, insere uma cópia na tabela **Arquivo morto** e exclui o original da tabela **Atual**. Finalmente, se não houve erros das etapas anteriores, a função de trabalho exclui a mensagem oculta da fila.  
+Um cliente inicia a operação de arquivamento colocando uma mensagem em uma fila do Azure (neste exemplo para arquivar funcionário nº 456). Uma função de trabalho controla a fila para novas mensagens; quando encontra uma, lê a mensagem e deixa uma cópia oculta na fila. A função de trabalho, em seguida, busca uma cópia da entidade na tabela **Atual** , insere uma cópia na tabela **Arquivo morto** e exclui o original da tabela **Atual** . Finalmente, se não houve erros das etapas anteriores, a função de trabalho exclui a mensagem oculta da fila.  
 
-Neste exemplo, a etapa 4 no diagrama insere o funcionário na tabela **Arquivo**. Ele pode adicionar o funcionário em um blob no armazenamento de Blobs ou um arquivo em um sistema de arquivos.  
+Neste exemplo, a etapa 4 no diagrama insere o funcionário na tabela **Arquivo** . Ele pode adicionar o funcionário em um blob no armazenamento de Blobs ou um arquivo em um sistema de arquivos.  
 
 #### <a name="recover-from-failures"></a>Recuperar de falhas
-Caso a função de trabalho precise reiniciar a operação de arquivo, é importante que as operações nas etapas 4-5 do diagrama sejam *idempotentes*. Se estiver usando o armazenamento de Tabelas, na etapa 4, você deve usar uma operação "inserir ou substituir"; na etapa 5, você deve usar uma operação "excluir se existir" na biblioteca de clientes usada. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.  
+Caso a função de trabalho precise reiniciar a operação de arquivo, é importante que as operações nas etapas 4-5 do diagrama sejam *idempotentes* . Se estiver usando o armazenamento de Tabelas, na etapa 4, você deve usar uma operação "inserir ou substituir"; na etapa 5, você deve usar uma operação "excluir se existir" na biblioteca de clientes usada. Se você estiver usando outro sistema de armazenamento, deve usar uma operação idempotente apropriada.  
 
 Se a função de trabalho nunca concluir a etapa 6 do diagrama, após um tempo limite a mensagem reaparecerá na fila, pronta para ser reprocessada pela função de trabalho. A função de trabalho pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "suspeita" para investigação, enviando-a para uma fila separada. Para saber mais sobre a leitura de mensagens da fila e verificar a contagem de remoção da fila, consulte [Obter mensagens](/rest/api/storageservices/Get-Messages).  
 
@@ -700,7 +701,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
 
-* Você deve usar um caractere separador adequado que facilite a análise do valor `RowKey`: por exemplo, **000123_2012**.  
+* Você deve usar um caractere separador adequado que facilite a análise do valor `RowKey`: por exemplo, **000123_2012** .  
 * Você também está armazenando essa entidade na mesma partição que outras entidades que contêm dados relacionados para o mesmo funcionário. O que significa que você pode usar EGTs para manter a consistência forte.
 * Você deve considerar com que frequência consultará os dados para determinar se esse padrão é apropriado. Por exemplo, se você for acessar os dados de revisão com pouca frequência e os dados principais do funcionário com mais frequência, deve mantê-los como entidades separadas.  
 
@@ -962,7 +963,7 @@ if (retrieveResult.Result != null)
 Observe como esse exemplo espera que a entidade recuperada seja do tipo `EmployeeEntity`.  
 
 #### <a name="retrieve-multiple-entities-by-using-linq"></a>Recuperar várias entidades usando LINQ
-Você pode recuperar várias entidades usando LINQ com a Biblioteca de clientes de armazenamento e especificando uma consulta com uma cláusula **Where**. Para evitar uma verificação de tabela, você sempre deve incluir o valor `PartitionKey` na cláusula Where e, se possível, o valor `RowKey` para evitar verificações de tabela e de partição. O armazenamento de Tabelas dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula Where. O seguinte snippet de código em C# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que `RowKey` armazena o sobrenome) no departamento de Vendas (supondo que `PartitionKey` armazena o nome do departamento):  
+Você pode recuperar várias entidades usando LINQ com a Biblioteca de clientes de armazenamento e especificando uma consulta com uma cláusula **Where** . Para evitar uma verificação de tabela, você sempre deve incluir o valor `PartitionKey` na cláusula Where e, se possível, o valor `RowKey` para evitar verificações de tabela e de partição. O armazenamento de Tabelas dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula Where. O seguinte snippet de código em C# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que `RowKey` armazena o sobrenome) no departamento de Vendas (supondo que `PartitionKey` armazena o nome do departamento):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -1105,7 +1106,7 @@ Você pode usar o método `Merge` da classe `TableOperation` para reduzir a quan
 > 
 
 ### <a name="work-with-heterogeneous-entity-types"></a>Trabalhar com tipos de entidade heterogênea
-O armazenamento de Tabelas é um repositório de tabela *sem esquema*. Isso significa que uma única tabela pode armazenar entidades de vários tipos, fornecendo grande flexibilidade no design. O exemplo a seguir ilustra uma tabela que armazena as entidades funcionário e departamento:  
+O armazenamento de Tabelas é um repositório de tabela *sem esquema* . Isso significa que uma única tabela pode armazenar entidades de vários tipos, fornecendo grande flexibilidade no design. O exemplo a seguir ilustra uma tabela que armazena as entidades funcionário e departamento:  
 
 <table>
 <tr>

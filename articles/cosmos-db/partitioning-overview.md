@@ -6,20 +6,21 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 353abe5ac55e49e01f6a99f72307b8525a72fc00
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281110"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080825"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Particionamento e escala horizontal no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB usa o particionamento para dimensionar contêineres individuais em um banco de dados para atender às necessidades de desempenho do seu aplicativo. No particionamento, os itens em um contêiner são divididos em subconjuntos distintos chamados *partições lógicas*. As partições lógicas são formadas com base no valor de uma *chave de partição* associada a cada item em um contêiner. Todos os itens em uma partição lógica têm o mesmo valor de chave de partição.
+Azure Cosmos DB usa o particionamento para dimensionar contêineres individuais em um banco de dados para atender às necessidades de desempenho do seu aplicativo. No particionamento, os itens em um contêiner são divididos em subconjuntos distintos chamados *partições lógicas* . As partições lógicas são formadas com base no valor de uma *chave de partição* associada a cada item em um contêiner. Todos os itens em uma partição lógica têm o mesmo valor de chave de partição.
 
 Por exemplo, um contêiner contém itens. Cada item tem um valor exclusivo para a `UserID` propriedade. Se `UserID` serve como a chave de partição para os itens no contêiner e há 1.000 valores exclusivos `UserID` , 1.000 partições lógicas são criadas para o contêiner.
 
-Além de uma chave de partição que determina a partição lógica do item, cada item em um contêiner tem uma *ID de item* (exclusiva em uma partição lógica). A combinação da chave de partição e da *ID do item* cria o *índice*do item, que identifica exclusivamente o item. [Escolher uma chave de partição](#choose-partitionkey) é uma decisão importante que afetará o desempenho do aplicativo.
+Além de uma chave de partição que determina a partição lógica do item, cada item em um contêiner tem uma *ID de item* (exclusiva em uma partição lógica). A combinação da chave de partição e da *ID do item* cria o *índice* do item, que identifica exclusivamente o item. [Escolher uma chave de partição](#choose-partitionkey) é uma decisão importante que afetará o desempenho do aplicativo.
 
 Este artigo explica a relação entre partições lógicas e físicas. Ele também aborda as práticas recomendadas para particionamento e fornece uma visão detalhada de como funciona o dimensionamento horizontal em Azure Cosmos DB. Não é necessário entender esses detalhes internos para selecionar sua chave de partição, mas nós as cobrimos para que você tenha uma clareza de como Azure Cosmos DB funciona.
 
@@ -77,7 +78,7 @@ A imagem a seguir mostra como as partições lógicas são mapeadas para partiç
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Escolhendo uma chave de partição
 
-Uma chave de partição tem dois componentes: **caminho de chave de partição** e valor de chave de **partição**. Por exemplo, considere um item {"userId": "Andrew", "worksFor": "Microsoft"} se você escolher "userId" como a chave de partição, estes são os dois componentes de chave de partição:
+Uma chave de partição tem dois componentes: **caminho de chave de partição** e valor de chave de **partição** . Por exemplo, considere um item {"userId": "Andrew", "worksFor": "Microsoft"} se você escolher "userId" como a chave de partição, estes são os dois componentes de chave de partição:
 
 * O caminho da chave de partição (por exemplo: "/userid"). O caminho da chave de partição aceita caracteres alfanuméricos e sublinhados (_). Você também pode usar objetos aninhados usando a notação de caminho padrão (/).
 
@@ -113,20 +114,20 @@ Se o contêiner puder aumentar para mais de algumas partições físicas, você 
 
 ## <a name="using-item-id-as-the-partition-key"></a>Usando a ID do item como a chave de partição
 
-Se o contêiner tiver uma propriedade que tenha uma ampla gama de valores possíveis, provavelmente será uma ótima opção de chave de partição. Um exemplo possível de tal propriedade é a *ID do item*. Para contêineres de leitura intensa pequenos ou contêineres de gravação pesada de qualquer tamanho, a *ID do item* é naturalmente uma ótima opção para a chave de partição.
+Se o contêiner tiver uma propriedade que tenha uma ampla gama de valores possíveis, provavelmente será uma ótima opção de chave de partição. Um exemplo possível de tal propriedade é a *ID do item* . Para contêineres de leitura intensa pequenos ou contêineres de gravação pesada de qualquer tamanho, a *ID do item* é naturalmente uma ótima opção para a chave de partição.
 
-A ID do *Item* de Propriedade do sistema existe em cada item em seu contêiner. Você pode ter outras propriedades que representam uma ID lógica do seu item. Em muitos casos, essas também são ótimas opções de chave de partição pelos mesmos motivos da *ID do item*.
+A ID do *Item* de Propriedade do sistema existe em cada item em seu contêiner. Você pode ter outras propriedades que representam uma ID lógica do seu item. Em muitos casos, essas também são ótimas opções de chave de partição pelos mesmos motivos da *ID do item* .
 
 A *ID do item* é uma ótima opção de chave de partição pelos seguintes motivos:
 
 * Há uma grande variedade de valores possíveis (uma ID de *Item* exclusiva por item).
 * Como há uma ID de *Item* exclusiva por item, a *ID do item* faz um ótimo trabalho em balanceamento uniforme de consumo e armazenamento de dados em ru.
-* Você pode facilmente fazer leituras de ponto eficientes, pois você sempre saberá a chave de partição de um item se souber sua *ID de item*.
+* Você pode facilmente fazer leituras de ponto eficientes, pois você sempre saberá a chave de partição de um item se souber sua *ID de item* .
 
 Algumas coisas a serem consideradas ao selecionar a *ID do item* como a chave de partição incluem:
 
-* Se a *ID do item* for a chave de partição, ela se tornará um identificador exclusivo em todo o seu contêiner. Você não poderá ter itens com uma *ID de item*duplicada.
-* Se você tiver um contêiner de leitura intensa que tenha muitas [partições físicas](partitioning-overview.md#physical-partitions), as consultas serão mais eficientes se tiverem um filtro de igualdade com a ID do *Item*.
+* Se a *ID do item* for a chave de partição, ela se tornará um identificador exclusivo em todo o seu contêiner. Você não poderá ter itens com uma *ID de item* duplicada.
+* Se você tiver um contêiner de leitura intensa que tenha muitas [partições físicas](partitioning-overview.md#physical-partitions), as consultas serão mais eficientes se tiverem um filtro de igualdade com a ID do *Item* .
 * Você não pode executar procedimentos armazenados ou gatilhos em várias partições lógicas.
 
 ## <a name="next-steps"></a>Próximas etapas

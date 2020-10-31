@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475151"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080712"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Dicas de desempenho para o Azure Cosmos DB e .NET SDK v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK v3 do .NET](performance-tips-dotnet-sdk-v3-sql.md)
@@ -46,12 +47,12 @@ Recomendamos o processamento de host do Windows de 64 bits para melhorar o desem
 
 - Para projetos de teste baseados em VSTest, você pode alterar o processamento de host selecionando **testar**  >  **configurações**  >  **de teste arquitetura de processador padrão como x64** no menu de **teste** do Visual Studio.
 
-- Para aplicativos Web ASP.net implantados localmente, você pode alterar o processamento de host selecionando **usar a versão de 64 bits do IIS Express para sites e projetos** em **ferramentas**  >  **Opções**  >  **projetos e soluções**  >  **projetos da Web**.
+- Para aplicativos Web ASP.net implantados localmente, você pode alterar o processamento de host selecionando **usar a versão de 64 bits do IIS Express para sites e projetos** em **ferramentas**  >  **Opções**  >  **projetos e soluções**  >  **projetos da Web** .
 
 - Para aplicativos Web ASP.NET implantados no Azure, você pode alterar o processamento de host selecionando a plataforma de **64 bits** nas **configurações do aplicativo** na portal do Azure.
 
 > [!NOTE] 
-> Por padrão, novos projetos do Visual Studio são definidos para **qualquer CPU**. Recomendamos que você defina seu projeto como **x64** para que ele não mude para **x86**. Um projeto definido para **qualquer CPU** pode mudar facilmente para **x86** se uma dependência somente x86 for adicionada.<br/>
+> Por padrão, novos projetos do Visual Studio são definidos para **qualquer CPU** . Recomendamos que você defina seu projeto como **x64** para que ele não mude para **x86** . Um projeto definido para **qualquer CPU** pode mudar facilmente para **x86** se uma dependência somente x86 for adicionada.<br/>
 > ServiceInterop.dll precisa estar na pasta da qual a DLL do SDK está sendo executada. Isso deve ser uma preocupação apenas se você copiar DLLs manualmente ou se tiver sistemas de compilação/implantação personalizados.
     
 **Ativar coleta de lixo do lado do servidor (GC)**
@@ -135,7 +136,7 @@ O SDK do SQL .NET 1.9.0 e versões posteriores dão suporte a consultas paralela
 - `MaxDegreeOfParallelism` controla o número máximo de partições que podem ser consultadas em paralelo. 
 - `MaxBufferedItemCount` controla o número de resultados previamente buscados.
 
-**_Grau de ajuste do paralelismo_*_
+**_Grau de ajuste do paralelismo_* _
 
 A consulta paralela funciona consultando várias partições em paralelo. Mas os dados de uma partição individual são buscados em série em relação à consulta. A configuração `MaxDegreeOfParallelism` no [SDK v2](sql-api-sdk-dotnet.md) para o número de partições tem a melhor chance de obter a consulta de melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá definir o grau de paralelismo como um número alto. O sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau de paralelismo.
 
@@ -147,7 +148,7 @@ A consulta paralela destina-se a buscar previamente resultados enquanto o lote a
 
 A busca prévia funciona da mesma maneira, independentemente do grau de paralelismo, e há um único buffer para os dados de todas as partições.  
 
-_*Implementar retirada em intervalos de RetryAfter**
+_ *Implementar retirada em intervalos de RetryAfter**
 
 Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja limitada. Se as solicitações forem limitadas, o aplicativo cliente deverá fazer o logoff no limite para o intervalo de repetição especificado pelo servidor. Respeitar a retirada garante que você gaste uma quantidade mínima de tempo esperando entre repetições. 
 
@@ -178,7 +179,7 @@ Para reduzir o número de viagens de ida e volta da rede necessárias para recup
 > [!NOTE] 
 > A `maxItemCount` propriedade não deve ser usada apenas para paginação. Seu principal uso é melhorar o desempenho das consultas, reduzindo o número máximo de itens retornados em uma única página.  
 
-Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) no `FeedOptions` permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
+Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) no `FeedOptions` permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo: 
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482223"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080644"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Use Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O [Azure Policy](../governance/policy/overview.md) ajuda a reforçar os padrões de governança organizacional, a avaliar a conformidade dos recursos e a implementar a correção automática. Os casos de uso comuns incluem segurança, gerenciamento de custos e consistência de configuração.
 
@@ -108,7 +109,7 @@ As definições de política personalizadas podem ser usadas para criar atribui�
 
 ## <a name="policy-compliance"></a>Conformidade da política
 
-Depois que as atribuições de política são criadas, o Azure Policy avalia os recursos no escopo da atribuição. A_conformidade_de cada recurso com a política é avaliada. O _efeito_ especificado na política é então aplicado a recursos sem conformidade.
+Depois que as atribuições de política são criadas, o Azure Policy avalia os recursos no escopo da atribuição. A _conformidade_ de cada recurso com a política é avaliada. O _efeito_ especificado na política é então aplicado a recursos sem conformidade.
 
 Você pode examinar os resultados de conformidade e os detalhes de correção no [portal do Azure](../governance/policy/how-to/get-compliance-data.md#portal) ou por meio da [CLI do Azure](../governance/policy/how-to/get-compliance-data.md#command-line) ou dos logs do [Azure monitor](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
