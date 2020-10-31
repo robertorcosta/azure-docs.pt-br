@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 68f7c9331423fa4ef350bd7915ad85e3152c6885
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282463"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096539"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 O documento a seguir contém os comandos de ação personalizada que são específicos para a API do Azure Cosmos DB para MongoDB. Esses comandos podem ser usados para criar e obter recursos de banco de dados específicos para o [modelo de capacidade de Azure Cosmos DB](account-databases-containers-items.md).
 
@@ -234,7 +235,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-Isso resultará em uma nova coleção fixa, não fragmentada, com 400RU/s e um índice no `_id` campo criado automaticamente. Esse tipo de configuração também será aplicado ao criar novas coleções por meio da `insert()` função. Por exemplo: 
+Isso resultará em uma nova coleção fixa, não fragmentada, com 400RU/s e um índice no `_id` campo criado automaticamente. Esse tipo de configuração também será aplicado ao criar novas coleções por meio da `insert()` função. Por exemplo:  
 
 ```javascript
 use test

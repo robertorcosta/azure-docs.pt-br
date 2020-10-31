@@ -9,14 +9,15 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab24c317513382afdd452843bc09e845ca90452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324545"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096488"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conectar um aplicativo Mongoose do Node.js ao Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este tutorial demonstra como usar o [Mongoose Framework](https://mongoosejs.com/) ao armazenar o Azure Cosmos DB. Vamos usar a API do Azure Cosmos DB para o MongoDB para este passo a passo. Para aqueles não familiarizados, Mongoose é uma estrutura de modelagem de objeto para o MongoDB no Node.js e fornece uma solução simples, com base em esquema para modelar os dados do aplicativo.
 
@@ -38,11 +39,11 @@ Vamos criar uma conta do Cosmos. Caso já tenha uma conta que queira usar, você
 
 ### <a name="create-a-database"></a>Criar um banco de dados 
 Neste aplicativo, abordaremos duas maneiras de criar coleções no Azure Cosmos DB: 
-- **Armazenando cada modelo de objeto em uma coleção separada**: é recomendável [criar um banco de dados com taxa de transferência dedicada](set-throughput.md#set-throughput-on-a-database). Usar esse modelo de capacidade proporcionará uma melhor eficiência aos custos.
+- **Armazenando cada modelo de objeto em uma coleção separada** : é recomendável [criar um banco de dados com taxa de transferência dedicada](set-throughput.md#set-throughput-on-a-database). Usar esse modelo de capacidade proporcionará uma melhor eficiência aos custos.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text=" Tutorial deNode.js-captura de tela do portal do Azure, mostrando como criar um banco de dados no Data Explorer para uma conta de Azure Cosmos DB, para uso com o módulo de nó Mongoose":::
 
-- **Armazenando todos os modelos de objeto em uma única coleção de Cosmos DB**: se você preferir armazenar todos os modelos em uma única coleção, basta criar um novo banco de dados sem selecionar a opção provisionar taxa de transferência. Usar esse modelo de capacidade criará cada coleção com sua própria capacidade de taxa de transferência para cada modelo de objeto.
+- **Armazenando todos os modelos de objeto em uma única coleção de Cosmos DB** : se você preferir armazenar todos os modelos em uma única coleção, basta criar um novo banco de dados sem selecionar a opção provisionar taxa de transferência. Usar esse modelo de capacidade criará cada coleção com sua própria capacidade de taxa de transferência para cada modelo de objeto.
 
 Depois de criar o banco de dados, você usará o nome na `COSMOSDB_DBNAME` variável de ambiente abaixo.
 

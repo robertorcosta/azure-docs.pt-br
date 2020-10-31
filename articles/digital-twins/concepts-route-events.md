@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440800"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097066"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
 O gêmeos digital do Azure usa **rotas de eventos** para enviar dados para consumidores fora do serviço. 
 
-Durante a visualização, há dois casos principais para enviar dados do gêmeos digital do Azure:
+Há dois casos principais para enviar dados do gêmeos digital do Azure:
 * Envio de dados de um gêmeos no grafo digital do Azure para outro. Por exemplo, quando uma propriedade em uma cópia digital é alterada, convém notificar e atualizar outra cópia digital de maneira adequada.
-* Envio de dados para serviços de dados downstream para armazenamento ou processamento adicional (também conhecido como *egresso de dados*). Por exemplo,
+* Envio de dados para serviços de dados downstream para armazenamento ou processamento adicional (também conhecido como *egresso de dados* ). Por exemplo,
   - Um hospital pode querer enviar dados de evento de gêmeos digital do Azure para [Time Series insights (TSI)](../time-series-insights/overview-what-is-tsi.md), para registrar dados de série temporal de eventos relacionados a Handwashing para análise em massa.
   - Uma empresa que já esteja usando [mapas do Azure](../azure-maps/about-azure-maps.md) pode querer usar o gêmeos digital do Azure para aprimorar sua solução. Eles podem habilitar rapidamente um mapa do Azure depois de configurar o Azure digital gêmeos, colocar as entidades do Azure MAP no gêmeos digital do Azure como [gêmeos digital](concepts-twins-graph.md) no grafo de entrelaçamento ou executar consultas poderosas que aproveitam seus mapas do Azure e os dados do Azure digital gêmeos juntos.
 
@@ -38,7 +38,7 @@ Os destinos de downstream típicos para rotas de eventos são recursos como o TS
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>Rotas de eventos para eventos digitais de entrelaçamento digital
 
-Durante a versão de visualização atual, as rotas de eventos também são usadas para lidar com eventos no grafo de entrelaçamento e enviar dados de uma atualização digital para a imprensa digital. Isso é feito por meio da conexão de rotas de eventos por meio da grade de eventos para computar recursos, como [Azure Functions](../azure-functions/functions-overview.md). Essas funções definem como o gêmeos deve receber e responder a eventos. 
+As rotas de eventos também são usadas para lidar com eventos no grafo de entrelaçamento e enviar dados de uma teledigital para o digital. Isso é feito por meio da conexão de rotas de eventos por meio da grade de eventos para computar recursos, como [Azure Functions](../azure-functions/functions-overview.md). Essas funções definem como o gêmeos deve receber e responder a eventos. 
 
 Quando um recurso de computação deseja modificar o gráfico de entrelaçamento com base em um evento recebido por meio da rota de eventos, é útil saber qual é o que precisa ser modificado antes do tempo. 
 
@@ -50,7 +50,7 @@ Para percorrer o processo de configuração de uma função do Azure para proces
 
 ## <a name="create-an-endpoint"></a>Criar um ponto de extremidade
 
-Para definir uma rota de eventos, os desenvolvedores devem primeiro definir pontos de extremidade. Um **ponto de extremidade** é um destino fora do Azure digital gêmeos que dá suporte a uma conexão de rota. Os destinos com suporte na versão de visualização atual são:
+Para definir uma rota de eventos, os desenvolvedores devem primeiro definir pontos de extremidade. Um **ponto de extremidade** é um destino fora do Azure digital gêmeos que dá suporte a uma conexão de rota. Os destinos com suporte incluem:
 * Tópicos personalizados da grade de eventos
 * Hub de evento
 * Barramento de Serviço
@@ -73,7 +73,7 @@ As APIs de ponto de extremidade que estão disponíveis no plano de controle sã
  
 Para criar uma rota de eventos, você pode usar as APIs do [**plano de dados**](how-to-manage-routes-apis-cli.md#create-an-event-route)do gêmeos digital do Azure, os [**comandos da CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou a [**portal do Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Aqui está um exemplo de criação de uma rota de eventos dentro de um aplicativo cliente, usando a chamada do `CreateEventRoute` [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) : 
+Aqui está um exemplo de criação de uma rota de eventos dentro de um aplicativo cliente, usando a chamada do `CreateEventRoute` [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) : 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
@@ -94,7 +94,7 @@ As rotas também podem ser criadas usando a [CLI do Azure digital gêmeos](how-t
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
 
-Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. O gêmeos digital do Azure enviará um evento inativo quando **uma das condições a seguir** for atendida. 
+Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas** . O gêmeos digital do Azure enviará um evento inativo quando **uma das condições a seguir** for atendida. 
 
 * O evento não é entregue dentro do período de vida útil
 * O número de tentativas para entregar o evento excedeu o limite

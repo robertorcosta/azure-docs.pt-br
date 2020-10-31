@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409656"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096301"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Atualizar a versão do protocolo de transmissão do MongoDB da conta da API para MongoDB do Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este artigo descreve como atualizar a versão do protocolo de conexão de sua conta da API para MongoDB do Azure Cosmos DB. Depois de atualizar a versão do protocolo de conexão, você pode usar a funcionalidade mais recente na API do Azure Cosmos DB para MongoDB. O processo de atualização não interrompe a disponibilidade da sua conta e não consome RU/s ou diminui a capacidade do banco de dados em qualquer ponto. Nenhum dado ou índice existente será afetado por esse processo.
 
@@ -37,7 +38,7 @@ Veja a seguir os novos recursos incluídos na versão 3,6:
 
 ### <a name="changes-from-version-32"></a>Alterações da versão 3,2
 
-- **Erros de RequestRateIsLarge foram removidos**. As solicitações do aplicativo cliente não retornarão mais 16500 erros. Em vez disso, solicitações serão retomadas até que concluam ou atendam ao tempo limite.
+- **Erros de RequestRateIsLarge foram removidos** . As solicitações do aplicativo cliente não retornarão mais 16500 erros. Em vez disso, solicitações serão retomadas até que concluam ou atendam ao tempo limite.
 - Por tempo limite de solicitação é definido como 60 segundos.
 - As coleções do MongoDB criadas na nova versão do protocolo de conexão só terão a `_id` propriedade indexada por padrão.
 
@@ -49,7 +50,7 @@ Para a atualização para a versão 3,6, o sufixo do ponto de extremidade da con
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-Você precisa substituir o ponto de extremidade existente em seus aplicativos e drivers que se conectam a essa conta de banco de dados. **Somente as conexões que estão usando o novo ponto de extremidade terão acesso aos recursos do MongoDB versão 3,6**. O ponto de extremidade anterior deve ter o sufixo `.documents.azure.com` .
+Você precisa substituir o ponto de extremidade existente em seus aplicativos e drivers que se conectam a essa conta de banco de dados. **Somente as conexões que estão usando o novo ponto de extremidade terão acesso aos recursos do MongoDB versão 3,6** . O ponto de extremidade anterior deve ter o sufixo `.documents.azure.com` .
 
 >[!Note]
 > Esse ponto de extremidade pode ter pequenas diferenças se sua conta foi criada em uma nuvem do Azure soberanas, governamental ou restrita.
@@ -80,7 +81,7 @@ Você precisa substituir o ponto de extremidade existente em seus aplicativos e 
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Visão geral da conta do portal do Azure com MongoDB" border="false":::
 
-7. **Para começar a usar a versão atualizada da sua conta de banco de dados**, volte para a `Overview` folha e copie a nova cadeia de conexão a ser usada em seu aplicativo. Os aplicativos começarão a usar a versão atualizada assim que se conectarem ao novo ponto de extremidade. As conexões existentes não serão interrompidas e poderão ser atualizadas à sua conveniência. Para garantir uma experiência consistente, todos os seus aplicativos devem usar o novo ponto de extremidade.
+7. **Para começar a usar a versão atualizada da sua conta de banco de dados** , volte para a `Overview` folha e copie a nova cadeia de conexão a ser usada em seu aplicativo. Os aplicativos começarão a usar a versão atualizada assim que se conectarem ao novo ponto de extremidade. As conexões existentes não serão interrompidas e poderão ser atualizadas à sua conveniência. Para garantir uma experiência consistente, todos os seus aplicativos devem usar o novo ponto de extremidade.
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Visão geral da conta do portal do Azure com MongoDB" border="false":::
 

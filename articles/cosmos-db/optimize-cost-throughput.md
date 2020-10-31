@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475457"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097457"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Ao oferecer um modelo de taxa de transferência provisionada, o Azure Cosmos DB consegue fornecer um desempenho previsível em qualquer escala. A reserva ou o provisionamento da taxa de transferência elimina antecipadamente o “efeito de vizinho barulhento” sobre o desempenho. Você especifica a quantidade exata de taxa de transferência de que precisa e o Azure Cosmos DB garante a taxa de transferência configurada, com suporte do SLA.
 
@@ -30,7 +31,7 @@ Você pode provisionar a taxa de transferência em bancos de dados ou contêiner
 
 Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de transferência provisionada:
 
-**Considere provisionar a taxa de transferência em um banco de dados Cosmos do Azure (que contém um conjunto de contêineres) se**:
+**Considere provisionar a taxa de transferência em um banco de dados Cosmos do Azure (que contém um conjunto de contêineres) se** :
 
 1. Você tem algumas dezenas de contêineres do Azure Cosmos e deseja compartilhar a taxa de transferência entre alguns ou todos eles. 
 
@@ -54,7 +55,7 @@ Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de tr
 
 Conforme mostrado na tabela a seguir, dependendo da opção de API, você pode provisionar a taxa de transferência em granularidades diferentes.
 
-|API|Na taxa de transferência **compartilhada**, configure |Na taxa de transferência **dedicada**, configure |
+|API|Na taxa de transferência **compartilhada** , configure |Na taxa de transferência **dedicada** , configure |
 |----|----|----|
 |API do SQL|Banco de dados|Contêiner|
 |API do Azure Cosmos DB para MongoDB|Banco de dados|Coleção|

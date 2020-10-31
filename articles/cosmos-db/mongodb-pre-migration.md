@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: jasonh
-ms.openlocfilehash: 2ad56bf0295efca45ee958e1ce135d79ed850d62
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8e3a0ac6996762bc7f4bd1a6d9dde8cfb59db662
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277587"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096416"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para a migração de dados do MongoDB para a API do Azure Cosmos DB para o MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Antes de migrar seus dados do MongoDB (local ou na nuvem) para a API do Azure Cosmos DB para o MongoDB, você deve:
 
@@ -30,13 +31,13 @@ Se você já tiver concluído os pré-requisitos acima para a migração, poder�
 
 Veja a seguir características específicas sobre a API do Azure Cosmos DB para o MongoDB:
 
-- **Modelo de capacidade**: A capacidade do banco de dados no Azure Cosmos DB baseia-se em um modelo baseado em taxa de transferência. Esse modelo baseia-se em [Unidades de Solicitação por segundo](request-units.md), que é uma unidade que representa o número de operações de banco de dados que podem ser executadas em uma coleção por segundo. Essa capacidade pode ser alocada no [nível de um banco de dados ou coleção](set-throughput.md) e pode ser provisionada em um modelo de alocação ou usando a [taxa de transferência provisionada de dimensionamento automático](provision-throughput-autoscale.md).
+- **Modelo de capacidade** : A capacidade do banco de dados no Azure Cosmos DB baseia-se em um modelo baseado em taxa de transferência. Esse modelo baseia-se em [Unidades de Solicitação por segundo](request-units.md), que é uma unidade que representa o número de operações de banco de dados que podem ser executadas em uma coleção por segundo. Essa capacidade pode ser alocada no [nível de um banco de dados ou coleção](set-throughput.md) e pode ser provisionada em um modelo de alocação ou usando a [taxa de transferência provisionada de dimensionamento automático](provision-throughput-autoscale.md).
 
-- **Unidades de Solicitação**: Cada operação de banco de dados tem um custo de RUs (unidades de solicitação) associado no Azure Cosmos DB. Quando executado, isso é subtraído do nível de unidades de solicitação disponíveis em determinado segundo. Se uma solicitação exigir mais RUs do que as RUs alocadas no momento, há duas opções para resolver o problema: aumentar a quantidade de RUs ou aguardar até que o próximo segundo inicie e repetir a operação.
+- **Unidades de Solicitação** : Cada operação de banco de dados tem um custo de RUs (unidades de solicitação) associado no Azure Cosmos DB. Quando executado, isso é subtraído do nível de unidades de solicitação disponíveis em determinado segundo. Se uma solicitação exigir mais RUs do que as RUs alocadas no momento, há duas opções para resolver o problema: aumentar a quantidade de RUs ou aguardar até que o próximo segundo inicie e repetir a operação.
 
-- **Capacidade elástica**: A capacidade de uma determinada coleção ou banco de dados pode ser alterada a qualquer momento. Isso permite que o banco de dados se adapte de forma elástica aos requisitos de taxa de transferência da sua carga de trabalho.
+- **Capacidade elástica** : A capacidade de uma determinada coleção ou banco de dados pode ser alterada a qualquer momento. Isso permite que o banco de dados se adapte de forma elástica aos requisitos de taxa de transferência da sua carga de trabalho.
 
-- **Fragmentação automática**: O Azure Cosmos DB fornece um sistema de particionamento automático que requer somente um fragmento (ou uma chave de partição). O [mecanismo de particionamento automático](partitioning-overview.md) é compartilhado entre todas as APIs do Azure Cosmos DB e permite dimensionamento de taxa de transferência e dados contínuos através da distribuição horizontal.
+- **Fragmentação automática** : O Azure Cosmos DB fornece um sistema de particionamento automático que requer somente um fragmento (ou uma chave de partição). O [mecanismo de particionamento automático](partitioning-overview.md) é compartilhado entre todas as APIs do Azure Cosmos DB e permite dimensionamento de taxa de transferência e dados contínuos através da distribuição horizontal.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Opções de migração da API do Azure Cosmos DB para o MongoDB
 
@@ -56,11 +57,11 @@ No Azure Cosmos DB, a taxa de transferência é provisionada antecipadamente e m
 Você pode usar a [Calculadora de capacidade do Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) para determinar a quantidade de Unidades de Solicitação com base na configuração da sua conta de banco de dados, na quantidade de dados, no tamanho do documento e nas leituras e gravações necessárias por segundo.
 
 Veja a seguir os principais fatores que afetam o número de RUs necessárias:
-- **Tamanho do documento**: À medida que o tamanho de um item/documento aumentar, o número de RUs consumidas para leitura ou gravação do item/documento também aumentará.
+- **Tamanho do documento** : À medida que o tamanho de um item/documento aumentar, o número de RUs consumidas para leitura ou gravação do item/documento também aumentará.
 
-- **Contagem de propriedades do documento**: o número de RUs consumidas para criar ou atualizar um documento está relacionado ao número, à complexidade e ao comprimento de suas propriedades. Você pode reduzir o consumo de unidade de solicitação para operações de gravação, [limitando o número de propriedades indexadas](mongodb-indexing.md).
+- **Contagem de propriedades do documento** : o número de RUs consumidas para criar ou atualizar um documento está relacionado ao número, à complexidade e ao comprimento de suas propriedades. Você pode reduzir o consumo de unidade de solicitação para operações de gravação, [limitando o número de propriedades indexadas](mongodb-indexing.md).
 
-- **Padrões de consulta**: A complexidade de uma consulta afeta quantas unidades de solicitação são consumidas por uma consulta. 
+- **Padrões de consulta** : A complexidade de uma consulta afeta quantas unidades de solicitação são consumidas por uma consulta. 
 
 A melhor maneira de entender o custo das consultas é usar dados de exemplo no Azure Cosmos DB [e executar consultas de exemplo do MongoDB Shell](connect-mongodb-account.md) usando o comando `getLastRequestStastistics` para obter o encargo da solicitação, o que produzirá o número de RUs consumidas:
 

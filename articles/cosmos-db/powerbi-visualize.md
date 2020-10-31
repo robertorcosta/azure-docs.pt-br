@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: a7e5443869efd7f37153b47e4d9c3eaa39f9c41d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6da4eef15f8f0946e17e910fa39aee1f34fccf0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475270"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096369"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB usando o conector do Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O [Power BI](https://powerbi.microsoft.com/) é um serviço online no qual você pode criar e compartilhar painéis e relatórios. O Power BI Desktop é uma ferramenta de criação de relatórios que permite recuperar dados de várias fontes de dados. O Azure Cosmos DB é uma das fontes de dados que você pode usar com o Power BI Desktop. É possível conectar a conta do Power BI Desktop à conta do Azure Cosmos DB com o conector do Azure Cosmos DB para Power BI.  Após importar dados do Azure Cosmos DB para Power BI, você poderá transformá-los, criar relatórios e publicar os relatórios no Power BI.   
 
@@ -74,21 +75,21 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
 
 1. Execute o Power BI Desktop.
 
-2. Você pode **Obter dados**, consultar **Fontes Recentes Sources** ou **Abrir outros relatórios** diretamente na tela de boas-vindas. Selecione o "X" no canto superior direito para fechar a tela. A exibição de **Relatório** do Power BI Desktop é exibida.
+2. Você pode **Obter dados** , consultar **Fontes Recentes Sources** ou **Abrir outros relatórios** diretamente na tela de boas-vindas. Selecione o "X" no canto superior direito para fechar a tela. A exibição de **Relatório** do Power BI Desktop é exibida.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
-3. Selecione a faixa de opções **Página Inicial** e clique em **Obter Dados**.  A janela **Obter Dados** deve ser exibida.
+3. Selecione a faixa de opções **Página Inicial** e clique em **Obter Dados** .  A janela **Obter Dados** deve ser exibida.
 
-4. Clique em **Azure**, selecione **Azure Cosmos DB (Beta)** e clique em **Conectar**. 
+4. Clique em **Azure** , selecione **Azure Cosmos DB (Beta)** e clique em **Conectar** . 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
-5. Na página de **Visualizar Conector**, clique em **Continuar**. A janela do **Azure Cosmos DB** é exibida.
+5. Na página de **Visualizar Conector** , clique em **Continuar** . A janela do **Azure Cosmos DB** é exibida.
 
-6. Especifique a URL do ponto de extremidade da conta do Azure Cosmos DB da qual você deseja recuperar os dados, conforme mostrado abaixo e clique em **OK**. Para usar sua própria conta, você pode recuperar a URL na caixa de URI na folha **Chaves** do portal do Azure. Opcionalmente, é possível fornecer o nome do banco de dados, o nome da coleção ou usar o navegador para selecionar o banco de dados e a coleção para identificar de onde os dados são provenientes.
+6. Especifique a URL do ponto de extremidade da conta do Azure Cosmos DB da qual você deseja recuperar os dados, conforme mostrado abaixo e clique em **OK** . Para usar sua própria conta, você pode recuperar a URL na caixa de URI na folha **Chaves** do portal do Azure. Opcionalmente, é possível fornecer o nome do banco de dados, o nome da coleção ou usar o navegador para selecionar o banco de dados e a coleção para identificar de onde os dados são provenientes.
    
-7. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta. Para sua própria conta, recupere a chave na caixa **Chave Primária** na folha **Chaves Somente Leitura** do portal do Azure. Insira a chave apropriada e, em seguida, clique em **Conectar**.
+7. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta. Para sua própria conta, recupere a chave na caixa **Chave Primária** na folha **Chaves Somente Leitura** do portal do Azure. Insira a chave apropriada e, em seguida, clique em **Conectar** .
    
    Recomendamos que você use a chave somente leitura ao criar relatórios. Isso impede a exposição desnecessária da chave primária a possíveis riscos de segurança. A chave somente leitura está disponível na folha **Chaves** no portal do Azure. 
     
@@ -98,7 +99,7 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
 
 10. Agora, selecione uma coleção que contenha os dados a serem recuperados, selecione **volcano1** (o nome da coleção pode ser diferente).
     
-    O painel Visualização mostra uma lista dos itens de **Registro** .  Um Documento é representado como um tipo **Registro** no Power BI. Da mesma forma, um bloco JSON aninhado dentro de um documento é também um **Registro**.
+    O painel Visualização mostra uma lista dos itens de **Registro** .  Um Documento é representado como um tipo **Registro** no Power BI. Da mesma forma, um bloco JSON aninhado dentro de um documento é também um **Registro** .
     
     :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
@@ -109,7 +110,7 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
-1. Clique no expansor no lado direito do cabeçalho da coluna **Documento** .  O menu de contexto com uma lista de campos será exibido.  Selecione os campos que você precisa para o relatório, por exemplo, Nome do Vulcão, País, Região, Localização, Elevação, Tipo, Status e Última Erupção. Desmarque a caixa **Usar nome original da coluna como prefixo** e, em seguida, clique em **OK**.
+1. Clique no expansor no lado direito do cabeçalho da coluna **Documento** .  O menu de contexto com uma lista de campos será exibido.  Selecione os campos que você precisa para o relatório, por exemplo, Nome do Vulcão, País, Região, Localização, Elevação, Tipo, Status e Última Erupção. Desmarque a caixa **Usar nome original da coluna como prefixo** e, em seguida, clique em **OK** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
@@ -119,7 +120,7 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
 
 1. Em nosso exemplo, a propriedade Location é um bloco GeoJSON em um documento.  Como você pode ver, o Local é representado como um tipo **Registro** no Power BI Desktop.  
 
-1. Clique no expansor no lado direito do cabeçalho da coluna Document.Location.  O menu de contexto com os campos tipo e coordenadas é exibido.  Vamos selecionar o campo de coordenadas, assegurar de que **Usar nome original da coluna como prefixo** não está selecionado e clicar em **OK**.
+1. Clique no expansor no lado direito do cabeçalho da coluna Document.Location.  O menu de contexto com os campos tipo e coordenadas é exibido.  Vamos selecionar o campo de coordenadas, assegurar de que **Usar nome original da coluna como prefixo** não está selecionado e clicar em **OK** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
@@ -129,11 +130,11 @@ Você recuperará os dados do vulcão da conta do Azure Cosmos DB e visualizará
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Exibição de relatório do Power BI Desktop — conector do Power BI":::
 
-1. Para nivelar a matriz de coordenadas, crie uma **Coluna Personalizada** chamada LatLong.  Selecione a faixa de opções **Adicionar Coluna** e clique em **Coluna Personalizada**.  A janela **Coluna Personalizada** é exibida.
+1. Para nivelar a matriz de coordenadas, crie uma **Coluna Personalizada** chamada LatLong.  Selecione a faixa de opções **Adicionar Coluna** e clique em **Coluna Personalizada** .  A janela **Coluna Personalizada** é exibida.
 
 1. Forneça um nome para a nova coluna, por exemplo, LatLong.
 
-1. Em seguida, especifique a fórmula personalizada para a nova coluna.  Para nosso exemplo, os valores de Latitude e Longitude, separados por uma vírgula, serão concatenados com a seguinte fórmula, como mostrado abaixo: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Clique em **OK**.
+1. Em seguida, especifique a fórmula personalizada para a nova coluna.  Para nosso exemplo, os valores de Latitude e Longitude, separados por uma vírgula, serão concatenados com a seguinte fórmula, como mostrado abaixo: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Clique em **OK** .
    
    Para obter mais informações sobre o DAX (Data Analysis Expressions) incluindo funções DAX, visite [noções básicas do Dax em Power bi desktop](/power-bi/desktop-quickstart-learn-dax-basics).
    
@@ -170,7 +171,7 @@ Na exibição de Relatório, você deve encontrar:
 O exemplo a seguir mostra as etapas básicas da criação de um relatório interativo simples da exibição de Mapa.
 
 1. Para nosso exemplo, criaremos uma exibição de mapa mostrando o local de cada vulcão.  No painel **Visualizações** , clique no tipo de elemento visual Mapa, como destacado na captura de tela acima.  Você deverá ver o tipo de elemento visual Mapa pintado na tela **Relatório** .  O painel **Visualização** também deve exibir um conjunto de propriedades relacionadas ao tipo de elemento visual Mapa.
-1. Agora, arraste e solte o campo LatLong do painel **Campos** para a propriedade **Location** no painel **Visualizações**.
+1. Agora, arraste e solte o campo LatLong do painel **Campos** para a propriedade **Location** no painel **Visualizações** .
 1. Em seguida, arraste e solte o campo Nome do Vulcão para a propriedade **Legend** .  
 1. Em seguida, arraste e solte o campo Elevação para a propriedade **Size** .  
 1. Agora você deverá ver o elemento visual Mapa mostrando um conjunto de bolhas que indica o local de cada vulcão com o tamanho da bolha correlacionando à elevação do vulcão.
@@ -182,7 +183,7 @@ O exemplo a seguir mostra as etapas básicas da criação de um relatório inter
 Para compartilhar seu relatório, você deve ter uma conta no PowerBI.com.
 
 1. No Power BI Desktop, clique na faixa de opções **Página Inicial** .
-1. Clique em **Publicar**.  Você será solicitado a inserir o nome de usuário e senha da conta do PowerBI.com.
+1. Clique em **Publicar** .  Você será solicitado a inserir o nome de usuário e senha da conta do PowerBI.com.
 1. Depois que a credencial é autenticada, o relatório é publicado no destino selecionado.
 1. Clique em **Abrir 'PowerBITutorial.pbix' no Power BI** para ver e compartilhar seu relatório no PowerBI.com.
    

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071295"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095944"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Dimensionar automaticamente uma instância do Gerenciamento de API do Azure  
 
@@ -62,11 +62,11 @@ Siga as etapas abaixo para configurar o dimensionamento automático em um servi�
 
 3. Localize o serviço de Gerenciamento de API do Azure com base nos filtros nos menus suspensos.
 4. Selecione a instância desejada do Serviço de Gerenciamento de API do Azure.
-5. Na seção de abertos recentemente, clique no botão **Habilitar dimensionamento automático**.
+5. Na seção de abertos recentemente, clique no botão **Habilitar dimensionamento automático** .
 
     ![Ativar o dimensionamento automático do Azure Monitor](media/api-management-howto-autoscale/03.png)
 
-6. Na seção **Regras**, clique em **+ Adicionar uma regra**.
+6. Na seção **Regras** , clique em **+ Adicionar uma regra** .
 
     ![Adicionar regra de dimensionamento automático do Azure Monitor](media/api-management-howto-autoscale/04.png)
 
@@ -93,7 +93,7 @@ Siga as etapas abaixo para configurar o dimensionamento automático em um servi�
 
     ![Regra de escala horizontal do Azure Monitor](media/api-management-howto-autoscale/05.png)
 
-9. Clique novamente em **+ Adicionar uma regra**.
+9. Clique novamente em **+ Adicionar uma regra** .
 
     Nesse momento, uma regra de redução horizontal precisa ser definida. Isso garantirá que os recursos não estarão sendo desperdiçados quando o uso das APIs diminuir.
 
@@ -125,9 +125,9 @@ Siga as etapas abaixo para configurar o dimensionamento automático em um servi�
     > [!NOTE]
     > O Gerenciamento de API do Azure tem um limite de unidades para as quais uma instância pode ser escalada horizontalmente. O limite depende de uma camada de serviço.
 
-    ![Regra de escala horizontal do Azure Monitor](media/api-management-howto-autoscale/07.png)
+    ![Captura de tela que realça onde definir o número máximo de unidades de gerenciamento de API do Azure.](media/api-management-howto-autoscale/07.png)
 
-13. Clique em **Save** (Salvar). O dimensionamento automático foi configurado.
+13. Clique em **Salvar** . O dimensionamento automático foi configurado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

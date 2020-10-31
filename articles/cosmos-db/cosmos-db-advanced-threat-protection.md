@@ -8,14 +8,15 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8398dbded8753bac193f973026fb63d5f1fc6b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489244"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097712"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção Avançada contra Ameaças do Azure Cosmos DB (versão prévia)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A Proteção Avançada contra Ameaças do Azure Cosmos DB oferece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar as contas do Azure Cosmos DB. Essa camada de proteção permite que você resolva as ameaças, mesmo sem ser um especialista em segurança e integrá-las aos sistemas centrais de monitoramento de segurança.
 
@@ -32,9 +33,9 @@ Para uma experiência de investigação completa dos alertas de segurança, reco
 
 A Proteção Avançada contra Ameaças do Azure Cosmos DB detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Ela pode disparar os alertas a seguir simultaneamente:
 
-- **Acesso de locais incomuns**: Este alerta é acionado quando há uma alteração no padrão de acesso a uma conta do Azure Cosmos, em que alguém se conectou ao ponto de extremidade do Azure Cosmos DB de um local geográfico incomum. Em alguns casos, o alerta detecta uma ação legítima, ou seja, um novo aplicativo ou operação de manutenção do desenvolvedor. Em outros casos, o alerta detecta uma ação mal-intencionada, ex-funcionário, invasor externo etc.
+- **Acesso de locais incomuns** : Este alerta é acionado quando há uma alteração no padrão de acesso a uma conta do Azure Cosmos, em que alguém se conectou ao ponto de extremidade do Azure Cosmos DB de um local geográfico incomum. Em alguns casos, o alerta detecta uma ação legítima, ou seja, um novo aplicativo ou operação de manutenção do desenvolvedor. Em outros casos, o alerta detecta uma ação mal-intencionada, ex-funcionário, invasor externo etc.
 
-- **Extração de dados incomuns**: Esse alerta é acionado quando um cliente está extraindo uma quantidade incomum de dados de uma conta do Azure Cosmos DB. Isso pode ser o sintoma do vazamento de alguns dados executados para transferir todos os dados armazenados na conta para um repositório de dados externo.
+- **Extração de dados incomuns** : Esse alerta é acionado quando um cliente está extraindo uma quantidade incomum de dados de uma conta do Azure Cosmos DB. Isso pode ser o sintoma do vazamento de alguns dados executados para transferir todos os dados armazenados na conta para um repositório de dados externo.
 
 
 
@@ -46,13 +47,13 @@ Você pode configurar a proteção avançada contra ameaças de várias maneiras
 
 1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
 
-2. Na conta do Azure Cosmos DB, no menu **Configurações**, selecione **Segurança avançada**.
+2. Na conta do Azure Cosmos DB, no menu **Configurações** , selecione **Segurança avançada** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Configurar o ATP":::
 
-3. Na folha de configuração **Segurança avançada**:
+3. Na folha de configuração **Segurança avançada** :
 
-    * Clique na opção **Proteção Avançada contra Ameaças** para defini-la como **ATIVADA**.
+    * Clique na opção **Proteção Avançada contra Ameaças** para defini-la como **ATIVADA** .
     * Clique em **Salvar** para salvar a política de Proteção avançada contra ameaças nova ou atualizada.   
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
@@ -79,21 +80,21 @@ Para obter mais informações, consulte [Criar uma conta do CosmosDB com a Prote
 
 Use uma Azure Policy para habilitar a Proteção Avançada contra Ameaças do Cosmos DB.
 
-1. Inicie a página **Política - Definições** do Azure e procure a política **Implantar a Proteção Avançada contra Ameaças do Cosmos DB**.
+1. Inicie a página **Política - Definições** do Azure e procure a política **Implantar a Proteção Avançada contra Ameaças do Cosmos DB** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Configurar o ATP"::: 
 
-1. Clique na política **Implantar a Proteção Avançada contra Ameaças do CosmosDB** e em **Atribuir**.
+1. Clique na política **Implantar a Proteção Avançada contra Ameaças do CosmosDB** e em **Atribuir** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Configurar o ATP":::
 
 
-1. No campo **Escopo**, clique nos três pontos, selecione uma assinatura ou grupo de recursos do Azure e clique em **Selecionar**.
+1. No campo **Escopo** , clique nos três pontos, selecione uma assinatura ou grupo de recursos do Azure e clique em **Selecionar** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Configurar o ATP":::
 
 
-1. Insira os outros parâmetros e clique em **Atribuir**.
+1. Insira os outros parâmetros e clique em **Atribuir** .
 
 
 

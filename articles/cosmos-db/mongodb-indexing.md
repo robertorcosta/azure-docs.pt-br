@@ -9,14 +9,15 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487374"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096471"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerenciar a indexação na API do Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 A API do Azure Cosmos DB para MongoDB aproveita os principais recursos de gerenciamento de índice do Azure Cosmos DB. Este artigo se concentra em como adicionar índices usando a API do Azure Cosmos DB para MongoDB. Você também pode ler uma [visão geral da indexação em Azure Cosmos DB](index-overview.md) relevante em todas as APIs.
 
@@ -121,7 +122,7 @@ O comando a seguir cria um índice curinga em qualquer propriedade em `children`
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Ao contrário do MongoDB, os índices curinga podem dar suporte a vários campos em predicados de consulta**. Não haverá diferença no desempenho da consulta se você usar um único índice curinga em vez de criar um índice separado para cada propriedade.
+**Ao contrário do MongoDB, os índices curinga podem dar suporte a vários campos em predicados de consulta** . Não haverá diferença no desempenho da consulta se você usar um único índice curinga em vez de criar um índice separado para cada propriedade.
 
 Você pode criar os seguintes tipos de índice usando a sintaxe curinga:
 
@@ -147,7 +148,7 @@ Os índices curinga não oferecem suporte a nenhum dos seguintes tipos de índic
 - TTL
 - Exclusivo
 
-**Ao contrário do MongoDB**, na API do Azure Cosmos DB para MongoDB, você **não pode** usar índices curinga para:
+**Ao contrário do MongoDB** , na API do Azure Cosmos DB para MongoDB, você **não pode** usar índices curinga para:
 
 - Criando um índice curinga que inclui vários campos específicos
 

@@ -8,14 +8,15 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319377"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097882"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticar e solucionar problemas de disponibilidade de SDKs do Azure Cosmos em ambientes multiregiãois
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo descreve o comportamento da versão mais recente dos SDKs do Azure Cosmos quando você vê um problema de conectividade para uma determinada região ou quando ocorre um failover de região.
 
@@ -34,7 +35,7 @@ Quando você definir a preferência regional, o cliente se conectará a uma regi
 | Região de gravação única | Região preferencial | Região primária  |
 | Várias regiões de gravação | Região preferencial | Região preferencial  |
 
-Se você **não definir uma região preferida**, o cliente SDK usa como padrão a região primária:
+Se você **não definir uma região preferida** , o cliente SDK usa como padrão a região primária:
 
 |Tipo de conta |Leituras |Gravações |
 |------------------------|--|--|
@@ -46,7 +47,7 @@ Se você **não definir uma região preferida**, o cliente SDK usa como padrão 
 
 Em circunstâncias normais, o cliente do SDK se conectará à região preferida (se uma preferência regional estiver definida) ou à região primária (se nenhuma preferência estiver definida) e as operações serão limitadas a essa região, a menos que qualquer um dos cenários a seguir ocorra.
 
-Nesses casos, o cliente que usa o SDK do cosmos do Azure expõe logs e inclui as informações de repetição como parte das **informações de diagnóstico da operação**:
+Nesses casos, o cliente que usa o SDK do cosmos do Azure expõe logs e inclui as informações de repetição como parte das **informações de diagnóstico da operação** :
 
 * A propriedade *RequestDiagnosticsString* em respostas no SDK do .net v2.
 * A propriedade de *diagnóstico* em respostas e exceções no SDK do .net v3.

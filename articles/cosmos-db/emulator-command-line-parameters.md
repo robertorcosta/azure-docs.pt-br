@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445181"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096726"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Referência de linha de comando e PowerShell para emulador de Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O emulador Cosmos do Azure fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento local. Depois [de instalar o emulador](local-emulator.md), você pode controlar o emulador com comandos de linha de comando e do PowerShell. Este artigo descreve como usar os comandos de linha de comando e do PowerShell para iniciar e parar o emulador, configurar opções e executar outras operações. Você precisa executar os comandos do local de instalação.
 
@@ -126,7 +127,7 @@ O cmdlet garante que o emulador seja parado antes de desinstalá-lo.
 
 ## <a name="change-the-number-of-default-containers"></a><a id="set-partitioncount"></a>Alterar o número de contêineres padrão
 
-Por padrão, você pode criar até 25 contêineres de tamanho fixo (suportado apenas usando os SDKs do Azure Cosmos DB) ou os 5 contêineres ilimitados usando o emulador do Azure Cosmos. Ao modificar o valor do **PartitionCount**, que você pode criar até 250 contêineres de tamanho fixo ou 50 contêineres ilimitados ou qualquer combinação dos dois que não excedam 250 contêineres de tamanho fixo (em que um contêiner ilimitado = 5 de tamanho fixo contêineres). No entanto, não é recomendado configurar o emulador para executar com mais de 200 contêineres de tamanho fixo. Por causa da sobrecarga que isso adiciona a operações de E/S de disco, que resulta em tempo limite imprevisível ao usar o ponto de extremidade de APIs.
+Por padrão, você pode criar até 25 contêineres de tamanho fixo (suportado apenas usando os SDKs do Azure Cosmos DB) ou os 5 contêineres ilimitados usando o emulador do Azure Cosmos. Ao modificar o valor do **PartitionCount** , que você pode criar até 250 contêineres de tamanho fixo ou 50 contêineres ilimitados ou qualquer combinação dos dois que não excedam 250 contêineres de tamanho fixo (em que um contêiner ilimitado = 5 de tamanho fixo contêineres). No entanto, não é recomendado configurar o emulador para executar com mais de 200 contêineres de tamanho fixo. Por causa da sobrecarga que isso adiciona a operações de E/S de disco, que resulta em tempo limite imprevisível ao usar o ponto de extremidade de APIs.
 
 Se você tentar criar contêiner depois que a contagem de partição atual tiver sido excedida, o emulador lançará uma exceção de ServiceUnavailable, com a mensagem de erro a seguir.
 
@@ -135,11 +136,11 @@ Se você tentar criar contêiner depois que a contagem de partição atual tiver
 
 Para alterar o número de contêineres disponíveis para o emulador do Azure Cosmos DB, faça o seguinte:
 
-1. Exclua todos os dados locais do emulador Cosmos do Azure clicando com o botão direito do mouse no ícone do **emulador Azure Cosmos DB** na bandeja do sistema e, em seguida, clicando em **Redefinir dados...**.
+1. Exclua todos os dados locais do emulador Cosmos do Azure clicando com o botão direito do mouse no ícone do **emulador Azure Cosmos DB** na bandeja do sistema e, em seguida, clicando em **Redefinir dados...** .
 
 1. Excluir todos os dados de emulador desta pasta `%LOCALAPPDATA%\CosmosDBEmulator`.
 
-1. Saia de todas as instâncias abertas clicando com o botão direito do mouse no ícone do **Emulador do Azure Cosmos DB** na bandeja do sistema e clicando em **Sair**. Pode levar um minuto para que todas as instâncias saiam.
+1. Saia de todas as instâncias abertas clicando com o botão direito do mouse no ícone do **Emulador do Azure Cosmos DB** na bandeja do sistema e clicando em **Sair** . Pode levar um minuto para que todas as instâncias saiam.
 
 1. Instale a versão mais recente do [emulador Azure Cosmos](https://aka.ms/cosmosdb-emulator).
 

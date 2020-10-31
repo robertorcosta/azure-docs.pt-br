@@ -11,16 +11,16 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1d215c9564d89e5bd410e68839807f5c2c752356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828340"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097950"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como usar seu espaço de trabalho com um servidor DNS personalizado
 
-Ao usar Azure Machine Learning com uma rede virtual, há [várias maneiras de lidar com a resolução de nomes DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). Por padrão, o Azure manipula automaticamente a resolução de nomes para seu espaço de trabalho e o ponto de extremidade privado. No entanto, __ao usar seu próprio servidor DNS personalizado__, você deve criar manualmente entradas DNS para o espaço de trabalho.
+Ao usar Azure Machine Learning com uma rede virtual, há [várias maneiras de lidar com a resolução de nomes DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). Por padrão, o Azure manipula automaticamente a resolução de nomes para seu espaço de trabalho e o ponto de extremidade privado. No entanto, __ao usar seu próprio servidor DNS personalizado__ , você deve criar manualmente entradas DNS para o espaço de trabalho.
 
 > [!IMPORTANT]
 > Este artigo aborda apenas como localizar o FQDN (nome de domínio totalmente qualificado) e os endereços IP para essas entradas, ele não fornece informações sobre como configurar os registros DNS para esses itens. Consulte a documentação do software DNS para obter informações sobre como adicionar registros.
@@ -46,7 +46,7 @@ A lista a seguir contém os nomes de domínio totalmente qualificados (FQDN) usa
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* Se você criar uma instância de computação, também deverá adicionar uma entrada para `<instance-name>.<region>.instances.azureml.ms` .
+* Se você criar uma instância de computação, também deverá adicionar uma entrada para `<instance-name>.<region>.instances.azureml.ms` com o IP privado do ponto de extremidade privado do espaço de trabalho. Observe que a instância de computação pode ser acessada somente de dentro da rede virtual.
 
 Para localizar os endereços IP internos para os FQDNs na VNet, use um dos seguintes métodos:
 
@@ -68,8 +68,8 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 # <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
-1. Na [portal do Azure](https://portal.azure.com), selecione seu espaço de __trabalho__do Azure Machine Learning.
-1. Na seção __configurações__ , selecione __conexões de ponto de extremidade privado__.
+1. Na [portal do Azure](https://portal.azure.com), selecione seu espaço de __trabalho__ do Azure Machine Learning.
+1. Na seção __configurações__ , selecione __conexões de ponto de extremidade privado__ .
 1. Selecione o link na coluna __ponto de extremidade privado__ que é exibida.
 1. Uma lista de nomes de domínio totalmente qualificados (FQDN) e endereços IP para o ponto de extremidade privado do espaço de trabalho estão na parte inferior da página.
 
@@ -92,7 +92,7 @@ As informações retornadas de todos os métodos são as mesmas; uma lista de FQ
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * Se você tiver uma instância de computação, use `<instance-name>.<region>.instances.azureml.ms` , em que `<instance-name>` é o nome da sua instância de computação.
+> * Se você tiver uma instância de computação, use `<instance-name>.<region>.instances.azureml.ms` , em que `<instance-name>` é o nome da sua instância de computação. Use o endereço IP privado do ponto de extremidade privado do espaço de trabalho. Observe que a instância de computação pode ser acessada somente de dentro da rede virtual.
 >
 > Para todos esses endereços IP, use o mesmo endereço que as `*.api.azureml.ms` entradas retornadas das etapas anteriores.
 

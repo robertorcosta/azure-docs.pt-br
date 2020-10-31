@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 6e77746d21d63cf1460b9e460e470a3bd12ce656
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8599ebf1932d7c30622855cbf38af867d30b52b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480030"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098052"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Usar Power BI e o pool de SQL Synapse sem servidor para analisar Azure Cosmos DB dados com o link do Synapse (visualização) 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
-Neste artigo, você aprenderá a criar um pool de SQL Synapse sem servidor (que, anteriormente chamado de banco de dados **SQL sob demanda**) e exibições sobre o link Synapse para Azure Cosmos DB. Você consultará os contêineres Cosmos do Azure e criará um modelo com Power BI sobre essas exibições para refletir essa consulta.
+Neste artigo, você aprenderá a criar um pool de SQL Synapse sem servidor (que, anteriormente chamado de banco de dados **SQL sob demanda** ) e exibições sobre o link Synapse para Azure Cosmos DB. Você consultará os contêineres Cosmos do Azure e criará um modelo com Power BI sobre essas exibições para refletir essa consulta.
 
 Nesse cenário, você usará dados fictícios sobre as vendas de produtos de superfície em uma loja de varejo de parceiro. Você analisará a receita por loja com base na proximidade com grandes residências e o impacto de publicidade para uma semana específica. Neste artigo, você cria duas exibições chamadas **RetailSales** e **StoreDemographics** e uma consulta entre elas. Você pode obter os dados do produto de exemplo deste repositório [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) .
 
@@ -31,21 +32,21 @@ Certifique-se de criar os seguintes recursos antes de começar:
 
 * Carregue os dados de produtos nos contêineres de Cosmos do Azure conforme descrito neste bloco de anotações de [ingestão de dados em lotes](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) .
 
-* [Crie um espaço de trabalho Synapse](../synapse-analytics/quickstart-create-workspace.md) chamado **SynapseLinkBI**.
+* [Crie um espaço de trabalho Synapse](../synapse-analytics/quickstart-create-workspace.md) chamado **SynapseLinkBI** .
 
 * [Conecte o banco de dados Cosmos do Azure ao espaço de trabalho Synapse](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json).
 
 ## <a name="create-a-database-and-views"></a>Criar um banco de dados e exibições
 
-No espaço de trabalho Synapse, acesse a guia **desenvolver** , selecione o **+** ícone e selecione **script SQL**.
+No espaço de trabalho Synapse, acesse a guia **desenvolver** , selecione o **+** ícone e selecione **script SQL** .
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Adicionar um script SQL ao espaço de trabalho do Synapse Analytics":::
 
-Todo espaço de trabalho é fornecido com um ponto de extremidade SQL sem servidor. Depois de criar um script SQL, na barra de ferramentas na parte superior, conecte-se ao **SQL sob demanda**.
+Todo espaço de trabalho é fornecido com um ponto de extremidade SQL sem servidor. Depois de criar um script SQL, na barra de ferramentas na parte superior, conecte-se ao **SQL sob demanda** .
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Adicionar um script SQL ao espaço de trabalho do Synapse Analytics":::
 
-Crie um novo banco de dados, chamado **RetailCosmosDB**, e um modo SQL sobre os contêineres habilitados para link Synapse. O comando a seguir mostra como criar um banco de dados:
+Crie um novo banco de dados, chamado **RetailCosmosDB** , e um modo SQL sobre os contêineres habilitados para link Synapse. O comando a seguir mostra como criar um banco de dados:
 
 ```sql
 -- Create database
@@ -109,15 +110,15 @@ Selecione **executar** que fornece a seguinte tabela como resultado:
 
 Em seguida, abra o Power BI área de trabalho e conecte-se ao ponto de extremidade SQL sem servidor usando as seguintes etapas:
 
-1. Abra o aplicativo Power BI Desktop. Selecione **obter dados** e selecione **mais**.
+1. Abra o aplicativo Power BI Desktop. Selecione **obter dados** e selecione **mais** .
 
 1. Escolha **análise de Synapse do Azure (SQL DW)** na lista de opções de conexão.
 
-1. Insira o nome do ponto de extremidade SQL onde o banco de dados está localizado. Insira `SynapseLinkBI-ondemand.sql.azuresynapse.net` dentro do campo **servidor** . Neste exemplo,  **SynapseLinkBI** é o nome do espaço de trabalho. Substitua-o se você tiver fornecido um nome diferente para seu espaço de trabalho. Selecione **consulta direta** para o modo de conectividade de dados e, em seguida, **OK**.
+1. Insira o nome do ponto de extremidade SQL onde o banco de dados está localizado. Insira `SynapseLinkBI-ondemand.sql.azuresynapse.net` dentro do campo **servidor** . Neste exemplo,  **SynapseLinkBI** é o nome do espaço de trabalho. Substitua-o se você tiver fornecido um nome diferente para seu espaço de trabalho. Selecione **consulta direta** para o modo de conectividade de dados e, em seguida, **OK** .
 
 1. Selecione o método de autenticação preferencial, como o Azure AD.
 
-1. Selecione o banco de dados **RetailCosmosDB** e os modos de exibição **RetailSales**, **StoreDemographics** .
+1. Selecione o banco de dados **RetailCosmosDB** e os modos de exibição **RetailSales** , **StoreDemographics** .
 
 1. Selecione **carregar** para carregar as duas exibições no modo consulta direta.
 
@@ -129,7 +130,7 @@ Em seguida, abra o Power BI área de trabalho e conecte-se ao ponto de extremida
 
 Agora, navegue até a janela de **relatório** e crie um relatório para comparar a importância relativa de tamanho doméstico com a receita média por loja com base na representação dispersão de receita e índice LargeHH:
 
-1. Selecione **gráfico de dispersão**.
+1. Selecione **gráfico de dispersão** .
 
 1. Arraste e solte **LargeHH** da exibição **StoreDemographics** para o eixo X.
 

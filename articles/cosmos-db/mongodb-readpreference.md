@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: e86c48695c732b27f5032c1e3780cc24c8d3dc39
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482257"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096386"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como configurar distribuir globalmente as leituras usando a API do Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este artigo mostra como distribuir globalmente operações de leitura usando configurações de [Preferência de Leitura do MongoDB](https://docs.mongodb.com/manual/core/read-preference/) com a API do Azure Cosmos DB para MongoDB.
 
@@ -86,7 +87,7 @@ Consulte a documentação detalhada [Comportamento da Preferência de Leitura do
 
 Com base em cenários comuns, é usar as seguintes configurações a seguir:
 
-1. Se **leituras de baixa latência** forem necessárias, utilize o modo de preferência de leitura **NEAREST**. Essa configuração direciona as operações de leitura para a região disponível mais próxima. Observe que, se a região mais próxima for a região de GRAVAÇÃO, essas operações serão direcionadas a essa região.
+1. Se **leituras de baixa latência** forem necessárias, utilize o modo de preferência de leitura **NEAREST** . Essa configuração direciona as operações de leitura para a região disponível mais próxima. Observe que, se a região mais próxima for a região de GRAVAÇÃO, essas operações serão direcionadas a essa região.
 2. Se a **alta disponibilidade e a distribuição geográfica de leituras** forem necessárias (a latência não é uma restrição), use o modo de preferência de leitura preferencial **primário** ou **secundário** . Essa configuração direciona as operações de leitura para uma região de gravação ou leitura disponível, respectivamente. Se a região não estiver disponível, as solicitações serão direcionadas para a próxima região disponível de acordo com o comportamento de preferência de leitura.
 
 O snippet de código a seguir do aplicativo de exemplo mostra como configurar a Preferência de Leitura NEAREST no NodeJS:
@@ -145,7 +146,7 @@ Além do modo de Preferência de Leitura, o protocolo MongoDB permite o uso de m
       }
 ```
 
-Portanto, o MongoClient pode usar a marca `region` juntamente com o nome da região para direcionar operações de leitura para regiões específicas. Para contas Cosmos, os nomes das regiões podem ser encontrados no portal do Azure à esquerda em **Configurações->Replicar dados globalmente**. Essa configuração é útil para alcançar **isolamento de leitura** - casos em que o aplicativo cliente deseja direcionar operações de leitura apenas para uma região específica. Essa configuração é ideal para cenários de tipo análise/sem produção, que são executados em segundo plano e não são serviços críticos de produção.
+Portanto, o MongoClient pode usar a marca `region` juntamente com o nome da região para direcionar operações de leitura para regiões específicas. Para contas Cosmos, os nomes das regiões podem ser encontrados no portal do Azure à esquerda em **Configurações->Replicar dados globalmente** . Essa configuração é útil para alcançar **isolamento de leitura** - casos em que o aplicativo cliente deseja direcionar operações de leitura apenas para uma região específica. Essa configuração é ideal para cenários de tipo análise/sem produção, que são executados em segundo plano e não são serviços críticos de produção.
 
 O snippet de código a seguir do aplicativo de exemplo mostra como configurar a Preferência de Leitura com marcas no NodeJS:
 
@@ -162,12 +163,12 @@ Consulte o repos de aplicativo de exemplo correspondente para outras plataformas
 
 Neste artigo, você aprendeu a distribuir globalmente operações de leitura usando a Preferência de Leitura com API do Azure Cosmos DB para MongoDB.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não continuar a usar esse aplicativo, exclua todos os recursos criados por este artigo no Portal do Azure com as seguintes etapas:
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado. 
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+2. Em sua página de grupo de recursos, clique em **Excluir** , digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

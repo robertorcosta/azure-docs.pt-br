@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2ae06a8ed59f7987f58aba8b8017833315e6529f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 98cca99ab0e088bbae047fa64ec52429e531dfed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428813"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096063"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Tutorial: configurar o AlertMedia para o provisionamento automático de usuário
 
@@ -51,8 +51,8 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-2-configure-alertmedia-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o AlertMedia para dar suporte ao provisionamento com o Azure AD
 
-1. Faça logon em sua conta do AlertMedia. Navegue até a **API de > da empresa**.
-2. Clique em **Adicionar novo**.
+1. Faça logon em sua conta do AlertMedia. Navegue até a **API de > da empresa** .
+2. Clique em **Adicionar novo** .
 3. Opte por dar um nome à sua **integração de API** para ajudá-lo a reconhecer facilmente onde as chaves estão sendo usadas.
 4. Selecione o administrador com o qual você deseja associar a integração.
 5. Clique no botão **gerar chaves** e **salvar** .
@@ -67,7 +67,7 @@ Adicione o AlertMedia da Galeria de aplicativos do Azure AD para começar a gere
 
 No Azure AD, é possível definir quem estará no escopo de provisionamento com base na atribuição ao aplicativo ou nos atributos do usuário/grupo. Se você optar por definir quem estará no escopo de provisionamento com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e grupos ao aplicativo. Se você optar por definir quem estará no escopo de provisionamento com base somente em atributos do usuário ou do grupo, poderá usar um filtro de escopo, conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Ao atribuir usuários e grupos ao AlertMedia, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao AlertMedia, você deve selecionar uma função diferente de **acesso padrão** . Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar outras funções. 
 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -78,38 +78,38 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 ### <a name="to-configure-automatic-user-provisioning-for-alertmedia-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para AlertMedia no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **Aplicativos Empresariais** e **Todos os Aplicativos** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **AlertMedia**.
+2. Na lista de aplicativos, selecione **AlertMedia** .
 
     ![O link do AlertMedia na lista de aplicativos](common/all-applications.png)
 
-3. Selecione a guia **Provisionamento**.
+3. Selecione a guia **Provisionamento** .
 
     ![Guia Provisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **Modo de Provisionamento** como **Automático** .
 
     ![Guia de provisionamento automático](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira a **URL do locatário** do AlertMedia como um dos seguintes.
-      * (nenhum domínio personalizado) https://dashboard.alertmedia.com/api/scim/v3
+      * (nenhum domínio personalizado) https://docs.gitlab.com/ee/api/scim.html
 
-      * (domínio personalizado) https://subdomain.alertmedia.com/api/scim/v3
+      * (domínio personalizado) https://developer.github.com/v3/scim/
 
       Insira o **token secreto** como recuperado anteriormente na etapa 2. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao AlertMedia. Se a conexão falhar, verifique se sua conta do AlertMedia tem permissões de administrador e tente novamente.
 
       ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Salvar** .
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para AlertMedia**.
+8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para AlertMedia** .
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para o AlertMedia na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no AlertMedia para operações de atualização. Se você optar por alterar o [atributo de destino correspondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), será necessário garantir que a API AlertMedia dê suporte à filtragem de usuários com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
@@ -143,7 +143,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |urn: IETF: params: SCIM: esquemas: extensão: alertmedia: 2.0: CustomAttribute: User: customer_user_id|String|
    |urn: IETF: params: SCIM: esquemas: extensão: alertmedia: 2.0: CustomAttribute: User: user_type|String|
 
-10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para AlertMedia**.
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para AlertMedia** .
 
 11. Examine os atributos de grupo que são sincronizados do Azure AD para o AlertMedia na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no AlertMedia para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
@@ -162,11 +162,11 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para provisionar, clique em **Salvar**.
+15. Quando estiver pronto para provisionar, clique em **Salvar** .
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
+Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações** . O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc285599176057c57621dc6bfefbe9188d3badd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370756"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096879"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Criar um painel em tempo real usando Azure Cosmos DB e Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo descreve as etapas necessárias para criar um painel do clima ao vivo no Power BI usando Azure Cosmos DB e Azure Analysis Services. O painel de Power BI exibirá gráficos para mostrar informações em tempo real sobre temperatura e chuva em uma região.
 
@@ -74,7 +75,7 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Conector do Power BI do Azure Cosmos DB":::
 
-   Ignore o aviso dizendo que *a consulta M não pode ser confirmada para ser dobrada*. O conector de Azure Cosmos DB dobra as consultas de filtro.
+   Ignore o aviso dizendo que *a consulta M não pode ser confirmada para ser dobrada* . O conector de Azure Cosmos DB dobra as consultas de filtro.
 
 1. **Carregue os dados e gere os relatórios** -usando os dados que você carregou anteriormente, crie os gráficos para relatar a temperatura e chuva.
 
@@ -105,7 +106,7 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Conector do Power BI do Azure Cosmos DB":::
 
-   Conecte-se a Azure Cosmos DB fornecendo o **URI da conta**, o nome do banco de **dados**e o nome do **contêiner**. Agora você pode ver que os dados do contêiner Cosmos do Azure são importados para o Power BI.
+   Conecte-se a Azure Cosmos DB fornecendo o **URI da conta** , o nome do banco de **dados** e o nome do **contêiner** . Agora você pode ver que os dados do contêiner Cosmos do Azure são importados para o Power BI.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Conector do Power BI do Azure Cosmos DB":::
 
@@ -140,7 +141,7 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Conector do Power BI do Azure Cosmos DB" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")`
    * **Histórico** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")`
 
-1. **Implante o modelo no Azure Analysis Server** -clique com o botão direito do mouse no projeto Azure Analysis Services e escolha **implantar**. Adicione o nome do servidor no painel **Propriedades do servidor de implantação** .
+1. **Implante o modelo no Azure Analysis Server** -clique com o botão direito do mouse no projeto Azure Analysis Services e escolha **implantar** . Adicione o nome do servidor no painel **Propriedades do servidor de implantação** .
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Conector do Power BI do Azure Cosmos DB":::
 

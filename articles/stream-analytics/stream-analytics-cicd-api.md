@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18817a426bacc1ddf144c1d64b611c55245cc21e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039068"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097780"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementar CI/CD para Stream Analytics no IoT Edge usando APIs
 
@@ -55,11 +55,11 @@ echo $response
  
 Para criar o trabalho do Stream Analytics, chame o método PUT usando a API do Stream Analytics.
 
-|Método|URL de Solicitação|
+|Método|URL da solicitação|
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-Exemplo de uso do comando **curl**:
+Exemplo de uso do comando **curl** :
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -136,19 +136,19 @@ Exemplo de corpo da solicitação em JSON:
 } 
 ```
  
-Para obter mais informações, consulte a [Documentação da API](/rest/api/streamanalytics/stream-analytics-job).  
+Para obter mais informações, consulte a [Documentação da API](/rest/api/streamanalytics/).  
  
 ## <a name="publish-edge-package"></a>Publicar o pacote do Edge 
  
 Para publicar um trabalho de Stream Analytics no IoT Edge, chame o método POST usando a API Edge Package Publish.
 
-|Método|URL de Solicitação|
+|Método|URL da solicitação|
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
 Essa operação assíncrona retorna um status de 202 até que o trabalho tenha sido publicado com êxito. O cabeçalho de resposta de localização contém o URI usado para obter o status do processo. Enquanto o processo está em execução, uma chamada para o URI no cabeçalho de localização retorna um status de 202. Enquanto o processo é finalizado, o URI no cabeçalho de localização retorna um status de 200. 
 
-Exemplo de uma chamada de publicação de pacote do Edge usando **curl**: 
+Exemplo de uma chamada de publicação de pacote do Edge usando **curl** : 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +163,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 Uma espera por um ou dois minutos antes de executar o comando a seguir para fazer uma chamada de API com a URL é encontrada no HEAD da resposta. Repita o comando se você não obtiver uma resposta 200.
  
-Exemplo de como fazer a chamada à API com URL retornada usando **curl**:
+Exemplo de como fazer a chamada à API com URL retornada usando **curl** :
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 

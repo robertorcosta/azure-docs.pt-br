@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: d5de1cc606f97655427c0c86aea0c5c722e1bab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84171456"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095383"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API v7 da Pesquisa de empresa local do Bing
+
+> [!WARNING]
+> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
+> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. Os resultados de entidade incluem pessoas, lugares ou coisas. O local neste contexto é entidades de negócios, Estados, países/regiões, etc.  
 
@@ -71,16 +76,16 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL.  
   
   
-|Nome|Valor|Type|Obrigatório|  
+|Name|Valor|Tipo|Obrigatório|  
 |----------|-----------|----------|--------------|
-|<a name="count"></a>Contagem|O número de resultados a serem retornados, começando com o índice especificado pelo `offset` parâmetro.|String|Não|   
-|<a name="localCategories"></a>localCategories|Lista de opções que definem a pesquisa por categoria de negócio.  Consulte [categorias de negócios locais de pesquisa](local-categories.md)|String|Não|  
+|<a name="count"></a>Contagem|O número de resultados a serem retornados, começando com o índice especificado pelo `offset` parâmetro.|String|No|   
+|<a name="localCategories"></a>localCategories|Lista de opções que definem a pesquisa por categoria de negócio.  Consulte [categorias de negócios locais de pesquisa](local-categories.md)|String|No|  
 |<a name="mkt"></a>mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira Códigos de mercado.<br /><br /> **OBSERVAÇÃO:** Atualmente, a API de pesquisa de empresa local suporta apenas o mercado e o idioma do en-us.<br /><br />|String|Sim|
 |<a name="offset"></a>deslocamento|O índice para iniciar os resultados especificados pelo parâmetro `count`.|Integer|Não|  
-|<a name="query"></a>q|Termo de pesquisa do usuário.|String|Não|  
-|<a name="responseformat"></a>responseFormat|O tipo de mídia a ser usado para a resposta. Veja a seguir os possíveis valores que não diferenciam maiúsculas de minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON contidos na resposta, confira [Objetos de resposta](#response-objects).<br /><br />  Se você especificar JsonLd, o corpo da resposta incluirá objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, confira [JSON-LD](https://json-ld.org/).|String|Não|  
-|<a name="safesearch"></a>Pesquisa Segura|Um filtro usado para filtrar o conteúdo para adulto. Veja a seguir os possíveis valores de filtro que não diferenciam maiúsculas de minúsculas.<br /><ul><li>Desativado – retorna páginas da Web com texto, imagens ou vídeos para adulto.<br /><br/></li><li>Moderado – retorna páginas da Web com texto para adulto, mas não imagens nem vídeos para adulto.<br /><br/></li><li>Estrito – não retorna páginas da Web com texto, imagens ou vídeos para adulto.</li></ul><br /> O padrão é Moderado.<br /><br /> **OBSERVAÇÃO:** se a solicitação for proveniente de um mercado cuja política de conteúdo para adulto do Bing exija que `safeSearch` seja definido como Estrito, o Bing ignorará o valor `safeSearch` e usará Estrito.<br/><br/>**OBSERVAÇÃO:** se você usar o operador de consulta `site:`, há a possibilidade de que a resposta possa trazer um conteúdo para adulto, seja qual for a definição do parâmetro de consulta `safeSearch`. Só use `site:` se estiver ciente do conteúdo do site e se o cenário der suporte à possibilidade de conteúdo para adulto. |String|Não|  
-|<a name="setlang"></a>setLang|O idioma a ser usado para cadeias de caracteres de interface do usuário. Especifique o idioma usando o código de idioma ISO 639-1 de 2 letras. Por exemplo, o código de idioma para o inglês é EN. O padrão é EN (inglês).<br /><br /> Embora isso seja opcional, você sempre deve especificar o idioma. Normalmente, você define `setLang` com o mesmo idioma especificado por `mkt`, a menos que o usuário deseje exibir as cadeias de caracteres de interface do usuário em outro idioma.<br /><br /> Esse parâmetro e o cabeçalho [](#acceptlanguage)Accept-Language&mdash; são mutuamente exclusivos – não especifique ambos.<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Além disso, todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|String|Não| 
+|<a name="query"></a>q|Termo de pesquisa do usuário.|String|No|  
+|<a name="responseformat"></a>responseFormat|O tipo de mídia a ser usado para a resposta. Veja a seguir os possíveis valores que não diferenciam maiúsculas de minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON contidos na resposta, confira [Objetos de resposta](#response-objects).<br /><br />  Se você especificar JsonLd, o corpo da resposta incluirá objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, confira [JSON-LD](https://json-ld.org/).|String|No|  
+|<a name="safesearch"></a>Pesquisa Segura|Um filtro usado para filtrar o conteúdo para adulto. Veja a seguir os possíveis valores de filtro que não diferenciam maiúsculas de minúsculas.<br /><ul><li>Desativado – retorna páginas da Web com texto, imagens ou vídeos para adulto.<br /><br/></li><li>Moderado – retorna páginas da Web com texto para adulto, mas não imagens nem vídeos para adulto.<br /><br/></li><li>Estrito – não retorna páginas da Web com texto, imagens ou vídeos para adulto.</li></ul><br /> O padrão é Moderado.<br /><br /> **OBSERVAÇÃO:** se a solicitação for proveniente de um mercado cuja política de conteúdo para adulto do Bing exija que `safeSearch` seja definido como Estrito, o Bing ignorará o valor `safeSearch` e usará Estrito.<br/><br/>**OBSERVAÇÃO:** se você usar o operador de consulta `site:`, há a possibilidade de que a resposta possa trazer um conteúdo para adulto, seja qual for a definição do parâmetro de consulta `safeSearch`. Só use `site:` se estiver ciente do conteúdo do site e se o cenário der suporte à possibilidade de conteúdo para adulto. |String|No|  
+|<a name="setlang"></a>setLang|O idioma a ser usado para cadeias de caracteres de interface do usuário. Especifique o idioma usando o código de idioma ISO 639-1 de 2 letras. Por exemplo, o código de idioma para o inglês é EN. O padrão é EN (inglês).<br /><br /> Embora isso seja opcional, você sempre deve especificar o idioma. Normalmente, você define `setLang` com o mesmo idioma especificado por `mkt`, a menos que o usuário deseje exibir as cadeias de caracteres de interface do usuário em outro idioma.<br /><br /> Esse parâmetro e o cabeçalho [](#acceptlanguage)Accept-Language&mdash; são mutuamente exclusivos – não especifique ambos.<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Além disso, todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|String|No| 
 
 
 ## <a name="response-objects"></a>Objetos de resposta  
@@ -92,7 +97,7 @@ A seguir estão os objetos de resposta JSON que a resposta pode incluir. Se a so
 |[Local](#place)|Define informações sobre uma empresa local, como um restaurante ou hotel.|  
 
   
-### <a name="error"></a>Erro do  
+### <a name="error"></a>Erro  
 Define o erro ocorrido.  
   
 |Elemento|Descrição|Type|  
@@ -108,7 +113,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior incluído pela resposta quando a solicitação falha.  
   
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |<a name="errors"></a>errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Erro](#error)[]|  
@@ -118,7 +123,7 @@ O objeto de nível superior incluído pela resposta quando a solicitação falha
 ### <a name="license"></a>Licença  
 Define a licença sob a qual a foto ou o texto pode ser usado.  
   
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |----------|-----------|----------|  
 |name|O nome da licença.|String|  
 |url|A URL para um site em que o usuário pode obter mais informações sobre a licença.<br /><br /> Use o nome e a URL para criar um hiperlink.|String|  
@@ -127,7 +132,7 @@ Define a licença sob a qual a foto ou o texto pode ser usado.
 ### <a name="link"></a>Link  
 Define os componentes de um hiperlink.  
   
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |text|O texto de exibição.|String|  
@@ -141,7 +146,7 @@ Define um editor.
   
 Observe que um editor pode fornecer seu nome, seu site ou ambos.  
   
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |----------|-----------|----------|  
 |name|O nome do editor.|String|  
 |url|A URL para o site do editor.<br /><br /> Observe que o editor pode não fornecer um site.|String|  
@@ -151,7 +156,7 @@ Observe que um editor pode fornecer seu nome, seu site ou ambos.
 ### <a name="place"></a>Posicionar  
 Define informações sobre uma empresa local, como um restaurante ou hotel.  
   
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Digite hint, que pode ser definido como um dos seguintes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|String|  
 |address|O endereço postal em que a entidade está localizada.|PostalAddress|  
@@ -167,29 +172,29 @@ Define o contexto de consulta usado pelo Bing para a solicitação.
   
 |Elemento|Descrição|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|Booliano|  
-|alterationOverrideQuery|A cadeia de caracteres de consulta a ser usada para forçar o Bing a usar a cadeia de caracteres original. Por exemplo, se a cadeia de caracteres de consulta for *velejando na direção do vento*, a cadeia de caracteres de consulta de substituição será *+velejando na direção do vento*. Lembre-se de codificar a cadeia de caracteres de consulta que resulta em *%2Bvelejando+na direção do vento*.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|String|  
+|adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false** .|Booliano|  
+|alterationOverrideQuery|A cadeia de caracteres de consulta a ser usada para forçar o Bing a usar a cadeia de caracteres original. Por exemplo, se a cadeia de caracteres de consulta for *velejando na direção do vento* , a cadeia de caracteres de consulta de substituição será *+velejando na direção do vento* . Lembre-se de codificar a cadeia de caracteres de consulta que resulta em *%2Bvelejando+na direção do vento* .<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|String|  
 |alteredQuery|A cadeia de caracteres de consulta usada pelo Bing para executar a consulta. O Bing usa a cadeia de caracteres de consulta alterada se a cadeia de caracteres de consulta original contém erros de ortografia. Por exemplo, se a cadeia de caracteres de consulta for `saling downwind`, a cadeia de caracteres de consulta alterada será `sailing downwind`.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|String|  
-|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), ignore esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes próximos ao meu local" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true**.<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "clima de Seattle"), esse campo é definido como **false**. Esse campo também é definido como **false** para consultas sem reconhecimento de local, como "campeões de venda".|Booliano|  
+|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), ignore esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes próximos ao meu local" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true** .<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "clima de Seattle"), esse campo é definido como **false** . Esse campo também é definido como **false** para consultas sem reconhecimento de local, como "campeões de venda".|Booliano|  
 |originalQuery|A cadeia de caracteres de consulta especificada na solicitação.|String|  
 
 ### <a name="identifiable"></a>Identifiable
 
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |-------------|-----------------|----------|
 |id|Um identificador de recurso|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define um grupo de resultados da pesquisa, como linha principal.
 
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado da pesquisa a ser exibido.
 
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |-------------|-----------------|----------|
 |resultIndex|Um índice baseado em zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta Notícias.|Integer|
 |answerType|A resposta que contém o item a ser exibido. Por exemplo, Notícias.<br /><br />Use o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, use o tipo de resposta somente se esse objeto incluir o campo de valor; caso contrário, ignore-o.|String|
@@ -199,7 +204,7 @@ Define um item de resultado da pesquisa a ser exibido.
 ### <a name="rankingresponse"></a>RankingResponse  
 Define o local em que o conteúdo da página de resultados da pesquisa deve ser colocado e em qual ordem.  
   
-|Nome|Valor|  
+|Name|Valor|  
 |----------|-----------|  
 |<a name="ranking-mainline"></a>mainline|Os resultados da pesquisa a serem exibidos na linha principal.|  
 |<a name="ranking-pole"></a>pole|Os resultados da pesquisa que devem receber o tratamento mais visível (por exemplo, exibidos acima da linha principal e da barra lateral).|  
@@ -210,7 +215,7 @@ Define o objeto de nível superior incluído pela resposta quando a solicitaçã
   
 Observe que se o serviço suspeitar de um ataque de negação de serviço, a solicitação será bem-sucedida (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|Nome|Valor|Type|  
+|Name|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|String|  
 |Locais|Uma lista de entidades que são relevantes para a consulta de pesquisa.|Objeto JSON|  

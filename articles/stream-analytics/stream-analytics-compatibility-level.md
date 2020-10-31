@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056509"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097729"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -33,13 +33,13 @@ Quando você cria um novo trabalho de Stream Analytics, é uma prática recomend
 
 ## <a name="set-the-compatibility-level"></a>Definir o nível de compatibilidade
 
-Você pode definir o nível de compatibilidade para um trabalho de Stream Analytics no portal do Azure ou usando a [chamada de API REST de trabalho Create](/rest/api/streamanalytics/stream-analytics-job).
+Você pode definir o nível de compatibilidade para um trabalho de Stream Analytics no portal do Azure ou usando a [chamada de API REST de trabalho Create](/azure/stream-analytics/stream-analytics-quick-create-portal).
 
 Para atualizar o nível de compatibilidade do trabalho no portal do Azure:
 
 1. Use o [portal do Azure](https://portal.azure.com) para localizar em seu trabalho de Stream Analytics.
 2. **Pare** o trabalho antes de atualizar o nível de compatibilidade. Não será possível atualizar o nível de compatibilidade se o trabalho estiver em um estado de execução.
-3. No cabeçalho **Configurar** , selecione **nível de compatibilidade**.
+3. No cabeçalho **Configurar** , selecione **nível de compatibilidade** .
 4. Escolha o valor do nível de compatibilidade desejado.
 5. Selecione **salvar** na parte inferior da página.
 
@@ -53,7 +53,7 @@ As seguintes alterações principais são introduzidas no nível de compatibilid
 
 ###  <a name="amqp-messaging-protocol"></a>Protocolo de mensagens AMQP
 
-**nível 1,2**: o Azure Stream Analytics usa o protocolo de mensagens [do protocolo AMQP](../service-bus-messaging/service-bus-amqp-overview.md) para gravar em filas e tópicos do barramento de serviço. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto.
+**nível 1,2** : o Azure Stream Analytics usa o protocolo de mensagens [do protocolo AMQP](../service-bus-messaging/service-bus-amqp-overview.md) para gravar em filas e tópicos do barramento de serviço. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto.
 
 ### <a name="geospatial-functions"></a>Funções geoespaciais
 
@@ -75,11 +75,11 @@ Para obter mais informações, consulte [atualizações para recursos geoespacia
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Integração de API em massa nativa com saída de CosmosDB
 
-**Níveis anteriores:** O comportamento de Upsert foi *INSERT ou Merge*.
+**Níveis anteriores:** O comportamento de Upsert foi *INSERT ou Merge* .
 
 **nível de 1,2:** A integração de API em massa nativa com saída CosmosDB maximiza a taxa de transferência e manipula com eficiência as solicitações de limitação. Para obter mais informações, consulte [a página Azure Stream Analytics saída para Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
-O comportamento de Upsert é *Inserir ou substituir*.
+O comportamento de Upsert é *Inserir ou substituir* .
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset ao gravar na saída do SQL
 
@@ -121,7 +121,7 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 ### <a name="service-bus-xml-format"></a>Formato XML do Barramento de Serviço
 
-**nível de 1,0:** Azure Stream Analytics o DataContractSerializer usado, portanto, o conteúdo da mensagem incluía marcas XML. Por exemplo:
+**nível de 1,0:** Azure Stream Analytics o DataContractSerializer usado, portanto, o conteúdo da mensagem incluía marcas XML. Por exemplo: 
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

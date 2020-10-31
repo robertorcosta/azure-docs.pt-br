@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5ebe0bcf1e491166c5fc61597904056307f9679c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461712"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098001"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade de uma Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 - **Delegação de sub-rede:** A sub-rede do SQL Instância Gerenciada precisa ser delegada ao `Microsoft.Sql/managedInstances` provedor de recursos.
 - **NSG (grupo de segurança de rede):** Um NSG precisa ser associado à sub-rede do SQL Instância Gerenciada. Você pode usar um NSG para controlar o acesso ao ponto de extremidade de dados do SQL Instância Gerenciada filtrando o tráfego na porta 1433 e as portas 11000-11999 quando o SQL Instância Gerenciada estiver configurado para conexões de redirecionamento. O serviço provisionará e manterá automaticamente [as regras](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) atuais necessárias para permitir o fluxo ininterrupto do tráfego de gerenciamento.
 - **Tabela de rota definida pelo usuário (UDR):** Uma tabela UDR precisa ser associada à sub-rede do SQL Instância Gerenciada. Você pode adicionar entradas à tabela de rotas para rotear o tráfego que tem intervalos IP privados locais como um destino por meio do gateway de rede virtual ou do NVA (dispositivo de rede virtual). O serviço provisionará e manterá automaticamente as [entradas](#user-defined-routes-with-service-aided-subnet-configuration) atuais necessárias para permitir o fluxo ininterrupto do tráfego de gerenciamento.
-- **Endereços IP suficientes:** A sub-rede do SQL Instância Gerenciada deve ter pelo menos 16 endereços IP. O mínimo recomendado é 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para o SQL instância gerenciada](vnet-subnet-determine-size.md). Você pode implantar instâncias gerenciadas na [rede existente](vnet-existing-add-subnet.md) depois de configurá-las para atender aos [requisitos de rede do SQL instância gerenciada](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](virtual-network-subnet-create-arm-template.md).
+- **Endereços IP suficientes:** A sub-rede do SQL Instância Gerenciada deve ter pelo menos 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para o SQL instância gerenciada](vnet-subnet-determine-size.md). Você pode implantar instâncias gerenciadas na [rede existente](vnet-existing-add-subnet.md) depois de configurá-las para atender aos [requisitos de rede do SQL instância gerenciada](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
 > Quando você cria uma instância gerenciada, uma política de intenção de rede é aplicada na sub-rede para evitar alterações não compatíveis na configuração de rede. Depois que a última instância for removida da sub-rede, a política de intenção de rede também será removida.
@@ -113,22 +113,22 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 
 | Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE DA MI  |Permitir |
-|            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE DA MI  |Permitir |
-|            |9000, 9003                  |TCP     |CorpnetPublic    |SUB-REDE DA MI  |Permitir |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Permitir |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE DA MI  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetSaw       |SUB-REDE DA MI  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetPublic    |SUB-REDE DA MI  |Allow |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança de saída obrigatórias com configuração de sub-rede auxiliada por serviço
 
 | Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Permitir |
-|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
+|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo usuário com configuração de sub-rede auxiliada por serviço
 
-|Nome|Prefixo de endereço|Próximo salto|
+|Name|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede para vnetlocal|SUB-REDE DA MI|Rede virtual|
 |Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -301,20 +301,22 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 
 \* A sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede no formato x.x.x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
 
+\** Se o endereço de destino for para um dos serviços do Azure, o Azure roteia o tráfego diretamente para o serviço pela rede de backbone do Azure, em vez de rotear o tráfego para a Internet. O tráfego entre os serviços do Azure não percorre a Internet, independentemente de em qual região do Azure a rede virtual existe ou em qual região do Azure uma instância do serviço do Azure está implantada. Para obter mais detalhes, consulte a [página de documentação do UDR](../../virtual-network/virtual-networks-udr-overview.md).
+
 Além disso, você pode adicionar entradas à tabela de rotas para rotear o tráfego que tem intervalos IP privados locais como um destino por meio do gateway de rede virtual ou NVA (dispositivo de rede virtual).
 
 Se a rede virtual incluir um DNS personalizado, o servidor DNS personalizado deverá ser capaz de resolver os registros DNS públicos. O uso de recursos adicionais, como a autenticação do Azure AD, pode exigir a resolução de FQDNs adicionais. Para obter mais informações, consulte [configurar um DNS personalizado](custom-dns-configure.md).
 
 ### <a name="networking-constraints"></a>Restrições de rede
 
-O **tls 1,2 é imposto em conexões de saída**: em Janeiro 2020 Microsoft imposto TLS 1,2 para tráfego dentro de serviço em todos os serviços do Azure. Para o Azure SQL Instância Gerenciada, isso resultou no TLS 1,2 sendo imposto em conexões de saída usadas para replicação e conexões de servidor vinculado a SQL Server. Se você estiver usando versões do SQL Server mais antigas do que 2016 com o SQL Instância Gerenciada, verifique se [as atualizações específicas do TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) foram aplicadas.
+O **tls 1,2 é imposto em conexões de saída** : em Janeiro 2020 Microsoft imposto TLS 1,2 para tráfego dentro de serviço em todos os serviços do Azure. Para o Azure SQL Instância Gerenciada, isso resultou no TLS 1,2 sendo imposto em conexões de saída usadas para replicação e conexões de servidor vinculado a SQL Server. Se você estiver usando versões do SQL Server mais antigas do que 2016 com o SQL Instância Gerenciada, verifique se [as atualizações específicas do TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) foram aplicadas.
 
 Atualmente, não há suporte para os seguintes recursos de rede virtual com o SQL Instância Gerenciada:
 
-- **Emparelhamento da Microsoft**: habilitar o [emparelhamento da Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) em circuitos de ExpressRoute emparelhados direta ou transitivamente com uma rede virtual em que o SQL instância gerenciada reside afeta o fluxo de tráfego entre os componentes do SQL instância gerenciada dentro da rede virtual e dos serviços dos quais depende, causando problemas de disponibilidade. As implantações do SQL Instância Gerenciada na rede virtual com o emparelhamento da Microsoft já habilitado devem falhar.
-- **Emparelhamento de rede virtual global**: a conectividade de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) entre regiões do Azure não funciona para instâncias gerenciadas do SQL colocadas em sub-redes criadas antes de 9/22/2020.
-- **AzurePlatformDNS**: usar a [marca de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma renderizaria o SQL instância gerenciada não disponível. Embora o SQL Instância Gerenciada dê suporte ao DNS definido pelo cliente para a resolução DNS dentro do mecanismo, há uma dependência no DNS da plataforma para operações de plataforma.
-- **Gateway NAT**: usar o [NAT da rede virtual do Azure](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico renderizaria o SQL instância gerenciada indisponível. No momento, o serviço SQL Instância Gerenciada está limitado ao uso do balanceador de carga básico que não fornece a coexistência de fluxos de entrada e saída com NAT de rede virtual.
+- **Emparelhamento da Microsoft** : habilitar o [emparelhamento da Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) em circuitos de ExpressRoute emparelhados direta ou transitivamente com uma rede virtual em que o SQL instância gerenciada reside afeta o fluxo de tráfego entre os componentes do SQL instância gerenciada dentro da rede virtual e dos serviços dos quais depende, causando problemas de disponibilidade. As implantações do SQL Instância Gerenciada na rede virtual com o emparelhamento da Microsoft já habilitado devem falhar.
+- **Emparelhamento de rede virtual global** : a conectividade de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) entre regiões do Azure não funciona para instâncias gerenciadas do SQL colocadas em sub-redes criadas antes de 9/22/2020.
+- **AzurePlatformDNS** : usar a [marca de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma renderizaria o SQL instância gerenciada não disponível. Embora o SQL Instância Gerenciada dê suporte ao DNS definido pelo cliente para a resolução DNS dentro do mecanismo, há uma dependência no DNS da plataforma para operações de plataforma.
+- **Gateway NAT** : usar o [NAT da rede virtual do Azure](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico renderizaria o SQL instância gerenciada indisponível. No momento, o serviço SQL Instância Gerenciada está limitado ao uso do balanceador de carga básico que não fornece a coexistência de fluxos de entrada e saída com NAT de rede virtual.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Preterido Requisitos de rede sem configuração de sub-rede auxiliada por serviço
 
@@ -333,16 +335,16 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 
 | Nome       |Porta                        |Protocolo|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |Permitir |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Permitir |
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |Allow |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DA MI  |Allow |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias
 
 | Nome       |Porta          |Protocolo|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Permitir |
-|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Permitir |
+|gerenciamento  |443, 12000    |TCP     |SUB-REDE DA MI        |AzureCloud |Allow |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |Allow |
 
 > [!IMPORTANT]
 > Verifique se há apenas uma regra de entrada para as portas 9000, 9003, 1438, 1440 e 1452, e uma regra de saída para as portas 443 e 12000. O provisionamento do SQL Instância Gerenciada por meio de implantações de Azure Resource Manager falhará se as regras de entrada e saída forem configuradas separadamente para cada porta. Se essas portas estiverem em regras separadas, a implantação falhará com o código de erro `VnetSubnetConflictWithIntendedPolicy` .
@@ -357,7 +359,7 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 
 ### <a name="user-defined-routes"></a>rotas definidas pelo usuário
 
-|Nome|Prefixo de endereço|Próximo salto|
+|Name|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SUB-REDE DA MI|Rede virtual|
 |Mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|

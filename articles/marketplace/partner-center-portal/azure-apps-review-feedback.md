@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320095"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095665"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Como lidar com comentários de análise para ofertas de aplicativos do Azure
 
-Este artigo explica como acessar os comentários da equipe de revisão do Microsoft Azure Marketplace no [Azure DevOps](https://azure.microsoft.com/services/devops/). Se problemas críticos forem localizados na oferta de aplicativo Azure durante a etapa de **revisão da Microsoft**, você poderá entrar nesse sistema para exibir informações detalhadas sobre esses problemas (revisar comentários). Após corrigir todos os problemas, será necessário reenviar a oferta para continuar a publicá-la no Azure Marketplace. O diagrama a seguir ilustra como esse processo de comentários se relaciona com o processo de publicação.
+Este artigo explica como acessar os comentários da equipe de revisão do Microsoft Azure Marketplace no [Azure DevOps](https://azure.microsoft.com/services/devops/). Se problemas críticos forem localizados na oferta de aplicativo Azure durante a etapa de **revisão da Microsoft** , você poderá entrar nesse sistema para exibir informações detalhadas sobre esses problemas (revisar comentários). Após corrigir todos os problemas, será necessário reenviar a oferta para continuar a publicá-la no Azure Marketplace. O diagrama a seguir ilustra como esse processo de comentários se relaciona com o processo de publicação.
 
 ![Examinar o processo de comentários](./media/review-feedback-process.png)
 
@@ -39,11 +39,11 @@ Use o procedimento a seguir para revisar os problemas documentados na solicitaç
     [![Home page de solicitação de pull](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Clique nessa imagem para expandir.*
 
-1. (Opcional) No lado direito da janela, na seção **Políticas**, selecione a mensagem do problema (neste exemplo: **falha na Validação da Política**) para investigar os detalhes de baixo nível do problema, incluindo os arquivos de log associados. Os erros normalmente são exibidos na parte inferior dos arquivos de log.
+1. (Opcional) No lado direito da janela, na seção **Políticas** , selecione a mensagem do problema (neste exemplo: **falha na Validação da Política** ) para investigar os detalhes de baixo nível do problema, incluindo os arquivos de log associados. Os erros normalmente são exibidos na parte inferior dos arquivos de log.
 
 1. No menu esquerdo da home page, selecione **Arquivos** para exibir os arquivos de lista que compõem os ativos técnicos dessa oferta. Os revisores da Microsoft deverão ter adicionado comentários, descrevendo os problemas críticos descobertos. No exemplo a seguir, dois problemas foram descobertos.
 
-    [![Home page de solicitação de pull](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Captura de tela que realça os arquivos e os dois problemas descobertos.](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Clique nessa imagem para expandir.*
 
 1. Selecione cada nó de comentário na árvore esquerda para navegar até o comentário no contexto do código ao redor. Corrija seu código-fonte no projeto da equipe para corrigir o problema descrito pelo comentário.

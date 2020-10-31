@@ -11,12 +11,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904948"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095927"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Usar um cache externo compatível com Redis no gerenciamento de API do Azure
 
@@ -60,41 +60,41 @@ Para caching, os gateways hospedados internamente dependem exclusivamente de cac
 
 Siga as etapas abaixo para adicionar um Cache do Azure para Redis externo no Gerenciamento de API do Azure.
 
-![Traga seu próprio cache para o APIM](media/api-management-howto-cache-external/add-external-cache.png)
+![Captura de tela que mostra como adicionar um cache externo do Azure para Redis no gerenciamento de API do Azure.](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
 > A configuração **use from** especifica uma região do Azure ou um local de gateway de hospedagem interna que usará o cache configurado. Os caches configurados como **padrão** serão substituídos por caches com um valor de local ou região correspondente específico.
 >
-> Por exemplo, se o Gerenciamento de API estiver hospedado nas regiões: Leste dos EUA, Sudeste Asiático e Europa Ocidental, haverá dois caches configurados, um para **Padrão** e um para **Sudeste Asiático**. O Gerenciamento de API que está em **Sudeste Asiático** usará seu próprio cache, enquanto as outras duas regiões usarão a entrada de cache **Padrão**.
+> Por exemplo, se o Gerenciamento de API estiver hospedado nas regiões: Leste dos EUA, Sudeste Asiático e Europa Ocidental, haverá dois caches configurados, um para **Padrão** e um para **Sudeste Asiático** . O Gerenciamento de API que está em **Sudeste Asiático** usará seu próprio cache, enquanto as outras duas regiões usarão a entrada de cache **Padrão** .
 
 ### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>Adicionar um Cache do Azure para Redis da mesma assinatura
 
 1. Navegue até sua instância de Gerenciamento de API no portal do Azure.
 2. Escolha a guia **Cache externo** no menu à esquerda.
-3. Clique no botão **+ Adicionar**.
-4. Escolha seu cache no campo suspenso **Instância de cache**.
+3. Clique no botão **+ Adicionar** .
+4. Escolha seu cache no campo suspenso **Instância de cache** .
 5. Selecione **padrão** ou especifique a região desejada no campo suspenso **usar de** .
-6. Clique em **Salvar**.
+6. Clique em **Salvar** .
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Adicionar um Cache do Azure para Redis hospedado fora da assinatura atual do Azure ou do Azure em geral
 
 1. Navegue até sua instância de Gerenciamento de API no portal do Azure.
 2. Escolha a guia **Cache externo** no menu à esquerda.
-3. Clique no botão **+ Adicionar**.
-4. Escolha **Personalizar** no campo suspenso **Instância de cache**.
+3. Clique no botão **+ Adicionar** .
+4. Escolha **Personalizar** no campo suspenso **Instância de cache** .
 5. Selecione **padrão** ou especifique a região desejada no campo suspenso **usar de** .
-6. Forneça a cadeia de conexão do Cache do Azure para Redis no campo **Cadeia de conexão**.
-7. Clique em **Salvar**.
+6. Forneça a cadeia de conexão do Cache do Azure para Redis no campo **Cadeia de conexão** .
+7. Clique em **Salvar** .
 
 ### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>Adicionar um cache Redis a um gateway auto-hospedado
 
 1. Navegue até sua instância de Gerenciamento de API no portal do Azure.
 2. Escolha a guia **Cache externo** no menu à esquerda.
-3. Clique no botão **+ Adicionar**.
-4. Escolha **Personalizar** no campo suspenso **Instância de cache**.
+3. Clique no botão **+ Adicionar** .
+4. Escolha **Personalizar** no campo suspenso **Instância de cache** .
 5. Especifique o local do gateway de hospedagem interna desejado ou o **padrão** no campo de lista suspensa **usar de** .
-6. Forneça a cadeia de conexão do cache Redis no campo **cadeia de conexão**.
-7. Clique em **Salvar**.
+6. Forneça a cadeia de conexão do cache Redis no campo **cadeia de conexão** .
+7. Clique em **Salvar** .
 
 ## <a name="use-the-external-cache"></a>Usar o cache externo
 
