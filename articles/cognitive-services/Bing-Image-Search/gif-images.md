@@ -11,16 +11,21 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcfd711f0a38d5993447823c31cbf7f27226ad6b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169977"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084333"
 ---
 # <a name="search-for-gif-images"></a>Pesquisar imagens GIF 
 
-A API de Pesquisa de Imagem do Bing permite que você pesquise em toda a Web para obter as imagens .gif mais relevantes.Os desenvolvedores podem integrar GIFs de engajamento em vários cenários de conversa. 
+> [!WARNING]
+> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
+> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+
+A API de Pesquisa de Imagem do Bing permite que você pesquise em toda a Web para obter as imagens .gif mais relevantes.  Os desenvolvedores podem integrar GIFs de engajamento em vários cenários de conversa. 
 
 A URL a seguir é uma consulta de imagens .gif animadas.
 ```

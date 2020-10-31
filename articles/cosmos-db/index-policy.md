@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489227"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082956"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens do contêiner devem ser indexados. A política de indexação padrão para contêineres recém-criados indexa cada propriedade de cada item e impõe índices de intervalo para qualquer cadeia de caracteres ou número. Isso permite que você obtenha um alto desempenho de consulta sem precisar pensar na indexação e no gerenciamento de índice antecipadamente.
 
-Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo de indexação*e incluir ou excluir os *caminhos de propriedade*.
+Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo de indexação* e incluir ou excluir os *caminhos de propriedade* .
 
 > [!NOTE]
 > O método de atualização das políticas de indexação descritas neste artigo se aplica somente à API do SQL (Core) do Azure Cosmos DB. Saiba mais sobre a indexação na [API do Azure Cosmos DB para MongoDB](mongodb-indexing.md)
@@ -26,11 +27,11 @@ Em algumas situações, talvez você queira substituir esse comportamento autom�
 
 O Azure Cosmos DB dá suporte a dois modos de indexação:
 
-- **Consistente**: o índice é atualizado de forma síncrona à medida que você cria, atualiza ou exclui itens. Isso significa que a consistência de suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
-- **Nenhum**: a indexação está desabilitada no contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ser usado para melhorar o desempenho de operações em massa. Depois que as operações em massa forem concluídas, o modo de índice poderá ser definido como consistente e, em seguida, monitorado usando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até ser concluído.
+- **Consistente** : o índice é atualizado de forma síncrona à medida que você cria, atualiza ou exclui itens. Isso significa que a consistência de suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
+- **Nenhum** : a indexação está desabilitada no contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ser usado para melhorar o desempenho de operações em massa. Depois que as operações em massa forem concluídas, o modo de índice poderá ser definido como consistente e, em seguida, monitorado usando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até ser concluído.
 
 > [!NOTE]
-> O Azure Cosmos DB também dá suporte a um modo de indexação lento. A indexação lenta faz atualizações no índice em um nível de prioridade muito menor quando o mecanismo não executa outros trabalhos. Isso pode resultar em resultados de consultas **inconsistentes ou incompletas**. Caso você planeje consultar um contêiner Cosmos, não selecione a indexação lenta. Em junho de 2020, apresentamos uma alteração que não permite mais que novos contêineres sejam definidos como modo de indexação lento. Se sua conta de Azure Cosmos DB já contiver pelo menos um contêiner com indexação lenta, essa conta será isenta automaticamente da alteração. Você também pode solicitar uma isenção entrando em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se você estiver usando uma conta do Azure Cosmos no modo sem [servidor](serverless.md) que não dá suporte à indexação lenta).
+> O Azure Cosmos DB também dá suporte a um modo de indexação lento. A indexação lenta faz atualizações no índice em um nível de prioridade muito menor quando o mecanismo não executa outros trabalhos. Isso pode resultar em resultados de consultas **inconsistentes ou incompletas** . Caso você planeje consultar um contêiner Cosmos, não selecione a indexação lenta. Em junho de 2020, apresentamos uma alteração que não permite mais que novos contêineres sejam definidos como modo de indexação lento. Se sua conta de Azure Cosmos DB já contiver pelo menos um contêiner com indexação lenta, essa conta será isenta automaticamente da alteração. Você também pode solicitar uma isenção entrando em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se você estiver usando uma conta do Azure Cosmos no modo sem [servidor](serverless.md) que não dá suporte à indexação lenta).
 
 Por padrão, a política de indexação é definida como `automatic` . É possível definir a `automatic` Propriedade na política de indexação como `true` . Definir essa propriedade como `true` permite que o Azure CosmosDB indexe automaticamente os documentos conforme eles são gravados.
 
@@ -77,7 +78,7 @@ Qualquer política de indexação deve incluir o caminho raiz `/*` como um camin
 
 - A propriedade do sistema `_etag` é excluída da indexação por padrão, a menos que a ETag seja adicionada ao caminho incluído para indexação.
 
-- Se o modo de indexação estiver definido como **consistente**, as propriedades do sistema `id` e `_ts` serão indexadas automaticamente.
+- Se o modo de indexação estiver definido como **consistente** , as propriedades do sistema `id` e `_ts` serão indexadas automaticamente.
 
 Ao incluir e excluir caminhos, você pode encontrar os seguintes atributos:
 
@@ -103,9 +104,9 @@ Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminh
 
 Veja um exemplo:
 
-**Caminho incluído**: `/food/ingredients/nutrition/*`
+**Caminho incluído** : `/food/ingredients/nutrition/*`
 
-**Caminho excluído**: `/food/ingredients/*`
+**Caminho excluído** : `/food/ingredients/*`
 
 Nesse caso, o caminho incluído tem precedência sobre o caminho excluído porque é mais preciso. Com base nesses caminhos, todos os dados no `food/ingredients` caminho ou aninhados em serão excluídos do índice. A exceção seria dado dentro do caminho incluído: `/food/ingredients/nutrition/*` , que seria indexado.
 
@@ -196,7 +197,7 @@ As seguintes considerações são usadas ao criar índices compostos para consul
 - As propriedades no filtro da consulta devem corresponder às do índice composto. Se uma propriedade estiver no índice composto, mas não estiver incluída na consulta como um filtro, a consulta não usará o índice composto.
 - Se uma consulta tiver propriedades adicionais no filtro que não foram definidas em um índice composto, uma combinação de índices compostos e de intervalo será usada para avaliar a consulta. Isso exigirá menos RU do que usar exclusivamente índices de intervalo.
 - Se uma propriedade tiver um filtro de intervalo (,,, `>` `<` `<=` `>=` ou `!=` ), essa propriedade deverá ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de intervalo, ela não usará o índice composto.
-- Ao criar um índice composto para otimizar consultas com vários filtros, o `ORDER` do índice composto não terá impacto sobre os resultados. Essa propriedade é opcional.
+- Ao criar um índice composto para otimizar consultas com vários filtros, o `ORDER` do índice composto não terá impacto sobre os resultados. Esta propriedade é opcional.
 - Se você não definir um índice composto para uma consulta com filtros em várias propriedades, a consulta ainda terá sucesso. No entanto, o custo de RU da consulta pode ser reduzido com um índice composto.
 
 Considere os seguintes exemplos em que um índice composto é definido nas propriedades Name, age e timestamp:

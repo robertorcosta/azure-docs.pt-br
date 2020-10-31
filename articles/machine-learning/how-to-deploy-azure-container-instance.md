@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: e64914118409332f6a1c08b6d5e1669685529d76
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: ff071373706759576f80426d61a27851bfc4e1b6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999156"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082157"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implantar um modelo nas Instâncias de Contêiner do Azure
 
@@ -60,7 +60,7 @@ Para obter mais informações, consulte [como proteger o inferência com redes v
 
 ## <a name="deploy-to-aci"></a>Implantar no ACI
 
-Para implantar um modelo em instâncias de contêiner do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
+Para implantar um modelo em instâncias de contêiner do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__ , que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > * ACI é adequado apenas para modelos pequenos com menos de 1 GB de tamanho. 
@@ -104,6 +104,8 @@ Consulte [implantar seus modelos com vs Code](tutorial-train-deploy-image-classi
 > [!IMPORTANT]
 > Você não precisa criar um contêiner ACI para testar com antecedência. Os contêineres ACI são criados conforme necessário.
 
+> [!IMPORTANT]
+> Acrescentamos ID de espaço de trabalho com hash a todos os recursos de ACI subjacentes que são criados, todos os nomes de ACI do mesmo espaço de trabalho terão o mesmo sufixo. O nome do serviço Azure Machine Learning ainda seria o mesmo cliente fornecido "service_name" e todas as APIs do SDK do Azure Machine Learning voltadas para o usuário não precisam de nenhuma alteração. Não oferecemos nenhuma garantia sobre os nomes dos recursos subjacentes que estão sendo criados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

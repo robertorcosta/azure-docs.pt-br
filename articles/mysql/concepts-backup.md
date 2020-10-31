@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: ef53fc3de87eeaa41d3859fd8b10dd3cc942afc7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bbeb1248fef846afbd1641a668c6db3be4870ca6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547207"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082089"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -38,11 +38,11 @@ Os backups de log de transações ocorrem a cada cinco minutos.
 O armazenamento de uso geral é o armazenamento de back-end com suporte ao [uso geral](concepts-pricing-tiers.md) e ao servidor da [camada com otimização de memória](concepts-pricing-tiers.md) . Para servidores com armazenamento de uso geral de até 4 TB, os backups completos ocorrem uma vez a cada semana. Os backups diferenciais ocorrem duas vezes por dia. Os backups de log de transações ocorrem a cada cinco minutos. Os backups no armazenamento de uso geral até o armazenamento de 4 TB não são baseados em instantâneo e consomem largura de banda de e/s no momento do backup. Para bancos de dados grandes (> 1 TB) em armazenamento de 4 TB, recomendamos que você considere
 
 - Provisionamento de mais IOPs para considerar o backup IOs ou
-- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se a infraestrutura de armazenamento subjacente estiver disponível em suas [regiões do Azure](./concepts-pricing-tiers.md#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure.
+- Como alternativa, migre para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento se a infraestrutura de armazenamento subjacente estiver disponível em suas [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage)preferenciais. Não há nenhum custo adicional para o armazenamento de uso geral que dá suporte a até 16 TB de armazenamento. Para obter assistência com a migração para o armazenamento de 16 TB, abra um tíquete de suporte em portal do Azure.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de uso geral com armazenamento de até 16 TB
 
-Em um subconjunto de [regiões do Azure](./concepts-pricing-tiers.md#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](./concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
+Em um subconjunto de [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](/azure/mysql/concepts-pricing-tiers#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
 
 Em um subconjunto de [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](/concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
 

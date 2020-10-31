@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6837bbdb63caf0fb1ecb3f6e520d5f3623483b44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093303"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083228"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Entenda as estações de trabalho seguras e gerenciadas pelo Azure
 
@@ -94,12 +94,15 @@ Essencial para uma estação de trabalho segura é uma solução de cadeia de fo
 
 Para essa solução, a raiz da confiança será implantada usando a tecnologia [Microsoft AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) com hardware que atenda aos requisitos técnicos modernos. Para proteger uma estação de trabalho, o Autopilot permite aproveitar os dispositivos Windows 10 com otimização de OEM da Microsoft. Esses dispositivos vêm em um estado válido conhecido do fabricante. Em vez de refazer a imagem de um dispositivo potencialmente inseguro, o piloto automático pode transformar um dispositivo Windows em um estado "pronto para o negócio". Ele aplica configurações e políticas, instala aplicativos e até mesmo altera a edição do Windows 10. Por exemplo, o piloto automático pode alterar a instalação do Windows de um dispositivo do Windows 10 pro para o Windows 10 Enterprise para que ele possa usar recursos avançados.
 
-![Proteger níveis de estação de trabalho](./media/concept-azure-managed-workstation/supplychain.png)
+:::image type="complex" source="./media/concept-azure-managed-workstation/supplychain.png" alt-text="Diagrama mostrando o ciclo de vida de uma estação de trabalho segura." border="false":::
+Perto da parte superior do diagrama, um fornecedor do dispositivo é mostrado. As setas apontam desse fornecedor para um cliente que comprou a estação de trabalho e para um caminhão rotulado como atendente e entrega. Do caminhão, uma seta aponta para uma imagem rotulada implantar que figuras uma pessoa usando uma estação de trabalho. Uma seta rotulada experiência de autoatendimento estende-se da pessoa para uma tela rotulada como pronta para negócios. Embaixo dessa tela, os ícones rotulados como seguros gerenciados são mostrados. Uma seta rotulada uso de estado estável, gerencie e mantenha os pontos atuais da tela para um ícone de fim de vida e para um ícone de redefinição de conserto de quebra. Uma seta final faz um loop de volta do ícone de conserto para a tela pronto para negócios.
+:::image-end:::
 
 ## <a name="device-roles-and-profiles"></a>Perfis e funções de dispositivo
 
 Esta orientação faz referência a vários perfis de segurança e funções que podem ajudá-lo a criar soluções mais seguras para usuários, desenvolvedores e pessoal de ti. Esses perfis equilibram a usabilidade e os riscos para usuários comuns que podem se beneficiar de uma estação de trabalho avançada ou segura. As configurações fornecidas aqui são baseadas nos padrões aceitos do setor. Esta orientação mostra como proteger o Windows 10 e reduzir os riscos associados ao comprometimento do dispositivo ou do usuário. Para aproveitar a tecnologia de hardware moderna e a raiz do dispositivo de confiança, usaremos [atestado de integridade do dispositivo](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), que está habilitado a partir do perfil de **alta segurança** . Esse recurso está presente para garantir que os invasores não possam ser persistentes durante a inicialização inicial de um dispositivo. Ele faz isso usando a política e a tecnologia para ajudar a gerenciar recursos e riscos de segurança.
-![Proteger níveis de estação de trabalho](./media/concept-azure-managed-workstation/seccon-levels.png)
+
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="Diagrama mostrando o ciclo de vida de uma estação de trabalho segura." border="false":::
 
 * **Segurança básica** – uma estação de trabalho gerenciada e padrão fornece um bom ponto de partida para a maioria dos negócios de casa e de pequenas empresas. Esses dispositivos são registrados no Azure AD e gerenciados com o Intune. Esse perfil permite que os usuários executem qualquer aplicativo e naveguem por qualquer site. Uma solução antimalware como [o Microsoft defender](https://www.microsoft.com/windows/comprehensive-security) deve ser habilitada.
 

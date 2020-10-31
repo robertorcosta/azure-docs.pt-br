@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cd80e98d0838cb06228c92c7ea7efeb3fc30a0ed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488445"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082871"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como um repositório de valor de chave – visão geral do custo
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente para a criação fácil de aplicativos altamente disponíveis de grande escala. Por padrão, Azure Cosmos DB indexa de forma automática e eficiente todos os dados ingeridos. Isso permite consultas [SQL](./sql-query-getting-started.md) (e [JavaScript](stored-procedures-triggers-udfs.md)) rápidas e consistentes nos dados. 
 
@@ -22,7 +23,7 @@ Este artigo descreve o custo do Azure Cosmos DB para operações simples de grav
 
 ## <a name="why-we-use-request-units-rus"></a>Por que usamos RUs (Unidades de Solicitação)
 
-Azure Cosmos DB desempenho é baseado na quantidade de produtividade provisionada expressa em [unidades de solicitação](request-units.md) (ru/s). O provisionamento é de uma granularidade de segundo e é comprado em RU/s ([não deve ser confundido com a cobrança por hora](https://azure.microsoft.com/pricing/details/cosmos-db/)). RUs deve ser considerado uma abstração lógica (uma moeda) que simplifica o provisionamento da taxa de transferência necessária para o aplicativo. Os usuários não precisam considerar a diferenciação da taxa de transferência de leitura e gravação. O modelo de moeda única de RUs cria eficiência no compartilhamento da capacidade provisionada entre leituras e gravações. Esse modelo de capacidade provisionado permite que o serviço forneça uma **taxa de transferência previsível e consistente, baixa latência garantida e alta disponibilidade**. Finalmente, embora o modelo de RU seja usado para representar a taxa de transferência, cada RU provisionado também tem uma quantidade definida de recursos (por exemplo, memória, núcleos/CPU e IOPS).
+Azure Cosmos DB desempenho é baseado na quantidade de produtividade provisionada expressa em [unidades de solicitação](request-units.md) (ru/s). O provisionamento é de uma granularidade de segundo e é comprado em RU/s ([não deve ser confundido com a cobrança por hora](https://azure.microsoft.com/pricing/details/cosmos-db/)). RUs deve ser considerado uma abstração lógica (uma moeda) que simplifica o provisionamento da taxa de transferência necessária para o aplicativo. Os usuários não precisam considerar a diferenciação da taxa de transferência de leitura e gravação. O modelo de moeda única de RUs cria eficiência no compartilhamento da capacidade provisionada entre leituras e gravações. Esse modelo de capacidade provisionado permite que o serviço forneça uma **taxa de transferência previsível e consistente, baixa latência garantida e alta disponibilidade** . Finalmente, embora o modelo de RU seja usado para representar a taxa de transferência, cada RU provisionado também tem uma quantidade definida de recursos (por exemplo, memória, núcleos/CPU e IOPS).
 
 Como um sistema de banco de dados distribuído globalmente, Cosmos DB é o único serviço do Azure que fornece SLAs abrangentes que abrangem latência, taxa de transferência, consistência e alta disponibilidade. A taxa de transferência que você provisiona é aplicada a cada uma das regiões associadas à sua conta do cosmos. Para leituras, o Cosmos DB oferece vários [níveis de consistência](consistency-levels.md) bem definidos para sua escolha. 
 
