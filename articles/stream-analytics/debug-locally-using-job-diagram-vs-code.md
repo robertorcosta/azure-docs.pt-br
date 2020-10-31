@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903821"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124162"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Depurar Azure Stream Analytics consultas localmente usando o diagrama de trabalho no Visual Studio Code
 
@@ -31,7 +31,7 @@ Use este guia de [início rápido](quick-create-visual-studio-code.md) para apre
 
 Se você quiser testar a consulta com dados de entrada locais, siga estas [instruções](visual-studio-code-local-run.md). Se você quiser testar com a entrada ao vivo, configure a mudança de [entrada](stream-analytics-add-inputs.md) para a próxima etapa. 
 
-Abra o arquivo de script * \. asaql* e selecione **executar localmente**. Em seguida, selecione **usar entrada local** ou **usar entrada ao vivo**. O diagrama de trabalho aparece no lado direito da janela.
+Abra o arquivo de script *\. asaql* e selecione **executar localmente** . Em seguida, selecione **usar entrada local** ou **usar entrada ao vivo** . O diagrama de trabalho aparece no lado direito da janela.
 
 ### <a name="view-the-output-and-intermediate-result-set"></a>Exibir a saída e o conjunto de resultados intermediário  
 
@@ -56,7 +56,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
    > [!div class="mx-imgBorder"]
    > ![Métricas do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
-3. Selecione o nome da fonte de dados de entrada no menu suspenso para ver as métricas de entrada. A fonte de entrada na captura de tela abaixo é chamada de *aspas*. Para obter mais informações sobre as métricas de entrada, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
+3. Selecione o nome da fonte de dados de entrada no menu suspenso para ver as métricas de entrada. A fonte de entrada na captura de tela abaixo é chamada de *aspas* . Para obter mais informações sobre as métricas de entrada, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
    > ![Métricas de entrada do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
@@ -104,7 +104,7 @@ Selecione **Resumo do trabalho** na parte superior direita do diagrama de trabal
 
 * Não há suporte para o código personalizado C# e funções de Azure Machine Learning. 
 
-* Somente as opções de entrada de nuvem têm suporte às [políticas de tempo](stream-analytics-out-of-order-and-late-events.md) , enquanto as opções de entrada locais não.
+* Somente as opções de entrada de nuvem têm suporte às [políticas de tempo](./stream-analytics-time-handling.md) , enquanto as opções de entrada locais não.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,28 +7,28 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 4bcff14f655385aa467878f21927ac091095c91f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 236191710dac19a08db0e8ce94dc695d393009a7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015508"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127120"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integração do Azure Machine Learning Studio (clássico) no Stream Analytics (versão prévia)
-O Stream Analytics oferece suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning Studio (clássico). O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
+O Stream Analytics oferece suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning Studio (clássico). O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](/rest/api/streamanalytics/). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Visão geral: Terminologia do Azure Machine Learning Studio (clássico)
-O Microsoft Azure Machine Learning Studio (clássico) oferece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada *de Azure Machine Learning Studio (clássico)*. O estúdio (clássico) é usado para interagir com os recursos do Machine Learning e criar, testar e iterar facilmente no design. Veja abaixo esses recursos e suas definições.
+O Microsoft Azure Machine Learning Studio (clássico) oferece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada *de Azure Machine Learning Studio (clássico)* . O estúdio (clássico) é usado para interagir com os recursos do Machine Learning e criar, testar e iterar facilmente no design. Veja abaixo esses recursos e suas definições.
 
-* **Espaço de trabalho**: o *espaço de trabalho* é um contêiner que contém todos os outros recursos de aprendizado de máquina juntos em um contêiner para gerenciamento e controle.
-* **Experimento**: Os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de machine learning.
-* **Endpoint**: os *pontos* de extremidade são o objeto Studio (clássico) usado para executar recursos como entrada, aplicar um modelo de Machine Learning especificado e retornar a saída pontuada.
-* **Serviço Web de pontuação**: Um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
+* **Espaço de trabalho** : o *espaço de trabalho* é um contêiner que contém todos os outros recursos de aprendizado de máquina juntos em um contêiner para gerenciamento e controle.
+* **Experimento** : Os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de machine learning.
+* **Endpoint** : os *pontos* de extremidade são o objeto Studio (clássico) usado para executar recursos como entrada, aplicar um modelo de Machine Learning especificado e retornar a saída pontuada.
+* **Serviço Web de pontuação** : Um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
 Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/classic/consume-web-services.md) no Azure Machine Learning Studio (clássico).
 
 ## <a name="studio-classic-resources-needed-for-stream-analytics-jobs"></a>Recursos de estúdio (clássico) necessários para trabalhos de Stream Analytics
-Para que o processamento de trabalhos do Stream Analytics seja bem-sucedido, é necessário ter um ponto de extremidade de Solicitação/Resposta, uma [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)e uma definição do Swagger. O Stream Analytics tem um ponto de extremidade adicional que constrói a URL do ponto de extremidade de swagger, procura a interface e retorna uma definição de UDF padrão para o usuário.
+Para que o processamento de trabalhos do Stream Analytics seja bem-sucedido, é necessário ter um ponto de extremidade de Solicitação/Resposta, uma [apikey](../machine-learning/classic/consume-web-services.md)e uma definição do Swagger. O Stream Analytics tem um ponto de extremidade adicional que constrói a URL do ponto de extremidade de swagger, procura a interface e retorna uma definição de UDF padrão para o usuário.
 
 ## <a name="configure-a-stream-analytics-and-studio-classic-udf-via-rest-api"></a>Configurar um UDF Stream Analytics e Studio (clássico) via API REST
 Usando as APIs REST, você pode configurar seu trabalho para chamar funções do estúdio (clássico). As etapas são as seguintes:
@@ -188,11 +188,11 @@ Agora, consulte a UDF (chamada aqui de scoreTweet) para cada evento de entrada e
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, veja nossa [página de perguntas e respostas da Microsoft sobre o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
+Para obter mais assistência, veja nossa [página de perguntas e respostas da Microsoft sobre o Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

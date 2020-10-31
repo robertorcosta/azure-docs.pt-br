@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12c4b9f4a3757a3974e4aff7699d0265bfd7840
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488500"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124366"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência
 Este artigo explica como você pode ajustar a consulta do Stream Analytics para aumentar a produtividade para os trabalhos do Streaming Analytics. Você pode usar o guia a seguir para dimensionar seu trabalho a fim de lidar com uma carga maior e aproveitar mais recursos do sistema (como maior largura de banda, mais recursos de CPU, mais memória).
@@ -22,9 +22,9 @@ Como pré-requisito, você precisa ler os seguintes artigos:
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1: a consulta é inerentemente totalmente paralelizável entre partições de entrada
 Se sua consulta é inerentemente totalmente paralelizável entre partições de entrada, você pode executar as seguintes etapas:
-1.  Criar sua consulta para ser embaraçosamente paralela usando a palavra-chave **PARTITION BY**. Veja mais detalhes na seção Trabalhos embaraçosamente paralelos [nesta página](stream-analytics-parallelization.md).
+1.  Criar sua consulta para ser embaraçosamente paralela usando a palavra-chave **PARTITION BY** . Veja mais detalhes na seção Trabalhos embaraçosamente paralelos [nesta página](stream-analytics-parallelization.md).
 2.  Dependendo de tipos de saída usados na consulta, alguns resultados podem não ser paralelizáveis ou precisar de mais configuração para serem embaraçosamente paralelos. Por exemplo, a saída do PowerBI não é paralelizável. Os resultados sempre são mesclados antes de enviar para o coletor de saída. Os blobs, as tabelas, o ADLS, o Barramento de Serviço e o Azure Functions são paralelizados automaticamente. As saídas do SQL e do Azure Synapse Analytics têm uma opção para paralelização. O Hub de Eventos deve ter o conjunto de configuração PartitionKey para corresponder ao campo **PARTITION BY** (geralmente PartitionId). Para o Hub de eventos, cuidado ao corresponder o número de partições a todas as entradas e saídas para evitar o cruzamento entre partições. 
-3.  Execute a consulta com **6 UA** (que é a capacidade total de um único nó de computação) para medir a taxa de transferência máxima possível, e se você estiver usando **GROUP BY**, meça quantos grupos (cardinalidade) o trabalho pode atender. Os sintomas gerais do trabalho atingindo os limites de recursos do sistema são as seguintes.
+3.  Execute a consulta com **6 UA** (que é a capacidade total de um único nó de computação) para medir a taxa de transferência máxima possível, e se você estiver usando **GROUP BY** , meça quantos grupos (cardinalidade) o trabalho pode atender. Os sintomas gerais do trabalho atingindo os limites de recursos do sistema são as seguintes.
     - A métrica de utilização da % de SU etá acima de 80%. Isso indica que o uso da memória está alto. Os fatores que contribuem para o aumento dessa métrica estão descritos [aqui](stream-analytics-streaming-unit-consumption.md). 
     -   O carimbo de data/hora de saída está atrasado em relação à hora real. Dependendo de sua lógica de consulta, o carimbo de data/hora de saída pode ter uma defasagem em relação à hora real. No entanto, eles devem progredir mais ou menos no mesmo ritmo. Se o carimbo de data/hora de saída está se atrasando mais, isso é um indicador de que o sistema está trabalhando em excesso. Ele pode ser resultado da limitação do coletor de saída downstream ou da alta utilização da CPU. Não fornecemos métrica de utilização da CPU no momento e, portanto, pode ser difícil diferenciar as duas.
         - Se o problema for devido à limitação do coletor, talvez seja necessário aumentar o número de partições de saída (e também de partições de entrada para manter o trabalho totalmente paralelizáveis) ou aumentar a quantidade de recursos do coletor (por exemplo, número de unidades de solicitação para o CosmosDB).
@@ -78,13 +78,13 @@ Para determinados casos de uso de ISV, em que é mais eficiente processar dados 
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -97,10 +97,9 @@ Para obter mais assistência, experimente a nossa [página de Perguntas e respos
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

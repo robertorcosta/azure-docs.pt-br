@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4ee868125ee30d40ef0d9ca5a42881ad003e9a8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044474"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123975"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada a dados usando o diagrama de trabalho
 
@@ -20,7 +20,7 @@ O diagrama de trabalho na folha **Monitoramento** do Portal do Azure pode ajudar
 
 ## <a name="using-the-job-diagram"></a>Usando o diagrama de trabalho
 
-No Portal do Azure, enquanto estiver em um trabalho do Stream Analytics, em **SUPORTE + SOLUÇÃO DE PROBLEMAS**, selecione **Diagrama de trabalho**:
+No Portal do Azure, enquanto estiver em um trabalho do Stream Analytics, em **SUPORTE + SOLUÇÃO DE PROBLEMAS** , selecione **Diagrama de trabalho** :
 
 ![Diagrama de trabalho com métricas - local](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
@@ -75,15 +75,15 @@ Se a etapa de consulta anterior for um processador de entrada, use as métricas 
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Estamos ficando para trás na leitura dos dados?
 
-*   **Input Events Backlogged (Total)** informa quantas mensagens mais precisam ser lidas das entradas dos Hubs de Eventos e do Hub IoT do Azure. Quando esse número for maior que 0, significa que seu trabalho não pode processar os dados tão rápido quanto entram. Nesse caso, pode ser necessário aumentar o número de Unidades de Streaming e/ou verificar se que o trabalho pode ser colocado em paralelo. Você pode ver mais informações sobre isso na [página de paralelização de consulta](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Input Events Backlogged (Total)** informa quantas mensagens mais precisam ser lidas das entradas dos Hubs de Eventos e do Hub IoT do Azure. Quando esse número for maior que 0, significa que seu trabalho não pode processar os dados tão rápido quanto entram. Nesse caso, pode ser necessário aumentar o número de Unidades de Streaming e/ou verificar se que o trabalho pode ser colocado em paralelo. Você pode ver mais informações sobre isso na [página de paralelização de consulta](./stream-analytics-parallelization.md). 
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
+Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência da linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST de gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da linguagem de consulta do Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST de gerenciamento do Stream Analytics](/rest/api/streamanalytics/)

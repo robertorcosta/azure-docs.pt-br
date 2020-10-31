@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026948"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126712"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
@@ -46,7 +46,7 @@ Para saber mais, confira o [Hub do Microsoft Commercial Marketplace](https://aka
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Há um valor de listagem para o marketplace comercial da Microsoft?
 
-Não, não há nenhum custo para publicar ofertas em nosso marketplace comercial. Retemos um pequeno percentual da venda como um valor de transação e investimos no programa Marketplace Rewards, inovação de plataforma e operações do marketplace comercial. Essa taxa de transação é reduzida para as ofertas de incentivados de [Venda de IP do Azure](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) e para ofertas de SaaS pagas no AppSource que estão associadas a um aplicativo Microsoft Team ou pelo menos dois suplementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint).
+Não, não há nenhum custo para publicar ofertas em nosso marketplace comercial. Retemos um pequeno percentual da venda como um valor de transação e investimos no programa Marketplace Rewards, inovação de plataforma e operações do marketplace comercial. Essa taxa de transação é reduzida para as ofertas de incentivados de [Venda de IP do Azure](./marketplace-co-sell.md) e para ofertas de SaaS pagas no AppSource que estão associadas a um aplicativo Microsoft Team ou pelo menos dois suplementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Como faço para me inscrever como um editor no marketplace comercial da Microsoft?
 
@@ -106,7 +106,7 @@ Há quatro funções relevantes que regem o acesso ao Partner Center.
 
 As permissões de *administrador global* do Azure AD (Azure Active Directory) são necessárias para criar novas contas de usuário ou convidar contas de convidado no diretório subjacente. O Partner Center aplica o Azure AD ao modelo de identidade, e uma instância do Azure AD de uma organização é geralmente gerenciada e controlada por suas equipes de TI ou de segurança.
 
-Para saber mais, confira [Atribuir funções e permissões de usuários](https://docs.microsoft.com/partner-center/permissions-overview).
+Para saber mais, confira [Atribuir funções e permissões de usuários](/partner-center/permissions-overview).
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>Os clientes precisam de uma assinatura para Serviços de Nuvem do Microsoft Azure?
 

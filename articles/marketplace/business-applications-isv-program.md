@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 4c4455d62f32acb1cfebde8f5e4d97de5bda17c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463397"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126729"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de integração do programa ISV Connect do Microsoft Business Applications
 
@@ -25,7 +25,7 @@ Para registrar e aproveitar todos os benefícios técnicos, de marketing e de ha
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Configurar sua conta do Microsoft Partner Center
 
-Para configurar e gerenciar sua conta para o programa ISV Connect, conclua as etapas do artigo: [criar uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Este artigo fornece todas as etapas para criar uma nova conta, bem como informações sobre como adicionar novos Publicadores ao programa comercial Marketplace.
+Para configurar e gerenciar sua conta para o programa ISV Connect, conclua as etapas do artigo: [criar uma conta do Marketplace comercial no Partner Center](./partner-center-portal/create-account.md). Este artigo fornece todas as etapas para criar uma nova conta, bem como informações sobre como adicionar novos Publicadores ao programa comercial Marketplace.
 
 > [!NOTE]
 > Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center.
@@ -38,10 +38,10 @@ A participação neste programa exige que você examine e aceite o [adendo Busin
 > Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para assinar contratos legais.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **configurações** (ícone de engrenagem) e selecione **configurações do desenvolvedor**.
-1. Selecione **contratos**.
+1. Selecione **configurações** (ícone de engrenagem) e selecione **configurações do desenvolvedor** .
+1. Selecione **contratos** .
 1. Selecione o link de versão e exiba o contrato.
-1. Para concordar e aceitar o contrato, selecione **aceitar contrato**.
+1. Para concordar e aceitar o contrato, selecione **aceitar contrato** .
 
 ## <a name="set-up-your-billing-information"></a>Configurar suas informações de cobrança
 
@@ -51,11 +51,11 @@ Configure as informações de cobrança para o Business Applications programa IS
 > Esta etapa requer uma função de *proprietário* ou *gerente* no Partner Center para sua conta para atualizar as informações de cobrança.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard).
-1. Selecione **configurações** (ícone de engrenagem) e selecione **configurações do desenvolvedor**.
-1. Em **conta**, selecione **perfil de cobrança**.
+1. Selecione **configurações** (ícone de engrenagem) e selecione **configurações do desenvolvedor** .
+1. Em **conta** , selecione **perfil de cobrança** .
 1. Examine as informações de contato primário e de cobrança preenchidas em sua entidade legal e faça as atualizações necessárias.
 1. Se aplicável, forneça as configurações de ID do imposto/ID do IVA.
-1. Para salvar suas alterações, clique em **Salvar**.
+1. Para salvar suas alterações, clique em **Salvar** .
 
 > [!NOTE]
 > Você pode atualizar seu perfil de cobrança a qualquer momento. No entanto, o *nome da empresa* e o *país* do endereço de cobrança não podem ser alterados posteriormente.
@@ -66,11 +66,11 @@ Depois de concluir as etapas acima, seus aplicativos existentes do Dynamics 365 
 
 A etapa final do registro no Business Applications programa ISV Connect é publicar e certificar seus aplicativos existentes. Para publicar e certificar seu aplicativo ao AppSource, siga o link apropriado:
 
-- [Para o compromisso com o cliente do Dynamics 365](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
-- [Para o Dynamics 365 para finanças e operações](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [Para o compromisso com o cliente do Dynamics 365](/powerapps/developer/common-data-service/publish-app-appsource) 
+- [Para o Dynamics 365 para finanças e operações](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> Você precisa certificar novamente seus aplicativos a cada seis meses para mantê-los ativos no AppSource. Para obter detalhes, consulte [políticas de certificação](https://docs.microsoft.com/legal/marketplace/certification-policies)do Marketplace comercial de política do Marketplace.
+> Você precisa certificar novamente seus aplicativos a cada seis meses para mantê-los ativos no AppSource. Para obter detalhes, consulte [políticas de certificação](/legal/marketplace/certification-policies)do Marketplace comercial de política do Marketplace.
 
 ## <a name="next-steps"></a>Próximas etapas
 

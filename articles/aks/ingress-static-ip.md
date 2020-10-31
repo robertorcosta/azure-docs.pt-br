@@ -5,12 +5,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX co
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e3e052915b6bcc1f6dee89f5ed5e2acf13dd78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290541"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124349"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Os comandos acima criam um endereço IP que será excluído se você excluir o cluster AKS. Como alternativa, você pode criar um endereço IP em um grupo de recursos diferente que pode ser gerenciado separadamente do cluster AKS. Se você criar um endereço IP em um grupo de recursos diferente, certifique-se de que a entidade de serviço usada pelo cluster AKS tenha permissões delegadas para outro grupo de recursos, como *colaborador de rede*. Para obter mais informações, consulte [usar um endereço IP público estático e um rótulo DNS com o balanceador de carga AKs][aks-static-ip].
+> Os comandos acima criam um endereço IP que será excluído se você excluir o cluster AKS. Como alternativa, você pode criar um endereço IP em um grupo de recursos diferente que pode ser gerenciado separadamente do cluster AKS. Se você criar um endereço IP em um grupo de recursos diferente, certifique-se de que a entidade de serviço usada pelo cluster AKS tenha permissões delegadas para outro grupo de recursos, como *colaborador de rede* . Para obter mais informações, consulte [usar um endereço IP público estático e um rótulo DNS com o balanceador de carga AKs][aks-static-ip].
 
 Agora, implemente o gráfico *nginx -gresso* com o Helm. Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
 
@@ -62,10 +62,10 @@ Você deve passar dois parâmetros adicionais para a versão Helm para que o con
 O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, adicione `--set rbac.create=false` aos comandos Helm.
+> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic* . Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, adicione `--set rbac.create=false` aos comandos Helm.
 
 > [!TIP]
-> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
+> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu cluster, adicione `--set controller.service.externalTrafficPolicy=Local` ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for* . Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem TLS não funcionará.
 
 Atualize o script a seguir com o **endereço IP** do controlador de entrada e um **nome exclusivo** que você deseja usar para o prefixo FQDN.
 
@@ -199,7 +199,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -237,7 +237,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -378,7 +378,7 @@ O aplicativo de demonstração é mostrado no navegador da web:
 
 ![Exemplo de aplicativo um](media/ingress/app-one.png)
 
-Agora, adicione o caminho */hello-world-two* para o FQDN, como *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`*. O segundo aplicativo de demonstração com o título personalizado é mostrado:
+Agora, adicione o caminho */hello-world-two* para o FQDN, como *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`* . O segundo aplicativo de demonstração com o título personalizado é mostrado:
 
 ![Exemplo de aplicativo dois](media/ingress/app-two.png)
 
@@ -435,7 +435,7 @@ Exclua o namespace em si. Use o `kubectl delete` comando e especifique o nome do
 kubectl delete namespace ingress-basic
 ```
 
-Por fim, remova o endereço IP público estático criado para o controlador de entrada. Forneça seu nome do grupo de recursos de cluster *MC_* obtidos na primeira etapa deste artigo, tal como *MC_meuGrupoDeRecursos_meuClusterCluster_lestedoseua*:
+Por fim, remova o endereço IP público estático criado para o controlador de entrada. Forneça seu nome do grupo de recursos de cluster *MC_* obtidos na primeira etapa deste artigo, tal como *MC_meuGrupoDeRecursos_meuClusterCluster_lestedoseua* :
 
 ```azurecli-interactive
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP

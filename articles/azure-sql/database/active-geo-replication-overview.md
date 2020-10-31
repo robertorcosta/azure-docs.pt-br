@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672972"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125335"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criando e usando a replicação geográfica ativa-banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ Por padrão, a redundância de armazenamento de backup do secundário é a mesma
 > A taxa do log de transações no primário pode ser limitada por motivos não relacionados ao tamanho de computação inferior em um secundário. Esse tipo de limitação pode ocorrer mesmo se o secundário tiver o mesmo tamanho de computação ou maior do que o primário. Para obter detalhes, incluindo tipos de espera para diferentes tipos de limitação de taxa de log, consulte [governança de taxa de log de transações](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está atualmente disponível apenas na região do Sudeste Asiático Azure. Quando o banco de dados de origem é criado com redundância de armazenamento de backup com redundância local ou de zona, não há suporte para a criação de um banco de dados secundário em uma região diferente do Azure. 
+> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente na visualização pública no sul do Brasil e geralmente disponível somente na região do sudeste asiático do Azure. Quando o banco de dados de origem é criado com redundância de armazenamento de backup com redundância local ou de zona, não há suporte para a criação de um banco de dados secundário em uma região diferente do Azure. 
 
 Para obter mais informações sobre os tamanhos da computação do Banco de Dados SQL, confira [Quais são as Camadas de Serviço do Banco de Dados SQL](purchasing-models.md).
 

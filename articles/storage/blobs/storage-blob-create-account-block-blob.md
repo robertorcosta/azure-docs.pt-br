@@ -5,16 +5,16 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19d70642a6c76239f62b2fd6f7e713430a7adfbb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043090"
+ms.locfileid: "93124961"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta do BlockBlobStorage
 
@@ -116,10 +116,7 @@ Para criar uma conta do BlockBlobStorage no portal do Azure, siga estas etapas:
 
 8. Escolha a guia **avançado** .
 
-9. Se você quiser otimizar sua conta de armazenamento para análise de dados, defina o **namespace hierárquico** como **habilitado** . Caso contrário, deixe essa opção definida como o valor padrão. A habilitação dessa configuração com sua conta do BlockBlobStorage fornece a [camada Premium para data Lake Storage](premium-tier-for-data-lake-storage.md).  Para saber mais sobre Data Lake Storage, consulte [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
-
-   > [!NOTE]
-   > O recurso de namespace hierárquico em uma conta de armazenamento de blobs de blocos está em visualização pública. Para obter informações sobre a disponibilidade regional, consulte [disponibilidade regional](premium-tier-for-data-lake-storage.md#regional-availability).
+9. Se você quiser otimizar sua conta de armazenamento para análise de dados, defina o **namespace hierárquico** como **habilitado** . Caso contrário, deixe essa opção definida como seu valor padrão. A habilitação dessa configuração com sua conta do BlockBlobStorage fornece a [camada Premium para data Lake Storage](premium-tier-for-data-lake-storage.md).  Para saber mais sobre Data Lake Storage, consulte [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 8. Selecione **revisão + criar** para revisar as configurações da conta de armazenamento.
 
@@ -162,9 +159,6 @@ Para criar uma conta do BlockBlobStorage no portal do Azure, siga estas etapas:
    ```
    Se você quiser otimizar sua conta de armazenamento para análise de dados, adicione `-EnableHierarchicalNamespace $True` ao comando. A habilitação dessa configuração com sua conta do BlockBlobStorage fornece a [camada Premium para data Lake Storage](premium-tier-for-data-lake-storage.md).  Para saber mais sobre Data Lake Storage, consulte [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > O recurso de namespace hierárquico em uma conta de armazenamento de blobs de blocos está em visualização pública. Para obter informações sobre a disponibilidade regional, consulte [disponibilidade regional](premium-tier-for-data-lake-storage.md#regional-availability).
-
 ## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para criar uma conta de blob de blocos usando o CLI do Azure, você deve primeiro instalar o CLI do Azure v. 2.0.46 ou uma versão posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
@@ -195,10 +189,7 @@ Para criar uma conta de blob de blocos usando o CLI do Azure, você deve primeir
    ```
 
    Se você quiser otimizar sua conta de armazenamento para análise de dados, adicione `--hierarchical-namespace true` ao comando. A habilitação dessa configuração com sua conta do BlockBlobStorage fornece a [camada Premium para data Lake Storage](premium-tier-for-data-lake-storage.md).  Para saber mais sobre Data Lake Storage, consulte [introdução ao Azure data Lake Storage Gen2](data-lake-storage-introduction.md).
-   
-   > [!NOTE]
-   > O recurso de namespace hierárquico em uma conta de armazenamento de blobs de blocos está em visualização pública. Para obter informações sobre a disponibilidade regional, consulte [disponibilidade regional](premium-tier-for-data-lake-storage.md#regional-availability).
-   
+
 ---
 
 ## <a name="next-steps"></a>Próximas etapas

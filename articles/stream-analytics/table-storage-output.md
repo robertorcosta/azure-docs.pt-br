@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891958"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127341"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Saída de armazenamento de tabela do Azure Stream Analytics
 
@@ -28,7 +28,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Nome da tabela |O nome da tabela. Caso ainda não exista, a tabela será criada. |
 | Chave de partição |O nome da coluna de saída que contém a chave de partição. A chave de partição é um identificador exclusivo para a partição em uma tabela que forma a primeira parte da chave primária da entidade. É um valor de cadeia de caracteres que pode ter um tamanho de até 1 KB. |
 | Chave de linha |O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo de uma entidade em uma partição. Ela forma a segunda parte da chave primária da entidade. A chave de linha é um valor de cadeia de caracteres que pode ter um tamanho de até 1 KB. |
-| Tamanho do lote |É o número de registros para uma operação em lote. O padrão (100) é suficiente para a maioria dos trabalhos. Consulte [Especificação da operação de lote da tabela](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) para obter mais detalhes sobre como modificar essa configuração. |
+| Tamanho do lote |É o número de registros para uma operação em lote. O padrão (100) é suficiente para a maioria dos trabalhos. Consulte [Especificação da operação de lote da tabela](/java/api/com.microsoft.azure.storage.table.tablebatchoperation) para obter mais detalhes sobre como modificar essa configuração. |
 
 ## <a name="partitioning"></a>Particionamento
 

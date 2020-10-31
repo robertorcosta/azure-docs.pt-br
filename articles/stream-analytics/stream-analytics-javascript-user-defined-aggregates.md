@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e43a43d929d256bc2a12b6b243d9620c5bd1aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317694"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124757"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Agregações definidas pelo usuário do JavaScript do Azure Stream Analytics
  
@@ -83,7 +83,7 @@ O alias da função é o identificador da UDA. Quando chamado em consultas do St
 
 ### <a name="function-type"></a>Tipo de função
 
-Para a UDA, o tipo da função deve ser **UDA do JavaScript**.
+Para a UDA, o tipo da função deve ser **UDA do JavaScript** .
 
 ### <a name="output-type"></a>Tipo de saída
 
@@ -123,7 +123,7 @@ Abaixo mostramos passo a passo o processo de criação de uma UDA no Portal. O e
 Agora vamos criar uma UDA do JavaScript em um trabalho ASA existente seguindo as etapas.
 
 1. Faça logon no Portal do Azure e localize o trabalho existente do Stream Analytics.
-1. Em seguida, clique no link de funções em **TOPOLOGIA DO TRABALHO**.
+1. Em seguida, clique no link de funções em **TOPOLOGIA DO TRABALHO** .
 1. Clique no ícone **Adicionar** para adicionar uma nova função.
 1. Na exibição Nova Função, selecione **UDA do JavaScript** como o Tipo de Função e você verá um modelo de UDA padrão aparecer no editor.
 1. Preencha “TWA” como o alias da UDA e altere a implementação da função como mostrado a seguir:
@@ -226,12 +226,12 @@ Crie um arquivo JSON local com o conteúdo abaixo, carregue o arquivo para o tra
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais ajuda, experimente a nossa [página de Perguntas e Respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais ajuda, experimente a nossa [página de Perguntas e Respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do gerenciamento do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de linguagem de consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do gerenciamento do Stream Analytics do Azure](/rest/api/streamanalytics/)

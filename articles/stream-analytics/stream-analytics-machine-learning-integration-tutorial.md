@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 529b1ce8026d9880bbc8caf87ab59148baf92df3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019453"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123754"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Fazer análise de sentimentos com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
 
@@ -43,7 +43,7 @@ Antes de começar, verifique se você tem:
 
 Nesta etapa, você carrega um arquivo CSV em seu contêiner de armazenamento.
 
-1. Na portal do Azure, selecione **criar um recurso**  >  **armazenamento**  >  **conta de armazenamento**.
+1. Na portal do Azure, selecione **criar um recurso**  >  **armazenamento**  >  **conta de armazenamento** .
 
 2. Preencha a guia *noções básicas* com os seguintes detalhes e deixe os valores padrão para os campos restantes:
 
@@ -52,22 +52,22 @@ Nesta etapa, você carrega um arquivo CSV em seu contêiner de armazenamento.
    |Subscription|Escolha sua assinatura.|
    |Resource group|Escolha seu grupo de recursos.|
    |Nome da conta de armazenamento|Insira um nome para a conta de armazenamento. O nome deve ser exclusivo em todo o Azure.|
-   |Location|Escolha um local. Todos os recursos devem usar o mesmo local.|
+   |Localização|Escolha um local. Todos os recursos devem usar o mesmo local.|
    |Tipo de conta|BlobStorage|
 
    ![informe os detalhes da conta de armazenamento](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-3. Selecione **Examinar + criar**. Em seguida, selecione **criar** para implantar sua conta de armazenamento.
+3. Selecione **Examinar + criar** . Em seguida, selecione **criar** para implantar sua conta de armazenamento.
 
-4. Quando a implantação for concluída, navegue até sua conta de armazenamento. Em **Serviço Blob**, selecione **Contêineres**. Em seguida, selecione **+ contêiner** para criar um novo contêiner.
+4. Quando a implantação for concluída, navegue até sua conta de armazenamento. Em **Serviço Blob** , selecione **Contêineres** . Em seguida, selecione **+ contêiner** para criar um novo contêiner.
 
    ![Criar um contêiner de armazenamento de blob para entrada](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
-5. Forneça um nome para o contêiner e verifique se o **nível de acesso público** está definido como **privado**. Quando terminar, selecione **Criar**.
+5. Forneça um nome para o contêiner e verifique se o **nível de acesso público** está definido como **privado** . Quando terminar, selecione **Criar** .
 
    ![especifique os detalhes do contêiner de blob](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
-6. Navegue até o contêiner recém-criado e selecione **carregar**. Carregue o arquivo de **sampleinput.csv** que você baixou anteriormente.
+6. Navegue até o contêiner recém-criado e selecione **carregar** . Carregue o arquivo de **sampleinput.csv** que você baixou anteriormente.
 
    ![Botão “Carregar” para um contêiner](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
@@ -77,7 +77,7 @@ Agora que os dados de exemplo estão em um blob, você pode habilitar o modelo d
 
 1. Acesse a página [modelo preditivo de análise de sentimento](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) da Galeria do Cortana Intelligence.  
 
-2. Selecione **abrir no Studio (clássico)**.  
+2. Selecione **abrir no Studio (clássico)** .  
    
    ![Stream Analytics Azure Machine Learning Studio (clássico), Open Studio (clássico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
@@ -115,7 +115,7 @@ Vá para a [portal do Azure](https://portal.azure.com) e crie um trabalho de Str
 
 O trabalho obtém sua entrada do arquivo CSV que você carregou anteriormente para o armazenamento de blobs.
 
-1. Navegue até o trabalho do Stream Analytics. Em **topologia do trabalho**, selecione a opção **entradas** . Selecione **Adicionar fluxo**  > **armazenamento de blob**de entrada.
+1. Navegue até o trabalho do Stream Analytics. Em **topologia do trabalho** , selecione a opção **entradas** . Selecione **Adicionar fluxo**  > **armazenamento de blob** de entrada.
 
 2. Preencha os detalhes do **armazenamento de blob** com os seguintes valores:
 
@@ -127,13 +127,13 @@ O trabalho obtém sua entrada do arquivo CSV que você carregou anteriormente pa
    |Contêiner|Selecione o contêiner que você criou na etapa anterior.|
    |Formato de serialização do evento|CSV|
 
-3. Clique em **Salvar**.
+3. Selecione **Salvar** .
 
 ### <a name="configure-the-job-output"></a>Configurar a saída do trabalho
 
 O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obtém a entrada.
 
-1. Navegue até o trabalho do Stream Analytics. Em **topologia do trabalho**, selecione a opção **saídas** . Selecione **Adicionar**  >  **armazenamento de BLOBs**.
+1. Navegue até o trabalho do Stream Analytics. Em **topologia do trabalho** , selecione a opção **saídas** . Selecione **Adicionar**  >  **armazenamento de BLOBs** .
 
 2. Preencha o formulário de **armazenamento de blob** com estes valores:
 
@@ -145,7 +145,7 @@ O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obt�
    |Contêiner|Selecione o contêiner que você criou na etapa anterior.|
    |Formato de serialização do evento|CSV|
 
-3. Clique em **Salvar**.
+3. Selecione **Salvar** .
 
 ### <a name="add-the-studio-classic-function"></a>Adicionar a função Studio (clássico)
 
@@ -161,11 +161,11 @@ Nesta seção, você define uma função no trabalho de análise de fluxo. A fun
 
    |Campo  |Valor  |
    |---------|---------|
-   | Alias da função | Use o nome `sentiment` e selecione **fornecer Azure Machine Learning configurações de função manualmente**, o que lhe dá uma opção para inserir a URL e a chave.      |
+   | Alias da função | Use o nome `sentiment` e selecione **fornecer Azure Machine Learning configurações de função manualmente** , o que lhe dá uma opção para inserir a URL e a chave.      |
    | URL| Cole a URL do serviço Web.|
    |Chave | Cole a chave de API. |
 
-4. Selecione **Salvar**.
+4. Selecione **Salvar** .
 
 ### <a name="create-a-query-to-transform-the-data"></a>Criar uma consulta para transformar os dados
 
@@ -173,7 +173,7 @@ O Stream Analytics usa uma consulta declarativa baseada em SQL para examinar a e
 
 1. Retorne para a visão geral do trabalho de Stream Analytics.
 
-2. Em **Topologia do trabalho**, selecione **Consulta**.
+2. Em **Topologia do trabalho** , selecione **Consulta** .
 
 3. Insira a consulta a seguir:
 
@@ -202,16 +202,16 @@ Agora você pode iniciar o trabalho do Stream Analytics.
 
 2. Selecione **Iniciar** na parte superior da página.
 
-3. Em **Iniciar trabalho**, selecione **personalizado**e, em seguida, selecione um dia antes de quando você carregou o arquivo CSV no armazenamento de BLOBs. Quando terminar, selecione **Iniciar**.  
+3. Em **Iniciar trabalho** , selecione **personalizado** e, em seguida, selecione um dia antes de quando você carregou o arquivo CSV no armazenamento de BLOBs. Quando terminar, selecione **Iniciar** .  
 
 ### <a name="check-the-output"></a>Verifique a saída
 
-1. Deixe o trabalho ser executado por alguns minutos até ver a atividade na caixa **Monitoramento**.
+1. Deixe o trabalho ser executado por alguns minutos até ver a atividade na caixa **Monitoramento** .
 
 2. Se você tiver uma ferramenta que normalmente usa para examinar o conteúdo do armazenamento de BLOBs, use essa ferramenta para examinar o contêiner. Como alternativa, siga estas etapas no portal do Azure:
 
       1. No portal do Azure, localize sua conta de armazenamento e, dentro da conta, localize o contêiner. Você ver dois arquivos no contêiner: o arquivo que contém os tweets de exemplo e um arquivo CSV gerado pelo trabalho do Stream Analytics.
-      2. Clique com o botão direito do mouse no arquivo gerado e, em seguida, selecione **Baixar**.
+      2. Clique com o botão direito do mouse no arquivo gerado e, em seguida, selecione **Baixar** .
 
 3. Abra o arquivo CSV gerado. Você verá algo parecido com o exemplo a seguir:  
 
@@ -227,6 +227,6 @@ Você também pode exibir as métricas relacionadas à função do Studio (clás
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Integrar API REST e Machine Learning Studio (clássico)](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

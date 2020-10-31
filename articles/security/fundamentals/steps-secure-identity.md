@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364109"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127052"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -145,7 +145,7 @@ O Azure Active Directory tem muitos recursos que interceptam automaticamente ata
 
 O risco do usuário indica a probabilidade de a identidade de um usuário ter sido comprometida, que é calculada com base nas [detecções de risco do usuário](../../active-directory/identity-protection/overview.md) associadas à identidade de um determinado usuário. Uma política de risco do usuário é uma política de acesso condicional que avalia o nível de risco para um grupo ou usuário específico. Com base no nível de risco Baixo, Médio ou Alto, é possível configurar uma política para bloquear o acesso ou exigir uma mudança de senha segura usando a autenticação multifator. A recomendação da Microsoft é a de exigir uma mudança de senha segura para usuários com risco alto.
 
-![Usuários sinalizados por risco](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Captura de tela mostra os usuários sinalizados para risco, com um usuário selecionado.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementar a política de risco de entrada usando o Azure AD Identity Protection
 
@@ -175,7 +175,7 @@ O Azure AD Identity Protection fornece dois relatórios importantes que devem se
 1. Os relatórios de entradas arriscadas exibirão as atividades de entrada do usuário que você deve investigar, pois o proprietário legítimo pode não ter sido verificado na entrada.
 2. Os relatórios de usuário arriscados exibirão as contas de usuários que poderão ter sido comprometidas, como as credenciais perdidas detectadas ou usuário que entrou a partir de localizações diferentes causando um evento de viagem impossível.
 
-![Usuários sinalizados por risco](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Captura de tela mostra o painel de proteção de identidade do Azure a D com usuários e seus níveis de risco.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Auditar aplicativos e permissões de consentimento
 

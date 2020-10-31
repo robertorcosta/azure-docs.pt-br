@@ -12,16 +12,16 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c148e673b8ada549a6543f8f35634aaf29abff0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797999"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123941"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solucionar problemas com o portal Meus Aplicativos
 
-Caso esteja tendo problemas para entrar ou usar o portal **Meus Aplicativos**, tente essas dicas de solução de problemas antes de entrar em contato com a assistência técnica ou com seu administrador para obter ajuda.
+Caso esteja tendo problemas para entrar ou usar o portal **Meus Aplicativos** , tente essas dicas de solução de problemas antes de entrar em contato com a assistência técnica ou com seu administrador para obter ajuda.
 
 ## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Estou com problemas para instalar a Extensão de Conexão Segura dos Meus Aplicativos
 
@@ -45,7 +45,7 @@ Se você estiver com problemas ao instalar a Extensão de Conexão Segura de Meu
 
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Não consigo entrar no portal **Meus Aplicativos**
 
-Se você estiver com problemas para entrar no portal **Meus Aplicativos**, tente o seguinte:
+Se você estiver com problemas para entrar no portal **Meus Aplicativos** , tente o seguinte:
 
 - Verifique se você está usando a URL correta. Ela deve ser https://myapps.microsoft.com ou uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
@@ -53,7 +53,7 @@ Se você estiver com problemas para entrar no portal **Meus Aplicativos**, tente
 
 - Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, confira [O que a Autenticação Multifator do Azure significa para mim?](./multi-factor-authentication-end-user-first-time.md) ou [Como alterar seus métodos e informações de segurança da informação](./security-info-setup-auth-app.md).
 
-- Adicione a URL do portal **Meu Aplicativo** à configuração **Propriedades da Internet > Segurança > Sites confiáveis**.
+- Adicione a URL do portal **Meu Aplicativo** à configuração **Propriedades da Internet > Segurança > Sites confiáveis** .
 
 - Limpe o cache do navegador e tente entrar novamente.
 
@@ -67,11 +67,11 @@ Para poder redefinir sua própria senha, o administrador deve primeiro ativar o 
 
 ## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Estou recebendo uma mensagem de acesso negado ao iniciar um aplicativo
 
-Se você está recebendo uma mensagem de **Acesso Negado** depois de iniciar um aplicativo no portal **Meu Aplicativo**, pode tentar o seguinte:
+Se você está recebendo uma mensagem de **Acesso Negado** depois de iniciar um aplicativo no portal **Meu Aplicativo** , pode tentar o seguinte:
 
 - Verifique se você instalou a [Extensão de Conexão Segura de Meus Aplicativos](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) e está usando um [navegador com suporte](my-apps-portal-end-user-access.md#supported-browsers).
 
-- Verifique se você está usando a URL correta para o aplicativo e se a URL está em sua lista de **Propriedades da Internet > Segurança > Sites confiáveis**.
+- Verifique se você está usando a URL correta para o aplicativo e se a URL está em sua lista de **Propriedades da Internet > Segurança > Sites confiáveis** .
 
 - Verifique se sua senha está correta e não expirou. Para obter mais informações, consulte [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
@@ -83,11 +83,11 @@ Se, depois de tentar isso, você ainda não conseguir acessar seu aplicativo, en
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de entrar no portal **Meus Aplicativos**, você também pode atualizar suas informações de perfil e conta, suas informações de grupo e informações de revisão de acesso (se você tiver permissão).
+Depois de entrar no portal **Meus Aplicativos** , você também pode atualizar suas informações de perfil e conta, suas informações de grupo e informações de revisão de acesso (se você tiver permissão).
 
 - [Acesse e use aplicativos no portal Meus Aplicativos](my-apps-portal-end-user-access.md).
 
-- [Alterar as informações do seu perfil](my-apps-portal-end-user-update-profile.md).
+- [Alterar as informações do seu perfil](./my-account-portal-settings.md).
 
 - [Exibir e atualizar suas informações relacionadas a grupos](my-apps-portal-end-user-groups.md).
 

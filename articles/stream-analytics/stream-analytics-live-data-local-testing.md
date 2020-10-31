@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0788d8b4f659364fcedc690185c9159a24434125
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044457"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123907"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio (Versão Prévia)
 
@@ -31,7 +31,7 @@ Há suporte para as seguintes opções de testes locais:
 
 ## <a name="local-testing-with-live-data"></a>O teste local usando dados dinâmicos
 
-1. Depois de criar um [projeto de nuvem do Azure Stream Analytics no Visual Studio](stream-analytics-quick-create-vs.md), abra **script.asaql**. O teste local usa entrada e saída locais por padrão.
+1. Depois de criar um [projeto de nuvem do Azure Stream Analytics no Visual Studio](stream-analytics-quick-create-vs.md), abra **script.asaql** . O teste local usa entrada e saída locais por padrão.
 
    ![Entrada e saída local do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
 
@@ -43,7 +43,7 @@ Há suporte para as seguintes opções de testes locais:
 
    ![Hora de início de dados dinâmicos do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
 
-4. Clique em **Executar Localmente**. Uma janela do console será exibida com as métricas de trabalho e progresso em execução. Se você quiser interromper o processo, poderá fazer isso manualmente. 
+4. Clique em **Executar Localmente** . Uma janela do console será exibida com as métricas de trabalho e progresso em execução. Se você quiser interromper o processo, poderá fazer isso manualmente. 
 
    ![Janela de processo de dados dinâmicos do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 
@@ -59,7 +59,7 @@ Há suporte para as seguintes opções de testes locais:
 
 * O Power BI e Azure Data Lake Storage não são coletores de saída com suporte devido a limitações do modelo de autenticação.
 
-* Somente opções de entrada de nuvem têm suporte para [políticas de tempo](stream-analytics-out-of-order-and-late-events.md), as opções de entrada locais, não.
+* Somente opções de entrada de nuvem têm suporte para [políticas de tempo](./stream-analytics-time-handling.md), as opções de entrada locais, não.
 
 ## <a name="next-steps"></a>Próximas etapas
 

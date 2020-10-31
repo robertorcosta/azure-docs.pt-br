@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: d2fe8445d41f88852c6c9d4db84f4e1b03183a2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015525"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124400"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Dimensionar seu trabalho do Stream Analytics com funções do Azure Machine Learning Studio (clássico)
 
@@ -40,7 +40,7 @@ Determine a *tolerância* de latência do seu trabalho do Stream Analytics. Aume
 
 Aumentar o tamanho do lote permite que o trabalho de Stream Analytics processe **mais eventos** com o **mesmo número** de solicitações de serviço da Web do estúdio (clássico). O aumento da latência de serviço Web de estúdio (clássico) geralmente é sublinear ao aumento do tamanho do lote. 
 
-É importante considerar o tamanho de lote mais econômico para um serviço Web de estúdio (clássico) em qualquer situação em questão. O tamanho de lote padrão para solicitações de serviço Web é 1000. Você pode alterar esse tamanho padrão usando a [API REST do Stream Analytics](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "API REST do Stream Analytics") ou o [cliente do PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
+É importante considerar o tamanho de lote mais econômico para um serviço Web de estúdio (clássico) em qualquer situação em questão. O tamanho de lote padrão para solicitações de serviço Web é 1000. Você pode alterar esse tamanho padrão usando a [API REST do Stream Analytics](/previous-versions/azure/mt653706(v=azure.100) "API REST do Stream Analytics") ou o [cliente do PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
 
 Depois de decidir o tamanho de lote, defina o número de unidades de streamings (SUs) com base no número de eventos que a função precisa processar por segundo. Para obter mais informações sobre o unidades de streaming, consulte Dimensionar trabalhos do [Trabalhos de escala do Stream Analytics](stream-analytics-scale-jobs.md).
 
@@ -52,7 +52,7 @@ Para processar 200.000 eventos por segundo, o trabalho do Stream Analytics preci
 
 ![Dimensionar Stream Analytics com funções do Studio (clássico) dois exemplos de trabalho](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Dimensionar Stream Analytics com funções do Studio (clássico) dois exemplos de trabalho")
 
-Em geral, sendo ***B*** o tamanho do lote e ***L*** a latência do serviço Web com o tamanho do lote B em milissegundos, a produtividade de um trabalho do Stream Analytics com ***N*** SUs será:
+Em geral, * *_B_* _ para tamanho do lote, _*_L_*_ para a latência do serviço Web no tamanho do lote B em milissegundos, a taxa de transferência de um trabalho de Stream Analytics com _*_N_*_ SUS é:
 
 ![Dimensionar Stream Analytics com fórmula de funções do estúdio (clássico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Dimensionar Stream Analytics com fórmula de funções do estúdio (clássico)")
 
@@ -63,7 +63,7 @@ Para obter mais informações sobre essa configuração, examine o [artigo de di
 ## <a name="example--sentiment-analysis"></a>Exemplo – análise de sentimento
 O exemplo a seguir inclui um trabalho Stream Analytics com a função de análise de sentimentos (clássico), conforme descrito no [tutorial de integração do Stream Analytics Machine Learning Studio (clássico)](stream-analytics-machine-learning-integration-tutorial.md).
 
-A consulta é uma consulta simples e totalmente particionada, seguida pela função **sentimento**, conforme mostrado abaixo:
+A consulta é uma consulta particionada simples, seguida da *função _ atenção* *, conforme mostrado no exemplo a seguir:
 
 ```SQL
     WITH subquery AS (
@@ -99,7 +99,7 @@ Vamos examinar a colocação em escala usando as medidas de latência a seguir p
 | 300 ms | Lotes de 10.000 eventos |
 | 500 ms | Lotes de 25.000 eventos |
 
-1. Usando a primeira opção (**não** Provisionando mais SUs). O tamanho do lote pode ser aumentado para **25.000**. O aumento do tamanho do lote dessa maneira permitirá que o trabalho processe eventos 1 milhão com 20 conexões simultâneas com o serviço Web Studio (clássico) (com uma latência de 500 MS por chamada). Portanto, a latência adicional do trabalho de Stream Analytics devido às solicitações de função de sentimentos em relação às solicitações de serviço Web Studio (clássico) será aumentada de **200 MS** para **500 MS**. No entanto, o tamanho do lote **não pode** ser aumentado infinitamente, pois os serviços Web do estúdio (clássico) exigem que o tamanho da carga de uma solicitação seja de 4 MB ou menor, e o tempo limite das solicitações de serviço web após 100 segundos de operação.
+1. Usando a primeira opção ( **não** Provisionando mais SUs). O tamanho do lote pode ser aumentado para **25.000** . O aumento do tamanho do lote dessa maneira permitirá que o trabalho processe eventos 1 milhão com 20 conexões simultâneas com o serviço Web Studio (clássico) (com uma latência de 500 MS por chamada). Portanto, a latência adicional do trabalho de Stream Analytics devido às solicitações de função de sentimentos em relação às solicitações de serviço Web Studio (clássico) será aumentada de **200 MS** para **500 MS** . No entanto, o tamanho do lote **não pode** ser aumentado infinitamente, pois os serviços Web do estúdio (clássico) exigem que o tamanho da carga de uma solicitação seja de 4 MB ou menor, e o tempo limite das solicitações de serviço web após 100 segundos de operação.
 1. Usando a segunda opção, o tamanho do lote é deixado em 1000, com latência de serviço Web de 200 ms, cada 20 conexões simultâneas com o serviço Web seriam capazes de processar 1000 * 20 * 5 eventos = 100.000 por segundo. Então, para processar 1.000.000 eventos por segundo, o trabalho precisaria de 60 SUs. Comparando com a primeira opção, o trabalho do Stream Analytics faria mais solicitações em lote do serviço Web, gerando um aumento do custo.
 
 Veja abaixo uma tabela sobre a produtividade do trabalho do Stream Analytics para SUs e tamanhos de lote diferentes (em número de eventos por segundo).
@@ -120,17 +120,17 @@ Agora, você já deve ter uma boa compreensão de como as funções do Studio (c
 Normalmente, o tamanho do lote que definimos para as funções do Studio (clássico) não será exatamente divisível pelo número de eventos retornados por cada Stream Analytics trabalho "pull". Quando isso ocorre, o serviço Web Studio (clássico) é chamado com lotes "parciais". Usar lotes parciais evita a sobrecarga adicional de latência de trabalho em eventos acumulados a cada pull.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Novas métricas de monitoramentos relacionadas à função
-Na área de Monitoramento de um trabalho do Stream Analytics, foram adicionadas três métricas relacionadas à função. São elas **FUNCTION REQUESTS**, **FUNCTION EVENTS** e **FAILED FUNCTION REQUESTS**, como mostrado no gráfico a seguir.
+Na área de Monitoramento de um trabalho do Stream Analytics, foram adicionadas três métricas relacionadas à função. São elas **FUNCTION REQUESTS** , **FUNCTION EVENTS** e **FAILED FUNCTION REQUESTS** , como mostrado no gráfico a seguir.
 
 ![Dimensionar Stream Analytics com as métricas de funções do estúdio (clássico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Dimensionar Stream Analytics com as métricas de funções do estúdio (clássico)")
 
 Estas são as definições:
 
-**SOLICITAÇÕES DE FUNÇÃO**: O número de solicitações de função.
+**SOLICITAÇÕES DE FUNÇÃO** : O número de solicitações de função.
 
-**EVENTOS DE FUNÇÃO**: O número de eventos nas solicitações de função.
+**EVENTOS DE FUNÇÃO** : O número de eventos nas solicitações de função.
 
-**SOLICITAÇÕES DE FUNÇÃO COM FALHA**: O número de solicitações de função com falha.
+**SOLICITAÇÕES DE FUNÇÃO COM FALHA** : O número de solicitações de função com falha.
 
 ## <a name="key-takeaways"></a>Principais observações
 
@@ -140,12 +140,12 @@ Para dimensionar um trabalho de Stream Analytics com funções do Studio (cláss
 2. A latência tolerada para o trabalho de Stream Analytics em execução (e, portanto, o tamanho do lote das solicitações do serviço Web Studio (clássico)).
 3. O SUs provisionado Stream Analytics e o número de solicitações de serviço da Web do Studio (clássico) (os custos adicionais relacionados à função).
 
-Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo. Se uma consulta mais complexa for necessária, a [página de perguntas e respostas da Microsoft para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html) é um excelente recurso para se obter ajuda adicional da equipe do Stream Analytics.
+Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo. Se uma consulta mais complexa for necessária, a [página de perguntas e respostas da Microsoft para o Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) é um excelente recurso para se obter ajuda adicional da equipe do Stream Analytics.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Stream Analytics, confira:
 
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](/rest/api/streamanalytics/)

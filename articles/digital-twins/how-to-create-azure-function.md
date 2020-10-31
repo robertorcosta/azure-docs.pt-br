@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c169f10ac0444f5bca67d76e8e8ebc0f0b145ee1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495918"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124231"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conectar Azure Functions aplicativos para processamento de dados
 
@@ -30,17 +30,21 @@ Aqui está uma visão geral das etapas que ela contém:
 4. Publicar o aplicativo de funções no Azure
 5. Configurar o acesso de [segurança](concepts-security.md) para o aplicativo de funções do Azure
 
+## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Pré-requisito: configurar a instância de gêmeos digital do Azure
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Criar um aplicativo Azure Functions no Visual Studio
 
-No Visual Studio 2019, selecione _arquivo > novo projeto de >_ e procure o modelo de _Azure Functions_ , selecione _Avançar_.
+No Visual Studio 2019, selecione _arquivo > novo projeto de >_ e procure o modelo de _Azure Functions_ , selecione _Avançar_ .
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
-Especifique um nome para o aplicativo de funções e selecione _criar_.
+Especifique um nome para o aplicativo de funções e selecione _criar_ .
 
 :::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
-Selecione o tipo de *gatilho de grade de eventos* do aplicativo de funções e selecione _criar_.
+Selecione o tipo de *gatilho de grade de eventos* do aplicativo de funções e selecione _criar_ .
 
 :::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
@@ -155,14 +159,14 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Publicar o aplicativo de funções no Azure
 
-Para publicar o aplicativo de funções no Azure, selecione o projeto de função (não a solução) em Gerenciador de Soluções e escolha **publicar**.
+Para publicar o aplicativo de funções no Azure, selecione o projeto de função (não a solução) em Gerenciador de Soluções e escolha **publicar** .
 
 > [!IMPORTANT] 
 > A publicação de uma função do Azure incorrerá em encargos adicionais em sua assinatura, independentemente do Azure digital gêmeos.
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
-Selecione **Azure** como o destino de publicação e selecione **Avançar**.
+Selecione **Azure** como o destino de publicação e selecione **Avançar** .
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
@@ -205,7 +209,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 Por fim, você pode tornar a URL da sua instância de gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre como definir variáveis de ambiente, consulte [*variáveis de ambiente*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
-> A URL da instância do gêmeos digital do Azure é feita adicionando *https://* ao início do *nome de host*da instância do Azure digital gêmeos. Para ver o nome do host, juntamente com todas as propriedades de sua instância, você pode executar `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> A URL da instância do gêmeos digital do Azure é feita adicionando *https://* ao início do *nome de host* da instância do Azure digital gêmeos. Para ver o nome do host, juntamente com todas as propriedades de sua instância, você pode executar `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
 ```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
@@ -219,7 +223,7 @@ Na [portal do Azure](https://portal.azure.com/), pesquise por _aplicativo de fun
 :::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
 Na janela do aplicativo de funções, selecione _identidade_ na barra de navegação à esquerda para habilitar a identidade gerenciada.
-Na guia _atribuído pelo sistema_ , alterne o _status_ para ativado e _salve_ -o. Você verá um pop-up para _habilitar a identidade gerenciada atribuída pelo sistema_.
+Na guia _atribuído pelo sistema_ , alterne o _status_ para ativado e _salve_ -o. Você verá um pop-up para _habilitar a identidade gerenciada atribuída pelo sistema_ .
 Selecione o botão _Sim_ . 
 
 :::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
@@ -234,16 +238,16 @@ Observe também a **ID de objeto** mostrada na página _identidade_ , pois ela s
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Atribuir funções de acesso usando portal do Azure
 
-Selecione o botão _atribuições de função do Azure_ , que abrirá a página *atribuições de função do Azure* . Em seguida, selecione _+ Adicionar atribuição de função (versão prévia)_.
+Selecione o botão _atribuições de função do Azure_ , que abrirá a página *atribuições de função do Azure* . Em seguida, selecione _+ Adicionar atribuição de função (versão prévia)_ .
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
 Na página _Adicionar atribuição de função (versão prévia)_ que é aberta, selecione:
 
-* _Escopo_: grupo de recursos
-* _Assinatura_: selecione sua assinatura do Azure
-* _Grupo de recursos_: selecione o grupo de recursos na lista suspensa
-* _Função_: selecione _Azure digital gêmeos proprietário dos dados_ no menu suspenso
+* _Escopo_ : grupo de recursos
+* _Assinatura_ : selecione sua assinatura do Azure
+* _Grupo de recursos_ : selecione o grupo de recursos na lista suspensa
+* _Função_ : selecione _Azure digital gêmeos proprietário dos dados_ no menu suspenso
 
 Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
 
@@ -255,7 +259,7 @@ Você pode tornar a URL da sua instância do gêmeos digital do Azure acessível
 
 Você precisará de ADT_INSTANCE_URL para criar uma configuração de aplicativo.
 
-Você pode obter ADT_INSTANCE_URL acrescentando **_https://_** ao nome do host da instância. No portal do Azure, você pode encontrar o nome do host da instância gêmeos digital pesquisando sua instância na barra de pesquisa. Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_. Copie esse valor para criar uma configuração de aplicativo.
+Você pode obter ADT_INSTANCE_URL acrescentando **_https://_** ao nome do host da instância. No portal do Azure, você pode encontrar o nome do host da instância gêmeos digital pesquisando sua instância na barra de pesquisa. Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_ . Copie esse valor para criar uma configuração de aplicativo.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 

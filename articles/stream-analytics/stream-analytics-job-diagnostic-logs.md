@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913034"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124010"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solucionar problemas do Azure Stream Analytics usando logs de recursos
 
@@ -48,7 +48,7 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
    ![Resumo de operações do log de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Role para baixo até a seção **Propriedades** do JSON, que fornece os detalhes do erro que causou a operação com falha. Neste exemplo, a falha ocorreu devido a um erro de runtime de valores de latitude fora do limite. A discrepância nos dados que são processados por um trabalho de Stream Analytics causa um erro de dados. Você pode aprender sobre [erros de dados de entrada e saída diferentes e por que eles ocorrem](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Role para baixo até a seção **Propriedades** do JSON, que fornece os detalhes do erro que causou a operação com falha. Neste exemplo, a falha ocorreu devido a um erro de runtime de valores de latitude fora do limite. A discrepância nos dados que são processados por um trabalho de Stream Analytics causa um erro de dados. Você pode aprender sobre [erros de dados de entrada e saída diferentes e por que eles ocorrem](./data-errors.md).
 
    ![Detalhes do erro JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -66,7 +66,7 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
     ![Navegação de folha para logs de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica** . Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Save** (Salvar).
+2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica** . Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Salvar** .
 
     ![Configurações para logs de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -95,7 +95,7 @@ Azure Stream Analytics captura duas categorias de logs de recursos:
 
 Todos os logs são armazenados no formato JSON. Cada entrada tem os seguintes campos de cadeia de caracteres comuns:
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
 time | Carimbo de data/hora (em UTC) do log.
 resourceId | ID do recurso em que a operação ocorreu, em maiúsculas. Inclui a ID da assinatura, o grupo de recursos e o nome do trabalho. Por exemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB** .
@@ -111,13 +111,13 @@ Os logs de execução trazem informações sobre eventos que ocorreram durante a
 
 ### <a name="data-errors"></a>Erros de dados
 
-Qualquer erro ocorrido enquanto o trabalho processa os dados está nessa categoria de logs. Esses logs costumam ser criados durante operações de leitura, serialização e gravação de dados. Esses logs não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Você pode saber mais sobre a causa de vários [erros de dados de entrada e saída](https://docs.microsoft.com/azure/stream-analytics/data-errors)diferentes.
+Qualquer erro ocorrido enquanto o trabalho processa os dados está nessa categoria de logs. Esses logs costumam ser criados durante operações de leitura, serialização e gravação de dados. Esses logs não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Você pode saber mais sobre a causa de vários [erros de dados de entrada e saída](./data-errors.md)diferentes.
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
 Fonte | Nome da entrada ou saída do trabalho em que ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
-Type | Tipo de erro. Por exemplo, **DataConversionError** , **CsvParserError** ou **ServiceBusPropertyColumnMissingError** .
+Tipo | Tipo de erro. Por exemplo, **DataConversionError** , **CsvParserError** ou **ServiceBusPropertyColumnMissingError** .
 Dados | Contém dados que são úteis para localizar com precisão a origem do erro. Sujeito a truncamento, dependendo do tamanho.
 
 Dependendo do valor de **operationName** , os erros de dados terão o seguinte esquema:
@@ -134,14 +134,14 @@ Dependendo do valor de **operationName** , os erros de dados terão o seguinte e
 
 Os eventos genéricos abrangem todo o resto.
 
-Nome | Descrição
+Name | Descrição
 -------- | --------
 Erro | (opcional) Informações sobre erros. Normalmente, essas são informações de exceção, se estiverem disponíveis.
 Mensagem| Mensagem de log.
-Type | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure** .
+Tipo | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure** .
 ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas do log de execução desde a hora em que o trabalho é iniciado até ele ser interrompido têm o mesmo valor de **ID de Correlação** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Erros de dados de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Referência da linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Erros de dados de Stream Analytics](./data-errors.md)
+* [Referência da linguagem de consulta do Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)

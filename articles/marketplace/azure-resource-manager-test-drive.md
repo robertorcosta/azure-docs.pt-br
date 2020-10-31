@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735613"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125131"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
 Use este tipo se você tiver uma oferta no Azure Marketplace ou AppSource, mas quiser criar um test drive apenas com recursos do Azure. Um modelo de Azure Resource Manager (ARM) é um contêiner codificado de recursos do Azure que você cria para representar melhor sua solução. O test drive usa o modelo ARM fornecido e implanta todos os recursos necessários para um grupo de recursos. Essa é a única opção test drive para a máquina virtual ou ofertas de aplicativo do Azure.
 
-Se você não estiver familiarizado com o que é um modelo ARM, leia [o que é Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) e [entenda a estrutura e a sintaxe dos modelos ARM](../azure-resource-manager/resource-group-authoring-templates.md) para entender melhor como criar e testar seus próprios modelos.
+Se você não estiver familiarizado com o que é um modelo ARM, leia [o que é Azure Resource Manager?](../azure-resource-manager/management/overview.md) e [entenda a estrutura e a sintaxe dos modelos ARM](../azure-resource-manager/templates/template-syntax.md) para entender melhor como criar e testar seus próprios modelos.
 
 Para obter informações sobre um test drive de **aplicativo** **hospedado** ou lógico, consulte [o que é um test drive?](what-is-test-drive.md)
 
@@ -34,7 +34,7 @@ Um modelo de implantação contém todos os recursos do Azure que compõem sua s
 
   - **Fria** – esse tipo de instância representa o número total de instâncias que é possível implantar por região. As instâncias *frias* exigem que o modelo do Resource Manager para test drive inteiro passe por uma implantação no momento em que um cliente solicita o test drive; portanto, carregam muito mais lentamente que as instâncias *quentes* . A compensação é que você só precisa pagar pela duração do test drive, ela *não* está sempre em execução em sua assinatura do Azure, como ocorre com uma instância *quente* .
 
-- **Modelo do Azure Resource Manager para test drive** – carregue o .zip que contém o modelo do Azure Resource Manager. Saiba mais sobre como criar um modelo de Azure Resource Manager no artigo de início rápido [Criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Modelo do Azure Resource Manager para test drive** – carregue o .zip que contém o modelo do Azure Resource Manager. Saiba mais sobre como criar um modelo de Azure Resource Manager no artigo de início rápido [Criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
     > Para publicar com êxito, é importante validar a formatação do modelo ARM. Duas maneiras de fazer isso são (1) usando uma [ferramenta de API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) ou (2) com uma [implantação de teste](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
@@ -45,7 +45,7 @@ Um modelo de implantação contém todos os recursos do Azure que compõem sua s
 
 Depois de criar o pacote de recursos desejado, grave e crie o modelo de test drive ARM. Como test drive executa implantações em um modo totalmente automatizado, os modelos de test drive têm algumas restrições:
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 A maioria dos modelos tem um conjunto de parâmetros que definem nomes de recursos, tamanhos de recursos (como tipos de contas de armazenamento ou tamanhos de máquina virtual), nomes de usuário e senhas, nomes DNS e assim por diante. Quando você implanta soluções usando o portal do Azure, pode preencher manualmente todos esses parâmetros, escolher nomes de DNS disponíveis ou nomes de conta de armazenamento e assim por diante.
 
@@ -316,7 +316,7 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
    6. Selecione **Criar** .
    7. Depois que o aplicativo tiver sido criado, selecione **Propriedades**  >  **definir o aplicativo como multilocatário** e, em seguida, **salvar** .
 
-4. Clique em **Salvar** .
+4. Selecione **Salvar** .
 
 5. Copie a ID do aplicativo para este aplicativo registrado e cole-a no campo test drive.
 
@@ -334,7 +334,7 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
 
       ![Adicionar as permissões](media/test-drive/access-control-permissions.jpg)
 
-   1. Clique em **Salvar** .
+   1. Selecione **Salvar** .
 
 7. Gere uma chave de autenticação de **aplicativo Azure ad** . Em **chaves** , adicione uma **Descrição da chave** , defina a duração para **nunca expirar** (uma chave expirada interromperá o Test Drive em produção) e selecione **salvar** . Copie e cole esse valor em seu campo de test drive obrigatório.
 
