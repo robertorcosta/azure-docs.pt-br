@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604675"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146465"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -44,11 +44,11 @@ Publique comentários ou perguntas no final deste artigo ou na [página de pergu
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Diretrizes de dimensionamento para a criação do servidor de destino mestre
 
 Crie o destino mestre de acordo com as seguintes diretrizes de dimensionamento:
-- **RAM**: 6 GB ou mais
-- **Tamanho do disco de SO**: 100 GB ou mais (para instalar o SO)
-- **Tamanho de disco adicional para unidade de retenção**: 1 TB
-- **Núcleos de CPU**: 4 núcleos ou mais
-- **Kernel**: 4,16. *
+- **RAM** : 6 GB ou mais
+- **Tamanho do disco de SO** : 100 GB ou mais (para instalar o SO)
+- **Tamanho de disco adicional para unidade de retenção** : 1 TB
+- **Núcleos de CPU** : 4 núcleos ou mais
+- **Kernel** : 4,16. *
 
 ## <a name="deploy-the-master-target-server"></a>Implantar o servidor de destino mestre
 
@@ -59,77 +59,77 @@ Use as seguinte as etapas para instalar o sistema de operacional de 64 bits do U
 1.   Vá até o [link de download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) e escolha o espelho mais próximo para baixar um ISO do Ubuntu 16.04.2 Minimal de 64 bits.
 Mantenha um ISO do Ubuntu 16.04.2 Minimal de 64 bits na unidade de DVD e inicie o sistema.
 
-1.  Selecione **Inglês** como o idioma de preferência e selecione **Enter**.
+1.  Selecione **Inglês** como o idioma de preferência e selecione **Enter** .
     
     ![Selecionar um idioma](./media/vmware-azure-install-linux-master-target/image1.png)
-1. Selecione **Instalar Servidor Ubuntu** e pressione **Enter**.
+1. Selecione **Instalar Servidor Ubuntu** e pressione **Enter** .
 
     ![Selecionar Instalar Ubuntu Server](./media/vmware-azure-install-linux-master-target/image2.png)
 
-1.  Selecione **Inglês** como o idioma de preferência e selecione **Enter**.
+1.  Selecione **Inglês** como o idioma de preferência e selecione **Enter** .
 
     ![Selecionar Inglês como seu idioma preferencial](./media/vmware-azure-install-linux-master-target/image3.png)
 
-1. Selecione a opção apropriada para o **Fuso Horário** na lista de opções e selecione **Enter**.
+1. Selecione a opção apropriada para o **Fuso Horário** na lista de opções e selecione **Enter** .
 
     ![Selecionar o fuso horário correto](./media/vmware-azure-install-linux-master-target/image4.png)
 
-1. Selecione **Não** (a opção padrão) e selecione **Enter**.
+1. Selecione **Não** (a opção padrão) e selecione **Enter** .
 
      ![Configurar o teclado](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selecione **Inglês (EUA)** como um país/região de origem para o teclado e selecione **Enter**.
+1. Selecione **Inglês (EUA)** como um país/região de origem para o teclado e selecione **Enter** .
 
-1. Selecione **inglês (EUA)** como o layout do teclado e selecione **Enter**.
+1. Selecione **inglês (EUA)** como o layout do teclado e selecione **Enter** .
 
-1. Insira o nome do host para o servidor na caixa **Nome do host** e selecione **Continuar**.
+1. Insira o nome do host para o servidor na caixa **Nome do host** e selecione **Continuar** .
 
-1. Para criar uma conta de usuário, digite o nome de usuário e selecione **Continuar**.
+1. Para criar uma conta de usuário, digite o nome de usuário e selecione **Continuar** .
 
       ![Criar uma conta do usuário](./media/vmware-azure-install-linux-master-target/image9.png)
 
-1. Digite a senha para a nova conta de usuário e selecione **Continuar**.
+1. Digite a senha para a nova conta de usuário e selecione **Continuar** .
 
-1.  Confirme a senha para o novo usuário e selecione **Continuar**.
+1.  Confirme a senha para o novo usuário e selecione **Continuar** .
 
     ![Confirmar as senhas](./media/vmware-azure-install-linux-master-target/image11.png)
 
-1.  Na próxima seleção para criptografar o diretório inicial, selecione **Não** (a opção padrão) e **Enter**.
+1.  Na próxima seleção para criptografar o diretório inicial, selecione **Não** (a opção padrão) e **Enter** .
 
-1. Se o fuso horário exibido está correto, selecione **Sim** (a opção padrão) e selecione **Enter**. Para reconfigurar seu fuso horário, selecione **Não**.
+1. Se o fuso horário exibido está correto, selecione **Sim** (a opção padrão) e selecione **Enter** . Para reconfigurar seu fuso horário, selecione **Não** .
 
-1. Entre as opções de método de particionamento, selecione **Guiado - usar o disco inteiro** e selecione **Enter**.
+1. Entre as opções de método de particionamento, selecione **Guiado - usar o disco inteiro** e selecione **Enter** .
 
      ![Selecionar a opção de método de particionamento](./media/vmware-azure-install-linux-master-target/image14.png)
 
-1.  Selecione o disco adequado nas opções para **Selecionar disco para partição** e selecione **Enter**.
+1.  Selecione o disco adequado nas opções para **Selecionar disco para partição** e selecione **Enter** .
 
     ![Selecionar o disco](./media/vmware-azure-install-linux-master-target/image15.png)
 
-1.  Selecione **Sim** para gravar as alterações para o disco e selecione **Enter**.
+1.  Selecione **Sim** para gravar as alterações para o disco e selecione **Enter** .
 
     ![Selecionar a opção padrão](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  Na seleção do proxy de configuração, selecione a opção padrão, selecione **Continuar**e selecione **Enter**.
+1.  Na seleção do proxy de configuração, selecione a opção padrão, selecione **Continuar** e selecione **Enter** .
      
-     ![Selecionar a forma de gerenciar atualizações](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Captura de tela que mostra onde selecionar continuar e, em seguida, selecione Enter.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
-1.  Selecione a opção **Sem atualizações automáticas** para o gerenciamento de atualizações em seu sistema e selecione **Enter**.
+1.  Selecione a opção **Sem atualizações automáticas** para o gerenciamento de atualizações em seu sistema e selecione **Enter** .
 
      ![Selecionar a forma de gerenciar atualizações](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
-    > Como o servidor de destino mestre do Azure Site Recovery requer uma versão muito específica do Ubuntu, você precisa fazer com que as atualizações de kernel estejam desabilitadas para a máquina virtual. Se elas estiverem habilitadas, todas as atualizações regulares farão com que o servidor de destino mestre não funcione corretamente. Selecione a opção **Sem atualizações automáticas**.
+    > Como o servidor de destino mestre do Azure Site Recovery requer uma versão muito específica do Ubuntu, você precisa fazer com que as atualizações de kernel estejam desabilitadas para a máquina virtual. Se elas estiverem habilitadas, todas as atualizações regulares farão com que o servidor de destino mestre não funcione corretamente. Selecione a opção **Sem atualizações automáticas** .
 
-1.  Selecione as opções padrão. Se você quiser uma conexão do openSSH para SSH, então selecione a opção **OpenSSH server** e depois selecione **Continuar**.
+1.  Selecione as opções padrão. Se você quiser uma conexão do openSSH para SSH, então selecione a opção **OpenSSH server** e depois selecione **Continuar** .
 
     ![Selecionar o software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Na seleção para instalar o carregador de inicialização GRUB, selecione **Sim** e, em seguida, **Enter**.
+1. Na seleção para instalar o carregador de inicialização GRUB, selecione **Sim** e, em seguida, **Enter** .
      
     ![Instalador de inicialização GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. Selecione o dispositivo apropriado para a instalação do carregador de inicialização (preferencialmente **/dev/sda**) e selecione **Enter**.
+1. Selecione o dispositivo apropriado para a instalação do carregador de inicialização (preferencialmente **/dev/sda** ) e selecione **Enter** .
      
     ![Selecione o dispositivo adequado](./media/vmware-azure-install-linux-master-target/image21.png)
 
@@ -150,25 +150,25 @@ Para obter a ID de cada disco SCSI em uma máquina virtual Linux, o parâmetro *
 
 1. Desligue sua máquina virtual.
 
-2. Clique com o botão direito do mouse na entrada da máquina virtual no painel esquerdo e selecione **Editar Configurações**.
+2. Clique com o botão direito do mouse na entrada da máquina virtual no painel esquerdo e selecione **Editar Configurações** .
 
-3. Selecione a guia **Opções**.
+3. Selecione a guia **Opções** .
 
-4. No painel esquerdo, selecione **Avançado** > **Geral**e selecione o botão **Parâmetros de Configuração** no canto inferior direito da tela.
+4. No painel esquerdo, selecione **Avançado** > **Geral** e selecione o botão **Parâmetros de Configuração** no canto inferior direito da tela.
 
     ![Abra o parâmetro de configuração](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     A opção **Parâmetros de Configuração** não fica disponível enquanto a máquina está em execução. Para ativar essa guia, desligue a máquina virtual.
 
-5. Verifique se já existe uma linha com **disk.EnableUUID**.
+5. Verifique se já existe uma linha com **disk.EnableUUID** .
 
-   - Se o valor existe e está definido como **False**, altere o valor para **True**. (Os valores não diferenciam maiúsculas de minúsculas.)
+   - Se o valor existe e está definido como **False** , altere o valor para **True** . (Os valores não diferenciam maiúsculas de minúsculas.)
 
-   - Se o valor existir e se está definido como **True**, selecione **Cancelar**.
+   - Se o valor existir e se está definido como **True** , selecione **Cancelar** .
 
-   - Se o valor não existir, selecione **Adicionar Linha**.
+   - Se o valor não existir, selecione **Adicionar Linha** .
 
-   - Na coluna Nome, adicione **disk.EnableUUID**e defina o valor como **TRUE**.
+   - Na coluna Nome, adicione **disk.EnableUUID** e defina o valor como **TRUE** .
 
      ![Verificação se disk.EnableUUID já existe](./media/vmware-azure-install-linux-master-target/image25.png)
 
@@ -196,12 +196,12 @@ Para baixá-los usando o Linux, digite:
 `wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
 > [!WARNING]
-> Baixe e descompacte o instalador em seu diretório base. Se você o descompactar em **/usr/Local**, a instalação falhará.
+> Baixe e descompacte o instalador em seu diretório base. Se você o descompactar em **/usr/Local** , a instalação falhará.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Acessar o instalador do servidor de processos
 
-1. No servidor de processo, vá para **C:\Arquivos de Programas (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
+1. No servidor de processo, vá para **C:\Arquivos de Programas (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository** .
 
 2. Copie o arquivo do instalador obrigatório do servidor de processo e salvá-lo como **latestlinuxmobsvc.tar.gz** no seu diretório base.
 
@@ -238,7 +238,7 @@ Use as etapas a seguir para criar um disco de retenção:
 
     ![ID de vários caminhos](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs \<Retention disk's multipath id> . ext4/dev/mapper/**.
+3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs \<Retention disk's multipath id> . ext4/dev/mapper/** .
     
     ![Sistema de arquivos](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -300,7 +300,7 @@ Aguarde até que o script seja concluído. Se o destino mestre for registrado co
 
 #### <a name="install-the-master-target-by-using-interactive-installation"></a>Instalar o destino mestre usando a instalação interativa
 
-1. Execute o comando a seguir para instalar o destino mestre. Para a função de agente, escolha **Destino Mestre**.
+1. Execute o comando a seguir para instalar o destino mestre. Para a função de agente, escolha **Destino Mestre** .
 
     ```
     ./install
@@ -329,7 +329,7 @@ Você precisa instalar ferramentas do VMware ou open-vm-tools no destino mestre 
 
 ### <a name="upgrade-the-master-target-server"></a>Atualizar o servidor de destino mestre
 
-Execute o instalador. Ele detecta automaticamente que o agente está instalado no destino mestre. Para atualizar, selecione **Y**.  Quando a instalação for concluída, verifique a versão de destino mestre instalada usando o comando a seguir:
+Execute o instalador. Ele detecta automaticamente que o agente está instalado no destino mestre. Para atualizar, selecione **Y** .  Quando a instalação for concluída, verifique a versão de destino mestre instalada usando o comando a seguir:
 
 `cat /usr/local/.vx_version`
 
@@ -352,7 +352,7 @@ Você verá que o campo **Versão** fornece o número de versão de destino mest
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois que a instalação e o registro do destino mestre forem concluídos, você poderá ver o destino mestre na seção **Destino Mestre** na **Infraestrutura do Site Recovery**, na visão geral do servidor de configuração.
+Depois que a instalação e o registro do destino mestre forem concluídos, você poderá ver o destino mestre na seção **Destino Mestre** na **Infraestrutura do Site Recovery** , na visão geral do servidor de configuração.
 
 Você pode prosseguir com a [nova proteção](vmware-azure-reprotect.md), seguida pelo failback.
 

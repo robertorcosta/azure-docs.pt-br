@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "87088386"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar um aplicativo Web ASP.NET para uma VM do Azure a partir do Visual Studio
@@ -33,11 +33,11 @@ A seção a seguir descreve como publicar um aplicativo Web ASP.NET existente em
 
 1. Abra sua solução de aplicativo Web no Visual Studio 2019.
 2. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Publicar...**
-3. Use a seta à direita da página para rolar pelas opções de publicação até encontrar **Máquinas Virtuais do Microsoft Azure**.  
+3. Use a seta à direita da página para rolar pelas opções de publicação até encontrar **Máquinas Virtuais do Microsoft Azure** .  
 
    ![Página Publicar – seta para a direita]
 
-4. Selecione o ícone **Máquinas Virtuais do Microsoft Azure** e depois **Publicar**.
+4. Selecione o ícone **Máquinas Virtuais do Microsoft Azure** e depois **Publicar** .
 
    ![Publicar Página – Ícone da Máquina Virtual do Microsoft Azure]
 
@@ -87,7 +87,7 @@ Para publicar atualizações em seu aplicativo Web, selecione o botão **Publica
 
 ### <a name="modify-publish-profile-settings"></a>Modificar as configurações de perfil da publicação
 
-Para exibir e modificar as configurações de perfil da publicação, selecione **Configurações...**.  
+Para exibir e modificar as configurações de perfil da publicação, selecione **Configurações...** .  
 
 ![Página Publicar – botão Configurações]
 

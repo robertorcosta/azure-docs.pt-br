@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912949"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143588"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Análises, fluxos de trabalho e trabalhos de moderação de conteúdo
 
@@ -23,9 +23,24 @@ O Content Moderator combina moderação assistida por computador com recursos hu
 
 ## <a name="reviews"></a>Análises
 
-Em uma revisão, o conteúdo é carregado para a ferramenta de revisão e aparece na guia **revisão** . A partir daqui, os usuários podem alterar as marcas aplicadas e aplicar suas próprias marcas personalizadas, conforme apropriado. Quando um usuário envia uma revisão, os resultados são enviados para um ponto de extremidade de retorno de chamada especificado e o conteúdo é removido do site.
+Em uma revisão, o conteúdo é carregado para a ferramenta de revisão. Você pode exibi-lo clicando em seu tipo de conteúdo na guia **revisão** no painel. Na tela de revisão, você pode alterar as marcas aplicadas e aplicar suas próprias marcas personalizadas conforme apropriado. Quando você envia uma revisão, os resultados são enviados para um ponto de extremidade de retorno de chamada especificado e o conteúdo é removido do site.
 
-![Examinar o site da ferramenta aberto em um navegador, na guia revisão](./Review-Tool-user-Guide/images/image-workflow-review.png)
+> [!div class="mx-imgBorder"]
+> ![Examinar o site da ferramenta com a guia revisão selecionada](./Review-Tool-user-Guide/images/review-tab.png)
+
+### <a name="manage-reviews"></a>Gerenciar revisões
+
+No painel, navegue até **Administração**  ->  **gerenciar revisões** para exibir a tela administrador. Aqui, você pode ver uma lista de todas as revisões (pendentes e concluídas).
+
+O botão de **ações** de três pontos em cada revisão permite que você vá para a tela de revisão ou Inspecione o histórico dessa revisão.
+
+> [!div class="mx-imgBorder"]
+> ![Examinar o site da ferramenta na tela de revisão](./Review-Tool-user-Guide/images/manage-reviews.png)
+
+Use a barra de ferramentas de **pesquisa** para classificar as revisões por uma variedade de categorias, como estado de revisão, marcas, tipo de conteúdo, subequipes, usuários atribuídos e data de criação/modificação.
+
+> [!div class="mx-imgBorder"]
+> ![Examinar o site da ferramenta com a guia revisão selecionada](./Review-Tool-user-Guide/images/review-search.png)
 
 Consulte o [Guia de ferramentas de revisão](./review-tool-user-guide/review-moderated-images.md) para começar a criar revisões ou consulte o [guia da API REST](./try-review-api-review.md) para saber como fazer isso programaticamente.
 
@@ -35,11 +50,12 @@ Um fluxo de trabalho é um filtro personalizado baseado em nuvem para conteúdo.
 
 ### <a name="view-workflows"></a>Exibir fluxos de trabalho
 
-Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione **configurações**  >  **fluxos de trabalho** .
+Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione fluxos de trabalho de **Administração**  >  **Workflows** .
 
-![Fluxo de trabalho padrão](images/default-workflow-listed.PNG)
+> [!div class="mx-imgBorder"]
+> ![Fluxo de trabalho padrão](images/default-workflow-list.png)
 
-Os fluxos de trabalho podem ser completamente descritos como cadeias de caracteres JSON, o que os torna acessíveis programaticamente. Se você selecionar a opção **Editar** para seu fluxo de trabalho e, em seguida, selecionar a guia **JSON** , verá uma expressão JSON semelhante à seguinte:
+Os fluxos de trabalho são definidos como cadeias de caracteres JSON, o que os torna acessíveis programaticamente. Se você selecionar a opção **Editar** para seu fluxo de trabalho e, em seguida, selecionar a guia **JSON** , verá uma expressão JSON semelhante à seguinte:
 
 ```json
 {

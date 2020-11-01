@@ -1,20 +1,20 @@
 ---
-title: Solucionar problemas de conectividade do Synapse Studio (versão prévia) com o PowerShell
+title: Solucionar problemas de conectividade do Synapse Studio
 description: Solucionar problemas de conectividade do Azure Synapse Studio usando o PowerShell
-author: julieMSFT
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: jrasnick
+ms.date: 10/30/2020
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e433fd857f638c1c13e4545c19e0b6314ee62e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287705"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146499"
 ---
-# <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnosticar problemas de conectividade do Azure Synapse Studio (versão prévia) com o script do PowerShell
+# <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Solucionar problemas de conectividade do Synapse Studio com o PowerShell
 
 O Azure Synapse Studio (versão prévia) depende de um conjunto de pontos de extremidade da API Web para funcionar corretamente. Este guia o ajudará a identificar as causas de problemas de conectividade quando você estiver:
 - configurar sua rede local (como a rede por trás de um firewall corporativo) para acessar o Azure Synapse Studio.

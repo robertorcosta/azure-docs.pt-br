@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793068"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146715"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ As seções a seguir descrevem como configurar o armazenamento para novas máqui
 
 Ao provisionar uma VM do Azure usando uma imagem de SQL Server da galeria, selecione **Alterar configuração** na guia **Configurações de SQL Server** para abrir a página Configuração de Armazenamento Otimizado para Desempenho. Você pode deixar os valores no padrão ou modificar o tipo de configuração de disco que melhor atenda às suas necessidades com base na carga de trabalho. 
 
-![Configuração de armazenamento da VM do SQL Server durante o provisionamento](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![Captura de tela que realça a guia Configurações de SQL Server e a opção de configuração de alteração.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Selecione o tipo de carga de trabalho para o qual você está implantando o SQL Server em **Otimização de armazenamento** . Com a opção de otimização **Geral** , por padrão você terá um disco de dados com IOPS máximo de 5000 e usará essa mesma unidade para os dados, o log de transações e o armazenamento TempDB. Ao selecionar **Processamento transacional** (OLTP) ou **Data warehousing** , será criado um disco separado para os dados, um disco separado para o log de transações e usará o SSD local para o TempDB. Não há diferença de armazenamento entre **Processamento transacional** e **Data warehousing** , mas isso altera a [configuração da distribuição e os sinalizadores de rastreamento](#workload-optimization-settings). Escolher armazenamento Premium define o cache como *ReadOnly* para a unidade de dados e *Nenhum* para a unidade de log de acordo com as [melhores práticas de desempenho de VM do SQL Server](performance-guidelines-best-practices.md). 
 
@@ -103,7 +103,7 @@ Para VMs do SQL Server existente, você pode modificar algumas configurações d
 
 Para modificar as configurações de armazenamento, selecione **Configurar** em **Configurações** . 
 
-![Configurar o armazenamento para a VM do SQL Server existente](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![Captura de tela que realça a opção configurar e a seção uso de armazenamento.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 Você pode modificar as configurações de disco das unidades que foram configuradas durante o processo de criação de VM do SQL Server. A seleção de **Estender unidade** abre a página de modificação da unidade, permitindo que você altere o tipo de disco e adicione discos. 
 

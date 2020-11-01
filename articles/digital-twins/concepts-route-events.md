@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 91ba36a0bffab6c66020bab41ace65659ed084f7
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097066"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146306"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
@@ -73,19 +73,19 @@ As APIs de ponto de extremidade que estão disponíveis no plano de controle sã
  
 Para criar uma rota de eventos, você pode usar as APIs do [**plano de dados**](how-to-manage-routes-apis-cli.md#create-an-event-route)do gêmeos digital do Azure, os [**comandos da CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou a [**portal do Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Aqui está um exemplo de criação de uma rota de eventos dentro de um aplicativo cliente, usando a chamada do `CreateEventRoute` [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) : 
+Aqui está um exemplo de criação de uma rota de eventos dentro de um aplicativo cliente, usando a chamada do `CreateOrReplaceEventRouteAsync` [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) : 
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
 
-1. Primeiro, um `EventRoute` objeto é criado e o construtor usa o nome de um ponto de extremidade. Este `endpointName` campo identifica um ponto de extremidade como um hub de eventos, uma grade de eventos ou um barramento de serviço. Esses pontos de extremidade devem ser criados em sua assinatura e anexados ao Azure digital gêmeos usando as APIs do plano de controle antes de fazer essa chamada de registro.
+1. Primeiro, um `DigitalTwinsEventRoute` objeto é criado e o construtor usa o nome de um ponto de extremidade. Este `endpointName` campo identifica um ponto de extremidade como um hub de eventos, uma grade de eventos ou um barramento de serviço. Esses pontos de extremidade devem ser criados em sua assinatura e anexados ao Azure digital gêmeos usando as APIs do plano de controle antes de fazer essa chamada de registro.
 
 2. O objeto de rota de evento também tem um campo de [**filtro**](how-to-manage-routes-apis-cli.md#filter-events) , que pode ser usado para restringir os tipos de eventos que seguem essa rota. Um filtro de `true` habilita a rota sem filtragem adicional (um filtro de `false` desabilita a rota). 
 
-3. Esse objeto de rota de evento é passado para `CreateEventRoute` , junto com um nome para a rota.
+3. Esse objeto de rota de evento é passado para `CreateOrReplaceEventRouteAsync` , junto com um nome para a rota.
 
 > [!TIP]
 > Todas as funções do SDK são fornecidas em versões síncronas e assíncronas.

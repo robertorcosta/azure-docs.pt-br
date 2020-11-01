@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 0a18e6cef568afa8a0092fc06d8f6bb526739b2a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026438"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145796"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gerenciar dispositivos automaticamente no gêmeos digital do Azure usando o DPS (serviço de provisionamento de dispositivos)
 
@@ -189,7 +189,7 @@ namespace Samples.AdtIothub
             string dtId;
             string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
             AsyncPageable<string> twins = client.QueryAsync(query);
-            
+
             await foreach (string twinJson in twins)
             {
                 // Get DT ID from the Twin
@@ -214,7 +214,8 @@ namespace Samples.AdtIothub
                 { "$metadata", meta }
             };
             twinProps.Add("Temperature", 0.0);
-            await client.CreateDigitalTwinAsync(dtId, System.Text.Json.JsonSerializer.Serialize<Dictionary<string, object>>(twinProps));
+
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(dtId, twinProps);
             log.LogInformation($"Twin '{dtId}' created in DT");
 
             return dtId;
@@ -481,7 +482,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 Você verá que o cópia do dispositivo não pode mais ser encontrado na instância do gêmeos digital do Azure.
 :::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos.":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los.
 

@@ -1,18 +1,18 @@
 ---
 title: Solução de problemas comuns
 description: Saiba como solucionar problemas com a criação de definições de política, o SDK e o complemento para kubernetes.
-ms.date: 10/05/2020
+ms.date: 10/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999902"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146272"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Solucionar erros usando Azure Policy
 
-Você pode encontrar erros ao criar definições de política, trabalhar com o SDK ou configurar o [Azure Policy para](../concepts/policy-for-kubernetes.md) o complemento kubernetes. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
+Você pode encontrar erros ao criar definições de política, trabalhar com o SDK ou configurar o [Azure Policy para](../concepts/policy-for-kubernetes.md) o complemento kubernetes. Este artigo descreve vários erros gerais que podem ocorrer e como resolvê-los.
 
 ## <a name="finding-error-details"></a>Encontrar detalhes do erro
 
@@ -56,7 +56,7 @@ Primeiro, aguarde o tempo apropriado para que uma avaliação seja concluída e 
 
 #### <a name="issue"></a>Problema
 
-Um recurso não está no estado de avaliação, seja _compatível_ ou _sem conformidade_, o que é esperado para esse recurso.
+Um recurso não está no estado de avaliação, seja _compatível_ ou _sem conformidade_ , o que é esperado para esse recurso.
 
 #### <a name="cause"></a>Causa
 
@@ -88,14 +88,14 @@ Um recurso que deve ser acionado pelo Azure Policy não é e não há nenhuma en
 
 #### <a name="cause"></a>Causa
 
-A atribuição de política foi configurada para [imposiçãomode](../concepts/assignment-structure.md#enforcement-mode) de _desabilitado_. Enquanto o modo de imposição está desabilitado, o efeito de política não é imposto e não há nenhuma entrada no log de atividades.
+A atribuição de política foi configurada para [imposiçãomode](../concepts/assignment-structure.md#enforcement-mode) de _desabilitado_ . Enquanto o modo de imposição está desabilitado, o efeito de política não é imposto e não há nenhuma entrada no log de atividades.
 
 #### <a name="resolution"></a>Resolução
 
 Siga estas etapas para solucionar a imposição da sua atribuição de política:
 
 1. Primeiro, aguarde o tempo apropriado para que uma avaliação seja concluída e os resultados de conformidade sejam disponibilizados no portal do Azure ou no SDK. Para iniciar uma nova verificação de avaliação com Azure PowerShell ou API REST, consulte [verificação de avaliação sob demanda](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Verifique se os parâmetros de atribuição e o escopo de atribuição estão definidos corretamente e se **imimport** está _habilitado_. 
+1. Verifique se os parâmetros de atribuição e o escopo de atribuição estão definidos corretamente e se **imimport** está _habilitado_ . 
 1. Verifique o [modo de definição de política](../concepts/definition-structure.md#mode):
    - Mode ' all' para todos os tipos de recurso.
    - Modo ' indexado ' se a definição de política verificar marcas ou local.
@@ -135,7 +135,7 @@ O uso de funções com suporte, como `parameter()` ou `resourceGroup()` , result
 
 Para passar uma função por para fazer parte de uma definição de política, escape toda a cadeia de caracteres com a `[` aparência da propriedade `[[resourceGroup().tags.myTag]` . O caractere de escape faz com que o Gerenciador de recursos trate o valor como uma cadeia de caracteres ao processar o modelo. Azure Policy, em seguida, coloca a função na definição de política, permitindo que ela seja dinâmica conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
-## <a name="add-on-installation-errors"></a>Erros de instalação de complemento
+## <a name="add-on-for-kubernetes-installation-errors"></a>Complemento para erros de instalação do kubernetes
 
 ### <a name="scenario-install-using-helm-chart-fails-on-password"></a>Cenário: a instalação usando o gráfico Helm falha na senha
 
@@ -188,10 +188,131 @@ Para obter uma narração detalhada, consulte a seguinte postagem no blog:
 
 [Alteração importante liberada para políticas de auditoria de configuração de convidado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
+## <a name="add-on-for-kubernetes-general-errors"></a>Complemento para erros gerais do kubernetes
+
+### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Cenário: o complemento não funciona com clusters AKS na versão 1,19 (visualização)
+
+#### <a name="issue"></a>Problema
+
+Os clusters da versão 1,19 retornam esse erro por meio do controlador do gatekeeper e dos pods de webhook de política:
+
+```
+2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
+```
+
+#### <a name="cause"></a>Causa
+
+AKS clusers na versão 1,19 (visualização) ainda não é compatível com o complemento de Azure Policy.
+
+#### <a name="resolution"></a>Resolução
+
+Evite usar o kubernetes 1,19 (versão prévia) com o complemento Azure Policy. O complemento pode ser usado com qualquer versão com suporte disponível, como 1,16, 1,17 ou 1,18.
+
+### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Cenário: o complemento não consegue alcançar o ponto de extremidade de serviço do Azure Policy devido a restrições de saída
+
+#### <a name="issue"></a>Problema
+
+O complemento não pode acessar o ponto de extremidade do serviço Azure Policy e retorna um dos seguintes erros:
+
+- `failed to fetch token, service not reachable`
+- `Error getting file "Get https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml: dial tcp 151.101.228.133.443: connect: connection refused`
+
+#### <a name="cause"></a>Causa
+
+Esse problema ocorre quando uma saída de cluster é bloqueada.
+
+#### <a name="resolution"></a>Resolução
+
+Verifique se os domínios e as portas nos artigos a seguir estão abertos:
+
+- [Regras de rede de saída necessárias e FQDNs para clusters AKS](../../../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Instalar o complemento Azure Policy para o kubernetes habilitado para Arc do Azure (versão prévia)](../concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+
+### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-aad-pod-identity-configuration"></a>Cenário: o complemento não consegue acessar o ponto de extremidade do serviço de Azure Policy devido à configuração do AAD-Pod-Identity
+
+#### <a name="issue"></a>Problema
+
+O complemento não pode acessar o ponto de extremidade do serviço Azure Policy e retorna um dos seguintes erros:
+
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
+
+#### <a name="cause"></a>Causa
+
+Esse erro ocorre quando _Add-Pod-Identity_ está instalado no cluster e os pods _Kube do sistema_ não são excluídos no _AAD-Pod-Identity_ .
+
+O pods de NMI (identidade gerenciada de nó de componente) do _AAD-Pod-Identity_ modifica os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados de instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use o _AAD-Pod-Identity_ .
+**AzurePodIdentityException** O CRD pode ser configurado para informar ao _AAD-Pod-Identity_ que qualquer solicitação para o ponto de extremidade de metadados proveniente de um pod que corresponda aos rótulos definidos em CRD deve ser feita por proxy sem nenhum processamento em NMI.
+
+#### <a name="resolution"></a>Resolução
+
+Exclua o pods do sistema com o `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube_ no _AAD-Pod-Identity_ Configurando o **AzurePodIdentityException** CRD.
+
+Para obter mais informações, consulte [desabilitar a identidade do Pod do AAD para um pod/aplicativo específico](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+
+Para configurar uma exceção, consulte este exemplo:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: mic-exception
+  namespace: default
+spec:
+  podLabels:
+    app: mic
+    component: mic
+---
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: aks-addon-exception
+  namespace: kube-system
+spec:
+  podLabels:
+    kubernetes.azure.com/managedby: aks
+```
+
+### <a name="scenario-the-resource-provider-isnt-registered"></a>Cenário: o provedor de recursos não está registrado
+
+#### <a name="issue"></a>Problema
+
+O complemento pode alcançar o ponto de extremidade do serviço Azure Policy, mas vê o seguinte erro:
+
+```
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+#### <a name="cause"></a>Causa
+
+O `Microsoft.PolicyInsights` provedor de recursos não está registrado e deve ser registrado para o complemento para obter as definições de política e retornar os dados de conformidade.
+
+#### <a name="resolution"></a>Resolução
+
+Registre o provedor de recursos `Microsoft.PolicyInsights`. Para obter instruções, consulte [registrar um provedor de recursos](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+### <a name="scenario-the-subscript-is-disabled"></a>Cenário: o subscrito está desabilitado
+
+#### <a name="issue"></a>Problema
+
+O complemento pode alcançar o ponto de extremidade do serviço Azure Policy, mas vê o seguinte erro:
+
+```
+The subscription '{subId}' has been disabled for azure data-plane policy. Please contact support.
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro significa que a assinatura foi determinada para ser problemática e o sinalizador de recurso `Microsoft.PolicyInsights/DataPlaneBlocked` foi adicionado para bloquear a assinatura.
+
+#### <a name="resolution"></a>Resolução
+
+Contate a equipe `azuredg@microsoft.com` de recursos para investigar e resolver esse problema. 
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
 - Obtenha respostas de especialistas por meio [do Microsoft Q&a](/answers/topics/azure-policy.html).
 - Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-- Se precisar de mais ajuda, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+- Se precisar de mais ajuda, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte** .

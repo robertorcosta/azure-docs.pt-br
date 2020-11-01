@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6658dcd54c7290bbbad0c24c1cc0debd5ead8b18
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 347948734da439691bced01cf3693d0990567748
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789855"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146221"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Como usar o portal do Azure para provisionar uma máquina virtual do Windows com SQL Server
 
@@ -196,7 +196,7 @@ Para saber mais, consulte [Configurar a Integração do Cofre de Chaves do Azure
 
 Na guia **Configurações do SQL Server** , em **Configuração de armazenamento** , selecione **Alterar configuração** para abrir a página Configuração de Armazenamento Otimizado para Desempenho e especifique os requisitos de armazenamento.
 
-![Configuração do Armazenamento de VM do SQL](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
+![Captura de tela que realça onde você pode alterar a configuração de armazenamento.](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
 
 Em **Armazenamento otimizado para** , escolha uma das seguintes opções:
 

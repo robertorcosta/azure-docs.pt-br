@@ -9,12 +9,12 @@ ms.date: 08/05/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367424"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145932"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gerenciar configurações e preferências do portal do Azure
 
@@ -44,13 +44,13 @@ Você pode alterar a página que é aberta por padrão ao entrar no portal do Az
 
 - A **página inicial** não pode ser personalizada.  Ele exibe atalhos para serviços populares do Azure e lista os recursos que você usou mais recentemente. Também fornecemos links úteis para recursos como Microsoft Learn e o roteiro do Azure.
 
-- Os painéis podem ser personalizados para criar um espaço de trabalho criado apenas para você. Por exemplo, você pode criar um painel com foco no projeto, na tarefa ou na função. Se você selecionar **painel**, sua exibição padrão vai para o painel usado mais recentemente. Para obter mais informações, confira [Criar e compartilhar painéis no portal do Azure](azure-portal-dashboards.md).
+- Os painéis podem ser personalizados para criar um espaço de trabalho criado apenas para você. Por exemplo, você pode criar um painel com foco no projeto, na tarefa ou na função. Se você selecionar **painel** , sua exibição padrão vai para o painel usado mais recentemente. Para obter mais informações, confira [Criar e compartilhar painéis no portal do Azure](azure-portal-dashboards.md).
 
 ## <a name="choose-a-portal-menu-mode"></a>Escolher um modo de menu do portal
 
 O modo padrão do menu do portal controla a quantidade de espaço que o menu do portal ocupa na página.
 
-![Captura de tela mostrando configurações de portal do Azure com temas realçados](./media/set-preferences/menu-mode.png)
+![Captura de tela que mostra como definir o modo padrão para o menu do Portal.](./media/set-preferences/menu-mode.png)
 
 - Quando o menu do portal estiver no modo de **submenu** , ele ficará oculto até que você precise dele. Selecione o ícone de menu para abrir ou fechar o menu.
 
@@ -68,7 +68,7 @@ Como alternativa, você pode escolher um dos temas de alto contraste. Os temas d
 
 As notificações são mensagens do sistema relacionadas à sessão atual. Eles fornecem informações como seu saldo de crédito atual, quando os recursos que você acabou de criar ficam disponíveis ou confirmar sua última ação, por exemplo. Quando as notificações pop-up são ativadas, as mensagens são exibidas brevemente no canto superior da tela. 
 
-Para habilitar ou desabilitar notificações pop-up, marque ou desmarque **habilitar notificações pop-up**.
+Para habilitar ou desabilitar notificações pop-up, marque ou desmarque **habilitar notificações pop-up** .
 
 ![Captura de tela mostrando configurações de portal do Azure com notificações pop-up realçadas](./media/set-preferences/popup-notifications.png)
 
@@ -84,13 +84,13 @@ A configuração de tempo limite de inatividade ajuda a proteger recursos contra
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Alterar a configuração de tempo limite individual (usuário)
 
-Selecione a lista suspensa em **conectar-me quando inativo**. Escolha a duração após a qual sua sessão de portal do Azure será desconectada se você estiver ocioso.
+Selecione a lista suspensa em **conectar-me quando inativo** . Escolha a duração após a qual sua sessão de portal do Azure será desconectada se você estiver ocioso.
 
 ![Captura de tela mostrando configurações do portal com configurações de tempo limite inativo realçadas](./media/set-preferences/inactive-signout-user.png)
 
 A alteração é salva automaticamente. Se você estiver ocioso, sua sessão de portal do Azure será desconectada após a duração definida.
 
-Se o administrador tiver habilitado uma política de tempo limite de inatividade, você ainda poderá definir o seu próprio, desde que seja menor que a configuração no nível do diretório. Selecione **substituir a política de tempo limite de inatividade de diretório**e defina um intervalo de tempo.
+Se o administrador tiver habilitado uma política de tempo limite de inatividade, você ainda poderá definir o seu próprio, desde que seja menor que a configuração no nível do diretório. Selecione **substituir a política de tempo limite de inatividade de diretório** e defina um intervalo de tempo.
 
 ![Captura de tela mostrando as configurações do portal com substituir a configuração da política de tempo limite de inatividade do diretório](./media/set-preferences/inactive-signout-override.png)
 
@@ -100,7 +100,7 @@ Os administradores na [função de administrador global](../active-directory/rol
 
 Se você for um administrador global e quiser impor uma configuração de tempo limite de ociosidade para todos os usuários da portal do Azure, siga estas etapas:
 
-1. Selecione o texto do link **Configurar o tempo limite do nível do diretório**.
+1. Selecione o texto do link **Configurar o tempo limite do nível do diretório** .
 
     ![Captura de tela mostrando as configurações do portal com texto do link realçado](./media/set-preferences/settings-admin.png)
 
@@ -108,7 +108,7 @@ Se você for um administrador global e quiser impor uma configuração de tempo 
 
 1. Em seguida, insira as **horas** e os **minutos** para o tempo máximo que um usuário pode ficar ocioso antes de sua sessão ser desconectada automaticamente.
 
-1. Escolha **Aplicar**.
+1. Selecione **Aplicar** .
 
     ![Captura de tela mostrando a página para definir o tempo limite de inatividade no nível do diretório](./media/set-preferences/configure.png)
 
@@ -118,7 +118,7 @@ Para confirmar se a política de tempo limite de inatividade está definida corr
 
 ## <a name="restore-default-settings"></a>Restaurar configurações padrão
 
-Se você fez alterações nas configurações de portal do Azure e deseja descartá-las, selecione **Restaurar configurações padrão**. As alterações feitas nas configurações do Portal serão perdidas. Essa opção não afeta as personalizações do painel.
+Se você fez alterações nas configurações de portal do Azure e deseja descartá-las, selecione **Restaurar configurações padrão** . As alterações feitas nas configurações do Portal serão perdidas. Essa opção não afeta as personalizações do painel.
 
 ![Captura de tela mostrando a restauração das configurações padrão](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,7 +132,7 @@ As informações sobre suas configurações personalizadas são armazenadas no A
 
 É uma boa ideia exportar e revisar suas configurações se você planeja excluí-las. Recriar painéis ou refazer configurações pode ser demorado.
 
-Para exportar as configurações do portal, selecione **exportar todas as configurações**.
+Para exportar as configurações do portal, selecione **exportar todas as configurações** .
 
 ![Captura de tela mostrando a exportação de configurações](./media/set-preferences/useful-links-export-settings.png)
 
@@ -150,7 +150,7 @@ As informações sobre suas configurações personalizadas são armazenadas no A
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Para excluir as configurações do portal, selecione **excluir todas as configurações e painéis particulares**.
+Para excluir as configurações do portal, selecione **excluir todas as configurações e painéis particulares** .
 
 ![Captura de tela mostrando a exclusão das configurações](./media/set-preferences/useful-links-delete-settings.png)
 

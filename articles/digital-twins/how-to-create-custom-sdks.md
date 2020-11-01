@@ -8,19 +8,19 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970122"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145592"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
 No momento, os únicos SDKs de plano de dados publicados para interagir com as APIs do Azure digital gêmeos são para .NET (C#), JavaScript e Java. Você pode ler sobre esses SDKs e as APIs em geral, em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md). Se você estiver trabalhando em outra linguagem, este artigo mostrará como gerar seu próprio SDK do plano de dados no idioma de sua escolha, usando o REST.
 
 >[!NOTE]
-> Você também pode usar o autorest para gerar um SDK do plano de controle, se desejar. Para fazer isso, conclua as etapas neste artigo usando o arquivo **Swagger** (openapi) mais recente do plano de controle da [pasta Swagger do plano de controle]] ( https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) em vez do plano de dados um.
+> Você também pode usar o autorest para gerar um SDK do plano de controle, se desejar. Para fazer isso, conclua as etapas neste artigo usando o arquivo **Swagger** (openapi) mais recente do plano de controle da [pasta Swagger do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) em vez do plano de dados um.
 
 ## <a name="set-up-your-machine"></a>Configurar seu computador
 
@@ -47,7 +47,7 @@ Para executar o REST no arquivo do Azure digital gêmeos Swagger, siga estas eta
 autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Como resultado, você verá uma nova pasta chamada *ADTApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *ADTApi*. Você continuará a usar esse namespace por meio do restante dos exemplos de uso neste artigo.
+Como resultado, você verá uma nova pasta chamada *ADTApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *ADTApi* . Você continuará a usar esse namespace por meio do restante dos exemplos de uso neste artigo.
 
 O REST oferece suporte a uma ampla variedade de geradores de código de linguagem.
 
@@ -57,14 +57,14 @@ Você pode incluir os arquivos gerados pelo autorest diretamente em uma soluçã
 
 Esta seção fornece instruções sobre como criar o SDK como uma biblioteca de classes, que é seu próprio projeto e pode ser incluído em outros projetos. Essas etapas dependem do **Visual Studio** (você pode instalar a versão mais recente [aqui](https://visualstudio.microsoft.com/downloads/)).
 
-Siga estas etapas:
+Aqui estão as etapas para fazer isso:
 
 1. Criar uma nova solução do Visual Studio para uma biblioteca de classes
 2. Usar *ADTApi* como o nome do projeto
 3. No Gerenciador de soluções, selecione o projeto *ADTApi* da solução gerada e escolha *Adicionar > item existente...*
 4. Localize a pasta na qual você gerou o SDK e selecione os arquivos no nível raiz
 5. Pressione "OK"
-6. Adicione uma pasta ao projeto (selecione o projeto com o botão direito do mouse em Gerenciador de Soluções e escolha *adicionar > nova pasta*)
+6. Adicione uma pasta ao projeto (selecione o projeto com o botão direito do mouse em Gerenciador de Soluções e escolha *adicionar > nova pasta* )
 7. Nomear os *modelos* de pasta
 8. Selecione a pasta *modelos* no Gerenciador de soluções e selecione *Adicionar > item existente...*
 9. Selecione os arquivos na pasta *modelos* do SDK gerado e pressione "OK"
@@ -73,7 +73,7 @@ Para compilar o SDK com êxito, seu projeto precisará destas referências:
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Para adicioná-los, abra *ferramentas > Gerenciador de pacotes nuget > gerenciar pacotes NuGet para solução...*.
+Para adicioná-los, abra *ferramentas > Gerenciador de pacotes nuget > gerenciar pacotes NuGet para solução...* .
 
 1. No painel, certifique-se de que a guia *procurar* esteja selecionada
 2. Pesquisar *Microsoft. REST*
@@ -117,40 +117,25 @@ O REST gera dois tipos de padrões de paginação para o SDK:
 * Um para todas as APIs, exceto a API de consulta
 * Um para a API de consulta
 
-No padrão de paginação não consulta, há duas versões de cada chamada:
-* Uma versão para fazer a chamada inicial (como `DigitalTwins.ListEdges()` )
-* Uma versão para obter as páginas a seguir. Essas chamadas têm um sufixo de "Next" (como `DigitalTwins.ListEdgesNext()` )
+No padrão de paginação não consulta, aqui está um trecho de código que mostra como recuperar uma lista paginável de relações de saída do Azure digital gêmeos:
 
-Aqui está um trecho de código que mostra como recuperar uma lista paginável de relações de saída do Azure digital gêmeos:
 ```csharp
-try
-{
-    // List to hold the results in
-    List<object> relList = new List<object>();
-    // Enumerate the IPage object returned to get the results
-    // ListAsync will throw if an error occurs
-    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-    relList.AddRange(relPage);
-    // If there are more pages, the NextPageLink in the page is set
-    while (relPage.NextPageLink != null)
+ try 
+ {
+     // List the relationships.
+    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
+    Console.WriteLine($"Twin {srcId} is connected to:");
+    // Iterate through the relationships found.
+    int numberOfRelationships = 0;
+    await foreach (string rel in results)
     {
-        // Get more pages...
-        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-        relList.AddRange(relPage);
+         ++numberOfRelationships;
+         // Do something with each relationship found
+         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
     }
-    Console.WriteLine($"Found {relList.Count} relationships on {id}");
-    // Do something with each object found
-    // As relationships are custom types, they are JSON.Net types
-    foreach (JObject r in relList)
-    {
-        string relId = r.Value<string>("$edgeId");
-        string relName = r.Value<string>("$relationship");
-        Console.WriteLine($"Found relationship {relId} from {id}");
-    }
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
+    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
+} catch (RequestFailedException rex) {
+    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
 }
 ```
 

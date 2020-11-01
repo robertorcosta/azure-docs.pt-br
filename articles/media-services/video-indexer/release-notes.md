@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505329"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145745"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -29,6 +29,21 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="animated-character-identification-improvements"></a>Aprimoramentos na identificação de caracteres animados  
+
+Video Indexer dá suporte à detecção, agrupamento e reconhecimento de caracteres em conteúdo animado por meio da integração com a visão personalizada dos serviços cognitivas. Adicionamos um aprimoramento importante a esse algoritmo de ia na detecção e no reconhecimento de caracteres, pois a precisão de insights e os caracteres identificados são significativamente melhorados.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>Alterações de authenticatication de site Video Indexer planejadas
+
+A partir de 1º de janeiro de 2021, você não poderá mais se inscrever e entrar no site [Video indexer](https://www.videoindexer.ai/) (oferta de avaliação) usando o Facebook ou o LinkedIn.
+
+Você poderá se inscrever e entrar usando um destes provedores: Azure AD, Microsoft e Google.
+
+> [!NOTE]
+> Você é aconselhado a exportar seu conteúdo antes de 1º de janeiro de 2021, já que as contas conectadas ao LinkedIn e ao Facebook serão excluídas e o conteúdo não estará mais acessível.
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -123,7 +138,7 @@ Nas próximas semanas, iremos alterá-la e retornar o Video Indexer URL do [site
     * Substituindo a URL por uma URL apontando para as APIs do widget de Video Indexer (por exemplo, o [widget insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Usando o site Video Indexer para gerar uma nova URL inserida:
          
-         Pressione **reproduzir** para ir para a página do vídeo-> clique no botão ** &lt; / &gt; Inserir** – > copiar a URL para seu aplicativo:
+         Pressione **reproduzir** para ir para a página do vídeo-> clique no botão **&lt; / &gt; Inserir** – > copiar a URL para seu aplicativo:
    
     As URLs regionais não têm suporte e serão bloqueadas nas próximas semanas.
 

@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f236292fff0d0e806e6eec32e1e058cbf67545c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840057"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93144470"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar um aplicativo .NET existente em um contêiner da Malha do Service Fabric
 
@@ -19,7 +19,7 @@ Este artigo mostra como adicionar suporte à orquestração do contêiner da Mal
 No Visual Studio 2017, é possível adicionar suporte à geração de contêineres para projetos ASP.NET e de Console que usam a estrutura completa do .NET.
 
 > [!NOTE]
-> Atualmente, não há suporte para projetos do .NET **Core**.
+> Atualmente, não há suporte para projetos do .NET **Core** .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,27 +33,33 @@ Abra o aplicativo ao qual você deseja adicionar suporte à orquestração de co
 
 Se quiser testar um exemplo, você pode usar o exemplo de código do [eShop](https://github.com/MikkelHegn/ContainersSFLab). O restante deste artigo assumirá que estamos usando esse projeto, embora você possa aplicar essas etapas ao seu próprio projeto.
 
-Obtenha uma cópia do projeto **eShop**:
+Obtenha uma cópia do projeto **eShop** :
 
 ```git
 git clone https://github.com/MikkelHegn/ContainersSFLab.git
 ```
 
-Após fazer o download do projeto no Visual Studio 2017, abra **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln**.
+Após fazer o download do projeto no Visual Studio 2017, abra **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln** .
 
 ## <a name="add-container-support"></a>Adicionar suporte ao contêiner
  
 Adicione suporte à orquestração de contêineres a um projeto ASP.NET ou de Console existente usando as ferramentas de Malha do Service Fabric da seguinte maneira:
 
-No gerenciador de soluções do Visual Studio, clique com o botão direito do mouse no nome do projeto (no exemplo **eShopLegacyWebForms**) e escolha **Adicionar** > **Suporte ao Orquestrador de Contêineres**.
+No gerenciador de soluções do Visual Studio, clique com o botão direito do mouse no nome do projeto (no exemplo **eShopLegacyWebForms** ) e escolha **Adicionar** > **Suporte ao Orquestrador de Contêineres** .
 A caixa de diálogo **Adicionar Suporte ao Orquestrador de Contêineres** é exibida.
 
 ![Caixa de diálogo adicionar orquestrador de contêineres do Visual Studio](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
-Escolha **Malha do Service Fabric** na lista suspensa e, em seguida, clique em **OK**.
+Escolha **Malha do Service Fabric** na lista suspensa e, em seguida, clique em **OK** .
+
+
+>[!NOTE]
+> A partir de 2 de novembro de 2020, [os limites de taxa de download se aplicam](https://docs.docker.com/docker-hub/download-rate-limit/) a solicitações anônimas e autenticadas ao Hub do Docker de contas de plano livre do Docker e são impostos pelo endereço IP. Para obter mais detalhes, consulte [autenticar com o Hub do Docker](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+>
+> Para evitar a taxa limitada, certifique-se de que o padrão `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` em seu Dockerfile seja substituído por `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`
 
 Em seguida, a ferramenta verifica se o Docker está instalado, adiciona um Dockerfile ao projeto e desce uma imagem do docker para seu projeto.  
-Um projeto de aplicativo da Malha do Service Fabric é adicionado à sua solução. Ele contém os arquivos de configuração e perfis de publicação da Malha. O nome do projeto é o mesmo que o nome do seu projeto, com 'Aplicativo' concatenado ao final, por exemplo, **eShopLegacyWebFormsApplication**. 
+Um projeto de aplicativo da Malha do Service Fabric é adicionado à sua solução. Ele contém os arquivos de configuração e perfis de publicação da Malha. O nome do projeto é o mesmo que o nome do seu projeto, com 'Aplicativo' concatenado ao final, por exemplo, **eShopLegacyWebFormsApplication** . 
 
 No novo projeto de Malha, você verá duas pastas das quais você deve estar ciente:
 - **Recursos do aplicativo** que contém os arquivos YAML que descrevem os recursos de Malha adicionais, como a rede.

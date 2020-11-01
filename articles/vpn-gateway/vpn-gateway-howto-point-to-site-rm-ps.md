@@ -1,6 +1,6 @@
 ---
 title: 'Conectar-se a uma VNet de uma VPN de computador-P2S e autenticação de certificado nativa do Azure: PowerShell'
-description: Conecte clientes Windows e Mac OS X com segurança a uma rede virtual do Azure usando P2S e certificados autoassinados ou emitidos por autoridade de certificação. Este artigo usa o PowerShell.
+description: Conecte clientes Windows e macOS com segurança à rede virtual do Azure usando P2S e certificados autoassinados ou emitidos por AC. Este artigo usa o PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,29 +8,22 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5d2902222dea3e84ebed04d80d7349167f83cae1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6df7aa919721576aad10d6a476be976ef81df7d
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076004"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145864"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma conexão VPN ponto a site para uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
 
-Este artigo ajuda você a conectar clientes individuais que executem Windows, Linux ou Mac OS X a uma VNet do Azure com segurança. As conexões VPN ponto a site são úteis quando você deseja se conectar à sua rede virtual de um local remoto, como quando você está intercomutando de casa ou de uma conferência. Também é possível usar P2S em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma VNet. As conexões ponto a site não exigem um dispositivo VPN ou um endereço IP voltado para o público. A P2S cria a conexão VPN no SSTP (Secure Socket Tunneling Protocol) ou IKEv2.
+Este artigo ajuda você a conectar com segurança clientes individuais que executam Windows, Linux ou macOS a uma VNet do Azure. As conexões VPN ponto a site são úteis quando você deseja se conectar à sua rede virtual de um local remoto, como quando você está intercomutando de casa ou de uma conferência. Também é possível usar P2S em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma VNet. As conexões ponto a site não exigem um dispositivo VPN ou um endereço IP voltado para o público. A P2S cria a conexão VPN no SSTP (Secure Socket Tunneling Protocol) ou IKEv2.
 
 :::image type="content" source="./media/vpn-gateway-how-to-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Conectar-se de um computador a um diagrama de conexão de ponto a site da VNet do Azure":::
 
 Para obter mais informações sobre VPN ponto a site, consulte [sobre VPN ponto a site](point-to-site-about.md). Para criar essa configuração usando o portal do Azure, consulte [Configurar uma VPN ponto a site usando o portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## <a name="architecture"></a>Arquitetura
-
-As conexões nativas de autenticação de certificado do Azure ponto a site usam os seguintes itens, que você configura neste exercício:
-
-* Gateway de VPN RouteBased.
-* A chave pública (arquivo .cer) para um certificado raiz, que é carregado no Azure. Depois que o certificado é carregado, ele é considerado um certificado confiável e é usado para autenticação.
-* Um certificado do cliente que é gerado a partir do certificado raiz. O certificado do cliente instalado em cada computador cliente que se conectará à VNet. Esse certificado é usado para autenticação do cliente.
-* Uma configuração de cliente VPN. Os arquivos de configuração de cliente VPN contém as informações necessárias para o cliente se conectar à VNet. Os arquivos configuram o cliente VPN existente que é nativo do sistema operacional. Cada cliente que se conecta deve ser configurado usando as configurações nos arquivos de configuração.
+[!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +35,7 @@ Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatu
 > Muitas das etapas neste artigo podem usar o Azure Cloud Shell. No entanto, você não pode usar Cloud Shell para gerar certificados. Além disso, para carregar a chave pública do certificado raiz, você deve usar Azure PowerShell localmente ou a portal do Azure.
 >
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="1-sign-in"></a><a name="signin"></a>1. Entrar
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326895"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145677"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitoramento de contêiner no Azure Monitor
 
@@ -45,13 +45,13 @@ Antes de começar, examine os detalhes a seguir para verificar se você atende a
 
 A tabela a seguir descreve a orquestração do Docker e o suporte ao monitoramento do sistema operacional de inventário de contêiner, desempenho e logs com Azure Monitor.   
 
-|Orquestração do Docker | ACS | Linux | Windows | Contêiner<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contêiner<br>Desempenho | Contêiner<br>Evento | Evento<br>Log | Contêiner<br>Log |
+|Orquestração do Docker | ACS | Linux | Windows | Contêiner<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contêiner<br>Desempenho | Contêiner<br>Evento | Evento<br>Registro | Contêiner<br>Registro |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serviço<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat Open<br>Turno | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autônomo) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux Server<br>(autônomo) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -116,7 +116,7 @@ Examine o artigo [Mecanismo do Docker no Windows](/virtualization/windowscontain
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar hosts de contêiner do Linux
 
-Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Primeiro, você precisa da ID e chave de seu espaço de trabalho do Log Analytics, que podem ser encontradas no Portal do Azure. Em seu espaço de trabalho, clique em **início rápido**  >  **computadores** para exibir a **ID do espaço de trabalho** e a **chave primária**.  Copie e cole os dois em seu editor favorito.
+Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Primeiro, você precisa da ID e chave de seu espaço de trabalho do Log Analytics, que podem ser encontradas no Portal do Azure. Em seu espaço de trabalho, clique em **início rápido**  >  **computadores** para exibir a **ID do espaço de trabalho** e a **chave primária** .  Copie e cole os dois em seu editor favorito.
 
 **Para todos os hosts de contêiner do Linux, exceto CoreOS:**
 
@@ -476,12 +476,12 @@ Para usar helm para implantar o agente do Log Analytics em seu ambiente Linux Ku
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Para obter mais informações, visite [Gráfico Contêiner de Solução Helm](https://aka.ms/omscontainerhelm).
@@ -513,11 +513,11 @@ Para habilitar o monitoramento do contêiner do Windows e do Hyper-V, instale o 
 
 Você pode monitorar os contêineres do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](../learn/quick-collect-azurevm.md) e [computadores executando o Windows no seu ambiente local](../platform/agent-windows.md) têm suporte atualmente para o Service Fabric.
 
-Você pode verificar se a solução de Monitoramento de contêiner está definida corretamente para o Windows. Para verificar se o pacote de gerenciamento foi baixado corretamente, procure *ContainerManagement.xxx*. Os arquivos devem estar na pasta C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
+Você pode verificar se a solução de Monitoramento de contêiner está definida corretamente para o Windows. Para verificar se o pacote de gerenciamento foi baixado corretamente, procure *ContainerManagement.xxx* . Os arquivos devem estar na pasta C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
 ## <a name="solution-components"></a>Componentes da solução
 
-No portal do Azure, navegue até a *Galeria de Soluções* e adicione a **Solução de Monitoramento de Contêiner**. Se você estiver usando agentes do Windows, o pacote de gerenciamento a seguir será instalado em cada computador que possui um agente quando você adicionar essa solução. Não é necessária nenhuma configuração nem manutenção do pacote de gerenciamento.
+No portal do Azure, navegue até a *Galeria de Soluções* e adicione a **Solução de Monitoramento de Contêiner** . Se você estiver usando agentes do Windows, o pacote de gerenciamento a seguir será instalado em cada computador que possui um agente quando você adicionar essa solução. Não é necessária nenhuma configuração nem manutenção do pacote de gerenciamento.
 
 - *ContainerManagement.xxx* instalado em C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -558,7 +558,7 @@ O bloco mostra uma visão geral de quantos contêineres existem no ambiente e se
 
 ### <a name="using-the-containers-dashboard"></a>Usando o painel de Contêineres
 
-Clique no bloco **Contêineres**. A partir daí, você verá exibições organizadas por:
+Clique no bloco **Contêineres** . A partir daí, você verá exibições organizadas por:
 
 - **Eventos de Contêiner** - Mostra o status do contêiner, e os computadores com contêineres com falha.
 - **Logs do Contêiner** - Mostra um gráfico de arquivos de log gerados com o tempo, e uma lista de computadores com o maior número de arquivos de log.
@@ -574,11 +574,11 @@ Clique no bloco **Contêineres**. A partir daí, você verá exibições organiz
 
 Cada área do painel é uma representação visual de uma pesquisa executada nos dados coletados.
 
-![Painel de Contêineres](./media/containers/containers-dash01.png)
+![Captura de tela que mostra um painel para exibir os dados coletados. ](./media/containers/containers-dash01.png)
 
 ![Painel de Contêineres](./media/containers/containers-dash02.png)
 
-Na área **Status do Contêiner**, clique na área superior, como mostrado abaixo.
+Na área **Status do Contêiner** , clique na área superior, como mostrado abaixo.
 
 ![Status dos contêineres](./media/containers/containers-status.png)
 
@@ -590,18 +590,18 @@ A partir daqui, você pode editar a consulta de pesquisa para modificá-la para 
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Solucionar problemas localizando um contêiner com falha
 
-O Log Analytics marca um contêiner como **Com Falha** se ele tiver sido encerrado com um código de saída diferente de zero. Você pode conferir uma visão geral dos erros e falhas no ambiente na área **Contêineres com Falha**.
+O Log Analytics marca um contêiner como **Com Falha** se ele tiver sido encerrado com um código de saída diferente de zero. Você pode conferir uma visão geral dos erros e falhas no ambiente na área **Contêineres com Falha** .
 
 ### <a name="to-find-failed-containers"></a>Para localizar contêineres com falha
 
-1. Clique na área **Status do Contêiner**.  
+1. Clique na área **Status do Contêiner** .  
    ![status dos contêineres](./media/containers/containers-status.png)
 2. Log Analytics abre e exibe o estado de seus contêineres, semelhante ao seguinte.  
    ![estado dos contêineres](./media/containers/containers-log-search.png)
 3. Expanda a linha com falha e clique em + para adicionar seus critérios à consulta. Em seguida, comente a linha de resumo na consulta.
-   ![contêineres com falha](./media/containers/containers-state-failed-select.png)  
+   ![Captura de tela que mostra a linha que deve ser comentada.](./media/containers/containers-state-failed-select.png)  
 1. Execute a consulta e, em seguida, expanda uma linha nos resultados para exibir a ID da imagem.  
-   ![contêineres com falha](./media/containers/containers-state-failed.png)  
+   ![Captura de tela que mostra como exibir a ID da imagem.](./media/containers/containers-state-failed.png)  
 1. Digite o seguinte na consulta de log. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalhes sobre a imagem, como o tamanho da imagem e o número de imagens paradas e com falha.  
    ![contêineres com falha](./media/containers/containers-failed04.png)
 
@@ -620,7 +620,7 @@ Quando você estiver solucionando um erro específico, pode ajudar ver onde ele 
 
 ### <a name="to-query-logs-for-container-data"></a>Para consultar logs de dados de contêiner
 
-* Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory**. Por exemplo, pesquise por `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory** . Por exemplo, pesquise por `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Pesquisar por contêineres do Ubuntu](./media/containers/search-ubuntu.png)
 
   Expanda qualquer linha nos resultados para exibir os detalhes desse contêiner.
@@ -635,7 +635,7 @@ Costuma ser útil criar consultas começando com um ou dois exemplos e, em segui
 
 Salvar consultas é um recurso padrão no Azure Monitor. Ao salvá-las, você terá aquelas que considerou úteis acessíveis para uso futuro.
 
-Depois de criar uma consulta que considerar útil, salve-a clicando em **Favoritos** na parte superior da página Pesquisa de Log. Depois, você pode acessá-la facilmente pela página **Meu Painel**.
+Depois de criar uma consulta que considerar útil, salve-a clicando em **Favoritos** na parte superior da página Pesquisa de Log. Depois, você pode acessá-la facilmente pela página **Meu Painel** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

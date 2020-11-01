@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ec82ec6613b6d2e68d01815d5669bfb169037e72
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787475"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146562"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do armazenamento de filas do Azure
 
@@ -26,7 +26,7 @@ As tabelas a seguir listam as métricas da plataforma coletadas para o armazenam
 
 ### <a name="capacity-metrics"></a>Métricas de capacidade
 
-Os valores de métricas de capacidade são enviados para o Azure Monitor a cada hora. Os valores são atualizados diariamente. O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
+Os valores de métricas de capacidade são atualizados diariamente (até 24 horas). O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
 
 O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Monitor.
 

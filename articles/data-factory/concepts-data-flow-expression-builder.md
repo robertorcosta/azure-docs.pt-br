@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635364"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145694"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Criar expressões no fluxo de dados de mapeamento
 
@@ -30,15 +30,15 @@ Há vários pontos de entrada para abrir o construtor de expressões. Todos eles
 
 Em algumas transformações como [filtro](data-flow-filter.md), clicar em uma caixa de texto expressão azul abrirá o construtor de expressões. 
 
-![Caixa de expressão azul](media/data-flow/expressionbox.png "Construtor de Expressões")
+![Caixa de expressão azul](media/data-flow/expressionbox.png "Caixa de expressão azul")
 
 Quando você faz referência a colunas em uma condição de correspondência ou agrupamento, uma expressão pode extrair valores de colunas. Para criar uma expressão, selecione **coluna computada** .
 
-![Opção de coluna computada](media/data-flow/computedcolumn.png "Construtor de Expressões")
+![Opção de coluna computada](media/data-flow/computedcolumn.png "Opção de coluna computada")
 
 Nos casos em que uma expressão ou um valor literal são entradas válidas, selecione **adicionar conteúdo dinâmico** para criar uma expressão que seja avaliada como um valor literal.
 
-![Opção adicionar conteúdo dinâmico](media/data-flow/add-dynamic-content.png "Construtor de Expressões")
+![Opção adicionar conteúdo dinâmico](media/data-flow/add-dynamic-content.png "Opção adicionar conteúdo dinâmico")
 
 ## <a name="expression-elements"></a>Elementos de expressão
 
@@ -69,9 +69,19 @@ Quando você tem nomes de coluna que incluem caracteres especiais ou espaços, c
 
 ```{[dbo].this_is my complex name$$$}```
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 Parâmetros são valores que são passados para um fluxo de dados em tempo de execução de um pipeline. Para fazer referência a um parâmetro, clique no parâmetro na exibição de **elementos de expressão** ou faça referência a ele com um sinal de dólar na frente de seu nome. Por exemplo, um parâmetro chamado parâmetro1 seria referenciado por `$parameter1` . Para saber mais, consulte [parametrizando o mapeamento de fluxos de dados](parameters-data-flow.md).
+
+### <a name="cached-lookup"></a>Pesquisa armazenada em cache
+
+Uma pesquisa armazenada em cache permite que você faça uma pesquisa embutida da saída de um coletor armazenado em cache. Há duas funções disponíveis para uso em cada coletor `lookup()` e `outputs()` . A sintaxe para fazer referência a essas funções é `cacheSinkName#functionName()` . Para obter mais informações, consulte [coletores de cache](data-flow-sink.md#cache-sink).
+
+`lookup()` usa as colunas correspondentes na transformação atual como parâmetros e retorna uma coluna complexa igual à linha que corresponde às colunas de chave no coletor de cache. A coluna complexa retornada contém uma subcoluna para cada coluna mapeada no coletor de cache. Por exemplo, se você tivesse um coletor de código de erro de cache `errorCodeCache` que tinha uma coluna de chave correspondente no código e uma coluna chamada `Message` . Chamar `errorCodeCache#lookup(errorCode).Message` retornaria a mensagem correspondente ao código passado. 
+
+`outputs()` Não usa parâmetros e retorna o coletor de cache inteiro como uma matriz de colunas complexas. Isso não poderá ser chamado se as colunas de chave forem especificadas no coletor e só deverão ser usadas se houver um pequeno número de linhas no coletor de cache. Um caso de uso comum é acrescentar o valor máximo de uma chave de incremento. Se uma única linha agregada armazenada em cache `CacheMaxKey` contiver uma coluna `MaxKey` , você poderá referenciar o primeiro valor chamando `CacheMaxKey#outputs()[1].MaxKey` .
+
+![Pesquisa armazenada em cache](media/data-flow/cached-lookup-example.png "Pesquisa armazenada em cache")
 
 ### <a name="locals"></a>Locais
 

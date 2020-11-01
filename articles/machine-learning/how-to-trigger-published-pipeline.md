@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318289"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146255"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Disparar uma execução de um pipeline de Machine Learning de um aplicativo lógico
 
@@ -49,7 +49,7 @@ Depois que seu aplicativo lógico tiver sido provisionado, use estas etapas para
     > [!div class="mx-imgBorder"]
     > ![Modelo em branco](media/how-to-trigger-published-pipeline/blank-template.png)
 
-1. No designer, pesquise por **blob**. Selecione o gatilho **quando um blob é adicionado ou modificado (somente Propriedades)** e adicione esse gatilho ao seu aplicativo lógico.
+1. No designer, pesquise por **blob** . Selecione o gatilho **quando um blob é adicionado ou modificado (somente Propriedades)** e adicione esse gatilho ao seu aplicativo lógico.
     > [!div class="mx-imgBorder"]
     > ![Adicionar gatilho](media/how-to-trigger-published-pipeline/add-trigger.png)
 
@@ -60,7 +60,7 @@ Depois que seu aplicativo lógico tiver sido provisionado, use estas etapas para
     > [!NOTE]
     > Esse gatilho irá monitorar o contêiner selecionado, mas não monitorará subpastas.
 
-1. Adicione uma ação HTTP que será executada quando um blob novo ou modificado for detectado. Selecione **+ nova etapa**, procure e selecione a ação http.
+1. Adicione uma ação HTTP que será executada quando um blob novo ou modificado for detectado. Selecione **+ nova etapa** , procure e selecione a ação http.
 
   > [!div class="mx-imgBorder"]
   > ![Pesquisar ação HTTP](media/how-to-trigger-published-pipeline/search-http.png)
@@ -94,6 +94,9 @@ Depois que seu aplicativo lógico tiver sido provisionado, use estas etapas para
     > ![Configurações HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Selecione **salvar** e sua agenda agora está pronta.
+
+> [!IMPORTANT]
+> Se você estiver usando o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao seu pipeline, [defina as permissões para seu cenário de pipeline (treinamento ou pontuação)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
 
 ## <a name="next-steps"></a>Próximas etapas
 
