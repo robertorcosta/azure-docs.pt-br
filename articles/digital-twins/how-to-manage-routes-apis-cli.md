@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f9e770557bc600c6eae084e36ad7c5816ee5ad16
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: e6e27ebfd1b6b44e355d4529f2838a1c5440147c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027492"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147089"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -29,7 +29,7 @@ Eles também podem ser gerenciados por meio do [portal do Azure](https://portal.
 * Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-cli.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Resource group
+    - Grupo de recursos
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -176,12 +176,12 @@ Se não houver nenhum nome de rota, nenhuma mensagem será roteada fora do Azure
 
 Uma rota deve permitir que várias notificações e tipos de eventos sejam selecionados. 
 
-`CreateEventRoute` é a chamada do SDK que é usada para adicionar uma rota de evento. Aqui está um exemplo de uso:
+`CreateOrReplaceEventRouteAsync` é a chamada do SDK que é usada para adicionar uma rota de evento. Aqui está um exemplo de uso:
 
 ```csharp
-EventRoute er = new EventRoute("<your-endpointName>");
-er.Filter = "true"; //Filter allows all messages
-await CreateEventRoute(client, "routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
+await CreateOrReplaceEventRouteAsync(client, "routeName", er);
 ```
     
 > [!TIP]
@@ -191,7 +191,7 @@ await CreateEventRoute(client, "routeName", er);
 
 O método de exemplo a seguir mostra como criar, listar e excluir uma rota de evento:
 ```csharp
-private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, EventRoute er)
+private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, DigitalTwinsEventRoute er)
 {
   try
   {
@@ -199,15 +199,15 @@ private async static Task CreateEventRoute(DigitalTwinsClient client, String rou
             
     // Make a filter that passes everything
     er.Filter = "true";
-    await client.CreateEventRouteAsync(routeName, er);
+    await client.CreateOrReplaceEventRouteAsync(routeName, er);
     Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable<EventRoute> result = client.GetEventRoutes();
-    foreach (EventRoute r in result)
+    Pageable<DigitalTwinsEventRoute> result = client.GetEventRoutes();
+    foreach (DigitalTwinsEventRoute r in result)
     {
         Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
-    foreach (EventRoute r in result)
+    foreach (DigitalTwinsEventRoute r in result)
     {
         Console.WriteLine($"Deleting route {r.Id}:");
         client.DeleteEventRoute(r.Id);

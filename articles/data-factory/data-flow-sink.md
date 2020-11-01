@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 10/30/2020
+ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891340"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147208"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
@@ -72,6 +72,23 @@ O vídeo a seguir explica várias opções de coletor diferentes para tipos de a
 **Usar tempdb:** Por padrão, Data Factory usarão uma tabela temporária global para armazenar dados como parte do processo de carregamento. Como alternativa, você pode desmarcar a opção "usar TempDB" e, em vez disso, pedir Data Factory para armazenar a tabela temporária em um banco de dados de usuário localizado no banco de dados que está sendo usado para esse coletor.
 
 ![TempDB](media/data-flow/tempdb.png "TempDB")
+
+## <a name="cache-sink"></a>Coletor de cache
+ 
+Um *coletor de cache* é quando um fluxo de dados grava dados no cache do Spark em vez de em um repositório de dados. No mapeamento de fluxos de dados, você pode fazer referência a esses dados dentro do mesmo fluxo muitas vezes usando uma *pesquisa de cache* . Isso é útil quando você deseja fazer referência a dados como parte de uma expressão, mas não deseja unir explicitamente as colunas a ela. Exemplos comuns em que um coletor de cache pode ajudar a pesquisar um valor máximo em um armazenamento de dados e os códigos de erro correspondentes a um banco de dado de mensagens de erro. 
+
+Para gravar em um coletor de cache, adicione uma transformação de coletor e selecione **cache** como o tipo de coletor. Ao contrário de outros tipos de coletor, você não precisa selecionar um conjunto de um DataSet ou um serviço vinculado porque não está gravando em um repositório externo. 
+
+![Selecionar coletor de cache](media/data-flow/select-cache-sink.png "Selecionar coletor de cache")
+
+Nas configurações do coletor, você pode opcionalmente especificar as colunas de chave do coletor de cache. Elas são usadas como condições de correspondência ao usar a `lookup()` função em uma pesquisa de cache. Se você especificar colunas de chave, não poderá usar a `outputs()` função em uma pesquisa de cache. Para saber mais sobre a sintaxe de pesquisa de cache, consulte [pesquisas em cache](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Colunas de chave de coletor de cache](media/data-flow/cache-sink-key-columns.png "Colunas de chave de coletor de cache")
+
+Por exemplo, se eu especificar uma única coluna de chave de `column1` em um coletor de cache chamado `cacheExample` , `cacheExample#lookup()` a chamada teria um parâmetro que especifica qual linha no coletor de cache deve corresponder. A função gera uma única coluna complexa com Subcolunas para cada coluna mapeada.
+
+> [!NOTE]
+> Um coletor de cache deve estar em um fluxo de dados completamente independente de qualquer transformação que faça referência a ele por meio de uma pesquisa de cache. Um coletor de cache também deve ter o primeiro coletor gravado. 
 
 ## <a name="field-mapping"></a>Mapeamento de campo
 
