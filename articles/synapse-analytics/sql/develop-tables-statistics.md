@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288657"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148245"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas no SQL do Synapse
 
@@ -74,7 +74,7 @@ Para evitar a degradação mensurável do desempenho, verifique se as estatísti
 > [!NOTE]
 > A criação de estatísticas é registrada em [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) em um contexto de usuário diferente.
 
-Quando as estatísticas automáticas são criadas, elas assumem o formato: _WA_Sys_<id da coluna de 8 dígitos em Hex>_<id da tabela de 8 dígitos em Hex>. Você pode exibir estatísticas já criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+Quando as estatísticas automáticas são criadas, elas assumem o formato: _WA_Sys_ <id da coluna de 8 dígitos em Hex>_<id da tabela de 8 dígitos em Hex>. Você pode exibir estatísticas já criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -245,7 +245,7 @@ Para criar um objeto estatístico de várias colunas, use os exemplos anteriores
 > [!NOTE]
 > O histograma, que é usado para estimar o número de linhas no resultado da consulta, está disponível apenas para a primeira coluna listada na definição do objeto estatístico.
 
-Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub_category*:
+Neste exemplo, o histograma está em *product\_category* . As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub_category* :
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Como existe uma correlação entre a *categoria do\_produto* e a *sub\_categoria do\_produto*, um objeto de estatística de colunas múltiplas poderá ser útil se essas colunas forem acessadas ao mesmo tempo.
+Como existe uma correlação entre a *categoria do\_produto* e a *sub\_categoria do\_produto* , um objeto de estatística de colunas múltiplas poderá ser útil se essas colunas forem acessadas ao mesmo tempo.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Criar estatísticas em todas as coluna em uma tabela
 
@@ -604,7 +604,7 @@ As estatísticas manuais nunca são declaradas obsoletas.
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
 
-Quando o número de linhas mudar substancialmente, ou houver uma alteração material na distribuição de valores para uma coluna, *então*, significa que é hora de atualizar as estatísticas.
+Quando o número de linhas mudar substancialmente, ou houver uma alteração material na distribuição de valores para uma coluna, *então* , significa que é hora de atualizar as estatísticas.
 
 > [!NOTE]
 > Se houver uma alteração importante na distribuição de valores para uma coluna, você deverá atualizar as estatísticas independentemente da última vez que foram atualizadas.
@@ -616,7 +616,7 @@ Você pode estender seu pipeline de dados para garantir que as estatísticas sej
 Os seguintes princípios orientadores são fornecidos para atualizar suas estatísticas:
 
 - Certifique-se de que o conjunto de dados tenha pelo menos um objeto de estatísticas atualizado. Isso atualiza as informações do tamanho (contagem de linhas e contagem de páginas) como parte da atualização de estatísticas.
-- Concentre-se em colunas que participam de cláusulas JOIN, GROUP BY, ORDER BY e DISTINCT.
+- Concentre-se em colunas que participam de cláusulas de WHERE, unir, agrupar por, ORDENAr por e distintas.
 - Atualize com mais frequência as colunas de "chave crescente", por exemplo, datas de transação, porque esses valores não serão incluídos no histograma de estatísticas.
 - Atualize as colunas de distribuição estática com menos frequência.
 
@@ -629,12 +629,12 @@ Os exemplos a seguir mostram como usar várias opções para a criação de esta
 > [!NOTE]
 > Você pode criar estatísticas de coluna única apenas neste momento.
 >
-> O procedimento sp_create_file_statistics será renomeado para sp_create_openrowset_statistics. A função de servidor público tem a permissão ADMINISTER BULK OPERATIONS concedida, enquanto a função de banco de dados pública tem permissões EXECUTE em sp_create_file_statistics e sp_drop_file_statistics. Isso pode ser alterado no futuro.
+> As permissões a seguir são necessárias para executar sp_create_openrowset_statistics e sp_drop_openrowset_statistics: administrar operações em massa ou administrar operações em massa de banco de dados.
 
 O procedimento armazenado a seguir é usado para criar estatísticas:
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 Argumentos: [ @stmt = ] 'statement_text '- Especifica uma instrução Transact-SQL que retornará valores de coluna a serem usados para estatísticas. Você pode usar TABLESAMPLE para especificar amostras de dados a serem usados. Caso TABLESAMPLE não seja especificado, FULLSCAN será usado.
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 Para atualizar as estatísticas, você precisa remover e criar estatísticas. O procedimento armazenado a seguir é usado para remover estatísticas:
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> O procedimento sp_drop_file_statistics será renomeado para sp_drop_openrowset_statistics. A função de servidor público tem a permissão ADMINISTER BULK OPERATIONS concedida, enquanto a função de banco de dados pública tem permissões EXECUTE em sp_create_file_statistics e sp_drop_file_statistics. Isso pode ser alterado no futuro.
+> As permissões a seguir são necessárias para executar sp_create_openrowset_statistics e sp_drop_openrowset_statistics: administrar operações em massa ou administrar operações em massa de banco de dados.
 
 Argumentos: [ @stmt = ] 'statement_text '- Especifica a mesma instrução Transact-SQL usada quando as estatísticas foram criadas.
 
 Para atualizar as estatísticas da coluna do ano no conjunto de dados, que se baseia no arquivo .csv de população, você precisa remover e criar estatísticas:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''

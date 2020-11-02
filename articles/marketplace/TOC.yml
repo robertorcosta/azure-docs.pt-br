@@ -79,8 +79,6 @@
   items:
     - name: Guia de publicação por tipo de oferta
       href: publisher-guide-by-offer-type.md
-    - name: Habilitar autenticação de oferta com o Azure AD
-      href: enable-appsource-marketplace-using-azure-ad.md
     - name: Ofertas de aplicativo do Azure
       items:
         - name: Planejar uma oferta de modelo de solução

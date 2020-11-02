@@ -3,12 +3,12 @@ title: Suporte para avaliação de servidor físico nas migrações para Azure
 description: Saiba mais sobre o suporte para avaliação de servidor físico com a avaliação de servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 58ecba6bcedc036e31046aef292e482085ad7cc6
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319298"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148398"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -24,18 +24,28 @@ Para avaliar servidores físicos, você cria um projeto de migrações para Azur
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto de migrações para Azure](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Além dos servidores físicos, um projeto pode incluir VMs VMware e VMs do Hyper-V, até os limites de avaliação de cada uma.
-**Discovery** | O dispositivo de migrações para Azure pode descobrir até 1000 servidores físicos.
+**Descoberta** | O dispositivo de migrações para Azure pode descobrir até 1000 servidores físicos.
 **Avaliação** | Você pode adicionar até 35.000 computadores em um único grupo.<br/><br/> Você pode avaliar até 35.000 computadores em uma única avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre as avaliações.
 
 ## <a name="physical-server-requirements"></a>Requisitos de servidor físico
 
-| **Suporte**                | **Detalhes**               
-| :-------------------       | :------------------- |
-| **Implantação do servidor físico**       | O servidor físico pode ser autônomo ou implantado em um cluster. |
-| **Permissões**           | **Windows:** Use uma conta de domínio para computadores ingressados no domínio e uma conta local para computadores que não são ingressados no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. <br/> Como alternativa, verifique se os recursos necessários estão definidos usando os comandos a seguir. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk não estiver presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + EIP"/sbin/LVM <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
-| **Sistema operacional** | Todos os sistemas operacionais Windows e Linux podem ser avaliados quanto à migração. |
+**Implantação de servidor físico:** O servidor físico pode ser autônomo ou implantado em um cluster.
+
+**Sistema operacional:** Todos os sistemas operacionais Windows e Linux podem ser avaliados quanto à migração.
+
+**Permissões:**
+- Para servidores Windows, use uma conta de domínio para computadores ingressados no domínio e uma conta local para computadores que não são ingressados no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho.
+- Para os servidores Linux, você precisa de uma conta raiz nos servidores Linux que deseja descobrir. Como alternativa, você pode definir uma conta não raiz com os recursos necessários usando os seguintes comandos:
+
+**Comando** | **Finalidade**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk _(se/usr/sbin/fdisk não estiver presente)_ | Para coletar dados de configuração de disco
+setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid,<br>cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin,<br>cap_sys_resource, cap_audit_control, cap_setfcap = + EIP "/sbin/LVM | Para coletar dados de desempenho de disco
+setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode | Para coletar o número de série do BIOS
+chmod a + r/sys/Class/DMI/ID/product_uuid | Para coletar o GUID do BIOS
+
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure
