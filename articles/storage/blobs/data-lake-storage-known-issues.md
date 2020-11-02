@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042674"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186579"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -41,7 +41,7 @@ APIs de Blob e APIs do Data Lake Storage Gen2 podem operar nos mesmos dados.
 
 Esta seção descreve problemas e limitações com o uso de APIs de Blob e APIs do Data Lake Storage Gen2 para operar nos mesmos dados.
 
-* Você não pode usar API e APIs de Data Lake Storage para gravar na mesma instância de um arquivo. Se você gravar em um arquivo usando APIs Data Lake Storage Gen2, os blocos desse arquivo não estarão visíveis para chamadas para a API de Blob [Obter Lista de Blocos](https://docs.microsoft.com/rest/api/storageservices/get-block-list). A única exceção é quando o uso de você está substituindo. Você pode substituir um arquivo/BLOB usando uma das APIs.
+* Você não pode usar a API de BLOB e as APIs de Data Lake Storage para gravar na mesma instância de um arquivo. Se você gravar em um arquivo usando APIs Data Lake Storage Gen2, os blocos desse arquivo não estarão visíveis para chamadas para a API de Blob [Obter Lista de Blocos](https://docs.microsoft.com/rest/api/storageservices/get-block-list). A única exceção é quando o uso de você está substituindo. Você pode substituir um arquivo/BLOB usando uma das APIs.
 
 * Quando você usar a operação [Listar Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sem especificar um delimitador, os resultados incluirão diretórios e blobs. Se você optar por usar um delimitador, use apenas uma barra (`/`). Esse é o único delimitador compatível.
 

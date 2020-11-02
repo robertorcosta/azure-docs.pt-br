@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637217"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186766"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o runtime de integração do Azure-SSIS a uma rede virtual
 
@@ -99,7 +99,7 @@ Configure sua rede virtual para atender a estes requisitos:
 
 - Verifique se o grupo de recursos da rede virtual (ou o grupo de recursos endereços IP públicos se você colocar seus próprios endereços IP públicos) pode criar e excluir determinados recursos de rede do Azure. Para obter mais informações, consulte [Configurar o grupo de recursos](#resource-group). 
 
-- Se você personalizar seu Azure-SSIS IR conforme descrito em [instalação personalizada para Azure-SSIS ir](./how-to-configure-azure-ssis-ir-custom-setup.md), seus nós de Azure-SSIS ir obterão endereços IP privados de um intervalo predefinido de 172.16.0.0 para 172.31.255.255. Portanto, certifique-se de que os intervalos de endereços IP privados de suas redes virtuais ou locais não colidem com esse intervalo.
+- Se você personalizar seu Azure-SSIS IR conforme descrito em [instalação personalizada para Azure-SSIS ir](./how-to-configure-azure-ssis-ir-custom-setup.md), nosso processo interno para gerenciar seus nós consumirá endereços IP privados de um intervalo predefinido de 172.16.0.0 a 172.31.255.255. Consequentemente, certifique-se de que os intervalos de endereços IP privados de suas redes virtuais ou locais não colidem com esse intervalo.
 
 Este diagrama mostra as conexões necessárias para seu Azure-SSIS IR:
 

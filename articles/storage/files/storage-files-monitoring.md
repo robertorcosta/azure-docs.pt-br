@@ -10,19 +10,16 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: dfc554a57e99fa4ccd66b1bbeec0be46e463988f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b89112ab2384386d20b62f2510ec576d4a2075f1
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738600"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186749"
 ---
 # <a name="monitoring-azure-files"></a>Monitorando arquivos do Azure
 
 Quando você tem aplicativos e processos de negócios críticos que dependem de recursos do Azure, recomendamos monitorar a disponibilidade, o desempenho e a operação desses recursos. Este artigo descreve os dados de monitoramento gerados pelos arquivos do Azure e como você pode usar os recursos do Azure Monitor para analisar alertas sobre esses dados.
-
-> [!NOTE]
-> Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Para se inscrever na versão preliminar, veja [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Essa visualização habilita logs para BLOBs (que inclui Azure Data Lake Storage Gen2), arquivos, filas e tabelas. Esse recurso está disponível para todas as contas de armazenamento criadas com o modelo de implantação Azure Resource Manager. Consulte [visão geral da conta de armazenamento](../common/storage-account-overview.md).
 
 ## <a name="monitor-overview"></a>Visão geral do Monitor
 
@@ -65,7 +62,10 @@ Para obter a lista de operações de SMB e REST registradas, consulte [operaçõ
 
 ## <a name="creating-a-diagnostic-setting"></a>Criando uma configuração de diagnóstico
 
-Você pode criar uma configuração de diagnóstico usando o portal do Azure, o PowerShell, o CLI do Azure ou um modelo de Azure Resource Manager. 
+Você pode criar uma configuração de diagnóstico usando o portal do Azure, o PowerShell, o CLI do Azure ou um modelo de Azure Resource Manager.
+
+> [!NOTE]
+> Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Para se inscrever na versão preliminar, veja [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Essa visualização habilita logs para BLOBs (que inclui Azure Data Lake Storage Gen2), arquivos, filas e tabelas. Esse recurso está disponível para todas as contas de armazenamento criadas com o modelo de implantação Azure Resource Manager. Consulte [visão geral da conta de armazenamento](../common/storage-account-overview.md).
 
 Para obter diretrizes gerais, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
