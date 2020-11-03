@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09460e4e38ea1842d58ecf3a9b3cd00a072c271e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596032"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286905"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no serviço Azure App e Azure Functions
 
@@ -140,12 +140,15 @@ Essa opção oferece mais flexibilidade no processamento de solicitações anôn
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir apenas solicitações autenticadas
 
-A opção é **fazer logon com \<provider> **o. O Serviço de Aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` do provedor escolhido. Se a solicitação anônima originar-se de um aplicativo móvel nativo, a resposta retornada será `HTTP 401 Unauthorized`.
+A opção é **fazer logon com \<provider>** o. O Serviço de Aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` do provedor escolhido. Se a solicitação anônima originar-se de um aplicativo móvel nativo, a resposta retornada será `HTTP 401 Unauthorized`.
 
 Com essa opção, você não precisa gravar nenhum código de autenticação no aplicativo. Uma autorização mais precisa, como autorização específica de função, pode ser tratada inspecionando as declarações do usuário (consulte [Acessar declarações do usuário](app-service-authentication-how-to.md#access-user-claims)).
 
 > [!CAUTION]
 > Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que querem um home page publicamente disponível, como em muitos aplicativos de página única.
+
+> [!NOTE]
+> Por padrão, qualquer usuário em seu locatário do Azure AD pode solicitar um token para seu aplicativo do Azure AD. Você pode [Configurar o aplicativo no Azure ad](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) se quiser restringir o acesso ao seu aplicativo a um conjunto definido de usuários.
 
 ## <a name="more-resources"></a>Mais recursos
 

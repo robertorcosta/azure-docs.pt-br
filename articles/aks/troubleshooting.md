@@ -4,12 +4,12 @@ description: Aprenda a solucionar problemas comuns ao usar o Serviço de Kuberne
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074406"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286772"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -154,10 +154,10 @@ Siga as etapas *Antes de começar* indicadas no documento apropriado para criar 
 As restrições de nomenclatura são implementadas pela plataforma do Azure e pelo AKS. Se o nome de um recurso ou parâmetro não atender a alguma dessas restrições, será retornado um erro solicitando que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
 
 * Os nomes de cluster devem ter entre 1 e 63 caracteres. Letras, números, traços e sublinhados são os únicos caracteres permitidos. O primeiro e o último caractere devem ser uma letra ou um número.
-* O nome do grupo de recursos Nó/*MC_* do AKS combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não pode ter mais de 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do cluster do AKS. Você também pode [personalizar o nome do grupo de recursos do nó](cluster-configuration.md#custom-resource-group-name)
+* O nome do grupo de recursos Nó/ *MC_* do AKS combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não pode ter mais de 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do cluster do AKS. Você também pode [personalizar o nome do grupo de recursos do nó](cluster-configuration.md#custom-resource-group-name)
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve ter entre 1 e 54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
 * Os nomes do Pool de nós do AKS devem estar em letras minúsculas e ter de 1 a 11 caracteres para pools de nós do Linux e de 1 a 6 caracteres para pools de nós do Windows. O nome deve começar com uma letra e os únicos caracteres permitidos são letras e números.
-* O *admin-username*, que define o nome de usuário do administrador para nós do Linux, deve começar com uma letra, pode conter apenas letras, números, hifens e sublinhados e tem um comprimento máximo de 64 caracteres.
+* O *admin-username* , que define o nome de usuário do administrador para nós do Linux, deve começar com uma letra, pode conter apenas letras, números, hifens e sublinhados e tem um comprimento máximo de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster, indicando que a operação não é permitida porque outra operação está em andamento.
 
@@ -167,7 +167,7 @@ As operações do cluster ficam limitadas quando uma operação anterior ainda e
 
 Com base na saída do status do cluster:
 
-* Se o cluster estiver em um estado de provisionamento diferente de *Êxito* ou *Falha* (*Atualizando/Criando/Dimensionando/Excluindo/Migrando*), aguarde até que a operação seja concluída. Quando a operação anterior for concluída, repita a operação mais recente do cluster.
+* Se o cluster estiver em um estado de provisionamento diferente de *Êxito* ou *Falha* ( *Atualizando/Criando/Dimensionando/Excluindo/Migrando* ), aguarde até que a operação seja concluída. Quando a operação anterior for concluída, repita a operação mais recente do cluster.
 
 * Se ocorrer uma falha no upgrade do cluster, siga as etapas descritas em [Estou recebendo erros indicando que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que ele seja corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -198,7 +198,7 @@ Ao restringir o tráfego de saída de um cluster do AKS, há portas de saída/re
 
 Verifique se as suas configurações não estão em conflito com alguma das portas de saída/regras de rede e regras de FQDN/aplicativo obrigatórias ou opcionais recomendadas.
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>Estou recebendo erros de "429-muitas solicitações" 
+## <a name="im-receiving-429---too-many-requests-errors"></a>Estou recebendo erros de "429-muitas solicitações"
 
 Quando um cluster kubernetes no Azure (AKS ou não) faz uma escala vertical/redução frequente ou usa a AC (autoescalar) do cluster, essas operações podem resultar em um grande número de chamadas HTTP que, por sua vez, excedem a cota de assinatura atribuída que leva à falha. Os erros terão a seguinte aparência
 
@@ -213,6 +213,12 @@ A recomando da equipe de engenharia AKS é garantir que você esteja executando 
 Considerando que esses erros de limitação são medidos no nível da assinatura, eles podem ainda acontecer se:
 - Há aplicativos de terceiros fazendo solicitações GET (por exemplo, monitorando aplicativos, etc...). A recomendação é reduzir a frequência dessas chamadas.
 - Há muitos clusters/nodepools do AKS no VMSS. A recomendação usual é ter menos de 20-30 clusters em uma determinada assinatura.
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>O status de provisionamento do meu cluster mudou de pronto para falhou com ou sem executar uma operação. O que devo fazer?
+
+Se o status de provisionamento do cluster mudar de *pronto* para com *falha* com ou sem executar nenhuma operação, mas os aplicativos no cluster estiverem continuando a ser executados, esse problema poderá ser resolvido automaticamente pelo serviço e seus aplicativos não deverão ser afetados.
+
+Se o status de provisionamento do cluster permanecer como *com falha* ou se os aplicativos no cluster deixarem de funcionar, [envie uma solicitação de suporte](https://azure.microsoft.com/support/options/#submit).
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Solução de problemas do Armazenamento do Azure e do AKS
@@ -359,7 +365,7 @@ Configurações recomendadas:
 | 1.12.0 – 1.12.1 | 0755 |
 | 1.12.2 e posterior | 0777 |
 
-As opções de montagem podem ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777*:
+As opções de montagem podem ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777* :
 
 ```yaml
 kind: StorageClass
@@ -379,10 +385,10 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Algumas outras configurações úteis de *mountOptions*:
+Algumas outras configurações úteis de *mountOptions* :
 
 * *mfsymlinks* fará com que a montagem dos Arquivos do Azure (cifs) dê suporte a links simbólicos
-* *nobrl* impedirá o envio de solicitações de bloqueio de intervalo de bytes para o servidor. Essa configuração é necessária para determinados aplicativos que interrompem com bloqueios de intervalo de bytes obrigatórios de estilo cifs. A maioria dos servidores cifs ainda não dá suporte à solicitação de bloqueios de intervalo de bytes por consultoria. Se não estiver usando *nobrl*, os aplicativos interrompidos com bloqueios de intervalo de bytes obrigatórios de estilo cifs poderão causar mensagens de erro semelhantes a:
+* *nobrl* impedirá o envio de solicitações de bloqueio de intervalo de bytes para o servidor. Essa configuração é necessária para determinados aplicativos que interrompem com bloqueios de intervalo de bytes obrigatórios de estilo cifs. A maioria dos servidores cifs ainda não dá suporte à solicitação de bloqueios de intervalo de bytes por consultoria. Se não estiver usando *nobrl* , os aplicativos interrompidos com bloqueios de intervalo de bytes obrigatórios de estilo cifs poderão causar mensagens de erro semelhantes a:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -470,11 +476,8 @@ Esse erro ocorre devido a uma condição de corrida upstream no autodimensionado
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Anexação de disco lenta, GetAzureDiskLun leva de 10 a 15 minutos e você recebe um erro
 
-Nas versões do Kubernetes **mais antigas que a 1.15.0**, você pode receber um erro como **Erro WaitForAttach não é capaz de encontrar o Lun para o disco**.  A solução alternativa para esse problema é aguardar aproximadamente 15 minutos e tentar novamente.
+Nas versões do Kubernetes **mais antigas que a 1.15.0** , você pode receber um erro como **Erro WaitForAttach não é capaz de encontrar o Lun para o disco**.  A solução alternativa para esse problema é aguardar aproximadamente 15 minutos e tentar novamente.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Por que as atualizações para o kubernetes 1,16 falham ao usar rótulos de nó com um prefixo kubernetes.io
 
@@ -487,3 +490,9 @@ Como resultado, para atenuar isso, você pode:
 3. Excluir o nodepool mais antigo
 
 O AKS está investigando a capacidade de mutar rótulos ativos em um nodepool para melhorar essa mitigação.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

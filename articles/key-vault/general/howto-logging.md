@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744729"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285654"
 ---
-# <a name="how-to-enable-key-vault-logging"></a>Como habilitar o log de Key Vault
+# <a name="how-to-enable-key-vault-logging"></a>Como habilitar o registro em log do Key Vault
 
 Depois de criar um ou mais cofres de chaves, provavelmente você desejará monitorar como e quando os cofres de chaves serão acessados e por quem. Para obter detalhes completos sobre o recurso, consulte [log de Key Vault](logging.md).
 
@@ -64,7 +64,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 Embora você possa usar uma conta de armazenamento existente para seus logs, criaremos uma nova conta de armazenamento dedicada a logs de Key Vault. 
 
-Para facilidade de gerenciamento, também usaremos o mesmo grupo de recursos que contém o cofre de chaves. No guia de início rápido e de [Azure PowerShell](quick-create-powershell.md) [CLI do Azure](quick-create-cli.md) , esse grupo de recursos é denominado **MyResource**Group e o local é *lesteus*. Substitua esses valores pelos seus próprios, conforme aplicável. 
+Para facilidade de gerenciamento, também usaremos o mesmo grupo de recursos que contém o cofre de chaves. No guia de início rápido e de [Azure PowerShell](quick-create-powershell.md) [CLI do Azure](quick-create-cli.md) , esse grupo de recursos é denominado **MyResource** Group e o local é *lesteus*. Substitua esses valores pelos seus próprios, conforme aplicável. 
 
 Também precisaremos fornecer um nome de conta de armazenamento. Os nomes de conta de armazenamento devem ser exclusivos, entre 3 e 24 caracteres de comprimento e usar apenas números e letras minúsculas.  Por fim, criaremos uma conta de armazenamento do SKU "Standard_LRS".
 
@@ -147,7 +147,7 @@ O que é registrado em log:
   * A criação, modificação ou exclusão dessas chaves ou segredos.
   * A assinatura, verificação, criptografia, descriptografia, encapsulamento e desencapsulamento de chaves, obtenção de segredos e listagem de chaves e segredos (e suas versões).
 * Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador estão malformadas ou expiradas ou têm um token inválido.  
-* Os eventos de notificação da Grade de Eventos sobre vencimento próximo, item vencido e política de acesso ao cofre foram alterados (o evento da nova versão não é registrado). Os eventos são registrados independentemente da presença de uma assinatura de evento criada no cofre de chaves. Para obter mais informações, confira [Esquema de evento da Grade de Eventos do Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
+* Os eventos de notificação da Grade de Eventos sobre vencimento próximo, item vencido e política de acesso ao cofre foram alterados (o evento da nova versão não é registrado). Os eventos são registrados independentemente da presença de uma assinatura de evento criada no cofre de chaves. Para obter mais informações, confira [Esquema de evento da Grade de Eventos do Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="access-your-logs"></a>Acessar seus logs
 

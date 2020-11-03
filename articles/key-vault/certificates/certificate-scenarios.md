@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124214"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286883"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
 Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
@@ -37,7 +37,7 @@ Certificados são compostos de três recursos inter-relacionados vinculados como
 
 **Etapa 1** - Provedores de Autoridade de Certificação (CA)  
 -   Entrada como o administrador de TI, administradores de PKI ou qualquer pessoa gerenciando contas com autoridades de certificação, para uma determinada empresa (por exemplo, Contoso) é um pré-requisito para usar certificados de Key Vault.  
-    As CAs a seguir são os provedores parceiros atuais com Key Vault. Saiba mais [aqui](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers)   
+    As CAs a seguir são os provedores parceiros atuais com Key Vault. Saiba mais [aqui](./create-certificate.md#partnered-ca-providers)   
     -   O DigiCert-Key Vault oferece certificados OV TLS/SSL com DigiCert.  
     -   O GlobalSign-Key Vault oferece certificados OV TLS/SSL com GlobalSign.  
 
@@ -50,7 +50,7 @@ Certificados são compostos de três recursos inter-relacionados vinculados como
     -   Provedor  
     -   Credenciais – Credenciais da conta da autoridade de certificação. Cada autoridade de certificação tem seus próprios dados específicos.  
 
-    Para obter mais informações sobre como criar contas com provedores de autoridade de certificação, consulte a postagem relacionada no [blog do Key Vault](https://aka.ms/kvcertsblog).  
+    Para obter mais informações sobre como criar contas com provedores de autoridade de certificação, consulte a postagem relacionada no [blog do Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
 
 **Etapa 3,1** -configurar os [contatos de certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contato para o usuário do Key Vault. O Key Vault não impõe essa etapa.  
 
@@ -82,7 +82,7 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
       -   Devido ao atraso da criação, uma operação de cancelamento pode começar. O cancelamento pode ou não ser eficaz.  
 
 ### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Segurança de rede e políticas de acesso associadas à AC integrada
-Key Vault serviço envia solicitações à CA (tráfego de saída). Portanto, ele é totalmente compatível com os cofres de chaves habilitados para firewall. O Key Vault não compartilha políticas de acesso com a autoridade de certificação. A CA deve ser configurada para aceitar solicitações de assinatura de forma independente. [Guia de integração da AC confiável](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+Key Vault serviço envia solicitações à CA (tráfego de saída). Portanto, ele é totalmente compatível com os cofres de chaves habilitados para firewall. O Key Vault não compartilha políticas de acesso com a autoridade de certificação. A CA deve ser configurada para aceitar solicitações de assinatura de forma independente. [Guia de integração da AC confiável](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>Importar um certificado  
  Como alternativa – um certificado pode ser importado para o Key Vault – PFX ou PEM.  

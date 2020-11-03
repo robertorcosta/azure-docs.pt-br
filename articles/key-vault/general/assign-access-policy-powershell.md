@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 817b9bfc0af054b344ca9f770085ac022a8e6eac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb28b4b678b37f69331b2ecff6272fd7aa64d191
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380638"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287617"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Atribuir uma política de acesso de Key Vault usando Azure PowerShell
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre como criar grupos em Azure Active Directory 
 
 1. Para executar comandos localmente, instale [Azure PowerShell](/powershell/azure/) se ainda não tiver feito isso.
 
-    Para executar comandos diretamente na nuvem, use o [Azure cloud Shell](/azure/cloud-shell/overview).
+    Para executar comandos diretamente na nuvem, use o [Azure cloud Shell](../../cloud-shell/overview.md).
 
 1. Somente PowerShell local:
 

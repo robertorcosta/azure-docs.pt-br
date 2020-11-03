@@ -11,14 +11,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a6b453b11c892b5d81c41cac9451b07be69aa4d3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735479"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285920"
 ---
-# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente do Azure Machine Learning de inferência com redes virtuais
 
 Neste artigo, você aprende a proteger ambientes inferência com uma rede virtual no Azure Machine Learning.
 
@@ -68,7 +68,7 @@ Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as segu
 
 1. Selecione __Clusters de inferência__ da central e, em seguida, selecione __+__ .
 
-1. Na caixa de diálogo __Novo cluster de inferência__ , selecione __Avançado__ em __Configuração de rede__ .
+1. Na caixa de diálogo __Novo cluster de inferência__ , selecione __Avançado__ em __Configuração de rede__.
 
 1. Para configurar esse recurso de computação para usar uma rede virtual, execute as seguintes ações:
 
@@ -138,7 +138,7 @@ Depois de criar o cluster AKS privado, [anexe o cluster à rede virtual](how-to-
 
 Por padrão, as implantações do AKS usam um [balanceador de carga público](../aks/load-balancer-standard.md). Nesta seção, você aprenderá a configurar o AKS para usar um balanceador de carga interno. Um balanceador de carga interno (ou privado) é usado onde somente os IPs privados são permitidos como front-end. Balanceadores de carga internos são usados para balancear a carga do tráfego dentro de uma rede virtual
 
-Um balanceador de carga privado é habilitado Configurando AKS para usar um _balanceador de carga interno_ . 
+Um balanceador de carga privado é habilitado Configurando AKS para usar um _balanceador de carga interno_. 
 
 #### <a name="network-contributor-role"></a>Função de colaborador de rede
 
@@ -217,6 +217,9 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
+> [!IMPORTANT]
+> Usando a CLI, você só pode criar um cluster AKS com um balanceador de carga interno. Não há nenhum comando AZ ml para atualizar um cluster existente para usar um balanceador de carga interno.
+
 Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
 
 ---
@@ -256,10 +259,13 @@ Para usar a ACI em uma rede virtual no seu workspace, siga as seguintes etapas:
 1. Para habilitar a delegação de sub-rede em sua rede virtual, use as informações do artigo [Adicionar ou remover uma delegação de sub-rede](../virtual-network/manage-subnet-delegation.md). É possível habilitar a delegação ao criar uma rede virtual ou adicioná-la a uma rede existente.
 
     > [!IMPORTANT]
-    > Ao habilitar a delegação, use `Microsoft.ContainerInstance/containerGroups` como o valor de __Delegar sub-rede ao serviço__ .
+    > Ao habilitar a delegação, use `Microsoft.ContainerInstance/containerGroups` como o valor de __Delegar sub-rede ao serviço__.
 
 2. Implante o modelo usando [AciWebservice. deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use os parâmetros `vnet_name` e `subnet_name`. Defina esses parâmetros para o nome da rede virtual e a sub-rede onde você habilitou a delegação.
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a> Limitar a conectividade de saída da rede virtual
+
+Se você não quiser usar as regras de saída padrão e quiser limitar o acesso de saída de sua rede virtual, deverá permitir o acesso ao registro de contêiner do Azure. Por exemplo, verifique se os NSG (grupos de segurança de rede) contêm uma regra que permite o acesso à marca de serviço __AzureContainerRegistry. RegionName__ , em que ' {RegionName} é o nome de uma região do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

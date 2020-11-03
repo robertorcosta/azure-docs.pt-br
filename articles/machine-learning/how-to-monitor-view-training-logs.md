@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333810"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285957"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Mostrar saída após a conclusão
 
-Quando você usa **ScriptRunConfig**, pode usar ```run.wait_for_completion(show_output = True)``` para mostrar quando o treinamento do modelo está concluído. O sinalizador ```show_output``` fornece saída detalhada. Para obter mais informações, consulte a seção ScriptRunConfig de [como habilitar o registro em log](how-to-track-experiments.md#scriptrun-logs).
+Quando você usa **ScriptRunConfig** , pode usar ```run.wait_for_completion(show_output = True)``` para mostrar quando o treinamento do modelo está concluído. O sinalizador ```show_output``` fornece saída detalhada. Para obter mais informações, consulte a seção ScriptRunConfig de [como habilitar o registro em log](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Métricas de execução de consulta
@@ -105,7 +105,9 @@ Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()
 
 Você pode procurar os registros de execução concluídos, incluindo as métricas registradas, no [Azure Machine Learning Studio](https://ml.azure.com).
 
-Navegue até a guia **experimentos** e selecione seu experimento. No painel Executar teste, você pode ver as métricas e os logs acompanhados para cada execução. 
+Navegue até a guia **experimentos** . Para exibir todas as suas execuções em seu espaço de trabalho entre experimentos, selecione a guia **todas as execuções** . Você pode fazer uma busca detalhada em execuções para experimentos específicos aplicando o filtro experimento na barra de menus superior. 
+
+Para a exibição de experimento individual, selecione a guia **todos os experimentos** . No painel Executar teste, você pode ver as métricas e os logs acompanhados para cada execução. 
 
 Faça uma busca detalhada até uma execução específica para exibir suas saídas ou logs ou baixe o instantâneo do experimento para que você possa compartilhar a pasta experimento com outras pessoas.
 

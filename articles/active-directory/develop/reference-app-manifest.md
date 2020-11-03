@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626999"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286949"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
@@ -194,6 +194,7 @@ Configura a declaração `groups` emitida em um usuário ou o token de acesso OA
 
 - `"None"`
 - `"SecurityGroup"` (para grupos de segurança e funções do Azure AD)
+- `"ApplicationGroup"` (essa opção inclui apenas os grupos atribuídos ao aplicativo)
 - `"All"` (isso obterá todos os grupos de segurança, grupos de distribuição e funções do diretório do Azure AD dos quais o usuário conectado é membro.
 
 Exemplo:
