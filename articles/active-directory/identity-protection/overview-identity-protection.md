@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996535"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783174"
 ---
 # <a name="what-is-identity-protection"></a>O que é proteção de identidade?
 
@@ -39,9 +39,9 @@ Em sua [postagem no blog em outubro de 2018](https://techcommunity.microsoft.com
 >
 > No Ignite do ano passado, falei sobre os três principais ataques em nossos sistemas de identidade. Este é o volume recente desses ataques
 >   
->   - **Repetição de violação**: 4,6 bilhões de ataques detectados em maio de 2018
->   - **Pulverização de senha**: 350 mil em abril de 2018
->   - **Phishing**: é difícil quantificar exatamente, mas vimos 23 milhões de eventos de risco em março de 2018, sendo que muitos deles estão relacionados a phishing
+>   - **Repetição de violação** : 4,6 bilhões de ataques detectados em maio de 2018
+>   - **Pulverização de senha** : 350 mil em abril de 2018
+>   - **Phishing** : é difícil quantificar exatamente, mas vimos 23 milhões de eventos de risco em março de 2018, sendo que muitos deles estão relacionados a phishing
 
 ## <a name="risk-detection-and-remediation"></a>Detecção e correção de riscos
 
@@ -107,9 +107,9 @@ Os administradores do Acesso Condicional também podem criar políticas que cons
 | Políticas de risco | Política de risco do usuário (por meio do Identity Protection)  | Não | Não |Sim | 
 | Políticas de risco | Política de risco de entrada (por meio do Identity Protection ou do acesso condicional)  | Não |  Não |Sim |
 | Relatórios de segurança | Visão geral |  Não | Não |Sim |
-| Relatórios de segurança | Usuários de risco  | Informações limitadas | Informações limitadas | Acesso completo|
-| Relatórios de segurança | Entradas de risco  | Informações limitadas | Informações limitadas | Acesso completo|
-| Relatórios de segurança | Detecções de risco   | Não | Informações limitadas| Acesso completo|
+| Relatórios de segurança | Usuários de risco  | Informações limitadas. Somente os usuários com risco médio e alto são mostrados. Sem gaveta de detalhes ou histórico de riscos. | Informações limitadas. Somente os usuários com risco médio e alto são mostrados. Sem gaveta de detalhes ou histórico de riscos. | Acesso completo|
+| Relatórios de segurança | Entradas de risco  | Informações limitadas. Nenhum detalhe ou nível de risco é mostrado. | Informações limitadas. Nenhum detalhe ou nível de risco é mostrado. | Acesso completo|
+| Relatórios de segurança | Detecções de risco   | Não | Informações limitadas. Sem gaveta de detalhes.| Acesso completo|
 | Notificações | Alertas de usuários em risco detectados  | Não | Não |Sim |
 | Notificações | Resumo semanal| Não | Não | Sim | 
 | | Política de registro de MFA | Não | Não | Sim |

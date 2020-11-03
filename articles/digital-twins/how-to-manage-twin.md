@@ -265,7 +265,7 @@ Por exemplo, considere o seguinte documento de patch JSON que substitui o campo 
 Esta operação só terá sucesso se o tipo de atualização digital estiver sendo modificado pelo patch estiver em conformidade com o novo modelo. 
 
 Considere o seguinte exemplo:
-1. Imagine um "up digital" com um modelo de *foo_old* . *foo_old* define uma propriedade necessária *em massa* .
+1. Imagine um "up digital" com um modelo de *foo_old*. *foo_old* define uma propriedade necessária *em massa*.
 2. O novo modelo *foo_new* define uma propriedade em massa e adiciona uma nova *temperatura* de propriedade necessária.
 3. Após o patch, o FileUp digital deve ter uma propriedade Mass e de temperatura. 
 

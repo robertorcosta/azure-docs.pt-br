@@ -52,7 +52,7 @@ Para obter explicações mais detalhadas de cada etapa na arquitetura, consulte 
 
 Nesta seção, você anexará o serviço de provisionamento de dispositivos ao gêmeos digital do Azure para provisionar dispositivos automaticamente por meio do caminho abaixo. Este é um trecho da arquitetura completa mostrada [anteriormente](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos.":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisionar fluxo--um trecho do diagrama da arquitetura da solução, com números rotulando seções do fluxo. Os dados fluem entre um dispositivo termostato e um DPS (1 para dispositivos > DPS e 5 para o dispositivo DPS >). Os dados também fluem do DPS para o Hub IoT (4) e para o gêmeos digital do Azure (3) por meio de uma função do Azure rotulada como &quot;alocação&quot; (2).":::
 
 Aqui está uma descrição do fluxo do processo:
 1. O dispositivo entra em contato com o ponto de extremidade do DPS, passando informações de identificação para provar sua identidade.
@@ -246,9 +246,9 @@ Verifique se as permissões e a atribuição da função de identidade gerenciad
 
 ### <a name="create-device-provisioning-enrollment"></a>Criar registro de provisionamento de dispositivos
 
-Em seguida, você precisará criar um registro no serviço de provisionamento de dispositivos usando uma **função de alocação personalizada** . Siga as instruções para fazer isso nas seções [*criar o registro*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) e [*derivar chaves de dispositivo exclusivas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) do artigo serviços de provisionamento de dispositivos sobre políticas de alocação personalizadas.
+Em seguida, você precisará criar um registro no serviço de provisionamento de dispositivos usando uma **função de alocação personalizada**. Siga as instruções para fazer isso nas seções [*criar o registro*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) e [*derivar chaves de dispositivo exclusivas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) do artigo serviços de provisionamento de dispositivos sobre políticas de alocação personalizadas.
 
-Ao passar pelo fluxo, você vinculará o registro à função que acabou de criar selecionando a função durante a etapa para **selecionar como deseja atribuir dispositivos a hubs** . Depois de criar o registro, o nome de registro e a chave SAS primária ou secundária serão usados posteriormente para configurar o simulador de dispositivo para este artigo.
+Ao passar pelo fluxo, você vinculará o registro à função que acabou de criar selecionando a função durante a etapa para **selecionar como deseja atribuir dispositivos a hubs**. Depois de criar o registro, o nome de registro e a chave SAS primária ou secundária serão usados posteriormente para configurar o simulador de dispositivo para este artigo.
 
 ### <a name="set-up-the-device-simulator"></a>Configurar o simulador de dispositivo
 
@@ -281,7 +281,7 @@ node .\adt_custom_register.js
 ```
 
 Você deve ver o dispositivo que está sendo registrado e conectado ao Hub IoT e, em seguida, começar a enviar mensagens.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos.":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="janela Comando mostrando o registro de dispositivo e enviando mensagens":::
 
 ### <a name="validate"></a>Validar
 
@@ -292,13 +292,18 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Você deve ver o cópia do dispositivo que está sendo encontrado na instância do gêmeos digital do Azure.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="janela Comando mostrando o matreme recém-criado":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Desativar automaticamente o dispositivo usando eventos do ciclo de vida do Hub IoT
 
 Nesta seção, você anexará eventos de ciclo de vida do Hub IoT ao Azure digital gêmeos para desativar automaticamente os dispositivos por meio do caminho abaixo. Este é um trecho da arquitetura completa mostrada [anteriormente](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos." do dispositivo no Azure digital.
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Desativar o fluxo do dispositivo – um trecho do diagrama da arquitetura da solução, com números rotulando seções do fluxo. O dispositivo termostato é mostrado sem conexões com os serviços do Azure no diagrama. Os dados de uma ação manual ' excluir dispositivo ' fluem pelo Hub IoT (1) > hubs de eventos (2) > Azure Functions > Azure digital gêmeos (3).":::
+
+Aqui está uma descrição do fluxo do processo:
+1. Um processo externo ou manual dispara a exclusão de um dispositivo no Hub IoT.
+2. O Hub IoT exclui o dispositivo e gera um evento de [ciclo de vida do dispositivo](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) que será roteado para um hub de [eventos](../event-hubs/event-hubs-about.md).
+3. Uma função do Azure exclui o "gêmeos" do dispositivo no Azure digital.
 
 As seções a seguir percorrem as etapas para configurar esse fluxo de dispositivo de desativação automática.
 
@@ -459,7 +464,7 @@ As instruções para criar uma rota do Hub IoT são descritas neste artigo: [*us
 As etapas que você precisa seguir para essa configuração são:
 1. Crie um ponto de extremidade personalizado do hub de eventos do Hub IoT. Esse ponto de extremidade deve ser direcionado ao Hub de eventos criado na seção [*criar um hub de eventos*](#create-an-event-hub) .
 2. Adicionar uma rota de *eventos de ciclo de vida do dispositivo* . Use o ponto de extremidade criado na etapa anterior. Você pode limitar os eventos de ciclo de vida do dispositivo para enviar somente os eventos de exclusão adicionando a consulta de roteamento `opType='deleteDeviceIdentity'` .
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos.":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Adicionar uma rota":::
 
 Depois de ter passado por esse fluxo, tudo é definido para desativar dispositivos de ponta a ponta.
 
@@ -480,7 +485,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Você verá que o cópia do dispositivo não pode mais ser encontrado na instância do gêmeos digital do Azure.
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Uma exibição de um dispositivo e vários serviços do Azure em um cenário de ponta a ponta. Os dados fluem entre um dispositivo termostato e um DPS. Os dados também fluem do DPS para o Hub IoT e para o Azure digital gêmeos por meio de uma função do Azure rotulada como ' alocação '. Os dados de uma ação manual ' excluir dispositivo ' fluem por meio do Hub IoT > hubs de eventos > Azure Functions > Azure digital gêmeos.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="janela Comando mostrando não encontrado":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27311270c1383a54192d072d0e152c7cf1a58225
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ce4efe0250ea1b85e2e2d77b7ee69bdf3dbcab26
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85200946"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480388"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é o Azure Synapse Analytics (antigo SQL DW)?
 
-> [!NOTE] 
+> [!NOTE]
 >Explore a documentação do [Azure Synapse (versão prévia de workspaces)](../overview-what-is.md).
 >
 
@@ -40,7 +40,7 @@ O pool de SQL do Synapse refere-se aos recursos corporativos de data warehousing
 
 O pool de SQL representa uma coleção de recursos de análise que estão sendo provisionados ao usar o SQL do Synapse. O tamanho do pool do SQL é determinado pelas DWU (unidades de data warehouse).
 
-Importe big data com consultas T-SQL simples do [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e, em seguida, use o poder do MPP para executar a análise de alto desempenho. À medida que você integrar e analisar, o pool de SQL do Synapse se tornará a única versão da verdade com que sua empresa poderá contar para obter informações mais rápidas e robustas.  
+Importe big data com consultas T-SQL simples do [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e, em seguida, use o poder do mecanismo de consulta distribuída para executar a análise de alto desempenho. À medida que você integra e analisa, o pool de SQL do Synapse se torna a única versão da verdade com que sua empresa poderá contar para obter informações mais rápidas e robustas. 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Componente fundamental de uma solução de big data
 

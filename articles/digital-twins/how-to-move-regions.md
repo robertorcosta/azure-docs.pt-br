@@ -76,7 +76,7 @@ Se o exemplo não for capaz de lidar com o tamanho do grafo, você poderá expor
 
 Para prosseguir com o ADT Explorer, primeiro Baixe o código do aplicativo de exemplo e configure-o para ser executado em seu computador. 
 
-Navegue até o exemplo aqui: [Gerenciador de gêmeos digital do Azure (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Clique no botão *Baixar o ZIP* para baixar um arquivo *.ZIP* desse código de exemplo em seu computador como _**Azure_Digital_Twins__ADT__explorer.zip**_ . Descompacte o arquivo.
+Navegue até o exemplo aqui: [Gerenciador de gêmeos digital do Azure (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Clique no botão *Baixar o ZIP* para baixar um arquivo *.ZIP* desse código de exemplo em seu computador como _**Azure_Digital_Twins__ADT__explorer.zip**_. Descompacte o arquivo.
 
 Em seguida, configure e configure permissões para o ADT Explorer. Para fazer isso, siga as instruções na seção [*Configurar o gêmeos do Azure digital e o ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) do guia de início rápido do gêmeos do Azure digital. Esta seção orienta você pelas seguintes etapas:
 1. Configurar uma instância do gêmeos digital do Azure (você pode ignorar essa parte porque já tem uma instância)
@@ -89,7 +89,7 @@ Agora você deve ter o aplicativo de exemplo do ADT Explorer em execução em um
 
 Para verificar a conexão, você pode clicar no botão *Executar consulta* para executar a consulta padrão que exibe todas as gêmeos e relações no grafo na caixa *Gerenciador de gráficos* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Um botão com a mensagem &quot;Executar Consulta&quot; próxima à parte superior da janela está realçado" lightbox="media/how-to-move-regions/run-query.png":::
 
 Você pode deixar o ADT Explorer em execução, pois você o usará novamente mais tarde neste artigo para carregar novamente esses itens na nova instância na região de destino.
 
@@ -101,12 +101,12 @@ Para baixar todos eles de uma só vez, primeiro verifique se o grafo completo es
  
 Em seguida, clique no ícone *Exportar grafo* na caixa *exibição do gráfico* .
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Na caixa exibição de gráfico, um ícone é realçado. Ele mostra uma seta apontando para fora de uma nuvem." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Isso habilitará um link de *Download* no *modo de exibição de gráfico* . Selecione-o para baixar uma representação baseada em JSON do resultado da consulta, incluindo seus modelos, gêmeos e relações. Isso deve baixar um arquivo *. JSON* em seu computador.
+Isso habilitará um link de *Download* no *modo de exibição de gráfico*. Selecione-o para baixar uma representação baseada em JSON do resultado da consulta, incluindo seus modelos, gêmeos e relações. Isso deve baixar um arquivo *. JSON* em seu computador.
 
 >[!NOTE]
->Se o arquivo baixado parecer ter uma extensão de arquivo diferente, tente editar a extensão diretamente e alterá-la para *. JSON* .
+>Se o arquivo baixado parecer ter uma extensão de arquivo diferente, tente editar a extensão diretamente e alterá-la para *. JSON*.
 
 ## <a name="move"></a>Mover
 
@@ -114,7 +114,7 @@ Em seguida, você concluirá a "movimentação" de sua instância criando uma no
 
 ### <a name="create-a-new-instance"></a>Criar uma nova instância
 
-Primeiro, **crie uma nova instância do Azure digital gêmeos em sua região de destino** . Para fazer isso, siga as etapas em [*como: configurar uma instância e autenticação*](how-to-set-up-instance-portal.md), mantendo esses ponteiros em mente:
+Primeiro, **crie uma nova instância do Azure digital gêmeos em sua região de destino**. Para fazer isso, siga as etapas em [*como: configurar uma instância e autenticação*](how-to-set-up-instance-portal.md), mantendo esses ponteiros em mente:
 * Você pode manter o mesmo nome para a nova instância **se** ela estiver em um grupo de recursos diferente. Se você precisar usar o mesmo grupo de recursos que contém sua instância original, sua nova instância precisará de seu próprio nome distinto.
 * Insira a nova região de destino quando for solicitada uma localização.
 
@@ -134,11 +134,11 @@ Caso contrário, para continuar, retorne à janela do navegador executando o **A
 
 Atualmente, o ADT Explorer está conectado à instância original do Azure digital gêmeos. Alterne a conexão para apontar para a nova instância pressionando o botão *entrar* na parte superior da janela. 
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer realçando o ícone Entrar próximo à parte superior da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Substitua a *URL ADT* para refletir sua nova instância. Altere esse valor para que ele leia *https://{nova instância hostname}* .
+Substitua a *URL ADT* para refletir sua nova instância. Altere esse valor para que ele leia *https://{nova instância hostname}*.
 
-Clique em *conectar* . Você pode ser solicitado a fazer logon novamente com suas credenciais do Azure e/ou conceder a este consentimento de aplicativo para sua instância.
+Clique em *conectar*. Você pode ser solicitado a fazer logon novamente com suas credenciais do Azure e/ou conceder a este consentimento de aplicativo para sua instância.
 
 ##### <a name="upload-models-twins-and-graph"></a>Carregar modelos, gêmeos e grafo
 
@@ -146,9 +146,9 @@ Em seguida, carregue os componentes da solução que você baixou anteriormente 
 
 Para carregar seus **modelos, gêmeos e grafo** , clique no ícone *importar grafo* na caixa de *exibição de gráfico* . Esta opção carregará todos os três componentes de uma vez (mesmo modelos que não estão sendo usados atualmente no grafo).
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Na caixa Exibição de Grafo, um ícone é realçado. Ele mostra uma seta apontando para uma nuvem." lightbox="media/how-to-move-regions/import-graph.png":::
 
-Na caixa seletor de arquivo, navegue até o grafo baixado. Selecione o arquivo Graph *. JSON* e clique em *abrir* .
+Na caixa seletor de arquivo, navegue até o grafo baixado. Selecione o arquivo Graph *. JSON* e clique em *abrir*.
 
 Depois de alguns segundos, o ADT Explorer abrirá uma exibição *Importar* mostrando uma visualização do grafo que será carregado.
 
@@ -156,7 +156,7 @@ Para confirmar o upload do grafo, clique no ícone *Salvar* no canto superior di
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Como realçar o ícone Salvar no painel Visualização do Grafo" lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -166,7 +166,7 @@ Agora, o ADT Explorer carregará seus modelos e o grafo (incluindo o gêmeos e a
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Caixa de diálogo que indica êxito na importação de grafo. Ele lê ' importação bem-sucedida. 2 modelos importados. 4 gêmeos importados. 2 relações importadas. '" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -174,13 +174,13 @@ Agora, o ADT Explorer carregará seus modelos e o grafo (incluindo o gêmeos e a
     :::column-end:::
 :::row-end:::
 
-Para verificar se tudo foi carregado com êxito, clique no botão *Executar consulta* na caixa *Gerenciador de gráficos* para executar a consulta padrão que exibe todas as gêmeos e relações no grafo. Isso também atualizará a lista de modelos no *modo de exibição de modelo* .
+Para verificar se tudo foi carregado com êxito, clique no botão *Executar consulta* na caixa *Gerenciador de gráficos* para executar a consulta padrão que exibe todas as gêmeos e relações no grafo. Isso também atualizará a lista de modelos no *modo de exibição de modelo*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Realce ao redor do mesmo botão ' Executar consulta ' do anterior, próximo à parte superior da janela" lightbox="media/how-to-move-regions/run-query.png":::
 
 Você deve ver seu grafo com todas as suas gêmeos e relações exibidas na caixa *Explorador do Graph* . Você também deve ver seus modelos listados na caixa *exibição de modelo* .
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Uma exibição do ADT Explorer mostrando dois modelos realçados na caixa ' modo de exibição de modelo ' e um gráfico realçado na caixa ' Graph Explorer '" lightbox="media/how-to-move-regions/post-upload.png":::
 
 Isso confirma que seus modelos, gêmeos e grafo foram carregados novamente para a nova instância na região de destino.
 
@@ -225,7 +225,7 @@ Você também pode tentar executar qualquer aplicativo personalizado ou fluxos d
 
 ## <a name="clean-up-source-resources"></a>Limpar recursos de origem
 
-Agora que a nova instância está configurada na região de destino com uma cópia dos dados e das conexões da instância original, você pode **excluir a instância original** .
+Agora que a nova instância está configurada na região de destino com uma cópia dos dados e das conexões da instância original, você pode **excluir a instância original**.
 
 Você pode fazer isso no [portal do Azure](https://portal.azure.com), com a [CLI](how-to-use-cli.md)ou com as APIs do [plano de controle](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
@@ -233,4 +233,4 @@ Para excluir a instância usando o portal do Azure, [abra o portal](https://port
 
 Pressione o botão *excluir* e siga os prompts para concluir a exclusão.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Exibição dos detalhes da instância do gêmeos digital do Azure na portal do Azure, na guia Visão geral. O botão excluir está realçado":::

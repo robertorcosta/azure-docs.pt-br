@@ -25,7 +25,7 @@ Esse erro pode ocorrer em muitos tipos de solicitações de serviço que exigem 
 
 ### <a name="cause-1"></a>Causa #1
 
-Geralmente, esse erro indica que as permissões do controle de acesso baseado em função do Azure (RBAC do Azure) para o serviço não estão configuradas corretamente. Muitas ações para uma instância do gêmeos digital do Azure exigem que você tenha a função de *proprietário de dados do gêmeos digital do Azure* **na instância que está tentando gerenciar** . 
+Geralmente, esse erro indica que as permissões do controle de acesso baseado em função do Azure (RBAC do Azure) para o serviço não estão configuradas corretamente. Muitas ações para uma instância do gêmeos digital do Azure exigem que você tenha a função de *proprietário de dados do gêmeos digital do Azure* **na instância que está tentando gerenciar**. 
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
@@ -52,7 +52,7 @@ Observe que essa função é diferente de...
 
 #### <a name="fix-issues"></a>Corrigir problemas 
 
-Se você não tiver essa atribuição de função, alguém com uma função de proprietário em sua **assinatura do Azure** deverá executar o seguinte comando para dar ao usuário do Azure a função de *proprietário de dados do gêmeos digital* do Azure na instância do **gêmeos digital do Azure** . 
+Se você não tiver essa atribuição de função, alguém com uma função de proprietário em sua **assinatura do Azure** deverá executar o seguinte comando para dar ao usuário do Azure a função de *proprietário de dados do gêmeos digital* do Azure na instância do **gêmeos digital do Azure**. 
 
 Se você for um proprietário na assinatura, poderá executar esse comando por conta própria. Se não estiver, entre em contato com um proprietário para executar esse comando em seu nome.
 
@@ -60,7 +60,7 @@ Se você for um proprietário na assinatura, poderá executar esse comando por c
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Para obter mais detalhes sobre esse requisito de função e o processo de atribuição, consulte a [seção *configurar permissões de acesso do usuário*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de *como: configurar uma instância e autenticação (CLI ou Portal)* .
+Para obter mais detalhes sobre esse requisito de função e o processo de atribuição, consulte a [seção *configurar permissões de acesso do usuário*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de *como: configurar uma instância e autenticação (CLI ou Portal)*.
 
 Se você já tiver essa atribuição de função *e* estiver usando um registro de aplicativo do Azure ad para autenticar um aplicativo cliente, poderá continuar para a próxima solução se essa solução não resolver o problema 403.
 
@@ -80,11 +80,11 @@ Você deve ver o registro do aplicativo que acabou de criar na lista. Selecione-
 
 Primeiro, verifique se as configurações de permissões do gêmeos digital do Azure foram definidas corretamente no registro. Para fazer isso, selecione *manifesto* na barra de menus para exibir o código do manifesto do registro do aplicativo. Role até a parte inferior da janela de código e procure esses campos em `requiredResourceAccess` . Os valores devem corresponder aos da captura de tela abaixo:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Registros de aplicativo página no portal do Azure":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Exibição do portal do manifesto para o registro do aplicativo do Azure AD":::
 
 Em seguida, selecione *permissões de API* na barra de menus para verificar se este registro de aplicativo contém permissões de leitura/gravação para o gêmeos digital do Azure. Você deverá ver uma entrada como esta:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Registros de aplicativo página no portal do Azure":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Exibição do portal das permissões de API para o registro do aplicativo do Azure AD, mostrando &quot;acesso de leitura/gravação&quot; para o gêmeos digital do Azure":::
 
 #### <a name="fix-issues"></a>Corrigir problemas
 
