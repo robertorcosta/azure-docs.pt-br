@@ -1,18 +1,18 @@
 ---
 title: Link privado-CLI do Azure-banco de dados do Azure para MariaDB
 description: Saiba como configurar o link privado para o banco de dados do Azure para MariaDB do CLI do Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537211"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242884"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando a CLI
 
@@ -133,24 +133,24 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Conecte-se à VM *myVm* da Internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, insira *myVm* .
+1. Na barra de pesquisa do portal, insira *myVm*.
 
-1. Selecione o botão **Conectar** . Depois de selecionar o botão **Conectar** , **Conectar-se à máquina virtual** abre.
+1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar** , **Conectar-se à máquina virtual** abre.
 
-1. Selecione **Baixar Arquivo RDP** . O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
+1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo *downloaded.rdp* .
+1. Abra o arquivo *downloaded.rdp*.
 
-    1. Se solicitado, selecione **Conectar** .
+    1. Se solicitado, selecione **Conectar**.
 
     1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
         > Talvez seja necessário selecionar **Mais escolhas** > **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 
-1. Selecione **OK** .
+1. Selecione **OK**.
 
-1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber um aviso de certificado, selecione **Sim** ou **Continuar** .
+1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para sua área de trabalho local.  
 
@@ -181,7 +181,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     | Senha | Insira uma senha fornecida durante a criação do servidor MariaDB. |
     ||
 
-5. Selecione **testar conexão** ou **OK** .
+5. Selecione **testar conexão** ou **OK**.
 
 6. Opcionalmente Procurar bancos de dados no menu à esquerda e criar ou consultar informações do banco de MariaDB
 

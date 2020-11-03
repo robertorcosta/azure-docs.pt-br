@@ -1,17 +1,17 @@
 ---
 title: Criptografia de dados com chave gerenciada pelo cliente – Banco de Dados do Azure para PostgreSQL – Servidor único
 description: A criptografia de dados de servidor único do Banco de Dados do Azure para PostgreSQL com chave gerenciada pelo cliente permite que você BYOK (Bring Your Own Key) para proteção de dados em repouso. Ela também permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c07f59ae183c2d4ac920c6b3773fc6d177622ad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 078b0fe63cf89f2736a8707ad561c798c4818317
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490179"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242408"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados de servidor único do Banco de Dados do Azure para PostgreSQL com uma chave gerenciada pelo cliente
 
@@ -47,9 +47,9 @@ As DEKs, criptografadas com as KEKs, são armazenadas separadamente. Somente uma
 
 Para que um servidor PostgreSQL use chaves gerenciadas pelo cliente armazenadas no Key Vault para criptografia da DEK, um administrador do Key Vault fornece os seguintes direitos de acesso ao servidor:
 
-* **obter**: para recuperar a parte pública e as propriedades da chave no cofre de chaves.
-* **wrapKey**: para poder criptografar a DEK. O DEK criptografado é armazenado no banco de dados do Azure para PostgreSQL.
-* **unwrapKey**: para poder descriptografar a DEK. O banco de dados do Azure para PostgreSQL precisa do DEK descriptografado para criptografar/descriptografar os dados
+* **obter** : para recuperar a parte pública e as propriedades da chave no cofre de chaves.
+* **wrapKey** : para poder criptografar a DEK. O DEK criptografado é armazenado no banco de dados do Azure para PostgreSQL.
+* **unwrapKey** : para poder descriptografar a DEK. O banco de dados do Azure para PostgreSQL precisa do DEK descriptografado para criptografar/descriptografar os dados
 
 O administrador do cofre de chaves também pode [habilitar o registro em log de eventos de auditoria do Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), para que eles possam ser auditados posteriormente.
 
@@ -79,7 +79,7 @@ Quando você estiver usando a criptografia de dados usando uma chave gerenciada 
 * Verifique se o Key Vault e o servidor único do Banco de Dados do Azure para PostgreSQL residem na mesma região, para garantir um acesso mais rápido para as operações de encapsulamento e desencapsulamento da DEK.
 * Bloqueie o Azure Key Vault para apenas **ponto de extremidade privado e redes selecionadas** e permita somente serviços *confiáveis da Microsoft* para proteger os recursos.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagrama que mostra uma visão geral de Bring Your Own Key":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
 Veja recomendações para configurar uma chave gerenciada pelo cliente:
 
