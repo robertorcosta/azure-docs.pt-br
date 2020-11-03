@@ -21,7 +21,7 @@ Este artigo ajuda você a solucionar o problema da mensagem de erro *Nenhuma ass
 
 ## <a name="symptoms"></a>Sintomas
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Reservas** .
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Reservas**.
 1. Selecione **Adicionar** e escolha um serviço.
 1. Se você vir a seguinte mensagem de erro:
    ```
@@ -51,7 +51,7 @@ Subscription not eligible for purchase
 This subscription is not eligible for reservation benefit an cannot be used to purchase a reservation.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Exemplo mostrando os motivos pelos quais uma reserva não pode ser comprada" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/subscription-not-eligible.png" alt-text="Exemplo mostrando a mensagem de erro &quot;Assinatura não qualificada para compra&quot;" :::
 
 ### <a name="cause-2"></a>Causa 2
 
@@ -63,7 +63,7 @@ You do not have owner access on the subscription
 You can only purchase reservations using subscriptions on which you have owner access.
 ```
 
-:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="Exemplo mostrando os motivos pelos quais uma reserva não pode ser comprada" :::
+:::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/no-owner-access.png" alt-text="Exemplo mostrando a mensagem de erro &quot;Você não tem acesso de proprietário na assinatura&quot;" :::
 
 ## <a name="solution"></a>Solução
 
@@ -92,9 +92,9 @@ O proprietário do pedido de reserva atual ou o proprietário da reserva podem d
 1. Selecione **Todos os serviços** > **Reserva** para listar as reservas às quais você tem acesso.
 1. Selecione a reserva que deseja delegar acesso a outros usuários.
 1. Selecione **IAM (Controle de acesso)** .
-1. Selecione **Adicionar atribuição de função** > **Função** > **Proprietário** . Ou, se você quiser conceder acesso limitado, selecione uma função diferente.
+1. Selecione **Adicionar atribuição de função** > **Função** > **Proprietário**. Ou, se você quiser conceder acesso limitado, selecione uma função diferente.
 1. Digite o endereço de email do usuário que você deseja adicionar como proprietário.
-1. Selecione o usuário e, em seguida, selecione **Salvar** .
+1. Selecione o usuário e, em seguida, selecione **Salvar**.
 
 Para obter mais informações, consulte [Adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
