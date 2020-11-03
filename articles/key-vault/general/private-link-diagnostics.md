@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar problemas de configuração de links privados em Azure Key Vault
+title: Diagnosticar problemas de configuração de links privados no Azure Key Vault
 description: Resolver problemas comuns de links privados com Key Vault e aprofundar-se na configuração
 author: msfcolombo
 ms.author: fcolombo
@@ -7,14 +7,14 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998405"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289374"
 ---
-# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados em Azure Key Vault
+# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados no Azure Key Vault
 
 ## <a name="introduction"></a>Introdução
 
@@ -56,7 +56,7 @@ Se o aplicativo, o script ou o portal estiver sendo executado em uma rede conect
 
 Este guia não se aplica a soluções gerenciadas pela Microsoft, em que o cofre de chaves é acessado por um produto do Azure que existe independentemente da rede virtual do cliente. Exemplos desses cenários são o armazenamento do Azure ou o SQL do Azure configurado para criptografia em repouso, Hub de eventos do Azure Criptografando dados com chaves fornecidas pelo cliente, Azure Data Factory acessar credenciais de serviço armazenadas no Key Vault, Azure Pipelines recuperar segredos do Key Vault e outros cenários semelhantes. Nesses casos, *você deve verificar se o produto oferece suporte a cofres de chaves com o firewall habilitado*. Esse suporte é normalmente executado com o recurso de [serviços confiáveis](overview-vnet-service-endpoints.md#trusted-services) do Key Vault firewall. No entanto, muitos produtos não são incluídos na lista de serviços confiáveis, por vários motivos. Nesse caso, alcance o suporte específico do produto.
 
-Um pequeno número de produtos do Azure dá suporte ao conceito de *injeção de vnet*. Em termos simples, o produto adiciona um dispositivo de rede à rede virtual do cliente, permitindo que ele envie solicitações como se fosse implantado na rede virtual. Um exemplo notável é [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produtos como esse podem fazer solicitações para o cofre de chaves usando os links privados, e este guia de solução de problemas pode ajudar.
+Um pequeno número de produtos do Azure dá suporte ao conceito de *injeção de vnet*. Em termos simples, o produto adiciona um dispositivo de rede à rede virtual do cliente, permitindo que ele envie solicitações como se fosse implantado na rede virtual. Um exemplo notável é [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produtos como esse podem fazer solicitações para o cofre de chaves usando os links privados, e este guia de solução de problemas pode ajudar.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. Confirme se a conexão foi aprovada e foi bem-sucedida
 
@@ -65,7 +65,7 @@ As etapas a seguir validam que a conexão de ponto de extremidade privada foi ap
 1. Abra o portal do Azure e abra o recurso do cofre de chaves.
 2. No menu à esquerda, selecione **rede**.
 3. Clique na guia **conexões de ponto de extremidade privado** . Isso mostrará todas as conexões de ponto de extremidade particulares e seus respectivos Estados. Se não houver conexões ou se a conexão de sua rede virtual estiver ausente, você precisará criar um novo ponto de extremidade privado. Isso será abordado mais tarde.
-4. Ainda em **conexões de ponto de extremidade privado**, encontre a que você está diagnosticando e confirme se "estado da conexão" foi **aprovado** e se o "estado de provisionamento" foi **bem-sucedido**.
+4. Ainda em **conexões de ponto de extremidade privado** , encontre a que você está diagnosticando e confirme se "estado da conexão" foi **aprovado** e se o "estado de provisionamento" foi **bem-sucedido**.
     - Se a conexão estiver no estado "pendente", talvez você possa apenas aprová-la.
     - Se a conexão "rejeitada", "falha", "erro", "desconectado" ou outro Estado, isso não é efetivo, você precisa criar um novo recurso de ponto de extremidade privado.
 
@@ -267,7 +267,7 @@ Em cenários mais avançados, as redes virtuais podem ter o emparelhamento habil
 
 Conforme explicado na [seção anterior](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), um cofre de chaves com links privados tem o alias `{vaultname}.privatelink.vaultcore.azure.net` em seu registro *público* . O servidor DNS usado pela rede virtual usa o registro público, mas verifica cada alias para um registro *privado* e, se um for encontrado, ele interromperá os seguintes aliases definidos no registro público.
 
-Essa lógica significa que, se a rede virtual estiver vinculada a uma zona de DNS privado com nome `privatelink.vaultcore.azure.net` e o registro de DNS público para o cofre de chaves tiver o alias `fabrikam.privatelink.vaultcore.azure.net` (Observe que o sufixo do nome do host do cofre de chaves corresponde exatamente ao nome da zona de DNS privado), a consulta DNS procurará um `A` registro com o nome `fabrikam` *na zona*de DNS privado. Se o `A` registro for encontrado, seu endereço IP será retornado na consulta DNS e nenhuma outra pesquisa será executada no registro de DNS público.
+Essa lógica significa que, se a rede virtual estiver vinculada a uma zona de DNS privado com nome `privatelink.vaultcore.azure.net` e o registro de DNS público para o cofre de chaves tiver o alias `fabrikam.privatelink.vaultcore.azure.net` (Observe que o sufixo do nome do host do cofre de chaves corresponde exatamente ao nome da zona de DNS privado), a consulta DNS procurará um `A` registro com o nome `fabrikam` *na zona* de DNS privado. Se o `A` registro for encontrado, seu endereço IP será retornado na consulta DNS e nenhuma outra pesquisa será executada no registro de DNS público.
 
 Como você pode ver, a resolução de nomes está sob seu controle. Os motivos para esse design são:
 
@@ -278,7 +278,7 @@ Como você pode ver, a resolução de nomes está sob seu controle. Os motivos p
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Consultar o `/healthstatus` ponto de extremidade do cofre de chaves
 
-O cofre de chaves fornece o `/healthstatus` ponto de extremidade, que pode ser usado para diagnóstico. Os cabeçalhos de resposta incluem o endereço IP de origem, como visto pelo serviço de cofre de chaves. Você pode chamar esse ponto de extremidade com o seguinte comando (**Lembre-se de usar o nome de host do cofre de chaves**):
+O cofre de chaves fornece o `/healthstatus` ponto de extremidade, que pode ser usado para diagnóstico. Os cabeçalhos de resposta incluem o endereço IP de origem, como visto pelo serviço de cofre de chaves. Você pode chamar esse ponto de extremidade com o seguinte comando ( **Lembre-se de usar o nome de host do cofre de chaves** ):
 
 Windows (PowerShell):
 

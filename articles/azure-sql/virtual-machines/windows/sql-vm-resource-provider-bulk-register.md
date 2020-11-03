@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6900d0fdf656fa8309b18971691bb35587f7f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761253"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286071"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrar várias máquinas virtuais do SQL no Azure com o provedor de recursos da VM do SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este artigo descreve como registrar suas VMs (máquinas virtuais) do SQL Server em massa no Azure com o provedor de recursos de VM do SQL usando o `Register-SqlVMs`cmdlet do PowerShell.
+Este artigo descreve como registrar suas VMs (máquinas virtuais) do SQL Server em massa no Azure com o provedor de recursos de VM do SQL usando o `Register-SqlVMs`cmdlet do PowerShell. O registro com o provedor de recursos da VM do SQL instala a [extensão do agente IaaS do SQL](sql-server-iaas-agent-extension-automate-management.md).
 
 Este artigo ensina você a registrar SQL Server VMs em massa. Como alternativa, você pode registrar [todas as VMs de SQL Server automaticamente ou as](sql-vm-resource-provider-automatic-registration.md) [VMs SQL Server individuais](sql-vm-resource-provider-register.md). 
 
@@ -33,14 +33,14 @@ O cmdlet `Register-SqlVMs` pode ser usado para registrar todas as máquinas virt
 
 O processo de registro não tem riscos, não tem nenhum tempo de inatividade e não reinicia o SQL Server ou a máquina virtual. 
 
-Para obter mais informações sobre o provedor de recursos, veja [Provedor de recursos da VM do SQL](sql-vm-resource-provider-register.md). 
+Para obter mais informações, consulte [provedor de recursos da VM do SQL](sql-vm-resource-provider-register.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para registrar sua VM do SQL Server no provedor de recursos, você precisa de: 
 
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/) [registrada no provedor de recursos](sql-vm-resource-provider-register.md#register-subscription-with-rp) e que contenha máquinas virtuais não registradas do SQL Server. 
-- As credenciais de cliente usadas para registrar as máquinas virtuais existem em qualquer uma das seguintes funções do Azure: **colaborador de máquina virtual**, **colaborador**ou **proprietário**. 
+- As credenciais de cliente usadas para registrar as máquinas virtuais existem em qualquer uma das seguintes funções do Azure: **colaborador de máquina virtual** , **colaborador** ou **proprietário**. 
 - A versão mais recente do [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - A versão mais recente do [AZ.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
@@ -227,7 +227,7 @@ Os erros são registrados no arquivo de log chamado `VMsNotRegisteredDueToError<
 
 Ao registrar VMs do SQL Server no provedor de recursos usando o script fornecido, considere o seguinte:
 
-- O registro com o provedor de recursos requer um agente convidado em execução na VM do SQL Server. As imagens do Windows Server 2008 não têm um agente convidado, portanto, ocorrerá falha nessas máquinas virtuais e será necessário registrá-las manualmente usando o [modo de gerenciamento NoAgent](sql-vm-resource-provider-register.md#management-modes).
+- O registro com o provedor de recursos requer um agente convidado em execução na VM do SQL Server. As imagens do Windows Server 2008 não têm um agente convidado, portanto, ocorrerá falha nessas máquinas virtuais e será necessário registrá-las manualmente usando o [modo de gerenciamento NoAgent](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 - Há uma lógica de repetição interna para solucionar erros transparentes. Se a máquina virtual for registrada com êxito, a operação será rápida. No entanto, em caso de falha do registro, cada máquina virtual será testada novamente.  Portanto, o processo de registro requer um tempo significativo para ser concluído, embora o requisito de tempo real dependa do tipo e da quantidade de erros. 
 
 ## <a name="full-script"></a>Script completo

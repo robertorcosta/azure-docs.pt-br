@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e22400016eae0642c4e25fcfd4fcaaaab22a27a8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280580"
+ms.locfileid: "93289629"
 ---
 # <a name="speech-service-release-notes"></a>Notas de versão do Serviço de Fala
 
@@ -24,21 +24,13 @@ ms.locfileid: "93280580"
 
 **Observação** : o SDK do Speech no Windows depende do Microsoft Visual C++ compartilhado redistribuível para o Visual Studio 2015, 2017 e 2019. Baixe [aqui](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
-**CLI de fala (também conhecida como SPX)**<br>
-O SPX é a interface de linha de comando para usar o serviço de fala do Azure sem escrever código. Baixe a versão mais recente [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics).
-- `spx csr dataset upload --kind audio|language|acoustic` – Crie conjuntos de dados com base em locais, não apenas de URLs.
-- `spx csr evaluation create|status|list|update|delete` – Compare novos modelos com a verdade/outros modelos de linha de base.
-- `spx * list` – dá suporte à experiência não paginável (não requer--X--Skip X).
-- `spx * --http header A=B` – suporte a cabeçalhos personalizados (adicionados ao Office para autenticação personalizada). 
-- `spx help` – texto aprimorado e cor de texto com tique-back codificado (azul).
-
 **Novos recursos**
 - **Linux** : suporte adicionado para Debian 10 e Ubuntu 20, 4 LTS.
 - **Python/Objective-C** : suporte adicionado para a `KeywordRecognizer` API. A documentação estará [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
 - **C++/Java/C #** : suporte adicionado para definir qualquer `HttpHeader` chave/valor via `ServicePropertyChannel::HttpHeader` .
 - **JavaScript** : suporte adicionado para a `ConversationTranscriber` API. Leia a documentação [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
-- **C++/c #** : Adicionado novo `AudioDataStream FromFile` método (para leitura. Arquivos WAV) [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audiodatastream) e [aqui (C#)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
+- **C++/c #** : Adicionado novo `AudioDataStream FromWavFileInput` método (para leitura. Arquivos WAV) [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) e [aqui (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
 -  **C++/c #/Java/Python/Objective-C/Swift** : adicionou um `stopSpeakingAsync()` método para parar a síntese de conversão de texto em fala. Leia a documentação de referência [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [aqui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [aqui (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java** : adicionou uma `FromDialogServiceConnector()` função à `Connection` classe que pode ser usada para monitorar eventos de conexão e desconexão para o `DialogServiceConnector` . Leia a documentação de referência [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)e [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
@@ -72,6 +64,16 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 
 **Teste do COVID-19 resumida:** Devido ao trabalho remoto nas últimas semanas, não poderíamos fazer tantos testes de verificação manual como normalmente. Não fizemos nenhuma alteração que achamos que poderia ter quebrado alguma coisa e nossos testes automatizados passaram. No caso improvável de não ter perdido algo, informe-nos no [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Mantenha-se íntegro!
+
+## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>CLI de fala (também conhecida como SPX): 2020 – versão de outubro
+O SPX é a interface de linha de comando para usar o serviço de fala do Azure sem escrever código. Baixe a versão mais recente [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+
+**Novos recursos**
+- `spx csr dataset upload --kind audio|language|acoustic` – Crie conjuntos de dados com base em locais, não apenas de URLs.
+- `spx csr evaluation create|status|list|update|delete` – Compare novos modelos com a verdade/outros modelos de linha de base.
+- `spx * list` – dá suporte à experiência não paginável (não requer--X--Skip X).
+- `spx * --http header A=B` – suporte a cabeçalhos personalizados (adicionados ao Office para autenticação personalizada). 
+- `spx help` – texto aprimorado e cor de texto com tique-back codificado (azul).
 
 
 ## <a name="text-to-speech-2020-august-release"></a>Conversão de texto em fala 2020 – versão de agosto
@@ -218,7 +220,7 @@ Mantenha-se íntegro!
 
 * Precisão de pronúncia de nível de palavra aprimorada em cinco idiomas.
 
-    | Idioma | Redução de erros de pronúncia |
+    | Linguagem | Redução de erros de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -231,7 +233,7 @@ Mantenha-se íntegro!
 * Leitura de moeda
     * Corrigido o problema com a leitura de moeda para `es-ES` e `es-MX`
      
-    | Idioma | Entrada | Leitura após aperfeiçoamento |
+    | Linguagem | Entrada | Leitura após aperfeiçoamento |
     |---|---|---|
     | `es-MX` | $1.58 | un peso Cincuenta y Ocho centavos |
     | `es-ES` | $1.58 | Dólar Cincuenta y Ocho centavos |

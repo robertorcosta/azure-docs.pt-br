@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789175"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289234"
 ---
-# <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da central de segurança
+# <a name="continuously-export-security-center-data"></a>Exportar continuamente dados da Central de Segurança
 
 A central de segurança do Azure gera recomendações e alertas de segurança detalhados. Você pode exibi-los no portal ou por meio de ferramentas programáticas. Talvez você também precise exportar algumas ou todas essas informações para acompanhamento com outras ferramentas de monitoramento em seu ambiente. 
 
@@ -41,7 +41,7 @@ Este artigo descreve como configurar a exportação contínua para Log Analytics
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **proprietário** no grupo de recursos</li><li>Permissões de gravação para o recurso de destino</li><li>Se você estiver usando as Azure Policy políticas ' DeployIfNotExist ' descritas abaixo, também precisará de permissões para atribuir políticas</li></ul>|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos), outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, outros gov<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos)|
 |||
 
 
@@ -52,15 +52,15 @@ Este artigo descreve como configurar a exportação contínua para Log Analytics
 
 Você pode configurar a exportação contínua nas páginas da central de segurança no portal do Azure, por meio da API REST da central de segurança ou em escala usando os modelos de Azure Policy fornecidos. Selecione a guia apropriada abaixo para obter detalhes de cada um.
 
-### <a name="use-the-azure-portal"></a>[**Usar o portal do Azure**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Use o Portal do Azure**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Configurar a exportação contínua das páginas da central de segurança no portal do Azure
 
 As etapas a seguir são necessárias se você estiver configurando uma exportação contínua para Log Analytics espaço de trabalho ou hubs de eventos do Azure.
 
-1. Na barra lateral da central de segurança, selecione **preços & configurações** .
+1. Na barra lateral da central de segurança, selecione **preços & configurações**.
 1. Selecione a assinatura específica para a qual você deseja configurar a exportação de dados.
-1. Na barra lateral da página de configurações dessa assinatura, selecione **exportação contínua** .
+1. Na barra lateral da página de configurações dessa assinatura, selecione **exportação contínua**.
     [ ![ Opções de exportação na central de segurança do Azure](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
 1. Selecione o tipo de dados que você deseja exportar e escolha um dos filtros em cada tipo (por exemplo, exportar somente alertas de severidade alta).
 1. Opcionalmente, se sua seleção incluir uma dessas quatro recomendações, você poderá incluir as descobertas de avaliação de vulnerabilidade junto com elas:
@@ -74,7 +74,7 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua" :::
 
 1. Na área "destino de exportação", escolha onde você deseja que os dados sejam salvos. Os dados podem ser salvos em um destino em uma assinatura diferente (por exemplo, em uma instância central de Hub de eventos ou em um espaço de trabalho central Log Analytics).
-1. Clique em **Salvar** .
+1. Selecione **Salvar**.
 
 ### <a name="use-the-rest-api"></a>[**Usar a API REST**](#tab/rest-api)
 
@@ -124,11 +124,11 @@ Para implantar suas configurações de exportação contínua em sua organizaç�
     > [!TIP]
     > Você também pode encontrá-los pesquisando Azure Policy:
     > 1. Abra Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Acessando Azure Policy":::
     > 2. No menu Azure Policy, selecione **definições** e pesquise-as por nome. 
 
-1. Na página Azure Policy relevante, selecione **atribuir** .
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua":::
+1. Na página Azure Policy relevante, selecione **atribuir**.
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Atribuindo o Azure Policy":::
 
 1. Abra cada guia e defina os parâmetros conforme desejado:
     1. Na guia **noções básicas** , defina o escopo da política. Para usar o gerenciamento centralizado, atribua a política ao grupo de gerenciamento que contém as assinaturas que usarão a configuração de exportação contínua. 
@@ -137,9 +137,9 @@ Para implantar suas configurações de exportação contínua em sua organizaç�
         > Cada parâmetro tem uma dica de ferramenta explicando as opções disponíveis para você.
         >
         > A guia de parâmetros de Azure Policy (1) fornece acesso a opções de configuração semelhantes como página de exportação contínua da central de segurança (2).
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparando os parâmetros na exportação contínua com Azure Policy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Opcionalmente, para aplicar essa atribuição a assinaturas existentes, abra a guia **correção** e selecione a opção para criar uma tarefa de correção.
-1. Examine a página Resumo e selecione **criar** .
+1. Examine a página Resumo e selecione **criar**.
 
 --- 
 
@@ -154,7 +154,7 @@ Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAl
 O nome da solução de Log Analytics que contém essas tabelas depende se você tem o Azure defender habilitado: segurança (' Segurança e Auditoria ') ou SecurityCenterFree. 
 
 > [!TIP]
-> Para ver os dados no espaço de trabalho de destino, você deve habilitar uma dessas soluções **segurança e auditoria** ou **SecurityCenterFree** .
+> Para ver os dados no espaço de trabalho de destino, você deve habilitar uma dessas soluções **segurança e auditoria** ou **SecurityCenterFree**.
 
 ![A tabela * SecurityAlert * no Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -169,7 +169,7 @@ O Azure Monitor fornece uma experiência de alerta unificada para uma variedade 
 
 Para exibir alertas e recomendações da central de segurança no Azure Monitor, configure uma regra de alerta com base em consultas Log Analytics (alerta de log):
 
-1. Na página **alertas** do Azure monitor, selecione **nova regra de alerta** .
+1. Na página **alertas** do Azure monitor, selecione **nova regra de alerta**.
 
     ![Página de alertas do Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -177,7 +177,7 @@ Para exibir alertas e recomendações da central de segurança no Azure Monitor,
 
     * Para **recurso** , selecione o espaço de trabalho log Analytics para o qual você exportou alertas de segurança e recomendações.
 
-    * Para **condição** , selecione **pesquisa de logs personalizada** . Na página que aparece, configure a consulta, o período de lookback e o período de frequência. Na consulta de pesquisa, você pode digitar *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que a central de segurança exporta continuamente para quando você habilita a exportação contínua para log Analytics recurso. 
+    * Para **condição** , selecione **pesquisa de logs personalizada**. Na página que aparece, configure a consulta, o período de lookback e o período de frequência. Na consulta de pesquisa, você pode digitar *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que a central de segurança exporta continuamente para quando você habilita a exportação contínua para log Analytics recurso. 
     
     * Opcionalmente, configure o [grupo de ações](../azure-monitor/platform/action-groups.md) que você gostaria de disparar. Os grupos de ações podem disparar envio de email, tíquetes de ITSM, WebHooks e muito mais.
     ![Azure Monitor regra de alerta](./media/continuous-export/azure-monitor-alert-rule.png)

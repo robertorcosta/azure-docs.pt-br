@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972026"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289361"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 
@@ -59,7 +59,7 @@ Para saber como transferir seu VHD para o Azure, confira os artigos da [CLI](lin
 
 ### <a name="private-links"></a>Links Privados
 
-Atualmente, o suporte do Link Privado para discos gerenciados está na versão prévia e pode ser usado para importar ou exportar um disco gerenciado interno para sua rede. Os Links Privados permitem que você gere um URI de SAS (Assinatura de Acesso Compartilhado) com limite de tempo para discos gerenciados e instantâneos desanexados que podem ser usados para exportar os dados para outras regiões para expansão regional, recuperação de desastre e para análise forense. Use também o URI de SAS para carregar diretamente o VHD em um disco vazio local. Agora você pode aproveitar os [Links Privados](../private-link/private-link-overview.md) para restringir a exportação e a importação de discos gerenciados para que isso só possa ocorrer dentro de sua rede virtual do Azure. Os Links Privados oferecem a garantia de que seus dados trafeguem apenas na rede de backbone protegida da Microsoft.
+O suporte de link privado para discos gerenciados pode ser usado para importar ou exportar um disco gerenciado interno para sua rede. Os Links Privados permitem que você gere um URI de SAS (Assinatura de Acesso Compartilhado) com limite de tempo para discos gerenciados e instantâneos desanexados que podem ser usados para exportar os dados para outras regiões para expansão regional, recuperação de desastre e para análise forense. Use também o URI de SAS para carregar diretamente o VHD em um disco vazio local. Agora você pode aproveitar os [Links Privados](../private-link/private-link-overview.md) para restringir a exportação e a importação de discos gerenciados para que isso só possa ocorrer dentro de sua rede virtual do Azure. Os Links Privados oferecem a garantia de que seus dados trafeguem apenas na rede de backbone protegida da Microsoft.
 
 Para saber como habilitar Links Privados para importar ou exportar um disco gerenciado, consulte os artigos da [CLI](linux/disks-export-import-private-links-cli.md) ou do [Portal](disks-enable-private-links-for-import-export-portal.md).
 

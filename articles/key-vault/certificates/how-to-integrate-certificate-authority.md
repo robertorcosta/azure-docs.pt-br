@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327409"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289538"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Como integrar o Key Vault à autoridade de certificação DigiCert
 
@@ -23,7 +23,7 @@ O Azure Key Vault permite que você provisione, gerencie e implante facilmente c
 
 Os usuários do Azure Key Vault podem gerar certificados DigiCert diretamente do Key Vault. O Key Vault garante o gerenciamento de ciclo de vida do certificado de ponta a ponta para os certificados emitidos pela DigiCert por meio da parceria confiável do Key Vault com a autoridade de certificação DigiCert.
 
-Para obter mais informações gerais sobre certificados, confira [Certificados do Azure Key Vault](/azure/key-vault/certificates/about-certificates).
+Para obter mais informações gerais sobre certificados, confira [Certificados do Azure Key Vault](./about-certificates.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -51,9 +51,9 @@ Depois de coletar as informações acima da conta do DigiCert CertCentral, agora
 ### <a name="azure-portal"></a>Portal do Azure
 
 1.  Para adicionar a autoridade de certificação DigiCert, navegue até o cofre de chaves ao qual você deseja adicionar DigiCert. 
-2.  Na página de propriedades do Key Vault, selecione **Certificados** .
-3.  Selecione a guia **Autoridades de Certificação** . ![Selecione autoridades de certificação](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
-4.  Selecione a opção **Adicionar** .
+2.  Na página de propriedades do Key Vault, selecione **Certificados**.
+3.  Selecione a guia **Autoridades de Certificação**. ![Selecione autoridades de certificação](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+4.  Selecione a opção **Adicionar**.
  ![adicionar autoridades de certificação](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Na tela **Criar uma autoridade de certificado** , escolha os seguintes valores:
     -   **Name** : Adicione um nome de emissor identificável. Exemplo de DigicertCA
@@ -61,7 +61,7 @@ Depois de coletar as informações acima da conta do DigiCert CertCentral, agora
     -   **ID da Conta** : insira sua ID da conta do DigiCert CertCentral
     -   **Senha da Conta** : insira a chave de API que você gerou em sua conta do DigiCert CertCentral
     -   **ID da organização** : insira a OrgID coletada da conta DigiCert CertCentral 
-    -   Clique em **Criar** .
+    -   Clique em **Criar**.
    
 6.  Você verá que a DigicertCA agora foi adicionada à lista de autoridades de certificação.
 
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Defina o **Emissor** . Isso adicionará DigiCert como uma autoridade de certificação no cofre de chaves. Para saber mais sobre os parâmetros, [leia aqui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
+4. Defina o **Emissor**. Isso adicionará DigiCert como uma autoridade de certificação no cofre de chaves. Para saber mais sobre os parâmetros, [leia aqui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```

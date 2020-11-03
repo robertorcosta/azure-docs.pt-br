@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342375"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289200"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja suas portas de gerenciamento com acesso just-in-time
 
@@ -89,15 +89,15 @@ Na central de segurança, você pode habilitar e configurar o acesso à VM JIT.
 
     Para cada porta (personalizada e padrão), o painel **Adicionar configuração de porta** oferece as seguintes opções:
 
-    - **Protocolo**-o protocolo que é permitido nesta porta quando uma solicitação é aprovada
-    - **IPS de origem permitidos**-os intervalos de IP que são permitidos nesta porta quando uma solicitação é aprovada
-    - **Tempo máximo de solicitação**-a janela de tempo máxima durante a qual uma porta específica pode ser aberta
+    - **Protocolo** -o protocolo que é permitido nesta porta quando uma solicitação é aprovada
+    - **IPS de origem permitidos** -os intervalos de IP que são permitidos nesta porta quando uma solicitação é aprovada
+    - **Tempo máximo de solicitação** -a janela de tempo máxima durante a qual uma porta específica pode ser aberta
 
      1. Defina a segurança de porta para suas necessidades.
 
      1. Selecione **OK**.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 
 
@@ -113,7 +113,7 @@ Para editar as regras de JIT existentes para uma VM:
 
     ![Editando uma configuração de acesso à VM JIT na central de segurança do Azure](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
-1. Em **Configuração de acesso JIT à VM**, você pode editar as configurações existentes de uma porta já protegida ou pode adicionar uma nova porta personalizada.
+1. Em **Configuração de acesso JIT à VM** , você pode editar as configurações existentes de uma porta já protegida ou pode adicionar uma nova porta personalizada.
 
 1. Quando terminar de editar as portas, selecione **salvar**.
  
@@ -136,7 +136,7 @@ Você pode habilitar o JIT em uma VM nas páginas de máquinas virtuais do Azure
 
 1. No menu, selecione **configuração**.
 
-1. Em **acesso just-in-time**, selecione **habilitar just-in-time**. 
+1. Em **acesso just-in-time** , selecione **habilitar just-in-time**. 
 
     Isso habilita o acesso just-in-time para a VM usando as seguintes configurações padrão:
 
@@ -157,7 +157,7 @@ Você pode habilitar o JIT em uma VM nas páginas de máquinas virtuais do Azure
 
         ![Editando uma configuração de acesso à VM JIT na central de segurança do Azure](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
-    1. Em **Configuração de acesso JIT à VM**, você pode editar as configurações existentes de uma porta já protegida ou pode adicionar uma nova porta personalizada.
+    1. Em **Configuração de acesso JIT à VM** , você pode editar as configurações existentes de uma porta já protegida ou pode adicionar uma nova porta personalizada.
 
     1. Quando terminar de editar as portas, selecione **salvar**.
 
@@ -184,13 +184,13 @@ Os comandos do PowerShell a seguir criam essa configuração de JIT:
         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"},
              @{
              number=3389;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"})})
     ```
 
@@ -241,7 +241,7 @@ Cada uma dessas opções é explicada em uma guia separada abaixo.
 
 Quando uma VM tem um JIT habilitado, você precisa solicitar acesso para se conectar a ele. Você pode solicitar acesso em qualquer uma das maneiras com suporte, independentemente de como você habilitou o JIT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Configurando o acesso à VM JIT na central de segurança do Azure":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Solicitando acesso JIT na central de segurança":::
 
 1. Na página **acesso da VM just-in-time** , selecione a guia **configurada** .
 
@@ -253,7 +253,7 @@ Quando uma VM tem um JIT habilitado, você precisa solicitar acesso para se cone
 
 1. Selecione **Solicitar acesso**. A janela **solicitar acesso** é aberta.
 
-1. Em **Solicitar acesso**, configure para cada VM as portas a abrir, os endereços IP de origem para os quais a porta fica aberta e o intervalo de tempo durante o qual a porta fica aberta. Só será possível solicitar acesso às portas configuradas. Cada porta tem um tempo máximo permitido derivado da configuração de JIT que você criou.
+1. Em **Solicitar acesso** , configure para cada VM as portas a abrir, os endereços IP de origem para os quais a porta fica aberta e o intervalo de tempo durante o qual a porta fica aberta. Só será possível solicitar acesso às portas configuradas. Cada porta tem um tempo máximo permitido derivado da configuração de JIT que você criou.
 
 1. Selecione **Abrir portas**.
 
@@ -344,7 +344,7 @@ Saiba mais em [políticas de acesso à rede JIT](/rest/api/securitycenter/jitnet
 
 Você pode obter informações sobre as atividades de VM usando a pesquisa de logs. Para exibir os logs:
 
-1. Em **acesso à VM just-in-time**, selecione a guia **configurada** .
+1. Em **acesso à VM just-in-time** , selecione a guia **configurada** .
 
 1. Para a VM que você deseja auditar, abra o menu de reticências no final da linha.
  

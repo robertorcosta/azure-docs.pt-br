@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 4022ca97f88e2f06d3b4c1eeb103bb60d1856eda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2968fd84febdd3b98aa5d8b42cbf3fb66cad2036
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962138"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289800"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do Serviço de Aplicativo ou do Azure Functions aplicativo para usar o logon do Azure AD
 
@@ -74,36 +74,36 @@ Execute as seguintes etapas:
 
 1. Entre no [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo. Anote a **URL** do seu aplicativo. Você a usará para configurar o registro do aplicativo do Azure Active Directory.
 1. Selecione **Azure Active Directory** > **Registros do aplicativo** > **Novo registro**.
-1. Na página **Registrar um aplicativo**, insira um **Nome** para o registro do seu aplicativo.
-1. Em **URI de redirecionamento**, selecione **Web** e digite `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. Na página **Registrar um aplicativo** , insira um **Nome** para o registro do seu aplicativo.
+1. Em **URI de redirecionamento** , selecione **Web** e digite `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Selecione **Criar**.
 1. Depois que o registro do aplicativo for criado, copie a **ID do aplicativo (cliente)** e a **ID do Directory (locatário)** para mais tarde.
-1. Selecione **Autenticação**. Em **Concessão implícita**, habilite **Tokens de ID** para permitir as entradas de usuário do OpenID Connect a partir do Serviço de Aplicativo.
-1. (Opcional) Selecione **Identidade visual**. Em **URL da página inicial**, insira a URL do seu aplicativo do Serviço de Aplicativo e selecione **Salvar**.
+1. Selecione **Autenticação**. Em **Concessão implícita** , habilite **Tokens de ID** para permitir as entradas de usuário do OpenID Connect a partir do Serviço de Aplicativo.
+1. (Opcional) Selecione **Identidade visual**. Em **URL da página inicial** , insira a URL do seu aplicativo do Serviço de Aplicativo e selecione **Salvar**.
 1. Selecione **Expor uma API** > **Configurar**. Para um aplicativo de locatário único, cole a URL do seu aplicativo do Serviço de Aplicativo e selecione **Salvar** e para um aplicativo multilocatário, cole a URL que se baseia em um dos domínios verificados do locatário e, em seguida, selecione **Salvar**.
 
    > [!NOTE]
    > Esse valor é o **URI da ID de aplicativo** do registro do aplicativo. Se o seu aplicativo Web exigir acesso a uma API na nuvem, você precisará do **URI da ID de aplicativo** do aplicativo Web quando configurar o recurso de Serviço de Aplicativo de nuvem. Você pode usar isso, por exemplo, se desejar que o serviço de nuvem conceda explicitamente acesso ao aplicativo Web.
 
 1. Selecione **Adicionar um escopo**.
-   1. Em **Nome do escopo**, digite *user_impersonation*.
+   1. Em **Nome do escopo** , digite *user_impersonation*.
    1. Nas caixas de texto, insira o nome do escopo de consentimento e a descrição que você deseja que os usuários vejam na página de consentimento. Por exemplo, digite *Acessar meu aplicativo*.
    1. Selecione **Adicionar escopo**.
 1. (Opcional) Para criar um segredo do cliente, selecione **Certificados e segredos** > **Novo segredo do cliente** > **Adicionar**. Copie o valor do segredo do cliente mostrado na página. Não será mostrado novamente.
-1. (Opcional) Para adicionar várias **URLs de resposta**, selecione **Autenticação**.
+1. (Opcional) Para adicionar várias **URLs de resposta** , selecione **Autenticação**.
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Habilitar o Azure Active Directory no aplicativo do Serviço de Aplicativo
 
 1. No [Azure portal], pesquise e selecione **Serviços de Aplicativos** e, em seguida, selecione o nome do seu aplicativo.
-1. No painel à esquerda, em **Configurações**, selecione **Autenticação / Autorização** > **Ativada**.
+1. No painel à esquerda, em **Configurações** , selecione **Autenticação / Autorização** > **Ativada**.
 1. (Opcional) Por padrão, a autenticação do Serviço de Aplicativo permite o acesso não autenticado ao seu aplicativo. Para impor a autenticação do usuário, configure **Ação a ser tomada quando a solicitação não for autenticada** para **Logon com o Azure Active Directory**.
-1. Em **Provedores de Autenticação**, selecione **Azure Active Directory**.
-1. No **Modo de gerenciamento**, selecione **Avançado** e configure a autenticação do Serviço de Aplicativo de acordo com a tabela a seguir:
+1. Em **Provedores de Autenticação** , selecione **Azure Active Directory**.
+1. No **Modo de gerenciamento** , selecione **Avançado** e configure a autenticação do Serviço de Aplicativo de acordo com a tabela a seguir:
 
     |Campo|Descrição|
     |-|-|
     |ID do Cliente| Use a **ID do aplicativo (cliente)** do registro do aplicativo. |
-    |URL do emissor| Use `<authentication-endpoint>/<tenant-id>/v2.0` e substitua *\<authentication-endpoint>* pelo ponto de [extremidade de autenticação para seu ambiente de nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " https://login.microsoft.com " para o Azure global), também substituindo *\<tenant-id>* pela ID do **diretório (locatário)** na qual o registro do aplicativo foi criado. Esse valor é usado para redirecionar os usuários para o locatário correto do Azure AD, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de declaração do emissor do token, por exemplo. Para aplicativos que usam o Azure AD v1 e para aplicativos Azure Functions, omita `/v2.0` na URL.|
+    |URL do emissor| Use `<authentication-endpoint>/<tenant-id>/v2.0` e substitua *\<authentication-endpoint>* pelo ponto de [extremidade de autenticação para seu ambiente de nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " https://login.microsoftonline.com " para o Azure global), também substituindo *\<tenant-id>* pela ID do **diretório (locatário)** na qual o registro do aplicativo foi criado. Esse valor é usado para redirecionar os usuários para o locatário correto do Azure AD, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de declaração do emissor do token, por exemplo. Para aplicativos que usam o Azure AD v1 e para aplicativos Azure Functions, omita `/v2.0` na URL.|
     |Segredo do cliente (opcional)| Use o segredo do cliente gerado no registro do aplicativo.|
     |Audiências de token permitidas| Se este for um aplicativo de nuvem ou de servidor e você quiser permitir tokens de autenticação de um aplicativo Web, adicione o **URI da ID do aplicativo** do aplicativo Web aqui. A **ID do cliente** configurada é *sempre* implicitamente considerada uma audiência permitida. |
 
@@ -116,8 +116,8 @@ Agora você está pronto para usar o Azure Active Directory para autenticação 
 Você pode registrar clientes nativos para permitir a autenticação para a API da Web hospedada em seu aplicativo usando uma biblioteca de cliente, como a **Biblioteca de Autenticação do Active Directory**.
 
 1. No [Azure portal], selecione **Active Directory** > **Registros de aplicativo** > **Novo registro**.
-1. Na página **Registrar um aplicativo**, insira um **Nome** para o registro do seu aplicativo.
-1. Em **URI de redirecionamento**, selecione **Cliente público (móvel e área de trabalho)** e digite a URL `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. Na página **Registrar um aplicativo** , insira um **Nome** para o registro do seu aplicativo.
+1. Em **URI de redirecionamento** , selecione **Cliente público (móvel e área de trabalho)** e digite a URL `<app-url>/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
     > Para um aplicativo da Microsoft Store, use o [SID de pacote](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#package-sid) como o URI.
@@ -125,7 +125,7 @@ Você pode registrar clientes nativos para permitir a autenticação para a API 
 1. Depois que o registro do aplicativo for criado, copie o valor da **ID do aplicativo (cliente)** .
 1. Selecione **Permissões de API** > **Adicionar uma permissão** > **Minhas APIs**.
 1. Selecione o registro de aplicativo que você criou anteriormente para seu aplicativo do Serviço de Aplicativo. Se você não vir o registro do aplicativo, certifique-se de ter adicionado o escopo **user_impersonation** em [Criar um registro de aplicativo no Azure AD para o aplicativo do Serviço de Aplicativo](#register).
-1. Em **Permissões delegadas**, selecione **user_impersonation** e, em seguida, **Adicionar permissões**.
+1. Em **Permissões delegadas** , selecione **user_impersonation** e, em seguida, **Adicionar permissões**.
 
 Você já configurou um aplicativo de cliente nativo que pode acessar seu aplicativo do Serviço de Aplicativo em nome de um usuário.
 
@@ -134,7 +134,7 @@ Você já configurou um aplicativo de cliente nativo que pode acessar seu aplica
 Seu aplicativo pode adquirir um token para chamar uma API Web hospedada no Serviço de Aplicativo ou no aplicativo de Funções em seu nome (não em nome de um usuário). Esse cenário é útil para aplicativos daemon não interativos que executam tarefas sem um usuário conectado. Ele usa a concessão das [credenciais de cliente](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) padrão do OAuth 2.0.
 
 1. No [Azure portal], selecione **Active Directory** > **Registros de aplicativo** > **Novo registro**.
-1. Na página **Registrar um aplicativo**, insira um **Nome** para o registro do aplicativo daemon.
+1. Na página **Registrar um aplicativo** , insira um **Nome** para o registro do aplicativo daemon.
 1. Em um aplicativo daemon, você não precisa de um URI de redirecionamento para que possa mantê-lo vazio.
 1. Selecione **Criar**.
 1. Depois que o registro do aplicativo for criado, copie o valor da **ID do aplicativo (cliente)** .
@@ -147,7 +147,7 @@ No momento, isso permite que _qualquer_ aplicativo cliente no seu locatário do 
 1. [Defina uma função de aplicativo](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) no manifesto do registro do aplicativo que representa o Serviço de Aplicativo ou o aplicativo de Funções que você deseja proteger.
 1. No registro do aplicativo representando o cliente que precisa ser autorizado, selecione **Permissões da API** > **Adicionar uma permissão** > **Minhas APIs**.
 1. Selecione o registro de aplicativo que você criou anteriormente. Se você não vir o registro do aplicativo, verifique se [adicionou uma Função de Aplicativo](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
-1. Em **Permissões de aplicativo**, selecione a Função de Aplicativo que você criou anteriormente e, em seguida, selecione **Adicionar permissões**.
+1. Em **Permissões de aplicativo** , selecione a Função de Aplicativo que você criou anteriormente e, em seguida, selecione **Adicionar permissões**.
 1. Clique em **Conceder consentimento de administrador** para autorizar o aplicativo cliente a solicitar a permissão.
 1. Semelhante ao cenário anterior (antes de qualquer função ter sido adicionada), agora você pode [solicitar um token de acesso](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) para o mesmo `resource` de destino, e o token de acesso incluirá uma declaração de `roles` contendo as Funções de Aplicativo autorizadas para o aplicativo cliente.
 1. No Serviço de Aplicativo de destino ou no código do aplicativo de Funções, agora você pode confirmar que as funções esperadas estão presentes no token (isso não é executado pela autenticação/autorização do Serviço de Aplicativo). Para mais informações, consulte [Acessar declarações de usuário](app-service-authentication-how-to.md#access-user-claims).

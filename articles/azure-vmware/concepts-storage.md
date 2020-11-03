@@ -2,13 +2,13 @@
 title: Conceitos-armazenamento
 description: Saiba mais sobre os principais recursos de armazenamento nas nuvens privadas da solução Azure VMware.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316810"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289252"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceitos de armazenamento da solução VMware do Azure
 
@@ -28,7 +28,7 @@ O armazenamento local em hosts de cluster é usado no repositório de armazename
 
 ## <a name="data-at-rest-encryption"></a>Criptografia de dados em repouso
 
-Por padrão, os armazenamentos de dados vSAN usam a criptografia em repouso. A solução de criptografia é baseada em KMS e dá suporte a operações de vCenter para gerenciamento de chaves. As chaves são armazenadas criptografadas, encapsuladas por uma chave mestra de Azure Key Vault baseada em HSM. Quando um host é removido de um cluster por qualquer motivo, os dados no SSDs são invalidados imediatamente.
+Por padrão, os armazenamentos de dados vSAN usam a criptografia em repouso. A solução de criptografia é baseada em KMS e dá suporte a operações de vCenter para gerenciamento de chaves. As chaves são armazenadas criptografadas, encapsuladas por uma chave mestra de Azure Key Vault. Quando um host é removido de um cluster por qualquer motivo, os dados no SSDs são invalidados imediatamente.
 
 ## <a name="scaling"></a>Scaling
 

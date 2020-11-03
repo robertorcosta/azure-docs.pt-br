@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441361"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285856"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
@@ -28,7 +28,7 @@ Dependendo das necessidades da organização que convida, um usuário de colabor
 - Estado 1: hospedado em uma instância externa do AD do Azure, representado como um usuário convidado na organização que convida. Nesse caso, o usuário B2B entra usando uma conta do Azure AD que pertence ao locatário convidado. Se a organização do parceiro não usar o Azure AD, o usuário convidado no Azure AD ainda será criado. Os requisitos são o resgate do convite e a verificação do endereço de email pelo Azure AD. Essa disposição também é chamada de locação JIT (just-in-time) ou, às vezes, de locação "viral".
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
+   > **A partir de 31 de março de 2021** , a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciado para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
 
 - Estado 2: hospedado em uma conta da Microsoft ou outra e representada como um usuário convidado na organização host. Nesse caso, o usuário convidado entra com uma conta Microsoft ou uma conta social (google.com ou semelhante). A identidade do usuário convidado é criada como uma conta Microsoft no diretório da organização que fez o convite durante o resgate de oferta.
 
@@ -59,7 +59,7 @@ Para usuários convidados no Estado 2, a **Origem** é **Conta Microsoft**.
 
 ![Usuário convidado no Estado 2 após o resgate de oferta](media/user-properties/after-redemption-state2.png)
 
-Para usuários convidados nos Estados 3 e 4, a **Origem** é definida como **Azure Active Directory** ou **Windows Server Active Directory**, conforme descrito na próxima seção.
+Para usuários convidados nos Estados 3 e 4, a **Origem** é definida como **Azure Active Directory** ou **Windows Server Active Directory** , conforme descrito na próxima seção.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>As principais propriedades do usuário de colaboração B2B do AD do Azure
 ### <a name="usertype"></a>UserType
@@ -70,6 +70,8 @@ Essa propriedade indica a relação entre o usuário e o locatário do host. Ess
 
   > [!NOTE]
   > O UserType não tem nenhuma relação com o tipo de acesso do usuário, nem com a função do diretório do usuário e assim por diante. Essa propriedade só indica a relação do usuário com a organização host, e permite que a organização aplique as políticas que dependem desse atributo.
+
+Para obter detalhes relacionados aos preços, consulte [Azure Active Directory preços](https://azure.microsoft.com/pricing/details/active-directory).
 
 ### <a name="source"></a>Fonte
 Essa propriedade indica o tipo de acesso do usuário.

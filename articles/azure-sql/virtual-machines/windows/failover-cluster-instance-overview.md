@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792473"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289305"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com o SQL Server nas Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -149,7 +149,7 @@ Para obter mais detalhes sobre as opções de conectividade de cluster, confira 
 Considere as limitações a seguir das instâncias de cluster de failover com o SQL Server nas Máquinas Virtuais do Azure. 
 
 ### <a name="lightweight-resource-provider"></a>Provedor de recursos leve   
-No momento, há suporte para as instâncias de cluster de failover do SQL Server somente em máquinas virtuais do Azure no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#management-modes) da [Extensão SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Para alterar do modo de extensão completo para leve, exclua o recurso **máquina virtual do SQL** para as VMs correspondentes e registre-as no provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso **máquina virtual do SQL** usando o portal do Azure, desmarque a caixa de seleção ao lado da máquina virtual correta. 
+No momento, há suporte para as instâncias de cluster de failover do SQL Server somente em máquinas virtuais do Azure no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) da [Extensão SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Para alterar do modo de extensão completo para leve, exclua o recurso **máquina virtual do SQL** para as VMs correspondentes e registre-as no provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso **máquina virtual do SQL** usando o portal do Azure, desmarque a caixa de seleção ao lado da máquina virtual correta. 
 
 A extensão completa dá suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do portal. Esses recursos não funcionarão em VMs do SQL Server depois que o agente for reinstalado no modo de gerenciamento leve.
 

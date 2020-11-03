@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792507"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289945"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Criar um FCI com Espaços de Armazenamento Diretos (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ O diagrama a seguir mostra a solução completa, que usa Espaços de Armazenamen
 
 O diagrama anterior mostra os seguintes recursos no mesmo grupo de recursos:
 
-- Duas máquinas virtuais em um cluster de failover do Windows Server. Quando uma máquina virtual está em um cluster de failover, ela também é chamada de *nó de cluster* ou *nó* .
+- Duas máquinas virtuais em um cluster de failover do Windows Server. Quando uma máquina virtual está em um cluster de failover, ela também é chamada de *nó de cluster* ou *nó*.
 - Cada máquina virtual tem dois ou mais discos de dados.
 - Os Espaços de Armazenamento Diretos sincronizam os dados no disco de dados e apresentam o armazenamento sincronizado como um pool de armazenamento.
 - O pool de armazenamento apresenta um CSV (Volume Compartilhado Clusterizado) para o cluster de failover.
@@ -68,10 +68,10 @@ Antes de concluir as instruções neste artigo, você já deve ter:
 
    Para instalar o clustering de failover da interface do usuário, faça o seguinte em ambas as máquinas virtuais:
 
-   1. No **Gerenciador do Servidor** , selecione **Gerenciar** e **Adicionar Funções e Recursos** .
-   1. No assistente **adicionar funções e recursos** , selecione **Avançar** até chegar a **selecionar recursos** .
-   1. Em **Selecionar Recursos** , escolha **Clustering de Failover** . Inclua todos os recursos e as ferramentas de gerenciamento. 
-   1. Selecione **Adicionar Recursos** .
+   1. No **Gerenciador do Servidor** , selecione **Gerenciar** e **Adicionar Funções e Recursos**.
+   1. No assistente **adicionar funções e recursos** , selecione **Avançar** até chegar a **selecionar recursos**.
+   1. Em **Selecionar Recursos** , escolha **Clustering de Failover**. Inclua todos os recursos e as ferramentas de gerenciamento. 
+   1. Selecione **Adicionar Recursos**.
    1. Selecione **Avançar** e **Concluir** para instalar os recursos.
 
    Para instalar o clustering de failover usando o PowerShell, execute o seguinte script de uma sessão de administrador do PowerShell em uma das máquinas virtuais:
@@ -90,18 +90,18 @@ Valide o cluster na interface do usuário ou usando o PowerShell.
 
 Para validar o cluster usando a interface do usuário, faça o seguinte em uma das máquinas virtuais:
 
-1. Em **Gerenciador do Servidor** , selecione **Ferramentas** e **Gerenciador de Cluster de Failover** .
-1. Em **Gerenciador de Cluster de Failover** , selecione **Ação** e **Validar Configuração** .
-1. Selecione **Avançar** .
+1. Em **Gerenciador do Servidor** , selecione **Ferramentas** e **Gerenciador de Cluster de Failover**.
+1. Em **Gerenciador de Cluster de Failover** , selecione **Ação** e **Validar Configuração**.
+1. Selecione **Avançar**.
 1. Em **Selecionar Servidores ou um Cluster** , insira o nome de ambas as máquinas virtuais.
-1. Em **Opções de teste** , selecione **Executar apenas os testes selecionados** . 
-1. Selecione **Avançar** .
+1. Em **Opções de teste** , selecione **Executar apenas os testes selecionados**. 
+1. Selecione **Avançar**.
 1. Em **Seleção de Teste** , selecione todos os testes, exceto de **Armazenamento** , conforme mostrado aqui:
 
    ![Selecionar testes de validação de cluster](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. Selecione **Avançar** .
-1. Em **Confirmação** , selecione **Avançar** .
+1. Selecione **Avançar**.
+1. Em **Confirmação** , selecione **Avançar**.
 
     O assistente para **validar uma configuração** executa os testes de validação.
 
@@ -192,11 +192,11 @@ Depois de configurar o cluster de failover e todos os componentes do cluster, in
 
 1. Em **Gerenciador de cluster de failover** , verifique se todos os recursos de cluster principais estão na primeira máquina virtual. Se necessário, mova todos os recursos para aquela máquina virtual.
 
-1. Localize a mídia de instalação. Se a máquina virtual usa uma das imagens do Azure Marketplace, a mídia está localizada em `C:\SQLServer_<version number>_Full`. Selecione **instalação** .
+1. Localize a mídia de instalação. Se a máquina virtual usa uma das imagens do Azure Marketplace, a mídia está localizada em `C:\SQLServer_<version number>_Full`. Selecione **instalação**.
 
-1. Na **Central de Instalação do SQL Server** , selecione **Instalação** .
+1. Na **Central de Instalação do SQL Server** , selecione **Instalação**.
 
-1. Selecione **Nova instalação de cluster de failover do SQL Server** . Siga as instruções no Assistente para instalar o SQL Server FCI.
+1. Selecione **Nova instalação de cluster de failover do SQL Server**. Siga as instruções no Assistente para instalar o SQL Server FCI.
 
    Os diretórios de dados de FCI precisam estar no armazenamento de cluster. Com o Espaços de Armazenamento Diretos, ele não é um disco compartilhado, mas um ponto de montagem para um volume em cada servidor. Os Espaços de Armazenamento Diretos sincronizam o volume entre ambos os nós. O volume é apresentado ao cluster como um CSV. Use o ponto de montagem CSV para os diretórios de dados.
 
@@ -206,9 +206,9 @@ Depois de configurar o cluster de failover e todos os componentes do cluster, in
 
 1. Depois que a Instalação instalar a FCI com êxito no primeiro nó, conecte-se ao segundo nó usando o RDP.
 
-1. Abra a **Central de Instalação do SQL Server** . Selecione **Instalação** .
+1. Abra a **Central de Instalação do SQL Server**. Selecione **Instalação**.
 
-1. Selecione **Adicionar um nó a um cluster de failover do SQL Server** . Siga as instruções no assistente para instalar o SQL Server e adicionar o servidor à FCI.
+1. Selecione **Adicionar um nó a um cluster de failover do SQL Server**. Siga as instruções no assistente para instalar o SQL Server e adicionar o servidor à FCI.
 
    >[!NOTE]
    >Se você usou uma imagem da galeria do Azure Marketplace que contém o SQL Server, as ferramentas do SQL Server foram incluídas com a imagem. Se você não usou uma dessas imagens, instale as ferramentas do SQL Server separadamente. Para obter mais informações, consulte [Baixar o SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -239,7 +239,7 @@ Para rotear o tráfego adequadamente para o nó primário atual, configure a op�
 
 - As máquinas virtuais do Azure dão suporte ao Microsoft Coordenador de Transações Distribuídas (MSDTC) no Windows Server 2019 com armazenamento no CSVs e um [balanceador de carga padrão](../../../load-balancer/load-balancer-overview.md).
 - Os discos que foram anexados como discos formatados com NTFS podem ser usados com Espaços de Armazenamento Diretos somente se a opção de qualificação de disco estiver desmarcada ou desmarcada quando o armazenamento estiver sendo adicionado ao cluster. 
-- Há suporte apenas para o registro com o provedor de recursos de VM do SQL no [modo de gerenciamento leve](sql-vm-resource-provider-register.md#management-modes) .
+- Há suporte apenas para o registro com o provedor de recursos de VM do SQL no [modo de gerenciamento leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

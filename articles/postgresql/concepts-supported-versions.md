@@ -7,15 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f03016c9a44968db49cd68bfec025c328861fc07
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707907"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286426"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versões principais do PostgreSQL com suporte
-A Microsoft pretende oferecer suporte a versões n-2 do mecanismo PostgreSQL no banco de dados do Azure para PostgreSQL-servidor único. As versões seriam a versão principal atual no Azure (n) e as duas versões principais anteriores (-2).
+
+Consulte a [política de controle de versão do banco de dados do Azure para PostgreSQL](concepts-version-policy.md) para obter detalhes da política de suporte.
 
 O banco de dados do Azure para PostgreSQL atualmente dá suporte às seguintes versões principais:
 
@@ -35,6 +36,7 @@ A versão secundária atual é 9.5.20. Consulte a [documentação do PostgreSQL]
 O projeto PostgreSQL emite regularmente versões secundárias para corrigir bugs relatados. O banco de dados do Azure para PostgreSQL corrige automaticamente os servidores com versões secundárias durante as implantações mensais do serviço. 
 
 Não há suporte para atualizações automáticas in-loco para versões principais. Para atualizar para a próxima versão principal, você pode 
+   * Consulte as [principais atualizações de versão usando despejo e restauração](./how-to-upgrade-using-dump-and-restore.md)
    * Use [pg_dump e pg_restore](./howto-migrate-using-dump-and-restore.md) para mover um banco de dados para um servidor criado com a nova versão do mecanismo
    * Como alternativa, você pode atualizar do PostgreSQL 10 para 11 usando o [serviço de migração de banco de dados do Azure](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
 

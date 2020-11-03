@@ -7,12 +7,12 @@ author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 64bf5714f5eb99df9929a47fef414a827ec680af
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 107ec012bf2ff76ee1cbe4c5f8252566a5a16127
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145626"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288922"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Cenário: os logs de Apache Hive estão preenchendo o espaço em disco nos nós de cabeçalho no Azure HDInsight
 
@@ -23,7 +23,7 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 Em um cluster Apache Hive/LLAP, os logs indesejados estão ocupando todo o espaço em disco nos nós de cabeçalho. Essa condição pode causar os seguintes problemas:
 
 - O acesso SSH falha porque nenhum espaço é deixado no nó principal.
-- Ambari gera *erro http: serviço 503 indisponível* .
+- Ambari gera *erro http: serviço 503 indisponível*.
 - Falha na reinicialização do HiveServer2 Interactive.
 
 Os `ambari-agent` logs incluirão as seguintes entradas quando o problema ocorrer:
@@ -42,7 +42,7 @@ Nas configurações avançadas de Log4J do hive, o agendamento de exclusão padr
 
 1. Vá para o resumo do componente do hive no portal do Ambari e selecione a guia **configurações** .
 
-2. Vá para a `Advanced hive-log4j` seção em **Configurações avançadas** .
+2. Vá para a `Advanced hive-log4j` seção em **Configurações avançadas**.
 
 3. Defina o `appender.RFA.strategy.action.condition.age` parâmetro como uma idade de sua escolha. Este exemplo definirá a idade para 14 dias: `appender.RFA.strategy.action.condition.age = 14D`
 
@@ -71,10 +71,4 @@ Nas configurações avançadas de Log4J do hive, o agendamento de exclusão padr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
-
-* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
-
-* Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-
-* Se precisar de mais ajuda, poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte** . Para obter informações mais detalhadas, confira [Como criar uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

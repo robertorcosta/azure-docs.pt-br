@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669934"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286215"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -33,7 +33,7 @@ Este artigo se concentra em restrições de locatário para Microsoft 365, mas o
 
 A solução geral inclui os seguintes componentes:
 
-1. **Azure AD** : se o `Restrict-Access-To-Tenants: <permitted tenant list>` estiver presente, o Azure AD emitirá apenas tokens de segurança para os locatários permitidos.
+1. **Azure ad** : se o `Restrict-Access-To-Tenants: <permitted tenant list>` cabeçalho estiver presente, o Azure ad emitirá apenas tokens de segurança para os locatários permitidos.
 
 2. **Infraestrutura de servidor proxy local** : Essa infraestrutura é um dispositivo proxy capaz de realizar inspeção de protocolo TLS. Você precisa configurar o proxy para inserir o cabeçalho que contém a lista de locatários permitidos no tráfego destinado ao Azure AD.
 
@@ -63,11 +63,11 @@ A configuração a seguir é necessária para habilitar as restrições de locat
 
 - Os clientes devem confiar na cadeia de certificados apresentada pelo proxy para comunicações TLS. Por exemplo, se forem usados certificados de uma [PKI (infraestrutura de chave pública)](/windows/desktop/seccertenroll/public-key-infrastructure) interna, o certificado da autoridade de certificado raiz de emissão interno deverá ser confiável.
 
-- Esse recurso está incluído em assinaturas do Microsoft 365, mas se você quiser usar restrições de locatário para controlar o acesso a outros aplicativos SaaS, então Azure AD Premium 1 licenças são necessárias.
+- Azure AD Premium 1 licenças são necessárias para o uso de restrições de locatário. 
 
 #### <a name="configuration"></a>Configuração
 
-Para cada solicitação de entrada para login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context* .
+Para cada solicitação de entrada para login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context*.
 
 > [!NOTE]
 > Ao configurar a interceptação de SSL e a injeção de cabeçalho, certifique-se de que o tráfego para https://device.login.microsoftonline.com é excluído. Essa URL é usada para a autenticação do dispositivo e a execução de interrupção e inspeção do TLS pode interferir na autenticação de certificado do cliente, o que pode causar problemas com o registro de dispositivo e o acesso condicional baseado no dispositivo.
@@ -81,7 +81,7 @@ Os cabeçalhos devem incluir os seguintes elementos:
 - Para *Restrict-Access-Context* , use um valor de uma ID de diretório, declarando qual locatário está configurando as restrições de locatário. Por exemplo, para declarar contoso como o locatário que define a política de restrições de locatário, o par nome/valor é semelhante a: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  Você **deve** usar sua própria ID de diretório nesse local.
 
 > [!TIP]
-> Você pode encontrar a ID de diretório no [portal do Azure Active Directory](https://aad.portal.azure.com/). Entre como administrador, selecione **Azure Active Directory** e selecione **Propriedades** . 
+> Você pode encontrar a ID de diretório no [portal do Azure Active Directory](https://aad.portal.azure.com/). Entre como administrador, selecione **Azure Active Directory** e selecione **Propriedades**. 
 >
 > Para validar que uma ID de diretório ou nome de domínio se referem ao mesmo locatário, use essa ID ou o domínio no lugar desta <tenant> URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration` .  Se os resultados com o domínio e a ID forem os mesmos, eles se referirão ao mesmo locatário. 
 
@@ -106,9 +106,9 @@ Embora a configuração de restrições de locatário seja feita na infraestrutu
 
 1. Entre no [Portal do Azure Active Directory](https://aad.portal.azure.com/). O painel **centro de administração do Azure Active Directory** aparece.
 
-2. No painel esquerdo, selecione **Azure Active Directory** . A página de visão geral do Azure Active Directory aparece.
+2. No painel esquerdo, selecione **Azure Active Directory**. A página de visão geral do Azure Active Directory aparece.
 
-3. Na página Visão geral, selecione **restrições de locatário** .
+3. Na página Visão geral, selecione **restrições de locatário**.
 
 O administrador do locatário especificado como o locatário Restricted-Access-Context pode usar esse relatório para ver as entradas bloqueadas por causa da política de restrições de locatário, incluindo a identidade usada e a ID de diretório de destino. As entradas serão incluídas se o locatário que define a restrição for o locatário do usuário ou o locatário do recurso para a entrada.
 
@@ -182,7 +182,7 @@ O Fiddler é um proxy de depuração da Web gratuito que pode ser usado para cap
 
 4. Salve e feche o arquivo CustomRules.
 
-Depois de configurar o Fiddler, você pode capturar o tráfego indo para o menu **Arquivo** e selecionando **Capturar Tráfego** .
+Depois de configurar o Fiddler, você pode capturar o tráfego indo para o menu **Arquivo** e selecionando **Capturar Tráfego**.
 
 ### <a name="staged-rollout-of-proxy-settings"></a>Distribuição em etapas as configurações de proxy
 

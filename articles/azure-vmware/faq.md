@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 64b2955b1417d6931172b41f83f05d5f1b560708
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911878"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288668"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -65,7 +65,7 @@ A Microsoft e a Red Hat compartilham uma equipe de suporte integrada e colocaliz
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>O VMware HCX Enterprise Edition está disponível e, nesse caso, o quanto custa?
 
-O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia* . Embora a solução VMware HCX EE para Azure VMware esteja em versão prévia, ela é uma função/serviço gratuita e está sujeita a termos e condições de serviço de visualização. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você pode desativar ou recusar o serviço.
+O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora a solução VMware HCX EE para Azure VMware esteja em versão prévia, ela é uma função/serviço gratuita e está sujeita a termos e condições de serviço de visualização. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você pode desativar ou recusar o serviço.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>As VMs de solução do Azure VMware podem ser gerenciadas pelo VMRC?
 Sim, desde que o sistema no qual ele está instalado possa acessar a nuvem privada vCenter e esteja usando o DNS público para resolver nomes de host ESXi.
@@ -78,6 +78,9 @@ Não, devido aos requisitos de largura de banda e latência.
 
 #### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>A bastiões do Azure pode ser usada para conectar-se às VMs da solução Azure VMware?
 A bastiões do Azure é o serviço recomendado para se conectar à caixa de salto para evitar a exposição da solução Azure VMware à Internet. Você não pode usar a bastiões do Azure para se conectar às VMs da solução Azure VMware, pois elas não são objetos IaaS do Azure.
+
+#### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Pode Azure Load Balancer ser usado internamente para VMs da solução do Azure VMware?
+Não. Azure Load Balancer interno só dá suporte a VMs IaaS do Azure. Azure Load Balancer não dá suporte a pools de back-end baseados em IP; somente as VMs do Azure ou objetos VMSS (conjunto de dimensionamento de máquinas virtuais) nos quais as VMs de solução do Azure VMware não são objetos do Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Um gateway de ExpressRoute existente pode ser usado para se conectar à solução do Azure VMware?
 Sim, você pode usar um gateway de ExpressRoute existente para se conectar à solução do Azure VMware, desde que não exceda o limite de quatro circuitos de ExpressRoute por rede virtual.  No entanto, para acessar a Solução VMware no Azure do local por meio do ExpressRoute, você precisa ter o Alcance Global do ExpressRoute, pois o gateway do ExpressRoute não fornece roteamento transitivo entre os circuitos conectados.
@@ -118,7 +121,7 @@ Como essas soluções de backup são instaladas e gerenciadas pelos clientes, el
 
 #### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>Qual é a política de armazenamento correta para a configuração de eliminação de duplicação?
 
-Use a política de armazenamento *thin_provision* para o modelo de VM.  O padrão é *thick_provision* .
+Use a política de armazenamento *thin_provision* para o modelo de VM.  O padrão é *thick_provision*.
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>Os logs de infraestrutura SNMP são compartilhados?
 
