@@ -1,18 +1,18 @@
 ---
 title: Link privado-CLI do Azure-banco de dados do Azure para MySQL
 description: Saiba como configurar o link privado para o banco de dados do Azure para MySQL do CLI do Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b6c26c99d68e5b92477a4d7f2c6734190d112aba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a2ec1c609fc0562c6c8181a934e742daa9a5a4f9
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538758"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241541"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando a CLI
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: c768f6564884ade5d27199a64843437f5ce725f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019148"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233960"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportar certificados do Azure Key Vault
 
@@ -33,8 +33,8 @@ Quando um certificado do Key Vault é criado, uma *chave* e um *segredo* endere�
 
 Depois que um certificado do Key Vault é criado, você pode recuperá-lo por meio do segredo endereçável com a chave privada. Recupere o certificado no formato PFX ou PEM.
 
-- **Exportável**: a política usada para criar o certificado indica que a chave é exportável.
-- **Não exportável**: a política usada para criar o certificado indica que a chave é não exportável. Nesse caso, a chave privada não faz parte do valor quando é recuperada como um segredo.
+- **Exportável** : a política usada para criar o certificado indica que a chave é exportável.
+- **Não exportável** : a política usada para criar o certificado indica que a chave é não exportável. Nesse caso, a chave privada não faz parte do valor quando é recuperada como um segredo.
 
 Tipos de chave com suporte: RSA, RSA-HSM, EC, EC-HSM, oct (listadas [aqui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)). A exportação só é permitida com RSA e EC. As chaves HSM seriam não exportáveis.
 
@@ -79,18 +79,26 @@ Para obter mais informações, confira [definições de parâmetro](https://docs
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Use esse comando no Azure PowerShell para obter o certificado denominado **TestCert01** do cofre de chaves chamado **ContosoKV01**. Para baixar o certificado como um arquivo PFX, execute o comando a seguir. Esses comandos acessam a **SecretId** e salvam o conteúdo como um arquivo PFX.
+Use esse comando no Azure PowerShell para obter o certificado denominado **TestCert01** do cofre de chaves chamado **ContosoKV01** . Para baixar o certificado como um arquivo PFX, execute o comando a seguir. Esses comandos acessam a **SecretId** e salvam o conteúdo como um arquivo PFX.
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$kvSecret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $Cert.Name
-$kvSecretBytes = [System.Convert]::FromBase64String($kvSecret.SecretValueText)
-$certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-$certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$password = '******'
-$protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
-$pfxPath = [Environment]::GetFolderPath("Desktop") + "\MyCert.pfx"
-[System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
+$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secretValueText = '';
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+    $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+$secretByte = [Convert]::FromBase64String($secretValueText)
+$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
+$type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
+$pfxFileByte = $x509Cert.Export($type, $password)
+
+# Write to a file
+[System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
 Esse comando exporta toda a cadeia de certificados com a chave privada. O certificado é protegido por senha.
@@ -98,15 +106,15 @@ Para obter mais informações sobre o comando **Get-AzKeyVaultCertificate** e os
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No portal do Azure, depois de criar/importar um certificado na folha **Certificado**, você receberá uma notificação de que o certificado foi criado com êxito. Selecione o certificado e a versão atual para ver a opção para baixar.
+No portal do Azure, depois de criar/importar um certificado na folha **Certificado** , você receberá uma notificação de que o certificado foi criado com êxito. Selecione o certificado e a versão atual para ver a opção para baixar.
 
-Para baixar o certificado, selecione **Baixar no formato CER** ou **Baixar no formato PFX/PEM**.
+Para baixar o certificado, selecione **Baixar no formato CER** ou **Baixar no formato PFX/PEM** .
 
 ![Download de certificado](../media/certificates/quick-create-portal/current-version-shown.png)
 
 **Exportar certificados do Serviço de Aplicativo do Azure**
 
-Os certificados do Serviço de Aplicativo do Azure são uma forma conveniente de comprar certificados SSL. Você pode atribuí-los a Aplicativos do Azure por meio do portal. Você também pode exportar esses certificados por meio do portal como arquivos PFX a serem usados em outro local. Depois de importá-los, os certificados do Serviço de Aplicativo ficam localizados em **segredos**.
+Os certificados do Serviço de Aplicativo do Azure são uma forma conveniente de comprar certificados SSL. Você pode atribuí-los a Aplicativos do Azure por meio do portal. Você também pode exportar esses certificados por meio do portal como arquivos PFX a serem usados em outro local. Depois de importá-los, os certificados do Serviço de Aplicativo ficam localizados em **segredos** .
 
 Para obter mais informações, consulte as etapas para [exportar certificados do Serviço de Aplicativo do Azure](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 

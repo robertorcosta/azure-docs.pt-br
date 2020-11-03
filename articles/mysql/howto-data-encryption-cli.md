@@ -1,18 +1,18 @@
 ---
 title: Data Encryption-CLI do Azure-banco de dados do Azure para MySQL
 description: Saiba como configurar e gerenciar a criptografia de dados para o banco de dado do Azure para MySQL usando o CLI do Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799812"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242085"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Criptografia de dados para o Azure Database para MySQL usando o CLI do Azure
 
@@ -50,7 +50,7 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
 * A chave deve ter os seguintes atributos para usar como uma chave gerenciada pelo cliente:
   * Sem data de validade
   * Não desabilitado
-  * Executar operações **Get**, **Wrap**e **Unwrap**
+  * Executar operações **Get** , **Wrap** e **Unwrap**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões corretas para operações de chave
 
@@ -68,7 +68,7 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Defina as **permissões de chave** (**Get**, **Wrap**, sem **encapsulamento**) para a **entidade de segurança**, que é o nome do servidor MySQL.
+2. Defina as **permissões de chave** ( **Get** , **Wrap** , sem **encapsulamento** ) para a **entidade de segurança** , que é o nome do servidor MySQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

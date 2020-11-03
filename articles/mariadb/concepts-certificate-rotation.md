@@ -1,17 +1,17 @@
 ---
 title: Rotação de certificado para o banco de dados do Azure para MariaDB
 description: Saiba mais sobre as alterações futuras de alterações de certificado raiz que afetarão o banco de dados do Azure para MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: db717394ba102fb646a4194d0be2722e17251f48
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 239aa8677d1aa4cfd1ab1a93e04c05a641611437
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087155"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241473"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Noções básicas sobre as alterações na autoridade de certificação raiz para o banco de dados do Azure para MariaDB
 

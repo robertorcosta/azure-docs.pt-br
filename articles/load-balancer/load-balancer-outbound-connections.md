@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 422f8106ac52c85f0680d54e420d0f1b4d326910
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017685"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241762"
 ---
 # <a name="outbound-proxy-azure-load-balancer"></a>Azure Load Balancer de proxy de saída
 
 Um balanceador de carga do Azure pode ser usado como um proxy para a conectividade de Internet de saída. O balanceador de carga fornece a conectividade de saída para as instâncias de back-end. 
 
-Essa configuração usa a **conversão de endereços de rede (SNAT) de origem**. O SNAT reescreve o endereço IP do back-end para o endereço IP público do balanceador de carga. 
+Essa configuração usa a **conversão de endereços de rede (SNAT) de origem** . O SNAT reescreve o endereço IP do back-end para o endereço IP público do balanceador de carga. 
 
 O SNAT permite a **representação de IP** da instância de back-end. Essa representação impede que fontes externas tenham um endereço direto para as instâncias de back-end. 
 
@@ -42,9 +42,9 @@ Se uma porta for usada para conexões de entrada, ela terá um **ouvinte** para 
 
 Para estabelecer uma conexão de saída, uma **porta efêmera** deve ser usada para fornecer o destino com uma porta na qual se comunicará e manterá um fluxo de tráfego distinto. 
 
-Cada endereço IP tem 65.535 portas. As primeiras 1024 portas são reservadas como **portas do sistema**. Cada porta pode ser usada para conexões de entrada ou de saída para TCP e UDP. 
+Cada endereço IP tem 65.535 portas. As primeiras 1024 portas são reservadas como **portas do sistema** . Cada porta pode ser usada para conexões de entrada ou de saída para TCP e UDP. 
 
-Das portas restantes, o Azure fornece 64.000 para uso como **portas efêmeras**. Quando um endereço IP é adicionado como uma configuração de IP de front-end, essas portas efêmeras podem ser usadas para SNAT.
+Das portas restantes, o Azure fornece 64.000 para uso como **portas efêmeras** . Quando um endereço IP é adicionado como uma configuração de IP de front-end, essas portas efêmeras podem ser usadas para SNAT.
 
 Por meio de regras de saída, essas portas SNAT podem ser distribuídas para instâncias de back-end para permitir que elas compartilhem os IPs públicos do balanceador de carga para conexões de saída.
 
@@ -52,7 +52,7 @@ A rede no host para cada instância de back-end fará SNAT para pacotes que faze
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Portas esgotadas
 
-Todas as conexões com o mesmo IP de destino e porta de destino usarão uma porta SNAT. Essa conexão mantém um **fluxo de tráfego** distinto da instância de back-end ou do **cliente** para um **servidor**. Esse processo fornece ao servidor uma porta distinta na qual tratar o tráfego. Sem esse processo, o computador cliente não está ciente do fluxo do qual um pacote faz parte.
+Todas as conexões com o mesmo IP de destino e porta de destino usarão uma porta SNAT. Essa conexão mantém um **fluxo de tráfego** distinto da instância de back-end ou do **cliente** para um **servidor** . Esse processo fornece ao servidor uma porta distinta na qual tratar o tráfego. Sem esse processo, o computador cliente não está ciente do fluxo do qual um pacote faz parte.
 
 Imagine ter vários navegadores indo para https://www.microsoft.com :
 
@@ -92,7 +92,7 @@ A tabela a seguir <a name="snatporttable"></a> mostra as prealocações de porta
 | 801-1,000 | 32 | 
 
 >[!NOTE]
-> Se você tiver um pool de back-end com um tamanho máximo de 6, cada instância poderá ter 64000/10 = 6.400 portas se você definir uma regra de saída explícita. De acordo com a tabela acima, cada uma terá apenas 1.024 se você escolher a alocação automática.
+> Se você tiver um pool de back-end com um tamanho máximo de 10, cada instância poderá ter 64000/10 = 6.400 portas se você definir uma regra de saída explícita. De acordo com a tabela acima, cada uma terá apenas 1.024 se você escolher a alocação automática.
 
 ## <a name="outbound-rules-and-virtual-network-nat"></a><a name="outboundrules"></a> Regras de saída e NAT de rede virtual
 

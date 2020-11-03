@@ -5,19 +5,20 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c3be13dade9cae45994b5f7a9d6f7479e2de6256
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 32187b7aedd43a57ffe77c2f8524c54049ba10ae
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460726"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234113"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
-Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Microsoft Azure para importar com segurança grandes quantidades de dados do Armazenamento de Blobs. Para importar dados para Blobs do Azure, o serviço exige o envio de unidades de disco criptografadas contendo dados para um datacenter do Azure.  
+Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Microsoft Azure para importar com segurança grandes quantidades de dados do Armazenamento de Blobs. Para importar dados para Blobs do Azure, o serviço exige o envio de unidades de disco criptografadas contendo dados para um datacenter do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +35,7 @@ Você deve:
 * [Baixe o WAImportExport versão 1 mais recente](https://www.microsoft.com/download/details.aspx?id=42659) no sistema Windows. A versão mais recente da ferramenta tem atualizações de segurança para permitir um protetor externo para a chave do BitLocker e o recurso modo de desbloqueio atualizado.
 
   * Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
-* Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações Azure Data Box em `adbops@microsoft.com` .  
+* Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações Azure Data Box em `adbops@microsoft.com` .
   * A conta deve ser válida, deve ter saldo e ter recursos de devolução.
   * Gerar um número de controle para o trabalho de exportação.
   * Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
@@ -51,7 +52,7 @@ Execute as etapas a seguir para preparar as unidades.
 1. Conecte as unidades de disco ao sistema Windows via conectores SATA.
 2. Crie um único volume NTFS em cada unidade. Atribua uma letra da unidade ao volume. Não use pontos de montagem.
 3. Habilite a criptografia BitLocker no volume NTFS. Se estiver usando um Windows Server System, use as instruções em [Como habilitar o BitLocker no Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-4. Copie os dados para o volume criptografado. Use arrastar e soltar, Robocopy ou qualquer outra ferramenta de cópia. Um arquivo de diário (*. JRN*) é criado na mesma pasta em que você executa a ferramenta.
+4. Copie os dados para o volume criptografado. Use arrastar e soltar, Robocopy ou qualquer outra ferramenta de cópia. Um arquivo de diário ( *. JRN* ) é criado na mesma pasta em que você executa a ferramenta.
 
    Se a unidade estiver bloqueada e você precisar desbloquear a unidade, as etapas para desbloquear podem ser diferentes dependendo do caso de uso.
 
@@ -100,26 +101,26 @@ Execute as etapas a seguir para preparar as unidades.
 Execute as etapas a seguir para criar um trabalho de importação no portal do Azure.
 
 1. Faça logon em https://portal.azure.com/.
-2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**.
+2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação** .
 
     ![Vá para Trabalhos de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Clique em **criar trabalho de importação/exportação**.
+3. Clique em **criar trabalho de importação/exportação** .
 
     ![Clique em Criar Trabalho de Importação/Exportação](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. Em **Noções básicas**:
+4. Em **Noções básicas** :
 
-   * Selecione **Importar para o Azure**.
+   * Selecione **Importar para o Azure** .
    * Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
        * O nome pode conter apenas letras minúsculas, números e hifens.
        * O nome deve começar com uma letra e não pode conter espaços.
    * Selecione uma assinatura.
-   * Insira ou selecione um grupo de recursos.  
+   * Insira ou selecione um grupo de recursos.
 
      ![Criar o trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. Em **Detalhes do trabalho**:
+5. Em **Detalhes do trabalho** :
 
    * Carregue os arquivos de diário da unidade que você obteve durante a etapa de preparação da unidade. Se utilizou `waimportexport.exe version1`, envie um arquivo para cada unidade que você preparou. Se o tamanho do arquivo de diário exceder 2 MB, você poderá usar o `<Journal file name>_DriveInfo_<Drive serial ID>.xml` também criado com o arquivo de diário.
    * Selecione a conta de armazenamento de destino onde os dados residirão.
@@ -127,7 +128,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
    ![Criar trabalho de importação - Etapa 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. Em **Informações sobre a remessa de devolução**:
+6. Em **Informações sobre a remessa de devolução** :
 
    * Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com`  com as informações sobre a transportadora que você planeja usar.
    * Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
@@ -138,7 +139,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
      ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. No **Resumo**:
+7. No **Resumo** :
 
    * Revise as informações do trabalho fornecidas no resumo. Anote o nome do trabalho e o endereço de remessa do datacenter do Azure para enviar os discos de volta ao Azure. Essas informações serão utilizadas posteriormente na etiqueta de remessa.
    * Clique em **OK** para criar o trabalho de importação.
@@ -221,6 +222,102 @@ Use as etapas a seguir para criar um trabalho de importação no CLI do Azure.
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
+
+### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+
+Use as etapas a seguir para criar um trabalho de importação no Azure PowerShell.
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> Enquanto o módulo **AZ. ImportExport** do PowerShell está em versão prévia, você deve instalá-lo separadamente usando o `Install-Module` cmdlet. Depois que esse módulo do PowerShell estiver em disponibilidade geral, ele fará parte das versões futuras do módulo Az PowerShell e estará disponível por padrão no Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>Criar um trabalho
+
+1. Você pode usar um grupo de recursos existente ou criar um. Para criar um grupo de recursos, execute o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name myierg -Location westus
+   ```
+
+1. Você pode usar uma conta de armazenamento existente ou criar uma. Para criar uma conta de armazenamento, execute o cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) :
+
+   ```azurepowershell-interactive
+   New-AzStorageAccount -ResourceGroupName myierg -AccountName myssdocsstorage -SkuName Standard_RAGRS -Location westus -EnableHttpsTrafficOnly $true
+   ```
+
+1. Para obter uma lista dos locais para os quais você pode enviar discos, use o cmdlet [Get-AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) :
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation
+   ```
+
+1. Use o `Get-AzImportExportLocation` cmdlet com o `Name` parâmetro para obter locais para sua região:
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation -Name westus
+   ```
+
+1. Execute o seguinte exemplo de [New-AzImportExport](/powershell/module/az.importexport/new-azimportexport) para criar um trabalho de importação:
+
+   ```azurepowershell-interactive
+   $driveList = @(@{
+     DriveId = '9CA995BA'
+     BitLockerKey = '439675-460165-128202-905124-487224-524332-851649-442187'
+     ManifestFile = '\\DriveManifest.xml'
+     ManifestHash = '69512026C1E8D4401816A2E5B8D7420D'
+     DriveHeaderHash = 'AZ31BGB1'
+   })
+
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'MyIEjob1'
+      Location = 'westus'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      DriveList = $driveList
+      JobType = 'Import'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = '3020 Coronado'
+      ShippingInformationCity = 'Santa Clara'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = '98054'
+      ShippingInformationCountryOrRegion = 'USA'
+      ShippingInformationPhone = '4083527600'
+      ReturnAddressRecipientName = 'Gus Poland'
+      ReturnAddressStreetAddress1 = '1020 Enterprise way'
+      ReturnAddressCity = 'Sunnyvale'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'USA'
+      ReturnAddressPhone = '4085555555'
+      ReturnAddressEmail = 'gus@contoso.com'
+      ReturnShippingCarrierName = 'FedEx'
+      ReturnShippingCarrierAccountNumber = '123456789'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+   > [!TIP]
+   > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
+
+1. Use o cmdlet [Get-AzImportExport](/powershell/module/az.importexport/get-azimportexport) para ver todos os trabalhos do grupo de recursos myierg:
+
+   ```azurepowershell-interactive
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. Para atualizar seu trabalho ou cancelar seu trabalho, execute o cmdlet [Update-AzImportExport](/powershell/module/az.importexport/update-azimportexport) :
+
+   ```azurepowershell-interactive
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
 
 ---
 

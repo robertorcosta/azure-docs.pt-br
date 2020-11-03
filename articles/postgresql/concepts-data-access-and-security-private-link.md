@@ -1,17 +1,17 @@
 ---
 title: Link privado-banco de dados do Azure para PostgreSQL-servidor único
 description: Saiba como o link privado funciona para o banco de dados do Azure para PostgreSQL-servidor único.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489499"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240419"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Link privado para o banco de dados do Azure para PostgreSQL-Single Server
 
@@ -113,7 +113,7 @@ As seguintes situações e resultados são possíveis quando você usa o Link Pr
 
 ## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Negar acesso público para banco de dados do Azure para PostgreSQL servidor único
 
-Se você quiser confiar apenas nos pontos de extremidade privados para acessar o banco de dados do Azure para PostgreSQL servidor único, você pode desabilitar a configuração de todos os pontos de extremidade públicos ([regras de firewall](concepts-firewall-rules.md) e pontos de extremidade de [serviço de VNet](concepts-data-access-and-security-vnet.md)) definindo a configuração de **acesso de rede pública Deny** no servidor de banco de dados. 
+Se você quiser confiar apenas nos pontos de extremidade privados para acessar o banco de dados do Azure para PostgreSQL servidor único, você pode desabilitar a configuração de todos os pontos de extremidade públicos ( [regras de firewall](concepts-firewall-rules.md) e pontos de extremidade de [serviço de VNet](concepts-data-access-and-security-vnet.md)) definindo a configuração de **acesso de rede pública Deny** no servidor de banco de dados. 
 
 Quando essa configuração é definida como *Sim* , somente as conexões por meio de pontos de extremidade privados são permitidas para o banco de dados do Azure para PostgreSQL. Quando essa configuração é definida como *nenhum* cliente pode se conectar ao banco de dados do Azure para PostgreSQL com base em sua configuração de ponto de extremidade de serviço de rede virtual ou firewall. Além disso, quando o valor do acesso à rede privada é definido, os clientes não podem adicionar e/ou atualizar as existentes ' regras de firewall ' e ' regras de ponto de extremidade de serviço de VNet '.
 

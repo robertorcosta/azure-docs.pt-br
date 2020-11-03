@@ -1,17 +1,17 @@
 ---
 title: Visão geral de alta disponibilidade com redundância de zona com o banco de dados do Azure para MySQL servidor flexível
 description: Saiba mais sobre os conceitos de alta disponibilidade com redundância de zona com o banco de dados do Azure para MySQL servidor flexível
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932850"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241177"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceitos de alta disponibilidade no banco de dados do Azure para MySQL servidor flexível (versão prévia)
 
@@ -100,5 +100,5 @@ Aqui estão algumas considerações para ter em mente quando você usa alta disp
 ## <a name="next-steps"></a>Próximas etapas
 
 -   Saiba mais sobre a [continuidade dos negócios](./concepts-business-continuity.md)
--   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
+-   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
 -   Saiba mais sobre [backup e recuperação](./concepts-backup-restore.md)

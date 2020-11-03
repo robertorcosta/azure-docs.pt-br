@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: febee51a20f57d71d633243145a1aa0c8fb9b437
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078571"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233671"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Criar um backup de aplicativo de cluster do Azure Red Hat OpenShift 4
 
@@ -22,6 +22,9 @@ Neste artigo, você irá preparar seu ambiente para criar um backup de aplicativ
 > [!div class="checklist"]
 > * Configurar os pré-requisitos e instalar as ferramentas necessárias
 > * Criar um backup de aplicativo do Azure Red Hat OpenShift 4
+
+> [!NOTE] 
+> Velero não faz backup dos dados do Azure Red Hat OpenShift etcd key-value Store. Se você precisar fazer backup de etcd, consulte [fazendo backup de etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html).
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 

@@ -1,17 +1,17 @@
 ---
 title: Link privado-portal do Azure-banco de dados do Azure para MySQL
 description: Saiba como configurar o link privado para o banco de dados do Azure para MySQL do portal do Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: b6a2725c6e4d72e8e79e3e45cc60060c02d90cac
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544997"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242391"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando o portal
 
@@ -245,7 +245,7 @@ Depois de criar **myVm** , conecte-se a ela pela Internet da seguinte maneira:
 
 8. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de usar o ponto de extremidade privado, o MySQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa.

@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130180"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241320"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -251,7 +251,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90051 | InvalidNationalCloudId - O identificador nacional da nuvem contém um identificador de nuvem inválido. |
 | AADSTS90055 | TenantThrottlingError - Há muitas solicitações recebidas. Esta exceção é lançada para inquilinos bloqueados. |
 | AADSTS90056 | BadResourceRequest - Para resgatar o código de um token de acesso, o aplicativo deve enviar uma solicitação POST para o endpoint `/token`. Além disso, antes disso, você deve fornecer um código de autorização e enviá-lo na solicitação POST para o nó de extremidade `/token`. Consulte este artigo para obter uma visão geral do fluxo de código de autorização do OAuth 2,0: [.. /azuread-dev/v1-Protocols-OAuth-Code.MD](../azuread-dev/v1-protocols-oauth-code.md). Direcione o usuário para o terminal `/authorize`, que retornará um código_de_ativação. Ao postar uma solicitação para o endpoint `/token`, o usuário obtém o token de acesso. Faça logon no portal do Azure e verifique **Registros do aplicativo> Endpoints** para confirmar se os dois pontos de extremidade foram configurados corretamente. |
-| AADSTS90072 | PassThroughUserMfaError - A conta externa com a qual o usuário se conecta não existe no locatário em que eles se conectaram; Assim, o usuário não pode satisfazer os requisitos de MFA para o locatário. A conta deve ser adicionada como um usuário externo no inquilino primeiro. Saia e faça login com uma conta de usuário diferente do AD do Azure. |
+| AADSTS90072 | PassThroughUserMfaError - A conta externa com a qual o usuário se conecta não existe no locatário em que eles se conectaram; Assim, o usuário não pode satisfazer os requisitos de MFA para o locatário. Esse erro também poderá ocorrer se os usuários forem sincronizados, mas houver uma incompatibilidade no atributo imutável (sourceAnchor) entre Active Directory e o Azure AD. A conta deve ser adicionada como um usuário externo no inquilino primeiro. Saia e faça login com uma conta de usuário diferente do AD do Azure. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - Ocorreu um erro quando o serviço tentou processar uma mensagem do WS-Federation. A mensagem não é válida. |
 | AADSTS90082 | OrgIdWsFederationNotSupported - A política de autenticação selecionada para a solicitação não é atualmente suportada. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed - Contas de convidado não são permitidas para este site. |

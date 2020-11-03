@@ -1,18 +1,18 @@
 ---
 title: Data Encryption-portal do Azure-banco de dados do Azure para MySQL
 description: Saiba como configurar e gerenciar a criptografia de dados para o banco de dado do Azure para MySQL usando o portal do Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 201459f4a7d2d23b384435493d6272e569698933
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dfc34699bb973dc1f5b74807043e9f208d64f4c
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887169"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242140"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Criptografia de dados para o Azure Database para MySQL usando o portal do Azure
 
@@ -42,15 +42,15 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões corretas para operações de chave
 
-1. Em Key Vault, selecione **políticas de acesso**  >  **Adicionar política de acesso**.
+1. Em Key Vault, selecione **políticas de acesso**  >  **Adicionar política de acesso** .
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado":::
 
-2. Selecione **permissões de chave**e selecione **obter**, **encapsular**, **desencapsular**e a **entidade de segurança**, que é o nome do servidor MySQL. Se a entidade de segurança do servidor não puder ser encontrada na lista de entidades de segurança existentes, você precisará registrá-la. Você será solicitado a registrar a entidade de segurança do servidor ao tentar configurar a criptografia de dados pela primeira vez e ela falhará.
+2. Selecione **permissões de chave** e selecione **obter** , **encapsular** , **desencapsular** e a **entidade de segurança** , que é o nome do servidor MySQL. Se a entidade de segurança do servidor não puder ser encontrada na lista de entidades de segurança existentes, você precisará registrá-la. Você será solicitado a registrar a entidade de segurança do servidor ao tentar configurar a criptografia de dados pela primeira vez e ela falhará.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado":::
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar** .
 
 ## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Definir a criptografia de dados para o Azure Database para MySQL
 
@@ -62,7 +62,7 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado":::
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar** .
 
 4. Para garantir que todos os arquivos (incluindo arquivos temporários) sejam totalmente criptografados, reinicie o servidor.
 
@@ -70,11 +70,11 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 
 Depois que o Banco de Dados do Azure para MySQL é criptografado com uma chave gerenciada pelo cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é criptografada. Você pode fazer essa nova cópia por meio de uma operação local ou de restauração geográfica, ou por meio de uma operação de réplica (local/entre regiões). Portanto, para um servidor MySQL criptografado, você pode usar as etapas a seguir para criar um servidor restaurado criptografado.
 
-1. No servidor, selecione **visão geral**  >  **restaurar**.
+1. No servidor, selecione **visão geral**  >  **restaurar** .
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado":::
 
-   Ou para um servidor habilitado para replicação, no cabeçalho **configurações** , selecione **replicação**.
+   Ou para um servidor habilitado para replicação, no cabeçalho **configurações** , selecione **replicação** .
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado":::
 
@@ -82,10 +82,10 @@ Depois que o Banco de Dados do Azure para MySQL é criptografado com uma chave g
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado":::
 
-3. Para tornar o servidor acessível, revalide a chave no servidor restaurado. Selecione **Data encryption**a  >  **chave de revalidação**de criptografia de dados.
+3. Para tornar o servidor acessível, revalide a chave no servidor restaurado. Selecione **Data encryption** a  >  **chave de revalidação** de criptografia de dados.
 
    > [!NOTE]
-   > A primeira tentativa de revalidação falhará, pois a entidade de serviço do novo servidor precisa receber acesso ao cofre de chaves. Para gerar a entidade de serviço, selecione **chave de revalidação**, que mostrará um erro, mas gerará a entidade de serviço. Depois disso, consulte [estas etapas](#set-the-right-permissions-for-key-operations) anteriormente neste artigo.
+   > A primeira tentativa de revalidação falhará, pois a entidade de serviço do novo servidor precisa receber acesso ao cofre de chaves. Para gerar a entidade de serviço, selecione **chave de revalidação** , que mostrará um erro, mas gerará a entidade de serviço. Depois disso, consulte [estas etapas](#set-the-right-permissions-for-key-operations) anteriormente neste artigo.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Captura de tela de Key Vault, com políticas de acesso e adicionar política de acesso realçado":::
 

@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 4c2900ed5ebe0df3ed827acc1a16caff3beaf4d4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026489"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241082"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância do gêmeos digital do Azure para uma região diferente do Azure
 
@@ -80,9 +80,8 @@ Navegue até o exemplo aqui: [Gerenciador de gêmeos digital do Azure (ADT)](/sa
 
 Em seguida, configure e configure permissões para o ADT Explorer. Para fazer isso, siga as instruções na seção [*Configurar o gêmeos do Azure digital e o ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) do guia de início rápido do gêmeos do Azure digital. Esta seção orienta você pelas seguintes etapas:
 1. Configurar uma instância do gêmeos digital do Azure (você pode ignorar essa parte porque já tem uma instância)
-2. Configurar um **registro de aplicativo do Azure ad** para fornecer acesso à sua instância
-3. Configurar permissões para o ADT Explorer ser executado em seu computador
-4. Execute o ADT Explorer e configure-o para se conectar à sua instância. Você usará o **nome do host** da instância do Azure digital gêmeos original que está movendo e a **ID do cliente** e a **ID do locatário** do registro do aplicativo.
+2. Configurar credenciais locais do Azure para fornecer acesso à sua instância
+3. Execute o ADT Explorer e configure-o para se conectar à sua instância. Você usará o **nome do host** da instância do Azure digital gêmeos original que está sendo movida.
 
 Agora você deve ter o aplicativo de exemplo do ADT Explorer em execução em um navegador em seu computador. O exemplo deve ser conectado à instância original do Azure digital gêmeos.
 
@@ -137,7 +136,7 @@ Atualmente, o ADT Explorer está conectado à instância original do Azure digit
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de ADT Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Você pode reutilizar o mesmo registro de aplicativo, portanto, você só precisa substituir a *URL ADT* para refletir a nova instância. Altere esse valor para que ele leia *https://{nova instância hostname}* .
+Substitua a *URL ADT* para refletir sua nova instância. Altere esse valor para que ele leia *https://{nova instância hostname}* .
 
 Clique em *conectar* . Você pode ser solicitado a fazer logon novamente com suas credenciais do Azure e/ou conceder a este consentimento de aplicativo para sua instância.
 
@@ -210,6 +209,7 @@ Os recursos exatos que você precisa editar dependem do seu cenário, mas aqui e
 * Mapas do Azure
 * Serviço de provisionamento de dispositivos (DPS)
 * Aplicativos pessoais ou da empresa fora do Azure, como o **aplicativo cliente** criado no [*tutorial: codificar um aplicativo cliente*](tutorial-code.md), que se conecta à instância e chamar as APIs do Azure digital gêmeos
+* Os registros de aplicativo do Azure AD **não precisam** ser recriados. Se você estiver usando um [registro de aplicativo](how-to-create-app-registration.md) para se conectar às APIs do gêmeos digital do Azure, poderá reutilizar o mesmo registro de aplicativo com sua nova instância.
 
 Depois de concluir essa etapa, sua nova instância na região de destino deverá ser uma cópia da instância original.
 

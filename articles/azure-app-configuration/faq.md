@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074950"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242102"
 ---
 # <a name="azure-app-configuration-faq"></a>Perguntas frequentes sobre configuração do Azure App
 
@@ -86,16 +86,16 @@ As duas camadas de configuração de aplicativo oferecem a funcionalidade básic
 
 Veja a seguir as considerações para escolher uma camada.
 
-- **Recursos por assinatura**: um recurso consiste em um único repositório de configuração. Cada assinatura é limitada a um repositório de configuração na camada gratuita. As assinaturas podem ter um número ilimitado de repositórios de configuração na camada Standard.
-- **Armazenamento por recurso**: na camada gratuita, cada repositório de configuração é limitado a 10 MB de armazenamento. Na camada Standard, cada repositório de configuração pode usar até 1 GB de armazenamento.
-- **Histórico de chaves**: a configuração de aplicativo armazena um histórico de todas as alterações feitas nas chaves. Na camada gratuita, esse histórico é armazenado por sete dias. Na camada Standard, esse histórico é armazenado por 30 dias.
-- **Solicitações por dia**: os repositórios de camada gratuita são limitados a 1.000 solicitações por dia. Depois que uma loja atingir 1.000 solicitações, ele retornará o código de status HTTP 429 para todas as solicitações até a meia-noite UTC.
+- **Recursos por assinatura** : um recurso consiste em um único repositório de configuração. Cada assinatura é limitada a um repositório de configuração na camada gratuita. As assinaturas podem ter um número ilimitado de repositórios de configuração na camada Standard.
+- **Armazenamento por recurso** : na camada gratuita, cada repositório de configuração é limitado a 10 MB de armazenamento. Na camada Standard, cada repositório de configuração pode usar até 1 GB de armazenamento.
+- **Histórico de revisão** : a configuração de aplicativo armazena um histórico de todas as alterações feitas nas chaves. Na camada gratuita, esse histórico é armazenado por sete dias. Na camada Standard, esse histórico é armazenado por 30 dias.
+- **Cota de solicitações** : os repositórios de camada gratuita são limitados a 1.000 solicitações por dia. Quando um repositório alcança 1.000 solicitações, ele retorna o código de status HTTP 429 para todas as solicitações até a meia-noite UTC.
 
-    Para repositórios de camada Standard, as primeiras 200.000 solicitações por dia são incluídas no encargo diário. Solicitações adicionais são cobradas como excedentes.
+    Os armazenamentos de camada standard são limitados a 20.000 solicitações por hora. Quando a cota é esgotada, o código de status HTTP 429 é retornado para todas as solicitações até o fim da hora.
 
-- **Contrato de nível de serviço**: a camada Standard tem um SLA de 99,9% de disponibilidade. A camada gratuita não tem um SLA.
-- **Recursos de segurança**: ambas as camadas incluem funcionalidade de segurança básica, incluindo criptografia com chaves gerenciadas pela Microsoft, autenticação por meio de HMAC ou Azure Active Directory, suporte RBAC do Azure e identidade gerenciada. A camada Standard oferece funcionalidade de segurança mais avançada, incluindo suporte a link privado e criptografia com chaves gerenciadas pelo cliente.
-- **Custo**: os armazenamentos de camada Standard têm um encargo de uso diário. Há também um encargo excedente para solicitações após a alocação diária. Não há nenhum custo para usar um armazenamento de camada gratuita.
+- **Contrato de nível de serviço** : a camada Standard tem um SLA de 99,9% de disponibilidade. A camada gratuita não tem um SLA.
+- **Recursos de segurança** : ambas as camadas incluem funcionalidade de segurança básica, incluindo criptografia com chaves gerenciadas pela Microsoft, autenticação por meio de HMAC ou Azure Active Directory, suporte do RBAC do Azure, identidade gerenciada e marcas de serviço. A camada Standard oferece funcionalidade de segurança mais avançada, incluindo suporte a link privado e criptografia com chaves gerenciadas pelo cliente.
+- **Custo** : os armazenamentos de camada Standard têm um encargo de uso diário. As primeiras 200.000 solicitações por dia são incluídas na cobrança diária. Há também um encargo excedente para solicitações após a alocação diária. Não há nenhum custo para usar um armazenamento de camada gratuita.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Posso atualizar um armazenamento da camada gratuita para a camada Standard? Posso fazer downgrade de um armazenamento da camada Standard para a camada gratuita?
 
@@ -111,7 +111,7 @@ Quando um repositório atingir seu limite, ele retornará o código de status HT
 
 Se seu aplicativo experimenta regularmente as respostas do código de status HTTP 429, considere recriá-lo para reduzir o número de solicitações feitas. Para obter mais informações, consulte [reduzir solicitações feitas à configuração do aplicativo](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
 
-## <a name="my-application-receives-http-status-code-429-responses-why"></a>Meu aplicativo recebe respostas de código de status HTTP 429. Por que?
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>Meu aplicativo recebe respostas de código de status HTTP 429. Por quê?
 
 Você receberá uma resposta de código de status HTTP 429 nessas circunstâncias:
 

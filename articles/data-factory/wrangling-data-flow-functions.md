@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636112"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233943"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação no fluxo de dados Wrangling
 
@@ -25,7 +25,7 @@ O fluxo de dados do Wrangling no Azure Data Factory permite que você faça a pr
 
 Atualmente, não há suporte para todas as funções Power Query M para Wrangling de dados, apesar de estarem disponíveis durante a criação. Ao criar os fluxos de dados do Wrangling, a seguinte mensagem de erro será exibida se não houver suporte para uma função:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 Abaixo está uma lista de funções de Power Query M com suporte.
 
@@ -76,7 +76,7 @@ As seguintes funções M adicionam ou transformam colunas: [Table. AddColumn](/p
 
 Use [Table. Group](/powerquery-m/table-group) para agregar valores.
 * Deve ser usado com uma função de agregação
-* Funções de agregação com suporte:   [tabela. RowCount](/powerquery-m/table-rowcount),   [lista. soma](/powerquery-m/list-sum),   [lista. contagem](/powerquery-m/list-count),   [lista. média](/powerquery-m/list-average),   [lista. mín](/powerquery-m/list-min).,   [lista. máx](/powerquery-m/list-max).   [lista. i](/powerquery-m/list-standarddeviation), lista.   [primeiro](/powerquery-m/list-first), lista   [. último](/powerquery-m/list-last)
+* Funções de agregação com suporte:   [lista. soma](/powerquery-m/list-sum),   [lista. contagem](/powerquery-m/list-count),   [lista. média](/powerquery-m/list-average),   [lista. mín](/powerquery-m/list-min).,   [lista. máx](/powerquery-m/list-max).,   [lista. i](/powerquery-m/list-standarddeviation), lista.   [primeiro](/powerquery-m/list-first),   [lista. último](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Classificação
 
@@ -96,7 +96,7 @@ Manter e remover Top, manter o intervalo (funções de M correspondentes, soment
 | Table.NestedJoin | Apenas fazer uma junção resultará em um erro de validação. As colunas devem ser expandidas para que funcionem. |
 | Table.Distinct | Não há suporte para a remoção de linhas duplicadas. |
 | Table.RemoveLastN | Não há suporte para remover linhas inferiores. |
-| Table.RowCount | Sem suporte, mas pode ser obtido com a adição de uma coluna com todas as células vazia (a coluna de condição pode ser usada) e, em seguida, o uso de Group by nessa coluna. Table. Group tem suporte. | 
+| Table.RowCount | Sem suporte, mas pode ser obtido com a adição de uma coluna personalizada contendo o valor 1 e, em seguida, a agregação dessa coluna com list. Sum. Table. Group tem suporte. | 
 | Tratamento de erros em nível de linha | No momento, não há suporte para o tratamento de erros em nível de linha. Por exemplo, para filtrar valores não numéricos de uma coluna, uma abordagem seria transformar a coluna de texto em um número. Todas as células que não forem transformadas na transformação estarão em um estado de erro e precisarão ser filtradas. Esse cenário não é possível no fluxo de dados Wrangling. |
 | Table.Transpose | Sem suporte |
 | Table.Pivot | Sem suporte |
