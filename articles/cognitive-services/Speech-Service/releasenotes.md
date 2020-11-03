@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: eb285f7ef536ac19d0ea7328a4428f33a47cd368
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e22400016eae0642c4e25fcfd4fcaaaab22a27a8
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129619"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280580"
 ---
 # <a name="speech-service-release-notes"></a>Notas de versão do Serviço de Fala
 
@@ -41,7 +41,7 @@ O SPX é a interface de linha de comando para usar o serviço de fala do Azure s
 https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
 -  **C++/c #/Java/Python/Objective-C/Swift** : adicionou um `stopSpeakingAsync()` método para parar a síntese de conversão de texto em fala. Leia a documentação de referência [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [aqui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [aqui (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java** : adicionou uma `FromDialogServiceConnector()` função à `Connection` classe que pode ser usada para monitorar eventos de conexão e desconexão para o `DialogServiceConnector` . Leia a documentação de referência [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)e [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
-- **C++/c #/Java/Python/Objective-C/Swift** : suporte adicionado para avaliação de pronúncia, que avalia a pronúncia de fala e fornece comentários de alto-fala sobre a precisão e fluência de áudio falado. Leia a documentação [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment).
+<!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
 
 **Correções de bugs**
 - **Todos** : regressão de 1,13 corrigido em `SetServiceProperty` onde os valores com determinados caracteres especiais foram ignorados.
@@ -64,7 +64,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 **Amostras**
 - **ObjectiveC** : foi adicionada uma amostra para reconhecimento de palavra-chave [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples).
 - **C#/JavaScript** : foi adicionado o guia de início rápido para a transcrição de conversa [aqui (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) e [aqui (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
-- **C++/c #/Java/Python/Swift/ObjectiveC** : foi adicionada uma amostra para avaliação de pronúncia [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples)
+<!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
 - **Xamarin** : guia de início rápido atualizado para o modelo do Visual Studio mais recente [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
 
 **Problema Conhecido**
@@ -78,11 +78,11 @@ Mantenha-se íntegro!
 
 ### <a name="new-features"></a>Novos recursos
 
-* **TTS de neural: novo estilo de fala para `en-US` Voz do Aria** . AriaNeural pode parecer um elenco de notícias ao ler notícias. O estilo ' newscast-formal ' parece mais sério, enquanto o estilo ' newscast-casual ' é mais relaxado e informal. Veja [como usar os estilos de fala em SSML](speech-synthesis-markup.md).
+* **TTS de neural: novo estilo de fala para `en-US` Voz do Aria**. AriaNeural pode parecer um elenco de notícias ao ler notícias. O estilo ' newscast-formal ' parece mais sério, enquanto o estilo ' newscast-casual ' é mais relaxado e informal. Veja [como usar os estilos de fala em SSML](speech-synthesis-markup.md).
 
-* **Voz personalizada: um novo recurso é liberado para verificar automaticamente a qualidade dos dados de treinamento** . Quando você carregar seus dados, o sistema examinará vários aspectos de seus dados de áudio e transcrição e corrigirá ou filtrará automaticamente os problemas para melhorar a qualidade do modelo de voz. Isso abrange o volume de áudio, o nível de ruído, a precisão da pronúncia da fala, o alinhamento da fala com o texto normalizado, silêncio no áudio, além do formato de áudio e de script. 
+* **Voz personalizada: um novo recurso é liberado para verificar automaticamente a qualidade dos dados de treinamento**. Quando você carregar seus dados, o sistema examinará vários aspectos de seus dados de áudio e transcrição e corrigirá ou filtrará automaticamente os problemas para melhorar a qualidade do modelo de voz. Isso abrange o volume de áudio, o nível de ruído, a precisão da pronúncia da fala, o alinhamento da fala com o texto normalizado, silêncio no áudio, além do formato de áudio e de script. 
 
-* **Criação de conteúdo de áudio: um conjunto de novos recursos para habilitar o ajuste de voz mais poderoso e recursos de gerenciamento de áudio** .
+* **Criação de conteúdo de áudio: um conjunto de novos recursos para habilitar o ajuste de voz mais poderoso e recursos de gerenciamento de áudio**.
 
     * Pronúncia: o recurso de ajuste de pronúncia é atualizado para o conjunto mais recente de fonema. Você pode escolher o elemento fonema correto da biblioteca e refinar a pronúncia das palavras selecionadas. 
 
@@ -92,7 +92,7 @@ Mantenha-se íntegro!
 
     * Documentação do SSML: vinculada ao documento SSML para ajudá-lo a verificar as regras de como usar todos os recursos de ajuste.
 
-* **A API de lista de voz é atualizada para incluir um nome de exibição amigável e os estilos de fala com suporte para vozes neurais** .
+* **A API de lista de voz é atualizada para incluir um nome de exibição amigável e os estilos de fala com suporte para vozes neurais**.
 
 ### <a name="general-tts-voice-quality-improvements"></a>Melhorias gerais de qualidade de voz TTS
 

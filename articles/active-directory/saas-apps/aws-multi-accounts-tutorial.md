@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS) para conectar várias contas | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure AD e o Amazon Web Services (AWS) (tutorial herdado).
+description: Saiba como configurar o logon único entre o Azure AD e a AWS (Amazon Web Services) (Tutorial Herdado).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -8,19 +8,19 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
-ms.date: 08/07/2020
+ms.topic: tutorial
+ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 24814ede954980e3a9fc3c3ba60546cedad4e8fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713436"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457428"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: integração do Azure Active Directory com o Amazon Web Services (AWS) (tutorial herdado)
+# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Active Directory com a AWS (Amazon Web Services) (Tutorial Herdado)
 
-Neste tutorial, você aprenderá a integrar o Azure Active Directory (Azure AD) ao Amazon Web Services (AWS) (tutorial herdado).
+Neste tutorial, você aprenderá a integrar o Azure AD (Azure Active Directory) com a AWS (Amazon Web Services) (Tutorial Herdado).
 
 A integração do AWS (Amazon Web Services) ao Azure AD oferece os seguintes benefícios:
 
@@ -28,16 +28,14 @@ A integração do AWS (Amazon Web Services) ao Azure AD oferece os seguintes ben
 - Você pode habilitar seus usuários a fazerem logon automaticamente no AWS (Amazon Web Services) (logon único) com suas contas do Microsoft Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
-![O diagrama mostra o Azure A D com um aplicativo W S conectado a três contas W S por meio de I D P iniciado S S.](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+![AWS (Amazon Web Services) na lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Observe que conectar um aplicativo da AWS a todas as suas contas da AWS não é nossa abordagem recomendada. Em vez disso, recomendamos que você use [essa](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem para configurar várias instâncias da conta da AWS para Várias instâncias de aplicativos da AWS no Azure AD. Você só deve usar essa abordagem se tiver poucas contas e funções do AWS, esse modelo não será escalonável, pois as contas e funções do AWS dentro dessas contas crescem. Essa abordagem não usa a funcionalidade de importação de função AWS usando o provisionamento de usuário do Azure AD, portanto, você precisa adicionar/atualizar/excluir manualmente as funções. Para obter outras limitações sobre essa abordagem, consulte os detalhes abaixo.
+> Observe que conectar um aplicativo da AWS a todas as suas contas da AWS não é nossa abordagem recomendada. Em vez disso, recomendamos que você use [essa](./amazon-web-service-tutorial.md) abordagem para configurar várias instâncias da conta da AWS para Várias instâncias de aplicativos da AWS no Azure AD. Você só deverá usar essa abordagem se tiver poucas Contas e Funções da AWS. Esse modelo não é escalonável, pois as contas e funções da AWS nessas contas crescem. Essa abordagem não usa a funcionalidade de importação de Função da AWS com o Provisionamento de Usuário do Azure AD, portanto, você precisa adicionar/atualizar/excluir manualmente as funções. Para obter outras limitações sobre essa abordagem, confira os detalhes abaixo.
 
 **Tenha em atenção que não recomendamos a utilização desta abordagem pelas seguintes razões:**
 
-* Você precisa usar a abordagem do Microsoft Graph Explorer para corrigir todas as funções para o aplicativo. Não recomendamos o uso da abordagem de arquivo de manifesto.
+* Você tem que usar a abordagem do Explorador do Microsoft Graph para aplicar patches em todas as funções do aplicativo. Não recomendamos o uso da abordagem de arquivo de manifesto.
 
 * Vimos clientes relatando que, depois de adicionar ~ 1200 funções de aplicativos para um único aplicativo da AWS, qualquer operação no aplicativo começou a gerar erros relacionados ao tamanho. Há um limite rígido de tamanho no objeto de aplicativo.
 
@@ -65,22 +63,21 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
 * A AWS (Amazon Web Services) dá suporte ao SSO iniciado por **SP e IDP**
-* Depois de configurar Amazon Web Services (AWS), você pode impor o controle de sessão, que protege vazamento e pós-infiltração dos dados confidenciais de sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adicionar o AWS (Amazon Web Services) da galeria
 
 Para configurar a integração do AWS (Amazon Web Services) com o Azure AD, você precisa adicionar o AWS (Amazon Web Services), por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Amazon Web Services (AWS)** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria** , digite **Amazon Web Services (AWS)** na caixa de pesquisa.
 1. Selecione **AWS (Amazon Web Services)** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. Depois que o aplicativo for adicionado, vá para a página **Propriedades** e copie a **ID do objeto**.
+1. Depois que o aplicativo for adicionado, vá para a página **Propriedades** e copie a **ID de Objeto**.
 
-    ![AWS (Amazon Web Services) na lista de resultados](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
+    ![ID de objeto](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar o SSO do Azure AD
 
@@ -90,7 +87,7 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário do AWS 
 
 No Amazon Web Services (AWS), atribua o valor do **nome de usuário** no Microsoft Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
-Para configurar e testar o logon único do Azure AD com o AWS (Amazon Web Services), você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com a AWS (Amazon Web Services), execute as seguintes etapas:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único da AWS (Amazon Web Services)](#configure-amazon-web-services-aws-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
@@ -102,25 +99,25 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 **Para configurar o logon único do Azure AD com o AWS (Amazon Web Services), execute as seguintes etapas:**
 
-1. 758405No [Portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Amazon Web Services (AWS)**, selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **AWS (Amazon Web Services)** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **configuração básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está previamente integrado ao Azure e clica em **salvar**.
+4. Na seção **Configuração Básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure, basta clicar em **Salvar**.
 
-5. Aplicativo Amazon Web Services (AWS) espera as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **configurar Sign-On único com SAML** , clique no botão **Editar** para abrir **atributos de usuário &** caixa de diálogo declarações.
+5. Aplicativo Amazon Web Services (AWS) espera as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **User Attributes & Claims**.
 
-    ![Captura de tela mostra atributos de usuário com o controle de edição chamado out.](common/edit-attribute.png)
+    ![Captura de tela que mostra Atributos do Usuário com o controle de edição em destaque.](common/edit-attribute.png)
 
-6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
+6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário** , configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
 
     | Nome  | Atributo de Origem  | Namespace |
     | --------------- | --------------- | --------------- |
@@ -130,23 +127,23 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![Captura de tela mostra declarações de usuário com Adicionar nova declaração e salvar chamada.](common/new-save-attribute.png)
+    ![Captura de tela que mostra Declarações do usuário com Adicionar nova declaração e Salvar em destaque.](common/new-save-attribute.png)
 
-    ![A captura de tela mostra gerenciar declarações de usuário, onde você pode inserir os valores descritos nesta etapa.](common/new-attribute-details.png)
+    ![Captura de tela que mostra Gerenciar declarações do usuário, em que você pode inserir os valores descritos nesta etapa.](common/new-attribute-details.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Na caixa de texto **namespace** , digite o valor do namespace mostrado para essa linha.
+    c. Na caixa de texto **Namespace** , digite o valor de namespace mostrado para essa linha.
 
     d. Escolha Origem como **Atributo**.
 
-    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
+    e. Na lista **Atributo de origem** , digite o valor do atributo mostrado para essa linha.
 
     f. Clique em **Ok**
 
     g. Clique em **Save** (Salvar).
 
-7. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
+7. Na página **Configurar logon único com SAML** , na seção **Certificado de assinatura SAML** , clique em **Download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -162,7 +159,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurar identidade de logon único][12]
 
-1. Clique em **Provedores de identidade**, e, em seguida, clique em **Criar provedor**.
+1. Clique em **Provedores de identidade** , e, em seguida, clique em **Criar provedor**.
 
     ![Configurar provedor de logon único][13]
 
@@ -170,15 +167,15 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurar diálogo logon único][14]
 
-    a. Como **Tipo de provedor**, selecione **SAML**.
+    a. Como **Tipo de provedor** , selecione **SAML**.
 
-    b. Na caixa de texto **Nome do provedor**, digite um nome de provedor (por exemplo: *WAAD*).
+    b. Na caixa de texto **Nome do provedor** , digite um nome de provedor (por exemplo: *WAAD* ).
 
     c. Para carregar seu **arquivo de metadados** baixado do Portal do Azure, clique em **Escolher Arquivo**.
 
     d. Clique em **Próxima etapa**.
 
-1. Na página de diálogo **Verificar informações do provedor**, clique em **Criar**.
+1. Na página de diálogo **Verificar informações do provedor** , clique em **Criar**.
 
     ![Configurar verificação de logon único][15]
 
@@ -186,84 +183,87 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Configurar funções de logon único][16]
 
-1. Na página **Criar função**, realize as seguintes etapas:  
+    > [!NOTE]
+    > O comprimento combinado total do ARN da função e do ARN do provedor SAML para uma função que está sendo importada precisa ser de até 240 caracteres.
+
+1. Na página **Criar função** , realize as seguintes etapas:  
 
     ![Configurar confiança de logon único][19]
 
     a. Selecione **Federação do SAML 2.0** em **Selecionar tipo de entidade confiável**.
 
-    b. Em **Escolher uma seção do provedor do SAML 2.0**, selecione o **provedor do SAML** criado anteriormente (por exemplo: *WAAD*)
+    b. Em **Escolher uma seção do provedor do SAML 2.0** , selecione o **provedor do SAML** criado anteriormente (por exemplo: *WAAD* )
 
     c. Selecione **Permitir acesso do Console de Gerenciamento do AWS e programação**.
   
     d. Clique em **Próximo: Permissões**.
 
-1. Pesquise o **acesso de administrador** na barra de pesquisa e marque a caixa de seleção **AdministratorAccess** e clique em **Avançar: marcas**.
+1. Pesquise **Acesso de Administrador** na barra de pesquisa, marque a caixa de seleção **AdministratorAccess** e clique em **Avançar: Marcas**.
 
-    ![Captura de tela mostra AdministratorAccess selecionado como um nome de política.](./media/aws-multi-accounts-tutorial/administrator-access.png)
+    ![A captura de tela mostra AdministratorAccess selecionado como um nome de Política.](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
-1. Na seção **Adicionar marcas (opcional)** , execute as seguintes etapas:
+1. Na seção **Adicionar marcações (opcional)** , realize as seguintes etapas:
 
-    ![Captura de tela mostra o painel Adicionar marcas, onde você pode adicionar pares chave-valor.](./media/aws-multi-accounts-tutorial/config2.png)
+    ![Adicionar marcas](./media/aws-multi-accounts-tutorial/config2.png)
 
-    a. Na caixa de texto **chave** , insira o nome da chave para ex: Azureadtest.
+    a. Na caixa de texto **Chave** , insira o nome da chave, por exemplo: Azureadtest.
 
-    b. Na caixa de texto **valor (opcional)** , insira o valor da chave usando o formato a seguir `accountname-aws-admin` . O nome da conta deve estar em letras minúsculas.
+    b. Na caixa de texto **Valor (opcional)** , insira o valor da chave usando o formato `accountname-aws-admin` a seguir. O nome da conta deve estar em letras minúsculas.
 
-    c. Clique em **Avançar: examinar**.
+    c. Clique em **avançar: Análise**.
 
 1. Na caixa de diálogo **Examinar** , execute as seguintes etapas:
 
     ![Configurar revisão de logon único][34]
 
-    a. Na caixa de texto **nome da função** , insira o valor no padrão a seguir `accountname-aws-admin` .
+    a. Na caixa de texto **Nome da função** , insira o valor no padrão `accountname-aws-admin` a seguir.
 
-    b. Na caixa de texto **Descrição da função** , insira o mesmo valor que você usou para o nome da função.
+    b. Na caixa de texto **Descrição da função** , insira o mesmo valor que você usou no nome da função.
 
     c. Clique em **Criar função**.
 
     d. Crie quantas funções forem necessárias e mapeie-as para o Provedor de Identidade.
 
     > [!NOTE]
-    > Da mesma forma, crie outras funções restantes como AccountName-Finance-admin, AccountName-Read-Only-User, AccountName-DevOps-User, AccountName-TPM-user com políticas diferentes a serem anexadas. Posteriormente, essas políticas de função podem ser alteradas de acordo com os requisitos por conta AWS, mas seu sempre melhor para manter as mesmas políticas para cada função nas contas de AWS.
+    > De modo semelhante, crie outras funções restantes como accountname-finance-admin, accountname-read-only-user, accountname-devops-user, accountname-tpm-user com políticas diferentes a serem anexadas. Posteriormente, essas políticas de função podem ser alteradas de acordo com os requisitos por conta da AWS, mas é sempre melhor manter as mesmas políticas para cada função nas contas da AWS.
 
-1. Anote a ID da conta para essa conta do AWS de propriedades do EC2 ou do painel IAM, conforme destacado abaixo:
+1. Anote a ID da conta dessa conta da AWS nas propriedades do EC2 ou no painel do IAM, conforme destacado abaixo:
 
-    ![A captura de tela mostra onde a conta que D aparece na janela A S.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
+    ![A captura de tela mostra onde a ID da conta aparece na janela da AWS.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. Agora, entre no [portal do Azure](https://portal.azure.com/) e navegue até **grupos**.
+1. Agora, entre no [portal do Azure](https://portal.azure.com/) e navegue até **Grupos**.
 
-1. Crie novos grupos com o mesmo nome que as funções IAM criadas anteriormente e anote as IDs de **objeto** desses novos grupos.
+1. Crie grupos com o mesmo nome que as Funções do IAM criadas anteriormente e anote as **IDs de Objeto** desses novos grupos.
 
-    ![Captura de tela mostra onde inserir a conta que D no painel Visão geral. ](./media/aws-multi-accounts-tutorial/copy-objectids.png)
+    ![Selecione Acesso de Administrador1](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
 1. Saia da atual conta AWS e faça logon com outra conta em que você deseja configurar o logon único com o Microsoft Azure AD.
 
 1. Depois que todas as funções são criadas nas contas, elas aparecem na lista **Funções** para essas contas.
 
-    ![Captura de tela mostra a lista de funções com nome de função, descrição e entidades confiáveis.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
+    ![A captura de tela mostra a lista de Funções com nome de Função, Descrição e Entidades confiáveis.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
 
 1. É necessário capturar todas as Funções ARN e Entidades Confiáveis para todas as funções através de todas as contas, que pode ser necessário mapear manualmente com o aplicativo Microsoft Azure AD.
 
 1. Clique nas funções para copiar os valores da **Função ARN** e das **Entidades Confiáveis**. Esses valores são necessários para todas as funções que você precisa criar no Microsoft Azure AD.
 
-    ![Captura de tela mostra o painel Resumo com a guia relações de confiança selecionada.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
+    ![Configuração de funções2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
 
 1. Execute a etapa acima para todas as funções em todas as contas e armazene todas elas em formato **de Função ARN, Entidades Confiáveis** em um bloco de notas.
 
-1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
+1. Abra o [Explorador do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
 
-    a. Entre no site do Microsoft Graph Explorer usando as credenciais de administrador global/coadministrador para seu locatário.
+    a. Entre no site do Explorador do Microsoft Graph usando as credenciais de Administrador/Coadministrador Globais do locatário.
 
     b. Você precisa ter permissões suficientes para criar as funções. Clique em **modificar permissões** para obter as permissões necessárias.
 
-    ![Captura de tela mostra a janela de autenticação do Gerenciador de gráficos com um link modificar permissões.](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+    ![Caixa de diálogo do Explorador do Microsoft Graph1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
     c. Selecione as permissões da lista (se você já não tiver) a seguir e clique em "Modificar Permissões" 
 
-    ![A captura de tela mostra três permissões selecionadas: Directory. AccessAsUser. All, diretório. Read. All e Directory. ReadWrite. All.](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+    ![Caixa de diálogo do Explorador do Microsoft Graph2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. Isso pedirá para fazer logon novamente e aceitar o consentimento. Depois de aceitar o consentimento, você será conectado ao Microsoft Graph Explorer novamente.
+    d. Isso pedirá para fazer logon novamente e aceitar o consentimento. Depois de aceitar o consentimento, você estará logado no Explorador do Microsoft Graph novamente.
 
     e. Alterar a lista suspensa de versão para **beta**. Para buscar todos as Entidades de Serviço a partir do seu locatário, use a consulta a seguir:
 
@@ -271,17 +271,17 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     Se você estiver usando vários diretórios, você poderá usar o padrão a seguir, que tem o seu domínio primário nele `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Captura de tela mostra a consulta GET, beta e Run selecionada.](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-
-    f. Da lista de Entidades de Serviço buscada, obtenha o que é necessário modificar. Você também pode usar o Ctrl+F para pesquisar o aplicativo de todos os ServicePrincipals listados. Você pode usar a consulta a seguir usando a **ID de objeto da entidade de serviço** que você copiou da página de propriedades do Azure ad para obter a respectiva entidade de serviço.
+    ![Caixa de diálogo do Explorador do Microsoft Graph3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+  
+    f. Da lista de Entidades de Serviço buscada, obtenha o que é necessário modificar. Você também pode usar o Ctrl+F para pesquisar o aplicativo de todos os ServicePrincipals listados. Você pode usar a consulta a seguir com a **ID de Objeto da Entidade de Serviço** que você copiou da página Propriedades do Azure AD e usar a consulta a seguir para acessar a respectiva Entidade de Serviço.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    ![A captura de tela mostra o uso da consulta para obter o objeto de entidade de serviço.](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    ![Caixa de diálogo do Explorador do Microsoft Graph4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
     g. Extraia a propriedade appRoles do objeto da entidade de serviço.
 
-    ![Captura de tela mostra detalhes do objeto de entidade de serviço.](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    ![Caixa de diálogo do Explorador do Microsoft Graph5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
     h. Agora, é necessário gerar novas funções para aplicativo. 
 
@@ -327,11 +327,11 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     ```
 
     > [!Note]
-    > Você pode apenas adicionar as novas funções depois do **msiam_access** para a operação de patch. Além disso, você pode adicionar quantas regras quiser de acordo com a necessidade da sua Organização. O Azure AD enviará o **valor** dessas funções como o valor de declaração na resposta SAML.
+    > Você pode apenas adicionar as novas funções depois do **msiam_access** para a operação de patch. Além disso, você pode adicionar quantas regras quiser de acordo com a necessidade da sua Organização. O Microsoft Azure AD enviará o **valor** dessas funções conforme o valor de solicitação na resposta SAML.
 
-    j. Volte para o Microsoft Graph Explorer e altere o método de **Get** para **patch**. Atualize o objeto da Entidade de Serviço para ter as funções desejadas, atualizando a propriedade appRoles semelhante àquela exibida acima no exemplo. Clique em **Executar Consulta** para executar o operação de patch. Uma mensagem confirma a criação da função do seu aplicativo Amazon Web Services.
+    j. Volte ao Explorador do Microsoft Graph e altere o método de **GET** para **PATCH**. Atualize o objeto da Entidade de Serviço para ter as funções desejadas, atualizando a propriedade appRoles semelhante àquela exibida acima no exemplo. Clique em **Executar Consulta** para executar o operação de patch. Uma mensagem confirma a criação da função do seu aplicativo Amazon Web Services.
 
-    ![Captura de tela mostra o Gerenciador de gráficos com o método de patch selecionado.](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Caixa de diálogo do Explorador do Microsoft Graph6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Após a atualização da Entidade de Serviço com mais funções, será possível atribuir Usuários/Grupos às respectivas funções. Isso pode ser feito, acessando o portal e navegando até o aplicativo Amazon Web Services. Clique na guia **Usuários e Grupos** na parte superior.
 
@@ -339,14 +339,14 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 1. Uma vez que os Grupos são criados, selecione o grupo e atribua ao aplicativo.
 
-    ![A captura de tela mostra adicionar atribuição com usuários e grupos selecionados para abrir o painel usuários e grupos.](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+    ![Configurar a adição do logon único1](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
     > [!Note]
     > Grupos aninhados não têm suporte durante a atribuição de grupos.
 
 1. Para atribuir a função ao grupo, selecione a função e clique no botão **Atribuir** na parte inferior da página.
 
-    ![A captura de tela mostra adicionar atribuição com um grupo selecionado.](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+    ![Configurar a adição do logon único2](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
     > [!Note]
     > Observe que você precisa atualizar a sua sessão no Portal do Azure para ver as novas funções.
@@ -357,21 +357,17 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve entrar na página do aplicativo AWS (Amazon Web Services) com a opção para selecionar a função.
 
-![Captura de tela mostra a página do aplicativo W S, onde você pode selecionar uma função.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
+![Testar o logon único1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 Você também pode verificar a resposta SAML para ver as funções sendo passadas como declarações.
 
-![Captura de tela mostra parte de uma resposta SAML com valores de atributo.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
+![Testar o logon único2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Próximas etapas
 
-* [Como configurar o provisionamento usando APIs do MS Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-* [Como proteger a AWS (Amazon Web Services) com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/protect-aws)
+Depois de configurar a AWS (Amazon Web Services), você poderá impor o Controle de Sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 
