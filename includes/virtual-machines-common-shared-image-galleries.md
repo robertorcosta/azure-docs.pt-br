@@ -1,18 +1,17 @@
 ---
 title: incluir arquivo
-description: incluir arquivo
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116776"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897762"
 ---
 A Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno das suas imagens. A Galeria de Imagens Compartilhadas fornece:
 
@@ -46,7 +45,7 @@ O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos:
 
 As definições de imagem são um agrupamento lógico de versões de uma imagem. A definição de imagem retém informações sobre o motivo pelo qual a imagem foi criada, para qual sistema operacional e outras informações sobre como usar a imagem. Uma definição de imagem é como um plano de todos os detalhes sobre a criação de uma imagem específica. Você não implanta uma VM por meio de uma definição de imagem, mas por meio das versões de imagem criadas com base na definição.
 
-Há três parâmetros para cada definição de imagem que são usados em combinação: **Editor**, **Oferta** e **SKU**. Eles são usados para localizar uma definição de imagem específica. Você pode ter versões de imagem que compartilham um ou dois, mas não todos os três valores.  Por exemplo, aqui estão três definições de imagem e seus valores:
+Há três parâmetros para cada definição de imagem que são usados em combinação: **Editor** , **Oferta** e **SKU**. Eles são usados para localizar uma definição de imagem específica. Você pode ter versões de imagem que compartilham um ou dois, mas não todos os três valores.  Por exemplo, aqui estão três definições de imagem e seus valores:
 
 |Definição de imagem|Publicador|Oferta|Sku|
 |---|---|---|---|
@@ -116,7 +115,7 @@ Para obter mais informações, consulte [Verificar o uso de recursos em relaçã
 ## <a name="scaling"></a>Scaling
 A Galeria de Pesquisa de Imagem permite que você especifique o número de réplicas que você deseja que o Azure mantenha das imagens. Isso ajuda em cenários de implantação de várias VMs, já que as implantações de VM podem ser distribuídas para diferentes réplicas, reduzindo a chance de o processamento de criação de instância ser limitado devido à sobrecarga de uma única réplica.
 
-Com a Galeria de Imagens Compartilhadas, agora você pode implantar até 1.000 instâncias de VM em um conjunto de dimensionamento de máquinas virtuais (acima de 600 com imagens gerenciadas). As réplicas de imagem oferecem melhor desempenho, confiabilidade e consistência da implantação.  Você pode definir uma contagem de réplicas diferente em cada região de destino, com base nas necessidades de dimensionamento da região. Como cada réplica é uma cópia em profundidade da sua imagem, isso ajuda a dimensionar as suas implantações linearmente com cada réplica extra. Embora entendamos que não há duas imagens ou regiões iguais, esta é a nossa diretriz geral sobre como usar réplicas em uma região:
+Com a Galeria de Imagens Compartilhadas, agora você pode implantar até 1.000 instâncias de VM em um conjunto de dimensionamento de máquinas virtuais (acima de 600 com imagens gerenciadas). As réplicas de imagem oferecem melhor desempenho, confiabilidade e consistência da implantação.   Você pode definir uma contagem de réplicas diferente em cada região de destino, com base nas necessidades de dimensionamento da região. Como cada réplica é uma cópia em profundidade da sua imagem, isso ajuda a dimensionar as suas implantações linearmente com cada réplica extra. Embora entendamos que não há duas imagens ou regiões iguais, esta é a nossa diretriz geral sobre como usar réplicas em uma região:
 
 - Para implantações que não são de VMSS (Conjunto de Dimensionamento de Máquinas Virtuais) – Para cada 20 VMs que você cria simultaneamente, recomendamos que você mantenha uma réplica. Por exemplo, se você estiver criando 120 VMs simultaneamente usando a mesma imagem em uma região, sugerimos que você mantenha pelo menos seis réplicas da sua imagem. 
 - Para implantações de VMSS (Conjunto de Dimensionamento de Máquinas Virtuais) – Para cada implantação de conjunto de dimensionamento com até 600 instâncias, recomendamos que você mantenha pelo menos uma réplica. Por exemplo, se você estiver criando cinco conjuntos de dimensionamento simultaneamente, cada um com 600 instâncias de VM usando a mesma imagem em uma região, sugerimos que você mantenha pelo menos cinco réplicas da sua imagem. 
@@ -155,8 +154,11 @@ As imagens também podem ser compartilhadas, em escala, mesmo entre locatários 
 
 ## <a name="billing"></a>Cobrança
 Não há custo adicional para usar o serviço de Galeria de Imagens Compartilhadas. Você será cobrado pelos seguintes recursos:
-- Custos de armazenamento do armazenamento das versões de imagem compartilhada. O custo depende do número de réplicas da versão da imagem e do número de regiões para as quais a versão é replicada. Por exemplo, se você tiver duas imagens e ambas forem replicadas para três regiões, você será cobrado por seis discos gerenciados com base no tamanho deles. Para obter mais informações, consulte [Preço do Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Encargos de saída de rede para replicação da primeira versão de imagem da região de origem para as regiões replicadas. As réplicas subsequentes são tratadas dentro da região, portanto, não há encargos adicionais. 
+-   Custos de armazenamento para armazenar cada réplica. O custo de armazenamento é cobrado como um instantâneo e é baseado no tamanho ocupado da versão da imagem, no número de réplicas da versão da imagem e no número de regiões para as quais a versão é replicada. 
+-   Encargos de saída de rede para replicação da primeira versão de imagem da região de origem para as regiões replicadas. As réplicas subsequentes são tratadas dentro da região, portanto, não há encargos adicionais. 
+
+Por exemplo, digamos que você tenha uma imagem de um disco de sistema operacional de 127 GB, que ocupa apenas 10 GB de armazenamento e um disco de dados de 32 GB vazio. O tamanho ocupado de cada imagem seria de apenas 10 GB. A imagem é replicada para três regiões, e cada região tem duas réplicas. Haverá no total seis instantâneos, cada um usando 10 GB. Você será cobrado pelo custo de armazenamento de cada instantâneo com base no tamanho ocupado de 10 GB. Você pagará encargos de saída de rede para que a primeira réplica seja copiada para as duas regiões adicionais. Para obter mais informações sobre os preços de instantâneos em cada região, confira [Preços de discos gerenciados](https://azure.microsoft.com/pricing/details/managed-disks/). Para saber mais sobre saída de rede, confira [Preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## <a name="updating-resources"></a>Atualização de recursos
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6315ca68c8e58c3ba04e616967c233c81fda9b19
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d48d0cbac4e0e8b366170d979be3bbc5dd3064ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038447"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886448"
 ---
 <a name="HOLTop"></a>
 
@@ -39,7 +39,7 @@ Usando o Visual Studio, crie um aplicativo .NET Core.
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes 
 
-Depois de criar um projeto, instale a biblioteca de clientes clicando com o botão direito do mouse na solução do projeto no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**. No gerenciador de pacotes aberto, selecione **Procurar**, marque **Incluir pré-lançamento** e pesquise `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Selecione a versão `6.0.0-preview.1` e, em seguida, **Instalar**. 
+Depois de criar um projeto, instale a biblioteca de clientes clicando com o botão direito do mouse na solução do projeto no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**. No gerenciador de pacotes aberto, selecione **Procurar** , marque **Incluir pré-lançamento** e pesquise `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Selecione a versão `6.0.0-preview.1` e, em seguida, **Instalar**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -133,15 +133,14 @@ Em um novo método, instancie um cliente com o ponto de extremidade e a chave. C
 
 O código a seguir define um método, `AnalyzeImageUrl`, que usa o objeto de cliente para analisar uma imagem remota e imprimir os resultados. O método retorna uma descrição de texto, categorização, lista de marcas, rostos detectados, sinalizadores de conteúdo para adulto, cores principais e tipo de imagem.
 
+> [!TIP]
+> Você também pode analisar uma imagem local. Confira os métodos de [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet), como **AnalyzeImageInStreamAsync**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) para obter cenários que envolvam imagens locais.
 
 ### <a name="set-up-test-image"></a>Configurar imagem de teste
 
-Na classe **Program**, salve uma referência à URL da imagem que deseja analisar.
+Na classe **Program** , salve uma referência à URL da imagem que deseja analisar.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_url)]
-
-> [!NOTE]
-> Você também pode analisar uma imagem local. Confira o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) para obter cenários que envolvem imagens locais.
 
 ### <a name="specify-visual-features"></a>Especificar recursos visuais
 
@@ -233,15 +232,14 @@ O código a seguir imprime informações sobre o tipo de imagem &mdash;, seja cl
 
 A Pesquisa Visual Computacional pode ler um texto visível em uma imagem e convertê-lo em um fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, confira o documento conceitual [OCR (reconhecimento óptico de caracteres)](../../concept-recognizing-text.md#read-api). O código desta seção usa a última versão do [SDK da Pesquisa Visual Computacional para Leitura 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) e define um método, `BatchReadFileUrl`, que usa o objeto de cliente para detectar e extrair um texto na imagem.
 
+> [!TIP]
+> Você também pode extrair um texto de uma imagem local. Confira os métodos de [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet), como **ReadInStreamAsync**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) para obter cenários que envolvam imagens locais.
 
 ### <a name="set-up-test-image"></a>Configurar imagem de teste
 
-Na classe **Program**, salve uma referência à URL da imagem da qual deseja extrair o texto. Este snippet inclui imagens de exemplo de um texto impresso e manuscrito.
+Na classe **Program** , salve uma referência à URL da imagem da qual deseja extrair o texto. Este snippet inclui imagens de exemplo de um texto impresso e manuscrito.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readtext_url)]
-
-> [!NOTE]
-> Você também pode extrair um texto de uma imagem local. Confira o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs) para obter cenários que envolvem imagens locais.
 
 ### <a name="call-the-read-api"></a>Chamar a API de Leitura
 

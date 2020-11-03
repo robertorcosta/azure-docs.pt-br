@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945610"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791861"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
 
@@ -26,8 +26,8 @@ Os alertas de segurança precisam acessar as pessoas certas em sua organização
 
 Para definir suas preferências para emails de notificação, a página de configurações **Notificações por email** da Central de Segurança do Azure permite que você escolha:
 
-- ***quem* deve ser notificado** – os emails podem ser enviados a indivíduos selecionados ou a qualquer pessoa com uma função do Azure especificada para uma assinatura. 
-- ***sobre o que* eles devem ser notificados** – modifique os níveis de severidade para os quais a Central de Segurança deve enviar notificações.
+- **_quem_ deve ser notificado** – os emails podem ser enviados a indivíduos selecionados ou a qualquer pessoa com uma função do Azure especificada para uma assinatura. 
+- **_sobre o que_ eles devem ser notificados** – modifique os níveis de severidade para os quais a Central de Segurança deve enviar notificações.
 
 Para evitar o excesso de alertas, a Central de Segurança limita o volume de emails enviados. Para cada assinatura, a Central de Segurança envia:
 
@@ -62,9 +62,10 @@ Você pode enviar notificações por email a indivíduos ou a todos os usuários
 1. Para aplicar as informações de contato de segurança à sua assinatura, selecione **Salvar**.
 
 
-## <a name="see-also"></a>Confira também
+## <a name="next-steps"></a>Próximas etapas
+
 Para saber mais sobre alertas de segurança, confira as seguintes páginas:
 
 - [Alertas de segurança – um guia de referência](alerts-reference.md): saiba mais sobre os alertas de segurança que você poderá ver no módulo Proteção contra Ameaças da Central de Segurança do Azure
 - [Gerenciar alertas de segurança e responder a eles na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerenciar alertas de segurança e responder a eles
-- [Automação de fluxo de trabalho](workflow-automation.md): automatize respostas para alertas com a lógica de notificação personalizada
+- [Automatizar respostas para gatilhos da Central de Segurança](workflow-automation.md): use automação para responder a gatilhos da Central de Segurança com lógica de notificação personalizada

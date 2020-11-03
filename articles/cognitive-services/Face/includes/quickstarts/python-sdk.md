@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d2935cfac7ca095c918826c47dbf3f1dd2d8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859493"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886450"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -30,35 +30,40 @@ Use a biblioteca de clientes de Detecção Facial para Python para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 3.x](https://www.python.org/)
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
+* [Python 3.x](https://www.python.org/)
 * Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Crie um recurso da Detecção Facial"  target="_blank">crie um recurso da Detecção Facial <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API de Detecção Facial. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
-* Depois de obter uma chave e um ponto de extremidade, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamadas `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
+
 
 ## <a name="setting-up"></a>Configurando
  
+### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
+
+Depois de instalar o Python, você pode instalar a biblioteca de clientes com:
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-face
+```
+
 ### <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
 
-Crie um script do Python&mdash;*quickstart-file.py*, por exemplo. Em seguida, abra-o em seu editor ou IDE preferencial e importe as bibliotecas a seguir.
+Crie um script do Python&mdash;*quickstart-file.py* , por exemplo. Em seguida, abra-o em seu editor ou IDE preferencial e importe as bibliotecas a seguir.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
+
+> [!TIP]
+> Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py), que contém os exemplos de código neste início rápido.
 
 Em seguida, crie variáveis para a chave e o ponto de extremidade do Azure do recurso.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 
-> [!NOTE]
-> Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e recarregar o editor, o IDE ou o shell em execução para acessar a variável.
-
-### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
-
-É possível instalar a biblioteca de clientes com:
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-face
-```
+> [!IMPORTANT]
+> Acesse o portal do Azure. Se o recurso do [Nome do produto] que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Acessar o Recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+>
+> Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -87,9 +92,6 @@ Estes snippets de código mostram como realizar as seguintes tarefas com a bibli
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-> [!NOTE]
-> Este guia de início rápido pressupõe que você já [criou uma variável de ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a chave da Detecção Facial, denominada `FACE_SUBSCRIPTION_KEY`.
-
 Instancie um cliente com o ponto de extremidade e a chave. Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com a sua chave e use-o com o ponto de extremidade para criar um objeto [FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_auth)]
@@ -100,7 +102,8 @@ O código a seguir detecta um rosto em uma imagem remota. Ele imprime a ID do ro
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
-Confira o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) para obter mais cenários de detecção.
+> [!TIP]
+> Também é possível detectar rostos em uma imagem local. Confira os métodos [FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python), como **detect_with_stream**.
 
 ### <a name="display-and-frame-faces"></a>Exibir e enquadrar rostos
 
@@ -154,6 +157,9 @@ O código a seguir classifica as imagens pelo respectivo prefixo, detecta os ros
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_assign)]
 
+> [!TIP]
+> Você também pode criar um **PersonGroup** usando imagens remotas referenciadas pela URL. Confira os métodos de [PersonGroupPersonOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python), como **add_face_from_url**.
+
 ### <a name="train-persongroup"></a>Treinar PersonGroup
 
 Depois de atribuir os rostos, você precisa treinar o **PersonGroup** para que ele possa identificar as características visuais associadas a cada um dos objetos **Person** nele contidos. O código a seguir chama o método **train** assíncrono e sonda o resultado, imprimindo o status no console.
@@ -162,20 +168,20 @@ Depois de atribuir os rostos, você precisa treinar o **PersonGroup** para que e
 
 ## <a name="identify-a-face"></a>Identificar um rosto
 
-A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup**, um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas.
+A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup** , um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas.
 
 > [!IMPORTANT]
 > Para executar este exemplo, você deve primeiro executar o código em [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group).
 
 ### <a name="get-a-test-image"></a>Obter uma imagem de teste
 
-O código a seguir procura na raiz do projeto uma imagem _test-image-person-group.jpg_ e detecta os rostos existentes nela. Você pode encontrar essa imagem junto com aquelas usadas para o gerenciamento do **PersonGroup**: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+O código a seguir procura na raiz do projeto uma imagem _test-image-person-group.jpg_ e detecta os rostos existentes nela. Você pode encontrar essa imagem junto com aquelas usadas para o gerenciamento do **PersonGroup** : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
 ### <a name="identify-faces"></a>Identificar faces em imagem
 
-O método **Identify** usa uma matriz de rostos detectados e os compara a um **PersonGroup**. Se consegue fazer a correspondência entre um rosto detectado e um **Person**, ele salva o resultado. Esse código imprime os resultados de correspondência detalhados no console.
+O método **Identify** usa uma matriz de rostos detectados e os compara a um **PersonGroup**. Se consegue fazer a correspondência entre um rosto detectado e um **Person** , ele salva o resultado. Esse código imprime os resultados de correspondência detalhados no console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 

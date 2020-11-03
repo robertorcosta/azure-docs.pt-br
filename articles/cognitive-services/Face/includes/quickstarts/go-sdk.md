@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859785"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886449"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para Go. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -125,6 +125,9 @@ Adicione o código a seguir ao método **main**. Esse código define uma imagem 
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
 
+> [!TIP]
+> Você também pode detectar rostos em uma imagem local. Confira os métodos de [Cliente](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client), como **DetectWithStream**.
+
 ### <a name="display-detected-face-data"></a>Exibir dados do rosto detectado
 
 O próximo bloco de código usa o primeiro elemento na matriz de objetos **[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)** e imprime os atributos dele no console. Caso tenha usado uma imagem com vários rostos, você deverá iterar a matriz.
@@ -178,9 +181,12 @@ O próximo bloco de código autentica um **[PersonGroupPersonClient](https://god
 
 ### <a name="assign-faces-to-persons"></a>Atribuir rostos a pessoas
 
-O código a seguir classifica as imagens pelo prefixo, detecta rostos e os atribui a cada respectivo objeto **PersonGroup Person**, com base no nome do arquivo de imagem.
+O código a seguir classifica as imagens pelo prefixo, detecta rostos e os atribui a cada respectivo objeto **PersonGroup Person** , com base no nome do arquivo de imagem.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
+
+> [!TIP]
+> Você também pode criar um **PersonGroup** de imagens remotas referenciadas pela URL. Confira os métodos de [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient), como **AddFaceFromURL**.
 
 ### <a name="train-persongroup"></a>Treinar PersonGroup
 
@@ -190,7 +196,7 @@ Depois de atribuir os rostos, treine o **PersonGroup** para que ele possa identi
 
 ## <a name="identify-a-face"></a>Identificar um rosto
 
-A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup**, um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas.
+A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup** , um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas.
 
 > [!IMPORTANT]
 > Para executar este exemplo, você deve primeiro executar o código em [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group).

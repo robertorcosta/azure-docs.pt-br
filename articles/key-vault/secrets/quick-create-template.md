@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: cff67e99d40b092341e89c96a9f1e037d8572248
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690622"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896422"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um modelo do Resource Manager
 
@@ -82,15 +82,15 @@ Encontre mais amostras de modelo do Azure Key Vault nos [Modelos de início ráp
 
     A menos que o valor seja especificado, use o valor padrão para criar o cofre de chaves e um segredo.
 
-    * **Assinatura**: selecione uma assinatura do Azure.
-    * **Grupo de recursos**: selecione **Criar novo**, insira um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK**.
-    * **Local**: selecione um local. Por exemplo, **Centro dos EUA**.
-    * **Nome do Key Vault**: insira um nome para o cofre de chaves, que precisa ser global exclusivo no namespace .vault.azure.net. Você precisará do nome na próxima seção ao validar a implantação.
-    * **ID de Locatário**: a função de modelo recupera automaticamente sua ID de locatário. Não altere o valor padrão.
-    * **ID de Usuário do AD**: insira sua ID de objeto de usuário do Azure AD que recuperou de [Pré-requisitos](#prerequisites).
-    * **Nome do segredo**: insira um nome para o segredo armazenado no cofre de chaves. Por exemplo, **adminpassword**.
-    * **Valor do segredo**: insira o valor do segredo. Se você armazenar uma senha, recomendaremos usar a senha gerada que você criou em Pré-requisitos.
-    * **Concordo com os termos e condições declarados acima**: selecione.
+    * **Assinatura** : selecione uma assinatura do Azure.
+    * **Grupo de recursos** : selecione **Criar novo** , insira um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK**.
+    * **Local** : selecione um local. Por exemplo, **Centro dos EUA**.
+    * **Nome do Key Vault** : insira um nome para o cofre de chaves, que precisa ser global exclusivo no namespace .vault.azure.net. Você precisará do nome na próxima seção ao validar a implantação.
+    * **ID de Locatário** : a função de modelo recupera automaticamente sua ID de locatário. Não altere o valor padrão.
+    * **ID de Usuário do AD** : insira sua ID de objeto de usuário do Azure AD que recuperou de [Pré-requisitos](#prerequisites).
+    * **Nome do segredo** : insira um nome para o segredo armazenado no cofre de chaves. Por exemplo, **adminpassword**.
+    * **Valor do segredo** : insira o valor do segredo. Se você armazenar uma senha, recomendaremos usar a senha gerada que você criou em Pré-requisitos.
+    * **Concordo com os termos e condições declarados acima** : selecione.
 3. Selecione **Comprar**. Depois que o cofre de chaves for implantado com êxito, você receberá uma notificação:
 
     ![Modelo do Resource Manager, integração do Key Vault, notificação do portal de implantação](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
@@ -124,7 +124,7 @@ A saída é semelhante à seguinte:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-![Modelo do Resource Manager, integração do Key Vault, saída de validação do portal de implantação](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Captura de tela que mostra a saída de validação do portal de implantação na CLI.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

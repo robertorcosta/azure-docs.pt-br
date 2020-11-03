@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/15/2019
 ms.author: cavoeg
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4816b73d958162979663715ed882243036c711a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b09a72538dd7a6886811b9a23c915316627da093
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221053"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339434"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-cli"></a>Início Rápido: Implantar a API do Azure para FHIR usando a CLI do Azure
 
@@ -68,7 +68,10 @@ az group delete --name "myResourceGroup"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você implantou a API do Azure para FHIR em sua assinatura. Para definir configurações adicionais em sua API do Azure para FHIR, vá para o guia de instruções de configurações adicionais.
+Neste guia de início rápido, você implantou a API do Azure para FHIR em sua assinatura. Para definir configurações adicionais em sua API do Azure para FHIR, vá para o guia de instruções de configurações adicionais. Se você estiver pronto para começar a usar a API do Azure para FHIR, leia mais sobre como registrar aplicativos.
 
 >[!div class="nextstepaction"]
 >[Configurações adicionais na API do Azure para FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Visão geral sobre como Registrar os Aplicativos](fhir-app-registration.md)

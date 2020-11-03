@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630195"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521502"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
 O serviço de Fala é a unificação da conversão de fala em texto, da conversão de texto em fala e da tradução de fala em uma única assinatura do Azure. É fácil habilitar fala em seus aplicativos, ferramentas e dispositivos com a [CLI de fala](spx-overview.md), o [SDK de Fala](speech-sdk-reference.md), o [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-quickstart), o [Speech Studio](https://speech.microsoft.com/) ou as [APIs REST](rest-apis.md).
 
 > [!IMPORTANT]
-> O serviço de Fala substituiu a API de Fala do Bing e a Tradução de Fala. Confira _Guias de instruções > Migração_ para obter instruções de migração.
+> O serviço de Fala substituiu a API de Fala do Bing e a Tradução de Fala. Confira a seção _Migração_ para obter instruções de migração.
 
 Os recursos a seguir fazem parte do serviço de Fala. Use os links nesta tabela para saber mais sobre os casos de uso comuns de cada recurso ou navegue pela referência de API.
 
@@ -61,9 +61,9 @@ Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua c
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando sua conta Microsoft.
 
-1. Selecione **Criar um recurso** na parte superior esquerda do portal. Caso não veja **Criar um recurso**, você sempre pode encontrá-lo selecionando o menu recolhido no canto superior esquerdo da tela.
+1. Selecione **Criar um recurso** na parte superior esquerda do portal. Caso não veja **Criar um recurso** , você sempre pode encontrá-lo selecionando o menu recolhido no canto superior esquerdo da tela.
 
-1. Na janela **Novo**, digite "fala" na caixa de pesquisa e pressione ENTER.
+1. Na janela **Novo** , digite "fala" na caixa de pesquisa e pressione ENTER.
 
 1. Nos resultados da pesquisa, selecione **Fala**.
 
@@ -81,7 +81,21 @@ Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua c
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-São necessários alguns instantes para a implantação do novo recurso de Fala. Após a conclusão da implantação, selecione **Ir para recurso** e, no painel de navegação esquerdo, selecione **Chaves** para exibir as chaves de assinatura do serviço de Fala. Cada assinatura tem duas chaves; você pode usar uma das chaves em seu aplicativo. Para copiar/colar rapidamente uma chave no editor de código ou em outra localização, selecione o botão copiar ao lado de cada chave, alterne as janelas para colar o conteúdo da área de transferência na localização desejada.
+São necessários alguns instantes para a implantação do novo recurso de Fala. 
+
+### <a name="find-keys-and-region"></a>Localizar chaves e região
+
+Para localizar as chaves e a região de uma implantação concluída, siga estas etapas:
+
+1. Entre no [portal do Azure](https://portal.azure.com/) usando sua conta Microsoft.
+
+2. Selecione **Todos os recursos** e o nome do seu recurso de Serviços Cognitivos.
+
+3. No painel à esquerda, em **GERENCIAMENTO DE RECURSOS** , selecione **Chaves e Ponto de Extremidade**.
+
+Cada assinatura tem duas chaves; você pode usar uma das chaves em seu aplicativo. Para copiar/colar uma chave no editor de código ou em outra localização, selecione o botão copiar ao lado de cada chave e alterne as janelas para colar o conteúdo da área de transferência na localização desejada.
+
+Além disso, copie o valor de `LOCATION`, que é a sua ID de região (por exemplo, `westus`, `westeurope`) para chamadas do SDK.
 
 > [!IMPORTANT]
 > Essas chaves de assinatura são usadas para acessar sua API do Serviço Cognitivo. Não compartilhe suas chaves. Armazene-as com segurança – por exemplo, usando o Azure Key Vault. Recomendamos a regeneração regular dessas chaves. Apenas uma chave é necessária para fazer uma chamada à API. Ao regenerar a primeira chave, você pode usar a segunda chave para obter acesso contínuo ao serviço.

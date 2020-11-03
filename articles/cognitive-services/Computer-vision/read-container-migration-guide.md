@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973114"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676161"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para contêineres de OCR de Leitura v3.x
 
@@ -29,21 +29,11 @@ Caso esteja usando a versão 2 do contêiner de OCR de Leitura da Pesquisa Visua
 
 ## <a name="api-changes"></a>Alterações de API
 
-Os contêineres da Leitura v3.x usam a versão 3 da API da Pesquisa Visual Computacional e têm os seguintes pontos de extremidade:
-
-#### <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
+O contêiner da Leitura v3.1 usa a versão 3 da API da Pesquisa Visual Computacional e tem os seguintes pontos de extremidade:
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
 
 Confira o [guia de migração da API REST da Pesquisa Visual Computacional v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) para obter informações detalhadas sobre como atualizar seus aplicativos para usar a versão 3 da API de Leitura baseada em nuvem. Essas informações também se aplicarão ao contêiner. Observe que as operações de sincronização são compatíveis somente com contêineres.
 
@@ -51,10 +41,9 @@ Confira o [guia de migração da API REST da Pesquisa Visual Computacional v3](h
 
 Os requisitos e as recomendações são baseados em parâmetros de comparação com uma solicitação por segundo, usando uma imagem de 8 MB de uma carta empresarial digitalizada que contém 29 linhas e 803 caracteres no total. A tabela a seguir descreverá a alocação mínima e recomendada de recursos para cada contêiner de Leitura.
 
-|Contêiner  |Mínimo | Recomendadas  |
+|Contêiner  |Mínimo | Recomendado  |
 |---------|---------|------|
-|Leitura 3.0 – versão prévia     | 8 núcleos, 16 GB de memória         | 8 núcleos, 24 GB de memória
-|Leitura 3.1 – versão prévia | 8 núcleos, 16 GB de memória         | 8 núcleos, 24 GB de memória
+|Leitura 3.1 – versão prévia | 8 núcleos, 16 GB de memória         | 8 núcleos, 24 GB de memória |
 
 Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
 
