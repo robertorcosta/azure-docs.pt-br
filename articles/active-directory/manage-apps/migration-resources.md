@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 327e59d3fee6f23d2635b846e9fb5ab422e0139e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a49dff0e4ac41670800073c02c5a507eb433c326
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87429027"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280441"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para migrar aplicativos para o Azure Active Directory
 
@@ -26,6 +26,7 @@ Recursos para ajudá-lo a migrar o acesso e a autenticação de aplicativos para
 |:-----------|:-------------|
 |[Migrando os aplicativos para o Azure AD](https://aka.ms/migrateapps/whitepaper) | Este white paper apresenta os benefícios da migração e descreve como planejar a migração em quatro fases claramente definidas: descoberta, classificação, migração e gerenciamento contínuo. Você será orientado em como pensar sobre o processo e dividir o projeto em partes fáceis de consumir. Ao longo do documento, haverá links para recursos importantes que irão ajudá-lo durante o processo. |
 |[Guia de soluções: migrar aplicativos dos Serviços de Federação do Active Directory (AD FS) para o Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Este guia de solução explica as mesmas quatro fases de planejamento e execução de um projeto de migração de aplicativo descrito em um nível superior no white paper de migração. Neste guia, você aprenderá como aplicar essas fases ao objetivo específico de mover um aplicativo do Serviços de Federação do Active Directory (AD FS) para o Azure AD.|
+|[Tutorial do desenvolvedor: AD FS para o manual de migração de aplicativos do Azure AD para desenvolvedores](https://aka.ms/adfsplaybook) | Este conjunto de exemplos de código ASP.NET e tutoriais de acompanhamento ajudarão você a aprender a migrar com segurança e segurança seus aplicativos integrados com o Serviços de Federação do Active Directory (AD FS) (AD FS) para Azure Active Directory (Azure AD). Este tutorial se concentra em desenvolvedores que não precisam apenas aprender a configurar aplicativos no AD FS e no Azure AD, mas também se reconhecem e estão confiantes de alterações que sua base de código exigirá nesse processo.|
 | [Ferramenta: script de preparação para migração dos Serviços de Federação do Active Directory (AD FS)](https://aka.ms/migrateapps/adfstools) | Este é um script que você pode executar em seu servidor local dos Serviços de Federação do Active Directory (AD FS) para determinar a prontidão dos aplicativos para migração para o Azure AD.|
 | [Plano de implantação: migrar do AD FS para a sincronização de hash de senha](https://aka.ms/ADFSTOPHSDPDownload) | Com a sincronização de hash de senha, hashes de senhas de usuário são sincronizados do Active Directory local para o Azure AD. Isso permite que o Azure AD autentique usuários sem interagir com o Active Directory local.| 
 | [Plano de implantação: migrar do AD FS para a autenticação de passagem](https://aka.ms/ADFSTOPTADPDownload)|A autenticação de passagem do Azure AD ajuda os usuários a entrar nos aplicativos locais e baseados em nuvem usando a mesma senha. Esse recurso melhora a experiência dos usuários, já que terão uma senha a menos a ser lembrada. Além disso, reduz os custos de assistência técnica de TI porque é menos provável que os usuários esqueçam como entrar quando é necessário lembrar de apenas uma senha. Quando as pessoas entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no Active Directory local.|

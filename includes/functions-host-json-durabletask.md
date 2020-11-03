@@ -7,41 +7,17 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24dc2cad8d299d150adddc03de5e9006fc831fc6
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89094286"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061578"
 ---
 Definições de configuração para [Funções Duráveis](../articles/azure-functions/durable-functions-overview.md).
 
-### <a name="durable-functions-1x"></a>Durable Functions 1.x
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub",
-    "controlQueueBatchSize": 32,
-    "partitionCount": 4,
-    "controlQueueVisibilityTimeout": "00:05:00",
-    "workItemQueueVisibilityTimeout": "00:05:00",
-    "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
-    "maxQueuePollingInterval": "00:00:30",
-    "azureStorageConnectionStringName": "AzureWebJobsStorage",
-    "trackingStoreConnectionStringName": "TrackingStorage",
-    "trackingStoreNamePrefix": "DurableTask",
-    "traceInputsAndOutputs": false,
-    "logReplayEvents": false,
-    "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "eventGridKeySettingName":  "EventGridKey",
-    "eventGridPublishRetryCount": 3,
-    "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
-  }
-}
-```
+> [!NOTE]
+> Todas as versões principais das Durable Functions são compatíveis com todas as versões do Azure Functions Runtime. No entanto, o esquema da configuração host.json é ligeiramente diferente dependendo da versão do Azure Functions Runtime e da versão da extensão das Durable Functions que você usa. Os exemplos a seguir são referentes ao uso com o Azure Functions 2.0 e 3.0. Em ambos os exemplos, se você estiver usando o Azure Functions 1.0, as configurações disponíveis serão as mesmas, mas a seção "durableTask" do host.json deverá estar na raiz da configuração host.json, em vez de como um campo em "extensões".
 
 ### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
 
@@ -90,6 +66,35 @@ Definições de configuração para [Funções Duráveis](../articles/azure-func
  }
 }
 
+```
+
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10,
+      "maxQueuePollingInterval": "00:00:30",
+      "azureStorageConnectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask",
+      "traceInputsAndOutputs": false,
+      "logReplayEvents": false,
+      "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+      "eventGridKeySettingName":  "EventGridKey",
+      "eventGridPublishRetryCount": 3,
+      "eventGridPublishRetryInterval": "00:00:30",
+      "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+    }
+  }
+}
 ```
 
 Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos somente por letras e números. Se não for especificado, o nome do hub de tarefas padrão de um aplicativo de funções será **DurableFunctionsHub**. Para obter mais informações, consulte [Hubs de tarefas](../articles/azure-functions/durable-functions-task-hubs.md).

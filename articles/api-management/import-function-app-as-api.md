@@ -1,7 +1,7 @@
 ---
 title: Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API
 titleSuffix: Azure API Management
-description: Este tutorial mostra como importar um Aplicativo de funções do Azure para o Gerenciamento de API do Azure como uma API.
+description: Este artigo mostra como importar um Aplicativo de funções do Azure para o Gerenciamento de API do Azure como uma API.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -10,15 +10,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627016"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147021"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API do Azure
 
@@ -48,25 +48,25 @@ Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funç
 
 1. Navegue até o serviço de Gerenciamento de API no portal do Azure e selecione **APIs** no menu.
 
-2. Na lista **Adicionar nova API**, selecione **Aplicativo de funções**.
+2. Na lista **Adicionar nova API** , selecione **Aplicativo de funções**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-01.png)
+    ![Captura de tela que mostra o bloco Aplicativo de funções.](./media/import-function-app-as-api/add-01.png)
 
 3. Clique em **Procurar** para selecionar o Functions para importação.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-02.png)
+    ![Captura de tela que realça o botão Procurar.](./media/import-function-app-as-api/add-02.png)
 
 4. Clique na seção **Aplicativo de funções** para escolher na lista de aplicativos de funções disponíveis.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-03.png)
+    ![Captura de tela que realça a seção Aplicativo de funções.](./media/import-function-app-as-api/add-03.png)
 
 5. Encontre o Aplicativo de funções de onde você deseja importar funções, clique nele e pressione **Selecionar**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-04.png)
+    ![Captura de tela que realça o Aplicativo de funções do qual você deseja importar funções e o botão Selecionar.](./media/import-function-app-as-api/add-04.png)
 
 6. Selecione as funções que você deseja importar e clique em **Selecionar**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-05.png)
+    ![Captura de tela que realça as funções a serem importadas e o botão Selecionar.](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
     > Você pode importar apenas as funções baseadas em gatilho HTTP e que tenham a configuração de nível de autorização definida como *Anônimo* ou *Função*.
@@ -78,31 +78,31 @@ Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funç
 
 Siga as etapas abaixo para acrescentar o Aplicativo de funções do Azure a uma API existente.
 
-1. Em sua instância de serviço do **Gerenciamento de API do Azure**, selecione **APIs** no menu à esquerda.
+1. Em sua instância de serviço do **Gerenciamento de API do Azure** , selecione **APIs** no menu à esquerda.
 
 2. Escolha uma API para a qual você deseja importar um Aplicativo de funções. Clique em **...**  e selecione **Importar** no menu de contexto.
 
-    ![Acrescentar a partir do Aplicativo de funções](./media/import-function-app-as-api/append-01.png)
+    ![Captura de tela que realça a opção de menu Importar.](./media/import-function-app-as-api/append-01.png)
 
 3. Clique no bloco **Aplicativo de Funções**.
 
-    ![Acrescentar a partir do Aplicativo de funções](./media/import-function-app-as-api/append-02.png)
+    ![Captura de tela que realça o bloco Aplicativo de funções.](./media/import-function-app-as-api/append-02.png)
 
 4. Na janela pop-up, clique em **Procurar**.
 
-    ![Acrescentar a partir do Aplicativo de funções](./media/import-function-app-as-api/append-03.png)
+    ![Captura de tela que mostra o botão Procurar.](./media/import-function-app-as-api/append-03.png)
 
 5. Clique na seção **Aplicativo de funções** para escolher na lista de aplicativos de funções disponíveis.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-03.png)
+    ![Captura de tela que realça a lista de Aplicativos de funções.](./media/import-function-app-as-api/add-03.png)
 
 6. Encontre o Aplicativo de funções de onde você deseja importar funções, clique nele e pressione **Selecionar**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-04.png)
+    ![Captura de tela que realça o Aplicativo de funções do qual você deseja importar funções.](./media/import-function-app-as-api/add-04.png)
 
 7. Selecione as funções que você deseja importar e clique em **Selecionar**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-05.png)
+    ![Captura de tela que realça as funções que você gostaria de importar.](./media/import-function-app-as-api/add-05.png)
 
 8. Clique em **Importar**.
 
@@ -112,8 +112,8 @@ Siga as etapas abaixo para acrescentar o Aplicativo de funções do Azure a uma 
 
 A importação de um Aplicativo de funções do Azure gera automaticamente:
 
-* A chave de host dentro do Aplicativo de funções com o nome apim-{*nome da instância de serviço do Gerenciamento de API do Azure*};
-* Valor nomeado dentro da instância do Gerenciamento de API do Azure com o nome {*nome da instância do Aplicativo de funções do Azure*}-key, que contém a chave de host criada.
+* A chave de host dentro do Aplicativo de funções com o nome apim-{ *nome da instância de serviço do Gerenciamento de API do Azure* };
+* Valor nomeado dentro da instância do Gerenciamento de API do Azure com o nome { *nome da instância do Aplicativo de funções do Azure* }-key, que contém a chave de host criada.
 
 Para as APIs criadas após 4 de abril de 2019, a chave de host é passada em solicitações HTTP do Gerenciamento de API para o Aplicativo de funções em um cabeçalho. As APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Esse comportamento pode ser alterado por meio da `PATCH Backend` [chamada à API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) na entidade *Back-end* associada ao Aplicativo de funções.
 
@@ -128,11 +128,11 @@ Para as APIs criadas após 4 de abril de 2019, a chave de host é passada em sol
 
 2. Selecione **Configurações do Aplicativo de Funções** na visão geral.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/keys-02-a.png)
+    ![Captura de tela que realça a opção de configurações do Aplicativo de funções.](./media/import-function-app-as-api/keys-02-a.png)
 
 3. A chave está localizada na seção **Chaves de Host**.
 
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/keys-02-b.png)
+    ![Captura de tela que realça a seção Chaves de Host.](./media/import-function-app-as-api/keys-02-b.png)
 
 ### <a name="access-the-named-value-in-azure-api-management"></a>Acessar o valor nomeado no Gerenciamento de API do Azure
 
@@ -150,7 +150,7 @@ Você pode chamar as operações diretamente do portal do Azure. Usar o portal d
 
 3. Selecione uma operação.
 
-    A página exibe os campos dos parâmetros de consulta e os campos dos cabeçalhos. Um dos cabeçalhos é **Ocp-Apim-Subscription-Key**, para a chave de assinatura do produto que está associada a essa API. Se você criou a instância do Gerenciamento de API, já é um administrador e, portanto, a chave é preenchida automaticamente. 
+    A página exibe os campos dos parâmetros de consulta e os campos dos cabeçalhos. Um dos cabeçalhos é **Ocp-Apim-Subscription-Key** , para a chave de assinatura do produto que está associada a essa API. Se você criou a instância do Gerenciamento de API, já é um administrador e, portanto, a chave é preenchida automaticamente. 
 
 4. Selecione **Enviar**.
 

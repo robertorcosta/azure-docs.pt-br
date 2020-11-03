@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 07/27/2020
-ms.openlocfilehash: 752021e3838809cace8b5d1c71c2516645031f9d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 10/15/2020
+ms.openlocfilehash: d497ff1a829902c0623740f01a457e6496db2401
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089767"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744963"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorar o workspace do Synapse
 
@@ -25,25 +25,25 @@ Neste tutorial, você aprenderá a monitorar atividades no workspace do Synapse.
 
 Abra o Synapse Studio e navegue até o hub de **Monitoramento**. Aqui você poderá ver um histórico de todas as atividades que estão ocorrendo no workspace e quais estão ativas no momento. 
 
-* Em **Orquestração**, você pode monitorar pipelines, gatilhos e Runtimes de integração
-* Em **Atividades**, você pode monitorar atividades do Spark e do SQL. 
+* Em **Integração** , você pode monitorar pipelines, gatilhos e runtimes de integração
+* Em **Atividades** , você pode monitorar atividades do Spark e do SQL. 
 
-## <a name="orchestration"></a>Orquestração
+## <a name="integration"></a>Integração
 
-1. Navegue até **Orquestração > Pipeline**. Nessa exibição, você pode ver toda vez que um pipeline é executado em seu workspace. 
+1. Navegue até **Integração > Pipeline**. Nessa exibição, você pode ver toda vez que um pipeline é executado em seu workspace. 
 1. Localize o pipeline que você executou na etapa anterior e clique no respectivo **Nome de pipeline**.
 1. Agora você pode ver como as atividades individuais dentro desse pipeline são executadas.
 1. Clique em **Barra de trilha** perto da parte superior do Synapse Studio, clique em **Todas as execuções de pipeline** para retornar à exibição anterior.
 
 ## <a name="apache-spark-activities"></a>Atividades do Apache Spark
 
-1. Navegue até **Orquestração > Atividades > Aplicativos Apache Spark**. Agora você pode ver todos os aplicativos Spark em execução ou que foram executados em seu workspace.
+1. Navegue até **Integração > Atividades > Aplicativos Apache Spark**. Agora você pode ver todos os aplicativos Spark em execução ou que foram executados em seu workspace.
 1. Localize um aplicativo que não esteja mais em execução e clique em **Nome de aplicativo**. Agora você pode ver os detalhes do aplicativo Spark.
 1. Se você estiver familiarizado com Apache Spark, poderá encontrar a interface do usuário do servidor de histórico do Apache Spark padrão clicando em **Servidor de histórico do Spark**.
 
 ## <a name="sql-activities"></a>Atividades do SQL
 
-1. Navegue até **Orquestração > Atividades > Solicitações SQL**.
+1. Navegue até **Integração > Atividades > Solicitações SQL**.
 1. Nesta exibição, você pode ver solicitações SQL.
 1. Selecione um **Pool** para monitorar. Agora você pode ver todas as solicitações SQL que estão em execução ou foram executadas em seu workspace nesse pool.
 1. Localize uma solicitação SQL específica e passe o mouse sobre esse item. Depois de passar o mouse, você verá um ícone de script SQL exibido.

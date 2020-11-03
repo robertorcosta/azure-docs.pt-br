@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22b0ba97a0f3eddda9a0e0d4f5e5392d12f21eef
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: a07130e55339ed689b65b48e6fd83e65f36d155e
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026081"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280538"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
 
@@ -39,7 +39,7 @@ Muitas organizações têm aplicativos SaaS (software como serviço) ou LOB (lin
 
 ![Aplicativos conectados diretamente no local](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
-**Para aumentar a segurança do aplicativo, seu objetivo é ter um único conjunto de controles de acesso e políticas em seus ambientes locais e na nuvem** .
+**Para aumentar a segurança do aplicativo, seu objetivo é ter um único conjunto de controles de acesso e políticas em seus ambientes locais e na nuvem**.
 
 ![Aplicativos conectados por meio do Azure AD](media/migrate-adfs-apps-to-azure/app-integration-after-migration1.png)
 
@@ -199,12 +199,12 @@ A tabela a seguir descreve alguns dos mapeamentos mais comuns de configurações
 | Definição de configuração| AD FS| Como configurar no Azure AD| Token SAML |
 | - | - | - | - |
 | **URL de logon do aplicativo** <p>A URL para o usuário entrar no aplicativo em um fluxo de SAML iniciado pelo provedor de serviço (SP).| N/D| Abrir a configuração básica do SAML a partir do logon baseado em SAML| N/D |
-| **URL de resposta do aplicativo** <p>A URL do aplicativo da perspectiva do IdP (provedor de identidade). O IdP envia o usuário e o token aqui depois que o usuário entrou no IdP.  Isso também é conhecido como **ponto de extremidade do consumidor de asserção do SAML** .| Selecione a guia **pontos de extremidade**| Abrir a configuração básica do SAML a partir do logon baseado em SAML| Elemento de destino no token SAML. Valor de exemplo: `https://contoso.my.salesforce.com` |
+| **URL de resposta do aplicativo** <p>A URL do aplicativo da perspectiva do IdP (provedor de identidade). O IdP envia o usuário e o token aqui depois que o usuário entrou no IdP.  Isso também é conhecido como **ponto de extremidade do consumidor de asserção do SAML**.| Selecione a guia **pontos de extremidade**| Abrir a configuração básica do SAML a partir do logon baseado em SAML| Elemento de destino no token SAML. Valor de exemplo: `https://contoso.my.salesforce.com` |
 | **URL de saída do aplicativo** <p>Essa é a URL para a qual as solicitações de "limpeza de saída" são enviadas quando um usuário sai de um aplicativo. O IdP envia a solicitação para desconectar o usuário de todos os outros aplicativos também.| Selecione a guia **pontos de extremidade**| Abrir a configuração básica do SAML a partir do logon baseado em SAML| N/D |
 | **Identificador do aplicativo** <p>Esse é o identificador do aplicativo da perspectiva do IdP. O valor da URL de entrada geralmente é usado para o identificador (mas nem sempre).  Às vezes, o aplicativo chama essa "ID da entidade".| Selecione a guia **identificadores**|Abrir a configuração básica do SAML a partir do logon baseado em SAML| Mapeia para o elemento **Audience** no token SAML. |
 | **Metadados de Federação do aplicativo** <p>Esse é o local dos metadados de Federação do aplicativo. O IdP os usa para atualizar automaticamente definições de configuração específicas, como pontos de extremidade ou certificados de criptografia.| Selecione a guia **monitoramento**| N/D O Azure AD não dá suporte ao consumo de metadados de Federação do aplicativo diretamente. Você pode importar os metadados de Federação manualmente.| N/D |
 | **Identificador de usuário/ID de nome** <p>Atributo usado para indicar exclusivamente a identidade do usuário do Azure AD ou do AD FS para seu aplicativo.  Esse atributo é normalmente o UPN ou o endereço de email do usuário.| Regras de declaração. Na maioria dos casos, a regra de declaração emite uma declaração com um tipo que termina com o NameIdentifier.| Você pode encontrar o identificador sob os **atributos e declarações de usuário** do cabeçalho. Por padrão, o UPN é usado| Mapeia para o elemento **NameID** no token SAML. |
-| **Outras declarações** <p>Exemplos de outras informações de declaração que normalmente são enviadas do IdP para o aplicativo incluem nome, sobrenome, endereço de email e Associação de grupo.| No AD FS, você pode encontrar isso como outras regras de declaração na terceira parte confiável.| Você pode encontrar o identificador sob os atributos de usuário do cabeçalho **& declarações** . Selecione **Exibir** e edite todos os outros atributos de usuário.| N/D |
+| **Outras declarações** <p>Exemplos de outras informações de declaração que normalmente são enviadas do IdP para o aplicativo incluem nome, sobrenome, endereço de email e Associação de grupo.| No AD FS, você pode encontrar isso como outras regras de declaração na terceira parte confiável.| Você pode encontrar o identificador sob os atributos de usuário do cabeçalho **& declarações**. Selecione **Exibir** e edite todos os outros atributos de usuário.| N/D |
 
 
 ### <a name="map-identity-provider-idp-settings"></a>Configurações do provedor de identidade do mapa (IdP)
@@ -238,9 +238,9 @@ Os aplicativos SaaS precisam saber para onde enviar solicitações de autentica�
 | - | - | - |
 | **URL de logon do IdP** <p>URL de logon do IdP da perspectiva do aplicativo (em que o usuário é redirecionado para logon).| A URL de logon AD FS é o nome do serviço de Federação AD FS seguido por "/adfs/ls/." <p>Por exemplo: `https://fs.contoso.com/adfs/ls/`| Substitua {Tenant-ID} pela sua ID de locatário. <p> Para aplicativos que usam o protocolo SAML-P: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Para aplicativos que usam o protocolo WS-Federation: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
 | **URL de saída do IdP**<p>URL de saída do IdP da perspectiva do aplicativo (onde o usuário é redirecionado quando opta por sair do aplicativo).| A URL de saída é a mesma que a URL de logon ou a mesma URL com "wa = wsignout 1.0" acrescentado. Por exemplo: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Substitua {Tenant-ID} pela sua ID de locatário.<p>Para aplicativos que usam o protocolo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Para aplicativos que usam o protocolo WS-Federation: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
-| **Certificado de autenticação de tokens**<p>O IdP usa a chave privada do certificado para assinar tokens emitidos. Ele verifica se o token veio do mesmo IdP em que o aplicativo está configurado para confiar.| Encontre o certificado de autenticação de token do AD FS no Gerenciamento do AD FS, em **Certificados** .| Encontre-o na portal do Azure nas **Propriedades de logon único** do aplicativo no cabeçalho **certificado de autenticação SAML** . Lá, você pode baixar o certificado para carregar no aplicativo.  <p>Se o aplicativo tiver mais de um certificado, você poderá encontrar todos os certificados no arquivo XML de metadados de Federação. |
-| **Identificador/"emissor"**<p>Identificador do IdP da perspectiva do aplicativo (às vezes chamado de "ID do emissor").<p>No token SAML, o valor aparece como o elemento emissor.| O identificador para AD FS geralmente é o identificador do serviço de Federação no gerenciamento de AD FS em **serviço > editar propriedades de serviço de Federação** . Por exemplo: `http://fs.contoso.com/adfs/services/trust`| Substitua {Tenant-ID} pela sua ID de locatário.<p>https: \/ /STS.Windows.net/{Tenant-ID}/ |
-| **Metadados de Federação IdP**<p>Local dos metadados de Federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)| Localize a URL de metadados de Federação AD FS no gerenciamento de AD FS em **serviços > pontos de extremidade > metadados > tipo: metadados de Federação** . Por exemplo: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| O valor correspondente para o Azure AD segue o padrão [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Substitua {TenantDomainName} pelo nome do locatário no formato "contoso.onmicrosoft.com".   <p>Para saber mais, confira [Metadados de federação](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
+| **Certificado de autenticação de tokens**<p>O IdP usa a chave privada do certificado para assinar tokens emitidos. Ele verifica se o token veio do mesmo IdP em que o aplicativo está configurado para confiar.| Encontre o certificado de autenticação de token do AD FS no Gerenciamento do AD FS, em **Certificados**.| Encontre-o na portal do Azure nas **Propriedades de logon único** do aplicativo no cabeçalho **certificado de autenticação SAML**. Lá, você pode baixar o certificado para carregar no aplicativo.  <p>Se o aplicativo tiver mais de um certificado, você poderá encontrar todos os certificados no arquivo XML de metadados de Federação. |
+| **Identificador/"emissor"**<p>Identificador do IdP da perspectiva do aplicativo (às vezes chamado de "ID do emissor").<p>No token SAML, o valor aparece como o elemento emissor.| O identificador para AD FS geralmente é o identificador do serviço de Federação no gerenciamento de AD FS em **serviço > editar propriedades de serviço de Federação**. Por exemplo: `http://fs.contoso.com/adfs/services/trust`| Substitua {Tenant-ID} pela sua ID de locatário.<p>https: \/ /STS.Windows.net/{Tenant-ID}/ |
+| **Metadados de Federação IdP**<p>Local dos metadados de Federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)| Localize a URL de metadados de Federação AD FS no gerenciamento de AD FS em **serviços > pontos de extremidade > metadados > tipo: metadados de Federação**. Por exemplo: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| O valor correspondente para o Azure AD segue o padrão [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Substitua {TenantDomainName} pelo nome do locatário no formato "contoso.onmicrosoft.com".   <p>Para saber mais, confira [Metadados de federação](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
 
 
 ## <a name="represent-ad-fs-security-policies-in-azure-ad"></a>Representar AD FS políticas de segurança no Azure AD
@@ -322,7 +322,7 @@ Especificar regras de MFA para um usuário ou um grupo no Azure AD:
 
 1. Crie uma [nova política de acesso condicional](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
 
-2. Selecione **Atribuições** . Adicione os usuários ou grupos nos quais você deseja impor a MFA.
+2. Selecione **Atribuições**. Adicione os usuários ou grupos nos quais você deseja impor a MFA.
 
 3. Configure as opções de **controles de acesso** , conforme mostrado abaixo:
 
@@ -335,7 +335,7 @@ Especificar regras de MFA para dispositivos não registrados no Azure AD:
 
 1. Crie uma [nova política de acesso condicional](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
 
-2. Defina as **atribuições** para **todos os usuários** .
+2. Defina as **atribuições** para **todos os usuários**.
 
 3. Configure as opções de **controles de acesso** , conforme mostrado abaixo:
 
@@ -350,7 +350,7 @@ Especificar regras de MFA com base no local de um usuário no Azure AD:
 
 1. Crie uma [nova política de acesso condicional](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
 
-1. Defina as **atribuições** para **todos os usuários** .
+1. Defina as **atribuições** para **todos os usuários**.
 
 1. [Configurar locais nomeados no Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) caso contrário, a Federação de dentro de sua rede corporativa é confiável.
 
@@ -448,15 +448,15 @@ Em seguida, vá para a [portal do Azure](https://aad.portal.azure.com/) para tes
 
 1. Selecione **gerenciar**  >  **usuários e grupos** para atribuir pelo menos um usuário ou grupo ao aplicativo.
 
-1. Selecione **gerenciar**  >  **acesso condicional** . Examine sua lista de políticas e certifique-se de que você não está bloqueando o acesso ao aplicativo com uma [política de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+1. Selecione **gerenciar**  >  **acesso condicional**. Examine sua lista de políticas e certifique-se de que você não está bloqueando o acesso ao aplicativo com uma [política de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
 Dependendo de como você configura seu aplicativo, verifique se o SSO funciona corretamente.
 
-| Tipo de autenticação| Testando |
+| Tipo de autenticação| Testes |
 | - | - |
 | OAuth/OpenID Connect| Selecione **aplicativos empresariais > permissões** e verifique se você consentiu com o aplicativo a ser usado em sua organização nas configurações de usuário para seu aplicativo.
 ‎ |
-| SSO baseado em SAML| Use o botão [testar configurações de SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) encontrado em **logon único** .
+| SSO baseado em SAML| Use o botão [testar configurações de SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) encontrado em **logon único**.
 ‎ |
 | Password-Based SSO| Baixe e instale a extensão de [logon seguro do myapps](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). Essa extensão ajuda a iniciar qualquer um dos aplicativos de nuvem da sua organização que exigem que você use um processo de SSO.
 ‎ |
@@ -466,7 +466,7 @@ Dependendo de como você configura seu aplicativo, verifique se o SSO funciona c
 > [!NOTE]
 > Os cookies do ambiente de AD FS antigo ainda serão persistentes nos computadores do usuário. Esses cookies podem causar problemas com a migração, pois os usuários podem ser direcionados para o antigo ambiente de logon AD FS versus o novo logon do Azure AD. Talvez seja necessário limpar os cookies do navegador do usuário manualmente ou usando um script. Você também pode usar o System Center Configuration Manager ou uma plataforma semelhante.
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Se houver erros do teste dos aplicativos migrados, a solução de problemas poderá ser a primeira etapa antes de fazer fallback para as partes confiáveis AD FS existentes. Consulte [como depurar o logon único baseado em SAML para aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues).
 
@@ -489,5 +489,8 @@ Depois que a implantação for concluída, você poderá enviar comunicação in
 Comunicação com usuários externos: esse grupo de usuários geralmente é o impacto mais crítico em caso de problemas. Isso é especialmente verdadeiro se a sua postura de segurança determinar um conjunto diferente de regras de acesso condicional ou perfis de risco para parceiros externos. Certifique-se de que os parceiros externos estejam cientes da agenda de migração na nuvem e tenham um período de tempo durante o qual eles são incentivados a participar de uma implantação piloto que testa todos os fluxos exclusivos da colaboração externa. Por fim, verifique se eles têm uma maneira de acessar a assistência técnica em caso de problemas de interrupção.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Ler  [a migração de autenticação de aplicativo para o Azure ad](https://aka.ms/migrateapps/whitepaper)<p>
 Configurar [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) e [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+
+Experimente um exemplo de código em etapas:[AD FS para o manual de migração de aplicativos do Azure ad para desenvolvedores](https://aka.ms/adfsplaybook)

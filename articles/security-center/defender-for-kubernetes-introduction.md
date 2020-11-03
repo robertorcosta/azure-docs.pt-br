@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370501"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791912"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
@@ -20,7 +20,7 @@ O AKS (Serviço de Kubernetes do Azure) é o serviço gerenciado da Microsoft pa
 
 A Central de Segurança do Azure e o AKS formam a melhor oferta de segurança nativa de nuvem do Kubernetes e, juntos, fornecem proteção de ambiente, proteção de cargas de trabalho e proteção em tempo de execução, conforme descrito abaixo.
 
-Para detecção de ameaças nos clusters do Kubernetes, habilite o **Azure Defender para Kubernetes** .
+Para detecção de ameaças nos clusters do Kubernetes, habilite o **Azure Defender para Kubernetes**.
 
 A detecção de ameaças no nível de host para os nós AKS do Linux estará disponível se você habilitar o [Azure Defender para Servidores](defender-for-servers-introduction.md).
 
@@ -114,5 +114,5 @@ Neste artigo, você aprendeu sobre a proteção do Kubernetes da Central de Segu
 Para obter material relacionado, consulte os seguintes artigos: 
 
 - [Habilitar o Azure Defender](security-center-pricing.md)
-- [Exportar alertas para um Azure Sentinel ou um SIEM de terceiros](continuous-export.md)
+- [Transmitir alertas para uma solução SIEM, SOAR ou Gerenciamento de Serviços de TI](export-to-siem.md)
 - [Tabela de referência de alertas](alerts-reference.md)

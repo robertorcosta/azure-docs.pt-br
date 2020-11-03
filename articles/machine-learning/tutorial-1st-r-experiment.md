@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019368"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913272"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Usar o R para criar um modelo de machine learning (versão prévia)
 
@@ -45,7 +45,7 @@ Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começ
 
 Um Workspace do Azure Machine Learning é o recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de machine learning. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
 
-Você cria um workspace pelo portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure. 
+Há muitas [maneiras de criar um workspace](how-to-manage-workspace.md). Neste tutorial, você cria um workspace pelo portal do Azure, um console baseado na Web para gerenciar os seus recursos do Azure. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -74,7 +74,7 @@ Clone o repositório GitHub https://github.com/Azure/azureml-sdk-for-r para obte
 
 1. Execute `git clone https://github.com/Azure/azureml-sdk-for-r` no terminal para clonar o repositório.
 
-1. No RStudio, navegue até a pasta *vinhetas* da pasta clonada *azureml-sdk-for-r*.  Em *vinhetas*, selecione o arquivo *train-and-deploy-first-model.Rmd* para localizar a vinheta usada neste tutorial. Os arquivos adicionais usados para a vinheta estão localizados na subpasta *train-and-deploy-first-model*. Depois de abrir a vinheta, defina o diretório de trabalho como o local do arquivo por meio de **Sessão > Definir Diretório de Trabalho > Como o Local do Arquivo de Origem**. 
+1. No RStudio, navegue até a pasta *vinhetas* da pasta clonada *azureml-sdk-for-r*.  Em *vinhetas* , selecione o arquivo *train-and-deploy-first-model.Rmd* para localizar a vinheta usada neste tutorial. Os arquivos adicionais usados para a vinheta estão localizados na subpasta *train-and-deploy-first-model*. Depois de abrir a vinheta, defina o diretório de trabalho como o local do arquivo por meio de **Sessão > Definir Diretório de Trabalho > Como o Local do Arquivo de Origem**. 
 
 > [!Important]
 > O restante deste artigo contém o mesmo conteúdo que você vê no arquivo *train-and-deploy-first-model.Rmd*. Se você tiver experiência com o RMarkdown, fique à vontade para usar o código desse arquivo.  Ou você pode copiar/colar os code snippets de lá ou deste artigo para um script R ou para a linha de comando. 

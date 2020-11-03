@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: de6a416666866a4089d22f2fa047dc860c922d3c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 36c15907c0f45befacf35389652f6d91c0ab1958
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341236"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787900"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planejamento e operações
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que pretendem usar a Central de Segurança do Azure.
@@ -71,8 +71,8 @@ A Central de Segurança permite que essas pessoas atendam a várias responsabili
 
 A Central de Segurança usa o [RBAC do Azure (controle de acesso baseado em função do Azure)](../role-based-access-control/role-assignments-portal.md), que fornece [funções internas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure. Quando um usuário abre a Central de Segurança, ele vê apenas as informações relacionadas aos recursos aos quais tem acesso. Isso significa que o usuário recebe a função de Leitor, Colaborador ou Proprietário para a assinatura ou grupo de recursos ao qual o recurso pertence. Além dessas funções, há duas funções específicas da Central de Segurança:
 
-- **Leitor de segurança**: um usuário com esta essa função consegue ver somente as configurações da Central de Segurança, que inclui recomendações, alertas, política e integridade, mas não consegue fazer alterações.
-- **Administrador de segurança**: o mesmo que o leitor de segurança, mas ele também pode atualizar a política de segurança, ignorar as recomendações e alertas.
+- **Leitor de segurança** : um usuário com esta essa função consegue ver somente as configurações da Central de Segurança, que inclui recomendações, alertas, política e integridade, mas não consegue fazer alterações.
+- **Administrador de segurança** : o mesmo que o leitor de segurança, mas ele também pode atualizar a política de segurança, ignorar as recomendações e alertas.
 
 As funções da Central de Segurança descritas acima não têm acesso a outras áreas de serviço do Azure como Armazenamento, Web e Móveis ou Internet das Coisas.
 
@@ -207,9 +207,9 @@ Embora este artigo não tenha como objetivo ajudar você a criar seu plano de re
 
 Você pode usar os Alertas da Central de Segurança durante os estágios a seguir:
 
-* **Detectar**: identifica uma atividade suspeita em um ou mais recursos.
-* **Avaliar**: realiza a avaliação inicial para obter mais informações sobre a atividade suspeita.
-* **Diagnosticar**: usa as etapas de correção para realizar o procedimento técnico para endereçar o problema.
+* **Detectar** : identifica uma atividade suspeita em um ou mais recursos.
+* **Avaliar** : realiza a avaliação inicial para obter mais informações sobre a atividade suspeita.
+* **Diagnosticar** : usa as etapas de correção para realizar o procedimento técnico para endereçar o problema.
 
 Cada Alerta de segurança fornece informações que podem ser usadas para entender melhor a natureza do ataque e sugerir possíveis atenuações. Alguns alertas também fornecem links para mais informações ou para outras fontes de informações no Azure. Você pode usar as informações fornecidas para pesquisa e para começar o processo de atenuação, e também pode pesquisar dados relacionados à segurança que fiquem armazenados no workspace.
 
@@ -219,7 +219,7 @@ O exemplo a seguir mostra uma atividade de RDP suspeita ocorrendo:
 
 Essa página mostra os detalhes sobre o horário do ataque, o nome do host de origem, a VM de destino e também fornece etapas de recomendação. Em algumas circunstâncias, as informações de origem do ataque podem estar vazias. Leia [Informações de Origem Ausentes nos Alertas da Central de Segurança do Azure](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) para obter mais informações sobre esse tipo de comportamento.
 
-Depois de identificar o sistema comprometido, execute uma [Automação de Fluxo de Trabalho](workflow-automation.md) criada anteriormente. Essa é uma coleção de procedimentos que pode ser executada na Central de Segurança depois que for disparada por um alerta.
+Depois de identificar o sistema comprometido, execute uma [automação de fluxo de trabalho](workflow-automation.md) criada anteriormente. Essa é uma coleção de procedimentos que pode ser executada na Central de Segurança depois que for disparada por um alerta.
 
 No vídeo [Como utilizar a Central de Segurança do Azure e o Microsoft Operations Management Suite para uma resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703), veja algumas demonstrações que podem ajudar você a entender como a Central de Segurança pode ser usada em cada um desses estágios.
 

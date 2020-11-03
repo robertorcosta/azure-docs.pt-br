@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900258"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280428"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP usando Azure Data Factory
 
@@ -229,7 +229,7 @@ Para copiar dados de uma tabela SAP, há suporte para as seguintes propriedades:
 | `rfcTableFields`                 | Os campos (colunas) a serem copiados da tabela SAP. Por exemplo, `column0, column1`. | Não       |
 | `rfcTableOptions`                | As opções para filtrar as linhas em uma tabela SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. Consulte também a tabela do operador de consulta SAP mais adiante neste artigo. | Não       |
 | `customRfcReadTableFunctionModule` | Um módulo de função RFC personalizado que pode ser usado para ler dados de uma tabela SAP.<br>Você pode usar um módulo de função RFC personalizado para definir como os dados são recuperados do seu sistema SAP e retornados para Data Factory. O módulo de função personalizada deve ter uma interface implementada (importação, exportação, tabelas) semelhante a `/SAPDS/RFC_READ_TABLE2` , que é a interface padrão usada pelo data Factory.<br>Data Factory | Não       |
-| `partitionOption`                  | O mecanismo de partição para ler de uma tabela SAP. As opções compatíveis incluem: <ul><li>`None`</li><li>`PartitionOnInt` (inteiro normal ou valores inteiros com preenchimento zero à esquerda, como `0000012345` )</li><li>`PartitionOnCalendarYear` (4 dígitos no formato "aaaa")</li><li>`PartitionOnCalendarMonth` (6 dígitos no formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 dígitos no formato "aaaammdd")</li></ul> | Não       |
+| `partitionOption`                  | O mecanismo de partição para ler de uma tabela SAP. As opções compatíveis incluem: <ul><li>`None`</li><li>`PartitionOnInt` (inteiro normal ou valores inteiros com preenchimento zero à esquerda, como `0000012345` )</li><li>`PartitionOnCalendarYear` (4 dígitos no formato "aaaa")</li><li>`PartitionOnCalendarMonth` (6 dígitos no formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 dígitos no formato "aaaammdd")</li><li>`PartitionOntime` (6 dígitos no formato "HHMMSS", como `235959` )</li></ul> | Não       |
 | `partitionColumnName`              | O nome da coluna usada para particionar os dados.                | Não       |
 | `partitionUpperBound`              | O valor máximo da coluna especificada no `partitionColumnName` que será usado para continuar com o particionamento. | Não       |
 | `partitionLowerBound`              | O valor mínimo da coluna especificada no `partitionColumnName` que será usado para continuar com o particionamento. (Observação: `partitionLowerBound` não pode ser "0" quando a opção de partição é `PartitionOnInt` ) | Não       |

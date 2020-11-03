@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0851838b89a9a2bdc54526ac40014f645f3d88a2
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146579"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280384"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
-As entidades em seu ambiente são representadas por [gêmeos digital](concepts-twins-graph.md). Gerenciar seu gêmeos digital pode incluir criação, modificação e remoção. Para executar essas operações, você pode usar as [**APIs do DigitalTwins**](/rest/api/digital-twins/dataplane/twins), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
+As entidades em seu ambiente são representadas por [gêmeos digital](concepts-twins-graph.md). Gerenciar seu gêmeos digital pode incluir criação, modificação e remoção. Para executar essas operações, você pode usar as [**APIs do DigitalTwins**](/rest/api/digital-twins/dataplane/twins), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
 
 Este artigo se concentra no gerenciamento de gêmeos digitais; para trabalhar com relações e o [gráfico de bispersão](concepts-twins-graph.md) como um todo, confira [*como gerenciar o grafo de entrelaçamento com relações*](how-to-manage-graph.md).
 
@@ -87,7 +87,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` os objetos vêm com um `Id` campo. Você pode deixar esse campo vazio, mas se você adicionar um valor de ID, ele precisará corresponder ao parâmetro de ID passado para a `CreateOrReplaceDigitalTwinAsync()` chamada. Por exemplo: 
+> `BasicDigitalTwin` os objetos vêm com um `Id` campo. Você pode deixar esse campo vazio, mas se você adicionar um valor de ID, ele precisará corresponder ao parâmetro de ID passado para a `CreateOrReplaceDigitalTwinAsync()` chamada. Por exemplo:
 >
 >```csharp
 >twin.Id = "myRoomId";

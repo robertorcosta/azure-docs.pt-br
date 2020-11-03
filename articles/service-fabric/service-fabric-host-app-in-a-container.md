@@ -3,12 +3,12 @@ title: Implantar um aplicativo .NET em um contêiner do Azure Service Fabric
 description: Saiba como colocar um aplicativo existente do .NET em um contêiner usando o Visual Studio e depure os contêineres no Service Fabric localmente. O aplicativo colocado em um contêiner é enviado por push para um registro de contêiner do Azure e implantado em um cluster do Service Fabric. Quando implantado no Azure, o aplicativo usa o Banco de Dados SQL do Azure para manter os dados.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b7c841c1185cb2e289a230eb1078a13d4ccd48f8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122056"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889928"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
@@ -30,12 +30,12 @@ Neste tutorial, você aprenderá como:
 1. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Instalar o [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) de forma que você possa executar contêineres no Windows 10.
 3. Instalar a [versão 6.2 ou posterior de runtime do Service Fabric](service-fabric-get-started.md) e a [versão 3.1 do SDK do Service Fabric](service-fabric-get-started.md) ou posterior.
-4. Instale o [Visual Studio 2019 versão 16.1](https://www.visualstudio.com/) ou posterior com as cargas de trabalho de **Desenvolvimento do Azure** e **Desenvolvimento para a Web e ASP.NET** .
+4. Instale o [Visual Studio 2019 versão 16.1](https://www.visualstudio.com/) ou posterior com as cargas de trabalho de **Desenvolvimento do Azure** e **Desenvolvimento para a Web e ASP.NET**.
 5. Instalar o [Azure PowerShell][link-azure-powershell-install]
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Baixar e executar o Fabrikam Fiber CallCenter
 
-1. Baixe o aplicativo de exemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].  Clique no link **baixar arquivo** .  No diretório *sourceCode* no arquivo *fabrikam.zip* , extraia o arquivo *sourceCode.zip* e, em seguida, extraia o diretório *VS2015* no seu computador.
+1. Baixe o aplicativo de exemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].  Clique no link **baixar arquivo**.  No diretório *sourceCode* no arquivo *fabrikam.zip* , extraia o arquivo *sourceCode.zip* e, em seguida, extraia o diretório *VS2015* no seu computador.
 
 2. Verifique se o aplicativo Fabrikam fibra CallCenter é compilado e executado sem erros.  Inicie o Visual Studio como um **administrador** e abra o arquivo [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Pressione F5 para depurar e executar o aplicativo.
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="containerize-the-application"></a>Colocar o aplicativo em um contêiner
 
-1. Clique com o botão direito do mouse no projeto **FabrikamFiber.Web** > **Adicionar** > **Suporte do Orquestrador do Contêiner** .  Selecione **Service Fabric** como o orchestrator do contêiner e clique em **OK** .
+1. Clique com o botão direito do mouse no projeto **FabrikamFiber.Web** > **Adicionar** > **Suporte do Orquestrador do Contêiner**.  Selecione **Service Fabric** como o orchestrator do contêiner e clique em **OK**.
 
 2. Se solicitado, clique em **Sim** para alternar o Docker para contêineres do Windows agora.
 
@@ -118,7 +118,7 @@ Novamente no projeto **FabrikamFiber.Web** , atualize a cadeia de conexão no ar
 ```
 
 >[!NOTE]
->Você pode usar qualquer SQL Server que preferir para a depuração local, desde que ele seja acessível no host. No entanto, **localdb** não dá suporte à comunicação `container -> host`. Se você desejar usar outro banco de dados SQL ao criar um build de versão de seu aplicativo Web, adicione outra cadeia de conexão ao arquivo *web.release.config* .
+>Você pode usar qualquer SQL Server que preferir para a depuração local, desde que ele seja acessível no host. No entanto, **localdb** não dá suporte à comunicação `container -> host`. Se você desejar usar outro banco de dados SQL ao criar um build de versão de seu aplicativo Web, adicione outra cadeia de conexão ao arquivo *web.release.config*.
 
 ## <a name="run-the-containerized-application-locally"></a>Executar o aplicativo em contêineres localmente
 
@@ -151,11 +151,11 @@ Você pode:
 
 Este tutorial cria um cluster do Visual Studio, que é ideal para cenários de teste. Se você criar um cluster de alguma outra forma, ou usar um cluster existente, você pode copiar e colar o ponto de extremidade de conexão ou escolhê-lo em sua assinatura.
 
-Antes de começar, abra FabrikamFiber.Web->PackageRoot->ServiceManifest.xml no Gerenciador de Soluções. Anote a porta do front-end da Web listada em **Ponto de extremidade** .
+Antes de começar, abra FabrikamFiber.Web->PackageRoot->ServiceManifest.xml no Gerenciador de Soluções. Anote a porta do front-end da Web listada em **Ponto de extremidade**.
 
 Ao criar o cluster:
 
-1. Clique com o botão direito do mouse no projeto de aplicativo **Fabrikam.CallCenterApplication** no Gerenciador de Soluções e escolha **Publicar** .
+1. Clique com o botão direito do mouse no projeto de aplicativo **Fabrikam.CallCenterApplication** no Gerenciador de Soluções e escolha **Publicar**.
 2. Entre usando sua conta do Azure para que você possa ter acesso às assinaturas.
 3. Abaixo da lista suspensa de **Ponto de Extremidade de Conexão** , selecione a opção **Criar Cluster...** .
 4. Na caixa de diálogo **Criar cluster** , modifique as seguintes configurações:
@@ -164,16 +164,16 @@ Ao criar o cluster:
 
     b. Opcional: é possível modificar o número de nós. Por padrão, existem três nós, o mínimo necessário para testar cenários do Service Fabric.
 
-    c. Selecione a guia **Certificado** . Nessa guia, digite uma senha a ser usada para proteger o certificado do cluster. Esse certificado ajuda a proteger o cluster. Você também pode modificar o caminho de onde deseja salvar o certificado. O Visual Studio também pode importar o certificado para você, já que essa é uma etapa necessária para publicar o aplicativo no cluster.
+    c. Selecione a guia **Certificado**. Nessa guia, digite uma senha a ser usada para proteger o certificado do cluster. Esse certificado ajuda a proteger o cluster. Você também pode modificar o caminho de onde deseja salvar o certificado. O Visual Studio também pode importar o certificado para você, já que essa é uma etapa necessária para publicar o aplicativo no cluster.
 
-    d. Selecione a guia **Detalhes da VM** . Especifique a senha que você deseja usar para as VMs (máquinas virtuais) que compõem o cluster. O nome de usuário e a senha podem ser usados para se conectar remotamente às VMs. Você também deve selecionar um tamanho de máquina VM e pode alterar a imagem da VM, se necessário.
+    d. Selecione a guia **Detalhes da VM**. Especifique a senha que você deseja usar para as VMs (máquinas virtuais) que compõem o cluster. O nome de usuário e a senha podem ser usados para se conectar remotamente às VMs. Você também deve selecionar um tamanho de máquina VM e pode alterar a imagem da VM, se necessário.
 
     > [!IMPORTANT]
-    > Escolha um SKU que dê suporte a contêineres em execução. O sistema operacional Windows Server nos seus nós de cluster devem ser compatíveis com o sistema operacional Windows Server do seu contêiner. Para obter mais informações, consulte [Compatibilidade do sistema operacional contêiner e do sistema operacional do host do Windows Server](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Por padrão, este tutorial cria uma imagem do Docker com base no Windows Server 2016 LTSC. Contêineres com base nesta imagem serão executados em clusters criados com o Windows Server 2016 Datacenter com contêineres. No entanto, se você cria um cluster ou usa um cluster existente com base no Windows Server Datacenter Core 1709 com contêineres, você deve alterar a imagem do sistema operacional do Windows Server na qual o contêiner se baseia. Abra o **Dockerfile** no projeto **FabrikamFiber.Web** , comente a instrução `FROM` existente (com base em `windowsservercore-ltsc`) e remova os comentários da instrução `FROM` com base em `windowsservercore-1709`.
+    > Escolha um SKU que dê suporte a contêineres em execução. O sistema operacional Windows Server nos seus nós de cluster devem ser compatíveis com o sistema operacional Windows Server do seu contêiner. Para obter mais informações, consulte [Compatibilidade do sistema operacional contêiner e do sistema operacional do host do Windows Server](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Por padrão, este tutorial cria uma imagem do Docker com base no Windows Server 2016 LTSC. Contêineres com base nesta imagem serão executados em clusters criados com o Windows Server 2016 Datacenter com contêineres. No entanto, se você criar um cluster ou usar um cluster existente com base em uma versão diferente do Windows Server, você precisará alterar a imagem do SO na qual o contêiner se baseia. Abra o **dockerfile** no projeto **FabrikamFiber.Web** , comente qualquer instrução `FROM` existente baseada em uma versão anterior do Windows Server e adicione uma instrução `FROM` com base na marca da versão desejada da [página do DockerHub do Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore). Para obter informações adicionais sobre versões, linhas do tempo de suporte e controle de versão do Windows Server Core, confira [Informações de versão do Windows Server Core](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info). 
 
     e. Na guia **Avançado** , liste a porta do aplicativo que deverá ser aberta no balanceador de carga quando o cluster for implantado. Essa é a porta que você anotou antes de iniciar a criação do cluster. Você também pode adicionar uma chave existente do Application Insights a ser usada para direcionar os arquivos de log do aplicativo.
 
-    f. Quando você terminar de modificar as configurações, selecione o botão **Criar** .
+    f. Quando você terminar de modificar as configurações, selecione o botão **Criar**.
 
 5. A criação levará alguns minutos para ser concluída; a janela de saída indica quando o cluster foi totalmente criado.
 
@@ -229,7 +229,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 ## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
 
-Agora que o aplicativo está pronto, você poderá implantá-lo no cluster no Azure diretamente por meio do Visual Studio.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo **Fabrikam.CallCenterApplication** e selecione **Publicar** .  Em **Ponto de extremidade de Conexão** , selecione o ponto de extremidade do cluster que você criou anteriormente.  Em **Registro de Contêiner do Azure** , selecione o registro de contêiner que você criou anteriormente.  Clique em **Publicar** para implantar o aplicativo no cluster no Azure.
+Agora que o aplicativo está pronto, você poderá implantá-lo no cluster no Azure diretamente por meio do Visual Studio.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo **Fabrikam.CallCenterApplication** e selecione **Publicar**.  Em **Ponto de extremidade de Conexão** , selecione o ponto de extremidade do cluster que você criou anteriormente.  Em **Registro de Contêiner do Azure** , selecione o registro de contêiner que você criou anteriormente.  Clique em **Publicar** para implantar o aplicativo no cluster no Azure.
 
 ![aplicativo Publicar][publish-app]
 

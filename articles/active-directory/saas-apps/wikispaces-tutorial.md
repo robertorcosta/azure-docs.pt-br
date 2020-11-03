@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ae6ff7bff1415b3b5faaaa83560c35d1b298d08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f62e746a189a14838227a40be3bca9d05553a642
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88523551"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Integração do Active Directory do Azure com o Wikispaces
 
@@ -27,7 +27,7 @@ A integração do Wikispaces ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao Wikispaces (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -61,7 +61,7 @@ Para configurar a integração do Wikispaces com o Azure AD, é necessário adic
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Workstars**, selecione **Wikispaces** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Workstars** , selecione **Wikispaces** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Wikispaces na lista de resultados](common/search-new-app.png)
 
@@ -85,34 +85,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Wikispaces, siga as etapas abaixo:
 
-1. No [Portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Wikispaces**, clique em **Logon único**.
+1. No [Portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Wikispaces** , clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Wikispaces](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.wikispaces.net`
+    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.wikispaces.net`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://session.wikispaces.net/<instancename>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Wikispaces](https://www.wikispaces.com/site/help) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Wikispaces**, copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Wikispaces** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -124,13 +124,13 @@ Para configurar o logon único do Azure AD com o Wikispaces, siga as etapas abai
 
 ### <a name="configure-wikispaces-single-sign-on"></a>Configurar o logon único do Wikispaces
 
-Para configurar o logon único no lado do **Wikispaces**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Wikispaces](https://www.wikispaces.com/site/help). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Wikispaces** , é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Wikispaces](https://www.wikispaces.com/site/help). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -142,9 +142,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário** , digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -154,7 +154,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Wikispaces.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Wikispaces**.
+1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Wikispaces**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -170,11 +170,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-wikispaces-test-user"></a>Criação de um usuário de teste do Wikispaces
 
@@ -190,11 +190,11 @@ Para permitir que os usuários do Azure AD façam logon no Wikispaces, eles deve
 
 3. Clique em **Convidar Pessoas**.
    
-    ![Convidar Pessoas](./media/wikispaces-tutorial/ic787194.png "Convidar Pessoas")
+    ![A captura de tela mostra a página Membros, na qual você pode selecionar Convidar Pessoas.](./media/wikispaces-tutorial/ic787194.png "Convidar Pessoas")
 
 4. Na seção **Convidar Pessoas** , realize as seguintes etapas:
    
-    ![Convidar Pessoas](./media/wikispaces-tutorial/ic787208.png "Convidar Pessoas")
+    ![A captura de tela mostra a seção Convidar Pessoas, em que você pode inserir os dados do usuário.](./media/wikispaces-tutorial/ic787208.png "Convidar Pessoas")
    
     a. Digite **Nomes de Usuário ou Endereço de Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
    
@@ -210,13 +210,12 @@ Para permitir que os usuários do Azure AD façam logon no Wikispaces, eles deve
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Wikispaces no Painel de Acesso, você deverá ser conectado automaticamente ao Wikispaces, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Wikispaces no Painel de Acesso, você deverá ser conectado automaticamente ao Wikispaces, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372537"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895878"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar um script Python "Olá, Mundo!" (parte 2 de 4)
 
@@ -142,6 +142,9 @@ Execute o script de controle que, por sua vez, executa `hello.py` no cluster de 
 ```bash
 python 03-run-hello.py
 ```
+
+> [!TIP]
+> Se a execução desse código fornecer um erro informando que você não tem acesso à assinatura, confira [Conectar-se a um workspace](how-to-manage-workspace.md?tab=python#connect-multi-tenant) para obter informações sobre as opções de autenticação.
 
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Monitorar o código na nuvem usando o estúdio
 

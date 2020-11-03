@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267016"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785214"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é o Firewall do aplicativo Web do Azure no Gateway de Aplicativo do Azure?
 
@@ -74,6 +74,7 @@ Esta seção descreve os principais benefícios oferecidos pelo WAF no Gateway d
 - Crie regras personalizadas para atender às necessidades específicas dos seus aplicativos.
 - Filtre o tráfego pela geografia para permitir ou impedir que determinados países/regiões tenham acesso a seus aplicativos. (versão prévia)
 - Proteja seus aplicativos de bots com o conjunto de regras de mitigação de bots. (versão prévia)
+- Inspecionar JSON e XML no corpo da solicitação
 
 ## <a name="waf-policy-and-rules"></a>Política e regras do WAF
 
@@ -121,8 +122,8 @@ Se a proteção contra bots estiver habilitada, as solicitações de entrada que
 
 O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes dois modos:
 
-* **Modo de detecção**: Monitora e registra todos os alertas de ameaça. Você ativa o log de diagnóstico para o Gateway de Aplicativo na seção **Diagnóstico**. Você também precisa garantir que o log do WAF esteja selecionado e ativado. O firewall do aplicativo Web no modo de detecção não bloqueia solicitações de entrada quando está operando no modelo de Detecção.
-* **Modo de prevenção**: Bloqueia invasões e ataques detectados pelas regras. O invasor recebe uma exceção "403 acesso não autorizado" e a conexão é encerrada. O modo de Prevenção registra tais ataques nos logs do WAF.
+* **Modo de detecção** : Monitora e registra todos os alertas de ameaça. Você ativa o log de diagnóstico para o Gateway de Aplicativo na seção **Diagnóstico**. Você também precisa garantir que o log do WAF esteja selecionado e ativado. O firewall do aplicativo Web no modo de detecção não bloqueia solicitações de entrada quando está operando no modelo de Detecção.
+* **Modo de prevenção** : Bloqueia invasões e ataques detectados pelas regras. O invasor recebe uma exceção "403 acesso não autorizado" e a conexão é encerrada. O modo de Prevenção registra tais ataques nos logs do WAF.
 
 > [!NOTE]
 > É recomendável que você execute um WAF implantado recentemente no modo de detecção por um curto período de tempo em um ambiente de produção. Isso fornece a oportunidade de obter [logs de firewall](../../application-gateway/application-gateway-diagnostics.md#firewall-log) e atualizar quaisquer exceções ou [regras personalizadas](./custom-waf-rules-overview.md) antes da transição para o modo de prevenção. Isso pode ajudar a reduzir a ocorrência de tráfego bloqueado inesperado.
@@ -131,9 +132,9 @@ O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes do
 
 OWASP tem dois modos para decidir se deve bloquear o tráfego: Modo de pontuação de anomalias e modo tradicional.
 
-No modo tradicional, o tráfego que corresponde a qualquer regra é considerado independentemente de qualquer outra correspondência de regra. Esse modo é fácil de entender. Mas a falta de informações sobre quantas regras correspondem a uma solicitação específica é uma limitação. Portanto, o modo de Pontuação de anomalias foi introduzido. É o padrão para OWASP 3.*x*.
+No modo tradicional, o tráfego que corresponde a qualquer regra é considerado independentemente de qualquer outra correspondência de regra. Esse modo é fácil de entender. Mas a falta de informações sobre quantas regras correspondem a uma solicitação específica é uma limitação. Portanto, o modo de Pontuação de anomalias foi introduzido. É o padrão para OWASP 3. *x*.
 
-No modo de Pontuação de anomalias, o tráfego que corresponde a qualquer regra não é bloqueado imediatamente quando o firewall está no modo de prevenção. As regras têm uma determinada gravidade: *Crítico*, *Erro*, *Aviso* ou *Informativo*. Essa gravidade afeta um valor numérico para a solicitação, que é chamado de Pontuação de anomalias. Por exemplo, uma correspondência de regra de *Aviso* contribui com 3 para a pontuação. Uma correspondência da regra *crítica* contribui com 5.
+No modo de Pontuação de anomalias, o tráfego que corresponde a qualquer regra não é bloqueado imediatamente quando o firewall está no modo de prevenção. As regras têm uma determinada gravidade: *Crítico* , *Erro* , *Aviso* ou *Informativo*. Essa gravidade afeta um valor numérico para a solicitação, que é chamado de Pontuação de anomalias. Por exemplo, uma correspondência de regra de *Aviso* contribui com 3 para a pontuação. Uma correspondência da regra *crítica* contribui com 5.
 
 |Severity  |Valor  |
 |---------|---------|

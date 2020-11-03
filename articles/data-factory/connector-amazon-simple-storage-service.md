@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/14/2020
-ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 11/02/2020
+ms.openlocfilehash: 43d4b20564fb4d76b2cb8441c805f391d6ece68b
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047719"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280241"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -43,7 +43,7 @@ Este conector Amazon S3 tem suporte para as seguintes atividades:
 Especificamente, esse conector Amazon S3 dá suporte à cópia de arquivos como está ou à análise de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md). Você também pode optar por [preservar os metadados do arquivo durante a cópia](#preserve-metadata-during-copy). O conector usa a [Assinatura da AWS versão 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) para autenticar solicitações para S3.
 
 >[!TIP]
->Você pode usar esse conector Amazon S3 para copiar dados de *qualquer provedor de armazenamento compatível com S3*, como o [Google Cloud Storage](connector-google-cloud-storage.md). Especifique a URL do serviço correspondente na configuração do serviço vinculado.
+>Você pode usar esse conector Amazon S3 para copiar dados de *qualquer provedor de armazenamento compatível com S3* , como o [Google Cloud Storage](connector-google-cloud-storage.md). Especifique a URL do serviço correspondente na configuração do serviço vinculado.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
@@ -66,17 +66,17 @@ As propriedades a seguir têm suporte para um serviço vinculado do Amazon S3:
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AmazonS3**. | Sim |
+| authenticationType | Especifique o tipo de autenticação usado para se conectar ao Amazon S3. Você pode optar por usar chaves de acesso para uma conta de IAM (gerenciamento de acesso e identidade) AWS ou [credenciais de segurança temporárias](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).<br>Os valores permitidos são: `AccessKey` (padrão) e `TemporarySecurityCredentials` . |Não |
 | accessKeyId | ID da chave de acesso secreta. |Sim |
 | secretAccessKey | A chave de acesso do secreta em si. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). |Sim |
+| sessionToken | Aplicável ao usar autenticação [temporária de credenciais de segurança](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) . Saiba como [solicitar credenciais de segurança temporárias](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) de AWS.<br>Observação a credencial temporária AWS expira entre 15 minutos e 36 horas com base nas configurações. Verifique se sua credencial é válida quando a atividade é executada, especialmente para carga de trabalho operacional, por exemplo, você pode atualizá-la periodicamente e armazená-la em Azure Key Vault.<br>Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). |Não |
 | serviceUrl | Especifique o ponto de extremidade S3 personalizado se você estiver copiando dados de um provedor de armazenamento compatível com S3 que não seja o serviço do Amazon S3 oficial. Por exemplo, para copiar dados do Google Cloud Storage, especifique `https://storage.googleapis.com`. | Não |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |No |
-
-Esse conector requer chaves de acesso para uma conta de IAM (gerenciamento de acesso e identidade) AWS para copiar dados do Amazon S3. Não há suporte para [credenciais de segurança temporárias](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) agora.
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
 
 >[!TIP]
 >Especifique a URL do serviço S3 personalizado se você estiver copiando dados de um armazenamento compatível com S3 que não seja o serviço do Amazon S3 oficial.
 
-Veja um exemplo:
+**Exemplo: usando a autenticação de chave de acesso**
 
 ```json
 {
@@ -88,6 +88,33 @@ Veja um exemplo:
             "secretAccessKey": {
                 "type": "SecureString",
                 "value": "<secret access key>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: usando autenticação de credencial de segurança temporária**
+
+```json
+{
+    "name": "AmazonS3LinkedService",
+    "properties": {
+        "type": "AmazonS3",
+        "typeProperties": {
+            "authenticationType": "TemporarySecurityCredentials",
+            "accessKeyId": "<access key id>",
+            "secretAccessKey": {
+                "type": "SecureString",
+                "value": "<secret access key>"
+            },
+            "sessionToken": {
+                "type": "SecureString",
+                "value": "<session token>"
             }
         },
         "connectVia": {
@@ -154,18 +181,18 @@ As propriedades a seguir têm suporte para o Amazon S3 em `storeSettings` config
 | Propriedade                 | Descrição                                                  | Obrigatório                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | A propriedade **Type** em `storeSettings` deve ser definida como **AmazonS3ReadSettings**. | Sim                                                         |
-| ***Localize os arquivos a serem copiados:*** |  |  |
-| OPÇÃO 1: caminho estático<br> | Copiar do caminho do bucket ou de pasta/arquivo especificado no conjunto de dados. Se você quiser copiar todos os arquivos de um Bucket ou pasta, especifique também `wildcardFileName` como `*` . |  |
+| **_Localize os arquivos a serem copiados:_* _ |  |  |
+| OPÇÃO 1: caminho estático<br> | Copiar do caminho do bucket ou de pasta/arquivo especificado no conjunto de dados. Se você quiser copiar todos os arquivos de um Bucket ou pasta, especifique também `wildcardFileName` como `_` . |  |
 | OPÇÃO DOIS: Prefixo S3<br>- prefixo | Prefixo do nome da chave S3 sob o Bucket especificado configurado em um conjunto de dados para filtrar os arquivos S3 de origem. As chaves S3 cujos nomes começam com `bucket_in_dataset/this_prefix` são selecionadas. Ele utiliza o filtro do lado do serviço S3's, que fornece melhor desempenho do que um filtro curinga. | Não |
 | OPÇÃO 3: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga no Bucket especificado configurado em um conjunto de dados para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` para escapar se o nome da pasta tiver um curinga ou este caractere de escape dentro de. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
 | OPÇÃO 3: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga no Bucket e caminho da pasta fornecidos (ou caminho da pasta curinga) para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` para escapar se o nome da pasta tiver um curinga ou este caractere de escape dentro de.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
 | OPÇÃO 4: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Quando você estiver usando essa opção, não especifique um nome de arquivo no conjunto de um. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
-| ***Configurações adicionais:*** |  | |
-| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando **recursivo** é definido como **true** e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
+| ***Configurações adicionais:** _ |  | |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando _ *recursivo* * é definido como **true** e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
 | deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Esta propriedade só é válida no cenário de cópia de arquivos binários. O valor padrão: false. |Não |
-| modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo: última modificação. <br>Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado a um fuso horário UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser **nulas**, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo**, os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é **nulo**, os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
+| modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo: última modificação. <br>Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado a um fuso horário UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser **nulas** , o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo** , os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é **nulo** , os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                                          |
-| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | No                                            |
+| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Não                                            |
 | partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/>-Quando você usa o prefixo, o caminho raiz da partição é subcaminho antes do último "/". <br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Não                                            |
 | maxConcurrentConnections | O número de conexões simultâneas com o armazenamento de dados. Especifique somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | Não                                                          |
 
@@ -261,10 +288,10 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 | chave | O nome ou filtro curinga da chave de objeto S3 no Bucket especificado. Aplica-se somente quando a propriedade **prefix** não é especificada. <br/><br/>O filtro curinga tem suporte para a parte da pasta e o nome do arquivo. Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Consulte mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). Use `^` para escapar se a pasta ou o nome de arquivo real tiver um curinga ou este caractere de escape dentro de. |Não |
 | prefixo | Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se somente quando a propriedade de **chave** não é especificada. |Não |
 | version | A versão do objeto S3 se o controle de versão do S3 está habilitado. Se uma versão não for especificada, a versão mais recente será buscada. |Não |
-| modifiedDatetimeStart | Os arquivos são filtrados com base no atributo: última modificação. Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que a habilitação dessa configuração afetará o desempenho geral da movimentação de dados quando você quiser filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser **nulas**, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo**, os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é nulo, os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.| Não |
-| modifiedDatetimeEnd | Os arquivos são filtrados com base no atributo: última modificação. Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que a habilitação dessa configuração afetará o desempenho geral da movimentação de dados quando você quiser filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser **nulas**, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo**, os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é **nulo**, os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.| Não |
-| format | Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quer analisar ou gerar arquivos com um formato específico, os seguintes tipos de formato de arquivo são compatíveis: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Defina a propriedade **type** sob **format** para um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Não (somente para o cenário de cópia binária) |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis de suporte são **Ideal** e **Mais rápido**. |Não |
+| modifiedDatetimeStart | Os arquivos são filtrados com base no atributo: última modificação. Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que a habilitação dessa configuração afetará o desempenho geral da movimentação de dados quando você quiser filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser **nulas** , o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo** , os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é nulo, os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.| Não |
+| modifiedDatetimeEnd | Os arquivos são filtrados com base no atributo: última modificação. Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br/><br/> Lembre-se de que a habilitação dessa configuração afetará o desempenho geral da movimentação de dados quando você quiser filtrar grandes quantidades de arquivos. <br/><br/> As propriedades podem ser **nulas** , o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo** , os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é **nulo** , os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.| Não |
+| format | Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quer analisar ou gerar arquivos com um formato específico, os seguintes tipos de formato de arquivo são compatíveis: **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** , **ParquetFormat**. Defina a propriedade **type** sob **format** para um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Não (somente para o cenário de cópia binária) |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos com suporte são: **GZip** , **Deflate** , **BZip2** e **ZipDeflate**.<br/>Os níveis de suporte são **Ideal** e **Mais rápido**. |Não |
 
 >[!TIP]
 >Para copiar todos os arquivos em uma pasta, especifique **bucketname** para o Bucket e o **prefixo** da parte da pasta.

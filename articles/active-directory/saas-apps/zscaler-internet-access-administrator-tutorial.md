@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 0cbcfb65d7c7ac71b17e38dd72545a3d8fd2f162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb3417cf765cd703d72d4a2db7a649400ab2d4de
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545872"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Azure Active Directory ao Administrador do Zscaler Internet Access
 
@@ -27,7 +27,7 @@ A integração do Administrador do Zscaler Internet Access ao Azure AD oferece o
 * Você pode permitir que seus usuários façam logon automaticamente (logon único) no Administrador do Zscaler Internet Access com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -64,7 +64,7 @@ Para configurar a integração do Administrador do Zscaler Internet Access ao Az
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Administrador do Zscaler Internet Access**, selecione **Administrador do Zscaler Internet Access** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Administrador do Zscaler Internet Access** , selecione **Administrador do Zscaler Internet Access** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Administrador do Zscaler Internet Access na lista de resultados](common/search-new-app.png)
 
@@ -88,23 +88,23 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Administrador do Zscaler Internet Access, execute as seguintes etapas:
 
-1. No [Portal do Azure](https://portal.azure.com/), na página de integração do aplicativo do **Administrador do Zscaler Internet Access**, selecione **Logon único**.
+1. No [Portal do Azure](https://portal.azure.com/), na página de integração do aplicativo do **Administrador do Zscaler Internet Access** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na página **Definir logon único com SAML**, clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
+4. Na página **Definir logon único com SAML** , clique no botão **Editar** para abrir o diálogo **Configuração básica de SAML**.
 
     ![Informações de logon único de Domínio e URLs do Administrador do Zscaler Internet Access](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL de acordo com seus requisitos:
+    a. Na caixa de texto **Identificador** , digite uma URL de acordo com seus requisitos:
 
     | Identificador |
     |------------|
@@ -115,7 +115,7 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
     | `https://admin.zscloud.net` |
     | `https://admin.zscalerbeta.net` |
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL de acordo com seus requisitos:
+    b. Na caixa de texto **URL de Resposta** , digite uma URL de acordo com seus requisitos:
 
     | URL de resposta |
     |-----------|
@@ -126,11 +126,11 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
     | `https://admin.zscloud.net/adminsso.do` |
     | `https://admin.zscalerbeta.net/adminsso.do` |
 
-5. O aplicativo de Administrador do Zscaler Internet Access espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos e Declarações do Usuário**.
+5. O aplicativo de Administrador do Zscaler Internet Access espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Atributos e Declarações do Usuário**.
 
     ![O link do Atributo](./media/zscaler-internet-access-administrator-tutorial/tutorial_zscaler-internet_attribute.png)
 
-6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
+6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário** , configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
 
     | Nome  | Atributo de Origem  |
     | ---------| ------------ |
@@ -138,24 +138,24 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![image](./common/new-save-attribute.png)
+    ![Captura de tela que mostra Declarações de usuário com a opção de Adicionar declaração.](./common/new-save-attribute.png)
     
-    ![image](./common/new-attribute-details.png)
+    ![Captura de tela que mostra a caixa de diálogo Gerenciar declarações do usuário, na qual você pode inserir os valores descritos.](./common/new-attribute-details.png)
 
-    b. Da Lista **Atributo de origem**, selecione o valor do atributo.
+    b. Na lista **Atributo de origem** , selecione o valor do atributo.
 
     c. Clique em **OK**.
 
     d. Clique em **Save** (Salvar).
 
     > [!NOTE]
-    > Clique [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para saber como configurar a Função no Azure AD
+    > Clique [aqui](../develop/active-directory-enterprise-app-role-management.md) para saber como configurar a Função no Azure AD
 
-7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+7. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-8. Na seção **Configurar o Administrador do Zscaler Internet Access**, copie a URL apropriada, de acordo com suas necessidades.
+8. Na seção **Configurar o Administrador do Zscaler Internet Access** , copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -169,9 +169,9 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 
 1. Em outra janela do navegador da Web, faça logon na interface do usuário do Administrador do Zscaler Internet Access.
 
-2. Acesse **Administração > Gerenciamento de Administradores**, execute as seguintes etapas e clique em Salvar:
+2. Acesse **Administração > Gerenciamento de Administradores** , execute as seguintes etapas e clique em Salvar:
 
-    ![Administração](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administração")
+    ![A captura de tela mostra o Gerenciamento de Administradores com opções para Habilitar a Autenticação SAML, carregar o certificado SSL e especificar um Emissor.](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administração")
 
     a. Marque a opção **Habilitar Autenticação SAML**.
 
@@ -181,7 +181,7 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 
 3. Na interface do usuário do Administrador, execute as seguintes etapas:
 
-    ![Administração](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
+    ![A captura de tela mostra a guia IU do Administrador na qual você pode executar essas etapas.](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
@@ -191,7 +191,7 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -203,9 +203,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -216,7 +216,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Administrador do Zscaler Internet Access.
 
-1. No portal do Azure, escolha **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **Administrador do Zscaler Internet Access**.
+1. No portal do Azure, escolha **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, selecione **Administrador do Zscaler Internet Access**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -232,11 +232,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-zscaler-internet-access-administrator-test-user"></a>Criar um usuário de teste do Administrador do Zscaler Internet Access
 
@@ -249,12 +249,12 @@ https://help.zscaler.com/zia/adding-admins
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Zscaler Internet Access Administrator no Painel de Acesso, você deverá ser conectado automaticamente à interface do usuário do Zscaler Internet Access Administrator para a qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Zscaler Internet Access Administrator no Painel de Acesso, você deverá ser conectado automaticamente à interface do usuário do Zscaler Internet Access Administrator para a qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)

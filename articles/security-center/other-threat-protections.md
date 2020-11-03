@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340879"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900391"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Proteções contra ameaças adicionais na Central de Segurança do Azure
 Assim como as [proteções internas do Azure Defender](azure-defender.md), a Central de Segurança do Azure também oferece as funcionalidades de proteção contra ameaças a seguir.
@@ -32,7 +32,6 @@ Os recursos de análise da camada de rede da Central de Segurança são baseados
 Algumas configurações de rede podem impedir que a Central de Segurança gere alertas sobre atividades de rede suspeitas. Para que a Central de Segurança gere alertas de rede, verifique se:
 - Sua máquina virtual tem um endereço IP público (ou está em um balanceador de carga com um endereço IP público).
 - O tráfego de saída da rede da sua máquina virtual não está bloqueado por uma solução de IDS externa.
-- Sua máquina virtual recebeu o mesmo endereço IP para a hora inteira durante a qual a comunicação suspeita ocorreu. Isso também se aplica a VMs criadas como parte de um serviço gerenciado (por exemplo, AKS, Databricks).
 
 Para obter uma lista dos alertas da camada de rede do Azure, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azurenetlayer).
 
@@ -68,7 +67,7 @@ Os alertas do Azure Cosmos DB são gerados por tentativas incomuns e potencialme
 
 Para obter mais informações, consulte:
 
-* [Proteção Avançada contra Ameaças do Azure Cosmos DB (versão prévia)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
+* [Proteção avançada contra ameaças do Azure Cosmos DB (versão prévia)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [A lista de alertas de proteção contra ameaças para o Azure Cosmos DB (versão prévia)](alerts-reference.md#alerts-azurecosmos)
 
 
@@ -101,4 +100,4 @@ Para saber mais sobre os alertas de segurança desses recursos de proteção con
 * [Tabela de referência para todos os alertas da Central de Segurança do Azure](alerts-reference.md)
 * [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)
 * [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
-* [Exportar alertas e recomendações de segurança (versão prévia)](continuous-export.md)
+* [Exportar continuamente os dados da Central de Segurança](continuous-export.md)

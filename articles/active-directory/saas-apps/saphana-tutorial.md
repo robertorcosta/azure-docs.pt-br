@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: fc3b5b096e339d0c0f4bca7afc92d7315246fcd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 748566cf5b25157fcb8a2938a3f4bd307c930874
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552269"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: integração do Azure Active Directory com o SAP HANA
 
@@ -27,7 +27,7 @@ A integração do SAP HANA ao Azure AD oferece os seguintes benefícios:
 * Você pode permitir que seus usuários entrem automaticamente no SAP HANA (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -72,7 +72,7 @@ Para configurar a integração do SAP HANA ao Azure AD, você precisará adicion
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **SAP HANA**, selecione **SAP HANA** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **SAP HANA** , selecione **SAP HANA** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![SAP HANA na lista de resultados](common/search-new-app.png)
 
@@ -96,48 +96,48 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o SAP HANA, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo **SAP HANA**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativo **SAP HANA** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
+4. Na página **Configurar Logon Único com SAML** , execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do SAP HANA](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador**, digite as seguintes informações: `HA100`
+    a. Na caixa de texto **Identificador** , digite as seguintes informações: `HA100`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao cliente do SAP HANA](https://cloudplatform.sap.com/contact.html) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. O aplicativo SAP HANA espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
+5. O aplicativo SAP HANA espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos. Na página **Definir Logon Único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Atributos do Usuário**.
 
-    ![image](common/edit-attribute.png)
+    ![Captura de tela que mostra a seção "Atributos do Usuário" com o ícone "Editar" selecionado.](common/edit-attribute.png)
 
-6. Na seção **Atributos do usuário** da caixa de diálogo **Declarações e Atributos do Usuário**, realize as seguintes etapas:
+6. Na seção **Atributos do usuário** da caixa de diálogo **Declarações e Atributos do Usuário** , realize as seguintes etapas:
  
     a. Clique no **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações do usuário**.
 
-    ![image](./media/saphana-tutorial/tutorial_usermail.png)
+    ![Captura de tela que mostra a caixa de diálogo "Atributos e Declarações do Usuário" com o ícone "Editar" selecionado.](./media/saphana-tutorial/tutorial_usermail.png)
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
-    b. Na lista **Transformação**, selecione **ExtractMailPrefix()** .
+    b. Na lista **Transformação** , selecione **ExtractMailPrefix()** .
 
-    c. Na lista **Parâmetro 1**, selecione **user.mail**.
+    c. Na lista **Parâmetro 1** , selecione **user.mail**.
 
     d. Clique em **Save** (Salvar).
 
-7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+7. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -152,11 +152,11 @@ Para configurar o logon único do Azure AD com o SAP HANA, execute as seguintes 
 
     ![Adicionar Provedor de Identidade](./media/saphana-tutorial/sap1.png)
 
-    a. No painel **Adicionar informações do provedor de identidade**, cole o conteúdo do XML de metadados (que você fez o download do Portal do Azure) na caixa de **Metadados**.
+    a. No painel **Adicionar informações do provedor de identidade** , cole o conteúdo do XML de metadados (que você fez o download do Portal do Azure) na caixa de **Metadados**.
 
-    ![Configurações para Adicionar Provedor de Identidade](./media/saphana-tutorial/sap2.png)
+    ![Captura de tela que mostra o painel "Adicionar Informações do Provedor de Identidade" com as caixas "Metadados" e "Nome" realçadas.](./media/saphana-tutorial/sap2.png)
 
-    b. Se o conteúdo do documento XML for válido, o processo de análise extrai as informações necessárias para os campos **Assunto, ID de entidade e emissor** na área da tela de **Dados gerais**. Ele também extrai as informações necessárias para os campos de URL na área da tela de **Destino**, por exemplo, os campos de  **URL de Base e URL de Logon único (*)** .
+    b. Se o conteúdo do documento XML for válido, o processo de análise extrai as informações necessárias para os campos **Assunto, ID de entidade e emissor** na área da tela de **Dados gerais**. Ele também extrai as informações necessárias para os campos de URL na área da tela de **Destino** , por exemplo, os campos de  **URL de Base e URL de Logon único (*)** .
 
     ![Configurações para Adicionar Provedor de Identidade](./media/saphana-tutorial/sap3.png)
 
@@ -169,7 +169,7 @@ Para configurar o logon único do Azure AD com o SAP HANA, execute as seguintes 
 
     ![Botão Salvar](./media/saphana-tutorial/sap4.png)
 
-4. No Studio HANA, dentro das propriedades do sistema do guia **Configuração**, filtre as configurações por **saml**. Em seguida, ajuste **assertion_timeout** de **10 segundos** para **120 segundos**.
+4. No Studio HANA, dentro das propriedades do sistema do guia **Configuração** , filtre as configurações por **saml**. Em seguida, ajuste **assertion_timeout** de **10 segundos** para **120 segundos**.
 
     ![configuração assertion_timeout](./media/saphana-tutorial/sap7.png)
 
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com o SAP HANA, execute as seguintes 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -189,9 +189,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -202,7 +202,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao SAP HANA.
 
-1. No portal do Azure, escolha **Aplicativos empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **SAP HANA**.
+1. No portal do Azure, escolha **Aplicativos empresariais** , escolha **Todos os aplicativos** e, em seguida, escolha **SAP HANA**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -218,16 +218,16 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-sap-hana-test-user"></a>Criar um usuário de teste do SAP HANA
 
 Para permitir que os usuários do Azure Active Directory entrem no SAP HANA, você deverá provisioná-los no SAP HANA.
-O SAP HANA dá suporte ao **provisionamento Just-In-Time**, que está habilitado por padrão.
+O SAP HANA dá suporte ao **provisionamento Just-In-Time** , que está habilitado por padrão.
 
 Se você precisar criar um usuário manualmente, execute as seguintes etapas:
 
@@ -260,13 +260,12 @@ Se você precisar criar um usuário manualmente, execute as seguintes etapas:
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do SAP HANA no Painel de Acesso, você deverá ser conectado automaticamente ao SAP HANA no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do SAP HANA no Painel de Acesso, você deverá ser conectado automaticamente ao SAP HANA no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

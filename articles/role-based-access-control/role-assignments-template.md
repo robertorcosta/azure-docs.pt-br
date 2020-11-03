@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2020
+ms.date: 11/02/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d65b2db9c69d006476ae1d08a1af3e60efe48930
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612737"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280556"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicionar atribuições de função do Azure usando modelos do Azure Resource Manager
 
@@ -305,7 +305,9 @@ Confira a seguir um exemplo de atribuição de função de Colaborador a um usu�
 
 ### <a name="new-service-principal"></a>Nova entidade de serviço
 
-Se você criar uma entidade de serviço e tentar atribuir uma função imediatamente a essa entidade de serviço, essa atribuição de função poderá falhar em alguns casos. Por exemplo, se você criar uma identidade gerenciada e, em seguida, tentar atribuir uma função a essa entidade no mesmo modelo do Azure Resource Manager, a atribuição de função poderá falhar. Provavelmente, o motivo dessa falha é um atraso de replicação. A entidade de serviço é criada em uma região; no entanto, a atribuição de função pode ocorrer em uma região diferente que ainda não tenha replicado a entidade de serviço. Para resolver esse cenário, você deve definir a propriedade `principalType` como `ServicePrincipal` ao criar a atribuição de função.
+Se você criar uma entidade de serviço e tentar atribuir uma função imediatamente a essa entidade de serviço, essa atribuição de função poderá falhar em alguns casos. Por exemplo, se você criar uma identidade gerenciada e, em seguida, tentar atribuir uma função a essa entidade no mesmo modelo do Azure Resource Manager, a atribuição de função poderá falhar. Provavelmente, o motivo dessa falha é um atraso de replicação. A entidade de serviço é criada em uma região; no entanto, a atribuição de função pode ocorrer em uma região diferente que ainda não tenha replicado a entidade de serviço.
+
+Para resolver esse cenário, você deve definir a propriedade `principalType` como `ServicePrincipal` ao criar a atribuição de função. Você também deve definir o `apiVersion` da atribuição de função para `2018-09-01-preview` ou posterior.
 
 O modelo a seguir demonstra:
 

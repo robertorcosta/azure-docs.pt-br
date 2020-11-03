@@ -128,6 +128,8 @@
           href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Solucionar problemas de reserva não disponível
           href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Solucionar problemas para baixar detalhes de uso
+          href: troubleshoot-download-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Referência
   items:
     - name: API REST de reservas

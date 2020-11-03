@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 91ba36a0bffab6c66020bab41ace65659ed084f7
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146306"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279966"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
@@ -73,7 +73,7 @@ As APIs de ponto de extremidade que estão disponíveis no plano de controle sã
  
 Para criar uma rota de eventos, você pode usar as APIs do [**plano de dados**](how-to-manage-routes-apis-cli.md#create-an-event-route)do gêmeos digital do Azure, os [**comandos da CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou a [**portal do Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Aqui está um exemplo de criação de uma rota de eventos dentro de um aplicativo cliente, usando a chamada do `CreateOrReplaceEventRouteAsync` [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) : 
+Aqui está um exemplo de criação de uma rota de eventos dentro de um aplicativo cliente, usando a chamada do `CreateOrReplaceEventRouteAsync` [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) : 
 
 ```csharp
 string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
@@ -94,7 +94,7 @@ As rotas também podem ser criadas usando a [CLI do Azure digital gêmeos](how-t
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
 
-Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas** . O gêmeos digital do Azure enviará um evento inativo quando **uma das condições a seguir** for atendida. 
+Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. O gêmeos digital do Azure enviará um evento inativo quando **uma das condições a seguir** for atendida. 
 
 * O evento não é entregue dentro do período de vida útil
 * O número de tentativas para entregar o evento excedeu o limite

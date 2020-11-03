@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f5f7f823d6c5f5860c2e78fe8cacdd1d788c581
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906797"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892688"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: impor a autenticação multifator para usuários convidados de B2B
 
@@ -47,19 +47,19 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para concluir o cenário deste tutorial, você precisa de:
 
- - **Acesso à edição do Azure AD Premium**, que inclui recursos de política de acesso condicional. Para impor a MFA, você precisa criar uma política de acesso condicional do Azure AD. Observe que as políticas de MFA são sempre impostas em sua organização, independentemente de se o parceiro tem recursos de MFA. Se você configurar a MFA para sua organização, precisará garantir que você tem licenças suficientes do Azure AD Premium para os usuários convidados. 
+ - **Acesso à edição do Azure AD Premium** , que inclui recursos de política de acesso condicional. Para impor a MFA, você precisa criar uma política de acesso condicional do Azure AD. Observe que as políticas de MFA são sempre impostas em sua organização, independentemente de se o parceiro tem recursos de MFA. Se você configurar a MFA para sua organização, precisará garantir que você tem licenças suficientes do Azure AD Premium para os usuários convidados. 
  - **Uma conta de email externo válido** que você pode adicionar ao seu diretório de locatário como um usuário convidado e usar para entrar. Se você não souber como criar uma conta de convidado, confira [Adicionar um usuário convidado de B2B no portal do Azure](add-users-administrator.md).
 
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Criar um usuário convidado de teste no Azure AD
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) como administrador do Microsoft Azure AD.
 2. No painel esquerdo, selecione **Azure Active Directory**.
-3.  Em **Gerenciar**, selecione **Usuários**.
+3.  Em **Gerenciar** , selecione **Usuários**.
 4.  Selecione **Novo usuário convidado**.
 
     ![Captura de tela mostrando onde selecionar a opção Novo usuário convidado](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
-5.  Em **Nome de usuário**, insira o endereço de email do usuário externo. Opcionalmente, inclua uma mensagem de boas-vindas. 
+5.  Em **Nome de usuário** , insira o endereço de email do usuário externo. Opcionalmente, inclua uma mensagem de boas-vindas. 
 
     ![Captura de tela mostrando onde inserir a mensagem de convite do convidado](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
@@ -74,30 +74,30 @@ Para concluir o cenário deste tutorial, você precisa de:
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Criar uma política de acesso condicional que exige MFA
 1.  Entre no [portal do Azure](https://portal.azure.com/) como administrador de segurança ou como administrador de acesso condicional.
 2.  No portal do Azure, selecione **Azure Active Directory**. 
-3.  Na página do **Azure Active Directory**, na seção **Segurança**, selecione **Acesso condicional**.
-4.  Na página **Acesso Condicional**, na barra de ferramentas na parte superior, selecione **Nova política**.
-5.  Na página **Novo**, na caixa de texto **Nome**, digite **Exigir MFA para acesso ao portal do B2B**.
-6.  Na seção **Atribuições**, selecione **Usuários e grupos**.
-7.  Na página **Usuários e grupos**, escolha **Selecionar usuários e grupos** e, em seguida, selecione **Todos os usuários convidados (visualização)** .
+3.  Na página do **Azure Active Directory** , na seção **Segurança** , selecione **Acesso condicional**.
+4.  Na página **Acesso Condicional** , na barra de ferramentas na parte superior, selecione **Nova política**.
+5.  Na página **Novo** , na caixa de texto **Nome** , digite **Exigir MFA para acesso ao portal do B2B**.
+6.  Na seção **Atribuições** , selecione **Usuários e grupos**.
+7.  Na página **Usuários e grupos** , escolha **Selecionar usuários e grupos** e, em seguida, selecione **Todos os usuários convidados (visualização)** .
 
     ![Captura de tela mostrando a seleção de todos os usuários convidados](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Selecione **Concluído**.
-10. Na página **Novo**, na seção **Atribuições**, selecione **Aplicativos de nuvem**.
-11. Na página **Aplicativos de nuvem**, escolha **Selecionar aplicativos** e, em seguida, escolha **Selecionar**.
+10. Na página **Novo** , na seção **Atribuições** , selecione **Aplicativos de nuvem**.
+11. Na página **Aplicativos de nuvem** , escolha **Selecionar aplicativos** e, em seguida, escolha **Selecionar**.
 
     ![Captura de tela mostrando a página de aplicativos de nuvem e a opção Selecionar](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
-12. Na página **Selecionar**, escolha **Gerenciamento do Microsoft Azure** e escolha **Selecionar**.
+12. Na página **Selecionar** , escolha **Gerenciamento do Microsoft Azure** e escolha **Selecionar**.
 
-    ![Captura de tela mostrando o aplicativo de Gerenciamento do Microsoft Azure selecionado](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Captura de tela que realça a opção de Gerenciamento do Microsoft Azure.](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
-13. Na página **Aplicativos de nuvem**, selecione **Concluído**.
-14. Na página **Novo**, na seção **Controles de acesso**, selecione **Conceder**.
-15. Na página **Conceder**, escolha **Conceder acesso**, marque a caixa de seleção **Exigir autenticação multifator** e escolha **Selecionar**.
+13. Na página **Aplicativos de nuvem** , selecione **Concluído**.
+14. Na página **Novo** , na seção **Controles de acesso** , selecione **Conceder**.
+15. Na página **Conceder** , escolha **Conceder acesso** , marque a caixa de seleção **Exigir autenticação multifator** e escolha **Selecionar**.
 
     ![Captura de tela mostrando a opção de autenticação multifator](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
-16. Em **Habilitar política**, selecione **Ativar**.
+16. Em **Habilitar política** , selecione **Ativar**.
 
     ![Captura de tela mostrando a opção da política Habilitar definida como ativada](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
@@ -105,20 +105,20 @@ Para concluir o cenário deste tutorial, você precisa de:
 
 ## <a name="use-the-what-if-option-to-simulate-sign-in"></a>Use a opção What If para simular a entrada
 
-1.  Na página **Acesso condicional – Políticas**, selecione **What If**. 
+1.  Na página **Acesso condicional – Políticas** , selecione **What If**. 
 
-    ![Captura de tela mostrando onde selecionar a opção What if](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Captura de tela que realça onde selecionar a opção What if na página Acesso Condicional – Políticas.](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
-2.  Selecione **Usuário**, escolha seu usuário convidado de teste e escolha **Selecionar**.
+2.  Selecione **Usuário** , escolha seu usuário convidado de teste e escolha **Selecionar**.
 
     ![Captura de tela mostrando um usuário convidado selecionado](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.  Selecione **Aplicativos de nuvem**.
-4.  Na página **Aplicativos de nuvem**, escolha **Selecionar aplicativos** e, em seguida, clique em **Selecionar**. Na lista de aplicativos, selecione **Gerenciamento do Microsoft Azure** e clique em **Selecionar**. 
+4.  Na página **Aplicativos de nuvem** , escolha **Selecionar aplicativos** e, em seguida, clique em **Selecionar**. Na lista de aplicativos, selecione **Gerenciamento do Microsoft Azure** e clique em **Selecionar**. 
 
     ![Captura de tela mostrando o aplicativo de Gerenciamento do Microsoft Azure selecionado](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
-5.  Na página **Aplicativos de nuvem**, selecione **Concluído**.
+5.  Na página **Aplicativos de nuvem** , selecione **Concluído**.
 6.  Selecione **What If** e verifique se a nova política aparece nos **Resultados da avaliação** na guia **Políticas que serão aplicadas**.
 
     ![Captura de tela mostrando onde selecionar a opção What if](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
@@ -135,11 +135,11 @@ Para concluir o cenário deste tutorial, você precisa de:
 Quando não for mais necessário, remova o usuário de teste e a política de acesso condicional de teste.
 1.  Entre no [Portal do Azure](https://portal.azure.com/) como administrador do Microsoft Azure AD.
 2.  No painel esquerdo, selecione **Azure Active Directory**.
-3.  Em **Gerenciar**, selecione **Usuários**.
+3.  Em **Gerenciar** , selecione **Usuários**.
 4.  Selecione o usuário de teste e, em seguida, selecione **Excluir usuário**.
 5.  No painel esquerdo, selecione **Azure Active Directory**.
-6.  Em **Segurança**, selecione **Acesso Condicional**.
-7.  Na lista **Nome da Política**, selecione o menu de contexto (...) da sua política de teste e, em seguida, selecione **Excluir**. Clique em **Sim** para confirmar.
+6.  Em **Segurança** , selecione **Acesso Condicional**.
+7.  Na lista **Nome da Política** , selecione o menu de contexto (...) da sua política de teste e, em seguida, selecione **Excluir**. Clique em **Sim** para confirmar.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você criou uma política de acesso condicional que exige que os usuários convidados usem MFA ao entrar em um dos seus aplicativos de nuvem. Para saber mais sobre como adicionar usuários convidados para colaboração, confira [Adicionar usuários de colaboração do Azure Active Directory B2B no portal do Azure](add-users-administrator.md).

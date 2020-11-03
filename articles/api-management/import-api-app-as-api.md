@@ -1,6 +1,6 @@
 ---
 title: Importar um aplicativo de API como uma API com o portal do Azure | Microsoft Docs
-description: Este tutorial mostra como usar o APIM (gerenciamento de API) para importar um aplicativo de API como uma API.
+description: Este artigo mostra como usar o APIM (Gerenciamento de API) para importar um aplicativo de API como uma API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 007598046ae64b390d44e61438b69bd26024b1c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41209233ec59f578db4ff7fd344bb96aefeb975e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626880"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146766"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar um aplicativo de API como uma API
 
@@ -48,7 +48,7 @@ Neste artigo, você aprenderá como:
 
     Caso o APIM não encontre o swagger, a API será exposta como uma API de "passagem". 
 5. Adicione um sufixo da URL da API. O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.
-6. Publica a API associando-a a um produto. Nesse caso, o produto "*Ilimitado*" é usado.  Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.
+6. Publica a API associando-a a um produto. Nesse caso, o produto " *Ilimitado* " é usado.  Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.
 
     Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.
 

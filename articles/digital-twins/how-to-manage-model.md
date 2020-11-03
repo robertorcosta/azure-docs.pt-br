@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5bcb6df1b03b0c1c835e198818813ad8d914c630
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147106"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279425"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
-Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINMODELS**](/rest/api/digital-twins/dataplane/models), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
+Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINMODELS**](/rest/api/digital-twins/dataplane/models), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
 
 As operações de gerenciamento incluem carregamento, validação, recuperação e exclusão de modelos. 
 
@@ -117,7 +117,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Os arquivos de modelo podem conter mais de um único modelo. Nesse caso, os modelos precisam ser colocados em uma matriz JSON. Por exemplo: 
+Os arquivos de modelo podem conter mais de um único modelo. Nesse caso, os modelos precisam ser colocados em uma matriz JSON. Por exemplo:
 
 ```json
 [
@@ -200,7 +200,7 @@ Quando você cria um novo "/", uma vez que a nova versão do modelo e a versão 
 
 Isso também significa que o carregamento de uma nova versão de um modelo não afeta automaticamente o gêmeos existente. O gêmeos existente só permanecerá com instâncias da versão antiga do modelo.
 
-Você pode atualizar esses gêmeos existentes para a nova versão do modelo, aplicando patches a eles, conforme descrito na seção [*atualizar um modelo do digital r*](how-to-manage-twin.md#update-a-digital-twins-model) de " *como": gerenciar o digital gêmeos* . No mesmo patch, você deve atualizar a ID do **modelo** (para a nova versão) e **todos os campos que devem ser alterados no campo de atualização para torná-lo compatível com o novo modelo** .
+Você pode atualizar esses gêmeos existentes para a nova versão do modelo, aplicando patches a eles, conforme descrito na seção [*atualizar um modelo do digital r*](how-to-manage-twin.md#update-a-digital-twins-model) de " *como": gerenciar o digital gêmeos*. No mesmo patch, você deve atualizar a ID do **modelo** (para a nova versão) e **todos os campos que devem ser alterados no campo de atualização para torná-lo compatível com o novo modelo**.
 
 ### <a name="remove-models"></a>Remover modelos
 

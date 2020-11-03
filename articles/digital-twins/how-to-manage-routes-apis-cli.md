@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e6e27ebfd1b6b44e355d4529f2838a1c5440147c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 88828d6dea05c530d20fe378a108df2bd0dcd5b9
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147089"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279461"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "93147089"
 
 No Azure digital gêmeos, você pode rotear [notificações de eventos](how-to-interpret-event-data.md) para serviços de downstream ou recursos de computação conectados. Isso é feito primeiro Configurando **pontos de extremidade** que podem receber os eventos. Em seguida, você pode criar  [**rotas de eventos**](concepts-route-events.md) que especificam quais eventos gerados pelo Azure digital gêmeos são entregues a quais pontos de extremidade.
 
-Os pontos de extremidade e as rotas podem ser gerenciados com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md). Este artigo orienta você pelo processo de criação de pontos de extremidade e rotas por meio desses mecanismos.
+Os pontos de extremidade e as rotas podem ser gerenciados com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md). Este artigo orienta você pelo processo de criação de pontos de extremidade e rotas por meio desses mecanismos.
 
 Eles também podem ser gerenciados por meio do [portal do Azure](https://portal.azure.com). Para obter uma versão deste artigo que usa o portal em vez disso, consulte [*como: gerenciar pontos de extremidade e rotas (Portal)*](how-to-manage-routes-portal.md).
 
@@ -88,7 +88,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto de extremidade com mensagens mortas
 
-Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas** .
+Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**.
 
 Para criar um ponto de extremidade com mensagens mortas habilitadas, você deve usar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar seu ponto de extremidade. 
 
@@ -152,9 +152,9 @@ Aqui está um exemplo de uma mensagem de mensagens mortas para uma [notificaçã
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
-Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidade, você precisará definir uma **rota de evento** . As APIs do gêmeos **EventRoutes** do Azure digital permitem que os desenvolvedores conectem o fluxo de eventos, em todo o sistema e em serviços downstream. Leia mais sobre as rotas de eventos em [*conceitos: roteamento de eventos do gêmeos digital do Azure*](concepts-route-events.md).
+Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidade, você precisará definir uma **rota de evento**. As APIs do gêmeos **EventRoutes** do Azure digital permitem que os desenvolvedores conectem o fluxo de eventos, em todo o sistema e em serviços downstream. Leia mais sobre as rotas de eventos em [*conceitos: roteamento de eventos do gêmeos digital do Azure*](concepts-route-events.md).
 
-Os exemplos nesta seção usam o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
+Os exemplos nesta seção usam o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 **Pré-requisito** : você precisa criar pontos de extremidade conforme descrito anteriormente neste artigo antes de passar para a criação de uma rota. Você pode prosseguir com a criação de uma rota de evento quando seus pontos de extremidade tiverem concluído a configuração.
 

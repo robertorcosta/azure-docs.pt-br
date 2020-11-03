@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a1bb3346d50825dcab799477794cb138ac2de91
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 72120f6937c65ca6f7a94d34122e41ae3b4a4ef5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326279"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746439"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure/service-bus
 Neste tutorial, você aprenderá a escrever um programa Node.js para enviar mensagens para um tópico do Barramento de Serviço e receber mensagens de uma assinatura do Barramento de Serviço usando o novo pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Esse pacote usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do Barramento de Serviço](/rest/api/servicebus/service-bus-runtime-rest). As amostras são escritas em JavaScript.

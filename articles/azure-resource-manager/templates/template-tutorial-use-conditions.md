@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119303"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896983"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Usar condição em modelos do ARM
 
@@ -55,7 +55,7 @@ Para concluir este artigo, você precisa do seguinte:
 Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
-1. Em **Nome do arquivo**, cole a seguinte URL:
+1. Em **Nome do arquivo** , cole a seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
@@ -88,7 +88,7 @@ Aqui está o procedimento para fazer as alterações:
 1. Substitua as três **variables('storageAccountName')** por **parameters('storageAccountName')** em todo o modelo.
 1. Remova as declarações de variável a seguir:
 
-    ![Diagrama de condição de uso do modelo do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Captura de tela que realça as definições de variáveis que você precisa remover.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Adicione os dois parâmetros seguintes ao início da seção de parâmetros:
 
@@ -117,11 +117,11 @@ Aqui está o procedimento para fazer as alterações:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    A condição verifica o valor de um parâmetro chamado **newOrExisting**. Se o valor do parâmetro for **new**, a implantação criará a conta de armazenamento.
+    A condição verifica o valor de um parâmetro chamado **newOrExisting**. Se o valor do parâmetro for **new** , a implantação criará a conta de armazenamento.
 
     A definição da conta de armazenamento atualizada será assim:
 
-    ![Condição de uso do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Captura de tela que mostra a definição da conta de armazenamento atualizada.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Atualize a propriedade **storageUri** da definição de recurso de máquina virtual pelo seguinte valor:
 
     ```json
@@ -172,7 +172,7 @@ Aqui está o procedimento para fazer as alterações:
     ```
 
     > [!NOTE]
-    > A implantação falhará se **newOrExisting** for **new**, mas a conta de armazenamento com o nome da conta de armazenamento especificado já existir.
+    > A implantação falhará se **newOrExisting** for **new** , mas a conta de armazenamento com o nome da conta de armazenamento especificado já existir.
 
 Tente criar outra implantação com **newOrExisting** definido como “existing” e especifique uma conta de armazenamento existente. Para criar uma conta de armazenamento com antecedência, confira [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: ff6c459f2f4178bee6b6b564e177c097d72592a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c132d8337ccb46824b32ab4a6bcfc73bf5d0818b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85557347"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890387"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implantar modelos do ARM usando o portal do Azure
 
@@ -64,7 +64,7 @@ Muitos desenvolvedores de modelos experientes usam esse método para gerar model
 1. Abra o arquivo zip baixado e salve **template.json** no computador. Na próxima seção, você pode usar uma ferramenta de implantação de modelo para editar o modelo.
 1. Selecione a guia **Parâmetro** para ver os valores fornecidos para os parâmetros. Anote esses valores, você precisará deles na próxima seção quando implantar o modelo.
 
-    ![Gerar um modelo no portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
+    ![Captura de tela que realça a guia Parâmetro que mostra os valores fornecidos.](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
     Usando o arquivo de modelo e o arquivo de parâmetros é possível criar um recurso, neste tutorial, uma conta de armazenamento do Azure.
 
@@ -87,8 +87,8 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 
     ![Modelos do Azure Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-   - Remova o parâmetro **storageAccountName**, conforme mostrado na captura de tela anterior.
-   - Adicione uma variável chamada **storageAccountName**, conforme mostrado na captura de tela anterior:
+   - Remova o parâmetro **storageAccountName** , conforme mostrado na captura de tela anterior.
+   - Adicione uma variável chamada **storageAccountName** , conforme mostrado na captura de tela anterior:
 
        ```json
        "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
@@ -189,7 +189,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos.
 
 1. No portal do Azure, selecione **Grupos de recursos** no menu esquerdo.
-1. No campo **Filtrar por nome**, insira o nome do grupo de recursos.
+1. No campo **Filtrar por nome** , insira o nome do grupo de recursos.
 1. Selecione o nome do grupo de recursos.  Você deverá ver a conta de armazenamento no grupo de recursos.
 1. Selecione **Excluir grupo de recursos** no menu superior.
 

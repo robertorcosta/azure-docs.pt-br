@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: ffda2b1d096b3c84e3f1df10e37c44922bab16ef
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632406"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280161"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Carregar dados no Azure Synapse Analytics usando Azure Data Factory
 
@@ -33,7 +33,7 @@ O Azure Data Factory oferece os seguintes benefícios para carregar dados no Azu
 * **Seguro e em conformidade** : os dados são transferidos via HTTPS ou ExpressRoute. A presença do serviço global garante que os dados nunca saiam do limite geográfico.
 * **Desempenho inigualável usando o polybase** : o polybase é a maneira mais eficiente de mover dados para a análise de Synapse do Azure. Use o recurso de objeto binário em etapas para obter velocidades de alta carga de todos os tipos de armazenamentos de dados, incluindo armazenamento Azure Blob e Data Lake Store. (O polybase dá suporte ao armazenamento de BLOBs do Azure e Azure Data Lake Store por padrão.) Para obter detalhes, consulte [desempenho da atividade de cópia](copy-activity-performance.md).
 
-Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _carregar dados do banco de dados SQL do Azure para o Azure Synapse Analytics_ . Você pode seguir as etapas semelhantes para copiar dados de outros tipos de armazenamentos de dados.
+Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _carregar dados do banco de dados SQL do Azure para o Azure Synapse Analytics_. Você pode seguir as etapas semelhantes para copiar dados de outros tipos de armazenamentos de dados.
 
 > [!NOTE]
 > Para obter mais informações, consulte [copiar dados de ou para o Azure Synapse Analytics usando Azure data Factory](connector-azure-sql-data-warehouse.md).
@@ -51,13 +51,13 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
 
 2. Na página **novo data Factory** , forneça valores para os seguintes itens:
 
-    * **Nome** : insira *LoadSQLDWDemo* para o nome. O nome do seu data factory deve ser * globalmente exclusivo. Se você receber o erro "o nome do data Factory ' LoadSQLDWDemo ' não está disponível", insira um nome diferente para o data factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory** . Tente criar o data factory novamente. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Nome** : insira *LoadSQLDWDemo* para o nome. O nome do seu data factory deve ser * globalmente exclusivo. Se você receber o erro "o nome do data Factory ' LoadSQLDWDemo ' não está disponível", insira um nome diferente para o data factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Tente criar o data factory novamente. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Assinatura** : Selecione a assinatura do Azure para criar o Data Factory. 
     * **Grupo de Recursos** : Selecione um grupo de recursos existente na lista suspensa ou selecione a opção **Criar novo** e insira o nome de um grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
-    * **Versão** : Selecione **V2** .
+    * **Versão** : Selecione **V2**.
     * **Localização** : Selecione o local para o data factory. Somente os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados que são usados pela data factory podem estar em outros locais e regiões. Esses armazenamentos de dados incluem Azure Data Lake Store, Azure Storage, Banco de Dados SQL do Azure e assim por diante.
 
-3. Selecione **Criar** .
+3. Selecione **Criar**.
 4. Após a conclusão da criação, vá para o seu data factory. Você verá a home page **Data Factory** conforme mostrado na imagem a seguir:
 
    ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
@@ -68,7 +68,7 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
 
 1. Na página de **introdução** , selecione o bloco **copiar dados** para iniciar a ferramenta de copiar dados.
 
-2. Na página **Propriedades** , especifique **CopyFromSQLToSQLDW** para o campo **nome da tarefa** e selecione **Avançar** .
+2. Na página **Propriedades** , especifique **CopyFromSQLToSQLDW** para o campo **nome da tarefa** e selecione **Avançar**.
 
     ![Página Propriedades](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
 
@@ -77,23 +77,23 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
     >Neste tutorial, você usa a *autenticação do SQL* como o tipo de autenticação para o armazenamento de dados de origem, mas pode escolher outros métodos de autenticação com suporte: *entidade de serviço* e *identidade gerenciada* , se necessário. Veja as seções correspondentes [neste artigo](./connector-azure-sql-database.md#linked-service-properties) para obter detalhes.
     >Para armazenar segredos de armazenamentos de dados com segurança, também é recomendável usar um Azure Key Vault. Veja [este artigo](./store-credentials-in-key-vault.md) para obter ilustrações detalhadas.
 
-    a. clique em **+ criar nova conexão** .
+    a. clique em **+ criar nova conexão**.
 
-    b. Selecione **Banco de Dados SQL do Azure** da galeria e selecione **Continuar** . Você pode digitar "SQL" na caixa de pesquisa para filtrar os conectores.
+    b. Selecione **Banco de Dados SQL do Azure** da galeria e selecione **Continuar**. Você pode digitar "SQL" na caixa de pesquisa para filtrar os conectores.
 
     ![Selecione o BD SQL do Azure](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. Na página **novo serviço vinculado** , selecione o nome do servidor e o nome do BD na lista suspensa e especifique o nome de usuário e a senha. Clique em **testar conexão** para validar as configurações e, em seguida, selecione **criar** .
+    c. Na página **novo serviço vinculado** , selecione o nome do servidor e o nome do BD na lista suspensa e especifique o nome de usuário e a senha. Clique em **testar conexão** para validar as configurações e, em seguida, selecione **criar**.
 
     ![Configure o Banco de Dados SQL do Azure](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    d. Selecione o serviço vinculado recém-criado como fonte, depois clique **Avançar** .
+    d. Selecione o serviço vinculado recém-criado como fonte, depois clique **Avançar**.
 
-4. Em **Selecione as tabelas das quais copiar os dados ou use uma página de consulta personalizada** , insira **SalesLT** para filtrar as tabelas. Escolha a caixa **(selecionar tudo)** para usar todas as tabelas da cópia e, em seguida, selecione **Avançar** .
+4. Em **Selecione as tabelas das quais copiar os dados ou use uma página de consulta personalizada** , insira **SalesLT** para filtrar as tabelas. Escolha a caixa **(selecionar tudo)** para usar todas as tabelas da cópia e, em seguida, selecione **Avançar**.
 
     ![Selecionar tabelas de origem](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
-5. Na página **aplicar filtro** , especifique as configurações ou selecione **Avançar** .
+5. Na página **aplicar filtro** , especifique as configurações ou selecione **Avançar**.
 
 6. Na página **Armazenamento de dados de destino** , conclua as etapas a seguir:
     >[!TIP]
@@ -102,24 +102,21 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
 
     a. Clique em **+ Criar nova conexão** para adicionar uma conexão
 
-    b. Selecione **Azure Synapse Analytics (anteriormente SQL data warehouse)** na galeria e selecione **continuar** . Você pode digitar "SQL" na caixa de pesquisa para filtrar os conectores.
+    b. Selecione **Azure Synapse Analytics (anteriormente SQL data warehouse)** na galeria e selecione **continuar**. Você pode digitar "SQL" na caixa de pesquisa para filtrar os conectores.
 
     ![Selecionar o Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. Na página **novo serviço vinculado** , selecione o nome do servidor e o nome do BD na lista suspensa e especifique o nome de usuário e a senha. Clique em **testar conexão** para validar as configurações e, em seguida, selecione **criar** .
+    c. Na página **novo serviço vinculado** , selecione o nome do servidor e o nome do BD na lista suspensa e especifique o nome de usuário e a senha. Clique em **testar conexão** para validar as configurações e, em seguida, selecione **criar**.
 
     ![Configurar o Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
-    d. Selecione o serviço vinculado criado recentemente como coletor e clique em **Avançar** .
+    d. Selecione o serviço vinculado criado recentemente como coletor e clique em **Avançar**.
 
-7. Na página **Mapeamento de tabela** , examine o conteúdo e selecione **Avançar** . Um mapeamento de tabela inteligente é exibido. As tabelas de origem são mapeadas para as tabelas de destino com base nos nomes de tabela. Se a tabela de origem não existir no destino, por padrão o Azure Data Factory cria uma tabela de destino com o mesmo nome por padrão. Você também pode mapear uma tabela de origem para uma tabela de destino existente.
-
-   > [!NOTE]
-   > A criação automática de tabela para o coletor do Azure Synapse Analytics se aplica quando SQL Server ou o banco de dados SQL do Azure é a origem. Se você copiar dados de outro armazenamento de dados de origem, precisará criar previamente o esquema no coletor do Azure Synapse Analytics antes de executar a cópia de dados.
+7. Na página **Mapeamento de tabela** , examine o conteúdo e selecione **Avançar**. Um mapeamento de tabela inteligente é exibido. As tabelas de origem são mapeadas para as tabelas de destino com base nos nomes de tabela. Se a tabela de origem não existir no destino, por padrão o Azure Data Factory cria uma tabela de destino com o mesmo nome por padrão. Você também pode mapear uma tabela de origem para uma tabela de destino existente.
 
    ![Página Mapeamento de tabela](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
-8. Na página **mapeamento de coluna** , examine o conteúdo e selecione **Avançar** . O mapeamento de tabela inteligente é baseado no nome da coluna. Se você deixar o Data Factory criar automaticamente as tabelas, a conversão do tipo de dados pode ocorrer quando houver incompatibilidades entre a origem e os armazenamentos de destino. Se houver uma conversão de tipo de dados sem suporte entre a coluna de origem e de destino, você verá uma mensagem de erro próximo à tabela correspondente.
+8. Na página **mapeamento de coluna** , examine o conteúdo e selecione **Avançar**. O mapeamento de tabela inteligente é baseado no nome da coluna. Se você deixar o Data Factory criar automaticamente as tabelas, a conversão do tipo de dados pode ocorrer quando houver incompatibilidades entre a origem e os armazenamentos de destino. Se houver uma conversão de tipo de dados sem suporte entre a coluna de origem e de destino, você verá uma mensagem de erro próximo à tabela correspondente.
 
     ![Página Mapeamento de coluna](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
@@ -129,11 +126,11 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
 
     b. Na página **novo serviço vinculado** , selecione sua conta de armazenamento e selecione **criar** para implantar o serviço vinculado.
 
-    c. Na seção **Configurações avançadas** , desmarque a opção **Usar tipo padrão** e, em seguida, selecione **Avançar** .
+    c. Na seção **Configurações avançadas** , desmarque a opção **Usar tipo padrão** e, em seguida, selecione **Avançar**.
 
     ![Configure o PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
-10. Na página **Resumo** , examine as configurações e selecione **Avançar** .
+10. Na página **Resumo** , examine as configurações e selecione **Avançar**.
 
     ![Página Resumo](./media/load-azure-sql-data-warehouse/summary-page.png)
 

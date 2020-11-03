@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558628"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145813"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
@@ -32,6 +32,12 @@ A Central de Segurança filtra e classifica as descobertas do verificador. Quand
 
 Notificando você apenas quando há problemas, a Central de Segurança reduz o potencial de alertas informativos indesejados.
 
+
+> [!TIP]
+> Para saber mais sobre os recursos de segurança de contêiner da Central de Segurança, confira:
+>
+> - [Central de Segurança do Azure e segurança do contêiner](container-security.md)
+> - [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="when-are-images-scanned"></a>Quando as imagens são verificadas?
 
@@ -81,10 +87,5 @@ Sim. Caso você tenha uma necessidade organizacional para ignorar uma descoberta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os recursos de segurança de contêiner da Central de Segurança, confira:
-
-- [Central de Segurança do Azure e segurança do contêiner](container-security.md)
-
-- [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Verificar se há vulnerabilidades nas imagens](defender-for-container-registries-usage.md)

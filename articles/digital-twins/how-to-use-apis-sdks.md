@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7bb336c6c1f483160b760b266e01249b7e1ee04e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: ed4bc60fbffbfbc553d41d7f7d44709551b620dc
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145541"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280344"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -26,12 +26,12 @@ Este artigo fornece uma visão geral das APIs disponíveis e os métodos para in
 
 As APIs do plano de controle são APIs [ARM](../azure-resource-manager/management/overview.md) usadas para gerenciar sua instância do gêmeos digital do Azure como um todo, para que elas abranjam operações como criar ou excluir toda a sua instância. Você também vai usá-los para criar e excluir pontos de extremidade.
 
-A versão mais atual da API do plano de controle é _**2020-10-31**_ .
+A versão mais atual da API do plano de controle é _**2020-10-31**_.
 
 Para usar as APIs do plano de controle:
 * Você pode chamar as APIs diretamente referenciando o Swagger mais recente na [pasta Swagger do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Esse repositório também inclui uma pasta de exemplos que mostram o uso.
 * Atualmente, você pode acessar SDKs para APIs de controle no...
-  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([referência [gerada automaticamente]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview)) ([origem](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([referência [gerada automaticamente]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([origem](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([referência [gerada automaticamente]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview)) ([origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([origem](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([origem](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
@@ -47,7 +47,7 @@ As APIs do plano de dados são as APIs do Azure digital gêmeos usadas para gere
 * **Consulta** -a categoria de consulta permite que os desenvolvedores [encontrem conjuntos de gêmeos digitais no grafo de entrelaçamento](how-to-query-graph.md) entre relações.
 * **Rotas de eventos** – a categoria rotas de eventos contém APIs para [rotear dados](concepts-route-events.md), por meio do sistema e para serviços downstream.
 
-A versão mais atual da API do plano de dados é _**2020-10-31**_ .
+A versão mais atual da API do plano de dados é _**2020-10-31**_.
 
 Para usar as APIs do plano de dados:
 * Você pode chamar as APIs diretamente, por...
@@ -55,7 +55,7 @@ Para usar as APIs do plano de dados:
    - exibindo a [documentação de referência da API](/rest/api/azure-digitaltwins/).
 * Você pode usar o SDK do **.net (C#)** . Para usar o SDK do .NET...
    - Você pode exibir e adicionar o pacote do NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
-   - Você pode exibir a [documentação de referência do SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
+   - Você pode exibir a [documentação de referência do SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
    - Você pode encontrar a origem do SDK, incluindo uma pasta de exemplos, no GitHub: [biblioteca de cliente do Azure IOT digital gêmeos para .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - Você pode ver informações detalhadas e exemplos de uso, continuando para a seção [SDK (plano de dados) do .net (C#)](#net-c-sdk-data-plane) deste artigo.
 * Você pode usar o SDK do **Java** . Para usar o SDK do Java...
@@ -274,7 +274,7 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 ## <a name="general-apisdk-usage-notes"></a>Notas gerais de uso de API/SDK
 
 > [!NOTE]
-> Observe que o Azure digital gêmeos atualmente não dá suporte a **CORS (compartilhamento de recursos entre origens)** . Para obter mais informações sobre as estratégias de impacto e resolução, consulte a seção [*CORS (compartilhamento de recursos entre origens)*](concepts-security.md#cross-origin-resource-sharing-cors) de *Concepts: Security for Azure digital gêmeos Solutions* .
+> Observe que o Azure digital gêmeos atualmente não dá suporte a **CORS (compartilhamento de recursos entre origens)**. Para obter mais informações sobre as estratégias de impacto e resolução, consulte a seção [*CORS (compartilhamento de recursos entre origens)*](concepts-security.md#cross-origin-resource-sharing-cors) de *Concepts: Security for Azure digital gêmeos Solutions*.
 
 A lista a seguir fornece detalhes adicionais e diretrizes gerais para o uso de APIs e SDKs.
 

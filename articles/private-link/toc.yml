@@ -37,6 +37,8 @@
       items:
         - name: Conectar-se a um SQL Server – Portal
           href: tutorial-private-endpoint-sql-portal.md
+        - name: Conectar-se a um SQL Server – PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: Conceitos
   items:
     - name: Ponto de extremidade privado

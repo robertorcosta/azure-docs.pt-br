@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322288"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893974"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo do Resource Manager para regras de alerta de métrica no Azure Monitor
 
@@ -502,7 +502,7 @@ Ao usar dimensões em uma regra de alerta que contém vários critérios, as seg
 - Só é possível selecionar um valor por dimensão dentro de cada critério.
 - Não é possível usar "\*" como um valor de dimensão.
 - Quando as métricas configuradas em critérios diferentes dão suporte à mesma dimensão, um valor de dimensão configurado precisa ser definido explicitamente da mesma forma para todas essas métricas no critério relevante.
-    - No exemplo a seguir, como as métricas **Transactions** e **SuccessE2ELatency** têm uma dimensão **ApiName**, e *criterion1* especifica o valor *"GetBlob"* da dimensão **ApiName**, *criterion2* precisará também configurar um valor *"GetBlob"* para a dimensão **ApiName**.
+    - No exemplo a seguir, como as métricas **Transactions** e **SuccessE2ELatency** têm uma dimensão **ApiName** , e *criterion1* especifica o valor *"GetBlob"* da dimensão **ApiName** , *criterion2* precisará também configurar um valor *"GetBlob"* para a dimensão **ApiName**.
 
 ### <a name="template-file"></a>Arquivo de modelo
 
@@ -707,15 +707,15 @@ Ao usar dimensões em uma regra de alerta que contém vários critérios, as seg
 ## <a name="multiple-dimensions-static-threshold"></a>Múltiplas dimensões, limite estático
 Uma regra de alerta pode monitorar várias séries temporais de métrica por vez, o que resulta em menos regras de alerta para gerenciar. A amostra a seguir cria uma regra de alerta de métrica estática em métricas dimensionais.
 
-Nessa amostra, a regra de alerta monitora as combinações de valor das dimensões **ResponseType** e **ApiName** para a métrica **Transactions**:
-1. **ResponsType** – O uso do curinga "\*" significa que, para cada valor da dimensão **ResponseType**, incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
+Nessa amostra, a regra de alerta monitora as combinações de valor das dimensões **ResponseType** e **ApiName** para a métrica **Transactions** :
+1. **ResponsType** – O uso do curinga "\*" significa que, para cada valor da dimensão **ResponseType** , incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
 2. **ApiName** – Uma série temporal diferente é monitorada apenas para os valores de dimensão **GetBlob** e **PutBlob**.
 
 Por exemplo, algumas das séries temporais em potencial que são monitoradas por esta regra de alerta são:
-- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
-- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Arquivo de modelo
 
@@ -898,15 +898,15 @@ Por exemplo, algumas das séries temporais em potencial que são monitoradas por
 Uma regra de alerta de limites dinâmicos pode criar limites sob medida para centenas de série temporais de métrica (até mesmo de diferentes tipos) de cada vez, o que resulta em menos regras de alerta para gerenciar. A amostra a seguir cria uma regra de alerta de métrica de limites dinâmicos em métricas dimensionais.
 
 
-Nessa amostra, a regra de alerta monitora as combinações de valor das dimensões **ResponseType** e **ApiName** para a métrica **Transactions**:
-1. **ResponsType** – Para cada valor da dimensão **ResponseType**, incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
+Nessa amostra, a regra de alerta monitora as combinações de valor das dimensões **ResponseType** e **ApiName** para a métrica **Transactions** :
+1. **ResponsType** – Para cada valor da dimensão **ResponseType** , incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
 2. **ApiName** – Uma série temporal diferente é monitorada apenas para os valores de dimensão **GetBlob** e **PutBlob**.
 
 Por exemplo, algumas das séries temporais em potencial que são monitoradas por esta regra de alerta são:
-- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
-- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
 
 >[!NOTE]
 > No momento, não há suporte para múltiplos critérios para as regras de alerta de métrica que usam limites dinâmicos.
@@ -3132,7 +3132,7 @@ Os [testes de disponibilidade do Application Insights](../app/monitor-web-app-av
 > [!NOTE]
 > `&amp`; é a referência de entidade HTML para &. Os parâmetros de URL ainda são separados por um único &, mas se você mencionar a URL em HTML, precisará codificá-la. Portanto, se você tiver qualquer "&" no seu valor de parâmetro pingURL, você precisará escapá-lo com "`&amp`;"
 
-### <a name="parameter-file"></a>Arquivo de parâmetro.
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -3234,8 +3234,6 @@ Os [testes de disponibilidade do Application Insights](../app/monitor-web-app-av
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>Arquivo de parâmetro.
 
 ```json
@@ -3254,12 +3252,53 @@ Os [testes de disponibilidade do Application Insights](../app/monitor-web-app-av
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+A configuração adicional do parâmetro de correspondência de conteúdo `pingText` é controlada na parte `Configuration/Webtest` do arquivo de modelo. Especificamente a seção abaixo:
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### <a name="test-locations"></a>Locais de teste
+
+|ID                  | Região           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | Europa Ocidental      |
+| `us-ca-sjc-azr`    | Oeste dos EUA          |
+| `emea-ru-msa-edge` | Sul do Reino Unido         |
+| `emea-se-sto-edge` | Oeste do Reino Unido          |
+| `apac-sg-sin-azr`  | Sudeste Asiático   |
+| `us-tx-sn1-azr`    | Centro-Sul dos Estados Unidos |
+| `us-il-ch1-azr`    | Centro-Norte dos EUA |
+| `emea-gb-db3-azr`  | Norte da Europa     |
+| `apac-jp-kaw-edge` | Leste do Japão       |
+| `emea-fr-pra-edge` | França Central   |
+| `emea-ch-zrh-edge` | Sul da França     |
+| `us-va-ash-azr`    | Leste dos EUA          |
+| `apac-hk-hkn-azr`  | Leste da Ásia        |
+| `us-fl-mia-edge`   | Centro dos EUA       |
+| `latam-br-gru-edge`| Sul do Brasil      |
+| `emea-au-syd-edge` | Leste da Austrália   |
+
+### <a name="us-government-test-locations"></a>Localizações de teste do US Gov
+
+|ID                    | Região           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: c2738e1a6168440adee79ebaa599a313600153a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d87be085331c174b58e2a475e18efa54a78cfea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546756"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Active Directory do Azure com a SAP Cloud Platform
 
@@ -27,7 +27,7 @@ A integração da SAP Cloud Platform ao Azure AD oferece os seguintes benefício
 * Você pode permitir que seus usuários entrem automaticamente no SAP Cloud Platform (logon único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -37,7 +37,7 @@ Para configurar a integração do Azure AD à SAP Cloud Platform, você precisa 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
 * Uma assinatura habilitada para logon único da SAP Cloud Platform
 
-Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu à SAP Cloud Platform poderão fazer logon único no aplicativo usando a [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu à SAP Cloud Platform poderão fazer logon único no aplicativo usando a [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 >[!IMPORTANT]
 >Você precisa implantar seu próprio aplicativo ou assinar um aplicativo em sua conta da SAP Cloud Platform para testar o logon único. Neste tutorial, um aplicativo é implantado na conta.
@@ -67,7 +67,7 @@ Para configurar a integração da SAP Cloud Platform ao Azure AD, você precisa 
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **SAP Cloud Platform**, selecione **SAP Cloud Platform** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **SAP Cloud Platform** , selecione **SAP Cloud Platform** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![SAP Cloud Platform na lista de resultados](common/search-new-app.png)
 
@@ -91,23 +91,23 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **SAP Cloud Platform**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **SAP Cloud Platform** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs da SAP Cloud Platform](common/sp-identifier-reply.png)
 
-    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo **SAP Cloud Platform**. Esta é a URL específica da conta de um recurso protegido em seu aplicativo SAP Cloud Platform. A URL é baseada no seguinte padrão: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. Na caixa de texto **URL de Logon** , digite a URL usada pelos usuários para entrar no aplicativo **SAP Cloud Platform**. Esta é a URL específica da conta de um recurso protegido em seu aplicativo SAP Cloud Platform. A URL é baseada no seguinte padrão: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
     >[!NOTE]
     >Esta é a URL em seu aplicativo SAP Cloud Platform que exige que o usuário seja autenticado.
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as 
     > [!NOTE] 
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com [equipe de suporte do cliente da SAP Cloud Platform](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) para obter a URL de logon e o Identificador. A URL de resposta você pode obter da seção de gerenciamento de confiança que é explicada no tutorial posteriormente.
     > 
-4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -148,25 +148,25 @@ Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as 
    
     ![Confiança](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Confiar")
 
-3. Na seção Gerenciamento de confiança, em **Provedor de serviços local**, execute as seguintes etapas:
+3. Na seção Gerenciamento de confiança, em **Provedor de serviços local** , execute as seguintes etapas:
 
-    ![Gerenciamento de Confiança](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Gerenciamento de Confiança")
+    ![Captura de tela que mostra a seção "Gerenciamento de Confiança" com a guia "Provedor de Serviço Local" selecionada e todas as caixas de texto realçadas.](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Gerenciamento de Confiança")
    
     a. Clique em **Editar**.
 
-    b. Para **Tipo de Configuração**, selecione **Personalizado**.
+    b. Para **Tipo de Configuração** , selecione **Personalizado**.
 
-    c. Para **Nome do Provedor Local**, deixe o valor padrão. Copie esse valor e cole-o no campo **Identificador** na configuração do Azure AD para a SAP Cloud Platform.
+    c. Para **Nome do Provedor Local** , deixe o valor padrão. Copie esse valor e cole-o no campo **Identificador** na configuração do Azure AD para a SAP Cloud Platform.
 
-    d. Para gerar um par de chaves **Chave de Assinatura** e um **Certificado de Assinatura**, clique em **Gerar Par de Chaves**.
+    d. Para gerar um par de chaves **Chave de Assinatura** e um **Certificado de Assinatura** , clique em **Gerar Par de Chaves**.
 
-    e. Para **Propagação de Entidade**, selecione **Desabilitado**.
+    e. Para **Propagação de Entidade** , selecione **Desabilitado**.
 
-    f. Para **Forçar Autenticação**, selecione **Desabilitado**.
+    f. Para **Forçar Autenticação** , selecione **Desabilitado**.
 
     g. Clique em **Save** (Salvar).
 
-4. Depois de salvar as configurações do **Provedor de serviços Llocal**, faça o seguinte para obter a URL de resposta:
+4. Depois de salvar as configurações do **Provedor de serviços Llocal** , faça o seguinte para obter a URL de resposta:
    
     ![Obter Metadados](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Obter Metadados")
 
@@ -174,11 +174,11 @@ Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as 
 
     b. Abra o arquivo XML de metadados da SAP Cloud Platform baixado e localize a marca **ns3:AssertionConsumerService** .
  
-    c. Copie o valor do atributo **Location** e cole-o no campo**URL de Resposta** na configuração do Azure AD da SAP Cloud Platform.
+    c. Copie o valor do atributo **Location** e cole-o no campo **URL de Resposta** na configuração do Azure AD da SAP Cloud Platform.
 
 5. Clique na guia **Provedor de Identidade Confiável** e em **Adicionar Provedor de Identidade Confiável**.
    
-    ![Gerenciamento de Confiança](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Gerenciamento de Confiança")
+    ![Captura de tela que mostra a página "Gerenciamento de Confiança" com a guia "Provedor de Identidade Confiável" selecionada.](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Gerenciamento de Confiança")
    
     >[!NOTE]
     >Para gerenciar a lista de provedores de identidade confiáveis, será necessário ter escolhido o Tipo de configuração personalizado na seção Provedor de Serviço Local. Para o tipo de configuração Padrão, você terá uma confiança implícita e não editável para o Serviço de ID do SAP. Para Nenhum, não há configurações de confiança.
@@ -190,12 +190,12 @@ Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as 
     ![Gerenciamento de Confiança](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Gerenciamento de Confiança")
     
     >[!NOTE]
-    >Depois de carregar o arquivo de metadados, os valores de **URL de Logon Único**, **URL de Logoff Único** e o **Certificado de Autenticação** serão automaticamente populados.
+    >Depois de carregar o arquivo de metadados, os valores de **URL de Logon Único** , **URL de Logoff Único** e o **Certificado de Autenticação** serão automaticamente populados.
     > 
      
 7. Clique na guia **Atributos** .
 
-8. Na guia **Atributos**, execute a seguinte etapa:
+8. Na guia **Atributos** , execute a seguinte etapa:
     
     ![Atributos](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Atributos") 
 
@@ -221,15 +221,15 @@ Como uma etapa opcional, você pode configurar grupos com base na asserção par
 
 Usar grupos na SAP Cloud Platform permite que você atribua dinamicamente um ou mais usuários a uma ou mais funções em seus aplicativos da SAP Cloud Platform, determinados pelos valores de atributos na asserção SAML 2.0. 
 
-Por exemplo, se a declaração contém o atributo "*contract=temporary*", talvez seja conveniente que todos os usuários afetados sejam adicionados ao grupo "*TEMPORARY*". O grupo “*TEMPORARY*” pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da SAP Cloud Platform.
+Por exemplo, se a declaração contém o atributo " *contract=temporary* ", talvez seja conveniente que todos os usuários afetados sejam adicionados ao grupo " *TEMPORARY* ". O grupo “ *TEMPORARY* ” pode conter uma ou mais funções de um ou mais aplicativos implantados em sua conta da SAP Cloud Platform.
  
-Use os grupos baseados em declarações se desejar atribuir vários usuários simultaneamente a uma ou mais funções de aplicativos em sua conta da SAP Cloud Platform. Se você quer atribuir apenas um único usuário ou alguns deles a funções específicas, recomendamos atribuí-los diretamente na guia "**Autorizações**" da ferramenta cockpit da SAP Cloud Platform.
+Use os grupos baseados em declarações se desejar atribuir vários usuários simultaneamente a uma ou mais funções de aplicativos em sua conta da SAP Cloud Platform. Se você quer atribuir apenas um único usuário ou alguns deles a funções específicas, recomendamos atribuí-los diretamente na guia " **Autorizações** " da ferramenta cockpit da SAP Cloud Platform.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -241,9 +241,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome** , insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -254,7 +254,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso à SAP Cloud Platform.
 
-1. No portal do Azure, escolha **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, escolha **SAP Cloud Platform**.
+1. No portal do Azure, escolha **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, escolha **SAP Cloud Platform**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -270,11 +270,11 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ### <a name="create-sap-cloud-platform-test-user"></a>Criar um usuário da SAP Cloud Platform
 
@@ -302,13 +302,12 @@ Para permitir que os usuários do Azure AD façam logon na SAP Cloud Platform, a
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do SAP Cloud Platform no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo SAP Cloud Platform para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do SAP Cloud Platform no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo SAP Cloud Platform para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 909ea33ed96225c75a2d093f5bf2f4878ea51d2e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a21cee6806c4200a73b35afba73cf04d7ca60308
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939177"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280004"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Parceiros de business intelligence do Azure Synapse Analytics
 
@@ -35,6 +35,7 @@ Para criar sua solução de data warehouse, você pode escolher entre diferentes
 | ![LogiAnalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_logo.png) |**Logi Analytics**<br>Juntos, a Logi Analytics permite que sua organização colete, analise e atue imediatamente nos maiores e mais diversos conjuntos de dados do mundo. |[Página do produto](https://www.logianalytics.com/)<br>|
 | ![Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_logo.png) |**Looker BI**<br>A Looker possibilita que todos em sua empresa explorem e compreendam os dados que impulsionam seus negócios. A Looker também proporciona aos analistas de dados uma camada de modelagem flexível e reutilizável para controlar e coletar esses dados.  As empresas têm transformado fundamentalmente sua cultura usando a Looker como um catalisador.|[Página do produto](https://looker.com/partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20)<br> |
 | ![MicroStrategy](./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png) |**MicroStrategy**<br>A plataforma da MicroStrategy oferece um conjunto completo de recursos de business intelligence e análise que permitem a obtenção de valor dos dados corporativos das organizações. Mecanismo analítico avançado da microestratégia, conjuntos de ferramentas abrangentes, vários conectores de dados e arquitetura aberta garante que você tenha tudo o que precisa para estender o acesso à análise em todas as equipes.|[Página do produto](https://www.microstrategy.com/us/product/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm)<br> |
+| ![Análise de modo](./media/sql-data-warehouse-partner-business-intelligence/mode-logo.png) |**Modo**<br>O modo é uma solução moderna de análise e BI que ajuda as equipes a tomar decisões por meio de análise de dados interessantesmente rápida e inesperadamente. As equipes de dados se movem mais rapidamente por meio de um fluxo de trabalho preferencial que combina análise de SQL, Python, R e Visual, enquanto os participantes trabalham junto com eles explorando e compartilhando dados por conta própria. Com os dados mais acessíveis para todos, reduzimos a distância de perguntas para respostas e ajudam as empresas a tomar decisões melhores, mais rapidamente.|[Página do produto](https://mode.com/)<br> |
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Conduza uma descoberta de ideias com o aplicativo de visualização de dados que qualquer pessoa pode usar. Com Qlik Sense, todos em sua organização podem criar visualizações interativas e flexíveis facilmente e tomar decisões significativas. |[Página do produto](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qlik.qlik-sense) |
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>O SiSense é um software de Business Intelligence de pilha completa que contém as ferramentas de que uma empresa precisa para analisar e visualizar dados: um banco de dados analítico de alto desempenho, a capacidade de unir várias fontes, ETL (extração de dados simples) e visualização de dados baseada na Web. Comece a analisar e visualizar grandes conjuntos de dados com o BI e a análise da SiSense hoje mesmo. |[Página do produto](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>A análise de autoatendimento da Tableau ajuda qualquer pessoa a ver e entender os respectivos dados entre os muitos tipos de dados, desde arquivos simples até bancos de dados. A Tableau tem um conector nativo e otimizado para o pool de SQL do Synapse que oferece suporte a análises de dados ativos e de memória. |[Página do produto](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503310"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279895"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -24,13 +24,13 @@ O Azure digital gêmeos também dá suporte à criptografia de dados em repouso.
 
 O RBAC do Azure é fornecido para o gêmeos digital do Azure por meio da integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Você pode usar o Azure RBAC para conceder permissões a uma *entidade de segurança*, que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo Azure AD e recebe um token 2,0 do OAuth em retorno. Esse token pode ser usado para autorizar uma solicitação de acesso a uma instância do gêmeos digital do Azure.
+Você pode usar o Azure RBAC para conceder permissões a uma *entidade de segurança* , que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo Azure AD e recebe um token 2,0 do OAuth em retorno. Esse token pode ser usado para autorizar uma solicitação de acesso a uma instância do gêmeos digital do Azure.
 
 ### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
 Com o Azure AD, o Access é um processo de duas etapas. Quando uma entidade de segurança (um usuário, grupo ou aplicativo) tenta acessar o Azure digital gêmeos, a solicitação deve ser *autenticada* e *autorizada*. 
 
-1. Primeiro, a identidade da entidade de segurança é *autenticada*e um token OAuth 2,0 é retornado.
+1. Primeiro, a identidade da entidade de segurança é *autenticada* e um token OAuth 2,0 é retornado.
 2. Em seguida, o token é passado como parte de uma solicitação para o serviço de gêmeos digital do Azure, para *autorizar* o acesso ao recurso especificado.
 
 A etapa de autenticação requer que qualquer solicitação de aplicativo contenha um token de acesso OAuth 2,0 em tempo de execução. Se um aplicativo estiver sendo executado em uma entidade do Azure, como um aplicativo [Azure Functions](../azure-functions/functions-overview.md) , ele poderá usar uma **identidade gerenciada** para acessar os recursos. Leia mais sobre identidades gerenciadas na próxima seção.
@@ -56,7 +56,7 @@ O Azure fornece **duas funções internas do Azure** para autorizar o acesso às
 
 >[!NOTE]
 > Essas funções foram renomeadas recentemente de seus nomes anteriores na versão prévia:
-> * O *proprietário de dados do gêmeos digital do Azure* era anteriormente o *proprietário do Azure digital gêmeos (versão prévia)*.
+> * O *Proprietário de Dados dos Gêmeos Digitais do Azure* anteriormente era o *Proprietário dos Gêmeos Digitais do Azure (Versão Prévia)* .
 > * O *leitor de dados do gêmeos digital do Azure* era anteriormente o *leitor de gêmeos digital do Azure (versão prévia)*.
 
 Você pode atribuir funções de duas maneiras:
@@ -72,7 +72,7 @@ Para obter mais informações sobre como as funções internas são definidas, c
 Ao fazer referência a funções em cenários automatizados, é recomendável consultá-las por suas **IDs** , em vez de seus nomes. Os nomes podem ser alterados entre as versões, mas as IDs não vão, tornando-as uma referência mais estável na automação.
 
 > [!TIP]
-> Se você estiver assiging funções com um cmdlet, como `New-AzRoleAssignment` ([referência](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), poderá usar o `-RoleDefinitionId` parâmetro em vez de `-RoleDefinitionName` para passar uma ID em vez de um nome para a função.
+> Se você estiver assiging funções com um cmdlet, como `New-AzRoleAssignment` ([referência](/powershell/module/az.resources/new-azroleassignment)), poderá usar o `-RoleDefinitionId` parâmetro em vez de `-RoleDefinitionName` para passar uma ID em vez de um nome para a função.
 
 ### <a name="permission-scopes"></a>Escopos de permissão
 
@@ -88,6 +88,32 @@ A lista a seguir descreve os níveis nos quais você pode fazer o escopo de aces
 ### <a name="troubleshooting-permissions"></a>Permissões de solução de problemas
 
 Se um usuário tentar executar uma ação não permitida por sua função, ele poderá receber um erro da leitura da solicitação de serviço `403 (Forbidden)` . Para obter mais informações e etapas de solução de problemas, consulte [*solução de problemas: falha na solicitação do Azure digital gêmeos com o status: 403 (proibido)*](troubleshoot-error-403.md).
+
+## <a name="service-tags"></a>Marcas de serviço
+
+Uma **marca de serviço** representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede. Para obter mais informações sobre marcas de serviço, consulte  [*marcas de rede virtual*](../virtual-network/service-tags-overview.md). 
+
+Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/network-security-groups-overview.md#security-rules)   ou no [Firewall do Azure](../firewall/service-tags.md), usando as marcas de serviço no lugar de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (nesse caso, **AzureDigitalTwins** ) no campo de *origem*   ou *destino* apropriado   de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. 
+
+Abaixo estão os detalhes da marca de serviço **AzureDigitalTwins** .
+
+| Marca | Finalidade | Pode usar entrada ou saída? | Pode ser regional? | É possível usar com o Firewall do Azure? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Gêmeos Digitais do Azure<br>Observação: esta marca ou os endereços IP cobertos por essa marca podem ser usados para restringir o acesso a pontos de extremidade configurados para [rotas de eventos](concepts-route-events.md). | Entrada | Não | Sim |
+
+### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Usando marcas de serviço para acessar pontos de extremidade de rota de eventos 
+
+Aqui estão as etapas para acessar pontos de extremidade de [rota de eventos](concepts-route-events.md) usando marcas de serviço com o gêmeos digital do Azure.
+
+1. Primeiro, Baixe esta referência de arquivo JSON mostrando intervalos de IP do Azure e marcas de serviço: [*intervalos de IP do Azure e marcas de serviço*](https://www.microsoft.com/download/details.aspx?id=56519). 
+
+2. Procure os intervalos de IP "AzureDigitalTwins" no arquivo JSON.  
+
+3. Consulte a documentação do recurso externo conectado ao ponto de extremidade (por exemplo, a [grade de eventos](../event-grid/overview.md), o Hub de [eventos](../event-hubs/event-hubs-about.md), o [barramento de serviço](../service-bus-messaging/service-bus-messaging-overview.md)ou o armazenamento do [Azure](../storage/blobs/storage-blobs-overview.md) para [eventos de mensagens mortas](concepts-route-events.md#dead-letter-events)) para ver como definir filtros IP para esse recurso.
+
+4. Defina os filtros IP nos recursos externos usando os intervalos de IP da *etapa 2*.  
+
+5. Atualize periodicamente os intervalos de IP conforme necessário. Os intervalos podem mudar ao longo do tempo, portanto, é uma boa ideia verificá-los regularmente e atualizá-los quando necessário. A frequência dessas atualizações pode variar, mas é uma boa ideia verificá-las uma vez por semana.
 
 ## <a name="encryption-of-data-at-rest"></a>Criptografia de dados em repouso
 

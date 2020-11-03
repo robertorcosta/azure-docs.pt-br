@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df8e4c2728bd7487520164553d26dfd42e38b647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841827"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913289"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Introdução ao Azure Machine Learning em Jupyter Notebooks
 
@@ -34,7 +34,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 Um Workspace do Azure Machine Learning é o recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de machine learning. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço.
 
-Você cria um workspace pelo portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure.
+Caso você já tenha um Workspace do Azure Machine Learning, vá para [Clonar uma pasta do notebook](#clone).  
+
+Há muitas [maneiras de criar um workspace](how-to-manage-workspace.md).  Neste tutorial, você cria um workspace pelo portal do Azure, um console baseado na Web para gerenciar os seus recursos do Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -49,7 +51,7 @@ O Azure Machine Learning inclui um servidor de notebook de nuvem em seu workspac
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### <a name="clone-a-notebook-folder"></a>Clonar uma pasta do notebook
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Clonar uma pasta do notebook
 
 Conclua as etapas de instalação e execução de teste a seguir no Estúdio do Azure Machine Learning. Essa interface consolidada inclui ferramentas de machine learning para executar cenários de ciência de dados para profissionais de ciência de dados de todos os níveis de habilidade.
 
@@ -76,11 +78,11 @@ Conclua as etapas de instalação e execução de teste a seguir no Estúdio do 
 1. Abra a pasta **tutoriais** que foi fechada na seção **Arquivos do usuário**.
 
     > [!IMPORTANT]
-    > Você pode exibir notebooks na pasta **samples**, mas não pode executar um notebook partindo dela. Para executar um notebook, abra a versão clonada do notebook na seção **Arquivos do Usuário**.
+    > Você pode exibir notebooks na pasta **samples** , mas não pode executar um notebook partindo dela. Para executar um notebook, abra a versão clonada do notebook na seção **Arquivos do Usuário**.
     
 1. Selecione o arquivo **tutorial-1st-experiment-sdk-train.ipynb** na pasta **tutorials/image-classification-mnist-data**.
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Captura de tela que mostra a pasta Clonar tutoriais.":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Captura de tela que mostra a pasta Abrir tutoriais.":::
 
 1. Na barra superior, selecione uma instância de computação a ser usada para executar o notebook. Essas VMs (máquinas virtuais) são pré-configuradas com [tudo o que você precisa para executar o Azure Machine Learning](concept-compute-instance.md#contents).
 

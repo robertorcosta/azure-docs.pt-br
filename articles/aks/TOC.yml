@@ -142,7 +142,7 @@
           href: upgrade-cluster.md
         - name: Usar o SLA de Tempo de Atividade
           href: uptime-sla.md
-        - name: Usar grupos de posicionamento de proximidade (versão prévia)
+        - name: Usar grupos de posicionamento de proximidade
           href: reduce-latency-ppg.md
         - name: Atualizar a imagem do nó
           href: node-image-upgrade.md
@@ -166,7 +166,7 @@
           items:
             - name: Usar vários pools de nós
               href: use-multiple-node-pools.md
-            - name: Usar pools de nós de ponto (versão prévia)
+            - name: Usar pools de nós spot
               href: spot-node-pool.md
             - name: Usar pools de nós do sistema
               href: use-system-pools.md

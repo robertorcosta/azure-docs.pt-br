@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078894"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746127"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo ASP.NET Core
 
@@ -107,7 +107,7 @@ A maneira mais fácil de conectar seu aplicativo ASP.NET Core à Configuração 
               .UseStartup<Startup>();
    ```
 
-2. Abra *Startup.cs* e atualize o método `Configure` para adicionar um middleware para permitir que os valores de sinalizador de recurso sejam atualizados a um intervalo recorrente enquanto o aplicativo Web ASP.NET Core continua recebendo solicitações.
+2. Abra *Startup.cs* e atualize o método `Configure` para adicionar o middleware interno chamado `UseAzureAppConfiguration`. Esse middleware permite que os valores de sinalizador de recurso sejam atualizados em um intervalo recorrente enquanto o aplicativo Web ASP.NET Core continua recebendo solicitações.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -227,7 +227,7 @@ public IActionResult Index()
 }
 ```
 
-Quando uma ação ou um controlador MVC está bloqueado devido ao sinalizador de recursos controlador estar *desativado*, uma interface `IDisabledFeaturesHandler` registrada é chamada. A interface `IDisabledFeaturesHandler` padrão retorna um código de status 404 para o cliente sem nenhum corpo de resposta.
+Quando uma ação ou um controlador MVC está bloqueado devido ao sinalizador de recursos controlador estar *desativado* , uma interface `IDisabledFeaturesHandler` registrada é chamada. A interface `IDisabledFeaturesHandler` padrão retorna um código de status 404 para o cliente sem nenhum corpo de resposta.
 
 ## <a name="mvc-views"></a>Exibições do MVC
 

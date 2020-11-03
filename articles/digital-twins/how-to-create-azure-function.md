@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c169f10ac0444f5bca67d76e8e8ebc0f0b145ee1
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5352a95b865851be937af7b9f19268afd23148db
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124231"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280029"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conectar Azure Functions aplicativos para processamento de dados
 
@@ -36,25 +36,25 @@ Aqui está uma visão geral das etapas que ela contém:
 
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Criar um aplicativo Azure Functions no Visual Studio
 
-No Visual Studio 2019, selecione _arquivo > novo projeto de >_ e procure o modelo de _Azure Functions_ , selecione _Avançar_ .
+No Visual Studio 2019, selecione _arquivo > novo projeto de >_ e procure o modelo de _Azure Functions_ , selecione _Avançar_.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
-Especifique um nome para o aplicativo de funções e selecione _criar_ .
+Especifique um nome para o aplicativo de funções e selecione _criar_.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configurar novo projeto":::
 
-Selecione o tipo de *gatilho de grade de eventos* do aplicativo de funções e selecione _criar_ .
+Selecione o tipo de *gatilho de grade de eventos* do aplicativo de funções e selecione _criar_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: caixa de diálogo gatilho do projeto de funções do Azure":::
 
 Depois que seu aplicativo de funções for criado, seu Visual Studio terá o exemplo de código preenchido automaticamente no arquivo **Function.cs** na pasta do projeto. Essa função curta do Azure é usada para registrar eventos.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: janela do projeto com código de exemplo":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Escrever uma função do Azure com um gatilho de grade de eventos
 
-Você pode escrever uma função do Azure adicionando o SDK ao seu aplicativo de funções. O aplicativo de funções interage com o gêmeos digital do Azure usando o [SDK do gêmeos digital do Azure para .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+Você pode escrever uma função do Azure adicionando o SDK ao seu aplicativo de funções. O aplicativo de funções interage com o gêmeos digital do Azure usando o [SDK do gêmeos digital do Azure para .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 Para usar o SDK, você precisará incluir os pacotes a seguir em seu projeto. Você pode instalar os pacotes usando o Gerenciador de pacotes NuGet do Visual Studio ou adicionar os pacotes usando a `dotnet` ferramenta de linha de comando. Escolha um destes métodos: 
 
@@ -159,24 +159,24 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Publicar o aplicativo de funções no Azure
 
-Para publicar o aplicativo de funções no Azure, selecione o projeto de função (não a solução) em Gerenciador de Soluções e escolha **publicar** .
+Para publicar o aplicativo de funções no Azure, selecione o projeto de função (não a solução) em Gerenciador de Soluções e escolha **publicar**.
 
 > [!IMPORTANT] 
 > A publicação de uma função do Azure incorrerá em encargos adicionais em sua assinatura, independentemente do Azure digital gêmeos.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publicar função do Azure ":::
 
-Selecione **Azure** como o destino de publicação e selecione **Avançar** .
+Selecione **Azure** como o destino de publicação e selecione **Avançar**.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: caixa de diálogo Publicar Azure Function, selecione Azure ":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: caixa de diálogo Publicar função, selecione Azure Aplicativo de funções (Windows) ou (Linux) com base em seu computador":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: caixa de diálogo Publicar função, criar uma nova função do Azure":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: caixa de diálogo Publicar função, preencha os campos e selecione criar":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: caixa de diálogo Publicar função, selecione seu aplicativo de funções na lista e conclua":::
 
 Na página a seguir, insira o nome desejado para o novo aplicativo de funções, um grupo de recursos e outros detalhes.
 Para que seu aplicativo de funções possa acessar o Azure digital gêmeos, ele precisa ter uma identidade gerenciada pelo sistema e ter permissões para acessar sua instância do gêmeos digital do Azure.
@@ -220,27 +220,27 @@ Uma identidade gerenciada atribuída pelo sistema permite que os recursos do Azu
 
 Na [portal do Azure](https://portal.azure.com/), pesquise por _aplicativo de funções_ na barra de pesquisa com o nome do aplicativo de funções que você criou anteriormente. Selecione o *aplicativo de funções* na lista. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Portal do Azure: Pesquisar aplicativo de função":::
 
 Na janela do aplicativo de funções, selecione _identidade_ na barra de navegação à esquerda para habilitar a identidade gerenciada.
-Na guia _atribuído pelo sistema_ , alterne o _status_ para ativado e _salve_ -o. Você verá um pop-up para _habilitar a identidade gerenciada atribuída pelo sistema_ .
+Na guia _atribuído pelo sistema_ , alterne o _status_ para ativado e _salve_ -o. Você verá um pop-up para _habilitar a identidade gerenciada atribuída pelo sistema_.
 Selecione o botão _Sim_ . 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Portal do Azure: habilitar identidade gerenciada pelo sistema":::
 
 Você pode verificar nas notificações de que sua função foi registrada com êxito com Azure Active Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Portal do Azure: notificações":::
 
 Observe também a **ID de objeto** mostrada na página _identidade_ , pois ela será usada na próxima seção.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copiar a ID de objeto a ser usada no futuro":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Atribuir funções de acesso usando portal do Azure
 
-Selecione o botão _atribuições de função do Azure_ , que abrirá a página *atribuições de função do Azure* . Em seguida, selecione _+ Adicionar atribuição de função (versão prévia)_ .
+Selecione o botão _atribuições de função do Azure_ , que abrirá a página *atribuições de função do Azure* . Em seguida, selecione _+ Adicionar atribuição de função (versão prévia)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Portal do Azure: Adicionar atribuição de função":::
 
 Na página _Adicionar atribuição de função (versão prévia)_ que é aberta, selecione:
 
@@ -251,7 +251,7 @@ Na página _Adicionar atribuição de função (versão prévia)_ que é aberta,
 
 Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Portal do Azure: Adicionar atribuição de função (visualização) ":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Definir configurações de aplicativo usando portal do Azure
 
@@ -259,9 +259,9 @@ Você pode tornar a URL da sua instância do gêmeos digital do Azure acessível
 
 Você precisará de ADT_INSTANCE_URL para criar uma configuração de aplicativo.
 
-Você pode obter ADT_INSTANCE_URL acrescentando **_https://_** ao nome do host da instância. No portal do Azure, você pode encontrar o nome do host da instância gêmeos digital pesquisando sua instância na barra de pesquisa. Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_ . Copie esse valor para criar uma configuração de aplicativo.
+Você pode obter ADT_INSTANCE_URL acrescentando **_https://_** ao nome do host da instância. No portal do Azure, você pode encontrar o nome do host da instância gêmeos digital pesquisando sua instância na barra de pesquisa. Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_. Copie esse valor para criar uma configuração de aplicativo.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Portal do Azure: visão geral – > copiar nome do host para usar no campo _Value_.":::
 
 Agora você pode criar uma configuração de aplicativo seguindo as etapas abaixo:
 
@@ -269,9 +269,9 @@ Agora você pode criar uma configuração de aplicativo seguindo as etapas abaix
 * Selecione _configuração_ na barra de navegação à esquerda para criar uma nova configuração de aplicativo
 * Na guia _configurações do aplicativo_ , selecione _+ nova configuração de aplicativo_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portal do Azure: Pesquisar a função do Azure existente":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Portal do Azure: definir configurações de aplicativo":::
 
 Na janela que é aberta, use o valor copiado acima para criar uma configuração de aplicativo. \
 _Nome_  : ADT_SERVICE_URL \
@@ -279,19 +279,19 @@ _Valor_ : https://{Your-Azure-digital-gêmeos-nome_do_host}
 
 Selecione _OK_ para criar uma configuração de aplicativo.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Portal do Azure: adicionar configurações de aplicativo.":::
 
 Você pode exibir as configurações do aplicativo com o nome do aplicativo no campo _nome_ . Em seguida, salve as configurações do aplicativo selecionando o botão _salvar_ .
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Portal do Azure: exibir o aplicativo criado e reiniciar o aplicativo":::
 
 As alterações nas configurações do aplicativo precisam de uma reinicialização do aplicativo. Selecione _continuar_ para reiniciar o aplicativo.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Portal do Azure: salvar configurações do aplicativo":::
 
 Você pode exibir que as configurações do aplicativo são atualizadas selecionando o ícone de _notificações_ . Se a configuração do aplicativo não for criada, você poderá repetir a adição de uma configuração de aplicativo seguindo o processo acima.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Portal do Azure: notificações para atualizar as configurações do aplicativo":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

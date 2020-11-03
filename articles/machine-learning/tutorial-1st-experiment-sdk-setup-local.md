@@ -11,21 +11,16 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: c0fe3c3808709de732bec8ce0599d380094405e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e01721b4b414455b47a394087192696e1ecb025
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368474"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892727"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Introdução ao Azure Machine Learning no seu ambiente de desenvolvimento (parte 1 de 4)
 
-Nesta *série de tutoriais de quatro partes*, você aprenderá os conceitos básicos do Azure Machine Learning e concluirá as tarefas de machine learning do Python baseadas em trabalhos na plataforma de nuvem do Azure. Essas tarefas incluem:
-
-1. Configurar um workspace e seu ambiente de desenvolvedor local para machine learning.
-2. Executar o código na nuvem usando o SDK do Azure Machine Learning para Python.
-3. Gerenciar o ambiente do Python que você usa para treinamento de modelo.
-4. Carregar dados no Azure e consumi-los no treinamento.
+Nesta *série de tutoriais de quatro partes* , você aprenderá os conceitos básicos do Azure Machine Learning e concluirá as tarefas de machine learning do Python baseadas em trabalhos na plataforma de nuvem do Azure. 
 
 Na Parte 1 desta série de tutoriais, você vai:
 
@@ -36,20 +31,22 @@ Na Parte 1 desta série de tutoriais, você vai:
 > * Configurar seu ambiente de desenvolvimento local.
 > * Configurar um cluster de cálculo.
 
->[!NOTE]
-> Esta série de tutoriais tem como foco os conceitos do Azure Machine Learning adequados para tarefas de machine learning *baseadas em trabalho* do Python com uso intenso de computação e/ou que exigem capacidade de reprodução. Se as tarefas de machine learning não se enquadrarem nesse perfil, use a [funcionalidade do Jupyter ou do RStudio em uma instância de computação do Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md) para migrar para o Azure Machine Learning.
+> [!NOTE]
+> Esta série de tutoriais tem como foco os conceitos do Azure Machine Learning adequados para tarefas de machine learning *baseadas em trabalho* do Python com uso intenso de computação e/ou que exigem capacidade de reprodução. Se você estiver mais interessado em um fluxo de trabalho exploratório, poderá usar o [Jupyter ou RStudio em uma instância de computação do Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente o [Azure Machine Learning](https://aka.ms/AMLFree).
 - Familiaridade com o Python e com os [conceitos de Machine Learning](concept-azure-machine-learning-architecture.md). Os exemplos incluem ambientes, treinamento e pontuação.
-- Um ambiente de desenvolvimento local: um laptop com o Python instalado e o seu IDE favorito (por exemplo, o Visual Studio Code, o PyCharm ou o Jupyter).
+- Ambiente de desenvolvimento local, como o Visual Studio Code, o Jupyter ou o PyCharm.
+- Python (versão 3.5 a 3.7).
+
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Instalar o SDK do Azure Machine Learning
 
 Neste tutorial, usaremos o SDK do Python do Azure Machine Learning para Python.
 
-Você pode usar as ferramentas mais conhecidas para você (por exemplo, o Conda e o Pip) para configurar um ambiente para uso neste tutorial. Instale o SDK do Python do Azure Machine Learning para Python no ambiente usando o Pip:
+Você pode usar as ferramentas mais conhecidas para você (por exemplo, o Conda e o pip) para configurar um ambiente do Python para uso neste tutorial. Instale o SDK do Azure Machine Learning para Python por meio do pip no ambiente do Python:
 
 ```bash
 pip install azureml-sdk
@@ -79,7 +76,7 @@ No diretório de nível superior, `tutorial`, adicione um novo arquivo do Python
 Execute o código em uma sessão interativa ou como um arquivo do Python.
 
 >[!NOTE]
-> Quando estiver usando um ambiente de desenvolvimento local (por exemplo, laptop), você precisará se autenticar no seu workspace usando um *código de dispositivo* na primeira vez que executar o código a seguir. Siga as instruções na tela.
+> Quando estiver usando um ambiente de desenvolvimento local (por exemplo, seu computador), você precisará se autenticar no seu workspace usando um *código de dispositivo* na primeira vez que executar o código a seguir. Siga as instruções na tela.
 
 ```python
 # tutorial/01-create-workspace.py
@@ -102,7 +99,11 @@ cd <path/to/tutorial>
 python ./01-create-workspace.py
 ```
 
-Depois que você executar o snippet de código anterior, a estrutura de pastas terá a seguinte aparência:
+> [!TIP]
+> Se a execução desse código fornecer um erro informando que você não tem acesso à assinatura, confira [Criar um workspace](how-to-manage-workspace.md?tab=python#create-multi-tenant) para obter informações sobre as opções de autenticação.
+
+
+Depois de executar com êxito *01-create-workspace.py* , sua estrutura de pastas terá a seguinte aparência:
 
 ```markdown
 tutorial
@@ -139,8 +140,7 @@ try:
     print('Found existing cluster, use it.')
 except ComputeTargetException:
     compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                            max_nodes=4, 
-                                                            idle_seconds_before_scaledown=2400)
+                                                           idle_seconds_before_scaledown=2400)
     cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
 
 cpu_cluster.wait_for_completion(show_output=True)
@@ -174,7 +174,13 @@ Neste tutorial de configuração, você:
 - Configurou seu ambiente de desenvolvimento local.
 - Criou um cluster de computação do Azure Machine Learning.
 
-No próximo tutorial, você verá como enviar um script para o cluster de computação do Azure Machine Learning.
+Nas outras partes deste tutorial você aprenderá a:
+
+* Parte 2. Executar o código na nuvem usando o SDK do Azure Machine Learning para Python.
+* Parte 3. Gerenciar o ambiente do Python que você usa para treinamento de modelo.
+* Parte 4. Carregar dados no Azure e consumi-los no treinamento.
+
+Passe para o próximo tutorial para aprender a enviar um script para o cluster de Computação do Azure Machine Learning.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Executar um aplicativo "Olá, Mundo!" Script Python no Azure](tutorial-1st-experiment-hello-world.md)

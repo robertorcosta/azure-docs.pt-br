@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83652166"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676782"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorar e solucionar problemas de um aplicativo de armazenamento de nuvem
 
@@ -37,13 +37,13 @@ Faça logon no [Portal do Azure](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Ativar o registro em log e as métricas
 
-No menu à esquerda, selecione **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione sua conta de armazenamento na lista de recursos.
+No menu à esquerda, selecione **Grupos de Recursos** , selecione **myResourceGroup** e, em seguida, selecione sua conta de armazenamento na lista de recursos.
 
 Em **Configurações de diagnóstico (clássico)** , defina **Status** para **Ativado**. Verifique se todas as opções em **Propriedades de blob** estão habilitadas.
 
 Quando concluir, clique em **Salvar**
 
-![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Captura de tela que realça a seção que contém as definições de configuração para ativar o registro em log e as métricas.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Habilitar alertas
 
@@ -51,9 +51,9 @@ Os alertas fornecem uma maneira de enviar email aos administradores ou disparar 
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navegar até sua conta de armazenamento no Portal do Azure
 
-Na seção **Monitoramento**, selecione **Alertas (clássico)** .
+Na seção **Monitoramento** , selecione **Alertas (clássico)** .
 
-Selecione **Adicionar alerta de métrica (clássico)** e preencha o formulário **Adicionar regra** com as informações necessárias. Na lista suspensa **Métrica**, selecione `SASClientOtherError`. Para permitir que o alerta dispare após o primeiro erro, na lista suspensa **Condição** selecione **Maior que ou igual a**.
+Selecione **Adicionar alerta de métrica (clássico)** e preencha o formulário **Adicionar regra** com as informações necessárias. Na lista suspensa **Métrica** , selecione `SASClientOtherError`. Para permitir que o alerta dispare após o primeiro erro, na lista suspensa **Condição** selecione **Maior que ou igual a**.
 
 ![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
@@ -91,15 +91,15 @@ Baixe o [Analisador de Mensagens da Microsoft](https://docs.microsoft.com/messag
 
 Inicie o aplicativo e escolha **Arquivo** > **Abrir** > **De Outras Fontes de Arquivo**.
 
-Na caixa de diálogo **Seletor de Arquivos**, selecione **+ Adicionar Conexão do Azure**. Insira o **nome da conta de armazenamento** e a **chave de conta** e clique em **OK**.
+Na caixa de diálogo **Seletor de Arquivos** , selecione **+ Adicionar Conexão do Azure**. Insira o **nome da conta de armazenamento** e a **chave de conta** e clique em **OK**.
 
 ![Analisador de Mensagens da Microsoft – caixa de diálogo Adicionar Conexão do Armazenamento do Azure](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
 Quando você estiver conectado, expanda os contêineres no modo de exibição de árvore de armazenamento para exibir os blobs de log. Selecione o log mais recente e clique em **OK**.
 
-![Analisador de Mensagens da Microsoft – caixa de diálogo Adicionar Conexão do Armazenamento do Azure](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Captura de tela que mostra o Analisador de Mensagens da Microsoft e realça o arquivo de log selecionado.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
-Na caixa de diálogo **Nova Sessão**, clique em **Iniciar** para exibir o log.
+Na caixa de diálogo **Nova Sessão** , clique em **Iniciar** para exibir o log.
 
 Depois que o log é aberto, você pode exibir os eventos de armazenamento. Como você pode ver na imagem a seguir, houve um `SASClientOtherError` disparado na conta de armazenamento. Para obter informações adicionais sobre o log de armazenamento, visite [Análise de Armazenamento](../common/storage-analytics.md).
 

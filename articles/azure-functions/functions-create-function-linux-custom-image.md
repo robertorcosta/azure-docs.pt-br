@@ -3,14 +3,14 @@ title: Crie Azure Functions no Linux usando uma imagem personalizada
 description: Saiba como criar Azure Functions em execução em uma imagem personalizada do Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758975"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747097"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
@@ -95,7 +95,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-O parâmetro `-DjavaVersion` informa ao runtime do Functions a versão do Java a ser usada. Use `-DjavaVersion=11` se você quiser que suas funções sejam executadas no Java 11, que está em versão prévia. Quando você não especifica `-DjavaVersion`, o Maven assume o Java 8 como padrão. Para obter mais informações, confira [Versões do Java](functions-reference-java.md#java-versions).
+O parâmetro `-DjavaVersion` informa ao runtime do Functions a versão do Java a ser usada. Use `-DjavaVersion=11` se desejar que as funções sejam executadas no Java 11. Quando você não especifica `-DjavaVersion`, o Maven assume o Java 8 como padrão. Para obter mais informações, confira [Versões do Java](functions-reference-java.md#java-versions).
+
+> [!IMPORTANT]
+> A variável de ambiente `JAVA_HOME` precisa ser definida como a localização de instalação da versão correta do JDK para concluir este artigo.
 
 O Maven solicita os valores necessários para concluir a geração do projeto na implantação.   
 Forneça os seguintes valores quando solicitado:
@@ -109,7 +112,7 @@ Forneça os seguintes valores quando solicitado:
 
 Digite `Y` ou pressione Enter para confirmar.
 
-O Maven cria os arquivos de projeto em uma nova pasta com o nome _artifactId_, que, neste exemplo, é `fabrikam-functions`. 
+O Maven cria os arquivos de projeto em uma nova pasta com o nome _artifactId_ , que, neste exemplo, é `fabrikam-functions`. 
 ::: zone-end
 A opção `--docker` gera um `Dockerfile` para o projeto, que define um contêiner personalizado adequado para uso com o Azure Functions e com o runtime selecionado.
 
@@ -347,7 +350,7 @@ Com a imagem implantada no aplicativo de funções no Azure, você pode invocar 
     1. A saída do comando é a chave de função. A URL da função completa, então, é `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`, substituindo `<app_name>`, `<function_name>` e `<key>` pelos valores específicos.
     
         > [!NOTE]
-        > A chave recuperada aqui é a chave de *host*, que funciona para todas as funções no aplicativo de funções. O método mostrado para o portal recupera somente a chave da única função.
+        > A chave recuperada aqui é a chave de *host* , que funciona para todas as funções no aplicativo de funções. O método mostrado para o portal recupera somente a chave da única função.
 
     ---
 
@@ -372,7 +375,7 @@ Você pode habilitar o Azure Functions para atualizar automaticamente sua implan
 
 1. Copie a URL do webhook de implantação para a área de transferência.
 
-1. Abra o [Docker Hub](https://hub.docker.com/), entre e selecione **Repositórios** na barra de navegação. Localize e selecione a imagem, selecione a guia **Webhooks**, especifique um **Nome do webhook**, cole a URL em **URL do Webhook** e, em seguida, selecione **Criar**:
+1. Abra o [Docker Hub](https://hub.docker.com/), entre e selecione **Repositórios** na barra de navegação. Localize e selecione a imagem, selecione a guia **Webhooks** , especifique um **Nome do webhook** , cole a URL em **URL do Webhook** e, em seguida, selecione **Criar** :
 
     ![Adicione o webhook em seu repositório DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -438,7 +441,7 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Com o SSH
 
 ## <a name="write-to-an-azure-storage-queue"></a>Gravar em uma fila do Armazenamento do Azure
 
-O Azure Functions permite conectar suas funções a outros serviços e recursos do Azure sem precisar escrever um código de integração próprio. Essas *associações*, que representam a entrada e a saída, são declaradas na definição de função. Dados de associações são fornecidos à função como parâmetros. Um *gatilho* é um tipo especial de associação de entrada. Embora uma função tenha apenas um gatilho, ela pode ter várias associações de entrada e de saída. Para saber mais, confira [Conceitos de gatilhos e de associações do Azure Functions](functions-triggers-bindings.md).
+O Azure Functions permite conectar suas funções a outros serviços e recursos do Azure sem precisar escrever um código de integração próprio. Essas *associações* , que representam a entrada e a saída, são declaradas na definição de função. Dados de associações são fornecidos à função como parâmetros. Um *gatilho* é um tipo especial de associação de entrada. Embora uma função tenha apenas um gatilho, ela pode ter várias associações de entrada e de saída. Para saber mais, confira [Conceitos de gatilhos e de associações do Azure Functions](functions-triggers-bindings.md).
 
 Esta seção mostra como integrar sua função a uma fila do Armazenamento do Azure. A associação de saída que você adiciona a essa função escreve dados de uma solicitação HTTP em uma mensagem na fila.
 

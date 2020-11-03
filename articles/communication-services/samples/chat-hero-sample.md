@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124578"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677415"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introdução ao exemplo de destaque de chat de grupo
 
@@ -25,12 +25,14 @@ ms.locfileid: "92124578"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Este exemplo está disponível no GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
 O **Exemplo de Destaque de Chat em Grupo** dos Serviços de Comunicação do Azure demonstra como a biblioteca de clientes Web de chat dos Serviços de Comunicação pode ser usada para criar uma experiência de chamada em grupo.
 
 Neste guia de início rápido de Exemplo, aprenderemos como o exemplo funciona antes de o executarmos no computador local. Em seguida, implantaremos o exemplo no Azure usando seus próprios recursos de Serviços de Comunicação do Azure.
 
-> [!IMPORTANT]
-> [Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>Visão geral
 
@@ -42,17 +44,17 @@ Aqui está um exemplo:
 
 Quando você pressiona o botão "Iniciar um Chat", o aplicativo Web busca um token de acesso do usuário do aplicativo do lado do servidor. Esse token é usado para conectar o aplicativo cliente aos Serviços de Comunicação do Azure. Depois que o token é recuperado, você é solicitado a especificar seu nome e emoji que vão representá-lo no chat. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de tela mostrando a página de aterrissagem do aplicativo de exemplo.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de tela mostrando o chat do aplicativo.":::
 
 Depois de configurar seu nome de exibição e emoji, você pode ingressar na sessão de chat. Agora, você verá a tela de chat principal na qual reside a experiência de chat central.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Captura de tela mostrando a página de aterrissagem do aplicativo de exemplo.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Captura de tela mostrando o exemplo principal do aplicativo de exemplo.":::
 
 Componentes da tela principal de chat:
 
-- **Área de Chat Principal**: essa é a principal experiência de chat em que os usuários podem enviar e receber mensagens. Para enviar mensagens, você pode usar a área de entrada e pressionar Enter (ou usar o botão Enviar). As mensagens de chat recebidas são categorizadas pelo remetente com o nome e o emoji corretos. Você verá dois tipos de notificações na área de chat: 1) notificações de digitando quando um usuário está digitando e 2) notificações de enviado e lido para mensagens.
-- **Cabeçalho**: Ali, o usuário verá o título da conversa de chat e os controles para alternar o participante e as barras laterais de configurações, além de um botão Sair para sair da sessão de chat.
-- **Barra lateral**: é aí que os participantes e as informações de configuração são mostrados quando alternados usando os controles no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral de configurações permite que você configure o título da conversa de chat. 
+- **Área de Chat Principal** : essa é a principal experiência de chat em que os usuários podem enviar e receber mensagens. Para enviar mensagens, você pode usar a área de entrada e pressionar Enter (ou usar o botão Enviar). As mensagens de chat recebidas são categorizadas pelo remetente com o nome e o emoji corretos. Você verá dois tipos de notificações na área de chat: 1) notificações de digitando quando um usuário está digitando e 2) notificações de enviado e lido para mensagens.
+- **Cabeçalho** : Ali, o usuário verá o título da conversa de chat e os controles para alternar o participante e as barras laterais de configurações, além de um botão Sair para sair da sessão de chat.
+- **Barra lateral** : é aí que os participantes e as informações de configuração são mostrados quando alternados usando os controles no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral de configurações permite que você configure o título da conversa de chat. 
 
 Abaixo, você encontrará mais informações sobre os pré-requisitos e as etapas para configurar o exemplo.
 
@@ -75,7 +77,7 @@ Você pode testar o exemplo localmente abrindo várias sessões do navegador com
 ## <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar o exemplo pela primeira vez
 
 1. Abra uma instância do PowerShell, terminal do Windows, prompt de comando ou equivalente e navegue até o diretório para o qual você deseja clonar o exemplo.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Obtenha a `Connection String` do portal do Azure. Para obter mais informações sobre cadeias de conexão, confira [Criar Recursos de Comunicação do Azure](../quickstarts/create-communication-resource.md)
 4. Depois de obter a `Connection String`, adicione a cadeia de conexão ao arquivo **Chat/appsettings.json** encontrado na pasta Chat. Insira a cadeia de conexão na variável: `ResourceConnectionString`.
 
