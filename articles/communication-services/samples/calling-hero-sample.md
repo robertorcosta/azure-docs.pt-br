@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126319"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461134"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introdução ao exemplo de destaque de chamadas em grupo
 
@@ -25,12 +25,12 @@ ms.locfileid: "92126319"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Este exemplo está disponível no GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
 O **Exemplo de Destaque de Chamadas em Grupo** dos Serviços de Comunicação do Azure demonstra como a biblioteca de clientes Web de Chamadas dos Serviços de Comunicação pode ser usada para criar uma experiência de chamada em grupo.
 
 Neste guia de início rápido de Exemplo, aprenderemos como o exemplo funciona antes de o executarmos no computador local. Em seguida, implantaremos o exemplo no Azure usando seus próprios recursos de Serviços de Comunicação do Azure.
-
-> [!IMPORTANT]
-> [Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## <a name="overview"></a>Visão geral
 
@@ -42,17 +42,17 @@ Aqui está um exemplo:
 
 Quando você pressiona o botão "Iniciar uma chamada", o aplicativo Web busca um token de acesso do usuário do aplicativo do lado do servidor. Esse token é usado para conectar o aplicativo cliente aos Serviços de Comunicação do Azure. Depois que o token é recuperado, você é solicitado a especificar a câmera e o microfone que deseja usar. Você pode desabilitar/habilitar seus dispositivos com controles de alternância:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Captura de tela mostrando a página de aterrissagem do aplicativo de exemplo.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Captura de tela mostrando a tela pré-chamada do aplicativo de exemplo.":::
 
 Depois de configurar o nome de exibição e os dispositivos, você pode ingressar na sessão de chamada. Agora você verá a tela principal de chamada na qual está a experiência de chamada principal.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Captura de tela mostrando a página de aterrissagem do aplicativo de exemplo.":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Captura de tela mostrando a tela principal do aplicativo de exemplo.":::
 
 Componentes da tela principal de chamada:
 
-1. **Galeria de Mídia**: a fase principal em que os participantes são mostrados. Se um participante tiver a câmera habilitada, o feed de vídeo dele será mostrado aqui. Cada participante tem um bloco individual que mostra seu nome de exibição e fluxo de vídeo (quando há um)
-2. **Cabeçalho**: É aí que os controles de chamada primários estão localizados para alternar as configurações e a barra lateral do participante, ativar/desativar vídeo e combinação, compartilhar a tela e sair da chamada.
-3. **Barra lateral**: é nela que as informações de participantes e configurações são mostradas quando alternadas usando os controles no cabeçalho. O componente pode ser descartado usando o "X"' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais usuários para o chat. A barra lateral de configurações permite que você defina as configurações de microfone e câmera.
+1. **Galeria de Mídia** : a fase principal em que os participantes são mostrados. Se um participante tiver a câmera habilitada, o feed de vídeo dele será mostrado aqui. Cada participante tem um bloco individual que mostra seu nome de exibição e fluxo de vídeo (quando há um)
+2. **Cabeçalho** : É aí que os controles de chamada primários estão localizados para alternar as configurações e a barra lateral do participante, ativar/desativar vídeo e combinação, compartilhar a tela e sair da chamada.
+3. **Barra lateral** : é nela que as informações de participantes e configurações são mostradas quando alternadas usando os controles no cabeçalho. O componente pode ser descartado usando o "X"' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais usuários para o chat. A barra lateral de configurações permite que você defina as configurações de microfone e câmera.
 
 Abaixo, você encontrará mais informações sobre os pré-requisitos e as etapas para configurar o exemplo.
 
@@ -108,7 +108,6 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 Para obter mais informações, consulte os seguintes artigos:
 
 - Familiarize-se com [usar a biblioteca de clientes de chamada](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Saiba mais sobre as [funcionalidades da biblioteca de clientes de chamada](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como a chamada funciona](../concepts/voice-video-calling/about-call-types.md)
 
 ## <a name="additional-reading"></a>Leituras adicionais

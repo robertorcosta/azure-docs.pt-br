@@ -3,18 +3,18 @@ title: Planejando a implantação da Solução VMware no Azure
 description: Este artigo descreve um fluxo de trabalho de implantação da Solução VMware no Azure.  O resultado final é um ambiente pronto para a criação e a migração da VM (máquina virtual).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147979"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517354"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planejando a implantação da Solução VMware no Azure
 
-Neste artigo, fornecemos o processo de planejamento para identificar e coletar os dados usados durante a implantação. Ao planejar sua implantação, lembre-se de documentar as informações coletadas para facilitar a referência durante a implantação.
+Este artigo oferece o processo de planejamento para identificar e coletar os dados usados durante a implantação. Ao planejar sua implantação, lembre-se de documentar as informações coletadas para facilitar a referência durante a implantação.
 
-Os processos desse início rápido resultam em um ambiente pronto para produção para a criação e migração de VMs (máquinas virtuais). 
+Os processos deste início rápido resultam em um ambiente pronto para produção para a criação e migração de VMs (máquinas virtuais). 
 
 >[!IMPORTANT]
 >Antes de criar o recurso da Solução VMware no Azure, siga o artigo [Como habilitar o recurso da Solução VMware no Azure](enable-azure-vmware-solution.md) para enviar um tíquete de suporte para alocar seus nós. Depois que a equipe de suporte receber sua solicitação, levará até cinco dias úteis para confirmar a solicitação e alocar os nós. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais nós alocados, deverá passar pelo mesmo processo. 
@@ -73,13 +73,13 @@ Para obter mais informações, confira a [Lista de verificação de planejamento
 
 Identifique um segmento de IP para criar sua primeira rede (segmento NSX) na nuvem privada.  Em outras palavras, você deseja criar um segmento de rede na Solução VMware no Azure para poder implantar VMs na Solução VMware no Azure.   
 
-Mesmo que você planeje apenas estender redes L2, crie um segmento de rede que será útil para validar o ambiente.
+Mesmo se você só planejar estender redes L2, crie um segmento de rede que validará o ambiente.
 
 Lembre-se que todos os segmentos IP criados devem ser exclusivos no Azure e no volume de memória local.  
 
 **Exemplo:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificar – segmento de endereço IP" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificar – Segmento de endereço IP para cargas de trabalho de máquina virtual" border="false":::     
 
 ## <a name="optional-extend-networks"></a>(Opcional) Estender redes
 
@@ -92,11 +92,11 @@ Tenha em mente que:
 
 ## <a name="expressroute-global-reach-peering-network"></a>Rede de emparelhamento do Alcance Global do ExpressRoute
 
-Identifique um bloco de endereço de rede CIDR `/29`, que é necessário para o emparelhamento do Alcance Global do ExpressRoute. Lembre-se que todos os segmentos IP criados devem ser exclusivos na Solução VMware no Azure e no volume de memória local. Os IPs neste segmento são usados em cada extremidade da conexão do Alcance Global do ExpressRoute para conectar o circuito do ExpressRoute da Solução VMware no Azure com o circuito do ExpressRoute local. 
+Identifique um bloco de endereço de rede CIDR `/29` necessário para o emparelhamento do Alcance Global do ExpressRoute. Lembre-se que todos os segmentos IP criados devem ser exclusivos na Solução VMware no Azure e no volume de memória local. Os IPs neste segmento são usados em cada extremidade da conexão do Alcance Global do ExpressRoute para conectar o circuito do ExpressRoute da Solução VMware no Azure com o circuito do ExpressRoute local. 
 
 **Exemplo:** 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificar – segmento de endereço IP" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificar – Rede de emparelhamento do Alcance Global do ExpressRoute" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rede Virtual do Azure para anexar a Solução VMware no Azure
 
@@ -119,7 +119,7 @@ De qualquer forma, documente o que você deseja fazer nesta etapa.
 >[!NOTE]
 >Essa rede virtual é vista pelo seu ambiente local e pela Solução VMware no Azure, portanto, o segmento IP que você usa nessa rede virtual e nas sub-redes não deve se sobrepor.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificar – segmento de endereço IP" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identidade – Rede Virtual do Azure para anexar a Solução VMware no Azure" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>Segmentos de rede do HCX da VMware
 
@@ -128,7 +128,7 @@ O HCX da VMware é uma tecnologia incluída na Solução VMware no Azure. Os pri
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você reuniu e documentou as informações necessárias, continue na próxima seção para criar a nuvem privada da Solução VMware no Azure.
+Agora que você reuniu e documentou as informações necessárias, passe para a próxima seção para criar a nuvem privada da Solução VMware no Azure.
 
 > [!div class="nextstepaction"]
 > [Implantar a Solução VMware no Azure](deploy-azure-vmware-solution.md)

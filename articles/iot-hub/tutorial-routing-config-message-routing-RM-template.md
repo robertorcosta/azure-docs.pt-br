@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74084401"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480098"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Usar um modelo do Azure Resource Manager para configurar o roteamento de mensagens do Hub IoT
 
@@ -46,49 +46,49 @@ A seção a seguir explica os parâmetros usados.
 
 A maioria desses parâmetros tem valores padrão. Os que terminam com **_in** são concatenados com *randomValue* para torná-los globalmente exclusivos. 
 
-**randomValue**: esse valor é gerado com base na data/hora atual em que você implanta o modelo. Esse campo não está no arquivo de parâmetros, pois é gerado no próprio modelo.
+**randomValue** : esse valor é gerado com base na data/hora atual em que você implanta o modelo. Esse campo não está no arquivo de parâmetros, pois é gerado no próprio modelo.
 
-**subscriptionId**: esse campo é predefinido para a assinatura na qual você está implantando o modelo. Esse campo não está no arquivo de parâmetros, pois ele é definido para você.
+**subscriptionId** : esse campo é predefinido para a assinatura na qual você está implantando o modelo. Esse campo não está no arquivo de parâmetros, pois ele é definido para você.
 
-**IoTHubName_in**: esse campo é o nome base do Hub IoT, que é concatenado com randomValue para ser globalmente exclusivo.
+**IoTHubName_in** : esse campo é o nome base do Hub IoT, que é concatenado com randomValue para ser globalmente exclusivo.
 
-**location**: esse campo é a região do Azure na qual você está implantando, como "Oeste dos EUA".
+**location** : esse campo é a região do Azure na qual você está implantando, como "Oeste dos EUA".
 
-**consumer_group**: esse campo é o grupo de consumidores definido para mensagens recebidas por meio do ponto de extremidade de roteamento. Ele é usado para filtrar os resultados no Azure Stream Analytics. Por exemplo, há o fluxo total, onde você obtém tudo ou, se estiver recebendo dados com consumer_group definido como **Contoso**, você poderá configurar um fluxo do Azure Stream Analytics (e um relatório do Power BI) para mostrar somente essas entradas. Esse campo é usado na parte 2 deste tutorial.
+**consumer_group** : esse campo é o grupo de consumidores definido para mensagens recebidas por meio do ponto de extremidade de roteamento. Ele é usado para filtrar os resultados no Azure Stream Analytics. Por exemplo, há o fluxo total, onde você obtém tudo ou, se estiver recebendo dados com consumer_group definido como **Contoso** , você poderá configurar um fluxo do Azure Stream Analytics (e um relatório do Power BI) para mostrar somente essas entradas. Esse campo é usado na parte 2 deste tutorial.
 
-**sku_name**: esse campo é o dimensionamento do Hub IoT. Esse valor deve ser S1 ou superior; uma camada de serviço gratuita não funciona para este tutorial, pois não permite vários pontos de extremidade.
+**sku_name** : esse campo é o dimensionamento do Hub IoT. Esse valor deve ser S1 ou superior; uma camada de serviço gratuita não funciona para este tutorial, pois não permite vários pontos de extremidade.
 
-**sku_units**: esse campo combina com **sku_name** e é o número de unidades do Hub IoT que pode ser usado.
+**sku_units** : esse campo combina com **sku_name** e é o número de unidades do Hub IoT que pode ser usado.
 
-**d2c_partitions**: esse campo é o número de partições usadas para o fluxo de eventos.
+**d2c_partitions** : esse campo é o número de partições usadas para o fluxo de eventos.
 
-**storageAccountName_in**: esse campo é o nome da conta de armazenamento a ser criada. As mensagens são roteadas para um contêiner na conta de armazenamento. Esse campo é concatenado com randomValue para torná-lo globalmente exclusivo.
+**storageAccountName_in** : esse campo é o nome da conta de armazenamento a ser criada. As mensagens são roteadas para um contêiner na conta de armazenamento. Esse campo é concatenado com randomValue para torná-lo globalmente exclusivo.
 
-**storageContainerName**: esse campo é o nome do contêiner no qual as mensagens roteadas para a conta de armazenamento são armazenadas.
+**storageContainerName** : esse campo é o nome do contêiner no qual as mensagens roteadas para a conta de armazenamento são armazenadas.
 
-**storage_endpoint**: esse campo é o nome para o ponto de extremidade de conta de armazenamento usado pelo roteamento de mensagens.
+**storage_endpoint** : esse campo é o nome para o ponto de extremidade de conta de armazenamento usado pelo roteamento de mensagens.
 
-**service_bus_namespace_in**: esse campo é o nome do namespace do Barramento de Serviço a ser criado. Esse valor é concatenado com randomValue para torná-lo globalmente exclusivo.
+**service_bus_namespace_in** : esse campo é o nome do namespace do Barramento de Serviço a ser criado. Esse valor é concatenado com randomValue para torná-lo globalmente exclusivo.
 
-**service_bus_queue_in**: esse campo é o nome da fila do Barramento de Serviço usada para roteamento de mensagens. Esse valor é concatenado com randomValue para torná-lo globalmente exclusivo.
+**service_bus_queue_in** : esse campo é o nome da fila do Barramento de Serviço usada para roteamento de mensagens. Esse valor é concatenado com randomValue para torná-lo globalmente exclusivo.
 
-**AuthRules_sb_queue**: esse campo consiste nas regras de autorização para a fila do barramento de serviço, usado para recuperar a cadeia de conexão para a fila.
+**AuthRules_sb_queue** : esse campo consiste nas regras de autorização para a fila do barramento de serviço, usado para recuperar a cadeia de conexão para a fila.
 
 ### <a name="variables"></a>variáveis
 
 Esses valores são usados no modelo e derivados principalmente de parâmetros.
 
-**queueAuthorizationRuleResourceId**: esse campo é a ResourceId da regra de autorização para a fila do Barramento de Serviço. ResourceId, por sua vez, é usada para recuperar a cadeia de conexão para a fila.
+**queueAuthorizationRuleResourceId** : esse campo é a ResourceId da regra de autorização para a fila do Barramento de Serviço. ResourceId, por sua vez, é usada para recuperar a cadeia de conexão para a fila.
 
-**iotHubName**: esse campo é o nome do Hub IoT depois de ter randomValue concatenado. 
+**iotHubName** : esse campo é o nome do Hub IoT depois de ter randomValue concatenado. 
 
-**storageAccountName**: esse campo é o nome da conta de armazenamento depois de ter randomValue concatenado. 
+**storageAccountName** : esse campo é o nome da conta de armazenamento depois de ter randomValue concatenado. 
 
-**service_bus_namespace**: esse campo é o namespace depois de ter randomValue concatenado.
+**service_bus_namespace** : esse campo é o namespace depois de ter randomValue concatenado.
 
-**service_bus_queue**: esse campo é o nome da fila do Barramento de Serviço depois de ter randomValue concatenado.
+**service_bus_queue** : esse campo é o nome da fila do Barramento de Serviço depois de ter randomValue concatenado.
 
-**sbVersion**: a versão da API do Barramento de Serviço a ser usada. Neste caso, é "2017-04-01".
+**sbVersion** : a versão da API do Barramento de Serviço a ser usada. Neste caso, é "2017-04-01".
 
 ### <a name="resources-storage-account-and-container"></a>Recursos: contêiner e conta de armazenamento
 
@@ -358,7 +358,7 @@ Para implantar o modelo no Azure, carregue o modelo e o arquivo de parâmetros p
 
 Para carregar os arquivos, selecione o ícone **Carregar/Baixar arquivos** na barra de menus e escolha Carregar.
 
-![Barra de menus do Cloud Shell com arquivos de Upload/Download realçados](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Captura de tela que realça o ícone Carregar/Baixar arquivos.](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
 Use o Explorador de Arquivos que é exibido para localizar os arquivos no disco local e selecioná-los, então escolha **Abrir**.
 

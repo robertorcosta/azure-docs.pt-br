@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208219"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516946"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -54,7 +54,7 @@ O corpo principal da página de visão geral fornece insight rápido sobre o sta
 
 Pastas de trabalho internas oferecem dados integrados de suas fontes de dados conectadas para permitir que você examine os eventos gerados nesses serviços. As pastas de trabalho internas incluem o Azure AD, os eventos de atividades do Azure e locais, que podem ser dados de eventos do Windows provenientes de servidores, de alertas internos, de terceiros, incluindo logs de tráfego do firewall, do Office 365 e de protocolos inseguros com base em eventos do Windows. As pastas de trabalho são baseadas em Pastas de Trabalho do Azure Monitor para fornecer a você melhores personalização e flexibilidade na criação de sua própria pasta de trabalho. Para saber mais, confira [Pastas de Trabalho](../azure-monitor/platform/workbooks-overview.md).
 
-1. Em **Configurações** , selecione **Pastas de Trabalho** . Em **Instalados** , é possível ver todas as pastas de trabalho instaladas. Em **Todos** , é possível ver toda a galeria de pastas de trabalho internas disponíveis para instalação. 
+1. Em **Configurações** , selecione **Pastas de Trabalho**. Em **Instalados** , é possível ver todas as pastas de trabalho instaladas. Em **Todos** , é possível ver toda a galeria de pastas de trabalho internas disponíveis para instalação. 
 2. Pesquise uma pasta de trabalho específica ver a lista inteira e a descrição do que cada uma oferece. 
 3. Supondo que você usa o Azure AD, para começar a usar o Azure Sentinel, recomendamos que instale pelo menos as pastas de trabalho a seguir:
    - **Azure AD** : Use uma ou ambas as opções a seguir:
@@ -79,11 +79,11 @@ Se desejar adicionar um novo bloco, será possível adicioná-lo a uma pasta de 
 ## <a name="create-new-workbooks"></a>Criar pastas de trabalho
 É possível criar uma pasta de trabalho do zero ou usar uma interna como a base da sua nova pasta de trabalho.
 
-1. Para criar uma pasta de trabalho do zero, selecione **Pastas de Trabalho** e, em seguida, **+Nova pasta de trabalho** .
-2. Selecione a assinatura em que a pasta de trabalho foi criada e lhe dê um nome descritivo. Cada pasta de trabalho é um recurso do Azure como qualquer outro. É possível atribuir funções (RBAC) para definir e limitar quem pode acessar. 
-3. Para permitir que ela apareça em suas pastas de trabalho para fixar visualizações, é necessário compartilhá-la. Clique em **Compartilhar** e em **Gerenciar usuários** . 
+1. Para criar uma pasta de trabalho do zero, selecione **Pastas de Trabalho** e, em seguida, **+Nova pasta de trabalho**.
+2. Selecione a assinatura em que a pasta de trabalho foi criada e lhe dê um nome descritivo. Cada pasta de trabalho é um recurso do Azure como qualquer outro. É possível atribuir funções (Azure RBAC) para definir e limitar quem pode acessar. 
+3. Para permitir que ela apareça em suas pastas de trabalho para fixar visualizações, é necessário compartilhá-la. Clique em **Compartilhar** e em **Gerenciar usuários**. 
  
-1. Use **Verificar acesso** e **Atribuições de função** como faria para qualquer outro recurso do Azure. Para obter mais informações, confira [Compartilhar pastas de trabalho do Azure usando RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Use **Verificar acesso** e **Atribuições de função** como faria para qualquer outro recurso do Azure. Para obter mais informações, confira [Compartilhar pastas de trabalho do Azure usando o Azure RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## <a name="new-workbook-examples"></a>Novos exemplos de pasta de trabalho
@@ -119,7 +119,7 @@ Gere detecções nas [fontes de dados que você conectou ao Azure Sentinel](conn
 
 Quando você criar uma detecção, aproveite as detecções internas criadas por pesquisadores de segurança da Microsoft que são personalizadas para as fontes de dados conectadas.
 
-Para exibir todas as detecções prontas para uso, acesse **Análise** e **Modelos de regra** . Esta guia contém todas as regras internas do Azure Sentinel.
+Para exibir todas as detecções prontas para uso, acesse **Análise** e **Modelos de regra**. Esta guia contém todas as regras internas do Azure Sentinel.
 
    ![Usar detecções internas para encontrar ameaças com o Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 

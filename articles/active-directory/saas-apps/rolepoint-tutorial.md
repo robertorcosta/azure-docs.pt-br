@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 235010cbcdde326cf17643cec81f3b6fcb1eea59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3225aa9eaff5c3cd0acca99261935feb9774810f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548762"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520669"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Tutorial: Integração do Azure Active Directory ao RolePoint
 
@@ -27,7 +27,7 @@ Essa integração oferece estes benefícios:
 * Você pode permitir que os usuários sejam conectados automaticamente ao RolePoint (logon único) com suas contas do Azure AD.
 * Gerencie suas contas em um único local: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -48,11 +48,11 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do RolePoint ao Azure AD, você precisará adicionar o RolePoint por meio da galeria à lista de aplicativos SaaS gerenciados.
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
+1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory** :
 
     ![Selecione Azure Active Directory](common/select-azuread.png)
 
-2. Acesse **Aplicativos empresariais** > **Todos os aplicativos**:
+2. Acesse **Aplicativos empresariais** > **Todos os aplicativos** :
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -84,23 +84,23 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o RolePoint, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do RolePoint, selecione **Logon único**:
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do RolePoint, selecione **Logon único** :
 
     ![Selecionar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único:
+2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único:
 
     ![Selecionar um método de logon único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML**:
+3. Na página **Configurar logon único com SAML** , selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML** :
 
     ![Ícone Editar](common/edit-urls.png)
 
-4. Na caixa de diálogo **Configuração Básica do SAML**, execute as etapas a seguir.
+4. Na caixa de diálogo **Configuração Básica do SAML** , execute as etapas a seguir.
 
     ![Caixa de diálogo Configuração Básica de SAML](common/sp-identifier.png)
 
-    1. Na caixa **URL de Logon**, insira uma URL neste padrão:
+    1. Na caixa **URL de Logon** , insira uma URL neste padrão:
 
        `https://<subdomain>.rolepoint.com/login`
 
@@ -111,11 +111,11 @@ Para configurar o logon único do Azure AD com o RolePoint, siga estas etapas:
     > [!NOTE]
     > Esses valores são espaços reservados. Você precisa usar o identificador e a URL de logon real. Sugerimos que você use um valor de cadeia de caracteres exclusivo no identificador. Contate a [equipe de suporte do RolePoint](mailto:info@rolepoint.com) para obter esses valores. Você também pode ver os padrões exibidos na caixa de diálogo **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar o Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, selecione o link **Baixar** ao lado do **XML de Metadados de Federação** de acordo com suas necessidades e salve o arquivo no computador.
+5. Na página **Configurar o Logon Único com o SAML** , na seção **Certificado de Autenticação SAML** , selecione o link **Baixar** ao lado do **XML de Metadados de Federação** de acordo com suas necessidades e salve o arquivo no computador.
 
     ![Link de download do certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o RolePoint**, copie as URLs apropriadas de acordo com suas necessidades:
+6. Na seção **Configurar o RolePoint** , copie as URLs apropriadas de acordo com suas necessidades:
 
     ![Copiar as URLs de configuração](common/copy-configuration-urls.png)
 
@@ -134,7 +134,7 @@ Para configurar o logon único no lado do RolePoint, você precisará trabalhar 
 
 Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no portal do Azure.
 
-1. No portal do Azure, selecione **Azure Active Directory** no painel esquerdo, **Usuários** e, em seguida, **Todos os usuários**:
+1. No portal do Azure, selecione **Azure Active Directory** no painel esquerdo, **Usuários** e, em seguida, **Todos os usuários** :
 
     ![Selecionar Todos os usuários](common/users.png)
 
@@ -142,13 +142,13 @@ Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no po
 
     ![Selecionar Novo usuário](common/new-user.png)
 
-3. Na caixa de diálogo **Usuário**, execute as etapas a seguir.
+3. Na caixa de diálogo **Usuário** , execute as etapas a seguir.
 
     ![Caixa de diálogo Usuário](common/user-properties.png)
 
-    1. Na caixa **Nome**, insira **BrendaFernandes**.
+    1. Na caixa **Nome** , insira **BrendaFernandes**.
   
-    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa **Nome de usuário** , insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
 
     1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
 
@@ -158,7 +158,7 @@ Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no po
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao RolePoint.
 
-1. No portal do Azure, selecione **Aplicativos empresariais**, **Todos os aplicativos** e, em seguida, **RolePoint**.
+1. No portal do Azure, selecione **Aplicativos empresariais** , **Todos os aplicativos** e, em seguida, **RolePoint**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -166,7 +166,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Lista de aplicativos](common/all-applications.png)
 
-3. No painel esquerdo, selecione **Usuários e grupos**:
+3. No painel esquerdo, selecione **Usuários e grupos** :
 
     ![Selecionar Usuários e grupos](common/users-groups-blade.png)
 
@@ -174,26 +174,26 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Selecione Adicionar usuário](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários e, em seguida, clique no botão **Selecionar** na parte inferior da janela.
+5. Na caixa de diálogo **Usuários e grupos** , selecione **Brenda Fernandes** na lista de usuários e, em seguida, clique no botão **Selecionar** na parte inferior da janela.
 
-6. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Clique no botão **Selecionar** na parte inferior da janela.
+6. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , selecione a função apropriada para o usuário na lista. Clique no botão **Selecionar** na parte inferior da janela.
 
-7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
+7. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir**.
 
 ### <a name="create-a-rolepoint-test-user"></a>Criar um usuário de teste do RolePoint
 
-Em seguida, você precisará criar um usuário chamado Brenda Fernandes no RolePoint. Trabalhe com a  [equipe de suporte do RolePoint](mailto:info@rolepoint.com) para adicionar usuários ao RolePoint. Os usuários precisam ser criados e ativados para que você use o logon único.
+Em seguida, você precisará criar um usuário chamado Brenda Fernandes no RolePoint. Trabalhe com a [equipe de suporte do RolePoint](mailto:info@rolepoint.com) para adicionar usuários ao RolePoint. Os usuários precisam ser criados e ativados para que você use o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Agora você precisará testar a configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao selecionar o bloco do RolePoint no Painel de Acesso, você deverá ser conectado automaticamente à instância do RolePoint, para a qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do RolePoint no Painel de Acesso, você deverá ser conectado automaticamente à instância do RolePoint, para a qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

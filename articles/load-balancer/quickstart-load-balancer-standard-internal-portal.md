@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 44f6ba313ab57933a1078e96533c88cc4b4b59b3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047804"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490842"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga interno para balancear a carga de VMs usando o portal do Azure
 
@@ -55,28 +55,28 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso > Rede > Rede virtual** ou pesquise por **Rede virtual** na caixa de pesquisa.
 
-2. Em **Criar rede virtual**, insira ou selecione estas informações na guia **Básico**:
+2. Em **Criar rede virtual** , insira ou selecione estas informações na guia **Básico** :
 
     | **Configuração**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscription     | Selecionar sua assinatura do Azure                                  |
-    | Grupo de recursos   | Selecione **myResourceGroupLB** |
+    | Grupo de recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **Oeste da Europa** |
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
-4. Na guia **Endereços IP**, insira estas informações:
+4. Na guia **Endereços IP** , insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Espaço de endereço IPv4 | Insira **10.1.0.0/16** |
 
-5. Em **Nome da sub-rede**, selecione a palavra **padrão**.
+5. Em **Nome da sub-rede** , selecione a palavra **padrão**.
 
-6. Em **Editar sub-rede**, insira estas informações:
+6. Em **Editar sub-rede** , insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
@@ -87,13 +87,13 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 8. Selecione a guia **Segurança**.
 
-9. Em **BastionHost**, selecione **Habilitar**. Insira estas informações:
+9. Em **BastionHost** , selecione **Habilitar**. Insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Nome do bastion | Insira **myBastionHost** |
     | Espaço de endereço da AzureBastionSubnet | Insira **10.1.1.0/24** |
-    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome**, insira **myBastionIP**. </br> Selecione **OK**. |
+    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome** , insira **myBastionIP**. </br> Selecione **OK**. |
 
 
 8. Selecione a guia **Revisar + criar** ou o botão **Revisar + criar**.
@@ -104,12 +104,12 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Load Balancer.**
 
-2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
+2. Na guia **Informações Básicas** da página **Criar balanceador de carga** , insira ou selecione as seguintes informações: 
 
     | Setting                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
-    | Resource group         | Selecione **myResourceGroupLB** criado na etapa anterior.|
+    | Resource group         | Selecione **CreateIntLBQS-rg** criado na etapa anterior.|
     | Nome                   | Insira **myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | selecione **Interno**.                                        |
@@ -121,7 +121,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 3. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
 
-4. Na guia **Examinar + criar**, selecione **Criar**.   
+4. Na guia **Examinar + criar** , selecione **Criar**.   
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Criar um balanceador de carga interno Standard." border="true":::
  
@@ -141,9 +141,9 @@ Crie o pool de endereços de back-end **myBackendPool** para incluir máquinas v
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Pools de back-end** e, em seguida, **Adicionar**.
+2. Em **Configurações** , selecione **Pools de back-end** e, em seguida, **Adicionar**.
 
-3. Na página **Adicionar um pool de back-end**, insira **myBackendPool** como o nome para o pool de back-end e depois selecione **Adicionar**.
+3. Na página **Adicionar um pool de back-end** , insira **myBackendPool** como o nome para o pool de back-end e depois selecione **Adicionar**.
 
 ### <a name="create-a-health-probe"></a>Criar uma investigação de integridade
 
@@ -155,7 +155,7 @@ Crie uma investigação de integridade chamada **myHealthProbe** para monitorar 
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Investigações de integridade** e, em seguida, **Adicionar**.
+2. Em **Configurações** , selecione **Investigações de integridade** e, em seguida, **Adicionar**.
     
     | Configuração | Valor |
     | ------- | ----- |
@@ -181,7 +181,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
+2. Em **Configurações** , selecione **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
 
 3. Use estes valores para configurar a regra de balanceamento de carga:
     
@@ -195,7 +195,9 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
     | Investigação de integridade | Selecione **myHealthProbe**. |
-    | Criar regras de saída implícitas | Selecione **Não**.
+    | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
+    | Redefinição de TCP | Selecione **Habilitado**. |
+    | SNAT (conversão de endereços de rede de origem) de saída | Selecione **(Recomendado) Usar regras de saída para fornecer acesso à Internet aos membros do pool de back-ends**. |
 
 4. Deixe o restante dos padrões e selecione **OK**.
 
@@ -211,19 +213,19 @@ Nesta seção, você:
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Nesta seção, você criará duas VMs (**myVM1**, **myVM2**).
+Nesta seção, você criará duas VMs ( **myVM1** , **myVM2** ).
 
 Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado anteriormente.
 
 1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Máquina virtual**. 
    
-2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
+2. Em **Criar uma máquina virtual** , digite ou selecione os valores na guia **Informações Básicas** :
 
-    | Setting | Valor                                          |
+    | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **myResourceGroupLB** |
+    | Grupo de recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM1** |
     | Região | Selecione **Oeste da Europa** |
@@ -237,18 +239,18 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
     | Senha | Insira uma senha |
     | Confirmar senha | Insira novamente a senha |
 
-3. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**.
+3. Selecione a guia **Rede** ou selecione **Avançar: Discos** , em seguida, **Avançar: Rede**.
   
 4. Na guia Rede, selecione ou insira:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
     | Sub-rede | **myBackendSubnet** |
     | IP público | Selecione **Nenhum** |
     | Grupo de segurança de rede da NIC | Selecione **Avançado**|
-    | Configurar um grupo de segurança de rede | Selecione **Criar novo**. </br> Em **Criar grupo de segurança de rede**, insira **myNSG** no **Nome**. </br> Selecione **OK** |
+    | Configurar um grupo de segurança de rede | Selecione **Criar novo**. </br> Em **Criar grupo de segurança de rede** , insira **myNSG** no **Nome**. </br> Selecione **OK** |
     | **Balanceamento de carga**  |
     | Colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente? | Selecione **Sim** |
     | **Configurações de balanceamento de carga** |
@@ -260,7 +262,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 6. Examine as configurações e selecione **Criar**.
 
-7. Siga as etapas 1 a 8 para criar uma VM adicional com os seguintes valores e todas as outras configurações iguais à **myVM1**:
+7. Siga as etapas 1 a 8 para criar uma VM adicional com os seguintes valores e todas as outras configurações iguais à **myVM1** :
 
     | Configuração | VM 2|
     | ------- | ----- |
@@ -288,28 +290,28 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso > Rede > Rede virtual** ou pesquise por **Rede virtual** na caixa de pesquisa.
 
-2. Em **Criar rede virtual**, insira ou selecione estas informações na guia **Básico**:
+2. Em **Criar rede virtual** , insira ou selecione estas informações na guia **Básico** :
 
     | **Configuração**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscription     | Selecionar sua assinatura do Azure                                  |
-    | Grupo de recursos   | Selecione **myResourceGroupLB** |
+    | Grupo de recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
     | Região           | Selecione **Oeste da Europa** |
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
-4. Na guia **Endereços IP**, insira estas informações:
+4. Na guia **Endereços IP** , insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Espaço de endereço IPv4 | Insira **10.1.0.0/16** |
 
-5. Em **Nome da sub-rede**, selecione a palavra **padrão**.
+5. Em **Nome da sub-rede** , selecione a palavra **padrão**.
 
-6. Em **Editar sub-rede**, insira estas informações:
+6. Em **Editar sub-rede** , insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
@@ -320,13 +322,13 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 8. Selecione a guia **Segurança**.
 
-9. Em **BastionHost**, selecione **Habilitar**. Insira estas informações:
+9. Em **BastionHost** , selecione **Habilitar**. Insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Nome do bastion | Insira **myBastionHost** |
     | Espaço de endereço da AzureBastionSubnet | Insira **10.1.1.0/24** |
-    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome**, insira **myBastionIP**. </br> Selecione **OK**. |
+    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome** , insira **myBastionIP**. </br> Selecione **OK**. |
 
 
 8. Selecione a guia **Revisar + criar** ou o botão **Revisar + criar**.
@@ -337,12 +339,12 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Load Balancer.**
 
-2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
+2. Na guia **Informações Básicas** da página **Criar balanceador de carga** , insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
-    | Resource group         | Selecione **myResourceGroupLB** criado na etapa anterior.|
+    | Resource group         | Selecione **CreateIntLBQS-rg** criado na etapa anterior.|
     | Nome                   | Insira **myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | selecione **Interno**.                                        |
@@ -353,9 +355,9 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 3. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
 
-4. Na guia **Examinar + criar**, selecione **Criar**.   
+4. Na guia **Examinar + criar** , selecione **Criar**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Criar um balanceador de carga interno Standard." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Criar um balanceador de carga interno básico." border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Criar recursos do balanceador de carga
 
@@ -373,9 +375,9 @@ Crie o pool de endereços de back-end **myBackendPool** para incluir máquinas v
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Pools de back-end** e, em seguida, **Adicionar**.
+2. Em **Configurações** , selecione **Pools de back-end** e, em seguida, **Adicionar**.
 
-3. Na página **Adicionar um pool de back-end**, insira ou selecione:
+3. Na página **Adicionar um pool de back-end** , insira ou selecione:
     
     | Setting | Valor |
     | ------- | ----- |
@@ -395,7 +397,7 @@ Crie uma investigação de integridade chamada **myHealthProbe** para monitorar 
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Investigações de integridade** e, em seguida, **Adicionar**.
+2. Em **Configurações** , selecione **Investigações de integridade** e, em seguida, **Adicionar**.
     
     | Configuração | Valor |
     | ------- | ----- |
@@ -421,7 +423,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
+2. Em **Configurações** , selecione **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
 
 3. Use estes valores para configurar a regra de balanceamento de carga:
     
@@ -435,6 +437,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
     | Investigação de integridade | Selecione **myHealthProbe**. |
+    | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
  
 4. Deixe o restante dos padrões e selecione **OK**.
 
@@ -448,7 +451,7 @@ Nesta seção, você:
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Nesta seção, você criará duas VMs (**myVM1** e **myVM2**).
+Nesta seção, você criará duas VMs ( **myVM1** e **myVM2** ).
 
 As duas VMs serão adicionadas a um conjunto de disponibilidade chamado **myAvailabilitySet**.
 
@@ -456,13 +459,13 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
 
 1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Máquina virtual**. 
    
-2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
+2. Em **Criar uma máquina virtual** , digite ou selecione os valores na guia **Informações Básicas** :
 
-    | Setting | Valor                                          |
+    | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **myResourceGroupLB** |
+    | Grupo de recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM1** |
     | Região | Selecione **Oeste da Europa** |
@@ -476,18 +479,18 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
     | Senha | Insira uma senha |
     | Confirmar senha | Insira novamente a senha |
 
-3. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**.
+3. Selecione a guia **Rede** ou selecione **Avançar: Discos** , em seguida, **Avançar: Rede**.
   
 4. Na guia Rede, selecione ou insira:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | Selecione **myVNet** |
     | Sub-rede | Selecione **myBackendSubnet** |
     | IP público | Selecione **Nenhum** |
     | Grupo de segurança de rede da NIC | Selecione **Avançado**|
-    | Configurar um grupo de segurança de rede | Selecione **Criar novo**. </br> Em **Criar grupo de segurança de rede**, insira **myNSG** no **Nome**. </br> Selecione **OK** |
+    | Configurar um grupo de segurança de rede | Selecione **Criar novo**. </br> Em **Criar grupo de segurança de rede** , insira **myNSG** no **Nome**. </br> Selecione **OK** |
     | **Balanceamento de carga**  |
     | Colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente? | Selecione **Não** |
 
@@ -495,7 +498,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 6. Examine as configurações e selecione **Criar**.
 
-7. Siga as etapas 1 a 8 para criar uma VM adicional com os seguintes valores e todas as outras configurações iguais à **myVM1**:
+7. Siga as etapas 1 a 8 para criar uma VM adicional com os seguintes valores e todas as outras configurações iguais à **myVM1** :
 
     | Configuração | VM 2 |
     | ------- | ----- |
@@ -509,11 +512,11 @@ As VMs criadas nas etapas anteriores devem ser adicionadas ao pool de back-end d
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Pools de back-end** e escolha **myBackendPool**.
+2. Em **Configurações** , selecione **Pools de back-end** e escolha **myBackendPool**.
 
 3. Selecione **Máquinas virtuais** em **Associado a**.
 
-4. Na seção **Máquinas virtuais**, selecione **+Adicionar**.
+4. Na seção **Máquinas virtuais** , selecione **+Adicionar**.
 
 5. Selecione as caixas ao lado de **myVM1** e **myVM2**.
 
@@ -528,13 +531,13 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
 
 1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Máquina virtual**. 
    
-2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
+2. Em **Criar uma máquina virtual** , digite ou selecione os valores na guia **Informações Básicas** :
 
-    | Setting | Valor                                          |
+    | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **myResourceGroupLB** |
+    | Grupo de recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myTestVM** |
     | Região | Selecione **Oeste da Europa** |
@@ -547,11 +550,11 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
     | Senha | Insira uma senha |
     | Confirmar senha | Insira novamente a senha |
 
-3. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**.
+3. Selecione a guia **Rede** ou selecione **Avançar: Discos** , em seguida, **Avançar: Rede**.
   
 4. Na guia Rede, selecione ou insira:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
@@ -566,9 +569,9 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
 
 ## <a name="install-iis"></a>Instalar o IIS
 
-1. Selecione **Todos os serviços** no menu à esquerda, **Todos os recursos** e na lista de recursos e **myVM1**, que está localizada no grupo de recursos **myResourceGroupLB**.
+1. Selecione **Todos os serviços** no menu à esquerda, em seguida, **Todos os recursos** e, na lista de recursos, escolha **myVM1** , que está no grupo de recursos **CreateIntLBQS-rg**.
 
-2. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
+2. Na página **Visão Geral** , selecione **Conectar** e **Bastion**.
 
 4. Insira o nome de usuário e a senha fornecidos durante a criação da VM.
 
@@ -604,9 +607,9 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
 
 2. Anote ou copie o endereço ao lado de **Endereço IP Privado** na **Visão geral** do **myLoadBalancer**.
 
-3. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, na lista de recursos, selecione **myTestVM**, que está localizada no grupo de recursos **myResourceGroupLB**.
+3. Selecione **Todos os serviços** no menu à esquerda, em seguida, **Todos os recursos** e, na lista de recursos, escolha **myTestVM** , que está no grupo de recursos **CreateIntLBQS-rg**.
 
-4. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
+4. Na página **Visão Geral** , selecione **Conectar** e **Bastion**.
 
 6. Insira o nome de usuário e a senha fornecidos durante a criação da VM.
 
@@ -614,13 +617,13 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
 
 8. Insira o endereço IP da etapa anterior na barra de endereços do navegador. A página padrão do servidor Web do IIS é exibida no navegador.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Criar um balanceador de carga interno Standard." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="A captura de tela mostra uma janela do navegador que exibe a página padrão, conforme esperado." border="true":::
    
 Para ver o balanceador de carga distribuir o tráfego entre as duas VMs, personalize a página padrão do servidor Web do IIS de cada VM e force a atualização do navegador da Web no computador cliente.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e escolha **Excluir**.
+Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos **CreateIntLBQS-rg** que contém os recursos e escolha **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

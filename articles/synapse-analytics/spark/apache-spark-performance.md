@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249460"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368597"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Otimizar trabalhos do Apache Spark (versão prévia) no Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ As versões anteriores do Spark usam RDDs para dados abstratos e o Spark 1.3 e 1
 
 O Spark fornece suporte a muitos formatos, como csv, json, xml, parquet, orc e avro. O Spark pode ser estendido para fornecer suporte a muitos outros formatos com fontes de dados externos - para obter mais informações, consulte [Pacotes do Apache Spark](https://spark-packages.org).
 
-O melhor formato para desempenho é parquet com *compactação snappy*, que é o padrão no Spark 2.x. O parquet armazena dados em formato colunar e é altamente otimizado no Spark. Além disso, embora a *compactação Snappy* possa resultar em arquivos maiores do que, digamos, a compactação Gzip. Devido à natureza divisível desses arquivos, eles serão descompactados mais rapidamente]
+O melhor formato para desempenho é parquet com *compactação snappy* , que é o padrão no Spark 2.x. O parquet armazena dados em formato colunar e é altamente otimizado no Spark. Além disso, embora a *compactação Snappy* possa resultar em arquivos maiores do que, digamos, a compactação Gzip. Devido à natureza divisível desses arquivos, eles serão descompactados mais rapidamente.
 
 ## <a name="use-the-cache"></a>Usar o cache
 
@@ -103,7 +103,7 @@ Alguns recursos de bucket avançados são:
 
 ## <a name="optimize-joins-and-shuffles"></a>Ordens aleatórias e junções otimizadas
 
-Se houver trabalhos lentos em uma Junção ou Ordem Aleatória, provavelmente a causa será a *distorção de dados*, que é a assimetria nos dados de trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são unidos ou em ordem aleatória leva horas. Para corrigir a distorção de dados, será necessário usar salt da chave inteira ou um *salt isolado* para apenas um subconjunto de chaves. Se você estiver usando um sal isolado, deverá filtrar adicionalmente para isolar o subconjunto de chaves com sal nas junções de mapa. Outra opção é primeiro introduzir uma coluna de bucket e pré-agregado em buckets.
+Se houver trabalhos lentos em uma Junção ou Ordem Aleatória, provavelmente a causa será a *distorção de dados* , que é a assimetria nos dados de trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são unidos ou em ordem aleatória leva horas. Para corrigir a distorção de dados, será necessário usar salt da chave inteira ou um *salt isolado* para apenas um subconjunto de chaves. Se você estiver usando um sal isolado, deverá filtrar adicionalmente para isolar o subconjunto de chaves com sal nas junções de mapa. Outra opção é primeiro introduzir uma coluna de bucket e pré-agregado em buckets.
 
 Outro fator que causa junções lentas pode ser o tipo de junção. Por padrão, o Spark usa o tipo de junção `SortMerge`. Este tipo de junção é mais adequado para conjuntos de dados grandes, mas, de outra forma, é computacionalmente caro porque primeiro deve classificar os lados esquerdo e direito dos dados antes de mesclá-los.
 
@@ -178,6 +178,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Ajuste do Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+- [Ajuste do Apache Spark](https://spark.apache.org/docs/2.4.5/tuning.html)
 - [Como realmente ajustar o funcionamento dos trabalhos do Apache Spark](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 - [Serialização Kryo](https://github.com/EsotericSoftware/kryo)

@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132356"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460675"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
 Este artigo fornece as etapas de alto nível usadas para transferir assinaturas do Azure de/para parceiros CSP (provedor de soluções de nuvem) e seus clientes. O objetivo das informações aqui é ajudar o assinante do Azure a fazer a coordenação com o parceiro dele. As informações que os parceiros da Microsoft usam para o processo de transferência estão documentadas em [Saiba como transferir as assinaturas do Azure de um cliente para outro parceiro](/partner-center/switch-azure-subscriptions-to-a-different-partner).
+
+Antes de iniciar uma solicitação de transferência, você deve baixar ou exportar qualquer informação de custo e cobrança que deseja manter. As informações de cobrança e utilização não são transferidas com a assinatura. Para obter mais informações de como exportar dados de gerenciamento de custos, confira [Criar e gerenciar dados exportados](../costs/tutorial-export-acm-data.md). Para obter informações sobre como baixar sua fatura e os dados de uso, confira [Baixar ou exibir sua fatura de cobrança e dados de uso diário do Azure](download-azure-invoice-daily-usage-date.md).
+
+Se você tiver reservas existentes, elas deixarão de ser aplicadas depois que você transferir uma assinatura. Lembre-se de [cancelar as reservas e reembolsá-las](../reservations/exchange-and-refund-azure-reservations.md) antes de transferir uma assinatura.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferir assinaturas EA para um parceiro CSP
 

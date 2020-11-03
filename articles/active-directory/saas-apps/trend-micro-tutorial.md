@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f2a6598cc28c39719d73be333bd74c24fce9371b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551882"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514530"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TMWS (Trend Micro Web Security)
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar a TMWS (Trend Micro Web Security) ao
 * Permitir que os usuários sejam conectados automaticamente ao TMWS com as próprias contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [Logon único em aplicativos no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, você precisa do seguinte:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O TMWS dá suporte ao SSO iniciado por SP.
-* Depois de configurar o TMWS, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. Para saber como impor o controle de sessão usando Microsoft Cloud App Security, confira [Integrar e implantar o Controle de Aplicativos de Acesso Condicional para qualquer aplicativo](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o TMWS, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. Para saber como impor o controle de sessão usando Microsoft Cloud App Security, confira [Integrar e implantar o Controle de Aplicativos de Acesso Condicional para qualquer aplicativo](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-tmws-from-the-gallery"></a>Adicionar o TMWS da galeria
 
@@ -50,7 +50,7 @@ Para configurar a integração do TMWS ao Azure AD, você precisa adicionar o TM
 1. No painel esquerdo, selecione o serviço **Azure Active Directory**.
 1. Selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
-1. Na seção **Adicionar da galeria**, insira **TMWS (Trend Micro Web Security)** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria** , insira **TMWS (Trend Micro Web Security)** na caixa de pesquisa.
 1. Selecione **TMWS (Trend Micro Web Security)** nos resultados da pesquisa e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-sso-for-tmws"></a>Configurar e testar o SSO do Azure AD para o TMWS
@@ -71,18 +71,18 @@ Você concluirá estas etapas básicas para configurar e testar o SSO do Azure A
 Conclua estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **TMWS (Trend Micro Web Security)** , localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, selecione o botão de caneta da **Configuração Básica de SAML** para editar as configurações:
+1. Na página **Selecionar um método de logon único** , escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML** , selecione o botão de caneta da **Configuração Básica de SAML** para editar as configurações:
 
    ![Editar as definições de Configuração Básica do SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, insira valores nas seguintes caixas:
+1. Na seção **Configuração Básica do SAML** , insira valores nas seguintes caixas:
 
     a. Na caixa **Identificador (ID da Entidade)** , insira uma URL usando o seguinte padrão:
 
     `https://auth.iws-hybrid.trendmicro.com/([0-9a-f]{16})`
 
-    b. Na caixa **URL de Resposta**, digite esta URL:
+    b. Na caixa **URL de Resposta** , digite esta URL:
 
     `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
@@ -100,7 +100,7 @@ Conclua estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | sAMAccountName | user.onpremisessamaccountname |
     | uPN | user.userprincipalname |
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação do SAML**, localize **Certificado (Base64)** . Selecione o link **Baixar** ao lado deste nome de certificado para baixar o certificado e salvá-lo no computador:
+1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação do SAML** , localize **Certificado (Base64)** . Selecione o link **Baixar** ao lado deste nome de certificado para baixar o certificado e salvá-lo no computador:
 
     ![Link de download do certificado](common/certificatebase64.png)
 
@@ -114,9 +114,9 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory**. Selecione **Usuários** e, em seguida, selecione **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. Na caixa **Nome**, insira `B.Simon`.  
-   1. Na caixa **Nome de usuário**, insira ***username *@* companydomain *.* extension***. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. Na caixa **Nome** , insira `B.Simon`.  
+   1. Na caixa **Nome de usuário** , insira * *_username_@* companydomain *.* extension***. Por exemplo, `B.Simon@contoso.com`.
    1. Marque **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Selecione **Criar**.
 
@@ -126,7 +126,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **TMWS (Trend Micro Web Security)** .
-1. Na página de visão geral do aplicativo, na seção **Gerenciar**, selecione **Usuários e grupos**:
+1. Na página de visão geral do aplicativo, na seção **Gerenciar** , selecione **Usuários e grupos** :
 
    ![Selecionar Usuários e grupos](common/users-groups-blade.png)
 
@@ -134,29 +134,29 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![Selecione Adicionar usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista de **Usuários** e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
-1. Se você espera um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista de **Usuários** e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
+1. Se você espera um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir**.
 
 ### <a name="configure-user-and-group-synchronization-settings-in-azure-ad"></a>Definir configurações de sincronização de usuário e de grupo no Azure AD
 
 1. No painel esquerdo, selecione **Azure Active Directory**.
 
-1. Em **Gerenciar**, selecione **Registros de aplicativo** e, em seguida, selecione o novo aplicativo empresarial em **Todos os aplicativos**.
+1. Em **Gerenciar** , selecione **Registros de aplicativo** e, em seguida, selecione o novo aplicativo empresarial em **Todos os aplicativos**.
 
-1. Em **Gerenciar**, selecione **Certificados e Segredos**.
+1. Em **Gerenciar** , selecione **Certificados e Segredos**.
 
-1. Na área **Segredos do cliente**, selecione **Novo segredo do cliente**.
+1. Na área **Segredos do cliente** , selecione **Novo segredo do cliente**.
 
-1. Na tela **Adicionar um segredo do cliente**, adicione uma descrição (opcional), selecione um período de validade para o segredo do cliente e selecione **Adicionar**. O novo segredo do cliente aparece na área **Segredos do cliente**.
+1. Na tela **Adicionar um segredo do cliente** , adicione uma descrição (opcional), selecione um período de validade para o segredo do cliente e selecione **Adicionar**. O novo segredo do cliente aparece na área **Segredos do cliente**.
 
 1. Registre o valor do segredo do cliente. Posteriormente, você vai inseri-lo no TMWS.
 
-1. Em **Gerenciar**, selecione **Permissões de API**. 
+1. Em **Gerenciar** , selecione **Permissões de API**. 
 
-1. Na janela **Permissões da API**, selecione **Adicionar uma permissão**.
+1. Na janela **Permissões da API** , selecione **Adicionar uma permissão**.
 
-1. Na guia **APIs da Microsoft** da tela **Solicitar permissões de API**, clique em **Microsoft Graph** e depois em **Permissões de aplicativo**.
+1. Na guia **APIs da Microsoft** da tela **Solicitar permissões de API** , clique em **Microsoft Graph** e depois em **Permissões de aplicativo**.
 
 1. Localize e adicione estas permissões: 
 
@@ -165,7 +165,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Selecione **Adicionar Permissões**. Uma mensagem é exibida para confirmar que as configurações foram salvas. As novas permissões são exibidas na janela **Permissões de API**.
 
-1. Em **Fornecer consentimento**, selecione **Fornecer o consentimento do administrador para *sua conta de administrador* (diretório padrão)** e selecione **Sim**. Uma mensagem é exibida para confirmar que o consentimento do administrador para as permissões solicitadas foi fornecido.
+1. Em **Fornecer consentimento** , selecione **Fornecer o consentimento do administrador para *sua conta de administrador* (diretório padrão)** e selecione **Sim**. Uma mensagem é exibida para confirmar que o consentimento do administrador para as permissões solicitadas foi fornecido.
 
 1. Selecione **Visão geral**. 
 
@@ -179,30 +179,30 @@ Conclua estas etapas para configurar o SSO do TMWS no lado do aplicativo.
 
 1. Selecione **aqui** na área superior da tela.
 
-1. Na página **Método de Autenticação**, selecione **Azure AD**.
+1. Na página **Método de Autenticação** , selecione **Azure AD**.
 
 1. Selecione **Ligado** ou **Desligado** para configurar se os usuários do Azure AD em sua organização poderão visitar sites por meio do TMWS se os dados não estiverem sincronizados com o TMWS.
 
     > [!NOTE]
     > Os usuários que não estão sincronizados do Azure AD podem ser autenticados somente por meio de gateways TMWS conhecidos ou pela porta dedicada para sua organização.
 
-1. Na seção **Configurações do Provedor de Identidade**, conclua estas etapas:
+1. Na seção **Configurações do Provedor de Identidade** , conclua estas etapas:
 
-    a. Na caixa **URL do Serviço**, insira o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa **URL do Serviço** , insira o valor da **URL de Logon** copiado do portal do Azure.
 
-    b. Em **Atributo de nome de logon**, insira o **Nome da declaração de usuário** com o atributo de origem **user.onpremisessamaccountname** do portal do Azure.
+    b. Em **Atributo de nome de logon** , insira o **Nome da declaração de usuário** com o atributo de origem **user.onpremisessamaccountname** do portal do Azure.
 
-    c. Na caixa **Certificado SSL público**, use o **Certificado (Base64)** baixado da portal do Azure.
+    c. Na caixa **Certificado SSL público** , use o **Certificado (Base64)** baixado da portal do Azure.
 
-1. Na seção **Configurações de Sincronização**, conclua estas etapas:
+1. Na seção **Configurações de Sincronização** , conclua estas etapas:
 
-    a. Na caixa **Locatário**, insira **ID (locatário) do Diretório** ou o valor do **Nome de domínio personalizado** do portal do Azure.
+    a. Na caixa **Locatário** , insira **ID (locatário) do Diretório** ou o valor do **Nome de domínio personalizado** do portal do Azure.
 
-    b. Na caixa **ID do Aplicativo**, insira o valor **ID (cliente) do Aplicativo** do portal do Azure.
+    b. Na caixa **ID do Aplicativo** , insira o valor **ID (cliente) do Aplicativo** do portal do Azure.
 
-    c. Na caixa **Segredo do cliente**, insira o **Segredo do cliente** no portal do Azure.
+    c. Na caixa **Segredo do cliente** , insira o **Segredo do cliente** no portal do Azure.
 
-    d. Selecione **Agenda de sincronização** para sincronizar com o Azure AD manualmente ou de acordo com uma agenda. Se você selecionar **Manualmente**, sempre que houver alterações a informações do usuário do Active Directory, volte para a página **Serviços de Diretório** e execute a sincronização manual para que as informações no TMWS permaneçam atualizadas.
+    d. Selecione **Agenda de sincronização** para sincronizar com o Azure AD manualmente ou de acordo com uma agenda. Se você selecionar **Manualmente** , sempre que houver alterações a informações do usuário do Active Directory, volte para a página **Serviços de Diretório** e execute a sincronização manual para que as informações no TMWS permaneçam atualizadas.
 
     e. Selecione **Testar Conexão** para verificar se o serviço do Azure AD pode ser conectado com êxito.
     
@@ -224,21 +224,20 @@ Depois de configurar o serviço do Azure AD e especificar o Azure AD como o mét
 
 1. Visite qualquer site da Internet. O TMWS direcionará você para o portal cativo do TMWS.
 
-1. Especifique uma conta do Active Directory (formato: *domain*\\*sAMAccountName* ou *sAMAccountName*@*domain*), endereço de email ou UPN e, em seguida, selecione **Fazer logon**. O TMWS envia você para a janela de conexão do Azure AD.
+1. Especifique uma conta do Active Directory (formato: *domain*\\*sAMAccountName* ou *sAMAccountName*@*domain* ), endereço de email ou UPN e, em seguida, selecione **Fazer logon**. O TMWS envia você para a janela de conexão do Azure AD.
 
 1. Na janela de entrada do Azure AD, insira suas credenciais de conta do Azure AD. Agora você deve estar conectado ao TMWS.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais sobre como integrar aplicativos SaaS ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais sobre como integrar aplicativos SaaS ao Azure Active Directory](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o Trend Micro Web Security com o Azure AD](https://aad.portal.azure.com/)
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o Trend Micro Web Security com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Como proteger o Trend Micro Web Security com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)

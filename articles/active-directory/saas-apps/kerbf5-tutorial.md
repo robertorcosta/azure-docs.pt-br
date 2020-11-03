@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: fe0f2b0efa3f089398493cf30012e34097e065ec
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944251"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459090"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao F5
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o F5 ao Azure AD (Azure Active Direc
 * Permitir que os usuários sejam conectados automaticamente ao F5 com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,7 +70,7 @@ Para começar, você precisará dos seguintes itens:
 
 1. Na interface do usuário da Web de BIG-IP da F5, clique em **Acessar >> Configuração do Guia**.
 
-2. Na página **Configuração Guiada**, clique em **Atualizar Configuração Guiada** no canto superior esquerdo.
+2. Na página **Configuração Guiada** , clique em **Atualizar Configuração Guiada** no canto superior esquerdo.
 
     ![Captura de tela que mostra a página "Configuração Guiada" com a ação "Atualizar Configuração Guiada" selecionada.](./media/kerbf5-tutorial/configure14.png) 
 
@@ -117,7 +117,7 @@ Para configurar a integração do F5 ao Azure AD, você precisa adicionar o F5 p
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **F5** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria** , digite **F5** na caixa de pesquisa.
 1. Selecione **F5** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>Configurar e testar logon único do Azure AD para o F5
@@ -137,13 +137,13 @@ Para configurar e testar o SSO do Azure AD com o F5, conclua os seguintes blocos
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **F5**, localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **F5** , localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único** , escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
+1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , digite os valores dos seguintes campos:
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
@@ -151,16 +151,16 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
+    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** e **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o F5**, copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o F5** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -168,11 +168,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -190,9 +190,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 1. Clique em **Acesso Condicional**.
 1. Clique em **Nova Política**.
 1. Agora você pode ver seu aplicativo da F5 como um recurso para a Política de AC e aplicar qualquer acesso condicional, incluindo a Autenticação Multifator, o controle de acesso baseado em dispositivo ou a Política do Identity Protection.
@@ -211,7 +211,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Você precisará importar o Certificado de Metadados para a F5 que será usado posteriormente no processo de instalação.
 
-1. Navegue até **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego > Lista de Certificados SSL**. Selecione **Importar** do lado direito. Especifique um **Nome do Certificado** (será referenciado futuramente na configuração). Na **Origem do Certificado**, selecione Fazer Upload de Arquivo e especifique o certificado baixado do Azure ao configurar o Logon Único do SAML. Clique em **Importar**.
+1. Navegue até **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego > Lista de Certificados SSL**. Selecione **Importar** do lado direito. Especifique um **Nome do Certificado** (será referenciado futuramente na configuração). Na **Origem do Certificado** , selecione Fazer Upload de Arquivo e especifique o certificado baixado do Azure ao configurar o Logon Único do SAML. Clique em **Importar**.
 
     ![Captura de tela que mostra a página "Certificado SSL/Origem da Chave" com "Nome do Certificado" selecionado e os botões "Carregar Arquivo" e "Importar" selecionados.](./media/kerbf5-tutorial/configure01.png) 
 
@@ -222,7 +222,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![Captura de tela que mostra a página "Certificado do SSL/Origem da Chave" com os valores inseridos e o botão "Importar" selecionado.](./media/kerbf5-tutorial/configure02.png) 
  
-1. Usaremos a Experiência Guiada para configurar a Federação do Azure AD e o Acesso ao Aplicativo. Acesse – **Principal** do BIG-IP da F5 e selecione **Acessar > Configuração Guiada > Federação > Provedor de Serviços SAML**. Clique em **Avançar**; em seguida, clique em **Avançar** para iniciar a configuração.
+1. Usaremos a Experiência Guiada para configurar a Federação do Azure AD e o Acesso ao Aplicativo. Acesse – **Principal** do BIG-IP da F5 e selecione **Acessar > Configuração Guiada > Federação > Provedor de Serviços SAML**. Clique em **Avançar** ; em seguida, clique em **Avançar** para iniciar a configuração.
 
     ![Captura de tela que mostra a página "Configuração Guiada" com o ícone "Federação" realçado e a opção "Provedor de Serviços do SAML" selecionada.](./media/kerbf5-tutorial/configure03.png) 
 
@@ -239,15 +239,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![Captura de tela que mostra a página "Propriedades do Servidor Virtual" com a caixa de texto "Endereço de Destino" realçada e o botão "Salvar e Avançar" selecionado.](./media/kerbf5-tutorial/configure06.png)
 
-1. Em **Selecione um método para configurar seu conector IdP**, especifique os Metadados, clique em Escolher Arquivo e faça upload do arquivo XML de Metadados baixado anteriormente do Azure AD. Especifique um **Nome** exclusivo para o conector IDP do SAML. Escolha o **Certificado de Autenticação de Metadados** que foi carregado anteriormente. Clique em **Salvar e Avançar**.
+1. Em **Selecione um método para configurar seu conector IdP** , especifique os Metadados, clique em Escolher Arquivo e faça upload do arquivo XML de Metadados baixado anteriormente do Azure AD. Especifique um **Nome** exclusivo para o conector IDP do SAML. Escolha o **Certificado de Autenticação de Metadados** que foi carregado anteriormente. Clique em **Salvar e Avançar**.
 
     ![Captura de tela que mostra a página "Configurações do Conector do Provedor de Identidade Externo" com a caixa de texto "Nome" realçada e o botão "Salvar e Avançar" selecionado.](./media/kerbf5-tutorial/configure07.png)  
 
-1. Em **Selecione um Pool**, especifique **Criar** (ou selecione um pool que já existe). Deixe o outro valor ser o padrão.    Em Servidores de Pool, digite o Endereço IP em **Endereço IP/Nome do Nó**. Especifique a **Porta**. Clique em **Salvar e Avançar**.
+1. Em **Selecione um Pool** , especifique **Criar** (ou selecione um pool que já existe). Deixe o outro valor ser o padrão.    Em Servidores de Pool, digite o Endereço IP em **Endereço IP/Nome do Nó**. Especifique a **Porta**. Clique em **Salvar e Avançar**.
  
     ![Captura de tela que mostra a página "Propriedades do Pool" com as caixas de texto "Endereço IP/Nome do Nó" e "Porta" realçadas e o botão "Salvar e Avançar" selecionado.](./media/kerbf5-tutorial/configure08.png)
 
-1. Na tela Configurações de Logon Único, selecione **Habilitar Logon Único**. Em **Tipo de Logon Único Selecionado**, escolha **Kerberos**. Substitua **session.saml.last.Identity** por **session.saml.last.attr.name.Identity** em **Origem do Nome de Usuário** (esta variável é definida usando o mapeamento de declarações no Azure AD). Selecione **Mostrar Configurações Avançadas**. Em **Realm Kerberos**, digite o Nome de Domínio. Em **Nome da Conta/Senha da Conta**, especifique a conta e a senha da delegação do APM. Especifique o IP do Controlador de Domínio no campo **KDC**. Clique em **Salvar e Avançar**.
+1. Na tela Configurações de Logon Único, selecione **Habilitar Logon Único**. Em **Tipo de Logon Único Selecionado** , escolha **Kerberos**. Substitua **session.saml.last.Identity** por **session.saml.last.attr.name.Identity** em **Origem do Nome de Usuário** (esta variável é definida usando o mapeamento de declarações no Azure AD). Selecione **Mostrar Configurações Avançadas**. Em **Realm Kerberos** , digite o Nome de Domínio. Em **Nome da Conta/Senha da Conta** , especifique a conta e a senha da delegação do APM. Especifique o IP do Controlador de Domínio no campo **KDC**. Clique em **Salvar e Avançar**.
 
     ![Captura de tela que mostra as "Configurações de Logon Único" com as caixas de texto realçadas e o botão "Salvar e Avançar" selecionado.](./media/kerbf5-tutorial/configure09.png)   
 
@@ -281,19 +281,19 @@ Configure um servidor AAA do Active Directory no APM (Access Policy Manager) par
 
 2. Clique em **Criar**. A tela de propriedades do Novo Servidor é aberta.
 
-3. No campo **Nome**, digite um nome exclusivo para o servidor de autenticação.
+3. No campo **Nome** , digite um nome exclusivo para o servidor de autenticação.
 
-4. No campo **Nome do Domínio**, digite o nome do domínio do Windows.
+4. No campo **Nome do Domínio** , digite o nome do domínio do Windows.
 
-5. Para a configuração **Conexão do Servidor**, selecione uma destas opções:
+5. Para a configuração **Conexão do Servidor** , selecione uma destas opções:
 
    * Selecione **Usar Pool** para configurar a alta disponibilidade para o servidor AAA.
 
    * Selecione **Direto** para configurar o servidor AAA para a funcionalidade autônoma.
 
-6. Se tiver selecionado **Direto**, digite um nome no campo **Controlador de Domínio**.
+6. Se tiver selecionado **Direto** , digite um nome no campo **Controlador de Domínio**.
 
-7. Se tiver selecionado Usar **pool**, configure o pool:
+7. Se tiver selecionado Usar **pool** , configure o pool:
 
    * Digite um nome no campo **Nome do Pool de Controlador de Domínio**.
 
@@ -301,19 +301,19 @@ Configure um servidor AAA do Active Directory no APM (Access Policy Manager) par
 
    * Para monitorar a integridade do servidor AAA, você tem a opção de selecionar o monitor de integridade: somente o monitor **gateway_icmp** é adequado nesse caso; você pode selecioná-lo na lista **Monitor do Pool de Servidores**.
 
-8. No campo **Nome do Administrador**, digite um nome que diferencia maiúsculas de minúsculas para um administrador que tem permissões de administrador do Active Directory. O APM usa as informações nos campos **Nome do Administrador** e **Senha do Administrador** para a Consulta do AD. Se o Active Directory estiver configurado para consultas anônimas, você não precisará fornecer um Nome do Administrador. Caso contrário, o APM precisará de uma conta com privilégio suficiente para ser associada a um servidor do Active Directory, buscar informações do grupo de usuários e buscar políticas de senha do Active Directory para dar suporte a uma funcionalidade relacionada a senha. (O APM deverá buscar políticas de senha, por exemplo, se você selecionar Solicitar usuário para alterar a senha antes da opção de expiração em uma ação da Consulta do AD.) Se você não fornecer as informações da conta do administrador nessa configuração, o APM usará a conta de usuário para buscar informações. Isso funcionará se a conta de usuário tiver privilégio suficiente.
+8. No campo **Nome do Administrador** , digite um nome que diferencia maiúsculas de minúsculas para um administrador que tem permissões de administrador do Active Directory. O APM usa as informações nos campos **Nome do Administrador** e **Senha do Administrador** para a Consulta do AD. Se o Active Directory estiver configurado para consultas anônimas, você não precisará fornecer um Nome do Administrador. Caso contrário, o APM precisará de uma conta com privilégio suficiente para ser associada a um servidor do Active Directory, buscar informações do grupo de usuários e buscar políticas de senha do Active Directory para dar suporte a uma funcionalidade relacionada a senha. (O APM deverá buscar políticas de senha, por exemplo, se você selecionar Solicitar usuário para alterar a senha antes da opção de expiração em uma ação da Consulta do AD.) Se você não fornecer as informações da conta do administrador nessa configuração, o APM usará a conta de usuário para buscar informações. Isso funcionará se a conta de usuário tiver privilégio suficiente.
 
-9. No campo **Senha do Administrador**, digite uma senha do administrador associada ao Nome de Domínio.
+9. No campo **Senha do Administrador** , digite uma senha do administrador associada ao Nome de Domínio.
 
-10. No campo **Verificar Senha do Administrador**, digite novamente a senha do administrador associada à configuração **Nome do Domínio**.
+10. No campo **Verificar Senha do Administrador** , digite novamente a senha do administrador associada à configuração **Nome do Domínio**.
 
-11. No campo **Tempo de Vida do Cache do Grupo**, digite o número de dias. O tempo de vida padrão é de 30 dias.
+11. No campo **Tempo de Vida do Cache do Grupo** , digite o número de dias. O tempo de vida padrão é de 30 dias.
 
-12. No campo **Tempo de Vida do Cache do Objeto de Segurança de Senha**, digite o número de dias. O tempo de vida padrão é de 30 dias.
+12. No campo **Tempo de Vida do Cache do Objeto de Segurança de Senha** , digite o número de dias. O tempo de vida padrão é de 30 dias.
 
-13. Na lista **Tipo de Criptografia de Pré-autenticação Kerberos**, selecione um tipo de criptografia. O padrão é **Nenhum**. Se você especificar um tipo de criptografia, o sistema BIG-IP incluirá os dados de pré-autenticação Kerberos dentro do primeiro pacote AS-REQ (solicitação de serviço de autenticação).
+13. Na lista **Tipo de Criptografia de Pré-autenticação Kerberos** , selecione um tipo de criptografia. O padrão é **Nenhum**. Se você especificar um tipo de criptografia, o sistema BIG-IP incluirá os dados de pré-autenticação Kerberos dentro do primeiro pacote AS-REQ (solicitação de serviço de autenticação).
 
-14. No campo **Tempo Limite**, digite um intervalo de tempo limite (em segundos) para o servidor AAA. (Essa configuração é opcional.)
+14. No campo **Tempo Limite** , digite um intervalo de tempo limite (em segundos) para o servidor AAA. (Essa configuração é opcional.)
 
 15. Clique em **Concluído**. O novo servidor é exibido na lista. Isso adiciona o novo servidor do Active Directory à lista de Servidores do Active Directory.
 
@@ -360,18 +360,18 @@ Configure um servidor AAA do Active Directory no APM (Access Policy Manager) par
 
      ![Captura de tela que mostra a janela "Editar IdPs de SAML que usam este SP" com o botão "Adicionar Nova Linha" selecionado.](./media/kerbf5-tutorial/configure28.png)
 
-1. Para configurar o SSO do Kerberos, navegue até **Acessar > Logon Único > Kerberos**, preencha as informações e clique em **Concluído**.
+1. Para configurar o SSO do Kerberos, navegue até **Acessar > Logon Único > Kerberos** , preencha as informações e clique em **Concluído**.
 
     >[!Note]
     > Será necessário criar e especificar a Conta de Delegação do Kerberos. Veja a Seção do KCD (Consulta o Apêndice para obter Referências de Variável)
 
-    * **Origem do nome de usuário**: session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Origem do nome de usuário** : session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
-    * **Origem do Realm do Usuário**: session.logon.last.domain
+    * **Origem do Realm do Usuário** : session.logon.last.domain
 
         ![Captura de tela que mostra a página "Logon Único – Propriedades" com as caixas de texto "Origem do Nome de Usuário" e "Origem do Realm do Usuário" realçadas.](./media/kerbf5-tutorial/configure29.png)
 
-1. Para configurar o Perfil de Acesso, navegue até **Acessar > Perfil/Políticas > Perfil de Acesso (de acordo com as políticas da sessão)** , clique em **Criar**, preencha as seguintes informações e clique em **Concluído**.
+1. Para configurar o Perfil de Acesso, navegue até **Acessar > Perfil/Políticas > Perfil de Acesso (de acordo com as políticas da sessão)** , clique em **Criar** , preencha as seguintes informações e clique em **Concluído**.
 
     * Nome: KerbApp200
     * Tipo de Perfil: Todos
@@ -414,7 +414,7 @@ Configure um servidor AAA do Active Directory no APM (Access Policy Manager) par
     * **mcget {session.logon.last.username}**
     * **mcget {session.logon.last.password**
 
-1. Para adicionar um novo nó, navegue até **Tráfego Local > Nós > Lista de Nós, clique em Criar**, preencha as informações a seguir e clique em **Concluído**.
+1. Para adicionar um novo nó, navegue até **Tráfego Local > Nós > Lista de Nós, clique em Criar** , preencha as informações a seguir e clique em **Concluído**.
 
     * Nome: KerbApp200
     * Descrição: KerbApp200
@@ -422,7 +422,7 @@ Configure um servidor AAA do Active Directory no APM (Access Policy Manager) par
 
         ![Captura de tela que mostra a página "Novo Nó" com as caixas de texto "Nome", "Descrição" e "Endereço" realçadas e o botão "Concluído" selecionado.](./media/kerbf5-tutorial/configure39.png)
 
-1. Para criar um pool, navegue até **Tráfego Local > Pools > Lista de Pools, clique em Criar**, preencha as seguintes informações e clique em **Concluído**.
+1. Para criar um pool, navegue até **Tráfego Local > Pools > Lista de Pools, clique em Criar** , preencha as seguintes informações e clique em **Concluído**.
 
     * Nome: KerbApp200-Pool
     * Descrição: KerbApp200-Pool
@@ -472,25 +472,24 @@ Configure um servidor AAA do Active Directory no APM (Access Policy Manager) par
 
 ### <a name="create-f5-test-user"></a>Criar usuário de teste do F5
 
-Nesta seção, você criará um usuário chamado B.Fernandes no F5. Trabalhe com a [equipe de suporte ao Cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários à plataforma do F5. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado B.Fernandes no F5. Trabalhe com a [equipe de suporte ao cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários na plataforma do F5. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do F5 no Painel de Acesso, você deverá ser conectado automaticamente ao F5 no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do F5 no Painel de Acesso, você deverá ser conectado automaticamente ao F5 no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o F5 com o Azure AD](https://aad.portal.azure.com/)
 
 - [Configurar logon único do F5 para aplicativo baseado em cabeçalho](headerf5-tutorial.md)
 
 - [Configurar logon único do F5 para aplicativo Kerberos Avançado](advance-kerbf5-tutorial.md)
-

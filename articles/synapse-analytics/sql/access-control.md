@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289473"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503276"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerenciar o acesso a workspaces, dados e pipelines
 
 Saiba como gerenciar o controle de acesso a workspaces, dados e pipelines em um workspace do Azure Synapse Analytics (versão prévia).
 
 > [!NOTE]
-> Para GA, o RBAC será mais desenvolvido por meio da introdução das funções do Azure específicas do Synapse
+> Para GA, o Azure RBAC será mais desenvolvido por meio da introdução das funções do Azure específicas do Synapse
 
 ## <a name="access-control-for-workspace"></a>Controle de acesso ao workspace
 
@@ -144,12 +144,12 @@ Para permitir acesso completo a um usuário a **todos** os banco de dados do SQL
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="sql-pools"></a>Pools de SQL
 
-Para permitir acesso a um usuário a um Banco de Dados SQL **individual**, siga estas etapas:
+Para permitir acesso a um usuário a um Banco de Dados SQL **individual** , siga estas etapas:
 
 1. Crie o usuário no banco de dados executando o seguinte comando, tendo como destino o banco de dados desejado no seletor de contexto (selecione a lista suspensa para escolher os bancos de dados):
 

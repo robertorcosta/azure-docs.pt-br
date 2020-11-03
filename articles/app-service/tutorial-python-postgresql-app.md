@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: e171ce1ab7d2b9d4a78399ee639945bde16b71ca
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 63fdee6036580df42f7f965244b5f888c1ec082d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019402"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540747"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implantar um aplicativo Web Django com o PostgreSQL no Serviço de Aplicativo do Azure
 
@@ -138,7 +138,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 ```
 
 - Substitua *\<postgres-server-name>* por um nome exclusivo em todo o Azure (o ponto de extremidade do servidor se torna `https://<postgres-server-name>.postgres.database.azure.com`). Um bom padrão é usar uma combinação do nome da empresa e outro valor exclusivo.
-- Em *\<admin-username>* e *\<admin-password>* , especifique as credenciais para criar um usuário administrador para esse servidor Postgres.
+- Em *\<admin-username>* e *\<admin-password>* , especifique as credenciais para criar um usuário administrador para esse servidor Postgres. Não use o caractere `$` no nome de usuário nem na senha. Posteriormente, você cria variáveis de ambiente com esses valores no qual o caractere `$` tem um significado especial dentro do contêiner do Linux usado para executar aplicativos Python.
 - O [tipo de preço](../postgresql/concepts-pricing-tiers.md) B_Gen5_1 (Básico, Geração 5, 1 núcleo) usado aqui é o mais barato. Para bancos de dados de produção, omita o argumento `--sku-name` para usar o nível GP_Gen5_2 (Uso Geral, Geração 5, 2 núcleos) em vez disso.
 
 Esse comando executa as seguintes ações, que podem levar alguns minutos:
@@ -153,7 +153,7 @@ Esse comando executa as seguintes ações, que podem levar alguns minutos:
 
 É possível executar todas as etapas separadamente com outros comandos `az postgres` e `psql`, mas `az postgres up` executa todas elas em conjunto.
 
-Quando é concluído, o comando gera um objeto JSON que contém cadeias de conexão diferentes para o banco de dados, em conjunto com a URL do servidor, um nome de usuário gerado (como "joyfulKoala@msdocs-djangodb-12345") e uma senha de GUID. Copie o nome de usuário e a senha para um arquivo de texto temporário, pois você precisará deles mais tarde neste tutorial.
+Quando é concluído, o comando gera um objeto JSON que contém cadeias de conexão diferentes para o banco de dados, em conjunto com a URL do servidor, um nome de usuário gerado (como "joyfulKoala@msdocs-djangodb-12345") e uma senha de GUID. Copie o nome de usuário curto (antes do @) e a senha para um arquivo de texto temporário, pois você precisará deles mais tarde neste tutorial.
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
@@ -212,7 +212,7 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 ```
 
 - Substitua *\<postgres-server-name>* pelo nome usado anteriormente com o comando `az postgres up`. O código em *azuresite/production.py* acrescenta automaticamente `.postgres.database.azure.com` para criar a URL completa do servidor Postgres.
-- Substitua *\<username>* e *\<password>* pelas credenciais de administrador que você usou com o comando `az postgres up` anterior ou por aquelas que `az postgres up` gerou para você. O código em *azuresite/production.py* constrói automaticamente o nome de usuário do Postgres completo com base em `DBUSER` e `DBHOST`.
+- Substitua *\<username>* e *\<password>* pelas credenciais de administrador que você usou com o comando `az postgres up` anterior ou por aquelas que `az postgres up` gerou para você. O código em *azuresite/production.py* constrói automaticamente o nome de usuário do Postgres completo com base em `DBUSER` e `DBHOST`, portanto, não inclua a parte `@server`. (Além disso, como observado anteriormente, você não deve usar o caractere `$` em nenhum valor, pois ele tem um significado especial para variáveis de ambiente do Linux.)
 - O grupo de recursos e os nomes do aplicativo são extraídos dos valores armazenados em cache no arquivo *.azure/config*.
 
 Em seu código Python, você acessa essas configurações como variáveis de ambiente com instruções como `os.environ.get('DJANGO_ENV')`. Para saber mais, confira [Acessar variáveis do ambiente](configure-language-python.md#access-environment-variables).
@@ -235,7 +235,7 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
 
     Se você não puder se conectar à sessão SSH, o aplicativo não terá sido iniciado. [Confira os logs de diagnóstico](#stream-diagnostic-logs) para obter detalhes. Por exemplo, se você não tiver criado as configurações de aplicativo necessárias na seção anterior, os logs indicarão `KeyError: 'DBNAME'`.
 
-1. Na sessão SSH, execute os seguintes comandos (você pode colar os comandos usando **CTRL**+**Shift**+**V**):
+1. Na sessão SSH, execute os seguintes comandos (você pode colar os comandos usando **CTRL**+**Shift**+**V** ):
 
     ```bash
     # Change to the folder where the app code is deployed
@@ -268,7 +268,7 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
 
     Após atualizar as configurações para corrigir os erros, aguarde um minuto para que o aplicativo seja reiniciado e atualize o navegador.
 
-1. Navegue até `http://<app-name>.azurewebsites.net/admin`. Entre usando as credenciais de superusuário da seção anterior (`root` e `Pollsdb1`). Em **Enquetes**, selecione **Adicionar** ao lado de **Perguntas** e crie uma enquete com algumas opções.
+1. Navegue até `http://<app-name>.azurewebsites.net/admin`. Entre usando as credenciais de superusuário da seção anterior (`root` e `Pollsdb1`). Em **Enquetes** , selecione **Adicionar** ao lado de **Perguntas** e crie uma enquete com algumas opções.
 
 1. Navegue novamente para `http://<app-name>.azurewebsites.net` para confirmar que as perguntas agora são apresentadas ao usuário. Responda às perguntas como desejar para gerar dados no banco de dados.
 
@@ -348,7 +348,7 @@ Teste o aplicativo localmente com as seguintes etapas:
 
 1. Acesse `http://localhost:8000` em um navegador, o que exibirá a mensagem "Não há sondagens disponíveis". 
 
-1. Acesse `http:///localhost:8000/admin` e entre nele usando o usuário administrador criado anteriormente. Em **Enquetes**, selecione **Adicionar** novamente ao lado de **Perguntas** e crie uma enquete com algumas opções. 
+1. Acesse `http:///localhost:8000/admin` e entre nele usando o usuário administrador criado anteriormente. Em **Enquetes** , selecione **Adicionar** novamente ao lado de **Perguntas** e crie uma enquete com algumas opções. 
 
 1. Vá para *http:\//localhost:8000* novamente e responda à pergunta para testar o aplicativo. 
 
@@ -374,7 +374,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Execute o servidor de desenvolvimento novamente com `python manage.py runserver` e teste o aplicativo em *http:\//localhost:8000/admin*:
+Execute o servidor de desenvolvimento novamente com `python manage.py runserver` e teste o aplicativo em *http:\//localhost:8000/admin* :
 
 Pare o servidor Web Django novamente com **CTRL**+**C**.
 

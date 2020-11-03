@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 59eb2e320a828b644af6f740cf9f8381370a0dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0adb8d62d02325f92c77d2171eaafd6c2de16f0c
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527258"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516330"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TimeOffManager
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar o TimeOffManager ao Azure AD (Azure 
 * Permitir que os usuários sejam conectados automaticamente ao TimeOffManager com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Para configurar a integração do TimeOffManager ao Azure AD, você precisará a
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **TimeOffManager** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria** , digite **TimeOffManager** na caixa de pesquisa.
 1. Selecione **TimeOffManager** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
@@ -77,15 +77,15 @@ Para configurar e testar o SSO do Azure AD com o TimeOffManager, conclua os segu
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **TimeOffManager**, localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **TimeOffManager** , localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único** , escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
+    Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE]
     > Esse valor não é real. Atualize esse valor com a URL de Resposta real. Você pode obter esse valor de **página Configurações de logon único** que é explicada posteriormente no tutorial ou entrar em contato com a [equipe de suporte do TimeOffManager](https://www.purelyhr.com/contact-us). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -102,11 +102,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | Sobrenome |User.surname |
     | Email |User.mail |
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o TimeOffManager**, copie a URL apropriada conforme com suas necessidades.
+1. Na seção **Configurar o TimeOffManager** , copie a URL apropriada conforme com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -114,11 +114,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário** , siga estas etapas:
+   1. No campo **Nome** , insira `B.Simon`.  
+   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -136,9 +136,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
 
 ## <a name="configure-timeoffmanager-sso"></a>Configurar o SSO do TimeOffManager
 
@@ -146,29 +146,29 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 2. Vá para **Conta \> Opções da Conta \> Configurações de Logon Único**.
    
-    ![Configurações de logon único](./media/timeoffmanager-tutorial/ic795917.png "Configurações de logon único")
+    ![A captura de tela mostra a opção Configurações de Logon Único selecionada nas Opções de Conta.](./media/timeoffmanager-tutorial/ic795917.png "Configurações de logon único")
 
 3. Na seção **Configurações de Logon Único** , realize as seguintes etapas:
    
-    ![Configurações de logon único](./media/timeoffmanager-tutorial/ic795918.png "Configurações de logon único")
+    ![A captura de tela mostra a seção Configurações de Logon Único, na qual você pode inserir os valores descritos.](./media/timeoffmanager-tutorial/ic795918.png "Configurações de logon único")
    
     a. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole todo o Certificado na caixa de texto **Certificado X.509** .
    
-    b. Na caixa de texto **Emissor do IdP**, cole o valor de **Identificador do Azure AD** copiado do portal do Azure.
+    b. Na caixa de texto **Emissor do IdP** , cole o valor de **Identificador do Azure AD** copiado do portal do Azure.
    
-    c. Na caixa de texto **URL do Ponto de Extremidade do IdP**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    c. Na caixa de texto **URL do Ponto de Extremidade do IdP** , cole o valor da **URL de Logon** copiado do portal do Azure.
    
-    d. Para **Impor SAML**, selecione **Não**.
+    d. Para **Impor SAML** , selecione **Não**.
    
-    e. Para **Criação Automática de Usuários**, selecione **Sim**.
+    e. Para **Criação Automática de Usuários** , selecione **Sim**.
    
-    f. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Logoff** copiado no portal do Azure.
+    f. Na caixa de texto **URL de Logoff** , cole o valor da **URL de Logoff** copiado no portal do Azure.
    
     g. Clique em **Salvar Alterações**.
 
-4. Na página **Configurações de logon único**, copie o valor da **URL do Serviço do Consumidor de Declaração** e cole-a na caixa de texto **URL de Resposta** na seção **Configuração Básica de SAML** no Portal do Azure. 
+4. Na página **Configurações de logon único** , copie o valor da **URL do Serviço do Consumidor de Declaração** e cole-a na caixa de texto **URL de Resposta** na seção **Configuração Básica de SAML** no Portal do Azure. 
 
-      ![Configurações de logon único](./media/timeoffmanager-tutorial/ic795915.png "Configurações de logon único")
+      ![A captura de tela mostra o link da URL do Serviço do Consumidor de Declaração.](./media/timeoffmanager-tutorial/ic795915.png "Configurações de logon único")
 
 ### <a name="create-timeoffmanager-test-user"></a>Criar usuário de teste do TimeOffManager
 
@@ -181,15 +181,14 @@ Nesta seção, um usuário chamado Brenda Fernandes será criado no TimeOffManag
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco TimeOffManager Manager no Painel de Acesso, você deverá ser conectado automaticamente ao TimeOffManager para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco TimeOffManager Manager no Painel de Acesso, você deverá ser conectado automaticamente ao TimeOffManager para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimentar o TimeOffManager com o Azure AD](https://aad.portal.azure.com/)
-

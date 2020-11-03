@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127073"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542413"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Criar um painel do provedor do Power BI
 
@@ -164,26 +164,26 @@ A próxima etapa será analisar os dados provenientes do seu Hub de Eventos para
     >[!div class="mx-imgBorder"] 
     >![Controle de divisão](media/split-by-interface.png)
 
-8. Para o caso do **Patch de Sinais Vitais Inteligente**, adicione uma ação **Analisar JSON**. Para o Conteúdo, escolha **Conteúdo** proveniente do Hub de Eventos. Copie e cole os conteúdos de exemplo para o Patch de Sinais Vitals Inteligente acima para gerar o esquema.
+8. Para o caso do **Patch de Sinais Vitais Inteligente** , adicione uma ação **Analisar JSON**. Para o Conteúdo, escolha **Conteúdo** proveniente do Hub de Eventos. Copie e cole os conteúdos de exemplo para o Patch de Sinais Vitals Inteligente acima para gerar o esquema.
 
 9. Adicione uma ação **Definir variável** e atualize a variável **Corpo** com o **Corpo** do JSON analisado na Etapa 7.
 
-10. Adicione uma **Condição** controle como sua próxima ação e defina a condição como **Corpo**, **contém**, **Frequência Cardíaca**. Com isso, você tenha o conjunto de dados correto proveniente do Patch de Sinais Vitais Inteligente antes de preencher o conjunto de dados do Power BI. As etapas 7 a 9 serão assim:
+10. Adicione uma **Condição** controle como sua próxima ação e defina a condição como **Corpo** , **contém** , **Frequência Cardíaca**. Com isso, você tenha o conjunto de dados correto proveniente do Patch de Sinais Vitais Inteligente antes de preencher o conjunto de dados do Power BI. As etapas 7 a 9 serão assim:
 
     >[!div class="mx-imgBorder"] 
     >![Adicionar condição de Sinais Vitais Inteligentes](media/smart-vitals-pbi.png)
 
 11. Para o caso **Verdadeiro** da condição, adicione uma ação que chame a funcionalidade **Adicionar linhas a um conjunto de dados** do Power BI. Você precisará entrar no Power BI para isso. Seu caso **Falso** pode usar novamente o controle **Encerrar**.
 
-12. Escolha o **Workspace**, o **Conjunto de Dados** e a **Tabela** adequados. Mapeie os parâmetros especificados ao criar o conjunto de fluxos de transmissão no Power BI para os valores JSON analisados que estão vindo de seu Hub de Eventos. Suas ações preenchidas devem ser assim:
+12. Escolha o **Workspace** , o **Conjunto de Dados** e a **Tabela** adequados. Mapeie os parâmetros especificados ao criar o conjunto de fluxos de transmissão no Power BI para os valores JSON analisados que estão vindo de seu Hub de Eventos. Suas ações preenchidas devem ser assim:
 
     >[!div class="mx-imgBorder"] 
     >![Adicionar linhas ao Power BI](media/add-rows-yesenia.png)
 
-13. Para o caso de troca de **Faixa de Inteligente de Joelho**, adicione uma ação **Analisar JSON** para analisar o conteúdo, semelhante à Etapa 7. Em seguida, **Adicione linhas a um conjunto de dados** para atualizar seu conjunto de dados de Teddy Silvers no Power BI.
+13. Para o caso de troca de **Faixa de Inteligente de Joelho** , adicione uma ação **Analisar JSON** para analisar o conteúdo, semelhante à Etapa 7. Em seguida, **Adicione linhas a um conjunto de dados** para atualizar seu conjunto de dados de Teddy Silvers no Power BI.
 
     >[!div class="mx-imgBorder"] 
-    >![Adicionar condição de Sinais Vitais Inteligentes](media/knee-brace-pbi.png)
+    >![A captura de tela mostra como adicionar linhas a um conjunto de dados.](media/knee-brace-pbi.png)
 
 14. Pressione **Salvar** e, em seguida, execute o Aplicativo Lógico.
 

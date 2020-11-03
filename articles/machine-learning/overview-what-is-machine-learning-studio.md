@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667428"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495994"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 
@@ -74,7 +74,7 @@ O **Azure Machine Learning** é um serviço separado e modernizado que fornece u
 
 **O estúdio do Azure Machine Learning** é um portal da Web *no* Azure Machine Learning que contém opções de código baixo e sem código para criação de projetos e gerenciamento de ativos. 
 
-Recomendamos que novos usuários escolham o **Azure Machine Learning**, em vez do ML Studio (clássico), para o intervalo mais recente de ferramentas de ciência de dados.
+Recomendamos que novos usuários escolham o **Azure Machine Learning** , em vez do ML Studio (clássico), para o intervalo mais recente de ferramentas de ciência de dados.
 
 ### <a name="feature-comparison"></a>Comparação de recursos
 
@@ -98,7 +98,9 @@ A tabela a seguir resume as principais diferenças entre o ML Studio (clássico)
 ## <a name="next-steps"></a>Próximas etapas
 
 Visite o [estúdio](https://ml.azure.com) ou explore as diferentes opções de criação com estes tutoriais:  
-  + [Usar notebooks do Python para treinar e implantar modelos](tutorial-1st-experiment-sdk-setup.md)
+
+- + [Comece a usar seu próprio ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Use blocos de anotações do Jupyter em uma instância de computação para treinar e implantar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Usar o machine learning automatizado para treinar e implantar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Usar o designer para treinar e implantar modelos](tutorial-designer-automobile-price-train-score.md)
 

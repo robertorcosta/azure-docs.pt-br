@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9ed3a4b0827e81b3f779d95a6eab1dc341e69bb1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569467"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503259"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar dados com segurança usando o SQL do Synapse
 
@@ -97,7 +97,7 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
     > [!IMPORTANT]
     > Especifique a função do Azure de Proprietário, Colaborador ou Leitor de **Dados de Blob** de **Armazenamento**. Essas funções são diferentes das funções internas do Azure de Proprietário, Colaborador e Leitor. 
 
-    ![Concedendo permissão de RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Concedendo permissão de RBAC do Azure para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 4. Agora você pode executar a instrução COPY especificando "Identidade Gerenciada":
 
@@ -118,7 +118,7 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
     > [!IMPORTANT]
     > Especifique a função do Azure de Proprietário, Colaborador ou Leitor de **Dados de Blob** de **Armazenamento**. Essas funções são diferentes das funções internas do Azure de Proprietário, Colaborador e Leitor.
 
-    ![Concedendo permissão de RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Concedendo permissão de RBAC do Azure para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Configure a autenticação do Azure AD examinando a [documentação](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server) a seguir. 
 

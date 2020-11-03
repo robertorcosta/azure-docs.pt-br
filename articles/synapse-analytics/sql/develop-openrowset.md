@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289014"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474777"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como usar OPENROWSET com o SQL sob demanda (versão prévia)
 
@@ -127,7 +127,7 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
  Especifica um caminho no armazenamento que aponta para a pasta ou o arquivo que você deseja ler. Se o caminho apontar para um contêiner ou uma pasta, todos os arquivos serão lidos nessa pasta ou nesse contêiner específico. Os arquivos nas subpastas não serão incluídos. 
 
  Use curingas para direcionar vários arquivos ou várias pastas. O uso de vários curingas não consecutivos é permitido.
-Veja abaixo um exemplo que lê todos os arquivos *csv* que começam com *population* de todas as pastas que começam com */csv/population*:  
+Veja abaixo um exemplo que lê todos os arquivos *csv* que começam com *population* de todas as pastas que começam com */csv/population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Se você especificar o unstructured_data_path para ser uma pasta, uma consulta do SQL sob demanda recuperará os arquivos dessa pasta. 
@@ -192,9 +192,9 @@ Especifica um caractere que será usado como o caractere de aspas no arquivo CSV
 
 DATA_COMPRESSION = 'data_compression_method'
 
-Especifica o método de compactação. Há suporte para o seguinte método de compactação:
+Especifica o método de compactação. Com suporte somente em PARSER_VERSION='1.0'. Há suporte para o seguinte método de compactação:
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = 'parser_version'
 
