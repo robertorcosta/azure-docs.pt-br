@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336438"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305619"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
 
@@ -41,8 +41,8 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 ## <a name="how-to-do-it"></a>Como fazer
 Há três tarefas principais abordadas neste estágio:
 
-  * **Engenharia de recursos**: crie recursos de dados dos dados brutos para facilitar o treinamento do modelo.
-  * **Treinamento do modelo**: encontre o modelo que responde à pergunta com mais precisão, comparando suas métricas de sucesso.
+  * **Engenharia de recursos** : crie recursos de dados dos dados brutos para facilitar o treinamento do modelo.
+  * **Treinamento do modelo** : encontre o modelo que responde à pergunta com mais precisão, comparando suas métricas de sucesso.
   * Determine se seu modelo é **adequado para produção.**
 
 ### <a name="feature-engineering"></a>Engenharia de recursos
@@ -59,11 +59,11 @@ O processo de treinamento do modelo inclui as seguintes etapas:
 
    * **Divida os dados de entrada** aleatoriamente para modelagem em um conjunto de dados de treinamento e um conjunto de dados de teste.
    * **Crie os modelos** usando o conjunto de dados de treinamento.
-   * **Avalie** o conjunto de dados de treinamento e de teste. Use uma série de algoritmos de aprendizado de máquina concorrentes, juntamente com os vários parâmetros de ajustes associados (conhecidos como *limpeza de parâmetros*), voltados para responder à pergunta de interesse com os dados atuais.
+   * **Avalie** o conjunto de dados de treinamento e de teste. Use uma série de algoritmos de aprendizado de máquina concorrentes, juntamente com os vários parâmetros de ajustes associados (conhecidos como *limpeza de parâmetros* ), voltados para responder à pergunta de interesse com os dados atuais.
    * **Determine a "melhor" solução** para responder à pergunta, comparando a métrica de sucesso entre os métodos alternativos.
 
 > [!NOTE]
-> **Evite o vazamento**: será possível causar o vazamento de dados se você incluir dados de fora do conjunto de dados de treinamento que permite a um modelo ou ao algoritmo de aprendizado de máquina fazer previsões boas de forma irrealista. A perda é um motivo comum pelo qual os cientistas de dados ficam preocupados quando obtêm resultados preditivos que parecem bons demais para serem verdadeiros. Essas dependências podem ser difíceis de serem detectadas. Para evitar vazamentos, geralmente é necessária a iteração entre a criação de um conjunto de dados de análise, a criação de um modelo e a avaliação da precisão dos resultados. 
+> **Evite o vazamento** : será possível causar o vazamento de dados se você incluir dados de fora do conjunto de dados de treinamento que permite a um modelo ou ao algoritmo de aprendizado de máquina fazer previsões boas de forma irrealista. A perda é um motivo comum pelo qual os cientistas de dados ficam preocupados quando obtêm resultados preditivos que parecem bons demais para serem verdadeiros. Essas dependências podem ser difíceis de serem detectadas. Para evitar vazamentos, geralmente é necessária a iteração entre a criação de um conjunto de dados de análise, a criação de um modelo e a avaliação da precisão dos resultados. 
 > 
 > 
 
@@ -74,7 +74,7 @@ Os artefatos produzidos neste estágio incluem:
 
    * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): os recursos desenvolvidos para a modelagem são descritos na seção **conjuntos de recursos** do relatório definição de **dados** . Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
    * [Relatório de modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo testado, é produzido um relatório padrão baseado em modelo que fornece detalhes sobre cada experimento.
-   * **Decisão do ponto de verificação**: avalie se o modelo executa o suficiente para produção. Algumas perguntas importantes a serem feitas são:
+   * **Decisão do ponto de verificação** : avalie se o modelo executa o suficiente para produção. Algumas perguntas importantes a serem feitas são:
      * O modelo responde à pergunta com confiança suficiente, considerando os dados de teste? 
      * Você deve experimentar abordagens alternativas? Você deve coletar dados adicionais, realizar mais engenharia de recursos ou fazer experimentos com outros algoritmos?
 
@@ -90,4 +90,4 @@ Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
 Fornecemos passo a passo completos que demonstram todas as etapas do processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
-Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) (Usar o TDSP com o Azure Machine Learning). 
+Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](./index.yml) (Usar o TDSP com o Azure Machine Learning).

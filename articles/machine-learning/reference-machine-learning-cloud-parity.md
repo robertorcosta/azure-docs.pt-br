@@ -1,7 +1,7 @@
 ---
 title: Paridade entre regiões públicas e soberanas
 titleSuffix: Azure Machine Learning
-description: Alguns recursos do Azure Machine Learning, como recursos de visualização pública, podem estar disponíveis apenas em regiões de nuvem pública. Este artigo lista os recursos que também estão disponíveis nas regiões Azure governamental, Azure Alemanha e Azure China 21Vianet.
+description: Este artigo lista a paridade de recursos entre a nuvem pública e as regiões do Azure governamental, do Azure Alemanha e do Azure China 21Vianet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426528"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305756"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning a paridade de nuvem do soberanas
 
@@ -63,7 +63,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | **Suporte a SDK** |  |  | | 
 | Suporte do SDK do R                                                              | Visualização pública       | YES                | YES         |
 | Suporte ao SDK do Python                                                         | GA                   | YES                | YES         |
-| **Security** |   | | | 
+| **Segurança** |   | | | 
 | Suporte de rede virtual (VNet) para treinamento                                | GA                   | YES                | YES         |
 | Suporte à VNet (rede virtual) para inferência                               | GA                   | YES                | YES         |
 | Autenticação de ponto de extremidade de Pontuação                                            | Visualização pública       | YES                | YES         |
@@ -104,7 +104,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | **Inferência** |   | | |
 | Inferência do lote                                                          | GA                   | YES                | YES         |
 | Data Box Edge com FPGA                                                    | Visualização pública       | Não                 | Não          |
-| **Outras** |   | | |
+| **Outros** |   | | |
 | Conjunto de Dados em Aberto no Azure                                                              | Visualização pública       | YES                | YES         |
 | Pesquisa Cognitiva personalizado                                                    | Visualização pública       | YES                | YES         |
 | Muitos modelos                                                                | Visualização pública       | Não                 | Não          |
@@ -176,7 +176,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | **Suporte a SDK** |    | | |
 | Suporte do SDK do R                                                              | Visualização pública   | YES       | N/D        |
 | Suporte ao SDK do Python                                                         | GA               | YES       | N/D        |
-| **Security** |   | | |
+| **Segurança** |   | | |
 | Suporte de rede virtual (VNet) para treinamento                                | GA               | YES       | N/D        |
 | Suporte à VNet (rede virtual) para inferência                               | GA               | YES       | N/D        |
 | Autenticação de ponto de extremidade de Pontuação                                            | Visualização pública   | YES       | N/D        |
@@ -217,7 +217,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | **Inferência** |   | | |
 | Inferência do lote                                                          | GA               | YES       | N/D        |
 | Data Box Edge com FPGA                                                    | Visualização pública   | Não        | N/D        |
-| **Outras** |    | | |
+| **Outros** |    | | |
 | Conjunto de Dados em Aberto no Azure                                                              | Visualização pública   | YES       | N/D        |
 | Pesquisa Cognitiva personalizado                                                    | Visualização pública   | YES       | N/D        |
 | Muitos modelos                                                                | Visualização pública   | Não        | N/D        |

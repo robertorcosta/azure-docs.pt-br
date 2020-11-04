@@ -4,12 +4,12 @@ description: Saiba como criar uma política de Configuração de Convidado do Az
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676629"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305553"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -17,7 +17,7 @@ Antes de criar políticas personalizadas, leia as informações de visão geral 
  
 Para saber mais sobre como criar políticas de Configuração de Convidado para o Windows, consulte a página [Como criar políticas de Configuração de Convidado para o Windows](./guest-configuration-create.md)
 
-Ao auditar o Linux, a Configuração de Convidado usa o [Chef InSpec](https://www.inspec.io/). O perfil InSpec define a condição em que o computador deve estar. Caso a avaliação da configuração falhe, o efeito da política **auditIfNotExists** será disparado e o computador será considerado **não conforme** .
+Ao auditar o Linux, a Configuração de Convidado usa o [Chef InSpec](https://www.inspec.io/). O perfil InSpec define a condição em que o computador deve estar. Caso a avaliação da configuração falhe, o efeito da política **auditIfNotExists** será disparado e o computador será considerado **não conforme**.
 
 A [Configuração de Convidado do Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar configurações dentro de computadores. A correção das configurações dentro de computadores ainda não está disponível.
 
@@ -160,7 +160,7 @@ O cmdlet `New-GuestConfigurationPackage` cria um pacote. Parâmetros do cmdlet `
 - **Name** : nome do pacote da Configuração de Convidado.
 - **Configuração** : caminho completo do documento com a configuração compilada.
 - **Caminho** : caminho da pasta de saída. Esse parâmetro é opcional. Caso não seja especificado, o pacote será criado no diretório atual.
-- **ChefProfilePath** : caminho completo para o perfil InSpec. Esse parâmetro só tem suporte durante a criação de conteúdo para auditar o Linux.
+- **ChefInspecProfilePath** : caminho completo para o perfil inspec. Esse parâmetro só tem suporte durante a criação de conteúdo para auditar o Linux.
 
 Execute o seguinte comando para criar um pacote usando a configuração fornecida na etapa anterior:
 
@@ -191,7 +191,7 @@ Test-GuestConfigurationPackage `
 O cmdlet também tem suporte para a entrada do pipeline do PowerShell. Conduza a saída do cmdlet `New-GuestConfigurationPackage` para o cmdlet `Test-GuestConfigurationPackage`.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 A próxima etapa é publicar o arquivo no armazenamento de BLOBs do Azure.  O comando `Publish-GuestConfigurationPackage` requer o `Az.Storage` módulo.
@@ -235,7 +235,7 @@ A saída do cmdlet retorna um objeto que contenha o nome de exibição da inicia
 
 Por fim, publique as definições de política usando o cmdlet `Publish-GuestConfigurationPolicy`. O cmdlet tem apenas o parâmetro **Path** que aponta para o local dos arquivos JSON criados por `New-GuestConfigurationPolicy`.
 
-Para executar o comando Publish, você precisa ter acesso de criação das políticas no Azure. Os requisitos de autorização específicos estão documentados na página [Visão geral do Azure Policy](../overview.md). A melhor função interna é a de **Colaborador da política de recurso** .
+Para executar o comando Publish, você precisa ter acesso de criação das políticas no Azure. Os requisitos de autorização específicos estão documentados na página [Visão geral do Azure Policy](../overview.md). A melhor função interna é a de **Colaborador da política de recurso**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
@@ -271,7 +271,7 @@ describe file(attr_path) do
 end
 ```
 
-Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parameter** . Esse parâmetro usa uma tabela de hash que inclui todos os detalhes sobre cada parâmetro e cria automaticamente todas as seções necessárias dos arquivos usados para criar cada definição do Azure Policy.
+Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parameter**. Esse parâmetro usa uma tabela de hash que inclui todos os detalhes sobre cada parâmetro e cria automaticamente todas as seções necessárias dos arquivos usados para criar cada definição do Azure Policy.
 
 O exemplo a seguir cria uma definição de política para auditar um caminho de arquivo, em que o usuário fornece o caminho no momento da atribuição de política.
 

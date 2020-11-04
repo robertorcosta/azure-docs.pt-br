@@ -1,6 +1,6 @@
 ---
 title: Tipos de agrupamento do data warehouse
-description: Tipos de agrupamento com suporte no pool do SQL do Azure Synapse Analytics.
+description: Tipos de agrupamento com suporte para o pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 08a008e2f2402072dce3069c5d059b297239b7dd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090447"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305249"
 ---
-# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Suporte a agrupamento de banco de dados para o pool SQL do Azure Synapse Analytics
+# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Suporte a agrupamento de banco de dados para pool de SQL dedicado no Azure Synapse Analytics 
 
-Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao criar um novo banco de dados do pool SQL do Azure Synapse. Esse recurso facilita ainda mais a criação de um novo banco de dados usando um dos agrupamentos de banco de dados com suporte 3800.
+Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao criar um novo banco de dados do pool SQL dedicado. Esse recurso facilita ainda mais a criação de um novo banco de dados usando um dos agrupamentos de banco de dados com suporte 3800.
 
 Os agrupamentos fornecem a localidade, a página de código, a ordem de classificação e as regras de sensibilidade de caracteres para tipos de dados baseados em caracteres. Depois de escolhido, todas as colunas e expressões que exigem informações de agrupamento herdam o agrupamento escolhido da configuração do banco de dados. A herança padrão pode ser substituída informando explicitamente um agrupamento diferente para um tipo de dados baseado em caractere.
 

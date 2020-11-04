@@ -1,6 +1,6 @@
 ---
-title: Consultar arquivos Parquet usando o SQL sob demanda (versão prévia)
-description: Neste artigo, você aprenderá a consultar arquivos Parquet usando o SQL sob demanda (versão prévia).
+title: Consultar arquivos parquet usando o pool SQL sem servidor (visualização)
+description: Neste artigo, você aprenderá a consultar os arquivos do parquet usando o pool SQL sem servidor (versão prévia).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242425"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306854"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos Parquet usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consultar arquivos parquet usando o pool SQL sem servidor (versão prévia) na análise de Synapse do Azure
 
-Neste artigo, você aprenderá a gravar uma consulta usando o SQL sob demanda (versão prévia) que lerá os arquivos Parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor (versão prévia) que lerá os arquivos parquet.
 
 ## <a name="quickstart-example"></a>Exemplo de início rápido
 
@@ -111,7 +111,7 @@ Não é necessário usar a cláusula OPENROWSET WITH para realizar a leitura de 
 O exemplo a seguir mostra os recursos de inferência de esquema automática para arquivos Parquet. Ele retorna o número de linhas em Setembro de 2017 sem especificar um esquema.
 
 > [!NOTE]
-> Não é necessário especificar colunas na cláusula OPENROWSET WITH ao realizar a leitura de arquivos Parquet. Nesse caso, o serviço de consulta do SQL sob demanda utilizará metadados no arquivo Parquet e associará as colunas por nome.
+> Não é necessário especificar colunas na cláusula OPENROWSET WITH ao realizar a leitura de arquivos Parquet. Nesse caso, o serviço de consulta do pool SQL sem servidor utilizará metadados no arquivo parquet e associará colunas por nome.
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +128,7 @@ FROM
 O conjunto de dados fornecido neste exemplo foi dividido (particionado) em subpastas separadas. Com a função de linguagem é possível destinar partições específicas. Este exemplo mostra os valores das tarifas por ano, mês e tipo de pagamento nos três primeiros meses de 2017.
 
 > [!NOTE]
-> A consulta SQL sob demanda é compatível com o esquema de particionamento do Hive/Hadoop.
+> A consulta do pool SQL sem servidor é compatível com o esquema de particionamento do hive/Hadoop.
 
 ```sql
 SELECT

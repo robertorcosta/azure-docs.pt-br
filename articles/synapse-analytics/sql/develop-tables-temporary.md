@@ -10,26 +10,26 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4559c72481dfa0cefb2ce84cab56a50d0bf182ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd285e8029d8e140380b0f90c60081d0e1f8dd56
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030320"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305042"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabelas temporárias no SQL Synapse
 
 Este artigo contém diretrizes essenciais para o uso de tabelas temporárias e realça os princípios de tabelas temporárias em nível de sessão no Synapse SQL. 
 
-Os recursos do pool do SQL e do SQL sob demanda (versão prévia) podem utilizar tabelas temporárias. O SQL sob demanda tem limitações que são discutidas no final deste artigo. 
+Os recursos pool dedicado de SQL e pool de SQL sem servidor (visualização) podem utilizar tabelas temporárias. O pool SQL sem servidor tem limitações que são discutidas no final deste artigo. 
 
 ## <a name="temporary-tables"></a>Tabelas temporárias
 
 As tabelas temporárias são úteis durante o processamento de dados - especialmente durante a transformação onde os resultados intermediários são transitórios. Com o Synapse SQL, as tabelas temporárias existem no nível da sessão.  Elas são visíveis apenas para a sessão em que foram criadas. Dessa forma, elas são descartadas automaticamente ao sair da sessão. 
 
-## <a name="temporary-tables-in-sql-pool"></a>Tabelas temporárias no pool de SQL
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>Tabelas temporárias no pool SQL dedicado
 
-No recurso de pool de SQL, as tabelas temporárias oferecem um benefício de desempenho, pois seus resultados são gravados no local, em vez do armazenamento remoto.
+No recurso de pool dedicado do SQL, as tabelas temporárias oferecem um benefício de desempenho porque seus resultados são gravados em local, e não no armazenamento remoto.
 
 ### <a name="create-a-temporary-table"></a>Criar uma tabela temporária
 
@@ -99,6 +99,7 @@ GROUP BY
 > 
 
 ### <a name="drop-temporary-tables"></a>Soltar tabelas temporárias
+
 Quando uma nova sessão é criada, não deve haver nenhuma tabela temporária.  No entanto, se você estiver chamando o mesmo procedimento armazenado que cria um temporário com o mesmo nome, para garantir que suas `CREATE TABLE` instruções sejam bem-sucedidas, use uma verificação de pré-instalação simples com  `DROP` : 
 
 ```sql
@@ -117,6 +118,7 @@ DROP TABLE #stats_ddl
 ```
 
 ### <a name="modularize-code"></a>Modularizar código
+
 As tabelas temporárias podem ser usadas em qualquer lugar em uma sessão de usuário. Esse recurso pode ser explorado para ajudá-lo a modularizar o código do aplicativo.  Para demonstrar, o procedimento armazenado a seguir gera DDL para atualizar todas as estatísticas no banco de dados pelo nome da estatística:
 
 ```sql
@@ -195,7 +197,7 @@ Nesse estágio, a única ação que ocorreu é a criação de um procedimento ar
 
 Como não há um `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado for concluído, a tabela criada permanecerá e poderá ser lida fora do procedimento armazenado.  
 
-Ao contrário de outros bancos de dados SQL Server, o SQL Synapse permite que você use a tabela temporária fora do procedimento que o criou.  As tabelas temporárias criadas por meio do pool SQL podem ser usadas **em qualquer lugar** dentro da sessão. Como resultado, você terá um código mais modular e gerenciável, como demonstrado no exemplo a seguir:
+Ao contrário de outros bancos de dados SQL Server, o SQL Synapse permite que você use a tabela temporária fora do procedimento que o criou.  As tabelas temporárias criadas por meio do pool SQL dedicado podem ser usadas **em qualquer lugar** dentro da sessão. Como resultado, você terá um código mais modular e gerenciável, como demonstrado no exemplo a seguir:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -218,15 +220,15 @@ DROP TABLE #stats_ddl;
 
 ### <a name="temporary-table-limitations"></a>Limitações da tabela temporária
 
-O pool SQL tem algumas limitações de implementação para tabelas temporárias:
+O pool SQL dedicado tem algumas limitações de implementação para tabelas temporárias:
 
 - Somente tabelas temporárias com escopo de sessão têm suporte.  Não há suporte para as Tabelas Temporárias Globais.
 - As exibições não podem ser criadas em tabelas temporárias.
 - As tabelas temporárias só podem ser criadas com a distribuição de hash ou round robin.  Não há suporte para a distribuição de tabela temporária replicada. 
 
-## <a name="temporary-tables-in-sql-on-demand-preview"></a>Tabelas temporárias no SQL sob demanda (versão prévia)
+## <a name="temporary-tables-in-serverless-sql-pool-preview"></a>Tabelas temporárias no pool SQL sem servidor (visualização)
 
-As tabelas temporárias no SQL sob demanda têm suporte, mas seu uso é limitado. Eles não podem ser usados em consultas que são arquivos de destino. 
+As tabelas temporárias no pool SQL sem servidor têm suporte, mas seu uso é limitado. Eles não podem ser usados em consultas que são arquivos de destino. 
 
 Por exemplo, você não pode unir uma tabela temporária com dados de arquivos no armazenamento. O número de tabelas temporárias é limitado a 100, e seu tamanho total é limitado a 100 MB.
 

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631030"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305485"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -28,9 +28,9 @@ Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **assinatura do Azure** . Se você não tiver uma, experimente a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar um modelo a partir de uma CLI, você precisará do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Para usar um modelo a partir de uma CLI, você precisará do [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) ou da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 * Alguns cenários exigem que você abra um tíquete de suporte. Esses cenários são:
 
@@ -69,7 +69,7 @@ O modelo de exemplo tem dois parâmetros **obrigatórios** :
 > [!TIP]
 > Embora o modelo associado a este documento crie um Registro de Contêiner do Azure, você também pode criar um workspace sem criar nenhum registro de contêiner. Um registro de contêiner será criado quando você executar uma operação que exija um. Treinar ou implantar um modelo, por exemplo.
 >
-> Você também pode fazer referência a uma conta de armazenamento ou registro de contêiner existente no modelo do Azure Resource Manager, em vez de criar um. No entanto, o registro de contêiner que você usa deve ter a __conta de administrador__ habilitada. Para obter informações sobre como habilitar a conta de administrador, consulte [conta de administrador](/azure/container-registry/container-registry-authentication#admin-account).
+> Você também pode fazer referência a uma conta de armazenamento ou registro de contêiner existente no modelo do Azure Resource Manager, em vez de criar um. No entanto, o registro de contêiner que você usa deve ter a __conta de administrador__ habilitada. Para obter informações sobre como habilitar a conta de administrador, consulte [conta de administrador](../container-registry/container-registry-authentication.md#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,7 +77,7 @@ Para obter mais informações sobre modelos, consulte os artigos a seguir:
 
 * [Criar modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Implantar um aplicativo com o modelo do Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* [Tipos de recursos do Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Tipos de recursos do Microsoft.MachineLearningServices](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>Implantar modelo
 
@@ -91,7 +91,7 @@ Consulte a seção [portal do Azure](#use-the-azure-portal) se preferir usar a i
 az group create --name "examplegroup" --location "eastus"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name "examplegroup" -Location "eastus"
@@ -111,7 +111,7 @@ az deployment group create \
     --parameters workspaceName="exampleworkspace" location="eastus"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -142,7 +142,7 @@ az deployment group create \
       storageAccountName="existingstorageaccountname"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -188,7 +188,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
     az keyvault show --name <keyvault-name> --query 'id' --output tsv   
     ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell) 
 
     ```azurepowershell  
     Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
@@ -205,7 +205,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
     az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv  
     ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell) 
 
     ```azurepowershell  
     Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>' 
@@ -219,7 +219,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
 
 Para habilitar o uso de chaves gerenciadas pelo cliente, defina os seguintes parâmetros ao implantar o modelo:
 
-* **Encryption_status** **habilitado** .
+* **Encryption_status** **habilitado**.
 * **cmk_keyvault** ao `cmk_keyvault` valor obtido nas etapas anteriores.
 * **resource_cmk_uri** ao `resource_cmk_uri` valor obtido nas etapas anteriores.
 
@@ -237,7 +237,7 @@ az deployment group create \
       resource_cmk_uri="https://mykeyvault.vault.azure.net/keys/mykey/{guid}" \
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -254,7 +254,7 @@ New-AzResourceGroupDeployment `
 
 Ao usar uma chave gerenciada pelo cliente, Azure Machine Learning cria um grupo de recursos secundário que contém a instância de Cosmos DB. Para obter mais informações, consulte [criptografia em repouso-Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
 
-Uma configuração adicional que você pode fornecer para seus dados é definir o parâmetro **confidential_data** como **true** . Fazendo isso, o faz o seguinte:
+Uma configuração adicional que você pode fornecer para seus dados é definir o parâmetro **confidential_data** como **true**. Fazendo isso, o faz o seguinte:
 
 * Inicia a criptografia do disco de rascunho local para Azure Machine Learning clusters de computação, fornecendo que você não criou nenhum cluster anterior em sua assinatura. Se você tiver criado anteriormente um cluster na assinatura, abra um tíquete de suporte para que a criptografia do disco de rascunho esteja habilitada para seus clusters de computação.
 * Limpa o disco de rascunho local entre execuções.
@@ -295,7 +295,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -328,7 +328,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -366,7 +366,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -442,7 +442,7 @@ Para implantar um espaço de trabalho com recursos associados existentes, você 
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
@@ -476,7 +476,7 @@ Para implantar um espaço de trabalho com recursos associados existentes, você 
       privateEndpointType="AutoApproval"
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
     ```azurepowershell
     New-AzResourceGroupDeployment `
       -Name "exampledeployment" `
@@ -541,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
-1. Siga as etapas em [Implantar recursos do modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando chegar à tela __selecionar um modelo__ , escolha o modelo **201-Machine-Learning-Advanced** no menu suspenso.
+1. Siga as etapas em [Implantar recursos do modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Quando chegar à tela __selecionar um modelo__ , escolha o modelo **201-Machine-Learning-Advanced** no menu suspenso.
 1. Selecione __selecionar modelo__ para usar o modelo. Forneça as seguintes informações necessárias e quaisquer outros parâmetros, dependendo do cenário de implantação.
 
    * Assinatura: Selecione a assinatura do Azure a ser usada para esses recursos.
@@ -549,8 +549,8 @@ New-AzResourceGroupDeployment `
    * Região: selecione a região do Azure em que os recursos serão criados.
    * Nome do workspace: O nome a ser usado para o workspace do Azure Machine Learning que será criado. O nome do workspace deverá ter entre 3 e 33 caracteres. E o nome poderá conter apenas caracteres alfanuméricos e '-'.
    * Localização: Selecione a localização onde os recursos serão criados.
-1. Selecione __Examinar + criar__ .
-1. Na tela __revisar + criar__ , concorde com os termos e condições listados e selecione __criar__ .
+1. Selecione __Examinar + criar__.
+1. Na tela __revisar + criar__ , concorde com os termos e condições listados e selecione __criar__.
 
 Para obter mais informações, consulte [Implantar recursos de modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -576,7 +576,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Para obter mais informações sobre como usar a seção `accessPolicies` do modelo, consulte a [referência de objeto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Para obter mais informações sobre como usar a seção `accessPolicies` do modelo, consulte a [referência de objeto AccessPolicyEntry](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Verifique se o recurso do Key Vault já existe. Se existir, não o recrie por meio do modelo. Por exemplo, para usar o Key Vault existente em vez de criar outro, faça as seguintes alterações no modelo:
 
@@ -655,7 +655,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Rede virtual não vinculada à zona DNS privada
 
-Ao criar um espaço de trabalho com um ponto de extremidade privado, o modelo cria uma zona de DNS privado chamada __privatelink.API.azureml.ms__ . Um __link de rede virtual__ é adicionado automaticamente a essa zona DNS privada. O link só é adicionado ao primeiro espaço de trabalho e ao ponto de extremidade privado que você criar em um grupo de recursos; Se você criar outra rede virtual e espaço de trabalho com um ponto de extremidade privado no mesmo grupo de recursos, a segunda rede virtual poderá não ser adicionada à zona DNS privada.
+Ao criar um espaço de trabalho com um ponto de extremidade privado, o modelo cria uma zona de DNS privado chamada __privatelink.API.azureml.ms__. Um __link de rede virtual__ é adicionado automaticamente a essa zona DNS privada. O link só é adicionado ao primeiro espaço de trabalho e ao ponto de extremidade privado que você criar em um grupo de recursos; Se você criar outra rede virtual e espaço de trabalho com um ponto de extremidade privado no mesmo grupo de recursos, a segunda rede virtual poderá não ser adicionada à zona DNS privada.
 
 Para exibir os links de rede virtual que já existem para a zona DNS privada, use o seguinte comando de CLI do Azure:
 
