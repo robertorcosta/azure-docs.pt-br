@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841928"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322295"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning?
 
@@ -54,7 +54,7 @@ Ao executar a inferência, Azure Machine Learning cria um contêiner do Docker q
 
 * Como um ponto de extremidade de _inferência de lote_ usado para processar periodicamente lotes de dados. As inferências em lote usam [Azure Machine Learning clusters de computação](how-to-create-attach-compute-cluster.md).
 
-* Para um _dispositivo IOT_ (versão prévia). A implantação em um dispositivo IoT conta apenas com Azure Machine Learning para criar o contêiner do Docker. A partir daí, ele é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implantar como um módulo IOT Edge (versão prévia)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* Para um _dispositivo IOT_ (versão prévia). A implantação em um dispositivo IoT conta apenas com Azure Machine Learning para criar o contêiner do Docker. A partir daí, ele é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implantar como um módulo IOT Edge (versão prévia)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Saiba [onde e como implantar seu modelo em um destino de computação](how-to-deploy-and-where.md).
 
@@ -76,7 +76,7 @@ Você pode criar Azure Machine Learning instâncias de computação ou clusters 
 Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
 
 
-|Funcionalidade  |Cluster de computação  |Instância de computação  |
+|Recurso  |Cluster de computação  |Instância de computação  |
 |---------|---------|---------|
 |Cluster único ou com vários nós     |    **&check;**       |         |
 |Dimensionamento a cada vez que você envia uma execução     |     **&check;**      |         |
@@ -89,7 +89,7 @@ Quando criados, esses recursos de computação são automaticamente parte do seu
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos de VM com suporte
 
-Ao selecionar um tamanho de nó para um recurso de computação gerenciado no Azure Machine Learning, você pode escolher entre os tamanhos de VM selecionados no Azure. O Azure oferece uma variedade de tamanhos para Linux e Windows para cargas de trabalho diferentes. Para saber mais, confira [tipos e tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Ao selecionar um tamanho de nó para um recurso de computação gerenciado no Azure Machine Learning, você pode escolher entre os tamanhos de VM selecionados no Azure. O Azure oferece uma variedade de tamanhos para Linux e Windows para cargas de trabalho diferentes. Para saber mais, confira [tipos e tamanhos de VM](../virtual-machines/sizes.md).
 
 Há algumas exceções e limitações para escolher um tamanho de VM:
 
@@ -133,7 +133,7 @@ As ofertas atuais de VM isoladas incluem:
 
 *Compatível com RDMA
 
-Para saber mais sobre isolamento, confira [isolamento na nuvem pública do Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Para saber mais sobre isolamento, confira [isolamento na nuvem pública do Azure](../security/fundamentals/isolation-choices.md).
 
 ## <a name="unmanaged-compute"></a>Computação não gerenciada
 

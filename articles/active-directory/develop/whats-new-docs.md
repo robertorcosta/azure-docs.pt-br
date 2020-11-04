@@ -1,25 +1,50 @@
 ---
 title: O que há de novo nos documentos da plataforma Microsoft Identity
+titleSuffix: Microsoft identity platform
 description: Documentação nova e atualizada para a plataforma de identidade da Microsoft.
-ms.date: 10/09/2020
+services: active-directory
+author: mmacy
+manager: CelesteDG
+ms.date: 11/03/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-services: active-directory
-author: mmacy
-manager: CelesteDG
-ms.openlocfilehash: e6b1e16666188b21926d7547d80bda87303bc0f1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979358"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322562"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos da plataforma Microsoft Identity: o que há de novo
 
 Bem-vindo ao que há de novo na documentação da plataforma Microsoft Identity. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="new-articles"></a>Novos artigos
+
+- [Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo Web Node usando o fluxo de código de autenticação](quickstart-v2-nodejs-webapp-msal.md)
+- [Como habilitar o SSO entre aplicativos no Android usando o MSAL](msal-android-single-sign-on.md)
+- [Suporte a políticas de logon único e proteção de aplicativo em aplicativos móveis que você desenvolve](mobile-sso-support-overview.md)
+- Documentos da plataforma Microsoft Identity: o que há de novo (este artigo)
+- [Tutorial: Conectar usuários e chamar uma API protegida de um aplicativo Blazor WebAssembly](tutorial-blazor-webassembly.md)
+- [Biblioteca de autenticação na Web do Microsoft Identity](microsoft-identity-web.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)](active-directory-configurable-token-lifetimes.md)
+- [Como: Entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md)
+- [Início Rápido: Modificar as contas que têm suporte de um aplicativo](quickstart-modify-supported-accounts.md)
+- [Vídeos da plataforma de identidade da Microsoft](identity-videos.md)
+- [Guia de migração do ADAL para MSAL para Android](migrate-android-adal-msal.md)
+- [Início Rápido: chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft](quickstart-v2-dotnet-native-aspnet.md)
+- [Credenciais de certificado de autenticação do aplicativo da plataforma de identidade da Microsoft](active-directory-certificate-credentials.md)
+- [Tutorial: Conectar usuários e chamar o Microsoft Graph em um aplicativo iOS ou macOS](tutorial-v2-ios.md)
+- [Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript](tutorial-v2-javascript-spa.md)
+- [Tutorial: Usar o modo de dispositivo compartilhado em seu aplicativo Android](tutorial-v2-shared-device-mode.md)
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -30,7 +55,7 @@ Bem-vindo ao que há de novo na documentação da plataforma Microsoft Identity.
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Tutorial: conectar usuários e chamar a API de Microsoft Graph de um aplicativo Android](tutorial-v2-android.md)
+- [Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo Android](tutorial-v2-android.md)
 - [Um aplicativo Web que chama as APIs Web: Configuração do código](scenario-web-app-call-api-app-configuration.md)
 - [Um aplicativo Web que chama APIs da Web: chamar uma API da Web](scenario-web-app-call-api-call-api.md)
 - [Uma API Web que chama APIs da Web: configuração de código](scenario-web-api-call-api-app-configuration.md)
@@ -62,27 +87,3 @@ Bem-vindo ao que há de novo na documentação da plataforma Microsoft Identity.
 - [Início Rápido: Configurar um aplicativo para expor uma API Web](quickstart-configure-app-expose-web-apis.md)
 - [Vídeos da plataforma de identidade da Microsoft](identity-videos.md)
 - [Início Rápido: Chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft](quickstart-v2-dotnet-native-aspnet.md)
-
-## <a name="july-2020"></a>Julho de 2020
-
-### <a name="new-articles"></a>Novos artigos
-
-- [Adicionar seu aplicativo à galeria de aplicativos Azure Active Directory](v2-howto-app-gallery-listing.md)
-- [Obtenha o AppSource Certified para Azure Active Directory](v2-howto-get-appsource-certified.md)
-
-### <a name="updated-articles"></a>Artigos atualizados
-
-- [Plataforma de identidade da Microsoft e o fluxo On-Behalf-Of de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)
-- [Limitações e restrições de URI de redirecionamento ou URL de resposta](reply-url.md)
-- [API Web protegida: configuração de código](scenario-protected-web-api-app-configuration.md)
-- [API Web protegida: Verificar escopos e funções de aplicativo](scenario-protected-web-api-verification-scope-app-roles.md)
-- [Uma API Web que chama APIs da Web: adquirir um token para o aplicativo](scenario-web-api-call-api-acquire-token.md)
-- [Uma API Web que chama APIs da Web: configuração de código](scenario-web-api-call-api-app-configuration.md)
-- [Um aplicativo Web que chama APIs da Web: adquirir um token para o aplicativo](scenario-web-app-call-api-acquire-token.md)
-- [Aplicativo Web que assina usuários: configuração de código](scenario-web-app-sign-user-app-configuration.md)
-- [Visão geral da plataforma de identidade da Microsoft](v2-overview.md)
-- [Vídeos da plataforma de identidade da Microsoft](identity-videos.md)
-- [Início Rápido: Adicionar uma entrada com a Microsoft a um aplicativo Web Java](quickstart-v2-java-webapp.md)
-- [Fluxos de autenticação](msal-authentication-flows.md)
-- [Chamar a API do Microsoft Graph de um aplicativo da Plataforma Universal do Windows (XAML)](tutorial-v2-windows-uwp.md)
-- [Inicializar aplicativos cliente usando MSAL.js](msal-js-initializing-client-applications.md)

@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739152"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323947"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorando a referência de dados do Azure Machine Learning
 
@@ -22,7 +22,7 @@ Saiba mais sobre os dados e recursos coletados por Azure Monitor do seu espaço 
 
 ## <a name="metrics"></a>Métricas
 
-Esta seção lista todas as métricas de plataforma coletadas automaticamente coletadas para Azure Machine Learning. O provedor de recursos para essas métricas é [Microsoft. MachineLearningServices/Workspaces](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces).
+Esta seção lista todas as métricas de plataforma coletadas automaticamente coletadas para Azure Machine Learning. O provedor de recursos para essas métricas é [Microsoft. MachineLearningServices/Workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
 **Deprecia**
 
@@ -73,7 +73,7 @@ Informações sobre execuções de treinamento.
 
 ## <a name="metric-dimensions"></a>Dimensões de métrica
 
-Para obter mais informações sobre quais dimensões de métrica são, consulte [métricas multidimensionais](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Para obter mais informações sobre quais dimensões de métrica são, consulte [métricas multidimensionais](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure Machine Learning tem as seguintes dimensões associadas a suas métricas.
 
@@ -87,7 +87,7 @@ Azure Machine Learning tem as seguintes dimensões associadas a suas métricas.
 | NodeId | ID do nó criado onde o trabalho está em execução. Disponível somente para CpuUtilization e GpuUtilization. |
 | RunId | ID da execução/trabalho. Disponível somente para CpuUtilization e GpuUtilization. |
 | ComputeType | O tipo de computação usado pela execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
-| PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
+| PipelineStepType | O tipo de [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 | PublishedPipelineId | A ID do pipeline publicado usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 | RunType | O tipo de execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 
@@ -116,7 +116,7 @@ A tabela a seguir lista as operações relacionadas a Azure Machine Learning que
 
 Esta seção lista os tipos de logs de recursos que você pode coletar para Azure Machine Learning espaço de trabalho.
 
-Provedor de recursos e tipo: [Microsoft. MachineLearningServices/Workspace](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces).
+Provedor de recursos e tipo: [Microsoft. MachineLearningServices/Workspace](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
 | Categoria | Nome de exibição |
 | ----- | ----- |
@@ -228,7 +228,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | TotalE2ETimeInSeconds | O nó de tempo total estava ativo |
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - Consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md) para obter uma descrição do Azure Machine Learning de monitoramento.
-- Confira [Como monitorar os recursos do Azure com o Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) para obter detalhes sobre o monitoramento de recursos do Azure.
+- Confira [Como monitorar os recursos do Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829383"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324847"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>O que é o Machine Learning responsável? (versão prévia)
 
@@ -73,7 +73,7 @@ Em soluções de computação e armazenamento em nuvem tradicionais, a nuvem pre
 
 A criptografia homomórfica permite que as computações sejam feitas em dados criptografados sem necessidade de acesso a uma chave secreta (descriptografia). Os resultados dos cálculos são criptografados e podem ser revelados somente pelo proprietário da chave secreta. Usando a criptografia homomórficas, os operadores de nuvem nunca terão acesso não criptografado aos dados que eles estão armazenando e computando. Os cálculos são executados diretamente em dados criptografados. A privacidade de dados depende da criptografia de ponta e o proprietário dos dados controla todas as versões de informações. Para obter mais informações sobre a criptografia homomórficas na Microsoft, consulte [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-Para começar a usar a criptografia homomórficas no Azure Machine Learning, use as associações do Python de [inferência criptografada](https://pypi.org/project/encrypted-inference/) para [o selo da Microsoft](https://github.com/microsoft/SEAL). O selo da Microsoft é uma biblioteca de criptografia homomórficas de software livre que permite que adições e multiplicações sejam executadas em números reais ou inteiros criptografados. Para saber mais sobre o selo da Microsoft, consulte o [centro de arquitetura do Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) ou a [página do projeto do Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+Para começar a usar a criptografia homomórficas no Azure Machine Learning, use as associações do Python de [inferência criptografada](https://pypi.org/project/encrypted-inference/) para [o selo da Microsoft](https://github.com/microsoft/SEAL). O selo da Microsoft é uma biblioteca de criptografia homomórficas de software livre que permite que adições e multiplicações sejam executadas em números reais ou inteiros criptografados. Para saber mais sobre o selo da Microsoft, consulte o [centro de arquitetura do Azure](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) ou a [página do projeto do Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
 
 Consulte o exemplo a seguir para saber [como implantar um serviço Web inferência criptografado no Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
 
@@ -96,5 +96,5 @@ Consulte o exemplo a seguir para saber como usar o SDK do Azure Machine Learning
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Para obter mais informações, consulte o [Kit de ferramentas de inovação responsável](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) para saber mais sobre as práticas recomendadas.
+- Para obter mais informações, consulte o [Kit de ferramentas de inovação responsável](/azure/architecture/guide/responsible-innovation/) para saber mais sobre as práticas recomendadas.
 - Saiba mais sobre o conjunto de diretrizes em [Sobre o ML](https://www.partnershiponai.org/about-ml/) para ver a documentação do sistema de machine learning.

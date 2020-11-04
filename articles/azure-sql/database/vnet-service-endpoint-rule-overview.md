@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791317"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325010"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ Para o Banco de Dados SQL do Azure, o recurso de regras da rede virtual tem as s
 
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras da rede virtual não:
   - [Rede privada virtual (VPN) de site a site (S2S)][vpn-gateway-indexmd-608y]
-  - Local via [ExpressRoute][expressroute-indexmd-744v]
+  - Local via [ExpressRoute](../../expressroute/index.yml)
 
 ### <a name="considerations-when-using-service-endpoints"></a>Considerações ao usar pontos de extremidade de serviço
 
@@ -136,7 +136,7 @@ O polybase e a instrução de cópia costumam ser usados para carregar dados no 
    > - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](../../storage/common/storage-account-upgrade.md).
    > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, confira este [guia](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função** . Atribua a função de **colaborador de dados de armazenamento de BLOBs** do Azure ao servidor que hospeda a análise de Synapse do Azure que você registrou com Azure Active Directory (AAD) como na etapa #1.
+1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função de **colaborador de dados de armazenamento de BLOBs** do Azure ao servidor que hospeda a análise de Synapse do Azure que você registrou com Azure Active Directory (AAD) como na etapa #1.
 
    > [!NOTE]
    > Somente membros com privilégio de proprietário na conta de armazenamento podem executar esta etapa. Para obter várias funções internas do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md).
@@ -180,7 +180,7 @@ A auditoria de blob envia por push logs de auditoria para sua própria conta de 
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra do Firewall VNet ao seu servidor sem ativar os pontos de extremidade do serviço da VNet
 
-Há muito tempo antes que esse recurso fosse aprimorado, era necessário ativar os pontos de extremidade de serviço da VNet antes de implementar uma regra dinâmica da VNet no Firewall. Os pontos de extremidade relacionados a uma determinada sub-rede de VNet a um banco de dados no banco de dados SQL do Azure. No entanto, a partir de janeiro de 2018, você pode contornar esse requisito definindo o sinalizador **IgnoreMissingVNetServiceEndpoint** .
+Há muito tempo antes que esse recurso fosse aprimorado, era necessário ativar os pontos de extremidade de serviço da VNet antes de implementar uma regra dinâmica da VNet no Firewall. Os pontos de extremidade relacionados a uma determinada sub-rede de VNet a um banco de dados no banco de dados SQL do Azure. No entanto, a partir de janeiro de 2018, você pode contornar esse requisito definindo o sinalizador **IgnoreMissingVNetServiceEndpoint**.
 
 A simples configuração de uma regra de Firewall não ajuda a proteger o servidor. Você também precisa ativar os pontos de extremidade de serviço da VNET para que a segurança entre em vigor. Quando você ativa os pontos de extremidade de serviço, a sub-rede da VNET passa por um tempo de inatividade até concluir a transição de desativado para ativado. Isso é especialmente verdadeiro no contexto de VNETs grandes. Use o sinalizador **IgnoreMissingVNetServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
 
@@ -210,7 +210,7 @@ O erro de conexão 40914 está relacionado a *regras da rede virtual* , conforme
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>O Portal pode criar uma regra da rede virtual
 
-Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* em seu banco de dados no banco de dados SQL do Azure. A regra diz ao banco de dados para aceitar a comunicação de uma sub-rede específica que foi marcada como um *ponto de extremidade de serviço de rede virtual* .
+Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* em seu banco de dados no banco de dados SQL do Azure. A regra diz ao banco de dados para aceitar a comunicação de uma sub-rede específica que foi marcada como um *ponto de extremidade de serviço de rede virtual*.
 
 > [!NOTE]
 > Se você pretende adicionar um ponto de extremidade de serviço às regras de firewall de rede virtual do seu servidor, primeiro verifique se os pontos de extremidade de serviço estão ativados para a sub-rede.
@@ -231,7 +231,7 @@ Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs R
 
 Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de serviço de rede virtual específico *nome do tipo* relevante para o banco de dados SQL do Azure.
 
-- O nome do tipo de ponto de extremidade relevante é **Microsoft.Sql** .
+- O nome do tipo de ponto de extremidade relevante é **Microsoft.Sql**.
 - Se a sua sub-rede não pode ser marcada com o nome do tipo, consulte [Verificar se sua sub-rede é um ponto de extremidade][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
@@ -240,14 +240,14 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 1. Entre no [portal do Azure][http-azure-portal-link-ref-477t].
 
-2. Procure e selecione **servidores SQL** e, em seguida, selecione o servidor. Em **segurança** , selecione **firewalls e redes virtuais** .
+2. Procure e selecione **servidores SQL** e, em seguida, selecione o servidor. Em **segurança** , selecione **firewalls e redes virtuais**.
 
 3. Defina o controle **Permitir acesso aos serviços do Azure** como OFF.
 
     > [!IMPORTANT]
     > Se você deixar o controle definido como ativado, o servidor aceitará a comunicação de qualquer sub-rede dentro do limite do Azure, ou seja, proveniente de um dos endereços IP que são reconhecidos como aqueles nos intervalos definidos para data centers do Azure. Deixar o controle definido como ON pode ocasionar acesso excessivo de um ponto de vista de segurança. O recurso de ponto de extremidade de serviço de rede virtual do Microsoft Azure, em conjunto com o recurso de regra da rede virtual do Banco de dados SQL do Microsoft Azure, pode reduzir a área de superfície de segurança.
 
-4. Clique no controle **+ Adicionar existente** , na seção **Redes virtuais** .
+4. Clique no controle **+ Adicionar existente** , na seção **Redes virtuais**.
 
     ![Clique em Adicionar existente (ponto de extremidade de sub-rede, como uma regra SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
@@ -255,7 +255,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
     > [!TIP]
     > Você deve incluir o **prefixo de endereço** correto para a sua sub-rede. É possível encontrar o valor no portal.
-    > Navegue até **Todos os recursos** &gt; **Todos os tipos** &gt; **Redes virtuais** . O filtro exibe suas redes virtuais. Clique em sua rede virtual e, em seguida, clique em **Sub-redes** . A coluna **INTERVALO DE ENDEREÇOS** tem o prefixo de endereço de que você precisa.
+    > Navegue até **Todos os recursos** &gt; **Todos os tipos** &gt; **Redes virtuais**. O filtro exibe suas redes virtuais. Clique em sua rede virtual e, em seguida, clique em **Sub-redes**. A coluna **INTERVALO DE ENDEREÇOS** tem o prefixo de endereço de que você precisa.
 
     ![Preencha os campos para a nova regra.][image-portal-firewall-create-update-vnet-rule-20-png]
 

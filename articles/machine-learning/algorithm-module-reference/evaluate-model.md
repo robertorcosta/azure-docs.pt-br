@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926981"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323799"
 ---
 # <a name="evaluate-model-module"></a>Módulo Avaliar modelo
 
@@ -30,11 +30,11 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 
 > [!TIP]
-> Se a avaliação de modelo for novidade para você, recomendamos a série de vídeos do Dr. Stephen Elston, como parte do [curso de aprendizado de máquina](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) da EdX. 
+> Se a avaliação de modelo for novidade para você, recomendamos a série de vídeos do Dr. Stephen Elston, como parte do [curso de aprendizado de máquina](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) da EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Como usar Avaliar modelo
-1. Conecte a saída **Conjunto de dados pontuados** da saída do conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de [Atribuir dados aos clusters](./assign-data-to-clusters.md) à porta de entrada esquerda de **Avaliar modelo** . 
+1. Conecte a saída **Conjunto de dados pontuados** da saída do conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de [Atribuir dados aos clusters](./assign-data-to-clusters.md) à porta de entrada esquerda de **Avaliar modelo**. 
     > [!NOTE] 
     > Se usar módulos, como "Selecionar colunas no conjunto de dados", para selecionar parte do conjunto de dados de entrada, verifique se as colunas de rótulo “Real” (usada no treinamento), “Probabilidades pontuadas” e “Rótulos pontuados” existem para calcular métricas, como AUC, Precisão para classificação binária/detecção de anomalias.
     > A coluna de rótulo real e a coluna “Rótulos pontuados” existem para calcular métricas para classificação/regressão multiclasse.
@@ -48,7 +48,7 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
     > + Para a tarefa de classificação múltipla, o conjunto de pontos a ser avaliado deve ter uma coluna, denominada `Multi Class Scored Labels` , que representa rótulos pontuados.
     > Se as saídas do módulo upstream não tiverem essas colunas, você precisará modificar de acordo com os requisitos acima.
 
-2. [Opcional] Conecte a saída **Conjunto de dados pontuado** da saída de conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de Atribuir dados a clusters para o segundo modelo à porta de entrada **direita** de **Avaliar modelo** . Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ter o mesmo tipo de algoritmo. Ou, você pode comparar pontuações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
+2. [Opcional] Conecte a saída **Conjunto de dados pontuado** da saída de conjunto de dados [Modelo de pontuação](./score-model.md) ou Resultado de Atribuir dados a clusters para o segundo modelo à porta de entrada **direita** de **Avaliar modelo**. Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ter o mesmo tipo de algoritmo. Ou, você pode comparar pontuações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
 
     > [!NOTE]
     > O tipo de algoritmo consulta “Classificação de duas classes”, “Classificação multiclasse”, “Regressão”, “Clustering” em “Algoritmos de aprendizado de máquina”. 
@@ -142,4 +142,4 @@ As métricas a seguir são relatadas para avaliar modelos de clustering.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

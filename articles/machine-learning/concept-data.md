@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446687"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322241"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning facilita a conexão com seus dados na nuvem.  Ele fornece
     
 ## <a name="data-workflow"></a>Fluxo de trabalho de dados
 
-Quando você estiver pronto para usar os dados em sua solução de armazenamento baseada em nuvem, recomendamos o seguinte fluxo de trabalho de entrega de dados. Este fluxo de trabalho pressupõe que você tenha uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) e dados em um serviço de armazenamento baseado em nuvem no Azure. 
+Quando você estiver pronto para usar os dados em sua solução de armazenamento baseada em nuvem, recomendamos o seguinte fluxo de trabalho de entrega de dados. Este fluxo de trabalho pressupõe que você tenha uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) e dados em um serviço de armazenamento baseado em nuvem no Azure. 
 
 1. Crie um [repositório](#datastores) de dados Azure Machine Learning para armazenar informações de conexão para o armazenamento do Azure.
 
@@ -65,7 +65,7 @@ Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser 
 + Sistema de arquivos do Databricks
 + Banco de Dados do Azure para MySQL
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjunto de dados
 
 Os conjuntos de dados Azure Machine Learning não são cópias de seu dado. Com a criação de um conjunto de dados, você cria uma referência a eles em seu serviço de armazenamento, juntamente com uma cópia de seus metadados. 
 
@@ -81,9 +81,9 @@ Os conjuntos de valores podem ser criados a partir de arquivos locais, de URLs p
 
 Há dois tipos de conjuntos de valores: 
 
-+ Um [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar arquivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por filedatasets em seu destino de computação.
++ Um [Filedataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar arquivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por filedatasets em seu destino de computação.
 
-+ Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Você pode carregar um TabularDataset em um dataframe do pandas ou Spark para manipulação e limpeza adicionais. Para obter uma lista completa dos formatos de dados dos quais você pode criar TabularDatasets, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ Um [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Você pode carregar um TabularDataset em um dataframe do pandas ou Spark para manipulação e limpeza adicionais. Para obter uma lista completa dos formatos de dados dos quais você pode criar TabularDatasets, consulte a [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Os recursos adicionais de conjuntos de documentos podem ser encontrados na seguinte documentação:
 
@@ -100,7 +100,7 @@ Com conjuntos de informações, você pode realizar várias tarefas de aprendiza
      + o [Designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
      + [Pipelines de Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Acesse conjuntos de informações para pontuação com [inferência de lote](how-to-use-parallel-run-step.md) em [pipelines de Machine Learning](how-to-create-your-first-pipeline.md).
++ Acesse conjuntos de informações para pontuação com [inferência de lote](./tutorial-pipeline-batch-scoring-classification.md) em [pipelines de Machine Learning](how-to-create-your-first-pipeline.md).
 + Configure um monitor de conjunto de dados para a detecção de [descompasso de dados](#drift) .
 
 <a name="label"></a>

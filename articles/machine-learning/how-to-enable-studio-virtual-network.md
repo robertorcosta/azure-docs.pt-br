@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792014"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325534"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 
@@ -36,7 +36,7 @@ Consulte os outros artigos desta série:
 
 
 > [!IMPORTANT]
-> Se o seu espaço de trabalho estiver em uma __nuvem soberanas__ , como Azure governamental ou Azure China 21vianet, os notebooks integrados _não_ dão suporte ao uso de armazenamento que esteja em uma rede virtual. Em vez disso, você pode usar blocos de anotações do Jupyter de uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Se o seu espaço de trabalho estiver em uma __nuvem soberanas__ , como Azure governamental ou Azure China 21vianet, os notebooks integrados _não_ dão suporte ao uso de armazenamento que esteja em uma rede virtual. Em vez disso, você pode usar Jupyter Notebooks em uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -53,7 +53,7 @@ Consulte os outros artigos desta série:
 
 Se você estiver acessando o Studio de um recurso dentro de uma rede virtual (por exemplo, uma instância de computação ou máquina virtual), deverá permitir o tráfego de saída da rede virtual para o estúdio. 
 
-Por exemplo, se você estiver usando NSG (grupos de segurança de rede) para restringir o tráfego de saída, adicione uma regra a um destino de __marca de serviço__ de __AzureFrontDoor. frontend__ .
+Por exemplo, se você estiver usando NSG (grupos de segurança de rede) para restringir o tráfego de saída, adicione uma regra a um destino de __marca de serviço__ de __AzureFrontDoor. frontend__.
 
 ## <a name="access-data-using-the-studio"></a>Acessar dados usando o estúdio
 
@@ -81,13 +81,13 @@ Esta etapa só será necessária se você tiver adicionado a conta de armazename
 
 Azure Machine Learning usa [repositórios](concept-data.md#datastores) de armazenamento para se conectar a contas de armazenamento. Use as etapas a seguir para configurar seus repositórios de armazenamento para usar identidade gerenciada. 
 
-1. No estúdio, selecione __repositórios de armazenamento__ .
+1. No estúdio, selecione __repositórios de armazenamento__.
 
-1. Para criar um novo repositório de armazenamento, selecione __+ novo repositório de armazenamento__ .
+1. Para criar um novo repositório de armazenamento, selecione __+ novo repositório de armazenamento__.
 
-    Para atualizar um repositório de armazenamento existente, selecione o repositório de armazenamento e selecione __Atualizar credenciais__ .
+    Para atualizar um repositório de armazenamento existente, selecione o repositório de armazenamento e selecione __Atualizar credenciais__.
 
-1. Nas configurações do repositório de armazenamento, selecione __Sim__ para  __permitir que o serviço de Azure Machine Learning acesse o armazenamento usando a identidade gerenciada pelo espaço de trabalho__ .
+1. Nas configurações do repositório de armazenamento, selecione __Sim__ para  __permitir que o serviço de Azure Machine Learning acesse o armazenamento usando a identidade gerenciada pelo espaço de trabalho__.
 
 
 Essas etapas adicionam a identidade gerenciada pelo espaço de trabalho como um __leitor__ ao serviço de armazenamento usando o controle de acesso baseado em recursos do Azure (RBAC do Azure). O acesso de __leitor__ permite que o espaço de trabalho recupere as configurações de firewall e verifique se os dados não deixam a rede virtual.
@@ -119,7 +119,7 @@ Azure Data Lake Storage Gen1 oferece suporte apenas a listas de controle de aces
 
 Para acessar os dados armazenados em um Azure SQL Database usando a identidade gerenciada, você deve criar um usuário contido no SQL que mapeia para a identidade gerenciada. Para obter mais informações sobre como criar um usuário de um provedor externo, consulte [criar usuários independentes mapeados para identidades do Azure ad](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-Depois de criar um usuário do SQL continha, conceda permissões a ele usando o [comando Grant T-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+Depois de criar um usuário do SQL continha, conceda permissões a ele usando o [comando Grant T-SQL](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### <a name="azure-machine-learning-designer-default-datastore"></a>Repositório de armazenamento padrão do Azure Machine Learning designer
 
@@ -128,15 +128,15 @@ O designer usa a conta de armazenamento anexada ao seu espaço de trabalho para 
 Para definir um novo armazenamento padrão para um pipeline:
 
 1. Em um rascunho de pipeline, selecione o **ícone de engrenagem configurações** próximo ao título do seu pipeline.
-1. Selecione o **repositório de armazenamento padrão** .
+1. Selecione o **repositório de armazenamento padrão**.
 1. Especifique um novo repositório de armazenamento.
 
 Você também pode substituir o repositório de armazenamento padrão por módulo. Isso lhe dá controle sobre o local de armazenamento de cada módulo individual.
 
 1. Selecione o módulo cuja saída você deseja especificar.
 1. Expanda a seção **configurações de saída** .
-1. Selecione **Substituir configurações de saída padrão** .
-1. Selecione **definir configurações de saída** .
+1. Selecione **Substituir configurações de saída padrão**.
+1. Selecione **definir configurações de saída**.
 1. Especifique um novo repositório de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883085"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325448"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões em lote usando o designer do Azure Machine Learning
 
@@ -29,7 +29,7 @@ Nestas instruções, você aprenderá a realizar as seguintes tarefas:
 > * Consumo de um ponto de extremidade de pipeline
 > * Gerenciamento de versões do ponto de extremidade
 
-Para saber como configurar serviços de pontuação de lote usando o SDK, veja as [instruções](how-to-run-batch-predictions.md) complementares.
+Para saber como configurar serviços de pontuação de lote usando o SDK, veja as [instruções](./tutorial-pipeline-batch-scoring-classification.md) complementares.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ O pipeline de treinamento deve ser executado pelo menos uma vez para poder criar
 
 Agora que o pipeline de treinamento foi executado, você pode criar um pipeline de inferência em lote.
 
-1. Ao lado de **Enviar**, selecione a nova lista suspensa **Criação de pipeline de inferência**.
+1. Ao lado de **Enviar** , selecione a nova lista suspensa **Criação de pipeline de inferência**.
 
 1. Selecione **Pipeline de inferência em lote**.
 

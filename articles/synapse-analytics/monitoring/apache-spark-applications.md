@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 4d6c50436ddf68e2610aeb10ddfaaab0a5d060f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f55d65b215c03769caa7c812dcda138f8e83595
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387346"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322467"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio para monitorar seus aplicativos Apache Spark
 
@@ -35,15 +35,15 @@ Antes de iniciar este tutorial, verifique se você atende aos seguintes requisit
 
 - Um espaço de trabalho do Synapse Studio. Para obter instruções, consulte [criar um espaço de trabalho do Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
-- Um pool do Apache Spark.
+- Um pool de Apache Spark sem servidor.
 
 ## <a name="monitor-running-apache-spark-application"></a>Monitorar a execução do aplicativo Apache Spark
 
-Abra o **Monitor**e, em seguida, selecione **Apache Spark aplicativos**. Para exibir os detalhes sobre os Apache Spark aplicativos que estão em execução, selecione o Apache Spark aplicativo de envio e exiba os detalhes. Se o aplicativo Apache Spark ainda estiver em execução, você poderá monitorar o progresso.
+Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para exibir os detalhes sobre os Apache Spark aplicativos que estão em execução, selecione o Apache Spark aplicativo de envio e exiba os detalhes. Se o aplicativo Apache Spark ainda estiver em execução, você poderá monitorar o progresso.
 
   ![selecionar trabalho em execução](./media/how-to-monitor-spark-applications/select-running-job.png)
 
-1. Verifique as **tarefas concluídas**, o **status**e a **duração total**.
+1. Verifique as **tarefas concluídas** , o **status** e a **duração total**.
 
 2. Cancele o aplicativo Apache Spark.
 
@@ -59,11 +59,11 @@ Abra o **Monitor**e, em seguida, selecione **Apache Spark aplicativos**. Para ex
 
 ## <a name="view-completed-apache-spark-application"></a>Exibir Apache Spark aplicativo concluído
 
-Abra o **Monitor**e, em seguida, selecione **Apache Spark aplicativos**. Para exibir os detalhes sobre os aplicativos Apache Spark concluídos, selecione o aplicativo Apache Spark e exiba os detalhes.
+Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para exibir os detalhes sobre os aplicativos Apache Spark concluídos, selecione o aplicativo Apache Spark e exiba os detalhes.
 
   ![selecionar trabalho concluído](./media/how-to-monitor-spark-applications/select-completed-job.png)
 
-1. Verifique as **tarefas concluídas**, o **status**e a **duração total**.
+1. Verifique as **tarefas concluídas** , o **status** e a **duração total**.
 
 2. Atualizar consulta de log.
 
@@ -107,11 +107,11 @@ Abra o **Monitor**e, em seguida, selecione **Apache Spark aplicativos**. Para ex
 
 ## <a name="view-canceled-apache-spark-application"></a>Exibir Apache Spark aplicativo cancelado
 
-Abra o **Monitor**e, em seguida, selecione **Apache Spark aplicativos**. Para exibir os detalhes sobre os aplicativos Apache Spark cancelados, selecione o aplicativo Apache Spark e exiba os detalhes.
+Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para exibir os detalhes sobre os aplicativos Apache Spark cancelados, selecione o aplicativo Apache Spark e exiba os detalhes.
 
  ![selecionar trabalho cancelado](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
-1. Verifique as **tarefas concluídas**, o **status**e a **duração total**.
+1. Verifique as **tarefas concluídas** , o **status** e a **duração total**.
 
 2. Atualize a consulta de log.
 
@@ -127,11 +127,11 @@ Abra o **Monitor**e, em seguida, selecione **Apache Spark aplicativos**. Para ex
 
 ## <a name="debug-failed-apache-spark-application"></a>Falha na depuração Apache Spark aplicativo
 
-Abra o **Monitor**e, em seguida, selecione **Apache Spark aplicativos**. Para exibir os detalhes sobre os aplicativos Apache Spark com falha, selecione o aplicativo Apache Spark e exiba os detalhes.
+Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para exibir os detalhes sobre os aplicativos Apache Spark com falha, selecione o aplicativo Apache Spark e exiba os detalhes.
 
 ![selecionar trabalho com falha](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
-1. Verifique as **tarefas concluídas**, o **status**e a **duração total**.
+1. Verifique as **tarefas concluídas** , o **status** e a **duração total**.
 
 2. Atualizar consulta de log.
 

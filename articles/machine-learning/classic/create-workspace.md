@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 700cc461563f145f58e02f7ed9a09b2899a4eb5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fc7fd1f3f7615c0622b684e3da4020c7da601f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340932"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322869"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Criar e compartilhar um espaço de trabalho Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Para usar Azure Machine Learning Studio (clássico), você precisa ter um espaço de trabalho Machine Learning Studio (clássico). Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.
 
@@ -72,8 +72,8 @@ Se você encontrar um problema ao criar seu espaço de trabalho, consulte [Guia 
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Compartilhar um espaço de trabalho Azure Machine Learning Studio (clássico)
 Quando um espaço de trabalho Machine Learning Studio (clássico) é criado, você pode convidar usuários para seu espaço de trabalho para compartilhar o acesso ao seu espaço de trabalho e a todos os seus experimentos, conjuntos de seus, etc. Você pode adicionar usuários em uma das duas funções:
 
-* **Usuário**: um usuário do workspace pode criar, abrir, modificar e excluir conjuntos de dados, experimentos etc. no workspace.
-* **Proprietário**: um proprietário pode convidar e remover usuários no workspace, além do que o usuário pode fazer.
+* **Usuário** : um usuário do workspace pode criar, abrir, modificar e excluir conjuntos de dados, experimentos etc. no workspace.
+* **Proprietário** : um proprietário pode convidar e remover usuários no workspace, além do que o usuário pode fazer.
 
 > [!NOTE]
 > A conta de administrador que cria o workspace é adicionado automaticamente ao workspace como proprietário. No entanto, outros administradores ou usuários nessa assinatura não recebem automaticamente acesso ao workspace - é preciso convidá-los explicitamente.
@@ -118,11 +118,11 @@ Depois que o novo espaço de trabalho de Machine Learning Studio (clássico) for
 
    ![Opções da Internet](media/troubleshooting-creating-ml-workspace/screen4.png)
 
-2. Na guia **Geral**, clique em **Excluir…**
+2. Na guia **Geral** , clique em **Excluir…**
 
    ![Guia Geral](media/troubleshooting-creating-ml-workspace/screen5.png)
 
-3. Na caixa de diálogo **Excluir Histórico de Navegação**, selecione **Cookies e dados de sites** e clique em **Excluir**.
+3. Na caixa de diálogo **Excluir Histórico de Navegação** , selecione **Cookies e dados de sites** e clique em **Excluir**.
 
    ![Excluir cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 

@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047999"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325385"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Pontuar modelos de aprendizado de máquina com previsão
 
 Synapse SQL fornece a capacidade de pontuar modelos de aprendizado de máquina usando a linguagem T-SQL familiar. Com a [previsão](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)do T-SQL, você pode trazer seus modelos de aprendizado de máquina existentes treinados com dados históricos e pontua-los dentro dos limites de segurança do seu data warehouse. A função PREDICT usa um modelo de [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e os dados como entradas. Esse recurso elimina a etapa de mover dados valiosos para fora do data warehouse para pontuação. Ele visa capacitar os profissionais de dados a implantar facilmente modelos de aprendizado de máquina com a interface T-SQL familiar, bem como colaborar perfeitamente com cientistas de dados trabalhando com a estrutura certa para sua tarefa.
 
 > [!NOTE]
-> Atualmente, não há suporte para essa funcionalidade no SQL sob demanda.
+> Atualmente, não há suporte para essa funcionalidade no pool SQL sem servidor.
 
 A funcionalidade requer que o modelo seja treinado fora do Synapse SQL. Depois de criar o modelo, carregue-o no data warehouse e pontua-lo com a sintaxe de previsão T-SQL para obter informações dos dados.
 

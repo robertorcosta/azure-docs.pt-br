@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 8add203fabf867e22dbfe98b2bc9c632e62018b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 90d059aaa16e24df1e71d4d439cb9aa23b786c77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100517"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323217"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
+# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB repositório analítico (versão prévia)?
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ O repositório analítico, que é um repositório de coluna, é mais adequado pa
 
 A imagem a seguir mostra o repositório de linhas transacional em comparação ao repositório de colunas analíticas no Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Exemplo de tabela operacional" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Repositório de linhas transacional em comparação ao repositório de colunas analíticas no Azure Cosmos DB" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Desempenho separado para cargas de trabalho analíticas
 

@@ -1,6 +1,6 @@
 ---
-title: Elementos de linguagem T-SQL
-description: Links para a documentação de elementos de linguagem T-SQL com suporte no pool SQL Synapse.
+title: Elementos da linguagem T-SQL para o pool SQL dedicado
+description: Links para a documentação dos elementos de linguagem T-SQL com suporte para o pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966df3be13eda4450608d42890fcfe2240ac61a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289490"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324646"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Elementos de linguagem T-SQL com suporte no pool SQL Synapse
+# <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Elementos da linguagem T-SQL para o pool SQL dedicado no Azure Synapse Analytics 
 
-Links para a documentação de elementos de linguagem T-SQL com suporte no pool SQL Synapse.
+Links para a documentação de elementos de linguagem T-SQL com suporte no pool SQL dedicado.
 
 ## <a name="core-elements"></a>Elementos principais
 
@@ -35,7 +35,7 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no pool 
 * [expressões](/sql/t-sql/language-elements/expressions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [KILL](/sql/t-sql/language-elements/kill-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [Solução alternativa da propriedade IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [PRINT](/sql/t-sql/language-elements/print-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [IMPRIMIR](/sql/t-sql/language-elements/print-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [USE](/sql/t-sql/language-elements/use-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Lotes, controle de fluxo e variáveis
@@ -290,4 +290,4 @@ Links para a documentação de elementos de linguagem T-SQL com suporte no pool 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações de referência, consulte [instruções T-SQL no pool SQL do Synapse](sql-data-warehouse-reference-tsql-statements.md)e [exibições do sistema no pool SQL do Synapse](../sql/reference-tsql-system-views.md).
+Para obter mais informações de referência, consulte [instruções T-SQL no pool SQL dedicado](sql-data-warehouse-reference-tsql-statements.md)e [exibições do sistema no pool SQL dedicado](../sql/reference-tsql-system-views.md).

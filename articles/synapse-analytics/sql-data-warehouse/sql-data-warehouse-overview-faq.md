@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
-description: Este artigo lista as perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW) de clientes e desenvolvedores
+description: Este artigo lista as perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW) de clientes e desenvolvedores.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 228fa18fef0f681437fd2c0c87e3114d14977a49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1e2f82ecd80579d19f3a8793db64f6b8a17a440
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462642"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323612"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -29,9 +29,9 @@ Q. O que aconteceu com o Azure SQL Data Warehouse?
 
 a. O Azure Synapse é um SQL Data Warehouse do Azure evoluído. Nós tiramos o mesmo data warehouse líder do setor para um nível totalmente novo de desempenho e recursos. Você pode continuar executando suas cargas de trabalho de data warehouse existentes em produção com o Azure Synapse. Para saber mais, confira [O que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. O que é o pool do SQL Synapse?
+Q. O que é um pool SQL dedicado?
 
-a. Synapse pool SQL refere-se aos recursos corporativos de data warehousing que estão geralmente disponíveis com o Azure Synapse. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+a. O pool SQL dedicado refere-se aos recursos corporativos de data warehousing que estão geralmente disponíveis com o Azure Synapse. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. Como fazer introdução ao Azure Synapse?
 
@@ -49,7 +49,7 @@ Q. Posso conectar Power BI?
 
 a. Sim. Embora Power BI ofereça suporte à consulta direta com o Azure Synapse, ele não se destina a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar Power BI sobre o Azure Analysis Services ou o IaaS do Analysis Service.
 
-Q. Quais são os limites de capacidade do pool SQL Synapse?
+Q. Quais são os limites de capacidade dos pools SQL dedicados?
 
 a. Consulte nossa página de [limites de capacidade](sql-data-warehouse-service-capacity-limits.md) atuais.
 
@@ -83,15 +83,15 @@ a. Há suporte para muitos recursos. Recursos que não têm suporte podem ser en
 
 ## <a name="tooling-and-administration"></a>Ferramentas e administração
 
-Q. O pool SQL Synapse dá suporte a APIs REST?
+Q. O pool SQL dedicado oferece suporte a APIs REST?
 
-a. Sim. A maioria das funcionalidades REST que podem ser usadas com o banco de dados SQL também está disponível com o pool SQL Synapse. Você pode encontrar informações de API em [bancos](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)de dados ou páginas de documentação REST.
+a. Sim. A maioria das funcionalidades REST que podem ser usadas com o banco de dados SQL também está disponível com o pool SQL dedicado. Você pode encontrar informações de API em [bancos](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)de dados ou páginas de documentação REST.
 
 ## <a name="loading"></a>Carregando
 
 Q. Para quais drivers de cliente há suporte?
 
-a. O suporte de driver para o pool SQL Synapse pode ser encontrado na página [cadeias de conexão](../sql/connection-strings.md)
+a. O suporte de driver para o pool dedicado do SQL pode ser encontrado na página [cadeias de conexão](../sql/connection-strings.md)
 
 P: quais formatos de arquivo são compatíveis com o polybase?
 
@@ -107,7 +107,7 @@ R: não, o polybase interage apenas com os componentes de armazenamento.
 
 P: Posso me conectar ao HDI?
 
-R: O HDI pode usar o ADLS ou o WASB como a camada HDFS. Se você tiver o como sua camada HDFS, poderá carregar esses dados em um pool SQL Synapse. No entanto, não é possível gerar o cálculo de aplicação para a instância HDI.
+R: O HDI pode usar o ADLS ou o WASB como a camada HDFS. Se você tiver o como sua camada HDFS, poderá carregar esses dados em um pool SQL dedicado. No entanto, não é possível gerar o cálculo de aplicação para a instância HDI.
 
 ## <a name="next-steps"></a>Próximas etapas
 

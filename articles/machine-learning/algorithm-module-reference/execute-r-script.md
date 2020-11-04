@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330386"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323746"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -121,7 +121,7 @@ Depois que a execução do pipeline for concluída, você poderá visualizar a i
 
 ## <a name="access-to-registered-dataset"></a>Acesso ao DataSet registrado
 
-Você pode consultar o seguinte código de exemplo para [acessar os conjuntos de valores registrados](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) em seu espaço de trabalho:
+Você pode consultar o seguinte código de exemplo para [acessar os conjuntos de valores registrados](../how-to-create-register-datasets.md) em seu espaço de trabalho:
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -147,11 +147,11 @@ Os conjuntos de dados armazenados no designer são convertidos automaticamente e
 
 1. Conecte as entradas que o script precisa. As entradas são opcionais e podem incluir dados e código de R adicional.
 
-    * **DataSet1**: referencia a primeira entrada como `dataframe1` . O conjunto de dados de entrada deve ser formatado como um arquivo CSV, TSV ou ARFF. Ou você pode conectar um conjunto de Azure Machine Learning.
+    * **DataSet1** : referencia a primeira entrada como `dataframe1` . O conjunto de dados de entrada deve ser formatado como um arquivo CSV, TSV ou ARFF. Ou você pode conectar um conjunto de Azure Machine Learning.
 
-    * **Dataset2**: referencia a segunda entrada como `dataframe2` . Esse conjunto de e também deve ser formatado como um arquivo CSV, TSV ou ARFF ou como um conjunto de Azure Machine Learning.
+    * **Dataset2** : referencia a segunda entrada como `dataframe2` . Esse conjunto de e também deve ser formatado como um arquivo CSV, TSV ou ARFF ou como um conjunto de Azure Machine Learning.
 
-    * **Pacote de script**: a terceira entrada aceita arquivos. zip. Um arquivo compactado pode conter vários arquivos e vários tipos de arquivo.
+    * **Pacote de script** : a terceira entrada aceita arquivos. zip. Um arquivo compactado pode conter vários arquivos e vários tipos de arquivo.
 
 1. Na caixa de texto **script r** , digite ou cole um script R válido.
 
@@ -216,7 +216,7 @@ Os conjuntos de dados armazenados no designer são convertidos automaticamente e
     }
     ```
 
-1.  Para **semente aleatória**, insira um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Este parâmetro é equivalente a chamar `set.seed(value)` no código de R.  
+1.  Para **semente aleatória** , insira um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Este parâmetro é equivalente a chamar `set.seed(value)` no código de R.  
 
 1. Enviar o pipeline.  
 
@@ -237,7 +237,7 @@ Há várias maneiras de estender seu pipeline usando scripts R personalizados. E
 
 O módulo executar script R dá suporte a arquivos de script R arbitrários como entradas. Para usá-los, você deve carregá-los em seu espaço de trabalho como parte do arquivo. zip.
 
-1. Para carregar um arquivo. zip que contém o código R para seu espaço de trabalho, vá para a página de ativos de **conjuntos** de arquivos. Selecione **criar conjunto**de texto e, em seguida, selecione **do arquivo local** e a opção tipo de conjunto de **arquivos** .  
+1. Para carregar um arquivo. zip que contém o código R para seu espaço de trabalho, vá para a página de ativos de **conjuntos** de arquivos. Selecione **criar conjunto** de texto e, em seguida, selecione **do arquivo local** e a opção tipo de conjunto de **arquivos** .  
 
 1. Verifique se o arquivo compactado aparece em **meus conjuntos** de arquivos na categoria **conjuntos** de arquivos na árvore de módulos à esquerda.
 
@@ -505,4 +505,4 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

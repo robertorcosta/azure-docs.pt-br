@@ -1,6 +1,6 @@
 ---
 title: Diretrizes de design das tabelas distribuídas
-description: Recomendações para criar tabelas distribuídas por hash e rodízio no pool de SQL do Synapse.
+description: Recomendações para a criação de tabelas distribuídas por hash e Round Robin usando o pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487000"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323628"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Diretrizes de design para tabelas distribuídas no pool de SQL do Synapse
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Diretrizes para criar tabelas distribuídas usando o pool SQL dedicado no Azure Synapse Analytics
 
-Recomendações para criar tabelas distribuídas por hash e rodízio nos pools de SQL do Synapse.
+Recomendações para a criação de tabelas distribuídas por hash e de Round Robin em pools SQL dedicados.
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados no Synapse SQL.  Para obter mais informações, consulte [arquitetura do Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
+Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados no pool SQL dedicado.  Para obter mais informações, consulte [arquitetura do Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
 
@@ -36,7 +36,7 @@ Como parte do design de tabela, compreenda seus dados o tanto quanto possível e
 
 - Qual é o tamanho da tabela?
 - Com que frequência a tabela é atualizada?
-- Tenho tabelas de fatos e dimensões em um pool de SQL do Synapse?
+- Tenho tabelas de dimensões e de fatos em um pool SQL dedicado?
 
 ### <a name="hash-distributed"></a>Tabelas distribuídas por hash
 
@@ -44,7 +44,7 @@ Uma tabela distribuída por hash distribui linhas da tabela em todos os nós de 
 
 ![Tabela distribuída](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela distribuída")  
 
-Como valores idênticos sempre hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. No pool de SQL do Synapse, esse conhecimento é usado para minimizar a movimentação de dados durante as consultas, o que melhora o desempenho da consulta.
+Como valores idênticos sempre hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. No pool SQL dedicado, esse conhecimento é usado para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta.
 
 Tabelas distribuídas por hash funcionam bem para grandes tabelas de fatos em um esquema em estrela. Podem ter um grande número de linhas e ainda obter um alto desempenho. É claro, há algumas considerações de design que ajudam você a obter o desempenho que o sistema distribuído foi desenvolvido para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo.
 
@@ -113,7 +113,7 @@ Para equilibrar o processamento paralelo, selecione uma coluna de distribuição
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimiza a movimentação de dados
 
-Para obter a consulta correta os resultados de consultas podem mover dados de um nó de computação para outro. Movimentação de dados geralmente acontece quando as consultas em tabelas distribuídas contêm junções e agregações. Escolher uma coluna de distribuição que ajuda a minimizar a movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho do pool de SQL do Synapse.
+Para obter a consulta correta os resultados de consultas podem mover dados de um nó de computação para outro. Movimentação de dados geralmente acontece quando as consultas em tabelas distribuídas contêm junções e agregações. Escolher uma coluna de distribuição que ajude a minimizar a movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho de seu pool SQL dedicado.
 
 Para minimizar a movimentação de dados selecione a coluna de distribuição que:
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para criar uma tabela replicada, use uma dessas instruções:
 
-- [CREATE TABLE (pool de SQL do Synapse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (pool de SQL do Synapse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (pool dedicado de SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE como SELECT (pool dedicado de SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
