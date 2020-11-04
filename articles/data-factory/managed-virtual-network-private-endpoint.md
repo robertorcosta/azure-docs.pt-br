@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635772"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317073"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -51,7 +51,7 @@ Pontos de extremidade privados gerenciados são pontos de extremidade privados c
 
 ![Novo ponto de extremidade privado gerenciado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics (anteriormente chamado de SQL Data Warehouse do Azure)).
+Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics (anteriormente SQL Data Warehouse)).
 
 Quando você usa um link privado, o tráfego entre os armazenamentos de dados e a rede virtual gerenciada atravessa totalmente a rede de backbone da Microsoft. O Link Privado protege contra riscos de exfiltração dos dados. Você estabelece um link privado para um recurso criando um ponto de extremidade privado.
 
@@ -81,7 +81,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - Arquivos do Azure
 - Azure Data Lake Gen2
 - Banco de dados SQL do Azure (sem incluir o Azure SQL Instância Gerenciada)
-- Azure Synapse Analytics (antigo SQL Data Warehouse do Azure)
+- Azure Synapse Analytics (antigo SQL Data Warehouse)
 - SQL CosmosDB do Azure
 - Cofre de Chave do Azure
 - Serviço de vínculo privado do Azure

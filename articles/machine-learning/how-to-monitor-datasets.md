@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee2280aba99606d9e31a0e565a67cd6202df3c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333861"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317027"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
 
@@ -36,14 +36,14 @@ Com os monitores Azure Machine Learning DataSet (versão prévia), você pode:
 
 Um [conjunto de informações do Azure Machine Learning](how-to-create-register-datasets.md) é usado para criar o monitor. O DataSet deve incluir uma coluna timestamp.
 
-Você pode exibir as métricas de descompasso de dados com o SDK do Python ou no Azure Machine Learning Studio.  Outras métricas e informações estão disponíveis por meio do recurso de [informações aplicativo Azure](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) associadas ao espaço de trabalho Azure Machine Learning.
+Você pode exibir as métricas de descompasso de dados com o SDK do Python ou no Azure Machine Learning Studio.  Outras métricas e informações estão disponíveis por meio do recurso de [informações aplicativo Azure](../azure-monitor/app/app-insights-overview.md) associadas ao espaço de trabalho Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar e trabalhar com monitores de conjunto de trabalho, você precisa de:
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
-* O [SDK do Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), que inclui o pacote de conjuntos de linhas do azureml.
+* O [SDK do Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), que inclui o pacote de conjuntos de linhas do azureml.
 * Dados estruturados (tabulares) com um carimbo de data/hora especificado no caminho do arquivo, nome do arquivo ou coluna nos dados.
 
 ## <a name="what-is-data-drift"></a>O que é descompasso de dados?
@@ -73,7 +73,7 @@ Com um monitor de conjunto de um DataSet, você pode:
 
 O algoritmo de descompasso de dados fornece uma medida geral de alteração nos dados e a indicação de quais recursos são responsáveis por investigações adicionais. Os monitores de conjunto de dados produzem várias outras métricas por meio da criação de perfil de novos dados no `timeseries` DataSet. 
 
-Os alertas personalizados podem ser configurados em todas as métricas geradas pelo monitor por meio do [aplicativo Azure insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Os monitores de conjunto de dados podem ser usados para detectar rapidamente problemas de dado e reduzir o tempo para depurar o problema identificando as causas prováveis.  
+Os alertas personalizados podem ser configurados em todas as métricas geradas pelo monitor por meio do [aplicativo Azure insights](../azure-monitor/app/app-insights-overview.md). Os monitores de conjunto de dados podem ser usados para detectar rapidamente problemas de dado e reduzir o tempo para depurar o problema identificando as causas prováveis.  
 
 Conceitualmente, há três cenários principais para configurar monitores de conjuntos de conjunto de Azure Machine Learning.
 
@@ -102,7 +102,7 @@ O conjunto de dados de destino precisa do `timeseries` conjunto de característi
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>SDK do Python
 
-O [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) método de classe [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  define a coluna de carimbo de data/hora para o conjunto de um.
+O [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) método de classe [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  define a coluna de carimbo de data/hora para o conjunto de um.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -129,7 +129,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Para obter um exemplo completo de como usar a `timeseries` característica de conjuntos de valores, consulte o [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou a documentação do SDK dos conjuntos de [valores](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Para obter um exemplo completo de como usar a `timeseries` característica de conjuntos de valores, consulte o [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou a documentação do SDK dos conjuntos de [valores](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
 
@@ -145,7 +145,7 @@ Nas configurações de **esquema** , especifique a coluna timestamp de uma colun
 
 Se os dados forem particionados por data, como é o caso aqui, você também poderá especificar o partition_timestamp.  Isso permite um processamento mais eficiente de datas.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Definir o carimbo de data/hora":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Carimbo de hora da partição":::
 
 
 ## <a name="create-dataset-monitors"></a>Criar monitores de conjuntos de conjunto
@@ -213,7 +213,7 @@ Para obter um exemplo completo de como configurar um `timeseries` conjunto de da
 
 1. Clique no botão **+ criar monitor** e prossiga com o assistente clicando em **Avançar**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Definir o carimbo de data/hora":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Criar um assistente de monitor":::
 
 * **Selecione DataSet de destino**.  O conjunto de dados de destino é um conjunto de dados de tabela com a coluna timestamp especificada, que será analisada para descompasso. O conjunto de dados de destino deve ter recursos em comum com o conjunto de dados de linha de base, e deve ser um `timeseries` conjunto de dados para o qual são anexados novos. Os dados de histórico no DataSet de destino podem ser analisados ou novos dados podem ser monitorados.
 
@@ -240,7 +240,7 @@ Esta seção mostra os resultados do monitoramento de um conjunto de um DataSet,
 
 Comece com as informações de nível superior sobre a magnitude da descompasso de dados e um realce dos recursos a serem investigados.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Definir o carimbo de data/hora":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Visão geral do descompasso":::
 
 
 | Métrica | Descrição | 
@@ -253,7 +253,7 @@ Comece com as informações de nível superior sobre a magnitude da descompasso 
 
 Veja como o conjunto de pontos difere do conjunto de entrada de destino no período de tempo especificado.  Quanto mais perto de 100%, mais dois conjuntos de valores diferem.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Definir o carimbo de data/hora":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Tendência de magnitude de descompasso":::
 
 ### <a name="drift-magnitude-by-features"></a>Magnitude de descompasso por recursos
 
@@ -263,7 +263,7 @@ O conjunto de ponto de origem de destino também é criado com o passar do tempo
 
 No Azure Machine Learning Studio, clique em uma barra no grafo para ver os detalhes de nível de recurso dessa data. Por padrão, você vê a distribuição do conjunto de linhas de base e a distribuição da execução mais recente do mesmo recurso.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Definir o carimbo de data/hora":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Magnitude de descompasso por recursos":::
 
 Essas métricas também podem ser recuperadas no SDK do Python por meio do `get_metrics()` método em um `DataDriftDetector` objeto.
 
@@ -271,7 +271,7 @@ Essas métricas também podem ser recuperadas no SDK do Python por meio do `get_
 
 Por fim, role para baixo para exibir detalhes de cada recurso individual.  Use as listas suspensas acima do gráfico para selecionar o recurso e, além disso, selecione a métrica que você deseja exibir.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Definir o carimbo de data/hora":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Grafo de recursos numéricos e comparação":::
 
 As métricas no gráfico dependem do tipo de recurso.
 
@@ -288,16 +288,16 @@ As métricas no gráfico dependem do tipo de recurso.
     
     | Métrica | Descrição |  
     | ------ | ----------- |  
-    | Distância euclidiana     |  Calculado para colunas categóricas.A distância euclidiana é calculada em dois vetores, gerados da distribuição empírica da mesma coluna categórica de dois conjuntos de valores.0 indica que não há nenhuma diferença nas distribuições de empírica.Quanto mais se desviar de 0, mais esta coluna se descompassou.As tendências podem ser observadas em uma plotagem de série temporal dessa métrica e podem ser úteis para descobrir um recurso de descompasso.  |
+    | Distância euclidiana     |  Calculado para colunas categóricas. A distância euclidiana é calculada em dois vetores, gerados da distribuição empírica da mesma coluna categórica de dois conjuntos de valores. 0 indica que não há nenhuma diferença nas distribuições de empírica.  Quanto mais se desviar de 0, mais esta coluna se descompassou. As tendências podem ser observadas em uma plotagem de série temporal dessa métrica e podem ser úteis para descobrir um recurso de descompasso.  |
     | Valores únicos | Número de valores exclusivos (cardinalidade) do recurso. |
 
 Neste gráfico, selecione uma única data para comparar a distribuição de recursos entre o destino e essa data para o recurso exibido. Para recursos numéricos, isso mostra duas distribuições de probabilidade.  Se o recurso for numérico, um gráfico de barras será mostrado.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Definir o carimbo de data/hora":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Selecione uma data para comparar com o destino":::
 
 ## <a name="metrics-alerts-and-events"></a>Métricas, alertas e eventos
 
-As métricas podem ser consultadas no recurso do [aplicativo Azure insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) associado ao seu espaço de trabalho do Machine Learning. Você tem acesso a todos os recursos do Application Insights incluindo configurar para regras de alerta personalizadas e grupos de ação para disparar uma ação como, por exemplo, um email/SMS/Push/voz ou Azure function. Consulte a documentação completa Application Insights para obter detalhes. 
+As métricas podem ser consultadas no recurso do [aplicativo Azure insights](../azure-monitor/app/app-insights-overview.md) associado ao seu espaço de trabalho do Machine Learning. Você tem acesso a todos os recursos do Application Insights incluindo configurar para regras de alerta personalizadas e grupos de ação para disparar uma ação como, por exemplo, um email/SMS/Push/voz ou Azure function. Consulte a documentação completa Application Insights para obter detalhes. 
 
 Para começar, navegue até a [portal do Azure](https://portal.azure.com) e selecione a página **visão geral** do espaço de trabalho.  O recurso de Application Insights associado está na extrema direita:
 
@@ -322,6 +322,6 @@ Você pode usar um grupo de ações existente ou criar um novo para definir a a�
 ## <a name="next-steps"></a>Próximas etapas
 
 * Vá para o [Azure Machine Learning Studio](https://ml.azure.com) ou o [Notebook Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) para configurar um monitor de conjunto de um DataSet.
-* Veja como configurar a descompasso de dados em [modelos implantados no serviço kubernetes do Azure](how-to-monitor-data-drift.md).
+* Veja como configurar a descompasso de dados em [modelos implantados no serviço kubernetes do Azure](./how-to-enable-data-collection.md).
 * Configurar monitores de descompasso de conjunto de um com a [grade de eventos](how-to-use-event-grid.md). 
 * Consulte essas [dicas de solução de problemas](resource-known-issues.md#data-drift) comuns se você estiver tendo problemas.

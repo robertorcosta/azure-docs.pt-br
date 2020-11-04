@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217534"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318506"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Compartilhar e receber dados do Banco de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -54,7 +54,7 @@ Abaixo está a lista de pré-requisitos para o compartilhamento de dados da font
     1. No SQL Server, no portal do Azure, navegue até *Firewalls e redes virtuais*
     1. Clique em **Sim** para *permitir que os serviços e recursos do Azure acessem este servidor*.
     1. Clique em **+ Adicionar IP do cliente**. O endereço IP do cliente está sujeito a alterações. Esse processo talvez precise ser repetido na próxima vez em que você estiver compartilhando dados SQL do portal do Azure. Você também pode adicionar um intervalo de IP.
-    1. Clique em **Salvar**. 
+    1. Clique em **Save** (Salvar). 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -169,7 +169,7 @@ Se você optar por receber dados para o Azure SQL Database, a análise de Synaps
     1. No SQL Server, no portal do Azure, navegue até *Firewalls e redes virtuais*
     1. Clique em **Sim** para *permitir que os serviços e recursos do Azure acessem este servidor*.
     1. Clique em **+ Adicionar IP do cliente**. O endereço IP do cliente está sujeito a alterações. Esse processo talvez precise ser repetido na próxima vez em que você estiver compartilhando dados SQL do portal do Azure. Você também pode adicionar um intervalo de IP.
-    1. Clique em **Salvar**. 
+    1. Clique em **Save** (Salvar). 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -192,11 +192,11 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
    ![Termos de uso](./media/terms-of-use.png "Termos de uso") 
 
-1. Em *Conta do Data Share de Destino*, selecione a assinatura e o Grupo de Recursos em que você vai implantar seu Data Share. 
+1. Em *Conta do Data Share de Destino* , selecione a assinatura e o Grupo de Recursos em que você vai implantar seu Data Share. 
 
-   Para o campo **Conta do Data Share**, selecione **Criar nova** se você não tiver uma conta do Data Share. Caso contrário, selecione uma conta do Data Share em que você gostaria de aceitar o compartilhamento de dados. 
+   Para o campo **Conta do Data Share** , selecione **Criar nova** se você não tiver uma conta do Data Share. Caso contrário, selecione uma conta do Data Share em que você gostaria de aceitar o compartilhamento de dados. 
 
-   Para o campo **Nome do Compartilhamento Recebido**, deixe o padrão especificado pelo provedor de dados ou especifique um novo nome para o compartilhamento recebido. 
+   Para o campo **Nome do Compartilhamento Recebido** , deixe o padrão especificado pelo provedor de dados ou especifique um novo nome para o compartilhamento recebido. 
 
    Depois de concordar com os termos de uso e especificar uma conta do Data Share para gerenciar seu compartilhamento recebido, selecione **Aceitar e configurar**. Uma assinatura de compartilhamento será criada. 
 
@@ -228,7 +228,7 @@ Essas etapas se aplicam somente ao compartilhamento baseado em instantâneo.
 
    ![Disparar instantâneo](./media/trigger-snapshot.png "Disparar instantâneo") 
 
-1. Quando o status da última execução for *bem-sucedido*, acesse o armazenamento de dados de destino para exibir os dados recebidos. Selecione **Conjuntos de dados** e clique no link no Caminho de Destino. 
+1. Quando o status da última execução for *bem-sucedido* , acesse o armazenamento de dados de destino para exibir os dados recebidos. Selecione **Conjuntos de dados** e clique no link no Caminho de Destino. 
 
    ![Conjuntos de dados do consumidor](./media/consumer-datasets.png "Mapeamento de conjunto de dados do consumidor") 
 
@@ -267,15 +267,15 @@ Quando você compartilha dados da fonte SQL, o mapeamento a seguir é usado de S
 | texto |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
-| TINYINT |Int16 |
+| tinyint |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |String |
+| xml |String |
 
 >[!NOTE]
 > 1. Para tipos de dados que são mapeados para o tipo provisório decimal, o instantâneo atualmente dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres. 
-> 1.  Se você estiver compartilhando dados de um banco de dados SQL do Azure para o Azure Synapse Analytics, nem todos os tipos de dado têm suporte. Consulte [tipos de dados de tabela no pool SQL do Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) para obter detalhes. 
+> 1.  Se você estiver compartilhando dados de um banco de dados SQL do Azure para o Azure Synapse Analytics, nem todos os tipos de dado têm suporte. Consulte [tipos de dados de tabela no pool de SQL dedicado](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) para obter detalhes. 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted ou Máscara de Dados Dinâmicos
 Atualmente, o compartilhamento de dados do Azure não oferece suporte a bancos de dados SQL do Azure com Always Encrypted configurado. 

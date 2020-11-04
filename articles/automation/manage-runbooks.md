@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521060"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317095"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importar um runbook
 
-Você pode importar um script do PowerShell ou do Fluxo de Trabalho do PowerShell ( **.ps1**), um runbook gráfico ( **.graphrunbook**) ou um script Python 2 ( **.py**) para criar seu runbook. Você precisa especificar o [tipo de runbook](automation-runbook-types.md) que é criado durante a importação, levando em consideração os aspectos a seguir.
+Você pode importar um script do PowerShell ou do Fluxo de Trabalho do PowerShell ( **.ps1** ), um runbook gráfico ( **.graphrunbook** ) ou um script Python 2 ( **.py** ) para criar seu runbook. Você precisa especificar o [tipo de runbook](automation-runbook-types.md) que é criado durante a importação, levando em consideração os aspectos a seguir.
 
 * Você pode importar um arquivo **.ps1** que não contém um fluxo de trabalho em um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) ou em um [runbook do Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se você importá-lo para um runbook do Fluxo de Trabalho do PowerShell, ele será convertido em um fluxo de trabalho. Nesse caso, os comentários são incluídos no runbook para descrever as alterações feitas.
 
@@ -228,7 +228,7 @@ Para usar um script personalizado:
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando você testa um runbook, a [Versão de rascunho](#publish-a-runbook) é executada e as ações que ela realiza são concluídas. Nenhum histórico de trabalho é criado, mas os fluxos de [saída](automation-runbook-output-and-messages.md#use-the-output-stream) e [aviso e erro](automation-runbook-output-and-messages.md#monitor-message-streams) são exibidos no painel de saída de Teste. As mensagens para o [fluxo detalhado](automation-runbook-output-and-messages.md#monitor-message-streams) serão exibidas no painel Saída somente se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) for definida para `Continue`.
+Quando você testa um runbook, a [Versão de rascunho](#publish-a-runbook) é executada e as ações que ela realiza são concluídas. Nenhum histórico de trabalho é criado, mas os fluxos de [saída](automation-runbook-output-and-messages.md#use-the-output-stream) e [aviso e erro](automation-runbook-output-and-messages.md#working-with-message-streams) são exibidos no painel de saída de Teste. As mensagens para o [fluxo detalhado](automation-runbook-output-and-messages.md#write-output-to-verbose-stream) serão exibidas no painel Saída somente se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) for definida para `Continue`.
 
 Mesmo que a versão de rascunho esteja em execução, o runbook ainda será executado normalmente e executará qualquer ação nos recursos do ambiente. Por esse motivo, você deve testar apenas runbooks nos recursos de não produção.
 
@@ -298,7 +298,7 @@ Você pode filtrar a lista de trabalhos selecionando **Filtrar trabalhos**. Filt
 
 Como alternativa, você pode exibir detalhes de resumo do trabalho para um runbook específico selecionando esse runbook na página Runbooks da sua conta da Automação e selecionando **Trabalhos**. Essa ação apresenta a página Trabalhos. A partir daqui, você pode clicar em um registro de trabalho para exibir seus detalhes e saída.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de tela da página trabalhos.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de tela da página trabalhos com o botão erros realçado.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar status de trabalho usando o PowerShell
 

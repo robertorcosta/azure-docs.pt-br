@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285957"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316675"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
@@ -58,7 +58,7 @@ Quando uma execução é concluída, ela deixa de ser exibida nessa página. Par
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Monitorar execuções usando o widget Jupyter Notebook
 
-Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observar o progresso da execução usando o [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho seja concluído.
+Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observar o progresso da execução usando o [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho seja concluído.
 
 Exiba o widget do Jupyter enquanto aguarda a execução ser concluída.
     
@@ -134,4 +134,3 @@ Experimente estas próximas etapas para aprender a usar o Azure Machine Learning
 * Saiba como [acompanhar experimentos e habilitar logs no designer de Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Veja um exemplo de como registrar o melhor modelo e implantá-lo no tutorial [Treinar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md).
-

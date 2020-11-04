@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a21cee6806c4200a73b35afba73cf04d7ca60308
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 33571283b876506e419ed675dde0988974c3841e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280004"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317870"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Parceiros de business intelligence do Azure Synapse Analytics
 
@@ -41,7 +41,7 @@ Para criar sua solução de data warehouse, você pode escolher entre diferentes
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>A análise de autoatendimento da Tableau ajuda qualquer pessoa a ver e entender os respectivos dados entre os muitos tipos de dados, desde arquivos simples até bancos de dados. A Tableau tem um conector nativo e otimizado para o pool de SQL do Synapse que oferece suporte a análises de dados ativos e de memória. |[Página do produto](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|
 | ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Decision Suite)**<br>O TARGIT Decision Suite fornece uma plataforma de BI que fornece painéis em tempo real, análise de autoatendimento, relatórios amigáveis, recursos móveis impressionantes e tecnologia simples de descoberta de dados. Tudo em uma única solução coesa. A Targit proporciona às empresas a coragem para agir. |[Página do produto](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/targit.targit-decision-suite)<br> |
 | ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Use a pesquisa para obter informações granulares de bilhões de linhas ou deixe que o ia descubra informações de perguntas que você talvez não tenha pensado. A ThoughtSpot ajuda empresários a encontrar insights ocultos nos dados da empresa em segundos. Use a pesquisa para analisar os dados e obter insights automatizados quando necessário.|[Página do produto](https://www.thoughtspot.com)<br>|
-| ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>YellowFin é um fornecedor de BI de nuvem mais classificado para relatórios _ad hoc_ e painéis por Barc; Pesquisa de BI. Conecte-se ao pool de SQL do Synapse; em seguida, crie e compartilhe relatórios e painéis maravilhosos com os premiados recursos colaborativos de BI e informações de localização. |[Página do produto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
+| ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>YellowFin é um fornecedor de BI de nuvem mais classificado para relatórios _ad hoc_ e painéis por Barc; Pesquisa de BI. Conecte-se a um pool SQL dedicado no Azure Synapse Analytics e, em seguida, crie e compartilhe belas relatórios e painéis com os premiados recursos de BI e inteligência de local de colaboração. |[Página do produto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
