@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: d23702a71bababec2e172181c8e75c26241d0460
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7ec7273848b9e8bb5be809b9cf48cdc919d3949
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347791"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307979"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Início Rápido: Crie seu primeiro experimento de ciência de dados no Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -78,7 +78,7 @@ No conjunto de dados de exemplo, cada linha representa uma instância de um auto
 
 ![Exibir os dados de automóveis na janela de visualização de dados](./media/create-experiment/visualize-auto-data.png)
 
-Feche a janela de visualização clicando no "**x**" no canto superior direito.
+Feche a janela de visualização clicando no " **x** " no canto superior direito.
 
 ## <a name="prepare-the-data"></a>Preparar os dados
 
@@ -98,8 +98,8 @@ Primeiro, vamos adicionar um módulo que remova a coluna **normalized-losses** c
 1. Selecione o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e clique em **Iniciar seletor de coluna** no painel **Propriedades**.
 
    - À esquerda, clique em **Com regras**
-   - Em **Começa com**, clique em **Todas as colunas**. Essas regras instruem o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] a passar por todas as colunas (exceto aquelas que estamos prestes a excluir).
-   - Nos menus suspensos, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses**e ela será adicionada à caixa de texto.
+   - Em **Começa com** , clique em **Todas as colunas**. Essas regras instruem o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] a passar por todas as colunas (exceto aquelas que estamos prestes a excluir).
+   - Nos menus suspensos, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses** e ela será adicionada à caixa de texto.
    - Clique no botão de marca de seleção (OK) para fechar o seletor de coluna (no canto inferior direito).
 
      ![Inicie o seletor de coluna e exclua a coluna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
@@ -150,7 +150,7 @@ Vamos criar um modelo que usa um subconjunto dos recursos em nosso conjunto de d
 
 1. Clique em **Com regras**.
 
-1. Em **Começa com**, clique em **Nenhuma coluna**. Na linha do filtro, selecione **Incluir** e **nomes de coluna** e selecione a lista de nomes de coluna na caixa de texto. Esse filtro instrui o módulo a passar somente pelas colunas (recursos) que especificamos.
+1. Em **Começa com** , clique em **Nenhuma coluna**. Na linha do filtro, selecione **Incluir** e **nomes de coluna** e selecione a lista de nomes de coluna na caixa de texto. Esse filtro instrui o módulo a passar somente pelas colunas (recursos) que especificamos.
 
 1. Clique no botão de marca de seleção (OK).
 
@@ -227,11 +227,11 @@ As estatísticas a seguir são mostradas para nosso modelo:
 
 - **MAE** (Média de erros absolutos): a média de erros absolutos (um *erro* é a diferença entre o valor previsto e o valor real).
 - **RMSE** (Raiz quadrada dos erros ao quadrado): a raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados de teste.
-- **Erro absoluto relativo**: a média de erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
-- **Erro ao quadrado relativo**: a média de erros quadrados relativos à diferença quadrada entre os valores reais e a média de todos os valores reais.
-- **Coeficiente de determinação**: também conhecido como o **Valor quadrado R**, esta é uma métrica estatística que indica se o modelo se encaixa bem nos dados.
+- **Erro absoluto relativo** : a média de erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
+- **Erro ao quadrado relativo** : a média de erros quadrados relativos à diferença quadrada entre os valores reais e a média de todos os valores reais.
+- **Coeficiente de determinação** : também conhecido como o **Valor quadrado R** , esta é uma métrica estatística que indica se o modelo se encaixa bem nos dados.
 
-Para cada estatística de erro, menos é melhor. Um valor menor indica que as previsões se aproximam mais dos valores reais. Para **Coeficiente de Determinação**, quanto mais próximo o valor estiver de um (1,0), melhores as previsões.
+Para cada estatística de erro, menos é melhor. Um valor menor indica que as previsões se aproximam mais dos valores reais. Para **Coeficiente de Determinação** , quanto mais próximo o valor estiver de um (1,0), melhores as previsões.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -245,10 +245,10 @@ Neste início rápido, você criou um teste simples usando um conjunto de dados 
 > [Tutorial: Desenvolver uma solução preditiva no Studio (clássico)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model

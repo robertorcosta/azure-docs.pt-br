@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 5ba47522f483b6c9b2a03e99f3608c58e916e010
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f53ff85dd118774b86a0ec25c89f912798a6418d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943323"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125845"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics no Visual Studio Code (versão prévia)
 
@@ -59,11 +59,11 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados qu
 
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**.
 
-3. No painel do **Hub IoT**, insira as seguintes informações:
+3. No painel do **Hub IoT** , insira as seguintes informações:
 
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que deseja usar. |
+   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que você deseja usar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
    |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica na qual você possa hospedar o hub IoT. Use a localização mais próxima dos usuários. |
    |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o hub IoT.   |
@@ -72,7 +72,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados qu
 
 4. Selecione **Avançar: Definir o tamanho e a escala**.
 
-5. Faça uma seleção de **Tipo de preço e escala**. Para este início rápido, selecione a camada **F1 – Gratuita**, caso ela ainda esteja disponível em sua assinatura. Se a camada gratuita não estiver disponível, escolha a camada mais baixa disponível. Para saber mais, confira [Preço do Hub IoT do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
+5. Faça uma seleção de **Tipo de preço e escala**. Para este início rápido, selecione a camada **F1 – Gratuita** , caso ela ainda esteja disponível em sua assinatura. Se a camada gratuita não estiver disponível, escolha a camada mais baixa disponível. Para saber mais, confira [Preço do Hub IoT do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
    ![Dimensionar o hub IoT](./media/quick-create-visual-studio-code/iot-hub-size-and-scale.png)
 
@@ -100,7 +100,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados qu
 
 1. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**.
 
-2. No painel **Criar conta de armazenamento**, insira um nome para a conta de armazenamento, um local e um grupo de recursos. Escolha a mesma localização e o mesmo grupo de recursos do hub IoT criado. Em seguida, selecione **Examinar + criar** para criar a conta.
+2. No painel **Criar conta de armazenamento** , insira um nome para a conta de armazenamento, um local e um grupo de recursos. Escolha a mesma localização e o mesmo grupo de recursos do hub IoT criado. Em seguida, selecione **Examinar + criar** para criar a conta.
 
    ![Criar Conta de Armazenamento](./media/quick-create-visual-studio-code/create-storage-account.png)
 
@@ -108,7 +108,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados qu
 
    ![Visão geral da conta de armazenamento](./media/quick-create-visual-studio-code/blob-storage.png)
 
-4. Na página **Serviço Blob**, selecione **Contêiner** e forneça um nome a ele, por exemplo, **conteiner1**. Mantenha o **Nível de acesso público** como **Particular (sem acesso anônimo)** e selecione **OK**.
+4. Na página **Serviço Blob** , selecione **Contêiner** e forneça um nome a ele, por exemplo, **conteiner1**. Mantenha o **Nível de acesso público** como **Particular (sem acesso anônimo)** e selecione **OK**.
 
    ![Criar um contêiner de blob](./media/quick-create-visual-studio-code/create-blob-container.png)
 
@@ -118,11 +118,11 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados qu
 
    ![Criar um novo projeto](./media/quick-create-visual-studio-code/create-new-project.png)
 
-2. Insira o nome do projeto, como **myASAproj**, e selecione uma pasta para o projeto.
+2. Insira o nome do projeto, como **myASAproj** , e selecione uma pasta para o projeto.
 
     ![Criar um nome de projeto](./media/quick-create-visual-studio-code/create-project-name.png)
 
-3. O novo projeto é adicionado ao seu workspace. Um projeto do Stream Analytics consiste em três pastas: **Entradas**, **Saídas** e **Funções**. Ele também contém o script de consulta **(*.asaql)** , um arquivo **JobConfig.json** e um arquivo de configuração **asaproj.json**.
+3. O novo projeto é adicionado ao seu workspace. Um projeto do Stream Analytics consiste em três pastas: **Entradas** , **Saídas** e **Funções**. Ele também contém o script de consulta **(*.asaql)** , um arquivo **JobConfig.json** e um arquivo de configuração **asaproj.json**.
 
     O arquivo de configuração **asaproj.json** contém as entradas, saídas e informações do arquivo de configuração do trabalho necessárias para enviar o trabalho do Stream Analytics ao Azure.
 
@@ -281,4 +281,4 @@ Para saber mais sobre as Ferramentas do Azure Stream Analytics para Visual Studi
 
 * [Usar o Visual Studio Code para exibir trabalhos do Azure Stream Analytics](visual-studio-code-explore-jobs.md)
 
-* [Configurar pipelines da CI/CD usando o pacote npm](setup-cicd-vs-code.md)
+* [Configurar pipelines da CI/CD usando o pacote npm](./cicd-overview.md)

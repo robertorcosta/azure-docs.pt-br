@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495994"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310169"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 
@@ -83,7 +83,7 @@ A tabela a seguir resume as principais diferenças entre o ML Studio (clássico)
 | Recurso | ML Studio (clássico) | Azure Machine Learning |
 |---| --- | --- |
 | Interface de "arrastar e soltar" | Experiência clássica | Experiência atualizada – [Designer do Azure Machine Learning](concept-designer.md)| 
-| SDKs de código | Sem suporte | Totalmente integrado com as SDKs para [R](tutorial-1st-r-experiment.md) e para [Python do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/) |
+| SDKs de código | Sem suporte | Totalmente integrado com as SDKs para [R](tutorial-1st-r-experiment.md) e para [Python do Azure Machine Learning](/python/api/overview/azure/ml/) |
 | Experimento | Escalável (limite de 10 GB para dados de treinamento) | Escala com destino de computação |
 | Destinos de computação de treinamento | Destino de computação proprietário, apenas suporte à CPU | Ampla gama de [destinos de computação de treinamento](concept-compute-target.md#train) personalizáveis. Inclui suporte à GPU e à CPU | 
 | Destinos de computação de implantação | Formato do serviço Web proprietário, não personalizável | Ampla gama de [destinos de computação de implantação](concept-compute-target.md#deploy) personalizáveis. Inclui suporte à GPU e à CPU |
@@ -103,4 +103,3 @@ Visite o [estúdio](https://ml.azure.com) ou explore as diferentes opções de c
   + [Use blocos de anotações do Jupyter em uma instância de computação para treinar e implantar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Usar o machine learning automatizado para treinar e implantar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Usar o designer para treinar e implantar modelos](tutorial-designer-automobile-price-train-score.md)
-

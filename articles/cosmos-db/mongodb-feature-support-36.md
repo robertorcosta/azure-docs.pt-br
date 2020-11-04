@@ -7,14 +7,15 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: cd2d9ddf17cf100e1a211785b9cc62c9f08352f9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 399c078481fb205221a683e44f74b4d70c383cbe
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282429"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096556"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e recursos compatíveis
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Você pode se comunicar com a API do Azure Cosmos DB para MongoDB usando qualquer um dos [drivers](https://docs.mongodb.org/ecosystem/drivers) de cliente de software livre do MongoDB. A API do Azure Cosmos DB para MongoDB permite o uso de drivers de cliente existentes ao aderir ao [protocolo de transmissão](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) do MongoDB.
 
@@ -137,7 +138,7 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 |$lookup    |    Sim|
 |$out        |Sim|
 |$indexStats|        Não|
-|$facet    |Sim|
+|$facet    |Yes|
 |$bucket|    Não|
 |$bucketAuto|    Não|
 |$sortByCount|    Sim|
@@ -495,10 +496,10 @@ $nearSphere |  Sim |
 $geometry |  Sim |
 $minDistance | Sim |
 $maxDistance | Sim |
-$center | Não |
-$centerSphere | Não |
-$box | Não |
-$polygon |  Não |
+$center | No |
+$centerSphere | No |
+$box | No |
+$polygon |  No |
 
 ## <a name="cursor-methods"></a>Métodos de cursor
 

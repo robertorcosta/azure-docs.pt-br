@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: aff9bf83795043e0176d7a3f155844c8dbe0281a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 034f1497cb6262ca86cd440b914f3ae67356eef9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87337459"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124604"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio
 
@@ -28,7 +28,7 @@ Este guia de início rápido mostra como criar e executar um trabalho do Stream 
 
 * Instale o Visual Studio 2019, Visual Studio 2015 ou Visual Studio 2013 Update 4. As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte. Não há suporte para a Edição Express.
 
-* Siga as [instruções de instalação](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) para instalar as ferramentas do Stream Analytics para o Visual Studio.
+* Siga as [instruções de instalação](./stream-analytics-tools-for-visual-studio-install.md) para instalar as ferramentas do Stream Analytics para o Visual Studio.
 
 ## <a name="prepare-the-input-data"></a>Preparar os dados de entrada
 
@@ -38,7 +38,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
 
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**.
 
-3. No painel do **Hub IoT**, insira as seguintes informações:
+3. No painel do **Hub IoT** , insira as seguintes informações:
    
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
@@ -51,7 +51,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
 
 4. Selecione **Avançar: Definir o tamanho e a escala**.
 
-5. Escolha **Tipo de preço e escala**. Para este início rápido, selecione a camada **F1 – Gratuita**, caso ela ainda esteja disponível em sua assinatura. Se a camada gratuita não estiver disponível, escolha a camada mais baixa disponível. Para obter mais informações, consulte [Preço do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
+5. Escolha **Tipo de preço e escala**. Para este início rápido, selecione a camada **F1 – Gratuita** , caso ela ainda esteja disponível em sua assinatura. Se a camada gratuita não estiver disponível, escolha a camada mais baixa disponível. Para obter mais informações, consulte [Preço do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
    ![Dimensionar a solução do Hub IoT](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
 
@@ -69,7 +69,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
 
 1. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**.
 
-2. No painel **Criar conta de armazenamento**, insira um nome para a conta de armazenamento, um local e um grupo de recursos. Escolha o mesmo local e grupo de recursos do Hub IoT criado. Clique em **Revisar + criar** para criar a conta.
+2. No painel **Criar conta de armazenamento** , insira um nome para a conta de armazenamento, um local e um grupo de recursos. Escolha o mesmo local e grupo de recursos do Hub IoT criado. Clique em **Revisar + criar** para criar a conta.
 
    ![Criar Conta de Armazenamento](./media/stream-analytics-quick-create-portal/create-storage-account.png)
 
@@ -77,7 +77,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
 
    ![Visão geral da conta de armazenamento](./media/stream-analytics-quick-create-portal/blob-storage.png)
 
-4. Na página **Serviço Blob**, selecione **Contêiner** e forneça um nome a ele, por exemplo, *conteiner1*. Deixe o **Nível de acesso público** como **Particular (sem acesso anônimo)** e selecione **OK**.
+4. Na página **Serviço Blob** , selecione **Contêiner** e forneça um nome a ele, por exemplo, *conteiner1*. Deixe o **Nível de acesso público** como **Particular (sem acesso anônimo)** e selecione **OK**.
 
    ![Criar contêiner de blobs](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
@@ -100,13 +100,13 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
 
 ## <a name="choose-the-required-subscription"></a>Escolha a assinatura necessária
 
-1. No Visual Studio, no menu **Exibir**, selecione **Gerenciador de Servidores**.
+1. No Visual Studio, no menu **Exibir** , selecione **Gerenciador de Servidores**.
 
-2. Clique com o botão direito do mouse em **Azure**, selecione **Conectar-se à assinatura do Microsoft Azure** e, em seguida, entre com a conta do Azure.
+2. Clique com o botão direito do mouse em **Azure** , selecione **Conectar-se à assinatura do Microsoft Azure** e, em seguida, entre com a conta do Azure.
 
 ## <a name="define-input"></a>Definir entrada
 
-1. No **Gerenciador de Soluções**, expanda o nó **Entradas** e clique duas vezes em **Input.json**.
+1. No **Gerenciador de Soluções** , expanda o nó **Entradas** e clique duas vezes em **Input.json**.
 
 2. Preencha a **Configuração de entrada do Stream Analytics** com os seguintes valores:
 
@@ -125,7 +125,7 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
 
 ## <a name="define-output"></a>Definir saída
 
-1. No **Gerenciador de Soluções**, expanda o nó **Saídas** e clique duas vezes em **Output.json**.
+1. No **Gerenciador de Soluções** , expanda o nó **Saídas** e clique duas vezes em **Output.json**.
 
 2. Preencha a **Configuração de saída do Stream Analytics** com os seguintes valores:
 
@@ -158,9 +158,9 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
 
 ## <a name="submit-a-stream-analytics-query-to-azure"></a>Enviar uma consulta do Stream Analytics para o Azure
 
-1. No **Editor de Consultas**, selecione **Enviar para o Azure** no editor de scripts.
+1. No **Editor de Consultas** , selecione **Enviar para o Azure** no editor de scripts.
 
-2. Selecione **Criar um novo trabalho do Azure Stream Analytics** e insira um **Nome de trabalho**. Escolha a **Assinatura**, **Grupo de recursos**, e o **Local** usados no começo do Início Rápido.
+2. Selecione **Criar um novo trabalho do Azure Stream Analytics** e insira um **Nome de trabalho**. Escolha a **Assinatura** , **Grupo de recursos** , e o **Local** usados no começo do Início Rápido.
 
    ![Enviar trabalho para o Azure](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
@@ -188,7 +188,7 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
 
    ![Executar trabalho do Stream Analytics](./media/stream-analytics-quick-create-vs/stream-analytics-job-running.png)
 
-4. Para exibir os resultados, no menu **Exibição**, selecione **Cloud Explorer** e navegue até a conta de armazenamento em seu grupo de recursos. Em **Contêineres de Blobs**, clique duas vezes em **container1**e, em seguida, n caminho do arquivo de **saída**.
+4. Para exibir os resultados, no menu **Exibição** , selecione **Cloud Explorer** e navegue até a conta de armazenamento em seu grupo de recursos. Em **Contêineres de Blobs** , clique duas vezes em **container1** e, em seguida, n caminho do arquivo de **saída**.
 
    ![Exibir os resultados](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 
@@ -198,7 +198,7 @@ Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de s
 
 1. No menu à esquerda no Portal do Azure, selecione **Grupos de recursos** e selecione o nome do recurso criado.  
 
-2. Em sua página de grupo de recursos, selecione **Excluir**, digite o nome do recurso para excluir na caixa de texto e selecione **Excluir**.
+2. Em sua página de grupo de recursos, selecione **Excluir** , digite o nome do recurso para excluir na caixa de texto e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

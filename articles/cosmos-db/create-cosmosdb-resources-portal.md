@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 97bb7db434322609630d97b7eff84e08da72c11c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 127b491da3e01e88c90e689e7dbcc9052ae4392f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486643"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099735"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Início Rápido: Criar uma conta, um banco de dados, um contêiner e itens do Azure Cosmos usando o portal do Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure portal](create-cosmosdb-resources-portal.md)
@@ -44,7 +45,7 @@ Vá para o [portal do Azure](https://portal.azure.com/) para criar uma conta do 
 
    :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="O painel Bancos de Dados do portal do Azure":::
 
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 1. Na página **Criar Conta do Azure Cosmos DB** , insira as configurações básicas da nova conta do Azure Cosmos. 
 
     |Configuração|Valor|Descrição |
@@ -70,28 +71,28 @@ Vá para o [portal do Azure](https://portal.azure.com/) para criar uma conta do 
 > - Redundância geográfica
 > - Gravações de várias regiões
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="O painel Bancos de Dados do portal do Azure":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="A página da nova conta do Azure Cosmos DB":::
 
-1. Selecione **Examinar + criar** . Você pode ignorar as seções **Rede** e **Marcas** .
+1. Selecione **Examinar + criar**. Você pode ignorar as seções **Rede** e **Marcas**.
 
-1. Examine as configurações da conta e selecione **Criar** . São necessários alguns minutos para criar a conta. Aguarde até que a página do portal exiba **Sua implantação está concluída** . 
+1. Examine as configurações da conta e selecione **Criar**. São necessários alguns minutos para criar a conta. Aguarde até que a página do portal exiba **Sua implantação está concluída**. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel Bancos de Dados do portal do Azure":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel Notificações do portal do Azure":::
 
 1. Selecione **Ir para recurso** para ir para a página da conta do Azure Cosmos DB. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="O painel Bancos de Dados do portal do Azure":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="A página da conta do Azure Cosmos DB":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Adicionar um banco de dados e um contêiner 
 
 Você pode usar o Data Explorer no portal do Azure para criar um banco de dados e um contêiner. 
 
-1.  Selecione **Data Explorer** no painel de navegação à esquerda na página de sua conta do Azure Cosmos DB e, em seguida, selecione **Novo Contêiner** . 
+1.  Selecione **Data Explorer** no painel de navegação à esquerda na página de sua conta do Azure Cosmos DB e, em seguida, selecione **Novo Contêiner**. 
     
-    Talvez seja necessário rolar a página para a direita para ver a janela **Adicionar Contêiner** .
+    Talvez seja necessário rolar a página para a direita para ver a janela **Adicionar Contêiner**.
     
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="O painel Bancos de Dados do portal do Azure":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="O Data Explorer do portal do Azure, painel Adicionar Contêiner":::
     
 1.  No painel **Adicionar contêiner** , insira as configurações do novo contêiner.
     
@@ -105,15 +106,15 @@ Você pode usar o Data Explorer no portal do Azure para criar um banco de dados 
     
     Não adicione **Chaves exclusivas** para este exemplo. Chaves exclusivas permitem que você adicione uma camada de integridade de dados ao banco de dados garantindo a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, veja [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
     
-1.  Selecione **OK** . O Data Explorer exibe o novo banco de dados e o contêiner que você criou.
+1.  Selecione **OK**. O Data Explorer exibe o novo banco de dados e o contêiner que você criou.
 
 ## <a name="add-data-to-your-database"></a>Adicionar dados a seu banco de dados
 
 Adicione dados a seu novo banco de dados usando o Data Explorer.
 
-1. No **Data Explorer** , expanda o banco de dados **ToDoList** e, em seguida, expanda o contêiner **Itens** . Em seguida, selecione **Itens** e, em seguida, selecione **Novo Item** . 
+1. No **Data Explorer** , expanda o banco de dados **ToDoList** e, em seguida, expanda o contêiner **Itens**. Em seguida, selecione **Itens** e, em seguida, selecione **Novo Item**. 
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="O painel Bancos de Dados do portal do Azure":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Criar documentos no Data Explorer no portal do Azure":::
    
 1. Adicione a seguinte estrutura ao documento no lado direito do painel **Documentos** :
 
@@ -127,9 +128,9 @@ Adicione dados a seu novo banco de dados usando o Data Explorer.
      }
      ```
 
-1. Clique em **Salvar** .
+1. Clique em **Salvar**.
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="O painel Bancos de Dados do portal do Azure":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Copie nos dados json e selecione em Salvar no Data Explorer no portal do Azure":::
    
 1. Selecione **Novo Documento** novamente e crie e salve um outro documento com uma única `id` e quaisquer outras propriedades e valores desejados. Os documentos podem ter qualquer estrutura, pois o Azure Cosmos DB não impõe nenhum esquema a seus dados.
 
@@ -144,7 +145,7 @@ Adicione dados a seu novo banco de dados usando o Data Explorer.
 Se você quiser excluir apenas o banco de dados e usar a conta do Azure Cosmos no futuro, poderá excluir o banco de dados com as seguintes etapas:
 
 * Navegue até a conta do Azure Cosmos.
-* Abra **Data Explorer** , clique com o botão direito do mouse no banco de dados que você deseja excluir e selecione **Excluir Banco de Dados** .
+* Abra **Data Explorer** , clique com o botão direito do mouse no banco de dados que você deseja excluir e selecione **Excluir Banco de Dados**.
 * Insira a ID/nome do banco de dados para confirmar a operação de exclusão. 
 
 ## <a name="next-steps"></a>Próximas etapas
