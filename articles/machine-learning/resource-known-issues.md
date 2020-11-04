@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 10/02/2020
-ms.openlocfilehash: d214a746a4eb5035e007136da80f4c69ae1dd1c8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204447"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314753"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -143,13 +143,13 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
 
     Como alternativa, você pode usar scripts de inicialização se continuar enfrentando problemas de instalação com bibliotecas do Python. Essa abordagem não tem suporte oficial. Para obter mais informações, consulte [scripts de inicialização no escopo do cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Erro `Timedelta` de importação `pandas._libs.tslibs` do databricks: não é possível importar o nome de **: se você vir esse erro ao usar o aprendizado de máquina automatizado, execute as duas linhas a seguir no bloco de anotações:
+* **Erro `Timedelta` de importação `pandas._libs.tslibs` do databricks: não é possível importar o nome de** : se você vir esse erro ao usar o aprendizado de máquina automatizado, execute as duas linhas a seguir no bloco de anotações:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
     ```
 
-* **Erro de importação do databricks: nenhum módulo chamado ' pandas. Core. Indexes '**: se você vir esse erro ao usar o aprendizado de máquina automatizado:
+* **Erro de importação do databricks: nenhum módulo chamado ' pandas. Core. Indexes '** : se você vir esse erro ao usar o aprendizado de máquina automatizado:
 
     1. Execute este comando para instalar dois pacotes no cluster de Azure Databricks:
     
@@ -162,7 +162,7 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
     
     Se essas etapas não resolverem o problema, tente reiniciar o cluster.
 
-* **Databricks FailToSendFeather**: se você vir um `FailToSendFeather` erro ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
+* **Databricks FailToSendFeather** : se você vir um `FailToSendFeather` erro ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
     
     * Atualize `azureml-sdk[automl]` o pacote para a versão mais recente.
     * Adicione a `azureml-dataprep` versão 1.1.8 ou superior.
@@ -173,11 +173,11 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
 > [!WARNING]
 > Não há suporte para a movimentação do workspace do Azure Machine Learning para outra assinatura nem para a movimentação da assinatura proprietária para um novo locatário. Se você fizer isso, poderá causar erros.
 
-* **Portal do Azure**: 
+* **Portal do Azure** : 
   * Se você ir diretamente para seu espaço de trabalho de um link de compartilhamento do SDK ou do portal do Azure, não será possível exibir a página de **visão geral** padrão que tem informações de assinatura na extensão. Nesse cenário, você também não pode alternar para outro espaço de trabalho. Para exibir outro espaço de trabalho, vá diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquise o nome do espaço de trabalho.
   * Todos os ativos (conjuntos de valores, testes, computações e assim por diante) estão disponíveis apenas no [Azure Machine Learning Studio](https://ml.azure.com). Eles *não* estão disponíveis na portal do Azure.
 
-* **Navegadores com suporte no portal da Web do Azure Machine Learning Studio**: Recomendamos que você use o navegador mais atualizado que é compatível com seu sistema operacional. Há suporte para os seguintes navegadores:
+* **Navegadores com suporte no portal da Web do Azure Machine Learning Studio** : Recomendamos que você use o navegador mais atualizado que é compatível com seu sistema operacional. Há suporte para os seguintes navegadores:
   * Microsoft Edge (o novo Microsoft Edge, versão mais recente. Não é herdado do Microsoft Edge)
   * Safari (última versão, apenas Mac)
   * Chrome (última versão)
@@ -185,9 +185,9 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
 
 ## <a name="set-up-your-environment"></a>Configure seu ambiente
 
-* **Problemas ao criar AmlCompute**: há uma chance rara de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA talvez não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
+* **Problemas ao criar AmlCompute** : há uma chance rara de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA talvez não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
 
-* **Atualmente, o registro de contêiner do Azure não dá suporte a caracteres Unicode em nomes de grupos de recursos**: é possível que as solicitações ACR falhem porque o nome do grupo de recursos contém caracteres Unicode. Para atenuar esse problema, é recomendável criar um ACR em um grupo de recursos nomeado de forma diferente.
+* **Atualmente, o registro de contêiner do Azure não dá suporte a caracteres Unicode em nomes de grupos de recursos** : é possível que as solicitações ACR falhem porque o nome do grupo de recursos contém caracteres Unicode. Para atenuar esse problema, é recomendável criar um ACR em um grupo de recursos nomeado de forma diferente.
 
 ## <a name="work-with-data"></a>Trabalhar com dados
 
@@ -199,7 +199,7 @@ Se você estiver usando o compartilhamento de arquivos para outras cargas de tra
 
 ### <a name="passing-data-as-input"></a>Passando dados como entrada
 
-*  **TypeError: fileNotFound: não há tal arquivo ou diretório**: esse erro ocorrerá se o caminho do arquivo fornecido não for onde o arquivo está localizado. Você precisa certificar-se de que a maneira como você se refere ao arquivo é consistente com o local em que você montou seu conjunto de seu destino de computação. Para garantir um estado determinístico, é recomendável usar o caminho abstrato ao montar um conjunto de um DataSet para um destino de computação. Por exemplo, no código a seguir, montamos o DataSet na raiz do sistema de arquivos do destino de computação, `/tmp` . 
+*  **TypeError: fileNotFound: não há tal arquivo ou diretório** : esse erro ocorrerá se o caminho do arquivo fornecido não for onde o arquivo está localizado. Você precisa certificar-se de que a maneira como você se refere ao arquivo é consistente com o local em que você montou seu conjunto de seu destino de computação. Para garantir um estado determinístico, é recomendável usar o caminho abstrato ao montar um conjunto de um DataSet para um destino de computação. Por exemplo, no código a seguir, montamos o DataSet na raiz do sistema de arquivos do destino de computação, `/tmp` . 
     
     ```python
     # Note the leading / in '/tmp/dataset'
@@ -211,7 +211,7 @@ Se você estiver usando o compartilhamento de arquivos para outras cargas de tra
     Se você não incluir a barra "/" à esquerda, será necessário prefixar o diretório de trabalho, por exemplo, `/mnt/batch/.../tmp/dataset` no destino de computação para indicar onde você deseja que o conjunto de os seja montado.
 
 ### <a name="mount-dataset"></a>Montar conjunto de um
-* **Falha na inicialização do conjunto de data: aguardando o ponto de montagem estar pronto**: a lógica foi adicionada novamente `azureml-sdk >=1.12.0` para atenuar o problema. Se você estiver em versões anteriores do azureml-SDK, atualize para a versão mais recente. Se você já estiver ativado `azureml-sdk>=1.12.0` , recrie seu ambiente para que você tenha o patch mais recente com a correção.
+* **Falha na inicialização do conjunto de data: aguardando o ponto de montagem estar pronto** : a lógica foi adicionada novamente `azureml-sdk >=1.12.0` para atenuar o problema. Se você estiver em versões anteriores do azureml-SDK, atualize para a versão mais recente. Se você já estiver ativado `azureml-sdk>=1.12.0` , recrie seu ambiente para que você tenha o patch mais recente com a correção.
 
 ### <a name="data-labeling-projects"></a>Projetos de rotulagem de dados
 
@@ -244,7 +244,7 @@ Limitações e problemas conhecidos para monitores de descompasso de dados:
     1. Na guia **monitores do conjunto** de testes, selecione o link experimento para verificar o status da execução.  Esse link está na extrema direita da tabela.
     1. Se a execução for concluída com êxito, verifique os logs de driver para ver quantas métricas foram geradas ou se há alguma mensagem de aviso.  Localize os logs de driver na guia **saída + logs** depois de clicar em um experimento.
 
-* Se a função SDK não `backfill()` gerar a saída esperada, isso pode ser devido a um problema de autenticação.  Quando você cria a computação para passar para essa função, não use `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) como o seguinte para criar a computação que você passa para essa `backfill()` função: 
+* Se a função SDK não `backfill()` gerar a saída esperada, isso pode ser devido a um problema de autenticação.  Quando você cria a computação para passar para essa função, não use `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, use [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) como o seguinte para criar a computação que você passa para essa `backfill()` função: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -273,7 +273,7 @@ time.sleep(600)
 
 Os logs de pontos de extremidade em tempo real são dados do cliente. Para solução de problemas de ponto de extremidade em tempo real, você pode usar o código a seguir para habilitar logs. 
 
-Veja mais detalhes sobre como monitorar pontos de extremidade de serviço Web neste [artigo](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+Veja mais detalhes sobre como monitorar pontos de extremidade de serviço Web neste [artigo](./how-to-enable-app-insights.md#query-logs-for-deployed-models).
 
 ```python
 from azureml.core import Workspace
@@ -292,27 +292,27 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="train-models"></a>Treinar modelos
 
-* **ModuleErrors (nenhum módulo chamado)**: se você estiver executando o ModuleErrors ao enviar experimentos no Azure ml, significa que o script de treinamento está esperando que um pacote seja instalado, mas não adicionado. Depois de fornecer o nome do pacote, o Azure ML instala o pacote no ambiente usado para sua execução de treinamento. 
+* **ModuleErrors (nenhum módulo chamado)** : se você estiver executando o ModuleErrors ao enviar experimentos no Azure ml, significa que o script de treinamento está esperando que um pacote seja instalado, mas não adicionado. Depois de fornecer o nome do pacote, o Azure ML instala o pacote no ambiente usado para sua execução de treinamento. 
 
     Se você estiver usando estimadores para enviar experimentos, poderá especificar um nome de pacote por meio do `pip_packages` `conda_packages` parâmetro ou no estimador com base em qual fonte você deseja instalar o pacote. Você também pode especificar um arquivo yml com todas as suas dependências usando `conda_dependencies_file` ou listar todos os seus requisitos de Pip em um arquivo txt usando o `pip_requirements_file` parâmetro. Se você tiver seu próprio objeto de ambiente do Azure ML que deseja substituir a imagem padrão usada pelo estimador, você poderá especificar esse ambiente por meio do `environment` parâmetro do Construtor estimador.
 
     O Azure ML também fornece avaliadores específicos da estrutura para TensorFlow, PyTorch, chainer e SKLearn. Usar esses estimadores garantirá que as principais dependências da estrutura sejam instaladas em seu nome no ambiente usado para treinamento. Você tem a opção de especificar dependências extras, conforme descrito acima. 
  
     As imagens do Docker mantidas pelo Azure ML e seu conteúdo podem ser vistos em [contêineres do AzureML](https://github.com/Azure/AzureML-Containers).
-    As dependências específicas à estrutura são listadas no respectivo Framework Documentation- [Chainr](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks).
+    As dependências específicas à estrutura são listadas no respectivo Framework Documentation- [Chainr](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks).
 
     > [!Note]
     > Se você considerar que um pacote específico é comum o suficiente para ser adicionado em ambientes e imagens mantidas do Azure ML, gere um problema do GitHub nos [contêineres do AzureML](https://github.com/Azure/AzureML-Containers). 
  
-* **NameError (nome não definido), AttributeError (objeto sem atributo)**: essa exceção deve vir de seus scripts de treinamento. Você pode examinar os arquivos de log de portal do Azure para obter mais informações sobre o nome específico não definido ou erro de atributo. No SDK, você pode usar `run.get_details()` para examinar a mensagem de erro. Isso também listará todos os arquivos de log gerados para sua execução. Certifique-se de dar uma olhada no script de treinamento e corrija o erro antes de reenviar sua execução. 
+* **NameError (nome não definido), AttributeError (objeto sem atributo)** : essa exceção deve vir de seus scripts de treinamento. Você pode examinar os arquivos de log de portal do Azure para obter mais informações sobre o nome específico não definido ou erro de atributo. No SDK, você pode usar `run.get_details()` para examinar a mensagem de erro. Isso também listará todos os arquivos de log gerados para sua execução. Certifique-se de dar uma olhada no script de treinamento e corrija o erro antes de reenviar sua execução. 
 
-* O **Horovod foi desligado**: na maioria dos casos, se você encontrar "AbortedError: Horovod foi desligado", essa exceção significa que houve uma exceção subjacente em um dos processos que fizeram com que o Horovod fosse desligado. Cada classificação no trabalho da MPI obtém seu próprio arquivo de log dedicado no Azure Machine Learning. Esses logs são nomeados `70_driver_logs`. No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que fez com que o Horovod fosse desligado, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos de driver_log. Um desses arquivos fornecerá a exceção subjacente real. 
+* O **Horovod foi desligado** : na maioria dos casos, se você encontrar "AbortedError: Horovod foi desligado", essa exceção significa que houve uma exceção subjacente em um dos processos que fizeram com que o Horovod fosse desligado. Cada classificação no trabalho da MPI obtém seu próprio arquivo de log dedicado no Azure Machine Learning. Esses logs são nomeados `70_driver_logs`. No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que fez com que o Horovod fosse desligado, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos de driver_log. Um desses arquivos fornecerá a exceção subjacente real. 
 
-* **Execução ou teste de exclusão**: os experimentos podem ser arquivados usando o método [experimento. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) ou da exibição guia do experimento no cliente Azure Machine Learning Studio por meio do botão "arquivo de teste". Essa ação oculta o experimento de consultas de lista e exibições, mas não a exclui.
+* **Execução ou teste de exclusão** : os experimentos podem ser arquivados usando o método [experimento. Archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) ou da exibição guia do experimento no cliente Azure Machine Learning Studio por meio do botão "arquivo de teste". Essa ação oculta o experimento de consultas de lista e exibições, mas não a exclui.
 
     Atualmente, não há suporte para a exclusão permanente de execuções ou experimentos individuais. Para obter mais informações sobre como excluir ativos de espaço de trabalho, consulte [exportar ou excluir seus dados de espaço de trabalho do serviço Machine Learning](how-to-export-delete-data.md).
 
-* O **documento de métrica é muito grande**: Azure Machine Learning tem limites internos sobre o tamanho dos objetos de métrica que podem ser registrados de uma só vez a partir de uma execução de treinamento. Se você encontrar o erro "o Documento de Métrica é muito grande" ao registrar em log uma métrica com valor de lista, tente dividir a lista em partes menores, por exemplo:
+* O **documento de métrica é muito grande** : Azure Machine Learning tem limites internos sobre o tamanho dos objetos de métrica que podem ser registrados de uma só vez a partir de uma execução de treinamento. Se você encontrar o erro "o Documento de Métrica é muito grande" ao registrar em log uma métrica com valor de lista, tente dividir a lista em partes menores, por exemplo:
 
     ```python
     run.log_list("my metric name", my_metric[:N])
@@ -323,7 +323,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Machine Learning automatizado
 
-* A **atualização recente das dependências do AutoML para versões mais recentes causará a compatibilidade**: a partir da versão 1.13.0 do SDK, os modelos não serão carregados em SDKs mais antigos devido à incompatibilidade entre as versões mais antigas que fixamos em nossos pacotes anteriores e as versões mais recentes que nós fixamos agora. Você verá um erro como:
+* A **atualização recente das dependências do AutoML para versões mais recentes causará a compatibilidade** : a partir da versão 1.13.0 do SDK, os modelos não serão carregados em SDKs mais antigos devido à incompatibilidade entre as versões mais antigas que fixamos em nossos pacotes anteriores e as versões mais recentes que nós fixamos agora. Você verá um erro como:
   * Módulo não encontrado: ex. `No module named 'sklearn.decomposition._truncated_svd` ,
   * Erros de importação: ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
   * Erros de atributo: ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -343,9 +343,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* A **previsão da Pontuação do R2 é sempre zero**: esse problema ocorre se os dados de treinamento fornecidos tiverem uma série temporal que contém o mesmo valor para os últimos `n_cv_splits`  +  `forecasting_horizon` pontos de dados. Se esse padrão for esperado em sua série temporal, você poderá alternar a métrica primária para um erro de quadrado médio de raiz normalizado.
+* A **previsão da Pontuação do R2 é sempre zero** : esse problema ocorre se os dados de treinamento fornecidos tiverem uma série temporal que contém o mesmo valor para os últimos `n_cv_splits`  +  `forecasting_horizon` pontos de dados. Se esse padrão for esperado em sua série temporal, você poderá alternar a métrica primária para um erro de quadrado médio de raiz normalizado.
  
-* **TensorFlow**: a partir da versão 1.5.0 do SDK, o Machine Learning automatizado não instala modelos TensorFlow por padrão. Para instalar o TensorFlow e usá-lo com seus experimentos de ML automatizados, instale TensorFlow = = 1.12.0 via CondaDependecies. 
+* **TensorFlow** : a partir da versão 1.5.0 do SDK, o Machine Learning automatizado não instala modelos TensorFlow por padrão. Para instalar o TensorFlow e usá-lo com seus experimentos de ML automatizados, instale TensorFlow = = 1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -353,18 +353,18 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
    run_config = RunConfiguration()
    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
   ```
-* **Gráficos de experimento**: os gráficos de classificação binária (recall de precisão, Roc, curva de lucro, etc.) mostrados em iterações de experimento de ml automatizadas não são renderizados corretamente na interface do usuário desde 4/12. Atualmente, as plotagens de gráfico estão mostrando resultados inversos, onde os modelos de melhor desempenho são mostrados com resultados mais baixos. Uma resolução está sob investigação.
+* **Gráficos de experimento** : os gráficos de classificação binária (recall de precisão, Roc, curva de lucro, etc.) mostrados em iterações de experimento de ml automatizadas não são renderizados corretamente na interface do usuário desde 4/12. Atualmente, as plotagens de gráfico estão mostrando resultados inversos, onde os modelos de melhor desempenho são mostrados com resultados mais baixos. Uma resolução está sob investigação.
 
-* **Databricks cancelar uma execução automatizada do Machine Learning**: quando você usa recursos automatizados de aprendizado de máquina no Azure Databricks, para cancelar uma execução e iniciar uma nova execução de experimento, reinicie o cluster Azure Databricks.
+* **Databricks cancelar uma execução automatizada do Machine Learning** : quando você usa recursos automatizados de aprendizado de máquina no Azure Databricks, para cancelar uma execução e iniciar uma nova execução de experimento, reinicie o cluster Azure Databricks.
 
-* **Databricks >10 iterações para o aprendizado de máquina automatizado**: em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações, defina `show_output` como `False` ao enviar a execução.
+* **Databricks >10 iterações para o aprendizado de máquina automatizado** : em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações, defina `show_output` como `False` ao enviar a execução.
 
-* **Widget do databricks para o SDK do Azure Machine Learning e o aprendizado de máquina automatizado**: o widget do sdk do Azure Machine Learning não tem suporte em um bloco de anotações do databricks porque os notebooks não podem analisar widgets HTML. Você pode exibir o widget no portal usando este código Python na célula Azure Databricks notebook:
+* **Widget do databricks para o SDK do Azure Machine Learning e o aprendizado de máquina automatizado** : o widget do sdk do Azure Machine Learning não tem suporte em um bloco de anotações do databricks porque os notebooks não podem analisar widgets HTML. Você pode exibir o widget no portal usando este código Python na célula Azure Databricks notebook:
 
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
-* **automl_setup falha**: 
+* **automl_setup falha** : 
     * No Windows, execute automl_setup de um prompt do Anaconda. Use este link para [instalar o Miniconda](https://docs.conda.io/en/latest/miniconda.html).
     * Verifique se o Conda 64-bit está instalado, em vez de 32 bits executando o `conda info` comando. O `platform` deve ser `win-64` para Windows ou `osx-64` para Mac.
     * Verifique se o Conda 4.4.10 ou posterior está instalado. Você pode verificar a versão com o comando `conda -V` . Se você tiver uma versão anterior instalada, poderá atualizá-la usando o comando: `conda update conda` .
@@ -372,36 +372,36 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
       *  Se o `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` erro for encontrado, instale o princípios de Build usando o comando `sudo apt-get install build-essential` .
       * Passe um novo nome como o primeiro parâmetro para automl_setup para criar um novo ambiente Conda. Exibir ambientes Conda existentes usando `conda env list` e removê-los com o `conda env remove -n <environmentname>` .
       
-* **automl_setup_linux. sh falhará**: se automl_setup_linus. sh falhar em Ubuntu Linux com o erro: `unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux. sh falhará** : se automl_setup_linus. sh falhar em Ubuntu Linux com o erro: `unable to execute 'gcc': No such file or directory`-
   1. Verifique se as portas de saída 53 e 80 estão habilitadas. Em uma VM do Azure, você pode fazer isso na portal do Azure selecionando a VM e clicando em rede.
   2. Execute o comando: `sudo apt-get update`
   3. Execute o comando: `sudo apt-get install build-essential --fix-missing`
   4. Executar `automl_setup_linux.sh` novamente
 
-* **Configuration. ipynb falha**:
+* **Configuration. ipynb falha** :
   * Para Conda locais, primeiro verifique se automl_setup foi executado com êxito.
   * Verifique se o subscription_id está correto. Localize os subscription_id na portal do Azure selecionando todos os serviços e, em seguida, assinaturas. Os caracteres "<" e ">" não devem ser incluídos no valor de subscription_id. Por exemplo, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` tem o formato válido.
   * Verifique se o acesso de colaborador ou proprietário à assinatura.
   * Verifique se a região é uma das regiões com suporte:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` , `southcentralus` .
   * Verifique o acesso à região usando o portal do Azure.
   
-* **falha ao importar AutoMLConfig**: houve alterações de pacote na versão do Machine Learning automatizada 1.0.76, que requer que a versão anterior seja desinstalada antes de atualizar para a nova versão. Se o `ImportError: cannot import name AutoMLConfig` for encontrado após a atualização de uma versão do SDK antes de v 1.0.76 para v 1.0.76 ou posterior, resolva o erro executando: `pip uninstall azureml-train automl` e, em seguida `pip install azureml-train-auotml` . O script automl_setup. cmd faz isso automaticamente. 
+* **falha ao importar AutoMLConfig** : houve alterações de pacote na versão do Machine Learning automatizada 1.0.76, que requer que a versão anterior seja desinstalada antes de atualizar para a nova versão. Se o `ImportError: cannot import name AutoMLConfig` for encontrado após a atualização de uma versão do SDK antes de v 1.0.76 para v 1.0.76 ou posterior, resolva o erro executando: `pip uninstall azureml-train automl` e, em seguida `pip install azureml-train-auotml` . O script automl_setup. cmd faz isso automaticamente. 
 
-* **Workspace.from_config falha**: se as chamadas ws = Workspace.from_config () ' falharem-
+* **Workspace.from_config falha** : se as chamadas ws = Workspace.from_config () ' falharem-
   1. Verifique se o bloco de anotações Configuration. ipynb foi executado com êxito.
   2. Se o bloco de anotações estiver sendo executado de uma pasta que não está sob a pasta em que o `configuration.ipynb` foi executado, copie a pasta aml_config e o config.jsde arquivo que ele contém para a nova pasta. Workspace.from_config lê o config.jsem para a pasta do bloco de anotações ou sua pasta pai.
   3. Se uma nova assinatura, um grupo de recursos, um espaço de trabalho ou uma região estiver sendo usada, certifique-se de executar o `configuration.ipynb` bloco de anotações novamente. Alterar config.jsdiretamente só funcionará se o espaço de trabalho já existir no grupo de recursos especificado na assinatura especificada.
   4. Se você quiser alterar a região, altere o espaço de trabalho, o grupo de recursos ou a assinatura. `Workspace.create` não criará ou atualizará um espaço de trabalho se ele já existir, mesmo se a região especificada for diferente.
   
-* **Falha no bloco de anotações de exemplo**: se um bloco de anotações de exemplo falhar com um erro que a propriedade, o método ou a biblioteca não existe:
+* **Falha no bloco de anotações de exemplo** : se um bloco de anotações de exemplo falhar com um erro que a propriedade, o método ou a biblioteca não existe:
   * Verifique se o kernel correto foi selecionado no notebook jupyter. O kernel é exibido no canto superior direito da página do bloco de anotações. O padrão é azure_automl. Observe que o kernel é salvo como parte do bloco de anotações. Portanto, se você alternar para um novo ambiente Conda, terá que selecionar o novo kernel no bloco de anotações.
       * Por Azure Notebooks, ele deve ser Python 3,6. 
       * Para ambientes Conda locais, ele deve ser o nome do ambiente Conda que você especificou em automl_setup.
   * Verifique se o notebook é para a versão do SDK que você está usando. Você pode verificar a versão do SDK executando `azureml.core.VERSION` em uma célula do jupyter notebook. Você pode baixar a versão anterior dos blocos de anotações de exemplo do GitHub clicando no `Branch` botão, selecionando a `Tags` guia e, em seguida, selecionando a versão.
 
-* **Falha na importação do numpy no Windows**: alguns ambientes do Windows veem um erro ao carregar o numpy com a versão mais recente do Python 3.6.8. Se você vir esse problema, tente com a versão 3.6.7 do Python.
+* **Falha na importação do numpy no Windows** : alguns ambientes do Windows veem um erro ao carregar o numpy com a versão mais recente do Python 3.6.8. Se você vir esse problema, tente com a versão 3.6.7 do Python.
 
-* **Falha na importação do numpy**: Verifique a versão do TensorFlow no ambiente de Conda do ml automatizado. As versões com suporte são < 1,13. Desinstalar o TensorFlow do ambiente se a versão for >= 1,13, você poderá verificar a versão do TensorFlow e desinstalar da seguinte maneira-
+* **Falha na importação do numpy** : Verifique a versão do TensorFlow no ambiente de Conda do ml automatizado. As versões com suporte são < 1,13. Desinstalar o TensorFlow do ambiente se a versão for >= 1,13, você poderá verificar a versão do TensorFlow e desinstalar da seguinte maneira-
   1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
   2. Insira `pip freeze` e procure `tensorflow` , se encontrado, a versão listada deve ser < 1,13
   3. Se a versão listada não for uma versão com suporte, `pip uninstall tensorflow` no Shell de comando e digite y para confirmação.
@@ -452,11 +452,11 @@ kubectl get secret/azuremlfessl -o yaml
 
 ### <a name="detaching-azure-kubernetes-service"></a>Desanexando o serviço kubernetes do Azure
 
-Usar o Azure Machine Learning Studio, o SDK ou a extensão CLI do Azure para o aprendizado de máquina para desanexar um cluster AKS não exclui o cluster AKS. Para excluir o cluster, consulte [usar o CLI do Azure com AKs](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+Usar o Azure Machine Learning Studio, o SDK ou a extensão CLI do Azure para o aprendizado de máquina para desanexar um cluster AKS não exclui o cluster AKS. Para excluir o cluster, consulte [usar o CLI do Azure com AKs](../aks/kubernetes-walkthrough.md#delete-the-cluster).
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>WebServices em falhas do serviço kubernetes do Azure
 
-Muitas falhas de WebService no serviço kubernetes do Azure podem ser depuradas conectando-se ao cluster usando `kubectl` . Você pode obter o `kubeconfig.json` para um cluster do serviço kubernetes do Azure executando
+Muitas falhas de webservice no Serviço de Kubernetes do Azure podem ser depuradas conectando-se ao cluster com `kubectl`. Você pode obter o `kubeconfig.json` para um cluster do serviço kubernetes do Azure executando
 
 ```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -496,4 +496,4 @@ Veja mais artigos de solução de problemas para Azure Machine Learning:
 * [Depurar pipelines do Machine Learning](how-to-debug-pipelines.md)
 * [Depurar a classe ParallelRunStep do SDK Azure Machine Learning](how-to-debug-parallel-run-step.md)
 * [Depuração interativa de uma instância de computação do Machine Learning com VS Code](how-to-debug-visual-studio-code.md)
-* [Usar Application Insights para depurar pipelines do Machine Learning](how-to-debug-pipelines-application-insights.md)
+* [Usar Application Insights para depurar pipelines do Machine Learning](./how-to-log-pipelines-application-insights.md)

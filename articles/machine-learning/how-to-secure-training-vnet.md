@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 232260ada4d810127584e675480f91d0213e3953
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2b0a56bac1652881e9d1733bcb52b02610e27e9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091490"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314165"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteger um ambiente de treinamento Azure Machine Learning com redes virtuais
 
@@ -47,7 +47,7 @@ Neste artigo, você aprenderá a proteger os seguintes recursos de computação 
     - "Microsoft. Network/virtualNetworks/Join/Action" no recurso de rede virtual.
     - "Microsoft. Network/virtualNetworks/sub-rede/junção/ação" no recurso de sub-rede.
 
-    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking)
+    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](../role-based-access-control/built-in-roles.md#networking)
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters e instâncias de computação 
@@ -61,17 +61,17 @@ Para usar um [destino de computação __do__ Azure Machine Learning gerenciado](
 > * Se você for colocar várias instâncias ou clusters de computação em uma rede virtual, talvez seja necessário solicitar um aumento de cota para um ou mais de seus recursos.
 > * Se as Contas de Armazenamento do Azure para o workspace também estiverem protegidas em uma rede virtual, elas deverão estar na mesma rede virtual que a instância ou cluster de computação do Azure Machine Learning. 
 > * Para que a funcionalidade de Jupyter da instância de computação funcione, verifique se a comunicação do soquete da Web não está desabilitada. Verifique se a sua rede permite conexões WebSocket com *. instances.azureml.net e *. instances.azureml.ms. 
-> * Quando a instância de computação é implantada em um espaço de trabalho de link privado, ela só pode ser acessada de dentro da rede virtual. Se você estiver usando o arquivo DNS ou hosts personalizado, adicione uma entrada para `<instance-name>.<region>.instances.azureml.ms` com o endereço IP privado do ponto de extremidade particular do espaço de trabalho. Para obter mais informações, consulte o artigo [DNS personalizado](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns) .
+> * Quando a instância de computação é implantada em um espaço de trabalho de link privado, ela só pode ser acessada de dentro da rede virtual. Se você estiver usando o arquivo DNS ou hosts personalizado, adicione uma entrada para `<instance-name>.<region>.instances.azureml.ms` com o endereço IP privado do ponto de extremidade particular do espaço de trabalho. Para obter mais informações, consulte o artigo [DNS personalizado](./how-to-custom-dns.md) .
     
 > [!TIP]
-> A instância ou cluster de computação do Machine Learning aloca automaticamente recursos adicionais de rede __no grupo de recursos que contém a rede virtual__ . Para cada instância ou cluster de computação, o serviço aloca os seguintes recursos:
+> A instância ou cluster de computação do Machine Learning aloca automaticamente recursos adicionais de rede __no grupo de recursos que contém a rede virtual__. Para cada instância ou cluster de computação, o serviço aloca os seguintes recursos:
 > 
 > * Um grupo de segurança de rede
 > * Um endereço IP público
 > * Um balanceador de carga
 > 
 > No caso de clusters, esses recursos são excluídos (e recriados) sempre que o cluster é reduzido para 0 nós. No entanto, para uma instância, os recursos são mantidos até que a instância seja completamente excluída (a interrupção não remove os recursos). 
-> Esses recursos são limitados pelas [cotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) da assinatura.
+> Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Portas obrigatórias
@@ -80,7 +80,7 @@ Se você planeja proteger a rede virtual restringindo o tráfego de rede de/para
 
 O serviço de Lote adiciona grupos de segurança de rede (NSGs) no nível dos adaptadores de rede (NICs) anexados às VMs. Esses NSGs configuraram automaticamente as regras de entrada e saída para permitir o tráfego a seguir:
 
-- Tráfego TCP de entrada nas portas 29876 e 29877 a partir de uma __Marca de serviço__ de __BatchNodeManagement__ .
+- Tráfego TCP de entrada nas portas 29876 e 29877 a partir de uma __Marca de serviço__ de __BatchNodeManagement__.
 
     ![Uma regra de entrada que usa a marca de serviço BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -90,7 +90,7 @@ O serviço de Lote adiciona grupos de segurança de rede (NSGs) no nível dos ad
 
 - Tráfego de saída em qualquer porta para a internet.
 
-- Para o tráfego TCP de entrada da instância de computação na porta 44224 de uma __Marca de serviço__ do __AzureMachineLearning__ .
+- Para o tráfego TCP de entrada da instância de computação na porta 44224 de uma __Marca de serviço__ do __AzureMachineLearning__.
 
 > [!IMPORTANT]
 > Tenha cuidado se você modificar ou adicionar regras de entrada ou saída nos NSGs configurados em Lote. Se um NSG bloquear a comunicação com os nós de computação, os serviços de computação definem o estado dos nós de computação como inutilizáveis.
@@ -112,8 +112,8 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 - Negue a conexão de Internet de saída usando as regras de NSG.
 
 - Para uma __instância de computação__ ou um __cluster de cálculo__ , limite o tráfego de saída para os seguintes itens:
-   - Armazenamento do Azure que usa a __Marca de serviço__ de __Storage.RegionName__ . Em que `{RegionName}` é o nome de uma região do Azure.
-   - Registro de Contêiner do Azure, usando __Marca de serviço__ de __AzureContainerRegistry.RegionName__ . Em que `{RegionName}` é o nome de uma região do Azure.
+   - Armazenamento do Azure que usa a __Marca de serviço__ de __Storage.RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
+   - Registro de Contêiner do Azure, usando __Marca de serviço__ de __AzureContainerRegistry.RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
    - Azure Machine Learning, usando a __Marca de serviço__ de __AzureMachineLearning__
    - Azure Resource Manager, usando a __Marca de serviço__ de __AzureResourceManager__
    - Azure Active Directory, usando a __Marca de serviço__ de __AzureActiveDirectory__
@@ -154,17 +154,17 @@ A configuração da regra de NSG no portal do Azure é mostrada na seguinte imag
 
 ### <a name="forced-tunneling"></a>Túnel forçado
 
-Se você estiver usando o [túnel forçado](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) com Azure Machine Learning computação, deverá permitir a comunicação com a Internet pública da sub-rede que contém o recurso de computação. Essa comunicação é usada para agendamento de tarefas e acesso ao armazenamento do Azure.
+Se você estiver usando o [túnel forçado](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) com Azure Machine Learning computação, deverá permitir a comunicação com a Internet pública da sub-rede que contém o recurso de computação. Essa comunicação é usada para agendamento de tarefas e acesso ao armazenamento do Azure.
 
 Há duas maneiras de fazer isso:
 
 * Use um [NAT de rede virtual](../virtual-network/nat-overview.md). Um gateway NAT fornece conectividade de Internet de saída para uma ou mais sub-redes em sua rede virtual. Para obter informações, consulte [Designing Virtual Networks with NAT gateway Resources](../virtual-network/nat-gateway-resource.md).
 
-* Adicione [UDRs (rotas definidas pelo usuário)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) à sub-rede que contém o recurso de computação. Estabeleça uma UDR para cada endereço IP usado pelo serviço do Lote do Azure na região onde existem seus recursos. Essas UDRs permitem que o serviço de Lote se comunique com os nós de computação para agendamento de tarefas. Adicione também o endereço IP para o serviço do Azure Machine Learning onde estão os recursos, já que isso é necessário para acessar as Instâncias de Computação. Use um dos seguintes métodos para obter uma lista de endereços IP do serviço de Lote e do serviço do Azure Machine Learning:
+* Adicione [UDRs (rotas definidas pelo usuário)](../virtual-network/virtual-networks-udr-overview.md) à sub-rede que contém o recurso de computação. Estabeleça uma UDR para cada endereço IP usado pelo serviço do Lote do Azure na região onde existem seus recursos. Essas UDRs permitem que o serviço de Lote se comunique com os nós de computação para agendamento de tarefas. Adicione também o endereço IP para o serviço do Azure Machine Learning onde estão os recursos, já que isso é necessário para acessar as Instâncias de Computação. Use um dos seguintes métodos para obter uma lista de endereços IP do serviço de Lote e do serviço do Azure Machine Learning:
 
     * Baixe os [Intervalos de IP do Azure e as Marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) e pesquise `BatchNodeManagement.<region>` e `AzureMachineLearning.<region>` no arquivo, em que `<region>` é a sua região do Azure.
 
-    * Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para baixar as informações. O exemplo a seguir baixa as informações do endereço IP e filtra as informações para a região Leste dos EUA 2:
+    * Use o [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para baixar as informações. O exemplo a seguir baixa as informações do endereço IP e filtra as informações para a região Leste dos EUA 2:
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -177,7 +177,7 @@ Há duas maneiras de fazer isso:
         > * [Intervalos de IP do Azure e marcas de serviço para o Azure governamental](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Intervalos de IP do Azure e marcas de serviço para o Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
     
-    Quando você adicionar as UDRs, defina a rota para cada prefixo de endereço IP do Lote relacionado e defina __Próximo tipo de salto__ como __Internet__ . A imagem a seguir mostra um exemplo dessa UDR no portal do Azure:
+    Quando você adicionar as UDRs, defina a rota para cada prefixo de endereço IP do Lote relacionado e defina __Próximo tipo de salto__ como __Internet__. A imagem a seguir mostra um exemplo dessa UDR no portal do Azure:
 
     ![Exemplo de uma UDR para um prefixo de endereço](./media/how-to-enable-virtual-network/user-defined-route.png)
 
@@ -199,7 +199,7 @@ Para criar um cluster de Computação do Machine Learning, siga as seguintes eta
 
 1. Selecione __Clusters de treinamento__ da central e, em seguida, selecione __+__ .
 
-1. Na caixa de diálogo __Novo cluster de treinamento__ , expanda a seção __Configurações avançadas__ .
+1. Na caixa de diálogo __Novo cluster de treinamento__ , expanda a seção __Configurações avançadas__.
 
 1. Para configurar esse recurso de computação para usar uma rede virtual, execute as seguintes ações na seção __Configurar rede virtual__ :
 
@@ -253,7 +253,7 @@ Após concluir o processo de criação, você treina seu modelo usando o cluster
 
 Se você estiver usando blocos de anotações em uma instância de computação do Azure, certifique-se de que o bloco de anotações esteja sendo executado em um recurso de computação por trás da mesma rede virtual e sub-rede que seus dados. 
 
-Você deve configurar sua instância de computação para estar na mesma rede virtual durante a criação em **Configurações avançadas**  >  **Configurar rede virtual** . Você não pode adicionar uma instância de computação existente a uma rede virtual.
+Você deve configurar sua instância de computação para estar na mesma rede virtual durante a criação em **Configurações avançadas**  >  **Configurar rede virtual**. Você não pode adicionar uma instância de computação existente a uma rede virtual.
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -278,31 +278,31 @@ Nesta seção, você aprenderá a usar uma máquina virtual ou um cluster do Azu
 ### <a name="create-the-vm-or-hdinsight-cluster"></a>Criar a VM ou o cluster HDInsight
 
 Crie um cluster de VM ou HDInsight usando o portal do Azure ou a CLI do Azure e coloque-o em uma rede virtual do Azure. Para obter mais informações, consulte os seguintes artigos:
-* [Criar e gerenciar redes virtuais do Azure para VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+* [Criar e gerenciar redes virtuais do Azure para VMs do Linux](../virtual-machines/linux/tutorial-virtual-network.md)
 
-* [Estender HDInsight usando uma rede virtual do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
+* [Estender HDInsight usando uma rede virtual do Azure](../hdinsight/hdinsight-plan-virtual-network-deployment.md)
 
 ### <a name="configure-network-ports"></a>Configurar portas de rede 
 
 Permita que Azure Machine Learning se comunique com a porta SSH na VM ou cluster, configure uma entrada de origem para o grupo de segurança de rede. A porta SSH geralmente é a porta 22. Para permitir o tráfego dessa origem, execute as seguintes ações:
 
-1. Na lista suspensa __Origem__ , selecione __Marca de serviço__ .
+1. Na lista suspensa __Origem__ , selecione __Marca de serviço__.
 
-1. Na lista suspensa __Marca de serviço da origem__ , selecione __AzureMachineLearning__ .
+1. Na lista suspensa __Marca de serviço da origem__ , selecione __AzureMachineLearning__.
 
     ![Regras de entrada para experimentação em um cluster de VM ou HDInsight dentro de uma rede virtual](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
 1. Na lista suspensa __Intervalos da porta de origem__ , selecione __*__ .
 
-1. Na lista suspensa __Destino__ , selecione __Qualquer um__ .
+1. Na lista suspensa __Destino__ , selecione __Qualquer um__.
 
-1. Na lista suspensa __Intervalos da porta de destino__ , selecione __22__ .
+1. Na lista suspensa __Intervalos da porta de destino__ , selecione __22__.
 
-1. Em __Protocolo__ , selecione __Qualquer um__ .
+1. Em __Protocolo__ , selecione __Qualquer um__.
 
-1. Em __Ação__ , selecione __Permitir__ .
+1. Em __Ação__ , selecione __Permitir__.
 
-Mantenha as regras de saída padrão para o grupo de segurança de rede. Para obter mais informações, consulte as regras de segurança padrão em [Grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+Mantenha as regras de saída padrão para o grupo de segurança de rede. Para obter mais informações, consulte as regras de segurança padrão em [Grupos de segurança](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
 Se você não quiser usar as regras de saída padrão e quiser limitar o acesso de saída da sua rede virtual, consulte a seção [Limitar a conectividade de saída da rede virtual](#limiting-outbound-from-vnet).
 

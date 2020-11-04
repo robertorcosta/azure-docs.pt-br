@@ -1,6 +1,6 @@
 ---
 title: Usar procedimentos armazenados
-description: Dicas para implementar procedimentos armazenados no SQL Synapse para desenvolver soluções.
+description: Dicas para implementar procedimentos armazenados usando o Synapse SQL no Azure Synapse Analytics para desenvolvimento de soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286671"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315566"
 ---
-# <a name="use-stored-procedures-in-synapse-sql"></a>Usar procedimentos armazenados no SQL Synapse
+# <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Procedimentos armazenados usando o SQL Synapse no Azure Synapse Analytics
 
 Os pools do Synapse SQL provisionados e sem servidor permitem que você coloque uma lógica complexa de processamento de dados em procedimentos armazenados do SQL. Os procedimentos armazenados são uma ótima maneira de encapsular seu código SQL e armazená-los perto dos seus dados no data warehouse. Os procedimentos armazenados ajudam os desenvolvedores a modularizar suas soluções encapsulando o código em unidades gerenciáveis e facilitando a maior Reusabilidade de código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível.
 Neste artigo, você encontrará algumas dicas para implementar procedimentos armazenados no pool de SQL do Synapse para desenvolver soluções.
@@ -27,7 +27,7 @@ Neste artigo, você encontrará algumas dicas para implementar procedimentos arm
 Synapse SQL dá suporte a muitos dos recursos do T-SQL que são usados no SQL Server. Mais importante, há recursos específicos de expansão que você pode usar para maximizar o desempenho da sua solução. Neste artigo, você aprenderá sobre os recursos que podem ser colocados em procedimentos armazenados.
 
 > [!NOTE]
-> No corpo do procedimento, você pode usar apenas os recursos que têm suporte na área de superfície do SQL do Synapse. Examine [Este artigo](overview-features.md) para identificar objetos, instruções que podem ser usadas em procedimentos armazenados. Nos exemplos nestes artigos, são usados recursos genéricos que estão disponíveis na área de superfície sem servidor e provisionada. Confira [limitações adicionais em pools do SQL Synapse e sem servidor](#limitations) no final deste artigo.
+> No corpo do procedimento, você pode usar apenas os recursos que têm suporte na área de superfície do SQL do Synapse. Examine [Este artigo](overview-features.md) para identificar objetos, instruções que podem ser usadas em procedimentos armazenados. Os exemplos nestes artigos usam recursos genéricos que estão disponíveis na área de superfície dedicada e sem servidor. Confira [limitações adicionais em pools do SQL Synapse e sem servidor](#limitations) no final deste artigo.
 
 Para manter a escala e o desempenho do pool do SQL, há também alguns recursos e funcionalidades que têm diferenças comportamentais e outras que não têm suporte.
 

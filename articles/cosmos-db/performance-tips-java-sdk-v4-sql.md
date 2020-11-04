@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: c65cd4012d29146061183ea13749a0f42c03b1eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091269"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314334"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para o SDK do Java v4 do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +39,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 * **Modo de Conexão: Usar o modo Direto**
 <a id="direct-connection"></a>
     
-    O modo de conexão padrão do SDK do Java é direto. Você pode configurar o modo de conexão no construtor de cliente usando os métodos *directmode ()* ou *gatewaymode ()* , conforme mostrado abaixo. Para configurar qualquer modo com as configurações padrão, chame um dos métodos sem argumentos. Caso contrário, passe uma instância de classe de definições de configuração como o argumento ( *DirectConnectionConfig* para *directmode ()* ,  *GatewayConnectionConfig* para *gatewaymode ()* .). Para saber mais sobre as diferentes opções de conectividade, consulte o artigo [modos de conectividade](sql-sdk-connection-modes.md) .
+    O modo de conexão padrão do SDK do Java é direto. Você pode configurar o modo de conexão no construtor de cliente usando os métodos *directmode ()* ou *gatewaymode ()* , conforme mostrado abaixo. Para configurar qualquer modo com as configurações padrão, chame um dos métodos sem argumentos. Caso contrário, passe uma instância de classe de definições de configuração como o argumento ( *DirectConnectionConfig* para *directmode ()* ,  *GatewayConnectionConfig* para *gatewaymode ()*.). Para saber mais sobre as diferentes opções de conectividade, consulte o artigo [modos de conectividade](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK do Java v4
 
@@ -107,7 +107,7 @@ Confira as instruções do [Windows](../virtual-network/create-vm-accelerated-ne
 
 * **Use o nível de consistência mais baixo necessário para seu aplicativo**
 
-    Quando você cria um *CosmosClient* , a consistência padrão usada se não for definido explicitamente é *Sessão* . Se a consistência de *Sessão* não for exigida pela lógica do aplicativo, defina a *Consistência* como *Eventual* . Observação: é recomendável usar pelo menos a consistência de *Sessão* em aplicativos que empregam o processador do feed de alterações do Azure Cosmos DB.
+    Quando você cria um *CosmosClient* , a consistência padrão usada se não for definido explicitamente é *Sessão*. Se a consistência de *Sessão* não for exigida pela lógica do aplicativo, defina a *Consistência* como *Eventual*. Observação: é recomendável usar pelo menos a consistência de *Sessão* em aplicativos que empregam o processador do feed de alterações do Azure Cosmos DB.
 
 * **Usar a API assíncrona para obter a taxa de transferência máxima provisionada**
 
@@ -151,7 +151,7 @@ Confira as instruções do [Windows](../virtual-network/create-vm-accelerated-ne
 
     * ***Visão geral do modo direto** _
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da política de conexão do Azure Cosmos DB" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
 
         A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas do Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 _ *canais* * no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme o necessário pelo **Ponto de Extremidade de Serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
 

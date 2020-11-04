@@ -10,19 +10,19 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983838"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312805"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformar dados no designer de Azure Machine Learning
 
 
 Neste artigo, você aprenderá a transformar e salvar conjuntos de dados no designer de Azure Machine Learning para que possa preparar seus próprios dados para o machine learning.
 
-Você usará o conjunto de dados de exemplo de [Classificação Binária de Renda de Censo de Adulto](sample-designer-datasets.md) para preparar dois conjuntos de dados: um que inclui informações de censo somente de adultos residentes nos Estados Unidos e outro com informações de censo de adultos não residentes nos EUA.
+Você usará o conjunto de dados de exemplo de [Classificação Binária de Renda de Censo de Adulto](./samples-designer.md) para preparar dois conjuntos de dados: um que inclui informações de censo somente de adultos residentes nos Estados Unidos e outro com informações de censo de adultos não residentes nos EUA.
 
 Neste artigo, você aprenderá como:
 
@@ -74,7 +74,7 @@ Nesta seção, você usa o módulo [Dividir módulo de dados](algorithm-module-r
 
 1. No painel detalhes do módulo à direita da tela, defina **Modo de divisão** como **Expressão Regular**.
 
-1. Insira a **Expressão Regular**: `\"native-country" United-States`.
+1. Insira a **Expressão Regular** : `\"native-country" United-States`.
 
     O modo de **Expressão Regular** testa uma coluna para um valor. Para obter mais informações sobre o módulo Dividir Dados, confira a [página de referência do módulo de algoritmo](algorithm-module-reference/split-data.md) relacionado.
 
@@ -103,13 +103,13 @@ Agora que seu pipeline está configurado para dividir os dados, você precisa es
 
 1. No painel de detalhes do módulo à direita da tela, defina as seguintes opções:
     
-    **Tipo de armazenamento de dados**: Armazenamento do Blobs do Azure
+    **Tipo de armazenamento de dados** : Armazenamento do Blobs do Azure
 
-    **Armazenamento de dados**: Selecione um armazenamento de dados existente ou selecione "Novo armazenamento de dados" para criar um agora.
+    **Armazenamento de dados** : Selecione um armazenamento de dados existente ou selecione "Novo armazenamento de dados" para criar um agora.
 
-    **Caminho**: `/data/us-income`
+    **Caminho** : `/data/us-income`
 
-    **Formato de arquivo**: csv
+    **Formato de arquivo** : csv
 
     > [!NOTE]
     > Este artigo pressupõe que você tenha acesso a um armazenamento de dados registrado para o workspace atual do Azure Machine Learning. Para obter instruções sobre como configurar um armazenamento de dados, confira [Conectar aos serviços do Armazenamento do Azure](how-to-connect-data-ui.md#create-datastores).
@@ -120,13 +120,13 @@ Agora que seu pipeline está configurado para dividir os dados, você precisa es
 
 1. No painel de detalhes do módulo à direita da tela, defina as seguintes opções:
     
-    **Tipo de armazenamento de dados**: Armazenamento do Blobs do Azure
+    **Tipo de armazenamento de dados** : Armazenamento do Blobs do Azure
 
-    **Armazenamento de dados**: Selecione o mesmo armazenamento de dados que foi selecionado acima
+    **Armazenamento de dados** : Selecione o mesmo armazenamento de dados que foi selecionado acima
 
-    **Caminho**: `/data/non-us-income`
+    **Caminho** : `/data/non-us-income`
 
-    **Formato de arquivo**: csv
+    **Formato de arquivo** : csv
 
 1. Confirme que o módulo **Exportar Dados** conectado à porta à esquerda do módulo **Dividir Dados** tem o **Caminho** `/data/us-income`.
 
@@ -142,7 +142,7 @@ Agora que o pipeline está configurado para dividir e exportar os dados, envie u
 
 1. Na parte superior da tela, selecione **Enviar**.
 
-1. Na caixa de diálogo **Configurar execução de pipeline**, selecione **Criar** para criar um experimento.
+1. Na caixa de diálogo **Configurar execução de pipeline** , selecione **Criar** para criar um experimento.
 
     Os experimentos agrupam logicamente execuções de pipeline relacionadas. Se você executar esse pipeline no futuro, deverá usar o mesmo experimento para fins de acompanhamento e registro em log.
 

@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737981"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313537"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerenciar bibliotecas para Apache Spark no Azure Synapse Analytics
 
-As bibliotecas fornecem código reutilizável que você talvez queira incluir em seus programas ou projetos. Para disponibilizar códigos de terceiros ou criados localmente para seus aplicativos, você pode instalar uma biblioteca em um dos pools do Spark (versão prévia). Depois que uma biblioteca é instalada para um pool do Spark, ela fica disponível para todas as sessões que usam o mesmo pool. 
+As bibliotecas fornecem código reutilizável que você talvez queira incluir em seus programas ou projetos. Para disponibilizar códigos de terceiros ou criados localmente para seus aplicativos, você pode instalar uma biblioteca em um dos pools de Apache Spark sem servidor (versão prévia). Depois que uma biblioteca é instalada para um pool do Spark, ela fica disponível para todas as sessões que usam o mesmo pool. 
 
 ## <a name="default-installation"></a>Instalação padrão
 Apache Spark no Azure Synapse Analytics tem uma instalação completa do Anacondas, além de bibliotecas adicionais. A lista de bibliotecas completa pode ser encontrada em [suporte à versão Apache Spark](apache-spark-version-support.md). 
@@ -68,7 +68,7 @@ Para atualizar ou adicionar bibliotecas adicionais a um pool do Spark (versão p
    
 2.  Inicie o espaço de trabalho do Azure Synapse Analytics no portal do Azure.
 
-3.  Selecione **gerenciar** no painel de navegação principal e, em seguida, selecione **pools de Apache Spark** .
+3.  Selecione **gerenciar** no painel de navegação principal e, em seguida, selecione **pools de Apache Spark**.
    
 4. Selecione um único pool do Spark e carregue o arquivo de configuração do ambiente usando o seletor de arquivo na seção  **pacotes** da página.
 
@@ -106,7 +106,7 @@ Para atualizar ou desinstalar uma biblioteca:
 
 3. Navegue até a seção **pacotes** e carregue um novo arquivo de configuração de ambiente
    
-4. Depois de salvar as alterações, será necessário encerrar as sessões ativas e permitir que o pool seja reiniciado. Opcionalmente, você pode forçar as sessões ativas a terminar marcando a caixa de seleção para **forçar novas configurações** .
+4. Depois de salvar as alterações, será necessário encerrar as sessões ativas e permitir que o pool seja reiniciado. Opcionalmente, você pode forçar as sessões ativas a terminar marcando a caixa de seleção para **forçar novas configurações**.
 
     ![Adicionar bibliotecas do Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Adicionar bibliotecas do Python")
    

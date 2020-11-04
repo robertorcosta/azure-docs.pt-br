@@ -1,6 +1,6 @@
 ---
 title: Pontos de restauração definidos pelo usuário
-description: Como criar um ponto de restauração para o pool do SQL.
+description: Como criar um ponto de restauração para o pool do SQL dedicado.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66a2dad9396e8bf7c8ef49db529f7a5486cc8a8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d7266e0b84ae57682ddcfe7195be9574a702c74
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089200"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313239"
 ---
-# <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Pontos de restauração definidos pelo usuário para um pool SQL dedicado no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a criar um novo ponto de restauração definido pelo usuário para um pool do SQL no Azure Synapse Analytics usando o PowerShell e o portal do Azure.
+Neste artigo, você aprenderá a criar um novo ponto de restauração definido pelo usuário para um pool SQL dedicado no Azure Synapse Analytics usando o PowerShell e o portal do Azure.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Criar pontos de restauração definidos pelo usuário por meio do PowerShell
 
@@ -62,9 +62,9 @@ Os pontos de restauração definidos pelo usuário também podem ser criados por
 
 1. Entre em sua conta do [portal do Azure](https://portal.azure.com/) .
 
-2. Navegue até o pool SQL para o qual você deseja criar um ponto de restauração.
+2. Navegue até o pool SQL dedicado para o qual você deseja criar um ponto de restauração.
 
-3. Selecione **visão geral** no painel esquerdo, selecione **+ novo ponto de restauração**. Se o botão novo ponto de restauração não estiver habilitado, verifique se o pool do SQL não está pausado.
+3. Selecione **visão geral** no painel esquerdo, selecione **+ novo ponto de restauração**. Se o botão novo ponto de restauração não estiver habilitado, verifique se o pool do SQL dedicado não está pausado.
 
     ![Novo Ponto de Restauração](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,7 @@ Os pontos de restauração definidos pelo usuário também podem ser criados por
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Restaurar um pool SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurar um pool do SQL excluído](sql-data-warehouse-restore-deleted-dw.md)
-- [Restaurar de um pool SQL de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restaurar um pool SQL dedicado existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar um pool SQL dedicado excluído](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurar de um pool SQL dedicado de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)
 
