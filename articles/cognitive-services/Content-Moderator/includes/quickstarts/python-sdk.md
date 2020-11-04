@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 64a9143e7a425b35e37f23b233c91b8e7bb70169
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bf24d7c5ca88c47d3bfd8067a4e533ed413dde90
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755359"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918664"
 ---
 Introdução à biblioteca de clientes do Content Moderator do Azure para Python. Siga essas etapas para instalar o pacote PiPy e testar o código de exemplo para tarefas básicas. 
 
@@ -30,7 +30,7 @@ Use a biblioteca de clientes do Content Moderator para Python para:
 * Usar uma lista de imagem personalizada
 * Criar uma revisão
 
-[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Documentação de referência](/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,10 +75,10 @@ As classes a seguir tratam de alguns dos principais recursos da biblioteca de cl
 
 |Nome|Descrição|
 |---|---|
-|[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Essa classe é necessária para toda a funcionalidade do Content Moderator. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
-|[ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Essa classe fornece a funcionalidade para analisar imagens de conteúdo para adulto, informações pessoais ou rostos humanos.|
-|[TextModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)|Essa classe fornece a funcionalidade para analisar o texto de idioma, profanação, erros e informações pessoais.|
-[ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python)|Essa classe fornece a funcionalidade das APIs de Revisão, incluindo os métodos para criar trabalhos, fluxos de trabalho personalizados e revisões humanas.|
+|[ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Essa classe é necessária para toda a funcionalidade do Content Moderator. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
+|[ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Essa classe fornece a funcionalidade para analisar imagens de conteúdo para adulto, informações pessoais ou rostos humanos.|
+|[TextModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)|Essa classe fornece a funcionalidade para analisar o texto de idioma, profanação, erros e informações pessoais.|
+[ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python)|Essa classe fornece a funcionalidade das APIs de Revisão, incluindo os métodos para criar trabalhos, fluxos de trabalho personalizados e revisões humanas.|
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -93,7 +93,7 @@ Estes snippets de códigos mostram como realizar as seguintes tarefas com a bibl
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instancie um cliente com o ponto de extremidade e a chave. Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com a sua chave e use-o com o ponto de extremidade para criar um objeto [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python).
+Instancie um cliente com o ponto de extremidade e a chave. Crie um objeto [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com a sua chave e use-o com o ponto de extremidade para criar um objeto [ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_client)]
 
@@ -116,7 +116,7 @@ Depois, adicione o seguinte código ao script do Python.
 
 ## <a name="use-a-custom-terms-list"></a>Usar uma lista de termos personalizados
 
-O código a seguir mostra como gerenciar uma lista de termos personalizados para moderação de texto. Você pode usar a classe [ListManagementTermListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) para criar uma lista de termos, gerenciar os termos individuais e a tela de outros corpos de texto em relação a ela.
+O código a seguir mostra como gerenciar uma lista de termos personalizados para moderação de texto. Você pode usar a classe [ListManagementTermListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) para criar uma lista de termos, gerenciar os termos individuais e a tela de outros corpos de texto em relação a ela.
 
 ### <a name="get-sample-text"></a>Obter texto de exemplo
 
@@ -186,7 +186,7 @@ Use o código a seguir para excluir uma lista de termos personalizados.
 
 ## <a name="moderate-images"></a>Moderar imagens
 
-O seguinte código usa um cliente do Content Moderator, juntamente com um objeto [ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python), para analisar imagens de conteúdo adulto e obsceno.
+O seguinte código usa um cliente do Content Moderator, juntamente com um objeto [ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python), para analisar imagens de conteúdo adulto e obsceno.
 
 ### <a name="get-sample-images"></a>Obter imagens de exemplo
 
@@ -218,7 +218,7 @@ O código a seguir verifica a imagem em busca de rostos humanos e imprime os res
 
 ## <a name="use-a-custom-image-list"></a>Usar uma lista de imagem personalizada
 
-O código a seguir mostra como gerenciar uma lista personalizada de imagens para moderação de imagem. Esse recurso será útil se a plataforma receber com frequência instâncias do mesmo conjunto de imagens que você deseja eliminar. Ao manter uma lista dessas imagens específicas, você pode melhorar o desempenho. A classe [ListManagementImageListsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python) permite que você crie uma lista de imagens, gerencie as imagens individuais na lista e compare outras imagens com ela.
+O código a seguir mostra como gerenciar uma lista personalizada de imagens para moderação de imagem. Esse recurso será útil se a plataforma receber com frequência instâncias do mesmo conjunto de imagens que você deseja eliminar. Ao manter uma lista dessas imagens específicas, você pode melhorar o desempenho. A classe [ListManagementImageListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python) permite que você crie uma lista de imagens, gerencie as imagens individuais na lista e compare outras imagens com ela.
 
 Crie as variáveis de texto a seguir para armazenar as URLs de imagem que você usará nesse cenário.
 
@@ -296,7 +296,7 @@ Use o código a seguir para excluir uma determinada lista de imagens.
 
 Você pode usar a biblioteca de clientes do Python do Content Moderator para alimentar conteúdo na [Ferramenta de análise](https://contentmoderator.cognitive.microsoft.com) para que os moderadores humanos possam analisá-lo. Para saber mais sobre a ferramenta Revisão, confira o [Guia conceitual da ferramenta Revisão](../../review-tool-user-guide/human-in-the-loop.md).
 
-O código a seguir usa a classe [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) para criar uma revisão, recuperar sua ID e verificar seus detalhes depois de receber a entrada humana por meio do portal da Web da Ferramenta de análise.
+O código a seguir usa a classe [ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) para criar uma revisão, recuperar sua ID e verificar seus detalhes depois de receber a entrada humana por meio do portal da Web da Ferramenta de análise.
 
 ### <a name="get-review-credentials"></a>Obter credenciais de revisão
 
@@ -311,7 +311,7 @@ Adicione o código a seguir para criar e lançar uma revisão para uma determina
 
 ### <a name="get-review-details"></a>Obter detalhes de revisão
 
-Use o código a seguir para verificar os detalhes de uma determinada revisão. Depois de criar a revisão, você pode ir para a ferramenta de análise por conta própria e interagir com o conteúdo. Para saber mais sobre como fazer isso, confira o [Guia de instruções de revisões](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). Quando terminar, você poderá executar esse código novamente e ele recuperará os resultados do processo de revisão.
+Use o código a seguir para verificar os detalhes de uma determinada revisão. Depois de criar a revisão, você pode ir para a ferramenta de análise por conta própria e interagir com o conteúdo. Para saber mais sobre como fazer isso, confira o [Guia de instruções de revisões](../../review-tool-user-guide/review-moderated-images.md). Quando terminar, você poderá executar esse código novamente e ele recuperará os resultados do processo de revisão.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagereview_getdetails)]
 
@@ -351,7 +351,7 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 Neste guia de início rápido, você aprendeu a usar a biblioteca Python do Content Moderator para realizar tarefas de moderação. Em seguida, saiba mais sobre a moderação de imagens ou outra mídia lendo um guia conceitual.
 
 > [!div class="nextstepaction"]
->[Conceitos de moderação de imagem](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
+>[Conceitos de moderação de imagem](../../image-moderation-api.md)
 
 * [O que é o Azure Content Moderator?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py).

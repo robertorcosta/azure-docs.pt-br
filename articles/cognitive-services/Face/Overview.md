@@ -11,12 +11,12 @@ ms.date: 9/17/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262477"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911436"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço de Detecção Facial do Azure?
 
@@ -34,7 +34,7 @@ O serviço de Detecção Facial fornece várias funções de análise facial dif
 O serviço de Detecção Facial detecta rostos humanos em uma imagem e retorna as coordenadas do retângulo dos locais. Opcionalmente, a detecção facial pode extrair uma série de atributos relacionados ao rosto, como pose da cabeça, gênero, idade, emoção, pelos do rosto e óculos.
 
 > [!NOTE]
-> O recurso de detecção facial também está disponível por meio do [serviço de Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). No entanto, se quiser realizar outras operações usando dados faciais, você deverá usar esse serviço.
+> O recurso de detecção facial também está disponível por meio do [serviço de Pesquisa Visual Computacional](../computer-vision/overview.md). No entanto, se quiser realizar outras operações usando dados faciais, você deverá usar esse serviço.
 
 ![Uma imagem de uma mulher e um homem, com retângulos desenhados em torno de seus rostos e informações de idade e gênero exibidas](./Images/Face.detection.jpg)
 
@@ -48,7 +48,7 @@ A API de Verificação executa uma autenticação com relação a dois rostos de
 
 A API de Localização de Semelhantes faz a correspondência facial entre o rosto de destino e um conjunto de rostos candidatos, encontrando um conjunto menor de rostos que são mais semelhantes ao rosto de destino. Isso é útil para fazer uma pesquisa facial por imagem. 
 
-Dois modos de trabalho, **matchPerson** e **matchFace**, têm suporte. O modo **matchPerson** retorna rostos semelhantes após a filtragem pela mesma pessoa usando a [API de Verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). O modo **matchFace** ignora a filtragem pela mesma pessoa. Ele retorna uma lista de rostos candidatos parecidos que podem ou não pertencer à mesma pessoa.
+Dois modos de trabalho, **matchPerson** e **matchFace** , têm suporte. O modo **matchPerson** retorna rostos semelhantes após a filtragem pela mesma pessoa usando a [API de Verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). O modo **matchFace** ignora a filtragem pela mesma pessoa. Ele retorna uma lista de rostos candidatos parecidos que podem ou não pertencer à mesma pessoa.
 
 O exemplo a seguir mostra o rosto selecionado:
 

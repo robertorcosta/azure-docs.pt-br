@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 2c20bce35a3b6effcdeea2b82d903db0895d42b2
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1a14c6d5d96726033694d8fc88cc4b6eead87221
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495952"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136179"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -20,8 +20,10 @@ Além disso, antes de começar, **instale o [Visual Studio 2019](https://visuals
 
 O tutorial é orientado por um projeto de exemplo escrito em C#. O exemplo está localizado aqui: [Exemplos de ponta a ponta dos Gêmeos Digitais do Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Obtenha o projeto de exemplo** em seu computador navegando até o link de exemplo e selecionando o botão *Baixar o ZIP* abaixo do título.
 
-Isso baixará uma pasta *.ZIP* no seu computador como **Azure_Digital_Twins_end_to_end_samples.zip** . Descompacte a pasta e extraia os arquivos.
+Isso baixará uma pasta *.ZIP* no seu computador como **Azure_Digital_Twins_end_to_end_samples.zip**. Descompacte a pasta e extraia os arquivos.
 
-[!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-tutorial-prereq-instance.md)]
+### <a name="prepare-an-azure-digital-twins-instance"></a>Preparar uma instância dos Gêmeos Digitais do Azure
+
+[!INCLUDE [Azure Digital Twins: instance prereq](digital-twins-prereq-instance.md)]
 
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

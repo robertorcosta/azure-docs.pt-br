@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886449"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918652"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para Go. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -34,7 +34,7 @@ Use a biblioteca de clientes do serviço de Detecção Facial para Go para:
 * Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Crie um recurso da Detecção Facial"  target="_blank">crie um recurso da Detecção Facial <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API de Detecção Facial. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
-* Depois de obter uma chave e um ponto de extremidade, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamadas `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
+* Depois de obter uma chave e um ponto de extremidade, [crie variáveis de ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamadas `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
 
 ## <a name="setting-up"></a>Configurando
 
@@ -112,7 +112,7 @@ Esses exemplos de código mostram como concluir tarefas básicas usando a biblio
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE] 
-> Este início rápido pressupõe que você já [criou variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade da Detecção Facial, denominados `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
+> Este início rápido pressupõe que você já [criou variáveis de ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade da Detecção Facial, denominados `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
 
 Crie uma função **main** e adicione o código a seguir a ela para criar uma instância de um cliente com seu ponto de extremidade e sua chave. Crie um objeto **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** com sua chave e use-a com seu ponto de extremidade para criar um objeto **[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** . Esse código também cria uma instância de um objeto de contexto, necessária para a criação de objetos de cliente. Ele também define uma localização remota em que algumas das imagens de exemplo neste início rápido são encontradas.
 
