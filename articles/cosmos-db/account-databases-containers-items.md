@@ -4,16 +4,15 @@ description: Este artigo descreve Azure Cosmos DB modelo de recurso que inclui a
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087920"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341358"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Modelo de recurso do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +33,7 @@ Depois de criar uma conta em sua assinatura do Azure, você pode gerenciar os da
 
 A imagem a seguir mostra a hierarquia de entidades diferentes em uma conta de Azure Cosmos DB:
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Hierarquia de uma conta do Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta do Azure Cosmos" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Bancos de dados do Azure Cosmos
 
@@ -73,7 +72,7 @@ Ao criar um contêiner, você configura a taxa de transferência em um dos segui
 
 Um contêiner Cosmos do Azure pode ser dimensionado de forma elástica, independentemente de você criar contêineres usando modos de taxa de transferência provisionada ou compartilhadas.
 
-Um contêiner é um contêiner de itens independente de esquema. Os itens em um contêiner podem ter esquemas arbitrários. Por exemplo, um item que representa uma pessoa e um item que representa um automóvel pode ser colocado no *mesmo contêiner* . Por padrão, todos os itens que você adiciona a um contêiner são indexados automaticamente sem a necessidade de um índice explícito ou gerenciamento de esquema. Você pode personalizar o comportamento de indexação Configurando a [política de indexação](index-overview.md) em um contêiner. 
+Um contêiner é um contêiner de itens independente de esquema. Os itens em um contêiner podem ter esquemas arbitrários. Por exemplo, um item que representa uma pessoa e um item que representa um automóvel pode ser colocado no *mesmo contêiner*. Por padrão, todos os itens que você adiciona a um contêiner são indexados automaticamente sem a necessidade de um índice explícito ou gerenciamento de esquema. Você pode personalizar o comportamento de indexação Configurando a [política de indexação](index-overview.md) em um contêiner. 
 
 Você pode definir [TTL (vida útil)](time-to-live.md) em itens selecionados em um contêiner ou para todo o contêiner para limpar normalmente esses itens do sistema. Azure Cosmos DB exclui automaticamente os itens quando eles expiram. Ele também garante que uma consulta executada no contêiner não retorne os itens expirados em um limite fixo. Para saber mais, consulte [Configurar TTL em seu contêiner](how-to-time-to-live.md).
 

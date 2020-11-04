@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de n
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369260"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342208"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -32,9 +32,9 @@ Você pode usar o painel de filtro na parte superior para reduzir o escopo da li
 
 Para cada recurso, você encontrará a contagem de instâncias atual e o status de dimensionamento automático. O status de dimensionamento automático pode ser:
 
-- **Não configurado**: você ainda não habilitou o dimensionamento automático para este recurso.
-- **Habilitado**: você habilitou o dimensionamento automático para este recurso.
-- **Desabilitado**: você desabilitou o dimensionamento automático para este recurso.
+- **Não configurado** : você ainda não habilitou o dimensionamento automático para este recurso.
+- **Habilitado** : você habilitou o dimensionamento automático para este recurso.
+- **Desabilitado** : você desabilitou o dimensionamento automático para este recurso.
 
 ## <a name="create-your-first-autoscale-setting"></a>Crie sua primeira configuração de dimensionamento automático
 
@@ -57,7 +57,7 @@ Agora, vamos percorrer um passo a passo simples para criar sua primeira configur
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
 
@@ -115,13 +115,13 @@ Você sempre pode retornar para o dimensionamento automático clicando em **Habi
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Rotear o tráfego para instâncias íntegras (serviço de aplicativo)
 
-Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Save** (Salvar).
+Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Salvar**.
 
 Para habilitar o recurso com modelos ARM, defina a `healthcheckpath` Propriedade do `Microsoft.Web/sites` recurso para o caminho de verificação de integridade em seu site, por exemplo: `"/api/health/"` . Para desabilitar o recurso, defina a propriedade de volta para a cadeia de caracteres vazia, `""` .
 
 ### <a name="health-check-path"></a>Caminho de verificação de integridade
 
-O caminho deve responder dentro de um minuto com um código de status entre 200 e 299 (inclusivo). Se o caminho não responder dentro de um minuto ou retornar um código de status fora do intervalo, a instância será considerada "não íntegra". O serviço de aplicativo não segue os redirecionamentos de 302 no caminho de verificação de integridade. A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo, o sistema alcançará o ponto de extremidade mesmo se esses recursos do secuity estiverem habilitados. Se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir acesso anônimo. Se o site tiver somente HTTP**s**habilitado, a solicitação HealthCheck será enviada via http**s**.
+O caminho deve responder dentro de um minuto com um código de status entre 200 e 299 (inclusivo). Se o caminho não responder dentro de um minuto ou retornar um código de status fora do intervalo, a instância será considerada "não íntegra". O serviço de aplicativo não segue os redirecionamentos de 302 no caminho de verificação de integridade. A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo, o sistema alcançará o ponto de extremidade mesmo se esses recursos do secuity estiverem habilitados. Se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir acesso anônimo. Se o site tiver somente HTTP **s** habilitado, a solicitação HealthCheck será enviada via http **s**.
 
 O caminho de verificação de integridade deve verificar os componentes críticos do seu aplicativo. Por exemplo, se seu aplicativo depende de um banco de dados e um sistema de mensagens, o ponto de extremidade de verificação de integridade deve se conectar a esses componentes. Se o aplicativo não puder se conectar a um componente crítico, o caminho deverá retornar um código de resposta de nível 500 para indicar que o aplicativo não está íntegro.
 
@@ -131,7 +131,7 @@ As equipes de desenvolvimento em grandes empresas geralmente precisam aderir aos
 
 ### <a name="behavior"></a>Comportamento
 
-Quando o caminho de verificação de integridade for fornecido, o serviço de aplicativo executará ping no caminho em todas as instâncias. Se um código de resposta bem-sucedido não for recebido após 5 pings, essa instância será considerada "não íntegra". Instâncias não íntegras serão excluídas da rotação do balanceador de carga. Além disso, quando você estiver aumentando ou reduzindo, o serviço de aplicativo executará ping no caminho de verificação de integridade para garantir que as novas instâncias estejam prontas para solicitações.
+Quando o caminho de verificação de integridade for fornecido, o serviço de aplicativo executará ping no caminho em todas as instâncias. Se um código de resposta bem-sucedido não for recebido após 5 pings, essa instância será considerada "não íntegra". Instâncias não íntegras serão excluídas da rotação do balanceador de carga. Você pode configurar o número necessário de pings com falha com a `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` configuração do aplicativo. Essa configuração de aplicativo pode ser definida como qualquer inteiro entre 2 e 10. Por exemplo, se estiver definido como `2` , suas instâncias serão removidas do balanceador de carga após dois pings com falha. Além disso, quando você estiver aumentando ou reduzindo, o serviço de aplicativo executará ping no caminho de verificação de integridade para garantir que as novas instâncias estejam prontas para solicitações antes de serem adicionadas ao balanceador de carga.
 
 As instâncias íntegras restantes podem apresentar uma carga maior. Para evitar sobrecarregar as instâncias restantes, não mais do que metade das instâncias serão excluídas. Por exemplo, se um plano do serviço de aplicativo for escalado horizontalmente para 4 instâncias e três das quais não estiverem íntegras, no máximo 2 serão excluídas da rotação do balanceador. As outras 2 instâncias (1 íntegro e 1 não íntegro) continuarão a receber solicitações. No pior cenário em que todas as instâncias não estão íntegras, nenhuma será excluída. Se você quiser substituir esse comportamento, poderá definir a `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` configuração do aplicativo como um valor entre `0` e `100` . Definir isso para um valor mais alto significa que mais instâncias não íntegras serão removidas (o valor padrão é 50).
 

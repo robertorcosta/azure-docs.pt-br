@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 30a960c3ed76788158b15022947fec49a95ae299
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375203"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340287"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensionar um disco do sistema operacional com partição GPT
 
@@ -177,7 +177,7 @@ Quando a VM reiniciar, execute as etapas a seguir:
 
 1. Com base no tipo de sistema de arquivos, use os comandos apropriados para redimensionar o sistema de arquivos.
    
-   Para **xfs**, use o seguinte comando:
+   Para **xfs** , use o seguinte comando:
    
    ```
    #xfs_growfs /
@@ -200,13 +200,13 @@ Quando a VM reiniciar, execute as etapas a seguir:
    data blocks changed from 7470331 to 12188923
    ```
    
-   Para **ext4**, use o seguinte comando:
+   Para **ext4** , use o seguinte comando:
    
    ```
    #resize2fs /dev/sda4
    ```
    
-1. Para verificar o aumento de tamanho do sistema de arquivos de **df -Th**, use o comando a seguir:
+1. Para verificar o aumento de tamanho do sistema de arquivos de **df -Th** , use o comando a seguir:
    
    ```
    #df -Thl
@@ -231,7 +231,7 @@ Quando a VM reiniciar, execute as etapas a seguir:
    
    No exemplo anterior, podemos ver que o tamanho do sistema de arquivos para o disco do sistema operacional aumentou.
 
-### <a name="rhel"></a>RHEL
+### <a name="rhel-lvm"></a>LVM DE RHEL
 
 Para aumentar o tamanho do disco do sistema operacional no RHEL 7.x com LVM:
 
@@ -351,6 +351,129 @@ Quando a VM reiniciar, execute as etapas a seguir:
 
 > [!NOTE]
 > Para usar o mesmo procedimento para redimensionar qualquer outro volume lógico, altere o nome **lv** na etapa 7.
+
+### <a name="rhel-raw"></a>RHEL BRUTO
+>[!NOTE]
+>Sempre tire um instantâneo da VM antes de aumentar o tamanho do disco do sistema operacional.
+
+Para aumentar o tamanho do disco do sistema operacional no RHEL com uma partição bruta:
+
+Pare a VM.
+Aumente o tamanho do disco do sistema operacional no portal.
+Inicie a VM.
+Quando a VM reiniciar, execute as etapas a seguir:
+
+1. Acesse sua VM como usuário **raiz** usando o comando a seguir:
+ 
+   ```
+   sudo su
+   ```
+
+1. Instale o pacote **gptfdisk** necessário para aumentar o tamanho do disco do sistema operacional.
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  Para ver todos os setores disponíveis no disco, execute o seguinte comando:
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. Você verá os detalhes informando o tipo de partição. Verifique se ele é GPT. Identifique a partição raiz. Não altere nem exclua a partição de inicialização (partição de inicialização do BIOS) e a partição do sistema (' partição do sistema EFI ')
+
+1. Use o comando a seguir para iniciar o particionamento pela primeira vez. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. Agora, você verá uma mensagem solicitando o próximo comando (' Command:? para obter ajuda '). 
+
+   ```
+   w
+   ```
+
+1. Você receberá um aviso informando "aviso! O cabeçalho secundário é colocado muito cedo no disco! Deseja corrigir esse problema? (S/N): ". Você precisa pressionar ' Y '
+
+   ```
+   Y
+   ```
+
+1. Você deverá ver uma mensagem informando que as verificações finais foram concluídas e solicitando confirmação. Pressione ' Y '
+
+   ```
+   Y
+   ```
+
+1. Verificar se tudo aconteceu corretamente usando o comando partprobe
+
+   ```
+   partprobe
+   ```
+
+1. As etapas acima garantiram que o cabeçalho GPT secundário seja colocado no final. A próxima etapa é iniciar o processo de redimensionamento usando a ferramenta GDisk novamente. Use o comando a seguir.
+
+   ```
+   gdisk /dev/sda
+   ```
+1. No menu comando, pressione ' p ' para ver a lista de partições. Identificar a partição raiz (nas etapas, sda2 é considerado como a partição raiz) e a partição de inicialização (nas etapas, sda3 é considerado como a partição de inicialização) 
+
+   ```
+   p
+   ```
+    ![Partição raiz e partição de inicialização](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. Pressione ' d' para excluir a partição e selecione o número da partição atribuído para inicialização (neste exemplo, é ' 3 ')
+   ```
+   d
+   3
+   ```
+1. Pressione ' d' para excluir a partição e selecione o número da partição atribuído para inicialização (neste exemplo, é ' 2 ')
+   ```
+   d
+   2
+   ```
+    ![Excluir partição raiz e partição de inicialização](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. Para recriar a partição raiz com um tamanho maior, pressione ' n', insira o número da partição que você excluiu anteriormente para a raiz (' 2 ' para este exemplo) e escolha o primeiro setor como ' valor padrão ', último setor como ' último valor do setor-tamanho da inicialização ' (' 4096 neste caso ' correspondente à inicialização de 2MB) e código hexadecimal como ' 8300 '
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. Para recriar a partição de inicialização, pressione ' n', insira o número da partição que você excluiu anteriormente para a inicialização (' 3 ' para este exemplo) e escolha o primeiro setor como ' valor padrão ', último setor como ' valor padrão ' e código hex como ' EF02 '
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. Grave as alterações com o comando ' w ' e pressione ' Y ' para confirmar
+   ```
+   w
+   Y
+   ```
+1. Execute o comando ' partprobe ' para verificar a estabilidade do disco
+   ```
+   partprobe
+   ```
+1. A reinicialização da VM e o tamanho da partição raiz teria sido aumentado
+   ```
+   reboot
+   ```
+
+   ![Nova partição raiz e partição de inicialização](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. Execute o comando xfs_growfs na partição para redimensioná-lo
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS crescimento FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

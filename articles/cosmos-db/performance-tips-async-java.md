@@ -3,17 +3,18 @@ title: Dicas de desempenho para o SDK do Java Assíncrono v2 do Azure Cosmos DB
 description: Saiba mais sobre as opções de configuração do cliente para aprimorar o desempenho de banco de dados do Azure Cosmos para o SDK do Java Assíncrono v2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: c1dec2c8451ddd1feb4b5b0dac9c82e1716079b7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4285571ead30f74f9136ad81687e52d92fdd1c47
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325837"
+ms.locfileid: "93341749"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Dicas de desempenho para o SDK do Java Assíncrono v2 do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

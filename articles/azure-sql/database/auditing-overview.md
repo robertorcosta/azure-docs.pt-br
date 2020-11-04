@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8fd794822e9e4fe282d6ef8a8ccf1eb908c03560
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321669"
+ms.locfileid: "93340024"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,6 +104,13 @@ Para habilitar a auditoria de operações de Suporte da Microsoft (versão prév
   > A auditoria de operações de suporte da Microsoft (versão prévia) não dá suporte ao destino da conta de armazenamento. Para habilitar a funcionalidade, um espaço de trabalho Log Analytics ou um destino do hub de eventos deve ser configurado.
 
 ![Captura de tela de operações de Suporte da Microsoft](./media/auditing-overview/support-operations.png)
+
+Para examinar os logs de auditoria das operações de Suporte da Microsoft em seu espaço de trabalho do Log Analytics, use a seguinte consulta:
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Auditoria para destino de armazenamento
 
@@ -205,9 +212,7 @@ Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azu
 - Métodos adicionais:
 
   - Depois de baixar vários arquivos ou uma subpasta que contém arquivos de log, você pode mesclá-los localmente, conforme descrito nas instruções de Arquivos de Auditoria de Mesclagem do SSMS indicadas anteriormente.
-  - Exiba os logs de auditoria de blob de forma programática:
-
-    - [Consulte Arquivos de Eventos Estendidos usando o PowerShell](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/).
+  - Exibir logs de auditoria de blob programaticamente: [consultar arquivos de eventos estendidos](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) usando o PowerShell.
 
 ## <a name="production-practices"></a><a id="production-practices"></a>Práticas de produção
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521298"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341851"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Suporte para mover VMs do Azure entre regiões do Azure
 
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 |  Há suporte para todos os kernels SU
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
 Tamanho | Qualquer tamanho de VM do Azure com pelo menos dois núcleos de CPU e 1 GB de RAM | Verifique se [tamanhos de máquina virtual do Azure](../virtual-machines/sizes-general.md).
-Conjuntos de disponibilidade | Sem suporte no momento | Se você adicionar uma VM do Azure com um conjunto de disponibilidade à coleção de movimentação com as opções padrão, o processo de preparação falhará. Você pode optar por mover a VM para uma zona de disponibilidade para ou para movê-la como uma única VM de instância. Você pode modificar essas configurações na página Editar propriedades de destino.
+Conjuntos de disponibilidade | Com suporte | Com suporte.
 Zonas de disponibilidade | Com suporte | Com suporte, dependendo do suporte de região de destino.
 Imagens da galeria do Azure (publicadas pela Microsoft) | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 Imagens da galeria do Azure (publicadas por terceiros)  | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.

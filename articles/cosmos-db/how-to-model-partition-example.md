@@ -3,16 +3,17 @@ title: Modelar e particionar dados em Azure Cosmos DB com um exemplo do mundo re
 description: Saiba como modelar e particionar um exemplo do mundo real usando a API do núcleo do Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100241"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342140"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,7 +24,7 @@ Se normalmente trabalha com bancos de dados relacionais, você provavelmente cri
 
 ## <a name="the-scenario"></a>O cenário
 
-Para este exercício, vamos considerar o domínio de uma plataforma de blogs em que os *usuários* podem criar *posts* . Os usuários também podem *curtir* esses posts e adicionar *comentários* a elas.
+Para este exercício, vamos considerar o domínio de uma plataforma de blogs em que os *usuários* podem criar *posts*. Os usuários também podem *curtir* esses posts e adicionar *comentários* a elas.
 
 > [!TIP]
 > Destacamos algumas palavras em *itálico* ; essas palavras identificam o tipo de "coisas" que nosso modelo precisará manipular.
@@ -138,7 +139,7 @@ Essa solicitação é muito fácil de implementar, podemos simplesmente criar ou
 
 A recuperação de um usuário é realizada lendo-se o item correspondente do contêiner `users`.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Recuperar um único item do contêiner de usuários" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -148,7 +149,7 @@ A recuperação de um usuário é realizada lendo-se o item correspondente do co
 
 Da mesma forma que **[C1]** , temos apenas que gravar o contêiner `posts`.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de posts" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -158,7 +159,7 @@ Da mesma forma que **[C1]** , temos apenas que gravar o contêiner `posts`.
 
 Começamos recuperando o documento correspondente do contêiner `posts`. Mas isso não é suficiente, de acordo com nossa especificação também precisamos agregar o nome de usuário do autor do post e as contagens de quantos comentários e curtidas esse post tem, o que exige que 3 consultas SQL adicionais sejam realizadas.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Recuperar um post e agregar dados adicionais" border="false":::
 
 Cada uma das consultas adicionais filtra a chave de partição de seu respectivo contêiner, que é exatamente o que queremos para maximizar o desempenho e a escalabilidade. Mas eventualmente precisamos executar quatro operações para retornar um único post, portanto, melhoraremos isso em uma próxima iteração.
 
@@ -170,7 +171,7 @@ Cada uma das consultas adicionais filtra a chave de partição de seu respectivo
 
 Primeiro, precisamos recuperar os posts desejados com uma consulta SQL que busca os posts correspondentes a esse usuário específico. Mas também precisamos emitir consultas adicionais para agregar o nome de usuário do autor e as contagens de comentários e curtidas.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Recuperar todos os posts de um usuário e agregar seus dados adicionais" border="false":::
 
 Essa implementação apresenta várias desvantagens:
 
@@ -185,7 +186,7 @@ Essa implementação apresenta várias desvantagens:
 
 Um comentário é criado escrevendo-se o item correspondente no contêiner `posts`.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de posts" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -195,7 +196,7 @@ Um comentário é criado escrevendo-se o item correspondente no contêiner `post
 
 Vamos começar com uma consulta que busca todos os comentários para esse post e, mais uma vez, também precisamos agregar nomes de usuário separadamente para cada comentário.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Recuperar todos os comentários de um post e agregar os dados adicionais deles" border="false":::
 
 Embora a consulta principal filtre na chave de partição do contêiner, agregar os nomes de usuário separadamente causa prejuízo ao desempenho em geral. Aprimoraremos isso mais tarde.
 
@@ -207,7 +208,7 @@ Embora a consulta principal filtre na chave de partição do contêiner, agregar
 
 Assim como **[C3]** , criamos o item correspondente no contêiner `posts`.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de posts" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -217,7 +218,7 @@ Assim como **[C3]** , criamos o item correspondente no contêiner `posts`.
 
 Assim como em **[Q4]** , podemos consultar as curtidas desse post e, em seguida, agregar os respectivos nomes de usuário.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Recuperar todas as curtidas de um post e agregar os respectivos dados adicionais" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -227,7 +228,7 @@ Assim como em **[Q4]** , podemos consultar as curtidas desse post e, em seguida,
 
 Buscamos os posts mais recentes consultando o contêiner `posts` classificado por data de criação decrescente, depois agregamos os nomes de usuário e contagens de comentários e curtidas para cada um dos posts.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Recuperar os posts mais recentes e agregar seus dados adicionais" border="false":::
 
 Mais uma vez, nossa consulta inicial não filtra a chave de partição do `posts` contêiner, o que dispara um fan-out dispendioso. Essa é ainda pior, pois visamos um conjunto de resultados muito maior e classificamos os resultados com uma `ORDER BY` cláusula, o que o torna mais caro em termos de unidades de solicitação.
 
@@ -338,7 +339,7 @@ Os nomes de usuário exigem uma abordagem diferente, pois os usuários não só 
 
 Em nosso exemplo, usamos o feed de alterações do contêiner `users` para reagir sempre que os usuários atualizam seus nomes de usuário. Quando isso acontece, podemos propagar a alteração chamando outro procedimento armazenado no contêiner `posts`:
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Desnormalizar nomes de usuário no contêiner de posts" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -378,7 +379,7 @@ Esse procedimento armazenado usa a o novo nome de usuário e a ID do usuário co
 
 Agora que nossa desnormalização está em vigor, precisamos apenas buscar um único item para lidar com essa solicitação.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Recuperar um único item do contêiner de posts" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -388,7 +389,7 @@ Agora que nossa desnormalização está em vigor, precisamos apenas buscar um ú
 
 Aqui, novamente, podemos economizar as solicitações extras que buscaram os nomes de usuário e terminam com uma única consulta que filtra na chave de partição.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Recuperando todos os comentários para um post" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -398,7 +399,7 @@ Aqui, novamente, podemos economizar as solicitações extras que buscaram os nom
 
 Exatamente a mesma situação ao listar as curtidas.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Recuperar todas as curtidas de um post" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -406,13 +407,13 @@ Exatamente a mesma situação ao listar as curtidas.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: garantindo que todas as solicitações sejam escalonáveis
 
-Observando nossas melhorias de desempenho gerais, ainda existem duas solicitações que ainda não otimizamos totalmente: **[Q3]** e **[Q6]** . Elas são as solicitações que envolvem consultas que não filtram na chave de partição dos contêineres aos quais elas se destinam.
+Observando nossas melhorias de desempenho gerais, ainda existem duas solicitações que ainda não otimizamos totalmente: **[Q3]** e **[Q6]**. Elas são as solicitações que envolvem consultas que não filtram na chave de partição dos contêineres aos quais elas se destinam.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Listar os posts de um usuário na forma abreviada
 
 Esta solicitação já se beneficia dos aperfeiçoamentos introduzidos na V2, o que poupa consultas adicionais.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Diagrama que mostra a consulta para listar as postagens de um usuário em forma abreviada." border="false":::
 
 Mas a consulta restante ainda não está filtrando na chave de partição do contêiner `posts`.
 
@@ -456,11 +457,11 @@ Observe que:
 
 Para alcançar essa desnormalização, podemos usar novamente o feed de alterações. Neste momento, podemos reagir no feed de alterações do contêiner `posts` para expedir qualquer post novo ou atualizado para o contêiner `users`. E já que a listagem de posts não exige que o conteúdo completo deles seja retornado, podemos truncá-los no processo.
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Desnormalizar posts no contêiner de usuários" border="false":::
 
 Agora podemos encaminhar nossa consulta para o contêiner `users`, filtrando na chave de partição do contêiner.
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Recuperar todos os posts de um usuário" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -470,7 +471,7 @@ Agora podemos encaminhar nossa consulta para o contêiner `users`, filtrando na 
 
 Temos de lidar com uma situação semelhante aqui: mesmo depois de poupar as consultas adicionais tornadas desnecessárias pela desnormalização introduzida na V2, a consulta restante não filtra na chave de partição do contêiner:
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Diagrama que mostra a consulta para listar as postagens x mais recentes criadas em forma abreviada." border="false":::
 
 Seguindo a mesma abordagem, maximizar o desempenho e a escalabilidade desta solicitação requer que ela atinja somente uma partição. Isso é concebível porque precisamos apenas retornar um número limitado de itens. Para preencher a home page da nossa plataforma de blog, é necessário apenas obter os 100 posts mais recentes, sem a necessidade de paginar através de todo o conjunto de dados.
 
@@ -495,7 +496,7 @@ Esse contêiner é particionado por `type`, que sempre será `post` em nossos it
 
 Para alcançar a desnormalização, precisamos apenas nos conectar ao pipeline do feed de alterações que introduzimos anteriormente para expedir os posts para esse novo contêiner. Uma coisa importante para se ter em mente é que precisamos verificar se armazenamos apenas os 100 posts mais recentes, caso contrário, o conteúdo do contêiner pode crescer além do tamanho máximo de uma partição. Isso é feito chamando um [pós-gatilho](stored-procedures-triggers-udfs.md#triggers) toda vez que um documento é adicionado no contêiner:
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Desnormalizar posts no contêiner do feed" border="false":::
 
 Aqui está o corpo do pós-gatilho que trunca a coleção:
 
@@ -546,7 +547,7 @@ function truncateFeed() {
 
 A etapa final é redirecionar a nossa consulta ao nosso novo contêiner `feed`:
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Gravar um único item no contêiner de usuários" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Recuperar os posts mais recentes" border="false":::
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |

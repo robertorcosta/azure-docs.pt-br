@@ -6,15 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 30f139c92fe426369c609dabd826a7bff1617e72
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098035"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341278"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 O Link do Azure Synapse para Azure Cosmos DB cria uma integração perfeita entre o Azure Cosmos DB e o Azure Synapse Analytics. Ele permite que os clientes executem análises quase em tempo real em seus dados operacionais com isolamento de desempenho total de suas cargas de trabalho transacionais e sem um pipeline ETL. Este artigo responde perguntas frequentes sobre o Link do Synapse para Azure Cosmos DB.
 
@@ -157,7 +157,7 @@ Um contêiner do Azure Cosmos DB habilitado com o repositório analítico tem o 
 
 Um contêiner de repositório transacional será representado com o seguinte ícone:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Ícone do contêiner do Azure Cosmos DB habilitado com o repositório analítico":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Ícone do contêiner do Azure Cosmos DB com repositório transacional":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>Como você passa Azure Cosmos DB credenciais do Azure Synapse Studio?
 

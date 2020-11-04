@@ -4,15 +4,16 @@ description: Com a TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limp
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d4815f4be3c8ef1a2c262d6715756776a537eac1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f439fcd8b2aa1c75e1aff2c6b775921beabbcddf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101044"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340542"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Vida útil no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -75,7 +76,7 @@ TTL no contêiner é definido como-1 (DefaultTimeToLive =-1)
 |TTL = 2000 |O TTL está habilitado. O item expirará após 2000 segundos.|
 
 
-### <a name="example-3"></a>Exemplo 3:
+### <a name="example-3"></a>Exemplo 3
 
 TTL no contêiner é definido como 1000 (DefaultTimeToLive = 1000)
 
