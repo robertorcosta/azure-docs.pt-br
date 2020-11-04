@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar um BD do Azure para MariaDB – modelo do ARM'
 description: Neste Início Rápido, aprenda a criar um servidor do Banco de Dados do Azure para MariaDB usando um modelo do Azure Resource Manager.
-author: mgblythe
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 108233892a89e6f6288e05476e37460a58b52b0e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dc3999193356dd9cddc52b9873d22b4172c0030c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88660539"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042505"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Início Rápido: Usar um modelo do ARM para criar um servidor de Banco de Dados do Azure para MariaDB
 
@@ -68,32 +68,32 @@ Selecione o seguinte link para implantar o modelo de servidor do Banco de Dados 
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
 
-Na página **Implantar Banco de Dados do Azure para MariaDB com VNet**:
+Na página **Implantar Banco de Dados do Azure para MariaDB com VNet** :
 
-1. Para **Grupo de recursos**, selecione **Criar**, insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
+1. Para **Grupo de recursos** , selecione **Criar** , insira um nome para o novo grupo de recursos e, em seguida, selecione **OK**.
 
 2. Caso tenha criado um grupo de recursos, selecione uma **Localização** para o grupo de recursos e para o novo servidor.
 
-3. Insira um **Nome do Servidor**, um **Logon de Administrador** e uma **Senha de Logon de Administrador**.
+3. Insira um **Nome do Servidor** , um **Logon de Administrador** e uma **Senha de Logon de Administrador**.
 
     ![Implantar o Banco de Dados do Azure para MariaDB com a janela VNet, modelo de início rápido do Azure, portal do Azure](./media/quickstart-create-mariadb-server-database-arm-template/deploy-azure-database-mariadb-vnet.png)
 
 4. Se desejar, altere as outras configurações padrão:
 
-    * **Assinatura**: a assinatura do Azure que você deseja usar para o servidor.
-    * **Capacidade de SKU**: a capacidade vCore, que pode ser *2* (o padrão), *4*, *8*, *16*, *32* ou *64*.
-    * **Nome do SKU**: o prefixo do nível de SKU, a família de SKU e a capacidade de SKU, unidos por sublinhados, como *B_Gen5_1*, *GP_Gen5_2* (o padrão) ou *MO_Gen5_32*.
-    * **Tamanho do SKU em MB**: o tamanho do armazenamento, em megabytes, do servidor do Banco de Dados do Azure para MariaDB (padrão *51200*).
-    * **Nível do SKU**: o nível de implantação, como *Basic*, *GeneralPurpose* (o padrão) ou *MemoryOptimized*.
-    * **Família do SKU**: *Gen4* ou *Gen5* (o padrão), que indica a geração de hardware para a implantação do servidor.
-    * **Versão do MariaDB**: a versão do servidor MariaDB a ser implantada, como *10.2* ou *10.3* (o padrão).
-    * **Dias de retenção de backup**: o período desejado para retenção de backup com redundância geográfica, em dias (padrão *7*).
-    * **Backup de redundância geográfica**: *Habilitado* ou *Desabilitado* (o padrão), dependendo dos requisitos de Geo-DR (recuperação de desastre geográfico).
-    * **Nome da Rede Virtual**: o nome da rede virtual (padrão *azure_mariadb_vnet*).
-    * **Nome da Sub-Rede**: o nome da sub-rede (padrão *azure_mariadb_subnet*).
-    * **Nome da Regra da Rede Virtual**: o nome da regra da rede virtual que permite a sub-rede (padrão *AllowSubnet*).
-    * **Prefixo de Endereço da VNET**: o prefixo de endereço para a rede virtual (padrão *10.0.0.0/16*).
-    * **Prefixo da Sub-Rede**: o prefixo de endereço da sub-rede (padrão *10.0.0.0/16*).
+    * **Assinatura** : a assinatura do Azure que você deseja usar para o servidor.
+    * **Capacidade de SKU** : a capacidade vCore, que pode ser *2* (o padrão), *4* , *8* , *16* , *32* ou *64*.
+    * **Nome do SKU** : o prefixo do nível de SKU, a família de SKU e a capacidade de SKU, unidos por sublinhados, como *B_Gen5_1* , *GP_Gen5_2* (o padrão) ou *MO_Gen5_32*.
+    * **Tamanho do SKU em MB** : o tamanho do armazenamento, em megabytes, do servidor do Banco de Dados do Azure para MariaDB (padrão *51200* ).
+    * **Nível do SKU** : o nível de implantação, como *Basic* , *GeneralPurpose* (o padrão) ou *MemoryOptimized*.
+    * **Família do SKU** : *Gen4* ou *Gen5* (o padrão), que indica a geração de hardware para a implantação do servidor.
+    * **Versão do MariaDB** : a versão do servidor MariaDB a ser implantada, como *10.2* ou *10.3* (o padrão).
+    * **Dias de retenção de backup** : o período desejado para retenção de backup com redundância geográfica, em dias (padrão *7* ).
+    * **Backup de redundância geográfica** : *Habilitado* ou *Desabilitado* (o padrão), dependendo dos requisitos de Geo-DR (recuperação de desastre geográfico).
+    * **Nome da Rede Virtual** : o nome da rede virtual (padrão *azure_mariadb_vnet* ).
+    * **Nome da Sub-Rede** : o nome da sub-rede (padrão *azure_mariadb_subnet* ).
+    * **Nome da Regra da Rede Virtual** : o nome da regra da rede virtual que permite a sub-rede (padrão *AllowSubnet* ).
+    * **Prefixo de Endereço da VNET** : o prefixo de endereço para a rede virtual (padrão *10.0.0.0/16* ).
+    * **Prefixo da Sub-Rede** : o prefixo de endereço da sub-rede (padrão *10.0.0.0/16* ).
 
 5. Leia os termos e condições e depois selecione **Eu concordo com os termos e condições declarados acima**.
 

@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: a08145ba5ffb5b30eb2c472d3eb8f608703f44a0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 8d181483032deed35adfd6eebcbf870b89593407
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743447"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332059"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar Python para se conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -61,13 +61,13 @@ Obtenha as informações de conexão das quais precisa para se conectar ao Banco
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
    
-1. Na barra de pesquisa do portal, procure pelo servidor de Banco de Dados do Azure para MySQL que você criou (com o nome que você deu a ele, como **mydemoserver**) e selecione-o.
+1. Na barra de pesquisa do portal, procure pelo servidor de Banco de Dados do Azure para MySQL que você criou (com o nome que você deu a ele, como **mydemoserver** ) e selecione-o.
    
    :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL":::
    
 1. Na página de **Visão geral** do servidor, anote o **Nome do servidor** e o **Nome de logon do administrador do servidor**. Se você esquecer sua senha, também poderá redefini-la dessa página.
    
-   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL":::
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL 2":::
 
 ## <a name="run-the-python-examples"></a>Executar os exemplos de Python
 
@@ -75,11 +75,11 @@ Para cada exemplo de código neste artigo:
 
 1. Crie um arquivo em um editor de texto.
 1. Adicione o exemplo de código ao arquivo. No código, substitua os espaços reservados `<mydemoserver>`, `<myadmin>`, `<mypassword>` e `<mydatabase>` pelos valores do servidor e do banco de dados MySQL.
-1. Salve o arquivo em uma pasta de projeto usando a extensão de arquivo *.py*, como *C:\pythonmysql\createtable.py* ou */home/username/pythonmysql/createtable.py*.
+1. Salve o arquivo em uma pasta de projeto usando a extensão de arquivo *.py* , como *C:\pythonmysql\createtable.py* ou */home/username/pythonmysql/createtable.py*.
 1. Para executar o código, abra um prompt de comando ou shell do `bash` e altere o diretório para a pasta do projeto, por exemplo, `cd pythonmysql`. Digite o comando `python` seguido pelo nome do arquivo (por exemplo, `python createtable.py`) e pressione Enter. 
    
    > [!NOTE]
-   > No Windows, se *python.exe* não for encontrado, poderá ser necessário adicionar o caminho do Python à sua variável de ambiente PATH ou fornecer o caminho completo para *python.exe*, por exemplo, `C:\python27\python.exe createtable.py`.
+   > No Windows, se *python.exe* não for encontrado, poderá ser necessário adicionar o caminho do Python à sua variável de ambiente PATH ou fornecer o caminho completo para *python.exe* , por exemplo, `C:\python27\python.exe createtable.py`.
 
 ## <a name="create-a-table-and-insert-data"></a>Criar uma tabela e inserir dados
 
@@ -270,6 +270,16 @@ else:
   cursor.close()
   conn.close()
   print("Done.")
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos usados durante este guia de início rápido, exclua o grupo de recursos usando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

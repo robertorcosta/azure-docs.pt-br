@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458325"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316191"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para Armazenamento de tabela
 
@@ -153,7 +153,7 @@ Defina o limite da conexão antes de abrir conexões.
 
 No caso de outras linguagens de programação, confira a documentação da linguagem para verificar como definir o limite da conexão.  
 
-Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para saber mais, confira a postagem no blog [Serviços Web: conexões simultâneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de threads
 
@@ -171,7 +171,7 @@ Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado ao usar o
 
 ## <a name="client-libraries-and-tools"></a>Bibliotecas de cliente e ferramentas
 
-Para obter o melhor desempenho, sempre use as bibliotecas de cliente e ferramentas mais recentes fornecidas pela Microsoft. As bibliotecas de cliente do Armazenamento do Azure estão disponíveis para várias linguagens. O Armazenamento do Azure também dá suporte ao PowerShell e à CLI do Azure. A Microsoft desenvolve ativamente essas ferramentas e bibliotecas de cliente pensando no desempenho, os mantém atualizados com as versões de serviço mais recentes e verifica se eles lidam com muitas práticas de desempenho comprovadas internamente. Para obter mais informações, confira a [documentação de referência do Armazenamento do Azure](/azure/storage/#reference).
+Para obter o melhor desempenho, sempre use as bibliotecas de cliente e ferramentas mais recentes fornecidas pela Microsoft. As bibliotecas de cliente do Armazenamento do Azure estão disponíveis para várias linguagens. O Armazenamento do Azure também dá suporte ao PowerShell e à CLI do Azure. A Microsoft desenvolve ativamente essas ferramentas e bibliotecas de cliente pensando no desempenho, os mantém atualizados com as versões de serviço mais recentes e verifica se eles lidam com muitas práticas de desempenho comprovadas internamente.
 
 ## <a name="handle-service-errors"></a>Manipular erros de serviço
 
@@ -197,7 +197,7 @@ Esta seção lista diversas configurações rápidas que você pode usar para fa
 
 Começando na versão 2013-08-15 do serviço de armazenamento, o serviço Tabela dá suporte ao uso de JSON, em vez do formato AtomPub baseado em XML para transferir dados de tabela. Usar JSON pode reduzir o tamanho do conteúdo em até 75% e melhorar consideravelmente o desempenho do seu aplicativo.
 
-Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) e [Formato de carga para operações do serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) e [Formato de carga para operações do serviço Tabela](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations).
 
 ### <a name="disable-nagle"></a>Desabilitar o Nagle
 
@@ -243,7 +243,7 @@ Esta seção descreve as práticas comprovadas para consultar o serviço Tabela.
 
 Há diversas maneiras de especificar quais entidades devem ser consultadas. A lista a seguir descreve cada opção para o escopo de consulta.
 
-- **Consultas pontuais:**– uma consulta pontual recupera exatamente uma entidade especificando a chave de partição e a chave bruta da entidade a ser recuperada. Essas consultas são eficientes e você deve usá-las sempre que possível.
+- **Consultas pontuais:** – uma consulta pontual recupera exatamente uma entidade especificando a chave de partição e a chave bruta da entidade a ser recuperada. Essas consultas são eficientes e você deve usá-las sempre que possível.
 - **Consultas de partição:** Esse tipo de consulta recupera um conjunto de dados que tem uma chave de partição em comum. Geralmente, a consulta especifica diversos valores de chave de linha ou valores de propriedade de entidade, além de uma chave de partição. Essas consultas são menos eficientes do que as consultas pontuais e devem ser usados com critério.
 - **Consultas de tabela:** Esse tipo de consulta recupera um conjunto de entidades que não tem uma chave de partição em comum. Essas consultas não são eficientes e você deve evitá-las sempre que possível.
 
@@ -273,10 +273,10 @@ As transações em lote são conhecidas como transações de grupo de entidades 
 
 #### <a name="upsert"></a>Upsert
 
-Use as operações de tabela **Upsert** sempre que possível. Há dois tipos de **Upsert** e os dois podem ser mais eficientes do que as operações tradicionais **Insert** e **Update**:  
+Use as operações de tabela **Upsert** sempre que possível. Há dois tipos de **Upsert** e os dois podem ser mais eficientes do que as operações tradicionais **Insert** e **Update** :  
 
-- **InsertOrMerge**: use essa operação quando desejar fazer upload de um subconjunto de propriedades da entidade, mas não souber se a entidade já existe. Se a entidade existir, essa chamada atualiza as propriedades incluídas na operação **Upsert** e deixa todas as propriedades existente como elas se encontram. Se a entidade não existir, a operação insere a nova entidade. Isso se parece com o uso de projeção em uma consulta, pois você só precisa carregar as propriedades que estão mudando.
-- **InsertOrReplace**: use essa operação quando desejar fazer upload de uma entidade completamente nova, mas não souber se a entidade já existe. Use essa operação quando souber que a entidade carregada está perfeita, pois ela substitui completamente a entidade anterior. Por exemplo, você quer atualizar a entidade que armazena um local atual do usuário independente de o aplicativo já ter armazenado ou não os dados de local do usuário; a nova entidade de localização está completa e você não precisa de informações de nenhuma entidade anterior.
+- **InsertOrMerge** : use essa operação quando desejar fazer upload de um subconjunto de propriedades da entidade, mas não souber se a entidade já existe. Se a entidade existir, essa chamada atualiza as propriedades incluídas na operação **Upsert** e deixa todas as propriedades existente como elas se encontram. Se a entidade não existir, a operação insere a nova entidade. Isso se parece com o uso de projeção em uma consulta, pois você só precisa carregar as propriedades que estão mudando.
+- **InsertOrReplace** : use essa operação quando desejar fazer upload de uma entidade completamente nova, mas não souber se a entidade já existe. Use essa operação quando souber que a entidade carregada está perfeita, pois ela substitui completamente a entidade anterior. Por exemplo, você quer atualizar a entidade que armazena um local atual do usuário independente de o aplicativo já ter armazenado ou não os dados de local do usuário; a nova entidade de localização está completa e você não precisa de informações de nenhuma entidade anterior.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Armazenar séries de dados em uma única entidade
 

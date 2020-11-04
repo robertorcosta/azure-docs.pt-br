@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896281"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337292"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar Ruby para conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -39,7 +39,7 @@ Instale o Ruby, o Gem e a biblioteca MySQL2 no seu computador.
 5. Teste a instalação do Gem executando o comando `gem -v` para ver a versão instalada.
 6. Compile o módulo Mysql2 para Ruby usando o Gem com a execução do comando `gem install mysql2`.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 1. Instale o Ruby usando Homebrew, executando o comando `brew install ruby`. Para obter mais opções de instalação, consulte a [documentação da instalação](https://www.ruby-lang.org/en/documentation/installation/#homebrew) do Ruby
 2. Teste a instalação do Ruby executando o comando `ruby -v` para ver a versão instalada.
 3. Teste a instalação do Gem executando o comando `gem -v` para ver a versão instalada.
@@ -58,7 +58,7 @@ Instale o Ruby, o Gem e a biblioteca MySQL2 no seu computador.
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver**).
+2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise o servidor que você criou (como **mydemoserver** ).
 3. Clique no nome do servidor.
 4. No painel **Visão Geral** do servidor, anote o **Nome do servidor** e **Nome de logon do administrador do servidor**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
  :::image type="content" source="./media/connect-ruby/1_server-overview-name-login.png" alt-text="Nome do servidor do Banco de Dados do Azure para MySQL":::
@@ -70,7 +70,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 4. No sistema operacional Windows, se o aplicativo Ruby não estiver no seu caminho de variável de ambiente, você precisará usar o caminho completo para iniciar o aplicativo de nó, como `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Conectar-se e criar uma tabela
-Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE**, seguida por instruções SQL **INSERT INTO** para adicionar linhas à tabela.
+Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE** , seguida por instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
 O código usa uma classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) para se conectar ao servidor MySQL. Em seguida, ele chama o método ```query()``` para executar os comandos DROP, CREATE TABLE e INSERT INTO. Por fim, chame o ```close()``` para fechar a conexão antes de encerrar.
 
@@ -224,6 +224,16 @@ ensure
     client.close if client
     puts 'Done.'
 end
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos usados durante este guia de início rápido, exclua o grupo de recursos usando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
