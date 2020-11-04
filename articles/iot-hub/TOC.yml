@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Aprimoramentos de mensagem
       href: tutorial-message-enrichments.md
-    - name: Usar métrica e logs de diagnóstico
+    - name: Usar métricas e logs
       href: tutorial-use-metrics-and-diags.md
     - name: Realizar o failover manual
       href: tutorial-manual-failover.md

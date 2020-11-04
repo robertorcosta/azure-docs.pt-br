@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333457"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Visualização: Use chaves gerenciadas pelo cliente para criptografar imagens
 
@@ -25,7 +25,7 @@ A criptografia do lado do servidor que usa chaves gerenciadas pelo cliente usa o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo requer que você já tenha um conjunto de criptografia de disco para usar para sua imagem.
+Este artigo requer que você já tenha um conjunto de criptografia de disco em cada região para a qual você deseja replicar a imagem.
 
 - Para usar apenas uma chave gerenciada pelo cliente, consulte **habilitar chaves gerenciadas pelo cliente com criptografia do lado do servidor** usando o [portal do Azure](./disks-enable-customer-managed-keys-portal.md) ou o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
@@ -209,8 +209,8 @@ Ao criar a versão da imagem no portal, você pode usar a guia **criptografia** 
 > Para usar a criptografia dupla, você deve usar este link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para acessar o portal do Azure. A criptografia dupla em repouso não está visível no momento no portal do Azure público sem usar o link.
 
 
-1. Na página **Criar uma versão de imagem**, selecione a guia **Criptografia**.
-2. Em **tipo de criptografia**, selecione **criptografia em repouso com uma chave gerenciada pelo cliente** ou **criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente**. 
+1. Na página **Criar uma versão de imagem** , selecione a guia **Criptografia**.
+2. Em **tipo de criptografia** , selecione **criptografia em repouso com uma chave gerenciada pelo cliente** ou **criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente**. 
 3. Selecione o **Conjunto de criptografia de disco** a ser usado na lista suspensa para cada disco na imagem. 
 
 ### <a name="create-the-vm"></a>Criar a VM

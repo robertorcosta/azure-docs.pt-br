@@ -3,15 +3,16 @@ title: Conversão de LINQ to SQL em Azure Cosmos DB
 description: Conheça os operadores LINQ com suporte e como as consultas LINQ são mapeadas para consultas SQL no Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: c7d47b0bb167b3211b3859a47b0c8e11876b1614
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075394"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332365"
 ---
 # <a name="linq-to-sql-translation"></a>Tradução de LINQ em SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ O provedor de consultas oferece suporte às seguintes expressões escalares:
 
 - Valores constantes, incluindo valores constantes dos tipos de dados primitivos no tempo de avaliação da consulta.
   
-- Expressões de índice de matriz/propriedade que se referem à propriedade de um objeto ou de um elemento de matriz. Por exemplo: 
+- Expressões de índice de matriz/propriedade que se referem à propriedade de um objeto ou de um elemento de matriz. Por exemplo:
   
   ```
     family.Id;
@@ -84,7 +85,7 @@ O provedor LINQ incluído no SDK do .NET do SQL dá suporte aos seguintes operad
 - **Onde** : os filtros são convertidos em [Where](sql-query-where.md)e dão suporte à conversão entre `&&` , `||` e `!` para os operadores SQL
 - **SelectMany** : permite o desenrolamento de matrizes para a cláusula [Join](sql-query-join.md) . Use para encadear ou aninhar expressões para filtrar elementos de matriz.
 - **OrderBy** e **OrderByDescending** : translate para [order by](sql-query-order-by.md) com ASC ou Desc.
-- Operadores **Count** , **sum** , **min** , **Max** e **Average** para [agregação](sql-query-aggregates.md)e seus equivalentes assíncronos **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** e **AverageAsync** .
+- Operadores **Count** , **sum** , **min** , **Max** e **Average** para [agregação](sql-query-aggregates.md)e seus equivalentes assíncronos **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** e **AverageAsync**.
 - **CompareTo** : é convertido em comparações de intervalo. Comumente usado para cadeias de caracteres, pois não são comparáveis em .NET.
 - **Skip** e **Take** : está relacionado ao [deslocamento e ao limite](sql-query-offset-limit.md) para limitar os resultados de uma consulta e fazer a paginação.
 - **Funções matemáticas** : oferece suporte à conversão de .net,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` ,, `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` e `Truncate` para as [funções matemáticas internas](sql-query-mathematical-functions.md)equivalentes.

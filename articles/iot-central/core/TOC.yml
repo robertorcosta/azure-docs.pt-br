@@ -221,6 +221,8 @@
           href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Referência de API do IoT Central
       href: /rest/api/iotcentral/
+    - name: Residência de dados do cliente
+      href: iot-central-customer-data-residency.md
     - name: Solicitações de dados do cliente
       href: iot-central-customer-data-requests.md
     - name: Navegadores com suporte

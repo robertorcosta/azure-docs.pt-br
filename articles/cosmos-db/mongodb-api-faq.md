@@ -3,15 +3,16 @@ title: Perguntas frequentes sobre a API do Azure Cosmos DB para MongoDB
 description: Obtenha respostas para perguntas frequentes sobre a API do Azure Cosmos DB para MongoDB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 03c47b398a715a128a32fb6a6fd9d99564ccb891
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4c93aea5a37fb286b49dabfb97522bf40c8f5429
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096624"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333164"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Perguntas frequentes sobre a API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -20,7 +21,7 @@ A API do Azure Cosmos DB para MongoDB é uma camada de compatibilidade de protoc
 
 ## <a name="how-do-i-connect-to-my-database"></a>Como faço para me conectar com o meu banco de dados?
 
-A maneira mais rápida de se conectar a um banco de dados do Cosmos com a API do Azure Cosmos DB para MongoDB é acessar o [portal do Azure](https://portal.azure.com). Vá para sua conta e, em seguida, no menu de navegação à esquerda, clique em **Início Rápido** . O início rápido é a melhor maneira de obter trechos de código para se conectar ao banco de dados.
+A maneira mais rápida de se conectar a um banco de dados do Cosmos com a API do Azure Cosmos DB para MongoDB é acessar o [portal do Azure](https://portal.azure.com). Vá para sua conta e, em seguida, no menu de navegação à esquerda, clique em **Início Rápido**. O início rápido é a melhor maneira de obter trechos de código para se conectar ao banco de dados.
 
 O Azure Cosmos DB impõe padrões e requisitos de segurança rígidos. Azure Cosmos DB contas exigem autenticação e comunicação segura via TLS, portanto, certifique-se de usar o TLSv 1.2.
 

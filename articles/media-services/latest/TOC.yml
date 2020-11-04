@@ -437,5 +437,7 @@
       href: limits-quotas-constraints.md
     - name: Nuvens e regiões do Azure
       href: azure-clouds-regions.md
+    - name: Nomes de código regionais e pontos de extremidade
+      href: azure-regions-code-names.md
     - name: Atualizações na documentação
       href: docs-release-notes.md
