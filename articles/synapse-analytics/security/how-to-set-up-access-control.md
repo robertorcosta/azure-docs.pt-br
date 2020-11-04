@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186613"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312047"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteger seu workspace do Synapse (versão prévia) 
 
@@ -92,7 +92,7 @@ O workspace do Synapse precisa de acesso ao STG1 e CNT1 para que possa executar 
   - Se você não a vir atribuída, atribua-a.
   - A MSI tem o mesmo nome que o workspace. Nesse caso, seria &quot;WS1&quot;.
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>ETAPA 5: Configurar o acesso de administrador para pools de SQL
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>ETAPA 5: configurar o acesso de administrador para Synapse SQL
 
 - Abrir o portal do Azure
 - Navegar até WS1
@@ -114,11 +114,11 @@ Os usuários em cada função precisam concluir as seguintes etapas:
 | Número | Etapa | Administradores do workspace | Administradores do Spark | Administradores do SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Carregar um arquivo parquet no CNT1 | YES | YES | YES |
-| 2 | Ler o arquivo parquet usando o SQL sob demanda | YES | Não | YES |
-| 3 | Criar um pool do Spark | SIM [1] | SIM [1] | Não  |
+| 2 | Ler o arquivo parquet usando o pool SQL sem servidor | YES | Não | YES |
+| 3 | Criar um pool de Apache Spark sem servidor | SIM [1] | SIM [1] | Não  |
 | 4 | Ler o arquivo parquet com um Notebook | YES | YES | Não |
 | 5 | Criar um pipeline com base no Notebook e disparar o pipeline para executar agora | YES | Não | Não |
-| 6 | Criar um pool de SQL e executar o script SQL como &quot;SELECT 1&quot; | SIM [1] | Não | SIM [1] |
+| 6 | Criar um pool SQL dedicado e executar um script SQL, como &quot; Select 1&quot; | SIM [1] | Não | SIM [1] |
 
 > [!NOTE]
 > [1] Para criar pools do SQL ou do Spark, o usuário deve ter pelo menos a função Colaborador no workspace do Synapse.
@@ -148,8 +148,8 @@ O Synapse Studio se comportará de maneira diferente com base nas funções de u
 | Hub de dados/Confira contas e contêineres do ADLS Gen2 vinculados | SIM [1] | SIM [1] | SIM [1] |
 | Hub de dados/Confira Bancos de Dados | YES | YES | YES |
 | Hub de dados/Confira objetos em bancos de dados | YES | YES | YES |
-| Hub de dados/Acessar dados em bancos de dados do pool de SQL | YES   | Não   | YES   |
-| Hub de dados/Acessar dados em bancos de dados SQL sob demanda | SIM [2]  | Não  | SIM [2]  |
+| Dados de data Hub/acesso em bancos de dados SQL do Synapse | YES   | Não   | YES   |
+| Dados de data Hub/acesso em bancos de dados de pool SQL sem servidor | SIM [2]  | Não  | SIM [2]  |
 | Hub de dados/Acessar dados em bancos de dados do Spark | SIM [2] | SIM [2] | SIM [2] |
 | Usar Desenvolver hub | YES | YES | YES |
 | Desenvolver hub/criar scripts SQL | YES | Não | YES |
@@ -159,7 +159,7 @@ O Synapse Studio se comportará de maneira diferente com base nas funções de u
 | Usar o Orquestrar hub | YES | YES | YES |
 | Orquestrar hub/usar pipelines | YES | Não | Não |
 | Usar o Gerenciar hub | YES | YES | YES |
-| Gerenciar hub/pools de SQL | YES | Não | YES |
+| Gerenciar Hub/Synapse SQL | YES | Não | YES |
 | Gerenciar hub/pools do Spark | YES | YES | Não |
 | Gerenciar hub/gatilhos | YES | Não | Não |
 | Gerenciar o Hub/serviços vinculados | YES | YES | YES |

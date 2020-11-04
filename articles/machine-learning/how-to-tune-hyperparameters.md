@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 16a1c966b3f5a674f0ae1dc9c7ee078f45f8bdc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65553edf61d8e646e7238a5385656fe75a3156f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598237"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311381"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ajustar os hiperparâmetros para o seu modelo com o Azure Machine Learning
 
 
-Automatize o ajuste eficiente de hiperparâmetro usando Azure Machine Learning [pacote hyperdrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true). Saiba como concluir as etapas necessárias para ajustar os hiperparâmetros com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true):
+Automatize o ajuste eficiente de hiperparâmetro usando Azure Machine Learning [pacote hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py). Saiba como concluir as etapas necessárias para ajustar os hiperparâmetros com o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py):
 
 1. Defina o espaço de pesquisa de parâmetro
 1. Especificar uma métrica primária para otimizar  
@@ -44,7 +44,7 @@ Azure Machine Learning permite automatizar o ajuste de hiperparâmetro e executa
 
 Ajuste os hiperparâmetros explorando o intervalo de valores definido para cada hiperparâmetro.
 
-Os hiperparâmetros podem ser discretos ou contínuos e ter uma distribuição de valores descritos por uma [expressão de parâmetro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py&preserve-view=true).
+Os hiperparâmetros podem ser discretos ou contínuos e ter uma distribuição de valores descritos por uma [expressão de parâmetro](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py).
 
 ### <a name="discrete-hyperparameters"></a>Hiperparâmetros discretos 
 
@@ -101,7 +101,7 @@ Especifique o método de amostragem de parâmetro a ser usado no espaço de hipe
 
 #### <a name="random-sampling"></a>Amostragem aleatória
 
-A [amostragem aleatória](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py&preserve-view=true) dá suporte a hiperparâmetros discretos e contínuos. Ele dá suporte ao encerramento antecipado de execuções de baixo desempenho. Alguns usuários fazem uma pesquisa inicial com amostragem aleatória e, em seguida, refinam o espaço de pesquisa para melhorar os resultados.
+A [amostragem aleatória](/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?preserve-view=true&view=azure-ml-py) dá suporte a hiperparâmetros discretos e contínuos. Ele dá suporte ao encerramento antecipado de execuções de baixo desempenho. Alguns usuários fazem uma pesquisa inicial com amostragem aleatória e, em seguida, refinam o espaço de pesquisa para melhorar os resultados.
 
 Na amostragem Aleatória, os valores de hiperparâmetro serão selecionadas aleatoriamente do espaço de pesquisa definido. 
 
@@ -118,7 +118,7 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>Amostragem de grade
 
-A [amostragem de grade](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py&preserve-view=true) dá suporte a hiperparâmetros discretos. Use a amostragem de grade se você puder fazer o orçamento para pesquisar exaustivamente no espaço de pesquisa. Dá suporte ao encerramento antecipado de execuções de baixo desempenho.
+A [amostragem de grade](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) dá suporte a hiperparâmetros discretos. Use a amostragem de grade se você puder fazer o orçamento para pesquisar exaustivamente no espaço de pesquisa. Dá suporte ao encerramento antecipado de execuções de baixo desempenho.
 
 Executa uma pesquisa de grade simples em todos os valores possíveis. A amostragem de grade só pode ser usada com `choice` hiperparâmetros. Por exemplo, o seguinte espaço tem seis amostras:
 
@@ -134,7 +134,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Amostragem Bayesiana
 
-A [amostragem de Bayesiana](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?view=azure-ml-py&preserve-view=true) é baseada no algoritmo de otimização de bayesiana. Ele escolhe exemplos com base em como as amostras anteriores foram executadas, para que novos exemplos melhorem a métrica primária.
+A [amostragem de Bayesiana](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) é baseada no algoritmo de otimização de bayesiana. Ele escolhe exemplos com base em como as amostras anteriores foram executadas, para que novos exemplos melhorem a métrica primária.
 
 A amostragem de Bayesiana será recomendada se você tiver orçamento suficiente para explorar o espaço de hiperparâmetro. Para obter melhores resultados, recomendamos um número máximo de execuções maiores ou iguais a 20 vezes o número de hiperparâmetros que estão sendo ajustados. 
 
@@ -156,7 +156,7 @@ param_sampling = BayesianParameterSampling( {
 
 ## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> Especificar métrica primária
 
-Especifique a [métrica primária](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) que você deseja que o ajuste de hiperparâmetro Otimize. Cada execução de treinamento é avaliada para a métrica principal. A política de término antecipado usa a métrica primária para identificar execuções de baixo desempenho.
+Especifique a [métrica primária](/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?preserve-view=true&view=azure-ml-py) que você deseja que o ajuste de hiperparâmetro Otimize. Cada execução de treinamento é avaliada para a métrica principal. A política de término antecipado usa a métrica primária para identificar execuções de baixo desempenho.
 
 Especifique os seguintes atributos para sua métrica primária:
 
@@ -204,7 +204,7 @@ O Azure Machine Learning dá suporte às seguintes políticas de finalização a
 
 ### <a name="bandit-policy"></a>Política Bandit
 
-A [política Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py&preserve-view=true#&preserve-view=truedefinition) é baseada no fator de margem de atraso/valor da margem de atraso e no intervalo de avaliação. Bandit termina em execuções em que a métrica primária não está dentro do fator de margem de atraso especificado/valor da margem de atraso em comparação com a execução de melhor desempenho.
+A [política Bandit](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) é baseada no fator de margem de atraso/valor da margem de atraso e no intervalo de avaliação. Bandit termina em execuções em que a métrica primária não está dentro do fator de margem de atraso especificado/valor da margem de atraso em comparação com a execução de melhor desempenho.
 
 > [!NOTE]
 > A amostragem de Bayesiana não dá suporte ao encerramento antecipado. Ao usar a amostragem de Bayesiana, defina `early_termination_policy = None` .
@@ -227,7 +227,7 @@ Neste exemplo, a política de encerramento inicial é aplicada a cada intervalo 
 
 ### <a name="median-stopping-policy"></a>Política de Encerramento Mediana
 
-A [parada mediana](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?view=azure-ml-py&preserve-view=true) é uma política de término inicial com base nas médias em execução das métricas primárias relatadas pelas execuções. Essa política computa as médias em execução em todas as execuções de treinamento e as execuções com valores principais de métrica pior do que a mediana das médias.
+A [parada mediana](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) é uma política de término inicial com base nas médias em execução das métricas primárias relatadas pelas execuções. Essa política computa as médias em execução em todas as execuções de treinamento e as execuções com valores principais de métrica pior do que a mediana das médias.
 
 Esta política usa os seguintes parâmetros de configuração:
 * `evaluation_interval`: a frequência para aplicar a política (parâmetro opcional).
@@ -243,7 +243,7 @@ Neste exemplo, a política de encerramento inicial é aplicada a cada intervalo 
 
 ### <a name="truncation-selection-policy"></a>Política de seleção de truncamento
 
-[Seleção de truncamento](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?view=azure-ml-py&preserve-view=true) cancela uma porcentagem de execuções de execução mais baixa em cada intervalo de avaliação. As execuções são comparadas usando a métrica primária. 
+[Seleção de truncamento](/python/api/azureml-train-core/azureml.train.hyperdrive.truncationselectionpolicy?preserve-view=true&view=azure-ml-py) cancela uma porcentagem de execuções de execução mais baixa em cada intervalo de avaliação. As execuções são comparadas usando a métrica primária. 
 
 Esta política usa os seguintes parâmetros de configuração:
 
@@ -298,7 +298,7 @@ Esse código configura o experimento de ajuste de hiperparâmetro para usar um m
 
 ## <a name="configure-experiment"></a>Configurar o experimento
 
-Para [Configurar o experimento de ajuste de hiperparâmetro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) , forneça o seguinte:
+Para [Configurar o experimento de ajuste de hiperparâmetro](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py) , forneça o seguinte:
 * O espaço de pesquisa de hiperparâmetro definido
 * Sua política de encerramento antecipado
 * A métrica primária
@@ -325,7 +325,7 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="submit-experiment"></a>Enviar experimento
 
-Depois de definir a configuração de ajuste de hiperparâmetro, [envie o experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-):
+Depois de definir a configuração de ajuste de hiperparâmetro, [envie o experimento](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-):
 
 ```Python
 from azureml.core.experiment import Experiment
@@ -339,8 +339,8 @@ Encontrar os melhores valores de hiperparâmetro para seu modelo pode ser um pro
 
 
 A inicialização a quente é tratada de forma diferente, dependendo do método de amostragem:
-- **Amostragem de Bayesiana**: as avaliações da execução anterior são usadas como conhecimento prévio para escolher novos exemplos e para melhorar a métrica primária.
-- Amostragem **aleatória** ou **amostra de grade**: o encerramento antecipado usa o conhecimento de execuções anteriores para determinar execuções com mau desempenho. 
+- **Amostragem de Bayesiana** : as avaliações da execução anterior são usadas como conhecimento prévio para escolher novos exemplos e para melhorar a métrica primária.
+- Amostragem **aleatória** ou **amostra de grade** : o encerramento antecipado usa o conhecimento de execuções anteriores para determinar execuções com mau desempenho. 
 
 Especifique a lista de execuções pai das quais você deseja iniciar a inicialização.
 
@@ -382,7 +382,7 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-experiment"></a>Visualizar o experimento
 
-Use o [widget Notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true) para visualizar o progresso de suas execuções de treinamento. O snippet a seguir visualiza todas as execuções em um único lugar em um bloco de anotações do Jupyter de ajuste de seu parâmetro:
+Use o [widget Notebook](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) para visualizar o progresso de suas execuções de treinamento. O snippet a seguir visualiza todas as execuções em um único lugar em um bloco de anotações do Jupyter de ajuste de seu parâmetro:
 
 ```Python
 from azureml.widgets import RunDetails

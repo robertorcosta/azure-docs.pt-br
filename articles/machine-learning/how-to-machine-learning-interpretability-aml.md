@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708247"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311605"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usar o pacote de interpretação para explicar os modelos de ML & previsões no Python (versão prévia)
 
@@ -354,7 +354,7 @@ Siga um destes caminhos para acessar o painel de visualização no Azure Machine
    [![Importância do recurso local do painel de visualização no AzureML Studio em experimentos](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Painel de **modelos**
-  1. Se você registrou seu modelo original seguindo as etapas em [implantar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), você pode selecionar **modelos** no painel esquerdo para exibi-lo.
+  1. Se você registrou seu modelo original seguindo as etapas em [implantar modelos com Azure Machine Learning](./how-to-deploy-and-where.md), você pode selecionar **modelos** no painel esquerdo para exibi-lo.
   1. Selecione um modelo e, em seguida, a guia **explicações** para exibir o painel de visualização da explicação.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretabilidade no tempo de inferência
@@ -419,7 +419,7 @@ Você pode implantar o explicador junto com o modelo original e usá-lo no momen
 
 1. Implante a imagem em um destino de computação, seguindo estas etapas:
 
-   1. Se necessário, Registre seu modelo de previsão original seguindo as etapas em [implantar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. Se necessário, Registre seu modelo de previsão original seguindo as etapas em [implantar modelos com Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Crie um arquivo de pontuação.
 
@@ -553,4 +553,3 @@ Você pode implantar o explicador junto com o modelo original e usá-lo no momen
 [Saiba mais sobre a interpretação de modelo](how-to-machine-learning-interpretability.md)
 
 [Confira Azure Machine Learning notebooks de exemplo de interpretação](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-

@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322352"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311520"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação de modelo na Azure Machine Learning (versão prévia)
 
@@ -39,7 +39,7 @@ A habilitação da capacidade de explicar um modelo de aprendizado de máquina �
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretabilidade com Azure Machine Learning
 
-As classes de interpretação são disponibilizadas por meio do seguinte pacote SDK: (saiba como [instalar pacotes SDK para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+As classes de interpretação são disponibilizadas por meio do seguinte pacote SDK: (saiba como [instalar pacotes SDK para Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret`, contém funcionalidades com suporte da Microsoft.
 
@@ -66,7 +66,7 @@ Saiba mais sobre técnicas de interpretação com suporte, modelos de aprendizad
 |--|--|--------------------|
 |Explicador de árvore SHAP| O explicador de árvore do [shap](https://github.com/slundberg/shap), que se concentra no algoritmo de estimativa de valor shap tempo polinomial rápido e específico para **árvores e conjuntos de árvores**.|Específico do modelo|
 |Explicador profundo do SHAP| Com base na explicação do SHAP, o profundo explicador "é um algoritmo de aproximação de alta velocidade para valores de SHAP em modelos de aprendizado profundo que se baseiam em uma conexão com o DeepLIFT descrito no [artigo shap Nips](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Há suporte para modelos **TensorFlow** e modelos **Keras** usando o back-end TensorFlow (também há suporte preliminar para PyTorch) ".|Específico do modelo|
-|Explicador linear SHAP| O explicador linear de SHAP computa valores de SHAP para um **modelo linear**, opcionalmente, para correlações entre recursos.|Específico do modelo|
+|Explicador linear SHAP| O explicador linear de SHAP computa valores de SHAP para um **modelo linear** , opcionalmente, para correlações entre recursos.|Específico do modelo|
 |Explicador de kernel SHAP| O explicador do kernel do SHAP usa uma regressão linear local especialmente ponderada para estimar valores de SHAP para **qualquer modelo**.|Independente de modelo|
 |Explicador de imitação (substituto global)| O explicador de imitação se baseia na ideia de treinar [modelos substitutos globais](https://christophm.github.io/interpretable-ml-book/global.html) para imitar modelos Blackbox. Um modelo substituto global é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de **qualquer modelo de caixa preta** o mais precisamente possível. Os cientistas de dados podem interpretar o modelo substituto para desenhar conclusões sobre o modelo de caixa preta. Você pode usar um dos seguintes modelos interpretáveis como seu modelo substituto: LightGBM (LGBMExplainableModel), regressão linear (LinearExplainableModel), estocástico gradiente descendente de modelo explicativo (SGDExplainableModel) e árvore de decisão (DecisionTreeExplainableModel).|Independente de modelo|
 |Explicador de importância do recurso de permuta (PFI)| A importância do recurso de permuta é uma técnica usada para explicar os modelos de classificação e regressão inspirados pelo [documento de florestas aleatórias do Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte a seção 10). Em um alto nível, a maneira como ele funciona é por meio do embaralhamento de dados um recurso por vez para todo o DataSet e calcular quanto a métrica de desempenho de interesse muda. Quanto maior a alteração, mais importante é esse recurso. PFI pode explicar o comportamento geral de **qualquer modelo subjacente** , mas não explica previsões individuais. |Independente de modelo|

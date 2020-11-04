@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea765ae5ff93625cc6a0ed36776a8925e5fce836
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738731"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311136"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio (visualização) no Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Este artigo descreve como usar notebooks no Azure Synapse Studio.
 
 ## <a name="create-a-notebook"></a>Criar um notebook
 
-Há dois modos de criar um notebook. Você pode criar um notebook ou importar um existente para um workspace do Azure Synapse no **Pesquisador de Objetos** . Os notebooks do Azure Synapse Studio podem reconhecer arquivos IPYNB padrão do Jupyter Notebook.
+Há dois modos de criar um notebook. Você pode criar um notebook ou importar um existente para um workspace do Azure Synapse no **Pesquisador de Objetos**. Os notebooks do Azure Synapse Studio podem reconhecer arquivos IPYNB padrão do Jupyter Notebook.
 
 ![criar bloco de anotações de importação](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
@@ -44,11 +44,11 @@ Os notebooks consistem em células, que são blocos individuais de código ou te
 
 Há várias maneiras de adicionar uma nova célula ao notebook.
 
-1. Expanda o botão superior esquerdo **+ Célula** e selecione **Adicionar célula de código** ou **Adicionar célula de texto** .
+1. Expanda o botão superior esquerdo **+ Célula** e selecione **Adicionar célula de código** ou **Adicionar célula de texto**.
 
     ![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Passe o mouse sobre o espaço entre duas células e selecione **Adicionar código** ou **Adicionar texto** .
+2. Passe o mouse sobre o espaço entre duas células e selecione **Adicionar código** ou **Adicionar texto**.
 
     ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
@@ -86,7 +86,7 @@ A imagem a seguir é um exemplo de como você pode escrever uma consulta PySpark
 
 Você não pode fazer referência a dados ou variáveis diretamente em linguagens diferentes em um notebook do Synapse Studio. No Spark, uma tabela temporária pode ser referenciada entre os idiomas. Aqui está um exemplo de como ler um dataframe `Scala` no `PySpark` e `SparkSQL` usando uma tabela temporária do Spark como solução alternativa.
 
-1. Na célula 1, leia um dataframe do conector do pool SQL com o Scala e crie uma tabela temporária.
+1. Na célula 1, leia um dataframe de um conector de pool do SQL usando escalabilidade e crie uma tabela temporária.
 
    ```scala
    %%scala
@@ -112,7 +112,7 @@ Você não pode fazer referência a dados ou variáveis diretamente em linguagen
 
 Os notebooks do Azure Synapse Studio são integrados ao editor Monaco para levar o IntelliSense de estilo IDE ao editor de célula. O realce de sintaxe, o marcador de erro e as conclusões automáticas de código ajudam você a escrever código e identificar problemas mais rapidamente.
 
-Os recursos do IntelliSense estão em níveis diferentes de maturidade para linguagens diferentes. Use a tabela abaixo para ver o que tem suporte.
+Os recursos do IntelliSense estão em níveis diferentes de maturidade para linguagens diferentes. Use a tabela a seguir para ver o que tem suporte.
 
 |Languages| Realce da sintaxe | Marcador de erro de sintaxe  | Conclusão de código de sintaxe | Conclusão de código de variável| Conclusão de código de função do sistema| Conclusão do código de função do usuário| Recuo Inteligente | Dobramento de código|
 |--|--|--|--|--|--|--|--|--|
@@ -142,7 +142,7 @@ Você também pode usar [teclas de atalho no modo de comando](#shortcut-keys-und
 
 ### <a name="delete-a-cell"></a>Excluir uma célula
 
-Para excluir uma célula, selecione as reticências (...), acesse o menu de ações de célula adicional na extrema direita e selecione **Excluir uma célula** . 
+Para excluir uma célula, selecione as reticências (...), acesse o menu de ações de célula adicional na extrema direita e selecione **Excluir uma célula**. 
 
 Você também pode usar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **D,D** para excluir a célula atual.
   
@@ -167,12 +167,12 @@ Você pode executar as células de código em seu notebook individualmente ou to
 
 Há várias maneiras de executar o código em uma célula.
 
-1. Passe o mouse sobre a célula que você deseja executar e selecione o botão **Executar Célula** ou pressione **Ctrl+Enter** .
+1. Passe o mouse sobre a célula que você deseja executar e selecione o botão **Executar Célula** ou pressione **Ctrl+Enter**.
 
    ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Para acessar o menu de ações adicionais de célula na extrema direita, selecione as reticências ( **...** ). Em seguida, selecione **Executar célula** .
+2. Para acessar o menu de ações adicionais de célula na extrema direita, selecione as reticências ( **...** ). Em seguida, selecione **Executar célula**.
 
    ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
@@ -203,7 +203,7 @@ Um status de execução de célula passo a passo é exibido abaixo da célula pa
 
 ### <a name="spark-progress-indicator"></a>Indicador de progresso do Spark
 
-O notebook do Azure Synapse Studio é baseado exclusivamente no Spark. As células de código são executadas remotamente no pool do Spark. Um indicador de progresso do trabalho do Spark é fornecido com uma barra de progresso em tempo real para ajudá-lo a entender o status de execução do trabalho.
+O notebook do Azure Synapse Studio é baseado exclusivamente no Spark. As células de código são executadas no pool de Apache Spark sem servidor remotamente. Um indicador de progresso do trabalho do Spark é fornecido com uma barra de progresso em tempo real para ajudá-lo a entender o status de execução do trabalho.
 O número de tarefas por cada trabalho ou estágio ajuda a identificar o nível paralelo do seu trabalho do Spark. Você também pode analisar mais detalhadamente a interface do usuário do Spark de um trabalho específico (ou estágio) por meio da seleção do link no nome do trabalho (ou estágio).
 
 
@@ -211,7 +211,7 @@ O número de tarefas por cada trabalho ou estágio ajuda a identificar o nível 
 
 ### <a name="spark-session-config"></a>Configuração de sessão do Spark
 
-Você pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à sessão atual do Spark em **Configurar sessão** . Reinicie a sessão do Spark para que as alterações de configuração entrem em vigor. Todas as variáveis do notebook em cache serão limpas.
+Você pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à sessão atual do Spark em **Configurar sessão**. Reinicie a sessão do Spark para que as alterações de configuração entrem em vigor. Todas as variáveis do notebook em cache serão limpas.
 
 [![gerenciamento de sessão](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
@@ -275,9 +275,9 @@ Você pode acessar os dados na conta de armazenamento principal diretamente. Nã
 
 ### <a name="produce-rendered-table-view"></a>Produzir exibição de tabela renderizada
 
-Uma exibição de resultados tabulares é fornecida com a opção para criar gráfico de barras, de linhas, de pizza, de dispersão e de área. Você pode visualizar seus dados sem precisar escrever código. Os gráficos podem ser personalizados nas **Opções de Gráfico** . 
+Uma exibição de resultados tabulares é fornecida com a opção para criar gráfico de barras, de linhas, de pizza, de dispersão e de área. Você pode visualizar seus dados sem precisar escrever código. Os gráficos podem ser personalizados nas **Opções de Gráfico**. 
 
-A saída dos comandos magic **%%sql** aparecem na exibição de tabela renderizada por padrão. Você pode chamar <code>display(df)</code> no Spark Dataframes, nos quadros de tabela do pandas, na lista ou na função RDD (Distributed DataSets) para produzir a exibição de tabela renderizada.
+A saída dos comandos magic **%%sql** aparecem na exibição de tabela renderizada por padrão. Você pode chamar <code>display(df)</code> no Spark Dataframes, no pandas Dataframes, na lista ou na função RDD (resilientes distribuídos) para produzir a exibição de tabela renderizada.
 
    [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
@@ -294,9 +294,9 @@ Você pode usar <code>display(df, summary = True)</code> para verificar o resumo
 
 ### <a name="render-html-or-interactive-libraries"></a>Renderizar bibliotecas em HTML ou interativas
 
-Você pode renderizar código HTML, incluindo JavaScript, CSS, D3 ou bibliotecas interativas, como **bokeh** , usando o **displayHTML ()** .
+Você pode renderizar código HTML, incluindo JavaScript, CSS, D3 ou bibliotecas interativas, como **bokeh** , usando o **displayHTML ()**.
 
-A imagem a seguir é um exemplo de como plotar glifos em um mapa usando **bokeh** .
+A imagem a seguir é um exemplo de como plotar glifos em um mapa usando **bokeh**.
 
    ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    

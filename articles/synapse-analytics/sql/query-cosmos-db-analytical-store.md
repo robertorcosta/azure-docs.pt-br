@@ -1,6 +1,6 @@
 ---
 title: Consultar dados de Azure Cosmos DB usando o pool SQL sem servidor no link Synapse do Azure (versão prévia)
-description: Neste artigo, você aprenderá a consultar Azure Cosmos DB usando o SQL sob demanda no link Synapse do Azure (versão prévia).
+description: Neste artigo, você aprenderá a consultar Azure Cosmos DB usando o pool SQL sem servidor no link Synapse do Azure (versão prévia).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737837"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310302"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com o pool SQL sem servidor no link Synapse do Azure (versão prévia)
 
 O pool SQL sem servidor Synapse permite analisar dados em seus contêineres de Azure Cosmos DB que são habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe de T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta de BI e ad hoc por meio da interface T-SQL.
 
-Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa é suportada por meio da função [OPENROWSET](develop-openrowset.md) , incluindo a maioria dos [operadores e funções SQL](overview-features.md). Você também pode armazenar os resultados da consulta que lê dados de Azure Cosmos DB juntamente com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando [criar tabela externa como SELECT](develop-tables-cetas.md#cetas-in-sql-on-demand). Atualmente, não é possível armazenar os resultados da consulta do pool SQL sem servidor para Azure Cosmos DB usando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa é suportada por meio da função [OPENROWSET](develop-openrowset.md) , incluindo a maioria dos [operadores e funções SQL](overview-features.md). Você também pode armazenar os resultados da consulta que lê dados de Azure Cosmos DB juntamente com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando [criar tabela externa como SELECT](develop-tables-cetas.md#cetas-in-serverless-sql-pool). Atualmente, não é possível armazenar os resultados da consulta do pool SQL sem servidor para Azure Cosmos DB usando CETAS. 
 
 Neste artigo, você aprenderá a escrever uma consulta com o pool SQL sem servidor que consultará dados de contêineres de Azure Cosmos DB que estão com o link Synapse habilitado. Em seguida, você pode saber mais sobre como criar exibições de pool de SQL sem servidor em Azure Cosmos DB contêineres e conectá-las a modelos de Power BI [neste tutorial.](./tutorial-data-analyst.md) 
 
@@ -255,11 +255,11 @@ Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade 
 | Tipo de propriedade Azure Cosmos DB | Tipo de coluna SQL |
 | --- | --- |
 | Booliano | bit |
-| Integer | BIGINT |
-| Decimal | FLOAT |
+| Integer | bigint |
+| Decimal | float |
 | String | varchar (agrupamento de banco de dados UTF8) |
 | Data e hora (cadeia de caracteres formatada em ISO) | varchar (30) |
-| Data e hora (carimbo de hora do UNIX) | BIGINT |
+| Data e hora (carimbo de hora do UNIX) | bigint |
 | Nulo | `any SQL type` 
 | Objeto ou matriz aninhada | varchar (max) (agrupamento de banco de dados UTF8), serializado como texto JSON |
 
@@ -358,6 +358,6 @@ Você pode relatar sugestões e problemas na [página de comentários do Azure S
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Use Power BI e o pool de SQL Synapse sem servidor com o link Synapse do Azure](../../cosmos-db/synapse-link-power-bi.md)
-- [Como criar e usar modos de exibição no SQL sob demanda](create-use-views.md) 
-- [Tutorial sobre a criação de exibições do SQL sob demanda em Azure Cosmos DB e conectá-las a modelos de Power BI por meio do DirectQuery](./tutorial-data-analyst.md)
+- [Usar o Power BI e o pool de SQL sem servidor com o link Synapse do Azure](../../cosmos-db/synapse-link-power-bi.md)
+- [Como criar e usar modos de exibição no pool SQL sem servidor](create-use-views.md) 
+- [Tutorial sobre como criar exibições de pool de SQL sem servidor em Azure Cosmos DB e conectá-las a modelos de Power BI por meio do DirectQuery](./tutorial-data-analyst.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195078"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311873"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Aquisição de dados e etapa de entendimento do Processo de Ciência de Dados de Equipe
 
@@ -67,8 +67,8 @@ Neste estágio, você desenvolverá uma arquitetura da solução do pipeline de 
 Veja a seguir os resultados deste estágio:
 
    * [Relatório de qualidade de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): este relatório inclui resumos de dados, as relações entre cada atributo e o destino, classificação de variável e mais. A ferramenta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fornecida como parte do TDSP pode gerar rapidamente este relatório em qualquer conjunto de dados de tabela, como um arquivo CSV ou uma tabela relacional. 
-   * **Arquitetura da solução**: a arquitetura da solução pode ser um diagrama ou uma descrição do pipeline de dados usado para executar a pontuação ou previsões sobre novos dados após a criação de um modelo. Também contém o pipeline para treinar novamente seu modelo com base nos novos dados. Armazene o documento no diretório [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando você usar o modelo de estrutura de diretório do TDSP.
-   * **Decisão do ponto de verificação**: antes de começar a engenharia de recursos completos e a criação de modelos, você pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a sua busca. Por exemplo, talvez você esteja pronto para continuar, precise coletar mais dados ou abandone o projeto, pois não existem dados para responder à pergunta.
+   * **Arquitetura da solução** : a arquitetura da solução pode ser um diagrama ou uma descrição do pipeline de dados usado para executar a pontuação ou previsões sobre novos dados após a criação de um modelo. Também contém o pipeline para treinar novamente seu modelo com base nos novos dados. Armazene o documento no diretório [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando você usar o modelo de estrutura de diretório do TDSP.
+   * **Decisão do ponto de verificação** : antes de começar a engenharia de recursos completos e a criação de modelos, você pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a sua busca. Por exemplo, talvez você esteja pronto para continuar, precise coletar mais dados ou abandone o projeto, pois não existem dados para responder à pergunta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -82,4 +82,4 @@ Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
 Fornecemos orientações completas que demonstram todas as etapas no processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
-Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data) (Usar o TDSP com o Azure Machine Learning).
+Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning]() (Usar o TDSP com o Azure Machine Learning).

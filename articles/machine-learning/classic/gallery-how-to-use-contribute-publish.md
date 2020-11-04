@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc405c56538ab305d6e0b8a22c1095458cb1264e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91341117"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309879"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -48,12 +48,12 @@ Você pode até mesmo compartilhar um recurso de interesse com amigos ou colegas
 
 Quando você entra, vira um membro da comunidade da Galeria. Isso permite que você baixe recursos ou contribua com seus próprios itens da galeria, de modo que outras pessoas possam se beneficiar das soluções descobertas.
 
-Você pode baixar **experimentos**, **módulos personalizados** para usar no desenvolvimento de suas próprias soluções de análise.
-Contribua com **experimentos**, **tutoriais** e **coleções** para a Galeria.
+Você pode baixar **experimentos** , **módulos personalizados** para usar no desenvolvimento de suas próprias soluções de análise.
+Contribua com **experimentos** , **tutoriais** e **coleções** para a Galeria.
 
 ## <a name="download-experiments-modules"></a>Baixar experimentos, módulos
 
-Você pode baixar **testes**, **módulos personalizados** em seu próprio espaço de trabalho Machine Learning Studio (clássico) para usar no desenvolvimento de suas próprias soluções.
+Você pode baixar **testes** , **módulos personalizados** em seu próprio espaço de trabalho Machine Learning Studio (clássico) para usar no desenvolvimento de suas próprias soluções.
 
 Para baixar um recurso na Galeria de IA:
 
@@ -65,7 +65,7 @@ Para baixar um recurso na Galeria de IA:
 Para baixar um recurso de dentro do Studio (clássico):
 
 1. No Studio (clássico), selecione **novo**.
-1. Selecione **Módulo**, **Experimento** ou **Notebook**.
+1. Selecione **Módulo** , **Experimento** ou **Notebook**.
 1. Procure ou pesquise para encontrar um recurso da Galeria.
 1. Aponte o mouse para o recurso e, em seguida, selecione **Abrir no Studio**.
     ![Abrir experimento de galeria de dentro Machine Learning Studio (clássico)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
@@ -91,9 +91,9 @@ Além disso, você pode fazer logon com uma ferramenta de discussão, como o Dis
 
 1. Na Galeria, insira um **Nome** e **Marcas** que sejam descritivas. Realce as técnicas usadas ou o problema do mundo real resolvido. Um exemplo de um título de experimento descritivo é "classificação binária: Análise de Sentimento do Twitter".
 
-1. Na caixa **RESUMO**, digite um resumo do seu experimento. Descreva resumidamente o problema que o experimento resolve e como você o abordou.
+1. Na caixa **RESUMO** , digite um resumo do seu experimento. Descreva resumidamente o problema que o experimento resolve e como você o abordou.
 
-1. Na caixa **DESCRIÇÃO DETALHADA**, descreva as etapas executadas em cada parte do seu experimento. Alguns tópicos úteis a serem incluídos são:
+1. Na caixa **DESCRIÇÃO DETALHADA** , descreva as etapas executadas em cada parte do seu experimento. Alguns tópicos úteis a serem incluídos são:
    * Captura de tela de grafo do experimento
    * Explicação e fontes de dados
    * Processamento de dados
@@ -106,12 +106,12 @@ Além disso, você pode fazer logon com uma ferramenta de discussão, como o Dis
    > [!TIP]
    > A caixa fornecida para a edição e visualização de Markdown são pequenas. Recomendamos que você escreva a documentação do experimento em um Markdown editor (como o [Visual Studio Code](https://aka.ms/vscode)) e, em seguida, copie e cole a documentação concluída na caixa de texto na Galeria.
 
-1. Na página **Seleção de Imagem**, escolha uma imagem em miniatura para o seu experimento. A imagem em miniatura é exibida na parte superior da página de detalhes do experimento e no bloco do experimento. Outros usuários poderão ver a imagem em miniatura quando navegarem na Galeria. Você pode carregar uma imagem do seu computador ou selecionar uma imagem de estoque da Galeria.
+1. Na página **Seleção de Imagem** , escolha uma imagem em miniatura para o seu experimento. A imagem em miniatura é exibida na parte superior da página de detalhes do experimento e no bloco do experimento. Outros usuários poderão ver a imagem em miniatura quando navegarem na Galeria. Você pode carregar uma imagem do seu computador ou selecionar uma imagem de estoque da Galeria.
 
-1. Na página **Configurações**, em **Visibilidade**, opte por publicar seu conteúdo publicamente (**Público**) ou que ele seja acessível somente a pessoas que têm um link para a página (**Não listado**).
+1. Na página **Configurações** , em **Visibilidade** , opte por publicar seu conteúdo publicamente ( **Público** ) ou que ele seja acessível somente a pessoas que têm um link para a página ( **Não listado** ).
 
    > [!TIP]
-   > Se quiser verificar se a documentação está correta antes de lançá-lo publicamente, primeiro você poderá publicar o experimento como **Não listado**. Posteriormente, você poderá alterar a configuração de visibilidade para **Pública** na página de detalhes do experimento. Observe que, depois de definir um experimento como **Público**, você não poderá alterá-lo mais tarde para **Não listado**.
+   > Se quiser verificar se a documentação está correta antes de lançá-lo publicamente, primeiro você poderá publicar o experimento como **Não listado**. Posteriormente, você poderá alterar a configuração de visibilidade para **Pública** na página de detalhes do experimento. Observe que, depois de definir um experimento como **Público** , você não poderá alterá-lo mais tarde para **Não listado**.
 
 1. Para publicar o experimento na Galeria, selecione a marca de seleção **OK**.
 
@@ -123,15 +123,15 @@ Você pode alterar qualquer uma das seguintes informações para o seu experimen
 
 * Nome do experimento
 * Resumo ou descrição
-* Marcações
+* Marcas
 * Imagem
-* Configuração de visibilidade (**Público** ou **Não listado**)
+* Configuração de visibilidade ( **Público** ou **Não listado** )
 
 Você também pode excluir o experimento da Galeria.
 
 Você pode fazer essas alterações, ou excluir o experimento, na página de detalhes do experimento ou na página do seu perfil na Galeria.
 
-* Na página de detalhes do experimento, clique em **Editar** para alterar os detalhes do seu experimento. A página de detalhes entra em modo de edição. Para fazer alterações, selecione **Editar** ao lado do nome, resumo ou marcas do experimento. Quando você terminar de fazer alterações, clique em **Concluído**. Para alterar as configurações de visibilidade para o experimento (**Público** ou **Não listado**) para excluí-lo da Galeria, selecione o ícone **Configurações**.
+* Na página de detalhes do experimento, clique em **Editar** para alterar os detalhes do seu experimento. A página de detalhes entra em modo de edição. Para fazer alterações, selecione **Editar** ao lado do nome, resumo ou marcas do experimento. Quando você terminar de fazer alterações, clique em **Concluído**. Para alterar as configurações de visibilidade para o experimento ( **Público** ou **Não listado** ) para excluí-lo da Galeria, selecione o ícone **Configurações**.
 
 * Na página do seu perfil, selecione a seta para baixo no experimento e escolha **Editar**. Isso levará você até a página de detalhes do experimento, no modo de edição. Quando terminar de fazer alterações, selecione **Concluído**. Para excluir o experimento da Galeria, selecione **Excluir**.
 
@@ -152,14 +152,14 @@ Ajude outras pessoas escrevendo um **tutorial** na Galeria que explique os conce
 
 1. Selecione **Novo Item**.
 
-1. Na página **Descrição**, em **TIPO DE ITEM**, selecione **Tutorial** ou **Coleção**. Insira um nome, um breve resumo, uma descrição detalhada e marcas que possam ajudar outros usuários a encontrar sua contribuição. Em seguida, clique em **Próximo**.
+1. Na página **Descrição** , em **TIPO DE ITEM** , selecione **Tutorial** ou **Coleção**. Insira um nome, um breve resumo, uma descrição detalhada e marcas que possam ajudar outros usuários a encontrar sua contribuição. Em seguida, clique em **Próximo**.
 
-1. Na página **Seleção de Imagem**, selecione uma imagem que será exibida com sua contribuição. Você pode carregar seu próprio arquivo de imagem ou selecionar uma imagem do estoque. Escolha uma imagem que possa ajudar os usuários a identificar o conteúdo e a finalidade de sua contribuição. Em seguida, clique em **Próximo**.
+1. Na página **Seleção de Imagem** , selecione uma imagem que será exibida com sua contribuição. Você pode carregar seu próprio arquivo de imagem ou selecionar uma imagem do estoque. Escolha uma imagem que possa ajudar os usuários a identificar o conteúdo e a finalidade de sua contribuição. Em seguida, clique em **Próximo**.
 
-1. Na página **Configurações**, em **Visibilidade**, selecione se a contribuição é **Pública** (qualquer pessoa pode exibi-la) ou **Não listada** (somente as pessoas com um link direto podem exibi-la).
+1. Na página **Configurações** , em **Visibilidade** , selecione se a contribuição é **Pública** (qualquer pessoa pode exibi-la) ou **Não listada** (somente as pessoas com um link direto podem exibi-la).
 
    > [!TIP]
-   > Se quiser verificar se a documentação está correta antes de lançá-lo publicamente, primeiro você poderá publicar o experimento como **Não listado**. Posteriormente, você poderá alterar a configuração de visibilidade para **Pública** na página de detalhes do experimento. Observe que, depois de definir um experimento como **Público**, você não poderá alterá-lo mais tarde para **Não listado**.
+   > Se quiser verificar se a documentação está correta antes de lançá-lo publicamente, primeiro você poderá publicar o experimento como **Não listado**. Posteriormente, você poderá alterar a configuração de visibilidade para **Pública** na página de detalhes do experimento. Observe que, depois de definir um experimento como **Público** , você não poderá alterá-lo mais tarde para **Não listado**.
 
 1. Selecione **Criar**.
 

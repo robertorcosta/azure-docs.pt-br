@@ -8,30 +8,33 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea791e4fc1031c0a5c041119c409f8623ce7aee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee915346a93a600ea352be42dc14e0464525c025
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260369"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312262"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conexão ao workspace do Azure Synapse usando links privados (versão prévia)
 
-Este artigo ensina como criar um ponto de extremidade privado para o workspace do Azure Synapse. Veja [links privados e pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/) para saber mais.
+Este artigo ensinará como criar um ponto de extremidade privado para seu espaço de trabalho Synapse do Azure. Veja [links privados e pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/) para saber mais.
 
 ## <a name="step-1-register-network-resource-provider"></a>Etapa 1: Registrar o provedor de recursos de rede
 
 Se você ainda não tiver feito isso, registre o provedor de recursos de rede. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Escolha *Microsoft.Network* na lista de provedores de recursos ao se [registrar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Se o provedor de recursos de rede já estiver registrado, vá para a Etapa 2.
 
-
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Etapa 2: Abra o workspace do Azure Synapse no portal do Azure
 
-Selecione **Conexão de ponto de extremidade privado** em **Segurança** e, em seguida, selecione **+ Ponto de extremidade privado**.
+Selecione **conexão de ponto de extremidade privada** em **segurança**. 
 ![Abrir o workspace do Azure Synapse no portal do Azure](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1.png)
+
+Na próxima tela, selecione **+ ponto de extremidade privado**.
+
+![Abrir ponto de extremidade privado no portal do Azure](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1a.png)
 
 ## <a name="step-3-select-your-subscription-and-region-details"></a>Etapa 3: Selecione os detalhes da assinatura e da região
 
-Na guia **Noções básicas** da janela **Criar um ponto de extremidade privado**, escolha a **Assinatura** e o **Grupo de recursos**. Dê um **Nome** ao ponto de extremidade privado que você deseja criar. Selecione a **Região** onde você deseja criar o ponto de extremidade privado.
+Na guia **Noções básicas** da janela **Criar um ponto de extremidade privado** , escolha a **Assinatura** e o **Grupo de recursos**. Dê um **Nome** ao ponto de extremidade privado que você deseja criar. Selecione a **Região** onde você deseja criar o ponto de extremidade privado.
 
 Os pontos de extremidade privados são criados em uma sub-rede. A assinatura, o grupo de recursos e a região selecionados filtram as sub-redes do ponto de extremidade privado. Selecione **Avançar: Recurso >** quando concluído.
 ![Selecionar detalhes da assinatura e da região 1](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
@@ -45,7 +48,7 @@ Selecione o workspace do Azure Synapse como o **Recurso**. Cada workspace do Azu
 Selecione **Avançar: Configuração** para avançar para a próxima parte da configuração.
 ![Selecionar detalhes da assinatura e da região 2](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
 
-Na guia **Configuração**, selecione a **Rede virtual** e a **Sub-rede** nas quais o ponto de extremidade privado deve ser criado. Também é necessário criar um registro DNS que é mapeado para o ponto de extremidade privado.
+Na guia **Configuração** , selecione a **Rede virtual** e a **Sub-rede** nas quais o ponto de extremidade privado deve ser criado. Também é necessário criar um registro DNS que é mapeado para o ponto de extremidade privado.
 
 Selecione **Sim** para **Integrar com a zona DNS privada** para integrar seu ponto de extremidade privado a uma zona DNS privada. Se você não tiver uma zona DNS privada associada à sua Rede Virtual do Microsoft Azure, uma nova zona DNS privada será criada. Selecione **Revisar + Criar** quando concluído.
 

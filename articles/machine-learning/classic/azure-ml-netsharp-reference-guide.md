@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367947"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311965"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guia para a linguagem de especificação de rede neural net # para Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APLICA-SE A:**  ![Aplica-se a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) ![Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Net# é uma linguagem desenvolvida pela Microsoft usada para definir arquiteturas de redes neurais complexas, como redes neurais profundas ou convoluções de dimensões arbitrárias. Você pode usar as estruturas complexas para aprimorar o aprendizado sobre dados, como áudio, vídeo ou imagem.
 
 Você pode usar uma especificação de arquitetura Net# nestes contextos:
 
-+ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio (clássico): [rede neural multiclasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rede neural de duas classes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)e [regressão de rede neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ As funções de rede neural no Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio (clássico): [rede neural multiclasse](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rede neural de duas classes](/azure/machine-learning/studio-module-reference/two-class-neural-network)e [regressão de rede neural](/azure/machine-learning/studio-module-reference/neural-network-regression)
++ As funções de rede neural no Microsoft ML Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R e [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvolver uma rede neural personalizada usando Net#:
@@ -44,7 +44,7 @@ Cada camada treinável (uma camada oculta ou de saída) tem um ou mais **pacotes
 
 A Net# é compatível com vários tipos de conjuntos de conexão, o que permite personalizar o modo como as entradas são mapeadas para camadas ocultas e para saídas.
 
-O grupo padrão ou standard é um **grupo completo**, no qual cada nó na camada de origem é conectado a todos os nós na camada de destino.
+O grupo padrão ou standard é um **grupo completo** , no qual cada nó na camada de origem é conectado a todos os nós na camada de destino.
 
 Adicionalmente, a Net# dá suporte aos quatro tipos de grupos de conexão avançados a seguir:
 
@@ -80,7 +80,7 @@ Para ver exemplos de como definir redes neurais para algumas tarefas comuns de a
 
 ## <a name="structure-specifications"></a>Especificações de estrutura
 
-Uma especificação de estrutura de rede neural é composta por três seções: a **declaração de constante**, a **declaração de camada** e a **declaração de conexão**. Há também uma seção **declaração de compartilhamento** opcional. As seções podem ser especificadas em qualquer ordem.
+Uma especificação de estrutura de rede neural é composta por três seções: a **declaração de constante** , a **declaração de camada** e a **declaração de conexão**. Há também uma seção **declaração de compartilhamento** opcional. As seções podem ser especificadas em qualquer ordem.
 
 ## <a name="constant-declaration"></a>Declaração de constante
 
@@ -140,7 +140,7 @@ Há suporte para as funções de saída a seguir:
 + tanh
 + brlinear
 
-Por exemplo, a declaração a seguir usa a função **softmax**:
+Por exemplo, a declaração a seguir usa a função **softmax** :
 
 `output Result [100] softmax from Hidden all;`
 
@@ -150,11 +150,11 @@ Imediatamente após definir a camada treinável, você precisa declarar conexõe
 
 Atualmente, há suporte para cinco tipos de grupos de conexão:
 
-+ Grupos **completos**, indicados pela palavra-chave `all`
-+ Grupos **filtrados**, indicados pela palavra-chave `where`, seguida por uma expressão predicada
-+ Grupos **convolucionais**, indicados pela palavra-chave `convolve`, seguida pelos atributos de convolução
-+ Grupos de **pooling**, indicados pelas palavras-chaves **max pool** ou **mean pool**
-+ Grupos de **normalização de resposta**, indicados pela palavra-chave **response norm**
++ Grupos **completos** , indicados pela palavra-chave `all`
++ Grupos **filtrados** , indicados pela palavra-chave `where`, seguida por uma expressão predicada
++ Grupos **convolucionais** , indicados pela palavra-chave `convolve`, seguida pelos atributos de convolução
++ Grupos de **pooling** , indicados pelas palavras-chaves **max pool** ou **mean pool**
++ Grupos de **normalização de resposta** , indicados pela palavra-chave **response norm**
 
 ## <a name="full-bundles"></a>Grupos completos
 
@@ -192,21 +192,21 @@ Grupos convolucionais dão suporte aos seguintes atributos:
 
 **InputShape** define a dimensionalidade da camada de origem para as finalidades deste grupo convolucional. O valor precisa ser uma tupla de números inteiros positivos. O produto dos inteiros precisa ser igual ao número de nós na camada de origem, mas com exceção disso, não precisam corresponder à dimensionalidade declarada para a camada de origem. O tamanho dessa tupla torna-se o valor de **aridade** para o grupo convencional. Tipicamente, refere-se ao número de argumentos ou operandos que uma função pode utilizar.
 
-Para definir a forma e os locais dos kernels, use os atributos **KernelShape**, **Stride**, **Padding**, **LowerPad** e **UpperPad**:
+Para definir a forma e os locais dos kernels, use os atributos **KernelShape** , **Stride** , **Padding** , **LowerPad** e **UpperPad** :
 
-+ **KernelShape**: (obrigatório) define a dimensionalidade de cada kernel para o grupo convolucional. O valor deve ser uma tupla de inteiros positivos com um comprimento igual à aridade do pacote. Cada componente dessa tupla não pode ser maior que o componente correspondente de **InputShape**.
++ **KernelShape** : (obrigatório) define a dimensionalidade de cada kernel para o grupo convolucional. O valor deve ser uma tupla de inteiros positivos com um comprimento igual à aridade do pacote. Cada componente dessa tupla não pode ser maior que o componente correspondente de **InputShape**.
 
-+ **Stride**: (opcional) define o tamanho de etapas deslizantes de convolução (um tamanho de etapa para cada dimensão), que é a distância entre os nós centrais. O valor deve ser uma tupla de inteiros positivos com um comprimento igual à aridade do grupo. Cada componente dessa tupla não pode ser maior que o componente correspondente de **KernelShape**. O valor padrão é uma tupla com todos os componentes iguais a um.
++ **Stride** : (opcional) define o tamanho de etapas deslizantes de convolução (um tamanho de etapa para cada dimensão), que é a distância entre os nós centrais. O valor deve ser uma tupla de inteiros positivos com um comprimento igual à aridade do grupo. Cada componente dessa tupla não pode ser maior que o componente correspondente de **KernelShape**. O valor padrão é uma tupla com todos os componentes iguais a um.
 
-+ **Sharing**: (opcional) define o compartilhamento de peso para cada dimensão da convolução. O valor pode ser um único valor booliano ou uma tupla de valores booleanos com um comprimento igual à aridade do pacote. Um único valor Booliano é estendido para ser uma tupla do tamanho correto, com todos os componentes iguais ao valor especificado. O valor padrão é uma tupla composta por todos os valores Verdadeiros.
++ **Sharing** : (opcional) define o compartilhamento de peso para cada dimensão da convolução. O valor pode ser um único valor booliano ou uma tupla de valores booleanos com um comprimento igual à aridade do pacote. Um único valor Booliano é estendido para ser uma tupla do tamanho correto, com todos os componentes iguais ao valor especificado. O valor padrão é uma tupla composta por todos os valores Verdadeiros.
 
-+ **MapCount**: (opcional) define o número de mapas de recurso para o grupo convolucional. O valor pode ser um único inteiro positivo ou uma tupla de inteiros positivos com um comprimento igual à aridade do pacote. Um único número inteiro positivo é estendido para ser uma tupla do tamanho correto, com os primeiros componentes iguais ao valor especificado e todos os componentes restantes iguais a um. O valor padrão é um. O número total de mapas de recurso é o produto dos componentes da tupla. O cálculo da alíquota desse número total pelos componentes determina como os valores do mapa de recursos são agrupados nos nós de destino.
++ **MapCount** : (opcional) define o número de mapas de recurso para o grupo convolucional. O valor pode ser um único inteiro positivo ou uma tupla de inteiros positivos com um comprimento igual à aridade do pacote. Um único número inteiro positivo é estendido para ser uma tupla do tamanho correto, com os primeiros componentes iguais ao valor especificado e todos os componentes restantes iguais a um. O valor padrão é um. O número total de mapas de recurso é o produto dos componentes da tupla. O cálculo da alíquota desse número total pelos componentes determina como os valores do mapa de recursos são agrupados nos nós de destino.
 
-+ **Weights**: (opcional) define os pesos iniciais para o grupo. O valor deve ser uma tupla de valores de pontos flutuantes com um comprimento igual ao número de kernels vezes o número de pesos por kernel, conforme definido neste artigo. Os pesos padrão são gerados aleatoriamente.
++ **Weights** : (opcional) define os pesos iniciais para o grupo. O valor deve ser uma tupla de valores de pontos flutuantes com um comprimento igual ao número de kernels vezes o número de pesos por kernel, conforme definido neste artigo. Os pesos padrão são gerados aleatoriamente.
 
 Há dois conjuntos de propriedades que controlam o preenchimento, sendo as propriedades mutuamente exclusivas:
 
-+ **Padding**: (opcional) determina se a entrada deve ser preenchida usando um **esquema de preenchimento padrão**. O valor pode ser um único valor booliano ou uma tupla de valores boolianos com comprimento igual à aridade do pacote.
++ **Padding** : (opcional) determina se a entrada deve ser preenchida usando um **esquema de preenchimento padrão**. O valor pode ser um único valor booliano ou uma tupla de valores boolianos com comprimento igual à aridade do pacote.
 
     Um único valor Booliano é estendido para ser uma tupla do tamanho correto, com todos os componentes iguais ao valor especificado.
 
@@ -214,14 +214,14 @@ Há dois conjuntos de propriedades que controlam o preenchimento, sendo as propr
 
     Se o valor para uma dimensão é falso, os kernels são definidos de modo que o número de nós deixados de fora em cada lado é o mesmo (podendo chegar até uma diferença de 1). O valor padrão desse atributo é uma tupla com todos os componentes iguais a Falso.
 
-+ **UpperPad** e **LowerPad**: (opcional) fornecem maior controle sobre a quantidade de preenchimento a ser usada. **Importante**: esses atributos podem ser definidos se e somente se a propriedade **Padding** acima ***não*** estiver definida. Os valores devem ser tuplas de números inteiros com comprimentos igual à aridade do pacote. Quando esses atributos são especificados, nós "falsos" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior em cada dimensão é determinado por **LowerPad**[i] e **UpperPad**[i], respectivamente.
++ **UpperPad** e **LowerPad** : (opcional) fornecem maior controle sobre a quantidade de preenchimento a ser usada. **Importante:** Esses atributos podem ser definidos se e somente se a propriedade **Padding** acima **_não_ estiver *definida. Os valores devem ser tuplas com valor inteiro com comprimentos que sejam a arity do pacote. Quando esses atributos são especificados, os nós "fictícios" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior em cada dimensão é determinado por _* LowerPad** [i] e **UpperPad** [i] respectivamente.
 
     Para assegurar que os kernels correspondam somente a nós "reais" e não a nós "falsos", as condições a seguir precisam ser satisfeitas:
   - Cada componente de **LowerPad** precisa ser estritamente menor que `KernelShape[d]/2`.
   - Cada componente de **UpperPad** não pode ser maior que `KernelShape[d]/2`.
   - O valor padrão desses atributos é uma tupla com todos os componentes iguais a 0.
 
-    A configuração **Padding** = true permite o preenchimento necessário para manter o "centro" do kernel dentro da entrada "real". Isso altera um pouco o cálculo para computar o tamanho da saída. Em geral, o tamanho da saída *D* é computado como `D = (I - K) / S + 1`, em que `I` é o tamanho da entrada, `K` é o tamanho do kernel, `S` é o stride e `/` é a divisão do número inteiro (aproximado para zero). Se você definir UpperPad = [1, 1], o tamanho da entrada `I` será efetivamente 29 e, portanto, `D = (29 - 5) / 2 + 1 = 13`. No entanto, quando **Padding** = true, essencialmente `I` e aumentado por `K - 1`; com isso, `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Ao especificar os valores para **UpperPad** e **LowerPad**, você obtém muito mais controle sobre o preenchimento do que se configurar apenas **Padding** = true.
+    A configuração **Padding** = true permite o preenchimento necessário para manter o "centro" do kernel dentro da entrada "real". Isso altera um pouco o cálculo para computar o tamanho da saída. Em geral, o tamanho da saída *D* é computado como `D = (I - K) / S + 1`, em que `I` é o tamanho da entrada, `K` é o tamanho do kernel, `S` é o stride e `/` é a divisão do número inteiro (aproximado para zero). Se você definir UpperPad = [1, 1], o tamanho da entrada `I` será efetivamente 29 e, portanto, `D = (29 - 5) / 2 + 1 = 13`. No entanto, quando **Padding** = true, essencialmente `I` e aumentado por `K - 1`; com isso, `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Ao especificar os valores para **UpperPad** e **LowerPad** , você obtém muito mais controle sobre o preenchimento do que se configurar apenas **Padding** = true.
 
 Para mais informações sobre redes convolucionais e seus aplicativos, consulte esses artigos:
 
@@ -230,7 +230,7 @@ Para mais informações sobre redes convolucionais e seus aplicativos, consulte 
 
 ## <a name="pooling-bundles"></a>Grupos de pooling
 
-Um **grupo de pooling** aplica geometria similar à da conectividade convolucional, mas usa funções predefinidas para gerar valores de nó de origem a fim de derivar o valor do nó de destino. Assim, os grupos de pooling não têm estado treinável (pesos ou vieses). Grupos de pooling dão suporte a todos os atributos convolucionais, exceto **Sharing**, **MapCount** e **Weights**.
+Um **grupo de pooling** aplica geometria similar à da conectividade convolucional, mas usa funções predefinidas para gerar valores de nó de origem a fim de derivar o valor do nó de destino. Assim, os grupos de pooling não têm estado treinável (pesos ou vieses). Grupos de pooling dão suporte a todos os atributos convolucionais, exceto **Sharing** , **MapCount** e **Weights**.
 
 Tipicamente, os kernels resumidos pelas unidades de pooling adjacentes não se sobrepõem. Se Stride[d] é igual a KernelShape[d] em cada dimensão, a camada obtida é a tradicional camada de pooling local, utilizada frequentemente em redes neurais convolucionais. Cada nó de destino computa o valor máximo ou então a média das atividades de seu kernel na camada de origem.
 
@@ -260,15 +260,15 @@ Para mais informações sobre camadas de pooling, consulte esses artigos:
 
 A **normalização de resposta** é um esquema de normalização local introduzido por Geoffrey Hinton, com outros autores, no artigo [ImageNet Classification with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificação ImageNet com redes neurais convolucionais profundas).
 
-A normalização de resposta é usada para auxiliar na generalização de redes neurais. Quando um neurônio está disparando em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito usando três parâmetros (`α`, `β` e `k`) e uma estrutura convolucional (ou forma de zona próxima). Todo neurônio na camada de destino **y** corresponde a um neurônio **x** na camada de origem. O nível de ativação de **y** é fornecido pela fórmula a seguir, na qual `f` é o nível de ativação de um neurônio, e `Nx` é o kernel (ou o conjunto contendo os neurônios na zona próxima a **x**), conforme definido pela seguinte estrutura convolucional:
+A normalização de resposta é usada para auxiliar na generalização de redes neurais. Quando um neurônio está disparando em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito usando três parâmetros (`α`, `β` e `k`) e uma estrutura convolucional (ou forma de zona próxima). Todo neurônio na camada de destino **y** corresponde a um neurônio **x** na camada de origem. O nível de ativação de **y** é fornecido pela fórmula a seguir, na qual `f` é o nível de ativação de um neurônio, e `Nx` é o kernel (ou o conjunto contendo os neurônios na zona próxima a **x** ), conforme definido pela seguinte estrutura convolucional:
 
 ![fórmula para estrutura convolucional](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
-Os grupos de normalização de resposta dão suporte a todos os atributos convolucionais, exceto **Sharing**, **MapCount** e **Weights**.
+Os grupos de normalização de resposta dão suporte a todos os atributos convolucionais, exceto **Sharing** , **MapCount** e **Weights**.
 
-+ Se o kernel contém neurônios no mesmo mapa que ***x***, nos referimos ao esquema de normalização como **normalização de mesmo mapa**. Para definir a normalização de mesmo mapa, a primeira coordenada em **InputShape** precisa ter o valor 1.
++ Se o kernel contiver neurônios no mesmo mapa que **_x_*_, o esquema de normalização será referido como _* normalização de mapa**. Para definir a normalização de mesmo mapa, a primeira coordenada em **InputShape** precisa ter o valor 1.
 
-+ Se o kernel contém neurônios na mesma posição espacial que ***x*** mas os neurônios estão em outros mapas, o esquema de normalização é chamado de **normalização entre mapas**. Esse tipo de normalização de resposta implementa um tipo de inibição lateral inspirada no tipo encontrado em neurônios reais, criando concorrência por níveis elevados de ativação entre as saídas de neurônio computadas em mapas diferentes. Para definir a normalização entre mapas, a primeira coordenada precisa ser um número inteiro maior que um e que não seja maior que o número de mapas, enquanto o resto das coordenadas deve ter o valor 1.
++ Se o kernel contiver neurônios na mesma posição espacial que **_x_*_, mas os neurônios estiverem em outros mapas, o esquema de normalização será chamado _* na normalização de mapas**. Esse tipo de normalização de resposta implementa um tipo de inibição lateral inspirada no tipo encontrado em neurônios reais, criando concorrência por níveis elevados de ativação entre as saídas de neurônio computadas em mapas diferentes. Para definir a normalização entre mapas, a primeira coordenada precisa ser um número inteiro maior que um e que não seja maior que o número de mapas, enquanto o resto das coordenadas deve ter o valor 1.
 
 Já que os grupos de normalização de resposta aplicam uma função predefinida aos valores de nó de origem para determinar o valor do nó de destino, eles não têm estado treinável (pesos ou vieses).
 
@@ -277,9 +277,9 @@ Já que os grupos de normalização de resposta aplicam uma função predefinida
 
 Além dos quatro atributos descritos anteriormente, grupos de normalização de resposta também dão suporte aos seguintes atributos:
 
-+ **Alpha**: (obrigatório) especifica um valor de ponto flutuante que corresponde a `α` na fórmula anterior.
-+ **Beta**: (obrigatório) especifica um valor de ponto flutuante que corresponde a `β` na fórmula anterior.
-+ **Offset**: (opcional) especifica um valor de ponto flutuante que corresponde a `k` na fórmula anterior. Seu valor padrão é 1.
++ **Alpha** : (obrigatório) especifica um valor de ponto flutuante que corresponde a `α` na fórmula anterior.
++ **Beta** : (obrigatório) especifica um valor de ponto flutuante que corresponde a `β` na fórmula anterior.
++ **Offset** : (opcional) especifica um valor de ponto flutuante que corresponde a `k` na fórmula anterior. Seu valor padrão é 1.
 
 O exemplo a seguir define um grupo de normalização de resposta usando esses atributos:
 
@@ -463,4 +463,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Confirmações
 
-A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (arquiteto, Machine Learning) e Alexey Kamenev (engenheiro de software, Microsoft Research). Ela é usada internamente para projetos de aprendizado de máquina e aplicativos que vão de detecção de imagem a análise de texto. Para obter mais informações, veja [Redes neurais no Azure Machine Learning Studio – Introdução ao Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (arquiteto, Machine Learning) e Alexey Kamenev (engenheiro de software, Microsoft Research). Ela é usada internamente para projetos de aprendizado de máquina e aplicativos que vão de detecção de imagem a análise de texto. Para obter mais informações, veja [Redes neurais no Azure Machine Learning Studio – Introdução ao Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)

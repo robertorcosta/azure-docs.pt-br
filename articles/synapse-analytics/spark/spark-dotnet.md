@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826509"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310696"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Use o .NET para Apache Spark com Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ Engenheiros de dados, cientistas de dados, analistas de negócios e engenheiros 
 
 Ao criar um novo notebook, você escolhe um kernel de linguagem no qual deseja expressar sua lógica de negócios. O suporte a kernel está disponível para várias linguagens, incluindo C#.
 
-Para usar o .NET para Apache Spark no seu notebook do Azure Synapse Analytics, selecione **.NET Spark ( C# )** como o seu kernel e anexe o notebook a um pool do Spark existente.
+Para usar o .NET para Apache Spark no seu notebook do Azure Synapse Analytics, selecione **.net Spark (C#)** como seu kernel e anexe o bloco de anotações a um pool Apache Spark sem servidor existente.
 
 O notebook .NET Spark se baseia nas experiências interativas do .NET e fornece experiências interativas de C# com a capacidade de usar o .NET para o Spark pronto para uso com a variável de sessão do Spark `spark` já predefinida.
 

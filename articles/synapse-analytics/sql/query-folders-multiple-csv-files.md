@@ -1,6 +1,6 @@
 ---
-title: Pastas de consulta e vários arquivos usando o SQL sob demanda (versão prévia)
-description: O SQL sob demanda (versão prévia) dá suporte à leitura de vários arquivos/pastas usando curingas, que são semelhantes aos curingas usados no sistema operacional Windows.
+title: Pastas de consulta e vários arquivos usando o pool SQL sem servidor (visualização)
+description: O pool SQL sem servidor (visualização) dá suporte à leitura de vários arquivos/pastas usando curingas, que são semelhantes aos curingas usados no sistema operacional Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288334"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310839"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários arquivos  
 
-Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics.
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics.
 
-O SQL sob demanda dá suporte à leitura de vários arquivos/pastas usando curingas, que são semelhantes aos curingas usados no sistema operacional Windows. No entanto, há maior flexibilidade, já que vários curingas são permitidos.
+O pool SQL sem servidor dá suporte à leitura de vários arquivos/pastas usando curingas, que são semelhantes aos curingas usados no sistema operacional Windows. No entanto, há maior flexibilidade, já que vários curingas são permitidos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

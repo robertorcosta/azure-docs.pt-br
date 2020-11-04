@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090290"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312685"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Teste de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
@@ -89,7 +89,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
       ![Código para verificação dos valores de previsão](./media/code-test/check_prediction_values.PNG)
 
-1. Coloque todas as funções de teste em um script Python chamado **test_funcs.py**:
+1. Coloque todas as funções de teste em um script Python chamado **test_funcs.py** :
 
     ![Script de Python para funções de teste](./media/code-test/create_file_test_func.PNG)
 
@@ -124,7 +124,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
     ![Lista de modelos e botão "Processo vazio"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie o build e selecione o agente. Você pode escolher o padrão aqui se quiser usar um DSVM para concluir o processo de compilação. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nomeie o build e selecione o agente. Você pode escolher o padrão aqui se quiser usar um DSVM para concluir o processo de compilação. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](/azure/devops/pipelines/agents/agents?view=vsts).
     
     ![Seleções de build e agente](./media/code-test/select_agent.PNG)
 
@@ -134,7 +134,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
     f. Nos detalhes do PowerShell, preencha as informações necessárias, como o nome e a versão do PowerShell. Escolha **Script Embutido** como o tipo. 
     
-    Na caixa em **Script Embutido**, você pode digitar **python test1.py**. Verifique se a variável do ambiente está configurada corretamente para Python. Se você precisar de uma versão ou kernel diferente do Python, especifique explicitamente o caminho, como mostra a figura: 
+    Na caixa em **Script Embutido** , você pode digitar **python test1.py**. Verifique se a variável do ambiente está configurada corretamente para Python. Se você precisar de uma versão ou kernel diferente do Python, especifique explicitamente o caminho, como mostra a figura: 
     
     ![Detalhes do PowerShell](./media/code-test/powershell_scripts.PNG)
 
@@ -155,7 +155,7 @@ Se os alertas estiverem configurados corretamente, você receberá uma notifica�
 * Siga a estrutura e os exemplos anteriores do cenário de previsão de receita UCI em seus próprios projetos de ciência de dados.
 
 ## <a name="references"></a>Referências
-* [Processo de ciência de dados de equipe](https://aka.ms/tdsp)
+* [Processo de ciência de dados de equipe](./index.yml)
 * [Ferramentas de Teste do Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Recursos de teste do Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Máquinas Virtuais de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

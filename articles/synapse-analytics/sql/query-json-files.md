@@ -1,6 +1,6 @@
 ---
-title: Consultar arquivos JSON usando o SQL sob demanda (versão prévia)
-description: Esta seção explica como ler arquivos JSON usando o SQL sob demanda no Azure Synapse Analytics.
+title: Consultar arquivos JSON usando o pool SQL sem servidor (visualização)
+description: Esta seção explica como ler arquivos JSON usando o pool SQL sem servidor no Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dbad07401d77a15cd860a8ae492560c5fced819
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930842"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310608"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON usando [OPENROWSET](develop-openrowset.md). 
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON usando [OPENROWSET](develop-openrowset.md). 
 - Arquivos JSON padrão em que vários documentos JSON são armazenados como uma matriz JSON.
 - Arquivos JSON delimitados por linha, onde os documentos JSON são separados por caractere de nova linha. As extensões comuns para esses tipos de arquivos são `jsonl` , `ldjson` e `ndjson` .
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883226"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310041"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Módulos de entrada do serviço Web e saída do serviço Web
 
@@ -26,7 +26,7 @@ O módulo entrada do serviço Web indica onde os dados do usuário entram no pip
 
 ## <a name="how-to-use-web-service-input-and-output"></a>Como usar entrada e saída do serviço Web
 
-Quando você [cria um pipeline de inferência em tempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) do seu pipeline de treinamento, os módulos de entrada do serviço Web e saída do serviço Web serão adicionados automaticamente para mostrar onde os dados do usuário entram no pipeline e onde os dados são retornados. 
+Quando você [cria um pipeline de inferência em tempo real](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) do seu pipeline de treinamento, os módulos de entrada do serviço Web e saída do serviço Web serão adicionados automaticamente para mostrar onde os dados do usuário entram no pipeline e onde os dados são retornados. 
 
 > [!NOTE]
 > Gerar automaticamente um pipeline de inferência em tempo real é um processo de melhor esforço baseado em regras. Não há garantia de exatidão. 
@@ -48,6 +48,6 @@ Depois que você enviar o pipeline e a execução for concluída com êxito, voc
 >  No exemplo anterior, **inserir dados manualmente** fornece o esquema de dados para entrada do serviço Web e é necessário para implantar o ponto de extremidade em tempo real. Em geral, você sempre deve conectar um módulo ou conjunto de dados à porta em que a **entrada do serviço Web** está conectada para fornecer o esquema de dados.
    
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre como [implantar o ponto de extremidade em tempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Saiba mais sobre como [implantar o ponto de extremidade em tempo real](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
 Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

@@ -1,6 +1,6 @@
 ---
-title: Consultar tipos aninhados do Parquet usando SQL sob demanda (versão prévia)
-description: Neste artigo, você aprenderá a consultar os tipos aninhados do parquet usando o SQL sob demanda (versão prévia).
+title: Consultar tipos aninhados do parquet usando o pool SQL sem servidor (visualização)
+description: Neste artigo, você aprenderá a consultar os tipos aninhados do parquet usando o pool SQL sem servidor (versão prévia).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3463e4dfc423a3f12ce7a42cb0def36574bcb2d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288249"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312009"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar tipos aninhados em arquivos parquet e JSON usando o SQL sob demanda (versão prévia) na análise de Synapse do Azure
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consultar tipos aninhados em arquivos parquet e JSON usando o pool SQL sem servidor (versão prévia) na análise de Synapse do Azure
 
-Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. A consulta lerá os tipos aninhados parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando o pool SQL sem servidor (versão prévia) no Azure Synapse Analytics. A consulta lerá os tipos aninhados parquet.
 Tipos aninhados são estruturas complexas que representam objetos ou matrizes. Tipos aninhados podem ser armazenados em: 
 - [Parquet](query-parquet-files.md), onde você pode ter várias colunas complexas que contêm matrizes e objetos.
 - [Arquivos JSON](query-json-files.md)hierárquicos, nos quais você pode ler um documento JSON complexo como uma única coluna.
 - Azure Cosmos DB coleções (atualmente em visualização pública restrita), em que cada documento pode conter propriedades aninhadas complexas.
 
-O Azure Synapse SQL sob demanda formata todos os tipos aninhados como objetos JSON e matrizes. Portanto, você pode [extrair ou modificar objetos complexos usando funções JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analisar dados JSON usando a função OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+O pool SQL sem servidor formata todos os tipos aninhados como objetos JSON e matrizes. Portanto, você pode [extrair ou modificar objetos complexos usando funções JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analisar dados JSON usando a função OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Veja um exemplo de uma consulta que extrai valores escalares e de objeto do arquivo JSON [COVID-19 Open Research DataSet](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) , que contém objetos aninhados: 
 
