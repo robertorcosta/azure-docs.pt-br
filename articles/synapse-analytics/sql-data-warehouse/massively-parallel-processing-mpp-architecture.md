@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479333"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319662"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -25,8 +25,8 @@ O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse e
 
 - SQL do Synapse: Análise completa baseada em T-SQL
 
-  - Pool de SQL (pagamento por DWU provisionado) – disponível para o público geral
-  - SQL sob demanda (pagamento por TB processado, versão prévia)
+  - Pool dedicado do SQL (pague por DWU provisionado) – geralmente disponível
+  - Pool SQL sem servidor (pagar por TB processados) – (versão prévia)
 - Spark: Apache Spark profundamente integrado (versão prévia)
 - Integração de dados: Integração de dados híbridos (versão prévia)
 - Studio: experiência de usuário unificada.  (Visualização)
@@ -35,7 +35,7 @@ O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse e
 
 ## <a name="synapse-sql-architecture-components"></a>Componentes de arquitetura do SQL do Synapse
 
-O [SQL do Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) usa uma arquitetura de expansão para distribuir o processamento computacional dos dados em vários nós de expansão. A unidade de escala é uma abstração de poder de computação que é conhecida como [ unidade de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). A computação é separada do armazenamento, o que permite que você dimensione a computação independentemente dos dados em seu sistema.
+O [SQL do Synapse](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) usa uma arquitetura de expansão para distribuir o processamento computacional dos dados em vários nós de expansão. A unidade de escala é uma abstração de poder de computação que é conhecida como [ unidade de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). A computação é separada do armazenamento, o que permite que você dimensione a computação independentemente dos dados em seu sistema.
 
 ![Arquitetura SQL do Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
@@ -52,7 +52,7 @@ Com o armazenamento e a computação separados, ao usar o pool de SQL do Synapse
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
-O SQL do Synapse aproveita o armazenamento do Azure para manter os dados do usuário protegidos.  Como os dados são armazenados e gerenciados pelo armazenamento do Azure, é gerada uma cobrança separada para o consumo de armazenamento. Os dados em si são fragmentados em **distribuições**, para otimizar o desempenho do sistema. Você pode escolher qual padrão de fragmentação usar para distribuir os dados quando você define a tabela. Esses padrões de fragmentação são compatíveis com:
+O SQL do Synapse aproveita o armazenamento do Azure para manter os dados do usuário protegidos.  Como os dados são armazenados e gerenciados pelo armazenamento do Azure, é gerada uma cobrança separada para o consumo de armazenamento. Os dados em si são fragmentados em **distribuições** , para otimizar o desempenho do sistema. Você pode escolher qual padrão de fragmentação usar para distribuir os dados quando você define a tabela. Esses padrões de fragmentação são compatíveis com:
 
 - Hash
 - Round Robin

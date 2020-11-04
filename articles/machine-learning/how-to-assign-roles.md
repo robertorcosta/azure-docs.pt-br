@@ -11,16 +11,16 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18, devx-track-azurecli
-ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: aa84d7cce09b370ab35ef67029f4dbe2ca29cabb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736616"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320838"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 
-Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do Azure Machine Learning. O [controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview) é usado para gerenciar o acesso aos recursos do Azure. Os usuários em seu Azure Active Directory recebem funções específicas, que concedem acesso aos recursos. O Azure fornece funções internas e a capacidade de criar funções personalizadas.
+Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do Azure Machine Learning. O [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) é usado para gerenciar o acesso aos recursos do Azure. Os usuários em seu Azure Active Directory recebem funções específicas, que concedem acesso aos recursos. O Azure fornece funções internas e a capacidade de criar funções personalizadas.
 
 ## <a name="default-roles"></a>Funções padrão
 
@@ -34,18 +34,18 @@ Um workspace do Azure Machine Learning é um recurso do Azure. Assim como outros
 | **Função personalizada** | Permite que você personalize o acesso a operações de plano de dados ou controle específico em um espaço de trabalho. Por exemplo, o envio de uma execução, a criação de uma computação, a implantação de um modelo ou o registro de um conjunto de uma. |
 
 > [!IMPORTANT]
-> O acesso à função pode ser definido para vários níveis no Azure. Por exemplo, alguém com acesso de proprietário a um espaço de trabalho pode não ter acesso de proprietário ao grupo de recursos que contém o espaço de trabalho. Para obter mais informações, consulte [como o RBAC do Azure funciona](/azure/role-based-access-control/overview#how-azure-rbac-works).
+> O acesso à função pode ser definido para vários níveis no Azure. Por exemplo, alguém com acesso de proprietário a um espaço de trabalho pode não ter acesso de proprietário ao grupo de recursos que contém o espaço de trabalho. Para obter mais informações, consulte [como o RBAC do Azure funciona](../role-based-access-control/overview.md#how-azure-rbac-works).
 
-Para obter mais informações sobre funções internas específicas, consulte [funções internas do Azure](/azure/role-based-access-control/built-in-roles).
+Para obter mais informações sobre funções internas específicas, consulte [funções internas do Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="manage-workspace-access"></a>Gerenciar o acesso ao espaço de trabalho
 
 Se você for um proprietário de um espaço de trabalho, poderá adicionar e remover funções para o espaço de trabalho. Você também pode atribuir funções a usuários. Use os links a seguir para descobrir como gerenciar o acesso:
-- [Interface do usuário do portal do Azure](/azure/role-based-access-control/role-assignments-portal)
-- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
-- [REST API](/azure/role-based-access-control/role-assignments-rest)
-- [Modelos do Gerenciador de Recursos do Azure](/azure/role-based-access-control/role-assignments-template)
+- [Interface do usuário do portal do Azure](../role-based-access-control/role-assignments-portal.md)
+- [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
+- [REST API](../role-based-access-control/role-assignments-rest.md)
+- [Modelos do Gerenciador de Recursos do Azure](../role-based-access-control/role-assignments-template.md)
 
 Se você instalou a [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md), poderá usar comandos da CLI para atribuir funções a usuários:
 
@@ -65,7 +65,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Operações de Azure Machine Learning
 
-Azure Machine Learning ações internas para muitas operações e tarefas. Para obter uma lista completa, consulte [operações do provedor de recursos do Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning ações internas para muitas operações e tarefas. Para obter uma lista completa, consulte [operações do provedor de recursos do Azure](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 ## <a name="mlflow-operations-in-azure-machine-learning"></a>Operações de MLflow no Azure Machine Learning
 
@@ -135,7 +135,7 @@ Após a implantação, essa função fica disponível no espaço de trabalho esp
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas do Azure](/azure/role-based-access-control/custom-roles). Para obter mais informações sobre as operações (ações e não ações) utilizáveis com funções personalizadas, consulte [operações do provedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas do Azure](../role-based-access-control/custom-roles.md). Para obter mais informações sobre as operações (ações e não ações) utilizáveis com funções personalizadas, consulte [operações do provedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -165,7 +165,7 @@ A tabela a seguir é um resumo de Azure Machine Learning atividades e as permiss
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>Q. Estamos publicando funções internas do Azure para o serviço de Machine Learning?
 
-No momento, não estamos publicando [funções internas do Azure](/azure/role-based-access-control/built-in-roles) para o serviço Machine Learning. Uma função interna quando publicada não pode ser atualizada e ainda estamos confirmando as definições de função com base nos comentários e nos cenários dos clientes. 
+No momento, não estamos publicando [funções internas do Azure](../role-based-access-control/built-in-roles.md) para o serviço Machine Learning. Uma função interna quando publicada não pode ser atualizada e ainda estamos confirmando as definições de função com base nos comentários e nos cenários dos clientes. 
 
 <a id="customroles"></a>
 
@@ -419,7 +419,7 @@ No CLI do Azure, execute o comando a seguir.
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
-Eles também podem ser encontrados na lista de [operações do provedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Eles também podem ser encontrados na lista de [operações do provedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>Q. Quais são algumas armadilhas comuns ao usar o RBAC do Azure?
@@ -427,18 +427,18 @@ Eles também podem ser encontrados na lista de [operações do provedor de recur
 Aqui estão algumas coisas que você deve conhecer enquanto usa o controle de acesso baseado em função do Azure (RBAC do Azure):
 
 - Quando você cria um recurso no Azure, digamos um espaço de trabalho, você não é diretamente o proprietário do espaço de trabalho. Sua função é herdada da função de escopo mais alta na qual você está autorizado nessa assinatura. Como exemplo, se você for um administrador de rede e tiver as permissões para criar um espaço de trabalho Machine Learning, a função de administrador de rede será atribuída a esse espaço de trabalho e não à função proprietário.
-- Quando há duas atribuições de função para o mesmo Azure Active Directory usuário com seções conflitantes de ações/não ações, suas operações listadas em não ações de uma função podem não entrar em vigor se também estiverem listadas como ações em outra função. Para saber mais sobre como o Azure analisa as atribuições de função, leia [como o RBAC do Azure determina se um usuário tem acesso a um recurso](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Quando há duas atribuições de função para o mesmo Azure Active Directory usuário com seções conflitantes de ações/não ações, suas operações listadas em não ações de uma função podem não entrar em vigor se também estiverem listadas como ações em outra função. Para saber mais sobre como o Azure analisa as atribuições de função, leia [como o RBAC do Azure determina se um usuário tem acesso a um recurso](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 - Para implantar seus recursos de computação dentro de uma VNet, você precisa ter permissões explicitamente para as seguintes ações:
     - "Microsoft. Network/virtualNetworks/Join/Action" no recurso de VNet.
     - "Microsoft. Network/virtualNetworks/sub-rede/junção/ação" no recurso de sub-rede.
     
-    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking).
+    Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](../role-based-access-control/built-in-roles.md#networking).
 
 - Às vezes, pode levar até 1 hora para que as atribuições de nova função entrem em vigor nas permissões armazenadas em cache em toda a pilha.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. Quais permissões eu preciso para usar uma identidade gerenciada atribuída pelo usuário com meus clusters do Amlcompute?
 
-Para atribuir uma identidade atribuída ao usuário em clusters Amlcompute, é necessário ter permissões de gravação para criar a computação e ter a [função de operador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para obter mais informações sobre o RBAC do Azure com identidades gerenciadas, leia [como gerenciar a identidade atribuída pelo usuário](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+Para atribuir uma identidade atribuída ao usuário em clusters Amlcompute, é necessário ter permissões de gravação para criar a computação e ter a [função de operador de identidade gerenciada](../role-based-access-control/built-in-roles.md#managed-identity-operator). Para obter mais informações sobre o RBAC do Azure com identidades gerenciadas, leia [como gerenciar a identidade atribuída pelo usuário](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>Q. Damos suporte ao controle de acesso baseado em função no portal do estúdio?
@@ -480,4 +480,4 @@ Você precisa de permissões de nível de assinatura para executar qualquer oper
 - [Visão geral de segurança empresarial](concept-enterprise-security.md)
 - [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md)
 - [Tutorial: Treinar modelos](tutorial-train-models-with-aml.md)
-- [Operações de provedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+- [Operações de provedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)

@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 229bcbb8c8c429b7fe4e5878b0e57e74dd828b72
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756544"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320653"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Personalização no Machine Learning automatizado
+# <a name="featurization-in-automated-machine-learning"></a>Definição de recursos no Machine Learning automatizado
 
 
 
@@ -38,7 +38,7 @@ Este artigo pressupõe que você já sabe como configurar um experimento do Auto
 
 ## <a name="configure-featurization"></a>Configurar o personalização
 
-Em cada experimento automatizado de aprendizado de máquina, [técnicas de dimensionamento automático e de normalização](#featurization) são aplicadas aos seus dados por padrão. Essas técnicas são tipos de personalização que ajudam *certos* algoritmos que são sensíveis a recursos em escalas diferentes. No entanto, você também pode habilitar personalização adicionais, como *valores ausentes de imputação*, *codificação*e *transformações*.
+Em cada experimento automatizado de aprendizado de máquina, [técnicas de dimensionamento automático e de normalização](#featurization) são aplicadas aos seus dados por padrão. Essas técnicas são tipos de personalização que ajudam *certos* algoritmos que são sensíveis a recursos em escalas diferentes. No entanto, você também pode habilitar personalização adicionais, como *valores ausentes de imputação* , *codificação* e *transformações*.
 
 > [!NOTE]
 > As etapas para personalização de Machine Learning automatizadas (como normalização de recursos, manipulação de dados ausentes ou conversão de texto em numeric) se tornam parte do modelo subjacente. Quando você usa o modelo para previsões, as mesmas etapas personalização aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
@@ -49,7 +49,7 @@ A tabela a seguir mostra as configurações aceitas para `featurization` na [cla
 
 |Configuração do personalização | Descrição|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](#featurization) são feitas automaticamente. Esta é a configuração padrão.|
+|`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](#featurization) são feitas automaticamente. Essa é a configuração padrão.|
 |`"featurization": 'off'`| Especifica que as etapas do personalização não devem ser feitas automaticamente.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Especifica que as etapas de personalização personalizadas devem ser usadas. [Saiba como personalizar a definição de recursos](#customize-featurization).|
 
@@ -64,11 +64,11 @@ A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seu
 
 |Etapas de personalização &nbsp;| Descrição |
 | ------------- | ------------- |
-|**Descartar alta cardinalidade ou nenhum recurso de variação*** |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
-|**Imputar valores ausentes*** |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
-|**Gerar recursos adicionais*** |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> *Para tarefas de previsão,* esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso), AM/PM como cadeia de caracteres, hora do dia (12 horas<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
-|**Transformar e codificar***|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
-|**Inserções de palavras**|Uma featurizer de texto converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
+|**Descartar alta cardinalidade ou nenhum recurso de variação** _ |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
+|_*Imputar valores ausentes**_ |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
+|_*Gerar recursos adicionais**_ |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> _For tarefas de previsão, * esses recursos de data e hora adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso), AM/PM como cadeia de caracteres, hora do dia<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
+|**Transformar e codificar** _|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
+|_ *Incorporações de palavras**|Uma featurizer de texto converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
 |**Codificações de destino**|Para recursos categóricos, essa etapa mapeia cada categoria com um valor de destino médio para problemas de regressão e para a probabilidade de classe de cada classe para problemas de classificação. O peso baseado em frequência e a validação cruzada de k-fold são aplicados para reduzir o superajuste do mapeamento e ruído causados por categorias de dados esparsas.|
 |**Codificação de destino de texto**|Para uma entrada de texto, um modelo linear empilhado com um conjunto de palavras é usado para gerar a probabilidade de cada classe.|
 |**Peso de evidência (WoE)**|Calcula o WoE como uma medida de correlação de colunas categóricas para a coluna de destino. WoE é calculado como o log da proporção de probabilidades de classe vs. fora de classe. Esta etapa produz uma coluna de recurso numérico por classe e remove a necessidade de imputar explicitamente os valores ausentes e o tratamento de exceção.|
@@ -80,8 +80,8 @@ A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seu
 
 Os Guardrails de dados são aplicados:
 
-- **Para experimentos do SDK**: quando os parâmetros `"featurization": 'auto'` ou `validation=auto` são especificados em seu `AutoMLConfig` objeto.
-- **Para experimentos de estúdio**: quando a personalização automática está habilitada.
+- **Para experimentos do SDK** : quando os parâmetros `"featurization": 'auto'` ou `validation=auto` são especificados em seu `AutoMLConfig` objeto.
+- **Para experimentos de estúdio** : quando a personalização automática está habilitada.
 
 Você pode revisar os dados guardrails para seu experimento:
 
@@ -105,18 +105,18 @@ A tabela a seguir descreve os dados guardrails que têm suporte no momento e os 
 
 Verificador de integridade|Status|Condição&nbsp;para&nbsp;gatilho
 ---|---|---
-**Imputação de valores de recurso ausente** |Aprovado <br><br><br> Concluído| Não foram detectados valores de recursos ausentes em seus dados de treinamento. Saiba mais sobre [imputação de valor ausente.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Valores de recursos ausentes foram detectados em seus dados de treinamento e foram imputadosdos.
+**Imputação de valores de recurso ausente** |Aprovado <br><br><br> Concluído| Não foram detectados valores de recursos ausentes em seus dados de treinamento. Saiba mais sobre [imputação de valor ausente.](./how-to-use-automated-ml-for-ml-models.md#customize-featurization) <br><br> Valores de recursos ausentes foram detectados em seus dados de treinamento e foram imputadosdos.
 **Tratamento de recursos de alta cardinalidade** |Aprovado <br><br><br> Concluído| Suas entradas foram analisadas e nenhum recurso de alta cardinalidade foi detectado. <br><br> Os recursos de alta cardinalidade foram detectados nas suas entradas e foram manipulados.
-**Tratamento de divisão de validação** |Concluído| A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *menos de 20.000 linhas*. <br> Cada iteração do modelo treinado foi validada usando a validação cruzada. Saiba mais sobre [os dados de validação](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *mais de 20.000 linhas*. <br> Os dados de entrada foram divididos em um conjunto de dados de treinamento e um conjunto de dados de validação para a validação do modelo.
-**Detecção de equilíbrio de classe** |Aprovado <br><br><br><br>Alertado <br><br><br>Concluído | Suas entradas foram analisadas, e todas as classes estão equilibradas nos dados de treinamento. Um conjunto de um DataSet é considerado como balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras. <br><br> Foram detectadas classes desequilibradas nas suas entradas. Para corrigir a tendência do modelo, corrija o problema de balanceamento. Saiba mais sobre [dados desequilibrados](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> As classes desbalanceadas foram detectadas nas suas entradas e a lógica de varredura determinou para aplicar o balanceamento.
-**Detecção de problemas de memória** |Aprovado <br><br><br><br> Concluído |<br> Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e nenhum problema potencial de memória insuficiente foi detectado. Saiba mais sobre [as configurações de previsão](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)de série temporal. <br><br><br>Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e, potencialmente, farão com que o teste fique sem memória. As configurações de atraso ou janela de rolagem foram desativadas.
-**Detecção de frequência** |Aprovado <br><br><br><br> Concluído |<br> A série temporal foi analisada e todos os pontos de dados estão alinhados com a frequência detectada. <br> <br> A série temporal foi analisada e os pontos de dados que não se alinham com a frequência detectada foram detectados. Esses pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de série temporal](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+**Tratamento de divisão de validação** |Concluído| A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *menos de 20.000 linhas*. <br> Cada iteração do modelo treinado foi validada usando a validação cruzada. Saiba mais sobre [os dados de validação](./how-to-configure-auto-train.md#training-validation-and-test-data). <br><br> A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *mais de 20.000 linhas*. <br> Os dados de entrada foram divididos em um conjunto de dados de treinamento e um conjunto de dados de validação para a validação do modelo.
+**Detecção de equilíbrio de classe** |Aprovado <br><br><br><br>Alertado <br><br><br>Concluído | Suas entradas foram analisadas, e todas as classes estão equilibradas nos dados de treinamento. Um conjunto de um DataSet é considerado como balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras. <br><br> Foram detectadas classes desequilibradas nas suas entradas. Para corrigir a tendência do modelo, corrija o problema de balanceamento. Saiba mais sobre [dados desequilibrados](./concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data).<br><br> As classes desbalanceadas foram detectadas nas suas entradas e a lógica de varredura determinou para aplicar o balanceamento.
+**Detecção de problemas de memória** |Aprovado <br><br><br><br> Concluído |<br> Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e nenhum problema potencial de memória insuficiente foi detectado. Saiba mais sobre [as configurações de previsão](./how-to-auto-train-forecast.md#configuration-settings)de série temporal. <br><br><br>Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e, potencialmente, farão com que o teste fique sem memória. As configurações de atraso ou janela de rolagem foram desativadas.
+**Detecção de frequência** |Aprovado <br><br><br><br> Concluído |<br> A série temporal foi analisada e todos os pontos de dados estão alinhados com a frequência detectada. <br> <br> A série temporal foi analisada e os pontos de dados que não se alinham com a frequência detectada foram detectados. Esses pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de série temporal](./how-to-auto-train-forecast.md#preparing-data).
 
 ## <a name="customize-featurization"></a>Personalizar o personalização
 
 Você pode personalizar suas configurações de personalização para garantir que os dados e recursos usados para treinar seu modelo de ML resultem em previsões relevantes.
 
-Para personalizar o featurizations, especifique  `"featurization": FeaturizationConfig` em seu `AutoMLConfig` objeto. Se você estiver usando o Azure Machine Learning Studio para seu experimento, consulte o [artigo de instruções](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Para personalizar o personalização para os tipos de tarefa previsão, consulte a [previsão de instruções](how-to-auto-train-forecast.md#customize-featurization).
+Para personalizar o featurizations, especifique `"featurization": FeaturizationConfig` em seu `AutoMLConfig` objeto. Se você estiver usando o Azure Machine Learning Studio para seu experimento, consulte o [artigo de instruções](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Para personalizar o personalização para os tipos de tarefa previsão, consulte a [previsão de instruções](how-to-auto-train-forecast.md#customize-featurization).
 
 As personalizações com suporte incluem:
 
@@ -318,7 +318,7 @@ AutoML executa as seguintes etapas para o BERT.
 
 1. **Pré-processamento e geração de tokens de todas as colunas de texto**. Por exemplo, o transformador "StringCast" pode ser encontrado no Resumo de personalização do modelo final. Um exemplo de como produzir o resumo de personalização do modelo pode ser encontrado neste [bloco de anotações](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
-2. **Concatenar todas as colunas de texto em uma única coluna de texto**, portanto, `StringConcatTransformer` no modelo final. 
+2. **Concatenar todas as colunas de texto em uma única coluna de texto** , portanto, `StringConcatTransformer` no modelo final. 
 
     Nossa implementação de BERT limita o tamanho de texto total de um exemplo de treinamento a tokens de 128. Isso significa que, de forma ideal, todas as colunas de texto quando concatenadas devem ter, no máximo, 128 tokens de comprimento. Se várias colunas estiverem presentes, cada coluna deverá ser removida para que essa condição seja satisfeita. Caso contrário, para colunas concatenadas de comprimento >a camada criador de tokens de 128 BERT trunca essa entrada para 128 tokens.
 

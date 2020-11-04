@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: dbc00d37b912ce7efb250aade0ea6790a1a227eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296749"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320713"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 
@@ -26,13 +26,13 @@ Saiba como alterar as chaves de acesso para contas de armazenamento do Azure usa
 Para fins de segurança, talvez seja necessário alterar as chaves de acesso de uma conta de armazenamento do Azure. Quando você regenera a chave de acesso, Azure Machine Learning deve ser atualizado para usar a nova chave. Azure Machine Learning pode estar usando a conta de armazenamento para o armazenamento de modelo e como um repositório de armazenamento.
 
 > [!IMPORTANT]
-> As credenciais que acompanham os repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) habilitada para seu Key Vault, certifique-se de seguir este artigo para atualizar as credenciais. Cancelar o registro do repositório de armazenamento e registrá-lo novamente com o mesmo nome falhará.
+> As credenciais que acompanham os repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](../key-vault/general/soft-delete-overview.md) habilitada para seu Key Vault, certifique-se de seguir este artigo para atualizar as credenciais. Cancelar o registro do repositório de armazenamento e registrá-lo novamente com o mesmo nome falhará.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](how-to-manage-workspace.md) .
 
-* O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+* O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 * A [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
@@ -110,7 +110,7 @@ Para atualizar Azure Machine Learning para usar a nova chave, use as seguintes e
         Esse comando sincroniza automaticamente as novas chaves para a conta de armazenamento do Azure usada pelo espaço de trabalho.
 
 1. Você pode registrar novamente os armazenamentos de os (s) que usam a conta de armazenamento por meio do SDK ou [do Azure Machine Learning Studio](https://ml.azure.com).
-    1. **Para registrar novamente os repositórios de armazenamento por meio do SDK do Python**, use os valores da seção [o que precisa ser atualizado](#whattoupdate) e a chave da etapa 1 com o código a seguir. 
+    1. **Para registrar novamente os repositórios de armazenamento por meio do SDK do Python** , use os valores da seção [o que precisa ser atualizado](#whattoupdate) e a chave da etapa 1 com o código a seguir. 
     
         Como `overwrite=True` é especificado, esse código substitui o registro existente e o atualiza para usar a nova chave.
     
@@ -132,13 +132,13 @@ Para atualizar Azure Machine Learning para usar a nova chave, use as seguintes e
         
         ```
     
-    1. **Para registrar novamente os repositórios de armazenamento por meio do estúdio**, selecione **repositórios de armazenamento** no painel esquerdo do estúdio. 
+    1. **Para registrar novamente os repositórios de armazenamento por meio do estúdio** , selecione **repositórios de armazenamento** no painel esquerdo do estúdio. 
         1. Selecione qual repositório de armazenamento você deseja atualizar.
         1. Selecione o botão **Atualizar credenciais** na parte superior esquerda. 
         1. Use a nova chave de acesso da etapa 1 para preencher o formulário e clique em **salvar**.
         
-            Se você estiver atualizando as credenciais para seu **repositório de armazenamento padrão**, conclua esta etapa e repita a etapa 2B para ressincronizar sua nova chave com o repositório de armazenamento padrão do espaço de trabalho. 
+            Se você estiver atualizando as credenciais para seu **repositório de armazenamento padrão** , conclua esta etapa e repita a etapa 2B para ressincronizar sua nova chave com o repositório de armazenamento padrão do espaço de trabalho. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como registrar armazenamentos de dados, consulte a [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true) referência de classe.
+Para obter mais informações sobre como registrar armazenamentos de dados, consulte a [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) referência de classe.
