@@ -13,23 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: aa3492cb67a4ccd1c09a1f1cb55ddc4f2e00953d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a487f778693e87e680033edd0d80c55d1a85f66
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318594"
+ms.locfileid: "93348620"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Política de proteção de informações do SQL na central de segurança do Azure
  
-O [mecanismo de classificação e descoberta de dados](../azure-sql/database/data-discovery-and-classification-overview.md) da proteção de informações do SQL é integrado ao Azure SQL [Database](../azure-sql/database/sql-database-paas-overview.md), ao [Azure SQL instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)e ao [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Ele fornece recursos avançados para descobrir, classificar, rotular e relatar os dados confidenciais em seus bancos de dado.
+O [mecanismo de classificação e descoberta de dados](../azure-sql/database/data-discovery-and-classification-overview.md) da proteção de informações do SQL fornece recursos avançados para descobrir, classificar, rotular e relatar os dados confidenciais em seus bancos. Ele é integrado ao [banco de dados SQL do](../azure-sql/database/sql-database-paas-overview.md)Azure, ao [Azure SQL instância gerenciada](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)e ao [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
-O mecanismo de classificação baseia-se em duas construções principais que compõem a taxonomia de classificação:
+O mecanismo de classificação baseia-se nos dois elementos a seguir:
 
-- **Rótulos** – os principais atributos de classificação, usados para definir o nível de sensibilidade dos dados armazenados na coluna. 
-- **Tipos de informações** – fornece uma granularidade adicional para o tipo de dados armazenados na coluna.
+- **Rótulos** – os principais atributos de classificação, usados para definir o *nível de sensibilidade dos dados* armazenados na coluna. 
+- **Tipos de informações** – fornece granularidade adicional ao *tipo de dados* armazenados na coluna.
 
 As opções de política da proteção de informações na central de segurança fornecem um conjunto predefinido de rótulos e tipos de informações que servem como padrões para o mecanismo de classificação. Você pode personalizar a política, de acordo com as necessidades da sua organização, conforme descrito abaixo.
+
+> [!IMPORTANT]
+> Para personalizar a política de proteção de informações para seu locatário do Azure, você precisará de privilégios administrativos no grupo de gerenciamento raiz do locatário. Saiba mais em [obter visibilidade em todo o locatário para a central de segurança do Azure](security-center-management-groups.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="A página que mostra sua política de proteção de informações do SQL":::
  
@@ -40,9 +43,9 @@ As opções de política da proteção de informações na central de segurança
 
 Há três maneiras de acessar a política de proteção de informações:
 
-- **(Recomendado)** Na página preços e configurações da central de segurança.
-- Na recomendação de segurança, "dados confidenciais em seus bancos de dado SQL devem ser classificados".
-- Na página de descoberta de dados do BD SQL do Azure.
+- **(Recomendado)** Na página preços e configurações da central de segurança
+- Na recomendação de segurança, "dados confidenciais em seus bancos de dado SQL devem ser classificados"
+- Na página de descoberta de dados do BD SQL do Azure
 
 Cada um deles é mostrado na guia relevante abaixo.
 
@@ -52,9 +55,10 @@ Cada um deles é mostrado na guia relevante abaixo.
 
 ### <a name="access-the-policy-from-security-centers-pricing-and-settings-page"></a>Acessar a política na página de preços e configurações da central de segurança <a name="sqlip-tenant"></a>
 
-Para personalizar a política de proteção de informações do seu locatário do Azure, você precisa ter [privilégios administrativos no grupo de gerenciamento de raiz do locatário](security-center-management-groups.md). 
-
 Na página de **preços e configurações** da central de segurança, selecione **proteção de informações do SQL**.
+
+> [!NOTE]
+> Essa opção só aparece para usuários com permissões de nível de locatário. 
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Acessando a política de proteção de informações do SQL na página preços e configurações da central de segurança do Azure":::
 
@@ -70,9 +74,9 @@ Use a recomendação da central de segurança, "dados confidenciais em seus banc
 
     :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Encontrando a recomendação que fornece acesso às políticas de proteção de informações do SQL":::
 
-1. Na página detalhes da recomendação, selecione o banco de dados relevante nas guias **íntegros** ou **não íntegros** .
+1. Na página detalhes da recomendação, selecione um banco de dados nas guias **íntegros** ou não **íntegros** .
 
-1. A página **classificação de & de dados de descoberta** é aberta. Selecione **Configurar**. 
+1. A página **classificação de & de dados de descoberta** é aberta. Selecione **Configurar**.
 
     :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-security-center-recommendation.png" alt-text="Abrindo a política de proteção de informações do SQL da recomendação relevante na central de segurança do Azure":::
 
@@ -103,14 +107,21 @@ Para gerenciar e personalizar tipos de informações:
 
     :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Gerenciar tipos de informações para sua política de proteção de informações":::
 
-1. Para adicionar uma nova **tipo de informação** , selecione **criar o tipo de informação** no menu superior. Você pode configurar um nome, descrição e pesquisar cadeias de caracteres padrão para o **tipo de informação**. As sequências padrão de pesquisa podem, opcionalmente, usar palavras-chave com caracteres curinga (usando o caractere '%'), que o mecanismo de descoberta automatizada usa para identificar dados confidenciais em seus bancos de dados, com base nos metadados das colunas.
+1. Para adicionar um novo tipo, selecione **criar tipo de informação**. Você pode configurar um nome, uma descrição e as cadeias de caracteres de padrão de pesquisa para o tipo de informações. As sequências padrão de pesquisa podem, opcionalmente, usar palavras-chave com caracteres curinga (usando o caractere '%'), que o mecanismo de descoberta automatizada usa para identificar dados confidenciais em seus bancos de dados, com base nos metadados das colunas.
  
     :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Configurar um novo tipo de informação para sua política de proteção de informações":::
 
-1. Você também pode configurar os **Tipos de informações** internos adicionando cadeias de padrões de pesquisa adicionais, desabilitando algumas das cadeias existentes ou alterando a descrição. Você não pode excluir **tipos de informações** internos ou editar seus nomes. 
+1. Você também pode modificar os tipos internos adicionando cadeias de caracteres de padrão de pesquisa adicionais, desabilitando algumas das cadeias de caracteres existentes ou alterando a descrição. 
+
+    > [!TIP]
+    > Você não pode excluir tipos internos ou alterar seus nomes. 
+
 1. **Os tipos de informação** são listados em ordem de classificação de descoberta ascendente, o que significa que os tipos mais altos na lista tentarão corresponder primeiro. Para alterar a classificação entre os tipos de informação, arraste os tipos para o ponto certo na tabela ou use os botões **Mover para cima** e **Mover para baixo** para alterar a ordem. 
+
 1. Selecione **OK** quando terminar.
+
 1. Após você gerenciar os tipos de informação, certifique-se de associar os tipos relevantes com os rótulos relevantes, clicando **configurar** para um rótulo específico e adicionar ou excluir tipos de informações conforme apropriado.
+
 1. Para aplicar suas alterações, selecione **salvar** na página **Rótulos** principais.
  
 
@@ -132,9 +143,9 @@ Você pode baixar um arquivo JSON com os rótulos e tipos de informações defin
 
 ## <a name="next-steps"></a>Próximas etapas
  
-Neste artigo, você aprendeu a definir uma política de Proteção de Informações do SQL na Central de Segurança do Azure. Para saber mais sobre como usar o SQL Information Protection para classificar e proteger dados confidenciais em seus bancos de dados SQL, consulte [Descoberta e Classificação de Dados do Banco de Dados SQL do Azure](../azure-sql/database/data-discovery-and-classification-overview.md). 
+Neste artigo, você aprendeu a definir uma política de proteção de informações na central de segurança do Azure. Para saber mais sobre como usar o SQL Information Protection para classificar e proteger dados confidenciais em seus bancos de dados SQL, consulte [Descoberta e Classificação de Dados do Banco de Dados SQL do Azure](../azure-sql/database/data-discovery-and-classification-overview.md).
 
-Para obter mais informações sobre políticas de segurança e segurança de dados na Central de Segurança do Azure, consulte os seguintes artigos:
+Para obter mais informações sobre políticas de segurança e segurança de dados na central de segurança, consulte os seguintes artigos:
  
 - [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure
 - [Segurança de dados da central de segurança do Azure](security-center-data-security.md): saiba como a central de segurança gerencia e protege os dados

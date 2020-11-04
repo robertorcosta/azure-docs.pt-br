@@ -3,12 +3,12 @@ title: Solucionar problemas de logon no registro
 description: Sintomas, causas e resolução de problemas comuns ao fazer logon em um registro de contêiner do Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148445"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348892"
 ---
 # <a name="troubleshoot-registry-login"></a>Solucionar problemas de logon do registro
 
@@ -77,10 +77,11 @@ Links relacionados:
 Verifique a validade das credenciais usadas para o seu cenário ou foram fornecidas por um proprietário do registro. Alguns problemas possíveis:
 
 * Se estiver usando uma entidade de serviço Active Directory, certifique-se de usar as credenciais corretas no locatário Active Directory:
-  * Nome de usuário-ID do aplicativo da entidade de serviço (também chamada de *ID do cliente*)
-  * Senha-senha da entidade de serviço (também chamada de *segredo do cliente*)
+  * Nome de usuário-ID do aplicativo da entidade de serviço (também chamada de *ID do cliente* )
+  * Senha-senha da entidade de serviço (também chamada de *segredo do cliente* )
 * Se estiver usando um serviço do Azure, como o serviço kubernetes do Azure ou o Azure DevOps para acessar o registro, confirme a configuração do registro para seu serviço.
 * Se você executou `az acr login` com a `--expose-token` opção, que habilita o logon do registro sem usar o daemon do Docker, certifique-se de autenticar com o nome de usuário `00000000-0000-0000-0000-000000000000` .
+* Se o registro estiver configurado para [acesso de pull anônimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), as credenciais existentes do Docker armazenadas de um logon anterior do Docker poderão impedir o acesso anônimo. Execute `docker logout` antes de tentar uma operação de pull anônima no registro.
 
 Links relacionados:
 

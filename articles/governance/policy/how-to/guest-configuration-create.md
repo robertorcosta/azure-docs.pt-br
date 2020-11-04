@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542855"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348875"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -16,15 +16,19 @@ Antes de criar definições de política personalizadas, é uma boa ideia ler as
  
 Para saber mais sobre como criar políticas de Configuração de Convidado para o Linux, confira a página [Como criar políticas de Configuração de Convidado para o Linux](./guest-configuration-create-linux.md)
 
-Ao auditar o Windows, a Configuração de Convidado usa um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração falhar, o efeito da política **auditIfNotExists** será disparado e o computador será considerado **não compatível** .
+Ao auditar o Windows, a Configuração de Convidado usa um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração falhar, o efeito da política **auditIfNotExists** será disparado e o computador será considerado **não compatível**.
 
 A [Configuração de Convidado do Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar configurações dentro de computadores. A correção das configurações dentro de computadores ainda não está disponível.
 
 Use as ações a seguir para criar sua própria configuração para validar o estado de um computador que tem ou não o Azure.
 
 > [!IMPORTANT]
+> As definições de política personalizadas com a configuração de convidado no Azure governamental e nos ambientes do Azure China são um recurso de visualização.
+>
 > A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure.
 > Para implantar a extensão em escala em todas as máquinas com Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> Não use informações confidenciais ou segredos em pacotes de conteúdo personalizados.
 
 ## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
@@ -50,7 +54,7 @@ Sistemas operacionais em que é possível instalar o módulo:
 
 O módulo do recurso de Configuração de Convidado requer o seguinte software:
 
-- PowerShell 6.2 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
+- PowerShell 6.2 ou posterior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/azure/install-az-ps).
   - Somente os módulos AZ ' AZ. Accounts ' e ' AZ. Resources ' são necessários.
 
@@ -92,13 +96,13 @@ Os parâmetros em Azure Policy que passam valores para atribuições de configur
 
 A função `Get-TargetResource` tem requisitos especiais para a Configuração de Convidado que não foram necessários para a Desired State Configuration do Windows.
 
-- A tabela de hash retornada precisa incluir uma propriedade chamada **Motivos** .
+- A tabela de hash retornada precisa incluir uma propriedade chamada **Motivos**.
 - A propriedade Motivos deve ser uma matriz.
-- Cada item da matriz deve ser uma tabela de hash com chaves denominadas **Code** e **Phrase** .
+- Cada item da matriz deve ser uma tabela de hash com chaves denominadas **Code** e **Phrase**.
 
 A propriedade Motivos é usada pelo serviço para padronizar como as informações são apresentadas quando um computador está fora de conformidade. Você pode pensar em cada item em Motivos como um "motivo" pelo qual o recurso não é compatível. A propriedade é uma matriz porque um recurso pode estar fora de conformidade por mais de um motivo.
 
-As propriedades **Code** e **Phrase** são esperadas pelo serviço. Ao criar um recurso personalizado, defina o texto (normalmente stdout) que você gostaria de mostrar como o motivo pelo qual o recurso não é compatível como o valor para **Frase** . **Code** tem requisitos de formatação específicos para que os relatórios possam exibir claramente informações sobre o recurso usado para fazer a auditoria. Essa solução torna a Configuração de Convidado extensível. Qualquer comando pode ser executado desde que a saída possa ser retornada como um valor de cadeia de caracteres para a propriedade **Frase** .
+As propriedades **Code** e **Phrase** são esperadas pelo serviço. Ao criar um recurso personalizado, defina o texto (normalmente stdout) que você gostaria de mostrar como o motivo pelo qual o recurso não é compatível como o valor para **Frase**. **Code** tem requisitos de formatação específicos para que os relatórios possam exibir claramente informações sobre o recurso usado para fazer a auditoria. Essa solução torna a Configuração de Convidado extensível. Qualquer comando pode ser executado desde que a saída possa ser retornada como um valor de cadeia de caracteres para a propriedade **Frase**.
 
 - **Code** (cadeia de caracteres): O nome do recurso, repetido e, em seguida, um nome curto sem espaços como um identificador do motivo. Esses três valores devem ser delimitados por dois pontos sem espaços.
   - Um exemplo seria `registry:registry:keynotpresent`
@@ -140,7 +144,7 @@ O nome da configuração personalizada deve ser o mesmo em todos os lugares. O n
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Processo de scaffolding em um projeto de Configuração de Convidado
 
-Os desenvolvedores que desejam acelerar o processo de introdução e trabalhar com o código de exemplo podem instalar um projeto da comunidade chamado **Projeto de Configuração de Convidado** . O projeto instala um modelo para o módulo [Plaster](https://github.com/powershell/plaster) do PowerShell. Essa ferramenta pode ser usada para monitorar um projeto, incluindo uma configuração funcional e um recurso de amostra, e um conjunto de testes [Pester](https://github.com/pester/pester) para validar o projeto. O modelo também inclui executores de tarefas para Visual Studio Code para automatizar a criação e a validação do pacote de Configuração de Convidado. Para saber mais, confira o projeto GitHub [Projeto de Configuração de Convidado](https://github.com/microsoft/guestconfigurationproject).
+Os desenvolvedores que desejam acelerar o processo de introdução e trabalhar com o código de exemplo podem instalar um projeto da comunidade chamado **Projeto de Configuração de Convidado**. O projeto instala um modelo para o módulo [Plaster](https://github.com/powershell/plaster) do PowerShell. Essa ferramenta pode ser usada para monitorar um projeto, incluindo uma configuração funcional e um recurso de amostra, e um conjunto de testes [Pester](https://github.com/pester/pester) para validar o projeto. O modelo também inclui executores de tarefas para Visual Studio Code para automatizar a criação e a validação do pacote de Configuração de Convidado. Para saber mais, confira o projeto GitHub [Projeto de Configuração de Convidado](https://github.com/microsoft/guestconfigurationproject).
 
 Para saber mais sobre como trabalhar com configurações em geral, confira [Gravar, compilar e aplicar uma configuração](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
@@ -217,7 +221,7 @@ Como o agente está realmente avaliando o ambiente local, na maioria dos casos, 
 Parâmetros do cmdlet `Test-GuestConfigurationPackage`:
 
 - **Name** : nome da Configuração de Convidado.
-- **Parameter** : parâmetros de política fornecidos no formato de tabela de hash.
+- **Parâmetro** : parâmetros de política fornecidos no formato de tabela de hash.
 - **Caminho** : caminho completo do pacote de Configuração de Convidado.
 
 Execute o comando a seguir para testar o pacote criado pela etapa anterior:
@@ -274,7 +278,7 @@ A saída do cmdlet retorna um objeto que contenha o nome de exibição da inicia
 
 Por fim, publique as definições de política usando o cmdlet `Publish-GuestConfigurationPolicy`. O cmdlet tem apenas o parâmetro **Path** que aponta para o local dos arquivos JSON criados por `New-GuestConfigurationPolicy`.
 
-Para executar o comando Publish, você precisa ter acesso de criação das políticas no Azure. Os requisitos de autorização específicos estão documentados na página [Visão geral do Azure Policy](../overview.md). A melhor função interna é a de **Colaborador da política de recurso** .
+Para executar o comando Publish, você precisa ter acesso de criação das políticas no Azure. Os requisitos de autorização específicos estão documentados na página [Visão geral do Azure Policy](../overview.md). A melhor função interna é a de **Colaborador da política de recurso**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
@@ -325,7 +329,7 @@ A seguir, é fornecido um trecho de código de exemplo de uma definição de pol
 
 A Configuração de Convidado tem suporte à substituição de propriedades de uma Configuração em tempo de execução. Com esse recurso, os valores no arquivo MOF no pacote não precisam ser considerados estáticos. Os valores de substituição são fornecidos por meio do Azure Policy e não afetam a forma como as configurações são criadas ou compiladas.
 
-Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parameter** . Esse parâmetro usa uma tabela de hash que inclui todos os detalhes sobre cada parâmetro e cria as seções necessárias de cada arquivo usado para a definição do Azure Policy.
+Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parameter**. Esse parâmetro usa uma tabela de hash que inclui todos os detalhes sobre cada parâmetro e cria as seções necessárias de cada arquivo usado para a definição do Azure Policy.
 
 O exemplo a seguir cria uma definição de política para auditar um serviço, no qual o usuário seleciona a partir de uma lista no momento da atribuição da política.
 
@@ -487,9 +491,13 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida da política
 
-Se você gostaria de liberar uma atualização para a política, há dois campos que precisam de atenção.
+Se você quiser liberar uma atualização para a política, há três campos que exigem atenção.
 
-- **Versão** : ao executar o cmdlet `New-GuestConfigurationPolicy`, você deverá especificar um número de versão maior do que o publicado atualmente. A propriedade atualiza a versão da atribuição de Configuração de Convidado para que o agente reconheça o pacote atualizado.
+> [!NOTE]
+> A `version` propriedade da atribuição de configuração de convidado afeta apenas os pacotes que são hospedados pela Microsoft. A prática recomendada para o controle de versão de conteúdo personalizado é incluir a versão no nome do arquivo.
+
+- **Versão** : ao executar o cmdlet `New-GuestConfigurationPolicy`, você deve especificar um número de versão maior do que o publicado atualmente.
+- **contentUri** : ao executar o `New-GuestConfigurationPolicy` cmdlet, você deve especificar um URI para o local do pacote. A inclusão de uma versão do pacote no nome do arquivo garantirá que o valor dessa propriedade seja alterado em cada versão.
 - **contentHash** : essa propriedade é atualizada automaticamente pelo cmdlet `New-GuestConfigurationPolicy`. Trata-se de um valor de hash do pacote criado por `New-GuestConfigurationPackage`. A propriedade deve estar correta para o arquivo `.zip` que você publicar. Caso apenas a propriedade **contentUri** seja atualizada, a extensão não aceitará o pacote de conteúdo.
 
 A maneira mais fácil de liberar um pacote atualizado é repetindo o processo descrito neste artigo e fornecendo um número de versão atualizado. Esse processo garante que todas as propriedades tenham sido atualizadas corretamente.

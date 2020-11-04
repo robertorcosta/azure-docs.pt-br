@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 189fa12b1fc11e79ab64231a7ecd453113b8771a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336003"
+ms.locfileid: "93348909"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Solução de problemas de galerias de imagens compartilhadas no Azure
 
@@ -223,8 +223,8 @@ Se você encontrar problemas ao executar quaisquer operações em galerias de im
 **Causa** : a ID de recurso do conjunto de criptografia de disco usada em uma imagem de disco de dados usa um formato inválido.  
 **Solução alternativa** : Verifique se a ID de recurso do conjunto de criptografia de disco segue o formato/subscriptions/<SubscriptionId \> /ResourceGroups/<ResourceGroupName \> /Providers/Microsoft.Compute/<diskEncryptionSetName \> .
 
-*O valor do parâmetro galleryArtifactVersion. Properties. publishingProfile. targetRegions. encryption. osDiskImage. diskEncryptionSetId é inválido.* 
- **Causa** : a ID de recurso do conjunto de criptografia de disco usada na imagem de disco do sistema operacional usa um formato inválido  
+*O valor do parâmetro galleryArtifactVersion. Properties. publishingProfile. targetRegions. encryption. osDiskImage. diskEncryptionSetId é inválido.*  
+**Causa** : a ID de recurso do conjunto de criptografia de disco usada na imagem de disco do sistema operacional usa um formato inválido  
 **Solução alternativa** : Verifique se a ID de recurso do conjunto de criptografia de disco segue o formato/subscriptions/<SubscriptionId \> /ResourceGroups/<ResourceGroupName \> /Providers/Microsoft.Compute/<diskEncryptionSetName \> .
 
 *Não é possível especificar o novo LUN de criptografia de imagem de disco de dados [número <\> ] com um conjunto de criptografia de disco na região [região \> de <] para a solicitação atualizar versão da imagem da galeria. Para atualizar essa versão, remova o novo LUN. Se precisar alterar as configurações de criptografia de imagem de disco de dados, você deverá criar uma nova versão de imagem da galeria com as configurações corretas.*  

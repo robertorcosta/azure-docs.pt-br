@@ -4,12 +4,12 @@ description: Fornece respostas para algumas das perguntas mais comuns sobre a so
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288668"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349079"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -59,13 +59,7 @@ As atualizações feitas no próprio serviço seguirão Microsoft Azure processo
 
 Com a nova Solução VMware no Azure, a Microsoft e a VMware têm uma parceria de provedor de serviços de nuvem. A nova solução é totalmente projetada, criada e suportada pela Microsoft e endossada pela VMware. Em termos de arquitetura, as soluções são consistentes, com a pilha de tecnologia do VMware em execução em uma infraestrutura dedicada do Azure.
 
-#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>As soluções Red Hat têm suporte na solução VMware do Azure?
 
-A Microsoft e a Red Hat compartilham uma equipe de suporte integrada e colocalizada que fornece um ponto de contato unificado para ecossistemas Red Hat em execução na plataforma Azure.  Assim como outros serviços da plataforma Azure que funcionam com o Red Hat Enterprise Linux, a solução Azure VMware está sob o acesso à nuvem e a abrangência de suporte integrado, e Red Hat Enterprise Linux tem suporte para execução sobre a solução Azure VMware no Azure.
-
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>O VMware HCX Enterprise Edition está disponível e, nesse caso, o quanto custa?
-
-O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora a solução VMware HCX EE para Azure VMware esteja em versão prévia, ela é uma função/serviço gratuita e está sujeita a termos e condições de serviço de visualização. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você pode desativar ou recusar o serviço.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>As VMs de solução do Azure VMware podem ser gerenciadas pelo VMRC?
 Sim, desde que o sistema no qual ele está instalado possa acessar a nuvem privada vCenter e esteja usando o DNS público para resolver nomes de host ESXi.
@@ -236,6 +230,14 @@ A Microsoft oferece suporte à solução Azure VMware. Você pode enviar uma [so
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Quais contas eu preciso para criar uma nuvem privada da solução Azure VMware?
 
 Você precisará de uma conta do Azure em uma assinatura do Azure.
+
+#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>As soluções Red Hat têm suporte na solução VMware do Azure?
+
+A Microsoft e a Red Hat compartilham uma equipe de suporte integrada e colocalizada que fornece um ponto de contato unificado para ecossistemas Red Hat em execução na plataforma Azure.  Assim como outros serviços da plataforma Azure que funcionam com o Red Hat Enterprise Linux, a solução Azure VMware está sob o acesso à nuvem e a abrangência de suporte integrado, e Red Hat Enterprise Linux tem suporte para execução sobre a solução Azure VMware no Azure.
+
+#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>O VMware HCX Enterprise Edition está disponível e, nesse caso, o quanto custa?
+
+O VMware HCX EE (Edição Enterprise) está disponível com a Solução VMware no Azure como uma função ou um serviço de *Versão prévia*. Embora a solução VMware HCX EE para Azure VMware esteja em versão prévia, ela é uma função/serviço gratuita e está sujeita a termos e condições de serviço de visualização. Depois que o serviço VMware HCX EE ficar em GA, você receberá um aviso de 30 dias de que a cobrança será iniciada. Você pode desativar ou recusar o serviço.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como fazer solicitar um aumento de cota de host para a solução do Azure VMware?
 

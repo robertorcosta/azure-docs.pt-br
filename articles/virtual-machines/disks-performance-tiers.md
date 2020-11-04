@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359672"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348688"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos gerenciados (versão prévia)
 
@@ -55,10 +55,6 @@ Para obter informações de cobrança, consulte [preços de disco gerenciado](ht
 - Você deve desalocar sua VM ou desanexar o disco de uma VM em execução antes de poder alterar a camada do disco.
 - O uso dos níveis de desempenho P60, P70 e P80 é restrito a discos de 4.096 GiB ou superior.
 - O nível de desempenho de um disco pode ser rebaixado apenas uma vez a cada 24 horas.
-
-## <a name="regional-availability"></a>Disponibilidade regional
-
-A capacidade de ajustar o nível de desempenho de um disco gerenciado está atualmente disponível somente no SSDs Premium nas regiões leste dos EUA 2, Sul EUA Central, Oeste EUA Central, leste do sudeste da Austrália.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar um disco de dados vazio com uma camada superior à camada de linha de base
 

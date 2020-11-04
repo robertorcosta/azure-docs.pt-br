@@ -5,16 +5,16 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 681c5e169acc30cc6708b56b5ba180d2729919e5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 73813ffbb6ac1839a48fc455dec5f6ad26ed0164
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221952"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348782"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Habilitar o Gerenciamento de Atualizações do portal do Azure
 
-Este artigo descreve como você pode habilitar o recurso [Gerenciamento de Atualizações](overview.md) para VMs navegando no portal do Azure. Para habilitar VMs do Azure em escala, você deve habilitar uma VM existente usando o Gerenciamento de Atualizações.
+Este artigo descreve como você pode habilitar o recurso [Gerenciamento de Atualizações](overview.md) para VMs navegando no portal do Azure. Para habilitar as VMs do Azure em escala, você deve habilitar uma VM do Azure existente usando Gerenciamento de Atualizações.
 
 O número de grupos de recursos que você pode usar para gerenciar suas VMs é limitado pelos [limites de implantação do Resource Manager](../../azure-resource-manager/templates/cross-scope-deployment.md). As implantações do Resource Manager, que não devem ser confundidas com implantações de atualização, estão limitadas a cinco grupos de recursos por implantação. Dois desses grupos de recursos são reservados para configurar o workspace do Log Analytics, a conta de Automação e os recursos relacionados. Você pode então optar entre três grupos de recursos para gerenciamento pelo Gerenciamento de Atualizações. Esse limite se aplica apenas à configuração simultânea, não ao número de grupos de recursos que podem ser gerenciados por um recurso de Automação.
 
@@ -35,7 +35,7 @@ Entre no Azure em https://portal.azure.com.
 
 1. No portal do Azure, navegue até **máquinas virtuais**.
 
-2. Use as caixas de seleção para escolher as VMs a serem adicionadas ao Gerenciamento de Atualizações. Você pode adicionar computadores para até três grupos de recursos diferentes por vez. As VMs do Azure podem existir em qualquer região, independentemente do local da sua conta de Automação.
+2. Na página **máquinas virtuais** , use as caixas de seleção para escolher as VMs a serem adicionadas gerenciamento de atualizações. Você pode adicionar computadores para até três grupos de recursos diferentes por vez. As VMs do Azure podem existir em qualquer região, independentemente do local da sua conta de Automação.
 
     ![Lista de VMs](media/enable-from-portal/vmlist.png)
 
