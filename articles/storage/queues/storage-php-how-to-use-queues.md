@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809215"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345832"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como usar o Armazenamento de Fila do PHP
 
@@ -38,7 +38,7 @@ Neste guia, você usa os recursos do serviço de armazenamento de fila que podem
 ### <a name="install-via-composer"></a>Instalar por meio do Composer
 
 1. Crie um arquivo chamado **composer.js** na raiz do seu projeto e adicione o seguinte código a ele:
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ Neste guia, você usa os recursos do serviço de armazenamento de fila que podem
       }
     }
     ```
+
 2. Baixe **[composer.phar][composer-phar]** na raiz do projeto.
 3. Abra um prompt de comando e execute o seguinte comando na raiz do projeto
-   
+
     ```
     php composer.phar install
     ```
@@ -89,8 +90,9 @@ UseDevelopmentStorage=true
 
 Para criar um cliente de serviço Fila do Azure, você precisa usar a classe **QueueRestProxy**. É possível usar qualquer uma das técnicas a seguir:
 
-* Passar a cadeia de conexão diretamente para ele.
-* Use variáveis de ambiente em seu Aplicativo Web para armazenar a cadeia de conexão. Consulte o documento [Configurações do aplicativo web do Azure](../../app-service/configure-common.md) para configurar cadeias de conexão.
+- Passar a cadeia de conexão diretamente para ele.
+- Use variáveis de ambiente em seu Aplicativo Web para armazenar a cadeia de conexão. Consulte o documento [Configurações do aplicativo web do Azure](../../app-service/configure-common.md) para configurar cadeias de conexão.
+
 Para os exemplos descritos aqui, a cadeia de conexão é passada diretamente.
 
 ```php
@@ -139,8 +141,6 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > Você não deve depender de maiúsculas e minúsculas para as chaves de metadados. Todas as chaves são lidas do serviço em letras minúsculas.
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>Adicionar uma mensagem a uma fila
 
@@ -223,7 +223,7 @@ else{
 
 ## <a name="de-queue-the-next-message"></a>Remover a próxima mensagem da fila
 
-Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você chama **QueueRestProxy->listMessages**, que torna a mensagem invisível para qualquer outro código de leitura da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. (Se a mensagem não for excluída nesse período de tempo, ela se tornará visível na fila novamente.) Para concluir a remoção da mensagem da fila, você deve chamar **QueueRestProxy->deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ser processada.
+Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você chama **QueueRestProxy->listMessages** , que torna a mensagem invisível para qualquer outro código de leitura da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. (Se a mensagem não for excluída nesse período de tempo, ela se tornará visível na fila novamente.) Para concluir a remoção da mensagem da fila, você deve chamar **QueueRestProxy->deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ser processada.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -425,8 +425,8 @@ catch(ServiceException $e){
 
 Agora que você aprendeu os conceitos básicos do armazenamento de Filas do Azure, siga estes links para saber mais sobre tarefas de armazenamento mais complexas:
 
-* Visite a [referência de API para a biblioteca de clientes PHP do armazenamento do Azure](https://azure.github.io/azure-storage-php/)
-* Consulte o [exemplo de Fila avançado](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
+- Visite a [referência de API para a biblioteca de clientes PHP do armazenamento do Azure](https://azure.github.io/azure-storage-php/)
+- Consulte o [exemplo de Fila avançado](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Para saber mais, veja também a [Central de desenvolvedores do PHP](https://azure.microsoft.com/develop/php/).
 

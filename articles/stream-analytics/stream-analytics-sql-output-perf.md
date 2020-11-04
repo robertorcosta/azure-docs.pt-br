@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129738"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346325"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
 
@@ -35,7 +35,7 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Índices e Tabela Particionados** – usar uma tabela SQL [particionada](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e índices particionados na tabela com a mesma coluna como chave de partição (por exemplo, PartitionId) pode reduzir significativamente as contenções entre partições durante gravações. Para uma tabela particionada, você precisará criar uma [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e um [esquema de partição](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de arquivos PRIMARY. Isso também aumentará a disponibilidade dos dados existentes enquanto novos dados estiverem sendo carregados. O limite de E/S de log pode ser atingido com base no número de partições, que pode ser aumentado atualizando a SKU.
+- **Índices e Tabela Particionados** – usar uma tabela SQL [particionada](/sql/relational-databases/partitions/partitioned-tables-and-indexes) e índices particionados na tabela com a mesma coluna como chave de partição (por exemplo, PartitionId) pode reduzir significativamente as contenções entre partições durante gravações. Para uma tabela particionada, você precisará criar uma [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql) e um [esquema de partição](/sql/t-sql/statements/create-partition-scheme-transact-sql) no grupo de arquivos PRIMARY. Isso também aumentará a disponibilidade dos dados existentes enquanto novos dados estiverem sendo carregados. O limite de E/S de log pode ser atingido com base no número de partições, que pode ser aumentado atualizando a SKU.
 
 - **Evitar violações de chave exclusivas** – se você receber [várias mensagens de aviso de violação de chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) no Log de Atividades do Azure Stream Analytics, verifique se seu trabalho não é afetado por violações de restrição exclusivas que têm probabilidade de acontecer durante a casos de recuperação. Isso pode ser evitado configurando a opção [IGNORE\_DUP\_KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) em seus índices.
 

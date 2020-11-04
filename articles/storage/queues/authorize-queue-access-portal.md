@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc6c4e57d0e04cc85bd83c11ba583b3f0b24fa82
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715507"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345985"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados da fila no portal do Azure
 
-Quando você acessa os dados da fila usando o [portal do Azure](https://portal.azure.com), o portal faz solicitações para o armazenamento do Azure nos bastidores. Uma solicitação para o armazenamento do Azure pode ser autorizada usando sua conta do Azure AD ou a chave de acesso da conta de armazenamento. O portal indica qual método você está usando e permite que você alterne entre os dois se tiver as permissões apropriadas.  
+Quando você acessa os dados da fila usando o [portal do Azure](https://portal.azure.com), o portal faz solicitações para o armazenamento do Azure nos bastidores. Uma solicitação para o armazenamento do Azure pode ser autorizada usando sua conta do Azure AD ou a chave de acesso da conta de armazenamento. O portal indica qual método você está usando e permite que você alterne entre os dois se tiver as permissões apropriadas.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Permissões necessárias para acessar os dados da fila
 
@@ -37,7 +37,7 @@ Para acessar os dados da fila com a chave de acesso da conta, você deve ter uma
 Quando você tenta acessar os dados da fila no portal do Azure, o portal primeiro verifica se você recebeu uma função com **Microsoft. Storage/storageAccounts/listkeys/Action**. Se você tiver recebido uma função com essa ação, o portal usará a chave de conta para acessar os dados da fila. Se você não tiver recebido uma função com essa ação, o portal tentará acessar os dados usando sua conta do Azure AD.
 
 > [!NOTE]
-> O administrador de serviço de funções de administrador de assinatura clássica e Co-Administrator incluem o equivalente da função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. A função de **proprietário** inclui todas as ações, incluindo a **ação Microsoft. Storage/storageAccounts/listkeys/**, para que um usuário com uma dessas funções administrativas também possa acessar os dados da fila com a chave de conta. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> O administrador de serviço de funções de administrador de assinatura clássica e Co-Administrator incluem o equivalente da função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. A função de **proprietário** inclui todas as ações, incluindo a **ação Microsoft. Storage/storageAccounts/listkeys/** , para que um usuário com uma dessas funções administrativas também possa acessar os dados da fila com a chave de conta. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Usar sua conta do Azure AD
 
@@ -74,11 +74,11 @@ Quando você navega para uma fila, a portal do Azure indica se você está usand
 
 Se você estiver autenticando usando a chave de acesso da conta, verá a **chave de acesso** especificada como o método de autenticação no Portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Captura de tela mostrando como navegar até os dados da fila no portal do Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Captura de tela mostrando o usuário atualmente acessando filas com a chave de conta":::
 
 Para alternar para o usando a conta do Azure AD, clique no link realçado na imagem. Se você tiver as permissões apropriadas por meio das funções do Azure atribuídas a você, poderá continuar. No entanto, se você não tem as permissões corretas, verá uma mensagem de erro semelhante à seguinte:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Captura de tela mostrando como navegar até os dados da fila no portal do Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Erro mostrado se a conta do Azure AD não dá suporte ao acesso":::
 
 Observe que nenhuma fila aparece na lista se sua conta do Azure AD não tem permissões para exibi-las. Clique no link **alternar para a chave de acesso** para usar a tecla de acesso para autenticação novamente.
 
@@ -86,7 +86,7 @@ Observe que nenhuma fila aparece na lista se sua conta do Azure AD não tem perm
 
 Se você estiver autenticando usando sua conta do Azure AD, verá a **conta de usuário do Azure ad** especificada como o método de autenticação no Portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Captura de tela mostrando como navegar até os dados da fila no portal do Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Captura de tela mostrando o usuário atualmente acessando filas com a conta do Azure AD":::
 
 Para alternar para o usando a chave de acesso da conta, clique no link realçado na imagem. Se você tiver acesso à chave de conta, poderá continuar. No entanto, se você não tem acesso à chave de conta, o portal do Azure exibe uma mensagem de erro.
 

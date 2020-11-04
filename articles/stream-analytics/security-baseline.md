@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7cf3caa0e309c1640db6ca2817a91f9db71c5110
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 03655e88d4d4c9183bff71e04bf447f470fcf557
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129908"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348399"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Linha de base de segurança do Azure para Stream Analytics
 
@@ -238,9 +238,9 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 **Diretrizes** : o Azure ad tem funções internas que devem ser atribuídas explicitamente. As funções podem ser consultadas para descobrir a associação. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoramento da Central de Segurança do Azure** : Sim
 
@@ -542,7 +542,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 * [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -682,7 +682,7 @@ Além disso, use o grafo de recursos do Azure para consultar/descobrir recursos 
 
 **Orientação** : use aliases de Azure Policy no namespace "Microsoft. StreamAnalytics" para criar políticas personalizadas para auditar ou impor a configuração do seu Azure Stream Analytics. Você também pode fazer uso de definições de política internas relacionadas à sua Azure Stream Analytics, como:-os logs de diagnóstico no Azure Stream Analytics devem ser habilitados
 
-* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Definições de política interna do Azure Policy](../governance/policy/samples/built-in-policies.md)
 
@@ -724,7 +724,7 @@ Além disso, use o grafo de recursos do Azure para consultar/descobrir recursos 
 
 **Diretrizes** : Use Azure Repos para armazenar e gerenciar com segurança seu código, incluindo políticas personalizadas do Azure, modelos de Azure Resource Manager, scripts de configuração de estado desejado, funções definidas pelo usuário, consultas. Para acessar os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.
 
-* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
 * [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -880,7 +880,7 @@ Para fazer backup de dados dos serviços com suporte da conta de armazenamento, 
 
 As chaves gerenciadas pelo cliente/fornecidas podem ser apoiadas em Azure Key Vault usando o CLI do Azure ou o PowerShell.
 
-* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitoramento da Central de Segurança do Azure** : Não disponível no momento
 
@@ -938,9 +938,9 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 **Responsabilidade** : Cliente
 
-### <a name="103-test-security-response-procedures"></a>10.3: Testar procedimentos de resposta de segurança
+### <a name="103-test-security-response-procedures"></a>10.3: testar procedimentos de resposta de segurança
 
-**Diretriz** : Conduza regularmente exercícios para testar os recursos de resposta a incidentes de seus sistemas para ajudar a proteger seus recursos do Azure. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
+**Orientação** : conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular para ajudar a proteger seus recursos do Azure. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
 
 * [Veja a publicação do NIST: Guia para testar, treinar e exercitar programas para planos de TI e recursos](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -990,7 +990,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 * [Siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não estejam em violação às políticas da Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de Red Team e testes de penetração de sites ao vivo em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure** : Não aplicável
 

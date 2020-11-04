@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148522"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346988"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêiner do Azure
 
@@ -262,7 +262,8 @@ Atualmente, a quarentena da imagem é uma versão prévia do recurso do ACR. Voc
 Atualmente, a configuração de um registro de contêiner do Azure para acesso de pull anônimo (público) é uma versão prévia do recurso. Se você tiver qualquer [mapa de escopo (usuário) ou recursos de token](./container-registry-repository-scoped-permissions.md) em seu registro, exclua-os antes de gerar um tíquete de suporte (os mapas de escopo do sistema podem ser ignorados). Para habilitar o acesso público, abra um tíquete de suporte em https://aka.ms/acr/support/create-ticket. Para obter detalhes, confira o [Fórum de Comentários do Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Somente as APIs necessárias para efetuar pull de uma imagem conhecida podem ser acessadas anonimamente. Nenhuma outra API para operações como lista de marcas ou lista de repositórios é acessível anonimamente.
+> * Somente as APIs necessárias para efetuar pull de uma imagem conhecida podem ser acessadas anonimamente. Nenhuma outra API para operações como lista de marcas ou lista de repositórios é acessível anonimamente.
+> * Antes de tentar uma operação de pull anônima, execute `docker logout` para garantir que você desmarque as credenciais existentes do Docker.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnóstico e verificações de integridade
 

@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125165"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348331"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro do Marketplace comercial e atribuição de uso do cliente
 
@@ -74,15 +74,15 @@ Depois que você adicionar um GUID ao seu modelo ou no agente do usuário e regi
    * Parceiros podem registrar vários GUIDs.
    * Os parceiros podem registrar GUIDs para os modelos e ofertas de soluções que não são do Marketplace.
 
-1. No canto superior direito, selecione o ícone de engrenagem configurações e, em seguida, selecione **Configurações do desenvolvedor** .
+1. No canto superior direito, selecione o ícone de engrenagem configurações e, em seguida, selecione **Configurações do desenvolvedor**.
 
-1. Na página **Configurações da conta** , selecione **Adicionar GUID de acompanhamento** .
+1. Na página **Configurações da conta** , selecione **Adicionar GUID de acompanhamento**.
 
 1. Na caixa **GUID** , insira seu GUID de acompanhamento. Insira apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição** , insira o nome ou a descrição da sua oferta.
 
 1. Para registrar mais de um GUID, selecione **Adicionar GUID de Rastreamento** novamente. Caixas adicionais aparecerão na página.
 
-1. Clique em **Salvar** .
+1. Clique em **Salvar**.
 
 ## <a name="use-resource-manager-templates"></a>Use modelos do Gerenciador de Recursos
 Muitas soluções de parceiros são implantadas usando modelos do Azure Resource Manager. Se você tiver um modelo do Resource Manager que está disponível no Azure Marketplace, no GitHub ou como um guia de início rápido, o processo para modificar o modelo para habilitar a atribuição de uso do cliente é direto.
@@ -102,7 +102,7 @@ Para adicionar um identificador global exclusivo (GUID), você faz uma única mo
 
 1. Adicione um novo recurso do tipo [Microsoft. Resources/Implantations](/azure/templates/microsoft.resources/deployments) no arquivo de modelo principal. O recurso precisa estar no arquivo **mainTemplate.json** ou **azuredeploy.json** , e não em nenhum modelo aninhado ou vinculado.
 
-1. Insira o valor de GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome do recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
+1. Insira o valor de GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome do recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Verifique o modelo para todos os erros.
 
@@ -159,7 +159,7 @@ Para o Python, use o **config** atributo. Você só pode adicionar o atributo a 
 
 #### <a name="example-the-net-sdk"></a>Exemplo: o SDK do .NET
 
-Para o .NET, certifique-se de definir o agente do usuário. A biblioteca [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) pode ser usada para definir o agente do usuário com o seguinte código (exemplo em C#):
+Para o .NET, certifique-se de definir o agente do usuário. A biblioteca [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent) pode ser usada para definir o agente do usuário com o seguinte código (exemplo em C#):
 
 ```csharp
 
@@ -181,7 +181,7 @@ Se você implantar recursos por meio do Azure PowerShell, acrescente seu GUID us
 
 #### <a name="tag-a-deployment-by-using-the-azure-cli"></a>Marca uma implantação usando a CLI do Azure
 
-Quando você usa a CLI do Azure para anexar seu GUID, defina a variável de ambiente **AZURE_HTTP_USER_AGENT** . Você pode definir essa variável dentro do escopo de um script. Você também pode definir a variável globalmente para o escopo da shell:
+Quando você usa a CLI do Azure para anexar seu GUID, defina a variável de ambiente **AZURE_HTTP_USER_AGENT**. Você pode definir essa variável dentro do escopo de um script. Você também pode definir a variável globalmente para o escopo da shell:
 
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
@@ -192,7 +192,7 @@ Para obter mais informações, confira [SDK do Azure para linguagem Go](/azure/d
 
 O suporte para Terraform está disponível por meio do Provedor do Azure 1.21.0 versão: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Esse suporte se aplica a todos os parceiros que implantam a solução via Terraform e todos os recursos implantados e medidos pelo Provedor do Azure (versão 1.21.0 ou posterior).
 
-O provedor do Azure para Terraform adicionou um novo campo opcional chamado [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id). Nele, você especifica o GUID de acompanhamento que você usa para sua solução. O valor desse campo também pode ser originado da variável de ambiente *ARM_PARTNER_ID* .
+O provedor do Azure para Terraform adicionou um novo campo opcional chamado [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id). Nele, você especifica o GUID de acompanhamento que você usa para sua solução. O valor desse campo também pode ser originado da variável de ambiente *ARM_PARTNER_ID*.
 
 ```
 provider "azurerm" {

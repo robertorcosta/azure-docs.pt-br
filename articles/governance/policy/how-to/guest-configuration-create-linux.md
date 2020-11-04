@@ -4,12 +4,12 @@ description: Saiba como criar uma política de Configuração de Convidado do Az
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305553"
+ms.locfileid: "93346869"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -24,7 +24,11 @@ A [Configuração de Convidado do Azure Policy](../concepts/guest-configuration.
 Use as ações a seguir para criar sua própria configuração para validar o estado de um computador que tem ou não o Azure.
 
 > [!IMPORTANT]
+> As definições de política personalizadas com a configuração de convidado no Azure governamental e nos ambientes do Azure China são um recurso de visualização.
+>
 > A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure. Para implantar a extensão em escala em todas as máquinas Linux, atribua a seguinte definição de política: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> Não use informações confidenciais ou segredos em pacotes de conteúdo personalizados.
 
 ## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
@@ -49,7 +53,9 @@ Sistemas operacionais em que é possível instalar o módulo:
 - Windows
 
 > [!NOTE]
-> O cmdlet ' test-GuestConfigurationPackage ' requer o OpenSSL versão 1,0, devido a uma dependência em OMI. Isso causa um erro em qualquer ambiente com OpenSSL 1,1 ou posterior.
+> O cmdlet `Test-GuestConfigurationPackage` requer o OpenSSL versão 1,0, devido a uma dependência em OMI. Isso causa um erro em qualquer ambiente com OpenSSL 1,1 ou posterior.
+>
+> A execução do cmdlet `Test-GuestConfigurationPackage` só tem suporte no Windows para o módulo de configuração de convidado versão 2.1.0.
 
 O módulo do recurso de Configuração de Convidado requer o seguinte software:
 
@@ -319,13 +325,16 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida da política
 
-Para liberar uma atualização para a definição da política, há dois campos que precisam de atenção.
+Para liberar uma atualização para a definição de política, há três campos que exigem atenção.
 
-- **Versão** : ao executar o cmdlet `New-GuestConfigurationPolicy`, você deve especificar um número de versão maior do que o publicado atualmente. A propriedade atualiza a versão da atribuição de Configuração de Convidado para que o agente reconheça o pacote atualizado.
+> [!NOTE]
+> A `version` propriedade da atribuição de configuração de convidado afeta apenas os pacotes que são hospedados pela Microsoft. A prática recomendada para o controle de versão de conteúdo personalizado é incluir a versão no nome do arquivo.
+
+- **Versão** : ao executar o cmdlet `New-GuestConfigurationPolicy`, você deve especificar um número de versão maior do que o publicado atualmente.
+- **contentUri** : ao executar o `New-GuestConfigurationPolicy` cmdlet, você deve especificar um URI para o local do pacote. A inclusão de uma versão do pacote no nome do arquivo garantirá que o valor dessa propriedade seja alterado em cada versão.
 - **contentHash** : essa propriedade é atualizada automaticamente pelo cmdlet `New-GuestConfigurationPolicy`. Trata-se de um valor de hash do pacote criado por `New-GuestConfigurationPackage`. A propriedade deve estar correta para o arquivo `.zip` que você publicar. Caso apenas a propriedade **contentUri** seja atualizada, a extensão não aceitará o pacote de conteúdo.
 
 A maneira mais fácil de liberar um pacote atualizado é repetindo o processo descrito neste artigo e fornecendo um número de versão atualizado. Esse processo garante que todas as propriedades tenham sido atualizadas corretamente.
-
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar políticas de Configuração de Convidado usando tags
 

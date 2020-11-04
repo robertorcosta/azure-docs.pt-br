@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e72a98ddd5219662c8850326b4f43b25e545177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595828"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348144"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure
 
@@ -124,7 +124,7 @@ Adicione ouvintes que são necessários para rotear o tráfego usando [AZ Networ
 
 >[!NOTE]
 > Com a SKU do gateway de aplicativo ou do WAF v2, você também pode configurar até 5 nomes de host por ouvinte e pode usar caracteres curinga no nome do host. Consulte [nomes de host curinga no ouvinte](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obter mais informações.
->Para usar vários nomes de host e caracteres curinga em um ouvinte usando CLI do Azure, você deve usar `--host-names` em vez de `--host-name` . Com os nomes de host, você pode mencionar até 5 nomes de host como valores separados por vírgulas. Por exemplo, `--host-names "*.contoso.com,*.fabrikam.com"`
+>Para usar vários nomes de host e caracteres curinga em um ouvinte usando CLI do Azure, você deve usar `--host-names` em vez de `--host-name` . Com nomes de host, você pode mencionar até cinco nomes de host como valores separados por espaços. Por exemplo, `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -175,7 +175,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end no gateway de aplicativo. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end no gateway de aplicativo. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , *myvmss2* , e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

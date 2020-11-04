@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: bbeb1248fef846afbd1641a668c6db3be4870ca6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082089"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348450"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -42,9 +42,9 @@ O armazenamento de uso geral é o armazenamento de back-end com suporte ao [uso 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de uso geral com armazenamento de até 16 TB
 
-Em um subconjunto de [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](/azure/mysql/concepts-pricing-tiers#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
+Em um subconjunto de [regiões do Azure](/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
 
-Em um subconjunto de [regiões do Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](/concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
+Em um subconjunto de [regiões do Azure](concepts-pricing-tiers.md#storage), todos os servidores recentemente provisionados podem dar suporte ao armazenamento de uso geral de até 16 TB de armazenamento. Em outras palavras, o armazenamento de até 16 TB é o armazenamento padrão de uso geral para todas as [regiões](concepts-pricing-tiers.md#storage) em que há suporte. Os backups nesses servidores de armazenamento de 16 TB são baseados em instantâneo. O primeiro backup de instantâneo completo é agendado imediatamente após a criação de um servidor. O primeiro backup de instantâneo completo é mantido como o backup base do servidor. Os backups de instantâneo subsequentes são apenas backups diferenciais.
 
 Os backups de instantâneo diferenciais ocorrem pelo menos uma vez por dia. Os backups de instantâneo diferenciais não ocorrem em um agendamento fixo. Os backups de instantâneo diferenciais ocorrem a cada 24 horas, a menos que o log de transações (binlog no MySQL) exceda 50 GB desde o último backup diferencial. Em um dia, são permitidos no máximo seis instantâneos diferenciais.
 

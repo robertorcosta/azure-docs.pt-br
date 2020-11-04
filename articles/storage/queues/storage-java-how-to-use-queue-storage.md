@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425137"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346002"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como usar o Armazenamento de Fila no Java
 
@@ -22,7 +22,7 @@ ms.locfileid: "92425137"
 
 ## <a name="overview"></a>Visão geral
 
-Este guia mostrará como codificar para cenários comuns usando o serviço de armazenamento de filas do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários incluem **inserção**, **exibição**, **obtenção**e **exclusão** de mensagens da fila. O código para **criar** e **excluir** filas também é abordado. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
+Este guia mostrará como codificar para cenários comuns usando o serviço de armazenamento de filas do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários incluem **inserção** , **exibição** , **obtenção** e **exclusão** de mensagens da fila. O código para **criar** e **excluir** filas também é abordado. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -34,7 +34,7 @@ Este guia mostrará como codificar para cenários comuns usando o serviço de ar
 
 Primeiro, verifique se o sistema de desenvolvimento atende aos pré-requisitos listados na [biblioteca de cliente de armazenamento de filas do Azure para Java V12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
-Para criar um aplicativo Java chamado *filas-instruções-V12*:
+Para criar um aplicativo Java chamado *filas-instruções-V12* :
 
 1. Em uma janela de console (como cmd, PowerShell ou bash), use o Maven para criar um novo aplicativo de console com o nome *filas-instruções-V12*. Digite o comando **mvn** a seguir para criar um "Olá, Mundo!" Projeto Java.
 
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Você pode armazenar essa cadeia de caracteres no arquivo de configuração de serviço chamado Service *Configuration. cscfg*. Para um aplicativo em execução em uma função de Microsoft Azure, acesse a cadeia de conexão chamando **RoleEnvironment. getConfigurationSettings**. Aqui está um exemplo de como obter a cadeia de conexão de um elemento de **configuração** chamado *StorageConnectionString*:
+
+Você pode armazenar essa cadeia de caracteres no arquivo de configuração de serviço chamado Service *Configuration. cscfg*. Para um aplicativo em execução em uma função de Microsoft Azure, acesse a cadeia de conexão chamando **RoleEnvironment. getConfigurationSettings**. Aqui está um exemplo de como obter a cadeia de conexão de um elemento de **configuração** chamado *StorageConnectionString* :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -393,7 +394,7 @@ Você pode obter uma estimativa do número de mensagens em uma fila.
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-O método **GetProperties** solicita ao serviço fila vários valores atuais. Um dos valores é uma contagem de quantas mensagens estão em uma fila. A contagem é aproximada apenas porque as mensagens podem ser adicionadas ou removidas após sua solicitação. O método **getApproximateMessageCount** retorna o último valor recuperado pela chamada para **GetProperties**, sem chamar o serviço fila.
+O método **GetProperties** solicita ao serviço fila vários valores atuais. Um dos valores é uma contagem de quantas mensagens estão em uma fila. A contagem é aproximada apenas porque as mensagens podem ser adicionadas ou removidas após sua solicitação. O método **getApproximateMessageCount** retorna o último valor recuperado pela chamada para **GetProperties** , sem chamar o serviço fila.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
@@ -436,13 +437,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **receiveMessage**, você obtém a próxima mensagem em uma fila. Uma mensagem retornada de **receiveMessage** torna-se invisível para qualquer outra mensagem de leitura de código dessa fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar **deleteMessage**. Se o código não processar uma mensagem, esse processo de duas etapas garantirá que você possa obter a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ser processada.
+Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **receiveMessage** , você obtém a próxima mensagem em uma fila. Uma mensagem retornada de **receiveMessage** torna-se invisível para qualquer outra mensagem de leitura de código dessa fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar **deleteMessage**. Se o código não processar uma mensagem, esse processo de duas etapas garantirá que você possa obter a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ser processada.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **retrieveMessage**, obtém a próxima mensagem em uma fila. As mensagens retornadas de **retrieveMessage** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar **deleteMessage**. Se o código não processar uma mensagem, esse processo de duas etapas garantirá que você possa obter a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ser processada.
+Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **retrieveMessage** , obtém a próxima mensagem em uma fila. As mensagens retornadas de **retrieveMessage** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar **deleteMessage**. Se o código não processar uma mensagem, esse processo de duas etapas garantirá que você possa obter a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ser processada.
 
 ```java
 try
@@ -481,13 +482,13 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Prime
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-O exemplo de código a seguir usa o método **receiveMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. O tempo limite é iniciado para todas as mensagens ao mesmo tempo. Quando cinco minutos tiverem passado desde a chamada para **receiveMessages**, todas as mensagens não excluídas ficarão visíveis novamente.
+O exemplo de código a seguir usa o método **receiveMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. O tempo limite é iniciado para todas as mensagens ao mesmo tempo. Quando cinco minutos tiverem passado desde a chamada para **receiveMessages** , todas as mensagens não excluídas ficarão visíveis novamente.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-O exemplo de código a seguir usa o método **retrieveMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. O tempo limite é iniciado para todas as mensagens ao mesmo tempo. Quando cinco minutos tiverem passado desde a chamada para **retrieveMessages**, todas as mensagens não excluídas ficarão visíveis novamente.
+O exemplo de código a seguir usa o método **retrieveMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. O tempo limite é iniciado para todas as mensagens ao mesmo tempo. Quando cinco minutos tiverem passado desde a chamada para **retrieveMessages** , todas as mensagens não excluídas ficarão visíveis novamente.
 
 ```java
 try
@@ -528,7 +529,7 @@ Para obter uma lista das filas atuais, chame o método **QueueServiceClient. lis
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Para obter uma lista das filas atuais, chame o método **CloudQueueClient.listQueues()**, que retornará uma coleção de objetos **CloudQueue**.
+Para obter uma lista das filas atuais, chame o método **CloudQueueClient.listQueues()** , que retornará uma coleção de objetos **CloudQueue**.
 
 ```java
 try
@@ -600,10 +601,10 @@ catch (Exception e)
 
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-* [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]
-* [Referência de SDK do Cliente de Armazenamento do Azure][Azure Storage Client SDK Reference]
-* [API REST de serviços de armazenamento do Azure][Azure Storage Services REST API]
-* [Blog da equipe de Armazenamento do Azure][Azure Storage Team Blog]
+- [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]
+- [Referência de SDK do Cliente de Armazenamento do Azure][Azure Storage Client SDK Reference]
+- [API REST de serviços de armazenamento do Azure][Azure Storage Services REST API]
+- [Blog da equipe de Armazenamento do Azure][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage

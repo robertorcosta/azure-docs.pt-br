@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e09b44504623516d41b6d310a82e78619477367c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93304981"
+ms.locfileid: "93347600"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conectar sua solução externa usando o formato de evento comum
 
@@ -57,7 +57,7 @@ Verifique se o computador Linux que você usa como encaminhador de log está exe
   - Amazon Linux 2017.09
   - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo subversões (não 6)
-  - Debian GNU/Linux 8, 9 e 10
+  - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
@@ -65,7 +65,7 @@ Verifique se o computador Linux que você usa como encaminhador de log está exe
   - CentOS 7 e 8, incluindo subversões (não 6)
   - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo subversões (não 6)
-  - Debian GNU/Linux 8, 9 e 10
+  - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS and 16.04 LTS
  
 - Versões do daemon

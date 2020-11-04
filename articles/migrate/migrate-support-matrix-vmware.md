@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas Migrações para Azure
 description: Saiba mais sobre o suporte para a avaliação de VM DO VMware com a Avaliação do Servidor de Migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332263"
+ms.locfileid: "93345424"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -67,12 +67,11 @@ Além de descobrir as máquinas, a avaliação do servidor pode descobrir aplica
 **Suporte** | **Detalhes**
 --- | ---
 **Computadores compatíveis** | No momento, a descoberta de aplicativos é compatível apenas com as VMs do VMware. Você pode descobrir aplicativos instalados em até 10000 VMs VMware de cada dispositivo de migrações para Azure.
+**Sistemas operacionais** | A descoberta de aplicativo tem suporte para VMs que executam todas as versões do Windows e Linux.
+**Requisitos de VM** | As ferramentas do VMware devem ser instaladas e executadas em VMs nas quais você deseja descobrir aplicativos. <br/><br/> A versão das ferramentas do VMware deve ser posterior à 10.2.0.<br/><br/> As VMs devem ter o PowerShell versão 2.0 ou posterior instalado.
 **Descoberta** | A descoberta de aplicativos é sem agente. Ele usa as credenciais de convidado do computador e acessa os computadores remotamente, usando chamadas de WMI e SSH.
-**Suporte à VM** | A descoberta de aplicativo tem suporte para VMs que executam todas as versões do Windows e Linux.
 **vCenter** | A vCenter Server conta somente leitura usada para avaliação, precisa de privilégios habilitados para operações de convidado de **máquinas virtuais**  >  **Guest Operations** , a fim de interagir com a VM para descoberta de aplicativos.
 **Acesso à VM** | A descoberta de aplicativos precisa de uma conta de usuário local na VM para descoberta de aplicativos.<br/><br/> Atualmente, as migrações para Azure dão suporte ao uso de uma credencial para todos os servidores Windows e uma credencial para todos os servidores Linux.<br/><br/> Crie uma conta de usuário convidado para VMs do Windows e uma conta de usuário regular/normal (acesso não sudo) para todas as VMs do Linux.
-**Ferramentas do VMware** | As ferramentas do VMware devem ser instaladas e executadas nas VMs que você deseja descobrir. <br/><br/> A versão das ferramentas do VMware deve ser posterior à 10.2.0.
-**PowerShell** | As VMs devem ter o PowerShell versão 2.0 ou posterior instalado.
 **Acesso à porta** | O dispositivo de migrações para Azure deve ser capaz de se conectar à porta TCP 443 em hosts ESXi que executam VMs nas quais você deseja descobrir aplicativos. O vCenter Server retorna uma conexão de host ESXI para baixar o arquivo que contém as informações do aplicativo.
 **Limites** | Para a descoberta de aplicativos, você pode descobrir até 10.000 VMs em cada dispositivo de Migrações para Azure.
 

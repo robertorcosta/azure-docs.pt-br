@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339706"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346512"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -135,7 +135,7 @@ Para editar as regras para um grupo de computadores:
 
       ![Adicionar uma regra personalizada](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. Se você estiver definindo um caminho seguro conhecido, altere o **tipo de regra** para ' caminho '. Você pode incluir curingas no caminho.
+   1. Se você estiver definindo um caminho seguro conhecido, altere o **tipo de regra** para ' caminho ' e insira um único caminho. Você pode incluir curingas no caminho.
    
       > [!TIP]
       > Alguns cenários para os quais curingas em um caminho podem ser úteis:
@@ -156,12 +156,12 @@ Para editar as regras para um grupo de computadores:
 
     Esse painel mostra o nome do grupo (que pode ser modificado), o tipo de sistema operacional, o local e outros detalhes relevantes.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Abrindo controles de aplicativo adaptáveis no painel do Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="A página Configurações de grupo para controles de aplicativo adaptáveis" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
     > A opção **impor** , nas configurações do modo de proteção de tipo de arquivo, fica esmaecida em **todos os** cenários. Não há opções de imposição disponíveis no momento. 
     >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Abrindo controles de aplicativo adaptáveis no painel do Azure":::
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="O modo impor para proteção de arquivo fica esmaecido permanentemente. Não há opções de imposição disponíveis.":::
 
 1. Opcionalmente, modifique os modos de proteção de tipo de arquivo ou nome do grupo.
 

@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315818"
+ms.locfileid: "93347515"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gerenciar conteúdo público com o registro de contêiner do Azure
 
@@ -28,7 +28,7 @@ Sem os controles adequados, ter dependências do conteúdo do registro público 
 Como uma primeira etapa, se você efetuar pull de imagens públicas do Hub do Docker como parte de um fluxo de trabalho de compilação ou implantação, recomendamos que você [autentique usando uma conta de Hub do Docker](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) em vez de fazer uma solicitação de pull anônima.
 
 > [!NOTE]
-> A partir de 2 de novembro de 2020, [os limites de taxa de download](https://docs.docker.com/docker-hub/download-rate-limit) se aplicam a solicitações anônimas e autenticadas ao Hub do Docker de contas de plano livre do Docker e são impostos pelo endereço IP e pela ID do Docker, respecitively. 
+> A partir de 2 de novembro de 2020, [os limites de taxa de download](https://docs.docker.com/docker-hub/download-rate-limit) se aplicam a solicitações anônimas e autenticadas ao Hub do Docker de contas de plano livre do Docker e são impostos pelo endereço IP e pela ID do Docker, respectivamente. 
 >
 > Ao estimar o número de solicitações pull, leve em conta que ao usar os serviços do provedor de nuvem ou trabalhando atrás de um NAT corporativo, vários usuários serão apresentados ao Hub do Docker em agregação como um subconjunto de endereços IP. Adicionar a autenticação de conta paga do Docker às solicitações feitas ao Hub do Docker evitará possíveis interrupções de serviço devido à limitação de limite de taxa.
 >

@@ -10,12 +10,12 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785656"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346019"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Executar comandos do PowerShell com as credenciais do Azure AD para acessar os dados da fila
 
@@ -27,7 +27,7 @@ Você pode atribuir permissões para dados de fila a uma entidade de segurança 
 
 As extensões de armazenamento do Azure têm suporte para operações em dados de fila. As operações que você pode chamar dependem das permissões concedidas à entidade de segurança do Azure AD com a qual você entra no PowerShell. As permissões para filas de armazenamento do Azure são atribuídas por meio do RBAC do Azure. Por exemplo, se você tiver atribuído a função de **leitor de dados de fila** , poderá executar comandos de script que lêem dados de uma fila. Se você tiver atribuído a função **colaborador de dados de fila** , poderá executar comandos de script que lêem, gravam ou excluem uma fila ou os dados que eles contêm.
 
-Para obter detalhes sobre as permissões necessárias para cada operação de armazenamento do Azure em uma fila, consulte [chamar operações de armazenamento com tokens OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Para obter detalhes sobre as permissões necessárias para cada operação de armazenamento do Azure em uma fila, consulte [chamar operações de armazenamento com tokens OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Chamar comandos do PowerShell usando credenciais do Azure AD
 
@@ -45,7 +45,7 @@ O exemplo a seguir mostra como criar uma fila em uma nova conta de armazenamento
 
     Para obter mais informações sobre como entrar no Azure com o PowerShell, consulte [entrar com Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Crie um grupo de recursos do Azure chamando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+1. Crie um grupo de recursos do Azure chamando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

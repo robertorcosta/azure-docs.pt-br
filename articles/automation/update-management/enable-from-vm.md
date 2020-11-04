@@ -2,19 +2,19 @@
 title: Habilitar o Gerenciamento de Atualizações da Automação do Azure a partir de uma VM do Azure
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações a partir de uma VM do Azure.
 services: automation
-ms.date: 09/16/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 2d81b822986f641e64b9211300f83e3b254f316d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222014"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347073"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Habilitar o Gerenciamento de Atualizações de uma VM do Azure
 
-Este artigo descreve como você pode usar uma VM do Azure para habilitar o recurso de [Gerenciamento de Atualizações](overview.md) em outras máquinas. Para habilitar VMs do Azure em escala, você deve habilitar uma VM existente usando o Gerenciamento de Atualizações.
+Este artigo descreve como você pode habilitar o recurso [Gerenciamento de atualizações](overview.md) em uma ou mais VMS (máquinas virtuais) do Azure. Para habilitar as VMs do Azure em escala, você deve habilitar uma VM do Azure existente usando Gerenciamento de Atualizações.
 
 > [!NOTE]
 > Quando habilitamos o Gerenciamento de Atualizações, somente determinadas regiões têm suporte para a vinculação de um workspace do Log Analytics e uma conta da Automação. Para obter uma lista dos pares de mapeamento com suporte, consulte [Mapeamento de região para conta da Automação e workspace do Log Analytics](../how-to/region-mappings.md).
@@ -35,7 +35,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione a VM para a qual você deseja habilitar o Gerenciamento de Atualizações. As VMs podem existir em qualquer região, independentemente do local da sua conta da Automação. Você
 
-3. Na página VM, em **operações**, selecione **convidado + atualizações de host**.
+3. Na página VM, em **operações** , selecione **convidado + atualizações de host**.
 
     ![Selecione convidado + atualizações de host no painel esquerdo](media/enable-from-vm/select-guest-and-os-updates.png)
 

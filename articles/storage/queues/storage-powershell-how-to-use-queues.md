@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a2f1229ab8a292b06dfc43b95d9047ed8d233523
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791130"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345696"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Fila do Azure com o Azure PowerShell
 
@@ -22,12 +22,12 @@ O armazenamento de filas do Azure é um serviço para armazenamento de um grande
 
 > [!div class="checklist"]
 >
-> * Criar uma fila
-> * Recuperar uma fila
-> * Adicionar uma mensagem
-> * Ler uma mensagem
-> * Excluir uma mensagem
-> * Excluir uma fila
+> - Criar uma fila
+> - Recuperar uma fila
+> - Adicionar uma mensagem
+> - Ler uma mensagem
+> - Excluir uma mensagem
+> - Excluir uma fila
 
 Estas instruções exigem o módulo do Azure PowerShell, versão 0.7 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Recuperar a lista de locais
 
-Se você não sabe qual localização deseja usar, você pode listar as localizações disponíveis. Depois que a lista for exibida, encontre o que deseja usar. Este exercício usará **eastus** . Armazene-a na variável **local** para uso futuro.
+Se você não sabe qual localização deseja usar, você pode listar as localizações disponíveis. Depois que a lista for exibida, encontre o que deseja usar. Este exercício usará **eastus**. Armazene-a na variável **local** para uso futuro.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -56,7 +56,7 @@ $location = "eastus"
 
 Crie um grupo de recursos com o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
-Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Armazene o nome do grupo de recursos em uma variável para uso futuro. Neste exemplo, um grupo de recursos denominado *howtoqueuesrg* é criado na região *eastus* .
+Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Armazene o nome do grupo de recursos em uma variável para uso futuro. Neste exemplo, um grupo de recursos denominado *howtoqueuesrg* é criado na região *eastus*.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -127,13 +127,13 @@ Se você usar o [Gerenciador de Armazenamento do Azure](https://storageexplorer.
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Ler uma mensagem na fila e depois excluí-la
 
-As mensagens são lidas na ordem do primeiro a entrar, primeiro a sair de melhor tentativa. Isso não é garantido. Quando você lê a mensagem da fila, ela se torna invisível para todos os outros processos que estejam olhando para a fila. Isso garante que quando o código não processar uma mensagem devido a falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente.  
+As mensagens são lidas na ordem do primeiro a entrar, primeiro a sair de melhor tentativa. Isso não é garantido. Quando você lê a mensagem da fila, ela se torna invisível para todos os outros processos que estejam olhando para a fila. Isso garante que quando o código não processar uma mensagem devido a falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente.
 
 Esse **tempo limite de invisibilidade** define por quanto tempo a mensagem permanecerá invisível antes de estar disponível novamente para processamento. O padrão é 30 segundos.
 
 Seu código remove uma mensagem de uma fila em duas etapas. Ao chamar o método [Microsoft. Azure. Storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) , você obtém a próxima mensagem na fila. Uma mensagem retornada de **GetMessage** torna-se invisível para qualquer outra mensagem de leitura de código dessa fila. Para concluir a remoção da mensagem da fila, você chama o método [Microsoft. Azure. Storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
-No exemplo a seguir, leia as mensagens em três filas e aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia as três mensagens novamente, excluindo as mensagens depois de lê-las ao chamar **DeleteMessage** . Se você tentar ler a fila após a exclusão das mensagens, $queueMessage será retornada como NULL.
+No exemplo a seguir, leia as mensagens em três filas e aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia as três mensagens novamente, excluindo as mensagens depois de lê-las ao chamar **DeleteMessage**. Se você tentar ler a fila após a exclusão das mensagens, $queueMessage será retornada como NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -185,17 +185,17 @@ Neste artigo de instruções, você aprendeu sobre gerenciamento de armazenament
 
 > [!div class="checklist"]
 >
-> * Criar uma fila
-> * Recuperar uma fila
-> * Adicionar uma mensagem
-> * Ler a próxima mensagem
-> * Excluir uma mensagem
-> * Excluir uma fila
+> - Criar uma fila
+> - Recuperar uma fila
+> - Adicionar uma mensagem
+> - Ler a próxima mensagem
+> - Excluir uma mensagem
+> - Excluir uma fila
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlets de Armazenamento do Microsoft Azure PowerShell
 
-* [Cmdlets do PowerShell do Armazenamento](/powershell/module/az.storage)
+- [Cmdlets do PowerShell do Armazenamento](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Gerenciador do Armazenamento do Microsoft Azure
 
-* [O Gerenciador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
+- [O Gerenciador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.

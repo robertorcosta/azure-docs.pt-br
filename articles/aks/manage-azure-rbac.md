@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129551"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346036"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
 
@@ -72,7 +72,6 @@ az extension update --name aks-preview
 - Requer a [integração do Azure ad gerenciada](managed-aad.md).
 - Não é possível integrar o RBAC do Azure para autorização kubernetes em clusters existentes durante a visualização, mas você poderá usar a disponibilidade geral (GA).
 - Use [kubectl v 1.18.3 +][az-aks-install-cli].
-- Durante a visualização, você só pode adicionar permissões em *nível de namespace* por meio do CLI do Azure.
 - Se você tiver CRDs e estiver fazendo definições de função personalizadas, a única maneira de abordar o CRDs hoje é fornecer `Microsoft.ContainerService/managedClusters/*/read` . O AKS está trabalhando para fornecer permissões mais granulares para CRDs. Para os objetos restantes, você pode usar os grupos de API específicos, por exemplo: `Microsoft.ContainerService/apps/deployments/read` .
 - As novas atribuições de função podem levar até 5 min para serem propagadas e atualizadas pelo servidor de autorização.
 - Requer que o locatário do Azure AD configurado para autenticação seja o mesmo que o locatário para a assinatura que contém o cluster AKS. 
@@ -246,7 +245,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 ### <a name="clean-role-assignment"></a>Limpar atribuição de função
 
