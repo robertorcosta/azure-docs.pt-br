@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145779"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325775"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
@@ -85,7 +85,7 @@ Usando projeções, você pode escolher as colunas que uma consulta retornará.
 >[!NOTE]
 >Neste momento, não há suporte para propriedades complexas. Para garantir que as propriedades de projeção sejam válidas, combine as projeções com uma `IS_PRIMITIVE` verificação.
 
-Aqui está um exemplo de uma consulta que usa projeção para retornar gêmeos e relações. A consulta a seguir projeta o *consumidor* , a *fábrica* e a *borda* de um cenário em que um *alocador* com uma ID de *ABC* está relacionado ao *consumidor* por meio de uma relação de *Factory. Customer* e essa relação é apresentada como a *borda* .
+Aqui está um exemplo de uma consulta que usa projeção para retornar gêmeos e relações. A consulta a seguir projeta o *consumidor* , a *fábrica* e a *borda* de um cenário em que um *alocador* com uma ID de *ABC* está relacionado ao *consumidor* por meio de uma relação de *Factory. Customer* e essa relação é apresentada como a *borda*.
 
 ```sql
 SELECT Consumer, Factory, Edge
@@ -94,7 +94,7 @@ JOIN Consumer RELATED Factory.customer Edge
 WHERE Factory.$dtId = 'ABC'
 ```
 
-Você também pode usar projeção para retornar uma propriedade de uma folha de entrelaçar. A consulta a seguir projeta a propriedade *Name* dos *consumidores* que estão relacionados à *fábrica* com uma ID de *ABC* por meio de uma relação de *Factory. Customer* .
+Você também pode usar projeção para retornar uma propriedade de uma folha de entrelaçar. A consulta a seguir projeta a propriedade *Name* dos *consumidores* que estão relacionados à *fábrica* com uma ID de *ABC* por meio de uma relação de *Factory. Customer*.
 
 ```sql
 SELECT Consumer.name
@@ -104,7 +104,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-Você também pode usar projeção para retornar uma propriedade de uma relação. Como no exemplo anterior, a consulta a seguir projeta a propriedade *Name* dos *consumidores* relacionados à *fábrica* com uma ID de *ABC* por meio de uma relação de *Factory. Customer* ; Mas agora ele também retorna duas propriedades dessa relação, *Prop1* e *prop2* . Ele faz isso nomeando a *borda* da relação e reunindo suas propriedades.  
+Você também pode usar projeção para retornar uma propriedade de uma relação. Como no exemplo anterior, a consulta a seguir projeta a propriedade *Name* dos *consumidores* relacionados à *fábrica* com uma ID de *ABC* por meio de uma relação de *Factory. Customer* ; Mas agora ele também retorna duas propriedades dessa relação, *Prop1* e *prop2*. Ele faz isso nomeando a *borda* da relação e reunindo suas propriedades.  
 
 ```sql
 SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
@@ -151,7 +151,7 @@ AND T.Temperature = 70
 > [!TIP]
 > A ID de uma teledigital é consultada usando o campo de metadados `$dtId` .
 
-Você também pode obter gêmeos com base no **fato de uma determinada propriedade ser definida** . Aqui está uma consulta que obtém gêmeos que têm uma propriedade *Location* definida:
+Você também pode obter gêmeos com base no **fato de uma determinada propriedade ser definida**. Aqui está uma consulta que obtém gêmeos que têm uma propriedade *Location* definida:
 
 ```sql
 SELECT *
@@ -164,7 +164,7 @@ Isso pode ajudá-lo a obter gêmeos por suas propriedades de *marca* , conforme 
 select * from digitaltwins where is_defined(tags.red)
 ```
 
-Você também pode obter gêmeos com base no **tipo de uma propriedade** . Aqui está uma consulta que obtém gêmeos cuja propriedade de *temperatura* é um número:
+Você também pode obter gêmeos com base no **tipo de uma propriedade**. Aqui está uma consulta que obtém gêmeos cuja propriedade de *temperatura* é um número:
 
 ```sql
 SELECT * FROM DIGITALTWINS T
@@ -175,39 +175,41 @@ WHERE IS_NUMBER(T.Temperature)
 
 O `IS_OF_MODEL` operador pode ser usado para filtrar com base no [**modelo**](concepts-models.md)de entrelaçamento.
 
-Ele considerará a semântica de [ordenação de versão](how-to-manage-model.md#update-models) e [herança](concepts-models.md#model-inheritance) e será avaliado como **verdadeiro** para um determinado "or" se o "My" atender a uma destas condições:
+Ele considera a [herança](concepts-models.md#model-inheritance) e o [controle de versão](how-to-manage-model.md#update-models)de modelo e é avaliado como **verdadeiro** para um determinado "or" se o "My" atender a qualquer uma dessas condições:
 
 * O ' n ' implementa diretamente o modelo fornecido ao `IS_OF_MODEL()` , e o número de versão do modelo em ' n ' é *maior ou igual ao* número de versão do modelo fornecido
 * O n implementa um modelo que *estende* o modelo fornecido ao `IS_OF_MODEL()` e o número de versão do modelo estendido de r é *maior ou igual ao* número de versão do modelo fornecido
 
-Esse método tem várias opções de sobrecarga.
+Por exemplo, se você consultar gêmeos do modelo `dtmi:example:widget;4` , a consulta retornará todos os gêmeos com base na **versão 4 ou superior** do modelo de **widget** e também gêmeos com base na versão **4 ou superior** de quaisquer **modelos herdados do widget**.
+
+`IS_OF_MODEL` pode levar vários parâmetros diferentes e o restante desta seção é dedicado a suas diferentes opções de sobrecarga.
 
 O uso mais simples de `IS_OF_MODEL` usa apenas um `twinTypeName` parâmetro: `IS_OF_MODEL(twinTypeName)` .
 Aqui está um exemplo de consulta que passa um valor nesse parâmetro:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
 ```
 
 Para especificar uma coleção de entrelaçamento a ser pesquisada quando houver mais de uma (como quando um `JOIN` é usado), adicione o `twinCollection` parâmetro: `IS_OF_MODEL(twinCollection, twinTypeName)` .
 Aqui está um exemplo de consulta que adiciona um valor para esse parâmetro:
 
 ```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
 ```
 
 Para fazer uma correspondência exata, adicione o `exact` parâmetro: `IS_OF_MODEL(twinTypeName, exact)` .
 Aqui está um exemplo de consulta que adiciona um valor para esse parâmetro:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
 ```
 
 Você também pode passar todos os três argumentos juntos: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
 Aqui está um exemplo de consulta que especifica um valor para todos os três parâmetros:
 
 ```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
 ### <a name="query-based-on-relationships"></a>Consulta baseada em relações
@@ -242,7 +244,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
 
-Da mesma forma que o gêmeos digital tem propriedades descritas por meio de DTDL, as relações também podem ter propriedades. Você pode consultar gêmeos **com base nas propriedades de suas relações** .
+Da mesma forma que o gêmeos digital tem propriedades descritas por meio de DTDL, as relações também podem ter propriedades. Você pode consultar gêmeos **com base nas propriedades de suas relações**.
 A linguagem de consulta do gêmeos digital do Azure permite filtrar e projeção de relações, atribuindo um alias à relação dentro da `JOIN` cláusula.
 
 Como exemplo, considere uma relação *servicedBy* que tem uma propriedade *reportedCondition* . Na consulta abaixo, essa relação recebe um alias de ' R ' para referenciar sua propriedade.
@@ -321,7 +323,7 @@ Há suporte para as seguintes funções de cadeia de caracteres:
 
 ## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada à API
 
-Depois de decidir sobre uma cadeia de caracteres de consulta, execute-a fazendo uma chamada para a **API de consulta** .
+Depois de decidir sobre uma cadeia de caracteres de consulta, execute-a fazendo uma chamada para a **API de consulta**.
 O trecho de código a seguir ilustra essa chamada do aplicativo cliente:
 
 ```csharp
@@ -373,7 +375,7 @@ Abaixo estão algumas dicas para consultar com o Azure digital gêmeos.
 
 * Considere o padrão de consulta durante a fase de design do modelo. Tente garantir que as relações que precisam ser respondidas em uma única consulta sejam modeladas como uma relação de nível único.
 * Crie Propriedades de uma maneira que evite grandes conjuntos de resultados da passagem de grafo.
-* Você pode reduzir significativamente o número de consultas necessárias criando uma matriz de gêmeos e consultando com o `IN` operador. Por exemplo, considere um cenário no qual os *edifícios* contêm *andares* e *andares* contêm *salas* . Para pesquisar salas em um edifício que estejam quentes, você pode:
+* Você pode reduzir significativamente o número de consultas necessárias criando uma matriz de gêmeos e consultando com o `IN` operador. Por exemplo, considere um cenário no qual os *edifícios* contêm *andares* e *andares* contêm *salas*. Para pesquisar salas em um edifício que estejam quentes, você pode:
 
     1. Localizar andares no edifício com base na `contains` relação
 
