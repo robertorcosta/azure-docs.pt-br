@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597905"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339471"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Entender o logon único baseado em SAML
 
@@ -85,21 +85,24 @@ No Azure AD, você pode baixar o certificado ativo no formato Base64 ou Raw dire
 
 Algumas coisas comuns a serem verificadas para verificar se um certificado incluem: 
    - *A data de validade correta.* Você pode configurar a data de validade para até três anos no futuro.
-   - *Um status ativo para o certificado correto.* Se o status for **Inativo**, altere-o para **Ativo**. Para alterar o status, clique com o botão direito do mouse na linha do certificado e selecione **tornar certificado ativo**.
+   - *Um status ativo para o certificado correto.* Se o status for **Inativo** , altere-o para **Ativo**. Para alterar o status, clique com o botão direito do mouse na linha do certificado e selecione **tornar certificado ativo**.
    - *A opção de assinatura e o algoritmo corretos.*
    - *O(s) endereço(s) de email de notificação correto(s).* Quando o certificado ativo estiver próximo da data de validade, o Azure AD enviará uma notificação para o endereço de email configurado neste campo.
 
-Às vezes, talvez seja necessário baixar o certificado. Tenha cuidado ao salvá-lo! Para baixar o certificado, selecione uma das opções de formato Base64, Raw ou XML de metadados de federação. O Azure AD também fornece a **URL de Metadados de Federação do Aplicativo**, na qual você pode acessar os metadados específicos do aplicativo no formato `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+Às vezes, talvez seja necessário baixar o certificado. Tenha cuidado ao salvá-lo! Para baixar o certificado, selecione uma das opções de formato Base64, Raw ou XML de metadados de federação. O Azure AD também fornece a **URL de Metadados de Federação do Aplicativo** , na qual você pode acessar os metadados específicos do aplicativo no formato `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+
+> [!NOTE]
+> O aplicativo deve ser capaz de lidar com o marcador de ordem de byte presente no XML renderizado ao usar https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id} . A marca de ordem de byte é representada como um caractere ASCII não imprimível» 0 e, em Hex, é representada como EF BB BF ao examinar os dados XML.
 
 Para fazer alterações no certificado, selecione o botão Editar. Há várias coisas que você pode fazer na página **certificado de autenticação SAML** :
-   - Criar um novo certificado: selecione **novo certificado**, selecione a **data de validade**e, em seguida, selecione **salvar**. Para ativar o certificado, selecione o menu de contexto ( **...** ) e selecione **Tornar o certificado ativo**.
+   - Criar um novo certificado: selecione **novo certificado** , selecione a **data de validade** e, em seguida, selecione **salvar**. Para ativar o certificado, selecione o menu de contexto ( **...** ) e selecione **Tornar o certificado ativo**.
    - Carregar um certificado com as credenciais de chave privada e pfx: selecione **importar certificado** e navegue até o certificado. Insira a **Senha do PFX** e, em seguida, selecione **Adicionar**.  
    - Configurar a assinatura avançada de certificado. Para obter mais informações sobre essas opções, consulte [Opções avançadas de assinatura de certificado](certificate-signing-options.md).
    - Notifique pessoas adicionais quando o certificado ativo estiver próximo da data de validade: Insira os endereços de email nos campos de **email de notificação** .
 
 ## <a name="set-up-the-application-to-use-azure-ad"></a>Configurar o aplicativo para usar o Azure AD
 
-A seção **Configurar \<applicationName> ** lista os valores que precisam ser configurados no aplicativo para que ele use o Azure ad como um provedor de identidade SAML. Você define os valores na página configuração no site de aplicativos. Por exemplo, se você estiver configurando o GitHub, vá para o site github.com e defina os valores. Se o aplicativo já tiver sido pré-configurado e estiver na galeria do Azure AD, você encontrará um link para **exibir instruções**passo a passo. Caso contrário, será necessário encontrar a documentação do aplicativo que você está configurando. 
+A seção **Configurar \<applicationName>** lista os valores que precisam ser configurados no aplicativo para que ele use o Azure ad como um provedor de identidade SAML. Você define os valores na página configuração no site de aplicativos. Por exemplo, se você estiver configurando o GitHub, vá para o site github.com e defina os valores. Se o aplicativo já tiver sido pré-configurado e estiver na galeria do Azure AD, você encontrará um link para **exibir instruções** passo a passo. Caso contrário, será necessário encontrar a documentação do aplicativo que você está configurando. 
 
 Os valores de URL de **logon** e **URL de logout** são resolvidos para o mesmo ponto de extremidade, que é o ponto de extremidade de tratamento de solicitação SAML para o locatário do Azure AD. 
 

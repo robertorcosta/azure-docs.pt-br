@@ -3,17 +3,18 @@ title: Dicas de desempenho para o SDK do Java Assíncrono v2 do Azure Cosmos DB
 description: Saiba mais sobre as opções de configuração do cliente para aprimorar o desempenho de banco de dados do Azure Cosmos para o SDK do Java Síncrono v2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b5c8e1a1e810deb9e5315816c122c0ac09ce778
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a074b872ed19a7d3e6b3e410c69da0f2b78e85e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085540"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339692"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Dicas de desempenho para o SDK do Java Assíncrono v2 do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -73,7 +74,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Quando possível, coloque aplicativos que chamam o Azure Cosmos DB na mesma região do banco de dados do Azure Cosmos. Para obter uma comparação aproximada, as chamadas para o Azure Cosmos DB na mesma região são concluídas de 1 a 2 ms, mas a latência entre a Costa Leste e a Oeste dos EUA é maior que 50 ms. Provavelmente, essa latência pode variar entre as solicitações dependendo da rota seguida pela solicitação conforme ela passa do cliente para o limite de datacenter do Azure. A menor latência possível é alcançada garantindo que o aplicativo de chamada está localizado na mesma região do Azure do ponto de extremidade do Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="O diagrama mostra a política de conexão do Azure Cosmos D B." border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="O diagrama mostra solicitações e respostas em duas regiões, em que os computadores se conectam a uma conta do cosmos D por meio de serviços de camada intermediária." border="false":::
    
 ## <a name="sdk-usage"></a>Uso do SDK
 1. **Instalar o SDK mais recente**

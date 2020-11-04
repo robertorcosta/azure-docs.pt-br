@@ -1,5 +1,5 @@
 ---
-title: Publicar seu aplicativo na Galeria de aplicativos do Azure AD
+title: Publicar seu aplicativo na Galeria de aplicativos Azure Active Directory
 description: Saiba como listar um aplicativo que dá suporte ao logon único na Galeria de aplicativos Azure Active Directory.
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275686"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339420"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -60,11 +60,28 @@ As etapas para publicar seu aplicativo na Galeria de aplicativos do Azure AD sã
 5. Envie seu aplicativo.
 6. Ingresse no Microsoft Partner Network.
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a galeria de aplicativos do Azure Active Directory?
+
+- Os clientes encontram a melhor experiência de logon único possível.
+- A configuração do aplicativo é simples e mínima.
+- Uma pesquisa rápida localiza seu aplicativo na galeria.
+- Clientes do Azure Active Directory Premium, Básico e Gratuito podem usar essa integração.
+- Os clientes mútuos recebem um tutorial de configuração passo a passo.
+- Os clientes que usam o sistema para[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(gerenciamento de identidade entre domínios) podem usar o provisionamento para o mesmo aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa de uma conta permanente para testar com pelo menos dois usuários registrados.
 
+- Para aplicativos federados (Open ID e SAML/WS-enalimentado), o aplicativo deve oferecer suporte ao modelo de software como serviço (SaaS) para ser listado na Galeria de aplicativos do Azure AD. Os aplicativos da Galeria empresarial devem dar suporte a várias configurações de clientes e não a nenhum cliente específico.
+- Para Open ID Connect, o aplicativo deve ter multilocatário e a [estrutura de consentimento do Azure ad](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) deve ser implementada corretamente para o aplicativo. O usuário pode enviar a solicitação de entrada para um ponto de extremidade comum para que qualquer cliente possa fornecer consentimento para o aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token.
+- Para SAML 2.0/WS-enalimentado, seu aplicativo deve ter a capacidade de fazer a integração de SSO de SAML/WS-alimentada no modo SP ou IDP. Verifique se esse recurso está funcionando corretamente antes de enviar a solicitação.
+- Para SSO de senha, certifique-se de que seu aplicativo dá suporte à autenticação de formulário para que o cofre de senha possa ser feito para que o logon único funcione conforme o esperado.
+- Você precisa de uma conta permanente para testar com pelo menos dois usuários registrados.
+
+**Como obter o Azure AD para desenvolvedores?**
+
+Você pode obter uma conta de teste gratuita com todos os recursos premium do Azure AD-90 dias gratuitos e pode ser estendido desde que os desenvolvedores trabalhem com ele: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Etapa 1-escolher o padrão de logon único certo para seu aplicativo
 
@@ -72,7 +89,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, você precisa i
 
 A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAuth 2,0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e especificação Web Services Federation (WS-alimentado).
 
-| Funcionalidade| OAuth/OIDC| SAML/WS-Fed |
+| Recurso| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
@@ -159,9 +176,9 @@ Como alternativa, um locatário do Azure AD vem com cada assinatura Microsoft 36
 
 Depois de ter um locatário, você precisa habilitar e testar o acesso de logon único. 
 
-**Para aplicativos OIDC ou Oath**, [Registre seu aplicativo](quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte.
+**Para aplicativos OIDC ou Oath** , [Registre seu aplicativo](quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte.
 
-**Para aplicativos baseados em SAML e WS-baseded**, você [configura aplicativos de logon único baseados em SAML](../manage-apps/configure-saml-single-sign-on.md) usando um modelo SAML genérico no Azure AD.
+**Para aplicativos baseados em SAML e WS-baseded** , você [configura aplicativos de logon único baseados em SAML](../manage-apps/configure-saml-single-sign-on.md) usando um modelo SAML genérico no Azure AD.
 
 Você também pode [converter um aplicativo de locatário único para multilocatário,](howto-convert-app-to-be-multi-tenant.md) se necessário.
 
@@ -236,7 +253,7 @@ Se você quiser adicionar seu aplicativo para listar na Galeria usando o OpenID 
 
 ![Listando um aplicativo OpenID Connect na Galeria](./media/howto-app-gallery-listing/openid.png)
 
-Se você quiser adicionar seu aplicativo para listar na Galeria usando o **saml 2,0** ou o **WS-enalimentado**, selecione **SAML 2.0/WS-alimentado** , conforme mostrado.
+Se você quiser adicionar seu aplicativo para listar na Galeria usando o **saml 2,0** ou o **WS-enalimentado** , selecione **SAML 2.0/WS-alimentado** , conforme mostrado.
 
 ![Listando um aplicativo SAML 2,0 ou WS-Fed na Galeria](./media/howto-app-gallery-listing/saml.png)
 
@@ -256,6 +273,16 @@ Você pode atualizar ou remover um aplicativo de galeria existente no [portal de
 
 > [!NOTE]
 > Se você tiver problemas com o Access, examine a seção anterior sobre como criar sua conta. Se isso não funcionar, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+### <a name="list-requests-by-customers"></a>Listar solicitações por clientes
+
+Os clientes podem enviar uma solicitação para listar um aplicativo selecionando **solicitações de aplicativo por clientes**  >  **Enviar nova solicitação**.
+
+![Mostra o bloco aplicativos solicitados pelo cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Este é o fluxo de aplicativos solicitados pelo cliente.
+
+![Mostra o fluxo de aplicativos solicitados pelo cliente](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>Linhas do tempo

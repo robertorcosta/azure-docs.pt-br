@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 6d59d64c861b74610e82b962ddd5db2331d3db64
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf85b0ea658ae6459644dd710630a30f78ad99aa
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305026"
+ms.locfileid: "93339386"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas no SQL do Synapse
 
@@ -560,6 +560,9 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 ## <a name="statistics-in-serverless-sql-pool-preview"></a>Estatísticas no pool SQL sem servidor (visualização)
 
 As estatísticas são criadas por coluna específica para um conjunto de dado específico (caminho do armazenamento).
+
+> [!NOTE]
+> Não é possível criar estatísticas para colunas LOB.
 
 ### <a name="why-use-statistics"></a>Por que usar estatísticas
 

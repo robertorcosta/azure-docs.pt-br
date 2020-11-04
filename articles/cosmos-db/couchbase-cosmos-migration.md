@@ -2,17 +2,18 @@
 title: Migrar do CouchBase para a API do SQL do Azure Cosmos DB
 description: Diretrizes passo a passo para migrar do CouchBase para a API do SQL do Azure Cosmos DB
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0f286b5586a0d74afed0bb185179454bb1efff95
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73d6fe0233eccea9ebf1d82beb509c56fb45f4da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097542"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339500"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar do CouchBase para a API do SQL do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -312,7 +313,7 @@ Esse é um tipo simples de carga de trabalho no qual você pode executar pesquis
 
 1. Considere ter “/ID” como chave primária, o que garantirá que você possa executar a operação de pesquisa diretamente na partição específica. Crie uma coleção e especifique “/ID” como chave de partição.
 
-1. Desative completamente a indexação. Como você executará operações de pesquisa, não há sentido em sobrecarregar a indexação. Para desativar a indexação, entre no portal do Azure, vá para Conta do Azure Cosmos DB. Abra o **Data Explorer** , selecione seu **Banco de Dados** e o **Contêiner** . Abra a guia **Escala e configurações** e selecione a **Política de indexação** . A política de indexação atualmente é semelhante ao seguinte:
+1. Desative completamente a indexação. Como você executará operações de pesquisa, não há sentido em sobrecarregar a indexação. Para desativar a indexação, entre no portal do Azure, vá para Conta do Azure Cosmos DB. Abra o **Data Explorer** , selecione seu **Banco de Dados** e o **Contêiner**. Abra a guia **Escala e configurações** e selecione a **Política de indexação**. A política de indexação atualmente é semelhante ao seguinte:
     
    ```json
    {

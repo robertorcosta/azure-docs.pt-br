@@ -1,20 +1,20 @@
 ---
-title: Usar o agente de ID (versão prévia) para o gerenciamento de credenciais-Azure HDInsight
+title: Agente de ID do Azure HDInsight (HIB)
 description: Saiba mais sobre o agente de ID do Azure HDInsight para simplificar a autenticação para clusters de Apache Hadoop ingressados no domínio.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/03/2020
+ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043255"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337669"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Agente de ID do Azure HDInsight (versão prévia)
+# <a name="azure-hdinsight-id-broker-hib"></a>Agente de ID do Azure HDInsight (HIB)
 
 Este artigo descreve como configurar e usar o recurso agente de ID do Azure HDInsight. Você pode usar esse recurso para obter a autenticação OAuth moderna para o Apache Ambari enquanto tem a imposição de autenticação multifator sem precisar de hashes de senha herdada no Azure Active Directory Domain Services (Azure AD DS).
 
@@ -45,7 +45,7 @@ Ainda pode haver muitos aplicativos herdados que dão suporte apenas à autentic
 
 O diagrama a seguir mostra o fluxo de autenticação básica para usuários federados. Primeiro, o gateway tenta concluir a autenticação usando o [fluxo ROPC](../../active-directory/develop/v2-oauth-ropc.md). Caso não haja hashes de senha sincronizados com o Azure AD, ele voltará a descobrir o ponto de extremidade AD FS e concluirá a autenticação acessando o ponto de extremidade AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra o fluxo de autenticação com o agente de ID do HDInsight.":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra a arquitetura com autenticação básica.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Habilitar agente de ID do HDInsight
@@ -54,7 +54,7 @@ Para criar um cluster de Enterprise Security Package com o agente de ID do HDIns
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Siga as etapas de criação básicas para um cluster Enterprise Security Package. Para obter mais informações, consulte [criar um cluster HDInsight com Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Selecione **habilitar agente de ID do HDInsight** .
+1. Selecione **habilitar agente de ID do HDInsight**.
 
 O recurso agente de ID do HDInsight adiciona uma VM extra ao cluster. Essa VM é o nó agente de ID do HDInsight e inclui componentes de servidor para dar suporte à autenticação. O nó do agente de ID do HDInsight está ingressado no domínio do Azure AD DS domínio.
 
