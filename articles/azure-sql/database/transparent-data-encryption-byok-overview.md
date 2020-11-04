@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790875"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308326"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -82,7 +82,7 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 - Conceda ao servidor ou à instância gerenciada acesso ao cofre de chaves (Get, wrapKey, unwrapKey) usando sua identidade de Azure Active Directory. Ao usar o portal do Azure, a identidade do Azure AD é criada automaticamente. Ao usar o PowerShell ou a CLI, a identidade do Azure AD deve ser explicitamente criada e a conclusão deve ser verificada. Consulte [Configurar TDE com BYOK](transparent-data-encryption-byok-configure.md) e [Configurar o TDE com BYOK para SQL instância gerenciada](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obter instruções passo a passo detalhadas ao usar o PowerShell.
 
-- Ao usar o firewall com AKV, você deve habilitar *a opção permitir que serviços confiáveis da Microsoft ignorem o firewall* .
+- Ao usar o firewall com AKV, você deve habilitar *a opção permitir que serviços confiáveis da Microsoft ignorem o firewall*.
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisitos para configurar o protetor de TDE
 
@@ -90,12 +90,12 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 - A data de ativação da chave (se definida) precisa ser uma data e uma hora no passado. A data de validade (se definido) deve ser uma data e hora futura.
 
-- A chave precisa estar no estado *Habilitado* .
+- A chave precisa estar no estado *Habilitado*.
 
 - Se você estiver importando a chave existente para o cofre de chaves, certifique-se de fornecê-la nos formatos de arquivo com suporte (. pfx,. byok ou. Backup).
 
 > [!NOTE]
-> O SQL do Azure agora dá suporte ao uso de uma chave RSA armazenada em um HSM gerenciado como um protetor de TDE. Este recurso está em **Visualização pública** . Azure Key Vault HSM gerenciado é um serviço de nuvem compatível com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem, usando HSMs validados pelo FIPS 140-2 nível 3. Saiba mais sobre [HSMs gerenciados](../../key-vault/managed-hsm/index.yml).
+> O SQL do Azure agora dá suporte ao uso de uma chave RSA armazenada em um HSM gerenciado como um protetor de TDE. Este recurso está em **Visualização pública**. Azure Key Vault HSM gerenciado é um serviço de nuvem compatível com os padrões de um único locatário, altamente disponível e totalmente gerenciado que permite proteger chaves criptográficas para seus aplicativos de nuvem, usando HSMs validados pelo FIPS 140-2 nível 3. Saiba mais sobre [HSMs gerenciados](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Recomendações ao configurar o TDE gerenciado pelo cliente
@@ -126,7 +126,7 @@ Os auditores podem usar Azure Monitor para examinar os logs de AuditEvent do cof
 
 ## <a name="inaccessible-tde-protector"></a>Protetor de TDE inacessível
 
-Quando a Transparent Data Encryption é configurada para usar uma chave gerenciada pelo cliente, o acesso contínuo ao protetor de TDE é necessário para que o banco de dados permaneça online. Se o servidor perder acesso ao protetor de TDE gerenciado pelo cliente no AKV, em até 10 minutos, um banco de dados começará a negar todas as conexões com a mensagem de erro correspondente e alterará seu estado para *inacessível* . A única ação permitida em um banco de dados no estado inacessível é excluí-lo.
+Quando a Transparent Data Encryption é configurada para usar uma chave gerenciada pelo cliente, o acesso contínuo ao protetor de TDE é necessário para que o banco de dados permaneça online. Se o servidor perder acesso ao protetor de TDE gerenciado pelo cliente no AKV, em até 10 minutos, um banco de dados começará a negar todas as conexões com a mensagem de erro correspondente e alterará seu estado para *inacessível*. A única ação permitida em um banco de dados no estado inacessível é excluí-lo.
 
 > [!NOTE]
 > Se o banco de dados estiver inacessível devido a uma interrupção intermitente da rede, não haverá nenhuma ação necessária e os bancos de dados voltarão a ficar online automaticamente.
@@ -135,7 +135,7 @@ Depois que o acesso à chave for restaurado, colocar o banco de dados online nov
 
 - Se o acesso à chave for restaurado dentro de 8 horas, o banco de dados será reparado automaticamente na próxima hora.
 
-- Se o acesso à chave for restaurado após mais de 8 horas, a reparação automática não será possível e o retorno do banco de dados exigirá etapas adicionais no portal e poderá levar um tempo significativo dependendo do tamanho do banco de dados. Quando o banco de dados estiver online novamente, as configurações de nível de servidor definidas anteriormente, como configuração do [grupo de failover](auto-failover-group-overview.md) , histórico de restauração pontual e marcas **serão perdidas** . Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
+- Se o acesso à chave for restaurado após mais de 8 horas, a reparação automática não será possível e o retorno do banco de dados exigirá etapas adicionais no portal e poderá levar um tempo significativo dependendo do tamanho do banco de dados. Quando o banco de dados estiver online novamente, as configurações de nível de servidor definidas anteriormente, como configuração do [grupo de failover](auto-failover-group-overview.md) , histórico de restauração pontual e marcas **serão perdidas**. Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
 
 Veja abaixo uma exibição das etapas adicionais necessárias no portal para colocar um banco de dados inacessível online novamente.
 
@@ -156,7 +156,7 @@ Pode acontecer que alguém com direitos de acesso suficientes ao cofre de chaves
 
 - excluindo a identidade gerenciada do servidor no Azure Active Directory
 
-Saiba mais sobre [as causas comuns para que o banco de dados se torne inacessível](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+Saiba mais sobre [as causas comuns para que o banco de dados se torne inacessível](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>Monitoramento do TDE gerenciado pelo cliente
 
@@ -179,7 +179,7 @@ Se a chave necessária para restaurar um backup não estiver mais disponível pa
 
 Para atenuá-lo, execute o cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para o servidor de destino ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para a instância gerenciada de destino para retornar a lista de chaves disponíveis e identificar as que estão faltando. Para garantir que todos os backups possam ser restaurados, verifique se o servidor de destino da restauração tem acesso a todas as chaves necessárias. Essas chaves não precisam ser marcadas como protetor de TDE.
 
-Para saber mais sobre a recuperação de backup para o banco de dados SQL, consulte [recuperar um banco de dados no banco de dados SQL](recovery-using-backups.md). Para saber mais sobre a recuperação de backup para o pool do SQL, consulte [recuperar um pool do SQL](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para obter o backup/restauração nativa de SQL Server com o SQL Instância Gerenciada, consulte [início rápido: restaurar um banco de dados no sql instância gerenciada](../managed-instance/restore-sample-database-quickstart.md)
+Para saber mais sobre a recuperação de backup para o banco de dados SQL, consulte [recuperar um banco de dados no banco de dados SQL](recovery-using-backups.md). Para saber mais sobre a recuperação de backup para o pool de SQL dedicado no Azure Synapse Analytics, consulte [recuperar um pool SQL dedicado](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Para obter o backup/restauração nativa de SQL Server com o SQL Instância Gerenciada, consulte [início rápido: restaurar um banco de dados no sql instância gerenciada](../managed-instance/restore-sample-database-quickstart.md)
 
 Considerações adicionais para arquivos de log: Arquivos de log de backup permanecem criptografados com o protetor de TDE original, mesmo que ele tenha sido girado e o banco de dados agora esteja usando um novo protetor de TDE.  No momento da restauração, ambas as chaves serão necessárias para restaurar o banco de dados.  Se o arquivo de log estiver usando um protetor de TDE armazenado em Azure Key Vault, essa chave será necessária no momento da restauração, mesmo que o banco de dados tenha sido alterado para usar o TDE gerenciado por serviço enquanto isso.
 

@@ -3,12 +3,12 @@ title: Melhorar o desempenho de aplicativos do Azure com o Advisor
 description: Use as recomendações de desempenho no Azure Advisor para melhorar a velocidade e a capacidade de resposta de seus aplicativos críticos para os negócios.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077806"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308683"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure usando o Azure Advisor
 
@@ -22,7 +22,7 @@ O Azure Advisor identifica os perfis do Gerenciador de tráfego que têm um TTL 
 
 ## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Melhorar o desempenho do banco de dados usando Assistente do Banco de Dados SQL (temporariamente desabilitado)
 
-O Assistente do Azure fornece uma exibição consistente e consolidada de recomendações para todos os recursos do Azure. Ele se integra com Assistente do Banco de Dados SQL para oferecer recomendações para melhorar o desempenho de seus bancos de dados.Assistente do Banco de Dados SQL avalia o desempenho de seus bancos de dados analisando seu histórico de uso. Em seguida, ele oferece recomendações que são mais adequadas para executar a carga de trabalho típica do banco de dados.
+O Assistente do Azure fornece uma exibição consistente e consolidada de recomendações para todos os recursos do Azure. Ele se integra com Assistente do Banco de Dados SQL para oferecer recomendações para melhorar o desempenho de seus bancos de dados. Assistente do Banco de Dados SQL avalia o desempenho de seus bancos de dados analisando seu histórico de uso. Em seguida, ele oferece recomendações que são mais adequadas para executar a carga de trabalho típica do banco de dados.
 
 > [!NOTE]
 > Antes que você possa obter recomendações, seu banco de dados precisa estar em uso por cerca de uma semana e, dentro dessa semana, precisa haver alguma atividade consistente. O Assistente do Banco de Dados SQL pode ser otimizado com mais facilidade para padrões de consulta consistentes do que para intermitências irregulares de atividade.
@@ -108,7 +108,7 @@ O Advisor detecta se você pode aumentar o desempenho e a taxa de transferência
 
 ## <a name="co-locate-the-storage-account-in-the-same-region-to-minimize-latency-when-loading"></a>Colocalizar a conta de armazenamento na mesma região para minimizar a latência ao carregar
 
-O Advisor detecta se você está carregando de uma região diferente do seu pool do SQL. Considere carregar de uma conta de armazenamento que esteja na mesma região que o seu pool SQL para minimizar a latência ao carregar dados. Essa alteração ajudará a minimizar a latência e aumentará o desempenho de carga.
+O Advisor detecta se você está carregando de uma região diferente do seu pool SQL dedicado. Considere carregar de uma conta de armazenamento que esteja na mesma região que seu pool SQL dedicado para minimizar a latência ao carregar dados. Essa alteração ajudará a minimizar a latência e aumentará o desempenho de carga.
 
 ## <a name="use-a-supported-kubernetes-version"></a>Usar uma versão kubernetes com suporte
 
@@ -120,17 +120,17 @@ O Advisor detecta versões sem suporte do kubernetes.
 A alta utilização da CPU por um período estendido pode causar um desempenho de consulta lento para sua carga de trabalho. Aumentar o tamanho da CPU ajudará a otimizar o tempo de execução das consultas de banco de dados e melhorar o desempenho geral. O Advisor identifica servidores com uma alta utilização de CPU que provavelmente está executando cargas de trabalho restritas à CPU e recomenda dimensionar sua computação.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Reduzir as restrições de memória no banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e banco de dados do Azure para servidores MariaDB ou mover para um SKU com otimização de memória
-Uma taxa de acertos de cache baixa pode resultar em um desempenho de consulta mais lento e maior IOPS. Essa condição pode ser causada por um plano de consulta insatisfatório ou uma carga de trabalho com uso intensivo de memória. Corrigir o plano de consulta ou [aumentar a memória](../postgresql/concepts-pricing-tiers.md) do banco de dados do Azure para PostgreSQL, banco de dados do Azure para MySQL ou banco de dados do Azure para MariaDB Server ajudará a otimizar a execução da carga de trabalho do banco de dados. O Azure Advisor identifica servidores afetados por essa alta rotatividade de pool de buffers. Recomenda-se que você execute uma destas ações: 
+Uma taxa de acertos de cache baixa pode resultar em um desempenho de consulta mais lento e maior IOPS. Essa condição pode ser causada por um plano de consulta insatisfatório ou uma carga de trabalho com uso intensivo de memória. Corrigir o plano de consulta ou [aumentar a memória](../postgresql/concepts-pricing-tiers.md) do banco de dados do Azure para PostgreSQL, banco de dados do Azure para MySQL ou banco de dados do Azure para MariaDB Server ajudará a otimizar a execução da carga de trabalho do banco de dados. O Azure Advisor identifica servidores afetados por essa alta rotatividade de pool de buffers. Recomenda-se que você execute uma destas ações: 
 - Corrigir o plano de consulta
 - Mover para uma SKU que tenha mais memória 
 - Aumente o tamanho do armazenamento para obter mais IOPS.
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Use uma réplica de leitura do banco de dados do Azure para MySQL ou banco de dados do Azure para PostgreSQL para escalar leituras de cargas de trabalho com uso intensivo de leitura
-O Advisor usa heurística baseada em carga de trabalho como a taxa de leituras para gravações no servidor nos últimos sete dias para identificar cargas de trabalho com uso intensivo de leitura. Um banco de dados do Azure para PostgreSQL ou um recurso do banco de dados do Azure para MySQL com alta taxa de leitura/gravação pode resultar em contenções de CPU ou memória e levar a um desempenho de consulta lento. Adicionar uma [réplica](../postgresql/howto-read-replicas-portal.md) ajudará a expandir as leituras para o servidor de réplica e a impedir a CPU ou as restrições de memória no servidor primário. O Advisor identifica servidores com cargas de trabalho com uso intensivo de leitura e recomenda que você adicione uma [réplica de leitura](../postgresql/concepts-read-replicas.md)   para descarregar algumas das cargas de trabalho de leitura.
+O Advisor usa heurística baseada em carga de trabalho como a taxa de leituras para gravações no servidor nos últimos sete dias para identificar cargas de trabalho com uso intensivo de leitura. Um banco de dados do Azure para PostgreSQL ou um recurso do banco de dados do Azure para MySQL com alta taxa de leitura/gravação pode resultar em contenções de CPU ou memória e levar a um desempenho de consulta lento. Adicionar uma [réplica](../postgresql/howto-read-replicas-portal.md) ajudará a expandir as leituras para o servidor de réplica e a impedir a CPU ou as restrições de memória no servidor primário. O Advisor identifica servidores com cargas de trabalho com uso intensivo de leitura e recomenda que você adicione uma [réplica de leitura](../postgresql/concepts-read-replicas.md) para descarregar algumas das cargas de trabalho de leitura.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Dimensione seu banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL ou banco de dados do Azure para MariaDB Server para uma SKU superior para evitar restrições de conexão
-Cada nova conexão com o servidor de banco de dados ocupa memória. O desempenho do servidor de banco de dados degrada se as conexões com o servidor estão falhando devido a um [limite superior](../postgresql/concepts-limits.md) na memória. O Azure Advisor identifica servidores em execução com muitas falhas de conexão. Ele recomenda atualizar os limites de conexão do servidor para fornecer mais memória ao servidor executando uma destas ações:
+Cada nova conexão com o servidor de banco de dados ocupa memória. O desempenho do servidor de banco de dados degrada se as conexões com o servidor estão falhando devido a um [limite superior](../postgresql/concepts-limits.md) na memória. O Azure Advisor identifica servidores em execução com muitas falhas de conexão. Ele recomenda atualizar os limites de conexão do servidor para fornecer mais memória ao servidor executando uma destas ações:
 - Escalar verticalmente a computação. 
 - Use SKUs com otimização de memória, que têm mais computação por núcleo.
 

@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a8a04d9e1b17c7e65be946cb51bfc41019e0706d
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233978"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309084"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com Azure Machine Learning
 
@@ -52,7 +52,7 @@ Nesta seção, você aprenderá sobre os limites de cota padrão e máximo para 
 + Armazenamento do Azure
 
 > [!IMPORTANT]
-> Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte [assinatura do Azure e limites de serviço, cotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) para todos os Azure.
+> Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md) para todos os Azure.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 Cada assinatura do Azure tem um limite no número de máquinas virtuais em todos os serviços. Os núcleos de máquina virtual têm um limite regional total e um limite regional por série de tamanho. Ambos os limites são aplicados separadamente.
@@ -100,7 +100,7 @@ A tabela a seguir mostra limites adicionais que você não pode exceder.
 
 ### <a name="container-instances"></a>Instâncias de Contêiner
 
-Para obter mais informações, consulte [limites de instâncias de contêiner](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Para obter mais informações, consulte [limites de instâncias de contêiner](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
 ### <a name="storage"></a>Armazenamento
 O armazenamento do Azure tem um limite de 250 contas de armazenamento por região, por assinatura. Esse limite inclui contas de armazenamento Standard e Premium.
@@ -115,7 +115,7 @@ Use cotas de nível de espaço de trabalho para gerenciar Azure Machine Learning
 Por padrão, todos os espaços de trabalho compartilham a mesma cota que a cota de nível de assinatura para as famílias de VMs. No entanto, você pode definir uma cota máxima para famílias de VM individuais em espaços de trabalho em uma assinatura. Isso permite que você compartilhe a capacidade e evite problemas de contenção de recursos.
 
 1. Vá para qualquer espaço de trabalho em sua assinatura.
-1. No painel esquerdo, selecione **usos + cotas** .
+1. No painel esquerdo, selecione **usos + cotas**.
 1. Selecione a guia **configurar cotas** para exibir as cotas.
 1. Expanda uma família de VMs.
 1. Defina um limite de cota em qualquer espaço de trabalho listado nessa família de VMs.
@@ -156,7 +156,7 @@ Não é possível aumentar os limites acima dos valores máximos mostrados nas t
 Quando você estiver solicitando um aumento de cota, selecione o serviço que você tem em mente. Por exemplo, selecione Azure Machine Learning, instâncias de contêiner ou armazenamento. Para Azure Machine Learning computação, você pode selecionar o botão **solicitar cota** ao exibir a cota nas etapas anteriores.
 
 > [!NOTE]
-> As [assinaturas de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para aumentos de cota ou limite. Se você tiver uma assinatura de avaliação gratuita, poderá atualizar para uma assinatura [paga conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) . Para obter mais informações, consulte [atualizar a avaliação gratuita do Azure para pagamento conforme o uso](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) e [perguntas frequentes sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq).
+> As [assinaturas de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para aumentos de cota ou limite. Se você tiver uma assinatura de avaliação gratuita, poderá atualizar para uma assinatura [paga conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) . Para obter mais informações, consulte [atualizar a avaliação gratuita do Azure para pagamento conforme o uso](../cost-management-billing/manage/upgrade-azure-subscription.md) e [perguntas frequentes sobre a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq).
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>Aumentos de cota de ponto de extremidade privado e de DNS privado
 
@@ -172,12 +172,12 @@ Azure Machine Learning cria recursos em sua assinatura do (cliente), mas alguns 
 
 Para solicitar uma concessão para esses cenários, use as seguintes etapas:
 
-1. [Crie uma solicitação de suporte do Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) e selecione as seguintes opções na seção __noções básicas__ :
+1. [Crie uma solicitação de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) e selecione as seguintes opções na seção __noções básicas__ :
 
     | Campo | Seleção |
     | ----- | ----- |
     | Tipo de problema | **Técnico** |
-    | Serviço | **Meus serviços** . Em seguida, selecione __Machine Learning__ na lista suspensa. |
+    | Serviço | **Meus serviços**. Em seguida, selecione __Machine Learning__ na lista suspensa. |
     | Tipo de problema | **Configuração e segurança do espaço de trabalho** |
     | Subtipo de problema | **Ponto de extremidade particular e solicitação de concessão de zona de DNS privado** |
 

@@ -11,12 +11,12 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e847f62c2ae3d1d68c39685a38b67e1d0ada8c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82e128ffdc215a084110a68170ac12accd8fca0e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251007"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308125"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou excluir dados do workspace no serviço do Machine Learning
 
@@ -50,7 +50,7 @@ Esses recursos podem ser excluídos selecionando-os na lista e escolhendo **excl
 
 Os documentos de histórico de execução, que podem conter informações pessoais do usuário, são armazenados na conta de armazenamento no armazenamento de BLOBs, em subpastas do `/azureml` . Você pode baixar e excluir os dados do Portal.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Captura de tela do portal, com o ícone Excluir realçado":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Captura de tela do diretório do azureml na conta de armazenamento, dentro do portal":::
 
 ## <a name="export-and-delete-machine-learning-resources-using-azure-machine-learning-studio"></a>Exportar e excluir recursos de aprendizado de máquina usando o Azure Machine Learning Studio
 
@@ -62,7 +62,7 @@ Você pode baixar os artefatos de treinamento de execuções experimentais usand
 
 Você pode baixar um modelo registrado navegando até o **modelo** desejado e escolhendo **baixar**. 
 
-:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Captura de tela do portal, com o ícone Excluir realçado":::
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Captura de tela da página modelo do estúdio com a opção de download realçada":::
 
 ## <a name="export-and-delete-resources-using-the-python-sdk"></a>Exportar e excluir recursos usando o SDK do Python
 
@@ -84,8 +84,7 @@ Os seguintes recursos de aprendizado de máquina podem ser excluídos usando o S
 
 | Type | Chamada de função | Observações | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` para propagar a exclusão |
-| `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | | 
-| `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | |
-| `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) | | 
-
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` para propagar a exclusão |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) | |

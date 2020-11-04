@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 813f229d414ab911169f404dfc6b3cbf93fa96b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780777"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308833"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para servidores do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -131,7 +131,7 @@ A governança de recursos do banco de dados SQL do Azure é hierárquica por nat
 
 A governança de e/s de dados é um processo no banco de dados SQL do Azure usado para limitar a e/s física de leitura e gravação em arquivos de data de um banco. Os limites de IOPS são definidos para cada nível de serviço para minimizar o efeito de "vizinho ruidosa", para fornecer a integridade de alocação de recursos no serviço multilocatário e para permanecer dentro dos recursos do hardware e do armazenamento subjacentes.
 
-Para bancos de dados individuais, os limites de grupo de carga de trabalho são aplicados a todas as e/s de armazenamento em relação ao banco de dados, enquanto os limites do pool de recursos se aplicam a todas as e/s de armazenamento em todos os bancos no mesmo pool do SQL, inclusive `tempdb` Para pools elásticos, os limites de grupo de carga de trabalho se aplicam a cada banco de dados no pool, enquanto o limite do pool de recursos se aplica a todo o pool elástico, incluindo o `tempdb` banco de dados, que é compartilhado entre todos os bancos de dados no pool. Em geral, os limites do pool de recursos podem não ser obtidos pela carga de trabalho em relação a um banco de dados (único ou em pool), pois os limites do grupo de carga de trabalho são menores do que os limites do pool de recursos e limitam o IOPS/taxa No entanto, os limites de pool podem ser alcançados pela carga de trabalho combinada em vários bancos de dados no mesmo pool.
+Para bancos de dados individuais, os limites de grupo de carga de trabalho são aplicados a todas as e/s de armazenamento em relação ao banco de dados, enquanto os limites do pool de recursos se aplicam a todas as e/s de armazenamento em todos os bancos no mesmo pool SQL dedicado, `tempdb` incluindo o Para pools elásticos, os limites de grupo de carga de trabalho se aplicam a cada banco de dados no pool, enquanto o limite do pool de recursos se aplica a todo o pool elástico, incluindo o `tempdb` banco de dados, que é compartilhado entre todos os bancos de dados no pool. Em geral, os limites do pool de recursos podem não ser obtidos pela carga de trabalho em relação a um banco de dados (único ou em pool), pois os limites do grupo de carga de trabalho são menores do que os limites do pool de recursos e limitam o IOPS/taxa No entanto, os limites de pool podem ser alcançados pela carga de trabalho combinada em vários bancos de dados no mesmo pool.
 
 Por exemplo, se uma consulta gerar 1000 IOPS sem nenhuma governança de recursos de e/s, mas o limite máximo de IOPS do grupo de carga de trabalho for definido como 900 IOPS, a consulta não poderá gerar mais de 900 IOPS. No entanto, se o limite máximo de IOPS do pool de recursos for definido como 1500 IOPS e a e/s total de todos os grupos de carga de trabalho associados ao pool de recursos exceder 1500 IOPS, a e/s da mesma consulta poderá ser reduzida abaixo do limite do grupo de trabalhos de 900 IOPS.
 
