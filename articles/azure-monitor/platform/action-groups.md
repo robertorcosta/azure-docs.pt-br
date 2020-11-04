@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367730"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336112"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
@@ -20,9 +20,9 @@ Este artigo mostra como criar e gerenciar grupos de ação no Portal do Azure.
 
 Cada ação é composta das seguintes propriedades:
 
-* **Tipo**: a notificação ou ação executada. Exemplos incluem o envio de um email de chamada, SMS, voz; ou disparando vários tipos de ações automatizadas. Veja os tipos mais adiante neste artigo.
-* **Name**: um identificador exclusivo dentro do grupo de ações.
-* **Detalhes**: os detalhes correspondentes que variam por *tipo*.
+* **Tipo** : a notificação ou ação executada. Exemplos incluem o envio de um email de chamada, SMS, voz; ou disparando vários tipos de ações automatizadas. Veja os tipos mais adiante neste artigo.
+* **Name** : um identificador exclusivo dentro do grupo de ações.
+* **Detalhes** : os detalhes correspondentes que variam por *tipo*.
 
 Para saber mais sobre como usar modelos do Azure Resource Manager para configurar grupos de ação, veja [Modelos do Resource Manager de grupos de ações](./action-groups-create-resource-manager-template.md).
 
@@ -30,21 +30,21 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
 1. No [portal do Azure](https://portal.azure.com), pesquise e selecione **Monitor**. O painel **Monitor** consolida todas as configurações e dados de monitoramento em uma exibição.
 
-1. Selecione **alertas**e, em seguida, selecione **Gerenciar ações**.
+1. Selecione **alertas** e, em seguida, selecione **Gerenciar ações**.
 
     ![Botão Gerenciar Ações](./media/action-groups/manage-action-groups.png)
     
-1. Selecione **Adicionar grupo de ação**e preencha os campos relevantes na experiência do assistente.
+1. Selecione **Adicionar grupo de ação** e preencha os campos relevantes na experiência do assistente.
 
     ![O comando "Adicionar grupo de ações"](./media/action-groups/add-action-group.PNG)
 
 ### <a name="configure-basic-action-group-settings"></a>Definir configurações básicas do grupo de ações
 
-Em **detalhes do projeto**:
+Em **detalhes do projeto** :
 
 Selecione a **assinatura** e o **grupo de recursos** em que o grupo de ações é salvo.
 
-Em **Detalhes da instância**:
+Em **Detalhes da instância** :
 
 1. Insira um **nome de grupo de ação**.
 
@@ -59,15 +59,15 @@ Em **Detalhes da instância**:
 
 1. Defina uma lista de notificações a serem enviadas quando um alerta for disparado. Forneça o seguinte para cada notificação:
 
-    a. **Tipo de notificação**: selecione o tipo de notificação que você deseja enviar. As opções disponíveis são:
+    a. **Tipo de notificação** : selecione o tipo de notificação que você deseja enviar. As opções disponíveis são:
       * Função de Azure Resource Manager de email – envie um email para os usuários atribuídos a determinadas funções de ARM de nível de assinatura.
       * Email/SMS/Push/voz-Envie esses tipos de notificação para destinatários específicos.
     
-    b. **Nome**: Insira um nome exclusivo para a notificação.
+    b. **Nome** : Insira um nome exclusivo para a notificação.
 
-    c. **Detalhes**: com base no tipo de notificação selecionado, insira um endereço de email, número de telefone, etc.
+    c. **Detalhes** : com base no tipo de notificação selecionado, insira um endereço de email, número de telefone, etc.
     
-    d. **Esquema comum de alertas**: Você pode optar por habilitar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter um conteúdo de alerta extensível e unificado em todos os serviços de alerta no Azure Monitor.
+    d. **Esquema comum de alertas** : Você pode optar por habilitar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter um conteúdo de alerta extensível e unificado em todos os serviços de alerta no Azure Monitor.
 
     ![A guia notificações](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,13 +77,13 @@ Em **Detalhes da instância**:
 
 1. Defina uma lista de ações a serem disparadas quando um alerta for disparado. Forneça o seguinte para cada ação:
 
-    a. **Tipo de ação**: selecione runbook de automação, Azure Function, ITSM, aplicativo lógico, webhook seguro, webhook.
+    a. **Tipo de ação** : selecione runbook de automação, Azure Function, ITSM, aplicativo lógico, webhook seguro, webhook.
     
-    b. **Nome**: Insira um nome exclusivo para a ação.
+    b. **Nome** : Insira um nome exclusivo para a ação.
 
-    c. **Detalhes**: com base no tipo de ação, insira um URI de webhook, um aplicativo do Azure, uma conexão de ITSM ou um runbook de automação. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM.
+    c. **Detalhes** : com base no tipo de ação, insira um URI de webhook, um aplicativo do Azure, uma conexão de ITSM ou um runbook de automação. Para Ação do ITSM, além disso, especifique **Item de Trabalho** e outros campos necessários para a ferramenta de ITSM.
     
-    d. **Esquema comum de alertas**: Você pode optar por habilitar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter um conteúdo de alerta extensível e unificado em todos os serviços de alerta no Azure Monitor.
+    d. **Esquema comum de alertas** : Você pode optar por habilitar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter um conteúdo de alerta extensível e unificado em todos os serviços de alerta no Azure Monitor.
     
     ![A guia ações](./media/action-groups/action-group-3-actions.png)
 
@@ -287,7 +287,9 @@ Para receber atualizações sobre as alterações para esses endereços IP, é r
 
 É possível ter um número limitado de ações de webhook em um grupo de ações.
 
-### <a name="service-tag"></a>Marca de serviço
+Atualizações frequentes em endereços IP de origem podem ser muito demoradas no webhook. O uso da **marca de serviço** para o The *Action* ajuda a minimizar a complexidade de atualizações frequentes para endereços IP manualmente. Os prefixos de intervalo de endereços IP de origem compartilhados acima são gerenciados automaticamente pela Microsoft, abrangedos por **marca de serviço**.
+
+#### <a name="service-tag"></a>Marca de serviço
 Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, minimizando a complexidade de atualizações frequentes para regras de segurança de rede para um The Action.
 
 1. Em portal do Azure em pesquisa de serviços do Azure para *grupo de segurança de rede*.
@@ -311,8 +313,6 @@ Uma marca de serviço representa um grupo de prefixos de endereço IP de um dete
     1.  Clique em **Adicionar**.
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exemplo de como adicionar a marca de serviço."border="true":::
-
-O uso da **marca de serviço** para o The Action ajuda a minimizar a complexidade de atualizações frequentes para endereços IP.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [comportamento de alertas por SMS](./alerts-sms-behavior.md).  

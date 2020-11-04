@@ -3,32 +3,19 @@ title: Habilitar extensão de VM usando CLI do Azure
 description: Este artigo descreve como implantar extensões de máquina virtual para servidores habilitados para Arc do Azure em execução em ambientes de nuvem híbrida usando o CLI do Azure.
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f09914f246635f07b3c51c682bd67591c706732
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462861"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336718"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Habilitar extensões de VM do Azure usando o CLI do Azure
 
 Este artigo mostra como implantar e desinstalar extensões de VM do Azure, com suporte dos servidores habilitados para Arc do Azure, para uma máquina híbrida Linux ou Windows usando o CLI do Azure.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-[Instale a CLI do Azure](/cli/azure/install-azure-cli).
-
-Antes de usar o CLI do Azure para gerenciar extensões de VM em seu servidor híbrido gerenciado por servidores habilitados para Arc, você precisa instalar a `ConnectedMachine` extensão da CLI. Execute o seguinte comando em seu servidor habilitado para Arc:
-
-```azurecli
-az extension add connectedmachine
-```
-
-Quando a instalação for concluída, a seguinte mensagem será retornada:
-
-`The installed extension `connectedmachine` is experimental and not covered by customer support. Please use with discretion.`
 
 ## <a name="enable-extension"></a>Habilitar extensão
 

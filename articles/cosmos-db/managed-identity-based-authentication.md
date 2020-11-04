@@ -3,17 +3,18 @@ title: Como usar uma identidade gerenciada atribuída pelo sistema da VM do Linu
 description: Saiba como configurar Azure Active Directory uma identidade gerenciada (identidade de serviço gerenciado) atribuída pelo sistema (Azure AD) para acessar chaves de Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3bd6a71898576ac23cdd10c1eb52e1ef3a39b95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088566"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336581"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usar identidades gerenciadas atribuídas pelo sistema para acessar dados de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,9 +35,9 @@ Nesta etapa, você atribuirá uma identidade gerenciada atribuída pelo sistema 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
-1. Na guia **identidade** , ative o **status** **de identidade** do sistema e selecione **salvar** . O painel **identidade** deve ter a seguinte aparência:  
+1. Na guia **identidade** , ative o **status** **de identidade** do sistema e selecione **salvar**. O painel **identidade** deve ter a seguinte aparência:  
 
-   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Captura de tela mostrando o status de identidade do sistema definido como ativado.":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Conceder acesso à sua conta do Azure Cosmos
 
@@ -59,21 +60,21 @@ Nesse cenário, o aplicativo de funções lerá a temperatura do aquário e, em 
 
 1. Entre no portal do Azure e vá para sua conta do Azure Cosmos DB. Abra o painel **controle de acesso (iam)** e, em seguida, a guia **atribuições de função** :
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Captura de tela mostrando o painel controle de acesso e a guia atribuições de função.":::
 
-1. Selecione **+Adicionar** > **Adicionar atribuição de função** .
+1. Selecione **+Adicionar** > **Adicionar atribuição de função**.
 
 1. O painel **Adicionar atribuição de função** é aberto à direita:
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Captura de tela mostrando o painel Adicionar atribuição de função.":::
 
    * **Função** : selecione **colaborador de conta do DocumentDB**
-   * **Atribuir acesso a** : na subseção **selecionar identidade gerenciada atribuída pelo sistema** , selecione **aplicativo de funções** .
-   * **Select** : o painel será preenchido com todos os aplicativos de funções em sua assinatura que têm uma **identidade de sistema gerenciada** . Nesse caso, selecione o aplicativo de funções **FishTankTemperatureService** : 
+   * **Atribuir acesso a** : na subseção **selecionar identidade gerenciada atribuída pelo sistema** , selecione **aplicativo de funções**.
+   * **Select** : o painel será preenchido com todos os aplicativos de funções em sua assinatura que têm uma **identidade de sistema gerenciada**. Nesse caso, selecione o aplicativo de funções **FishTankTemperatureService** : 
 
-      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Captura de tela mostrando o painel Adicionar atribuição de função preenchido com exemplos.":::
 
-1. Depois de selecionar seu aplicativo de funções, selecione **salvar** .
+1. Depois de selecionar seu aplicativo de funções, selecione **salvar**.
 
 ### <a name="assign-the-role-using-azure-cli"></a>Atribuir a função usando CLI do Azure
 
