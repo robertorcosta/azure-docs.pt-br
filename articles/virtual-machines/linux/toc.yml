@@ -582,7 +582,7 @@
     - name: Como proteger VMs
       items:
         - name: Recomendações
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Acesso Just-In-Time
           href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Usar o Bastion
@@ -717,7 +717,7 @@
             - name: Atualização do agente
               href: ../extensions/update-linux-agent.md
         - name: Atenuando a execução especulativa
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Monitorizar metadados
           href: instance-metadata-service.md
         - name: Obter métricas de uso com o REST
@@ -1045,7 +1045,7 @@
         - name: Usar rede acelerada
           href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Como atribuir o nome DNS público
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Localizar e excluir NICs desconectados
           href: find-unattached-nics.md
         - name: Resolução DNS
