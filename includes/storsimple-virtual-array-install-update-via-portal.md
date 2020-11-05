@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 37d4c295fe8a89a8b32364f42e8fb4c5a4caf777
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 331ae6265ead5de1ba29944930a511cb66c4871d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67172445"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376130"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Para instalar atualizações por meio do Portal do Azure
 
@@ -17,50 +17,50 @@ ms.locfileid: "67172445"
 
     ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
 
-2. Na folha **Configurações**, clique em **Atualizações de dispositivo**. 
+2. Na folha **Configurações** , clique em **Atualizações de dispositivo**. 
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
+    ![atualizar dispositivo 2](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
 
 3. Você vê uma mensagem se as atualizações de software estiverem disponíveis. Para procurar atualizações, você também pode clicar em **Examinar**.
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
+    ![atualizar dispositivo 3](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
 
     Você será notificado quando a varredura começar e quando for concluída com êxito.
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate5m.png)
+    ![atualizar o dispositivo 4](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate5m.png)
 
 4. Depois que as atualizações forem examinadas, clique em **Baixar atualizações**. 
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
+    ![atualizar dispositivo 5](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
 
-5. Na folha **Novas atualizações**, examine as informações das quais você precisará para confirmar a instalação, após as atualizações terem sido baixadas. Clique em **OK**.
+5. Na folha **Novas atualizações** , examine as informações das quais você precisará para confirmar a instalação, após as atualizações terem sido baixadas. Clique em **OK**.
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
+    ![atualizar dispositivo 6](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
 
 6. Você será notificado quando o upload começar e quando for concluído com êxito.
 
-     ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
+     ![atualizar o dispositivo 7](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
 
-5. Na folha **Atualizações de dispositivo**, clique em **Instalar**.
+5. Na folha **Atualizações de dispositivo** , clique em **Instalar**.
 
-     ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
+     ![atualizar dispositivo 8](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
 
-6. Na folha **Novas atualizações**, você será avisado de que a atualização pode causar interrupções. Uma matriz virtual é um dispositivo de nó único, o dispositivo é reiniciado após ser atualizado. Isso interrompe qualquer E/S em andamento. Clique em **OK** para instalar as atualizações. 
+6. Na folha **Novas atualizações** , você será avisado de que a atualização pode causar interrupções. Uma matriz virtual é um dispositivo de nó único, o dispositivo é reiniciado após ser atualizado. Isso interrompe qualquer E/S em andamento. Clique em **OK** para instalar as atualizações. 
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
+    ![atualizar dispositivo 9](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
 
 7. Você será notificado quando o trabalho de instalação for iniciado. 
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate13m.png)
+    ![atualizar dispositivo 10](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate13m.png)
 
 8.  Depois que o trabalho de instalação for concluído com êxito, clique no link **Exibir trabalho** na folha **Atualizações de dispositivo** para monitorar a instalação. 
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
+    ![atualizar o dispositivo 11](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
 
     Isso levará você para a folha **Instalar Atualizações**. Você pode exibir informações detalhadas sobre o trabalho aqui.
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
+    ![atualizar dispositivo 12](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
 9. Depois que as atualizações forem instaladas com êxito, você verá uma mensagem sobre isso na folha Atualizações do dispositivo. A versão do software também é alterada para **10.0.10288.0**. 
 
-    ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)
+    ![atualizar dispositivo 13](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)

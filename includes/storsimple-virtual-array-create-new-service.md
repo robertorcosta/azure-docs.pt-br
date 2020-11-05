@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507384"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376104"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
@@ -29,7 +29,7 @@ ms.locfileid: "87507384"
 
     2.  Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo não estará presente se você tiver apenas uma assinatura.
 
-    3.  Para **Grupo de recursos**, selecione um grupo de recursos existente ou crie um novo. Para obter mais informações, veja [Grupos de recursos do Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+    3.  Para **Grupo de recursos** , selecione um grupo de recursos existente ou crie um novo. Para obter mais informações, veja [Grupos de recursos do Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
     4.  Forneça um **Local** para seu serviço. Veja [Regiões do Azure](https://azure.microsoft.com/regions/#services) para saber mais sobre quais serviços estão disponíveis em qual região. Em geral, escolha uma **Localização** próxima à região geográfica onde quer implantar o seu dispositivo. Você talvez queira considerar o seguinte:
 
@@ -45,7 +45,7 @@ ms.locfileid: "87507384"
 
     7.  Clique em **Criar** para criar o StorSimple Device Manager.
 
-        ![Criar novo serviço](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Criar novo serviço 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 Você é direcionado para a página inicial **Serviço**. A criação do serviço leva alguns minutos. Depois que o serviço for criado com sucesso, você receberá a devida notificação e o status do serviço será alterado para **Ativo**.
 

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 92036cebf0541f9e9928acf1a9c32db0037bde48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b57c2ff2e53a5b836d9faeef7e18052d6e670cf6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67172113"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376046"
 ---
 #### <a name="to-add-or-remove-a-volume"></a>Para adicionar ou remover um volume
 
@@ -19,17 +19,17 @@ ms.locfileid: "67172113"
 
     ![Gerenciar Agendas](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
 
-3. Na folha **Adicionar/remover volume**, marque ou desmarque as caixas de seleção para adicionar ou remover o volume. Vários volumes são marcados/desmarcados por meio das caixas de seleção correspondentes.
+3. Na folha **Adicionar/remover volume** , marque ou desmarque as caixas de seleção para adicionar ou remover o volume. Vários volumes são marcados/desmarcados por meio das caixas de seleção correspondentes.
 
-    ![Gerenciar Agendas](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![Gerenciar Agendamentos 2](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
     Se você atribuir volumes de contêineres de volume diferente a uma política de backup, precisará se lembrar de fazer failover desses contêineres de volume. Você verá um aviso para esse efeito.
 
-    ![Gerenciar Agendas](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![gerenciar agendas 3](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
 4. Você receberá uma notificação quando a política de backup for modificada. A lista de políticas de backup também é atualizada.
 
-    ![Gerenciar Agendas](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![gerenciar agendas 4](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

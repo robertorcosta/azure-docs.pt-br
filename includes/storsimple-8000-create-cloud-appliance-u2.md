@@ -4,21 +4,21 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67171986"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376270"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Para criar um dispositivo de nuvem
 
 1. No Portal do Azure, vá até o serviço **StorSimple Device Manager** .
 2. Acesse a folha **Dispositivos**. Na barra de comandos na folha de resumo do serviço, clique em **Criar dispositivo de nuvem**.
     ![Criar dispositivo de nuvem StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
-3. Na folha **Criar dispositivo de nuvem**, especifique os detalhes a seguir.
+3. Na folha **Criar dispositivo de nuvem** , especifique os detalhes a seguir.
    
-    ![Criar dispositivo de nuvem StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![Criar dispositivo de nuvem do StorSimple 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Nome** – Um nome exclusivo para seu dispositivo de nuvem.
    2. **Modelo** – Escolha o modelo do dispositivo de nuvem. Um dispositivo 8010 oferece 30 TB de armazenamento padrão enquanto 8020 tem 64 TB de armazenamento Premium. Especifique 8010 para implantar cenários de recuperação de nível de item de backups. Selecione 8020 para implantar cargas de trabalho de baixa latência e alto desempenho, ou use como um dispositivo secundário para recuperação de desastre.

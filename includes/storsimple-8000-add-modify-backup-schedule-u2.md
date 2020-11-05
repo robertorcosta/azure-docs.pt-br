@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 2ab3b089ce65c9f27457fd1cfb360d6776ed6244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f423d30dd10930d593bb1d5d39b46ed8914146e7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67172111"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376073"
 ---
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Para adicionar ou modificar uma agenda de backup do StorSimple
 
@@ -19,11 +19,11 @@ ms.locfileid: "67172111"
 
     ![Gerenciar Agendas](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. Na folha **Adicionar agenda**, modifique o tipo de instantâneo, a frequência de backup, a retenção e a data e hora de início. Clique em **Adicionar**.
+3. Na folha **Adicionar agenda** , modifique o tipo de instantâneo, a frequência de backup, a retenção e a data e hora de início. Clique em **Adicionar**.
 
-    ![Gerenciar Agendas](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
+    ![Gerenciar Agendamentos 2](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
 4. Você será notificado quando a criação de política de backup for concluída. A lista de políticas de backup também é atualizada.
 
-    ![Gerenciar Agendas](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
+    ![gerenciar agendas 3](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 
