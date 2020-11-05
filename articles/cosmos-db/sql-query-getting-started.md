@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 7a4b2a778fc3d520c0ce85bed5bec0b49fc14384
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341902"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356613"
 ---
 # <a name="getting-started-with-sql-queries"></a>Guia de Introdução a consultas SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,26 +21,35 @@ Em Azure Cosmos DB contas da API do SQL, há duas maneiras de ler os dados:
 
 **Leituras de ponto** – você pode fazer uma pesquisa de chave/valor em uma única *ID de item* e chave de partição. A combinação de *ID de item* e chave de partição é a chave e o próprio item é o valor. Para um documento de 1 KB, as leituras pontuais normalmente custam 1 [unidade de solicitação](request-units.md) com uma latência inferior a 10 ms. As leituras de ponto retornam um único item.
 
-**Consultas SQL** – você pode consultar dados escrevendo consultas usando o linguagem SQL (SQL) como uma linguagem de consulta JSON. As consultas sempre custam pelo menos 2,3 unidades de solicitação e, em geral, terão uma latência maior e mais variável do que as leituras de ponto. As consultas podem retornar muitos itens.
-
-A maioria das cargas de trabalho de leitura pesada no Azure Cosmos DB usar uma combinação de leituras de ponto e consultas SQL. Se você só precisa ler um único item, as leituras de ponto são mais baratas e mais rápidas do que as consultas. As leituras de ponto não precisam usar o mecanismo de consulta para acessar dados e podem ler os dados diretamente. É claro que não é possível que todas as cargas de trabalho leiam dados exclusivamente usando leituras pontuais, de modo que o suporte ao SQL como linguagem de consulta e [indexação independente de esquema](index-overview.md) fornece uma maneira mais flexível de acessar seus dados.
-
-Aqui estão alguns exemplos de como fazer leituras de ponto com cada SDK:
+Aqui estão alguns exemplos de como fazer **leituras de ponto** com cada SDK:
 
 - [SDK .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [SDK do Node.js](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [SDK do Python](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**Consultas SQL** – você pode consultar dados escrevendo consultas usando o linguagem SQL (SQL) como uma linguagem de consulta JSON. As consultas sempre custam pelo menos 2,3 unidades de solicitação e, em geral, terão uma latência maior e mais variável do que as leituras de ponto. As consultas podem retornar muitos itens.
+
+A maioria das cargas de trabalho de leitura pesada no Azure Cosmos DB usar uma combinação de leituras de ponto e consultas SQL. Se você só precisa ler um único item, as leituras de ponto são mais baratas e mais rápidas do que as consultas. As leituras de ponto não precisam usar o mecanismo de consulta para acessar dados e podem ler os dados diretamente. É claro que não é possível que todas as cargas de trabalho leiam dados exclusivamente usando leituras pontuais, de modo que o suporte ao SQL como linguagem de consulta e [indexação independente de esquema](index-overview.md) fornece uma maneira mais flexível de acessar seus dados.
+
+Aqui estão alguns exemplos de como fazer **consultas SQL** com cada SDK:
+
+- [SDK .NET](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [Java SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [SDK do Node.js](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [SDK do Python](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+
 O restante deste documento mostra como começar a escrever consultas SQL no Azure Cosmos DB. As consultas SQL podem ser executadas por meio do SDK ou do portal do Azure.
 
 ## <a name="upload-sample-data"></a>Carregar dados de exemplo
 
-Na sua API do SQL Cosmos DB conta, crie um contêiner chamado `Families` . Crie dois itens JSON simples no contêiner. Você pode executar a maioria das consultas de exemplo na documentação de consulta do Azure Cosmos DB usando esse conjunto de dados.
+Na sua conta do Cosmos DB de API do SQL, abra o [Data Explorer](https://docs.microsoft.com/azure/cosmos-db/data-explorer) para criar um contêiner chamado `Families` . Após a criação, use o navegador de estruturas de dados para localizá-lo e abri-lo. No `Families` contêiner, você verá a `Items` opção logo abaixo do nome do contêiner. Abra essa opção e você verá um botão, na barra de menus no centro da tela, para criar um ' novo item '. Você usará esse recurso para criar os itens JSON abaixo.
 
 ### <a name="create-json-items"></a>Criar itens JSON
 
-O código a seguir cria dois itens JSON simples sobre famílias. Os itens JSON simples para as famílias Andersen e Barros incluem pais, filhos e seus animais de estimação, endereço e informações de registro. O primeiro item tem cadeias de caracteres, números, Boolianos, matrizes e propriedades aninhadas.
+Os dois itens JSON a seguir são documentos sobre as famílias Andersen e Barros. Eles incluem pais, filhos e seus animais de estimação, endereço e informações de registro. 
+
+O primeiro item tem cadeias de caracteres, números, Boolianos, matrizes e propriedades aninhadas:
 
 ```json
 {
@@ -64,7 +73,7 @@ O código a seguir cria dois itens JSON simples sobre famílias. Os itens JSON s
 }
 ```
 
-O segundo item usa `givenName` e `familyName` em vez de `firstName` e `lastName` .
+O segundo item usa `givenName` e `familyName` em vez de `firstName` e `lastName` :
 
 ```json
 {

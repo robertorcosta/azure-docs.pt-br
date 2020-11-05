@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd367b337a0f26323411111ea7eb1120bf6d75d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965175"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356579"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar senhas ruins usando Azure Active Directory proteção por senha
 
@@ -125,7 +125,7 @@ A normalização tem as duas partes a seguir:
    | $               | s                  |
    | \@              | um                  |
 
-Considere o seguinte exemplo:
+Considere o exemplo a seguir:
 
 * A senha "blank" é banida.
 * Um usuário tenta alterar sua senha para " Bl@nK ".
@@ -140,7 +140,7 @@ Uma senha é examinada para outro comportamento de correspondência e uma pontua
 
 Correspondência difusa é usada na senha normalizada para identificar se ela contém uma senha encontrada na lista de senhas banidas global ou personalizada. O processo de correspondência baseia-se em uma distância de edição de comparação de um (1).
 
-Considere o seguinte exemplo:
+Considere o exemplo a seguir:
 
 * A senha "abcdef" é banida.
 * Um usuário tenta alterar sua senha para um dos seguintes:
@@ -161,7 +161,7 @@ A correspondência de subcadeia de caracteres é usada na senha normalizada para
 > [!IMPORTANT]
 > A correspondência de subcadeia de caracteres é imposta somente para nomes e outros termos, que têm pelo menos quatro caracteres de comprimento.
 
-Considere o seguinte exemplo:
+Considere o exemplo a seguir:
 
 * Um usuário chamado Poll que deseja redefinir sua senha para "p0LL23fb".
 * Após a normalização, essa senha se tornaria "poll23fb".
@@ -202,7 +202,7 @@ Vejamos um exemplo um pouco diferente para mostrar como a complexidade adicional
 > [!IMPORTANT]
 > O algoritmo de senha banido, junto com a lista de senhas globais banidas, pode e faz alterações a qualquer momento no Azure com base na análise e pesquisa de segurança contínuas.
 >
-> Para o serviço de agente DC local em cenários híbridos, os algoritmos atualizados só entram em vigor depois que o software do agente DC é reinstalado.
+> Para o serviço de agente DC local em cenários híbridos, os algoritmos atualizados só entram em vigor depois que o software do agente DC é atualizado.
 
 ## <a name="what-do-users-see"></a>O que os usuários veem
 

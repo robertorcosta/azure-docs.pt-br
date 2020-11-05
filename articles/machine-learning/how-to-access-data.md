@@ -1,5 +1,5 @@
 ---
-title: Conectar aos serviços de armazenamento do Azure
+title: Conectar-se aos serviços de armazenamento no Azure
 titleSuffix: Azure Machine Learning
 description: Saiba como usar os armazenamentos de dados para se conectar com segurança aos serviços de armazenamento do Azure durante o treinamento com o Azure Machine Learning
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320863"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358092"
 ---
-# <a name="connect-to-azure-storage-services"></a>Conectar aos serviços de armazenamento do Azure
+# <a name="connect-to-storage-services-azure"></a>Conectar-se aos serviços de armazenamento do Azure
 
-Neste artigo, saiba como **se conectar aos serviços de armazenamento do Azure por meio de Azure Machine Learning repositórios de** armazenamento. Os armazenamentos de dados conectam-se com segurança ao serviço de armazenamento do Azure sem colocar suas credenciais de autenticação e a integridade da fonte original em risco. Eles armazenam informações de conexão, como a sua ID de assinatura e a autorização de token em seu [Key Vault](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que você possa acessar o armazenamento com segurança sem precisar embuti-los em seus scripts. Você pode usar o [Azure Machine Learning SDK do Python](#python) ou o [Azure Machine Learning Studio](how-to-connect-data-ui.md) para criar e registrar armazenamentos de datastores.
+Neste artigo, saiba como **se conectar aos serviços de armazenamento no Azure por meio de repositórios de Azure Machine Learning**. Os armazenamentos de dados conectam-se com segurança ao serviço de armazenamento do Azure sem colocar suas credenciais de autenticação e a integridade da fonte original em risco. Eles armazenam informações de conexão, como a sua ID de assinatura e a autorização de token em seu [Key Vault](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que você possa acessar o armazenamento com segurança sem precisar embuti-los em seus scripts. Você pode usar o [Azure Machine Learning SDK do Python](#python) ou o [Azure Machine Learning Studio](how-to-connect-data-ui.md) para criar e registrar armazenamentos de datastores.
 
 Se você preferir criar e gerenciar repositórios de armazenamento usando a extensão de VS Code de Azure Machine Learning; Visite o [Guia de instruções de gerenciamento de recursos vs Code](how-to-manage-resources-vscode.md#datastores) para saber mais.
 
@@ -109,11 +109,13 @@ Você pode encontrar informações de chave de conta, token SAS e entidade de se
     * Sua página de **visão geral** correspondente conterá informações necessárias, como ID do locatário e ID do cliente.
 
 > [!IMPORTANT]
-> Por motivos de segurança, talvez seja necessário alterar suas chaves de acesso para uma conta de armazenamento do Azure (chave de conta ou token SAS). Ao fazer isso, certifique-se de sincronizar as novas credenciais com seu espaço de trabalho e os repositórios de armazenamento conectados a ela. Saiba como [sincronizar suas credenciais atualizadas](how-to-change-storage-access-key.md). 
-
+> * Se você precisar alterar suas chaves de acesso para uma conta de armazenamento do Azure (chave de conta ou token SAS), certifique-se de sincronizar as novas credenciais com seu espaço de trabalho e os repositórios de armazenamento conectados a ela. Saiba como [sincronizar suas credenciais atualizadas](how-to-change-storage-access-key.md). 
 ### <a name="permissions"></a>Permissões
 
-Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Um token SAS de conta usa como padrão nenhuma permissão. Para acesso de leitura de dados, suas credenciais de autenticação devem ter um mínimo de permissões de lista e leitura para contêineres e objetos. Para acesso de gravação de dados, permissões de gravação e adição também são necessárias.
+Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Um token SAS de conta usa como padrão nenhuma permissão. 
+* Para **acesso de leitura** de dados, suas credenciais de autenticação devem ter um mínimo de permissões de lista e leitura para contêineres e objetos. 
+
+* Para **acesso de gravação** de dados, permissões de gravação e adição também são necessárias.
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ Nesta seção estão exemplos de como criar e registrar um repositório de armaz
  Para criar repositórios de armazenamento para outros serviços de armazenamento com suporte, consulte a [documentação de referência para os `register_azure_*` métodos aplicáveis](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
 
 Se você preferir uma baixa experiência de código, consulte [conectar-se a dados com o Azure Machine Learning Studio](how-to-connect-data-ui.md).
+>[!IMPORTANT]
+> Se você cancelar o registro e registrar novamente um repositório de armazenamento com o mesmo nome e falhar, o Azure Key Vault para seu espaço de trabalho pode não ter a exclusão reversível habilitada. Por padrão, a exclusão reversível está habilitada para a instância do cofre de chaves criada pelo seu espaço de trabalho, mas poderá não ser habilitada se você tiver usado um cofre de chaves existente ou ter um espaço de trabalho criado antes de outubro de 2020. Para obter informações sobre como habilitar a exclusão reversível, consulte [ativar a exclusão reversível para um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault). "
 
 > [!NOTE]
 > O nome do repositório de armazenamento deve conter apenas letras minúsculas, dígitos e sublinhados. 

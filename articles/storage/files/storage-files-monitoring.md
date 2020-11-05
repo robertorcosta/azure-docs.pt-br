@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b89112ab2384386d20b62f2510ec576d4a2075f1
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: f37fc8e19025b78475f706ff96c502cc6094d54f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186749"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358415"
 ---
 # <a name="monitoring-azure-files"></a>Monitorando arquivos do Azure
 
@@ -75,14 +75,14 @@ Para obter diretrizes gerais, consulte [criar configuração de diagnóstico par
 
 2. Navegue para sua conta de armazenamento.
 
-3. Na seção **monitoramento** , clique em **configurações de diagnóstico (versão prévia)** .
+3. Na seção **monitoramento** , clique em **configurações de diagnóstico (versão prévia)**.
 
    > [!div class="mx-imgBorder"]
    > ![portal – Logs de diagnóstico](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
 
 4. Escolha **arquivo** como o tipo de armazenamento para o qual você deseja habilitar os logs.
 
-5. Clique em **Adicionar configuração de diagnóstico** .
+5. Clique em **Adicionar configuração de diagnóstico**.
 
    > [!div class="mx-imgBorder"]
    > ![Portal-logs de recursos – adicionar configuração de diagnóstico](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
@@ -150,7 +150,7 @@ Substitua o `<storage-service-resource--id>` espaço reservado neste trecho pela
 
 Você pode usar `StorageRead` , `StorageWrite` e `StorageDelete` para o valor do parâmetro **Category** .
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
@@ -164,7 +164,7 @@ Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](https://do
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
@@ -178,7 +178,7 @@ Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](https://do
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
@@ -208,7 +208,7 @@ Substitua o `<storage-service-resource--id>` espaço reservado neste trecho pelo
 
 Você pode usar `StorageRead` , `StorageWrite` e `StorageDelete` para o valor do parâmetro **Category** .
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
@@ -222,7 +222,7 @@ Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](https://
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
@@ -236,7 +236,7 @@ Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](https://
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
@@ -250,7 +250,7 @@ Para exibir um modelo de Azure Resource Manager que cria uma configuração de d
 
 ## <a name="analyzing-metrics"></a>Analisando métricas
 
-Você pode analisar métricas para o Armazenamento do Microsoft Azure com métricas de outros serviços do Azure usando o Metrics Explorer. Para abrir o Metrics Explorer, selecione **Métricas** no menu **Azure Monitor** . Para informações sobre o uso dessa ferramenta, consulte [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
+Você pode analisar métricas para o Armazenamento do Microsoft Azure com métricas de outros serviços do Azure usando o Metrics Explorer. Para abrir o Metrics Explorer, selecione **Métricas** no menu **Azure Monitor**. Para informações sobre o uso dessa ferramenta, consulte [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
 
 Para métricas com suporte para dimensões, você pode filtrar a métrica com valor da dimensão desejado.  Para ver uma lista completa das dimensões compatíveis com o Armazenamento do Microsoft Azure, consulte [Dimensões de métricas](storage-files-monitoring-reference.md#metrics-dimensions). As métricas para os arquivos do Azure estão nestes namespaces: 
 
@@ -571,11 +571,11 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 
 ### <a name="how-to-create-alerts-for-azure-files"></a>Como criar alertas para arquivos do Azure
 
-1. Vá para sua **conta de armazenamento** no **portal do Azure** . 
+1. Vá para sua **conta de armazenamento** no **portal do Azure**. 
 
-2. Clique em **alertas** e, em seguida, clique em **+ nova regra de alerta** .
+2. Clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
 
-3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** e, em seguida, clique em **concluído** . 
+3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** e, em seguida, clique em **concluído**. 
 
 4. Clique em **Selecionar condição** e forneça as seguintes informações para o alerta: 
 
@@ -585,7 +585,7 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 
 5. Clique em **selecionar grupo de ações** e adicione um grupo de ações (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
 
-6. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , **Descrição** e **severidade** .
+6. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , **Descrição** e **severidade**.
 
 7. Clique em **criar regra de alerta** para criar o alerta.
 
@@ -594,74 +594,74 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se um compartilhamento de arquivos for limitado
 
-1. Vá para sua **conta de armazenamento** no **portal do Azure** .
-2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta** .
-3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído** . Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
+1. Vá para sua **conta de armazenamento** no **portal do Azure**.
+2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
+3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
 4. Clique em **Selecionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica **Transações** .
-6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **tipo de resposta** .
+6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **tipo de resposta**.
 7. Clique na lista suspensa **valores de dimensão** e selecione **SUCCESSWITHTHROTTLING** (para SMB) ou **ClientThrottlingError** (para REST).
 
    > [!NOTE]
    > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significará que o recurso não foi limitado. Para adicionar o valor de dimensão, clique em **adicionar valor personalizado** ao lado da lista suspensa **valores de dimensão** , digite **SuccessWithThrottling** ou **ClientThrottlingError** , clique em **OK** e repita a etapa #7.
 
-8. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos** .
+8. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
 9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros** . O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
-10. Defina os **parâmetros de alerta** (valor de limite, operador, granularidade de agregação e frequência de avaliação) e clique em **concluído** .
+10. Defina os **parâmetros de alerta** (valor de limite, operador, granularidade de agregação e frequência de avaliação) e clique em **concluído**.
 
     > [!TIP]
     > Se você estiver usando um limite estático, o gráfico de métrica poderá ajudar a determinar um valor de limite razoável se o compartilhamento de arquivos estiver sendo limitado no momento. Se você estiver usando um limite dinâmico, o gráfico de métrica exibirá os limites calculados com base nos dados recentes.
 
 11. Clique em **selecionar grupo de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-12. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade** .
+12. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade**.
 13. Clique em **criar regra de alerta** para criar o alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Como criar um alerta se o tamanho do compartilhamento de arquivos do Azure for de 80% da capacidade
 
-1. Vá para sua **conta de armazenamento** no **portal do Azure** .
-2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta** .
-3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído** . Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
+1. Vá para sua **conta de armazenamento** no **portal do Azure**.
+2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
+3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
 4. Clique em **Selecionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **capacidade de arquivo** .
-6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos** .
+6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
 7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros** . O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas para compartilhamentos de arquivos padrão são baseados em todos os compartilhamentos de arquivos na conta de armazenamento. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas para compartilhamentos de arquivos padrão são baseados em todos os compartilhamentos de arquivos na conta de armazenamento. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
 8. Insira o **valor do limite** em bytes. Por exemplo, se o tamanho do compartilhamento de arquivos for 100 TiB e você quiser receber um alerta quando o tamanho do compartilhamento de arquivos for 80% da capacidade, o valor do limite em bytes será 87960930222080.
-9. Defina o restante dos **parâmetros de alerta** (granularidade de agregação e frequência de avaliação) e clique em **concluído** .
+9. Defina o restante dos **parâmetros de alerta** (granularidade de agregação e frequência de avaliação) e clique em **concluído**.
 10. Clique em selecionar grupo de ações para adicionar um grupo de ações (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-11. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade** .
+11. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade**.
 12. Clique em **criar regra de alerta** para criar o alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Como criar um alerta se a saída do compartilhamento de arquivos do Azure excedeu 500 GiB em um dia
 
-1. Vá para sua **conta de armazenamento** no **portal do Azure** .
-2. Na seção monitoramento, clique em **alertas** e, em seguida, clique em **+ nova regra de alerta** .
-3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído** . Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
+1. Vá para sua **conta de armazenamento** no **portal do Azure**.
+2. Na seção monitoramento, clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
+3. Clique em **Editar recurso** , selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
 4. Clique em **Selecionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **saída** .
-6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos** .
+6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
 7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros** . O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas para compartilhamentos de arquivos padrão são baseados em todos os compartilhamentos de arquivos na conta de armazenamento. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas para compartilhamentos de arquivos padrão são baseados em todos os compartilhamentos de arquivos na conta de armazenamento. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
 8. Insira **536870912000** bytes para o valor de limite. 
-9. Clique na lista suspensa **agregação de granularidade** e selecione **24 horas** .
-10. Selecione a **frequência de avaliação** e **clique em concluído** .
+9. Clique na lista suspensa **agregação de granularidade** e selecione **24 horas**.
+10. Selecione a **frequência de avaliação** e **clique em concluído**.
 11. Clique em **selecionar grupo de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-12. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade** .
+12. Preencha os **detalhes do alerta** , como nome da **regra de alerta** , * * descrição e **severidade**.
 13. Clique em **criar regra de alerta** para criar o alerta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring.md)
+- [Referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring-reference.md)
 - [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Migração de métricas do armazenamento do Azure](../common/storage-metrics-migration.md)
 - [Como planejar uma implantação de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-planning)

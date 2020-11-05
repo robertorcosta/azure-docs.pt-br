@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fe2f35708f6a148f8db9ef6fd0a598e19e746fbd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348552"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358619"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um pipeline de ingestão de dados
 
@@ -211,18 +211,18 @@ Os valores no arquivo JSON são valores padrão configurados na definição do p
 
 O processo de entrega contínua usa os artefatos e os implanta no primeiro ambiente de destino. Ele verifica se a solução funciona executando testes. Se for bem-sucedido, ele continuará no próximo ambiente. 
 
-O pipeline do Azure do CD consiste em vários estágios que representam os ambientes. Cada estágio contém [implantações](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) e [trabalhos](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) que executam as seguintes etapas:
+O pipeline do Azure do CD consiste em vários estágios que representam os ambientes. Cada estágio contém [implantações](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) e [trabalhos](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) que executam as seguintes etapas:
 
 _ Implantar um bloco de anotações do Python no espaço de trabalho Azure Databricks
 * Implantar um pipeline de Azure Data Factory 
 * Executar o pipeline
 * Verificar o resultado da ingestão de dados
 
-Os estágios de pipeline podem ser configurados com [aprovações](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops) e [Gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) que fornecem controle adicional sobre como o processo de implantação evolui pela cadeia de ambientes.
+Os estágios de pipeline podem ser configurados com [aprovações](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true) e [Gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true) que fornecem controle adicional sobre como o processo de implantação evolui pela cadeia de ambientes.
 
 ### <a name="deploy-a-python-notebook"></a>Implantar um bloco de anotações do Python
 
-O trecho de código a seguir define uma [implantação](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) de pipeline do Azure que copia um bloco de anotações do Python para um cluster do databricks:
+O trecho de código a seguir define uma [implantação](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) de pipeline do Azure que copia um bloco de anotações do Python para um cluster do databricks:
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ O trecho de código a seguir define uma [implantação](/azure/devops/pipelines/
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Os artefatos produzidos pelo CI são copiados automaticamente para o agente de implantação e estão disponíveis na `$(Pipeline.Workspace)` pasta. Nesse caso, a tarefa de implantação refere-se ao `di-notebooks` artefato que contém o bloco de notas do Python. Essa [implantação](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) usa a [extensão DevOps do databricks do Azure](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) para copiar os arquivos do bloco de anotações para o espaço de trabalho do databricks.
+Os artefatos produzidos pelo CI são copiados automaticamente para o agente de implantação e estão disponíveis na `$(Pipeline.Workspace)` pasta. Nesse caso, a tarefa de implantação refere-se ao `di-notebooks` artefato que contém o bloco de notas do Python. Essa [implantação](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) usa a [extensão DevOps do databricks do Azure](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) para copiar os arquivos do bloco de anotações para o espaço de trabalho do databricks.
 
 O `Deploy_to_QA` estágio contém uma referência ao `devops-ds-qa-vg` grupo de variáveis definido no projeto DevOps do Azure. As etapas neste estágio referem-se às variáveis desse grupo de variáveis (por exemplo, `$(DATABRICKS_URL)` e `$(DATABRICKS_TOKEN)` ). A ideia é que o próximo estágio (por exemplo, `Deploy_to_UAT` ) funcionará com os mesmos nomes de variáveis definidos em seu próprio grupo de variáveis no escopo de UAT.
 
@@ -339,7 +339,7 @@ O pipeline completo de CI/CD do Azure consiste nos seguintes estágios: _ CI
     * Implantar no databricks + implantar no ADF
     * Teste de integração
 
-Ele contém um número de * **implantação** _ estágios igual ao número de ambientes de destino que você tem. Cada estágio de _*_implantação_*_ contém duas [implantações](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) executadas em paralelo e um [trabalho](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) executado após as implantações para testar a solução no ambiente.
+Ele contém um número de * **implantação** _ estágios igual ao número de ambientes de destino que você tem. Cada estágio de _*_implantação_*_ contém duas [implantações](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) executadas em paralelo e um [trabalho](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) executado após as implantações para testar a solução no ambiente.
 
 Uma implementação de exemplo do pipeline é montada no seguinte trecho de _*_YAML_*_ :
 

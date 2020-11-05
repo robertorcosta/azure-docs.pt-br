@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c62d1a0b17fda2531a963c292fbd16aaf3a551b3
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145983"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356376"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Entenda o gêmeos digital e seu gráfico de entrelaçamento
 
-Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são representadas pelo Azure **digital gêmeos** . Uma cópia digital é uma instância de um dos seus [modelos](concepts-models.md)definidos pelo personalizado. Ele pode ser conectado a outras gêmeos digitais por meio de **relações** para formar um **grafo de entrelaçamento** : este grafo de Altova é a representação de todo o seu ambiente.
+Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são representadas pelo Azure **digital gêmeos**. Uma cópia digital é uma instância de um dos seus [modelos](concepts-models.md)definidos pelo personalizado. Ele pode ser conectado a outras gêmeos digitais por meio de **relações** para formar um **grafo de entrelaçamento** : este grafo de Altova é a representação de todo o seu ambiente.
 
 > [!TIP]
 > "Azure digital gêmeos" refere-se a esse serviço do Azure como um todo. "Cópia digital (ões)" ou apenas ""/s "" refere-se a nós de cópia individual na sua instância do serviço.
@@ -31,7 +31,7 @@ Depois de criar e carregar um modelo, seu aplicativo cliente pode criar uma inst
 
 Gêmeos são conectados a um grafo de entrelaçamento por suas relações. As relações que um papel de entrelaçar pode ter são definidas como parte de seu modelo.  
 
-Por exemplo, a *base* do modelo pode definir uma relação *Contains que tem* como alvo gêmeos do tipo *Room* . Com essa definição, o gêmeos digital do Azure permitirá que você crie *conterá* relações de qualquer *andar* de cima para qualquer *sala* (incluindo gêmeos que são subtipos de *espaço* ). 
+Por exemplo, a *base* do modelo pode definir uma relação *Contains que tem* como alvo gêmeos do tipo *Room*. Com essa definição, o gêmeos digital do Azure permitirá que você crie *conterá* relações de qualquer *andar* de cima para qualquer *sala* (incluindo gêmeos que são subtipos de *espaço* ). 
 
 O resultado desse processo é um conjunto de nós (o gêmeos digital) conectado por meio de bordas (suas relações) em um grafo.
 
@@ -43,20 +43,20 @@ Esta seção mostra o que parece criar gêmeos digital e relações de um aplica
 
 ### <a name="create-digital-twins"></a>Criar gêmeos digitais
 
-Abaixo está um trecho de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma instância de um tipo de *espaço* .
+Abaixo está um trecho de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma instância de um tipo de *espaço*.
 
 Você pode inicializar as propriedades de um conjunto de entrelaçamento quando ele é criado ou defini-los mais tarde. Para criar um entrelaçar com propriedades inicializadas, crie um documento JSON que forneça os valores de inicialização necessários.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
-Você também pode usar uma classe auxiliar chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "" "" e mais diretamente, como uma alternativa ao uso de um dicionário. Para obter mais informações sobre a classe auxiliar e exemplos de seu uso, consulte a seção [*criar uma*](how-to-manage-twin.md#create-a-digital-twin) altas digitais de *como: gerenciar digital gêmeos* .
+Você também pode usar uma classe auxiliar chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "" "" e mais diretamente, como uma alternativa ao uso de um dicionário. Para obter mais informações sobre a classe auxiliar e exemplos de seu uso, consulte a seção [*criar uma*](how-to-manage-twin.md#create-a-digital-twin) altas digitais de *como: gerenciar digital gêmeos*.
 
 >[!NOTE]
 >Embora as propriedades de entrelaçamento sejam tratadas como opcionais e, portanto, não precisem ser inicializadas, todos os [componentes](concepts-models.md#elements-of-a-model) em FileUp precisam ser definidos quando o conjunto **de entrelaçar** é criado. Eles podem ser objetos vazios, mas os próprios componentes devem existir.
 
 ### <a name="create-relationships"></a>Criar relações
 
-Aqui está um código de cliente de exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma relação entre um tipo de andar de um *piso* digital chamado *GroundFloor* e um tipo de *sala* digital de texto chamado *Cafe* .
+Aqui está um código de cliente de exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma relação entre um tipo de andar de um *piso* digital chamado *GroundFloor* e um tipo de *sala* digital de texto chamado *Cafe*.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
@@ -71,7 +71,7 @@ var relationship = new BasicRelationship
 try
 {
     string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync("GroundFloor", relId, relationship);
+    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");

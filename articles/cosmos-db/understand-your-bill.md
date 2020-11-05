@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073818"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358704"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -103,11 +103,11 @@ Se você aumentar a taxa de transferência provisionada para um contêiner ou um
 
 * Em um mês de 720 horas, se por 300 horas a taxa de transferência provisionada foi de 120 mil RU/s e, nas 420 horas restantes a taxa de transferência provisionada foi de 155 mil RU/s, sua fatura mensal mostrará: 300 x US$ 9,60/hora + 420 x US$12,40/hora = US$ 2.880 + US$ 5.208 = US$ 8.088/mês. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemplo de cobrança da taxa de transferência dedicada":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemplo de cobrança da taxa de transferência compartilhada":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Exemplos de cobrança com replicação geográfica e gravações de várias regiões  
+## <a name="billing-examples-with-geo-replication"></a>Exemplos de cobrança com replicação geográfica  
 
-É possível adicionar/remover regiões do Azure em qualquer lugar do mundo da sua conta de banco de dados do Azure Cosmos a qualquer momento. A taxa de transferência que você configurou para vários bancos de dados e contêineres do Azure Cosmos estará reservada em cada região do Azure associada à sua conta de banco de dados do Azure Cosmos DB. Se a soma das taxas de transferência provisionadas (RU/s) configuradas em todos os bancos de dados e contêineres dentro da conta do banco de dados Azure Cosmos (provisionadas por hora) for T e o número de regiões do Azure associadas à conta do banco de dados for N, o total da taxa de transferência provisionada para qualquer hora, para sua conta de banco de dados, (a) configurada com uma única região de gravação será igual a T x N RU/s e (b) configurada com todas as regiões sendo capazes de processar gravações será igual a T x (N + 1) RU/s, respectivamente. A taxa de transferência provisionada (região de gravação única) custa US $0.008/hora por 100 RU/s e taxa de transferência provisionada com várias regiões graváveis (configuração de gravações de várias regiões) custos de $0.016/por hora por 100 RU/s (consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)). Seja com região de gravação única ou várias regiões de gravação, o Azure Cosmos DB permite a leitura de dados de qualquer região.
+É possível adicionar/remover regiões do Azure em qualquer lugar do mundo da sua conta de banco de dados do Azure Cosmos a qualquer momento. A taxa de transferência que você configurou para vários bancos de dados e contêineres do Azure Cosmos estará reservada em cada região do Azure associada à sua conta de banco de dados do Azure Cosmos DB. Se a soma da taxa de transferência provisionada (RU/s) configurada em todos os bancos de dados e contêineres na sua conta do Azure Cosmos Database (provisionado por hora) for T e o número de regiões do Azure associado à sua conta de banco de dados for N, em seguida, a taxa de transferência total provisionada para uma determinada hora, para sua conta do banco de dados Cosmos do Azure é igual a T x N RU/seg. A taxa de transferência provisionada (região de gravação única) custa US $0.008/hora por 100 RU/s e taxa de transferência provisionada com várias regiões graváveis (configuração de gravações de várias regiões) custos de $0.016/por hora por 100 RU/s (consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)). Seja com região de gravação única ou várias regiões de gravação, o Azure Cosmos DB permite a leitura de dados de qualquer região.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemplo de cobrança: conta do Azure Cosmos multirregiões, com gravação em uma única região
 
@@ -193,7 +193,7 @@ Vamos considerar o exemplo a seguir, em que temos uma conta do Azure Cosmos de v
 
 Visualmente, as alterações na taxa de transferência provisionada total durante 720 horas no mês são mostradas na figura abaixo: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemplo de cobrança da taxa de transferência dedicada":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemplo da vida real":::
 
 A fatura mensal total (supondo 30 dias/720 horas em um mês) será calculada da seguinte maneira:
 

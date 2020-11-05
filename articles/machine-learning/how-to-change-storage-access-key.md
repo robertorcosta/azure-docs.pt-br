@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320713"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357939"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 
@@ -26,7 +26,8 @@ Saiba como alterar as chaves de acesso para contas de armazenamento do Azure usa
 Para fins de segurança, talvez seja necessário alterar as chaves de acesso de uma conta de armazenamento do Azure. Quando você regenera a chave de acesso, Azure Machine Learning deve ser atualizado para usar a nova chave. Azure Machine Learning pode estar usando a conta de armazenamento para o armazenamento de modelo e como um repositório de armazenamento.
 
 > [!IMPORTANT]
-> As credenciais que acompanham os repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](../key-vault/general/soft-delete-overview.md) habilitada para seu Key Vault, certifique-se de seguir este artigo para atualizar as credenciais. Cancelar o registro do repositório de armazenamento e registrá-lo novamente com o mesmo nome falhará.
+
+> As credenciais registradas com repositórios de armazenamento são salvas em seu Azure Key Vault associado ao espaço de trabalho. Se você tiver a [exclusão reversível](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) habilitada para seu Key Vault, este artigo fornecerá instruções para atualizar as credenciais. Se você cancelar o registro do repositório de armazenamento e tentar registrá-lo novamente com o mesmo nome, essa ação falhará. Consulte [Ativar exclusão reversível para um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para saber como habilitar a exclusão reversível neste cenário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

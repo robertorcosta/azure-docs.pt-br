@@ -7,13 +7,13 @@ author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
-ms.author: jushiman
-ms.openlocfilehash: 175d572e69dd34a09787f44cf14ae0336c8e95e0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mimckitt
+ms.openlocfilehash: 45bcfdb544d3951feb40a821b601ce60ecc0feaf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975596"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356766"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -61,13 +61,32 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 <sup>1</sup> a taxa de transferência máxima possível do disco (IOPS ou Mbps) com uma VM da série FS pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, consulte [design para alto desempenho](premium-storage-performance.md).
 
+
+## <a name="nvv2-series"></a>Série NVv2
+
+**Recomendação de tamanho mais recente** : [série NVv3](nvv3-series.md)
+
+As máquinas virtuais da série NVv2 contam com as GPUs [Tesla M60 NVIDIA](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e a tecnologia NVIDIA GRID com CPUs Intel Broadwell. Essas máquinas virtuais são direcionadas para aplicativos com gráficos acelerados por GPU e áreas de trabalho virtuais em que os clientes querem visualizar dados, simular resultados para exibição, trabalhar no CAD ou renderizar e transmitir conteúdo por streaming. Além disso, essas máquinas virtuais podem executar cargas de trabalho de precisão simples, como codificação e renderização. As máquinas virtuais NVv2 são compatíveis com o Armazenamento Premium e oferecem duas vezes mais memória (RAM) em comparação com a Série NV anterior.  
+
+Cada GPU em instâncias da NVv2 vem com uma licença GRID. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
+
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
+| Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |
+| Standard_NV24s_v2 | 24 | 448 | 1280 | 4 | 32 | 32 | 8 | 4 | 100 |
+
+## <a name="older-generations-of-virtual-machine-sizes"></a>Gerações mais antigas de tamanhos de máquina virtual
+
+Esta seção fornece informações sobre gerações mais antigas de tamanhos de máquina virtual. Esses tamanhos ainda têm suporte, mas não receberão capacidade adicional. Há tamanhos mais novos ou alternativos que estão geralmente disponíveis. Consulte tamanhos de [máquinas virtuais no Azure](./sizes.md) para escolher os tamanhos de VM que melhor se ajustarão às suas necessidades.  
+
+Para obter mais informações sobre o redimensionamento de uma VM do Linux, consulte [redimensionar uma VM do Linux](linux/change-vm-size.md).  
+
 <br>
-
-
 
 ### <a name="basic-a"></a>A Básico  
 
-**Recomendação de tamanho mais recente**: [série Av2](av2-series.md)
+**Recomendação de tamanho mais recente** : [série Av2](av2-series.md)
 
 Armazenamento Premium:  Sem suporte
 
@@ -97,7 +116,7 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 
 ### <a name="a-series"></a>Séria A  
 
-**Recomendação de tamanho mais recente**: [série Av2](av2-series.md)
+**Recomendação de tamanho mais recente** : [série Av2](av2-series.md)
 
 ACU: 50-100
 
@@ -122,7 +141,7 @@ Cache de Armazenamento Premium:  Sem suporte
 
 ### <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva  
 
-**Recomendação de tamanho mais recente**: [série Av2](av2-series.md)
+**Recomendação de tamanho mais recente** : [série Av2](av2-series.md)
 
 ACU: 225
 
@@ -148,7 +167,7 @@ Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de compu
 
 ### <a name="d-series"></a>Série D  
 
-**Recomendação de tamanho mais recente**: série [Dav4](dav4-dasv4-series.md), [série dv4](dv4-dsv4-series.md) e [série Ddv4](ddv4-ddsv4-series.md)
+**Recomendação de tamanho mais recente** : série [Dav4](dav4-dasv4-series.md), [série dv4](dv4-dsv4-series.md) e [série Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -169,7 +188,7 @@ Cache de Armazenamento Premium:  Sem suporte
 
 ### <a name="d-series---memory-optimized"></a>Série D - otimizado para memória  
 
-**Recomendação de tamanho mais recente**: série [Dav4](dav4-dasv4-series.md), [série dv4](dv4-dsv4-series.md) e [série Ddv4](ddv4-ddsv4-series.md)
+**Recomendação de tamanho mais recente** : série [Dav4](dav4-dasv4-series.md), [série dv4](dv4-dsv4-series.md) e [série Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -188,9 +207,9 @@ Cache de Armazenamento Premium:  Sem suporte
 
 <br>
 
-## <a name="preview-dc-series"></a>Visualização: série CC
+### <a name="preview-dc-series"></a>Visualização: série CC
 
-**Recomendação de tamanho mais recente**: [série DCsv2](dcv2-series.md)
+**Recomendação de tamanho mais recente** : [série DCsv2](dcv2-series.md)
 
 Armazenamento Premium: com suporte
 
@@ -205,12 +224,12 @@ A série DC usa a última geração de processador E-2176G Intel XEON de 3.7 GHz
 
 > [!IMPORTANT]
 >
-> As VMs da série DC são [VMs de geração 2](./generation-2.md#creating-a-generation-2-vm) e só oferecem suporte a `Gen2` imagens.
+> As VMs da série DC são [VMs de geração 2](./linux/generation-2.md#creating-a-generation-2-vm) e só oferecem suporte a `Gen2` imagens.
 
 
 ### <a name="ds-series"></a>Série DS  
 
-**Recomendação de tamanho mais recente**: série [Dasv4](dav4-dasv4-series.md), [série Dsv4](dv4-dsv4-series.md) e [série Ddsv4](ddv4-ddsv4-series.md)
+**Recomendação de tamanho mais recente** : série [Dasv4](dav4-dasv4-series.md), [série Dsv4](dv4-dsv4-series.md) e [série Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -231,7 +250,7 @@ Cache de Armazenamento Premium:  Com suporte
 
 ### <a name="ds-series---memory-optimized"></a>Série DS - otimizado para memória  
 
-**Recomendação de tamanho mais recente**: série [Dasv4](dav4-dasv4-series.md), [série Dsv4](dv4-dsv4-series.md) e [série Ddsv4](ddv4-ddsv4-series.md)
+**Recomendação de tamanho mais recente** : série [Dasv4](dav4-dasv4-series.md), [série Dsv4](dv4-dsv4-series.md) e [série Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1, 2</sup>
 
@@ -253,7 +272,7 @@ Cache de Armazenamento Premium:  Com suporte
 
 ### <a name="ls-series"></a>Série Ls
 
-**Recomendação de tamanho mais recente**: [série Lsv2](lsv2-series.md)
+**Recomendação de tamanho mais recente** : [série Lsv2](lsv2-series.md)
 
 A série Ls oferece até 32 vCPUs, usando a [família de processadores Intel® Xeon® E5 v3](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls obtém o mesmo desempenho de CPU da série G/GS e vem com 8 GiB de memória por vCPU.
 
@@ -278,7 +297,7 @@ A taxa de transferência máxima possível do disco com VMs da série Ls pode se
 
 ### <a name="gs-series"></a>Série GS
 
-**Recomendação de tamanho mais recente**: série [Easv4](eav4-easv4-series.md), série [Esv4](ev4-esv4-series.md), [Edsv4](edv4-edsv4-series.md) e [série M](m-series.md)
+**Recomendação de tamanho mais recente** : série [Easv4](eav4-easv4-series.md), série [Esv4](ev4-esv4-series.md), [Edsv4](edv4-edsv4-series.md) e [série M](m-series.md)
 
 ACU: 180 - 240 <sup>1</sup>
 
@@ -304,7 +323,7 @@ Cache de Armazenamento Premium:  Com suporte
 
 ### <a name="g-series"></a>Série G
 
-**Recomendação de tamanho mais recente**: [Eav4](eav4-easv4-series.md), série [Ev4](ev4-esv4-series.md) e série [Edv4](edv4-edsv4-series.md) e [série M](m-series.md)
+**Recomendação de tamanho mais recente** : [Eav4](eav4-easv4-series.md), série [Ev4](ev4-esv4-series.md) e série [Edv4](edv4-edsv4-series.md) e [série M](m-series.md)
 
 ACU: 180 - 240
 
@@ -323,8 +342,8 @@ Cache de Armazenamento Premium:  Sem suporte
 <sup>1</sup> A instância é isolada em hardware dedicado a um único cliente.
 <br>
 
-## <a name="nv-series"></a>Série NV
-**Recomendação de tamanho mais recente**: [série NVv3](nvv3-series.md) e [série NVv4](nvv4-series.md)
+### <a name="nv-series"></a>Série NV
+**Recomendação de tamanho mais recente** : [série NVv3](nvv3-series.md) e [série NVv4](nvv4-series.md)
 
 As máquinas virtuais da série NV têm a tecnologia das GPUs [ Tesla M60 da NVIDIA ](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e NVIDIA GRID para aplicativos acelerados de área de trabalho e áreas de trabalho virtuais, em que os clientes podem visualizar seus dados ou simulações. Os usuários podem visualizar seus fluxos de trabalho com uso intensivo de gráficos em instâncias NV para obter capacidade gráfica superior, além de executar cargas de trabalho de precisão única, como codificação e renderização. As VMs da série NV também são alimentadas por CPUs do Intel Xeon E5-2690 v3 (Haswell).
 
@@ -347,27 +366,8 @@ Atualizações de preservação de memória: Sem suporte
 1 GPU = metade de um cartão M60.
 <br>
 
-
-## <a name="nvv2-series"></a>Série NVv2
-
-**Recomendação de tamanho mais recente**: [série NVv3](nvv3-series.md)
-
-As máquinas virtuais da série NVv2 contam com as GPUs [Tesla M60 NVIDIA](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e a tecnologia NVIDIA GRID com CPUs Intel Broadwell. Essas máquinas virtuais são direcionadas para aplicativos com gráficos acelerados por GPU e áreas de trabalho virtuais em que os clientes querem visualizar dados, simular resultados para exibição, trabalhar no CAD ou renderizar e transmitir conteúdo por streaming. Além disso, essas máquinas virtuais podem executar cargas de trabalho de precisão simples, como codificação e renderização. As máquinas virtuais NVv2 são compatíveis com o Armazenamento Premium e oferecem duas vezes mais memória (RAM) em comparação com a Série NV anterior.  
-
-Cada GPU em instâncias da NVv2 vem com uma licença GRID. Esta licença oferece flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único usuário ou 25 usuários simultâneos podem se conectar à VM para um cenário de aplicativo virtual.
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
-| Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |
-| Standard_NV24s_v2 | 24 | 448 | 1280 | 4 | 32 | 32 | 8 | 4 | 100 |
-
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
-<br>
-
-## <a name="nc-series"></a>Série NC
-**Recomendação de tamanho mais recente**: [NC T4 v3-Series](nct4-v3-series.md)
+### <a name="nc-series"></a>Série NC
+**Recomendação de tamanho mais recente** : [NC T4 v3-Series](nct4-v3-series.md)
 
 As VMs da série NC são alimentadas pela placa [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) e pelo processador Intel Xeon E5-2690 v3 (Haswell). Os usuários podem processar os dados mais rapidamente aproveitando o CUDA para aplicativos de exploração de energia, simulações de falhas, renderização de traçados de raio, aprendizado profundo e muito mais. A configuração NC24r fornece um adaptador de rede de alta taxa de transferência e baixa latência, otimizado para cargas de trabalho de computação paralela firmemente acopladas.
 
@@ -393,8 +393,8 @@ As VMs da série NC são alimentadas pela placa [NVIDIA Tesla K80](https://www.n
 <br>
 
 
-## <a name="ncv2-series"></a>Série NCv2
-**Recomendação de tamanho mais recente**: [NC T4 v3-Series](nct4-v3-series.md) e [NC V100 v3-Series](ncv3-series.md)
+### <a name="ncv2-series"></a>Série NCv2
+**Recomendação de tamanho mais recente** : [NC T4 v3-Series](nct4-v3-series.md) e [NC V100 v3-Series](ncv3-series.md)
 
 VMs da série NCv2 têm a tecnologia de GPUs NVIDIA Tesla P100. Essas GPUs podem fornecer desempenho computacional 2 vezes maior que da série NC. Os clientes podem aproveitar essas GPUs atualizadas para cargas de trabalho HPC tradicionais como modelagem de reservatório, sequenciamento de DNA, análise de proteína, simulações de Monte Carlo, entre outros. Além das GPUs, as VMs da série NCv2 também são alimentadas por CPUs Intel Xeon E5-2690 V4 (Broadwell).
 
@@ -421,8 +421,8 @@ A configuração NC24rs v2 fornece um adaptador de rede de alta taxa de transfer
 
 <br>
 
-## <a name="nd-series"></a>Série ND
-**Recomendação de tamanho mais recente**: [NDv2-Series](ndv2-series.md) e [NC V100 v3-Series](ncv3-series.md)
+### <a name="nd-series"></a>Série ND
+**Recomendação de tamanho mais recente** : [NDv2-Series](ndv2-series.md) e [NC V100 v3-Series](ncv3-series.md)
 
 As máquinas virtuais da série ND são uma nova adição à família de GPU projetada para cargas de trabalho AI e Deep Learning. Elas oferecem um desempenho excelente para treinamento e Inferência. As instâncias do ND são alimentadas por [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs e CPUs Intel Xeon E5-2690 V4 (Broadwell). Essas instâncias oferecem um desempenho excelente para operações de ponto flutuante de precisão simples, para cargas de trabalho de AI que utilizam o Cognitive Toolkit, o TensorFlow, o Caffe e outras estruturas. A série ND também oferece um tamanho de memória de GPU muito maior (24 GB), permitindo usar modelos de rede neural muito maiores. Como a série NC, a série ND oferece uma configuração com uma baixa latência secundária, uma rede com alta taxa de transferência por meio de RDMA e a conectividade InfiniBand, permitindo executar trabalhos de grande escala que abrangem várias GPUs.
 
@@ -446,15 +446,6 @@ As máquinas virtuais da série ND são uma nova adição à família de GPU pro
 *Compatível com RDMA
 
 <br>
-
-## <a name="other-sizes"></a>Outros tamanhos
-
-* [Propósito geral](sizes-general.md)
-* [Computação otimizada](sizes-compute.md)
-* [Memória otimizada](sizes-memory.md)
-* [Armazenamento otimizado](sizes-storage.md)
-* [GPU](sizes-gpu.md)
-* [Computação de alto desempenho](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

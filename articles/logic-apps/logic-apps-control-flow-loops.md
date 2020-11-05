@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348059"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358449"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
 Para processar uma matriz em seu aplicativo lógico, você pode criar um [loop "Foreach"](#foreach-loop). Esse loop repete uma ou mais ações em cada item na matriz. Para obter o limite do número de itens de matriz que um loop "foreach" pode processar, consulte [limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para repetir ações até que uma condição seja atendida ou um estado seja alterado, você poderá criar uma [loop "Until"](#until-loop). O aplicativo lógico primeiro executa todas as ações dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para obter o limite do número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Para repetir ações até que uma condição seja atendida ou um estado seja alterado, você poderá criar uma [loop "Until"](#until-loop). O aplicativo lógico primeiro executa todas as ações dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para os limites padrão e máximo no número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > Se você tiver um gatilho que recebe uma matriz e deseja executar um fluxo de trabalho para cada item de matriz, é possível fazer *debatch* dessa matriz com o [**SplitOn** da propriedade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
@@ -152,7 +152,7 @@ Se você estiver trabalhando com a definição de JSON do aplicativo lógico, vo
 
 ## <a name="until-loop"></a>Loop "Until"
   
-Para executar e repetir ações até que uma condição seja atendida ou um estado seja alterado, coloque essas ações em um loop "Until". O aplicativo lógico primeiro executa toda e qualquer ação dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para obter o limite do número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Para executar e repetir ações até que uma condição seja atendida ou um estado seja alterado, coloque essas ações em um loop "Until". O aplicativo lógico primeiro executa toda e qualquer ação dentro do loop e, em seguida, verifica a condição ou o estado. Se a condição é atendida, o loop para. Caso contrário, o loop repete. Para os limites padrão e máximo no número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Aqui estão alguns cenários comuns em que é possível utilizar um loop "Until":
 
@@ -245,17 +245,19 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
       ![Email recebido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Impedir loops infinitos
 
-Um loop "Until" possui limites padrão que param a execução se alguma destas condições ocorrer:
+O loop "until" interrompe a execução com base nessas propriedades, portanto, certifique-se de definir seus valores adequadamente:
 
-| Propriedade | Valor padrão | Descrição | 
-| -------- | ------------- | ----------- | 
-| **Count** | 60 | O número mais alto de loops que são executados antes da saída do loop. O padrão é 60 ciclos. | 
-| **Tempo Limite** | PT1H | A maior quantidade de tempo para executar um loop antes da saída do loop. O padrão é uma hora e é especificado no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida. | 
-|||| 
+* **Contagem** : esse valor é o número mais alto de loops executados antes de o loop ser encerrado. Para os limites padrão e máximo no número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para alterar esses limites padrão, escolha **Mostrar opções avançadas** na forma de ação do loop.
+* **Tempo limite** : esse valor é a maior quantidade de tempo que o loop é executado antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obter os limites padrão e máximo do valor de **tempo limite** , consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida.
+
+Para alterar esses limites, na ação de loop, selecione **alterar limites**.
 
 <a name="until-json"></a>
 
