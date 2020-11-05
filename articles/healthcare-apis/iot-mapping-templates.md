@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558526"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394230"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Conector IoT do Azure para FHIR (versão prévia)
 Este artigo fornece detalhes sobre como configurar o conector do Azure IoT para FHIR * usando modelos de mapeamento.
@@ -254,7 +254,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
 O IotJsonPathContentTemplate é semelhante ao JsonPathContentTemplate, exceto que o DeviceIdExpression e o carimbo de data/hora não são necessários.
 
-A suposição ao usar esse modelo é que as mensagens que estão sendo avaliadas foram enviadas usando os [SDKs do dispositivo do Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks). Ao usar esses SDKs, a identidade do dispositivo (supondo que o identificador do dispositivo do Hub IOT/central do Azure seja registrado como um identificador para um recurso de dispositivo no servidor FHIR de destino) e o carimbo de data/hora da mensagem é conhecido. Se você estiver usando SDKs de dispositivo do Hub IoT do Azure, mas estiver usando propriedades personalizadas no corpo da mensagem para a identidade do dispositivo ou o carimbo de data/hora da medição, ainda poderá usar o JsonPathContentTemplate.
+A suposição ao usar esse modelo é que as mensagens que estão sendo avaliadas foram enviadas usando os [SDKs do dispositivo do Hub IOT do Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). Ao usar esses SDKs, a identidade do dispositivo (supondo que o identificador do dispositivo do Hub IOT/central do Azure seja registrado como um identificador para um recurso de dispositivo no servidor FHIR de destino) e o carimbo de data/hora da mensagem é conhecido. Se você estiver usando SDKs de dispositivo do Hub IoT do Azure, mas estiver usando propriedades personalizadas no corpo da mensagem para a identidade do dispositivo ou o carimbo de data/hora da medição, ainda poderá usar o JsonPathContentTemplate.
 
 *Observação: ao usar o IotJsonPathContentTemplate, o TypeMatchExpression deve resolver a mensagem inteira como um JToken. Consulte os exemplos abaixo.* 
 ##### <a name="examples"></a>Exemplos
@@ -376,7 +376,7 @@ Representa o tipo de dados [CodeableConcept](http://hl7.org/fhir/datatypes.html#
 
 | Propriedade | Descrição 
 | --- | --- 
-|**Texto**|Representação de texto sem formatação. 
+|**Text**|Representação de texto sem formatação. 
 |**Códigos**|Uma ou mais [codificações](http://hl7.org/fhir/datatypes-definitions.html#coding) a serem aplicadas à observação criada.
 |**Códigos []. Auto-completar**|O código para a [codificação](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Códigos []. Sistema**|O sistema para a [codificação](http://hl7.org/fhir/datatypes-definitions.html#coding).

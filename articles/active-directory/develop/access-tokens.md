@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740173"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393363"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma de identidade da Microsoft
 
@@ -33,7 +33,7 @@ Confira as seções a seguir para saber como um recurso pode validar e usar as d
 > [!IMPORTANT]
 > Os tokens de acesso são criados com base no *público-alvo* do token, ou seja, o aplicativo proprietário dos escopos no token.  É assim que uma configuração de recurso `accessTokenAcceptedVersion` no [manifesto do aplicativo](reference-app-manifest.md#manifest-reference) para `2` permite que o cliente que chama o ponto de extremidade v1.0 receba um token de acesso v2.0.  Da mesma forma, é por isso que alterar as [declarações opcionais](active-directory-optional-claims.md) do token de acesso para o cliente não altera o token de acesso recebido quando um token é solicitado para `user.read`, que pertence ao recurso.
 >
-> Pelo mesmo motivo, ao testar o aplicativo cliente com uma API da Microsoft que dá suporte a uma conta pessoal (como hotmail.com ou outlook.com), você descobrirá que o token de acesso recebido pelo seu cliente é uma cadeia de caracteres opaca. Isso ocorre porque o recurso que está sendo acessado usa tokens criptografados e não pode ser compreendido pelo cliente.  Isso é esperado e não deve ser um problema para seus aplicativos cliente-aplicativo nunca deve ter uma dependência no formato do token de acesso. 
+> Pelo mesmo motivo, ao testar o aplicativo cliente com uma API da Microsoft que dá suporte a uma conta pessoal (como hotmail.com ou outlook.com), você descobrirá que o token de acesso recebido pelo seu cliente é uma cadeia de caracteres opaca. Isso ocorre porque o recurso que está sendo acessado usa tokens criptografados e não pode ser compreendido pelo cliente.  Isso é esperado e não deve ser um problema para seus aplicativos cliente-aplicativo nunca deve ter uma dependência no formato do token de acesso.
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 
@@ -178,7 +178,7 @@ Fornecemos bibliotecas e exemplos de código que mostram como manipular a valida
 
 ### <a name="validating-the-signature"></a>Validação da assinatura
 
-Um JWT contém três segmentos, que são separados pelo caractere `.` . O primeiro segmento é conhecido como o **cabeçalho** , o segundo como o **corpo** e o terceiro como a **assinatura** . O segmento de assinatura pode ser usado para validar a autenticidade do token, de modo que seu aplicativo possa confiar nele.
+Um JWT contém três segmentos, que são separados pelo caractere `.` . O primeiro segmento é conhecido como o **cabeçalho** , o segundo como o **corpo** e o terceiro como a **assinatura**. O segmento de assinatura pode ser usado para validar a autenticidade do token, de modo que seu aplicativo possa confiar nele.
 
 Os tokens emitidos pelo Azure AD são assinados usando algoritmos de criptografia assimétrica padrão do setor, como o RS256. O cabeçalho do JWT contém informações sobre o método de criptografia e a chave usados para assinar o token:
 
@@ -245,7 +245,7 @@ Os tokens de atualização podem ser invalidados ou revogados a qualquer momento
 
 ### <a name="token-timeouts"></a>Tempos limite de token
 
-Com a [configuração de tempo de vida do token](active-directory-configurable-token-lifetimes.md), é possível alterar o tempo de vida dos tokens de atualização.  É normal e esperado que alguns tokens não sejam usados (por exemplo, o usuário não abre o aplicativo por três meses) e, portanto, expirem.  Os aplicativos encontrarão cenários em que o servidor de logon rejeita um token de atualização devido à sua idade. 
+Com a [configuração de tempo de vida do token](active-directory-configurable-token-lifetimes.md), é possível alterar o tempo de vida dos tokens de atualização.  É normal e esperado que alguns tokens não sejam usados (por exemplo, o usuário não abre o aplicativo por três meses) e, portanto, expirem.  Os aplicativos encontrarão cenários em que o servidor de logon rejeita um token de atualização devido à sua idade.
 
 * MaxInactiveTime: Se o token de atualização não tiver sido usado no tempo determinado pelo MaxInactiveTime, ele não será válido.
 * MaxSessionAge: se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor tiver sido definido como algo diferente do padrão (até revogado), será necessária a reautenticação depois de decorrido o tempo definido em MaxAgeSession*.
@@ -255,7 +255,7 @@ Com a [configuração de tempo de vida do token](active-directory-configurable-t
 
 ### <a name="revocation"></a>Revogação
 
-Os tokens de atualização podem ser revogados pelo servidor devido a uma alteração nas credenciais, ao uso ou à ação do administrador.  Os tokens de atualização se enquadram em duas classes – aqueles emitidos para clientes confidenciais (a coluna mais à direita) e aqueles emitidos para clientes públicos (todas as outras colunas).   
+Os tokens de atualização podem ser revogados pelo servidor devido a uma alteração nas credenciais, ao uso ou à ação do administrador.  Os tokens de atualização se enquadram em duas classes – aqueles emitidos para clientes confidenciais (a coluna mais à direita) e aqueles emitidos para clientes públicos (todas as outras colunas).
 
 | Alterar | Cookie baseado em senha | Token baseado em senha | Cookie não baseado em senha | Token não baseados em senha | Token de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -273,14 +273,14 @@ Um logon *não baseado em senha* é aquele em que o usuário não digitou uma se
 
 - Usando seu rosto com o Windows Hello
 - Chave FIDO2
-- SMS
+- sms
 - Voz
-- PIN 
+- PIN
 
 > [!NOTE]
 > Os PRTs (tokens de atualização principal) no Windows 10 são separados com base na credencial. Por exemplo, o Windows Hello e a senha têm seus respectivos PRTs, isolados um do outro. Quando um usuário entra com uma credencial do Hello (PIN ou biometria) e, em seguida, altera a senha, o PRT baseado em senha obtido anteriormente será revogado. Entrar novamente com uma senha invalida o PRT antigo e solicita um novo.
 >
-> Tokens de atualização não são invalidados ou revogados quando usados para buscar um novo token de acesso e token de atualização.  No entanto, o aplicativo deve descartar o antigo assim que for usado e substituí-lo pelo novo, pois o novo token tem um novo tempo de expiração. 
+> Tokens de atualização não são invalidados ou revogados quando usados para buscar um novo token de acesso e token de atualização.  No entanto, o aplicativo deve descartar o antigo assim que for usado e substituí-lo pelo novo, pois o novo token tem um novo tempo de expiração.
 
 ## <a name="next-steps"></a>Próximas etapas
 

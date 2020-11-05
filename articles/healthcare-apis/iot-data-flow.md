@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513359"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394859"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Fluxo de dados do Conector IoT do Azure para FHIR (versão prévia)
 
@@ -26,7 +26,7 @@ O diagrama acima mostra fluxos de dados comuns usando o conector IoT do Azure pa
 Abaixo estão os estágios diferentes pelos quais os dados passam quando recebidos pelo conector do Azure IoT para FHIR.
 
 ## <a name="ingest"></a>Ingerir
-Ingestão é o primeiro estágio em que os dados do dispositivo são recebidos no conector do Azure IoT para FHIR. O ponto de extremidade de ingestão para dados do dispositivo é hospedado em um [Hub de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/). A plataforma do hub de eventos do Azure dá suporte a alta escala e taxa de transferência com a capacidade de receber e processar milhões de mensagens por segundo. Ele também permite que o conector IoT do Azure para FHIR consuma mensagens de forma assíncrona, eliminando a necessidade de dispositivos aguardarem enquanto os dados do dispositivo são processados.
+Ingestão é o primeiro estágio em que os dados do dispositivo são recebidos no conector do Azure IoT para FHIR. O ponto de extremidade de ingestão para dados do dispositivo é hospedado em um [Hub de eventos do Azure](../event-hubs/index.yml). A plataforma do hub de eventos do Azure dá suporte a alta escala e taxa de transferência com a capacidade de receber e processar milhões de mensagens por segundo. Ele também permite que o conector IoT do Azure para FHIR consuma mensagens de forma assíncrona, eliminando a necessidade de dispositivos aguardarem enquanto os dados do dispositivo são processados.
 
 > [!NOTE]
 > JSON é o único formato com suporte no momento para dados do dispositivo.
@@ -36,7 +36,7 @@ Normalize é o próximo estágio em que os dados do dispositivo são recuperados
 
 O processo de normalização não apenas simplifica o processamento de dados em estágios posteriores, mas também fornece a capacidade de projetar uma mensagem de entrada em várias mensagens normalizadas. Por exemplo, um dispositivo poderia enviar vários sinais vitais para temperatura do corpo, taxa de pulso, pressão de sangue e taxa de Respiration em uma única mensagem. Essa mensagem de entrada criaria quatro recursos de FHIR separados. Cada recurso representaria um sinal vital diferente, com a mensagem de entrada projetada em quatro mensagens normalizadas diferentes.
 
-## <a name="group"></a>Grupo
+## <a name="group"></a>Agrupar
 O grupo é o próximo estágio em que as mensagens normalizadas disponíveis no estágio anterior são agrupadas usando três parâmetros diferentes: identidade do dispositivo, tipo de medida e período de tempo.
 
 A identidade do dispositivo e o agrupamento do tipo de medição habilitam o uso do tipo de medição [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) . Esse tipo fornece uma maneira concisa de representar uma série de medidas com base em tempo de um dispositivo no FHIR. E o período de tempo controla a latência na qual os recursos de observação gerados pelo conector do Azure IoT para FHIR são gravados na API do Azure para FHIR.

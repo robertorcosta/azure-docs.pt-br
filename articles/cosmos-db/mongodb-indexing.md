@@ -9,12 +9,12 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 23e9b45c47cdbdb671146b772d16354b1ee3c31b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096471"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392564"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerenciar a indexação na API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -54,7 +54,7 @@ Você pode usar índices compostos para classificar com eficiência em vários c
 
 `db.coll.find().sort({name:1,age:1})`
 
-Você também pode usar o índice composto anterior para classificar com eficiência uma consulta com a ordem de classificação oposta em todos os campos. Veja um exemplo:
+Você também pode usar o índice composto anterior para classificar com eficiência uma consulta com a ordem de classificação oposta em todos os campos. Aqui está um exemplo:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -122,7 +122,7 @@ O comando a seguir cria um índice curinga em qualquer propriedade em `children`
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Ao contrário do MongoDB, os índices curinga podem dar suporte a vários campos em predicados de consulta** . Não haverá diferença no desempenho da consulta se você usar um único índice curinga em vez de criar um índice separado para cada propriedade.
+**Ao contrário do MongoDB, os índices curinga podem dar suporte a vários campos em predicados de consulta**. Não haverá diferença no desempenho da consulta se você usar um único índice curinga em vez de criar um índice separado para cada propriedade.
 
 Você pode criar os seguintes tipos de índice usando a sintaxe curinga:
 
@@ -211,7 +211,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975851"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393380"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registrar um aplicativo de recurso no Azure Active Directory
 
@@ -43,7 +43,7 @@ Se você estiver usando o servidor de FHIR de software livre para o Azure, siga 
 
 1. No [portal do Azure](https://portal.azure.com), no painel navegação à esquerda, clique em **Azure Active Directory**.
 
-2. Na folha **Azure Active Directory** , clique em **registros de aplicativo**:
+2. Na folha **Azure Active Directory** , clique em **registros de aplicativo** :
 
     ![portal do Azure. Novo registro de aplicativo.](media/how-to-aad/portal-aad-new-app-registration.png)
 
@@ -71,9 +71,9 @@ Um aplicativo de recurso tem um URI de identificador (URI de ID de aplicativo), 
 
 ### <a name="define-application-roles"></a>Definir funções de aplicativo
 
-A API do Azure para FHIR e o servidor FHIR do OSS para Azure usam [Azure Active Directory funções de aplicativo](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) para o controle de acesso baseado em função. Para definir quais funções devem estar disponíveis para a API do servidor do FHIR, abra o [manifesto](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/)do aplicativo de recurso:
+A API do Azure para FHIR e o servidor FHIR do OSS para Azure usam [Azure Active Directory funções de aplicativo](/azure/architecture/multitenant-identity/app-roles) para o controle de acesso baseado em função. Para definir quais funções devem estar disponíveis para a API do servidor do FHIR, abra o [manifesto](/azure/active-directory/active-directory-application-manifest/)do aplicativo de recurso:
 
-1. Clique em **manifesto**:
+1. Clique em **manifesto** :
 
     ![Funções de aplicativo](media/how-to-aad/portal-aad-register-new-app-registration-APP-ROLES.png)
 

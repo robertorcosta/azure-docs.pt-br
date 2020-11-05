@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: aca7b7e8590c9c8eb3db987c5d1527d9f135bf3f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325534"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392989"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 
@@ -97,7 +97,10 @@ Essas etapas adicionam a identidade gerenciada pelo espaço de trabalho como um 
 
 ## <a name="technical-notes-for-managed-identity"></a>Notas técnicas para identidade gerenciada
 
-O uso da identidade gerenciada para acessar serviços de armazenamento afeta algumas considerações de segurança. Essas considerações são exclusivas para o tipo de conta de armazenamento que você está acessando. Esta seção descreve as alterações para cada tipo de conta de armazenamento.
+O uso da identidade gerenciada para acessar serviços de armazenamento afeta algumas considerações de segurança. Esta seção descreve as alterações para cada tipo de conta de armazenamento.
+
+> [!IMPORTANT]
+> Essas considerações são exclusivas para o __tipo de conta de armazenamento__ que você está acessando.
 
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 

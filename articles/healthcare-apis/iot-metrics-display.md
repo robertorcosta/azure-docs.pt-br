@@ -1,5 +1,5 @@
 ---
-title: Exibir e configurar o conector do Azure IoT para métricas de FHIR (versão prévia)
+title: Exibir e configurar métricas do Conector IoT do Azure para FHIR (versão prévia)
 description: Este artigo explica a exibição e a configuração do conector do Azure IoT para métricas FHIR (versão prévia)
 services: healthcare-apis
 author: msjasteppe
@@ -8,19 +8,19 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: jasteppe
-ms.openlocfilehash: 76166fc5c525d36474a585179472e93b22dad647
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cdae789b8286be408735fff92e2de46e28ce514
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133474"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394281"
 ---
-# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Exibir e configurar o conector do Azure IoT para métricas de FHIR (versão prévia) 
+# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Exibir e configurar métricas do Conector IoT do Azure para FHIR (versão prévia) 
 
 Neste artigo, você aprenderá a exibir e configurar o conector do Azure IoT para métricas FHIR *. 
 
 > [!TIP]
-> Siga as orientações em [exportar o conector do Azure IOT para métricas de FHIR (versão prévia) por meio das configurações de diagnóstico](https://docs.microsoft.com/azure/healthcare-apis/iot-metrics-diagnostics-export) para saber como configurar a exportação de dados de métricas.
+> Siga as orientações em [exportar o conector do Azure IOT para métricas de FHIR (versão prévia) por meio das configurações de diagnóstico](./iot-metrics-diagnostics-export.md) para saber como configurar a exportação de dados de métricas.
 
 ## <a name="view-metrics-for-azure-iot-connector-for-fhir-preview"></a>Exibir métricas para o conector do Azure IoT para FHIR (versão prévia)
 1. Para exibir as métricas para conectores IoT, selecione sua API do Azure para o serviço FHIR no portal do Azure. 
@@ -33,14 +33,14 @@ Neste artigo, você aprenderá a exibir e configurar o conector do Azure IoT par
 
 4. Selecione um conector IoT para exibir suas métricas (por exemplo: há (4) conectores IoT associados a essa API do Azure para serviço FHIR).
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="Connector1 IoT" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="Connector2 IoT" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
 
 > [!NOTE]
 > A guia **personalizado** permite criar combinações de data/hora específicas para exibir as métricas do conector IOT.
 
 5. Selecione o período de métrica do conector IoT a ser exibido (por exemplo: 1 hora, 24 horas, 7 dias ou personalizado).
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Connector1 IoT" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Connector3 IoT" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metrics-types-for-azure-iot-connector-for-fhir-preview"></a>Tipos de métricas para o conector do Azure IoT para FHIR (versão prévia) 
 As métricas de conector IoT exibidas são as seguintes:
@@ -59,11 +59,11 @@ Neste exemplo, vamos nos concentrar no **número de métricas de mensagens de en
 
 1. Selecione um ponto no tempo no qual você deseja se concentrar.
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="Connector1 IoT" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="Connector4 IoT" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
 
 2. Nessa tela, você pode **Adicionar métrica** , **Adicionar filtro** e **aplicar divisão** para outras personalizações. 
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="Connector1 IoT" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="Connector5 IoT" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
 
 ## <a name="conclusion"></a>Conclusão 
 Ter acesso às métricas do plano de dados é essencial para o monitoramento e a solução de problemas.  O conector do Azure IoT para FHIR ajuda você a fazer essas ações por meio de métricas. 

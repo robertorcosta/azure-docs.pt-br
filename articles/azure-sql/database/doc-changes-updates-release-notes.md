@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791028"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391969"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Este artigo lista os recursos do banco de dados SQL do Azure e do Azure SQL Inst
 
 ## <a name="whats-new"></a>Novidades
 
-A documentação do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada foi dividida em seções separadas. Também atualizamos como nos referimos a uma instância gerenciada da *instância gerenciada do banco de dados SQL do Azure* para o *Azure SQL instância gerenciada* .
+A documentação do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada foi dividida em seções separadas. Também atualizamos como nos referimos a uma instância gerenciada da *instância gerenciada do banco de dados SQL do Azure* para o *Azure SQL instância gerenciada*.
 
 Fizemos isso porque alguns recursos e funcionalidades variam muito entre um único banco de dados e uma instância gerenciada, e ele se tornou cada vez mais desafiador de explicar nuances complexas entre o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada em artigos compartilhados individuais.
 
@@ -104,7 +104,7 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
 |[A entidade de serviço não pode acessar o Azure AD e o AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 de agosto|Tem solução alternativa||
 |[A restauração do backup manual sem soma de verificação pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
 |[O Agent não responde na modificação, desabilitação ou habilitação de trabalhos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
-|[As permissões no grupo de recursos não são aplicadas ao SQL Instância Gerenciada](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Fev 2020|Tem solução alternativa||
+|[As permissões no grupo de recursos não são aplicadas ao SQL Instância Gerenciada](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Fev 2020|Resolvido|2020 de novembro|
 |[Limitação de failover manual por meio do portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem solução alternativa||
 |[As funções do SQL Agent precisam de permissões EXECUTE explícitas para logons não sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dez 2019|Tem solução alternativa||
 |[Os trabalhos do SQL Agent podem ser interrompidos pela reinicialização do processo do agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dez 2019|Resolvido|Mar 2020|

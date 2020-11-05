@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284475"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395029"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de versão do Azure SQL Edge 
 
@@ -37,9 +37,9 @@ Este artigo descreve o que há de novo e o que mudou em todas as novas compilaç
    - Habilitar cenários de execução paralela
 6. Melhorias de economia de energia para o modo de baixa energia
 7. Suporte ao novo recurso de streaming 
-   - [Janelas de instantâneo](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : novo tipo de janela que permite agrupar por eventos que chegam ao mesmo tempo. 
-   - Habilite [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) e [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) como função analítica, isso permitirá que o retorne os registros ordenados pela coluna de sua escolha, sem que seja necessário fazer parte de uma janela. 
-   - Melhorias no [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
+   - [Janelas de instantâneo](/stream-analytics-query/snapshot-window-azure-stream-analytics) : novo tipo de janela que permite agrupar por eventos que chegam ao mesmo tempo. 
+   - Habilite [TopOne](/stream-analytics-query/topone-azure-stream-analytics) e [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) como função analítica, isso permitirá que o retorne os registros ordenados pela coluna de sua escolha, sem que seja necessário fazer parte de uma janela. 
+   - Melhorias no [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Correções
 1. Mensagens de erro adicionais e detalhes para solução de problemas de operações de streaming de TSQL. 

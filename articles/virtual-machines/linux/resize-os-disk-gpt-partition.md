@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 99b723322ce7636edce3ae5b59a69b96e288ca24
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340287"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392683"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensionar um disco do sistema operacional com partição GPT
 
@@ -231,95 +231,144 @@ Quando a VM reiniciar, execute as etapas a seguir:
    
    No exemplo anterior, podemos ver que o tamanho do sistema de arquivos para o disco do sistema operacional aumentou.
 
-### <a name="rhel-lvm"></a>LVM DE RHEL
-
-Para aumentar o tamanho do disco do sistema operacional no RHEL 7.x com LVM:
-
-1. Pare a VM.
-1. Aumente o tamanho do disco do sistema operacional no portal.
-1. Inicie a VM.
-
-Quando a VM reiniciar, execute as etapas a seguir:
+### <a name="rhel-with-lvm"></a>RHEL com LVM
 
 1. Acesse sua VM como usuário **raiz** usando o comando a seguir:
- 
-   ```
-   #sudo su
+
+   ```bash
+   [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Instale o pacote **gptfdisk** necessário para aumentar o tamanho do disco do sistema operacional.
+1. Use o `lsblk` comando para descobrir qual volume lógico (LV) está montado na raiz do sistema de arquivos ("/"). Nesse caso, vemos que **_rootvg-rootlv_*_ está montado em _* /**.  Se outro sistema de arquivos for desejado, substitua o LV e o ponto de montagem por este documento.
 
-   ```
-   #yum install gdisk -y
-   ```
-
-1. Para ver o maior setor disponível no disco, execute o seguinte comando:
-
-   ```
-   #sgdisk -e /dev/sda
-   ```
-
-1. Redimensione a partição sem excluí-la usando o comando a seguir. O comando **parted** tem uma opção chamada **resizepart** para redimensionar a partição sem excluí-la. O número 4 após **resizepart** indica o redimensionamento da quarta partição.
-
-   ```
-   #parted -s /dev/sda "resizepart 4 -1" quit
-   ```
-    
-1. Execute o seguinte comando para verificar se a partição foi aumentada:
-
-   ```
-   #lsblk
+   ```shell
+   [root@dd-rhel7vm ~]# lsblk -f
+   NAME                  FSTYPE      LABEL   UUID                                   MOUNTPOINT
+   fd0
+   sda
+   ├─sda1                vfat                C13D-C339                              /boot/efi
+   ├─sda2                xfs                 8cc4c23c-fa7b-4a4d-bba8-4108b7ac0135   /boot
+   ├─sda3
+   └─sda4                LVM2_member         zx0Lio-2YsN-ukmz-BvAY-LCKb-kRU0-ReRBzh
+      ├─rootvg-tmplv      xfs                 174c3c3a-9e65-409a-af59-5204a5c00550   /tmp
+      ├─rootvg-usrlv      xfs                 a48dbaac-75d4-4cf6-a5e6-dcd3ffed9af1   /usr
+      ├─rootvg-optlv      xfs                 85fe8660-9acb-48b8-98aa-bf16f14b9587   /opt
+      ├─rootvg-homelv     xfs                 b22432b1-c905-492b-a27f-199c1a6497e7   /home
+      ├─rootvg-varlv      xfs                 24ad0b4e-1b6b-45e7-9605-8aca02d20d22   /var
+      └─rootvg-rootlv     xfs                 4f3e6f40-61bf-4866-a7ae-5c6a94675193   /
    ```
 
-   A saída a seguir mostra que a partição **/dev/sda4** foi redimensionada para 99 GB.
+1. Verifique se há espaço livre no grupo de volumes LVM que contém a partição raiz.  Se houver espaço livre, pule para a etapa **12**
 
-   ```
-   [user@myvm ~]# lsblk
-   NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-   fd0                 2:0    1    4K  0 disk
-   sda                 8:0    0  100G  0 disk
-   ├─sda1              8:1    0  500M  0 part /boot/efi
-   ├─sda2              8:2    0  500M  0 part /boot
-   ├─sda3              8:3    0    2M  0 part
-   └─sda4              8:4    0   99G  0 part
-   ├─rootvg-tmplv    253:0    0    2G  0 lvm  /tmp
-   ├─rootvg-usrlv    253:1    0   10G  0 lvm  /usr
-   ├─rootvg-optlv    253:2    0    2G  0 lvm  /opt
-   ├─rootvg-homelv   253:3    0    1G  0 lvm  /home
-   ├─rootvg-varlv    253:4    0    8G  0 lvm  /var
-   └─rootvg-rootlv   253:5    0    2G  0 lvm  /
-   sdb                 8:16   0   50G  0 disk
-   └─sdb1              8:17   0   50G  0 part /mnt/resource
+   ```bash
+   [root@dd-rhel7vm ~]# vgdisplay rootvg
+   --- Volume group ---
+   VG Name               rootvg
+   System ID
+   Format                lvm2
+   Metadata Areas        1
+   Metadata Sequence No  7
+   VG Access             read/write
+   VG Status             resizable
+   MAX LV                0
+   Cur LV                6
+   Open LV               6
+   Max PV                0
+   Cur PV                1
+   Act PV                1
+   VG Size               <63.02 GiB
+   PE Size               4.00 MiB
+   Total PE              16132
+   Alloc PE / Size       6400 / 25.00 GiB
+   Free  PE / Size       9732 / <38.02 GiB
+   VG UUID               lPUfnV-3aYT-zDJJ-JaPX-L2d7-n8sL-A9AgJb
    ```
 
-1. Use o seguinte comando para redimensionar o volume físico (PV):
+   Neste exemplo, o **PE/tamanho** da linha informa que há 38.02 GB livres no grupo de volumes.  Nenhum redimensionamento de disco é necessário antes de adicionar espaço ao grupo de volumes
 
-   ```
-   #pvresize /dev/sda4
+1. Para aumentar o tamanho do disco do sistema operacional no RHEL 7.x com LVM:
+
+   1. Pare a VM.
+   1. Aumente o tamanho do disco do sistema operacional no portal.
+   1. Inicie a VM.
+
+1. Quando a VM reiniciar, execute as etapas a seguir:
+
+   1. Instale o pacote **Cloud-utils-growpart** para fornecer o comando **growpart** , que é necessário para aumentar o tamanho do disco do sistema operacional.
+
+      Este pacote é pré-instalado na maioria das imagens do Azure Marketplace.
+
+      ```bash
+      [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
+      ```
+
+1. Determine qual disco e partição contém os volumes físicos do LVM (VP) no grupo de volumes (VG) denominado rootvg com o comando **pvscan** .  Anote o tamanho e o espaço livre listados entre colchetes **[]**.
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+     PV /dev/sda4   VG rootvg          lvm2 [<63.02 GiB / <38.02 GiB free]
    ```
 
-   A saída a seguir mostra que o PV foi redimensionado para 99,02 GB.
+1. Verifique o tamanho da partição com **lsblk**.  Examine o 
 
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  63G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
    ```
-   [user@myvm ~]# pvresize /dev/sda4
+
+1. Expanda a partição que contém este PV usando **growpart** , o nome do dispositivo e o número da partição.  Isso expandirá a partição especificada para usar todo o espaço contíguo livre no dispositivo.
+
+   ```bash
+   [root@dd-rhel7vm ~]# growpart /dev/sda 4
+   CHANGED: partition=4 start=2054144 old: size=132161536 end=134215680 new: size=199272414 end=201326558
+   ```
+
+1. Verifique se a partição foi redimensionada para o tamanho esperado com o comando **lsblk** novamente.  Observe que, no exemplo sda4 foi alterado de 63G para 95G.
+
+   ```bash
+   [root@dd-rhel7vm ~]# lsblk /dev/sda4
+   NAME            MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+   sda4              8:4    0  95G  0 part
+   ├─rootvg-tmplv  253:1    0   2G  0 lvm  /tmp
+   ├─rootvg-usrlv  253:2    0  10G  0 lvm  /usr
+   ├─rootvg-optlv  253:3    0   2G  0 lvm  /opt
+   ├─rootvg-homelv 253:4    0   1G  0 lvm  /home
+   ├─rootvg-varlv  253:5    0   8G  0 lvm  /var
+   └─rootvg-rootlv 253:6    0   2G  0 lvm  /
+   ```
+
+1. Expanda o VP para usar o restante da partição recentemente expandida
+
+   ```bash
+   [root@dd-rhel7vm ~]# pvresize /dev/sda4
    Physical volume "/dev/sda4" changed
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
-
-   [user@myvm ~]# pvs
-   PV         VG     Fmt  Attr PSize   PFree
-   /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
    ```
 
-1. No exemplo a seguir, **/dev/mapper/rootvg-rootlv** será redimensionado de 2 GB para 12 GB (um aumento de 10 GB) por meio do comando a seguir. Este comando também redimensionará o sistema de arquivos.
+1. Verifique se o novo tamanho do VP é o tamanho esperado, comparando-os aos valores originais **[tamanho/livre]** .
 
+   ```bash
+   [root@dd-rhel7vm ~]# pvscan
+   PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
-   #lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+
+1. Expanda o volume lógico desejado (LV) pelo valor desejado, que não precisa ser todo o espaço livre no grupo de volumes.  No exemplo a seguir, **/dev/mapper/rootvg-rootlv** será redimensionado de 2 GB para 12 GB (um aumento de 10 GB) por meio do comando a seguir. Este comando também redimensionará o sistema de arquivos.
+
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    ```
 
    Saída de exemplo:
 
-   ```
-   [user@myvm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+   ```bash
+   [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
    Size of logical volume rootvg/rootlv changed from 2.00 GiB (512 extents) to 12.00 GiB (3072 extents).
    Logical volume rootvg/rootlv successfully resized.
    meta-data=/dev/mapper/rootvg-rootlv isize=512    agcount=4, agsize=131072 blks
@@ -333,24 +382,24 @@ Quando a VM reiniciar, execute as etapas a seguir:
    realtime =none                   extsz=4096   blocks=0, rtextents=0
    data blocks changed from 524288 to 3145728
    ```
-         
-1. Verifique se **/dev/mapper/rootvg-rootlv** tem um tamanho de sistema de arquivos maior usando o seguinte comando:
 
-   ```
-   #df -Th /
+1. O comando lvresize chama automaticamente o comando de redimensionamento apropriado para o sistema de arquivos no LV. Verifique se **/dev/mapper/rootvg-rootlv** , que está montado em **/** tem um tamanho de sistema de arquivos maior usando o seguinte comando:
+
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    ```
 
    Saída de exemplo:
 
-   ```
-   [user@myvm ~]# df -Th /
+   ```shell
+   [root@dd-rhel7vm ~]# df -Th /
    Filesystem                Type  Size  Used Avail Use% Mounted on
    /dev/mapper/rootvg-rootlv xfs    12G   71M   12G   1% /
-   [user@myvm ~]#
+   [root@dd-rhel7vm ~]#
    ```
 
 > [!NOTE]
-> Para usar o mesmo procedimento para redimensionar qualquer outro volume lógico, altere o nome **lv** na etapa 7.
+> Para usar o mesmo procedimento para redimensionar qualquer outro volume lógico, altere o nome **LV** na etapa **12**.
 
 ### <a name="rhel-raw"></a>RHEL BRUTO
 >[!NOTE]

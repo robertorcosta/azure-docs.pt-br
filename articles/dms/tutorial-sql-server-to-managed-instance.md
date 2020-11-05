@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 592d96195d1c70c73e32589fe764a8747b0b66e6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4469d92ed7bf33ed5384925e1c0161a318b8233d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546765"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393346"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerenciada de SQL do Azure offline usando DMS
 
@@ -57,7 +57,7 @@ Para concluir este tutorial, você precisará:
 
 - Verifique se as regras do Grupo de Segurança de Rede da rede virtual não bloqueiam as seguintes portas de comunicação de entrada do Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configure o [Firewall do Windows para acesso ao mecanismo de banco de dados de fonte](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que, por padrão, é a porta TCP 1433.
+- Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que, por padrão, é a porta TCP 1433. Se a instância padrão estiver escutando em alguma outra porta, adicione-a ao firewall.
 - Se você estiver executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez precise habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio dos firewalls, de modo que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada no servidor de origem.
 - Se você estiver usando um dispositivo de firewall na frente dos bancos de dados de origem, talvez precise adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração, bem como arquivos por meio da porta SMB 445.
 - Crie um Instância Gerenciada de SQL seguindo os detalhes do artigo [Criar uma Instância Gerenciada de SQL no portal do Azure](https://aka.ms/sqldbmi).
@@ -81,15 +81,15 @@ Para concluir este tutorial, você precisará:
     
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrar o provedor de recursos Microsoft.DataMigration
 
-1. Entre no portal do Azure, selecione **Todos os serviços** e selecione **Assinaturas** .
+1. Entre no portal do Azure, selecione **Todos os serviços** e selecione **Assinaturas**.
 
     ![Mostrar assinaturas do portal](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)
 
-2. Selecione a assinatura na qual deseja criar a instância do Serviço de Migração de Banco de Dados do Azure e, em seguida, selecione **Provedores de recursos** .
+2. Selecione a assinatura na qual deseja criar a instância do Serviço de Migração de Banco de Dados do Azure e, em seguida, selecione **Provedores de recursos**.
 
     ![Exibir provedores de recursos](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
 
-3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration** , selecione **Registrar** .
+3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration** , selecione **Registrar**.
 
     ![Registrar provedor de recursos](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
 
@@ -99,7 +99,7 @@ Para concluir este tutorial, você precisará:
 
     ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
 
-2. Na tela **Serviço de Migração de Banco de Dados do Azure** , selecione **Criar** .
+2. Na tela **Serviço de Migração de Banco de Dados do Azure** , selecione **Criar**.
 
     ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-managed-instance/dms-create1.png)
 
@@ -133,9 +133,9 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 2. Na tela **Serviço de Migração de Banco de Dados do Azure** , procure o nome da instância que você criou e, em seguida, selecione-a.
 
-3. Selecione + **Novo Projeto de Migração** .
+3. Selecione + **Novo Projeto de Migração**.
 
-4. Na tela **Novo projeto de migração** , especifique um nome para o projeto, na caixa de texto **Tipo de servidor de origem** , selecione **SQL Server** ; na caixa de texto **Tipo de servidor de destino** , selecione **Instância Gerenciada de SQL do Azure** ; e, em **Escolher tipo de atividade** , selecione **Migração de dados offline** .
+4. Na tela **Novo projeto de migração** , especifique um nome para o projeto, na caixa de texto **Tipo de servidor de origem** , selecione **SQL Server** ; na caixa de texto **Tipo de servidor de destino** , selecione **Instância Gerenciada de SQL do Azure** ; e, em **Escolher tipo de atividade** , selecione **Migração de dados offline**.
 
    ![Criar projeto do DMS](media/tutorial-sql-server-to-managed-instance/dms-create-project2.png)
 
@@ -145,7 +145,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 1. Na tela **Detalhe de origem de migração** , especifique os detalhes da conexão do SQL Server de origem.
 
-2. Caso não tenha instalado um certificado confiável no servidor, selecione a caixa de seleção **Certificado de servidor confiável** .
+2. Caso não tenha instalado um certificado confiável no servidor, selecione a caixa de seleção **Certificado de servidor confiável**.
 
     Quando não houver um certificado confiável instalado, o SQL Server gerará um certificado autoassinado quando a instância for iniciada. Esse certificado é usado para criptografar as credenciais das conexões de cliente.
 
@@ -154,7 +154,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
    ![Detalhes da origem](media/tutorial-sql-server-to-managed-instance/dms-source-details1.png)
 
-3. Clique em **Salvar** .
+3. Clique em **Salvar**.
 
 4. Na tela **Selecionar bancos de dados de origem** , selecione o banco de dados **Adventureworks2012** para migração.
 
@@ -163,7 +163,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
     > [!IMPORTANT]
     > Se você usa o SSIS (SQL Server Integration Services), no momento, o DMS não dá suporte à migração do banco de dados de catálogo dos seus projetos e pacotes do SSIS (SSISDB) do SQL Server para a Instância Gerenciada de SQL. No entanto, é possível provisionar o SSIS no ADF (Azure Data Factory) e reimplantar os projetos e os pacotes do SSIS no SSISDB de destino hospedado pela Instância Gerenciada de SQL. Para saber mais sobre como migrar pacotes SSIS, confira o artigo [Migrar pacotes do SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
-5. Clique em **Salvar** .
+5. Clique em **Salvar**.
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
@@ -173,7 +173,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Selecionar o destino](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
-2. Clique em **Salvar** .
+2. Clique em **Salvar**.
 
 ## <a name="select-source-databases"></a>Selecionar bancos de dados de origem
 
@@ -181,7 +181,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Selecionar bancos de dados de origem](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
 
-2. Clique em **Salvar** .
+2. Clique em **Salvar**.
 
 ## <a name="select-logins"></a>Selecionar logons
 
@@ -192,7 +192,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Selecionar logons](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
-2. Clique em **Salvar** .
+2. Clique em **Salvar**.
 
 ## <a name="configure-migration-settings"></a>Definir as configurações de migração
 
@@ -209,25 +209,25 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Definir as configurações de migração](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 
-2. Clique em **Salvar** .
+2. Clique em **Salvar**.
 
 ## <a name="review-the-migration-summary"></a>Análise do resumo da migração
 
 1. Na tela **Resumo de migração** , na caixa de texto **Nome da atividade** , especifique um nome para a atividade de migração.
 
-2. Expanda a seção **Opção de validação** para exibir a tela **Escolher a opção de validação** , especifique se é preciso validar os bancos de dados migrados para correção do esquema e, em seguida, selecione **Salvar** .
+2. Expanda a seção **Opção de validação** para exibir a tela **Escolher a opção de validação** , especifique se é preciso validar os bancos de dados migrados para correção do esquema e, em seguida, selecione **Salvar**.
 
 3. Analise e verifique os detalhes associados ao projeto de migração.
 
     ![Resumo do projeto de migração](media/tutorial-sql-server-to-managed-instance/dms-project-summary2.png)
 
-4. Clique em **Salvar** .
+4. Clique em **Salvar**.
 
 ## <a name="run-the-migration"></a>Execute a migração
 
-- Selecione **Executar migração** .
+- Selecione **Executar migração**.
 
-  A janela de atividade de migração aparece e o status da atividade está **Pendente** .
+  A janela de atividade de migração aparece e o status da atividade está **Pendente**.
 
 ## <a name="monitor-the-migration"></a>Monitorar a migração
 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967960"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393159"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Políticas de bloqueio de senha e conta em Active Directory Domain Services domínios gerenciados
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Políticas de bloqueio de senha e conta em Azure Active Directory Domain Services domínios gerenciados
 
 Para gerenciar a segurança de usuário no Azure Active Directory Domain Services (AD DS do Azure), você pode definir políticas de senha refinadas que controlam as configurações de bloqueio de conta ou a complexidade e o comprimento mínimo da senha. Uma política de senha refinada padrão é criada e aplicada a todos os usuários em um domínio gerenciado AD DS do Azure. Para fornecer controle granular e atender às necessidades específicas de negócios ou de conformidade, políticas adicionais podem ser criadas e aplicadas a grupos de usuários específicos.
 
@@ -117,7 +117,7 @@ Para criar uma política de senha personalizada, use as ferramentas administrati
 
     ![Selecione os usuários e grupos aos quais aplicar a política de senha](./media/password-policy/fgpp-applies-to.png)
 
-1. As políticas de senha só podem ser aplicadas a grupos. Na caixa de diálogo **locais** , expanda o nome de domínio, como *aaddscontoso.com*, e selecione uma UO, como **usuários do AADDC**. Se você tiver uma UO personalizada que contenha um grupo de usuários que deseja aplicar, selecione essa UO.
+1. As políticas de senha só podem ser aplicadas a grupos. Na caixa de diálogo **locais** , expanda o nome de domínio, como *aaddscontoso.com* , e selecione uma UO, como **usuários do AADDC**. Se você tiver uma UO personalizada que contenha um grupo de usuários que deseja aplicar, selecione essa UO.
 
     ![Selecione a UO à qual o grupo pertence](./media/password-policy/fgpp-container.png)
 

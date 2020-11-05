@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558509"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394213"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guia de solução de problemas do conector do Azure IoT para FHIR (versão prévia)
 
@@ -33,12 +33,12 @@ Nesta seção, você aprenderá sobre o processo de validação que o conector I
 
 |Elemento|Obrigatório|
 |:-------|:------|
-|TypeName|True|
-|TypeMatchExpression|True|
-|DeviceIdExpression|True|
-|Carimbo de data/hora|True|
-|Valores []. ValueName|True|
-|Valores []. Valor da|True|
+|TypeName|Verdadeiro|
+|TypeMatchExpression|Verdadeiro|
+|DeviceIdExpression|Verdadeiro|
+|Carimbo de data/hora|Verdadeiro|
+|Valores []. ValueName|Verdadeiro|
+|Valores []. Valor da|Verdadeiro|
 
 > [!NOTE]
 > Valores []. ValueName e valores []. Valor da
@@ -49,7 +49,7 @@ Nesta seção, você aprenderá sobre o processo de validação que o conector I
 
 |Elemento|Obrigatório|
 |:------|:-------|
-|TypeName|True|
+|TypeName|Verdadeiro|
 
 > [!NOTE]
 > Esse é o único elemento de mapeamento FHIR necessário validado neste momento.
@@ -91,7 +91,7 @@ As cópias de arquivos de mapeamento devem ser fornecidas ao suporte técnico do
 > JSON é o único formato com suporte para arquivos de mapeamento de dispositivo e FHIR no momento.
 
 > [!TIP]
-> Saiba mais sobre o conector do Azure IoT para o [dispositivo FHIR e o mapeamento de conversão FHIR JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> Saiba mais sobre o conector do Azure IoT para o [dispositivo FHIR e o mapeamento de conversão FHIR JSON](./iot-mapping-templates.md)
 
 1. Selecione **"conector IOT (versão prévia)"** no canto inferior esquerdo da API do Azure para o painel de recursos FHIR na seção **"suplementos"** .
 
@@ -99,18 +99,18 @@ As cópias de arquivos de mapeamento devem ser fornecidas ao suporte técnico do
 
 2. Selecione o **"conector"** do qual você copiará o mapeamento de conversão JSON.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connector1 IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connector2 IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Esse processo também pode ser usado para copiar e salvar o conteúdo do JSON **"Configurar mapeamento de FHIR"** .
 
-3. Selecione **"Configurar mapeamento de dispositivo"** .
+3. Selecione **"Configurar mapeamento de dispositivo"**.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Connector1 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Connector3 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Selecione o conteúdo do JSON e faça uma operação de cópia (por exemplo: selecione CTRL + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Connector1 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Connector4 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Faça uma operação de colagem (por exemplo: selecione CTRL + v) em um novo arquivo dentro de um editor (por exemplo: Visual Studio Code, bloco de notas) e salve o arquivo com uma extensão *. JSON.
 
