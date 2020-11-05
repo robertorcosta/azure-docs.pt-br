@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8139dca2896610b8a3a52f1446255bea0031dc11
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9ad21e15d33dabba74d338b339e4b2fdc25df52e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374751"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379206"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registro de aplicativo no Azure Active Directory
 
@@ -90,9 +90,9 @@ Siga as instruções em [atribuir funções a usuários com Azure Active Directo
 A criação de funções personalizadas e a atribuição de funções personalizadas são etapas separadas:
 
 - [Crie uma *definição de função* personalizada](custom-create.md) e [Adicione permissões a ela de uma lista predefinida](custom-available-permissions.md). Essas são as mesmas permissões usadas nas funções internas.
-- [Crie uma *atribuição de função* ](custom-assign-powershell.md) para atribuir a função personalizada.
+- [Crie uma *atribuição de função*](custom-assign-powershell.md) para atribuir a função personalizada.
 
-Essa separação permite que você crie uma única definição de função e, em seguida, atribua-a muitas vezes em *escopos*diferentes. Uma função personalizada pode ser atribuída em escopo de toda a organização ou pode ser atribuída no escopo se um único objeto do Azure AD. Um exemplo de escopo de objeto é um registro de aplicativo único. Usando escopos diferentes, a mesma definição de função pode ser atribuída a Sally sobre todos os registros de aplicativo na organização e, em seguida, para Naveen somente pelo registro do aplicativo de relatórios de despesas da contoso.
+Essa separação permite que você crie uma única definição de função e, em seguida, atribua-a muitas vezes em *escopos* diferentes. Uma função personalizada pode ser atribuída em escopo de toda a organização ou pode ser atribuída no escopo se um único objeto do Azure AD. Um exemplo de escopo de objeto é um registro de aplicativo único. Usando escopos diferentes, a mesma definição de função pode ser atribuída a Sally sobre todos os registros de aplicativo na organização e, em seguida, para Naveen somente pelo registro do aplicativo de relatórios de despesas da contoso.
 
 Dicas ao criar e usar funções personalizadas para delegar o gerenciamento de aplicativos:
 - As funções personalizadas só concedem acesso nas folhas de registro de aplicativo mais atuais do portal do Azure AD. Eles não concedem acesso nas folhas de registros do aplicativo herdado.

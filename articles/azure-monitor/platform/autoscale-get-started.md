@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de n
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361195"
+ms.locfileid: "93377013"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -132,6 +132,9 @@ As equipes de desenvolvimento em grandes empresas geralmente precisam aderir aos
 ### <a name="behavior"></a>Comportamento
 
 Quando o caminho de verificação de integridade for fornecido, o serviço de aplicativo executará ping no caminho em todas as instâncias. Se um código de resposta bem-sucedido não for recebido após 5 pings, essa instância será considerada "não íntegra". Instâncias não íntegras serão excluídas da rotação do balanceador de carga. Você pode configurar o número necessário de pings com falha com a `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` configuração do aplicativo. Essa configuração de aplicativo pode ser definida como qualquer inteiro entre 2 e 10. Por exemplo, se estiver definido como `2` , suas instâncias serão removidas do balanceador de carga após dois pings com falha. Além disso, quando você estiver aumentando ou reduzindo, o serviço de aplicativo executará ping no caminho de verificação de integridade para garantir que as novas instâncias estejam prontas para solicitações antes de serem adicionadas ao balanceador de carga.
+
+> [!NOTE]
+> Lembre-se de que o plano do serviço de aplicativo deve ser dimensionado para duas ou mais instâncias para que a exclusão do balanceador de carga ocorra. Se você tiver apenas 1 instância, ela não será removida do balanceador de carga, mesmo que não esteja íntegra. 
 
 As instâncias íntegras restantes podem apresentar uma carga maior. Para evitar sobrecarregar as instâncias restantes, não mais do que metade das instâncias serão excluídas. Por exemplo, se um plano do serviço de aplicativo for escalado horizontalmente para 4 instâncias e três das quais não estiverem íntegras, no máximo 2 serão excluídas da rotação do balanceador. As outras 2 instâncias (1 íntegro e 1 não íntegro) continuarão a receber solicitações. No pior cenário em que todas as instâncias não estão íntegras, nenhuma será excluída. Se você quiser substituir esse comportamento, poderá definir a `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` configuração do aplicativo como um valor entre `0` e `100` . Definir isso para um valor mais alto significa que mais instâncias não íntegras serão removidas (o valor padrão é 50).
 

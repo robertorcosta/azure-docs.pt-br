@@ -3,12 +3,12 @@ title: Solucionar problemas de logon no registro
 description: Sintomas, causas e resolução de problemas comuns ao fazer logon em um registro de contêiner do Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348892"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379495"
 ---
 # <a name="troubleshoot-registry-login"></a>Solucionar problemas de logon do registro
 
@@ -98,7 +98,9 @@ Links relacionados:
 
 Confirme as permissões de registro que estão associadas às credenciais, como a `AcrPull` função do Azure para efetuar pull de imagens do registro ou a `AcrPush` função para enviar imagens por push. 
 
-O acesso a um registro no portal ou gerenciamento de registro usando o CLI do Azure requer pelo menos a `Reader` função para executar Azure Resource Manager operações.
+O acesso a um registro no portal ou gerenciamento de registro usando o CLI do Azure requer pelo menos a `Reader` função ou permissões equivalentes para executar Azure Resource Manager operações.
+
+Se suas permissões foram alteradas recentemente para permitir o acesso ao registro por meio do portal, talvez seja necessário tentar uma sessão Incognito ou privada em seu navegador para evitar qualquer cookie ou cache de navegador obsoleto.
 
 Você ou um proprietário do registro deve ter privilégios suficientes na assinatura para adicionar ou remover atribuições de função.
 

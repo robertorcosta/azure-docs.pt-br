@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374482"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379087"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -44,7 +44,7 @@ Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Criar diretórios do Azure AD B2C | Todos os usuários não convidados ([consulte a documentação](../fundamentals/users-default-permissions.md)) | 
 Criar aplicativos B2C | Administrador global | 
-Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de aplicativos
+Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de Aplicativos
 Criar, ler, atualizar e excluir políticas de B2C | Administrador de Política do IEF B2C | 
 Criar, ler, atualizar e excluir provedores de identidade | Administrador do Provedor de Identidade Externa | 
 Criar, ler, atualizar e excluir fluxos de usuários de redefinição de senha | Administrador de fluxo de usuário de ID externa | 
@@ -351,6 +351,7 @@ Atualizar todas as propriedades, exceto Nome UPN | Administrador de usuários |
 Atualizar nome UPN para administradores limitados (consulte a documentação) | Administrador de usuários | 
 Atualizar a propriedade do nome UPN em administradores com privilégios (consulte a documentação) | Administrador global | 
 Atualizar configurações do usuário | Administrador global | 
+Atualizar métodos de autenticação | Administrador de Autenticação | Administrador de autenticação privilegiada, administrador global
 
 
 ## <a name="support"></a>Suporte

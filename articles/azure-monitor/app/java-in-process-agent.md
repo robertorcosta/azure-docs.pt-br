@@ -1,16 +1,16 @@
 ---
-title: Monitorar aplicativos Java em qualquer ambiente-Azure Monitor Application Insights
-description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente, sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicativos.
+title: Azure Monitor Application Insights Java
+description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente sem a necessidade de modificação de código. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215273"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377030"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights-visualização pública
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
 O monitoramento de aplicativos sem código Java é bastante simples – não há alterações de código e o agente Java pode ser habilitado com apenas algumas alterações de configuração.
 
@@ -26,15 +26,20 @@ O agente 3,0 dá suporte a Java 8 e superior.
 
 **1. baixar o agente**
 
-Baixar [applicationinsights-Agent-3.0.0-Preview. 7. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
+> [!WARNING]
+> **Se você estiver atualizando da versão prévia do 3,0**
+>
+> Examine todas as [Opções de configuração](./java-standalone-config.md) com cuidado, pois a estrutura JSON foi completamente alterada, além do próprio nome de arquivo, que ficou com todas as letras minúsculas.
+
+Baixar [applicationinsights-Agent-3.0.0. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
 
 **2. aponte a JVM para o agente**
 
-Adicionar `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` aos argumentos JVM de seu aplicativo
+Adicionar `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` aos argumentos JVM de seu aplicativo
 
 Os argumentos de JVM típicos incluem `-Xmx512m` e `-XX:+UseG1GC` . Portanto, se você souber onde adicioná-los, já saberá onde adicioná-los.
 
-Para obter ajuda adicional sobre como configurar os argumentos JVM de seu aplicativo, consulte [3,0 Preview: dicas para atualizar seus argumentos JVM](./java-standalone-arguments.md).
+Para obter ajuda adicional sobre como configurar os argumentos JVM de seu aplicativo, consulte [dicas para atualizar seus argumentos JVM](./java-standalone-arguments.md).
 
 **3. aponte o agente para o recurso de Application Insights**
 
@@ -46,7 +51,7 @@ Aponte o agente para o recurso de Application Insights, definindo uma variável 
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Ou criando um arquivo de configuração chamado `ApplicationInsights.json` e colocando-o no mesmo diretório que `applicationinsights-agent-3.0.0-PREVIEW.7.jar` o, com o seguinte conteúdo:
+Ou criando um arquivo de configuração chamado `applicationinsights.json` e colocando-o no mesmo diretório que `applicationinsights-agent-3.0.0.jar` o, com o seguinte conteúdo:
 
 ```json
 {
@@ -70,19 +75,21 @@ Agora, inicie seu aplicativo e vá para o recurso de Application Insights no por
 
 ## <a name="configuration-options"></a>Opções de configuração
 
-No `ApplicationInsights.json` arquivo, você também pode configurar:
+No `applicationinsights.json` arquivo, você também pode configurar:
 
 * Nome da função de nuvem
 * Instância de função de nuvem
-* Captura de log de aplicativo
-* Métricas JMX
-* Micrometer
-* Pulsação
 * amostragem
+* Métricas JMX
+* Dimensões personalizadas
+* Processadores de telemetria
+* Registro em log coletado automaticamente
+* Métricas de micrometer coletadas automaticamente (incluindo as métricas do acionador do Spring boot)
+* Pulsação
 * Proxy HTTP
 * Autodiagnóstico
 
-Confira detalhes em [Visualização pública 3,0: opções de configuração](./java-standalone-config.md).
+Consulte [Opções de configuração](./java-standalone-config.md) para obter detalhes completos.
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Solicitações, dependências, logs e métricas concolhidas.
 
@@ -134,12 +141,12 @@ A tabela a seguir representa os tipos de telemetria personalizados com suporte n
 
 |                     | Micrometer | Log4J, logback, JUL | SDK 2. x |
 |---------------------|------------|---------------------|---------|
-| **Eventos personalizados**   |            |                     |  Sim    |
+| **Eventos personalizados**   |            |                     |  Yes    |
 | **Métricas personalizadas**  |  Sim       |                     |  Sim    |
-| **Dependências**    |            |                     |  Sim    |
+| **Dependências**    |            |                     |  Yes    |
 | **Exceções**      |            |  Sim                |  Sim    |
-| **Visualizações de página**      |            |                     |  Sim    |
-| **Solicitações**        |            |                     |  Sim    |
+| **Visualizações de página**      |            |                     |  Yes    |
+| **Solicitações**        |            |                     |  Yes    |
 | **Rastreamentos**          |            |  Sim                |  Sim    |
 
 Não estamos planejando lançar um SDK com o Application Insights 3,0 no momento.
@@ -226,9 +233,14 @@ Ou você também pode usar Application Insights Java SDK 2. x:
 
 ## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Atualizando do SDK do Java do Application Insights 2. x
 
-Se você já estiver usando Application Insights Java SDK 2. x em seu aplicativo, não será necessário removê-lo. O agente do Java 3,0 o detectará e irá capturar e correlacionar qualquer telemetria personalizada que você estiver enviando por meio do SDK do Java 2. x, ao mesmo tempo em que suprimirá qualquer coleção automática executada pelo SDK do Java 2. x para evitar a captura duplicada.
+Se você já estiver usando Application Insights Java SDK 2. x em seu aplicativo, não será necessário removê-lo.
+O agente do Java 3,0 o detectará e irá capturar e correlacionar qualquer telemetria personalizada que você estiver enviando por meio do SDK do Java 2. x, ao mesmo tempo em que suprimirá qualquer coleção automática executada pelo SDK do Java 2. x para evitar a telemetria duplicada.
 
 Se você estiver usando o agente Application Insights 2. x, será necessário remover o `-javaagent:` ARG JVM que estava apontando para o agente 2. x.
 
 > [!NOTE]
-> Observação: o Java SDK 2. x TelemetryInitializers e TelemetryProcessors não serão executados ao usar o agente 3,0.
+> O Java SDK 2. x TelemetryInitializers e o TelemetryProcessors não serão executados ao usar o agente 3,0.
+> Muitos dos casos de uso exigidos anteriormente podem ser resolvidos em 3,0 Configurando [dimensões personalizadas](./java-standalone-config.md#custom-dimensions) ou configurando [processadores de telemetria](./java-standalone-telemetry-processors.md).
+
+> [!NOTE]
+> 3,0 não oferece suporte a várias chaves de instrumentação em uma única JVM ainda.

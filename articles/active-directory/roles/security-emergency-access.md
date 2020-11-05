@@ -5,20 +5,20 @@ services: active-directory
 author: markwahl-msft
 manager: daveba
 ms.author: curtand
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffcbd77997e230b9b21ed29b47e37236de025f6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374737"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378747"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory
 
@@ -87,34 +87,34 @@ As organizações devem monitorar a atividade de entrada e log de auditoria das 
 ### <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
 1. Entre no [portal do Azure](https://portal.azure.com) com uma conta atribuída à função de colaborador de monitoramento no Azure Monitor.
-1. Selecione **todos os serviços**", insira "Log Analytics" na pesquisa e, em seguida, selecione **espaço de trabalho do Log Analytics**.
+1. Selecione **todos os serviços** ", insira "Log Analytics" na pesquisa e, em seguida, selecione **espaço de trabalho do Log Analytics**.
 1. Selecione um workspace.
 1. Em seu espaço de trabalho, selecione **Alertas** > **Nova regra de alerta**.
-    1. Em **Recursos**, verifique se a assinatura é aquela com a qual você deseja associar a regra de alerta.
-    1. Em **Condição**, selecione **Adicionar**.
+    1. Em **Recursos** , verifique se a assinatura é aquela com a qual você deseja associar a regra de alerta.
+    1. Em **Condição** , selecione **Adicionar**.
     1. Selecione **Pesquisa de log personalizada** em **Nome do sinal**.
-    1. Em **Consulta de pesquisa**, insira a consulta a seguir, inserindo as IDs de objeto das duas contas de interrupção.
+    1. Em **Consulta de pesquisa** , insira a consulta a seguir, inserindo as IDs de objeto das duas contas de interrupção.
         > [!NOTE]
         > Para cada conta de interrupção adicional que você deseja incluir, adicione outro "or UserId == "ObjectGuid"" à consulta.
 
         ![Adicionar as IDs de objeto das contas de interrupção a uma regra de alerta](./media/security-emergency-access/query-image1.png)
 
-    1. Em **Lógica de alerta**, insira o seguinte:
+    1. Em **Lógica de alerta** , insira o seguinte:
 
         - Baseado em: Número de resultados
         - Operador: Maior que
         - Valor do limite: 0
 
-    1. Em **Avaliado com base em**, selecione o **Período (em minutos)** para informar quanto tempo você deseja que a consulta seja executada e a **Frequência (em minutos)** para a frequência de execução da consulta. A frequência deve ser inferior ou igual ao período.
+    1. Em **Avaliado com base em** , selecione o **Período (em minutos)** para informar quanto tempo você deseja que a consulta seja executada e a **Frequência (em minutos)** para a frequência de execução da consulta. A frequência deve ser inferior ou igual ao período.
 
         ![lógica de alerta](./media/security-emergency-access/alert-image2.png)
 
     1. Selecione **Concluído**. Agora você pode exibir o custo mensal estimado deste alerta.
 1. Selecione um grupo de ações de usuários a ser notificado pelo alerta. Se você quiser criar um, confira [Criar um grupo de ação](#create-an-action-group).
 1. Para personalizar a notificação por email enviada aos membros do grupo de ações, selecione ações em **Personalizar ações**.
-1. Em **Detalhes do alerta**, especifique o nome da regra de alerta e adicione uma descrição opcional.
+1. Em **Detalhes do alerta** , especifique o nome da regra de alerta e adicione uma descrição opcional.
 1. Defina o **Nível de severidade** do evento. É recomendável defini-lo como **Crítico (Sev 0)** .
-1. Em **Habilitar regra ao criar**, deixe-a definida como **Sim**.
+1. Em **Habilitar regra ao criar** , deixe-a definida como **Sim**.
 1. Para desativar os alertas por um tempo, marque a caixa de seleção **Suprimir alertas** e insira a duração da espera antes de alertar novamente e, em seguida, selecione **Salvar**.
 1. Clique em **Criar regra de alerta**.
 

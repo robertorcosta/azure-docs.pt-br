@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007073"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378220"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -101,7 +101,7 @@ O RBAC do Azure é um sistema de autorização baseado no [Azure Resource Manage
 
  O RBAC do Azure foi projetado para trabalhar em recursos em sua assinatura do Azure enquanto o RBAC kubernetes é projetado para funcionar em recursos do kubernetes no cluster do AKS. 
 
-Com o RBAC do Azure, você cria um *definição de função* que descreve as permissões a serem aplicadas. Em seguida, um usuário ou grupo atribui essa definição de função por meio de uma *atribuição de função* para um *escopo*específico, que pode ser um recurso individual, um grupo de recursos ou pela assinatura.
+Com o RBAC do Azure, você cria um *definição de função* que descreve as permissões a serem aplicadas. Em seguida, um usuário ou grupo atribui essa definição de função por meio de uma *atribuição de função* para um *escopo* específico, que pode ser um recurso individual, um grupo de recursos ou pela assinatura.
 
 Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?][azure-rbac]
 
@@ -143,7 +143,7 @@ O AKS fornece as quatro funções internas a seguir. Eles são semelhantes às [
 | Administrador de RBAC do serviço kubernetes do Azure  | Permite o acesso de administrador, destinado a ser concedido em um namespace. Permite acesso de leitura/gravação para a maioria dos recursos em um namespace (ou escopo de cluster), incluindo a capacidade de criar funções e associações de função no namespace. Essa função não permite acesso de gravação à cota de recursos ou ao próprio namespace. |
 | Administrador de cluster do RBAC do serviço kubernetes do Azure  | Permite o acesso de superusuário para executar qualquer ação em qualquer recurso. Ele fornece controle total sobre cada recurso no cluster e em todos os namespaces. |
 
-**Veja como aproveitar a autorização do Azure RBAC para kubernetes [aqui](manage-azure-rbac.md).**
+**Para saber como habilitar o RBAC do Azure para autorização de kubernetes, [Leia aqui](manage-azure-rbac.md).**
 
 ## <a name="next-steps"></a>Próximas etapas
 

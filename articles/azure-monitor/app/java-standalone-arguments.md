@@ -1,17 +1,17 @@
 ---
-title: Monitorar aplicativos Java em execução em qualquer ambiente-Azure Monitor Application Insights
-description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente com o agente autônomo Java sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicativos.
+title: Adicionando a JVM ARG-Azure Monitor Application Insights Java
+description: Adicionando o ARG JVM para Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c9c38d4173413310b715e05c9dcfb9c15be9d4f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374296"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377626"
 ---
-# <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Configurando o agente autônomo Java do JVM args para Azure Monitor Application Insights
+# <a name="adding-the-jvm-arg-for-azure-monitor-application-insights-java"></a>Adicionando o ARG JVM para Azure Monitor Application Insights Java
 
 
 
@@ -170,7 +170,7 @@ Adicionar `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` ao ex
 
 ## <a name="websphere-8"></a>WebSphere 8
 
-Abra o console de gerenciamento vá para **servidores > Websphere Application servers > servidores de aplicativos**, escolha os servidores de aplicativos apropriados e clique em: 
+Abra o console de gerenciamento vá para **servidores > Websphere Application servers > servidores de aplicativos** , escolha os servidores de aplicativos apropriados e clique em: 
 
 ```
 Java and Process Management > Process definition >  Java Virtual Machine

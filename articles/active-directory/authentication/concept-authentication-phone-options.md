@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165495"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377744"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticação em opções de Azure Active Directory-telefone
 
@@ -23,12 +23,12 @@ Para autenticação direta usando mensagem de texto, você pode [Configurar e ha
 
 Os usuários também podem verificar usando um celular ou telefone comercial como forma secundária de autenticação usada durante a Autenticação Multifator do Azure ou a SSPR (redefinição de senha self-service).
 
-Para funcionarem adequadamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber*, por exemplo: *+1 4251234567*.
+Para funcionarem adequadamente, os números de telefone devem estar no formato *+CountryCode PhoneNumber* , por exemplo: *+1 4251234567*.
 
 > [!NOTE]
 > Precisa haver um espaço entre o código do país/região e o número de telefone.
 >
-> A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato *+1 4251234567X12345*, as extensões são removidas antes que a chamada seja completada.
+> A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato *+1 4251234567X12345* , as extensões são removidas antes que a chamada seja completada.
 
 ## <a name="mobile-phone-verification"></a>Verificação por celular
 
@@ -49,8 +49,6 @@ Com a verificação por mensagem de texto durante a SSPR ou Autenticação Multi
 Com a verificação por chamada telefônica durante a SSPR ou a Autenticação Multifator do Azure, uma chamada de voz automatizada é feita para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário deve inserir o número do PIN seguido por # no teclado.
 
 ## <a name="office-phone-verification"></a>Verificação por telefone comercial
-
-O atributo de telefone comercial é gerenciado pelo administrador do Azure AD e não pode ser registrado pelo próprio usuário.
 
 Com a verificação por chamada telefônica durante a SSPR ou a Autenticação Multifator do Azure, uma chamada de voz automatizada é feita para o número de telefone registrado pelo usuário. Para concluir o processo de entrada, o usuário deve inserir o número do PIN seguido por # no teclado.
 
@@ -81,7 +79,7 @@ Para saber mais sobre os conceitos de SSPR, confira [Como funciona a redefiniç�
 
 Para saber mais sobre conceitos de MFA, confira [Como funciona como a Autenticação Multifator do Azure][concept-mfa].
 
-Saiba mais sobre como configurar métodos de autenticação usando a [API REST do Microsoft Graph versão beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Saiba mais sobre como configurar métodos de autenticação usando a [API REST do Microsoft Graph versão beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

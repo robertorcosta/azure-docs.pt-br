@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480727"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378951"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauração no Banco de Dados do Azure para MariaDB
 
@@ -90,7 +90,12 @@ Talvez seja necessário aguardar a execução do próximo backup de log de trans
 
 A restauração geográfica é a opção de recuperação padrão quando o servidor não está disponível devido a um incidente na região em que ele está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor do backup com redundância geográfica para um servidor em qualquer outra região. A restauração geográfica utiliza o backup mais recente do servidor. Há um atraso entre quando um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, então, em caso de desastre pode haver perda de dados de até uma hora.
 
+> [!IMPORTANT]
+>Se uma restauração geográfica for executada para um servidor recém-criado, a sincronização de backup inicial poderá levar mais de 24 horas, dependendo do tamanho dos dados, pois o tempo de cópia inicial do backup do instantâneo completo é muito maior. Os backups de instantâneo subsequentes são cópias incrementais e, portanto, as restaurações são mais rápidas após 24 horas de criação do servidor. Se você estiver avaliando restaurações geográficas para definir o RTO, recomendamos que você aguarde e avalie a restauração geográfica **somente após 24 horas** de criação do servidor para obter estimativas melhores.
+
 Durante a restauração geográfica, as configurações de servidor que podem ser alteradas incluem as opções de geração de computação, vCore, período de retenção de backup e redundância de backup. Não há suporte para a alteração do tipo de preço (Básico, Uso Geral ou Otimizado para Memória) ou do tamanho de armazenamento durante a restauração geográfica.
+
+O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
 
 ### <a name="perform-post-restore-tasks"></a>Executar tarefas de pós-restauração
 

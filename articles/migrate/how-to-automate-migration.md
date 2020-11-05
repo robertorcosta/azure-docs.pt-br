@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: rahugup
-ms.openlocfilehash: 5541d5c3b9beea86f5c76747dd13ffeff1b12d97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e1b34db7f2473e16d3ebde11376652f654f2f778
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133472"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377948"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>Dimensionar a migração de VMs VMware 
 
 Este artigo ajuda você a entender como usar scripts para migrar um grande número de VMs (máquinas virtuais) VMware usando o método sem agente. Para dimensionar as migrações, use o [módulo Azure Migrations PowerShell](https://aka.ms/azuremigratepowershellvmware). 
 
-Os scripts de automação de migração do VMware migram para o Azure estão disponíveis para download em repositório [Azure PowerShell Samples] https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) no github. Os scripts podem ser usados para migrar VMs do VMware para o Azure usando o método de migração sem agente. Os comandos do PowerShell para migrações para Azure usados nesses scripts estão documentados [aqui](https://aka.ms/azuremigratepowershellvmware).
+Os scripts de automação de migração do VMware migram para o Azure estão disponíveis para download no repositório de [exemplos de Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) no github. Os scripts podem ser usados para migrar VMs do VMware para o Azure usando o método de migração sem agente. Os comandos do PowerShell para migrações para Azure usados nesses scripts estão documentados [aqui](https://aka.ms/azuremigratepowershellvmware).
 
 ## <a name="current-limitations"></a>Limitações atuais
 - Esses scripts dão suporte à migração de VMs VMware com todos os discos. Você pode atualizar os scripts se quiser replicar seletivamente os discos anexados a uma VM VMware. 

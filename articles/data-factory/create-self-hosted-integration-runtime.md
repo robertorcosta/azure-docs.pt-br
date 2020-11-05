@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 123595bb6cd0112e597b9d958763900e07b9ff38
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2dc8773dc41493e30f64c0602b4345a9491cd7b7
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633069"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379699"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração auto-hospedada
 
@@ -60,30 +60,30 @@ Use as etapas a seguir para criar um IR auto-hospedado usando Azure Data Factory
 
    ![O botão Gerenciar da home page](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Selecione **Runtimes de integração** no painel esquerdo e, em seguida, selecione **+ Novo** .
+1. Selecione **Runtimes de integração** no painel esquerdo e, em seguida, selecione **+ Novo**.
 
    ![Criar um Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Na página **instalação do Integration Runtime** , selecione **Azure, auto-hospedado** e, em seguida, selecione **continuar** . 
+1. Na página **instalação do Integration Runtime** , selecione **Azure, auto-hospedado** e, em seguida, selecione **continuar**. 
 
-1. Na página a seguir, selecione **auto-hospedado** para criar um Self-Hosted ir e, em seguida, selecione **continuar** .
+1. Na página a seguir, selecione **auto-hospedado** para criar um Self-Hosted ir e, em seguida, selecione **continuar**.
    ![Criar um IR selfhosted](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
-1. Insira um nome para o IR e selecione **criar** .
+1. Insira um nome para o IR e selecione **criar**.
 
 1. Na página **instalação do Integration Runtime** , selecione o link em **opção 1** para abrir a instalação expressa em seu computador. Ou siga as etapas em **opção 2** para configurar manualmente. As instruções a seguir são baseadas na configuração manual:
 
    ![Configuração do runtime de integração](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
-    1. Copie e cole a chave de autenticação. Selecione **baixar e instalar o Integration Runtime** .
+    1. Copie e cole a chave de autenticação. Selecione **baixar e instalar o Integration Runtime**.
 
     1. Baixe o runtime de integração auto-hospedada em uma máquina local do Windows. Execute o instalador.
 
-    1. Na página **registrar Integration Runtime (auto-hospedado)** , Cole a chave que você salvou anteriormente e selecione **registrar** .
+    1. Na página **registrar Integration Runtime (auto-hospedado)** , Cole a chave que você salvou anteriormente e selecione **registrar**.
     
        ![Registrar o Integration Runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
-    1. Na página **Novo nó do Integration Runtime (auto-hospedado)** , selecione **Concluir** .
+    1. Na página **Novo nó do Integration Runtime (auto-hospedado)** , selecione **Concluir**.
 
 1. Depois que o tempo de execução de integração auto-hospedado for registrado com êxito, você verá a seguinte janela:
 
@@ -147,7 +147,6 @@ Aqui está um resumo de alto nível das etapas de fluxo de dados para copiar com
 - Você pode instalar apenas uma instância de um tempo de execução de integração auto-hospedado em qualquer computador único. Se você tiver duas fábricas de dados que precisam acessar fontes de dados locais, use o recurso de [compartilhamento de ir](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) via hospedagem interna para compartilhar o ir auto-hospedado ou instale o ir do modo auto-hospedado em dois computadores locais, um para cada data Factory.  
 - O Integration Runtime de hospedagem interna não precisa estar no mesmo computador que a fonte de dados. No entanto, ter o tempo de execução de integração auto-hospedado próximo à fonte de dados reduz o tempo para o tempo de execução de integração auto-hospedado se conectar à fonte de dados. Recomendamos que você instale o tempo de execução de integração auto-hospedado em um computador diferente daquele que hospeda a fonte de dados local. Quando o tempo de execução de integração e a fonte de dados hospedados internamente estão em computadores diferentes, o Integration Runtime não compete com a fonte de dados para recursos.
 - Você pode ter vários runtimes da integração auto-hospedada em diferentes computadores conectados à mesma fonte de dados local. Por exemplo, se você tiver dois tempos de execução de integração auto-hospedados que atendem a duas data factories, a mesma fonte de dados local poderá ser registrada com ambas as fábricas de dados.
-- Se você já tiver um gateway instalado em seu computador para atender a um cenário de Power BI, instale um tempo de execução de integração auto-hospedado separado para Data Factory em outro computador.
 - Use um tempo de execução de integração auto-hospedado para dar suporte à integração de dados em uma rede virtual do Azure.
 - Trate a fonte de dados como uma fonte de dados local protegida por um firewall mesmo quando você usar o Microsoft Azure ExpressRoute. Use o tempo de execução de integração auto-hospedado para conectar o serviço à fonte de dados.
 - Use o tempo de execução de integração auto-hospedado mesmo se o armazenamento de dados estiver na nuvem em uma máquina virtual de IaaS (infraestrutura como serviço) do Azure.
@@ -186,12 +185,12 @@ Você pode instalar o Integration Runtime de hospedagem interna baixando um paco
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalar e registrar um IR auto-hospedado do centro de download da Microsoft
 
 1. Acesse a [página de downloads do Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-1. Selecione **baixar** , selecione a versão de 64 bits e selecione **Avançar** . Não há suporte para a versão de 32 bits.
+1. Selecione **baixar** , selecione a versão de 64 bits e selecione **Avançar**. Não há suporte para a versão de 32 bits.
 1. Execute o arquivo de identidade gerenciado diretamente ou salve-o em seu disco rígido e execute-o.
-1. Na janela de **boas-vindas** , selecione um idioma e selecione **Avançar** .
-1. Aceite os Termos de Licença para Software Microsoft e selecione **Avançar** .
-1. Selecione **pasta** para instalar o runtime de integração auto-hospedada e selecione **Avançar** .
-1. Na página **pronto para instalar** , selecione **instalar** .
+1. Na janela de **boas-vindas** , selecione um idioma e selecione **Avançar**.
+1. Aceite os Termos de Licença para Software Microsoft e selecione **Avançar**.
+1. Selecione **pasta** para instalar o runtime de integração auto-hospedada e selecione **Avançar**.
+1. Na página **pronto para instalar** , selecione **instalar**.
 1. Selecione **concluir** para concluir a instalação.
 1. Obtenha a chave de autenticação usando o PowerShell. Aqui há um exemplo do PowerShell para recuperar a chave de autenticação:
 
@@ -205,7 +204,7 @@ Você pode instalar o Integration Runtime de hospedagem interna baixando um paco
 
     1. Opcionalmente, selecione **Mostrar chave de autenticação** para ver o texto da chave.
 
-    1. Selecione **Registrar** .
+    1. Selecione **Registrar**.
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidade e escalabilidade
 
@@ -220,7 +219,7 @@ Você pode associar vários nós instalando o software de tempo de execução de
 > Você não precisa criar um novo tempo de execução de integração auto-hospedado para associar cada nó. Você pode instalar o runtime de integração auto-hospedada em outro computador e registrá-lo usando a mesma chave de autenticação.
 
 > [!NOTE]
-> Antes de adicionar outro nó para alta disponibilidade e escalabilidade, verifique se a opção **acesso remoto à intranet** está habilitada no primeiro nó. Para fazer isso, selecione **Microsoft Integration Runtime Configuration Manager**  >  **configurações**  >  **acesso remoto à intranet** .
+> Antes de adicionar outro nó para alta disponibilidade e escalabilidade, verifique se a opção **acesso remoto à intranet** está habilitada no primeiro nó. Para fazer isso, selecione **Microsoft Integration Runtime Configuration Manager**  >  **configurações**  >  **acesso remoto à intranet**.
 
 ### <a name="scale-considerations"></a>Considerações de escala
 
@@ -240,7 +239,7 @@ Aqui estão os requisitos para o certificado TLS/SSL que você usa para proteger
 
 - O certificado deve ser um certificado X509 v3 publicamente confiável. Recomendamos que você use certificados emitidos por uma autoridade de certificação (CA) de parceiro público.
 - Cada nó do runtime de integração deve confiar nesse certificado.
-- Não recomendamos certificados de SAN (nome alternativo da entidade) porque apenas o último item de SAN é usado. Todos os outros itens de SAN são ignorados. Por exemplo, se você tiver um certificado de SAN cujas SANs são **Node1.domain.contoso.com** e **NODE2.domain.contoso.com** , você poderá usar esse certificado somente em um computador cujo FQDN (nome de domínio totalmente qualificado) seja **NODE2.domain.contoso.com** .
+- Não recomendamos certificados de SAN (nome alternativo da entidade) porque apenas o último item de SAN é usado. Todos os outros itens de SAN são ignorados. Por exemplo, se você tiver um certificado de SAN cujas SANs são **Node1.domain.contoso.com** e **NODE2.domain.contoso.com** , você poderá usar esse certificado somente em um computador cujo FQDN (nome de domínio totalmente qualificado) seja **NODE2.domain.contoso.com**.
 - O certificado pode usar qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados TLS/SSL.
 - Não há suporte para certificados que usam chaves CNG.  
 
@@ -360,10 +359,10 @@ O serviço de host do Integration Runtime é reiniciado automaticamente depois q
 
 Depois de registrar o tempo de execução de integração auto-hospedado, se você quiser exibir ou atualizar as configurações de proxy, use Microsoft Integration Runtime Configuration Manager.
 
-1. Abra o **Configuration Manager do Microsoft Integration Runtime** .
+1. Abra o **Configuration Manager do Microsoft Integration Runtime**.
 1. Selecione a guia **Settings** (Configurações).
 1. Em **proxy http** , selecione o link **alterar** para abrir a caixa de diálogo **Definir proxy http** .
-1. Selecione **Avançar** . Em seguida, você verá um aviso que solicita sua permissão para salvar a configuração de proxy e reiniciar o serviço de host do Integration Runtime.
+1. Selecione **Avançar**. Em seguida, você verá um aviso que solicita sua permissão para salvar a configuração de proxy e reiniciar o serviço de host do Integration Runtime.
 
 Você pode usar a ferramenta Configuration Manager para exibir e atualizar o proxy HTTP.
 
@@ -403,7 +402,7 @@ Se você selecionar a opção **usar proxy do sistema** para o proxy http, o tem
     ```
 1. Salve o arquivo de configuração em seu local original. Em seguida, reinicie o serviço de host do Integration Runtime de hospedagem interna, que pega as alterações.
 
-   Para reiniciar o serviço, use o miniaplicativo serviços no painel de controle. Ou, no Configuration Manager do Integration Runtime, selecione o botão **Interromper serviço** e, depois, selecione **Iniciar serviço** .
+   Para reiniciar o serviço, use o miniaplicativo serviços no painel de controle. Ou, no Configuration Manager do Integration Runtime, selecione o botão **Interromper serviço** e, depois, selecione **Iniciar serviço**.
 
    Se o serviço não for iniciado, provavelmente você adicionou a sintaxe de marca XML incorreta no arquivo de configuração de aplicativo que você editou.
 
@@ -417,7 +416,7 @@ Você também precisa ter certeza de que Microsoft Azure está na lista de permi
 Se você vir mensagens de erro como as seguintes, a razão provável é a configuração incorreta do firewall ou do servidor proxy. Essa configuração impede que o tempo de execução de integração auto-hospedado se conecte a Data Factory para se autenticar. Para garantir que seu firewall e servidor proxy estejam configurados corretamente, confira a seção anterior.
 
 * Ao tentar registrar o tempo de execução de integração auto-hospedado, você recebe a seguinte mensagem de erro: "falha ao registrar este Integration Runtime nó! Confirme se a chave de autenticação é válida e se o serviço de host do serviço de integração está em execução neste computador. "
-* Ao abrir o Configuration Manager do Integration Runtime, você vê o status **Desconectado** ou **Conectando** . Ao exibir logs de eventos do Windows, em **Visualizador de eventos**  >  **logs de aplicativos e serviços**  >  **Microsoft Integration Runtime** , você verá mensagens de erro como esta:
+* Ao abrir o Configuration Manager do Integration Runtime, você vê o status **Desconectado** ou **Conectando**. Ao exibir logs de eventos do Windows, em **Visualizador de eventos**  >  **logs de aplicativos e serviços**  >  **Microsoft Integration Runtime** , você verá mensagens de erro como esta:
 
     ```
     Unable to connect to the remote server
@@ -426,7 +425,7 @@ Se você vir mensagens de erro como as seguintes, a razão provável é a config
 
 ### <a name="enable-remote-access-from-an-intranet"></a>Habilitar o acesso remoto de uma intranet
 
-Se você usar o PowerShell para criptografar credenciais de um computador em rede que não seja onde você instalou o tempo de execução de integração auto-hospedado, poderá habilitar a opção **acesso remoto da intranet** . Se você executar o PowerShell para criptografar credenciais no computador em que você instalou o Integration Runtime de hospedagem interna, não será possível habilitar o **acesso remoto da intranet** .
+Se você usar o PowerShell para criptografar credenciais de um computador em rede que não seja onde você instalou o tempo de execução de integração auto-hospedado, poderá habilitar a opção **acesso remoto da intranet** . Se você executar o PowerShell para criptografar credenciais no computador em que você instalou o Integration Runtime de hospedagem interna, não será possível habilitar o **acesso remoto da intranet**.
 
 Habilite o **acesso remoto da intranet** antes de adicionar outro nó para alta disponibilidade e escalabilidade.  
 

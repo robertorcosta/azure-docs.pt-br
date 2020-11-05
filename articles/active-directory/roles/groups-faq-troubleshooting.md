@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374462"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377727"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solução de problemas de funções atribuídas a grupos de nuvem
 
@@ -32,9 +32,9 @@ Aqui estão algumas perguntas comuns e dicas de solução de problemas para atri
 
 **R:** Por padrão, somente administrador de função com privilégios e administrador global gerenciam a associação de um grupo de função atribuível, mas você pode delegar o gerenciamento de grupos de função atribuível adicionando proprietários de grupo.
 
-**P**: sou administrador de assistência técnica em minha organização, mas não consigo atualizar a senha de um usuário que é um leitor de diretório. Por que isso acontece?
+**P** : sou administrador de assistência técnica em minha organização, mas não consigo atualizar a senha de um usuário que é um leitor de diretório. Por que isso acontece?
 
-**R**: o usuário pode ter chegado ao leitor de diretório por meio de um grupo de função atribuível. Todos os membros e proprietários de um grupo de funções atribuíveis são protegidos. Somente usuários no administrador de autenticação privilegiada ou funções de administrador global podem redefinir credenciais para um usuário protegido.
+**R** : o usuário pode ter chegado ao leitor de diretório por meio de um grupo de função atribuível. Todos os membros e proprietários de um grupo de funções atribuíveis são protegidos. Somente usuários no administrador de autenticação privilegiada ou funções de administrador global podem redefinir credenciais para um usuário protegido.
 
 **P:** Não é possível atualizar a senha de um usuário. Eles não têm nenhuma função com privilégios mais altos atribuída. Por que isso está acontecendo?
 
@@ -53,8 +53,8 @@ Aqui estão algumas perguntas comuns e dicas de solução de problemas para atri
 
 Função do diretório do Azure Active Directory | Função de gerenciamento de direitos | Pode adicionar grupo de segurança\* | Pode adicionar Microsoft 365 grupo\* | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
-Administrador global | n/a | ✔️ | ✔️ | ✔️  | ✔️
-Administrador de usuários  | n/a  | ✔️  | ✔️  | ✔️
+Administrador global | N/D | ✔️ | ✔️ | ✔️  | ✔️
+Administrador de usuários  | N/D  | ✔️  | ✔️  | ✔️
 Administrador do Intune | Proprietário do catálogo | ✔️  | ✔️  | &nbsp;  | &nbsp;
 Administradores do Exchange  | Proprietário do catálogo  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
 Administrador de serviços de equipes | Proprietário do catálogo  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
@@ -89,7 +89,7 @@ Usuário | Proprietário do catálogo | Somente se o proprietário do grupo | So
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra **Azure Active Directory**.
 1. Selecione usuários e abra um perfil de usuário.
-1. Selecione **funções atribuídas**e, em seguida:
+1. Selecione **funções atribuídas** e, em seguida:
 
     - Em Azure AD Premium as organizações licenciadas P1: selecione o ícone de engrenagem. Um painel é aberto e pode fornecer essas informações.
     - Em organizações licenciadas Azure AD Premium P2: você encontrará informações de licença diretas e herdadas na coluna **Associação** .

@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314723"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377184"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solucionando problemas de replicação na migração de VM do VMware sem agente
 
@@ -29,11 +29,16 @@ Ocasionalmente, você pode ver os ciclos de replicação falharem para uma VM. E
 Use as etapas a seguir para monitorar o status de replicação para suas máquinas virtuais:
 
   1. Vá para a página servidores em migrações para Azure no portal do Azure.
-  2. Navegue até a página "replicando máquinas" clicando em "replicando servidores" no bloco de migração do servidor.
-  3. Você verá uma lista de servidores de replicação juntamente com informações adicionais, como status, integridade, hora da última sincronização, etc. A coluna de integridade indica a integridade da replicação atual da VM. Um valor ' crítico ' ou ' aviso ' na coluna de integridade normalmente indica que o ciclo de replicação anterior da VM falhou. Para obter mais detalhes, clique com o botão direito do mouse na VM e selecione "detalhes do erro". A página detalhes do erro contém informações sobre o erro e detalhes adicionais sobre como solucionar problemas. Você também verá um link "eventos recentes" que pode ser usado para navegar até a página de eventos da VM.
-  4. Clique em "eventos recentes" para ver as falhas do ciclo de replicação anterior da VM. Na página eventos, procure o evento mais recente do tipo "falha no ciclo de replicação" ou "falha no ciclo de replicação para o disco" para a VM.
-  5. Clique no evento para entender as possíveis causas do erro e as etapas de correção recomendadas. Use as informações fornecidas para solucionar problemas e corrigir o erro.
-    
+  ![Imagem 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Navegue até a página "replicando máquinas" clicando em "replicando servidores" no bloco de migração do servidor.
+  ![Imagem 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. Você verá uma lista de servidores de replicação juntamente com informações adicionais, como status, integridade, hora da última sincronização, etc. A coluna de integridade indica a integridade da replicação atual da VM. Um valor ' crítico ' ou ' aviso ' na coluna de integridade normalmente indica que o ciclo de replicação anterior da VM falhou. Para obter mais detalhes, clique com o botão direito do mouse na VM e selecione "detalhes do erro". A página detalhes do erro contém informações sobre o erro e detalhes adicionais sobre como solucionar problemas. Você também verá um link "eventos recentes" que pode ser usado para navegar até a página de eventos da VM.
+  ![Imagem 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Clique em "eventos recentes" para ver as falhas do ciclo de replicação anterior da VM. Na página eventos, procure o evento mais recente do tipo "falha no ciclo de replicação" ou "falha no ciclo de replicação para o disco" para a VM.
+  ![Imagem 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Clique no evento para entender as possíveis causas do erro e as etapas de correção recomendadas. Use as informações fornecidas para solucionar problemas e corrigir o erro.
+ ![Imagem 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>Erros comuns de replicação
 
 Esta seção descreve alguns dos erros comuns e como você pode solucioná-los.
@@ -54,7 +59,7 @@ Quando o portal cria o cofre de chaves, ele também adiciona uma política de ac
 
 - O outro caso em que isso pode ocorrer é quando um usuário (Usuário1) tentou configurar a replicação inicialmente e encontrou uma falha, mas o cofre de chaves já foi criado (e a política de acesso do usuário foi atribuída apropriadamente a esse usuário). Agora, posteriormente, um usuário diferente (Usuário2) tentará configurar a replicação, mas a operação configurar conta de armazenamento gerenciado ou gerar definição de SAS falhará, pois não há nenhuma política de acesso de usuário correspondente ao Usuário2 no cofre de chaves.
 
-**Resolução**: para resolver esse problema, crie uma política de acesso de usuário para Usuário2 no keyvault concedendo permissão de Usuário2 para configurar a conta de armazenamento gerenciado e gerar definições de SAS. O User2 pode fazer isso a partir de Azure PowerShell usando os cmdlets abaixo:
+**Resolução** : para resolver esse problema, crie uma política de acesso de usuário para Usuário2 no keyvault concedendo permissão de Usuário2 para configurar a conta de armazenamento gerenciado e gerar definições de SAS. O User2 pode fazer isso a partir de Azure PowerShell usando os cmdlets abaixo:
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). Sessão
 
@@ -134,7 +139,7 @@ O componente que está tentando replicar os dados para o Azure está inoperante 
     
     Esse comando tentará uma conexão TCP e retornará uma saída.
     
-     - Na saída, verifique o campo "_TcpTestSucceeded_". Se o valor for "_true_", não haverá nenhum problema de conectividade entre o dispositivo de migrações para Azure e o Azure Key Vault. Se o valor for "false", haverá um problema de conectividade.
+     - Na saída, verifique o campo " _TcpTestSucceeded_ ". Se o valor for " _true_ ", não haverá nenhum problema de conectividade entre o dispositivo de migrações para Azure e o Azure Key Vault. Se o valor for "false", haverá um problema de conectividade.
     
     **Resolução:** Se esse teste falhar, haverá um problema de conectividade entre o dispositivo migrações para Azure e o Azure Key Vault. Envolva sua equipe de rede local para verificar problemas de conectividade. Normalmente, pode haver algumas configurações de firewall que estão causando as falhas.
     
@@ -220,7 +225,7 @@ As possíveis causas incluem:
     
     Esse comando tentará uma conexão TCP e retornará uma saída.
     
-    1. Na saída, verifique o campo "_TcpTestSucceeded_". Se o valor for "_true_", não haverá nenhum problema de conectividade entre o dispositivo de migrações para Azure e o Azure Key Vault. Se o valor for "false", haverá um problema de conectividade.
+    1. Na saída, verifique o campo " _TcpTestSucceeded_ ". Se o valor for " _true_ ", não haverá nenhum problema de conectividade entre o dispositivo de migrações para Azure e o Azure Key Vault. Se o valor for "false", haverá um problema de conectividade.
     
     **Resolução:** Se esse teste falhar, haverá um problema de conectividade entre o dispositivo migrações para Azure e o Azure Key Vault. Envolva sua equipe de rede local para verificar problemas de conectividade. Normalmente, pode haver algumas configurações de firewall que estão causando as falhas.
     
@@ -271,7 +276,7 @@ Se você tiver uma máquina virtual com vários discos, poderá encontrar esse e
 
 Esse problema ocorre quando a geração de instantâneos para de responder. Quando esse problema ocorrer, você poderá ver a tarefa criar instantâneo parar às 95% ou 99%. Consulte este [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) para superar esse problema.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Mensagem de erro: ocorreu um erro interno. [Falha ao consolidar os discos na VM _[motivos]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Mensagem de erro: ocorreu um erro interno. [Falha ao consolidar os discos na VM _[motivos]_ ]
 
 Quando consolidamos discos no final do ciclo de replicação, a operação falha. Siga as instruções em [KB do VMware](https://go.microsoft.com/fwlink/?linkid=2138970) selecionando o _motivo_ apropriado para resolver o problema.
 

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4446e5b8abf9ac308a5eb32cadf31eddfcb9d9a1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097984"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379240"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir uma função personalizada no Azure Active Directory
 
@@ -31,11 +31,11 @@ As funções personalizadas podem ser criadas na guia [Funções e administrador
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Criar uma função personalizada para permitir acesso para gerenciar registros de aplicativo
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
-1. Selecione **Azure Active Directory** > **Funções e administradores** > **Nova função personalizada** .
+1. Selecione **Azure Active Directory** > **Funções e administradores** > **Nova função personalizada**.
 
    ![Criar ou editar funções na página Funções e administradores](./media/custom-create/new-custom-role.png)
 
-1. Na guia **Noções básicas** , forneça um nome e uma descrição para a função e clique em **Próximo** .
+1. Na guia **Noções básicas** , forneça um nome e uma descrição para a função e clique em **Próximo**.
 
    ![forneça um nome e uma descrição para uma função personalizada na guia Noções básicas](./media/custom-create/basics-tab.png)
 
@@ -44,8 +44,8 @@ As funções personalizadas podem ser criadas na guia [Funções e administrador
 
       ![Selecione as permissões para uma função personalizada na guia Permissões](./media/custom-create/permissions-tab.png)
 
-   1. Em seguida, insira "básico" na barra de pesquisa, selecione a permissão `microsoft.directory/applications/basic/update` e, em seguida, clique **Próximo** .
-1. Na guia **Examinar + criar** , examine as permissões e selecione **Criar** .
+   1. Em seguida, insira "básico" na barra de pesquisa, selecione a permissão `microsoft.directory/applications/basic/update` e, em seguida, clique **Próximo**.
+1. Na guia **Examinar + criar** , examine as permissões e selecione **Criar**.
 
 Sua função personalizada aparecerá na lista de funções disponíveis a serem atribuídas.
 
@@ -169,14 +169,14 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 Como funções internas, as funções personalizadas são atribuídas por padrão no escopo de toda a organização padrão para conceder permissões de acesso em todos os registros de aplicativo em sua organização. Contudo, diferentemente das funções internas, as funções personalizadas também podem ser atribuídas no escopo de um único recurso do Azure AD. Com isso, você pode oferecer ao usuário a permissão de atualizar credenciais e propriedades básicas de um único aplicativo sem precisar criar uma segunda função personalizada.
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com permissões de desenvolvedor de aplicativo na organização do Azure AD.
-1. Selecione **Registros do Aplicativo** .
+1. Selecione **Registros do Aplicativo**.
 1. Selecione o registro do aplicativo ao qual você está concedendo acesso para gerenciar. Talvez seja necessário selecionar **Todos os aplicativos** para ver a lista completa de registros de aplicativo em sua organização do Azure AD.
 
     ![Selecionar o registro do aplicativo como um escopo de recurso para uma atribuição de função](./media/custom-create/appreg-all-apps.png)
 
-1. No registro do aplicativo, selecione **Funções e administradores** . Se você ainda não criou uma, as instruções estão no [procedimento anterior](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+1. No registro do aplicativo, selecione **Funções e administradores**. Se você ainda não criou uma, as instruções estão no [procedimento anterior](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
-1. Selecione a função para abrir a página **Atribuições** .
+1. Selecione a função para abrir a página **Atribuições**.
 1. Selecione **Adicionar atribuição** para adicionar um usuário. O usuário receberá as permissões apenas pelo registro do aplicativo selecionado.
 
 ## <a name="next-steps"></a>Próximas etapas

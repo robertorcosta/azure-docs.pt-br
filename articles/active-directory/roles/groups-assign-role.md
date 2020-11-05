@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28df0e420183239eae21aa18c807bb82b4ec7649
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81b5dc98bf75a17e55abafdebfbeca68774a99
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374469"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379138"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Atribuir uma função a um grupo de nuvem no Azure Active Directory
 
@@ -30,9 +30,9 @@ A atribuição de um grupo a uma função do Azure AD é semelhante à atribuiç
 
 1. Entre no centro de [Administração do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
 
-1. Selecione **Azure Active Directory**  >  **funções e administradores**e selecione a função que você deseja atribuir.
+1. Selecione **Azure Active Directory**  >  **funções e administradores** e selecione a função que você deseja atribuir.
 
-1. Na página ** _nome da função_*_, selecione > _* adicionar atribuição**.
+1. Na página **_nome da função_*_, selecione > _* adicionar atribuição**.
 
    ![Adicionar a nova atribuição de função](./media/groups-assign-role/add-assignment.png)
 

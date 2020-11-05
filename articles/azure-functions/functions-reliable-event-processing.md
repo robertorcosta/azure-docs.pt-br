@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287236"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379580"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions o processamento confiável de eventos
 
@@ -50,7 +50,7 @@ O Azure Functions consome eventos do hub de eventos ao percorrer as seguintes et
 
 Esse comportamento revela alguns pontos importantes:
 
-- *Exceções sem tratamento podem causar a perda de mensagens.* As execuções que resultam em uma exceção continuarão a progredir o ponteiro.  A definição de uma [política de repetição](./functions-bindings-error-pages.md#retry-policies) atrasará o andamento do ponteiro até que toda a política de repetição tenha sido avaliada.
+- *Exceções sem tratamento podem causar a perda de mensagens.* As execuções que resultam em uma exceção continuarão a progredir o ponteiro.  A definição de uma [política de repetição](./functions-bindings-error-pages.md#retry-policies-preview) atrasará o andamento do ponteiro até que toda a política de repetição tenha sido avaliada.
 - *As funções garantem a entrega pelo menos uma vez.* Seu código e sistemas dependentes podem precisar [considerar o fato de que a mesma mensagem pode ser recebida duas vezes](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Tratamento de exceções
@@ -59,7 +59,7 @@ Como regra geral, cada função deve incluir um [bloco try/catch](./functions-bi
 
 ### <a name="retry-mechanisms-and-policies"></a>Mecanismos e políticas de repetição
 
-Algumas exceções são transitórias por natureza e não são reexibidas quando uma operação é tentada novamente mais tarde. É por isso que a primeira etapa é sempre repetir a operação.  Você pode aproveitar as políticas de [repetição](./functions-bindings-error-pages.md#retry-policies) do aplicativo de funções ou criar lógica de repetição dentro da execução da função.
+Algumas exceções são transitórias por natureza e não são reexibidas quando uma operação é tentada novamente mais tarde. É por isso que a primeira etapa é sempre repetir a operação.  Você pode aproveitar as políticas de [repetição](./functions-bindings-error-pages.md#retry-policies-preview) do aplicativo de funções ou criar lógica de repetição dentro da execução da função.
 
 Apresentar comportamentos de tratamento de falhas às suas funções permite que você defina políticas básicas e avançadas de repetição. Por exemplo, você pode implementar uma política que segue um fluxo de trabalho ilustrado pelas seguintes regras:
 

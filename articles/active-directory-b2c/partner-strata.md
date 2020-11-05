@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294227"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376843"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para estender Azure AD B2C para proteger aplicativos locais usando o Strata
 
@@ -65,13 +65,11 @@ O diagrama de arquitetura a seguir mostra a implementação.
 | 4. | O IdP desafia o usuário para as credenciais. Dependendo do IdP, o usuário pode exigir a autenticação multifator (MFA).|
 | 5. | O IdP envia a resposta de autenticação de volta para Azure AD B2C. Opcionalmente, o usuário pode criar uma conta local no diretório Azure AD B2C durante essa etapa.|
 | 6. | Azure AD B2C envia a solicitação do usuário para o ponto de extremidade especificado durante o registro do aplicativo Orchestrator no locatário Azure AD B2C.|
-| 7. | O orquestrador avalia as políticas de acesso e calcula os valores de atributo a serem incluídos nos cabeçalhos HTTP encaminhados para o aplicativo. Durante essa etapa, o orquestrador pode chamar provedores de atributos adicionais para recuperar as informações necessárias para definir corretamente os valores de cabeçalho.|
-| 8. | O orquestrador define os valores de cabeçalho e envia a solicitação para o aplicativo.|
-| 9. | O usuário agora é autenticado e tem acesso ao aplicativo.|
+| 7. | O orquestrador avalia as políticas de acesso e calcula os valores de atributo a serem incluídos nos cabeçalhos HTTP encaminhados para o aplicativo. Durante essa etapa, o orquestrador pode chamar provedores de atributos adicionais para recuperar as informações necessárias para definir corretamente os valores de cabeçalho. O orquestrador define os valores de cabeçalho e envia a solicitação para o aplicativo.|
+| 8. | O usuário agora é autenticado e tem acesso ao aplicativo.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Obter orquestrador de identidade Maverics
 
-Para obter o software que você usará para integrar seu aplicativo local herdado com o Azure AD B2C, entre em contato com [Strata](https://www.strata.io/contact/). Depois de obter o software, siga as etapas abaixo para determinar os pré-requisitos específicos do orquestrador e executar as etapas necessárias de instalação e configuração.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Configurar seu locatário de Azure AD B2C
 

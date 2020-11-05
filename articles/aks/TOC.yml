@@ -154,6 +154,8 @@
           href: cluster-container-registry-integration.md
         - name: Criar nós virtuais
           items:
+            - name: Usar nós virtuais
+              href: virtual-nodes.md
             - name: Usar a CLI do Azure
               href: virtual-nodes-cli.md
             - name: Use o Portal do Azure

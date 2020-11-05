@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34c3c20b277a768ba27016f1c76bd782ef05dc36
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d014a901791f16ecdcb9c3d5f0858a8626cc1072
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374465"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379070"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -59,7 +59,7 @@ Os cenários a seguir não têm suporte no momento:
 ## <a name="known-issues"></a>Problemas conhecidos
 
 - O recurso **habilitar a distribuição preparada para entrada de usuário gerenciado** não dá suporte à atribuição por meio de grupo.
-- *Somente clientes licenciados do Azure ad P2*: não atribua um grupo como ativo a uma função por meio do Azure AD e do PRIVILEGED Identity Management (PIM). Especificamente, não atribua uma função a um grupo de função atribuível quando ela estiver sendo criada *e* atribua uma função ao grupo usando o PIM posteriormente. Isso resultará em problemas em que os usuários não podem ver suas atribuições de função ativas no PIM, bem como a incapacidade de remover essa atribuição de PIM. As atribuições qualificadas não são afetadas neste cenário. Se você tentar fazer essa atribuição, poderá ver um comportamento inesperado, como:
+- *Somente clientes licenciados do Azure ad P2* : não atribua um grupo como ativo a uma função por meio do Azure AD e do PRIVILEGED Identity Management (PIM). Especificamente, não atribua uma função a um grupo de função atribuível quando ela estiver sendo criada *e* atribua uma função ao grupo usando o PIM posteriormente. Isso resultará em problemas em que os usuários não podem ver suas atribuições de função ativas no PIM, bem como a incapacidade de remover essa atribuição de PIM. As atribuições qualificadas não são afetadas neste cenário. Se você tentar fazer essa atribuição, poderá ver um comportamento inesperado, como:
   - A hora de término da atribuição de função pode ser exibida incorretamente.
   - No portal do PIM, **minhas funções** podem mostrar apenas uma atribuição de função, independentemente de quantos métodos são concedidos pela atribuição (por meio de um ou mais grupos e diretamente).
 - *Somente clientes licenciados do Azure ad P2* Mesmo após a exclusão do grupo, ele ainda mostra um membro qualificado da função na interface do usuário do PIM. Funcionalmente, não há problema; é apenas um problema de cache na portal do Azure.  

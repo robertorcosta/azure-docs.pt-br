@@ -4,17 +4,19 @@ description: Desempenho e monitoramento de uso estendidos do seu site Java com o
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 9cce87fa742df2e623217b5b0f72ad19814fd3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e91e0252ac2af02157c30fe025e75b6cfee7de6e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371355"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378475"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
 
+> [!IMPORTANT]
+> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
 
-Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter uma visão mais aprofundada, sem nenhuma alteração de código:
+Se você tiver [instrumentado seu aplicativo Web Java com Application insights SDK][java], poderá usar o agente Java para obter informações mais aprofundadas, sem nenhuma alteração de código:
 
 * **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
   * As **chamadas http de saída** feitas por meio do Apache HttpClient, OkHttp e `java.net.HttpURLConnection` são capturadas.
@@ -123,7 +125,7 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 
 [Diagnosticando problemas de dependência – Saiba mais](./asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>Perguntas? Problemas?
+## <a name="questions-problems"></a>Dúvidas? Problemas?
 * Não há dados? [Definir exceções de firewall](./ip-addresses.md)
 * [Solucionar problemas de Java](java-troubleshoot.md)
 

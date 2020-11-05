@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a6d6ca825a556ea3c98fb94d4becbb75b8f2a7d7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: dd6e760fe8052463491f249b54c3af3d2636d46d
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294232"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376877"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutorial para configurar a ferramenta de administração do TheAccessHub com o Azure Active Directory B2C
 
@@ -102,7 +102,7 @@ Para autorizar a ferramenta de administração do TheAccessHub a acessar seu dir
 
 5. Siga os prompts e selecione **aceitar** para conceder ao TheAccessHub admin Tool as permissões solicitadas.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-your-enterprise-identity"></a>Configurar um novo usuário CSR/helpdesk usando sua identidade corporativa
+## <a name="configure-a-new-csr-user-using-your-enterprise-identity"></a>Configurar um novo usuário do CSR usando sua identidade corporativa
 
 Crie um usuário do CSR/assistência técnica que acessa a ferramenta de administração do TheAccessHub usando suas credenciais de Azure Active Directory corporativa existentes.
 
@@ -126,7 +126,7 @@ Para configurar o usuário CSR/helpdesk com SSO (logon único), as seguintes eta
 
 6. Selecione **Enviar**.
 
-## <a name="configure-a-new-csrhelpdesk-user-using-a-new-identity"></a>Configurar um novo usuário CSR/helpdesk usando uma nova identidade
+## <a name="configure-a-new-csr-user-using-a-new-identity"></a>Configurar um novo usuário do CSR usando uma nova identidade
 
 Crie um usuário CSR/helpdesk que acessará a ferramenta de administração do TheAccessHub com uma nova credencial local exclusiva da ferramenta de administração do TheAccessHub. Isso será usado principalmente por organizações que não usam um Azure AD para sua empresa.
 
@@ -150,7 +150,7 @@ Para [configurar um usuário CSR/helpdesk](https://youtu.be/iOpOI2OpnLI) sem SSO
 
 7. Selecione **Enviar**
 
-## <a name="configure-partitioned-csrhelpdesk-administration"></a>Configurar administração do CSR/assistência técnica particionada
+## <a name="configure-partitioned-csr-administration"></a>Configurar administração de CSR particionada
 
 As permissões para gerenciar os usuários do cliente e do CSR/helpdesk na ferramenta de administração do TheAccessHub são gerenciadas com o uso de uma hierarquia da organização. Todos os colegas e clientes têm uma organização doméstica em que residem. Colegas ou grupos de colegas específicos podem ser atribuídos como proprietários de organizações.  Os proprietários da organização podem gerenciar (fazer alterações) colegas e clientes em organizações ou suborganizaçãos que eles possuem. Para permitir que vários colegas gerenciem um conjunto de usuários, um grupo pode ser criado com muitos membros. O grupo pode ser atribuído como um proprietário da organização e todos os membros do grupo podem gerenciar colegas e clientes na organização.
 
@@ -324,7 +324,7 @@ Usando a ferramenta de administração do TheAccessHub, você pode importar dado
 
 18. Quando o registro de **sincronização de dados** se tornar 100% na fase de carga, todas as alterações resultantes da carga serão iniciadas. Os clientes devem começar a aparecer ou a receber alterações em Azure AD B2C.
 
-## <a name="synchronize-azure-ad-b2c-customer-data-into-theaccesshub-admin-tool"></a>Sincronizar Azure AD B2C dados do cliente na ferramenta de administração do TheAccessHub
+## <a name="synchronize-azure-ad-b2c-customer-data"></a>Sincronizar Azure AD B2C dados do cliente 
 
 Como uma operação única ou em andamento, a ferramenta de administração do TheAccessHub pode sincronizar todas as informações do cliente de Azure AD B2C para a ferramenta de administração do TheAccessHub. Isso garante que os administradores do CSR/helpdesk estejam vendo informações atualizadas sobre o cliente.
 
@@ -356,7 +356,7 @@ Para sincronizar dados do Azure AD B2C para a ferramenta de administração do T
 
 13. Quando o registro de **sincronização de dados** se tornar 100% na fase de carga, todas as alterações resultantes da carga serão iniciadas.
 
-## <a name="configure-azure-ad-b2c-policies-to-call-theaccesshub-admin-tool"></a>Configurar políticas de Azure AD B2C para chamar a ferramenta de administração do TheAccessHub
+## <a name="configure-azure-ad-b2c-policies"></a>Configurar políticas de Azure AD B2C
 
 Ocasionalmente, a sincronização da ferramenta de administração do TheAccessHub é limitada em sua capacidade de manter seu estado atualizado com Azure AD B2C. Podemos aproveitar a API da ferramenta de administração do TheAccessHub e as políticas de Azure AD B2C para informar à ferramenta de administração do TheAccessHub as alterações conforme elas acontecem. Essa solução requer conhecimento técnico de [Azure ad B2C políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started#:~:text=%20Get%20started%20with%20custom%20policies%20in%20Azure,Experience%20Framework%20applications.%20Azure%20AD%20B2C...%20More%20). Na próxima seção, daremos um exemplo de etapas de política e um certificado seguro para notificar a ferramenta de administrador do TheAccessHub de novas contas em suas políticas personalizadas do Sign-Up.
 

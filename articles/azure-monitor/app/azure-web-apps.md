@@ -4,12 +4,12 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875596"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377795"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -49,7 +49,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
    * Opte por criar um novo recurso, a menos que você já tenha configurado um recurso do Application Insights para este aplicativo. 
 
      > [!NOTE]
-     > Ao clicar em **OK** para criar o novo recurso, você será solicitado a **Aplicar configurações de monitoramento**. Se você selecionar **Continuar**, vinculará seu novo recurso do Application Insights ao seu serviço de aplicativo. Fazer isso também **disparará uma reinicialização do seu serviço de aplicativo**. 
+     > Ao clicar em **OK** para criar o novo recurso, você será solicitado a **Aplicar configurações de monitoramento**. Se você selecionar **Continuar** , vinculará seu novo recurso do Application Insights ao seu serviço de aplicativo. Fazer isso também **disparará uma reinicialização do seu serviço de aplicativo**. 
 
      ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource-01.png)
 
@@ -65,7 +65,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 | Coleta as tendências de uso e permite a correlação entre resultados de disponibilidade e transações | Sim |Sim |
 | Coleta as exceções não tratadas pelo processo de host | Sim |Sim |
 | Aumenta a precisão de métricas de APM com carga quando a amostragem é usada | Sim |Sim |
-| Correlaciona microsserviços entre limites de solicitação/dependência | Não (somente recursos APM de instância única) |Sim |
+| Correlaciona microsserviços entre limites de solicitação/dependência | Não (somente recursos APM de instância única) |Yes |
 
 3. Para definir configurações como amostragem, que você poderia controlar anteriormente por meio do arquivo de applicationinsights.config, agora você pode interagir com essas mesmas configurações por meio de configurações de aplicativo com um prefixo correspondente. 
 
@@ -86,7 +86,7 @@ No momento, **não há suporte para** a estrutura completa do .NET Core, implant
    * Opte por criar um novo recurso, a menos que você já tenha configurado um recurso do Application Insights para este aplicativo. 
 
      > [!NOTE]
-     > Ao clicar em **OK** para criar o novo recurso, você será solicitado a **Aplicar configurações de monitoramento**. Se você selecionar **Continuar**, vinculará seu novo recurso do Application Insights ao seu serviço de aplicativo. Fazer isso também **disparará uma reinicialização do seu serviço de aplicativo**. 
+     > Ao clicar em **OK** para criar o novo recurso, você será solicitado a **Aplicar configurações de monitoramento**. Se você selecionar **Continuar** , vinculará seu novo recurso do Application Insights ao seu serviço de aplicativo. Fazer isso também **disparará uma reinicialização do seu serviço de aplicativo**. 
 
      ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource-01.png)
 
@@ -96,11 +96,12 @@ No momento, **não há suporte para** a estrutura completa do .NET Core, implant
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Em seu aplicativo Web do serviço de aplicativo em **configurações**,  >  **selecione Application insights**  >  **habilitar**. O monitoramento baseado em agente Node.js está atualmente em versão prévia.
+Em seu aplicativo Web do serviço de aplicativo em **configurações** ,  >  **selecione Application insights**  >  **habilitar**. O monitoramento baseado em agente Node.js está atualmente em versão prévia.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Os aplicativos Web baseados em serviço de aplicativo Java atualmente não dão suporte ao monitoramento automático baseado em agente/extensão. Para habilitar o monitoramento para seu aplicativo Java, você precisa [instrumentar manualmente seu aplicativo](./java-get-started.md).
+Siga as diretrizes para [Application insights o agente do java 3,0](./java-in-process-agent.md) para habilitar a instrumentação automática para seus aplicativos Java sem alterar seu código.
+A integração automática ainda não está disponível para o serviço de aplicativo.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -115,7 +116,7 @@ Os aplicativos Web baseados no serviço de aplicativo Python atualmente não dã
 O monitoramento no lado do cliente é opcional para ASP.NET. Para habilitar o monitoramento do lado do cliente:
 
 * **Configurações** **>** do **Configuração** do
-   * Em configurações do aplicativo, crie uma **nova configuração de aplicativo**:
+   * Em configurações do aplicativo, crie uma **nova configuração de aplicativo** :
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -127,12 +128,12 @@ Para desabilitar o monitoramento do lado do cliente, remova o par de valor de ch
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-O monitoramento no lado do cliente é **habilitado por padrão** para aplicativos .NET Core com a **coleção recomendada**, independentemente de a configuração do aplicativo ' APPINSIGHTS_JAVASCRIPT_ENABLED ' estar presente.
+O monitoramento no lado do cliente é **habilitado por padrão** para aplicativos .NET Core com a **coleção recomendada** , independentemente de a configuração do aplicativo ' APPINSIGHTS_JAVASCRIPT_ENABLED ' estar presente.
 
 Se por algum motivo você quiser desabilitar o monitoramento no lado do cliente:
 
 * **Configurações** **>** do **Configuração** do
-   * Em configurações do aplicativo, crie uma **nova configuração de aplicativo**:
+   * Em configurações do aplicativo, crie uma **nova configuração de aplicativo** :
 
      nomes `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -350,7 +351,8 @@ Se a atualização for feita a partir de uma versão anterior à 2.5.1, verifiqu
 Abaixo está nosso guia de solução de problemas passo a passo para o monitoramento baseado em extensão/agente para aplicativos .NET e .NET Core em execução em serviços de Azure App.
 
 > [!NOTE]
-> Os aplicativos Java só têm suporte em serviços Azure App por meio da instrumentação baseada em SDK manual e, portanto, as etapas a seguir não se aplicam a esses cenários.
+> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
+
 
 1. Verifique se o aplicativo é monitorado via `ApplicationInsightsAgent` .
     * Verifique se `ApplicationInsightsAgent_EXTENSION_VERSION` a configuração do aplicativo está definida com um valor de "~ 2".

@@ -4,14 +4,18 @@ description: 'Guia de solução de problemas: monitoramento em tempo real aplica
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372511"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379529"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Solução de problemas e perguntas e respostas para o Application Insights para o SDK do Java
+
+> [!IMPORTANT]
+> A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
+
 Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui estão algumas dicas.
 
 ## <a name="build-errors"></a>Erros de compilação
@@ -85,7 +89,7 @@ Usando o método XML, você precisa reiniciar o aplicativo ao alterar o valor.
 **Como posso alterar a qual recurso do Azure meu projeto envia dados?**
 
 * [Obtenha a chave de instrumentação do novo recurso.][java]
-* Se você tiver adicionado o Application Insights a seu projeto usando o Kit de Ferramentas do Azure para Eclipse, clique com o botão direito do mouse em seu projeto Web, selecione **Azure**, **Configurar Application Insights** e altere a chave.
+* Se você tiver adicionado o Application Insights a seu projeto usando o Kit de Ferramentas do Azure para Eclipse, clique com o botão direito do mouse em seu projeto Web, selecione **Azure** , **Configurar Application Insights** e altere a chave.
 * Se você configurou a chave de instrumentação como variável de ambiente atualize o valor da variável de ambiente com iKey novo.
 * Caso contrário, atualize a chave em ApplicationInsights.xml na pasta de recursos em seu projeto.
 
