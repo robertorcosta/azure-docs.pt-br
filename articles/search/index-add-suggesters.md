@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347634"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360005"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um Sugestor para habilitar o preenchimento automático e os resultados sugeridos em uma consulta
 
-No Azure Pesquisa Cognitiva, "Pesquisar conforme o tipo" é habilitado por meio de uma construção de **sugestão** adicionada a um [índice de pesquisa](search-what-is-an-index.md). Um Sugestor dá suporte a duas experiências: *preenchimento automático* , que conclui uma entrada parcial para uma consulta de termo inteiro e *sugestões* que os convites clicam para uma correspondência específica. O preenchimento automático produz uma consulta. As sugestões produzem um documento correspondente.
+No Azure Pesquisa Cognitiva, "Pesquisar conforme o tipo" é habilitado por meio de uma construção de **sugestão** adicionada a um [índice de pesquisa](search-what-is-an-index.md). Um Sugestor dá suporte a duas experiências: *preenchimento automático* , que conclui uma entrada parcial para uma consulta de termo inteiro e *sugestões* que o convite clica para uma correspondência específica. O preenchimento automático produz uma consulta. As sugestões produzem um documento correspondente.
 
 A captura de tela a seguir de [criar seu primeiro aplicativo em C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustra ambos. O preenchimento automático prevê um prazo potencial, concluindo "TW" com "in". Sugestões são resultados de mini pesquisa, onde um campo como nome de Hotel representa um documento de pesquisa de Hotel correspondente do índice. Para obter sugestões, você pode retonar qualquer campo que forneça informações descritivas.
 
@@ -44,6 +44,8 @@ Para criar um Sugestor, adicione um a um [esquema de índice](/rest/api/searchse
 
 + Use o analisador Lucene padrão padrão ( `"analyzer": null` ) ou um [analisador de linguagem](index-add-language-analyzers.md) (por exemplo, `"analyzer": "en.Microsoft"` ) no campo
 
+Se você tentar criar um Sugestor usando campos preexistentes, a API não permitirá isso. Os prefixos são gerados durante a indexação, quando termos parciais em duas ou mais combinações de caracteres são indexados ao longo de termos inteiros. Considerando que os campos existentes já foram indexados, você precisará recompilar o índice se quiser adicioná-los a um Sugestor. Para obter mais informações, consulte [como recriar um índice de pesquisa cognitiva do Azure](search-howto-reindex.md).
+
 ### <a name="choose-fields"></a>Selecionar campos
 
 Embora um Sugestor tenha várias propriedades, ele é basicamente uma coleção de campos de cadeia de caracteres para os quais você está habilitando uma experiência de pesquisa conforme o tipo. Há um Sugestor para cada índice, portanto, a lista de sugestores deve incluir todos os campos que contribuem com conteúdo para sugestões e preenchimento automático.
@@ -64,12 +66,6 @@ Os campos que usam [analisadores personalizados](index-add-custom-analyzers.md) 
 
 > [!NOTE]
 > Se você precisar contornar a restrição do analisador, por exemplo, se precisar de uma palavra-chave ou ngram Analyzer para determinados cenários de consulta, use dois campos separados para o mesmo conteúdo. Isso permitirá que um dos campos tenha um Sugestor, enquanto o outro pode ser configurado com uma configuração personalizada do analisador.
-
-### <a name="when-to-create-a-suggester"></a>Quando criar um Sugestor
-
-O melhor momento para criar um Sugestor é quando você também está criando a própria definição de campo.
-
-Se você tentar criar um Sugestor usando campos preexistentes, a API não permitirá isso. Os prefixos são gerados durante a indexação, quando termos parciais em duas ou mais combinações de caracteres são indexados ao longo de termos inteiros. Considerando que os campos existentes já foram indexados, você precisará recompilar o índice se quiser adicioná-los a um Sugestor. Para obter mais informações, consulte [como recriar um índice de pesquisa cognitiva do Azure](search-howto-reindex.md).
 
 ## <a name="create-using-rest"></a>Criar usando REST
 

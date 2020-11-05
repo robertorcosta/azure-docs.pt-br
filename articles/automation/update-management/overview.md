@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36540de8924a1433f16f942d9aedc059efae05de
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348671"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360778"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -18,6 +18,9 @@ Você pode usar Gerenciamento de Atualizações na automação do Azure para ger
 
 > [!NOTE]
 > Você não pode usar um computador configurado com o Gerenciamento de Atualizações para executar scripts personalizados da Automação do Azure. Este computador só pode executar o script de atualização assinado pela Microsoft.
+
+> [!NOTE]
+> Neste momento, não há suporte para habilitar Gerenciamento de Atualizações diretamente de um servidor habilitado para Arc. Consulte [habilitar gerenciamento de atualizações de sua conta de automação](../../automation/update-management/enable-from-automation-account.md) para entender os requisitos e como habilitar o para o seu servidor.
 
 Para baixar e instalar os patches *críticos* e de *segurança* disponíveis automaticamente em sua VM do Azure, examine [aplicação automática de patches de convidado de VM](../../virtual-machines/windows/automatic-vm-guest-patching.md) para VMs do Windows.
 

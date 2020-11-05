@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 10/09/2020
-ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/04/2020
+ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094499"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360030"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -69,17 +69,17 @@ Por exemplo, suponha que você reduza o limite de retenção de 90 dias para 30 
 > [!IMPORTANT]
 > Se a duração de uma execução exceder o limite de retenção do histórico de execução atual, a execução será removida do histórico de execuções no armazenamento. Para evitar a perda do histórico de execuções, verifique se o limite de retenção é *sempre* mais do que a duração mais longa possível da execução.
 
-1. Na caixa de pesquisa [portal do Azure](https://portal.azure.com) , localize e selecione **aplicativos lógicos** .
+1. Na caixa de pesquisa [portal do Azure](https://portal.azure.com) , localize e selecione **aplicativos lógicos**.
 
 1. Localize e selecione seu aplicativo lógico. Abra seu aplicativo lógico no designer de aplicativo lógico.
 
-1. No menu do aplicativo lógico, selecione **Configurações do fluxo de trabalho** .
+1. No menu do aplicativo lógico, selecione **Configurações do fluxo de trabalho**.
 
-1. Em **Opções de runtime** , na lista **Retenção do histórico de execuções em dias** , escolha **Personalizar** .
+1. Em **Opções de runtime** , na lista **Retenção do histórico de execuções em dias** , escolha **Personalizar**.
 
 1. Arraste o controle deslizante para mudar o número de dias que você deseja.
 
-1. Quando terminar, selecione **Salvar** na barra de ferramentas **Configurações do fluxo de trabalho** .
+1. Quando terminar, selecione **Salvar** na barra de ferramentas **Configurações do fluxo de trabalho**.
 
 Se você gerar um modelo de Azure Resource Manager para seu aplicativo lógico, essa configuração aparecerá como uma propriedade na definição de recurso do fluxo de trabalho, que é descrita na [referência do modelo de fluxos de trabalho Microsoft. Logic](/azure/templates/microsoft.logic/workflows):
 
@@ -108,14 +108,23 @@ Se você gerar um modelo de Azure Resource Manager para seu aplicativo lógico, 
 
 Estes são os limites de execução de um único aplicativo lógico:
 
+### <a name="loops"></a>Loops
+
 | Nome | Limite | Observações |
 | ---- | ----- | ----- |
-| Simultaneidade do gatilho | - Ilimitado quando o controle de simultaneidade está desativado <p><p>- 25 é o limite padrão, quando o controle de simultaneidade está ativado, o que não pode ser desfeito depois de ativar a simultaneidade. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>**Observação** : Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens para [desfazer o lote nas matrizes](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Execuções de espera máximo | - Sem simultaneidade, o número mínimo de execuções de espera é 1, enquanto o número máximo é 50. <p><p>- Com simultaneidade, o número mínimo de execuções de espera é 10 mais o número de execuções simultâneas (simultaneidade do gatilho). Você pode alterar o número máximo até 100, inclusive. | Esse limite descreve o maior número de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Itens da matriz de foreach | 100.000 | Esse limite descreve o maior número de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
-| Simultaneidade de foreach | 20 é o limite padrão quando o controle de simultaneidade é desativado. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite é o maior número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [Alterar o limite de simultaneidade “para cada”](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Executar loops "para cada" sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Itens SplitOn | - 100.000 sem simultaneidade do gatilho <p><p>- 100 sem simultaneidade do gatilho | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade 'SplitOn' que [divide ou retira de lote os itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Essa expressão referencia a matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item da matriz. <p><p>**Observação** : Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens. |
-| Iterações Until | - Padrão: 60 <p><p>- Máximo: 5.000 | |
+| Simultaneidade de foreach | Com simultaneidade desativada: 20 <p><p>Com simultaneidade em: <p><p>-Padrão: 20 <br>-Mín.: 1 <br>-Máx.: 50 | Esse limite é o maior número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar esse limite, consulte [alterar "para cada" limite de simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "para cada loop" em sequência](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| Iterações Until | - Padrão: 60 <br>-Mín.: 1 <br>-Máx.: 5.000 | O número mais alto de ciclos que um loop "until" pode ter durante uma execução de aplicativo lógico. <p><p>Para alterar esse limite, na forma de loop "until", selecione **alterar limites** e especifique o valor para a propriedade **Count** . |
+| Até o tempo limite | -Padrão: PT1H (1 hora) | A maior quantidade de tempo que o loop "until" pode ser executado antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida. <p><p>Para alterar esse limite, na forma de loop "until", selecione **alterar limites** e especifique o valor para a propriedade **Timeout** . |
+||||
+
+### <a name="concurrency-and-debatching"></a>Simultaneidade e deloteing
+
+| Nome | Limite | Observações |
+| ---- | ----- | ----- |
+| Simultaneidade do gatilho | Com simultaneidade desativada: ilimitada <p><p>Com simultaneidade ativada, que não pode ser desfeita após habilitar: <p><p>-Padrão: 25 <br>-Mín.: 1 <br>-Máx.: 50 | Esse limite é o número mais alto de instâncias de aplicativo lógico que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>**Observação** : Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens para [desfazer o lote nas matrizes](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar esse limite, consulte [alterar o limite de simultaneidade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [instâncias de gatilho sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Execuções de espera máximo | Com simultaneidade desativada: <p><p>-Mín.: 1 <br>-Máx.: 50 <p><p>Com simultaneidade em: <p><p>-Min: 10 mais o número de execuções simultâneas (disparo de simultaneidade) <br>-Máx.: 100 | Esse limite é o número mais alto de instâncias de aplicativo lógico que podem esperar para serem executadas quando seu aplicativo lógico já estiver executando o máximo de instâncias simultâneas. <p><p>Para alterar esse limite, confira [alterar limite de execuções em espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Itens SplitOn | Com simultaneidade desativada: 100.000 <p><p>Com simultaneidade em: 100 | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade 'SplitOn' que [divide ou retira de lote os itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Essa expressão referencia a matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item da matriz. <p><p>**Observação** : Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens. |
 ||||
 
 <a name="throughput-limits"></a>
@@ -170,7 +179,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 | Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
-| Solicitação de saída | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Os exemplos de solicitações de saída incluem as chamadas feitas por gatilhos HTTP. <p><p>**Dica** : Para operações com execução mais longa, use um [padrão de sondagem assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar os limites de tempo ao chamar outro aplicativo lógico que tem um [ponto de extremidade de chamada](logic-apps-http-endpoint.md), você pode usar a ação predefinida dos Aplicativos Lógicos do Azure, que pode ser encontrada no seletor do conector em **Predefinido** . |
+| Solicitação de saída | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Os exemplos de solicitações de saída incluem as chamadas feitas por gatilhos HTTP. <p><p>**Dica** : Para operações com execução mais longa, use um [padrão de sondagem assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para solucionar os limites de tempo ao chamar outro aplicativo lógico que tem um [ponto de extremidade de chamada](logic-apps-http-endpoint.md), você pode usar a ação predefinida dos Aplicativos Lógicos do Azure, que pode ser encontrada no seletor do conector em **Predefinido**. |
 | Solicitação de entrada | 120 segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Os exemplos de solicitações de entrada incluem as chamadas recebidas por gatilhos de solicitação e gatilhos de webhook. <p><p>**Observação** : Para o chamador original obter a resposta, todas as etapas na resposta devem ser finalizadas dentro do limite, a menos que você chame outro aplicativo lógico como um fluxo de trabalho aninhado. Para obter mais informações, consulte [Chamar, acionar ou aninhar aplicativos lógicos](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 

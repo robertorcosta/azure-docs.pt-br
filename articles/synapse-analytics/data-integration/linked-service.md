@@ -2,28 +2,28 @@
 title: Proteger um serviço vinculado
 description: Saiba como provisionar e proteger um serviço vinculado com VNet gerenciada
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033176"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359962"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>Proteger um serviço vinculado com links privados 
+# <a name="secure-a-linked-service-with-private-links"></a>Proteger um serviço vinculado com links privados
 
 Neste artigo, você aprenderá a proteger um serviço vinculado no Synapse com um ponto de extremidade privado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento do Azure**: Use o Azure Data Lake Gen 2 como uma *fonte* de armazenamento de dados. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter as etapas para criar uma. Verifique se a conta de armazenamento tem a filtragem de IP do Synapse Studio para acessá-la e se você só permite que as **redes selecionadas** acessem a conta de armazenamento. A configuração na folha **firewalls e redes virtuais** deve ser parecida com a imagem abaixo.
+* **Assinatura do Azure** : Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de Armazenamento do Azure** : Use o Azure Data Lake Gen 2 como uma *fonte* de armazenamento de dados. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter as etapas para criar uma. Verifique se a conta de armazenamento tem a filtragem de IP do Synapse Studio para acessá-la e se você só permite que as **redes selecionadas** acessem a conta de armazenamento. A configuração na folha **firewalls e redes virtuais** deve ser parecida com a imagem abaixo.
 
 ![Conta de armazenamento protegida](./media/secure-storage-account.png)
 
@@ -32,12 +32,12 @@ Neste artigo, você aprenderá a proteger um serviço vinculado no Synapse com u
 No Azure Synapse Analytics, um serviço vinculado é onde você define as informações de conexão com outros serviços. Nesta seção, você adicionará o Azure Synapse Analytics e o Azure Data Lake Gen 2 como serviços vinculados.
 
 1. Abra o Azure Synapse Studio e vá para a guia **gerenciar** .
-1. Em **Conexões externas**, selecione **Serviços vinculados**.
+1. Em **Conexões externas** , selecione **Serviços vinculados**.
 1. Para adicionar um serviço vinculado, selecione **novo**.
 1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
 1. Lembre-se de habilitar **Criação Interativa**. Pode levar cerca de um minuto para habilitar essa opção. 
 1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Selecione testar conexão para verificar se suas credenciais estão corretas.
-1. Selecione **testar conexão**, ele deve falhar porque a conta de armazenamento não habilita o acesso a ele sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você deve ver um link para criar um **ponto de extremidade privado** que você pode seguir para ir para a próxima parte. Se você seguir esse link, ignore a próxima parte.
+1. Selecione **testar conexão** , ele deve falhar porque a conta de armazenamento não habilita o acesso a ele sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você deve ver um link para criar um **ponto de extremidade privado** que você pode seguir para ir para a próxima parte. Se você seguir esse link, ignore a próxima parte.
 1. Selecione **Criar** quando terminar.
 
 ## <a name="create-a-managed-private-endpoint"></a>Criar um ponto de extremidade privado gerenciado
@@ -68,6 +68,8 @@ Agora você estabeleceu uma conexão segura e privada entre o Synapse e o servi�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para desenvolver mais conhecimento do ponto de extremidade privado gerenciado no Synapse Analytics, consulte o artigo [conceito sobre o ponto de extremidade particular gerenciado Synapse](data-integration-data-lake.md) .
+
+Para desenvolver mais conhecimento do ponto de extremidade privado gerenciado no Synapse Analytics, consulte [pontos de extremidades privados gerenciados](../security/synapse-workspace-managed-private-endpoints.md).
+
 
 Para obter mais informações sobre a integração de dados para o Synapse Analytics, consulte o artigo [ingerir dados em um data Lake](data-integration-data-lake.md) .

@@ -1,7 +1,7 @@
 ---
 title: Ingestão de dados com o Azure Data Factory
 titleSuffix: Azure Machine Learning
-description: Saiba como criar um pipeline de ingestão de dados com Azure Data Factory.
+description: Conheça as opções disponíveis para criar um pipeline de ingestão de dados com Azure Data Factory e os benefícios de cada um.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8cf0abdeaf3a7fe71213b6fa4f78f057bf2f92eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 73850d8022618dd6544d19564e425288aff09771
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307371"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360625"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com o Azure Data Factory
 
-Neste artigo, você aprenderá a criar um pipeline de ingestão de dados com o Azure Data Factory (ADF). Esse pipeline é usado para ingerir dados para uso com Azure Machine Learning. Azure Data Factory permite que você extraia, transforme e carregue dados (ETL) facilmente. Depois que os dados tiverem sido transformados e carregados no armazenamento, eles poderão ser usados para treinar seus modelos de aprendizado de máquina.
+Neste artigo, você aprenderá sobre as opções disponíveis para criar um pipeline de ingestão de dados com Azure Data Factory (ADF). Esse pipeline é usado para ingerir dados para uso com Azure Machine Learning. Azure Data Factory permite que você extraia, transforme e carregue dados (ETL) facilmente. Depois que os dados tiverem sido transformados e carregados no armazenamento, eles poderão ser usados para treinar seus modelos de aprendizado de máquina.
 
 A transformação de dados simples pode ser tratada com atividades e instrumentos do ADF nativo, como o [fluxo de dados](../data-factory/control-flow-execute-data-flow-activity.md). Quando se trata de cenários mais complicados, os dados podem ser processados com algum código personalizado. Por exemplo, Python ou código R.
 

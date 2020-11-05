@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: b714c2c1c9524741d2dc0b7e8ff3ed082cadd106
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2dc3df81a62e9a844db2d951b9146b08bdae5ed9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079165"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360795"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Solução de problemas ao usar o SDK do Java v4 do Azure Cosmos DB com contas de API do SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,9 +35,9 @@ O SDK do Java v4 do Azure Cosmos DB fornece uma representação lógica do lado 
 Comece com esta lista:
 
 * Dê uma olhada na seção [Problemas comuns e soluções alternativas] neste artigo.
-* Examine o SDK do Java no repositório central do Azure Cosmos DB, disponível no [software livre no GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Ele tem um [seção de problemas](https://github.com/Azure/azure-sdk-for-java/issues) que está sendo ativamente monitorada. Verifique se você encontrar algum problema semelhante com uma solução alternativa já arquivada. Uma dica útil é filtrar os problemas pela tag *cosmos:v4-item* .
+* Examine o SDK do Java no repositório central do Azure Cosmos DB, disponível no [software livre no GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Ele tem um [seção de problemas](https://github.com/Azure/azure-sdk-for-java/issues) que está sendo ativamente monitorada. Verifique se você encontrar algum problema semelhante com uma solução alternativa já arquivada. Uma dica útil é filtrar os problemas pela tag *cosmos:v4-item*.
 * Consulte as [dicas de desempenho](performance-tips-java-sdk-v4-sql.md) do SDK do Java v4 do Azure Cosmos DB e siga as práticas sugeridas.
-* Se você não encontrar uma solução, leia o restante deste artigo. Em seguida, arquive um [problema do GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Se houver uma opção para adicionar marcas ao problema do GitHub, adicione uma tag *cosmos:v4-item* .
+* Se você não encontrar uma solução, leia o restante deste artigo. Em seguida, arquive um [problema do GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Se houver uma opção para adicionar marcas ao problema do GitHub, adicione uma tag *cosmos:v4-item*.
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemas comuns e soluções alternativas
 
@@ -178,12 +178,12 @@ Adicione também uma configuração de log4j.
 ```
 # this is a sample log4j configuration
 
-# Set root logger level to DEBUG and its only appender to A1.
+# Set root logger level to INFO and its only appender to A1.
 log4j.rootLogger=INFO, A1
 
-log4j.category.com.azure.cosmos=DEBUG
-#log4j.category.io.netty=INFO
-#log4j.category.io.projectreactor=INFO
+log4j.category.com.azure.cosmos=INFO
+#log4j.category.io.netty=OFF
+#log4j.category.io.projectreactor=OFF
 # A1 is set to be a ConsoleAppender.
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 

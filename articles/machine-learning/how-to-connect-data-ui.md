@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312794"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359860"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conectar-se a dados com o Azure Machine Learning Studio
 
@@ -50,8 +50,6 @@ Para uma experiência de código inicial, consulte os seguintes artigos para usa
 
 Você pode criar armazenamentos de dados [dessas soluções de armazenamento do Azure](how-to-access-data.md#matrix). **Para soluções de armazenamento sem suporte** e para salvar o custo de egresso de dados durante experimentos de ml, você deve [mover seus dados](how-to-access-data.md#move) para uma solução de armazenamento do Azure com suporte. [Saiba mais sobre repositórios de armazenamento](how-to-access-data.md). 
 
-
-
 Crie um novo repositório de armazenamento em algumas etapas com o Azure Machine Learning Studio.
 
 > [!IMPORTANT]
@@ -60,7 +58,7 @@ Crie um novo repositório de armazenamento em algumas etapas com o Azure Machine
 1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Armazenamentos de dados** no painel esquerdo em **Gerenciar**.
 1. Selecione **+ Novo armazenamento de dados**.
-1. Preencha o formulário de um novo armazenamento de dados. O formulário se atualiza de forma inteligente com base nas seleções de tipo de armazenamento e tipo de autenticação do Azure. Consulte a [seção acesso e permissões de armazenamento](#access-validation) para entender onde encontrar as credenciais de autenticação de que você precisa para preencher este formulário.
+1. Preencha o formulário para criar e registrar um novo repositório de armazenamento. O formulário se atualiza de forma inteligente com base nas seleções de tipo de armazenamento e tipo de autenticação do Azure. Consulte a [seção acesso e permissões de armazenamento](#access-validation) para entender onde encontrar as credenciais de autenticação de que você precisa para preencher este formulário.
 
 O exemplo a seguir demonstra a aparência do formulário quando você cria um **repositório de armazenamento de BLOBs do Azure** :
 
@@ -157,11 +155,15 @@ Você pode encontrar informações de chave de conta, token SAS e entidade de se
     * Sua página de **visão geral** correspondente conterá informações necessárias, como ID do locatário e ID do cliente.
 
 > [!IMPORTANT]
-> Por motivos de segurança, talvez seja necessário alterar suas chaves de acesso para uma conta de armazenamento do Azure (chave de conta ou token SAS). Ao fazer isso, certifique-se de sincronizar as novas credenciais com seu espaço de trabalho e os repositórios de armazenamento conectados a ela. Saiba como [sincronizar suas credenciais atualizadas](how-to-change-storage-access-key.md).
+> * Se você precisar alterar suas chaves de acesso para uma conta de armazenamento do Azure (chave de conta ou token SAS), certifique-se de sincronizar as novas credenciais com seu espaço de trabalho e os repositórios de armazenamento conectados a ela. Saiba como [sincronizar suas credenciais atualizadas](how-to-change-storage-access-key.md). <br> <br>
+> * Se você cancelar o registro e registrar novamente um repositório de armazenamento com o mesmo nome e falhar, o Azure Key Vault para seu espaço de trabalho pode não ter a exclusão reversível habilitada. Por padrão, a exclusão reversível está habilitada para a instância do cofre de chaves criada pelo seu espaço de trabalho, mas poderá não ser habilitada se você tiver usado um cofre de chaves existente ou ter um espaço de trabalho criado antes de outubro de 2020. Para obter informações sobre como habilitar a exclusão reversível, consulte [ativar a exclusão reversível para um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault). "
 
 ### <a name="permissions"></a>Permissões
 
-Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
+Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Um token SAS de conta usa como padrão nenhuma permissão. 
+* Para **acesso de leitura** de dados, suas credenciais de autenticação devem ter um mínimo de permissões de lista e leitura para contêineres e objetos. 
+
+* Para **acesso de gravação** de dados, permissões de gravação e adição também são necessárias.
 
 ## <a name="train-with-datasets"></a>Treinar com conjuntos de dados
 

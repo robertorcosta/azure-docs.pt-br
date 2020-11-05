@@ -1,7 +1,7 @@
 ---
 title: Proteger o acesso a dados na nuvem
 titleSuffix: Azure Machine Learning
-description: Saiba como se conectar com segurança aos seus dados a partir de Azure Machine Learning e como usar DataSets e datastores para tarefas de ML. Os armazenamentos de dados podem armazená-los de um blob do Azure, Azure Data Lake Gen 1 & 2, banco de dados SQL e Azure Databricks.
+description: Saiba como se conectar com segurança ao seu armazenamento de dados no Azure com Azure Machine Learning armazenamentos e DataSets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322241"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360166"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 

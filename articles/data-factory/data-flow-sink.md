@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 11/02/2020
+ms.openlocfilehash: 47aada0abe2520ba81689ca8fa17787fde847d83
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147208"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360234"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
@@ -71,11 +71,13 @@ O vídeo a seguir explica várias opções de coletor diferentes para tipos de a
 
 **Usar tempdb:** Por padrão, Data Factory usarão uma tabela temporária global para armazenar dados como parte do processo de carregamento. Como alternativa, você pode desmarcar a opção "usar TempDB" e, em vez disso, pedir Data Factory para armazenar a tabela temporária em um banco de dados de usuário localizado no banco de dados que está sendo usado para esse coletor.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Usar o banco de BD temporário](media/data-flow/tempdb.png "Usar o banco de BD temporário")
 
 ## <a name="cache-sink"></a>Coletor de cache
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
-Um *coletor de cache* é quando um fluxo de dados grava dados no cache do Spark em vez de em um repositório de dados. No mapeamento de fluxos de dados, você pode fazer referência a esses dados dentro do mesmo fluxo muitas vezes usando uma *pesquisa de cache* . Isso é útil quando você deseja fazer referência a dados como parte de uma expressão, mas não deseja unir explicitamente as colunas a ela. Exemplos comuns em que um coletor de cache pode ajudar a pesquisar um valor máximo em um armazenamento de dados e os códigos de erro correspondentes a um banco de dado de mensagens de erro. 
+Um *coletor de cache* é quando um fluxo de dados grava dados no cache do Spark em vez de em um repositório de dados. No mapeamento de fluxos de dados, você pode fazer referência a esses dados dentro do mesmo fluxo muitas vezes usando uma *pesquisa de cache*. Isso é útil quando você deseja fazer referência a dados como parte de uma expressão, mas não deseja unir explicitamente as colunas a ela. Exemplos comuns em que um coletor de cache pode ajudar a pesquisar um valor máximo em um armazenamento de dados e os códigos de erro correspondentes a um banco de dado de mensagens de erro. 
 
 Para gravar em um coletor de cache, adicione uma transformação de coletor e selecione **cache** como o tipo de coletor. Ao contrário de outros tipos de coletor, você não precisa selecionar um conjunto de um DataSet ou um serviço vinculado porque não está gravando em um repositório externo. 
 
@@ -92,7 +94,7 @@ Por exemplo, se eu especificar uma única coluna de chave de `column1` em um col
 
 ## <a name="field-mapping"></a>Mapeamento de campo
 
-Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Esse comportamento é conhecido como *automapeamento* .
+Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Esse comportamento é conhecido como *automapeamento*.
 
 Quando você desativa o mapeamento, pode adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Com mapeamentos baseados em regras, você pode escrever expressões com correspondência de padrões. Mapeamento fixo mapeia nomes de coluna lógicos e físicos. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
@@ -101,6 +103,11 @@ Quando você desativa o mapeamento, pode adicionar mapeamentos fixos baseados em
 Por padrão, os dados são gravados em vários coletores em uma ordem não determinística. O mecanismo de execução grava dados em paralelo, pois a lógica de transformação é concluída e a ordenação do coletor pode variar cada execução. Para especificar uma ordenação exata do coletor, habilite a **ordenação personalizada do coletor** na guia **geral** do fluxo de dados. Quando habilitado, os coletores são gravados sequencialmente em ordem crescente.
 
 ![Captura de tela que mostra a ordenação personalizada do coletor.](media/data-flow/custom-sink-ordering.png "Captura de tela que mostra a ordenação personalizada do coletor.")
+
+> [!NOTE]
+> Ao utilizar [pesquisas armazenadas em cache](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), certifique-se de que sua ordenação de coletor tenha os coletores em cache definidos como 0.
+
+![Ordenação de coletor personalizado](media/data-flow/cache-2.png "Ordenação de coletor personalizado")
 
 ## <a name="data-preview-in-sink"></a>Visualização de dados no coletor
 

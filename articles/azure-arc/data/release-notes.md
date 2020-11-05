@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321718"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359809"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de versão – serviços de dados habilitados para o Azure Arc (versão prévia)
 
@@ -90,7 +90,7 @@ Para obter instruções, consulte [o que são os serviços de dados habilitados 
 
 - A visualização não oferece suporte a backup/restauração para o mecanismo PostgreSQL versão 11. Ele só dá suporte a backup/restauração para PostgreSQL versão 12.
 - `azdata arc dc debug copy-logs` nNão não coletar logs do mecanismo PostgreSQL no Windows.
-- A recriação de um grupo de servidores com o nome de um grupo de servidores que acabou de ser excluído pode falhar ou travar. 
+- A recriação de um grupo de servidores com o nome de um grupo de servidores que acabou de ser excluído pode falhar ou parar de responder. 
    - **Solução alternativa** Não reutilize o mesmo nome ao recriar um grupo de servidores ou aguarde o serviço de balanceador de carga/externo do grupo de servidores excluído anteriormente. Supondo que o nome do grupo de servidores que você excluiu foi `postgres01` e foi hospedado em um namespace `arc` , antes de recriar um grupo de servidores com o mesmo nome, aguarde até que `postgres01-external-svc` o não seja exibido na saída do comando kubectl `kubectl get svc -n arc` .
  - Carregar a página Visão geral e a página de configuração computação + armazenamento no Azure Data Studio está lento. 
 

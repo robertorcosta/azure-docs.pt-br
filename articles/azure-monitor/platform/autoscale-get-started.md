@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de n
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342208"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361195"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -140,6 +140,20 @@ Se uma instância permanecer não íntegra durante uma hora, ela será substitu�
 ### <a name="monitoring"></a>Monitoramento
 
 Depois de fornecer o caminho de verificação de integridade do aplicativo, você pode monitorar a integridade do seu site usando Azure Monitor. Na folha **verificação de integridade** no portal, clique nas **métricas** na barra de ferramentas superior. Isso abrirá uma nova folha em que você poderá ver o status de integridade histórico do site e criar uma nova regra de alerta. Para obter mais informações sobre como monitorar seus sites, [consulte o guia em Azure monitor](../../app-service/web-sites-monitor.md).
+
+## <a name="moving-autoscale-to-a-different-region"></a>Movendo o dimensionamento automático para uma região diferente
+Esta seção descreve como mover a autoescala do Azure para outra região sob a mesma assinatura e grupo de recursos. Você pode usar a API REST para mover as configurações de dimensionamento automático.
+### <a name="prerequisite"></a>Pré-requisito
+1. Verifique se a assinatura e o grupo de recursos estão disponíveis e se os detalhes nas regiões de origem e de destino são idênticos.
+1. Verifique se o dimensionamento automático do Azure está disponível na [região do Azure para a qual você deseja mover](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### <a name="move"></a>Mover
+Use a [API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) para criar uma configuração de dimensionamento automático no novo ambiente. A configuração de dimensionamento automático criada na região de destino será uma cópia da configuração de dimensionamento automático na região de origem.
+
+[As configurações de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) que foram criadas em associação com a configuração de dimensionamento automático na região de origem não podem ser movidas. Você precisará recriar as configurações de diagnóstico na região de destino, depois que a criação de configurações de autovenda for concluída. 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Saiba mais sobre como mover recursos entre regiões do Azure
+Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte [mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
