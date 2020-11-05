@@ -3,12 +3,12 @@ title: Definir senhas para VMs no Azure Lab Services | Microsoft Docs
 description: Saiba como definir e redefinir senhas para VMs (máquinas virtuais) em laboratórios de sala de aula do Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334065"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379682"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerenciar o pool de máquinas virtuais 
 Este artigo mostra como fazer as seguinte tarefas:
@@ -20,7 +20,7 @@ Este artigo mostra como fazer as seguinte tarefas:
 ## <a name="update-the-lab-capacity"></a>Atualizar a capacidade do laboratório
 Para aumentar ou diminuir a capacidade do laboratório (número de máquinas virtuais em um laboratório), execute as seguintes etapas:
 
-1. Na página **Pool de máquinas virtuais**, selecione **Capacidade do laboratório: &lt;número&gt; computadores**.
+1. Na página **Pool de máquinas virtuais** , selecione **Capacidade do laboratório: &lt;número&gt; computadores**.
 2. Insira o novo **número de VMs** desejado no laboratório. Esse número deve ser maior ou igual ao número de usuários registrados no laboratório. 
 3. Em seguida, selecione **Salvar**. 
 
@@ -53,15 +53,14 @@ Da mesma forma, você pode parar uma ou mais VMs alternando o botão na coluna *
 > Quando um educador ativa a VM de um aluno, a cota do aluno não é afetada. A cota de um usuário especifica o número de horas de laboratório disponíveis para o usuário fora da hora da classe agendada. Para obter mais informações sobre cotas, confira [Definir cotas para usuários](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Redefinir VMs
+
 Para redefinir uma ou mais VMs, selecione-as na lista e, em seguida, selecione **Redefinir** na barra de ferramentas. 
 
 ![Redefinir VMs selecionadas](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
 
-Na caixa de diálogo **Redefinir máquinas virtuais**, selecione **Redefinir**. 
+Na caixa de diálogo **Redefinir máquinas virtuais** , selecione **Redefinir**. 
 
 ![Caixa de diálogo Redefinir VM](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## <a name="set-password-for-vms"></a>Definir senha para VMs
 Um proprietário do laboratório (educador) pode definir/redefinir a senha para VMs no momento da criação do laboratório (assistente de criação do laboratório) ou após criá-lo na página **Modelo**. 
@@ -76,7 +75,7 @@ Ao habilitar/desabilitar a opção **Usar a mesma senha para todas as máquinas 
 ### <a name="reset-password-later"></a>Redefinir senha posteriormente
 
 1. Na página **Modelo** do laboratório, selecione **Redefinir senha** na barra de ferramentas. 
-1. Na caixa de diálogo **Redefinir senha**, insira uma senha e selecione **Redefinir senha**.
+1. Na caixa de diálogo **Redefinir senha** , insira uma senha e selecione **Redefinir senha**.
     
     ![Caixa de diálogo Definir senha](./media/how-to-set-virtual-machine-passwords/set-password.png)
 
