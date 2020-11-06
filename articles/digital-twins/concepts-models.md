@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: fecadf3cd6fd0d654315038680b9aa3fa2b71782
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913901"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337926"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
 
@@ -26,7 +26,7 @@ Os modelos de gêmeos digitais do Azure são representados na **DTDL (digital My
 
 Os modelos para o gêmeos digital do Azure são definidos usando o DTDL (digital gêmeos Definition Language). O DTDL é baseado em JSON-LD e é independente da linguagem de programação. O DTDL não é exclusivo do Azure digital gêmeos, mas também é usado para representar dados de dispositivo em outros serviços de IoT, como o [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
-O Azure digital gêmeos usa a **_versão 2_ do DTDL** . Para obter mais informações sobre esta versão do DTDL, consulte sua documentação de especificações no GitHub: [*digital gêmeos Definition Language (DTDL)-versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O uso do DTDL _versão 1_ com o Azure digital gêmeos agora foi preterido.
+O Azure digital gêmeos usa a **_versão 2_ do DTDL**. Para obter mais informações sobre esta versão do DTDL, consulte sua documentação de especificações no GitHub: [*digital gêmeos Definition Language (DTDL)-versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O uso do DTDL _versão 1_ com o Azure digital gêmeos agora foi preterido.
 
 > [!NOTE] 
 > Nem todos os serviços que usam DTDL implementam exatamente os mesmos recursos de DTDL. Por exemplo, a Plug and Play de IoT não usa os recursos de DTDL que são para grafos, enquanto o Azure digital gêmeos atualmente não implementa comandos DTDL.
@@ -35,12 +35,12 @@ O Azure digital gêmeos usa a **_versão 2_ do DTDL** . Para obter mais informa�
 
 ## <a name="elements-of-a-model"></a>Elementos de um modelo
 
-Dentro de uma definição de modelo, o item de código de nível superior é uma **interface** . Isso encapsula todo o modelo e o restante do modelo é definido dentro da interface. 
+Dentro de uma definição de modelo, o item de código de nível superior é uma **interface**. Isso encapsula todo o modelo e o restante do modelo é definido dentro da interface. 
 
 Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos:
 * Propriedades de **Propriedade** são campos de dados que representam o estado de uma entidade (como as propriedades em muitas linguagens de programação orientada a objeto). As propriedades têm armazenamento de backup e podem ser lidas a qualquer momento.
 * **Telemetria** -os campos de telemetria representam medições ou eventos e geralmente são usados para descrever as leituras do sensor de dispositivo. Ao contrário das propriedades, a telemetria não é armazenada em uma teledigital. é uma série de eventos de dados associados ao tempo que precisam ser manipulados conforme eles ocorrem. Para obter mais informações sobre as diferenças entre a propriedade e a telemetria, consulte a seção [*Properties vs. telemetria*](#properties-vs-telemetry) abaixo.
-* **Componente** -componentes permitem que você crie sua interface de modelo como um assembly de outras interfaces, se desejar. Um exemplo de componente é uma interface *frontCamera* (e outra *backcamera* da interface de componente) que são usados na definição de um modelo para um *telefone* . Primeiro, você deve definir uma interface para *frontCamera* como se fosse seu próprio modelo e, em seguida, pode fazer referência a ela ao definir o *telefone* .
+* **Componente** -componentes permitem que você crie sua interface de modelo como um assembly de outras interfaces, se desejar. Um exemplo de componente é uma interface *frontCamera* (e outra *backcamera* da interface de componente) que são usados na definição de um modelo para um *telefone*. Primeiro, você deve definir uma interface para *frontCamera* como se fosse seu próprio modelo e, em seguida, pode fazer referência a ela ao definir o *telefone*.
 
     Use um componente para descrever algo que é parte integrante da sua solução, mas que não precisa de uma identidade separada, e não precisa ser criado, excluído ou reorganizado no grafo de entrelaçamento de forma independente. Se você quiser que as entidades tenham existência independentes no grafo de entrelaçamento, represente-as como gêmeos digitais separadas de modelos diferentes, conectadas por *relações* (consulte o próximo marcador).
     
@@ -73,8 +73,8 @@ Você também pode publicar um evento de telemetria da API gêmeos do Azure digi
 
 Para que um modelo DTDL seja compatível com o gêmeos digital do Azure, ele deve atender a esses requisitos.
 
-* Todos os elementos DTDL de nível superior em um modelo devem ser do tipo *interface* . Isso ocorre porque as APIs do modelo do gêmeos digital do Azure podem receber objetos JSON que representam uma interface ou uma matriz de interfaces. Como resultado, nenhum outro tipo de elemento DTDL é permitido no nível superior.
-* O DTDL para o gêmeos digital do Azure não deve definir nenhum *comando* .
+* Todos os elementos DTDL de nível superior em um modelo devem ser do tipo *interface*. Isso ocorre porque as APIs do modelo do gêmeos digital do Azure podem receber objetos JSON que representam uma interface ou uma matriz de interfaces. Como resultado, nenhum outro tipo de elemento DTDL é permitido no nível superior.
+* O DTDL para o gêmeos digital do Azure não deve definir nenhum *comando*.
 * O Azure digital gêmeos permite apenas um único nível de aninhamento de componentes. Isso significa que uma interface que está sendo usada como um componente não pode ter nenhum componente. 
 * Interfaces não podem ser definidas embutidas em outras interfaces DTDL; Eles devem ser definidos como entidades de nível superior separadas com suas próprias IDs. Em seguida, quando outra interface deseja incluir essa interface como um componente ou por herança, ela pode referenciar sua ID.
 
@@ -82,7 +82,7 @@ O gêmeos digital do Azure também não observa o `writable` atributo em Proprie
 
 ## <a name="example-model-code"></a>Exemplo de código de modelo
 
-Os modelos de tipo de entrelaçamento podem ser escritos em qualquer editor de texto. A linguagem DTDL segue a sintaxe JSON, portanto, você deve armazenar modelos com a extensão *. JSON* . Usar a extensão JSON permitirá que muitos editores de texto de programação forneçam verificação e realce de sintaxe básica para seus documentos do DTDL. Também há uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Visual Studio Code](https://code.visualstudio.com/).
+Os modelos de tipo de entrelaçamento podem ser escritos em qualquer editor de texto. A linguagem DTDL segue a sintaxe JSON, portanto, você deve armazenar modelos com a extensão *. JSON*. Usar a extensão JSON permitirá que muitos editores de texto de programação forneçam verificação e realce de sintaxe básica para seus documentos do DTDL. Também há uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Visual Studio Code](https://code.visualstudio.com/).
 
 Esta seção contém um exemplo de um modelo típico, escrito como uma interface DTDL. O modelo descreve os **planetas** , cada um com um nome, uma massa e uma temperatura.
  
@@ -141,7 +141,7 @@ Os campos do modelo são:
 | Campo | Descrição |
 | --- | --- |
 | `@id` | Um identificador para o modelo. Deve estar no formato `dtmi:<domain>:<unique model identifier>;<model version number>` . |
-| `@type` | Identifica o tipo de informações que estão sendo descritas. Para uma interface, o tipo é *interface* . |
+| `@type` | Identifica o tipo de informações que estão sendo descritas. Para uma interface, o tipo é *interface*. |
 | `@context` | Define o [contexto](https://niem.github.io/json/reference/json-ld/context/) para o documento JSON. Os modelos devem usar o `dtmi:dtdl:context;2` . |
 | `displayName` | adicional Permite que você dê um nome amigável ao modelo, se desejado. |
 | `contents` | Todos os dados de interface restantes são colocados aqui, como uma matriz de definições de atributo. Cada atributo deve fornecer um `@type` ( *Propriedade* , *telemetria* , *comando* , *relação* ou *componente* ) para identificar o tipo de informações de interface que ele descreve e, em seguida, um conjunto de propriedades que definem o atributo real (por exemplo, `name` e `schema` para definir uma *Propriedade* ). |
@@ -162,7 +162,7 @@ Os campos de *telemetria* também dão suporte a `Array` .
 
 ### <a name="model-inheritance"></a>Herança de modelo
 
-Às vezes, talvez você queira especializar ainda mais um modelo. Por exemplo, pode ser útil ter uma *sala* de modelo genérico e variantes especializadas *conferenceroom* e *Gym* . Para expressar especialização, o DTDL dá suporte à herança: as interfaces podem herdar de uma ou mais interfaces. 
+Às vezes, talvez você queira especializar ainda mais um modelo. Por exemplo, pode ser útil ter uma *sala* de modelo genérico e variantes especializadas *conferenceroom* e *Gym*. Para expressar especialização, o DTDL dá suporte à herança: as interfaces podem herdar de uma ou mais interfaces. 
 
 O exemplo a seguir reimagina o modelo *planeta* do exemplo de DTDL anterior como um subtipo de um modelo de *CelestialBody* maior. O modelo "pai" é definido primeiro e, em seguida, o modelo "filho" é criado com base nele usando o campo `extends` .
 
@@ -218,7 +218,7 @@ O exemplo a seguir reimagina o modelo *planeta* do exemplo de DTDL anterior como
 ]
 ```
 
-Neste exemplo, *CelestialBody* contribui com um nome, uma massa e uma temperatura para o *planeta* . A `extends` seção é um nome de interface ou uma matriz de nomes de interface (permitindo que a interface de extensão herde de vários modelos pai, se desejado).
+Neste exemplo, *CelestialBody* contribui com um nome, uma massa e uma temperatura para o *planeta*. A `extends` seção é um nome de interface ou uma matriz de nomes de interface (permitindo que a interface de extensão herde de vários modelos pai, se desejado).
 
 Depois que a herança é aplicada, a interface de extensão expõe todas as propriedades de toda a cadeia de herança.
 
@@ -228,11 +228,17 @@ A interface de extensão não pode alterar nenhuma das definições das interfac
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="converting-industry-standard-models"></a>Converter modelos padrão do setor
+## <a name="integrating-with-industry-standard-models"></a>Integração com modelos padrão do setor
 
-Se você tiver modelos existentes fora do Azure digital gêmeos que se baseiam em um padrão do setor, como RDF ou OWL, você precisará **convertê-los em DTDL** para usá-los com o gêmeos digital do Azure. A versão do DTDL se tornará a fonte de verdade para o modelo no gêmeos digital do Azure.
+Usar modelos baseados em padrões do setor ou usar a representação ontologia padrão, como RDF ou OWL, fornece um ponto de partida rico ao projetar seus modelos do Azure digital gêmeos. O uso de modelos do setor também ajuda na padronização e no compartilhamento de informações.
 
-Para obter mais informações sobre esse processo, consulte [*como: converter modelos padrão do setor*](how-to-convert-models.md).
+Para ser usado com o gêmeos digital do Azure, um modelo deve ser representado na [**DTDL (digital gêmeos Definition Language)**](concepts-models.md)baseada em JSON-ld. Portanto, este artigo descreve como representar os modelos padrão do setor no DTDL, integrando os conceitos existentes do setor com a semântica DTDL para que o Azure digital gêmeos possa usá-los. O modelo DTDL, em seguida, serve como a fonte de verdade para o modelo dentro do gêmeos digital do Azure.
+
+Há dois caminhos principais para integrar modelos padrão do setor com o DTDL, dependendo da sua situação:
+* Se você ainda tiver criado seus modelos, poderá criá-los em um **ontologies inicial DTDL existente** que contenha idioma específico do seu setor.
+* Se você já tiver modelos existentes baseados em um padrão do setor, precisará **convertê-los em DTDL para** colocá-los no gêmeos digital do Azure.
+
+Para obter mais informações sobre esses dois processos, consulte [*como: integrar modelos padrão do setor*](how-to-integrate-models.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

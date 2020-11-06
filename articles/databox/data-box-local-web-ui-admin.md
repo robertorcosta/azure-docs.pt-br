@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127517"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337280"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
@@ -160,7 +160,7 @@ Esse arquivo contém a lista de todos os arquivos que foram copiados no Data Box
 Use o painel do dispositivo para exibir a capacidade disponível e é usada do dispositivo.
 
 1. Na interface do usuário da Web local, acesse **Exibir o painel**.
-2. Em **Conectar e copiar**, o espaço livre e usado no dispositivo é mostrado.
+2. Em **Conectar e copiar** , o espaço livre e usado no dispositivo é mostrado.
 
     ![Exibir a capacidade disponível](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
@@ -212,7 +212,7 @@ Para habilitar privilégios de operador de backup em seu dispositivo do Azure:
 
 1. No canto superior direito da interface do usuário da Web local do seu dispositivo, selecione **configurações**.
 
-   ![Abrir configurações de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Abrir configurações de Data Box-1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Habilitar** Privilégios de operador de backup.
 
@@ -235,7 +235,7 @@ Para habilitar a transferência de ACLs para arquivos do Azure:
 
 1. No canto superior direito da interface do usuário da Web local do seu dispositivo, selecione **configurações**.
 
-    ![Abrir configurações de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Abrir configurações de Data Box-2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Habilitar** ACLs para arquivos do Azure.
 
@@ -255,7 +255,7 @@ Para habilitar o TLS 1,1 em seu dispositivo do Azure:
 
 1. No canto superior direito da interface do usuário da Web local do seu dispositivo, selecione **configurações**.
 
-    ![Abrir configurações de Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Abrir configurações de Data Box-3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Habilitar** TLS 1,1.
 

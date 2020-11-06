@@ -4,12 +4,12 @@ description: Saiba como acessar programaticamente suas credenciais de Key Vault 
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913204"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337484"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Acessar com segurança o Key Vault com o Lote
 
@@ -46,7 +46,7 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-O acesso a Key Vault é concedido a um **usuário** ou a uma **entidade de serviço** . Para acessar Key Vault de forma programática, use uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o certificado que você criou na etapa anterior. A entidade de serviço deve estar no mesmo locatário do Microsoft Azure Active Directory que o Key Vault.
+O acesso a Key Vault é concedido a um **usuário** ou a uma **entidade de serviço**. Para acessar Key Vault de forma programática, use uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o certificado que você criou na etapa anterior. A entidade de serviço deve estar no mesmo locatário do Microsoft Azure Active Directory que o Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -67,7 +67,7 @@ As URLs para o aplicativo não são importantes, pois estamos apenas usando-as p
 
 ## <a name="grant-rights-to-key-vault"></a>Conceder direitos para Key Vault
 
-A entidade de serviço criada na etapa anterior precisa de permissão para recuperar os segredos de Key Vault. A permissão pode ser concedida por meio do [portal do Azure](/key-vault/general/assign-access-policy-portal.md) ou com o comando do PowerShell abaixo.
+A entidade de serviço criada na etapa anterior precisa de permissão para recuperar os segredos de Key Vault. A permissão pode ser concedida por meio do [portal do Azure](/azure/key-vault/general/assign-access-policy-portal) ou com o comando do PowerShell abaixo.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -77,7 +77,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Crie um pool do Lote, vá para a guia certificado no pool e atribua o certificado que você criou. O certificado agora está em todos os nós do Lote.
 
-Em seguida, atribua o certificado à conta do lote. Atribuir o certificado à conta permite que o lote o atribua aos pools e, em seguida, aos nós. A maneira mais fácil de fazer isso é acessar sua conta do Lote no portal, navegar até **Certificados** e selecionar **Adicionar** . Carregue o `.pfx` arquivo gerado anteriormente e forneça a senha. Depois de concluído, o certificado é adicionado à lista e você pode verificar a impressão digital.
+Em seguida, atribua o certificado à conta do lote. Atribuir o certificado à conta permite que o lote o atribua aos pools e, em seguida, aos nós. A maneira mais fácil de fazer isso é acessar sua conta do Lote no portal, navegar até **Certificados** e selecionar **Adicionar**. Carregue o `.pfx` arquivo gerado anteriormente e forneça a senha. Depois de concluído, o certificado é adicionado à lista e você pode verificar a impressão digital.
 
 Agora, ao criar um pool do lote, você pode navegar até os **certificados** dentro do pool e atribuir o certificado criado a esse pool. Ao fazer isso, certifique-se de selecionar **LocalMachine** para o local de armazenamento. O certificado é carregado em todos os nós do Lote no pool.
 

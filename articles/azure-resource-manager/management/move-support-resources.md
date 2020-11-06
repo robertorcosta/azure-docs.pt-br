@@ -3,12 +3,12 @@ title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d5875287c7af905579397164029ef0504d6b9dc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627101"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337943"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -1433,7 +1433,7 @@ Pule para um namespace de provedor de recursos:
 > | privatednszones/virtualnetworklinks | Sim | Sim |
 > | privatednszonesinternal | Não | Não |
 > | privateendpointredirectmaps | Não | Não |
-> | privateendpoints | Sim | Sim |
+> | privateendpoints | Não | Não |
 > | privatelinkservices | Não | Não |
 > | publicipaddresses | Sim - SKU Básico<br>Sim-SKU padrão | Sim - SKU Básico<br>Não - SKU Standard |
 > | publicipprefixes | Sim | Sim |

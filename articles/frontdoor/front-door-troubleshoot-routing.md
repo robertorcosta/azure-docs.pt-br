@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: dbce9019e33c07dd4faa91ffd490eba4d313c675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e810a31fab4457e47329e37f54b16e6f488c9da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630603"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337620"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solução de problemas comuns de roteamentos
 
@@ -103,5 +103,26 @@ Há várias causas possíveis para esse sintoma:
             * Os *Protocolos aceitos* são HTTP e HTTPS. O *Protocolo de encaminhamento* é HTTP. A solicitação de correspondência não funcionará, pois HTTPS é um protocolo permitido e, se uma solicitação for enviada como HTTPS, a porta frontal tentará encaminhá-la usando HTTPS.
 
             * Os *Protocolos aceitos* são HTTP. O *protocolo de encaminhamento* é uma solicitação de correspondência ou http.
-
     - A *regravação de URL* é desabilitada por padrão. Esse campo só será usado se você quiser restringir o escopo de recursos hospedados por back-end que deseja disponibilizar. Quando desabilitado, o Front Door encaminhará o mesmo caminho de solicitação que ele recebe. É possível configurar incorretamente esse campo. Assim, quando a porta da frente estiver solicitando um recurso do back-end que não está disponível, ela retornará um código de status HTTP 404.
+
+## <a name="request-to-frontend-host-name-returns-411-status-code"></a>A solicitação para o nome de host front-end retorna o código de status 411
+
+### <a name="symptom"></a>Sintoma
+
+Você criou um Front Door e configurou um host de front-end, um pool de back-end com pelo menos um back-end e uma regra de roteamento que conecta o host de front-end ao pool de back-end. Seu conteúdo não parece estar disponível ao enviar uma solicitação para o host de front-end configurado porque um código de status HTTP 411 é retornado.
+
+As respostas a essas solicitações também podem conter uma página de erro HTML no corpo da resposta que inclui uma instrução explicativa. Por exemplo: `HTTP Error 411. The request must be chunked or have a content length`
+
+### <a name="cause"></a>Causa
+
+Há várias causas possíveis para esse sintoma; no entanto, o motivo geral é que sua solicitação HTTP não é totalmente compatível com RFC. 
+
+Um exemplo de não conformidade é uma `POST` solicitação enviada sem um `Content-Length` ou um `Transfer-Encoding` cabeçalho (por exemplo, usando `curl -X POST https://example-front-door.domain.com` ). Essa solicitação não atende aos requisitos definidos no [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) e seria bloqueada por sua porta frontal com uma resposta http 411.
+
+Esse comportamento é separado da funcionalidade WAF da porta frontal. Atualmente, não há como desabilitar esse comportamento. Todas as solicitações HTTP devem atender aos requisitos, mesmo se a funcionalidade WAF não estiver em uso.
+
+### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
+
+- Verifique se suas solicitações estão em conformidade com os requisitos definidos nos RFCs necessários.
+
+- Anote qualquer corpo de mensagem HTML retornado em resposta à sua solicitação, pois eles geralmente explicam exatamente *como* sua solicitação não está em conformidade.

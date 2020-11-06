@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790603"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337637"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -153,11 +153,13 @@ O SQL Instância Gerenciada não pode acessar arquivos, portanto, os provedores 
 - Não há suporte para logons do Azure AD mapeados para um grupo do Azure AD como proprietário do banco de dados.
 - A representação de entidades de segurança no nível do servidor do Azure AD usando outras entidades de segurança do Azure AD é compatível, como a cláusula [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql). As limitações de executar como são:
 
-  - EXECUTE AS USER não é compatível com usuários do Azure AD quando o nome é diferente do nome de logon. Por exemplo, quando o usuário é criado por meio da sintaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com], e a tentativa de representação é por meio de EXEC AS USER = _myAadUser_ . Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON** .
+  - EXECUTE AS USER não é compatível com usuários do Azure AD quando o nome é diferente do nome de logon. Por exemplo, quando o usuário é criado por meio da sintaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com], e a tentativa de representação é por meio de EXEC AS USER = _myAadUser_. Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON**.
   - Somente as entidades de segurança no nível do SQL Server (logons) que fazem parte do `sysadmin` podem executar as seguintes operações direcionadas a entidades de segurança do Azure AD:
 
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
+
+  - Para representar um usuário com a instrução EXECUTE AS, o usuário precisa ser mapeado diretamente para a entidade de segurança de servidor do Azure AD (logon). Os usuários que são membros de grupos do Azure AD mapeados para entidades de segurança de servidor do Azure AD não podem ser efetivamente representados com a instrução EXECUTE AS, mesmo que o chamador tenha as permissões IMPERSONATE no nome de usuário especificado.
 
 - A exportação/importação de banco de dados usando arquivos bacpac tem suporte para usuários do Azure AD no SQL Instância Gerenciada usando o [SSMS v 18.4 ou posterior](/sql/ssms/download-sql-server-management-studio-ssms), ou [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - As seguintes configurações são compatíveis usando um arquivo de banco de dados bacpac: 
@@ -300,6 +302,7 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-da
   - Ainda não há suporte para alertas.
   - Não há suporte para proxies.
 - Não há suporte para o EventLog.
+- O usuário deve ser mapeado diretamente para a entidade de segurança do servidor do Azure AD (logon) para criar, modificar ou executar trabalhos do SQL Agent. Os usuários que não são mapeados diretamente, por exemplo, usuários que pertencem a um grupo do Azure AD que tem os direitos de criar, modificar ou executar trabalhos do SQL Agent, não poderão executar essas ações efetivamente. Isso ocorre devido à Instância Gerenciada representação e [às limitações de executar como](#logins-and-users).
 
 Os seguintes recursos do SQL Agent atualmente não têm suporte:
 

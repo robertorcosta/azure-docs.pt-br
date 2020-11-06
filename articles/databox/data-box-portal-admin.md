@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123708"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336346"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use o portal do Azure para administrar seu Azure Data Box e Azure Data Box Heavy
 
@@ -34,11 +34,11 @@ Execute as seguintes etapas para cancelar um pedido.
 
 1.  Vá para **Visão Geral > Cancelar**.
 
-    ![Cancelar pedido 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Comando cancelar na guia Visão geral de um pedido](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Preencha um motivo para cancelar o pedido.  
 
-    ![Cancelar pedido 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Caixa de diálogo cancelar pedido](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  Depois que o pedido for cancelado, o portal atualizará o status do pedido e o exibirá como **Cancelado**.
 
@@ -53,7 +53,7 @@ Execute as etapas a seguir para clonar uma ordem de importação.
 
 1.  Vá para **Visão geral > Clonar**. 
 
-    ![Clonar pedido 1](media/data-box-portal-admin/clone-order1.png)
+    ![Clonar comando na guia Visão geral de um pedido](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  Todos os detalhes do pedido permanecem inalterados. O nome do pedido é o nome original do pedido acrescido de *-Clone*. Marque a caixa de seleção para confirmar que você leu as informações de privacidade. Clique em **Criar**.
 
@@ -70,7 +70,7 @@ Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Exec
 
 2. Clique no pedido que você deseja excluir e vá para **Visão Geral**. Na barra de comandos, clique em **Excluir**.
 
-    ![Excluir pedido do Data Box 1](media/data-box-portal-admin/delete-order1.png)
+    ![Comando delete na guia Visão geral de um pedido](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Insira o nome do pedido quando solicitado a confirmar a exclusão de um pedido. Clique em **Excluir**.
 
@@ -82,11 +82,11 @@ Execute as etapas a seguir para baixar uma etiqueta de remessa.
 
 1.  Vá para **Visão geral > Baixar etiqueta de remessa**. Essa opção fica disponível somente depois que o dispositivo é enviado. 
 
-    ![Faça o download da etiqueta de remessa](media/data-box-portal-admin/download-shipping-label.png)
+    ![Faça o download da etiqueta de remessa](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  Essa opção baixa a etiqueta de remessa de devolução a seguir. Salve o rótulo e imprima-o. Dobre e insira o rótulo na manga vazia do dispositivo. Verifique se a etiqueta está visível. Remova todos os adesivos do dispositivo referentes ao envio anterior.
 
-    ![Etiqueta de remessa de exemplo](media/data-box-portal-admin/example-shipping-label.png)
+    ![Etiqueta de remessa de exemplo](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Editar endereço para entrega
 
@@ -96,11 +96,11 @@ Execute as etapas a seguir para editar o pedido.
 
 1. Vá para **Detalhes do pedido > Editar endereço para entrega**.
 
-    ![Editar endereço para entrega 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Editar comando de endereço de envio em detalhes da ordem](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Edite e valide o endereço para entrega e, em seguida, salve as alterações.
 
-    ![Editar endereço para entrega 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Caixa de diálogo Editar endereço de envio](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Editar detalhes da notificação
 
@@ -110,11 +110,11 @@ Execute as etapas a seguir para editar os detalhes de notificação.
 
 1. Vá para **Detalhes do pedido > Editar detalhes da notificação**.
 
-    ![Editar detalhes da notificação 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Editar o comando de detalhes de notificação nos detalhes da ordem](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Agora você pode editar os detalhes de notificação e salvar as alterações.
  
-    ![Editar detalhes da notificação 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Caixa de diálogo Editar detalhes da notificação](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Baixar histórico de pedidos
@@ -125,7 +125,7 @@ Execute as etapas a seguir para baixar o histórico de pedidos.
 
 1. No seu pedido do Data Box, vá para **Visão Geral**. Verifique se o pedido está completo. Se o pedido estiver completo e a limpeza for concluída, vá para **Detalhes da ordem**. A opção **Baixar histórico de pedidos** está disponível.
 
-    ![Baixar histórico de pedidos](media/data-box-portal-admin/download-order-history-1.png)
+    ![Baixar histórico de pedidos](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Clique em **Baixar histórico de pedidos**. No histórico baixado, você verá um registro de logs de rastreamento da operadora. Haverá dois conjuntos de log correspondentes aos dois nós em um Data Box Heavy. Se você rolar para baixo até a parte inferior desse log, poderá ver os links para:
     
@@ -198,11 +198,11 @@ Execute as etapas a seguir para baixar o histórico de pedidos.
 
     Você pode, em seguida, ir para sua conta de armazenamento e exibir os logs de cópia.
 
-![Logs nas contas de armazenamento](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Os logs de cópia de uma conta de armazenamento](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-Você também pode exibir a cadeia de logs de custódia que incluem os logs de auditoria e os arquivos BOM.
+   Você também pode exibir a cadeia de logs de custódia, que incluem os logs de auditoria e os arquivos da BOM.
 
-![Logs em contas de armazenamento 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Cadeia de logs de custódia para uma conta de armazenamento](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Exibir status do pedido
 

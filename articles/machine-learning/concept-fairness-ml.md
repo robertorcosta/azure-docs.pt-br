@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689670"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335751"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigar a imparcialidade em modelos de aprendizado de máquina (versão prévia)
 
 Saiba mais sobre a imparcialidade no aprendizado de máquina e como o pacote Python de software livre [Fairlearn](https://fairlearn.github.io/) pode ajudá-lo a reduzir problemas de imparcialidade em modelos de aprendizado de máquina. Se você não estiver tomando um esforço para entender problemas de imparcialidade e para avaliar a imparcialidade ao criar modelos de aprendizado de máquina, poderá criar modelos que produzam resultados injustos.
 
-O seguinte Resumo do [Guia do usuário](https://fairlearn.github.io/user_guide/index.html) para o pacote de código-fonte aberto do Fairlearn, descreve como usá-lo para avaliar a imparcialidade dos sistemas de ia que você está criando.  O pacote Fairlearn Open-Source também pode oferecer opções para ajudar a mitigar ou ajudar a reduzir os problemas de imparcialidade que você observar.  Consulte os [blocos de anotações](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) de [instruções](how-to-machine-learning-fairness-aml.md) e de exemplo para habilitar a avaliação de imparcialidade de sistemas de ia durante o treinamento em Azure Machine Learning.
+O seguinte Resumo do [Guia do usuário](https://fairlearn.github.io/master/user_guide/index.html) para o pacote de código-fonte aberto do Fairlearn, descreve como usá-lo para avaliar a imparcialidade dos sistemas de ia que você está criando.  O pacote Fairlearn Open-Source também pode oferecer opções para ajudar a mitigar ou ajudar a reduzir os problemas de imparcialidade que você observar.  Consulte os [blocos de anotações](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) de [instruções](how-to-machine-learning-fairness-aml.md) e de exemplo para habilitar a avaliação de imparcialidade de sistemas de ia durante o treinamento em Azure Machine Learning.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>O que é a imparcialidade em modelos de aprendizado de máquina?
@@ -51,7 +51,7 @@ Juntos, esses componentes permitem que os cientistas de dados e os líderes de n
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Avaliar a imparcialidade em modelos de aprendizado de máquina
 
-No pacote de código-fonte aberto do Fairlearn, a imparcialidade é conceituada por meio de uma abordagem conhecida como **imparcialidade de grupo**, que pergunta: quais grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos por meio de **recursos sensíveis** ou atributos sensíveis. Os recursos confidenciais são passados para um estimador no pacote de código-fonte aberto do Fairlearn como um vetor ou uma matriz chamada  `sensitive_features` . O termo sugere que o designer do sistema deve ser sensível a esses recursos ao avaliar a imparcialidade de grupo. 
+No pacote de código-fonte aberto do Fairlearn, a imparcialidade é conceituada por meio de uma abordagem conhecida como **imparcialidade de grupo** , que pergunta: quais grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos por meio de **recursos sensíveis** ou atributos sensíveis. Os recursos confidenciais são passados para um estimador no pacote de código-fonte aberto do Fairlearn como um vetor ou uma matriz chamada  `sensitive_features` . O termo sugere que o designer do sistema deve ser sensível a esses recursos ao avaliar a imparcialidade de grupo. 
 
 Algo a ser cuidadoso é se esses recursos contêm implicações de privacidade devido a dados privados. Mas a palavra “sensível” não significa que esses recursos não devem ser usados para fazer previsões.
 
@@ -108,6 +108,6 @@ O pacote Fairlearn Open-Source fornece algoritmos de mitigação de desprocessam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar os diferentes componentes, conferindo o [GitHub](https://github.com/fairlearn/fairlearn/), guia do [usuário](https://fairlearn.github.io/user_guide/index.html), [exemplos](https://fairlearn.github.io/auto_examples/)e [notebooks de exemplo](https://github.com/fairlearn/fairlearn/tree/master/notebooks)do Fairlearn.
+- Saiba como usar os diferentes componentes, conferindo o [GitHub](https://github.com/fairlearn/fairlearn/), guia do [usuário](https://fairlearn.github.io/master/user_guide/index.html), [exemplos](https://fairlearn.github.io/master/auto_examples/)e [notebooks de exemplo](https://github.com/fairlearn/fairlearn/tree/master/notebooks)do Fairlearn.
 - Saiba [como habilitar a](how-to-machine-learning-fairness-aml.md) avaliação de imparcialidade de modelos de aprendizado de máquina no Azure Machine Learning.
 - Consulte os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para cenários de avaliação de imparcialidade adicionais no Azure Machine Learning. 
