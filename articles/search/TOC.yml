@@ -34,7 +34,7 @@
       href: search-get-started-java.md
     - name: JavaScript
       href: search-get-started-javascript.md
-    - name: postman
+    - name: REST
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -94,6 +94,8 @@
   items:
     - name: Pesquisa de texto completo
       href: search-lucene-query-architecture.md
+    - name: Pontuação de relevância
+      href: index-similarity-and-scoring.md
     - name: Indexadores
       href: search-indexer-overview.md
     - name: Enriquecimento de IA
@@ -294,8 +296,6 @@
       items:
         - name: Trabalhar com os resultados
           href: search-pagination-page-layout.md
-        - name: Pontuação de relevância
-          href: index-similarity-and-scoring.md
         - name: Perfis de pontuação
           href: index-add-scoring-profiles.md
         - name: Algoritmo de similaridade
@@ -548,5 +548,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: vídeos
+    - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

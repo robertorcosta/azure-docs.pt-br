@@ -662,6 +662,8 @@
               href: how-to-time-to-live.md
             - name: Definir chaves exclusivas
               href: how-to-define-unique-keys.md
+            - name: Executar operações em lote transacionais
+              href: transactional-batch.md
         - name: Desempenho
           items:
             - name: Consulta
@@ -753,8 +755,6 @@
               href: create-sql-api-java-changefeed.md
         - name: Programação do lado do servidor
           items:
-            - name: Executar operações em lote transacionais
-              href: transactional-batch.md
             - name: 'Gravar procedimentos armazenados, gatilhos e UDFs'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: Gravar procedimentos e gatilhos armazenados com a API de consulta JavaScript

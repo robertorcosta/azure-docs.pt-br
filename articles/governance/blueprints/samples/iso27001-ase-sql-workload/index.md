@@ -1,14 +1,14 @@
 ---
 title: Visão Geral do exemplo de blueprint de carga de trabalho do ASE/SQL ISO 27001
 description: Visão geral e arquitetura do exemplo de blueprint da carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001.
-ms.date: 07/13/2020
+ms.date: 11/02/2020
 ms.topic: sample
-ms.openlocfilehash: 6f6cb50450e461d87fdbb3c71fe6273c43c3122e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 4972aa09e993f8de445cf4bf581f5ad76dbca520
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930400"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420369"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Visão geral do exemplo de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL do ISO 27001
 
