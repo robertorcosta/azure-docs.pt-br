@@ -69,6 +69,8 @@
           href: face-resource-container-config.md
         - name: Usar instâncias de contêiner
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+        - name: Documentação sobre contêineres dos Serviços Cognitivos
+          href: ../containers/index.yml
 - name: Referência
   items:
     - name: API de Detecção Facial

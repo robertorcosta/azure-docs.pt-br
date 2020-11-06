@@ -66,6 +66,8 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: AKS (Serviço de Kubernetes do Azure)
           href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Documentação sobre contêineres de Serviços Cognitivos
+      href: containers/index.yml
 - name: Big Data
   items:
     - name: Serviços Cognitivos para Big data

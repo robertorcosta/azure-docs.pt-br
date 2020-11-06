@@ -161,6 +161,8 @@
           href: spatial-analysis-zone-line-placement.md
         - name: Posicionamento da câmera
           href: spatial-analysis-camera-placement.md
+    - name: Documentação sobre contêineres dos Serviços Cognitivos
+      href: ../containers/index.yml
 - name: Guias de instruções
   items:
     - name: Chamar a API da Pesquisa Visual Computacional
