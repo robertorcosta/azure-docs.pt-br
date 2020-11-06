@@ -9,16 +9,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1464c0c0b0d573711ed07332a76bb67e73dc0484
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131200"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397766"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Gateway de Aplicativo e a Central de Segurança do Azure
 
-Saiba como o Gateway de Aplicativo e a Central de segurança ajudam a proteger os recursos do aplicativo Web. O Firewall do aplicativo Web do gateway de aplicativo (WAF) integra-se à [central de segurança](../security-center/security-center-intro.md) para fornecer uma visão direta para prevenir, detectar e responder a ameaças a aplicativos Web desprotegidos em seu ambiente.
+Saiba como o Gateway de Aplicativo e a Central de segurança ajudam a proteger os recursos do aplicativo Web. O Firewall do aplicativo Web do gateway de aplicativo (WAF) integra-se à [central de segurança](../security-center/security-center-introduction.md) para fornecer uma visão direta para prevenir, detectar e responder a ameaças a aplicativos Web desprotegidos em seu ambiente.
 
 ## <a name="overview"></a>Visão geral
 
@@ -30,7 +30,7 @@ Clicando em uma recomendação sobre o firewall do aplicativo Web abre uma nova 
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Adicionar o firewall do aplicativo Web a um recurso existente
 
-Navegue até **todos os serviços**  >  **segurança + identidade**  >  **central de segurança** e na **central de segurança-visão geral**, clique em **aplicativos**. Em **Central de Segurança - Aplicativos**, a tabela contém uma lista de aplicativos que a Central de Segurança detectou na sua assinatura.
+Navegue até **todos os serviços**  >  **segurança + identidade**  >  **central de segurança** e na **central de segurança-visão geral** , clique em **aplicativos**. Em **Central de Segurança - Aplicativos** , a tabela contém uma lista de aplicativos que a Central de Segurança detectou na sua assinatura.
 
 ![aplicativos Web][3]
 
@@ -50,11 +50,11 @@ Adicionar um aplicativo Web a um gateway de aplicativo através da Central de Se
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Adicionar um recurso a um firewall do aplicativo Web existente
 
-Navegue até **todos os serviços**  >  **segurança + identidade**  >  **central de segurança** e na **central de segurança-visão geral**, clique em **soluções de parceiros**. Gateways de aplicativo com reconhecimento da Central de Segurança do Azure existentes na página **Soluções de Parceiros**.
+Navegue até **todos os serviços**  >  **segurança + identidade**  >  **central de segurança** e na **central de segurança-visão geral** , clique em **soluções de parceiros**. Gateways de aplicativo com reconhecimento da Central de Segurança do Azure existentes na página **Soluções de Parceiros**.
 
 ![soluções de parceiros][7]
 
-Clique em **Vincular Aplicativo** para abrir **Vincular Aplicativos**, aqui você terá as opções para selecionar os aplicativos existentes. Escolha os aplicativos para serem protegidos e clique em **OK**. Isso não adiciona o aplicativo Web ao pool de back-end do gateway de aplicativo. Isso define os recursos como um recurso protegido para que a Central de segurança possa controlá-lo. Para adicionar o recurso como um membro do pool de back-end, isso deve ser feito no gateway de aplicativo, na página atual, você pode clicar em **Console de soluções** para ser levado ao recurso de gateway de aplicativo onde você pode adicionar o aplicativo Web ao pool de back-end.
+Clique em **Vincular Aplicativo** para abrir **Vincular Aplicativos** , aqui você terá as opções para selecionar os aplicativos existentes. Escolha os aplicativos para serem protegidos e clique em **OK**. Isso não adiciona o aplicativo Web ao pool de back-end do gateway de aplicativo. Isso define os recursos como um recurso protegido para que a Central de segurança possa controlá-lo. Para adicionar o recurso como um membro do pool de back-end, isso deve ser feito no gateway de aplicativo, na página atual, você pode clicar em **Console de soluções** para ser levado ao recurso de gateway de aplicativo onde você pode adicionar o aplicativo Web ao pool de back-end.
 
 ![aplicativos de soluções de parceiros][6]
 
@@ -76,7 +76,7 @@ A seleção de uma regra fornecerá uma lista de alertas para essa regra WAF esp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como habilitar o Firewall do aplicativo Web em um gateway de aplicativo existente, visite [criar ou atualizar um gateway de aplicativo Azure com o Firewall do aplicativo Web](application-gateway-web-application-firewall-portal.md).
+Para saber como habilitar o Firewall do aplicativo Web em um gateway de aplicativo existente, visite [criar ou atualizar um gateway de aplicativo Azure com o Firewall do aplicativo Web](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

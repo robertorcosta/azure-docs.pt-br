@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd46f4033a568a278d7006c0d5aab451496ff47
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311590"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397216"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar Aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2
 
@@ -125,7 +125,7 @@ Para executar o script:
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      Para criar uma lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
+      Para criar uma lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [String]: opcional**. Um endereço IP privado específico que você deseja associar ao seu novo gateway v2.  Isso deve ser da mesma VNet que você aloca para o novo gateway v2. Se isso não for especificado, o script alocará um endereço IP privado para o seu gateway v2.
    * **publicIpResourceId: [String]: opcional**. O ResourceId do recurso de endereço IP público (SKU padrão) existente na sua assinatura que você deseja alocar para o novo gateway v2. Se isso não for especificado, o script alocará um novo IP público no mesmo grupo de recursos. O nome é o nome do gateway V2 com *-IP* acrescentado.
    * **validateMigration: [opção]: opcional**. Use esse parâmetro se desejar que o script faça algumas validações de comparação de configuração básica após a criação do gateway V2 e a cópia de configuração. Por padrão, nenhuma validação é feita.

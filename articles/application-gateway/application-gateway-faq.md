@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791538"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397783"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -29,7 +29,7 @@ O Gateway de Aplicativo Azure fornece o controlador de entrega de aplicativo (AD
 
 ### <a name="what-features-does-application-gateway-support"></a>Quais recursos o Gateway de Aplicativo suporta?
 
-O Gateway de Aplicativo dá suporte para dimensionamento automático, descarregamento de TSL e TSL de ponta a ponta, firewall do aplicativo Web (WAF), afinidade de sessão baseada em cookies, roteamento baseado em caminho de URL, hospedagem em vários sites e outros. Para obter uma lista completa dos recursos com suporte, confira [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md).
+O Gateway de Aplicativo dá suporte para dimensionamento automático, descarregamento de TSL e TSL de ponta a ponta, firewall do aplicativo Web (WAF), afinidade de sessão baseada em cookies, roteamento baseado em caminho de URL, hospedagem em vários sites e outros. Para obter uma lista completa dos recursos com suporte, confira [Introdução ao Gateway de Aplicativo](./overview.md).
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>O que é a diferença entre o Gateway de Aplicativo e o balanceador de carga do Azure?
 
@@ -41,17 +41,17 @@ O Gateway de Aplicativo fornece suporte HTTP, HTTPS, HTTP/2 e WebSocket.
 
 ### <a name="how-does-application-gateway-support-http2"></a>Como o Gateway de aplicativo dá suporte a HTTP/2?
 
-Confira o [Suporte do HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
+Confira o [Suporte do HTTP/2](./configuration-listeners.md#http2-support).
 
 ### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>Quais recursos têm suporte atualmente como parte do pool de back-end?
 
-Consulte [recursos de back-end com suporte](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
+Consulte [recursos de back-end com suporte](./application-gateway-components.md#backend-pools).
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>Em quais regiões o gateway de aplicativo está disponível?
 
 O gateway de aplicativo V1 (Standard e WAF) está disponível em todas as regiões do Azure global. Ele também está disponível no [Azure China 21Vianet](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/).
 
-Para disponibilidade do gateway de aplicativo v2 (Standard_v2 e WAF_v2), consulte [regiões com suporte para o gateway de aplicativo v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
+Para disponibilidade do gateway de aplicativo v2 (Standard_v2 e WAF_v2), consulte [regiões com suporte para o gateway de aplicativo v2](./application-gateway-autoscaling-zone-redundant.md#supported-regions)
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>Esta é uma implantação dedicada à minha assinatura ou é compartilhada entre os clientes?
 
@@ -59,17 +59,17 @@ O Gateway de Aplicativo é uma implementação dedicada em sua rede virtual.
 
 ### <a name="does-application-gateway-support-http-to-https-redirection"></a>Como o Gateway de Aplicativo dá suporte ao redirecionamento de HTTP para HTTPS?
 
-Há suporte para redirecionamento. Consulte a [Visão geral do redirecionamento do Gateway de Aplicativo](application-gateway-redirect-overview.md).
+Há suporte para redirecionamento. Consulte a [Visão geral do redirecionamento do Gateway de Aplicativo](./redirect-overview.md).
 
 ### <a name="in-what-order-are-listeners-processed"></a>Em que ordem os ouvintes são processados?
 
-Consulte a [ordem de processamento de ouvinte](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
+Consulte a [ordem de processamento de ouvinte](./configuration-listeners.md#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-the-application-gateway-ip-and-dns"></a>Onde encontro o IP e o DNS do Gateway de Aplicativo?
 
 Se você estiver usando um endereço IP público como um ponto de extremidade, encontrará as informações de IP e DNS no recurso de endereço IP público. Ou encontrá-lo no portal, na página Visão geral do gateway de aplicativo. Se você estiver usando endereços IP internos, localize as informações na página Visão geral.
 
-Para a SKU v2, abra o recurso IP público e selecione **Configuração** . O campo de **Rótulo de nome DNS (opcional)** está disponível para configurar o nome DNS.
+Para a SKU v2, abra o recurso IP público e selecione **Configuração**. O campo de **Rótulo de nome DNS (opcional)** está disponível para configurar o nome DNS.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quais são as configurações de tempo limite de Keep-Alive e tempo limite de ociosidade de TCP?
 
@@ -97,7 +97,7 @@ Há suporte apenas para um único endereço IP público em um Gateway de Aplicat
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Quão grande devo criar minha sub-rede para o Application Gateway?
 
-Consulte [Considerações sobre o tamanho da sub-rede do Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet).
+Consulte [Considerações sobre o tamanho da sub-rede do Gateway de Aplicativo](./configuration-infrastructure.md#size-of-the-subnet).
 
 ### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Posso implantar mais de um recurso de Gateway de Aplicativo em uma única sub-rede?
 
@@ -111,7 +111,7 @@ Sim, mas apenas cenários específicos. Para obter mais informações, consulte 
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>O Gateway de aplicativo dá suporte a cabeçalhos x-forwarded-for?
 
-Sim. Consulte [Modificações a uma solicitação](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
+Sim. Consulte [Modificações a uma solicitação](./how-application-gateway-works.md#modifications-to-the-request).
 
 ### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>Quanto tempo demora para implantar um Gateway de Aplicativo? O meu Gateway de Aplicativo ainda funciona quando está sendo atualizado?
 
@@ -138,7 +138,7 @@ Não. O Gateway de Aplicativo v2 ainda não dá suporte a solicitações de prox
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do Gateway de Aplicativo dá suporte ao atributo SameSite?
 Sim, o [navegador Chromium](https://www.chromium.org/Home) [atualização de v80](https://chromiumdash.appspot.com/schedule) introduziu uma exigência em cookies HTTP sem que o atributo SameSite seja tratado como SameSite=Lax. Isso significa que o cookie de afinidade do Gateway de Aplicativo não será enviado pelo navegador em um contexto de terceiros. 
 
-Para dar suporte a esse cenário, o Gateway de Aplicativo injeta outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente.  Esses cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele: *SameSite=None; Secure* . Esses atributos mantêm afinidades de sessão mesmo para solicitações entre origens. Consulte a [seção da afinidade baseada em cookie](configuration-http-settings.md#cookie-based-affinity) para obter mais informações.
+Para dar suporte a esse cenário, o Gateway de Aplicativo injeta outro cookie chamado *ApplicationGatewayAffinityCORS* além do cookie *ApplicationGatewayAffinity* existente.  Esses cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele: *SameSite=None; Secure*. Esses atributos mantêm afinidades de sessão mesmo para solicitações entre origens. Consulte a [seção da afinidade baseada em cookie](configuration-http-settings.md#cookie-based-affinity) para obter mais informações.
 
 ## <a name="performance"></a>Desempenho
 
@@ -172,7 +172,7 @@ Sim.
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>O Application Gateway está sempre implantado em uma rede virtual?
 
-Sim. O Gateway de Aplicativo é sempre implantado em uma sub-rede de rede virtual. Essa sub-rede só pode conter Gateways de Aplicativos. Para saber mais, confira [exigências de rede virtual e requisitos de sub-rede](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet).
+Sim. O Gateway de Aplicativo é sempre implantado em uma sub-rede de rede virtual. Essa sub-rede só pode conter Gateways de Aplicativos. Para saber mais, confira [exigências de rede virtual e requisitos de sub-rede](./configuration-infrastructure.md#virtual-network-and-dedicated-subnet).
 
 ### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>O Gateway de Aplicativo pode se comunicar com instâncias fora de sua rede virtual ou fora de sua assinatura?
 
@@ -184,15 +184,15 @@ Não. Mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Os grupos de segurança de rede são compatíveis na sub-rede do gateway de aplicativos?
 
-Consulte [Grupos de segurança de rede na sub-rede do Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups).
+Consulte [Grupos de segurança de rede na sub-rede do Gateway de Aplicativo](./configuration-infrastructure.md#network-security-groups).
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>A sub-rede do gateway de aplicativo permite rotas definidas pelo usuário?
 
-Consulte [As rotas definidas pelo usuário são permitidas na sub-rede do Gateway de Aplicativo?](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
+Consulte [As rotas definidas pelo usuário são permitidas na sub-rede do Gateway de Aplicativo?](./configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>As políticas de ponto de extremidade de serviço têm suporte na sub-rede do gateway de aplicativo?
 
-Não. [As políticas de ponto de extremidade de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) para contas de armazenamento não têm suporte na sub-rede do gateway de aplicativo e configurá-la bloqueará o tráfego de infraestrutura do Azure.
+Não. [As políticas de ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoint-policies-overview.md) para contas de armazenamento não têm suporte na sub-rede do gateway de aplicativo e configurá-la bloqueará o tráfego de infraestrutura do Azure.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites no Gateway de Aplicativo? Posso aumentar esses limites?
 
@@ -220,7 +220,7 @@ Não.
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Como as regras de roteamento são processadas no Gateway de Aplicativo?
 
-Consulte a [Ordem das regras de processamento](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules).
+Consulte a [Ordem das regras de processamento](./configuration-request-routing-rules.md#order-of-processing-rules).
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>O que significa o campo Host para investigações personalizadas?
 
@@ -228,7 +228,7 @@ O campo Host especifica o nome para o qual enviar a investigação quando você 
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Posso permitir o acesso do Gateway de Aplicativo a apenas alguns endereços IP de origem?
 
-Sim. Confira [Restringir o acesso a intervalos de IP específicos](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips).
+Sim. Confira [Restringir o acesso a intervalos de IP específicos](./configuration-infrastructure.md#allow-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>A mesma porta pode ser usada tanto para ouvintes voltados para o público quanto para o privado?
 
@@ -247,13 +247,13 @@ O Gateway de Aplicativo v2 atualmente não dá suporte apenas ao modo de IP priv
 Mas se você quiser usar o Gateway de Aplicativo v2 somente com o IP privado, você pode seguir o processo abaixo:
 1. Criar um Gateway de Aplicativo com o endereço IP de front-end público e privado
 2. Não crie nenhum ouvinte para o endereço IP de front-end público. O gateway de aplicativo não escutará nenhum tráfego no endereço IP público se nenhum ouvinte for criado para ele.
-3. Crie e anexe um [Grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede do Gateway de Aplicativo com a seguinte configuração na ordem de prioridade:
+3. Crie e anexe um [Grupo de segurança de rede](../virtual-network/network-security-groups-overview.md) para a sub-rede do Gateway de Aplicativo com a seguinte configuração na ordem de prioridade:
     
-    a. Permita o tráfego da Origem como **GatewayManager** marca de serviço e destino como **Qualquer** e porta de Destino como **65200-65535** . Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de usuário do gateway, não podem iniciar alterações nesses pontos de extremidade sem os certificados apropriados em vigor
+    a. Permita o tráfego da Origem como **GatewayManager** marca de serviço e destino como **Qualquer** e porta de Destino como **65200-65535**. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de usuário do gateway, não podem iniciar alterações nesses pontos de extremidade sem os certificados apropriados em vigor
     
     b. Permita o tráfego da Origem como marca de serviço e destino **AzureLoadBalancer** e porta de destino  **Qualquer**
     
-    c. Permita o tráfego da Origem como marca de serviço e destino **Internet** e porta de destino e portas de destino como **Qualquer** . Dê a essa regra *menos prioridade* nas regras de entrada
+    c. Permita o tráfego da Origem como marca de serviço e destino **Internet** e porta de destino e portas de destino como **Qualquer**. Dê a essa regra *menos prioridade* nas regras de entrada
     
     d. Mantenha as regras padrão como permitir a entrada de VirtualNetwork para que o acesso no endereço IP privado não seja bloqueado
     
@@ -337,7 +337,7 @@ Sim, o SKU de Gateway de Aplicativo v2 permite Key Vault. Para obter mais inform
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Como configurar ouvintes HTTPS para sites. com e .net? 
 
-Para vários roteamentos baseados em domínio (baseados em host), você pode criar ouvintes de vários sites, configurar ouvintes que usam HTTPS como o protocolo e associar os ouvintes às regras de roteamento. Para obter mais informações, consulte [Hospedagem de vários sites com o Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
+Para vários roteamentos baseados em domínio (baseados em host), você pode criar ouvintes de vários sites, configurar ouvintes que usam HTTPS como o protocolo e associar os ouvintes às regras de roteamento. Para obter mais informações, consulte [Hospedagem de vários sites com o Gateway de Aplicativo](./multiple-site-overview.md).
 
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Posso usar caracteres especiais na senha de seu arquivo .pfx?
 
@@ -350,7 +350,7 @@ Os membros do navegador da AC (autoridade de certificação) publicaram recentem
 * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
 
-De acordo com os requisitos de conformidade do setor, os fornecedores de CA começaram a revogar CAs não compatíveis e a emissão de CAs em conformidade, o que exige que os clientes tenham seus certificados reemitidos.A Microsoft está fazendo uma parceria com esses fornecedores para minimizar o impacto potencial nos serviços do Azure, **no entanto, seus certificados emitidos automaticamente ou certificados usados em cenários de BYOC ("Traga seu próprio certificado") ainda estão em risco de serem revogados inesperadamente** .
+De acordo com os requisitos de conformidade do setor, os fornecedores de CA começaram a revogar CAs não compatíveis e a emissão de CAs em conformidade, o que exige que os clientes tenham seus certificados reemitidos.A Microsoft está fazendo uma parceria com esses fornecedores para minimizar o impacto potencial nos serviços do Azure, **no entanto, seus certificados emitidos automaticamente ou certificados usados em cenários de BYOC ("Traga seu próprio certificado") ainda estão em risco de serem revogados inesperadamente**.
 
 Para verificar se os certificados utilizados pelo seu aplicativo foram revogados, consulte o [anúncio do DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) de referência e o [controlador de revogação de certificado](https://misissued.com/#revoked). Se os certificados tiverem sido revogados ou forem revogados, você precisará solicitar novos certificados do fornecedor da autoridade de certificação utilizado em seus aplicativos. Para evitar que a disponibilidade do aplicativo seja interrompida devido aos certificados serem revogados inesperadamente ou para atualizar um certificado que foi revogado, consulte nossa postagem de atualizações do Azure para obter links de correção de vários serviços do Azure que dão suporte a BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
@@ -365,7 +365,7 @@ Se você estiver usando um certificado emitido por um dos ICAs revogados, a disp
 Para evitar qualquer interrupção em seu aplicativo devido a esse problema, ou para emitir novamente uma AC que foi revogada, você precisa executar as seguintes ações: 
 
 1.  Entre em contato com seu provedor de certificados para emitir novamente seus certificados
-2.  Depois de reemitido, atualize seus certificados na Aplicativo Azure gateway/WAF com a cadeia completa [de confiança](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (folha, intermediária, certificado raiz). Com base em onde você está usando seu certificado, no ouvinte ou nas configurações de HTTP do gateway de aplicativo, siga as etapas abaixo para atualizar os certificados e verifique os links de documentação mencionados para obter mais informações.
+2.  Depois de reemitido, atualize seus certificados na Aplicativo Azure gateway/WAF com a cadeia completa [de confiança](/windows/win32/seccrypto/certificate-chains) (folha, intermediária, certificado raiz). Com base em onde você está usando seu certificado, no ouvinte ou nas configurações de HTTP do gateway de aplicativo, siga as etapas abaixo para atualizar os certificados e verifique os links de documentação mencionados para obter mais informações.
 3.  Atualize seus servidores de aplicativos de back-end para usar o certificado emitido novamente. Dependendo do servidor de back-end que você está usando, as etapas de atualização do certificado podem variar. Verifique a documentação do seu fornecedor.
 
 Para atualizar o certificado em seu ouvinte:
@@ -374,14 +374,14 @@ Para atualizar o certificado em seu ouvinte:
 2.  Abrir as configurações de ouvinte associadas ao seu certificado
 3.  Clique em "renovar ou editar o certificado selecionado"
 4.  Carregue seu novo certificado PFX com a senha e clique em salvar
-5.  Acesse o site e verifique se o site está funcionando conforme o esperado para obter mais informações, consulte a documentação [aqui](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+5.  Acesse o site e verifique se o site está funcionando conforme o esperado para obter mais informações, consulte a documentação [aqui](./renew-certificates.md).
 
 Se você estiver fazendo referência a certificados do Azure keyvault no ouvinte do gateway de aplicativo, recomendamos as seguintes etapas para uma alteração rápida –
 
 1.  Na [portal do Azure](https://portal.azure.com/), navegue até as configurações do cofre de chaves do Azure que foram associadas ao gateway de aplicativo
-2.  Adicione/importe o certificado reemitido em seu repositório. Consulte a documentação [aqui](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) para obter mais informações sobre como.
+2.  Adicione/importe o certificado reemitido em seu repositório. Consulte a documentação [aqui](../key-vault/certificates/quick-create-portal.md) para obter mais informações sobre como.
 3.  Depois que o certificado tiver sido importado, navegue até as configurações do ouvinte do gateway de aplicativo e, em "escolher um certificado de Key Vault", clique no menu suspenso "certificado" e escolha o certificado recentemente adicionado
-4.  Clique em salvar para obter mais informações sobre o encerramento de TLS no gateway de aplicativo com certificados Key Vault, consulte a documentação [aqui](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+4.  Clique em salvar para obter mais informações sobre o encerramento de TLS no gateway de aplicativo com certificados Key Vault, consulte a documentação [aqui](./key-vault-certs.md).
 
 
 Para atualizar o certificado em suas configurações de HTTP:
@@ -391,7 +391,7 @@ Se estiver usando a SKU v1 do serviço Application Gateway/WAF, você precisará
 2.  Abra as configurações de HTTP associadas ao seu certificado
 3.  Clique em "Adicionar certificado" e carregue o certificado reemitido e clique em salvar
 4.  Você pode remover o certificado antigo mais tarde clicando no botão "..." botão de opções ao lado do certificado antigo e selecione Excluir e clique em salvar.
-Para obter mais informações, consulte a documentação [aqui](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+Para obter mais informações, consulte a documentação [aqui](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers).
 
 Se você estiver usando a SKU v2 do serviço Application Gateway/WAF, não precisará carregar o novo certificado nas configurações de HTTP, já que a SKU v2 usa "certificados raiz confiáveis" e nenhuma ação precisa ser executada aqui.
 
@@ -454,7 +454,7 @@ No portal, clique em **Log de Atividades** na folha do menu de um Gateway de Apl
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Configurar alertas com o Gateway de aplicativo?
 
-Sim. No Gateway de aplicativo, os alertas são configurados nas métricas. Para obter mais informações, consulte [métricas do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) e [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sim. No Gateway de aplicativo, os alertas são configurados nas métricas. Para obter mais informações, consulte [métricas do gateway de aplicativo](./application-gateway-metrics.md) e [receber notificações de alerta](../azure-monitor/platform/alerts-overview.md).
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Como faço para analisar as estatísticas de tráfego do Application Gateway?
 

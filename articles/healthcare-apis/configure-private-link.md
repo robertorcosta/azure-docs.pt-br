@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: 121ddcc013fbeef29c6d22cfbd273cfd3b8d3d98
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558847"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398208"
 ---
 # <a name="configure-private-link"></a>Configurar link privado
 
@@ -30,7 +30,7 @@ Antes de criar um ponto de extremidade privado, há alguns recursos do Azure que
 - API do Azure para FHIR – o recurso FHIR que você gostaria de colocar por trás de um ponto de extremidade privado.
 - Rede virtual – a VNet à qual os serviços de cliente e o ponto de extremidade privado serão conectados.
 
-Para obter mais informações, confira a [documentação do link privado](https://docs.microsoft.com/azure/private-link/).
+Para obter mais informações, confira a [documentação do link privado](../private-link/index.yml).
 
 ## <a name="disable-public-network-access"></a>Desabilitar o acesso de redes públicas
 
@@ -38,9 +38,9 @@ A criação de um ponto de extremidade privado para o recurso FHIR não desabili
 
 ![Desabilitar o acesso à rede pública](media/private-link/private-link-disable.png)
 
-## <a name="create-private-endpoint"></a>Criar ponto de extremidade privado
+## <a name="create-private-endpoint"></a>Criar um ponto de extremidade privado
 
-Para criar um ponto de extremidade privado, um desenvolvedor com permissões de RBAC no recurso FHIR pode usar portal do Azure, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)ou [CLI do Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). Este artigo orienta você pelas etapas sobre como usar portal do Azure. O uso de portal do Azure é recomendado, pois automatiza a criação e a configuração da zona de DNS privado. Você pode fazer referência ao [link privado início rápido guias](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) para obter mais detalhes.
+Para criar um ponto de extremidade privado, um desenvolvedor com permissões de RBAC no recurso FHIR pode usar portal do Azure, [Azure PowerShell](../private-link/create-private-endpoint-powershell.md)ou [CLI do Azure](../private-link/create-private-endpoint-cli.md). Este artigo orienta você pelas etapas sobre como usar portal do Azure. O uso de portal do Azure é recomendado, pois automatiza a criação e a configuração da zona de DNS privado. Você pode fazer referência ao [link privado início rápido guias](../private-link/create-private-endpoint-portal.md) para obter mais detalhes.
 
 Há duas maneiras de criar um ponto de extremidade privado. O fluxo de aprovação automática permite que um usuário que tem permissões de RBAC no recurso FHIR crie um ponto de extremidade privado sem a necessidade de aprovação. O fluxo de aprovação manual permite que um usuário sem permissões no recurso FHIR solicite que um ponto de extremidade privado seja aprovado pelos proprietários do recurso FHIR.
 

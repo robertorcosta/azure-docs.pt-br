@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248663"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397142"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com o gateway de aplicativo
 
@@ -22,7 +22,7 @@ Os cabeçalhos HTTP permitem que um cliente e um servidor passem informações a
 
 O Gateway de Aplicativo permite adicionar, remover ou atualizar solicitações HTTP e cabeçalhos de resposta, enquanto os pacotes de solicitação e resposta são transferidos entre os pools de cliente e de back-end. Ele também permite adicionar condições para garantir que os cabeçalhos especificados sejam reescritos somente quando determinadas condições forem atendidas.
 
-O gateway de aplicativo também dá suporte a várias [variáveis de servidor](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) que ajudam a armazenar informações adicionais sobre solicitações e respostas. Isso facilita a criação de regras de reescrita avançadas.
+O gateway de aplicativo também dá suporte a várias [variáveis de servidor](#server-variables) que ajudam a armazenar informações adicionais sobre solicitações e respostas. Isso facilita a criação de regras de reescrita avançadas.
 
 > [!NOTE]
 >
@@ -49,14 +49,14 @@ Você pode usar uma condição para avaliar se uma variável especificada está 
 Você usa ações de reescrita para especificar os cabeçalhos de solicitação e resposta que deseja reescrever e o novo valor para os cabeçalhos. Você pode criar um novo cabeçalho, modificar o valor de um cabeçalho existente ou excluir um cabeçalho existente. O valor de um novo cabeçalho ou de um cabeçalho existente pode ser definido para esses tipos de valores:
 
 - Text.
-- Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_*HeaderName*}.
-- Cabeçalho de resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_*HeaderName*}.
-- Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_*serverVariable*}.
+- Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_ *HeaderName* }.
+- Cabeçalho de resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_ *HeaderName* }.
+- Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_ *serverVariable* }.
 - Uma combinação de texto, um cabeçalho de solicitação, um cabeçalho de resposta e uma variável de servidor.
 
 ## <a name="server-variables"></a>Variáveis de servidor
 
-O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos. Para usar o valor de variáveis de servidor para regravar os cabeçalhos, você precisará especificar essas variáveis na sintaxe {var_*serverVariable*}
+O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos. Para usar o valor de variáveis de servidor para regravar os cabeçalhos, você precisará especificar essas variáveis na sintaxe {var_ *serverVariable* }
 
 O gateway de aplicativo dá suporte a essas variáveis de servidor:
 
@@ -91,19 +91,19 @@ Para configurar a reescrita do cabeçalho HTTP, você precisa concluir estas eta
 
 1. Crie os objetos que são necessários para a reescrita do cabeçalho HTTP:
 
-   - **Ação de regravação**: usada para especificar os campos de cabeçalho de solicitação e solicitação que você deseja reescrever e o novo valor para os cabeçalhos. Você pode associar uma ou mais condições de regravação a uma ação de regravação.
+   - **Ação de regravação** : usada para especificar os campos de cabeçalho de solicitação e solicitação que você deseja reescrever e o novo valor para os cabeçalhos. Você pode associar uma ou mais condições de regravação a uma ação de regravação.
 
-   - **Condição de regravação**: uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
+   - **Condição de regravação** : uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
 
      Se você associar mais de uma condição a uma ação, a ação ocorrerá somente quando todas as condições forem atendidas. Em outras palavras, a operação é uma operação AND lógica.
 
-   - **Regra de regravação**: contém várias combinações de condição de ação de regravação/regravação.
+   - **Regra de regravação** : contém várias combinações de condição de ação de regravação/regravação.
 
-   - **Sequência de regras**: ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir a mesma sequência de regras a duas regras de reescrita, a ordem de execução será não determinística.
+   - **Sequência de regras** : ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir a mesma sequência de regras a duas regras de reescrita, a ordem de execução será não determinística.
 
-   - **Conjunto de regravação**: contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
+   - **Conjunto de regravação** : contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
 
-2. Anexe o conjunto de regravação (*rewriteRuleSet*) a uma regra de roteamento. A configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Quando você usa uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando você usa uma regra de roteamento com base em caminho, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Nesse caso, ele se aplica somente à área de caminho específica de um site.
+2. Anexe o conjunto de regravação ( *rewriteRuleSet* ) a uma regra de roteamento. A configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Quando você usa uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando você usa uma regra de roteamento com base em caminho, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Nesse caso, ele se aplica somente à área de caminho específica de um site.
    > [!NOTE]
    > Reescrever URL alterar os cabeçalhos; Ele não altera a URL para o caminho.
 
@@ -168,5 +168,5 @@ Você pode avaliar uma solicitação HTTP ou um cabeçalho de resposta para a pr
 
 Para saber como reescrever cabeçalhos HTTP, consulte:
 
-- [Reescrever cabeçalhos HTTP usando o portal do Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Reescrever cabeçalhos HTTP usando o portal do Azure](./rewrite-http-headers-portal.md)
 - [Reescrever cabeçalhos HTTP usando Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323355"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397545"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar Serviço de Aplicativo com Gateway de Aplicativo
 
@@ -30,15 +30,15 @@ Neste artigo, você aprenderá como:
 
 - Gateway de aplicativo: Crie um gateway de aplicativo sem um destino de pool de back-end. Para obter mais informações, consulte [início rápido: tráfego direto da Web com gateway de aplicativo Azure-portal do Azure](quick-create-portal.md)
 
-- Serviço de aplicativo: se você não tiver um serviço de aplicativo existente, consulte a [documentação do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/).
+- Serviço de aplicativo: se você não tiver um serviço de aplicativo existente, consulte a [documentação do serviço de aplicativo](../app-service/index.yml).
 
 ## <a name="add-app-service-as-backend-pool"></a>Adicionar serviço de aplicativo como pool de back-end
 
 1. No portal do Azure, selecione o gateway de aplicativo.
 
-2. Em **pools de back-end**, selecione o pool de back-end.
+2. Em **pools de back-end** , selecione o pool de back-end.
 
-4. Em **tipo de destino**, selecione **serviços de aplicativos**.
+4. Em **tipo de destino** , selecione **serviços de aplicativos**.
 
 5. Em **destino** , selecione seu serviço de aplicativo.
 
@@ -50,19 +50,19 @@ Neste artigo, você aprenderá como:
 
 ## <a name="edit-http-settings-for-app-service"></a>Editar configurações de HTTP para o serviço de aplicativo
 
-1. Em **configurações de http**, selecione a configuração http existente.
+1. Em **configurações de http** , selecione a configuração http existente.
 
-2. Em **substituir por um novo nome de host**, selecione **Sim**.
-3. Em **substituição do nome do host**, selecione **escolher nome do host do destino de back-end**.
+2. Em **substituir por um novo nome de host** , selecione **Sim**.
+3. Em **substituição do nome do host** , selecione **escolher nome do host do destino de back-end**.
 4. Selecione **Salvar**.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Back-end do serviço de aplicativo":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Escolha o nome do host nas configurações de http de back-end":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuração adicional no caso de redirecionamento para o caminho relativo do serviço de aplicativo
 
 Quando o serviço de aplicativo envia uma resposta de redirecionamento para o cliente para redirecionar para seu caminho relativo (por exemplo, um redirecionamento de `contoso.azurewebsites.net/path1` para `contoso.azurewebsites.net/path2` ), ele usa o mesmo nome de host no cabeçalho de local de sua resposta como aquele na solicitação recebida do gateway de aplicativo. Portanto, o cliente fará a solicitação diretamente em `contoso.azurewebsites.net/path2` vez de passar pelo gateway de aplicativo ( `contoso.com/path2` ). Ignorar o gateway de aplicativo não é desejável.
 
-Se, em seu caso de uso, houver cenários em que o serviço de aplicativo precisará enviar uma resposta de redirecionamento para o cliente, execute as [etapas adicionais para regravar o cabeçalho de local](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
+Se, em seu caso de uso, houver cenários em que o serviço de aplicativo precisará enviar uma resposta de redirecionamento para o cliente, execute as [etapas adicionais para regravar o cabeçalho de local](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration).
 
 ## <a name="restrict-access"></a>Restringir acesso
 
@@ -72,4 +72,4 @@ Uma forma de você restringir o acesso a seus aplicativos web de uma maneira é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o serviço de aplicativo e outros suporte a vários locatários com o gateway de aplicativo, consulte [suporte a serviços multilocatários com o gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+Para saber mais sobre o serviço de aplicativo e outros suporte a vários locatários com o gateway de aplicativo, consulte [suporte a serviços multilocatários com o gateway de aplicativo](./application-gateway-web-app-overview.md).

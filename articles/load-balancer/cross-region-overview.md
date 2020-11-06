@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336523"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398004"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -45,7 +45,7 @@ A configuração de IP de front-end do balanceador de carga entre regiões é es
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagrama de balanceador de carga entre regiões." border="true":::
 
 > [!NOTE]
-> A porta de back-end da carga de sua regra de balanceamento no balanceador de carga entre regiões deve corresponder à porta de front-end da regra de NAT de entrada/regra de balanceamento de carga no balanceador de carga Standard regional. 
+> A porta de back-end de sua regra de balanceamento de carga no balanceador de carga entre regiões deve corresponder à porta de front-end da regra de NAT de entrada/regra de balanceamento de carga no balanceador de carga Standard regional. 
 
 ### <a name="regional-redundancy"></a>Redundância regional
 
@@ -55,7 +55,7 @@ Se uma região falhar, o tráfego será roteado para o balanceador de carga regi
 
 A investigação de integridade do balanceador de carga entre regiões coleta informações sobre a disponibilidade a cada 20 segundos. Se um balanceador de carga regional descartar sua disponibilidade para 0, o balanceador de carga entre regiões detectará a falha. O balanceador de carga regional é então retirado da rotação. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama de balanceador de carga entre regiões." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama da exibição de tráfego de região global." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latência ultra baixa
 
@@ -126,7 +126,7 @@ O balanceador de carga entre regiões roteia o tráfego para o balanceador de ca
 * Sul do Reino Unido 
 * Sudeste Asiático 
 * Centro-Norte dos EUA 
-* Japan East 
+* Leste do Japão 
 * Leste da Ásia 
 * Centro-Oeste dos EUA 
 * Australia Southeast 
@@ -149,6 +149,6 @@ O balanceador de carga entre regiões compartilha o [SLA](https://azure.microsof
  
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [criar um balanceador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para começar a usar um balanceador de carga.
+- Confira como [Criar um Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) para começar a usar um balanceador de carga.
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).
 - [Perguntas frequentes](load-balancer-faqs.md) do balanceador de carga

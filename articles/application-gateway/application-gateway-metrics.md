@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87424385"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397732"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
-O gateway de aplicativo publica pontos de dados, chamados métricas, para [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para o desempenho do seu gateway de aplicativo e instâncias de back-end. Essas métricas são valores numéricos em um conjunto ordenado de dados de série temporal que descrevem algum aspecto do seu gateway de aplicativo em um determinado momento. Se houver solicitações que fluem pelo gateway de aplicativo, ele medirá e enviará suas métricas em intervalos de 60 segundos. Se não houver nenhuma solicitação fluindo pelo gateway de aplicativo ou nenhum dado para uma métrica, a métrica não será relatada. Para obter mais informações, consulte [Azure monitor métricas](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+O gateway de aplicativo publica pontos de dados, chamados métricas, para [Azure monitor](../azure-monitor/overview.md) para o desempenho do seu gateway de aplicativo e instâncias de back-end. Essas métricas são valores numéricos em um conjunto ordenado de dados de série temporal que descrevem algum aspecto do seu gateway de aplicativo em um determinado momento. Se houver solicitações que fluem pelo gateway de aplicativo, ele medirá e enviará suas métricas em intervalos de 60 segundos. Se não houver nenhuma solicitação fluindo pelo gateway de aplicativo ou nenhum dado para uma métrica, a métrica não será relatada. Para obter mais informações, consulte [Azure monitor métricas](../azure-monitor/platform/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Métricas com suporte do SKU do gateway de aplicativo v2
 
@@ -40,7 +40,7 @@ O gateway de aplicativo fornece várias métricas de tempo internas relacionadas
 
   Intervalo de tempo entre o início do estabelecimento de uma conexão com o servidor de back-end e o recebimento do primeiro byte do cabeçalho de resposta. 
 
-  Isso aproxima a soma do *tempo de conexão de back-end*, o tempo gasto pela solicitação para alcançar o back-end do gateway de aplicativo, o tempo gasto pelo aplicativo de back-end para responder (o tempo que o servidor levou para gerar conteúdo, potencialmente buscar consultas de banco de dados) e o tempo gasto pelo primeiro byte da resposta para alcançar o gateway de aplicativo do back-end.
+  Isso aproxima a soma do *tempo de conexão de back-end* , o tempo gasto pela solicitação para alcançar o back-end do gateway de aplicativo, o tempo gasto pelo aplicativo de back-end para responder (o tempo que o servidor levou para gerar conteúdo, potencialmente buscar consultas de banco de dados) e o tempo gasto pelo primeiro byte da resposta para alcançar o gateway de aplicativo do back-end.
 
 - **Tempo de resposta do último byte do back-end**
 
@@ -52,7 +52,7 @@ O gateway de aplicativo fornece várias métricas de tempo internas relacionadas
 
   Tempo médio que leva para que uma solicitação seja recebida, processada e sua resposta seja enviada. 
 
-  Esse é o intervalo a partir do momento em que o gateway de aplicativo recebe o primeiro byte da solicitação HTTP até a hora em que o último byte de resposta foi enviado ao cliente. Isso inclui o tempo de processamento usado pelo gateway de aplicativo, o *tempo de resposta do último byte de back-end*, o tempo gasto pelo gateway de aplicativo para enviar toda a resposta e o *RTT do cliente*.
+  Esse é o intervalo a partir do momento em que o gateway de aplicativo recebe o primeiro byte da solicitação HTTP até a hora em que o último byte de resposta foi enviado ao cliente. Isso inclui o tempo de processamento usado pelo gateway de aplicativo, o *tempo de resposta do último byte de back-end* , o tempo gasto pelo gateway de aplicativo para enviar toda a resposta e o *RTT do cliente*.
 
 - **RTT do Cliente**
 
@@ -62,7 +62,7 @@ O gateway de aplicativo fornece várias métricas de tempo internas relacionadas
 
 Essas métricas podem ser usadas para determinar se a lentidão observada é devido à rede do cliente, ao desempenho do gateway de aplicativo, à rede de back-end e à saturação de pilha TCP do servidor de back-end, ao desempenho do aplicativo de backend ou ao tamanho de arquivo grande.
 
-Por exemplo, se houver um pico na tendência de *tempo de resposta do primeiro byte de back-end* , mas a tendência de *tempo de conexão de back-end* for estável, poderá ser inferida que o gateway de aplicativo para latência de back-end e o tempo necessário para estabelecer a conexão é estável e o pico é causado devido a um aumento no tempo de resposta do aplicativo back-end. Por outro lado, se o tempo de resposta do pico no *primeiro byte de back-end* estiver associado a um pico correspondente no *tempo de conexão de back-end*, ele poderá ser deduzido que a rede entre o gateway de aplicativo e o servidor de back-end ou a pilha TCP do servidor de back-end está saturada. 
+Por exemplo, se houver um pico na tendência de *tempo de resposta do primeiro byte de back-end* , mas a tendência de *tempo de conexão de back-end* for estável, poderá ser inferida que o gateway de aplicativo para latência de back-end e o tempo necessário para estabelecer a conexão é estável e o pico é causado devido a um aumento no tempo de resposta do aplicativo back-end. Por outro lado, se o tempo de resposta do pico no *primeiro byte de back-end* estiver associado a um pico correspondente no *tempo de conexão de back-end* , ele poderá ser deduzido que a rede entre o gateway de aplicativo e o servidor de back-end ou a pilha TCP do servidor de back-end está saturada. 
 
 Se você notar um pico no *tempo de resposta do último byte de back-end* , mas o *tempo de resposta do primeiro byte de back-end* for estável, ele poderá ser deduzido de que o pico é devido a um arquivo maior sendo solicitado.
 
@@ -214,11 +214,11 @@ O seguinte exemplo orientará você pela criação de uma regra de alerta que en
 
 2. Na página **Adicionar regra** , preencha as seções nome, condição e notificar e selecione **OK**.
 
-   * No seletor **Condição**, selecione um dos quatro valores: **Maior que**, **Maior ou igual a**, **Menor que** ou **Menor ou igual a**.
+   * No seletor **Condição** , selecione um dos quatro valores: **Maior que** , **Maior ou igual a** , **Menor que** ou **Menor ou igual a**.
 
-   * No seletor **Período**, selecione um período de cinco minutos a seis horas.
+   * No seletor **Período** , selecione um período de cinco minutos a seis horas.
 
-   * Se você selecionar **Proprietários, colaboradores e leitores de email**, o email poderá ser dinâmico com base nos usuários que têm acesso a esse recurso. Caso contrário, você poderá fornecer uma lista separada por vírgula de usuários na caixa **Emails de administrador adicionais**.
+   * Se você selecionar **Proprietários, colaboradores e leitores de email** , o email poderá ser dinâmico com base nos usuários que têm acesso a esse recurso. Caso contrário, você poderá fornecer uma lista separada por vírgula de usuários na caixa **Emails de administrador adicionais**.
 
    ![Página Adicionar regra][7]
 
@@ -230,7 +230,7 @@ Uma lista de alertas é exibida após a criação de um alerta de métrica. Ela 
 
 ![Lista de alertas e regras][9]
 
-Para saber mais sobre notificações de alerta, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Para saber mais sobre notificações de alerta, consulte [Receber notificações de alerta](../azure-monitor/platform/alerts-overview.md).
 
 Para entender mais sobre webhooks e como eles podem ser usados com alertas, consulte [Configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
 

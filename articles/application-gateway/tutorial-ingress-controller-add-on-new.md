@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 18c8aa0ff05dababc5a79c5c05b43ce9ebcbf9b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427967"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397080"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Habilitar o complemento Controlador de Entrada (versão prévia) para um novo cluster do AKS com uma nova instância do Gateway de Aplicativo
 
@@ -39,17 +39,17 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Caso você opte por instalar e usar a CLI localmente, este tutorial exigirá que execute a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Registre o sinalizador de recursos *AKS-IngressApplicationGatewayAddon* usando o comando [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register), conforme mostrado no exemplo a seguir. Você precisará fazer isso apenas uma vez por assinatura enquanto o complemento ainda estiver na versão prévia.
+Registre o sinalizador de recursos *AKS-IngressApplicationGatewayAddon* usando o comando [az feature register](/cli/azure/feature#az-feature-register), conforme mostrado no exemplo a seguir. Você precisará fazer isso apenas uma vez por assinatura enquanto o complemento ainda estiver na versão prévia.
 ```azurecli-interactive
 az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
 ```
 
-Pode demorar alguns minutos para que o status `Registered` seja exibido. Você pode verificar o status de registro usando o comando [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register):
+Pode demorar alguns minutos para que o status `Registered` seja exibido. Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature#az-feature-register):
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
-Quando estiver pronto, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register):
+Quando estiver pronto, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando [az provider register](/cli/azure/provider#az-provider-register):
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
@@ -66,7 +66,7 @@ az extension list
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-No Azure, você pode alocar recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando [az group create](/cli/azure/group#az-group-create). O seguinte exemplo cria um grupo de recursos denominado *myResourceGroup* no local (região) *canadacentral*: 
+No Azure, você pode alocar recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando [az group create](/cli/azure/group#az-group-create). O seguinte exemplo cria um grupo de recursos denominado *myResourceGroup* no local (região) *canadacentral* : 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -82,7 +82,7 @@ Agora, você vai implantar um novo cluster do AKS com o complemento AGIC habilit
 > - Habilitar o WAF no Gateway de Aplicativo por meio do portal. 
 > - Primeiro, crie a instância do Gateway de Aplicativo WAF_v2 e, depois, siga as instruções sobre como [habilitar o complemento AGIC com um cluster do AKS existente e uma instância do Gateway de Aplicativo existente](tutorial-ingress-controller-add-on-existing.md). 
 
-No exemplo a seguir, você implantará um novo cluster do AKS chamado *myCluster* usando a [CNI do Azure](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) e as [identidades gerenciadas](https://docs.microsoft.com/azure/aks/use-managed-identity). O complemento AGIC será habilitado no grupo de recursos que você criou, *myResourceGroup*. 
+No exemplo a seguir, você implantará um novo cluster do AKS chamado *myCluster* usando a [CNI do Azure](../aks/concepts-network.md#azure-cni-advanced-networking) e as [identidades gerenciadas](../aks/use-managed-identity.md). O complemento AGIC será habilitado no grupo de recursos que você criou, *myResourceGroup*. 
 
 Implantar um novo cluster do AKS com o complemento AGIC habilitado sem especificar uma instância existente do Gateway de Aplicativo levará à criação automática de uma instância do Gateway de Aplicativo no SKU Standard_v2. Sendo assim, você também especificará o nome e o espaço de endereço de sub-rede da instância do Gateway de Aplicativo. O nome da instância do Gateway de Aplicativo será *myApplicationGateway* e o espaço de endereço da sub-rede que usaremos será 10.2.0.0/16. Verifique se você adicionou ou atualizou a extensão aks-preview no início deste tutorial. 
 
@@ -90,7 +90,7 @@ Implantar um novo cluster do AKS com o complemento AGIC habilitado sem especific
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-Para configurar parâmetros adicionais para o comando `az aks create`, confira [estas referências](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+Para configurar parâmetros adicionais para o comando `az aks create`, confira [estas referências](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
 > [!NOTE]
 > O cluster do AKS que você criou aparecerá no grupo de recursos criado, *myResourceGroup*. No entanto, a instância do Gateway de Aplicativo criada automaticamente estará no grupo de recursos do nó, onde os pools de agentes se encontram. O grupo de recursos do nó é denominado *MC_resource-group-name_cluster-name_location* por padrão, mas isso pode ser modificado. 
@@ -138,4 +138,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Saiba como desabilitar o complemento AGIC](./ingress-controller-disable-addon.md)
-

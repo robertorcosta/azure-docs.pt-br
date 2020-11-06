@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
-ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262509df98b93c7902d83f90756872a16d84198f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84870866"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398123"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitar o log de diagnóstico na API do Azure para FHIR®
 
-Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure para FHIR® e poderá examinar algumas consultas de exemplo para esses logs. O acesso aos logs de diagnóstico é essencial para qualquer serviço de saúde em que a conformidade com os requisitos regulatórios (como a HIPAA) é uma necessidade. O recurso na API do Azure para FHIR® que habilita logs de diagnóstico são as [**configurações de diagnóstico**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) no portal do Azure. 
+Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure para FHIR® e poderá examinar algumas consultas de exemplo para esses logs. O acesso aos logs de diagnóstico é essencial para qualquer serviço de saúde em que a conformidade com os requisitos regulatórios (como a HIPAA) é uma necessidade. O recurso na API do Azure para FHIR® que habilita logs de diagnóstico são as [**configurações de diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) no portal do Azure. 
 
 ## <a name="enable-audit-logs"></a>Habilitar logs de auditoria
 1. Para habilitar o log de diagnóstico na API do Azure para FHIR®, selecione a API do Azure para o serviço de® do FHIR no portal do Azure 
@@ -42,7 +42,7 @@ Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure
 > [!Note] 
 > Pode levar até 15 minutos para que os primeiros logs sejam mostrados em Log Analytics.  
  
-Para obter mais informações sobre como trabalhar com logs de diagnóstico, consulte a [documentação do log de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
+Para obter mais informações sobre como trabalhar com logs de diagnóstico, consulte a [documentação do log de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="audit-log-details"></a>Detalhes do log de auditoria
 Neste momento, a API do Azure para FHIR® serviço retorna os seguintes campos no log de auditoria: 
@@ -57,11 +57,11 @@ Neste momento, a API do Azure para FHIR® serviço retorna os seguintes campos n
 |FhirResourceType|String|O tipo de recurso para o qual a operação foi executada
 |LogCategory|String|A categoria de log (atualmente, estamos retornando ' AuditLogs ' LogCategory)
 |Location|String|O local do servidor que processou a solicitação (por exemplo, EUA Central do Sul)
-|OperationDuration|Int|O tempo necessário para concluir esta solicitação em segundos
+|OperationDuration|int|O tempo necessário para concluir esta solicitação em segundos
 |OperationName|String| Descreve o tipo de operação (por exemplo, atualização, tipo de pesquisa)
 |RequestUri|String|O URI de solicitação 
-|ResultType|String|Os valores disponíveis atualmente foram **iniciados**, **tiveram êxito**ou **falharam**
-|StatusCode|Int|O código de status do HTTP. (por exemplo, 200) 
+|ResultType|String|Os valores disponíveis atualmente foram **iniciados** , **tiveram êxito** ou **falharam**
+|StatusCode|int|O código de status HTTP. (por exemplo, 200) 
 |TimeGenerated|Datetime|Data e hora do evento|
 |Propriedades|String| Descreve as propriedades do fhirResourceType
 |SourceSystem|String| Sistema de origem (sempre o Azure, neste caso)
@@ -80,7 +80,7 @@ MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
-Execute esta consulta para agrupar operações por **tipo de recurso FHIR**:
+Execute esta consulta para agrupar operações por **tipo de recurso FHIR** :
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 

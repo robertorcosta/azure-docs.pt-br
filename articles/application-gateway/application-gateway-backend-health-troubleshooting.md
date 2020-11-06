@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132034"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397891"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solucionar problemas de integridade de back-end no Gateway de Aplicativo
 ==================================================
@@ -24,7 +24,7 @@ Por padrão, o Gateway de Aplicativo do Azure investiga os servidores back-end p
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a integridade do back-end
 
-Para verificar a integridade do pool de back-end, você pode usar a página **Integridade de Back-end** no portal do Azure. Ou você pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), a [CLI](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) ou a [API REST](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth).
+Para verificar a integridade do pool de back-end, você pode usar a página **Integridade de Back-end** no portal do Azure. Ou você pode usar o [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), a [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) ou a [API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 O status recuperado por qualquer um desses métodos pode ser um dos seguintes:
 
@@ -91,7 +91,7 @@ A mensagem exibida na coluna **Detalhes** fornece mais informações detalhadas 
 
 **Causa:** depois que o Gateway de Aplicativo envia uma solicitação de investigação HTTP(S) ao servidor back-end, ele aguarda uma resposta do servidor back-end por um período configurado. Se o servidor back-end não responder dentro do período configurado (o valor do tempo limite), ele será marcado como Não íntegro até que comece a responder novamente dentro do período de tempo limite configurado.
 
-**Resolução:** verifique por que o servidor ou aplicativo back-end não está respondendo dentro do período de tempo limite configurado e verifique também as dependências do aplicativo. Por exemplo, verifique se o banco de dados tem algum problema que possa desencadear um atraso na resposta. Se você estiver ciente do comportamento do aplicativo e ele responder apenas após o valor de tempo limite, aumente o valor de tempo limite nas configurações personalizadas da investigação. Você deve ter uma investigação personalizada para alterar o valor de tempo limite. Para obter informações sobre como configurar uma investigação personalizada, [confira a página de documentação](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+**Resolução:** verifique por que o servidor ou aplicativo back-end não está respondendo dentro do período de tempo limite configurado e verifique também as dependências do aplicativo. Por exemplo, verifique se o banco de dados tem algum problema que possa desencadear um atraso na resposta. Se você estiver ciente do comportamento do aplicativo e ele responder apenas após o valor de tempo limite, aumente o valor de tempo limite nas configurações personalizadas da investigação. Você deve ter uma investigação personalizada para alterar o valor de tempo limite. Para obter informações sobre como configurar uma investigação personalizada, [confira a página de documentação](./application-gateway-create-probe-portal.md).
 
 Para aumentar o valor de tempo limite, siga estas etapas:
 
@@ -105,7 +105,7 @@ Para aumentar o valor de tempo limite, siga estas etapas:
 
 #### <a name="dns-resolution-error"></a>Erro de resolução de DNS
 
-**Mensagem:** o Gateway de Aplicativo não conseguiu criar uma investigação para este back-end. Isso geralmente acontece quando o FQDN do back-end não foi inserido corretamente. 
+**Mensagem:** o Gateway de Aplicativo não conseguiu criar uma investigação para este back-end. Isso geralmente acontece quando o FQDN do back-end não foi inserido corretamente. 
 
 **Causa:** se o pool de back-end for do tipo Endereço IP/FQDN ou Serviço de Aplicativo, o Gateway de Aplicativo será determinado para o endereço IP do FQDN inserido pelo DNS (Sistema de Nomes de Domínio) (personalizado ou padrão do Azure) e tentará se conectar ao servidor na porta TCP mencionada nas configurações de HTTP. Mas se essa mensagem for exibida, ela sugere que o Gateway de Aplicativo não conseguiu determinar com êxito o endereço IP do FQDN inserido.
 
@@ -119,7 +119,7 @@ Para aumentar o valor de tempo limite, siga estas etapas:
 
 1.  Se você estiver usando o DNS padrão do Azure, verifique com o seu registrador de nomes de domínio se o registro A ou o mapeamento do registro CNAME adequado foi concluído.
 
-1.  Se o domínio for privado ou interno, tente determiná-lo a partir de uma VM na mesma rede virtual. Se for possível determiná-lo, reinicie o Gateway de Aplicativo e verifique novamente. Para reiniciar o Gateway de Aplicativo, é necessário [parar](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [iniciar](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) usando os comandos do PowerShell descritos nesses recursos vinculados.
+1.  Se o domínio for privado ou interno, tente determiná-lo a partir de uma VM na mesma rede virtual. Se for possível determiná-lo, reinicie o Gateway de Aplicativo e verifique novamente. Para reiniciar o Gateway de Aplicativo, é necessário [parar](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [iniciar](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) usando os comandos do PowerShell descritos nesses recursos vinculados.
 
 #### <a name="tcp-connect-error"></a>Erro de conexão TCP
 
@@ -138,7 +138,7 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
 
 1.  Se também não for possível se conectar a partir do seu computador local, então:
 
-    a.  Verifique as configurações do NSG (grupo de segurança de rede) do adaptador de rede e da sub-rede do servidor back-end e se são permitidas conexões de entrada com a porta configurada. Se este não for o caso, crie uma nova regra para permitir as conexões. Para saber como criar regras de NSG, [confira a página de documentação](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Verifique as configurações do NSG (grupo de segurança de rede) do adaptador de rede e da sub-rede do servidor back-end e se são permitidas conexões de entrada com a porta configurada. Se este não for o caso, crie uma nova regra para permitir as conexões. Para saber como criar regras de NSG, [confira a página de documentação](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
 
     b.  Verifique se as configurações de NSG da sub-rede do Gateway de Aplicativo permitem tráfego de saída público e privado, para que uma conexão possa ser estabelecida. Verifique a página de documentação fornecida na etapa 3a para saber mais sobre como criar regras NSG.
     ```azurepowershell
@@ -185,13 +185,13 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
 
 Ou, se você acredita que a resposta é legítima e deseja que o Gateway de Aplicativo aceite outros códigos de status como Íntegros, é possível criar uma investigação personalizada. Essa abordagem é útil em situações em que o site de back-end precisa de autenticação. Como as solicitações de investigação não carregam credenciais de usuário, elas falharão e um código de status HTTP 401 será retornado pelo servidor back-end.
 
-Para criar uma investigação personalizada, siga [estas etapas](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+Para criar uma investigação personalizada, siga [estas etapas](./application-gateway-create-probe-portal.md).
 
 #### <a name="http-response-body-mismatch"></a>Incompatibilidade no corpo da resposta HTTP
 
 **Mensagem:** o corpo da resposta HTTP do back-end\' não corresponde à configuração de investigação. O corpo da resposta recebida não contém {cadeia de caracteres}.
 
-**Causa:** Ao criar uma investigação personalizada, você tem a opção de marcar um servidor back-end como Íntegro, combinando com uma cadeia de caracteres do corpo da resposta. Por exemplo, você pode configurar o Gateway de Aplicativo para aceitar "não autorizado" como uma cadeia de caracteres a ser correspondida. Se a resposta do servidor back-end para a solicitação de investigação contiver a sequência **não autorizada**, ela será marcada como Íntegra. Caso contrário, ela será marcada como Não íntegra com esta mensagem.
+**Causa:** Ao criar uma investigação personalizada, você tem a opção de marcar um servidor back-end como Íntegro, combinando com uma cadeia de caracteres do corpo da resposta. Por exemplo, você pode configurar o Gateway de Aplicativo para aceitar "não autorizado" como uma cadeia de caracteres a ser correspondida. Se a resposta do servidor back-end para a solicitação de investigação contiver a sequência **não autorizada** , ela será marcada como Íntegra. Caso contrário, ela será marcada como Não íntegra com esta mensagem.
 
 **Solução:** Para resolver esse problema, siga estas etapas:
 
@@ -201,7 +201,7 @@ Para criar uma investigação personalizada, siga [estas etapas](https://docs.mi
 
 1.  Se não houver correspondência, altere a configuração da investigação para que ela tenha o valor correto da cadeia de caracteres a ser aceito.
 
-Saiba mais sobre a [correspondência de investigação do Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+Saiba mais sobre a [correspondência de investigação do Gateway de Aplicativo](./application-gateway-probe-overview.md#probe-matching).
 
 >[!NOTE]
 > Com relação a todas as mensagens de erro relacionadas ao TLS, para saber mais sobre o comportamento do SNI e as diferenças entre os SKUs v1 e v2, confira a página [Visão geral do TLS](ssl-overview.md).
@@ -228,7 +228,7 @@ Para que um certificado TLS/SSL seja confiável, o certificado do servidor back-
 
 1.  Nas propriedades do certificado, selecione a guia **Detalhes**.
 
-1.  Na guia **Detalhes**, selecione a opção **Copiar para Arquivo** e salve o arquivo no formato X.509 (.CER) codificado em Base-64.
+1.  Na guia **Detalhes** , selecione a opção **Copiar para Arquivo** e salve o arquivo no formato X.509 (.CER) codificado em Base-64.
 
 1.  Abra a página **Configurações** de HTTP do Gateway de Aplicativo no portal do Azure.
 
@@ -238,7 +238,7 @@ Para que um certificado TLS/SSL seja confiável, o certificado do servidor back-
 
 Como alternativa, você pode exportar o certificado raiz de um computador cliente acessando diretamente o servidor (ignorando o Gateway de Aplicativo) por meio do navegador e exportando o certificado raiz do navegador.
 
-Para saber mais sobre como extrair e fazer upload de certificados raiz confiáveis no Gateway de Aplicativo, confira [Exportar certificado raiz confiável (para v2 SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Para saber mais sobre como extrair e fazer upload de certificados raiz confiáveis no Gateway de Aplicativo, confira [Exportar certificado raiz confiável (para v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 #### <a name="trusted-root-certificate-mismatch"></a>Incompatibilidade de certificado raiz confiável
 
@@ -253,7 +253,7 @@ O certificado carregado para as configurações de HTTP do Gateway de Aplicativo
 
 Siga as etapas de 1 a 11 no método anterior para carregar o certificado raiz confiável correto no Gateway de Aplicativo.
 
-Para saber mais sobre como extrair e fazer upload de certificados raiz confiáveis no Gateway de Aplicativo, confira [Exportar certificado raiz confiável (para v2 SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Para saber mais sobre como extrair e fazer upload de certificados raiz confiáveis no Gateway de Aplicativo, confira [Exportar certificado raiz confiável (para v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 > [!NOTE]
 > Este erro também pode ocorrer se o servidor back-end não trocar a cadeia completa do certificado, incluindo a Raiz > Intermediário (se aplicável) > Folha durante o handshake TLS. Para verificar, você pode usar os comandos OpenSSL de qualquer cliente e conectar-se ao servidor back-end usando as configurações definidas na investigação do Gateway de Aplicativo.
 
@@ -308,7 +308,7 @@ Para Windows:
 
 1.  Localize o certificado (normalmente em `\Certificates - Current User\\Personal\\Certificates`) e abra o certificado.
 
-1.  Na guia **Detalhes**, verifique o **Assunto** do certificado.
+1.  Na guia **Detalhes** , verifique o **Assunto** do certificado.
 
 1.  Verifique o CN do certificado a partir dos detalhes e inserir o mesmo no campo nome do host da investigação personalizada ou nas configurações de HTTP (se **Escolher nome do host nas configurações HTTP de back-end** estiver selecionado). Se esse não for o nome do host desejado para o seu site, você deve obter um certificado para esse domínio ou inserir o nome do host correto na investigação customizada ou na configuração de HTTP.
 
@@ -359,7 +359,7 @@ Esse comportamento pode ocorrer por uma ou mais das seguintes razões:
 
 **Solução:**
 
-1.  Verifique se o NSG está bloqueando o acesso às portas 65503-65534 (v1 SKU) ou 65200-65535 (v2 SKU) da **Internet**:
+1.  Verifique se o NSG está bloqueando o acesso às portas 65503-65534 (v1 SKU) ou 65200-65535 (v2 SKU) da **Internet** :
 
     a.  Na guia **Visão Geral** do Gateway de Aplicativo, selecione o link **Rede Virtual/Sub-rede**.
 
@@ -369,19 +369,19 @@ Esse comportamento pode ocorrer por uma ou mais das seguintes razões:
 
     d.  Se um NSG estiver configurado, procure esse recurso NSG na guia **Pesquisar** ou em **Todos os Recursos**.
 
-    e.  Na seção **Regras de Entrada**, adicione uma regra de entrada para permitir o intervalo de porta de destino 65503-65534 para SKU v1 ou 65200-65535 v2 SKU com a **Fonte** definida como **Qualquer** ou **Internet**.
+    e.  Na seção **Regras de Entrada** , adicione uma regra de entrada para permitir o intervalo de porta de destino 65503-65534 para SKU v1 ou 65200-65535 v2 SKU com a **Fonte** definida como **Qualquer** ou **Internet**.
 
-    f.  Selecione **Salvar** e verifique se você pode exibir o back-end como Íntegro. Como alternativa, você pode fazer isso por meio do [PowerShell/CLI](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+    f.  Selecione **Salvar** e verifique se você pode exibir o back-end como Íntegro. Como alternativa, você pode fazer isso por meio do [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
-1.  Verifique se o UDR tem uma rota padrão (0.0.0.0/0) com o próximo salto não definido como **Internet**:
+1.  Verifique se o UDR tem uma rota padrão (0.0.0.0/0) com o próximo salto não definido como **Internet** :
     
     a.  Siga as etapas 1a e 1b para determinar sua sub-rede.
 
     b.  Verifique se há qualquer UDR configurado. Se houver, pesquise o recurso na barra de pesquisa ou em **Todos os Recursos**.
 
-    c.  Verifique se há alguma rota padrão (0.0.0.0/0) com o próximo salto não definido como **Internet**. Se a configuração for **Solução de Virtualização** ou **Gateway de Rede Virtual**, você deverá certificar-se de que sua solução de virtualização ou o dispositivo local possa rotear corretamente o pacote de volta para o destino da Internet sem modificar o pacote.
+    c.  Verifique se há alguma rota padrão (0.0.0.0/0) com o próximo salto não definido como **Internet**. Se a configuração for **Solução de Virtualização** ou **Gateway de Rede Virtual** , você deverá certificar-se de que sua solução de virtualização ou o dispositivo local possa rotear corretamente o pacote de volta para o destino da Internet sem modificar o pacote.
 
-    d.  Caso contrário, altere o próximo salto para **Internet**, selecione **Salvar** e verifique a integridade do back-end.
+    d.  Caso contrário, altere o próximo salto para **Internet** , selecione **Salvar** e verifique a integridade do back-end.
 
 1.  Rota padrão anunciada pela conexão ExpressRoute/VPN à rede virtual através do BGP:
 
@@ -393,9 +393,9 @@ Esse comportamento pode ocorrer por uma ou mais das seguintes razões:
 
 1.  Se houver um servidor DNS personalizado configurado na rede virtual, verifique se o servidor (ou servidores) pode determinar domínios públicos. A resolução de nomes de domínio público pode ser necessária em cenários em que o Gateway de Aplicativo deve acessar domínios externos como servidores OCSP ou verificar o status de revogação do certificado.
 
-1.  Para verificar se o Gateway de Aplicativo está íntegro e em execução, acesse a opção **Resource Health** no portal e verifique se o estado é **Íntegro**. No caso de um estado **Não Íntegro** ou **Degradado**, entre em [contato com o suporte](https://azure.microsoft.com/support/options/).
+1.  Para verificar se o Gateway de Aplicativo está íntegro e em execução, acesse a opção **Resource Health** no portal e verifique se o estado é **Íntegro**. No caso de um estado **Não Íntegro** ou **Degradado** , entre em [contato com o suporte](https://azure.microsoft.com/support/options/).
 
 <a name="next-steps"></a>Próximas etapas
 ----------
 
-Saiba mais sobre [Diagnóstico e log do Gateway de Aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Saiba mais sobre [Diagnóstico e log do Gateway de Aplicativo](./application-gateway-diagnostics.md).
