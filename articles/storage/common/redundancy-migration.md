@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784211"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330284"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar como uma conta de armazenamento é replicada
 
@@ -123,26 +123,26 @@ Você deve executar uma migração manual se:
 
 Você pode solicitar a migração ao vivo por meio do [Portal de Suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). No portal, selecione a conta de armazenamento que você deseja converter em ZRS.
 
-1. Selecione **nova solicitação de suporte** .
+1. Selecione **nova solicitação de suporte**.
 2. Conclua os **conceitos básicos** com base nas informações da sua conta: 
-    - **Tipo de problema** : selecione **técnico** .
-    - **Serviço** : selecione **meus serviços** e **Gerenciamento de conta de armazenamento** .
+    - **Tipo de problema** : selecione **técnico**.
+    - **Serviço** : selecione **meus serviços** e **Gerenciamento de conta de armazenamento**.
     - **Recurso** : selecione o recurso que você deseja converter em ZRS.
-3. Selecione **Avançar** .
+3. Selecione **Avançar**.
 4. Especifique os seguintes valores na seção **Problema** :
     - **Severidade** : deixe o valor padrão como-está.
-    - **Tipo de problema** : selecione **migração de dados** .
-    - **Categoria** : selecione **migrar para ZRS** .
-    - **Título** : Tipo de titúlo descritivo, por exemplo, **migração de conta do ZRS** .
+    - **Tipo de problema** : selecione **migração de dados**.
+    - **Categoria** : selecione **migrar para ZRS**.
+    - **Título** : Tipo de titúlo descritivo, por exemplo, **migração de conta do ZRS**.
     - **Detalhes** : digite detalhes adicionais na caixa de **detalhes** , por exemplo, eu gostaria de migrar para ZRS de [lRS, grs] na \_ \_ região.
-5. Selecione **Avançar** .
+5. Selecione **Avançar**.
 6. Verifique se as informações de contato estão corretas na **informações de contato** folha.
-7. Selecione **Criar** .
+7. Selecione **Criar**.
 
 Uma pessoa de suporte entrará em contato com você e fornecerá toda a assistência necessária.
 
 > [!NOTE]
-> Atualmente, a migração ao vivo não tem suporte para compartilhamentos de arquivos premium. No momento, só há suporte para copiar ou mover dados manualmente.
+> Os compartilhamentos de arquivos Premium (contas de armazenamento de arquivo) só estão disponíveis para LRS e ZRS.
 >
 > Atualmente, as contas de armazenamento GZRS não dão suporte à camada de arquivo morto. Consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md) para obter mais detalhes.
 >

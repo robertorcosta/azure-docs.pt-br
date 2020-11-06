@@ -12,18 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f4b485e79bfa89fe293c99fc4e84fc8c0729396a
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217041"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331882"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar a criptografia Kerberos do NFSv 4.1 para Azure NetApp Files
 
 O Azure NetApp Files dá suporte à criptografia de cliente NFS nos modos Kerberos (krb5, krb5i e krb5p) com a criptografia AES-256. Este artigo descreve as configurações necessárias para usar um volume NFSv 4.1 com criptografia Kerberos.
+
+## <a name="considerations"></a>Considerações
+
+* Atualmente, os volumes de criptografia Kerberos NFSv 4.1 não dão suporte a Azure Active Directory Domain Services (AADDS). 
 
 ## <a name="requirements"></a>Requisitos
 
@@ -40,7 +44,7 @@ Os seguintes requisitos se aplicam à criptografia de cliente do NFSv 4.1:
 
 1.  Siga as etapas em [criar um volume de NFS para Azure NetApp files](azure-netapp-files-create-volumes.md) para criar o volume nfsv 4.1.   
 
-    Na página criar um volume, defina a versão do NFS como **nfsv 4.1**e defina Kerberos como **habilitado**.
+    Na página criar um volume, defina a versão do NFS como **nfsv 4.1** e defina Kerberos como **habilitado**.
 
     > [!IMPORTANT] 
     > Você não pode modificar a seleção de habilitação de Kerberos após a criação do volume.
@@ -61,7 +65,7 @@ Os seguintes requisitos se aplicam à criptografia de cliente do NFSv 4.1:
 
     O Kerberos requer que você crie pelo menos uma conta de computador no Active Directory. As informações de conta que você fornece são usadas para criar as contas para volumes de Kerberos SMB *e* nfsv 4.1. Esta máquina é criada automaticamente durante a criação do volume.
 
-2.  Em **realm do Kerberos**, insira o **nome do servidor do AD** e o endereço IP do **KDC** .
+2.  Em **realm do Kerberos** , insira o **nome do servidor do AD** e o endereço IP do **KDC** .
 
     O servidor AD e o IP KDC podem ser o mesmo servidor. Essas informações são usadas para criar a conta da máquina SPN usada pelo Azure NetApp Files. Depois que a conta da máquina for criada, Azure NetApp Files usará os registros do servidor DNS para localizar servidores KDC adicionais, conforme necessário. 
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740142"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331599"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Suporte a políticas de logon único e proteção de aplicativo em aplicativos móveis que você desenvolve
 
@@ -30,7 +30,7 @@ O [SSO (logon único)](../manage-apps/plan-sso-deployment.md) permite que um usu
 
 Além disso, habilitar o logon único em seu aplicativo desbloqueia novos mecanismos de autenticação que acompanham a autenticação moderna, como [logons sem senha](../authentication/concept-authentication-passwordless.md). Nomes de usuários e senhas são um dos vetores de ataque mais populares em relação aos aplicativos, e habilitar o SSO permite que você atenue esse risco impondo o acesso condicional ou logons sem senha que adicionam segurança adicional ou dependem de mecanismos de autenticação mais seguros. Por fim, habilitar o logon único também habilita o [logout único](v2-protocols-oidc.md#single-sign-out). Isso é útil em situações como aplicativos de trabalho que serão usados em dispositivos compartilhados.
 
-[As políticas de proteção de aplicativo (aplicativo)](/mem/intune/apps/app-protection-policy) garantem que os dados de uma organização permaneçam seguros e contidos. Eles permitem que as empresas gerenciem e protejam seus dados em um aplicativo e permitem o controle sobre quem pode acessar o aplicativo e seus dados. A implementação de políticas de proteção de aplicativo permite que seu aplicativo Conecte usuários a recursos protegidos por políticas de acesso condicional e transfira dados com segurança para e de outros aplicativos protegidos. Cenários desbloqueados pelas políticas de proteção de aplicativo incluem exigir um PIN para abrir um aplicativo, controlar o compartilhamento de dados entre aplicativos e impedir que os dados de aplicativo da empresa sejam salvos em um local de armazenamento pessoal no dispositivo.
+[As políticas de proteção de aplicativo (aplicativo)](/mem/intune/apps/app-protection-policy) garantem que os dados de uma organização permaneçam seguros e contidos. Eles permitem que as empresas gerenciem e protejam seus dados em um aplicativo e permitem o controle sobre quem pode acessar o aplicativo e seus dados. A implementação de políticas de proteção de aplicativo permite que seu aplicativo Conecte usuários a recursos protegidos por políticas de acesso condicional e transfira dados com segurança para e de outros aplicativos protegidos. Cenários desbloqueados pelas políticas de proteção de aplicativo incluem exigir um PIN para abrir um aplicativo, controlar o compartilhamento de dados entre aplicativos e impedir que os dados de aplicativo da empresa sejam salvos em locais de armazenamento pessoal.
 
 ## <a name="implementing-single-sign-on"></a>Implementando o logon único
 
@@ -75,6 +75,6 @@ Por fim, [adicione o SDK do Intune](/mem/intune/developer/app-sdk-get-started) a
 - [Plug-in do SSO corporativo da Microsoft para dispositivos Apple (versão prévia)](apple-sso-plugin.md)
 - [Autenticação orientada no Android](brokered-auth.md)
 - [Agentes de autorização e como habilitá-los](authorization-agents.md)
-- [Introdução ao SDK do aplicativo Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
+- [Introdução ao SDK do Aplicativo do Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
 - [Definir as configurações para o SDK de Aplicativos do Intune](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Aplicativos protegidos do Microsoft Intune](/mem/intune/apps/apps-supported-intune-apps)

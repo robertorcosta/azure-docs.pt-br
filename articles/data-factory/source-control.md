@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 78e230453e256e90803b3607fa02904f90774881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 523f28cdd32c5176160587a8531aa66c0621d5a7
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325093"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330658"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -207,7 +207,7 @@ Os sistemas de controle de versão (também conhecidos como _controle do código
 
 ### <a name="creating-feature-branches"></a>Criando branches de recurso
 
-Cada repositório Git do Azure Repos que está associado a um data factory tem um branch de colaboração. (`master` é a ramificação de colaboração padrão). Os usuários também podem criar branches de recurso clicando em **+ Novo Branch** na lista suspensa do branch. Depois que o novo painel do branch for exibido, insira o nome do branch de recurso.
+Cada repositório Git do Azure Repos que está associado a um data factory tem um branch de colaboração. (`main` é a ramificação de colaboração padrão). Os usuários também podem criar branches de recurso clicando em **+ Novo Branch** na lista suspensa do branch. Depois que o novo painel do branch for exibido, insira o nome do branch de recurso.
 
 ![Criar uma nova ramificação](media/author-visually/new-branch.png)
 

@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente sem a necessidade de modificação de código. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377030"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331916"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -22,7 +22,7 @@ Você ainda pode enviar telemetria personalizada do seu aplicativo. O agente 3,0
 
 O agente 3,0 dá suporte a Java 8 e superior.
 
-## <a name="quickstart"></a>Guia de Início Rápido
+## <a name="quickstart"></a>Início Rápido
 
 **1. baixar o agente**
 
@@ -48,7 +48,7 @@ Se você ainda não tiver um recurso de Application Insights, poderá criar um n
 Aponte o agente para o recurso de Application Insights, definindo uma variável de ambiente:
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
 Ou criando um arquivo de configuração chamado `applicationinsights.json` e colocando-o no mesmo diretório que `applicationinsights-agent-3.0.0.jar` o, com o seguinte conteúdo:
@@ -56,7 +56,7 @@ Ou criando um arquivo de configuração chamado `applicationinsights.json` e col
 ```json
 {
   "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+    "connectionString": "InstrumentationKey=..."
   }
 }
 ```
@@ -141,12 +141,12 @@ A tabela a seguir representa os tipos de telemetria personalizados com suporte n
 
 |                     | Micrometer | Log4J, logback, JUL | SDK 2. x |
 |---------------------|------------|---------------------|---------|
-| **Eventos personalizados**   |            |                     |  Yes    |
+| **Eventos personalizados**   |            |                     |  Sim    |
 | **Métricas personalizadas**  |  Sim       |                     |  Sim    |
-| **Dependências**    |            |                     |  Yes    |
+| **Dependências**    |            |                     |  Sim    |
 | **Exceções**      |            |  Sim                |  Sim    |
-| **Visualizações de página**      |            |                     |  Yes    |
-| **Solicitações**        |            |                     |  Yes    |
+| **Visualizações de página**      |            |                     |  Sim    |
+| **Solicitações**        |            |                     |  Sim    |
 | **Rastreamentos**          |            |  Sim                |  Sim    |
 
 Não estamos planejando lançar um SDK com o Application Insights 3,0 no momento.

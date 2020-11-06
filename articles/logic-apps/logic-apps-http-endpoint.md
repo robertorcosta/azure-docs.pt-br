@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/27/2020
-ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230799"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331967"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTPS em aplicativos lógicos do Azure
 
@@ -23,7 +23,8 @@ Para tornar seu aplicativo lógico chamável por meio de uma URL e ser capaz de 
 
 Este artigo mostra como criar um ponto de extremidade que possa ser chamado em seu aplicativo lógico usando o gatilho de solicitação e chamar esse ponto de extremidade de outro aplicativo lógico. Todos os princípios se aplicam de forma idêntica aos outros tipos de gatilho que você pode usar para receber solicitações de entrada.
 
-Para obter informações sobre criptografia, segurança e autorização para chamadas de entrada para seu aplicativo lógico, como [TLS (segurança de camada de transporte)](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como protocolo SSL (SSL) ou [Azure Active Directory autenticação aberta (OAuth do Azure AD)](../active-directory/develop/index.yml), consulte [acesso seguro e acesso a dados para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+Para obter mais informações sobre segurança, autorização e criptografia para chamadas de entrada para seu aplicativo lógico, como o protocolo [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como protocolo SSL (SSL), [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml), expondo seu aplicativo lógico com o gerenciamento de API do Azure ou restringindo os endereços IP que originam chamadas de entrada, consulte [acesso seguro e acesso a dados para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,7 +116,7 @@ Para obter informações sobre criptografia, segurança e autorização para cha
 
         ![Obter URL do ponto de extremidade de portal do Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-     1. Em **URL de retorno de chamada [post]**, copie a URL:
+     1. Em **URL de retorno de chamada [post]** , copie a URL:
 
         ![Copiar URL do ponto de extremidade de portal do Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
@@ -125,7 +126,7 @@ Para obter informações sobre criptografia, segurança e autorização para cha
 
 Por padrão, o gatilho de solicitação espera uma solicitação POST. Você pode especificar um método diferente para esperar, mas apenas um único método.
 
-1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione o **método**, que adiciona essa propriedade ao gatilho.
+1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione o **método** , que adiciona essa propriedade ao gatilho.
 
    ![Adicionar a propriedade "Method" para disparar](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -153,7 +154,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
 ### <a name="accept-values-through-get-parameters"></a>Aceitar valores por meio de parâmetros GET
 
-1. No gatilho de solicitação, abra a **lista Adicionar novo parâmetro**, adicione a propriedade **método** ao gatilho e selecione o método **Get** .
+1. No gatilho de solicitação, abra a **lista Adicionar novo parâmetro** , adicione a propriedade **método** ao gatilho e selecione o método **Get** .
 
    Para obter mais informações, consulte [selecionar método de solicitação esperado](#select-method).
 
@@ -161,7 +162,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    1. No gatilho de solicitação, selecione **nova etapa**  >  **Adicionar uma ação**.
    
-   1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
+   1. Em **Escolher uma ação** , na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
 
 1. Para criar a `triggerOutputs()` expressão que recupera o valor do parâmetro, siga estas etapas:
 
@@ -216,7 +217,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
 ### <a name="accept-values-through-a-relative-path"></a>Aceitar valores por meio de um caminho relativo
 
-1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione **caminho relativo**, que adiciona essa propriedade ao gatilho.
+1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione **caminho relativo** , que adiciona essa propriedade ao gatilho.
 
    ![Adicionar a propriedade "caminho relativo" para disparar](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -228,7 +229,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    1. No gatilho de solicitação, selecione **nova etapa**  >  **Adicionar uma ação**.
 
-   1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
+   1. Em **Escolher uma ação** , na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
 
 1. Na propriedade **Body** da ação de resposta, inclua o token que representa o parâmetro que você especificou no caminho relativo do gatilho.
 
@@ -301,11 +302,11 @@ Por exemplo, se você adicionar mais propriedades, como `"suite"` , ao seu esque
 
 ## <a name="create-nested-logic-apps"></a>Criar aplicativos lógicos aninhados
 
-Você pode aninhar os fluxos de trabalho no aplicativo lógico adicionando outros aplicativos lógicos que podem receber solicitações. Para incluir esses aplicativos lógicos, siga estas etapas:
+Você pode aninhar fluxos de trabalho em seu aplicativo lógico adicionando outros aplicativos lógicos que podem receber solicitações. Para incluir esses aplicativos lógicos, siga estas etapas:
 
 1. Na etapa em que você deseja chamar outro aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**.
 
-1. Em **Escolha uma ação**, selecione **Interno**. Na caixa de pesquisa, insira `logic apps` como o filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
+1. Em **Escolha uma ação** , selecione **Interno**. Na caixa de pesquisa, insira `logic apps` como o filtro. Na lista ações, selecione **escolher um fluxo de trabalho de aplicativos lógicos**.
 
    ![Aninhar aplicativo lógico dentro do aplicativo lógico atual](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -383,7 +384,7 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 
 #### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 
-**R: o**Azure gera com segurança URLs de retorno de chamada de aplicativo lógico usando [SAS (assinatura de acesso compartilhado)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Essa assinatura passa como um parâmetro de consulta e deve ser validada antes que seu aplicativo lógico possa ser executado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
+**R: o** Azure gera com segurança URLs de retorno de chamada de aplicativo lógico usando [SAS (assinatura de acesso compartilhado)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Essa assinatura passa como um parâmetro de consulta e deve ser validada antes que seu aplicativo lógico possa ser executado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
 
 > [!IMPORTANT]
 > Para sistemas de produção e de maior segurança, aconselhamos fortemente a chamar seu aplicativo lógico diretamente do navegador por esses motivos:
@@ -391,9 +392,11 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 > * A chave de acesso compartilhado é exibida na URL.
 > * Você não pode gerenciar políticas de conteúdo de segurança devido a domínios compartilhados em clientes de aplicativos lógicos do Azure.
 
+Para obter mais informações sobre segurança, autorização e criptografia para chamadas de entrada para seu aplicativo lógico, como o protocolo [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como protocolo SSL (SSL), [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml), expondo seu aplicativo lógico com o gerenciamento de API do Azure ou restringindo os endereços IP que originam chamadas de entrada, consulte [acesso seguro e acesso a dados para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>P: posso configurar os pontos de extremidade que podem ser chamados ainda mais?
 
-**R**: Sim, os pontos de extremidade https dão suporte à configuração mais avançada por meio [do gerenciamento de API do Azure](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
+**R** : Sim, os pontos de extremidade https dão suporte à configuração mais avançada por meio [do gerenciamento de API do Azure](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
 
 * [Alterar o método de solicitação](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Alterar os segmentos de URL da solicitação](../api-management/api-management-transformation-policies.md#RewriteURL)
@@ -403,4 +406,4 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure](../connectors/connectors-native-reqres.md)
-* [Proteger o acesso e os dados em aplicativos lógicos do Azure-acesso-acesso para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Proteger o acesso e os dados no aplicativo lógico do Azure-acesso para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

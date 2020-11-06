@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042910"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331848"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restrições e limitações do URI de redirecionamento (URL de resposta)
 
@@ -34,8 +34,8 @@ Esta tabela mostra o número máximo de URIs de redirecionamento que você pode 
 
 | Contas sendo conectadas | Número máximo de URIs de redirecionamento | Descrição |
 |--------------------------|---------------------------------|-------------|
-| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* . |
-| Contas pessoais e contas corporativas e de estudante da Microsoft | 100 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount* . |
+| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs*. |
+| Contas pessoais e contas corporativas e de estudante da Microsoft | 100 | O campo `signInAudience` no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount*. |
 
 ## <a name="maximum-uri-length"></a>Tamanho máximo do URI
 
@@ -62,7 +62,9 @@ De acordo com as [seções RFC 8252 8,3](https://tools.ietf.org/html/rfc8252#sec
 
 Do ponto de vista do desenvolvimento, isso significa algumas coisas:
 
-* Não registre vários URIs de redirecionamento onde apenas a porta difere. O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de redirecionamento (por exemplo, se for `web` -, `native` -ou `spa` -Type Redirecionado).
+* Não registre vários URIs de redirecionamento onde apenas a porta difere. O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de redirecionamento (por exemplo, se for um `web` `native` redirecionamento-,-ou `spa` -tipo).
+
+    Isso é especialmente importante quando você deseja usar fluxos de autenticação diferentes no mesmo registro de aplicativo, por exemplo, tanto a concessão de código de autorização quanto o fluxo implícito. Para associar o comportamento de resposta correto a cada URI de redirecionamento, o servidor de logon deve ser capaz de distinguir entre os URIs de redirecionamento e não pode fazê-lo quando apenas a porta difere.
 * Se você precisar registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não corresponde `http://127.0.0.1/MyNativeApp` .
 * O endereço de loopback IPv6 ( `[::1]` ) não tem suporte no momento.
 * Para impedir que seu aplicativo seja interrompido por firewalls configurados incorretamente ou por interfaces de rede renomeadas, use o endereço IP literal loopback `127.0.0.1` no URI de redirecionamento em vez de `localhost` .

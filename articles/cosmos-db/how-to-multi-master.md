@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a2b1ca8434c40eca610f95a3031e677782866e04
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 109ce54b48df0724c0d4ba64c02721088ed7ffad
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341995"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330624"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurar gravações de várias regiões em seus aplicativos que usam Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Depois que uma conta tiver sido criada com várias regiões de gravação habili
 
 ## <a name="azure-portal"></a><a id="portal"></a> portal do Azure
 
-Use as etapas a seguir para habilitar gravações de várias regiões do portal do Azure:
+Para habilitar gravações de várias regiões de portal do Azure, use as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 

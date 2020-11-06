@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: d0727f512ab24342b493ba2563262a9253d95d8c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 60326b0ba06e1642e2831814dd931c69f6a04f3b
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339964"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330896"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB repositório analítico (versão prévia)?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -19,7 +19,7 @@ ms.locfileid: "93339964"
 > [!IMPORTANT]
 > O repositório analítico do Azure Cosmos DB está atualmente em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Cosmos DB repositório analítico é um repositório de coluna totalmente isolado para habilitar a análise em larga escala contra dados operacionais em seu Azure Cosmos DB, sem nenhum impacto em suas cargas de trabalho transacionais.  
+Azure Cosmos DB repositório analítico é um repositório de coluna totalmente isolado para habilitar a análise em larga escala contra dados operacionais em seu Azure Cosmos DB, sem nenhum impacto em suas cargas de trabalho transacionais. O repositório transacional do Azure Cosmos DB é independente de esquema e permite que você faça uma iteração nos seus aplicativos transacionais sem a necessidade de lidar com gerenciamento de índices ou de esquemas. De modo contrastante, o repositório analítico do Azure Cosmos DB é esquematizado para otimizar o desempenho de consultas analíticas. Este artigo descreve detalhadamente o armazenamento analítico.
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Desafios com análise em larga escala sobre dados operacionais
 
@@ -150,13 +150,13 @@ Aqui está um mapa de todos os tipos de dados de propriedade e suas representaç
 | Duplo |  ". float64" |    24,99|
 | Array | ". array" |    ["a", "b"]|
 |Binário | ". Binary" |0|
-|Booliano    | ". bool"   |verdadeiro|
+|Boolean    | ". bool"   |Verdadeiro|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Nulo   | ". NULL"   | null|
-|Cadeia de caracteres|    ". String" | "ABC"|
+|String|    ". String" | "ABC"|
 |Timestamp |    ". Timestamp" |  Carimbo de data/hora (0, 0)|
-|DateTime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|Datetime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
 |Documento   |". Object" |    {"a": "a"}|
 

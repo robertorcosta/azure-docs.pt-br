@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f92864cea4332157b0bf8b171a9d88b34f79a5ac
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422103"
+ms.locfileid: "94331814"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Política de controle de versão do banco de dados do Azure para PostgreSQL
 
@@ -50,12 +50,12 @@ A tabela a seguir fornece os detalhes de desativação para as versões principa
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>Versões do mecanismo PostgreSQL desativadas sem suporte no banco de dados do Azure para PostgreSQL
 
 Após a data de desativação para cada versão do banco de dados PostgreSQL, se você continuar executando a versão retirada, observe as seguintes restrições:
-- Como a Comunidade não estará liberando correções de bugs ou correções de segurança adicionais, o Azure para PostgreSQL não corrigirá o mecanismo de banco de dados desativado em busca de bugs ou problemas de segurança ou, de outra forma, tomar medidas de segurança em relação ao mecanismo de banco de dados desativado. Você pode enfrentar vulnerabilidades de segurança ou outros problemas como resultado. No entanto, o Azure continuará executando a manutenção periódica e aplicação de patch para o host, o sistema operacional, OS contêineres e quaisquer outros componentes relacionados ao serviço.
+- Como a Comunidade não lançará correções de bugs ou correções de segurança adicionais, o banco de dados do Azure para PostgreSQL não corrigirá o mecanismo de banco de dados desativado em busca de bugs ou problemas de segurança ou, de outra forma, tomar medidas de segurança em relação ao mecanismo de banco de dados desativado. Você pode enfrentar vulnerabilidades de segurança ou outros problemas como resultado. No entanto, o Azure continuará executando a manutenção periódica e aplicação de patch para o host, o sistema operacional, OS contêineres e quaisquer outros componentes relacionados ao serviço.
 - Se qualquer problema de suporte que você possa enfrentar estiver relacionado ao banco de dados PostgreSQL, talvez não seja possível fornecer suporte. Nesses casos, você precisará atualizar seu banco de dados para que possamos fornecer qualquer suporte.
 - Você não poderá criar novos servidores de banco de dados para a versão desativada. No entanto, você poderá executar recuperações pontuais e criar réplicas de leitura para seus servidores existentes.
 - Novos recursos de serviço desenvolvidos pelo banco de dados do Azure para PostgreSQL só podem estar disponíveis para versões de servidor de banco de dados com suporte.
 - Os SLAs de tempo de atividade serão aplicados exclusivamente ao banco de dados do Azure para problemas relacionados ao serviço do PostgreSQL e não a nenhum tempo de inatividade causado por bugs relacionados ao mecanismo de banco de dados  
-- No evento extremo de uma ameaça séria ao serviço causado pela vulnerabilidade do mecanismo de banco de dados PostgreSQL identificada na versão do banco de dados desativada, o Azure pode optar por interromper o nó de computação do servidor de banco de dados para proteger o serviço. Nesse caso, você pode ser notificado para atualizar o servidor antes de colocar o servidor online.
+- No evento extremo de uma ameaça séria ao serviço causado pela vulnerabilidade do mecanismo de banco de dados PostgreSQL identificada na versão do banco de dados desativada, o Azure pode optar por interromper o servidor de banco de dados para proteger o serviço. Nesse caso, você será notificado para atualizar o servidor antes de colocar o servidor online.
 
 ## <a name="postgresql-version-syntax"></a>Sintaxe da versão PostgreSQL
 Antes do PostgreSQL versão 10, a [política de controle de versão do PostgreSQL](https://www.postgresql.org/support/versioning/) considerou uma atualização de _versão principal_ para ser um aumento no primeiro _ou_ segundo número. Por exemplo, 9,5 a 9,6 foi considerado uma atualização de versão _principal_ . A partir da versão 10, apenas uma alteração no primeiro número é considerada uma atualização de versão principal. Por exemplo, 10,0 a 10,1 é uma atualização de versão _secundária_ . A versão 10 a 11 é uma atualização de versão _principal_ .

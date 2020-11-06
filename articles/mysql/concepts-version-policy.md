@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 75e24f9437257769a3d9bfd69980a9b8606d0563
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0670107d84374589aa60cc18f184b9b3d3facce1
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423858"
+ms.locfileid: "94331797"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Política de controle de versão do banco de dados do Azure para MySQL
 
@@ -48,12 +48,13 @@ A tabela a seguir fornece os detalhes de desativação para as versões principa
 ## <a name="retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql"></a>Versões do mecanismo MySQL desativadas sem suporte no banco de dados do Azure para MySQL
 
 Após a data de desativação para cada versão do banco de dados MySQL, se você continuar executando a versão retirada, observe as seguintes restrições:
-- Como a Comunidade não estará liberando mais correções de bugs ou correções de segurança, o Azure para MySQL não corrigirá o mecanismo de banco de dados desativado quanto a bugs ou problemas de segurança ou, de outra forma, tomar medidas de segurança em relação ao mecanismo de banco de dados desativado. No entanto, o Azure continuará executando a manutenção periódica e aplicação de patch para o host, o sistema operacional, OS contêineres e quaisquer outros componentes relacionados ao serviço.
+- Como a Comunidade não lançará correções de bugs ou correções de segurança adicionais, o banco de dados do Azure para MySQL não corrigirá o mecanismo de banco de dados desativado em busca de bugs ou problemas de segurança ou, de outra forma, tomar medidas de segurança em relação ao mecanismo de banco de dados desativado. No entanto, o Azure continuará executando a manutenção periódica e aplicação de patch para o host, o sistema operacional, OS contêineres e quaisquer outros componentes relacionados ao serviço.
 - Se qualquer problema de suporte que você possa enfrentar estiver relacionado ao banco de dados MySQL, talvez não seja possível fornecer suporte. Nesses casos, você precisará atualizar seu banco de dados para que possamos fornecer qualquer suporte.
 - Você não poderá criar novos servidores de banco de dados para a versão desativada. No entanto, você poderá executar recuperações pontuais e criar réplicas de leitura para seus servidores existentes.
 - Novos recursos de serviço desenvolvidos pelo banco de dados do Azure para MySQL só podem estar disponíveis para versões de servidor de banco de dados com suporte.
 - Os SLAs de tempo de atividade serão aplicados exclusivamente a problemas relacionados ao serviço do banco de dados do Azure para MySQL e não a nenhum tempo de inatividade causado por bugs relacionados ao mecanismo de banco de dados  
-- No evento extremo de uma ameaça séria ao serviço causado pela vulnerabilidade do mecanismo de banco de dados MySQL identificada na versão do banco de dados desativada, o Azure pode optar por interromper o nó de computação do seu servidor de banco de dados para proteger o serviço primeiro. Você será solicitado a atualizar o servidor antes de colocar o servidor online. Durante o processo de atualização, seus dados sempre serão protegidos usando backups automáticos executados no serviço que podem ser usados para restaurar de volta para a versão mais antiga, se desejado.
+- No evento extremo de uma ameaça séria ao serviço causado pela vulnerabilidade do mecanismo de banco de dados MySQL identificada na versão do banco de dados desativada, o Azure pode optar por interromper o nó de computação do seu servidor de banco de dados para proteger o serviço primeiro. Você será solicitado a atualizar o servidor antes de colocar o servidor online. Durante o processo de atualização, seus dados sempre serão protegidos usando backups automáticos executados no serviço que podem ser usados para restaurar de volta para a versão mais antiga, se desejado. 
+
 
 
 ## <a name="next-steps"></a>Próximas etapas
