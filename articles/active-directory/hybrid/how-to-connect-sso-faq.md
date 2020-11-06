@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658336"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420472"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: Perguntas frequentes
 
@@ -107,6 +107,9 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
    >Se você não for um administrador de domínio e tiver recebido permissões pelo administrador de domínio, deverá chamar `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repita as etapas anteriores para cada floresta do AD em que você configurou o recurso.
+   
+  >[!NOTE]
+   >Se você estiver atualizando uma floresta, que não seja a Azure AD Connect uma, verifique se a conectividade com o servidor de catálogo global (TCP 3268 e TCP 3269) está disponível.
 
    >[!IMPORTANT]
    >Certifique-se de _não_ executar o `Update-AzureADSSOForest` comando mais de uma vez. Caso contrário, o recurso deixará de funcionar até o momento em que os tíquetes Kerberos dos usuários expirarem e forem reemitidos pelo Active Directory local.

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544827"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93417581"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notificação de manutenção planejada no banco de dados do Azure para MySQL-servidor único
 
@@ -46,14 +46,14 @@ Você pode verificar a notificação de manutenção planejada em portal do Azur
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Verificar a notificação de manutenção planejada de portal do Azure
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **integridade do serviço** .
+1. Na [portal do Azure](https://portal.azure.com), selecione **integridade do serviço**.
 2. Selecione a guia **manutenção planejada**
-3. Selecione **assinatura** , * * região e **serviço** para os quais você deseja verificar a notificação de manutenção planejada. 
+3. Selecione a **assinatura** , a **região** e o **serviço** para os quais você deseja verificar a notificação de manutenção planejada. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Para receber a notificação de manutenção planejada
 
-1. No [portal](https://portal.azure.com), selecione **Integridade do Serviço** .
-2. Na seção **Alertas** , selecione **Alertas de integridade** .
+1. No [portal](https://portal.azure.com), selecione **Integridade do Serviço**.
+2. Na seção **Alertas** , selecione **Alertas de integridade**.
 3. Selecione **+ adicionar alerta de integridade do serviço** e preencha os campos.
 4. Preencha os campos obrigatórios. 
 5. Escolha o **tipo de evento** , selecione **manutenção planejada** ou **selecionar tudo**

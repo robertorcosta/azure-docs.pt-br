@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893396"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421066"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -70,10 +70,33 @@ Distribuições e versões compatíveis:
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* **Agente Linux do Azure versão 2.2.0 ou posterior** . A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](./update-linux-agent.md) para atualizá-la.
-* **CLI do Azure** . [Configurar o ambiente da CLI do Azure](/cli/azure/install-azure-cli) em seu computador.
+* **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](./update-linux-agent.md) para atualizá-la.
+* **CLI do Azure**. [Configurar o ambiente da CLI do Azure](/cli/azure/install-azure-cli) em seu computador.
 * O comando wget, caso ainda não o tenha: Execute `sudo apt-get install wget`.
 * Uma assinatura do Azure existente e uma conta de armazenamento de uso geral existente para armazenar os dados no.  As contas de armazenamento de uso geral dão suporte ao armazenamento de tabela que é necessário.  Uma conta de armazenamento de BLOBs não funcionará.
+* Python 2
+
+### <a name="python-requirement"></a>Requisito do Python
+
+A extensão de diagnóstico do Linux requer Python 2. Se sua máquina virtual estiver usando um distribuição que não inclua o Python 2 por padrão, você deverá instalá-lo. Os comandos de exemplo a seguir instalarão o Python 2 em distribuições diferentes.    
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+O executável python2 deve ter um alias para *Python*. A seguir, um método que você pode usar para definir este alias:
+
+1. Execute o comando a seguir para remover todos os aliases existentes.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Execute o comando a seguir para criar o alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>Instalação de exemplo
 
@@ -175,7 +198,7 @@ Depois que você tiver alterado as configurações Públicas ou Protegidas, impl
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migração de versões anteriores da extensão
 
-A versão mais recente da extensão é a **3.0** . **As versões anteriores (2.x) antigas são substituídas e podem ser canceladas em ou após 31 de julho de 2018** .
+A versão mais recente da extensão é a **3.0**. **As versões anteriores (2.x) antigas são substituídas e podem ser canceladas em ou após 31 de julho de 2018**.
 
 > [!IMPORTANT]
 > Essa extensão introduz alterações significativas na configuração da extensão. Uma alteração foi feita para melhorar a segurança da extensão; como resultado disso, a compatibilidade com as versões 2.x pode não ser mantida. Além disso, o Editor de Extensões para esta extensão é diferente do editor para as versões 2.x.
@@ -213,7 +236,7 @@ storageAccountSasToken | Um [Token de SAS de conta](https://azure.microsoft.com/
 mdsdHttpProxy | (opcional) As informações de proxy de HTTP necessárias para habilitar a extensão para se conectar ao ponto de extremidade e à conta de armazenamento especificados.
 sinksConfig | (opcional) Detalhes de destinos alternativos para os quais as métricas e os eventos podem ser entregues. Os detalhes específicos de cada coletor de dados compatível com a extensão são abordados nas seções a seguir.
 
-Para obter um token SAS dentro de um modelo do Resource Manager, use a função **listAccountSas** . Para obter um modelo de exemplo, confira [Exemplo da função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
+Para obter um token SAS dentro de um modelo do Resource Manager, use a função **listAccountSas**. Para obter um modelo de exemplo, confira [Exemplo da função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 Você pode facilmente construir o token de SAS necessário por meio do Portal do Azure.
 

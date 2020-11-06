@@ -1,7 +1,7 @@
 ---
 title: 'Pré-processar texto: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de texto de pré-processamento em Azure Machine Learning para limpar e simplificar o texto.
+description: Saiba como usar o módulo de texto de pré-processamento no designer de Azure Machine Learning para limpar e simplificar o texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 4112d26d6a21ac800e20bb67ce24a35ca9d09a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d512a691b76cb7cbc72b4cbcb1fc821e928ea1b0
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905233"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421219"
 ---
 # <a name="preprocess-text"></a>Pré-processar Texto
 
@@ -39,47 +39,47 @@ O módulo de **texto de pré-processamento** atualmente só dá suporte ao ingl�
 
 1. Selecione o idioma na lista suspensa **idioma** .
 
-1. **Coluna de texto a ser limpa**: selecione a coluna que você deseja pré-processar.
+1. **Coluna de texto a ser limpa** : selecione a coluna que você deseja pré-processar.
 
-1. **Remover palavras de parada**: Selecione esta opção se desejar aplicar uma lista de palavra irrelevante predefinida à coluna de texto. 
+1. **Remover palavras de parada** : Selecione esta opção se desejar aplicar uma lista de palavra irrelevante predefinida à coluna de texto. 
 
     As listas de palavra irrelevante são dependentes de idioma e personalizáveis.
 
-1. **Lematização**: Selecione esta opção se quiser que as palavras sejam representadas em sua forma canônica. Essa opção é útil para reduzir o número de ocorrências exclusivas de outros tokens de texto semelhantes.
+1. **Lematização** : Selecione esta opção se quiser que as palavras sejam representadas em sua forma canônica. Essa opção é útil para reduzir o número de ocorrências exclusivas de outros tokens de texto semelhantes.
 
     O processo lematização é dependente de linguagem altamente.
 
-1. **Detectar sentenças**: Selecione esta opção se desejar que o módulo Insira uma marca de limite de frase ao executar a análise.
+1. **Detectar sentenças** : Selecione esta opção se desejar que o módulo Insira uma marca de limite de frase ao executar a análise.
 
     Esse módulo usa uma série de três caracteres de pipe `|||` para representar o terminador de frase.
 
 1. Execute operações de localização e substituição opcionais usando expressões regulares.
 
-    * **Expressão regular personalizada**: defina o texto que você está pesquisando.
-    * **Cadeia de substituição personalizada**: defina um único valor de substituição.
+    * **Expressão regular personalizada** : defina o texto que você está pesquisando.
+    * **Cadeia de substituição personalizada** : defina um único valor de substituição.
 
-1. **Normalizar maiúsculas e minúsculas**: Selecione esta opção se desejar converter caracteres maiúsculos ASCII em formatos minúsculos.
+1. **Normalizar maiúsculas e minúsculas** : Selecione esta opção se desejar converter caracteres maiúsculos ASCII em formatos minúsculos.
 
     Se os caracteres não forem normalizados, a mesma palavra em letras maiúsculas e minúsculas será considerada duas palavras diferentes.
 
 1. Você também pode remover os seguintes tipos de caracteres ou sequências de caracteres do texto de saída processado:
 
-    * **Remover números**: Selecione esta opção para remover todos os caracteres numéricos do idioma especificado. Os números de identificação são dependentes de domínio e de idioma. Se os caracteres numéricos forem parte integrante de uma palavra conhecida, o número poderá não ser removido.
+    * **Remover números** : Selecione esta opção para remover todos os caracteres numéricos do idioma especificado. Os números de identificação são dependentes de domínio e de idioma. Se os caracteres numéricos forem parte integrante de uma palavra conhecida, o número poderá não ser removido.
     
-    * **Remover caracteres especiais**: Use esta opção para remover quaisquer caracteres especiais não alfanuméricos.
+    * **Remover caracteres especiais** : Use esta opção para remover quaisquer caracteres especiais não alfanuméricos.
     
-    * **Remover caracteres duplicados**: Selecione esta opção para remover caracteres extras em qualquer sequência que se repita para mais de duas vezes. Por exemplo, uma sequência como "AAAAA" seria reduzida para "AA".
+    * **Remover caracteres duplicados** : Selecione esta opção para remover caracteres extras em qualquer sequência que se repita para mais de duas vezes. Por exemplo, uma sequência como "AAAAA" seria reduzida para "AA".
     
-    * **Remover endereços de email**: Selecione esta opção para remover qualquer sequência do formato `<string>@<string>` .  
-    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de URL: `http` ,, `https` `ftp` , `www`
+    * **Remover endereços de email** : Selecione esta opção para remover qualquer sequência do formato `<string>@<string>` .  
+    * **Remover URLs** : Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de URL: `http` ,, `https` `ftp` , `www`
     
-1. **Expandir contratações de verbo**: essa opção se aplica somente a idiomas que usam contratações de verbo; Atualmente, somente em inglês. 
+1. **Expandir contratações de verbo** : essa opção se aplica somente a idiomas que usam contratações de verbo; Atualmente, somente em inglês. 
 
     Por exemplo, ao selecionar essa opção, você pode substituir a frase *"não estaria lá"* com *"não permaneceria lá"*.
 
-1. **Normalizar barras invertidas para barras**: Selecione esta opção para mapear todas as instâncias de `\\` para `/` .
+1. **Normalizar barras invertidas para barras** : Selecione esta opção para mapear todas as instâncias de `\\` para `/` .
 
-1. **Dividir tokens em caracteres especiais**: Selecione esta opção se desejar quebrar palavras em caracteres como `&` , `-` e assim por diante. Essa opção também pode reduzir os caracteres especiais quando ele se repetir mais de duas vezes. 
+1. **Dividir tokens em caracteres especiais** : Selecione esta opção se desejar quebrar palavras em caracteres como `&` , `-` e assim por diante. Essa opção também pode reduzir os caracteres especiais quando ele se repetir mais de duas vezes. 
 
     Por exemplo, a cadeia de caracteres `MS---WORD` seria separada em três tokens, `MS` , `-` e `WORD` .
 

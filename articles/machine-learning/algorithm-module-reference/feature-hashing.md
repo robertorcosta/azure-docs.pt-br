@@ -1,7 +1,7 @@
 ---
 title: Referência de módulo de hash de recurso
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo hash de recurso no Azure Machine Learning para personalizarr dados de texto.
+description: Saiba como usar o módulo hash de recurso no designer de Azure Machine Learning para personalizarr dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323727"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420777"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência de módulo de hash de recurso
 
@@ -22,7 +22,7 @@ Este artigo descreve um módulo incluído no Azure Machine Learning designer.
 
 Use o módulo hash de recurso para transformar um fluxo de texto em inglês em um conjunto de recursos inteiros. Em seguida, você pode passar esse conjunto de recursos com hash para um algoritmo de aprendizado de máquina para treinar um modelo de análise de texto.
 
-A funcionalidade de hash de recurso fornecida neste módulo é baseada na estrutura nimbusml. Para obter mais informações, consulte [classe NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+A funcionalidade de hash de recurso fornecida neste módulo é baseada na estrutura nimbusml. Para obter mais informações, consulte [classe NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## <a name="what-is-feature-hashing"></a>O que é o hash de recurso?
 

@@ -1,7 +1,7 @@
 ---
 title: Multiclasse uma-vs-todas
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo Multiclasse Um contra Todos no Azure Machine Learning para criar um modelo de classificação multiclasse a partir de um Ensemble de modelos de classificação binária.
+description: Saiba como usar o módulo Multiclasse Um contra Todos no designer de Azure Machine Learning para criar um Ensemble de modelos de classificação binária.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898508"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420675"
 ---
 # <a name="one-vs-all-multiclass"></a>Multiclasse uma-vs-todas
 
@@ -40,7 +40,7 @@ Você conecta o modelo binário ao módulo Multiclasse Um contra Todos. Em segui
 
 Quando você combina os modelos, Multiclasse Um contra Todos cria vários modelos de classificação binária, otimiza o algoritmo para cada classe e, em seguida, mescla os modelos. O módulo executa essas tarefas, embora o conjunto de módulos de treinamento possa ter vários valores de classe.
 
-1. Adicione o módulo Multiclasse Um contra Todos ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning-Initialize**, na categoria **classificação** .
+1. Adicione o módulo Multiclasse Um contra Todos ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning-Initialize** , na categoria **classificação** .
 
    O classificador de Multiclasse Um contra Todos não tem nenhum parâmetro configurável. Todas as personalizações devem ser feitas no modelo de classificação binária que é fornecido como entrada.
 

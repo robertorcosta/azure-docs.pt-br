@@ -1,7 +1,7 @@
 ---
 title: Extrair recursos de N-Gram de referência de módulo de texto
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo extrair N-Gram no Azure Machine Learning para personalizarr dados de texto.
+description: Saiba como usar o módulo extrair N-Gram no designer de Azure Machine Learning para personalizarr dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907979"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420794"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos de N-Gram de referência de módulo de texto
 
@@ -44,15 +44,15 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1. **Função de peso** especifica como criar o vetor de recurso de documento e como extrair o vocabulário de documentos.
 
-    * **Peso binário**: atribui um valor de presença binária para os n-grams extraídos. O valor de cada n-Gram é 1 quando ele existe no documento; caso contrário, 0.
+    * **Peso binário** : atribui um valor de presença binária para os n-grams extraídos. O valor de cada n-Gram é 1 quando ele existe no documento; caso contrário, 0.
 
-    * **TF Weight**: atribui uma pontuação de frequência de termo (TF) para os n-grams extraídos. O valor de cada n-Gram é sua frequência de ocorrência no documento.
+    * **TF Weight** : atribui uma pontuação de frequência de termo (TF) para os n-grams extraídos. O valor de cada n-Gram é sua frequência de ocorrência no documento.
 
-    * **Peso IDF**: atribui uma pontuação de IDF (frequência de documento inversa) para os n-gramas extraídos. O valor de cada n-Gram é o log do tamanho de Corpus dividido por sua frequência de ocorrência no Corpus inteiro.
+    * **Peso IDF** : atribui uma pontuação de IDF (frequência de documento inversa) para os n-gramas extraídos. O valor de cada n-Gram é o log do tamanho de Corpus dividido por sua frequência de ocorrência no Corpus inteiro.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **TF-IDF Weight**: atribui uma pontuação de termo de frequência/documento inverso (TF/IDF) para os n-grams extraídos. O valor de cada n-Gram é sua pontuação de TF multiplicada por sua pontuação de IDF.
+    *  **TF-IDF Weight** : atribui uma pontuação de termo de frequência/documento inverso (TF/IDF) para os n-grams extraídos. O valor de cada n-Gram é sua pontuação de TF multiplicada por sua pontuação de IDF.
 
 1. Defina o **comprimento mínimo da palavra** como o número mínimo de letras que podem ser usadas em qualquer *palavra única* em um n-Gram.
 
@@ -83,7 +83,7 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 1. Adicione o conjunto de dados salvo que contém um dicionário de n-Gram gerado anteriormente e conecte-o à porta de **vocabulário de entrada** . Você também pode conectar a saída de **vocabulário de resultado** de uma instância upstream do módulo extrair recursos N-Gram de texto.
 
-1. Para o **modo vocabulário**, selecione a opção atualização **somente leitura** na lista suspensa.
+1. Para o **modo vocabulário** , selecione a opção atualização **somente leitura** na lista suspensa.
 
    A opção **ReadOnly** representa o corpus de entrada para o vocabulário de entrada. Em vez de calcular frequências de termo do novo conjunto de dados de texto (na entrada à esquerda), os pesos de n-Gram do vocabulário de entrada são aplicados como estão.
 
@@ -110,20 +110,20 @@ O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram
 
 O módulo extrair recursos N-Gram do texto cria dois tipos de saída: 
 
-* **Conjunto de resultados**: essa saída é um resumo do texto analisado combinado com os n-gramas que foram extraídos. As colunas que você não selecionou na opção **coluna de texto** são passadas para a saída. Para cada coluna de texto que você analisa, o módulo gera estas colunas:
+* **Conjunto de resultados** : essa saída é um resumo do texto analisado combinado com os n-gramas que foram extraídos. As colunas que você não selecionou na opção **coluna de texto** são passadas para a saída. Para cada coluna de texto que você analisa, o módulo gera estas colunas:
 
-  * **Matriz de ocorrências de n-Gram**: o módulo gera uma coluna para cada n-Gram encontrado no total de Corpus e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
+  * **Matriz de ocorrências de n-Gram** : o módulo gera uma coluna para cada n-Gram encontrado no total de Corpus e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
 
-* **Vocabulário de resultado**: o vocabulário contém o dicionário de n-Gram real, junto com as pontuações de frequência de termos que são geradas como parte da análise. Você pode salvar o conjunto de informações para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Você também pode reutilizar o vocabulário para modelagem e pontuação.
+* **Vocabulário de resultado** : o vocabulário contém o dicionário de n-Gram real, junto com as pontuações de frequência de termos que são geradas como parte da análise. Você pode salvar o conjunto de informações para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Você também pode reutilizar o vocabulário para modelagem e pontuação.
 
 ### <a name="result-vocabulary"></a>Vocabulário de resultado
 
 O vocabulário contém o dicionário de n-Gram com as pontuações de frequência de termos que são geradas como parte da análise. As pontuações de DF e IDF são geradas independentemente de outras opções.
 
-+ **ID**: um identificador gerado para cada n-Gram exclusivo.
-+ **NGram**: o n-Gram. Espaços ou outros separadores de palavras são substituídos pelo caractere de sublinhado.
-+ **DF**: a pontuação de frequência do termo para o n-Gram no Corpus original.
-+ **IDF**: a pontuação de frequência de documento inversa para o n-Gram no Corpus original.
++ **ID** : um identificador gerado para cada n-Gram exclusivo.
++ **NGram** : o n-Gram. Espaços ou outros separadores de palavras são substituídos pelo caractere de sublinhado.
++ **DF** : a pontuação de frequência do termo para o n-Gram no Corpus original.
++ **IDF** : a pontuação de frequência de documento inversa para o n-Gram no Corpus original.
 
 Você pode atualizar manualmente esse conjunto de um, mas pode introduzir erros. Por exemplo:
 
