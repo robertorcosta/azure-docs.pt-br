@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fd8fb2e40fa44c5aec3f14bfd586187c952df0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031238"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422426"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Sobre a análise de código de segurança da Microsoft
 
@@ -39,7 +39,7 @@ Adicionar ferramentas de análise de código de segurança da Microsoft ao pipel
 
 ### <a name="clean-builds"></a>Limpar compilações
 
-Depois de abordar os problemas iniciais relatados pelas ferramentas, você pode configurar a extensão para interromper as compilações sobre novos problemas.A configuração de compilações de integração contínua em todas as solicitações pull é fácil.
+Depois de abordar os problemas iniciais relatados pelas ferramentas, você pode configurar a extensão para interromper as compilações sobre novos problemas. A configuração de compilações de integração contínua em todas as solicitações pull é fácil.
 
 ### <a name="set-it-and-forget-it"></a>Defini-lo e esquecê-lo
 
@@ -73,7 +73,7 @@ As senhas e outros segredos armazenados no código-fonte são um problema signif
 
 ### <a name="roslyn-analyzers"></a>Analisadores Roslyn
 
-Analisadores de Roslyn é a ferramenta integrada ao compilador da Microsoft para analisar estaticamente o código gerenciado do C# e do Visual Basic. Para obter mais informações, consulte [analisadores baseados em Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
+Analisadores de Roslyn é a ferramenta integrada ao compilador da Microsoft para analisar estaticamente o código gerenciado do C# e do Visual Basic. Para obter mais informações, consulte [analisadores baseados em Roslyn](https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/security-warnings).
 
 ### <a name="tslint"></a>TSLint
 

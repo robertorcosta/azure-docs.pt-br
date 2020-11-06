@@ -9,18 +9,27 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: a60ca64113bb3f2700e9f521f65780dc8ffbcc54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307733"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423004"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
 Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender sobre erros e soluções conhecidas.
+
+## <a name="2020-11-05"></a>2020-11-05
+
+### <a name="data-labeling-for-image-instance-segmentation-polygon-annotation-preview"></a>Rotulação de dados para segmentação de instância de imagem (anotação de polígono) (visualização)
+
+O tipo de projeto de segmentação de instância de imagem (anotações de polígono) no rótulo de dados está disponível agora, para que os usuários possam desenhar e anotar com polígonos em torno da delimitação dos objetos nas imagens. Os usuários poderão atribuir uma classe e um polígono a cada objeto de interesse em uma imagem.
+
+Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-label-images.md).
+
 
 ## <a name="2020-10-26"></a>2020-10-26
 

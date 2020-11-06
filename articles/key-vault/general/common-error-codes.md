@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 09/29/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 25c79229a09db912903fba825f0d48f571880745
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a36e15a56a5a4c8a637120ca730ae1da764d376d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876872"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422887"
 ---
 # <a name="common-error-codes-for-azure-key-vault"></a>Códigos de erro comuns para Azure Key Vault
 
@@ -22,7 +22,7 @@ Os códigos de erro listados na tabela a seguir podem ser retornados por uma ope
 
 | Código do erro | Mensagem do usuário |
 |--|--|
-| VaultAlreadyExists |  O cofre de chaves especificado já existe (no estado excluído de maneira reversível ou em outra assinatura). |
+| VaultAlreadyExists |  Falha na tentativa de criar um novo cofre de chaves com o nome especificado, pois o nome já está em uso. Se você excluiu recentemente um cofre de chaves com esse nome, ele ainda pode estar no estado de exclusão reversível. Você pode verificar se ele existe em estado de exclusão reversível [aqui](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) |
 | VaultNameNotValid |  O nome do cofre deve ter 24 caracteres, alfanuméricos e começar com um alfabeto |
 | AccessDenied |  Talvez você não tenha permissões na política de acesso para executar essa operação. |
 | ForbiddenByFirewall |  O endereço do cliente não é autorizado e o chamador não é um serviço confiável. |

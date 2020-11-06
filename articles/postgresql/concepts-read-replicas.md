@@ -5,31 +5,36 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 11/05/2020
+ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490162"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422137"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
-O recurso de réplica de leitura permite replicar dados de um servidor de Banco de Dados do Azure para PostgreSQL para um servidor somente leitura. Você pode replicar do servidor primário para até cinco réplicas. Réplicas são atualizadas de forma assíncrona com a tecnologia de replicação nativa do mecanismo PostgreSQL.
+O recurso de réplica de leitura permite replicar dados de um servidor de Banco de Dados do Azure para PostgreSQL para um servidor somente leitura. As réplicas são atualizadas de **forma assíncrona** com a tecnologia de replicação física nativa do mecanismo PostgreSQL. Você pode replicar do servidor primário para até cinco réplicas.
 
 As réplicas são novos servidores que você gerencia de modo similar ao Banco de Dados do Azure para PostgreSQL normal. Para cada réplica de leitura, você será cobrado pela computação provisionada em vCores e pelo armazenamento em GB/mês.
 
 Saiba como [criar e gerenciar réplicas](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
-O recurso de réplica de leitura ajuda a melhorar o desempenho e o dimensionamento de cargas de trabalho com uso intenso de leitura. As cargas de trabalho de leitura podem ser isoladas para as réplicas, enquanto as cargas de trabalho de gravação podem ser direcionadas para o primário.
+O recurso de réplica de leitura ajuda a melhorar o desempenho e o dimensionamento de cargas de trabalho com uso intenso de leitura. As cargas de trabalho de leitura podem ser isoladas para as réplicas, enquanto as cargas de trabalho de gravação podem ser direcionadas para o primário. As réplicas de leitura também podem ser implantadas em uma região diferente e podem ser promovidas para serem um servidor de leitura/gravação no caso de uma recuperação de desastre.
 
 Um cenário comum é ter cargas de trabalho analíticas e de BI usando a réplica de leitura como a fonte de dados para relatório.
 
-Como as réplicas são somente leitura, elas não reduzem diretamente as sobrecargas de capacidade de gravação no primário. Esse recurso não se destina a cargas de trabalho com uso intenso de gravação.
+Como as réplicas são somente leitura, elas não reduzem diretamente as sobrecargas de capacidade de gravação no primário.
 
-O recurso de réplica de leitura usa replicação assíncrona do PostgreSQL. O recurso não se destina a cenários de replicação síncrona. Haverá um atraso mensurável entre o primário e a réplica. Os dados na réplica eventualmente se tornam consistentes com os dados no primário. Use este recurso para cargas de trabalho que podem acomodar esse atraso.
+### <a name="considerations"></a>Considerações
+O recurso destina-se a cenários em que o retardo é aceitável e destinado a descarregamento de consultas. Não é destinado a cenários de replicação síncrona em que os dados de réplica devem estar atualizados. Haverá um atraso mensurável entre o primário e a réplica. Isso pode ser em minutos ou até mesmo horas, dependendo da carga de trabalho e da latência entre o primário e a réplica. Os dados na réplica eventualmente se tornam consistentes com os dados no primário. Use este recurso para cargas de trabalho que podem acomodar esse atraso. 
 
+> [!NOTE]
+> Para a maioria das cargas de trabalho de leitura, as réplicas oferecem atualizações quase em tempo real do primário. No entanto, com cargas de trabalho primárias intensivamente pesadas de gravação intensa, o retardo de replicação pode continuar crescendo e talvez nunca seja capaz de se deslocar com o primário. Isso também pode aumentar o uso de armazenamento no primário, pois os arquivos WAL não são excluídos até que sejam recebidos na réplica. Se essa situação persistir, excluir e recriar a réplica de leitura após a conclusão das cargas de trabalho com uso intensivo de gravação é a opção de retornar a réplica para um bom estado em relação ao retardo.
+> Réplicas de leitura assíncronas não são adequadas para cargas de trabalho de gravação pesadas. Ao avaliar réplicas de leitura para seu aplicativo, monitore o retardo na réplica para um ciclo de carga de trabalho completo do aplicativo por meio de seu pico e horários de pico para acessar o possível atraso e o RTO/RPO esperado em vários pontos do ciclo de carga de trabalho.
+> 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Você pode criar uma réplica de leitura em uma região diferente do seu servidor primário. A replicação entre regiões pode ser útil para cenários como o planejamento de recuperação de desastres ou para trazer dados mais próximos dos seus usuários.
 
@@ -72,9 +77,9 @@ Quando você cria uma réplica, ela não herda as regras de firewall ou o ponto 
 
 A réplica herda a conta de administrador do servidor primário. Todas as contas de usuário no servidor primário são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário que estão disponíveis no servidor primário.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para PostgreSQL. Para um servidor chamado **minha réplica** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando psql:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para PostgreSQL. Para um servidor chamado **minha réplica** com o nome de usuário admin **myadmin** , você pode se conectar à réplica usando psql:
 
-```
+```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
@@ -83,50 +88,40 @@ No prompt, insira a senha da conta de usuário.
 ## <a name="monitor-replication"></a>Monitorar a replicação
 O banco de dados do Azure para PostgreSQL fornece duas métricas para monitorar a replicação. As duas métricas são o **retardo máximo entre réplicas** e **atraso de réplica**. Para saber como exibir essas métricas, consulte a seção **monitorar uma réplica** do artigo de [instruções de leitura de réplica](howto-read-replicas-portal.md).
 
-A métrica de **atraso máximo entre réplicas** mostra o retardo em bytes entre a réplica primária e a mais alta. Essa métrica está disponível somente no servidor primário e estará disponível somente se pelo menos uma das réplicas de leitura estiver conectada à primária.
+A métrica de **atraso máximo entre réplicas** mostra o retardo em bytes entre a réplica primária e a mais alta. Essa métrica é aplicável e está disponível somente no servidor primário e estará disponível somente se pelo menos uma das réplicas de leitura estiver conectada ao primário e o primário estiver no modo de replicação de streaming. As informações de latência não mostram detalhes quando a réplica está no processo de se capturar com o primário usando os logs arquivados do primário em um modo de replicação de envio de arquivos.
 
-A métrica de **atraso de réplica** mostra o tempo desde a última transação reproduzida. Se não houver nenhuma transação ocorrendo no servidor primário, a métrica refletirá esse intervalo de tempo. Essa métrica está disponível somente para servidores de réplica. A latência de réplica é calculada a partir da `pg_stat_wal_receiver` exibição:
+A métrica de **atraso de réplica** mostra o tempo desde a última transação reproduzida. Se não houver nenhuma transação ocorrendo no servidor primário, a métrica refletirá esse intervalo de tempo. Essa métrica é aplicável e está disponível somente para servidores de réplica. A latência de réplica é calculada a partir da `pg_stat_wal_receiver` exibição:
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
+SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 Defina um alerta para informá-lo quando o retardo de réplica atinge um valor que não é aceitável para sua carga de trabalho. 
 
 Para obter informações adicionais, consulte o servidor primário diretamente para obter o retardo de replicação em bytes em todas as réplicas.
 
-No PostgreSQL versão 10:
-
-```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
-No PostgreSQL versão 9.6 e versões anteriores:
-
-```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
-AS total_log_delay_in_bytes from pg_stat_replication;
-```
-
 > [!NOTE]
 > Se um servidor primário ou uma réplica de leitura for reiniciado, o tempo necessário para reiniciar e se acumular será refletido na métrica de retardo de réplica.
 
-## <a name="stop-replication"></a>Parar replicação
-Você pode interromper a replicação entre um primário e uma réplica. A ação de interrupção faz com que a réplica seja reinicia e remova suas configurações de replicação. Depois que a replicação for interrompida entre um servidor primário e uma réplica de leitura, a réplica se tornará um servidor autônomo. Os dados no servidor autônomo são os dados que estavam disponíveis na réplica no momento em que o comando de parar a replicação foi iniciado. O servidor autônomo não é atualizado com o servidor primário.
+## <a name="stop-replication--promote-replica"></a>Parar replicação/promover réplica
+Você pode interromper a replicação entre um primário e uma réplica a qualquer momento. A ação de parada faz com que a réplica reinicie e promova a réplica para ser um servidor independente e gravável de leitura. Os dados no servidor autônomo são os dados que estavam disponíveis no servidor de réplica no momento em que a replicação é interrompida. Todas as atualizações subsequentes no primário não são propagadas para a réplica. No entanto, o servidor de réplica pode ter logs acumulados que ainda não foram aplicados. Como parte do processo de reinicialização, a réplica aplica todos os logs pendentes antes de aceitar conexões de cliente.  
 
-> [!IMPORTANT]
-> O servidor autônomo não pode se tornar uma réplica novamente.
-> Antes de interromper a replicação em uma réplica de leitura, verifique se a réplica tem todos os dados de que você precisa.
+### <a name="considerations"></a>Considerações
+- Antes de interromper a replicação em uma réplica de leitura, verifique o atraso de replicação para garantir que a réplica tenha todos os dados necessários. 
+- Como a réplica de leitura precisa aplicar todos os logs pendentes antes que possa se tornar um servidor autônomo, o RTO pode ser maior para cargas de trabalho pesadas de gravação quando a replicação de parada acontece, pois pode haver um atraso significativo na réplica. Preste atenção a isso ao planejar promover uma réplica.
+- O servidor de réplica promovido não pode ser tornado novamente em uma réplica.
+- Se você promover uma réplica para ser o servidor primário, não poderá estabelecer a replicação de volta para o servidor primário antigo. Se você quiser voltar para a região primária antiga, poderá estabelecer um novo servidor de réplica com um novo nome (ou) excluir o primário antigo e criar uma réplica usando o antigo nome primário.
+- Se você tiver várias réplicas de leitura e se promover uma delas para ser seu servidor primário, outros servidores de réplica ainda estarão conectados ao primário antigo. Talvez seja necessário recriar réplicas do servidor novo e promovido.
 
 Quando você interrompe a replicação, a réplica perde todos os links para suas réplicas primárias e outras anteriores.
 
 Saiba como [interromper a replicação para uma réplica](howto-read-replicas-portal.md).
 
-## <a name="failover"></a>Failover
-Não há nenhum failover automatizado entre os servidores primário e de réplica. 
+## <a name="failover-to-replica"></a>Failover para réplica
 
-Como a replicação é assíncrona, há um atraso entre o primário e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor primário e a latência entre os data centers. Em casos típicos, intervalos de latência de réplicas entre alguns segundos e alguns minutos. No entanto, nos casos em que o primário executa cargas de trabalho muito pesadas e a réplica não está se acumulando rápido o suficiente, a latência pode ser maior. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
+No caso de uma falha do servidor primário, **não** há failover automático para a réplica de leitura. 
+
+Como a replicação é assíncrona, pode haver um atraso considerável entre o primário e a réplica. A quantidade de latência é influenciada por vários fatores, como o tipo de carga de trabalho em execução no servidor primário e a latência entre o servidor primário e de réplica. Em casos típicos com carga de trabalho de gravação nominal, o retardo de réplica é esperado entre alguns segundos e alguns minutos. No entanto, nos casos em que o primário executa uma carga de trabalho muito pesada de gravação e a réplica não está se acumulando rápido o suficiente, a latência pode ser muito maior. Você pode acompanhar o atraso de replicação para cada réplica usando o *retardo da réplica* de métrica. Essa métrica mostra o tempo desde a última transação reproduzida na réplica. É recomendável que você identifique o atraso médio observando o atraso da réplica em um período de tempo. Você pode definir um alerta no atraso da réplica, de modo que, se ela ficar fora do intervalo esperado, você será notificado para executar uma ação.
 
 > [!Tip]
 > Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica da primária indicará a quantidade de dados perdida.
@@ -134,10 +129,10 @@ Como a replicação é assíncrona, há um atraso entre o primário e a réplica
 Depois que você decidir que deseja fazer failover para uma réplica, 
 
 1. Parar a replicação na réplica<br/>
-   Essa etapa é necessária para tornar o servidor de réplica capaz de aceitar gravações. Como parte desse processo, o servidor de réplica será reiniciado e será desvinculado do primário. Depois que você inicia a interrupção da replicação, o processo de back-end normalmente leva cerca de 2 minutos para ser concluído. Consulte a seção [parar replicação](#stop-replication) deste artigo para entender as implicações dessa ação.
+   Essa etapa é necessária para fazer com que o servidor de réplica se torne um servidor autônomo e seja capaz de aceitar gravações. Como parte desse processo, o servidor de réplica será reiniciado e será desvinculado do primário. Depois que você inicia a interrupção da replicação, o processo de back-end normalmente leva alguns minutos para aplicar os logs residuais que ainda não foram aplicados e abrir o banco de dados como um servidor de leitura gravável. Consulte a seção [parar replicação](#stop-replication--promote-replica) deste artigo para entender as implicações dessa ação.
     
 2. Aponte seu aplicativo para a réplica (antiga)<br/>
-   Cada servidor tem uma cadeia de conexão exclusiva. Atualize seu aplicativo para apontar para a réplica (antiga) em vez do primário.
+   Cada servidor tem uma cadeia de conexão exclusiva. Atualize a cadeia de conexão do aplicativo para apontar para a réplica (antiga) em vez do primário.
     
 Depois que o aplicativo processar leituras e gravações com êxito, você terá concluído o failover. A quantidade de tempo de inatividade com a qual suas experiências de aplicativo dependerão quando você detectar um problema e concluir as etapas 1 e 2 acima.
 
@@ -158,7 +153,6 @@ Para configurar o nível certo de registro em log, use o parâmetro de suporte d
 * **Réplica** -mais detalhada do que **desativado**. Esse é o nível mínimo de log necessário para que as [réplicas de leitura](concepts-read-replicas.md) funcionem. Essa configuração é o padrão na maioria dos servidores.
 * **Logical** -mais detalhado que a **réplica**. Este é o nível mínimo de registro em log para que a decodificação lógica funcione. As réplicas de leitura também funcionam nessa configuração.
 
-O servidor precisa ser reiniciado após uma alteração desse parâmetro. Internamente, esse parâmetro define os parâmetros postgres `wal_level` , `max_replication_slots` e `max_wal_senders` .
 
 ### <a name="new-replicas"></a>Novas réplicas
 Uma réplica de leitura é criada como um novo servidor de Banco de Dados do Azure para PostgreSQL. Um servidor existente não pode se tornar uma réplica. Você não pode criar uma réplica de outra réplica de leitura.
@@ -172,15 +166,15 @@ As regras de firewall, as regras de rede virtual e as configurações de parâme
 Dimensionamento de vCores ou entre Uso Geral e com otimização de memória:
 * O PostgreSQL requer que a `max_connections` configuração em um servidor secundário seja [maior ou igual à configuração no primário](https://www.postgresql.org/docs/current/hot-standby.html), caso contrário, o secundário não será iniciado.
 * No banco de dados do Azure para PostgreSQL, o máximo permitido de conexões para cada servidor é corrigido para o SKU de computação, já que as conexões ocupam memória. Você pode saber mais sobre o [mapeamento entre max_connections e SKUs de computação](concepts-limits.md).
-* **Escalar verticalmente**: primeiro escalar verticalmente a computação de uma réplica e, em seguida, escalar verticalmente o primário. Essa ordem impedirá que erros violem o `max_connections` requisito.
-* **Reduzir verticalmente**: primeiro reduza horizontalmente a computação do primário e reduza a réplica. Se você tentar dimensionar a réplica abaixo do primário, haverá um erro, pois isso viola o `max_connections` requisito.
+* **Escalar verticalmente** : primeiro escalar verticalmente a computação de uma réplica e, em seguida, escalar verticalmente o primário. Essa ordem impedirá que erros violem o `max_connections` requisito.
+* **Reduzir verticalmente** : primeiro reduza horizontalmente a computação do primário e reduza a réplica. Se você tentar dimensionar a réplica abaixo do primário, haverá um erro, pois isso viola o `max_connections` requisito.
 
 Armazenamento em escala:
 * Todas as réplicas têm o aumento automático de armazenamento habilitado para evitar problemas de replicação de uma réplica de armazenamento completo. Essa configuração não pode ser desabilitada.
 * Você também pode escalar verticalmente o armazenamento manualmente, como faria em qualquer outro servidor
 
 
-### <a name="basic-tier"></a>Camada Básica
+### <a name="basic-tier"></a>Camada básica
 Os servidores de camada básica oferecem suporte apenas à replicação de mesma região.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions

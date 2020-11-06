@@ -4,24 +4,24 @@ description: Saiba mais sobre o IoT Plug and Play. O IoT Plug and Play baseia-se
 author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 3a5d0ba92ab976f9ea3aa2722f92865f06d5a70e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4fd7a24edffbfb63adc830ddb83b45997743ad42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045033"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421627"
 ---
 # <a name="what-is-iot-plug-and-play"></a>O que é IoT Plug and Play?
 
 O IoT Plug and Play permite integrar dispositivos inteligentes a soluções sem nenhuma configuração manual. No núcleo do IoT Plug and Play há um _modelo_ de dispositivo que um dispositivo usa para anunciar suas funcionalidades a um aplicativo habilitado para IoT Plug and Play. Esse modelo é estruturado como um conjunto de elementos que definem:
 
 - _Propriedades_ que representam o estado somente leitura ou gravável de um dispositivo ou outra entidade. Por exemplo, um número de série do dispositivo pode ser uma propriedade somente leitura e uma temperatura de destino em um termostato pode ser uma propriedade gravável.
-- _Telemetria_, que são os dados emitidos por um dispositivo, sejam esses dados um fluxo regular de leituras de sensor, um erro ocasional ou uma mensagem informativa.
+- _Telemetria_ , que são os dados emitidos por um dispositivo, sejam esses dados um fluxo regular de leituras de sensor, um erro ocasional ou uma mensagem informativa.
 - _Comandos_ que descrevem uma função ou operação que pode ser feita em um dispositivo. Por exemplo, um comando pode reinicializar um gateway ou tirar uma foto usando uma câmera remota.
 
 É possível agrupar esses elementos em interfaces para reutilização entre modelos para facilitar a colaboração e acelerar o desenvolvimento.

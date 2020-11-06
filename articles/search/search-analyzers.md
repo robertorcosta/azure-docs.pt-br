@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 01b57526b15a806271d58b250f06a4372fe56b72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532254"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421729"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto no Azure Pesquisa Cognitiva
 
@@ -48,10 +48,10 @@ A lista a seguir descreve quais analisadores estão disponíveis no Azure Pesqui
 | Categoria | Descrição |
 |----------|-------------|
 | [Analisador Lucene padrão](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Padrão. Nenhuma especificação ou a configuração é necessária. Esse analisador de uso geral tem um bom desempenho para muitos idiomas e cenários.|
-| Analisadores predefinidos | Oferecidos como um produto acabado destinado a ser usado no estado em que se encontra. <br/>Há dois tipos: especializado e de idioma. O que os torna "predefinidos" é que você os referencia por nome, sem nenhuma configuração ou personalização. <br/><br/>[Analisadores especializados (independentes de idioma)](index-add-custom-analyzers.md#AnalyzerTable) são usados quando as entradas de texto exigem processamento especializado ou o mínimo de processamento. Analisadores de idioma não predefinidos incluem **Asciifolding**, **Palavra-chave**, **Padrão**, **Simples**, **Interromper**, **Espaço em branco**.<br/><br/>[Analisadores de idioma](index-add-language-analyzers.md) são usados quando você precisa de suporte linguístico avançado para idiomas individuais. O Azure Pesquisa Cognitiva dá suporte a analisadores de linguagem 35 Lucene e a 50 analisadores de processamento de idioma natural da Microsoft. |
+| Analisadores predefinidos | Oferecidos como um produto acabado destinado a ser usado no estado em que se encontra. <br/>Há dois tipos: especializado e de idioma. O que os torna "predefinidos" é que você os referencia por nome, sem nenhuma configuração ou personalização. <br/><br/>[Analisadores especializados (independentes de idioma)](index-add-custom-analyzers.md#AnalyzerTable) são usados quando as entradas de texto exigem processamento especializado ou o mínimo de processamento. Analisadores de idioma não predefinidos incluem **Asciifolding** , **Palavra-chave** , **Padrão** , **Simples** , **Interromper** , **Espaço em branco**.<br/><br/>[Analisadores de idioma](index-add-language-analyzers.md) são usados quando você precisa de suporte linguístico avançado para idiomas individuais. O Azure Pesquisa Cognitiva dá suporte a analisadores de linguagem 35 Lucene e a 50 analisadores de processamento de idioma natural da Microsoft. |
 |[Analisadores personalizados](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refere-se a uma configuração definida por usuário de uma combinação de elementos existentes, consistindo em um tokenizer (obrigatório) e filtros opcionais (char ou token).|
 
-Alguns analisadores predefinidos, como **Padrão** ou de **Parar**, dão suporte a um conjunto limitado de opções de configuração. Para definir essas opções, você efetivamente cria um analisador personalizado, consistindo de um analisador predefinido e uma das opções alternativas documentadas na [Referência do analisador predefinido](index-add-custom-analyzers.md#AnalyzerTable). Como ocorre com qualquer configuração personalizada, forneça sua nova configuração com um nome, como *myPatternAnalyzer* para distingui-lo do analisador de padrões Lucene.
+Alguns analisadores predefinidos, como **Padrão** ou de **Parar** , dão suporte a um conjunto limitado de opções de configuração. Para definir essas opções, você efetivamente cria um analisador personalizado, consistindo de um analisador predefinido e uma das opções alternativas documentadas na [Referência do analisador predefinido](index-add-custom-analyzers.md#AnalyzerTable). Como ocorre com qualquer configuração personalizada, forneça sua nova configuração com um nome, como *myPatternAnalyzer* para distingui-lo do analisador de padrões Lucene.
 
 ## <a name="how-to-specify-analyzers"></a>Como especificar os analisadores
 
@@ -317,7 +317,7 @@ Qualquer analisador usado como está, sem configuração, é especificado em uma
 
 Este exemplo atribui os analisadores em inglês e francês da Microsoft aos campos de descrição. É um trecho extraído de uma definição maior do índice de hotéis, criando usando a classe Hotel no arquivo hotels.cs do exemplo [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) .
 
-O Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer), especificando o tipo [analyzername](/dotnet/api/microsoft.azure.search.models.analyzername) , fornecendo um analisador de texto com suporte no Azure pesquisa cognitiva.
+Chame [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer), especificando o tipo [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) fornecendo um analisador de texto com suporte no Azure pesquisa cognitiva.
 
 ```csharp
     public partial class Hotel
@@ -343,7 +343,7 @@ O Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer), especific
 
 Quando a personalização ou configuração for necessária, será necessário adicionar uma construção do analisador a um índice. Depois de defini-lo, você pode adicioná-lo à definição de campo, conforme demonstrado no exemplo anterior.
 
-Crie um objeto [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer) . Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Crie um objeto [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) . Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

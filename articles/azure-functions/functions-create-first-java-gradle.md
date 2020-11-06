@@ -6,19 +6,19 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: a9592d848398c71bc573c073f0b712898f666640
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104862"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422800"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usar Java e gradle para criar e publicar uma função no Azure
 
 Este artigo mostra como criar e publicar um projeto de função Java para Azure Functions com a ferramenta de linha de comando gradle. Quando você terminar, o código de função será executado no Azure em um [plano de hospedagem sem servidor](functions-scale.md#consumption-plan) e será disparado por uma solicitação HTTP. 
 
 > [!NOTE]
-> Se o gradle não for sua ferramenta de desenvolvimento preferida, Confira nossos tutoriais semelhantes para desenvolvedores de Java usando [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
+> Se o gradle não for sua ferramenta de desenvolvimento preferida, Confira nossos tutoriais semelhantes para desenvolvedores de Java usando [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs Code](./create-first-function-vs-code-java.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -126,8 +126,8 @@ Isso cria os seguintes recursos no Azure, com base nos valores no arquivo Build.
 
 + Grupo de recursos. Nomeado com o _resourceGroup_ fornecido.
 + Conta de armazenamento. Necessária para o Functions. O nome é gerado aleatoriamente de acordo com os requisitos de nome da conta de armazenamento.
-+ Plano do Serviço de Aplicativo. Plano de consumo sem servidor que hospeda para seu aplicativo de funções no _appRegion_especificado. O nome é gerado aleatoriamente.
-+ Aplicativo de funções. Um aplicativo de funções é a unidade de implantação e execução para suas funções. O nome é o _appName_, acrescentado a um número gerado aleatoriamente. 
++ Plano do Serviço de Aplicativo. Plano de consumo sem servidor que hospeda para seu aplicativo de funções no _appRegion_ especificado. O nome é gerado aleatoriamente.
++ Aplicativo de funções. Um aplicativo de funções é a unidade de implantação e execução para suas funções. O nome é o _appName_ , acrescentado a um número gerado aleatoriamente. 
 
 A implantação também empacota os arquivos de projeto e implanta-os no novo aplicativo de funções usando [zip deployment](functions-deployment-technologies.md#zip-deploy), com o modo run-from-package habilitado.
 
@@ -142,7 +142,7 @@ Obtenha a URL necessária para disparar a função, com a chave de função, no 
 
 1. Navegue até o [portal do Azure], entre nele, digite o _appName_ do aplicativo de funções em **Pesquisar** na parte superior da página e pressione Enter.
  
-1. Em seu aplicativo de funções, selecione **funções**, escolha sua função e, em seguida, clique em **</> obter URL de função** no canto superior direito. 
+1. Em seu aplicativo de funções, selecione **funções** , escolha sua função e, em seguida, clique em **</> obter URL de função** no canto superior direito. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copiar a URL da função do Portal do Azure":::
 

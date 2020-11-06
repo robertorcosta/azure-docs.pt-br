@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935868"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422324"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicionar analisadores de idioma a campos de cadeia de caracteres em um índice de Pesquisa Cognitiva do Azure
 
@@ -68,7 +68,7 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 ## <a name="language-analyzer-list"></a>Lista de analisador de idioma 
  Veja abaixo uma lista de idiomas com suporte juntamente com nomes de analisador da Lucene e da Microsoft.  
 
-|Linguagem|Nome do analisador da Microsoft|Nome do analisador da Lucene|  
+|Idioma|Nome do analisador da Microsoft|Nome do analisador da Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar.lucene|  
 |Armênia||hy.Lucene|  
@@ -133,4 +133,4 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 
 + [Criar índice &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/create-index)  
 
-+ [Classe AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername)
++ [Classe LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

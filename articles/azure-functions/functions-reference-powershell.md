@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108466"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422528"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -20,7 +20,7 @@ Uma função do PowerShell do Azure (função) é representada como um script do
 
 Assim como outros tipos de funções, as funções de script do PowerShell assumem parâmetros que correspondem aos nomes de todas as associações de entrada definidas no `function.json` arquivo. `TriggerMetadata`Também é passado um parâmetro que contém informações adicionais sobre o gatilho que iniciou a função.
 
-Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar sua primeira função do PowerShell.
+Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve ter concluído o guia de [início rápido do Functions para o PowerShell](./create-first-function-vs-code-powershell.md) para criar sua primeira função do PowerShell.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
@@ -77,8 +77,8 @@ $TriggerMetadata.sys
 | Propriedade   | Descrição                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, em UTC, a função foi disparada        | Datetime |
-| MethodName | O nome da função que foi disparada     | cadeia de caracteres   |
-| RandGuid   | um GUID exclusivo para esta execução da função | cadeia de caracteres   |
+| MethodName | O nome da função que foi disparada     | string   |
+| RandGuid   | um GUID exclusivo para esta execução da função | string   |
 
 Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém o `InsertionTime` , `Id` , `DequeueCount` , entre outras coisas. Para obter mais informações sobre os metadados do gatilho de fila, acesse a [documentação oficial para gatilhos de fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação nos [gatilhos](functions-triggers-bindings.md) com os quais você está trabalhando para ver o que acontece nos metadados do gatilho.
 
@@ -227,7 +227,7 @@ MyQueue                        myData
 
 Há suporte para caracteres curinga (*) no `Get-OutputBinding` .
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 O registro em log nas funções do PowerShell funciona como log normal do PowerShell. Você pode usar os cmdlets de log para gravar em cada fluxo de saída. Cada cmdlet é mapeado para um nível de log usado pelas funções.
 
@@ -276,7 +276,7 @@ Há vários gatilhos e associações disponíveis para você usar com seu aplica
 Todos os gatilhos e associações são representados no código como alguns tipos de dados reais:
 
 * Hashtable
-* cadeia de caracteres
+* string
 * byte[]
 * INT
 * double
@@ -299,10 +299,10 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
-| **`Method`** | O método HTTP da solicitação.                                | cadeia de caracteres                    |
+| **`Method`** | O método HTTP da solicitação.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
 | **`Query`** | Um objeto que contém os parâmetros da consulta.                  | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
-| **`Url`** | A URL da solicitação.                                        | cadeia de caracteres                    |
+| **`Url`** | A URL da solicitação.                                        | string                    |
 
 <sup>*</sup> Todas as chaves não diferenciam `Dictionary<string,string>` maiúsculas de minúsculas.
 
@@ -313,7 +313,7 @@ O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseCont
 | Propriedade      | Descrição                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
-| **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | cadeia de caracteres                    |
+| **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos da resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de status HTTP da resposta.                       | cadeia de caracteres ou inteiro             |
 
@@ -418,7 +418,7 @@ Use as etapas a seguir para alterar a versão do PowerShell usada pelo seu aplic
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o aplicativo de funções.
 
-1. Em **configurações**, escolha **configuração**. Na guia **configurações gerais** , localize a **versão do PowerShell**. 
+1. Em **configurações** , escolha **configuração**. Na guia **configurações gerais** , localize a **versão do PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Escolha a versão do PowerShell usada pelo aplicativo de funções"::: 
 
@@ -525,7 +525,7 @@ Vários módulos são geralmente usados pelo operador de linguagem do PowerShell
 A lista atual de módulos é a seguinte:
 
 * [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usado para trabalhar com arquivos mortos, como `.zip` , `.nupkg` e outros.
-* **ThreadJob**: uma implementação baseada em thread das APIs de trabalho do PowerShell.
+* **ThreadJob** : uma implementação baseada em thread das APIs de trabalho do PowerShell.
 
 Por padrão, o Functions usa a versão mais recente desses módulos. Para usar uma versão de módulo específica, coloque essa versão específica na `Modules` pasta do seu aplicativo de funções.
 

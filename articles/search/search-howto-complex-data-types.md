@@ -9,16 +9,16 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ee1c0957761fc1c8b9ca80477defae8cef044827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d380a41f5b20c52fefca9e68bb4ed858b3bf3a1
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824465"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422044"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Como modelar tipos de dados complexos no Azure Pesquisa Cognitiva
 
-Os conjuntos de valores externos usados para popular um índice de Pesquisa Cognitiva do Azure podem vir em várias formas. Às vezes, eles incluem subestruturas hierárquicas ou aninhadas. Os exemplos podem incluir vários endereços para um único cliente, várias cores e tamanhos para uma única SKU, vários autores de um único livro e assim por diante. Em termos de modelagem, você pode ver essas estruturas referenciadas como tipos de dados *complexos*, *compostos*, *compostos*ou *agregados* . O termo que o Azure Pesquisa Cognitiva usa para esse conceito é **tipo complexo**. No Azure Pesquisa Cognitiva, os tipos complexos são modelados usando **campos complexos**. Um campo complexo é um campo que contém filhos (subcampos) que podem ser de qualquer tipo de dados, incluindo outros tipos complexos. Isso funciona de forma semelhante à de tipos de dados estruturados em uma linguagem de programação.
+Os conjuntos de valores externos usados para popular um índice de Pesquisa Cognitiva do Azure podem vir em várias formas. Às vezes, eles incluem subestruturas hierárquicas ou aninhadas. Os exemplos podem incluir vários endereços para um único cliente, várias cores e tamanhos para uma única SKU, vários autores de um único livro e assim por diante. Em termos de modelagem, você pode ver essas estruturas referenciadas como tipos de dados *complexos* , *compostos* , *compostos* ou *agregados* . O termo que o Azure Pesquisa Cognitiva usa para esse conceito é **tipo complexo**. No Azure Pesquisa Cognitiva, os tipos complexos são modelados usando **campos complexos**. Um campo complexo é um campo que contém filhos (subcampos) que podem ser de qualquer tipo de dados, incluindo outros tipos complexos. Isso funciona de forma semelhante à de tipos de dados estruturados em uma linguagem de programação.
 
 Campos complexos representam um único objeto no documento ou uma matriz de objetos, dependendo do tipo de dados. Campos do tipo `Edm.ComplexType` representam objetos únicos, enquanto campos do tipo `Collection(Edm.ComplexType)` representam matrizes de objetos.
 
@@ -73,7 +73,7 @@ Esse limite se aplica somente a coleções complexas e não a tipos complexos (c
 
 ## <a name="creating-complex-fields"></a>Criando campos complexos
 
-Assim como ocorre com qualquer definição de índice, você pode usar o portal, a [API REST](/rest/api/searchservice/create-index)ou o [SDK do .net](/dotnet/api/microsoft.azure.search.models.index) para criar um esquema que inclua tipos complexos. 
+Assim como ocorre com qualquer definição de índice, você pode usar o portal, a [API REST](/rest/api/searchservice/create-index)ou o [SDK do .net](/dotnet/api/azure.search.documents.indexes.models.searchindex) para criar um esquema que inclua tipos complexos. 
 
 O exemplo a seguir mostra um esquema de índice JSON com campos simples, coleções e tipos complexos. Observe que, em um tipo complexo, cada subcampo tem um tipo e pode ter atributos, assim como os campos de nível superior. O esquema corresponde aos dados de exemplo acima. `Address` é um campo complexo que não é uma coleção (um hotel tem um endereço). `Rooms` é um campo de coleção complexo (um hotel tem muitas salas).
 
