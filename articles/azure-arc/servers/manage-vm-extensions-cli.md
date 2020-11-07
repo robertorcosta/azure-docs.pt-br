@@ -1,15 +1,15 @@
 ---
 title: Habilitar extensão de VM usando CLI do Azure
 description: Este artigo descreve como implantar extensões de máquina virtual para servidores habilitados para Arc do Azure em execução em ambientes de nuvem híbrida usando o CLI do Azure.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 59c984f4adaec2261d1b08748aa5a91c8246418d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336718"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359108"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Habilitar extensões de VM do Azure usando o CLI do Azure
 
@@ -31,6 +31,12 @@ O exemplo a seguir habilita a extensão de script personalizado em um servidor h
 
 ```azurecli
 az connectedmachine machine-extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
+```
+
+O exemplo a seguir habilita a extensão de VM Key Vault (versão prévia) em um servidor habilitado para Arc:
+
+```azurecli
+az connectedmachine machine-extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
 ```
 
 ## <a name="list-extensions-installed"></a>Listar extensões instaladas
@@ -70,6 +76,6 @@ az connectedmachine machine-extension delete --machine-name "myMachineName" --na
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Você pode implantar, gerenciar e remover extensões de VM usando o [PowerShell](manage-vm-extensions-powershell.md), do [portal do Azure](manage-vm-extensions-portal.md)ou [Azure Resource Manager modelos](manage-vm-extensions-template.md).
+- Você pode implantar, gerenciar e remover extensões de VM usando o [Azure PowerShell](manage-vm-extensions-powershell.md), dos modelos [portal do Azure](manage-vm-extensions-portal.md)ou [Azure Resource Manager](manage-vm-extensions-template.md).
 
 - As informações de solução de problemas podem ser encontradas no [guia solucionar problemas de extensões de VM](troubleshoot-vm-extensions.md).

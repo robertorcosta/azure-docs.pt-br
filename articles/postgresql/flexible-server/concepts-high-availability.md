@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932836"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359537"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceitos de alta disponibilidade no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -43,7 +43,7 @@ A integridade da configuração de alta disponibilidade é monitorada e relatada
 
 Os aplicativos cliente PostgreSQL estão conectados ao servidor primário usando o nome do servidor de BD. As leituras de aplicativo são servidas diretamente do servidor primário, enquanto as confirmações e as gravações são confirmadas para o aplicativo somente depois que os dados são persistidos no servidor primário e na réplica em espera. Devido a esse requisito adicional de ida e volta, os aplicativos podem esperar uma latência elevada para gravações e confirmações. Você pode monitorar a integridade da alta disponibilidade no Portal.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="alta disponibilidade com redundância de zona"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="alta disponibilidade redundante de zona-estado estável"::: 
 
 1. Os clientes se conectam ao servidor flexível e executam operações de gravação.
 2. As alterações são replicadas para o site em espera.
@@ -64,7 +64,7 @@ Para outras operações iniciadas pelo usuário, como escala de computação ou 
 
 Interrupções não planejadas incluem bugs de software ou falhas de componentes de infraestrutura que afetam a disponibilidade do banco de dados. No caso da indisponibilidade do servidor ser detectada pelo sistema de monitoramento, a replicação para a réplica em espera é severa e a réplica em espera é ativada para ser o servidor de banco de dados primário. Os clientes podem se reconectar ao servidor de banco de dados usando a mesma cadeia de conexão e retomar suas operações. Espera-se que o tempo de failover geral tenha 60 120s. No entanto, dependendo da atividade no servidor de banco de dados primário no momento do failover, como transações grandes e tempo de recuperação, o failover pode levar mais tempo.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="alta disponibilidade com redundância de zona"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="alta disponibilidade redundante de zona-failover"::: 
 
 1. O servidor de banco de dados primário está inoperante e os clientes perdem a conectividade do banco de dados. 
 2. O servidor em espera é ativado para se tornar o novo servidor primário. O cliente se conecta ao novo servidor primário usando a mesma cadeia de conexão. Ter o aplicativo cliente na mesma zona que o servidor de banco de dados primário reduz a latência e melhora o desempenho.
@@ -112,6 +112,8 @@ Os servidores flexíveis configurados com alta disponibilidade, replicam dados e
 -   Configurar tarefas de gerenciamento iniciadas pelo cliente não pode ser agendado durante a janela de manutenção gerenciada.
 
 -   Eventos planejados, como dimensionamento de computação e de armazenamento, ocorrem em espera primeiro e, em seguida, no servidor primário. O serviço não passou por failover. 
+
+-  Se a decodificação lógica ou a replicação lógica estiver configurada com um servidor flexível configurado com alta disponibilidade, no caso de um failover para o servidor em espera, os slots de replicação lógica não serão copiados para o servidor em espera.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

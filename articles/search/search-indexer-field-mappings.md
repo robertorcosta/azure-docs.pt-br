@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532493"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358925"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos de campo e transformações usando indexadores do Azure Pesquisa Cognitiva
 
@@ -28,7 +28,7 @@ Algumas situações em que os mapeamentos de campo são úteis:
 * Sua fonte de dados tem um campo chamado `_id` , mas o Azure pesquisa cognitiva não permite nomes de campo que começam com um sublinhado. Um mapeamento de campo permite que você renomeie efetivamente um campo.
 * Você deseja preencher vários campos no índice a partir dos mesmos dados de fonte de dados. Por exemplo, talvez você queira aplicar analisadores diferentes a esses campos.
 * Você deseja preencher um campo de índice com dados de mais de uma fonte de dados e as fontes de dados usam nomes de campos diferentes.
-* Você precisa codificar ou decodificar Base64 seus dados. Mapeamentos de campo dão suporte a diversas **funções de mapeamento**, incluindo funções para codificação e decodificação Base64.
+* Você precisa codificar ou decodificar Base64 seus dados. Mapeamentos de campo dão suporte a diversas **funções de mapeamento** , incluindo funções para codificação e decodificação Base64.
 
 > [!NOTE]
 > Os mapeamentos de campo nos indexadores são uma maneira simples de mapear campos de dados para campos de índice, com alguma capacidade de conversão de dados leves. Dados mais complexos podem exigir pré-processamento para reformatá-lo em um formulário que conduza à indexação. Uma opção que você pode considerar é [Azure data Factory](../data-factory/index.yml).
@@ -81,7 +81,7 @@ Um campo de origem pode ser referenciado em vários mapeamentos de campo. O exem
 
 ## <a name="map-fields-using-the-net-sdk"></a>Mapear campos usando o SDK do .NET
 
-Você define mapeamentos de campo no SDK do .NET usando a classe [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , que tem as propriedades `SourceFieldName` e e `TargetFieldName` uma `MappingFunction` referência opcional.
+Você define mapeamentos de campo no SDK do .NET usando a classe [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) , que tem as propriedades `SourceFieldName` e e `TargetFieldName` uma `MappingFunction` referência opcional.
 
 Você pode especificar mapeamentos de campo ao construir o indexador, ou mais tarde, definindo diretamente a `Indexer.FieldMappings` propriedade.
 

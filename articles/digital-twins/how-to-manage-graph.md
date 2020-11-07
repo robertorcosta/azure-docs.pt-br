@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Veja como gerenciar um grafo de gêmeos digital conectando-os com relações.
 author: baanders
 ms.author: baanders
-ms.date: 10/21/2020
+ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 82c5c7b2d221cdf10c69e0a8921eef6e6d85e554
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356324"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359571"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -443,72 +443,137 @@ Aqui está a saída do console do programa acima:
 > [!TIP]
 > O gráfico de entrelaçamento é um conceito de criação de relações entre gêmeos. Se você quiser exibir a representação visual do grafo de entrelaçamento, consulte a seção [_Visualization *](how-to-manage-graph.md#visualization) deste artigo. 
 
-### <a name="create-a-twin-graph-from-a-spreadsheet"></a>Criar um gráfico de entrelaçamento de uma planilha
+### <a name="create-a-twin-graph-from-a-csv-file"></a>Criar um gráfico de entrelaçamento de um arquivo CSV
 
-Em casos de uso prático, muitas vezes, as hierarquias de entrelaçamento serão criadas a partir dos dados armazenados em um banco de dado diferente ou talvez em uma planilha. Esta seção ilustra como uma planilha pode ser analisada.
+Em casos de uso prático, muitas vezes, as hierarquias de entrelaçamento serão criadas a partir dos dados armazenados em um banco de dado diferente, ou talvez em uma planilha ou em um arquivo CSV. Esta seção ilustra como ler dados de um arquivo CSV e criar um gráfico de cima para fora dele.
 
-Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e relações digitais a serem criadas.
+Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e relações digitais.
 
-| ID do Modelo| ID de entrelaça (deve ser exclusivo) | Nome da Relação | ID do entrelaçado de destino | Dados de inicialização de entrelaçamento |
+|  ID do Modelo    | ID de entrelaça (deve ser exclusivo) | Nome da Relação  | ID do entrelaçado de destino  | Dados de inicialização de entrelaçamento |
 | --- | --- | --- | --- | --- |
-| dtmi: exemplo: Floor; 1 | Floor1 |  contém | Room1 |{"Temperatura": 80, "umidade": 60}
-| dtmi: exemplo: Floor; 1 | Floor0 |  tem      | Room0 |{"Temperatura": 70, "umidade": 30}
-| dtmi: exemplo: sala; 1  | Room1 | 
-| dtmi: exemplo: sala; 1  | Room0 |
+| dtmi: exemplo: Floor; 1    | Floor1 | contém | Room1 | |
+| dtmi: exemplo: Floor; 1    | Floor0 | contém | Room0 | |
+| dtmi: exemplo: sala; 1    | Room1 | | | {"Temperatura": 80} |
+| dtmi: exemplo: sala; 1    | Room0 | | | {"Temperatura": 70} |
 
-O código a seguir usa a [API Microsoft Graph](/graph/overview) para ler uma planilha e construir um grafo do Azure digital gêmeos bispersão dos resultados.
+Uma maneira de obter esses dados no Azure digital gêmeos é converter a tabela em um arquivo CSV e gravar o código para interpretar o arquivo em comandos para criar gêmeos e relações. O exemplo de código a seguir ilustra a leitura dos dados do arquivo CSV e a criação de um grafo de entrelaçamento no Azure digital gêmeos.
+
+No código abaixo, o arquivo CSV é chamado de *data.csv* , e há um espaço reservado que representa o **nome do host** da instância de gêmeos digital do Azure. O exemplo também usa vários pacotes que você pode adicionar ao seu projeto para ajudar com esse processo.
 
 ```csharp
-var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;
-JsonDocument data = JsonDocument.Parse(range.values);
-List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
-foreach (JsonElement row in data.RootElement.EnumerateArray())
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Azure;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+
+namespace creating_twin_graph_from_csv
 {
-    string modelId = row[0].GetString();
-    string sourceId = row[1].GetString();
-    string relName = row[2].GetString();
-    string targetId = row[3].GetString();
-    string initData = row[4].GetString();
-    
-    // Parse spreadsheet extra data into a JSON string to initialize the digital twin
-    // Left out for compactness
-    Dictionary<string, object> initData = new Dictionary<string, object>() { ... };
-
-    if (sourceId != null)
+    class Program
     {
-        BasicRelationship br = new BasicRelationship()
+        static async Task Main(string[] args)
         {
-            SourceId = sourceId,
-            TargetId = targetId,
-            Name = relName
-        };
-        RelationshipRecordList.Add(br);
-    }
+            List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
+            List<BasicDigitalTwin> TwinList = new List<BasicDigitalTwin>();
+            List<List<string>> data = ReadData();
+            DigitalTwinsClient client = createDTClient();
 
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Contents = initData;
-    // Set the type of twin to be created
-    twin.Metadata = new DigitalTwinMetadata() { ModelId = modelId };
-    
-    try
-    {
-        await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(sourceId, twin);
-    }
-    catch (RequestFailedException e)
-    {
-       Console.WriteLine($"Error {e.Status}: {e.Message}");
-    }
-    foreach (BasicRelationship rec in RelationshipRecordList)
-    { 
-        try { 
-            await client.CreateOrReplaceRelationshipAsync(rec.sourceId, Guid.NewGuid().ToString(), rec);
+            // Interpret the CSV file data, by each row
+            foreach (List<string> row in data)
+            {
+                string modelID = row.Count > 0 ? row[0].Trim() : null;
+                string srcID = row.Count > 1 ? row[1].Trim() : null;
+                string relName = row.Count > 2 ? row[2].Trim() : null;
+                string targetID = row.Count > 3 ? row[3].Trim() : null;
+                string initProperties = row.Count > 4 ? row[4].Trim() : null;
+                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initProperties}");
+                Dictionary<string, object> props = new Dictionary<string, object>();
+                // Parse properties into dictionary (left out for compactness)
+                // ...
+
+                // Null check for source and target ID's
+                if (srcID != null && srcID.Length > 0 && targetID != null && targetID.Length > 0)
+                {
+                    BasicRelationship br = new BasicRelationship()
+                    {
+                        SourceId = srcID,
+                        TargetId = targetID,
+                        Name = relName
+                    };
+                    RelationshipRecordList.Add(br);
+                }
+                BasicDigitalTwin srcTwin = new BasicDigitalTwin();
+                srcTwin.Id = srcID;
+                srcTwin.Metadata = new DigitalTwinMetadata();
+                srcTwin.Metadata.ModelId = modelID;
+                srcTwin.Contents = props;
+                TwinList.Add(srcTwin);
+            }
+
+            // Create digital twins 
+            foreach (BasicDigitalTwin twin in TwinList)
+            {
+                try
+                {
+                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin.Id, twin);
+                    Console.WriteLine("Twin is created");
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
+            // Create relationships between the twins
+            foreach (BasicRelationship rec in RelationshipRecordList)
+            {
+                try
+                {
+                    string relId = $"{rec.SourceId}-{rec.Name}->{rec.TargetId}";
+                    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(rec.SourceId, relId, rec);
+                    Console.WriteLine("Relationship is created");
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
         }
-        catch (RequestFailedException e)
+
+        // Method to ingest data from the CSV file
+        public static List<List<string>> ReadData()
         {
-            Console.WriteLine($"Error {e.Status}: {e.Message}");
+            string path = "<path-to>/data.csv";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            List<List<string>> data = new List<List<string>>();
+            int count = 0;
+            foreach (string line in lines)
+            {
+                if (count++ == 0)
+                    continue;
+                List<string> cols = new List<string>();
+                data.Add(cols);
+                string[] columns = line.Split(',');
+                foreach (string column in columns)
+                {
+                    cols.Add(column);
+                }
+            }
+            return data;
+        }
+        // Method to create the digital twins client
+        private static DigitalTwinsClient createDTClient()
+        {
+
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            return client;
         }
     }
 }
+
 ```
 ## <a name="manage-relationships-with-cli"></a>Gerenciar relações com a CLI
 

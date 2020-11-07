@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06a31e61583ac28218b34195dd6e5b7f92776dce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b10cf314bc9394f3297839d45d3497f9f5d3b0e0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541230"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358823"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorar o status e os resultados do indexador Pesquisa Cognitiva do Azure
 
@@ -51,7 +51,7 @@ Você pode ver o status atual de todos os seus indexadores na lista de **indexad
 
    ![Lista de indexadores](media/search-monitor-indexers/indexers-list.png "Lista de indexadores")
 
-Quando um indexador está em execução, o status na lista mostra **em andamento**e o valor **documentos com êxito** mostra o número de documentos processados até o momento. Pode levar alguns minutos para que o portal atualize os valores de status e contagens de documentos do indexador.
+Quando um indexador está em execução, o status na lista mostra **em andamento** e o valor **documentos com êxito** mostra o número de documentos processados até o momento. Pode levar alguns minutos para que o portal atualize os valores de status e contagens de documentos do indexador.
 
 Um indexador cuja execução mais recente foi bem-sucedida mostra **êxito**. Uma execução de indexador pode ser bem-sucedida mesmo que documentos individuais tenham erros, se o número de erros for menor que a configuração de **itens de falha máximo** do indexador.
 
@@ -122,7 +122,7 @@ O histórico de execução contém até as 50 execuções mais recentes, que sã
 
 Observe que há dois valores de status diferentes. O status de nível superior é para o indexador em si. Um status de indexador de **em execução** significa que o indexador está configurado corretamente e disponível para execução, mas não está em execução no momento.
 
-Cada execução do indexador também tem seu próprio status que indica se a execução específica está em andamento (**em execução**) ou já concluída com o status **êxito**, **transientFailure**ou **persistentFailure** . 
+Cada execução do indexador também tem seu próprio status que indica se a execução específica está em andamento ( **em execução** ) ou já concluída com o status **êxito** , **transientFailure** ou **persistentFailure** . 
 
 Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico de execução separada é adicionada com um status de **redefinição** .
 
@@ -181,7 +181,7 @@ Latest run
 
 Observe que há dois valores de status diferentes. O status de nível superior é o status do próprio indexador. Um status de indexador de **em execução** significa que o indexador está configurado corretamente e disponível para execução, mas não está em execução no momento.
 
-Cada execução do indexador também tem seu próprio status para se a execução específica está em andamento (**em execução**) ou já foi concluída com um status de **êxito** ou **TransientError** . 
+Cada execução do indexador também tem seu próprio status para se a execução específica está em andamento ( **em execução** ) ou já foi concluída com um status de **êxito** ou **TransientError** . 
 
 Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico separada é adicionada com um status de **redefinição** .
 

@@ -203,6 +203,8 @@
       href: concepts-roles-permissions.md
     - name: Regras de nomenclatura
       href: naming-rules.md
+    - name: Redundância de dados
+      href: concepts-data-redundancy.md
 - name: Guias de instruções
   items:
     - name: Autor
