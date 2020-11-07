@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: MT
+ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319160"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357208"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: configurar o 15Five para o provisionamento automático de usuário
 
@@ -58,15 +58,15 @@ Antes de configurar o 15Five para o provisionamento automático de usuário com 
 
 2.  Clique em **SCIM 2,0**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Captura de tela do console de administração do 15Five. As integrações aparecem em recursos em um menu, e os recursos e as integrações são realçados." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Captura de tela da página integrações no console de administração do 15Five. Em ferramenta, S C I M 2,0 é realçado." border="false":::
 
 3.  Navegue até **scim integration > gerar token OAuth**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Captura de tela do console de administração do 15Five. As integrações aparecem em recursos em um menu, e os recursos e as integrações são realçados." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Captura de tela da página de integração S C I M no console do administrador do 15Five. A geração do token OAuth está realçada." border="false":::
 
 4.  Copie os valores para a **URL base do SCIM 2,0** e o **token de acesso**. Esse valor será inserido no campo **URL do locatário** e **token secreto** na guia provisionamento do aplicativo 15Five no portal do Azure.
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Captura de tela do console de administração do 15Five. As integrações aparecem em recursos em um menu, e os recursos e as integrações são realçados." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Captura de tela da página de integração S C I M. Na tabela de token, os valores ao lado de S C I M 2,0 base U R L e token de acesso são realçados." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o 15Five da Galeria de aplicativos do Azure AD
 
@@ -106,7 +106,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 

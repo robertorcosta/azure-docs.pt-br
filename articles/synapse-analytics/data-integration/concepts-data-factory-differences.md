@@ -5,15 +5,15 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 11/06/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: be098977ba51e529aaecfb5dc3b7a03444f55a7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f5336dd4c8a02acf623b1b14226ca676006953
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340800"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357642"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integração de dados no Azure Synapse Analytics versus Azure Data Factory
 
@@ -27,27 +27,26 @@ Para ver se um recurso ou artigo Azure Data Factory se aplica ao Azure Synapse, 
 
 Os recursos a seguir estão disponíveis no Azure Data Factory, mas não estão planejados para o Azure Synapse.
 
-* A capacidade de comparar e deslocar pacotes SSIS.
-* Floco de neve como um coletor na atividade de cópia e no fluxo de dados de mapeamento.
-* A configuração de vida útil do fluxo de dados de mapeamento do tempo de execução de integração do Azure.
+* **Pacotes SSIS de turno e vida:** No Azure Data Factory, você tem a capacidade de migrar e deslocar pacotes SSIS usando o Integration Runtime do SSIS. O tempo de execução de integração do SSIS e a atividade executar pacote SSIS não estão disponíveis em espaços de trabalho do Synapse. 
+* **Vida útil:** A vida útil é uma configuração no tempo de execução de integração do Azure que permite que o cluster do Spark no mapeamento de fluxos de dados fique *quente* por um período de tempo após a conclusão de um fluxo de dados. Esse recurso não está disponível em espaços de trabalho do Synapse.
 
 ## <a name="azure-synapse-features-not-supported-in-azure-data-factory"></a>Recursos do Azure Synapse sem suporte no Azure Data Factory
 
 Os recursos a seguir estão disponíveis no Azure Synapse, mas não são planejados para Azure Data Factory.
 
-* O monitoramento de trabalho do Spark dos fluxos de dados de mapeamento só está disponível no Synapse. No Synapse, o mecanismo do Spark está contido na assinatura do usuário para que os usuários possam exibir logs do Spark detalhados. Na Azure Data Factory, a execução do trabalho ocorre em um cluster Spark gerenciado por Azure Data Factory. 
+* **Monitoramento de trabalho do Spark dos fluxos de dados de mapeamento:** No Synapse, o mecanismo do Spark está contido na assinatura do usuário para que os usuários possam exibir logs do Spark detalhados. Na Azure Data Factory, a execução do trabalho ocorre em um cluster Spark gerenciado por Azure Data Factory e essas informações não estão disponíveis. 
 
 ## <a name="azure-data-factory-features-that-behave-differently-in-synapse"></a>Azure Data Factory recursos que se comportam de maneira diferente no Synapse
 
 Os recursos a seguir se comportam de maneira diferente ou não existem atualmente no Azure Synapse. 
 
-* Fluxos de dados Wrangling
-* A Galeria de modelos de solução
-* Integração do git e uma solução de CI/CD nativa
-* Integração com o Azure monitor
-* Renomeação de recursos após a publicação
-* Configuração de tempo de execução de integração híbrida em um espaço de trabalho Synapse. Um usuário não pode ter um IR de VNet gerenciada e um Azure IR.
-* Compartilhamento do Integration Runtime entre espaços de trabalho do Synapse
+* **Fluxos de dados Wrangling:** A atividade de fluxo de dados Wrangling só está disponível no Azure Data Factory no momento.
+* **A Galeria de modelos de solução:** No Azure Data Factory, os usuários podem encontrar modelos de pipeline na Galeria de modelos de solução. Nos espaços de trabalho do Synapse, o centro de conhecimento contém um conjunto diferente de modelos, juntamente com conjuntos de dados adicionais e scripts SQL. 
+* **Integração do git e uma solução de CI/CD nativa:** Atualmente, um espaço de trabalho do Synapse não pode se conectar a um repositório git nem seguir o mesmo processo de integração e entrega contínua que Azure Data Factory.
+* **Integração com o Azure monitor:** Os espaços de trabalho do Synapse não são integrados ao Azure Monitor como Azure Data Factory.
+* **Configuração de tempo de execução de integração híbrida:** Em um espaço de trabalho do Synapse, um usuário não pode ter um IR de VNet gerenciado e um Azure IR. Esse recurso tem suporte no Azure Data Factory.
+* **Compartilhamento do Integration Runtime:** Os tempos de execução de integração auto-hospedados não podem ser compartilhados entre espaços de trabalho do Synapse. Esse recurso tem suporte no Azure Data Factory.
+* **Tempos de execução de integração entre regiões para fluxos de dados:** Os fluxos de dados não podem ser executados em tempos de execução de integração em regiões diferentes de um espaço de trabalho Synapse. Esse recurso tem suporte no Azure Data Factory.
 
 ## <a name="next-steps"></a>Próximas etapas
 

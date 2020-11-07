@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850861"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357021"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: configurar o figma para o provisionamento automático de usuário
 
@@ -36,7 +36,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 * Uma conta de usuário no figma com permissões de administrador.
 
 ## <a name="assign-users-to-figma"></a>Atribuir usuários ao figma.
-O Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
 Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao figma. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao figma seguindo as instruções aqui:
  
@@ -57,29 +57,29 @@ Antes de configurar o figma para o provisionamento automático de usuário com o
 
 2. Navegue até **geral > atualizar log em configurações**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Captura de tela da guia Geral do console de administração do figma. Em logon e provisionamento, as configurações atualizar log em são realçadas." border="false":::
 
 3. Copie a **ID do locatário**. Esse valor será usado para construir a URL do ponto de extremidade SCIM a ser inserida no campo **URL do locatário** na guia provisionamento do aplicativo Figma no portal do Azure.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Captura de tela da seção S A M L s O no console de administração do figma. Um rótulo de ID de locatário e um link adjacente que diz cópia são realçados." border="false":::
 
 4. Role para baixo e clique em **gerar token de API**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Captura de tela da seção de provisionamento S C I M no console de administração do figma. Um link rotulado como gerar um token P I é realçado." border="false":::
 
 5. Copie o valor do  **token de API** . Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo Figma no portal do Azure. 
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Captura de tela do console de administração do figma. Um locatário chamado de um teste de SCIM D é visível. Ao lado do locatário, um ícone de engrenagem é realçado." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Captura de tela de uma página no console de administração do figma. Em seu provisionamento de um token P I, um espaço reservado para o token é realçado." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Adicionar o figma da Galeria
 
 Para configurar o figma para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o figma da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -87,7 +87,7 @@ Para configurar o figma para o provisionamento automático de usuário com o Azu
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **figma**, selecione **figma** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **figma** , selecione **figma** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Figma na lista de resultados](common/search-new-app.png)
 
@@ -120,11 +120,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+8. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Salvar**.
+9. Clique em **Save** (Salvar).
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para figma**.
 

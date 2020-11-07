@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5858e785b2105d8357ebd478699e2d17768fc25f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519717"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357667"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler para o provisionamento automático de usuário
 
@@ -55,7 +55,7 @@ Antes de configurar o Zscaler para o provisionamento automático de usuário com
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Zscaler**, selecione **Zscaler** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Zscaler** , selecione **Zscaler** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Zscaler na lista de resultados](common/search-new-app.png)
 
@@ -82,7 +82,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Zscaler no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Zscaler**.
+1. Entre no [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais** , selecione **todos os aplicativos** e, em seguida, selecione **Zscaler**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -100,7 +100,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 5. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** da sua conta do Zscaler, conforme descrito na etapa 6.
 
-6. Para obter a **URL do locatário** e o **token secreto**, navegue até **Administração > configurações de autenticação** na interface do usuário do portal do Zscaler e clique em **SAML** em **tipo de autenticação**.
+6. Para obter a **URL do locatário** e o **token secreto** , navegue até **Administração > configurações de autenticação** na interface do usuário do portal do Zscaler e clique em **SAML** em **tipo de autenticação**.
 
     ![Captura de tela da página de configurações de autenticação.](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
@@ -108,13 +108,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Captura de tela da caixa de diálogo Configurar S A M L com as caixas de texto base U R L e token de portador chamada out.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **habilitar provisionamento de SCIM-Based** para recuperar a **URL base** e o **token de portador**e, em seguida, salve as configurações. Copie a **URL base** para a **URL do locatário**e o token de **portador**  para o **token secreto** no portal do Azure.
+    Selecione **habilitar provisionamento de SCIM-Based** para recuperar a **URL base** e o **token de portador** e, em seguida, salve as configurações. Copie a **URL base** para a **URL do locatário** e o token de **portador**  para o **token secreto** no portal do Azure.
 
 7. Ao preencher os campos mostrados na etapa 5, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Zscaler. Se a conexão falhar, verifique se sua conta do Zscaler tem permissões de administrador e tente novamente.
 
     ![Captura de tela da seção de credenciais de administrador com a opção de conexão de teste chamada out.](./media/zscaler-provisioning-tutorial/test-connection.png)
 
-8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+8. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Captura de tela da caixa de texto email de notificação.](./media/zscaler-provisioning-tutorial/notification.png)
 

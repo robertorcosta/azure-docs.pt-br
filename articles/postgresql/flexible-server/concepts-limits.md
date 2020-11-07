@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933734"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357174"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -73,10 +73,12 @@ Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. A
 - As regras de firewall não têm suporte na VNET, os grupos de segurança de rede podem ser usados em vez disso.
 - Os servidores de banco de dados de acesso público podem se conectar à Internet pública, por exemplo `postgres_fdw` , e esse acesso não pode ser restringido. Os servidores baseados em VNET podem ter acesso restrito à saída usando grupos de segurança de rede.
 
-### <a name="high-availability"></a>Alta disponibilidade
+### <a name="high-availability-ha"></a>Alta disponibilidade (HA)
 
 - No momento, não há suporte para a HA Zone-Redundant para servidores com intermitência.
 - O endereço IP do servidor de banco de dados é alterado quando o servidor executa o failover para o modo de espera de alta disponibilidade. Certifique-se de usar o registro DNS em vez do endereço IP do servidor.
+- Se a replicação lógica estiver configurada com um servidor flexível configurado com alta disponibilidade, no caso de um failover para o servidor em espera, os slots de replicação lógica não serão copiados para o servidor em espera. 
+- Para obter mais limitações de HA, consulte a página de [documentação conceitos-ha](concepts-high-availability.md) .
 
 ### <a name="availability-zones"></a>Zonas de disponibilidade
 

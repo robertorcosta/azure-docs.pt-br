@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427374"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357905"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas ao entrar em aplicativos configurados para logon único baseado em SAML
 Para solucionar os problemas de entrada abaixo, recomendamos o seguinte para diagnosticar melhor e automatizar as etapas de resolução:
@@ -121,7 +121,7 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 1. Na tela de configuração do SSO baseado em SAML, selecione **criar novo certificado** na seção **certificado de autenticação SAML** .
 1. Selecione data de validade e clique em **salvar**.
 1. Marque **Tornar o novo certificado ativo** para substituir o certificado ative. Em seguida, clique em **Salvar** na parte superior do painel e aceite para ativar o certificado de substituição.
-1. Na seção **Certificado de Autenticação SAML**, clique em **remover** para remover o certificado **Não Usado**.
+1. Na seção **Certificado de Autenticação SAML** , clique em **remover** para remover o certificado **Não Usado**.
 
 ## <a name="saml-request-not-present-in-the-request"></a>A solicitação SAML não está presente na solicitação
 `Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.`
@@ -146,6 +146,23 @@ Quando o aplicativo foi adicionado como um aplicativo inexistente na galeria, o 
 Exclua as URLs de resposta não utilizadas configuradas para o aplicativo.
 
 Na página configuração do SSO baseado em SAML, na seção **URL de resposta (URL do serviço do consumidor de asserção)** , exclua as URLs de resposta não usadas ou padrão criadas pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
+
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>Método de autenticação pelo qual o usuário autenticado com o serviço não corresponde ao método de autenticação solicitado
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Causa possível**
+
+O `RequestedAuthnContext` está na solicitação SAML. Isso significa que o aplicativo está esperando o `AuthnContext` especificado pelo `AuthnContextClassRef` . No entanto, o usuário já foi autenticado antes de acessar o aplicativo e o `AuthnContext` (método de autenticação) usado para a autenticação anterior é diferente daquele que está sendo solicitado. Por exemplo, ocorreu um acesso de usuário federado a myapps e WIA. O `AuthnContextClassRef` será `urn:federation:authentication:windows` . O AAD não executará uma nova solicitação de autenticação, ele usará o contexto de autenticação que foi passado por ele pelo IdP (ADFS ou qualquer outro serviço de Federação, neste caso). Portanto, haverá uma incompatibilidade se o aplicativo solicitar outros `urn:federation:authentication:windows` . Outro cenário é quando multifator foi usado: `'X509, MultiFactor` .
+
+**Resolução**
+
+
+`RequestedAuthnContext` é um valor opcional. Em seguida, se possível, pergunte ao aplicativo se ele pode ser removido.
+
+Outra opção é verificar se o `RequestedAuthnContext` será respeitado. Isso será feito solicitando uma nova autenticação. Ao fazer isso, quando a solicitação SAML é processada, uma nova autenticação será feita e o `AuthnContext` será cumprido. Para solicitar uma nova autenticação, a solicitação SAML mais contém o valor `forceAuthn="true"` . 
+
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as declarações SAML enviadas para um aplicativo
 Para saber como personalizar as declarações de atributo SAML enviadas ao seu aplicativo, consulte [mapeamento de declarações em Azure Active Directory](../develop/active-directory-claims-mapping.md).

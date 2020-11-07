@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 11f89a0a42a42fd84d1dc0c8606128f5af9e751e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6f4b932bb8f16af3c0368ab219bd8a12bf2face
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711172"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357973"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Referência de dados de monitoramento de arquivos do Azure
 
@@ -26,7 +26,7 @@ As tabelas a seguir listam as métricas de plataforma coletadas para os arquivos
 
 ### <a name="capacity-metrics"></a>Métricas de capacidade
 
-Os valores de métricas de capacidade são enviados para o Azure Monitor a cada hora. Os valores são atualizados diariamente. O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
+Os valores de métricas de capacidade são atualizados diariamente (até 24 horas). O intervalo de agregação define o intervalo de tempo para o qual os valores das métricas são apresentados. O intervalo de agregação compatível com todas as métricas de capacidade é uma hora (PT1H).
 
 Os arquivos do Azure fornecem as seguintes métricas de capacidade no Azure Monitor.
 
@@ -85,7 +85,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - Consulte [monitorando arquivos do Azure](storage-files-monitoring-reference.md) para obter uma descrição do monitoramento do armazenamento do Azure.
 - Confira [Como monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

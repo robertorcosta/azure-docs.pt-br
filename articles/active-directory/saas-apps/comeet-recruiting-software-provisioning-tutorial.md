@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 37a446d721b7353c647d7d7e26de79e7038d1a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299878"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357055"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: configurar o software de recrutamento de coencontro para provisionamento automático de usuário
 
@@ -41,11 +41,11 @@ Antes de configurar o software de recrutamento de coencontro para o provisioname
 
 **Para adicionar o software de recrutamento de coencontro da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Antes de configurar o software de recrutamento de coencontro para o provisioname
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **software de recrutamento coencontro**, selecione o **software de recrutamento coencontro** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **software de recrutamento coencontro** , selecione o **software de recrutamento coencontro** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Comeet Recruiting Software na lista de resultados](common/search-new-app.png)
 
@@ -98,7 +98,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 5. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** de sua conta do software de recrutamento de seu encontro, conforme descrito na etapa 6.
 
-6. No [console de administração de software de recrutamento coencontro](https://app.comeet.co/), navegue até  **Coencontro > configurações > autenticação > Microsoft Azure**e copie o **token secreto para o valor da empresa** para o campo **token secreto** no Azure AD.
+6. No [console de administração de software de recrutamento coencontro](https://app.comeet.co/), navegue até  **Coencontro > configurações > autenticação > Microsoft Azure** e copie o **token secreto para o valor da empresa** para o campo **token secreto** no Azure AD.
 
     ![Conencontro provisionamento de software de recrutamento](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
@@ -106,11 +106,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Token](common/provisioning-testconnection-token.png)
 
-8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+8. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Salvar**.
+9. Clique em **Save** (Salvar).
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários a serem coencontros**.
 

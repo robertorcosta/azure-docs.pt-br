@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0ca0c4eacce88bfb53582f7969ed7acbfd75bb8a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165588"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358704"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -70,7 +70,7 @@ Crie uma solicitação POST. Você pode [usar o postmaster](text-analytics-how-t
 
 #### <a name="version-31-preview2"></a>[Versão 3,1-Preview. 2](#tab/version-3-preview)
 
-O reconhecimento de entidade nomeada `v3.1-preview.2` usa pontos de extremidade separados para solicitações de vinculação de Ner e entidade. Use um formato de URL abaixo com base em sua solicitação:
+O reconhecimento de entidade nomeada `v3.1-preview.2` usa pontos de extremidade separados para Ner, PII e solicitações de vinculação de entidade. Use um formato de URL abaixo com base em sua solicitação:
 
 Vinculação de entidade
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -82,6 +82,7 @@ NER
 
 [Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+PII (Informações de Identificação Pessoal)
 * Informações pessoais ( `PII` )- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 Você também pode usar o `domain=phi` parâmetro opcional para detectar `PHI` informações de integridade () em texto. 

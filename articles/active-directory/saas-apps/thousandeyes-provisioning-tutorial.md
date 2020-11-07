@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: ff55528013ac89be48454c25e1fc86deac2bca6f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355815"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357225"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar ThousandEyes para provisionamento automático de usuário
 
@@ -65,7 +65,7 @@ Esta seção explica como conectar seu Azure AD à API de provisionamento de con
 
     ![Captura de tela mostra a guia provisionamento para ThousandEyes com automático selecionado para o modo de provisionamento.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Na seção **Credenciais de Administrador**, insira o **Token de Portador do OAuth** gerado pela conta do ThousandEyes (é possível localizar e/ou gerar o token na sua conta do ThousandEyes: seção **Perfil**).
+5. Na seção **Credenciais de Administrador** , insira o **Token de Portador do OAuth** gerado pela conta do ThousandEyes (é possível localizar e/ou gerar o token na sua conta do ThousandEyes: seção **Perfil** ).
 
     ![Captura de tela mostra onde encontrar o link de configurações de conta para o grupo de contas atual.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
@@ -77,7 +77,7 @@ Esta seção explica como conectar seu Azure AD à API de provisionamento de con
 
 9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o ThousandEyes**.
 
-10. Na seção **Mapeamentos de Atributo**, revise os atributos de usuário que serão sincronizados do Azure AD para o ThousandEyes. Os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário no ThousandEyes para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+10. Na seção **Mapeamentos de Atributo** , revise os atributos de usuário que serão sincronizados do Azure AD para o ThousandEyes. Os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário no ThousandEyes para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
 11. Para habilitar o serviço de provisionamento do Azure AD para o ThousandEyes, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 

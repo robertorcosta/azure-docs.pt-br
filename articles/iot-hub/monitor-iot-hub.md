@@ -5,13 +5,13 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
-ms.date: 10/22/2020
-ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/06/2020
+ms.openlocfilehash: dc239843c4ed597949b4ba00c44ec84fc70741a8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128872"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357599"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorando o Hub IoT do Azure
 
@@ -65,13 +65,13 @@ No portal do Azure, você pode selecionar **configurações de diagnóstico** em
 
 A captura de tela a seguir mostra uma configuração de diagnóstico para rotear as *operações de conexão* do tipo log de recursos e todas as métricas de plataforma para um espaço de trabalho log Analytics.
 
-:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Gráficos de métrica padrão na página de visão geral do Hub IoT.":::
+:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Painel de configurações de diagnóstico para um hub IoT.":::
 
 Consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](/azure/azure-monitor/platform/diagnostic-settings) para o processo detalhado para criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell. Ao criar uma configuração de diagnóstico, você especifica quais categorias de logs coletar. As categorias do Hub IoT do Azure são listadas em [logs de recursos na referência de dados monitoramento do Hub IOT do Azure](monitor-iot-hub-reference.md#resource-logs).
 
 Ao rotear métricas da plataforma do Hub IoT para outros locais, lembre-se de que:
 
-- As métricas de plataforma a seguir não são exportáveis por meio de configurações de diagnóstico: *dispositivos conectados (versão prévia)* e *total de dispositivos (versão prévia)* .
+- As métricas de plataforma a seguir não são exportáveis por meio de configurações de diagnóstico: *dispositivos conectados (versão prévia)* e *total de dispositivos (versão prévia)*.
 
 - As métricas multidimensionais, por exemplo, algumas [métricas de roteamento](monitor-iot-hub-reference.md#routing-metrics), são atualmente exportadas como métricas unidimensionais simples agregadas entre valores de dimensão. Para obter mais detalhes, consulte [exportando métricas de plataforma para outros locais](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
@@ -81,7 +81,7 @@ Você pode analisar as métricas do Hub IoT do Azure com métricas de outros ser
 
 No portal do Azure, você pode selecionar **métricas** em **monitoramento** no painel esquerdo do Hub IOT para abrir o Metrics Explorer com escopo definido, por padrão, para as métricas de plataforma emitidas pelo Hub IOT:
 
-:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Gráficos de métrica padrão na página de visão geral do Hub IoT.":::
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Página do Metrics Explorer para um hub IoT.":::
 
 Para obter uma lista das métricas de plataforma coletadas para o Hub IoT do Azure, consulte [métricas na referência de dados monitoramento do Hub IOT do Azure](monitor-iot-hub-reference.md#metrics). Para obter uma lista das métricas de plataforma coletadas para todos os serviços do Azure, consulte [métricas com suporte com Azure monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -97,7 +97,7 @@ Para rotear dados para logs de Azure Monitor, você deve criar uma configuraçã
 
 No portal do Azure, você pode selecionar **logs** em **monitoramento** no painel esquerdo do hub IOT para executar log Analytics consultas com escopo, por padrão, para os logs e as métricas coletados nos logs de Azure monitor para o Hub IOT.
 
-:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Gráficos de métrica padrão na página de visão geral do Hub IoT.":::
+:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Página de logs para um hub IoT.":::
 
 Para obter uma lista das tabelas usadas por Azure Monitor logs e passível de consulta por Log Analytics, consulte [tabelas de logs de Azure monitor na referência de dados de monitoramento do Hub IOT do Azure](monitor-iot-hub-reference.md#azure-monitor-logs-tables).
 
@@ -107,7 +107,7 @@ O [log de atividades](/azure/azure-monitor/platform/activity-log) é um log de p
 
 Ao rotear métricas da plataforma do Hub IoT para Azure Monitor logs, lembre-se de que:
 
-- As métricas de plataforma a seguir não são exportáveis por meio de configurações de diagnóstico: *dispositivos conectados (versão prévia)* e *total de dispositivos (versão prévia)* .
+- As métricas de plataforma a seguir não são exportáveis por meio de configurações de diagnóstico: *dispositivos conectados (versão prévia)* e *total de dispositivos (versão prévia)*.
 
 - As métricas multidimensionais, por exemplo, algumas [métricas de roteamento](monitor-iot-hub-reference.md#routing-metrics), são atualmente exportadas como métricas unidimensionais simples agregadas entre valores de dimensão. Para obter mais detalhes, consulte [exportando métricas de plataforma para outros locais](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
@@ -119,7 +119,7 @@ Algumas operações nos logs de recursos do Hub IoT retornam uma `sdkVersion` pr
 
 A tabela a seguir mostra o nome do SDK usado para SDKs diferentes do Azure IoT:
 
-| Nome do SDK na propriedade sdkVersion | Idioma |
+| Nome do SDK na propriedade sdkVersion | Linguagem |
 |----------|----------|
 | .NET | .NET (C#) |
 | Microsoft. Azure. Devices | SDK do serviço .NET (C#) |
@@ -291,6 +291,14 @@ class Program
 Azure Monitor Alertas proativamente notificam você quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas em seu sistema antes que os clientes os percebam. Você pode definir alertas em [métricas](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log)e no [log de atividades](/azure/azure-monitor/platform/activity-log-alerts). Tipos diferentes de alertas têm benefícios e desvantagens.
 
 Ao criar uma regra de alerta com base nas métricas da plataforma, lembre-se de que, para métricas da plataforma do Hub IoT que são coletadas em unidades de contagem, algumas agregações podem não estar disponíveis ou utilizáveis. Para saber mais, consulte [agregações com suporte na referência de dados de monitoramento do Hub IOT do Azure](monitor-iot-hub-reference.md#supported-aggregations).
+
+## <a name="monitor-per-device-disconnects-with-event-grid"></a>Monitorar desconexões por dispositivo com a grade de eventos
+
+Azure Monitor fornece uma métrica, *dispositivos conectados* , que você pode usar para monitorar o número de dispositivos conectados ao seu hub IOT e disparar um alerta quando o número de dispositivos conectados cair abaixo de um valor de limite. Embora isso possa ser suficiente para alguns cenários, a [grade de eventos do Azure](/azure/event-grid/) fornece uma solução de monitoramento de baixa latência por dispositivo que você pode usar para rastrear conexões de dispositivo para dispositivos e infraestruturas críticos.
+
+Com a grade de eventos, você pode assinar os eventos [ **DeviceConnected** e **DeviceDisconnected**](iot-hub-event-grid.md#event-types) do Hub IOT para disparar alertas e monitorar o estado da conexão do dispositivo. A grade de eventos fornece uma latência de eventos muito menor do que Azure Monitor, e você pode monitorar por dispositivo, em vez de para o número total de dispositivos conectados. Esses fatores tornam a grade de eventos o método preferencial para o monitoramento de conexões para dispositivos e infraestruturas críticos. É altamente recomendável usar a grade de eventos para monitorar as conexões de dispositivo em ambientes de produção.
+
+Para obter informações mais detalhadas sobre como monitorar conexões de dispositivo com a grade de eventos e Azure Monitor, consulte [monitorar, diagnosticar e solucionar problemas de desconexão com o Hub IOT do Azure](iot-hub-troubleshoot-connectivity.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

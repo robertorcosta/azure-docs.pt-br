@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329254"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358160"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -38,6 +38,8 @@ No Gerenciador de recursos do Azure, um endereço [IP público](virtual-network-
 Os endereços IP públicos são criados com um endereço IPv4 ou IPv6. 
 
 ## <a name="sku"></a>SKU
+
+Para saber mais sobre a atualização do SKU, consulte [atualização de IP público](../virtual-network/virtual-network-public-ip-address-upgrade.md).
 
 Os endereços IP públicos são criados com um dos seguintes SKUs:
 
@@ -72,7 +74,7 @@ Endereços básicos do SKU:
 - Ter um fluxo originado de entrada ajustável tempo limite de ociosidade de fluxo originado de entrada ajustável de 4 a 30 minutos, com um padrão de 4 minutos, e um tempo limite de ociosidade de fluxo originado de saída fixo de 4 minutos.
 - Estão abertos por padrão.  Os grupos de segurança de rede são recomendados, mas opcionais, para restringir o tráfego de entrada ou saída.
 - Atribuído a qualquer recurso do Azure que pode ser atribuído a um endereço IP público, como:
-    * Interfaces de rede
+    * Adaptadores de rede
     * Gateways VPN
     * Gateways do Aplicativo
     * Balanceadores de carga públicos
@@ -96,7 +98,7 @@ Por exemplo, um recurso de IP público é liberado de um recurso chamado **recur
 O endereço IP é liberado quando o método de alocação é alterado de **estático** para **dinâmico**. Para garantir que o endereço IP do recurso associado permaneça o mesmo, defina o método de alocação explicitamente como **estático**. Um endereço IP estático é atribuído imediatamente.
 
 > [!NOTE]
-> Mesmo quando você define o método de alocação para **estático**, não é possível especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP de um pool de endereços IP disponíveis no local do Azure onde o recurso é criado.
+> Mesmo quando você define o método de alocação para **estático** , não é possível especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP de um pool de endereços IP disponíveis no local do Azure onde o recurso é criado.
 >
 
 Os endereços IP públicos estáticos são comumente usados nas seguintes situações:

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: bbaa9d33d3a31b682a66b2a3254fc2265b6f8d7b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359843"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357070"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -37,7 +37,7 @@ O Azure oferece dois métodos de implantação para VHDs no armazenamento Standa
 Para obter uma lista de tipos de armazenamento e os respectivos SLAs em IOPS e taxa de transferência de armazenamento, revise a [documentação do Azure para discos gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 > [!IMPORTANT]
-> Independentemente do tipo de armazenamento do Azure escolhido, o sistema de arquivos usado nesse armazenamento precisa ter suporte do SAP para o sistema operacional específico e o DBMS. [Nota de suporte nº 405827 do SAP](https://launchpad.support.sap.com/#/notes/405827) lista os sistemas de arquivos com suporte para diferentes sistemas operacionais e bancos de dados, incluindo o SAP HANA. Isso se aplica a todos os volumes que o SAP HANA pode acessar para leitura e gravação de qualquer tarefa. Especificamente usando o NFS no Azure para o SAP HANA, restrições adicionais de versões do NFS se aplicam conforme mencionado mais adiante neste artigo 
+> Independentemente do tipo de armazenamento do Azure escolhido, o sistema de arquivos usado nesse armazenamento precisa ter suporte do SAP para o sistema operacional específico e o DBMS. [Nota de suporte SAP #2972496](https://launchpad.support.sap.com/#/notes/2972496) lista os sistemas de arquivos com suporte para diferentes sistemas operacionais e bancos de dados, incluindo SAP Hana. Isso se aplica a todos os volumes que o SAP HANA pode acessar para leitura e gravação de qualquer tarefa. Especificamente usando o NFS no Azure para o SAP HANA, restrições adicionais de versões do NFS se aplicam conforme mencionado mais adiante neste artigo 
 
 
 As condições mínimas certificadas pelo SAP HANA para os diferentes tipos de armazenamento são: 

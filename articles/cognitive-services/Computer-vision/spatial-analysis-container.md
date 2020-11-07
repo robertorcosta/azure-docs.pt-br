@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496126"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357106"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalar e executar o contêiner de análise espacial (versão prévia)
 
@@ -105,7 +105,7 @@ A análise espacial usa os recursos de computação do Azure Stack Edge para exe
 
 ### <a name="set-up-an-edge-compute-role-and-create-an-iot-hub-resource"></a>Configurar uma função de computação de borda e criar um recurso do Hub IoT
 
-Na [portal do Azure](https://portal.azure.com/), navegue até o recurso de borda do Azure Stack. Na página **visão geral** ou na lista de navegação, clique no **botão introdução** à computação de borda. No bloco **Configurar computação de borda**   , clique em **Configurar**. 
+Na [portal do Azure](https://portal.azure.com/), navegue até o recurso de borda do Azure Stack. Na página **visão geral** ou na lista de navegação, clique no **botão introdução** à computação de borda. No bloco  **Configurar computação de borda**   , clique em **Configurar**. 
 
 ![Link](media/spatial-analysis/configure-edge-compute-tile.png)
 
@@ -289,7 +289,7 @@ sudo apt-get update
 Instale a versão 1.0.9:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
 Em seguida, registre o computador host como um dispositivo IoT Edge em sua instância do Hub IoT usando uma [cadeia de conexão](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
@@ -381,7 +381,7 @@ Você pode usar a análise espacial com vídeo gravado ou ao vivo. Para usar a a
     1. Alterar **transferência segura necessária** para **desabilitada**
     2. Alterar **permitir acesso público de blob** para **habilitado**
 
-Navegue até a seção **contêiner** e crie um novo contêiner ou use um existente. Em seguida, carregue o arquivo de vídeo no contêiner. Expanda as configurações de arquivo para o arquivo carregado e selecione **gerar SAS**. Certifique-se de definir a **data de expiração** de tempo suficiente para cobrir o período de teste. Definir **protocolos permitidos** para *http* (não há suporte para*https* ).
+Navegue até a seção **contêiner** e crie um novo contêiner ou use um existente. Em seguida, carregue o arquivo de vídeo no contêiner. Expanda as configurações de arquivo para o arquivo carregado e selecione **gerar SAS**. Certifique-se de definir a **data de expiração** de tempo suficiente para cobrir o período de teste. Definir **protocolos permitidos** para *http* (não há suporte para *https* ).
 
 Clique em **gerar token e URL de SAS** e copie a URL de SAS do blob. Substitua o Iniciando `https` por `http` e teste a URL em um navegador que ofereça suporte à reprodução de vídeo.
 
