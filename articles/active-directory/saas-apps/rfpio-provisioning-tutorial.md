@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 2792d5cc65e08a23a333deebdb24c0fd869446c3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278882"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352873"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Tutorial: configurar o RFPIO para o provisionamento automático de usuário
 
@@ -78,11 +78,11 @@ Para configurar o RFPIO para o provisionamento automático de usuário com o Azu
 
 **Para adicionar o RFPIO da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -90,7 +90,7 @@ Para configurar o RFPIO para o provisionamento automático de usuário com o Azu
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **RFPIO**, selecione **RFPIO** no painel de resultados e, em seguida, clique no botão    **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **RFPIO** , selecione **RFPIO** no painel de resultados e, em seguida, clique no botão    **Adicionar** para adicionar o aplicativo.
 
     ![RFPIO na lista de resultados](common/search-new-app.png)
 
@@ -123,11 +123,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para RFPIO**.
 

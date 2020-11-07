@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520023"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354206"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: configurar o Wrike para o provisionamento automático de usuário
 
@@ -58,7 +58,7 @@ Antes de configurar o Wrike para o provisionamento automático de usuário com o
 
 2.  Vá para **Azure ad** e selecione-o.
 
-    ![AD do Azure](media/Wrike-provisioning-tutorial/Capture01.png)
+    ![Azure AD](media/Wrike-provisioning-tutorial/Capture01.png)
 
 3.  Selecione SCIM. Copie a **URL base**.
 
@@ -72,7 +72,7 @@ Antes de configurar o Wrike para o provisionamento automático de usuário com o
 
     ![Wrike criar token](media/Wrike-provisioning-tutorial/password.png)
 
-6.  Copie o **token secreto**e cole-o no Azure AD. Selecione **salvar** para concluir a configuração de provisionamento no Wrike.
+6.  Copie o **token secreto** e cole-o no Azure AD. Selecione **salvar** para concluir a configuração de provisionamento no Wrike.
 
     ![Token de acesso permanente](media/Wrike-provisioning-tutorial/Wrike-create-token.png)
 
@@ -87,7 +87,7 @@ Para adicionar o Wrike da Galeria de aplicativos do Azure AD, siga estas etapas.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -95,7 +95,7 @@ Para adicionar o Wrike da Galeria de aplicativos do Azure AD, siga estas etapas.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Wrike**, selecione **Wrike** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Wrike** , selecione **Wrike** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar o aplicativo.
 
     ![Wrike na lista de resultados](common/search-new-app.png)
 
@@ -125,7 +125,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Modo de provisionamento definido como automático](common/provisioning-automatic.png)
 
-5. Na seção credenciais de administrador, insira a **URL base** e os valores de **token de acesso permanentes** recuperados anteriormente na **URL do locatário** e no **token secreto**, respectivamente. Selecione **testar conexão** para garantir que o Azure ad possa se conectar ao Wrike. Se a conexão falhar, verifique se sua conta do Wrike tem permissões de administrador e tente novamente.
+5. Na seção credenciais de administrador, insira a **URL base** e os valores de **token de acesso permanentes** recuperados anteriormente na **URL do locatário** e no **token secreto** , respectivamente. Selecione **testar conexão** para garantir que o Azure ad possa se conectar ao Wrike. Se a conexão falhar, verifique se sua conta do Wrike tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -157,7 +157,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos em **Escopo**, na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo leva para o provisionamento de usuários ou grupos, consulte [quanto tempo levará para provisionar os usuários?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos em **Escopo** , na seção **Configurações**. A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo leva para o provisionamento de usuários ou grupos, consulte [quanto tempo levará para provisionar os usuários?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
 Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Wrike. Para obter mais informações, consulte [Verificar o status do provisionamento de usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 

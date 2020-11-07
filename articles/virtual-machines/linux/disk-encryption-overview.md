@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f95d7ae38ece2a2ad939d2b3c829aed2c676d0f7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996474"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353995"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>VMs do Azure Disk Encryption para Linux 
 
@@ -47,6 +47,8 @@ Quando o processo de criptografia de disco do sistema operacional for concluído
 O Azure Disk Encryption também está disponível para VMs com armazenamento premium.
 
 Azure Disk Encryption não está disponível em VMs de [geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e em [VMs da série Lsv2](../lsv2-series.md). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
+
+Azure Disk Encryption não está disponível em imagens de VM sem discos temporários (DV4, Dsv4, Ev4 e Esv4).  Confira [tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 

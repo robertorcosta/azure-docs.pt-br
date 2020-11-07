@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 881b1df00f8a962087f1e57b7141ac50f5cfa18b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: fcbfd3eb805e046647a2c28cef8c378b44026bd0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514819"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355431"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: configurar o floco de neve para provisionamento automático de usuário
 
@@ -103,7 +103,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+7. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
@@ -121,8 +121,8 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |userName|String|
    |name.givenName|String|
    |name.familyName|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultrole|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultwarehouse|Cadeia de caracteres|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultrole|String|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultwarehouse|String|
 
 11. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para floco de neve**.
 

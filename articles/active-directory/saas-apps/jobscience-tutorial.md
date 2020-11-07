@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459383"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Active Directory do Azure com o Jobscience
 
@@ -29,7 +29,7 @@ A integração do Jobscience ao Azure AD oferece os seguintes benefícios:
 
 Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Jobscience, você precisa dos seguintes itens:
 
@@ -96,15 +96,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 **Para configurar o logon único do Azure AD com o Jobscience, realize as seguintes etapas:**
 
-1. No portal do Azure, na página de integração do aplicativo **Jobscience**, clique em **Logon único**.
+1. No portal do Azure, na página de integração do aplicativo **Jobscience** , clique em **Logon único**.
 
     ![Captura de tela mostra o logon único selecionado em gerenciar na portal do Azure.][4]
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único** , selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Captura de tela mostra o modo de logon baseado em SAML selecionado.](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
-1. Na seção **Domínio e URLs do Jobscience**, realize as seguintes etapas:
+1. Na seção **Domínio e URLs do Jobscience** , realize as seguintes etapas:
 
     ![Captura de tela mostra o U R L de logon.](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
@@ -121,7 +121,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Captura de tela mostra o botão salvar.](./media/jobscience-tutorial/tutorial_general_400.png)
 
-1. Na seção **Configuração do Jobscience**, clique em **Configurar o Jobscience** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da entidade SAML e a URL do serviço de Sign-On único SAML** da **seção de referência rápida.**
+1. Na seção **Configuração do Jobscience** , clique em **Configurar o Jobscience** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da entidade SAML e a URL do serviço de Sign-On único SAML** da **seção de referência rápida.**
 
     ![Captura de tela mostra a janela de configuração do Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
@@ -131,11 +131,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
    ![Captura de tela mostra o item de instalação da sua empresa.](./media/jobscience-tutorial/IC784358.png "Instalação")
 
-1. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
+1. No painel de navegação à esquerda, na seção **Administrador** , clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
    
    ![Meu domínio](./media/jobscience-tutorial/ic767825.png "Meu domínio")
 
-1. Para verificar se o seu domínio foi configurado corretamente, verifique se ele está em "**etapa 4 implantada para usuários**" e examine "**minhas configurações de domínio**".
+1. Para verificar se o seu domínio foi configurado corretamente, verifique se ele está em " **etapa 4 implantada para usuários** " e examine " **minhas configurações de domínio** ".
 
     ![Domínio implantado para o usuário](./media/jobscience-tutorial/ic784377.png "Domínio implantado para o usuário")
 
@@ -143,7 +143,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Captura de tela mostra as configurações de Sign-On único selecionadas em controles de segurança.](./media/jobscience-tutorial/ic784364.png "Controles de Segurança")
 
-1. Na seção **Configurações de Logon Único**, faça o seguinte:
+1. Na seção **Configurações de Logon Único** , realize as seguintes etapas:
     
     ![Configurações de logon único](./media/jobscience-tutorial/ic781026.png "Configurações de logon único")
     
@@ -151,37 +151,37 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Clique em **Nova**.
 
-1. Na caixa de diálogo **Editar Configuração de Logon Único do SAML**, execute as etapas a seguir:
+1. Na caixa de diálogo **Editar Configuração de Logon Único do SAML** , execute as etapas a seguir:
     
-    ![Configuração de Logon Único do SAML](./media/jobscience-tutorial/ic784365.png "Configuração de Logon Único do SAML")
+    ![Configuração de logon único do SAML](./media/jobscience-tutorial/ic784365.png "Configuração de Logon Único do SAML")
     
     a. Na caixa de texto **Nome** , digite um nome para a sua configuração.
 
-    b. Na caixa de texto **Emissor**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
+    b. Na caixa de texto **Emissor** , cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
 
-    c. Na caixa de texto **ID da Entidade**, digite `https://salesforce-jobscience.com`
+    c. Na caixa de texto **ID da Entidade** , digite `https://salesforce-jobscience.com`
 
     d. Clique em **Procurar** para carregar seu certificado do AD do Azure.
 
-    e. Como **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de usuário**.
+    e. Para o **Tipo de Identidade SAML** , selecione **A declaração contém a ID de Federação do objeto de Usuário**.
 
-    f. Selecione **A identidade está no elemento NameIdentifier da declaração do Assunto** como **Local da Identidade do SAML**.
+    f. Para **Local de Identidade do SAML** , selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
 
-    g. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+    g. Na caixa de texto **URL de Logon do Provedor de Identidade** , cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
-    h. Na caixa de texto **URL de Logoff do Provedor de Identidade**, cole o valor da **URL de Saída** copiado do portal do Azure.
+    h. Na caixa de texto **URL de Logoff do Provedor de Identidade** , cole o valor da **URL de Saída** copiado do portal do Azure.
 
     i. Clique em **Save** (Salvar).
 
-1. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
+1. No painel de navegação à esquerda, na seção **Administrador** , clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
     
     ![Meu domínio](./media/jobscience-tutorial/ic767825.png "Meu domínio")
 
-1. Na página **Meu Domínio**, na seção **Identidade Visual da Página de Logon**, clique em **Editar**.
+1. Na página **Meu Domínio** , na seção **Identidade Visual da Página de Logon** , clique em **Editar**.
     
     ![Captura de tela mostra a seção identidade visual da página de logon com o botão Editar.](./media/jobscience-tutorial/ic767826.png "Identidade visual da página de logon")
 
-1. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
+1. Na página **Identidade Visual da Página de Logon** , na seção **Serviço de Autenticação** , o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
     
     ![Captura de tela mostra a seção identidade visual da página de logon com PPE e salvar selecionado.](./media/jobscience-tutorial/ic784366.png "Identidade visual da página de logon")
 
@@ -192,7 +192,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     Clique no perfil SSO que você criou na etapa anterior. Esta página mostra o logon único na URL para a sua empresa (por exemplo, `https://companyname.my.salesforce.com?so=companyid`.    
 
 > [!TIP]
-> Agora você pode ler uma versão concisa dessas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto você está configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto você está configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais** , basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -202,7 +202,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+1. No **portal do Azure** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
     ![Captura de tela mostra o ícone do Azure A D no portal do Azure.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
@@ -210,17 +210,17 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     
     ![Captura de tela mostra os usuários e grupos selecionados no menu gerenciar, com todos os usuários selecionados.](./media/jobscience-tutorial/create_aaduser_02.png) 
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário** , clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Captura de tela mostra o botão Adicionar para abrir a caixa de diálogo usuário.](./media/jobscience-tutorial/create_aaduser_03.png) 
 
-1. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário** , execute as seguintes etapas:
  
     ![Captura de tela mostra a caixa de diálogo de usuário onde você pode inserir os valores nesta etapa.](./media/jobscience-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Na caixa de texto **Nome** , digite **Brenda Fernandes**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Na caixa de texto **Nome de usuário** , digite o **endereço de email** da conta de Brenda Fernandes.
 
     c. Selecione **Mostrar senha** e anote o valor da **senha**.
 
@@ -244,24 +244,24 @@ Para permitir que os usuários do Azure AD façam logon no Jobscience, eles deve
 1. Vá para **Gerenciar Usuários \> Usuários**.
    
    ![Usuários](./media/jobscience-tutorial/ic784369.png "Usuários")
-1. Clique em **Novo usuário**.
+1. Clique em **Novo Usuário**.
    
-   ![Todos os Usuários](./media/jobscience-tutorial/ic784370.png "Todos os Usuários")
-1. Na caixa de diálogo **Editar Usuário**, execute as seguintes etapas:
+   ![Todos os usuários](./media/jobscience-tutorial/ic784370.png "Todos os Usuários")
+1. Na caixa de diálogo **Editar Usuário** , execute as seguintes etapas:
    
-   ![Editar usuário](./media/jobscience-tutorial/ic784371.png "Editar usuário")
+   ![Edição de usuário](./media/jobscience-tutorial/ic784371.png "Editar usuário")
    
-   a. Na caixa de texto **Nome**, digite um nome do usuário, como Brenda.
+   a. Na caixa de texto **Nome** , digite um nome do usuário, como Brenda.
    
-   b. Na caixa de texto **Sobrenome**, digite um sobrenome do usuário, como Fernandes.
+   b. Na caixa de texto **Sobrenome** , digite um sobrenome do usuário, como Fernandes.
    
-   c. Na caixa de texto **Alias**, digite um nome de alias do usuário, como brendaf.
+   c. Na caixa de texto **Alias** , digite um nome de alias do usuário, como brendaf.
 
-   d. Na caixa de texto **Email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
+   d. Na caixa de texto **Email** , digite o endereço de email do usuário, como Brittasimon@contoso.com.
 
-   e. Na caixa de texto **Nome de Usuário**, digite um nome de usuário do usuário, como Brittasimon@contoso.com.
+   e. Na caixa de texto **Nome de Usuário** , digite um nome de usuário do usuário, como Brittasimon@contoso.com.
 
-   f. Na caixa de texto **Apelido**, digite um apelido do usuário, como Fernandes.
+   f. Na caixa de texto **Apelido** , digite um apelido do usuário, como Fernandes.
 
    g. Clique em **Save** (Salvar).
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 55f7b64c9ade91bb2923161d60568e3ea14ee034
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850482"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353468"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: configurar mypolicies para provisionamento automático de usuário
 
@@ -62,11 +62,11 @@ Para configurar mypolicies para o provisionamento automático de usuário com o 
 
 **Para adicionar mypolicies da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -74,7 +74,7 @@ Para configurar mypolicies para o provisionamento automático de usuário com o 
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **Mypolicies**, selecione **mypolicies** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **Mypolicies** , selecione **mypolicies** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![myPolicies na lista de resultados](common/search-new-app.png)
 
@@ -106,15 +106,15 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 5. Na seção **credenciais de administrador** , insira `https://<myPoliciesCustomDomain>.mypolicies.com/scim` a **URL de locatário** em que `<myPoliciesCustomDomain>` é seu domínio personalizado mypolicies. Você pode recuperar seu domínio de cliente mypolicies, da sua URL.
 Exemplo: `<demo0-qa>` . mypolicies.com.
 
-6. Em **token secreto**, insira o valor do token que foi recuperado anteriormente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao mypolicies. Se a conexão falhar, verifique se sua conta mypolicies tem permissões de administrador e tente novamente.
+6. Em **token secreto** , insira o valor do token que foi recuperado anteriormente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao mypolicies. Se a conexão falhar, verifique se sua conta mypolicies tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+7. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para mypolicies**.
 
@@ -155,7 +155,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* mypolicies sempre requer **username**, **email** e **externalId**.
+* mypolicies sempre requer **username** , **email** e **externalId**.
 * mypolicies não dá suporte a exclusões rígidas para atributos de usuário.
 
 ## <a name="change-log"></a>Log de alterações

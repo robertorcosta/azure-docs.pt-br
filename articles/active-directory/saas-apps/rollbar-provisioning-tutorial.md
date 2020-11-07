@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 976bc7f8e36200250f230f7e543dcb181f370663
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 544e01ef96165cd6c96a97761a3e758b93b1b15b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516470"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352686"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Tutorial: configurar o rollbar para o provisionamento automático de usuário
 
@@ -101,7 +101,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
     ![Provisionamento](./media/rollbar-provisioning-tutorial/admin.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email** , insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
@@ -118,7 +118,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |ativo|Boolean|
    |name.familyName|String|
    |name.givenName|String|
-   |emails [tipo EQ "trabalho"]|Cadeia de caracteres|
+   |emails [tipo EQ "trabalho"]|String|
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para rollbar**.
 
