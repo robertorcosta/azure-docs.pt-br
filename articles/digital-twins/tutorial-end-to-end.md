@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a765bf547924cbba1c4cff36a97df4ae88df1787
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495934"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324562"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -48,7 +48,7 @@ Para trabalhar com o cenário, você vai interagir com os componentes do aplicat
 
 Estes são os componentes implementados pelo aplicativo de exemplo *AdtSampleApp* do cenário de construção:
 * Autenticação de dispositivo 
-* Exemplos de uso do [SDK do .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) (encontrados em *CommandLoop.cs* )
+* Exemplos de uso do [SDK do .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) (encontrados em *CommandLoop.cs* )
 * Interface de console para chamar a API dos Gêmeos Digitais do Azure
 * *SampleClientApp* – uma solução de exemplo dos Gêmeos Digitais do Azure
 * *SampleFunctionsApp* – um aplicativo do Azure Functions que atualiza seu gráfico dos Gêmeos Digitais do Azure como resultado da telemetria do Hub IoT e de eventos dos Gêmeos Digitais do Azure
@@ -329,7 +329,7 @@ Para fazer isso, você usará a função do Azure *ProcessDTRoutedData* para atu
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Um trecho do gráfico do cenário de construção completo realçando a seta C, os elementos depois dos Gêmeos Digitais do Azure: a Grade de Eventos e a segunda função do Azure":::
 
 Estas são as ações que você realizará para configurar este fluxo de dados:
-1. Criar um ponto de extremidade dos Gêmeos Digitais do Azure que conecta a instância à Grade de Eventos
+1. Criar um ponto de extremidade da Grade de Eventos nos Gêmeos Digitais do Azure que conecta a instância à Grade de Eventos
 2. Configurar uma rota nos Gêmeos Digitais do Azure para enviar eventos de alteração de propriedade do gêmeo para o ponto de extremidade
 3. Implantar um aplicativo do Azure Functions que escuta (por meio da [Grade de Eventos](../event-grid/overview.md)) no ponto de extremidade e atualiza outros gêmeos adequadamente
 4. Executar o dispositivo simulado e consultar os Gêmeos Digitais do Azure para ver os resultados de maneira dinâmica
@@ -354,7 +354,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 A saída desse comando são informações sobre o tópico da grade de eventos que você criou.
 
-Em seguida, crie um ponto de extremidade dos Gêmeos Digitais do Azure apontando para o tópico da grade de eventos. Use o comando a seguir, preenchendo os campos de espaço reservado conforme necessário:
+Em seguida, crie um ponto de extremidade da Grade de Eventos nos Gêmeos Digitais do Azure, que conectará sua instância ao tópico da Grade de Eventos. Use o comando a seguir, preenchendo os campos de espaço reservado conforme necessário:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -372,11 +372,11 @@ Procure o campo `provisioningState` na saída e verifique se o valor é "Êxito"
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado da consulta do ponto de extremidade, mostrando o ponto de extremidade com o provisioningState igual a Êxito":::
 
-Salve os nomes que você atribuiu ao tópico da grade de eventos e ao ponto de extremidade dos Gêmeos Digitais do Azure. Você os usará mais tarde.
+Salve os nomes que você deu ao tópico e ao ponto de extremidade da Grade de Eventos nos Gêmeos Digitais do Azure. Você os usará mais tarde.
 
 ### <a name="set-up-route"></a>Configurar rota
 
-Em seguida, crie uma rota dos Gêmeos Digitais do Azure que envia eventos para o ponto de extremidade dos Gêmeos Digitais do Azure que você acabou de criar.
+Em seguida, crie uma rota dos Gêmeos Digitais do Azure que envia eventos para o ponto de extremidade recém-criado da Grade de Eventos.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b87a2cd3e6edc6a47de77f475c40d30ce1606e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316606"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099854"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Criar um cliente de Verificação Ortográfica em uma página da Web
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Neste tutorial, criaremos uma página da Web que permite aos usuários consultar a API de Verificação Ortográfica do Bing. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -123,7 +128,7 @@ A função auxiliar getSubscriptionKeyLocalStorage primeiro tenta recuperar a ch
     }
 ```
 
-A função auxiliar getSubscriptionKey usa um parâmetro, **invalidate**. Se **invalidate** é **true**, getSubscriptionKey exclui o cookie que contém a chave de API de Verificação Ortográfica do Bing. Se **invalidate** é **false**, getSubscriptionKey retorna o valor da chave de API de Verificação Ortográfica do Bing.
+A função auxiliar getSubscriptionKey usa um parâmetro, **invalidate**. Se **invalidate** é **true** , getSubscriptionKey exclui o cookie que contém a chave de API de Verificação Ortográfica do Bing. Se **invalidate** é **false** , getSubscriptionKey retorna o valor da chave de API de Verificação Ortográfica do Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {

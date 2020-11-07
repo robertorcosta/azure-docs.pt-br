@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e389152292239076f3077e2edfb8d5be52ab815b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327250"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241371"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Início Rápido: Bibliotecas de clientes do SDK do LUIS (Reconhecimento vocal) para criar e consultar seu aplicativo LUIS
 
@@ -21,7 +21,8 @@ Crie e consulte um aplicativo de IA (inteligência artificial) do com as bibliot
 
 O LUIS (Reconhecimento Vocal) permite aplicar o NLP (processamento de idioma natural) a um texto de idioma natural de conversa do usuário para prever o significado geral e extrair informações detalhadas relevantes.
 
-* A biblioteca de clientes do **SDK de criação** permite criar, editar, treinar e publicar seu aplicativo LUIS. * A biblioteca de clientes do **SDK do runtime de previsão** permite consultar o aplicativo publicado.
+* A biblioteca de clientes do **SDK de criação** permite criar, editar, treinar e publicar seu aplicativo LUIS.
+* A biblioteca de clientes do **SDK do runtime de previsão** permite que você consulte o aplicativo publicado.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]
@@ -41,7 +42,7 @@ Você pode excluir o aplicativo do [portal do LUIS](https://www.luis.ai) e exclu
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-* Autenticação na biblioteca de clientes – erros de autenticação geralmente indicam que foram usados a chave e o ponto de extremidade incorretos. Este guia de início rápido usa a chave e o ponto de extremidade de criação para o runtime de previsão, mas só funcionará se você ainda não tiver usado a cota mensal. Se você não puder usar a chave e o ponto de extremidade de criação, precisará usar a chave e o ponto de extremidade do runtime de previsão ao acessar a biblioteca de cliente do SDK do runtime de previsão.
+* Autenticação na biblioteca de clientes – erros de autenticação geralmente indicam que foram usados a chave e o ponto de extremidade incorretos. Para sua conveniência, este guia de início rápido usa a chave e o ponto de extremidade de criação para o runtime de previsão, mas só funcionará se você ainda não tiver usado a cota mensal. Se você não puder usar a chave e o ponto de extremidade de criação, precisará usar a chave e o ponto de extremidade do runtime de previsão ao acessar a biblioteca de cliente do SDK do runtime de previsão.
 * Criação de entidades – se você receber um erro durante a criação da entidade de machine learning aninhada usada neste tutorial, verifique se você copiou o código e se não o alterou para criar uma entidade diferente.
 * Criação de enunciados de exemplo – se você receber um erro durante a criação do enunciado de exemplo rotulado usado neste tutorial, verifique se você copiou o código e não o alterou para criar um exemplo rotulado diferente.
 * Treinamento – se você recebe um erro de treinamento, isso geralmente indica um aplicativo vazio (sem intenções com os enunciados de exemplo) ou um aplicativo com tentativas ou entidades malformadas.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044659"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099106"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
@@ -64,7 +64,7 @@ Você também poderá obter os Gêmeos Digitais do Azure de outras fontes de dad
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Saída para TSI, armazenamento e análise
 
-Os dados do modelo Gêmeos Digitais do Azure podem ser roteados para serviços downstream do Azure para análise ou armazenamento adicional. Isso é fornecido por meio de **rotas de eventos**, que usam o [Hub de Eventos](../event-hubs/event-hubs-about.md), a [Grade de Eventos](../event-grid/overview.md) ou o [Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md) para impulsionar os fluxos de dados desejados.
+Os dados do modelo Gêmeos Digitais do Azure podem ser roteados para serviços downstream do Azure para análise ou armazenamento adicional. Isso é fornecido por meio de **rotas de eventos** , que usam o [Hub de Eventos](../event-hubs/event-hubs-about.md), a [Grade de Eventos](../event-grid/overview.md) ou o [Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md) para impulsionar os fluxos de dados desejados.
 
 Dentre as coisas que você pode fazer com as rotas de eventos estão:
 * Armazenar dados dos Gêmeos Digitais do Azure no [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
@@ -88,20 +88,16 @@ Uma solução completa usando os Gêmeos Digitais do Azure pode conter as seguin
 
 O diagrama a seguir mostra onde se situam os Gêmeos Digitais do Azure no contexto de uma solução mais ampla de IoT do Azure.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Captura de tela do aplicativo de exemplo do explorador dos Gêmeos Digitais do Azure que mostra um grafo de nós representando os gêmeos digitais" border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Diagrama mostrando fontes de entrada, serviços de saída e comunicação bidirecional com aplicativos cliente e recursos externos de computação." border="false" lightbox="media/overview/solution-context.png":::
 
-## <a name="service-limits-in-public-preview"></a>Limites de serviço em versão prévia pública
+## <a name="service-limits"></a>Limites de serviço
 
-> [!IMPORTANT]
-> No momento, os Gêmeos Digitais do Azure estão em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para saber mais, confira os [*Termos de uso complementares das versões prévias do Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Para ver uma lista das limitações dos Gêmeos Digitais do Azure durante a versão prévia pública, confira [*Referência: limites de serviço da versão prévia pública*](reference-service-limits.md).
+Para obter uma lista dos limites dos Gêmeos Digitais do Azure, confira [*Referência: limites de serviço*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você trabalhou com a versão prévia anterior dos Gêmeos Digitais do Azure, saiba o que mudou:
-* [*Visão geral: diferenças da versão anterior*](overview-differences.md)
+Se você trabalhou com a primeira versão prévia dos Gêmeos Digitais do Azure (outubro de 2018), saiba o que mudou:
+* [*Visão geral: diferenças da primeira versão*](overview-differences.md)
 
 Ou aprofunde-se no trabalho com os Gêmeos Digitais do Azure por meio do primeiro tutorial:
 

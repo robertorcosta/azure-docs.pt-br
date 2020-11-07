@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893808"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286686"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos da CLI de Fala
 
@@ -72,8 +72,9 @@ Neste comando, você especifica os idiomas de origem (idioma **do** qual traduzi
 
 ### <a name="configuration-files-in-the-datastore"></a>Arquivos de configuração no armazenamento de dados
 
-A CLI de Fala pode ler e gravar várias configurações em arquivos de configuração, que são armazenados no armazenamento de dados da CLI de Fala local e são nomeados dentro das chamadas à CLI de Fala usando um símbolo @. A CLI de Fala tenta salvar uma nova configuração em um novo subdiretório `./spx/data` criado no diretório de trabalho atual.
-Quando você procura um valor de configuração, a CLI de Fala busca no diretório de trabalho atual e, em seguida, no caminho `./spx/data`.
+O comportamento da CLI de Fala pode depender das configurações nos arquivos de configuração, que podem ser vistos nas chamadas da CLI de Fala por meio de um símbolo @.
+A CLI de Fala salva uma nova configuração em um novo subdiretório `./spx/data` criado no diretório de trabalho atual.
+Ao buscar um valor de configuração, a CLI de Fala procura esse valor no diretório de trabalho atual, no armazenamento de dados em `./spx/data` e em outros armazenamentos de dados, incluindo um armazenamento de dados final somente leitura no binário `spx`.
 Anteriormente, você usou o armazenamento de dados para salvar seus valores `@key` e `@region`, portanto, você não precisou especificá-los com cada chamada de linha de comando.
 Você também pode usar arquivos de configuração para armazenar as próprias definições de configuração ou até mesmo usá-las para passar URLs ou outro conteúdo dinâmico gerado em runtime.
 
@@ -181,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Conclua os guias de início rápido de [reconhecimento de fala](./quickstarts/speech-to-text-from-microphone.md) ou [síntese de fala](./quickstarts/text-to-speech.md) usando o SDK.
+* Conclua os guias de início rápido de [reconhecimento de fala](get-started-speech-to-text.md?pivots=programmer-tool-spx) ou [sintetização de voz](get-started-text-to-speech.md?pivots=programmer-tool-spx) usando a CLI de Fala.

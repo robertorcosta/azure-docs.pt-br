@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 9a5749d115a4d5d9ce1e0ac454609c7b639c2f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1b666e8929309778fc7b72e034a425c841fc2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309755"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095910"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obtenha sugestões de pesquisa em uma página da Web
+
+> [!WARNING]
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Neste tutorial, criaremos uma página da Web que permite aos usuários consultar a API de Sugestão Automática do Bing.
 
@@ -119,7 +124,7 @@ A função auxiliar getSubscriptionKeyLocalStorage primeiro tenta recuperar a ch
     }
 ```
 
-A função auxiliar getSubscriptionKey usa um parâmetro, **invalidate**. Se **invalidate** é **true**, getSubscriptionKey exclui o cookie que contém a chave de API de Sugestão Automática do Bing. Se **invalidate** é **false**, getSubscriptionKey retorna o valor da chave de API de Sugestão Automática do Bing.
+A função auxiliar getSubscriptionKey usa um parâmetro, **invalidate**. Se **invalidate** é **true** , getSubscriptionKey exclui o cookie que contém a chave de API de Sugestão Automática do Bing. Se **invalidate** é **false** , getSubscriptionKey retorna o valor da chave de API de Sugestão Automática do Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {

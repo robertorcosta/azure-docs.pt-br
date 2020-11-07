@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimentos, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647457"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289688"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -29,7 +29,9 @@ A API faz parte dos [Serviços Cognitivos do Azure](https://docs.microsoft.com/a
 
 ## <a name="sentiment-analysis"></a>Análise de sentimento
 
-Use a [análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que as pessoas pensam da sua marca ou do seu tópico minerando o texto em busca de pistas sobre sentimentos positivos ou negativos. Esse recurso de API retorna uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é a mais positiva.
+Use a [análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que as pessoas pensam da sua marca ou do seu tópico minerando o texto em busca de pistas sobre sentimentos positivos ou negativos. 
+
+O recurso fornece rótulos de sentimentos (como "negativo", "neutro" e "positivo") com base na pontuação de confiança mais alta encontrada pelo serviço em um nível de frase e documento. Esse recurso também retorna pontuações de confiança entre 0 e 1 para cada documento e frase dentro dele para um sentimento positivo, neutro e negativo. Execute também o serviço no local [usando um contêiner](how-tos/text-analytics-how-to-install-containers.md).
 
 Começando na versão prévia v3.1, a mineração de opiniões é um recurso da Análise de Sentimento. Também conhecida como Análise de Sentimento baseada em aspecto no NLP (processamento de idioma natural), esse recurso fornece informações mais granulares sobre as opiniões relacionadas a aspectos (como os atributos de produtos ou serviços) no texto.
 

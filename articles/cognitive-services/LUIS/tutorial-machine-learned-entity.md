@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334712"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130710"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados do enunciado do usuário usando entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
 
@@ -64,7 +64,7 @@ Baixe e salve o [arquivo JSON do aplicativo](https://raw.githubusercontent.com/A
 
 Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de aprendizado de máquina de nível superior.
 
-1. Na página **Intenções**, selecione a intenção **OrderPizza**.
+1. Na página **Intenções** , selecione a intenção **OrderPizza**.
 
 1. Na lista de enunciados de exemplo, selecione o enunciado a seguir.
 
@@ -72,14 +72,14 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Comece a seleção um pouco antes do texto mais à esquerda de `pickup` (nº 1) e, em seguida, vá um pouco além do texto mais à direita, `anchovies` (nº 2 – isso encerra o processo de rotulagem). Um menu pop-up é exibido. Na caixa pop-up, insira o nome da entidade como `Order` (nº 3). Em seguida, selecione `Order Create new entity` na lista (nº 4).
+    Clique e arraste o cursor sobre o texto do primeiro exemplo de intenção. no menu exibido, insira o nome da entidade como `Order`. Em seguida, selecione `Order Create new entity` na lista.
 
     ![Rotular o início e o fim do texto do pedido concluído](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
     > Uma entidade nem sempre será o enunciado inteiro. Nesse caso específico, `pickup` indica como o pedido deve ser recebido. Do ponto de vista conceitual, `pickup` deve fazer parte da entidade rotulada para o pedido.
 
-1. Na caixa **Escolher um tipo de entidade**, selecione **Adicionar Estrutura** e, em seguida, selecione **Avançar**. A estrutura é necessária para adicionar subentidades, como tamanho e quantidade.
+1. Na caixa **Escolher um tipo de entidade** , selecione **Adicionar Estrutura** e, em seguida, selecione **Avançar**. A estrutura é necessária para adicionar subentidades, como tamanho e quantidade.
 
     ![A captura de tela mostra a janela Escolher um tipo de entidade com a opção Adicionar estrutura marcada.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
@@ -96,11 +96,11 @@ As etapas anteriores criam a entidade e a subentidade. Para aprimorar a extraç�
 
 1. Selecione **Entidades** no menu esquerdo e, em seguida, selecione a entidade **Ordem**.
 
-1. Na guia **Esquema e recursos**, selecione a subentidade **Tamanho** e, em seguida, selecione **+ Adicionar recurso**.
+1. Na guia **Esquema e recursos** , selecione a subentidade **Tamanho** e, em seguida, selecione **+ Adicionar recurso**.
 
 1. Selecione **Criar lista de frases** no menu suspenso.
 
-1. Na caixa **Criar nova lista de frases**, insira o nome `SizePhraselist` e, em seguida, insira os valores `small`, `medium` e `large`. Quando a caixa **Sugestões** for preenchida, selecione `extra large` e `xl`. Selecione **Criar** para criar a lista de frases.
+1. Na caixa **Criar nova lista de frases** , insira o nome `SizePhraselist` e, em seguida, insira os valores `small`, `medium` e `large`. Quando a caixa **Sugestões** for preenchida, selecione `extra large` e `xl`. Selecione **Criar** para criar a lista de frases.
 
     Essa lista de frases ajuda a subentidade `Size` a localizar palavras relacionadas ao tamanho, fornecendo a ela palavras de exemplo. Essa lista de frases não precisa incluir todas as palavras de tamanho, mas deve incluir palavras que precisam indicar o tamanho.
 
@@ -131,7 +131,7 @@ Adicionar uma lista de tamanhos conhecidos que o aplicativo cliente reconhece ta
 
 1. Selecione **Ordem** na lista de entidades.
 
-1. Na guia **Esquema e recursos**, selecione a entidade **Tamanho** e, em seguida, selecione **+ Adicionar recurso**.
+1. Na guia **Esquema e recursos** , selecione a entidade **Tamanho** e, em seguida, selecione **+ Adicionar recurso**.
 
 1. Selecione **@ SizeListentity** na lista suspensa.
 
@@ -151,7 +151,7 @@ Adicionar uma entidade de número predefinida também ajudará na extração.
 
 1. Selecione **Ordem** na lista de entidades.
 
-1. Na guia **Esquema e recursos**, selecione a entidade **Quantidade** e, em seguida, selecione **+ Adicionar recurso**.
+1. Na guia **Esquema e recursos** , selecione a entidade **Quantidade** e, em seguida, selecione **+ Adicionar recurso**.
 
 1. Selecione **@ número** na lista suspensa.
 
@@ -159,7 +159,7 @@ Adicionar uma entidade de número predefinida também ajudará na extração.
 
 ## <a name="configure-required-features"></a>Configurar os recursos necessários
 
-Na página de detalhes da entidade **Ordem**, selecione o asterisco, `*`, para o recurso **@ SizeList** e o recurso **@ number**. O asterisco aparece no mesmo rótulo que o nome do recurso.
+Na página de detalhes da entidade **Ordem** , selecione o asterisco, `*`, para o recurso **@ SizeList** e o recurso **@ number**. O asterisco aparece no mesmo rótulo que o nome do recurso.
 
 > [!div class="mx-imgBorder"]
 > ![A captura de tela mostra o recurso @SizeList com o asterisco e o aviso Obrigatório.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
@@ -173,7 +173,7 @@ A entidade de aprendizado de máquina é criada e as subentidades têm recursos.
 
 1. Selecione **Intenções** no painel de navegação esquerdo e, em seguida, selecione a intenção **OrderPizza**.
 
-1. Para abrir a **Paleta de Entidades**, selecione o símbolo **@** na barra de ferramentas contextual.
+1. Para abrir a **Paleta de Entidades** , selecione o símbolo **@** na barra de ferramentas contextual.
 
 1. Selecione cada linha de entidade na paleta e, em seguida, use o cursor de paleta para selecionar a entidade em cada exemplo de enunciado. Quando você terminar, a lista de entidades deverá ser parecida com a imagem a seguir.
 
@@ -236,7 +236,7 @@ Para receber uma previsão do LUIS em um chat bot ou em outro aplicativo cliente
 
     ![Captura de tela da publicação do LUIS para o botão do ponto de extremidade no menu à direita superior](./media/howto-publish/publish-button.png)
 
-1. Selecione o slot de **Produção**, selecione **Alterar configurações**, escolha **Análise de Sentimento** e, em seguida, selecione **Concluído**.
+1. Selecione o slot de **Produção** , selecione **Alterar configurações** , escolha **Análise de Sentimento** e, em seguida, selecione **Concluído**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de tela da publicação do LUIS para o ponto de extremidade](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
