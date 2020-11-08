@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf3ad43b46d491d5f15270790251a0bc4e882e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051093"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365356"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de tinta para a API de Reconhecimento de Tinta Digital 
 
@@ -64,7 +64,7 @@ A API de Reconhecimento de Tinta Digital retorna uma resposta de análise sobre 
 
 ## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Formas reconhecidas pela API de Reconhecimento de Tinta Digital
 
-A API de Reconhecimento de Tinta Digital pode identificar as formas mais comumente usadas em anotações. A imagem abaixo mostra alguns exemplos básicos. Para obter uma lista completa de formas e outros tipos de conteúdo de tinta reconhecidos pela API, confira o [artigo de referência da API](https://go.microsoft.com/fwlink/?linkid=2089907). 
+A API de Reconhecimento de Tinta Digital pode identificar as formas mais comumente usadas em anotações. A imagem abaixo mostra alguns exemplos básicos. Para obter uma lista completa de formas e outros tipos de conteúdo de tinta reconhecidos pela API, confira o [artigo de referência da API](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer). 
 
 ![A lista de formas reconhecidas pela API de Reconhecimento de Tinta Digital](../media/shapes.png)
 
@@ -84,12 +84,12 @@ Ter os resultados de reconhecimento com antecedência fornece informações sobr
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrar a API de Reconhecimento de Tinta Digital ao Windows Ink
 
-O [Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornece ferramentas e tecnologias para proporcionar experiências de escrita à tinta digital em uma ampla variedade de dispositivos. Você pode combinar a plataforma de tinta do Windows com a API do reconhecedor de tinta para criar aplicativos que exibem e interpretam traços de tinta digital.
+O [Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) fornece ferramentas e tecnologias para proporcionar experiências de escrita à tinta digital em uma ampla variedade de dispositivos. Você pode combinar a plataforma de tinta do Windows com a API do reconhecedor de tinta para criar aplicativos que exibem e interpretam traços de tinta digital.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a API de Reconhecimento de Tinta Digital?](../overview.md)
-* [Referência da API REST do Reconhecimento de Tinta Digital](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Referência da API REST do Reconhecimento de Tinta Digital](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * Comece a enviar dados de traço de tinta digital usando:
     * [C#](../quickstarts/csharp.md)

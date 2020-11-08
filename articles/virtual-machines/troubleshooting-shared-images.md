@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 89bbb16f96d06d1861dabdf89cf690e69c10735c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348909"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364472"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Solução de problemas de galerias de imagens compartilhadas no Azure
 
@@ -153,7 +153,7 @@ Se você encontrar problemas ao executar quaisquer operações em galerias de im
 
 *Não é permitido alterar a propriedade ' galleryImageVersion. Properties. storageProfile. <. \> Source.ID '.*  
 **Causa** : a ID de origem de uma versão de imagem da Galeria não pode ser alterada após a criação.  
-**Solução alternativa** : Verifique se a ID da origem é igual à ID de origem já existente ou altere o número da versão da imagem.
+**Solução alternativa** : Verifique se a ID de origem é igual à ID de origem já existente, altere o número da versão da imagem ou exclua a versão da imagem atual e tente novamente.
 
 *Foram detectados números de LUN duplicados nos discos de dados de entrada. O número de LUN deve ser exclusivo para cada disco de dados.*  
 **Causa** : ao criar uma versão de imagem usando uma lista de discos e/ou instantâneos de disco, dois ou mais discos ou instantâneos de disco têm os mesmos números de LUN.  

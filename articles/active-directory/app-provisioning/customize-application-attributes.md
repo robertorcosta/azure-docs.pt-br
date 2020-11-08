@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233876"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364285"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -43,7 +43,7 @@ Siga estas etapas para acessar o recurso **Mapeamentos** do provisionamento de u
 
    Nesta captura de tela, você pode ver que o atributo **Nome de usuário** de um objeto gerenciado no Salesforce é preenchido com o valor **userPrincipalName** do Objeto do Azure Active Directory vinculado.
 
-1. Selecione um **Mapeamento de Atributos** existente para abrir a tela **Editar Atributo** . Aqui, é possível editar e exibir os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino.
+1. Selecione um **Mapeamento de Atributos** existente para abrir a tela **Editar Atributo**. Aqui, é possível editar e exibir os atributos de usuário que fluem entre o Azure AD e o aplicativo de destino.
 
    ![Usar Editar Atributo para editar atributos de usuário](./media/customize-application-attributes/23.png)
 
@@ -90,7 +90,7 @@ Um número seleto de aplicativos, como o ServiceNow, o Box e o G Suite, dão sup
 
 ![Exemplo mostra o ServiceNow com objetos de Grupo e Usuário provisionados](./media/customize-application-attributes/24.png)
 
-O provisionamento de grupo pode, opcionalmente, ser habilitado ou desabilitado selecionando o mapeamento de grupo em **Mapeamentos** e configurando **Habilitado** como a opção desejada na tela **Mapeamento de Atributos** .
+O provisionamento de grupo pode, opcionalmente, ser habilitado ou desabilitado selecionando o mapeamento de grupo em **Mapeamentos** e configurando **Habilitado** como a opção desejada na tela **Mapeamento de Atributos**.
 
 Os atributos provisionados como parte dos objetos de Grupo podem ser personalizados da mesma maneira como os objetos de Usuário, como descrito anteriormente. 
 
@@ -110,7 +110,7 @@ Os aplicativos e sistemas que dão suporte à personalização da lista de atrib
 - WORKDAY para Active Directory/workday a Azure Active Directory
 - SuccessFactors para Active Directory/SuccessFactors Azure Active Directory
 - Active Directory do Azure ([atributos do Azure AD Graph API padrão](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e há suporte para extensões de diretório personalizado)
-- Aplicativos que dão suporte ao [SCIM 2.0](https://tools.ietf.org/html/rfc7643), onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam ser adicionados
+- Aplicativos que dão suporte ao [SCIM 2,0](https://tools.ietf.org/html/rfc7643)
 - Para Azure Active Directory write-back para workday ou SuccessFactors, há suporte para atualizar metadados relevantes para atributos com suporte (XPATH e JSONPath), mas não há suporte para adicionar novos atributos workday ou SuccessFactors além daqueles incluídos no esquema padrão
 
 
@@ -136,17 +136,17 @@ Ao editar a lista de atributos com suporte, as seguintes propriedades são forne
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionar um atributo de extensão personalizado para um aplicativo em conformidade com SCIM
 O RFC do SCIM define um esquema de usuário e grupo principal, permitindo também que as extensões do esquema atendam às necessidades de seu aplicativo. Para adicionar um atributo personalizado a um aplicativo SCIM:
-   1. Entre no [portal do Azure Active Directory](https://aad.portal.azure.com), selecione **Aplicativos Empresariais** , selecione seu aplicativo e, em seguida, selecione **Provisionamento** .
+   1. Entre no [portal do Azure Active Directory](https://aad.portal.azure.com), selecione **Aplicativos Empresariais** , selecione seu aplicativo e, em seguida, selecione **Provisionamento**.
    2. Em **Mapeamentos** , selecione o objeto (usuário ou grupo) para o qual deseja adicionar um atributo personalizado.
-   3. Na parte inferior da página, selecione **Mostrar opções avançadas** .
-   4. Selecione **Editar lista de atributos do AppName** .
-   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar Atributo** .
+   3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
+   4. Selecione **Editar lista de atributos do AppName**.
+   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar Atributo**.
 
 Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: usuário: CustomAttribute 
 
 Essas instruções são aplicáveis somente a aplicativos habilitados para o SCIM. Aplicativos como o ServiceNow e o Salesforce não são integrados ao Azure AD usando o SCIM e, portanto, não exigem esse namespace específico ao adicionar um atributo personalizado.
 
-Atributos personalizados não podem ser atributos de referência nem atributos com vários valores. Atualmente, atributos de extensão com vários valores personalizados têm suporte apenas para aplicativos na galeria.  
+Atributos personalizados não podem ser atributos de referência, atributos de vários valores ou tipos complexos. Os atributos personalizados de extensão multivalor e tipo complexo atualmente têm suporte apenas para aplicativos na galeria.  
  
 **Exemplo de representação de um usuário com um atributo de extensão:**
 

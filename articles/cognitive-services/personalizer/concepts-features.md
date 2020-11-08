@@ -8,24 +8,24 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132765"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365509"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
 O serviço Personalizador funciona aprendendo o que o seu aplicativo deve mostrar aos usuários em determinado contexto.
 
-O Personalizador usa **recursos**, que são informações sobre o **contexto atual** para a escolha da melhor **ação**. Os recursos representam todas as informações que você acha que podem ajudar na personalização para alcançar maiores recompensas. Os recursos podem ser muitos genéricos ou específicos a um item. 
+O Personalizador usa **recursos** , que são informações sobre o **contexto atual** para a escolha da melhor **ação**. Os recursos representam todas as informações que você acha que podem ajudar na personalização para alcançar maiores recompensas. Os recursos podem ser muitos genéricos ou específicos a um item. 
 
 Por exemplo, você pode ter um **recurso** sobre:
 
 * O _usuário persona_ , como um `Sports_Shopper` . Isso não deve ser uma ID de usuário individual. 
-* O _conteúdo_, por exemplo, se um vídeo é um `Documentary`, um `Movie` ou uma `TV Series`, ou se um item de varejo está disponível na loja.
-* O período _atual_, por exemplo, qual é o dia da semana.
+* O _conteúdo_ , por exemplo, se um vídeo é um `Documentary`, um `Movie` ou uma `TV Series`, ou se um item de varejo está disponível na loja.
+* O período _atual_ , por exemplo, qual é o dia da semana.
 
 O personalizador não prescreve, limita ou corrige quais recursos você pode enviar para ações e contexto:
 
@@ -41,8 +41,8 @@ O Personalizador dá suporte a recursos de tipos de cadeia de caracteres, numér
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como a escolha do tipo de recurso afeta Machine Learning no Personalizador
 
-* **Strings**: para tipos de cadeia de caracteres, cada combinação de chave e valor cria novos pesos no modelo personalizado de aprendizado de máquina. 
-* **Numeric**: você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas em que o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres, e a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
+* **Strings** : para tipos de cadeia de caracteres, cada combinação de chave e valor cria novos pesos no modelo personalizado de aprendizado de máquina. 
+* **Numeric** : você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas em que o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres, e a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
 * Valores **boolianos** enviados com o valor "false" funcionam como se não tivessem sido enviados.
 
 Os recursos que não estão presentes devem ser omitidos da solicitação. Evite o envio de recursos com um valor nulo, pois ele será processado como existente e com um valor igual a "nulo" ao treinar o modelo.
@@ -152,10 +152,10 @@ Por exemplo:
 
 Você pode usar vários outros [Serviços Cognitivos do Azure](https://www.microsoft.com/cognitive-services), como
 
-* [Vinculação de entidade](../entitylinking/home.md)
+* [Vinculação de Identidade](../text-analytics/index.yml)
 * [Análise de Texto](../text-analytics/overview.md)
-* [Emoção](../emotion/home.md)
-* [Pesquisa Visual Computacional](../computer-vision/home.md)
+* [Emoção](../face/overview.md)
+* [Pesquisa Visual Computacional](../computer-vision/overview.md)
 
 ## <a name="actions-represent-a-list-of-options"></a>As ações representam uma lista de opções
 
@@ -322,4 +322,4 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Aprendizado de reforço](concepts-reinforcement-learning.md) 
+[Aprendizado de reforço](concepts-reinforcement-learning.md)

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669629"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364412"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -191,7 +191,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 [Exibir a documentação de referência de operação de transliteração](reference/v3-0-translate.md)
 
 
-| Linguagem    | Código de idioma | script | Para/De | script|
+| Linguagem    | Código de idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -347,7 +347,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Galês | `cy` |
 
 ## <a name="speech-translation"></a>Tradução de Fala
-A tradução de fala está disponível usando o tradutor com o serviço de fala de serviços cognitivas. Exiba a [documentação do serviço de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/) para saber mais sobre como usar a tradução de fala e exibir todas as opções de [idioma disponíveis](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+A tradução de fala está disponível usando o tradutor com o serviço de fala de serviços cognitivas. Exiba a [documentação do serviço de fala](../speech-service/index.yml) para saber mais sobre como usar a tradução de fala e exibir todas as opções de [idioma disponíveis](../speech-service/language-support.md).
 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A conversão de fala em texto é usada para a tradução de fala para texto ou para tradução de fala para fala quando usada em conjunto com a síntese de fala.

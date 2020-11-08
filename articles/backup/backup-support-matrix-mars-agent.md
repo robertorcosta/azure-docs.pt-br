@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173537"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363231"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -44,9 +44,9 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 **Cache** | **Detalhes**
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
-Localização | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
+Location | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
 Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
-Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup ( `net stop bengine` ) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) para o novo local e reinicie o mecanismo.
+Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup ( `net stop bengine` ) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** ( **config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation** ) para o novo local e reinicie o mecanismo.
 
 ## <a name="networking-and-access-support"></a>Suporte de rede e acesso
 
@@ -67,9 +67,9 @@ E para estes endereços IP:
 
 O acesso a todas as URLs e endereços IP listados acima usa o protocolo HTTPS na porta 443.
 
-Ao fazer backup de arquivos e pastas de VMs do Azure usando o agente MARS, a rede virtual do Azure também precisa ser configurada para permitir o acesso. Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da marca do Backup do Azure, você também precisará permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/network-security-groups-overview.md#service-tags) semelhantes para o Azure AD (*AzureActiveDirectory*) e o Armazenamento do Azure (*Armazenamento*). As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
+Ao fazer backup de arquivos e pastas de VMs do Azure usando o agente MARS, a rede virtual do Azure também precisa ser configurada para permitir o acesso. Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da marca do Backup do Azure, você também precisará permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/network-security-groups-overview.md#service-tags) semelhantes para o Azure AD ( *AzureActiveDirectory* ) e o Armazenamento do Azure ( *Armazenamento* ). As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
 
-1. Em **Todos os Serviços**, acesse **Grupos de segurança de rede** e selecione o grupo de segurança de rede.
+1. Em **Todos os Serviços** , acesse **Grupos de segurança de rede** e selecione o grupo de segurança de rede.
 2. Selecione **Regras de segurança de saída** em **Configurações**.
 3. Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma regra, conforme descrito em [Configurações da regra de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Verifique se a opção **Destino** está definida como *Tag de Serviço* e se **Marca de serviço de destino** está definida como *AzureBackup*.
 4. Selecione **Adicionar** para salvar a regra de segurança de saída recém-criada.
@@ -168,6 +168,17 @@ Windows Server 2008 R2 SP1 |1\.700 GB
 Windows Server 2008 SP2| 1\.700 GB
 Windows 8 ou superior| 54.400 GB
 Windows 7| 1\.700 GB
+
+### <a name="minimum-retention-limits"></a>Limites mínimos de retenção
+
+A seguir estão as durações mínimas de retenção que podem ser definidas para os diferentes pontos de recuperação:
+
+|Ponto de recuperação |Duration  |
+|---------|---------|
+|Ponto de recuperação diário    |   7 dias      |
+|Ponto de recuperação semanal     |    4 semanas     |
+|Ponto de recuperação mensal    |   3 meses      |
+|Ponto de recuperação anual  |      1 ano   |
 
 ### <a name="other-limitations"></a>Outras limitações
 

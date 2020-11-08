@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359537"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366716"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceitos de alta disponibilidade no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -101,17 +101,17 @@ Os servidores flexíveis configurados com alta disponibilidade, replicam dados e
 -   Há suporte para alta disponibilidade apenas em regiões em que várias zonas estão disponíveis.
 -   Devido à replicação síncrona para outra zona de disponibilidade, os aplicativos podem experimentar a latência elevada de gravação e confirmação.
 
--   A réplica em espera não pode ser usada para consultas somente leitura.
+-   A réplica em espera não pode ser usada para consultas de leitura.
 
--   Dependendo da atividade no servidor primário no momento do failover, pode levar até dois minutos ou mais para que o failover seja concluído.
+-   Dependendo da carga de trabalho e da atividade no servidor primário, o processo de failover pode levar mais de 120 segundos.
 
--   Reiniciar o servidor de banco de dados primário para escolher as alterações de parâmetros estáticos também reinicia a réplica em espera.
+-   Reiniciar o servidor de banco de dados primário também reinicia a réplica em espera. 
 
 -   Não há suporte para a configuração de réplicas de leitura adicionais.
 
 -   Configurar tarefas de gerenciamento iniciadas pelo cliente não pode ser agendado durante a janela de manutenção gerenciada.
 
--   Eventos planejados, como dimensionamento de computação e de armazenamento, ocorrem em espera primeiro e, em seguida, no servidor primário. O serviço não passou por failover. 
+-   Eventos planejados, como dimensionamento de computação e de armazenamento, ocorrem em espera primeiro e, em seguida, no servidor primário. O servidor não passou por failover para essas operações planejadas. 
 
 -  Se a decodificação lógica ou a replicação lógica estiver configurada com um servidor flexível configurado com alta disponibilidade, no caso de um failover para o servidor em espera, os slots de replicação lógica não serão copiados para o servidor em espera.  
 

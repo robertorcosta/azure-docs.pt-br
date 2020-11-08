@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 97327517b40e715294393a97e8a26c078173e762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510837"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366835"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
@@ -28,7 +28,7 @@ O Custom Translator aprende traduções de sentenças uma sentença de cada vez.
 
 Se você souber que possui documentos paralelos, poderá substituir o alinhamento de sentenças fornecendo arquivos de texto pré-alinhados. Você pode extrair todas as sentenças de ambos os documentos em um arquivo de texto, organizar uma sentença por linha e fazer o upload com uma extensão `.align`. A extensão `.align` sinaliza ao Custom Translator que deve pular o alinhamento das frases.
 
-Para obter melhores resultados, verifique se você tem uma frase por linha em seus arquivos.Não tem caracteres de nova linha dentro de uma frase, pois isso causará alinhamentos ruins.
+Para obter melhores resultados, verifique se você tem uma frase por linha em seus arquivos. Não tem caracteres de nova linha dentro de uma frase, pois isso causará alinhamentos ruins.
 
 ## <a name="suggested-minimum-number-of-sentences"></a>Número mínimo sugerido de frases
 
@@ -38,13 +38,13 @@ Para que um treinamento tenha sucesso, a tabela a seguir mostra o número mínim
 |------------|--------------------------------------------|--------------------------------|
 | Treinamento   | 10.000                                     | Nenhum limite superior                 |
 | Ajuste     | 500                                      | 2\.500       |
-| Testando    | 500                                      | 2\.500  |
+| Testes    | 500                                      | 2\.500  |
 | Dicionário | 0                                          | Nenhum limite superior                 |
 
 > [!NOTE]
 > - O treinamento não será iniciado e falhará se a contagem mínima de sentenças 10.000 para treinamento não for atendida. 
 > - O ajuste e o teste são opcionais. Se você não os fornecer, o sistema removerá uma porcentagem apropriada do treinamento a ser usado para validação e teste. 
-> - Você pode treinar um modelo usando apenas dados do dicionário. Veja [o que é o dicionário](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
+> - Você pode treinar um modelo usando apenas dados do dicionário. Veja [o que é o dicionário](./what-is-dictionary.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

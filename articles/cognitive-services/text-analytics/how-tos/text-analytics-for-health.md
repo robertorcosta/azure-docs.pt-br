@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173950"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363860"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
 
@@ -84,7 +84,7 @@ Preencha e envie o [formulário de solicitação de contêineres de serviços co
 Há várias maneiras que você pode instalar e executar o contêiner. 
 
 - Use o [portal do Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) para criar um recurso de análise de texto e use o Docker para obter seu contêiner.
-- Use os scripts do PowerShell e do [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) a seguir para automatizar a configuração do contêiner de implantação de recursos.
+- Use os scripts do PowerShell e do [CLI do Azure](/cli/azure/?view=azure-cli-latest) a seguir para automatizar a configuração do contêiner de implantação de recursos.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Instalar o contêiner usando o Azure Aplicativo Web para Contêineres
 
@@ -124,7 +124,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 Você também pode usar uma ACI (instância de contêiner do Azure) para facilitar a implantação. ACI é um recurso que permite executar contêineres do Docker sob demanda em um ambiente gerenciado e sem servidor do Azure. 
 
 Consulte [como usar as instâncias de contêiner do Azure](text-analytics-how-to-use-container-instances.md) para obter etapas sobre como implantar um recurso ACI usando o portal do Azure. Você também pode usar o script do PowerShell abaixo usando CLI do Azure, que criará um ACI em sua assinatura usando a imagem de contêiner.  Aguarde até que o script seja concluído (aproximadamente 25-30 minutos) antes de enviar a primeira solicitação.  Devido ao limite do número máximo de CPUs por recurso ACI, não selecione esta opção se você espera enviar mais de 5 documentos grandes (aproximadamente 5000 caracteres cada) por solicitação.
-Consulte o artigo de [suporte regional do ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) para obter informações de disponibilidade. 
+Consulte o artigo de [suporte regional do ACI](../../../container-instances/container-instances-region-availability.md) para obter informações de disponibilidade. 
 
 > [!NOTE] 
 > As instâncias de contêiner do Azure não incluem suporte a HTTPS para os domínios internos. Se você precisar de HTTPS, será necessário configurá-lo manualmente, incluindo a criação de um certificado e o registro de um domínio. Você pode encontrar instruções para fazer isso com o NGINX abaixo.

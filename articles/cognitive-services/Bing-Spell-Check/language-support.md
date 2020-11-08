@@ -10,23 +10,23 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 2b4e4eb84cecf2f68c50f0a40630cc2e6f34554f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38bf38f47e4430c847e54bd89f6bf3cd7be50527
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084198"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367073"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Idiomas e regiões compatíveis com a API de Verificação Ortográfica do Bing
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Esses idiomas são suportados pela API do Bing Spell Check (somente no modo `spell`).
 
-Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mkt` deve ser definido e `Accept-Language` ou `setLang` deve ser definido como descrito na [referência da API Spell Check v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mkt` deve ser definido e `Accept-Language` ou `setLang` deve ser definido como descrito na [referência da API Spell Check v7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Linguagem    | Código de idioma |
 |:----------- |:-------------:|
@@ -71,7 +71,7 @@ Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mk
 | Sueco     | `sv`          |
 | Turco     | `tr`          |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
-- [Página Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)
+- [Página Documentação dos Serviços Cognitivos](../index.yml)
 - [Página do Produto de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
