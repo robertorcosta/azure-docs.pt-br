@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843134"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369368"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de Serviços Cognitivos do Azure
 
@@ -51,7 +51,7 @@ As redes virtuais (VNETs) têm suporte em [regiões em que os serviços cognitiv
 > * Reconhecimento de Formulários
 > * Reconhecimento Vocal (LUIS)
 > * Personalizador
-> * Análise de Texto
+> * Análise de texto
 > * QnA Maker
 > * Tradução de Texto
 > * Leitura Avançada
@@ -75,7 +75,7 @@ Por padrão, os recursos de serviços cognitivas aceitam conexões de clientes e
 
 Você pode gerenciar regras de acesso de rede padrão para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -154,7 +154,7 @@ Você pode gerenciar regras de acesso de rede padrão para recursos de serviços
         --default-action Allow
     ```
 
-***
+**_
 
 ## <a name="grant-access-from-a-virtual-network"></a>Conceder acesso de uma rede virtual
 
@@ -166,7 +166,7 @@ Cada recurso de serviços cognitivas dá suporte a até 100 regras de rede virtu
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
-Para aplicar uma regra de rede virtual a um recurso de serviços cognitivas, o usuário deve ter as permissões apropriadas para as sub-redes que estão sendo adicionadas. A permissão necessária é a função *colaborador* padrão ou a função *colaborador de serviços cognitivas* . As permissões necessárias também podem ser adicionadas às definições de função personalizadas.
+Para aplicar uma regra de rede virtual a um recurso de serviços cognitivas, o usuário deve ter as permissões apropriadas para as sub-redes que estão sendo adicionadas. A permissão necessária é a função padrão _Contributor * ou a função de *colaborador de serviços cognitivas* . As permissões necessárias também podem ser adicionadas às definições de função personalizadas.
 
 O recurso de serviços cognitivas e as redes virtuais com acesso concedido podem estar em assinaturas diferentes, incluindo assinaturas que fazem parte de um locatário diferente do Azure AD.
 
@@ -177,7 +177,7 @@ O recurso de serviços cognitivas e as redes virtuais com acesso concedido podem
 
 Você pode gerenciar regras de rede virtual para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -185,7 +185,7 @@ Você pode gerenciar regras de rede virtual para recursos de serviços cognitiva
 
 1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
 
-1. Para conceder acesso a uma rede virtual com uma regra de rede existente, em **redes virtuais**, selecione **Adicionar rede virtual existente**.
+1. Para conceder acesso a uma rede virtual com uma regra de rede existente, em **redes virtuais** , selecione **Adicionar rede virtual existente**.
 
    ![Adicionar vNet existente](media/vnet/virtual-network-add-existing.png)
 
@@ -322,10 +322,10 @@ Você pode gerenciar regras de rede virtual para recursos de serviços cognitiva
         --subnet $subnetid
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> Não se esqueça de [definir a regra padrão](#change-the-default-network-access-rule) para **negar** ou as regras de rede não terão efeito.
+> Certifique-se de [definir a regra padrão](#change-the-default-network-access-rule) para _ * Deny * *, ou as regras de rede não têm nenhum efeito.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso de um intervalo de IP de Internet
 
@@ -353,7 +353,7 @@ Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introducti
 
 Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -472,10 +472,10 @@ Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por
         --ip-address "16.17.18.0/24"
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> Não se esqueça de [definir a regra padrão](#change-the-default-network-access-rule) para **negar** ou as regras de rede não terão efeito.
+> Certifique-se de [definir a regra padrão](#change-the-default-network-access-rule) para _ * Deny * *, ou as regras de rede não têm nenhum efeito.
 
 ## <a name="use-private-endpoints"></a>Usar pontos de extremidade privados
 
@@ -497,7 +497,7 @@ Pontos de extremidade privados podem ser criados em sub-redes que usam [pontos d
 
 Quando você cria um ponto de extremidade privado para um recurso de serviços cognitivas em sua VNet, uma solicitação de consentimento é enviada para aprovação para o proprietário do recurso de serviços cognitivas. Se o usuário que solicita a criação do ponto de extremidade privado também for um proprietário do recurso, essa solicitação de consentimento será aprovada automaticamente.
 
-Os proprietários de recursos de serviços cognitivas podem gerenciar solicitações de consentimento e os pontos de extremidade privados, por meio da guia '*pontos de extremidade particulares*' para o recurso de serviços cognitivas no [portal do Azure](https://portal.azure.com).
+Os proprietários de recursos de serviços cognitivas podem gerenciar solicitações de consentimento e os pontos de extremidade privados, por meio da guia ' *pontos de extremidade particulares* ' para o recurso de serviços cognitivas no [portal do Azure](https://portal.azure.com).
 
 ### <a name="private-endpoints"></a>Pontos de extremidade privados
 
@@ -519,7 +519,7 @@ Ao usar pontos de extremidade privados com o serviço de fala, você deve usar u
 
 ### <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos de extremidade particulares
 
-Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNAME para o recurso de serviços cognitivas é atualizado para um alias em um subdomínio com o prefixo '*privatelink*'. Por padrão, também criamos uma [zona DNS privada](../dns/private-dns-overview.md), correspondente ao subdomínio '*privatelink*', com os registros de recurso de DNS a para os pontos de extremidade privados.
+Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNAME para o recurso de serviços cognitivas é atualizado para um alias em um subdomínio com o prefixo ' *privatelink* '. Por padrão, também criamos uma [zona DNS privada](../dns/private-dns-overview.md), correspondente ao subdomínio ' *privatelink* ', com os registros de recurso de DNS a para os pontos de extremidade privados.
 
 Quando você resolve a URL do ponto de extremidade de fora da VNet com o ponto de extremidade privado, ela é resolvida para o ponto de extremidade público do recurso de serviços cognitivas. Quando resolvido da VNet que hospeda o ponto de extremidade privado, a URL do ponto de extremidade é resolvida para o endereço IP do ponto de extremidade privado.
 
@@ -532,8 +532,8 @@ Se você estiver usando um servidor DNS personalizado em sua rede, os clientes d
 
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
 
-* [Resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [Configuração de DNS para pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Resolução de nomes para recursos em redes virtuais do Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [Configuração de DNS para pontos de extremidade privados](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### <a name="pricing"></a>Preços
 
@@ -541,5 +541,5 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https:/
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Explore os vários [Serviços cognitivas do Azure](welcome.md)
+* Explore os vários [Serviços cognitivas do Azure](./what-are-cognitive-services.md)
 * Saiba mais sobre os [pontos de extremidade de serviço de rede virtual do Azure](../virtual-network/virtual-network-service-endpoints-overview.md)

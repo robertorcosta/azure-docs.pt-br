@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 542f62f04adc7d4858e4b4621b0ae85e906434ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220849"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369317"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
@@ -92,7 +92,7 @@ Para atualizar configurações de implantação:
 
     ![Captura de tela que realça o botão de atualização para atualizar as configurações de implantação.](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Selecione **Atualizar**.
+3.  Selecione **Atualização**.
 4.  Selecione **Implantado** ou **Não Implantado** para as regiões onde você deseja seu modelo implantado ou não implantando, em seguida, clique em **Salvar**.
 
     ![Implantar modelo](media/how-to/how-to-undeploy-model.png)
@@ -102,6 +102,6 @@ Para atualizar configurações de implantação:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](../reference/v3-0-translate.md?tabs=curl).
 - Saiba mais [como gerenciar configurações](how-to-manage-settings.md) para compartilhar seu workspace, gerenciar a chave de assinatura.
 - Aprenda [como migrar seu workspace e projeto](how-to-migrate.md) do [Microsoft Translator Hub](https://hub.microsofttranslator.com)

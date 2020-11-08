@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 11/06/2020
+ms.openlocfilehash: 7532366d533aa957525235511a1f29649d6f8828
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360030"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369198"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -137,13 +137,57 @@ Estes são os limites de definição de um único aplicativo lógico:
 
 | Nome | Limite | Observações |
 | ---- | ----- | ----- |
-| Ação: Execuções a cada 5 minutos | 100.000 é o limite padrão, mas 300.000 é o limite máximo. | Para alterar o limite padrão, consulte [Execute seu aplicativo lógico no modo "alto rendimento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está na visualização. Ou, você pode distribuir a carga de trabalho entre mais de um aplicativo lógico conforme necessário. |
+| Ação: Execuções a cada 5 minutos | 100.000 é o limite padrão, mas 300.000 é o limite máximo. | Para aumentar o limite padrão para o máximo de seu aplicativo lógico, consulte [executar no modo de alta taxa de transferência](#run-high-throughput-mode), que está em versão prévia. Ou, você pode [distribuir a carga de trabalho entre mais de um aplicativo lógico](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) , conforme necessário. |
 | Ação: chamadas de saída simultâneas | ~2.500 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
 | Ponto de extremidade de tempo de execução: chamadas de entrada simultâneas | ~1,000 | Você pode reduzir o número de solicitações simultâneas ou reduzir a duração conforme necessário. |
 | Ponto de extremidade de runtime: Chamadas de leitura a cada 5 minutos  | 60.000 | Esse limite se aplica a chamadas que obtêm as entradas e saídas brutas do histórico de execução de um aplicativo lógico. Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
 | Ponto de extremidade de runtime: Chamadas de invocação a cada 5 minutos | 45,000 | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
 | Taxa de transferência de conteúdo por 5 minutos | 600 MB | Você pode distribuir a carga de trabalho entre mais de um aplicativo, conforme necessário. |
 ||||
+
+<a name="run-high-throughput-mode"></a>
+
+#### <a name="run-in-high-throughput-mode"></a>Executar no modo de alta taxa de transferência
+
+Para uma definição de aplicativo lógico único, o número de ações executadas a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar o limite padrão para o máximo de seu aplicativo lógico, você pode habilitar o modo de alta taxa de transferência, que está em versão prévia. Ou, você pode [distribuir a carga de trabalho entre mais de um aplicativo lógico](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) , conforme necessário.
+
+1. No portal do Azure, no menu do aplicativo lógico, em **configurações** , selecione **configurações de fluxo de trabalho**.
+
+1. Em **Opções de tempo de execução**  >  **alta taxa de transferência** , altere a configuração para **ativado**.
+
+   ![Captura de tela que mostra o menu do aplicativo lógico no portal do Azure com "configurações de fluxo de trabalho" e "alta taxa de transferência" definida como "ativada".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
+
+Para habilitar essa configuração em um modelo ARM para implantar seu aplicativo lógico, no `properties` objeto para a definição de recurso do aplicativo lógico, adicione o `runtimeConfiguration` objeto com a `operationOptions` propriedade definida como `OptimizedForHighThroughput` :
+
+```json
+{
+   <template-properties>
+   "resources": [
+      // Start logic app resource definition
+      {
+         "properties": {
+            <logic-app-resource-definition-properties>,
+            <logic-app-workflow-definition>,
+            <more-logic-app-resource-definition-properties>,
+            "runtimeConfiguration": {
+               "operationOptions": "OptimizedForHighThroughput"
+            }
+         },
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {},
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+         ]
+      }
+      // End logic app resource definition
+   ],
+   "outputs": {}
+}
+```
+
+Para obter mais informações sobre a definição de recurso de aplicativo lógico, consulte [visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition).
 
 ### <a name="integration-service-environment-ise"></a>Ambiente do serviço de integração (ISE)
 

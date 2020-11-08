@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757020"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368331"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
@@ -33,7 +33,7 @@ Você precisa ter uma chave de assinatura do tradutor associada ao seu espaço d
 
 Se você não tem uma assinatura, siga as etapas abaixo:
 
-1. Assine para criar um recurso de tradutor. Siga [como se inscrever no Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) para assinar e adquirir uma chave de tradutor.
+1. Assine para criar um recurso de tradutor. Siga [como se inscrever no Translator](../translator-how-to-signup.md) para assinar e adquirir uma chave de tradutor.
 2. Anote a chave para sua assinatura do tradutor. Qualquer uma das Key1 ou Key2 são aceitáveis.
 3. Navegue de volta para o portal do Custom Translator.
 
@@ -52,7 +52,7 @@ Se você não tem uma assinatura, siga as etapas abaixo:
     ![Criar caixa de diálogo do novo workspace](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->O tradutor personalizado não dá suporte à criação de espaço de trabalho para API de Tradução de Texto recurso (também conhecido como Chave de assinatura do Azure) que foi criada dentro da [VNET habilitada](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>O tradutor personalizado não dá suporte à criação de espaço de trabalho para API de Tradução de Texto recurso (também conhecido como Chave de assinatura do Azure) que foi criada dentro da [VNET habilitada](../../../api-management/api-management-using-with-vnet.md).
 
 ### <a name="modify-existing-key"></a>Modificar chave existente
 

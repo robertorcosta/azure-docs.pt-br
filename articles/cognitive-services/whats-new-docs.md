@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 11/03/2020
-ms.openlocfilehash: 715b02eec7b499afdcffa5e1f31d388e8bc930e7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 239a93c58edd1f02e5e34d974fdc864f3e1cf90f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305242"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369419"
 ---
 # <a name="cognitive-services-whats-new-in-docs-for-october-1-2020---october-31-2020"></a>Serviços cognitivas: novidades no docs para 1º de outubro de 2020 a 31 de outubro de 2020
 
@@ -34,39 +34,39 @@ Bem-vindo ao que há de novo nos documentos de serviços cognitivas de 1º de ou
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Usar o Docker Compose para implantar vários contêineres](/azure/cognitive-services/containers/docker-compose-recipe.md)
+- [Usar o Docker Compose para implantar vários contêineres](./containers/docker-compose-recipe.md)
 
 ## <a name="form-recognizer"></a>Reconhecimento de Formulários
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [O que há de novo no Reconhecimento de Formulários?](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [O que há de novo no Reconhecimento de Formulários?](./form-recognizer/whats-new.md)
 
 ## <a name="immersive-reader"></a>Leitura Avançada
 
 ### <a name="new-articles"></a>Novos artigos
 
-- [Notas de versão do SDK do JavaScript do leitor de imersão](/azure/cognitive-services/immersive-reader/release-notes.md)
+- [Notas de versão do SDK do JavaScript do leitor de imersão](./immersive-reader/release-notes.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Como armazenar as preferências do usuário](/azure/cognitive-services/immersive-reader/how-to-store-user-preferences.md)
-- [Referência do SDK do JavaScript do leitor de imersão (v 1.1)](/azure/cognitive-services/immersive-reader/reference.md)
+- [Como armazenar as preferências do usuário](./immersive-reader/how-to-store-user-preferences.md)
+- [Referência do SDK do JavaScript do leitor de imersão (v 1.1)](./immersive-reader/reference.md)
 
 ## <a name="metrics-advisor"></a>Assistente de Métricas
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Adicionar feeds de dados de diferentes fontes de dados ao orientador de métricas](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Perguntas frequentes do assistente de métricas](/azure/cognitive-services/metrics-advisor/faq.md)
+- [Adicionar feeds de dados de diferentes fontes de dados ao orientador de métricas](./metrics-advisor/data-feeds-from-different-sources.md)
+- [Perguntas frequentes do assistente de métricas](./metrics-advisor/faq.md)
 
 ## <a name="text-analytics"></a>Análise de texto
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Migrar para a versão 3. x do API de Análise de Texto](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [Como usar o reconhecimento de entidade nomeada no Análise de Texto](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Como fazer: Detectar o sentimento usando a API de Análise de Texto](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
+- [Migrar para a versão 3. x do API de Análise de Texto](./text-analytics/migration-guide.md)
+- [Como usar o reconhecimento de entidade nomeada no Análise de Texto](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Como fazer: Detectar o sentimento usando a API de Análise de Texto](./text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
 
 ## <a name="community-contributors"></a>Colaboradores da Comunidade
 

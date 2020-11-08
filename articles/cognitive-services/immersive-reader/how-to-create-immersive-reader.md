@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 9dcbfa8234aea2c558df107fc919dc74f7b4f39a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b012da0b2aea4a50002e9adbc0876396ddd4b5e7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324494"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368722"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory
 
@@ -29,7 +29,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 
 ## <a name="set-up-powershell-environment"></a>Configurar o ambiente do PowerShell
 
-1. Comece abrindo a [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Verifique se Cloud Shell está definido como PowerShell no menu suspenso superior esquerdo ou digitando `pwsh` .
+1. Comece abrindo a [Azure cloud Shell](../../cloud-shell/overview.md). Verifique se Cloud Shell está definido como PowerShell no menu suspenso superior esquerdo ou digitando `pwsh` .
 
 1. Copie e cole o trecho de código a seguir no Shell.
 
@@ -196,7 +196,3 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 * Veja o [tutorial do iOS](./tutorial-ios.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
 * Confira o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](./reference.md)
-
-
-
-

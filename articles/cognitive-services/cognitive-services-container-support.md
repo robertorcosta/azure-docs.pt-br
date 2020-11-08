@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: local, Docker, contêiner, kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677446"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368841"
 ---
-# <a name="azure-cognitive-services-containers"></a>Contêineres de serviços cognitivas do Azure
+# <a name="azure-cognitive-services-containers"></a>Contêineres dos Serviços Cognitivos do Azure
 
 > [!WARNING]
 > Em 11 de junho de 2020, a Microsoft comunicou que não venderá tecnologia de reconhecimento facial a departamentos de polícia nos Estados Unidos até que um sólido regulamento, com base nos direitos humanos, seja aprovado. Desse modo, os clientes não poderão usar os recursos de reconhecimento facial ou a funcionalidade incluída nos Serviços do Azure, como Detecção Facial ou Video Indexer, se forem um departamento de polícia nos Estados Unidos ou permitirem o uso de desses serviços para e pela polícia.
@@ -75,7 +75,7 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 | [Análise Espacial][spa-containers] | S0 | **Análise espacial** | Analisa o vídeo de streaming em tempo real para entender as relações espaciais entre as pessoas, a movimentação e as interações com objetos em ambientes físicos. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 Além disso, alguns contêineres têm suporte em chaves de recurso de oferta de serviços cognitivas [**All-in-One**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) . Você pode criar um único recurso All-in-One de serviços cognitivas e usar a mesma chave de cobrança entre os serviços com suporte para os seguintes serviços:
@@ -132,7 +132,7 @@ Instale e explore a funcionalidade fornecida pelos contêineres nos Serviços Co
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

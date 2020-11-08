@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590631"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368807"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para serviços cognitivas
 
-Os serviços cognitivas do Azure usam nomes de subdomínio personalizados para cada recurso criado por meio do [portal do Azure](https://portal.azure.com), [Azure cloud Shell](https://azure.microsoft.com/features/cloud-shell/)ou [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Ao contrário dos pontos de extremidade regionais, que eram comuns para todos os clientes em uma região específica do Azure, os nomes de subdomínio personalizados são exclusivos para o recurso. Os nomes de subdomínio personalizados são necessários para habilitar recursos como o Azure Active Directory (Azure AD) para autenticação.
+Os serviços cognitivas do Azure usam nomes de subdomínio personalizados para cada recurso criado por meio do [portal do Azure](https://portal.azure.com), [Azure cloud Shell](https://azure.microsoft.com/features/cloud-shell/)ou [CLI do Azure](/cli/azure/install-azure-cli). Ao contrário dos pontos de extremidade regionais, que eram comuns para todos os clientes em uma região específica do Azure, os nomes de subdomínio personalizados são exclusivos para o recurso. Os nomes de subdomínio personalizados são necessários para habilitar recursos como o Azure Active Directory (Azure AD) para autenticação.
 
 ## <a name="how-does-this-impact-existing-resources"></a>Como isso afeta os recursos existentes?
 
@@ -80,7 +80,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Leste dos EUA 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | França Central | `https://francecentral.api.cognitive.microsoft.com` |
 | | Centro da Índia | `https://centralindia.api.cognitive.microsoft.com` |
-| | Japan East | `https://japaneast.api.cognitive.microsoft.com` |
+| | Leste do Japão | `https://japaneast.api.cognitive.microsoft.com` |
 | | Coreia Central | `https://koreacentral.api.cognitive.microsoft.com` |
 | | Centro-Norte dos EUA | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Norte da Europa | `https://northeurope.api.cognitive.microsoft.com` |
@@ -98,5 +98,5 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 
 ## <a name="see-also"></a>Confira também
 
-* [Quais são os serviços cognitivas?](Welcome.md)
+* [Quais são os serviços cognitivas?](./what-are-cognitive-services.md)
 * [Autenticação](authentication.md)

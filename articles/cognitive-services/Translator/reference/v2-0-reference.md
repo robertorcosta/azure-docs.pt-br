@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83588608"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369504"
 ---
 # <a name="translator-v20"></a>Tradutor v 2.0
 
@@ -25,7 +25,7 @@ ms.locfileid: "83588608"
 A versão 2 do tradutor pode ser integrada diretamente em seus aplicativos, sites, ferramentas ou outras soluções para fornecer experiências de usuário em vários idiomas. Você pode usá-lo em qualquer plataforma de hardware e em qualquer sistema operacional para executar a tradução de linguagem e outras tarefas relacionadas à linguagem, como detecção de idioma de texto e conversão de texto em fala, de acordo com os padrões do setor. Para obter mais informações, consulte [Translator](../translator-info-overview.md).
 
 ## <a name="getting-started"></a>Introdução
-Para acessar o tradutor, você precisa [se inscrever para Microsoft Azure](../translator-text-how-to-signup.md).
+Para acessar o tradutor, você precisa [se inscrever para Microsoft Azure](../translator-how-to-signup.md).
 
 ## <a name="authentication"></a>Autenticação 
 Todas as chamadas para o tradutor exigem uma chave de assinatura para autenticação. A API dá suporte a três métodos de autenticação:
@@ -209,7 +209,7 @@ Recupera nomes amigáveis para os idiomas passados como o parâmetro `languageCo
 
 O URI da solicitação é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
 
-O corpo da solicitação inclui uma matriz de cadeia de caracteres que representa os códigos de idioma ISO 639-1 para os quais recuperar os nomes amigáveis. Este é um exemplo:
+O corpo da solicitação inclui uma matriz de cadeia de caracteres que representa os códigos de idioma ISO 639-1 para os quais recuperar os nomes amigáveis. Aqui está um exemplo:
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -461,7 +461,7 @@ Tipo de conteúdo da resposta: Application: XML
 |translatedText|(vazio) |Obrigatórios. Uma cadeia de caracteres que contém texto traduzido no idioma de destino. O comprimento máximo da cadeia de caracteres é de 2.000 caracteres.|Consulta|string|
 |de|(vazio)   |Obrigatórios. Uma cadeia de caracteres que representa o código de idioma do idioma original do texto. Por exemplo, en para inglês e de alemão.|Consulta|string|
 |para|(vazio)|Obrigatórios. Uma cadeia de caracteres que representa o código de idioma do idioma no qual converter o texto.|Consulta|string|
-|classificação|(vazio) |Opcional. Um inteiro que representa a classificação de qualidade da cadeia de caracteres. O valor está entre-10 e 10. O padrão é 1.|Consulta|Número inteiro|
+|classificação|(vazio) |Opcional. Um inteiro que representa a classificação de qualidade da cadeia de caracteres. O valor está entre-10 e 10. O padrão é 1.|Consulta|inteiro|
 |contentType|(vazio)    |Opcional. O formato do texto que está sendo traduzido. Os formatos com suporte são `text/plain` e `text/html` . Todos os elementos HTML precisam ser bem formados, elementos completos.    |Consulta|string|
 |category|(vazio)|Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. O padrão é `general`.|Consulta|string|
 |usuário|(vazio)|Obrigatórios. Uma cadeia de caracteres que é usada para rastrear o originador do envio.|Consulta|string|
@@ -560,7 +560,7 @@ O URI da solicitação é `https://api.microsofttranslator.com/V2/Http.svc/Break
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
 Uma matriz de inteiros que representa os comprimentos das frases. O comprimento da matriz representa o número de sentenças. Os valores representam o comprimento de cada frase.
 
-Número inteiro
+inteiro
 
 Tipo de conteúdo da resposta: Application/XML
 
@@ -607,11 +607,11 @@ O `TranslateOptions` objeto contém os valores na lista a seguir. Eles são todo
 
 * `Category`: Uma cadeia de caracteres que contém a categoria (domínio) da tradução. O padrão é `general`.
 * `ContentType`: A única opção com suporte e o padrão é `text/plain` .
-* `IncludeMultipleMTAlternatives`: Um sinalizador booliano para especificar se mais de uma alternativa deve ser retornada do mecanismo MT. Os valores válidos são `true` e `false` (diferencia maiúsculas de minúsculas). O padrão é `false` , que retorna apenas uma alternativa. Definir o sinalizador para `true` permite a criação de alternativas artificiais, totalmente integradas à estrutura de tradução colaborativa (CTF). O recurso permite retornar alternativas para frases que não têm nenhuma tradução em CTF adicionando alternativas artificiais da lista *n*melhores do decodificador.
+* `IncludeMultipleMTAlternatives`: Um sinalizador booliano para especificar se mais de uma alternativa deve ser retornada do mecanismo MT. Os valores válidos são `true` e `false` (diferencia maiúsculas de minúsculas). O padrão é `false` , que retorna apenas uma alternativa. Definir o sinalizador para `true` permite a criação de alternativas artificiais, totalmente integradas à estrutura de tradução colaborativa (CTF). O recurso permite retornar alternativas para frases que não têm nenhuma tradução em CTF adicionando alternativas artificiais da lista *n* melhores do decodificador.
     - As. As classificações são aplicadas desta forma: 
          - A melhor tradução automática tem uma classificação de 5.
        - As alternativas de CTF refletem a autoridade do revisor. Elas variam de-10 a + 10.
-       - As alternativas de tradução (*n*-melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
+       - As alternativas de tradução ( *n* -melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
     - Número de alternativas. O número de alternativas retornadas pode ser tão alto quanto o valor especificado em `maxTranslations` , mas pode ser menor.
     - Pares de idiomas. Essa funcionalidade não está disponível para traduções entre chinês simplificado e chinês tradicional, em qualquer direção. Ele está disponível para todos os outros pares de idiomas com suporte do Microsoft Translator.
 * `State`: Estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.
@@ -669,7 +669,7 @@ Tipo de conteúdo da resposta: Application/XML
 |text|(vazio)|Obrigatórios. Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho máximo do texto é de 10.000 caracteres.|Consulta|string|
 |de|(vazio)|Obrigatórios. Uma cadeia de caracteres que representa o código de idioma do texto que está sendo traduzido.|Consulta|string|
 |para |(vazio)    |Obrigatórios. Uma cadeia de caracteres que representa o código de idioma do idioma no qual converter o texto.|Consulta|string|
-|maxTranslations|(vazio)|Obrigatórios. Um inteiro que representa o número máximo de traduções a serem retornadas.|Consulta|Número inteiro|
+|maxTranslations|(vazio)|Obrigatórios. Um inteiro que representa o número máximo de traduções a serem retornadas.|Consulta|inteiro|
 |Autorização| (vazio)|Necessário se o `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|string|  header|
 |Ocp-Apim-Subscription-Key|(vazio)  |Necessário se o `appid` campo e o `Authorization` cabeçalho forem deixados vazios.|header|string|
 
@@ -719,11 +719,11 @@ Este é o formato do corpo da solicitação:
 * `Options`: Opcional. Um `Options` objeto que contém os valores a seguir. Eles são todos opcionais e padrão para as configurações mais comuns. Os elementos especificado devem estar listados em ordem alfabética.
     - `Category`: Uma cadeia de caracteres que contém a categoria (domínio) da tradução. O padrão é `general`.
     - `ContentType`: A única opção com suporte e o padrão é `text/plain` .
-    - `IncludeMultipleMTAlternatives`: Um sinalizador booliano para especificar se mais de uma alternativa deve ser retornada do mecanismo MT. Os valores válidos são `true` e `false` (diferencia maiúsculas de minúsculas). O padrão é `false` , que retorna apenas uma alternativa. Definir o sinalizador para `true` habilitar a geração de alternativas artificiais na tradução, totalmente integrada à estrutura de traduções colaborativa (CTF). O recurso permite retornar alternativas para frases que não têm alternativas em CTF adicionando alternativas artificiais da lista *n*melhores do decodificador.
+    - `IncludeMultipleMTAlternatives`: Um sinalizador booliano para especificar se mais de uma alternativa deve ser retornada do mecanismo MT. Os valores válidos são `true` e `false` (diferencia maiúsculas de minúsculas). O padrão é `false` , que retorna apenas uma alternativa. Definir o sinalizador para `true` habilitar a geração de alternativas artificiais na tradução, totalmente integrada à estrutura de traduções colaborativa (CTF). O recurso permite retornar alternativas para frases que não têm alternativas em CTF adicionando alternativas artificiais da lista *n* melhores do decodificador.
         - As classificações são aplicadas como esta:
           - A melhor tradução automática tem uma classificação de 5.
           - As alternativas de CTF refletem a autoridade do revisor. Elas variam de-10 a + 10.
-          - As alternativas de tradução (*n*-melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
+          - As alternativas de tradução ( *n* -melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
         - Número de alternativas. O número de alternativas retornadas pode ser tão alto quanto o valor especificado em `maxTranslations` , mas pode ser menor.
         - Pares de idiomas. Essa funcionalidade não está disponível para traduções entre chinês simplificado e chinês tradicional, em qualquer direção. Ele está disponível para todos os outros pares de idiomas com suporte do Microsoft Translator.
 * `State`: Estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.
@@ -804,5 +804,3 @@ Tipo de conteúdo da resposta: Application/XML
 
 > [!div class="nextstepaction"]
 > [Migrar para o tradutor v3](../migrate-to-v3.md)
-
-

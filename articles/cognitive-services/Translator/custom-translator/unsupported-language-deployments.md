@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221189"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369028"
 ---
 # <a name="unsupported-language-deployments"></a>Implantações de linguagem sem suporte
 
@@ -57,4 +57,4 @@ Ao contrário dos modelos de Tradutor personalizado padrão, os modelos de Hub s
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Treinar um modelo](how-to-train-model.md).
-- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](../reference/v3-0-translate.md?tabs=curl).
