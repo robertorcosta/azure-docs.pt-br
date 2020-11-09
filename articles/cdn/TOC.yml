@@ -6,7 +6,7 @@
       href: cdn-overview.md
     - name: Comparar recursos do produto
       href: cdn-features.md
-- name: Inícios rápidos
+- name: Início rápido
   items:
     - name: Integrar uma conta de armazenamento
       href: cdn-create-a-storage-account-with-cdn.md
@@ -64,6 +64,8 @@
           href: cdn-create-endpoint-how-to.md
         - name: Gerenciar usando o Azure PowerShell
           href: cdn-manage-powershell.md
+        - name: Integrar um domínio raiz ou apex
+          href: onboard-apex-domain.md
         - name: Restringir o acesso por país ou região
           href: cdn-restrict-access-by-country.md
         - name: Melhorar o desempenho ao compactar arquivos

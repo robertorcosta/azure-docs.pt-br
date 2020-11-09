@@ -72,6 +72,8 @@
           href: concepts-api-management.md
         - name: Hub e spoke
           href: concepts-hub-and-spoke.md
+        - name: Central de Segurança do Azure
+          href: azure-security-integration.md
         - name: Servidor de Backup do Azure
           items:
             - name: Configurar Servidor de Backup
