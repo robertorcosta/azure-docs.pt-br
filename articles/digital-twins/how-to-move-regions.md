@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: cb532098cda290654d6bdebe9cec2edab8ccbf99
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355780"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381143"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância do gêmeos digital do Azure para uma região diferente do Azure
 
@@ -120,7 +120,7 @@ Em seguida, você concluirá a "movimentação" de sua instância criando uma no
 
 ### <a name="create-a-new-instance"></a>Criar uma nova instância
 
-Primeiro, crie uma nova instância do Azure digital gêmeos em sua região de destino. Siga as etapas em [Configurar uma instância e uma autenticação](how-to-set-up-instance-portal.md). Mantenha esses ponteiros em mente:
+Primeiro, crie uma nova instância do Azure digital gêmeos em sua região de destino. Siga as etapas em [como: configurar uma instância e uma autenticação](how-to-set-up-instance-portal.md). Mantenha esses ponteiros em mente:
 
 * Você pode manter o mesmo nome para a nova instância *se* ela estiver em um grupo de recursos diferente. Se você precisar usar o mesmo grupo de recursos que contém sua instância original, sua nova instância precisará de seu próprio nome distinto.
 * Insira a nova região de destino quando for solicitada uma localização.

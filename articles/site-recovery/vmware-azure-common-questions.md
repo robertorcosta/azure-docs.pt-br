@@ -3,12 +3,12 @@ title: Perguntas comuns sobre a recuperação de desastres do VMware com o Azure
 description: Obtenha respostas para perguntas comuns sobre a recuperação de desastre de VMs VMware locais para o Azure usando Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359791"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379983"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para Azure
 
@@ -176,7 +176,7 @@ Para a replicação do VMware para o Azure, você pode modificar o tamanho do di
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Posso migrar computadores locais para um novo vCenter Server sem afetar a replicação em andamento?
 
-Não. Uma alteração do VMware vCenter ou da migração afetará a replicação em andamento. Configure Site Recovery com o novo vCenter Server e habilite a replicação para computadores novamente.
+Consulte nossas [diretrizes](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) para migrar computadores para um novo vCenter
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Posso replicar para uma conta de armazenamento de destino ou de cache que tenha uma rede virtual (com firewalls do Azure) configurada nele?
 
@@ -286,7 +286,7 @@ Sim, mas observe que a máquina física pode passar por failback apenas para uma
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>Em que local posso baixar as chaves de registro do cofre?
 
-No cofre dos serviços de recuperação, selecione **servidores de configuração** em **site Recovery infraestrutura**  >  **gerenciar**. Em seguida, em **servidores**, selecione **baixar chave de registro** para baixar o arquivo de credenciais do cofre.
+No cofre dos serviços de recuperação, selecione **servidores de configuração** em **site Recovery infraestrutura**  >  **gerenciar**. Em seguida, em **servidores** , selecione **baixar chave de registro** para baixar o arquivo de credenciais do cofre.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Um único servidor de configuração pode ser usado para proteger várias instâncias do vCenter?
 

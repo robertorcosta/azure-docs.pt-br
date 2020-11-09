@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375611"
+ms.locfileid: "94380888"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -39,7 +39,7 @@ Os nomes de arquivo não podem incluir os seguintes caracteres:
 
 ### <a name="maximum-file-size"></a>Tamanho máximo do arquivo
 
-|Formatar|Tamanho máximo do arquivo (MB)|
+|Formato|Tamanho máximo do arquivo (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -96,14 +96,14 @@ Limites gerais sobre o conteúdo na base de dados de conhecimento:
 
 ## <a name="create-knowledge-base-call-limits"></a>Criar limites de chamada da base de dados de conhecimento:
 Eles representam os limites de cada ação de criação da base de dados de conhecimento; ou seja, clicar em *Criar KB* ou chamar a API CreateKnowledgeBase.
-* Número máximo de perguntas alternativas por resposta: 300
+* Número máximo recomendado de perguntas alternativas por resposta: 300
 * Número máximo de URLs: 10
 * Número máximo de arquivos: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Atualizar limites de chamada da base de dados de conhecimento
 Eles representam os limites de cada ação de atualização; ou seja, clique em *Salvar e treinar* ou chame a API UpdateKnowledgeBase.
 * Tamanho de cada nome de origem: 300
-* Número máximo de perguntas alternativas adicionadas ou excluídas: 300
+* Número máximo recomendado de perguntas alternativas adicionadas ou excluídas: 300
 * Número máximo de campos de metadados adicionados ou excluídos: 10
 * Número máximo de URLs que podem ser atualizadas: 5
 

@@ -4,15 +4,14 @@ description: Saiba quais portas e endereços são necessários para controlar o 
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900478"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380204"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
@@ -39,7 +38,7 @@ _ As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP 
 * Pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo de firewall.
 * Os pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar com o cluster AKS com base em vários qualificadores.
 * O AKS usa um controlador de admissão para injetar o FQDN como uma variável de ambiente para todas as implantações em Kube-System e gatekeeper-System, que garante que toda a comunicação do sistema entre nós e o servidor de API use o FQDN do servidor de API e não o IP do servidor de API. 
-* Se você tiver um aplicativo ou uma solução que precise se comunicar com o servidor de API, deverá adicionar uma regra de rede **adicional** para permitir a *comunicação TCP com a porta 443 do IP do seu servidor de API* .
+* Se você tiver um aplicativo ou uma solução que precise se comunicar com o servidor de API, deverá adicionar uma regra de rede **adicional** para permitir a *comunicação TCP com a porta 443 do IP do seu servidor de API*.
 * Em raras ocasiões, se houver uma operação de manutenção, o IP do servidor de API poderá ser alterado. As operações de manutenção planejadas que podem alterar o IP do servidor de API sempre são comunicadas antecipadamente.
 
 
@@ -63,11 +62,10 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Necessário para a comunicação de servidor de API de > de < de nó. Substitua *\<location\>* pela região em que o cluster AKs está implantado. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Necessário para acessar imagens no registro de contêiner da Microsoft (MCR). Esse registro contém gráficos/imagens de terceiros (por exemplo, coreDNS, etc.). Essas imagens são necessárias para a criação e o funcionamento corretos do cluster, incluindo operações de escala e atualização.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.azure.com`**       | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
-| **`packages.microsoft.com`**     | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get* .  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
+| **`packages.microsoft.com`**     | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get*.  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
 | **`acs-mirror.azureedge.net`**   | **`HTTPS:443`** | Esse endereço é para o repositório necessário para baixar e instalar os binários necessários, como kubenet e Azure CNI. |
 
 ### <a name="azure-china-21vianet-required-network-rules"></a>Regras de rede necessárias do Azure China 21Vianet
@@ -92,11 +90,10 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Necessário para a comunicação de servidor de API de > de < de nó. Substitua *\<location\>* pela região em que o cluster AKs está implantado. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Necessário para a comunicação de servidor de API de > de < de nó. Substitua *\<location\>* pela região em que o cluster AKs está implantado. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Necessário para acessar imagens no registro de contêiner da Microsoft (MCR). Esse registro contém gráficos/imagens de terceiros (por exemplo, coreDNS, etc.). Essas imagens são necessárias para a criação e o funcionamento corretos do cluster, incluindo operações de escala e atualização. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
-| **`packages.microsoft.com`**                   | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get* .  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
+| **`packages.microsoft.com`**                   | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get*.  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
 | **`*.azk8s.cn`**                               | **`HTTPS:443`** | Esse endereço é para o repositório necessário para baixar e instalar os binários necessários, como kubenet e Azure CNI. |
 
 ### <a name="azure-us-government-required-network-rules"></a>Regras de rede necessárias para o governo dos EUA do Azure
@@ -119,11 +116,10 @@ As seguintes regras de FQDN/aplicativo são obrigatórias:
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Necessário para a comunicação de servidor de API de > de < de nó. Substitua *\<location\>* pela região em que o cluster AKs está implantado.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Necessário para acessar imagens no registro de contêiner da Microsoft (MCR). Esse registro contém gráficos/imagens de terceiros (por exemplo, coreDNS, etc.). Essas imagens são necessárias para a criação e o funcionamento corretos do cluster, incluindo operações de escala e atualização. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Necessário para o armazenamento MCR apoiado pela CDN (rede de distribuição de conteúdo) do Azure. |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Necessário para operações de kubernetes na API do Azure. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Necessário para autenticação de Azure Active Directory. |
-| **`packages.microsoft.com`**                            | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get* .  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
+| **`packages.microsoft.com`**                            | **`HTTPS:443`** | Esse endereço é o repositório de pacotes da Microsoft usado para as operações *app-get*.  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
 | **`acs-mirror.azureedge.net`**                          | **`HTTPS:443`** | Esse endereço é para o repositório necessário para instalar os binários necessários, como kubenet e CNI do Azure. |
 
 ## <a name="optional-recommended-fqdn--application-rules-for-aks-clusters"></a>Regras de FQDN/aplicativo recomendadas opcionais para clusters AKS

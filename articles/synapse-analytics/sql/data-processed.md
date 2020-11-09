@@ -1,6 +1,6 @@
 ---
-title: Dados processados com o pool SQL sem servidor
-description: Este documento descreve como os dados processados são calculados ao consultar dados no armazenamento do Azure usando o pool SQL sem servidor.
+title: Dados processados usando o pool SQL sem servidor
+description: Este documento descreve como o valor processado por dados é calculado quando você consulta dados no data Lake.
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,76 +9,82 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 06eb02aa3dd4d5fc8bd3605dac480d5afa52d5fa
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423879"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381194"
 ---
-# <a name="data-processed-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Dados processados com o pool SQL sem servidor no Azure Synapse Analytics
+# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Dados processados usando o pool SQL sem servidor no Azure Synapse Analytics
 
-Os dados processados são a quantidade de dados armazenados temporariamente no sistema durante a execução de uma consulta e consiste em:
+Os *dados processados* são a quantidade de dados que o sistema armazena temporariamente enquanto uma consulta é executada. Os dados processados consistem nas seguintes quantidades:
 
-- Quantidade de dados lidos do armazenamento – que inclui:
-  - Quantidade de dados lidos durante a leitura de dados
-  - Quantidade de dados lidos durante a leitura de metadados (para formatos de arquivo que contêm metadados, como parquet)
-- Quantidade de dados em resultados intermediários – dados transferidos entre nós durante a execução da consulta, incluindo a transferência de dados para o ponto de extremidade, em formato descompactado. 
-- Quantidade de dados gravados no armazenamento – se você usar CETAS para exportar o conjunto de resultados para armazenamento, você será cobrado por bytes gravados e pela quantidade de dados processados para a parte SELECT de CETAS.
+- Quantidade de dados lidos do armazenamento. Essa quantidade inclui:
+  - Dados lidos durante a leitura de dados.
+  - Dados lidos durante a leitura de metadados (para formatos de arquivo que contêm metadados, como parquet).
+- Quantidade de dados em resultados intermediários. Esses dados são transferidos entre nós enquanto a consulta é executada. Ele inclui a transferência de dados para seu ponto de extremidade, em um formato descompactado. 
+- Quantidade de dados gravados no armazenamento. Se você usar CETAS para exportar o conjunto de resultados para armazenamento, a quantidade de dados gravados será adicionada à quantidade de dados processados para a parte SELECT de CETAS.
 
-A leitura de arquivos do armazenamento é altamente otimizada e usa:
+A leitura de arquivos do armazenamento é altamente otimizada. O processo usa:
 
-- Pré-busca-que pode adicionar uma pequena sobrecarga à quantidade de dados lidos. Se uma consulta ler um arquivo inteiro, não haverá sobrecarga. Se um arquivo for lido parcialmente, como nas consultas TOP N, um pouco mais dados serão lidos com a pré-busca.
-- Analisador CSV otimizado – se você usar PARSER_VERSION = ' 2.0 ' para ler arquivos CSV, isso resultará em quantidades ligeiramente maiores de dados lidos do armazenamento.  O analisador CSV otimizado lê arquivos em paralelo em partes de tamanho igual. Não há nenhuma garantia de que as partes conterão linhas inteiras. Para garantir que todas as linhas sejam analisadas, pequenos fragmentos de partes adjacentes também serão lidos, adicionando uma pequena quantidade de sobrecarga.
+- Pré-busca, que pode adicionar alguma sobrecarga à quantidade de dados lidos. Se uma consulta ler um arquivo inteiro, não haverá sobrecarga. Se um arquivo for lido parcialmente, como nas consultas TOP N, um pouco mais dados serão lidos usando a pré-busca.
+- Um analisador de CSV (valor separado por vírgula) otimizado. Se você usar PARSER_VERSION = ' 2.0 ' para ler arquivos CSV, as quantidades de dados lidos do armazenamento aumentarão um pouco. Um analisador CSV otimizado lê arquivos em paralelo, em partes de tamanho igual. As partes não contêm necessariamente linhas inteiras. Para garantir que todas as linhas sejam analisadas, o analisador CSV otimizado também lê pequenos fragmentos de partes adjacentes. Esse processo adiciona uma pequena quantidade de sobrecarga.
 
 ## <a name="statistics"></a>Estatísticas
 
-O otimizador de consulta do pool SQL sem servidor se baseia em estatísticas para gerar planos de execução de consulta ideais. Você pode criar estatísticas manualmente ou elas serão criadas automaticamente pelo pool SQL sem servidor. De qualquer forma, as estatísticas são criadas executando uma consulta separada que retorna uma coluna específica na taxa de amostragem fornecida. Esta consulta tem uma quantidade associada de dados processados.
+O otimizador de consulta do pool SQL sem servidor se baseia em estatísticas para gerar planos de execução de consulta ideais. Você pode criar estatísticas manualmente. Caso contrário, o pool SQL sem servidor os criará automaticamente. De qualquer forma, as estatísticas são criadas com a execução de uma consulta separada que retorna uma coluna específica em uma taxa de amostra fornecida. Esta consulta tem uma quantidade associada de dados processados.
 
-Se você executar o mesmo ou qualquer outra consulta que possa se beneficiar das estatísticas criadas, as estatísticas serão reutilizadas, se possível, e não haverá dados adicionais processados para a criação de estatísticas.
+Se você executar o mesmo ou qualquer outra consulta que possa se beneficiar das estatísticas criadas, as estatísticas serão reutilizadas, se possível. Não há dados adicionais processados para a criação de estatísticas.
 
-A criação de estatísticas para uma coluna parquet resultará na leitura somente da coluna relevante dos arquivos. A criação de estatísticas para uma coluna CSV resultará na leitura e análise de arquivos inteiros.
+Quando as estatísticas são criadas para uma coluna parquet, somente a coluna relevante é lida a partir dos arquivos. Quando as estatísticas são criadas para uma coluna CSV, arquivos inteiros são lidos e analisados.
 
 ## <a name="rounding"></a>Arredondamento
 
-A quantidade de dados processados será arredondada para os MB mais próximos por consulta, com um mínimo de 10 MB de dados processados por consulta.
+A quantidade de dados processados é arredondada para o MB mais próximo por consulta. Cada consulta tem um mínimo de 10 MB de dados processados.
 
-## <a name="what-is-not-included-in-data-processed"></a>O que não está incluído nos dados processados
+## <a name="what-data-processed-doesnt-include"></a>Quais dados processados não incluem
 
-- Metadados de nível de servidor (como logons, funções, credenciais de nível de servidor)
-- Os bancos de dados que você cria no ponto de extremidade como esses bancos de dados contêm apenas metadados (como usuários, funções, esquemas, exibições, TVFs embutida, procedimentos armazenados, credenciais no escopo do banco de dados, fontes externas, formatos de arquivo externo, tabelas externas)
-  - Se você usar a inferência de esquema, fragmentos de arquivos serão lidos para inferir nomes de coluna e tipos de dados
-- Instruções DDL, exceto CREATE STATISTICs, pois processarão dados do armazenamento com base na porcentagem de amostragem especificada
-- Consultas somente de metadados
+- Metadados de nível de servidor (como logons, funções e credenciais de nível de servidor).
+- Bancos de dados que você cria em seu ponto de extremidade. Esses bancos de dados contêm apenas metadados (como usuários, funções, esquemas, modos de exibição, funções com valor de tabela embutida [TVFs], procedimentos armazenados, credenciais no escopo do banco de dados, fontes externas, formatos de arquivos externos e tabelas externas).
+  - Se você usar a inferência de esquema, os fragmentos de arquivo serão lidos para inferir nomes de coluna e tipos de dados, e a quantidade de dados lidos será adicionada à quantidade de dados processados.
+- Instruções DDL (linguagem de definição de dados), exceto para a instrução CREATE STATISTICs porque ele processa dados do armazenamento com base na porcentagem de amostra especificada.
+- Consultas somente de metadados.
 
-## <a name="reduce-amount-of-data-processed"></a>Reduzir a quantidade de dados processados
+## <a name="reducing-the-amount-of-data-processed"></a>Reduzindo a quantidade de dados processados
 
-Você pode otimizar a quantidade por consulta de dados processados e obter melhor desempenho ao particionar e converter seus dados em um formato de coluna compactado como parquet.
+Você pode otimizar a quantidade de dados por consulta processada e melhorar o desempenho ao particionar e converter seus dados em um formato baseado em coluna compactado, como parquet.
 
 ## <a name="examples"></a>Exemplos
 
-Digamos que haja duas tabelas, cada uma com os mesmos dados em cinco colunas igualmente dimensionadas:
+Imagine três tabelas.
 
-- tabela de population_csv com suporte de 5 TB de arquivos CSV
-- population_parquet tabela apoiada por 1 TB de arquivos parquet – essa tabela é menor do que a anterior, uma vez que parquet contém dados compactados
-- tabela de very_small_csv com suporte de 100 KB de arquivos CSV
+- A tabela de population_csv é apoiada por 5 TB de arquivos CSV. Os arquivos são organizados em cinco colunas igualmente dimensionadas.
+- A tabela population_parquet tem os mesmos dados que a tabela population_csv. Ele tem o suporte de 1 TB de arquivos parquet. Esta tabela é menor do que a anterior porque os dados são compactados no formato parquet.
+- A tabela de very_small_csv tem o suporte de 100 KB de arquivos CSV.
 
-**#1 de consulta** : selecione Sum (população) de population_csv
+**Consulta 1** : selecione Sum (população) de population_csv
 
-Esta consulta lerá e analisará arquivos inteiros para obter valores para a coluna de população. Os nós processarão fragmentos dessa tabela, a soma da população para cada fragmento será transferida entre os nós e a soma final será transferida para o ponto de extremidade. Essa consulta processará 5 TB de dados, além de uma pequena sobrecarga para a transferência de somas de fragmentos.
+Esta consulta lê e analisa arquivos inteiros para obter valores para a coluna de população. Nós processam fragmentos dessa tabela e a soma da população para cada fragmento é transferida entre nós. A soma final é transferida para o ponto de extremidade. 
 
-**#2 de consulta** : selecione Sum (população) de population_parquet
+Essa consulta processa 5 TB de dados mais uma pequena sobrecarga de valor para transferir somas de fragmentos.
 
-Consultar formatos compactados e orientados a colunas, como parquet, resulta na leitura de menos dados do que na consulta anterior, pois o pool SQL sem servidor lerá uma única coluna compactada em vez de todo o arquivo. Nesse caso, 0,2 TB serão lidos (cinco colunas de tamanho igual, 0,2 TB cada). Os nós processarão fragmentos dessa tabela, a soma da população para cada fragmento será transferida entre os nós e a soma final será transferida para o ponto de extremidade. Essa consulta processará 0,2 TB, além de uma pequena sobrecarga para a transferência de somas de fragmentos.
+**Consulta 2** : selecione Sum (população) de population_parquet
 
-**#3 de consulta** : select * from population_parquet
+Quando você consulta formatos compactados e baseados em colunas como parquet, menos dados são lidos do que na consulta 1. Você verá esse resultado porque o pool SQL sem servidor lê uma única coluna compactada em vez de todo o arquivo. Nesse caso, 0,2 TB é lido. (Cinco colunas igualmente dimensionadas são 0,2 TB cada.) Nós processam fragmentos dessa tabela e a soma da população para cada fragmento é transferida entre nós. A soma final é transferida para o ponto de extremidade. 
 
-Esta consulta lerá todas as colunas e transferirá todos os dados no formato descompactado. Se o formato de compactação for 5:1, ele processará 6 TB, pois ele lerá 1 TB + transferir 5 TB de dados descompactados.
+Essa consulta processa 0,2 TB mais uma pequena quantidade de sobrecarga para a transferência de somas de fragmentos.
 
-**#4 de consulta** : selecione Count (*) de very_small_csv
+**Consulta 3** : selecionar * de population_parquet
 
-Essa consulta lerá arquivos inteiros. O tamanho total dos arquivos no armazenamento para esta tabela é de 100 KB. Os nós processarão fragmentos dessa tabela, a soma de cada fragmento será transferida entre os nós e a soma final será transferida para o ponto de extremidade. Essa consulta processará um pouco mais de 100 KB de dados. A quantidade de dados processados para essa consulta será arredondada para 10 MB conforme especificado em [arredondamento](#rounding).
+Essa consulta lê todas as colunas e transfere todos os dados em um formato descompactado. Se o formato de compactação for 5:1, a consulta processará 6 TB porque ela lê 1 TB e transfere 5 TB de dados descompactados.
+
+**Consulta 4** : selecionar contagem (*) de very_small_csv
+
+Essa consulta lê arquivos inteiros. O tamanho total dos arquivos no armazenamento para esta tabela é de 100 KB. Nós processam fragmentos dessa tabela e a soma de cada fragmento é transferida entre nós. A soma final é transferida para o ponto de extremidade. 
+
+Essa consulta processa um pouco mais de 100 KB de dados. A quantidade de dados processados para essa consulta é arredondada para 10 MB, conforme especificado na seção [arredondamento](#rounding) deste artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como otimizar suas consultas de desempenho, verifique [as práticas recomendadas para o pool SQL sem servidor](best-practices-sql-on-demand.md).
+Para saber como otimizar suas consultas de desempenho, consulte [práticas recomendadas para o pool SQL sem servidor](best-practices-sql-on-demand.md).

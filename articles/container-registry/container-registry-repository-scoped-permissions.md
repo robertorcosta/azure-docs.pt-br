@@ -3,12 +3,12 @@ title: Permissões para repositórios no Registro de Contêiner do Azure
 description: Crie um token com permissões com escopo para repositórios específicos em um registro Premium para efetuar pull ou enviar imagens por Push ou executar outras ações
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84509399"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381228"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Criar um token com permissões no escopo do repositório
 
@@ -150,16 +150,16 @@ Você pode usar o portal do Azure para criar tokens e mapas de escopo. Assim com
 O exemplo a seguir cria um token e cria um mapa de escopo com as seguintes permissões no repositório `samples/hello-world`: `content/write` e `content/read`.
 
 1. No portal, navegue até o registro de contêiner.
-1. Em **permissões do repositório**, selecione **tokens (versão prévia) > + adicionar**.
+1. Em **permissões do repositório** , selecione **tokens (versão prévia) > + adicionar**.
 
       :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Criar token no portal":::
 1. Insira um nome do token.
-1. Em **Mapa de escopo**, selecione **Criar novo**.
+1. Em **Mapa de escopo** , selecione **Criar novo**.
 1. Configurar o mapa de escopo:
     1. Insira um nome e descrição para o mapa de escopo. 
-    1. Em **Repositórios**, insira `samples/hello-world` e, em **Permissões**, selecione `content/read` e `content/write`. Em seguida, selecione **+Adicionar**.  
+    1. Em **Repositórios** , insira `samples/hello-world` e, em **Permissões** , selecione `content/read` e `content/write`. Em seguida, selecione **+Adicionar**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Criar token no portal":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Criar mapa de escopo no portal":::
 
     1. Depois de adicionar repositórios e permissões, selecione **Adicionar** para adicionar o mapa de escopo.
 1. Aceite o **Status** de token padrão de **Habilitado** e, em seguida, selecione **Criar**.
@@ -171,12 +171,12 @@ Depois que o token for validado e criado, os detalhes do token serão exibidos n
 Para usar um token criado no portal, você deve gerar uma senha. Você pode gerar uma ou duas senhas e definir uma data de validade para cada uma. 
 
 1. No portal, navegue até o registro de contêiner.
-1. Em **permissões do repositório**, selecione **tokens (versão prévia)** e selecione um token.
+1. Em **permissões do repositório** , selecione **tokens (versão prévia)** e selecione um token.
 1. Nos detalhes do token, selecione **password1** ou **password2** e selecione o ícone Gerar.
 1. Na tela da senha, defina uma data de validade para a senha, se quiser, e selecione **Gerar**. É recomendável definir uma data de expiração.
 1. Depois de gerar uma senha, copie-a e salve-a em um local seguro. Não é possível recuperar uma senha gerada após fechar a tela, mas você pode gerar uma nova.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Criar token no portal":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Criar senha de token no portal":::
 
 ## <a name="authenticate-with-token"></a>Autenticar com token
 
@@ -204,7 +204,7 @@ Para os exemplos a seguir, efetue pull das imagens `hello-world` e `alpine` do D
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker tag alpine myregistry.azurecr.io/samples/alpine:v1
 ```
 
 ### <a name="authenticate-using-token"></a>Autenticar usando token
@@ -259,9 +259,9 @@ az acr scope-map update \
 No Portal do Azure:
 
 1. Navegue até seu registro de contêiner.
-1. Em **permissões de repositório**, selecione **mapas de escopo (versão prévia)** e selecione o mapa de escopo a ser atualizado.
-1. Em **Repositórios**, insira `samples/alpine` e, em **Permissões**, selecione `content/read` e `content/write`. Em seguida, selecione **+Adicionar**.
-1. Em **Repositórios**, selecione `samples/hello-world` e, em **Permissões**, desmarque `content/write`. Em seguida, selecione **Salvar**.
+1. Em **permissões de repositório** , selecione **mapas de escopo (versão prévia)** e selecione o mapa de escopo a ser atualizado.
+1. Em **Repositórios** , insira `samples/alpine` e, em **Permissões** , selecione `content/read` e `content/write`. Em seguida, selecione **+Adicionar**.
+1. Em **Repositórios** , selecione `samples/hello-world` e, em **Permissões** , desmarque `content/write`. Em seguida, selecione **Salvar**.
 
 Depois de atualizar o mapa de escopo, o push a seguir será efetuado:
 
@@ -378,7 +378,7 @@ az acr token list --registry myregistry --output table
 
 Se você não gerou uma senha de token ou deseja gerar novas senhas, execute o comando [AZ ACR token Credential Generate][az-acr-token-credential-generate] . 
 
-O exemplo a seguir gera um novo valor para password1 para o token *MyToken*, com um período de expiração de 30 dias. Ele armazena a senha na variável de ambiente `TOKEN_PWD`. Este exemplo é formatado para o shell do bash.
+O exemplo a seguir gera um novo valor para password1 para o token *MyToken* , com um período de expiração de 30 dias. Ele armazena a senha na variável de ambiente `TOKEN_PWD`. Este exemplo é formatado para o shell do bash.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
@@ -397,7 +397,7 @@ az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-No portal, na tela **Tokens (versão prévia)** , selecione o token e, em **Mapa de escopo**, selecione um mapa de escopo diferente.
+No portal, na tela **Tokens (versão prévia)** , selecione o token e, em **Mapa de escopo** , selecione um mapa de escopo diferente.
 
 > [!TIP]
 > Depois de atualizar um token com um novo mapa de escopo, talvez você queira gerar novas senhas de token. Use o comando [az acr token credential generate][az-acr-token-credential-generate] ou gere novamente uma senha de token no portal do Azure.

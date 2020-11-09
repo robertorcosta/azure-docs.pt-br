@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215953"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379779"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ As seguintes propriedades são usadas para [gerenciar tempos de vida de tokens d
 
 - **Tempo de vida do token de atualização (dias)** - o período de tempo máximo antes que um token de atualização possa ser usado para adquirir um novo token de acesso ou de ID. O período de tempo também abrange a aquisição de um novo token de atualização se o seu aplicativo tiver recebido o escopo de `offline_access`. O padrão é 14 dias. O mínimo (inclusive) é de um dia. O máximo (inclusive) é 90 dias.
 
-- **Atualizar vida útil da janela deslizante do token (dias)** - após esse período de tempo, o usuário é forçado a autenticar novamente, independentemente do período de validade do token de atualização mais recente adquirido pelo aplicativo. Ele só poderá ser fornecido se a opção estiver definida como **Bounded**. Ele precisa ser maior ou igual ao valor **Vida útil do token de atualização (dias)** . Se a opção estiver definida como **Unbounded**, você não poderá fornecer um valor específico. O padrão é 90 dias. O mínimo (inclusive) é de um dia. O máximo (inclusive) é de 365 dias.
+- **Atualizar vida útil da janela deslizante do token (dias)** - após esse período de tempo, o usuário é forçado a autenticar novamente, independentemente do período de validade do token de atualização mais recente adquirido pelo aplicativo. Ele só poderá ser fornecido se a opção estiver definida como **Bounded**. Ele precisa ser maior ou igual ao valor **Vida útil do token de atualização (dias)** . Se a opção estiver definida como **Unbounded** , você não poderá fornecer um valor específico. O padrão é 90 dias. O mínimo (inclusive) é de um dia. O máximo (inclusive) é de 365 dias.
 
 Os casos de uso a seguir são ativados usando estas propriedades:
 
@@ -91,9 +91,9 @@ As propriedades a seguir são usadas para [gerenciar a compatibilidade do token]
 
 - **Emissor (iss) reivindicação** - essa propriedade identifica o locatário do Azure AD B2C que emitiu o token. O valor padrão é `https://<domain>/{B2C tenant GUID}/v2.0/`. O valor de `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` inclui IDs do locatário do Azure AD B2C e do fluxo de usuário usado na solicitação de token. Se seu aplicativo ou biblioteca precisar do Azure AD B2C para ser compatível com as [especificações do OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), use esse valor.
 
-- **Subject (sub) declaração** - Esta propriedade identifica a entidade para a qual o token afirma informações. O valor padrão é **ObjectID**, que preenche a declaração `sub` no token com a ID de objeto do usuário. O valor de **Sem suporte** é fornecido somente para compatibilidade com versões anteriores. É recomendável que você troque para **ObjectID** assim que for possível.
+- **Subject (sub) declaração** - Esta propriedade identifica a entidade para a qual o token afirma informações. O valor padrão é **ObjectID** , que preenche a declaração `sub` no token com a ID de objeto do usuário. O valor de **Sem suporte** é fornecido somente para compatibilidade com versões anteriores. É recomendável que você troque para **ObjectID** assim que for possível.
 
-- **Reivindicação representando o ID da política**: essa propriedade identifica o tipo de reivindicação no qual o nome da política usado na solicitação de token é preenchido. O valor padrão é `tfp`. O valor de `acr` é fornecido somente para compatibilidade com versões anteriores.
+- **Reivindicação representando o ID da política** : essa propriedade identifica o tipo de reivindicação no qual o nome da política usado na solicitação de token é preenchido. O valor padrão é `tfp`. O valor de `acr` é fornecido somente para compatibilidade com versões anteriores.
 
 ## <a name="pass-through"></a>Passagem
 
@@ -107,7 +107,7 @@ Para validar um token, o aplicativo deve verificar a assinatura e as declaraçõ
 
 ### <a name="validate-signature"></a>Validar a assinatura
 
-Um JWT contém três segmentos: um *cabeçalho*, um *corpo* e uma *assinatura*. O segmento de assinatura pode ser usado para validar a autenticidade do token, de modo que seu aplicativo possa confiar nele. Os tokens do Azure AD B2C são assinados usando algoritmos de criptografia assimétrica padrão do setor, como o RSA 256.
+Um JWT contém três segmentos: um *cabeçalho* , um *corpo* e uma *assinatura*. O segmento de assinatura pode ser usado para validar a autenticidade do token, de modo que seu aplicativo possa confiar nele. Os tokens do Azure AD B2C são assinados usando algoritmos de criptografia assimétrica padrão do setor, como o RSA 256.
 
 O cabeçalho do token contém informações sobre o método de criptografia e a chave usados para assinar o token:
 
@@ -121,7 +121,7 @@ O cabeçalho do token contém informações sobre o método de criptografia e a 
 
 O valor da declaração **alg** é o algoritmo que foi usado para assinar o token. O valor da declaração **kid** é a chave pública que foi usada para assinar o token. A qualquer momento, o Azure AD B2C pode assinar um token usando qualquer opção de um conjunto de pares de chaves públicas-privadas. O Azure AD B2C alterna o possível conjunto de chaves periodicamente. Seu aplicativo deve ser gravado para tratar dessas alterações de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo Azure AD B2C é a cada 24 horas. Para lidar com alterações de chave inesperadas, seu aplicativo deve ser gravado para recuperar as chaves públicas novamente caso receba um valor de **criança** inesperado.
 
-O Azure AD B2C tem um ponto de extremidade de metadados OpenID Connect. Usando esse ponto de extremidade, os aplicativos podem solicitar informações sobre o Azure AD B2C em tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. Seu locatário do Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias informações úteis. Os metadados contêm **jwks_uri**, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. Esse local é fornecido aqui, mas é melhor buscar o local dinamicamente usando o documento de metadados e analisando **jwks_uri**:
+O Azure AD B2C tem um ponto de extremidade de metadados OpenID Connect. Usando esse ponto de extremidade, os aplicativos podem solicitar informações sobre o Azure AD B2C em tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. Seu locatário do Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias informações úteis. Os metadados contêm **jwks_uri** , que fornece o local do conjunto de chaves públicas usadas para assinar tokens. Esse local é fornecido aqui, mas é melhor buscar o local dinamicamente usando o documento de metadados e analisando **jwks_uri** :
 
 ```
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
@@ -134,7 +134,7 @@ O documento de metadados para a política `B2C_1_signupsignin1` no locatário `c
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-Para determinar qual política foi usada para assinar um token (e onde ir para solicitar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base 64 o corpo e desserializando a cadeia de caracteres JSON resultante. A declaração `acr` é o nome da política que foi usada para emitir o token. A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
+Para determinar qual política foi usada para assinar um token (e onde ir para solicitar os metadados), você tem duas opções. Primeiro, o nome da política é incluído no `tfp` (padrão) ou na `acr` declaração (conforme configurado) no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base 64 o corpo e desserializando a cadeia de caracteres JSON resultante. A `tfp` `acr` declaração ou é o nome da política que foi usada para emitir o token. A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
 
 Uma descrição de como executar a validação de assinatura está fora do escopo deste documento. Muitas bibliotecas de software livre estão disponíveis para ajudar você a validar um token.
 

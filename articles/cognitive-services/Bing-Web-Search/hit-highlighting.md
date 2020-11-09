@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078536"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380701"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usar marcadores de decoração para realçar texto
 
 > [!WARNING]
-> APIs de Pesquisa do Bing estão mudando de serviços cognitivas para serviços Pesquisa do Bings. A partir de **30 de outubro de 2020** , todas as novas instâncias do pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
-> APIs de Pesquisa do Bing provisionado usando serviços cognitivas terão suporte nos próximos três anos ou até o final do seu Enterprise Agreement, o que ocorrer primeiro.
-> Para obter instruções de migração, consulte [serviços de pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020** , todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](https://aka.ms/cogsvcs/bingmove).
+> As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
+> Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](https://aka.ms/cogsvcs/bingmigration).
 
 O Bing dá suporte ao realce de visita, que marca os termos de consulta (ou outros termos que o Bing encontra relevante) nas cadeias de caracteres de exibição de algumas respostas. Por exemplo, os campos, e dos resultados de uma página da Web `name` `displayUrl` `snippet` podem conter os termos de consulta marcados. 
 
@@ -39,7 +39,7 @@ Antes de exibir o resultado na interface do usuário, substitua os caracteres Un
 
 ## <a name="marker-formatting"></a>Formatação do marcador
 
-O Bing fornece a opção de usar caracteres Unicode ou marcas HTML como marcadores. Para especificar quais marcadores usar, inclua o parâmetro de consulta [TextFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
+O Bing fornece a opção de usar caracteres Unicode ou marcas HTML como marcadores. Para especificar quais marcadores usar, inclua o parâmetro de consulta [TextFormat](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
 
 | Valor             | Marker                       |
 |-------------------|------------------------------|

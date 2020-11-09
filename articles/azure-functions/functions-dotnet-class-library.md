@@ -4,12 +4,12 @@ description: Entenda como desenvolver no Azure Functions usando NodeJS.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167739"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380956"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -139,7 +139,7 @@ O processo de compilação cria um arquivo *function.json* em uma pasta de funç
 
 A finalidade desse arquivo é fornecer informações para o controlador de escala a ser usado para as [decisões de dimensionamento no plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Por esse motivo, o arquivo não tem informações de associações de entrada ou saída, apenas de gatilho.
 
-O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o runtime a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Veja um exemplo:
+O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o runtime a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Aqui está um exemplo:
 
 ```json
 {
@@ -162,7 +162,7 @@ O arquivo *function.json* gerado inclui uma propriedade `configurationSource` qu
 
 A geração do arquivo *function.json* é realizada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-O mesmo pacote é usado para a versão 1.x e 2.x do runtime do Functions. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Estas são as partes relevantes dos arquivos *.csproj*, mostrando estruturas de destino diferentes e o mesmo pacote `Sdk`:
+O mesmo pacote é usado para a versão 1.x e 2.x do runtime do Functions. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Estas são as partes relevantes dos arquivos *.csproj* , mostrando estruturas de destino diferentes e o mesmo pacote `Sdk`:
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
@@ -313,7 +313,7 @@ public static class CancellationTokenExample
 
 ## <a name="logging"></a>Registrando em log
 
-No seu código de função, você pode gravar a saída em logs que aparecem como rastreamentos no Application Insights. A maneira recomendada para gravar nos logs é incluir um parâmetro do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), que normalmente é nomeado `log` . Versão 1. x do tempo de execução do Functions usado `TraceWriter` , que também grava em Application insights, mas não dá suporte a logs estruturados. Não está usando o `Console.Write` para gravar seus logs, pois esses dados não são capturados pelo Application insights. 
+No seu código de função, você pode gravar a saída em logs que aparecem como rastreamentos no Application Insights. A maneira recomendada para gravar nos logs é incluir um parâmetro do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), que normalmente é nomeado `log` . Versão 1. x do tempo de execução do Functions usado `TraceWriter` , que também grava em Application insights, mas não dá suporte a logs estruturados. Não use `Console.Write` o para gravar seus logs, pois esses dados não são capturados pelo Application insights. 
 
 ### <a name="ilogger"></a>ILogger
 

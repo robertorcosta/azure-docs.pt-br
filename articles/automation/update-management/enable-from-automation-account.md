@@ -2,15 +2,15 @@
 title: Habilitar o Gerenciamento de Atualizações da Automação do Azure a partir da conta de Automação
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações a partir de uma conta de Automação.
 services: automation
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348824"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380531"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Habilitar o Gerenciamento de Atualizações de uma conta de Automação
 
@@ -49,7 +49,7 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-non-azure-vms"></a>Habilitar VMs que não sejam do Azure
 
-Computadores que não estão no Azure precisam ser adicionados manualmente.
+Para computadores ou servidores hospedados fora do Azure, incluindo aqueles registrados com os servidores habilitados para Arc do Azure, execute as etapas a seguir para habilitá-los com Gerenciamento de Atualizações.  
 
 1. Na sua conta da Automação, selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizações**.
 
