@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 5976b70825ac2854e67ddad968752fc87d9e8cea
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 85ff3bed2a648f852c311fefa8513622c2a48285
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377132"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376529"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Conectar o Azure a ferramentas de ITSM usando a exportação segura
 
@@ -72,7 +72,7 @@ Siga estas etapas para registrar o aplicativo com o Azure AD:
 3. Selecione **definir** para o **URI da ID do aplicativo**.
 
    [![Captura de tela da opção de configuração do U R I do aplicativo I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ## <a name="create-a-secure-webhook-action-group"></a>Criar um grupo de ação de webhook seguro
 
@@ -117,7 +117,7 @@ Verifique se você atendeu aos seguintes pré-requisitos:
 
 ### <a name="configure-the-servicenow-connection"></a>Configurar a conexão do ServiceNow
 
-1. Use o link <https:// <instance name> . service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor> o URI para a definição de exportação segura.
+1. Use o link https://(nome da instância). Service-Now. com/API/sn_em_connector/em/inbound_event? origem = azuremonitor o URI para a definição de exportação segura.
 
 2. Siga as instruções de acordo com a versão:
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)

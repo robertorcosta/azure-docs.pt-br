@@ -10,16 +10,16 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 1869ec9b617a7451ec42fa9d092ea3bb5834f9e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe7a8a3df535d05c3c834d3e2fbba5f7df5d6fcd
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585467"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372236"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importar chaves protegidas por HSM para o Key Vault (BYOK)
 
-Para garantia extra, ao usar o Azure Key Vault, você pode importar ou gerar uma chave em um HSM (módulo de segurança de hardware); a chave nunca sairá do limite do HSM. Esse cenário é, muitas vezes, conhecido como BYOK (*Bring Your Own Key*). O Key Vault usa a família nCipher nShield de HSMs (com validação FIPS 140-2 Nível 2) para proteger suas chaves.
+Para garantia extra, ao usar o Azure Key Vault, você pode importar ou gerar uma chave em um HSM (módulo de segurança de hardware); a chave nunca sairá do limite do HSM. Esse cenário é, muitas vezes, conhecido como BYOK ( *Bring Your Own Key* ). O Key Vault usa a família nCipher nShield de HSMs (com validação FIPS 140-2 Nível 2) para proteger suas chaves.
 
 Use as informações deste artigo para ajudar você a planejar, gerar e transferir as próprias chaves protegidas por HSM a serem usadas com o Azure Key Vault.
 
@@ -63,7 +63,8 @@ A seguinte tabela lista os pré-requisitos para o uso do BYOK no Azure Key Vault
 |Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>SDKMS (Serviço de Gerenciamento de Chaves de Proteção Automática)</li><li>Equinix SmartKey</li></ul>|[Como exportar chaves SDKMS para provedores de nuvem para BYOK – Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|Fabricante|Todos os HSMs LiquidSecurity com<ul><li>Firmware versão 2.0.4 ou posterior</li><li>Firmware versão 3.2 ou mais recente</li></ul>|[Ferramenta BYOK Marvell e documentação](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Acesse o [site da Cryptomathic para obter detalhes](https://www.cryptomathic.com/azurebyok)|[Ferramenta BYOK Cryptomathic e documentação](https://www.cryptomathic.com/azurebyok)|
-
+|Securosys SA|Fabricante, HSM como serviço|Família HSM Primus, Securosys Clouds HSM|[Ferramenta e documentação do Primus BYOK](https://www.securosys.com/primus-azure-byok)|
+||||
 
 
 ## <a name="supported-key-types"></a>Tipos de chave com suporte
@@ -84,7 +85,7 @@ Para gerar e transferir sua chave para um HSM do Key Vault:
 
 ### <a name="step-1-generate-a-kek"></a>Etapa 1: Gerar uma KEK
 
-Uma KEK é uma chave RSA que é gerada em um HSM do Key Vault. A KEK é usada para criptografar a chave que você deseja importar (a chave de *destino*).
+Uma KEK é uma chave RSA que é gerada em um HSM do Key Vault. A KEK é usada para criptografar a chave que você deseja importar (a chave de *destino* ).
 
 A KEK precisa ser:
 - Uma chave RSA-HSM (2.048 bits, 3.072 bits ou 4.096 bits)
@@ -119,7 +120,7 @@ Transfira o arquivo BYOK para o computador conectado.
 > [!NOTE] 
 > Não há suporte para a importação de chaves RSA de 1.024 bits. Atualmente, não há suporte para a importação de uma chave EC (Curva Elíptica).
 > 
-> **Problema conhecido**: Só há suporte para a importação de uma chave de destino RSA de 4 mil bits de HSMs do Luna no firmware 7.4.0 ou mais recente.
+> **Problema conhecido** : Só há suporte para a importação de uma chave de destino RSA de 4 mil bits de HSMs do Luna no firmware 7.4.0 ou mais recente.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Etapa 4: Transferir sua chave para o Azure Key Vault
 

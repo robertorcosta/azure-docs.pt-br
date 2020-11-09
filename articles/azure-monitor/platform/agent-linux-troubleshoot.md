@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: eaf12fe1d757c3a5a76307d87151bf71aa720b2b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 13959c4a3c798656efdc72b5c8e5f96e4fb2392a
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042390"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375339"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente do Log Analytics para Linux 
 
@@ -60,7 +60,7 @@ Para obter mais detalhes, consulte nossa [documentação do GitHub](https://gith
 Vimos que uma reinstalação limpa do agente corrigirá a maioria dos problemas. Na verdade, essa pode ser a primeira sugestão do suporte para colocar o agente em um estado uncurropted de nossa equipe de suporte. Executar a solução de problemas, coletar logs e tentar uma reinstalação limpa ajudará a resolver problemas mais rapidamente.
 
 1. Baixe o script de limpeza:
-- `$ wget https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/tools/purge_omsagent.sh`
+- `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
 2. Execute o script de limpeza (com permissões sudo):
 - `$ sudo sh purge_omsagent.sh`
 
@@ -463,7 +463,7 @@ Execute os seguintes passos para corrigir o problema.
 1. Remova a extensão do portal do Azure.
 2. Instale o agente seguindo as [instruções](../learn/quick-collect-linux-computer.md).
 3. Reinicie o agente executando o seguinte comando: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-* Aguarde alguns minutos e o estado de aprovisionamento muda para **Provisioning sucedeu** .
+* Aguarde alguns minutos e o estado de aprovisionamento muda para **Provisioning sucedeu**.
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problema: a atualização do agente do Log Analytics sob demanda

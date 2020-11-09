@@ -1,20 +1,20 @@
 ---
-title: Início rápido-criar um ponto de extremidade privado do Azure usando Azure PowerShell
-description: Use este guia de início rápido para aprender a criar um ponto de extremidade privado usando Azure PowerShell.
+title: Início Rápido – Criar um ponto de extremidade privado do Azure usando o Azure PowerShell
+description: Use este guia de início rápido para aprender a criar um Ponto de Extremidade Privado usando o Azure PowerShell.
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 147e646738df9d70355f379a9e64a52116e9f16f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
-ms.translationtype: MT
+ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233586"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368654"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Início rápido: criar um ponto de extremidade privado usando Azure PowerShell
+# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Início Rápido: Criar um ponto de extremidade privado usando o Azure PowerShell
 
 Introdução ao Link Privado do Azure usando um Ponto de Extremidade Privado para se conectar com segurança a um aplicativo Web do Azure.
 
@@ -47,7 +47,7 @@ Nesta seção, você criará uma rede virtual, uma sub-rede e um bastion host.
 
 O bastion host será usado para se conectar com segurança à máquina virtual para testar o ponto de extremidade privado.
 
-Criar uma rede virtual e um host de bastiões com:
+Criar uma rede virtual e um bastion host com:
 
 * [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 * [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
@@ -153,8 +153,9 @@ Nesta seção, você criará o ponto de extremidade privado e a conexão usando:
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <your-webapp-name> with your server name ##
-$webapp = Get-AzWebApp -ResourceGroupName CreatePrivateEndpointQS-rg -Name <your-webapp-name>
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
+## Replace <your-webapp-name> with your webapp name ##
+$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
 ## Create private endpoint connection. ##
 $parameters1 = @{
@@ -235,13 +236,13 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
  
 2. Selecione **Grupos de recursos** no painel de navegação à esquerda.
 
-3. Selecione **CreatePrivateEndpointQS-rg** .
+3. Selecione **CreatePrivateEndpointQS-rg**.
 
-4. Selecione **myVM** .
+4. Selecione **myVM**.
 
-5. Na página de visão geral de **myVM** , escolha **Conectar** e **Bastion** .
+5. Na página de visão geral de **myVM** , escolha **Conectar** e **Bastion**.
 
-6. Selecione o botão azul **Usar Bastion** .
+6. Selecione o botão azul **Usar Bastion**.
 
 7. Insira o nome de usuário e a senha que você inseriu durante a criação da máquina virtual.
 
@@ -259,20 +260,20 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
     Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-    Um endereço IP privado de **10.0.0.5** é retornado para o nome do aplicativo Web.  Esse endereço está na sub-rede da rede virtual criada anteriormente.
+    O endereço IP privado **10.0.0.5** é retornado para o nome do aplicativo Web.  Esse endereço está na sub-rede da rede virtual criada anteriormente.
 
 10. Na conexão do bastion com **myVM** , abra o Internet Explorer.
 
-11. Insira a URL do aplicativo Web, **https://\<your-webapp-name>.azurewebsites.net** .
+11. Insira a URL do aplicativo Web, **https://\<your-webapp-name>.azurewebsites.net**.
 
 12. Você receberá a página padrão do aplicativo Web se o aplicativo não tiver sido implantado:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Página padrão do aplicativo Web." border="true":::
 
-13. Feche a conexão com **myVM** .
+13. Feche a conexão com **myVM**.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos 
-Quando você terminar de usar o ponto de extremidade privado e a VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele tem:
+Quando terminar de usar o ponto de extremidade privado e a VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele tem:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force

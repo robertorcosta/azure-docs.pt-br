@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 95c55f92304ddd3ec2b3d44d4f07fb64ab815c6d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a38c4bb18e16a814b626a6941d626b66311cd8ea
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755755"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329468"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Quais regiões estão disponíveis?
 
@@ -88,3 +88,7 @@ Uma sessão deve ser iniciada somente por meio do portal do Azure. Entre no port
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Como faço para lidar com falhas de implantação?
 
 Examine todas as mensagens de erro e [gere uma solicitação de suporte no portal do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) conforme necessário. As falhas de implantação podem resultar de [Limites, cotas e restrições de assinatura do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Especificamente, os clientes podem encontrar um limite no número de endereços IP públicos permitidos por assinatura que causam falha na implantação do Azure Bastion.
+
+### <a name="how-do-i-incorporate-azure-bastion-in-my-dr-plan"></a><a name="dr"></a>Como incorporo o Azure Bastion em meu plano de DR?
+
+Como o Azure Bastion está associado a uma região do Azure e é implantado em VNets ou VNets emparelhadas, você é responsável por implantar o Azure Bastion em uma VNet de site de DR (recuperação de desastre). No caso de falha de uma região do Azure, você executará uma operação de failover para máquinas virtuais e, em seguida, usará o host do Azure Bastion que está implantado na região de DR para se conectar às VMs implantadas na região de DR.

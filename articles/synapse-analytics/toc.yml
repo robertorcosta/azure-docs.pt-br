@@ -50,13 +50,13 @@
   items:
     - name: Inícios rápidos
       items:
-        - name: Criar um workspace do Synapse usando o portal do Azure
+        - name: Criar um workspace usando o portal do Azure
           href: quickstart-create-workspace.md
           displayName: quickstart
-        - name: Criar um workspace do Synapse usando a CLI do Azure
+        - name: Criar um workspace usando a CLI do Azure
           href: quickstart-create-workspace-cli.md
           displayName: quickstart
-        - name: Criar um workspace do Azure Synapse usando o Azure PowerShell
+        - name: Criar um workspace usando o Azure PowerShell
           href: quickstart-create-workspace-powershell.md
           displayName: quickstart
         - name: Implantar com um modelo
@@ -338,6 +338,12 @@
               displayname: 'workload, management'
     - name: Guias de instruções
       items:
+        - name: Backup e restauração
+          items:
+            - name: Criar pontos de restauração
+              href: ./backuprestore/sqlpool-create-restore-point.md
+            - name: Restaurar um pool de SQL do Synapse
+              href: ./backuprestore/restore-sql-pool.md
         - name: Gerenciar e monitorar
           items:
             - name: Monitorar cache do Gen2

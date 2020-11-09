@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936153"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329556"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede – Azure Resource Manager
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo **Azure Resource Manager** por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
@@ -55,6 +55,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo **Azur
 | Endereços IP públicos<sup>1</sup> | 10 para Básico. | Entre em contato com o suporte. |
 | Endereços IP públicos estáticos<sup>1</sup> | 10 para Básico. | Entre em contato com o suporte. |
 | Endereços IP públicos Standard<sup>1</sup> | 10 | Entre em contato com o suporte. |
+| [Endereços IP públicos por grupo de recursos](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Entre em contato com o suporte. | 
 | Prefixos IP públicos | limitados pelo número de IPs Públicos Standard em uma assinatura | Entre em contato com o suporte. |
 | Comprimento do prefixo de IP público | / 28 | Entre em contato com o suporte. |
 
@@ -106,6 +107,6 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Rotas definidas pelo usuário por tabela de rotas |400 |400 |
 | Endereços IP públicos (dinâmicos) |500 |500 |
 | Endereços IP públicos reservados |500 |500 |
-| VIP público por implantação |5 |Contate o suporte |
-| VIP privado (balanceamento de carga interno) por implantação |1 |1 |
+| IP público por implantação |5 |Contate o suporte |
+| IP privado (balanceamento de carga interno) por implantação |1 |1 |
 | ACLs (listas de controle de acesso) de ponto de extremidade |50 |50 |

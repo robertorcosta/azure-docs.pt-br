@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/21/2020
-ms.openlocfilehash: 88aaa9ccf3d0c1319637036373463e2a93ccb649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a34b0ae819f7bbb29a0004a89ea5417b52c127e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291309"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392666"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para um banco de dados individual ou em pool no Banco de Dados SQL do Azure online usando o DMS
 
@@ -68,7 +68,7 @@ Para concluir este tutorial, você precisará:
 
 - Verifique se as regras do Grupo de Segurança de Rede da rede virtual não bloqueiam as seguintes portas de comunicação de entrada do Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG na Rede Virtual do Azure, confira o artigo [Filtrar o tráfego de rede com os grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que por padrão é porta TCP 1433.
+- Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que por padrão é porta TCP 1433. Se a instância padrão estiver escutando em alguma outra porta, adicione essa porta ao firewall.
 - Caso esteja executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez seja preciso habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio de seus firewalls para que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada em seu servidor de origem.
 - Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
 - Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível do servidor para o Banco de Dados SQL do Azure a fim de permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
@@ -132,7 +132,7 @@ Para migrar os dados de uma instância do SQL Server para o Banco de Dados SQL d
 Para avaliar um banco de dados local, execute as seguintes etapas:
 
 1. No AMD, selecione o ícone Novo (+) e selecione o tipo de projeto **Avaliação**.
-2. Especifique um nome de projeto, na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server**, na caixa de texto**Tipo de servidor de destino**, selecione **Banco de Dados SQL do Azure** e, em seguida, selecione **Criar** para criar o projeto.
+2. Especifique um nome de projeto, na caixa de texto **Tipo de servidor de origem** , selecione **SQL Server** , na caixa de texto **Tipo de servidor de destino** , selecione **Banco de Dados SQL do Azure** e, em seguida, selecione **Criar** para criar o projeto.
 
    Quando você estiver avaliando o banco de dados do SQL Server de origem migrando para um banco de dados individual ou em pool no Banco de Dados SQL do Azure, poderá escolher um ou ambos os seguintes tipos de relatórios de avaliação:
 
@@ -141,9 +141,9 @@ Para avaliar um banco de dados local, execute as seguintes etapas:
 
    Ambos os tipos de relatório são selecionados por padrão.
 
-3. No AMD, na tela **Opções**, selecione **Avançar**.
+3. No AMD, na tela **Opções** , selecione **Avançar**.
 4. No **selecione fontes** tela, o **conectar a um servidor** caixa de diálogo, forneça os detalhes de conexão ao SQL Server e, em seguida, selecione **conectar**.
-5. Na caixa de diálogo **Adicionar origens**, selecione **AdventureWorks2012**, selecione **Adicionar** e, em seguida, selecione **Iniciar Avaliação**.
+5. Na caixa de diálogo **Adicionar origens** , selecione **AdventureWorks2012** , selecione **Adicionar** e, em seguida, selecione **Iniciar Avaliação**.
 
     > [!NOTE]
     > Se você usa o SSIS, no momento o AMD não dá à avaliação do SSISDB de origem. No entanto, os projetos/pacotes SSIS serão avaliados/validados conforme forem reimplantados no SSISDB de destino hospedado pelo Banco de Dados SQL do Azure. Para saber mais sobre como migrar pacotes SSIS, confira o artigo [Migrar pacotes do SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
@@ -164,27 +164,27 @@ Para avaliar um banco de dados local, execute as seguintes etapas:
 Depois que você estiver familiarizado com a avaliação e satisfeito de que o banco de dados selecionado é um candidato viável para a migração para um banco de dados individual ou em pool no Banco de Dados SQL do Azure, use o AMD para migrar o esquema para o Banco de Dados SQL do Azure.
 
 > [!NOTE]
-> Antes de criar um projeto de migração no AMD, verifique se você já provisionou um banco de dados SQL no Azure, conforme mencionado nos pré-requisitos. Para fins deste tutorial, o nome do Banco de Dados SQL do Azure é considerado **AdventureWorksAzure**, mas você poderá renomeá-lo como desejar.
+> Antes de criar um projeto de migração no AMD, verifique se você já provisionou um banco de dados SQL no Azure, conforme mencionado nos pré-requisitos. Para fins deste tutorial, o nome do Banco de Dados SQL do Azure é considerado **AdventureWorksAzure** , mas você poderá renomeá-lo como desejar.
 
 > [!IMPORTANT]
 > Se você usa o SSIS, o AMD não dá suporte no momento à migração do SSISDB de origem, mas você pode reimplantar seus projetos/pacotes SSIS no SSISDB de destino hospedado pelo Banco de Dados SQL do Azure. Para saber mais sobre como migrar pacotes SSIS, confira o artigo [Migrar pacotes do SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 Para migrar o esquema **AdventureWorks2012** para um banco de dados individual ou em pool do Banco de Dados SQL do Azure, siga estas etapas:
 
-1. No Assistente de Migração de Dados, selecione o ícone de Novo (+) e, em seguida, em **Tipo de projeto**, selecione **Migração**.
-2. Especifique um nome de projeto, no **tipo de servidor de origem** caixa de texto, selecione **do SQL Server**e, em seguida, no **tipo de servidor de destino** caixa de texto, selecione **Banco de Dados SQL do Azure**.
-3. Em **escopo migração**, selecione **somente esquema**.
+1. No Assistente de Migração de Dados, selecione o ícone de Novo (+) e, em seguida, em **Tipo de projeto** , selecione **Migração**.
+2. Especifique um nome de projeto, no **tipo de servidor de origem** caixa de texto, selecione **do SQL Server** e, em seguida, no **tipo de servidor de destino** caixa de texto, selecione **Banco de Dados SQL do Azure**.
+3. Em **escopo migração** , selecione **somente esquema**.
 
     Depois de executar as etapas anteriores, a interface do AMD deve aparecer como mostrado no gráfico abaixo:
 
     ![Novo projeto do assistente de migração de dados](media/tutorial-sql-server-to-azure-sql-online/dma-create-project.png)
 
 4. Selecione **Criar** para criar o cluster.
-5. No AMD, especifique os detalhes de conexão de origem para o SQL Server, selecione **Conectar**e selecione o banco de dados **AdventureWorks2012**.
+5. No AMD, especifique os detalhes de conexão de origem para o SQL Server, selecione **Conectar** e selecione o banco de dados **AdventureWorks2012**.
 
     ![Detalhes de Conexão de fonte de Assistente de Migração de Dados](media/tutorial-sql-server-to-azure-sql-online/dma-source-connect.png)
 
-6. Selecione **Avançar**; em **Conectar ao servidor de destino**, especifique os detalhes de conexão de destino para o banco de dados SQL do Azure, selecione **Conectar**e selecione o banco de dados **AdventureWorksAzure** que você tinha provisionado previamente no Banco de Dados SQL do Azure.
+6. Selecione **Avançar** ; em **Conectar ao servidor de destino** , especifique os detalhes de conexão de destino para o banco de dados SQL do Azure, selecione **Conectar** e selecione o banco de dados **AdventureWorksAzure** que você tinha provisionado previamente no Banco de Dados SQL do Azure.
 
     ![Detalhes de Conexão de destino Assistente de Migração de Dados](media/tutorial-sql-server-to-azure-sql-online/dma-target-connect.png)
 
@@ -212,21 +212,21 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
     ![Exibir provedores de recursos](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
-3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **Registrar**.
+3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration** , selecione **Registrar**.
 
     ![Registrar provedor de recursos](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)
 
 ## <a name="create-an-instance"></a>Escolher uma instância
 
-1. No portal do Azure, selecione + **Criar um recurso**, pesquise Serviço de Migração de Banco de Dados do Azure e, em seguida, selecione **Serviço de Migração de Banco de Dados do Azure** na lista suspensa.
+1. No portal do Azure, selecione + **Criar um recurso** , pesquise Serviço de Migração de Banco de Dados do Azure e, em seguida, selecione **Serviço de Migração de Banco de Dados do Azure** na lista suspensa.
 
     ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql-online/portal-marketplace.png)
 
-2. Na tela **Serviço de Migração de Banco de Dados do Azure**, selecione **Criar**.
+2. Na tela **Serviço de Migração de Banco de Dados do Azure** , selecione **Criar**.
 
     ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-azure-sql-online/dms-create1.png)
   
-3. Na tela **Criar Serviço de Migração**, especifique um nome para o serviço, a assinatura e um grupo de recurso novo ou existente.
+3. Na tela **Criar Serviço de Migração** , especifique um nome para o serviço, a assinatura e um grupo de recurso novo ou existente.
 
 4. Selecione o local no qual você deseja criar a instância do Serviço de Migração de Banco de Dados do Azure. 
 
@@ -248,17 +248,17 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
 Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seguida, crie um projeto de migração.
 
-1. Faça logon no portal do Azure, selecione **+ criar um recurso**, procure o serviço de migração de banco de dados do Azure e, em seguida, selecione **serviço de migração de banco de dados do Azure** na lista suspensa.
+1. Faça logon no portal do Azure, selecione **+ criar um recurso** , procure o serviço de migração de banco de dados do Azure e, em seguida, selecione **serviço de migração de banco de dados do Azure** na lista suspensa.
 
     ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-azure-sql-online/dms-search.png)
 
-2. Na tela dos **Serviços de Migração de Banco de Dados do Azure**, procure o nome da instância do Serviço de Migração de Banco de Dados do Azure que você criou e, em seguida, selecione a instância.
+2. Na tela dos **Serviços de Migração de Banco de Dados do Azure** , procure o nome da instância do Serviço de Migração de Banco de Dados do Azure que você criou e, em seguida, selecione a instância.
 
     ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-azure-sql-online/dms-instance-search.png)
 
 3. Selecione + **Novo Projeto de Migração**.
-4. Em **Novo projeto de migração**, especifique um nome de projeto; na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server** e, na caixa de texto **Tipo de servidor de destino**, selecione **Banco de Dados SQL do Azure**.
-5. Na seção **Escolher o tipo de atividade**, selecione **Migração de dados online**.
+4. Em **Novo projeto de migração** , especifique um nome de projeto; na caixa de texto **Tipo de servidor de origem** , selecione **SQL Server** e, na caixa de texto **Tipo de servidor de destino** , selecione **Banco de Dados SQL do Azure**.
+5. Na seção **Escolher o tipo de atividade** , selecione **Migração de dados online**.
 
     ![Criar o Serviço de migração de banco de dados do Azure](media/tutorial-sql-server-to-azure-sql-online/dms-create-project3.png)
 
@@ -273,7 +273,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 ## <a name="specify-source-details"></a>Especifique as configurações de origem
 
-1. Na tela **Detalhe de origem de migração**, especifique os detalhes da conexão da instância do SQL Server de origem.
+1. Na tela **Detalhe de origem de migração** , especifique os detalhes da conexão da instância do SQL Server de origem.
 
     Certifique-se de usar um Nome de Domínio Totalmente Qualificado (FQDN) para o nome da instância do SQL Server de origem. Você também pode usar o endereço IP para situações em que a resolução de nome do DNS não é possível.
 
@@ -291,23 +291,23 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
-1. Selecione **Salvar** e, na tela **Detalhes do destino da migração**, especifique os detalhes da conexão para o Banco de Dados SQL do Azure de destino, que é o Banco de Dados SQL do Azure pré-provisionado no qual o esquema **AdventureWorks2012** foi implantado usando o AMD.
+1. Selecione **Salvar** e, na tela **Detalhes do destino da migração** , especifique os detalhes da conexão para o Banco de Dados SQL do Azure de destino, que é o Banco de Dados SQL do Azure pré-provisionado no qual o esquema **AdventureWorks2012** foi implantado usando o AMD.
 
     ![Selecionar o destino](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 
-2. Selecione **Salvar** e, na tela **Mapear para bancos de dados de destino**, mapeie os bancos de dados de origem e de destino para a migração.
+2. Selecione **Salvar** e, na tela **Mapear para bancos de dados de destino** , mapeie os bancos de dados de origem e de destino para a migração.
 
     Se o banco de dados de destino contém o mesmo nome de banco de dados do banco de dados de origem, o Serviço de Migração de Banco de Dados do Azure seleciona o banco de dados de destino por padrão.
 
     ![Mapear para bancos de dados de destino](media/tutorial-sql-server-to-azure-sql-online/dms-map-targets-activity3.png)
 
-3. Selecione **Salvar**, na tela **Selecionar tabelas**, expanda a lista de tabela e revise a lista de campos afetados.
+3. Selecione **Salvar** , na tela **Selecionar tabelas** , expanda a lista de tabela e revise a lista de campos afetados.
 
     O Serviço de Migração de Banco de Dados do Azure seleciona automaticamente todas as tabelas de origem que existem na instância do Banco de Dados SQL do Azure de destino. Se quiser migrar novamente as tabelas que já contêm dados, você precisará selecionar as tabelas nesta folha de forma explícita.
 
     ![Selecionar tabelas](media/tutorial-sql-server-to-azure-sql-online/dms-configure-setting-activity3.png)
 
-4. Selecione **Salvar** na tela **Resumo de migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e reveja o resumo para ter certeza de que os detalhes de origem e destino correspondem ao que foi especificado anteriormente.
+4. Selecione **Salvar** na tela **Resumo de migração** , na caixa de texto **Nome da atividade** , especifique um nome para a atividade de migração e reveja o resumo para ter certeza de que os detalhes de origem e destino correspondem ao que foi especificado anteriormente.
 
     ![Resumo do Aplicativo](media/tutorial-sql-server-to-azure-sql-online/dms-migration-summary.png)
 
@@ -336,8 +336,8 @@ Após a conclusão do carregamento completo inicial, os bancos de dados são mar
     ![Iniciar substituição](media/tutorial-sql-server-to-azure-sql-online/dms-start-cutover.png)
 
 2. Pare todas as transações de entrada para o banco de dados de origem; aguarde até que o contador **Alterações pendentes** contador mostre **0**.
-3. Selecione **Confirmar**e selecione **Aplicar**.
-4. Quando o status de migração de banco de dados mostrar **Concluído**, conecte seus aplicativos ao novo Banco de Dados SQL do Azure de destino.
+3. Selecione **Confirmar** e selecione **Aplicar**.
+4. Quando o status de migração de banco de dados mostrar **Concluído** , conecte seus aplicativos ao novo Banco de Dados SQL do Azure de destino.
 
     ![Status da atividade: concluído](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 

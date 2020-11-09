@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784279"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372686"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
 
@@ -456,6 +456,8 @@ As tentativas de kill chain com suporte da Central de Segurança são baseadas n
 | **Impacto**              | Os eventos de impacto tentam principalmente reduzir diretamente a disponibilidade ou a integridade de um sistema, um serviço ou uma rede, incluindo a manipulação de dados para afetar um processo comercial ou operacional. Geralmente se refere a técnicas como ransomware, desfiguração, manipulação de dados e outros.                                                                                                                                                                                                                                                                                                     |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
+> [!NOTE]
+> Para alertas que estão em versão prévia: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os alertas, confira o seguinte:

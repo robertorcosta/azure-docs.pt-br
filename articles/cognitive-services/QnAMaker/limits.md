@@ -4,13 +4,13 @@ description: O QnA Maker tem limites de meta para partes do serviço e da base d
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776248"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375611"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -50,6 +50,9 @@ Os nomes de arquivo não podem incluir os seguintes caracteres:
 ### <a name="maximum-number-of-files"></a>Número máximo de arquivos
 
 O número máximo de arquivos que podem ser extraídos e o tamanho máximo do arquivo baseia-se nos limites do seu **[QnA Maker tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
+
+> [!NOTE]
+> QnA Maker gerenciado (versão prévia) é um serviço gratuito sem limites no número de fontes que podem ser adicionadas. A taxa de transferência está atualmente limitada a 10 transações por segundo para APIs de gerenciamento e APIs de previsão.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>Número máximo de links profundos da URL
 

@@ -81,12 +81,36 @@
       href: publisher-guide-by-offer-type.md
     - name: Ofertas de aplicativo do Azure
       items:
-        - name: Planejar uma oferta de modelo de solução
-          href: marketplace-solution-templates.md
-        - name: Planejar uma oferta de aplicativo gerenciado
-          href: marketplace-managed-apps.md
+        - name: Planejar ofertas de aplicativo do Azure
+          items:
+            - name: Planejar uma oferta de aplicativo do Azure
+              href: plan-azure-application-offer.md
+            - name: Planejar um modelo de solução
+              href: plan-azure-app-solution-template.md
+            - name: Planejar um aplicativo gerenciado
+              href: plan-azure-app-managed-app.md
         - name: Criar e publicar uma oferta de aplicativo do Azure
-          href: partner-center-portal/create-new-azure-apps-offer.md
+          items:
+            - name: Criar uma oferta de aplicativo do Azure
+              href: create-new-azure-apps-offer.md
+            - name: Configurar propriedades da oferta de aplicativo do Azure
+              href: create-new-azure-apps-offer-properties.md
+            - name: Configurar listagem da oferta de aplicativo do Azure
+              href: create-new-azure-apps-offer-listing.md
+            - name: Adicionar um público-alvo de versão prévia
+              href: create-new-azure-apps-offer-preview.md
+            - name: Adicionar detalhes técnicos
+              href: create-new-azure-apps-offer-technical.md
+            - name: Criar planos
+              href: create-new-azure-apps-offer-plans.md
+            - name: Criar plano do modelo de solução
+              href: create-new-azure-apps-offer-solution.md
+            - name: Criar plano do aplicativo gerenciado
+              href: create-new-azure-apps-offer-managed.md
+            - name: Testar e publicar uma oferta de aplicativo do Azure
+              href: create-new-azure-apps-offer-test-publish.md
+        - name: Comercializar sua oferta de aplicativo do Azure
+          href: create-new-azure-apps-offer-marketing.md
         - name: Cobrança limitada de aplicativo do Azure
           href: partner-center-portal/azure-app-metered-billing.md
         - name: Tratar comentários de revisão
