@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091144"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372618"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger as cargas de trabalho do Kubernetes
 
@@ -35,7 +35,7 @@ A central de segurança oferece mais recursos de segurança de contêiner se voc
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia|
+|Estado da versão:|Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|**Proprietário** ou **administrador de segurança** para editar uma atribuição<br>**Leitor** para exibir as recomendações|
 |Clusters com suporte:|Kubernetes v 1.14 (ou superior) é necessário<br>Nenhum recurso PodSecurityPolicy (antigo modelo PSP) nos clusters<br>Não há suporte para nós do Windows|
@@ -58,29 +58,29 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
 
     1. Em qualquer um dos controles de segurança, selecione a recomendação para ver os recursos nos quais você pode instalar o complemento e selecione **corrigir**. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recomendação * * Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="A página de detalhes de recomendação para * * Azure Policy complemento para kubernetes deve ser instalada e habilitada em seus clusters * *":::
 
 1. Aproximadamente 30 minutos após a conclusão da instalação do complemento, a central de segurança mostra o status de integridade dos clusters para as seguintes recomendações, cada um no controle de segurança relevante, conforme mostrado:
 
     > [!TIP]
-    > Algumas recomendações têm parâmetros que devem ser personalizados por meio de Azure Policy para usá-los com eficiência. Por exemplo, para se beneficiar das imagens de contêiner de recomendação **deve ser implantado somente de registros confiáveis**, você precisará definir seus registros confiáveis.
+    > Algumas recomendações têm parâmetros que devem ser personalizados por meio de Azure Policy para usá-los com eficiência. Por exemplo, para se beneficiar das imagens de contêiner de recomendação **deve ser implantado somente de registros confiáveis** , você precisará definir seus registros confiáveis.
     > 
     > Se você não inserir os parâmetros necessários para as recomendações que exigem configuração, suas cargas de trabalho serão mostradas como não íntegras.
 
     | Nome da recomendação                                                         | Controle de segurança                         | Configuração necessária |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Limites de memória e CPU do contêiner devem ser impostos                          | Proteger aplicativos contra ataques de DDoS | Não                     |
-    | Contêineres privilegiados devem ser evitados                                     | Gerenciar acesso e permissões            | Não                     |
-    | O sistema de arquivos raiz imutável (somente leitura) deve ser imposto para contêineres     | Gerenciar acesso e permissões            | Não                     |
-    | O contêiner com elevação de privilégio deve ser evitado                       | Gerenciar acesso e permissões            | Não                     |
-    | Os contêineres em execução como usuário raiz devem ser evitados                           | Gerenciar acesso e permissões            | Não                     |
-    | Os contêineres que compartilham namespaces de host confidenciais devem ser evitados              | Gerenciar acesso e permissões            | Não                     |
+    | Deverão ser aplicados limites de memória e CPU ao contêiner                          | Proteger aplicativos contra ataques de DDoS | Não                     |
+    | Os contêineres com privilégios deverão ser evitados                                     | Gerenciar acesso e permissões            | Não                     |
+    | Um sistema de arquivos raiz imutável (somente leitura) deverá ser aplicado aos contêineres     | Gerenciar acesso e permissões            | Não                     |
+    | Os contêineres com elevação de privilégio deverão ser evitados                       | Gerenciar acesso e permissões            | Não                     |
+    | Executar contêineres como usuário raiz deverá ser evitado                           | Gerenciar acesso e permissões            | Não                     |
+    | Os contêineres que compartilham namespaces de host confidenciais deverão ser evitados              | Gerenciar acesso e permissões            | Não                     |
     | Os recursos do Linux com privilégios mínimos devem ser impostos para contêineres       | Gerenciar acesso e permissões            | **Sim**                |
-    | O uso de montagens de volume HostPath Pod deve ser restrito a uma lista conhecida    | Gerenciar acesso e permissões            | **Sim**                |
-    | Os contêineres devem escutar somente em portas permitidas                              | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | Os serviços devem escutar somente em portas permitidas                                | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | O uso de rede e portas do host deve ser restrito                     | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | Substituir ou desabilitar o perfil AppArmor de contêineres deve ser restrito | Corrigir as configurações de segurança        | **Sim**                |
+    | Usar montagens de volumes de HostPath do pod deverá ser restrito a uma lista conhecida    | Gerenciar acesso e permissões            | **Sim**                |
+    | Os contêineres deverão escutar somente em portas permitidas                              | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | Os serviços deverão escutar somente em portas permitidas                                | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | Usar redes e portas do host deverá ser restrito                     | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | As ações para substituir ou desabilitar o perfil do AppArmor de contêineres deverão ser restritas | Corrigir as configurações de segurança        | **Sim**                |
     | As imagens de contêiner devem ser implantadas somente de registros confiáveis            | Corrigir vulnerabilidades                | **Sim**                |
 
 
@@ -92,14 +92,14 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
     1. Selecione "ASC padrão".
     1. Abra a guia **parâmetros** e modifique os valores conforme necessário.
     1. Selecione **Examinar + salvar**.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 
 
 1. Para impor qualquer uma das recomendações, 
 
-    1. Abra a página de detalhes de recomendação e selecione **negar**:
+    1. Abra a página de detalhes de recomendação e selecione **negar** :
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recomendação * * Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opção Deny para o parâmetro Azure Policy":::
 
         Isso abrirá o painel em que o escopo será definido. 
 
@@ -113,7 +113,7 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
 
 1. Ao exibir uma recomendação do conjunto de proteção de carga de trabalho, você verá o número de pods afetados ("componentes kubernetes") listados junto com o cluster. Para obter uma lista de pods específicos, selecione o cluster e, em seguida, selecione **executar ação**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Recomendação * * Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters * *"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Exibindo o pods afetado por uma recomendação de K8s"::: 
 
 1. Para testar a imposição, use as duas implantações kubernetes abaixo:
 

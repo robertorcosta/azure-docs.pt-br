@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbaa44fb64becee85b29cd44bee44e593ec55bf6
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448981"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372628"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Conectar as contas da GCP à Central de Segurança do Azure
 
@@ -36,7 +36,7 @@ Na captura de tela abaixo, você pode ver os projetos da GCP exibidos no dashboa
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia|
+|Estado da versão:|Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** ou **Colaborador** na Assinatura relevante do Azure|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
@@ -68,26 +68,26 @@ Saiba mais sobre a [API da Central de Comandos de Segurança](https://cloud.goog
 
 ### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>Etapa 3. Criar uma conta de serviço dedicada para a integração da configuração de segurança
 
-1. No **Console da GCP**, selecione o projeto que deseja conectar à Central de Segurança.
-1. No **Menu de navegação**, nas opções **IAM e administração**, selecione **contas de serviço**.
+1. No **Console da GCP** , selecione o projeto que deseja conectar à Central de Segurança.
+1. No **Menu de navegação** , nas opções **IAM e administração** , selecione **contas de serviço**.
 1. Selecione **CRIAR CONTA DE SERVIÇO**.
 1. Insira um nome de conta e selecione **Criar**.
 1. Especifique a **Função** como **Visualizador de Administração da Central de Segurança** e selecione **Continuar**.
 1. A seção **Conceder aos usuários acesso a essa conta de serviço** é opcional. Selecione **Concluído**.
 1. Copie o **valor do Email** da conta de serviço criada e salve-o para uso posterior.
-1. No **Menu de navegação**, nas opções **IAM e administração**, selecione **IAM**
+1. No **Menu de navegação** , nas opções **IAM e administração** , selecione **IAM**
     1. Mude para o nível da organização.
     1. Selecione **AICIONAR**.
-    1. No campo **Novos membros**, cole o **valor do Email** copiado anteriormente.
+    1. No campo **Novos membros** , cole o **valor do Email** copiado anteriormente.
     1. Especifique a Função como **Visualizador de Administração da Central de Segurança** e selecione Salvar.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 projetos da GCP listados no dashboard de visão geral da Central de Segurança":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Configurando as permissões relevantes da GCP":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Etapa 4. Criar uma chave privada para a conta de serviço dedicada
 1. Mude para o nível de projeto.
-1. No **Menu de navegação**, nas opções **IAM e administração**, selecione **contas de serviço**.
+1. No **Menu de navegação** , nas opções **IAM e administração** , selecione **contas de serviço**.
 1. Abra a conta de serviço dedicada e selecione Editar.
-1. Na seção **Chaves**, selecione **ADICIONAR CHAVE** e depois **Criar nova chave**.
+1. Na seção **Chaves** , selecione **ADICIONAR CHAVE** e depois **Criar nova chave**.
 1. Na tela Criar chave privada, selecione **JSON** e depois **CRIAR**.
 1. Salve este arquivo JSON para uso posterior.
 
@@ -97,9 +97,9 @@ Saiba mais sobre a [API da Central de Comandos de Segurança](https://cloud.goog
 1. Selecione adicionar conta da GCP.
 1. Na página de integração, faça conforme mostrado a seguir e depois selecione **Próximo**.
     1. Valide a assinatura escolhida.
-    1. No campo **Nome de exibição**, insira um nome de exibição para o conector.
-    1. No campo **ID da organização**, insira a ID da organização. Se você não souber, confira [Criando e gerenciando as organizações](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
-    1. Na caixa de arquivo **Chave privada**, navegue até o arquivo JSON baixado na [Etapa 4. Criar uma chave privada para a conta de serviço dedicada](#step-4-create-a-private-key-for-the-dedicated-service-account).
+    1. No campo **Nome de exibição** , insira um nome de exibição para o conector.
+    1. No campo **ID da organização** , insira a ID da organização. Se você não souber, confira [Criando e gerenciando as organizações](https://cloud.google.com/resource-manager/docs/creating-managing-organization).
+    1. Na caixa de arquivo **Chave privada** , navegue até o arquivo JSON baixado na [Etapa 4. Criar uma chave privada para a conta de serviço dedicada](#step-4-create-a-private-key-for-the-dedicated-service-account).
 
 
 ### <a name="step-6-confirmation"></a>Etapa 6. Confirmação
@@ -107,7 +107,7 @@ Saiba mais sobre a [API da Central de Comandos de Segurança](https://cloud.goog
 Quando o conector for criado com sucesso e a Central de Comandos de Segurança da GCP tiver sido configurada corretamente:
 
 - O padrão CIS da GCP será mostrado no dashboard de conformidade regulatória da Central de Segurança.
-- Recomendações de segurança para os recursos da GCP serão exibidas no portal da Central de Segurança e no dashboard de conformidade regulatória, de 5 a 10 minutos após a conclusão da integração:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 projetos da GCP listados no dashboard de visão geral da Central de Segurança":::
+- Recomendações de segurança para os recursos da GCP serão exibidas no portal da Central de Segurança e no dashboard de conformidade regulatória, de 5 a 10 minutos após a conclusão da integração:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Recursos e recomendações da GCP na página de recomendações da Central de Segurança":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Monitorando os recursos da GCP
@@ -116,7 +116,7 @@ Conforme mostrado acima, a página de recomendações de segurança da Central d
 
 Para exibir todas as recomendações ativas dos seus recursos por tipo de recurso, use a página de estoque de ativos da Central de Segurança e filtre para o tipo de recurso da GCP no qual você está interessado:
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 projetos da GCP listados no dashboard de visão geral da Central de Segurança"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtro do tipo de recurso da página de estoque de ativos mostrando as opções da GCP"::: 
 
 
 ## <a name="next-steps"></a>Próximas etapas

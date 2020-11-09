@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 220f9fffd6c0f9b959230964a9ec79f4e209bd54
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342018"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372517"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para SQL
 
@@ -23,7 +23,7 @@ O Azure defender para SQL inclui dois planos do Azure Defender que estendem o [p
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|**Azure Defender para Servidores de Banco de Dados SQL do Azure** – GA (Disponibilidade Geral)<br>**Azure Defender para SQL Servers em Computadores** – Versão Prévia|
+|Estado da versão:|**Azure Defender para Servidores de Banco de Dados SQL do Azure** – GA (Disponibilidade Geral)<br>**Azure Defender para SQL Servers em Computadores** – Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preço:|Os dois planos que formam o **Azure Defender para SQL** são cobrados conforme mostrado na [página de preços](security-center-pricing.md)|
 |Versões do SQL protegidas:|Banco de Dados SQL do Azure <br>Instância Gerenciada do Azure SQL<br>Azure Synapse Analytics (antigo SQL DW)<br>SQL Server (todas as versões compatíveis)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China Gov, outros Gov|

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3a597b6454b3fb738ca192fa7750ca94fdb873ab
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993335"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372788"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux imagens Gold de sua própria assinatura no Azure
 
@@ -21,14 +21,14 @@ As imagens Red Hat Enterprise Linux (RHEL) estão disponíveis no Azure por meio
 >[!NOTE]
 > As imagens do RHEL BYOS Gold estão disponíveis nas nuvens públicas (comerciais) do Azure e do Azure governamental. Eles não estão disponíveis nas nuvens do Azure China ou do Azure Blackforest.
 
-## <a name="important-points-to-consider"></a>Pontos importantes a considerar
+## <a name="important-points-to-consider"></a>Pontos importantes a serem considerados
 
 - As imagens do Red Hat Gold fornecidas neste programa são imagens RHEL prontas para produção, semelhantes às imagens do RHEL pago pelo uso no Azure Marketplace.
 - As imagens seguem as políticas atuais descritas em [Red Hat Enterprise Linux imagens no Azure](./redhat-images.md).
 - As políticas de suporte padrão se aplicam a VMs criadas com base nessas imagens.
 - As VMs provisionadas a partir de imagens Red Hat Gold não carregam taxas de RHEL associadas às imagens pré-pagas do RHEL.
 - As imagens não são qualificadas. Você deve usar o Red Hat Subscription-Manager para registrar e assinar as VMs para obter atualizações do Red Hat diretamente.
-- No momento, não é possível alternar dinamicamente entre os modelos de cobrança BYOS e pré-pago para imagens do Linux. Para alternar o modelo de cobrança, você deve reimplantar a VM da respectiva imagem.
+- É possível mudar de imagens pré-pagas para BYOS usando o [benefício híbrido do Azure](../../linux/azure-hybrid-benefit-linux.md). No entanto, não é possível mudar de um BYOS implantado inicialmente para modelos de cobrança pagos conforme o uso para imagens do Linux. Para mudar o modelo de cobrança de BYOS para pré-pago, você deve reimplantar a VM da respectiva imagem.
 
 >[!NOTE]
 > As imagens de BYOS de geração 2 RHEL não estão disponíveis atualmente por meio da oferta do Marketplace. Se você precisar de uma imagem de BYOS de geração 2 RHEL, visite o painel de acesso à nuvem no gerenciamento de assinaturas do Red Hat. Para obter mais informações, consulte a [documentação do Red Hat](https://access.redhat.com/articles/4847681).

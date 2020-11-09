@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342188"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372754"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Como personalizar o conjunto de padrões em seu painel de conformidade regulatória
 
@@ -41,7 +41,7 @@ A Microsoft também acompanha os padrões regulatórios e aprimora automaticamen
 
 Você pode adicionar padrões como NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official e UK NHS, PBMM Federal do Canadá e Azure CIS 1.1.0 (novo) – uma representação mais completa do Azure CIS 1.1.0. 
 
-Além disso, você pode adicionar o **Azure Security Benchmark**, as diretrizes específicas do Azure criadas pela Microsoft para melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. ([Saiba mais sobre o Parâmetro de Segurança do Azure](../security/benchmarks/introduction.md).)
+Além disso, você pode adicionar o **Azure Security Benchmark** , as diretrizes específicas do Azure criadas pela Microsoft para melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. ([Saiba mais sobre o Parâmetro de Segurança do Azure](../security/benchmarks/introduction.md).)
 
 Outros padrões se tornarão compatíveis com o painel à medida que forem disponibilizados. 
 
@@ -64,10 +64,11 @@ As etapas a seguir explicam como adicionar um pacote para monitorar sua conformi
 
 1. Para adicionar os padrões relevantes à sua organização, clique em **Adicionar mais padrões**. 
 
-1. Na página **Adicionar padrões de conformidade regulatória**, você pode procurar pacotes para qualquer um dos padrões disponíveis. Alguns dos padrões disponíveis são:
+1. Na página **Adicionar padrões de conformidade regulatória** , você pode procurar pacotes para qualquer um dos padrões disponíveis. Alguns dos padrões disponíveis são:
 
     - **Azure Security Benchmark**
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-v2020**
     - **UKO e UK NHS**
     - **PBMM do Canadá**
@@ -105,7 +106,7 @@ Para remover um padrão:
 
 1. Para o padrão que você deseja remover, selecione **desabilitar**. Uma janela de confirmação é exibida.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Removendo um padrão normativo do painel de conformidade regulatória na central de segurança do Azure":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirme que você realmente deseja remover o padrão normativo selecionado":::
 
 1. Selecione **Sim** na barra superior. O padrão será removido. 
 

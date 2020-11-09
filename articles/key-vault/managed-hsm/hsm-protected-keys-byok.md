@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39486b076f9284436207f823ea48fddc98bb48a0
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320601"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372839"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importar chaves protegidas por HSM para HSM gerenciado (BYOK)
 
- Azure Key Vault HSM gerenciado dá suporte à importação de chaves geradas no módulo de segurança de hardware local (HSM); as chaves nunca deixarão o limite de proteção do HSM. Esse cenário é, muitas vezes, conhecido como BYOK (*Bring Your Own Key*). O HSM gerenciado usa os adaptadores HSM da Marvell LiquidSecurity (FIPS 140-2 nível 3 validados) para proteger suas chaves.
+ Azure Key Vault HSM gerenciado dá suporte à importação de chaves geradas no módulo de segurança de hardware local (HSM); as chaves nunca deixarão o limite de proteção do HSM. Esse cenário é, muitas vezes, conhecido como BYOK ( *Bring Your Own Key* ). O HSM gerenciado usa os adaptadores HSM da Marvell LiquidSecurity (FIPS 140-2 nível 3 validados) para proteger suas chaves.
 
 Use as informações neste artigo para ajudá-lo a planejar, gerar e transferir suas próprias chaves protegidas por HSM para usar com o HSM gerenciado.
 
@@ -46,7 +46,7 @@ Para usar comandos da CLI do Azure neste artigo, você deve ter os seguintes ite
 
 * Uma assinatura do Microsoft Azure. Se você não tiver uma, pode se inscrever e fazer uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
 * A CLI do Azure versão 2.12.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
-* Um HSM gerenciado a [lista de HSMs com suporte](#supported-hsms) na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM gerenciado.
+* Um HSM gerenciado a [lista de HSMs com suporte](#supported-hsms) na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM Gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM Gerenciado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -67,6 +67,9 @@ Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a C
 |Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>SDKMS (Serviço de Gerenciamento de Chaves de Proteção Automática)</li><li>Equinix SmartKey</li></ul>|[Como exportar chaves SDKMS para provedores de nuvem para BYOK – Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|Fabricante|Todos os HSMs LiquidSecurity com<ul><li>Firmware versão 2.0.4 ou posterior</li><li>Firmware versão 3.2 ou mais recente</li></ul>|[Ferramenta BYOK Marvell e documentação](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Acesse o [site da Cryptomathic para obter detalhes](https://www.cryptomathic.com/azurebyok)|[Ferramenta BYOK Cryptomathic e documentação](https://www.cryptomathic.com/azurebyok)|
+|SA Securosys|Fabricante, HSM como um serviço|Família de HSM Primus, HSM de nuvens Securosys|[Ferramenta e documentação do Primus BYOK](https://www.securosys.com/primus-azure-byok)|
+||||
+
 
 ## <a name="supported-key-types"></a>Tipos de chave com suporte
 
@@ -86,7 +89,7 @@ Para gerar e transferir sua chave para um HSM gerenciado:
 
 ### <a name="step-1-generate-a-kek"></a>Etapa 1: Gerar uma KEK
 
-Um KEK é uma chave RSA que é gerada em um HSM gerenciado. A KEK é usada para criptografar a chave que você deseja importar (a chave de *destino*).
+Um KEK é uma chave RSA que é gerada em um HSM gerenciado. A KEK é usada para criptografar a chave que você deseja importar (a chave de *destino* ).
 
 A KEK precisa ser:
 - Uma chave RSA-HSM (2.048 bits, 3.072 bits ou 4.096 bits)
@@ -124,7 +127,7 @@ Transfira o arquivo BYOK para o computador conectado.
 > [!NOTE] 
 > Não há suporte para a importação de chaves RSA de 1.024 bits. Atualmente, não há suporte para a importação de uma chave EC (Curva Elíptica).
 >
-> **Problema conhecido**: Só há suporte para a importação de uma chave de destino RSA de 4 mil bits de HSMs do Luna no firmware 7.4.0 ou mais recente.
+> **Problema conhecido** : Só há suporte para a importação de uma chave de destino RSA de 4 mil bits de HSMs do Luna no firmware 7.4.0 ou mais recente.
 
 ### <a name="step-4-transfer-your-key-to-managed-hsm"></a>Etapa 4: transferir sua chave para HSM gerenciado
 

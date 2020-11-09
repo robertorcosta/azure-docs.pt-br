@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403629"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372363"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar BLOBs JSON usando um indexador de blob no Azure Pesquisa Cognitiva
 
@@ -49,21 +49,21 @@ Na página Visão geral do serviço de pesquisa, você pode [iniciar o assistent
 
 ### <a name="3---set-the-data-source"></a>3 - Configurar a fonte de dados
 
-Na página **fonte de dados**, a fonte deve ser **Armazenamento de blobs do Azure** com as seguintes especificações:
+Na página **fonte de dados** , a fonte deve ser **Armazenamento de blobs do Azure** com as seguintes especificações:
 
 + Os **Dados para extração** devem ser *Conteúdo e Metadados*. Esta opção permite que ao assistente inferir um esquema de índice e mapear os campos para importação.
    
-+ O **modo de análise** deve ser definido como *JSON*, *matriz JSON* ou *linhas JSON*. 
++ O **modo de análise** deve ser definido como *JSON* , *matriz JSON* ou *linhas JSON*. 
 
   O *JSON* articula cada blob como um documento de pesquisa única, aparecendo como um item independente nos resultados da pesquisa. 
 
-  A *matriz JSON* é para BLOBs que contêm dados JSON bem formados – o JSON bem formado corresponde a uma matriz de objetos ou tem uma propriedade que é uma matriz de objetos e você deseja que cada elemento seja articulado como um documento de pesquisa independente e autônomo. Se os blobs são complexos e você não escolher *matriz JSON*, o blob inteiro será ingerido como um único documento.
+  A *matriz JSON* é para BLOBs que contêm dados JSON bem formados – o JSON bem formado corresponde a uma matriz de objetos ou tem uma propriedade que é uma matriz de objetos e você deseja que cada elemento seja articulado como um documento de pesquisa independente e autônomo. Se os blobs são complexos e você não escolher *matriz JSON* , o blob inteiro será ingerido como um único documento.
 
   *As linhas JSON* são para BLOBs compostos por várias entidades JSON separadas por uma nova linha, em que você deseja que cada entidade seja articulada como um documento de pesquisa independente autônomo. Se os BLOBs forem complexos e você não escolher o modo de análise de *linhas JSON* , todo o blob será ingerido como um único documento.
    
 + O **Contêiner de armazenamento** deve especificar sua conta de armazenamento e contêiner ou uma cadeia de caracteres de conexão que apontam para o contêiner. Obtenhas as cadeias de caracteres de conexão na página de portal de serviço Blob.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Comando importar dados no portal" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definição de fonte de dados de Blob" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorar a página "conteúdo enriquecer" no assistente
 
@@ -73,7 +73,7 @@ Para ignorar a etapa, clique nos botões azuis na parte inferior da página para
 
 ### <a name="5---set-index-attributes"></a>5- Definir atributos de índice
 
-Na página **índice**, deve haver uma lista de campos com um tipo de dados e uma série de caixas de seleção para definir os atributos de índice. O assistente pode gerar uma lista de campos com base em metadados e por amostragem dos dados de origem. 
+Na página **índice** , deve haver uma lista de campos com um tipo de dados e uma série de caixas de seleção para definir os atributos de índice. O assistente pode gerar uma lista de campos com base em metadados e por amostragem dos dados de origem. 
 
 Você pode selecionar atributos em massa clicando na caixa de seleção na parte superior de uma coluna de atributo. Escolha **recuperável** e **pesquisável** para cada campo que deve ser retornado a um aplicativo cliente e sujeito ao processamento de pesquisa de texto completo. Você observará que inteiros não são de texto completo ou de pesquisa difusa (os números são avaliados de forma idêntica e geralmente são úteis em filtros).
 
@@ -81,7 +81,7 @@ Examine a descrição de [atributos de índice](/rest/api/searchservice/create-i
 
 Reserve um tempo para revisar suas seleções. Depois de executar o assistente, estruturas de dados físicos são criadas e você não poderá editar esses campos sem descartar e recriar todos os objetos.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Comando importar dados no portal" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definição do índice de blob" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - Criar indexador
 
@@ -89,7 +89,7 @@ Totalmente especificado, o assistente cria três objetos diferentes em seu servi
 
 Se você não estiver familiarizado com indexadores, um *indexador* é um recurso no Azure pesquisa cognitiva que rastreia uma fonte de dados externa para conteúdo pesquisável. A saída do assistente de **importação de dados** é um indexador que rastreia sua fonte de dados JSON, extrai conteúdo pesquisável e importa-o para um índice no Azure pesquisa cognitiva.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Comando importar dados no portal" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definição de indexador de blob" border="false":::
 
 Clique em **Ok** para executar o assistente e criar todos os objetos. A indexação começa imediatamente.
 
@@ -120,9 +120,9 @@ Os BLOBs JSON no armazenamento de BLOBs do Azure normalmente são um único docu
 
 | Documento JSON | parsingMode | Descrição | Disponibilidade |
 |--------------|-------------|--------------|--------------|
-| Um por blob | `json` | Analisa blobs JSON como um único bloco de texto. Cada blob JSON se torna um único documento Pesquisa Cognitiva do Azure. | Geralmente disponível na API [REST](/rest/api/searchservice/indexer-operations) e no SDK do [.net](/dotnet/api/microsoft.azure.search.models.indexer) . |
-| Múltiplos por blob | `jsonArray` | Analisa uma matriz JSON no BLOB, em que cada elemento da matriz se torna um documento do Azure Pesquisa Cognitiva separado.  | Geralmente disponível na API [REST](/rest/api/searchservice/indexer-operations) e no SDK do [.net](/dotnet/api/microsoft.azure.search.models.indexer) . |
-| Múltiplos por blob | `jsonLines` | Analisa um blob que contém várias entidades JSON (uma "matriz") separadas por uma nova linha, em que cada entidade se torna um documento separado Pesquisa Cognitiva do Azure. | Geralmente disponível na API [REST](/rest/api/searchservice/indexer-operations) e no SDK do [.net](/dotnet/api/microsoft.azure.search.models.indexer) . |
+| Um por blob | `json` | Analisa blobs JSON como um único bloco de texto. Cada blob JSON se torna um único documento Pesquisa Cognitiva do Azure. | Geralmente disponível na API [REST](/rest/api/searchservice/indexer-operations) e no SDK do [.net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) . |
+| Múltiplos por blob | `jsonArray` | Analisa uma matriz JSON no BLOB, em que cada elemento da matriz se torna um documento do Azure Pesquisa Cognitiva separado.  | Geralmente disponível na API [REST](/rest/api/searchservice/indexer-operations) e no SDK do [.net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) . |
+| Múltiplos por blob | `jsonLines` | Analisa um blob que contém várias entidades JSON (uma "matriz") separadas por uma nova linha, em que cada entidade se torna um documento separado Pesquisa Cognitiva do Azure. | Geralmente disponível na API [REST](/rest/api/searchservice/indexer-operations) e no SDK do [.net](/dotnet/api/azure.search.documents.indexes.models.searchindexer) . |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-montar entradas para a solicitação
 
@@ -141,7 +141,7 @@ Você pode encontrar esses valores no Portal:
 
 2. No painel de navegação esquerdo, clique em **chaves** e copie a chave primária ou secundária (elas são equivalentes).
 
-3. Alterne para as páginas do portal da sua conta de armazenamento. No painel de navegação à esquerda, em **configurações**, clique em **chaves de acesso**. Essa página fornece o nome da conta e a chave. Copie o nome da conta de armazenamento e uma das chaves para o bloco de notas.
+3. Alterne para as páginas do portal da sua conta de armazenamento. No painel de navegação à esquerda, em **configurações** , clique em **chaves de acesso**. Essa página fornece o nome da conta e a chave. Copie o nome da conta de armazenamento e uma das chaves para o bloco de notas.
 
 ### <a name="2---create-a-data-source"></a>2-criar uma fonte de dados
 
@@ -280,10 +280,10 @@ A criação do indexador no Azure Pesquisa Cognitiva dispara a importação de d
 
 O SDK do .NET tem paridade total com a API REST. É recomendável examinar a seção anterior da API REST para aprender os conceitos, fluxo de trabalho e requisitos. Consulte a seguinte documentação de referência de API do .NET para implementar um indexador JSON em código gerenciado.
 
-+ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource)
-+ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
-+ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index) 
-+ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
++ [azure.search.documents. indexes. Models. searchindexerdatasourceconnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents. indexes. Models. searchindexerdatasourcetype](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) 
++ [azure.search.documents. indexes. Models. SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 
++ [azure.search.documents. indexes. Models. SearchIndexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="parsing-modes"></a>
 
@@ -293,7 +293,7 @@ Os BLOBs JSON podem assumir vários formulários. O parâmetro **parsingMode** n
 
 | parsingMode | Descrição |
 |-------------|-------------|
-| `json`  | Indexe cada blob como um único documento. Este é o padrão. |
+| `json`  | Indexe cada blob como um único documento. Esse é o padrão. |
 | `jsonArray` | Escolha esse modo se os BLOBs consistirem em matrizes JSON e você precisar que cada elemento da matriz se torne um documento separado no Azure Pesquisa Cognitiva. |
 |`jsonLines` | Escolha esse modo se seus BLOBs consistirem em várias entidades JSON, que são separadas por uma nova linha, e você precisa que cada entidade se torne um documento separado no Pesquisa Cognitiva do Azure. |
 
@@ -329,7 +329,7 @@ Conforme observado, os mapeamentos de campo não são necessários. Dado um índ
 
 ## <a name="parse-json-arrays"></a>Analisar matrizes JSON
 
-Como alternativa, você pode usar a opção de matriz JSON. Essa opção é útil quando os BLOBs contêm uma *matriz de objetos JSON bem formados*e você deseja que cada elemento se torne um documento separado do Azure pesquisa cognitiva. Por exemplo, dado o blob JSON a seguir, você pode preencher o índice de Pesquisa Cognitiva do Azure com três documentos separados, cada um com os campos "ID" e "texto".  
+Como alternativa, você pode usar a opção de matriz JSON. Essa opção é útil quando os BLOBs contêm uma *matriz de objetos JSON bem formados* e você deseja que cada elemento se torne um documento separado do Azure pesquisa cognitiva. Por exemplo, dado o blob JSON a seguir, você pode preencher o índice de Pesquisa Cognitiva do Azure com três documentos separados, cada um com os campos "ID" e "texto".  
 
 ```text
     [

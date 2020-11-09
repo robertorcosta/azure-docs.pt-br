@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082100"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371990"
 ---
 O uso da integração de VNet regional permite que seu aplicativo acesse:
 
@@ -23,8 +23,8 @@ O uso da integração de VNet regional permite que seu aplicativo acesse:
 
 Ao usar a integração VNet com o VNets na mesma região, você pode usar os seguintes recursos de rede do Azure:
 
-* **NSGs (grupos de segurança de rede)**: você pode bloquear o tráfego de saída com um NSG que é colocado em sua sub-rede de integração. As regras de entrada não se aplicam porque você não pode usar a integração VNet para fornecer acesso de entrada ao seu aplicativo.
-* **UDRs (tabelas de rotas)**: você pode inserir uma tabela de rotas na sub-rede de integração para enviar o tráfego de saída onde desejar.
+* **NSGs (grupos de segurança de rede)** : você pode bloquear o tráfego de saída com um NSG que é colocado em sua sub-rede de integração. As regras de entrada não se aplicam porque você não pode usar a integração VNet para fornecer acesso de entrada ao seu aplicativo.
+* **UDRs (tabelas de rotas)** : você pode inserir uma tabela de rotas na sub-rede de integração para enviar o tráfego de saída onde desejar.
 
 Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 para sua VNet. Se você quiser rotear todo o tráfego de saída para sua VNet, aplique a configuração do aplicativo WEBSITE_VNET_ROUTE_ALL ao seu aplicativo. Para definir a configuração do aplicativo:
 
@@ -34,7 +34,7 @@ Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 para sua VNet. Se v
    ![Fornecer configuração de aplicativo][4]
 
 1. Selecione **OK**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 > [!NOTE]
 > Se você rotear todo o tráfego de saída para sua VNet, ele estará sujeito aos NSGs e UDRs que são aplicados à sua sub-rede de integração. Quando você roteia todo o tráfego de saída para sua VNet, seus endereços de saída ainda são os endereços de saída listados nas propriedades do aplicativo, a menos que você forneça rotas para enviar o tráfego em outro lugar.
@@ -42,7 +42,7 @@ Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 para sua VNet. Se v
 Há algumas limitações no uso da integração VNet com o VNets na mesma região:
 
 * Você não pode acessar recursos entre conexões de emparelhamento globais.
-* O recurso está disponível somente de unidades de escala de serviço Azure App mais recentes que dão suporte a planos do serviço de aplicativo PremiumV2. Observe que *isso não significa que seu aplicativo deve ser executado em um tipo de preço PremiumV2*, apenas que ele deve ser executado em um plano do serviço de aplicativo onde a opção PremiumV2 está disponível (o que implica que é uma unidade de escala mais recente em que esse recurso de integração VNet também está disponível).
+* O recurso está disponível somente de unidades de escala de serviço Azure App mais recentes que dão suporte a planos do serviço de aplicativo PremiumV2. Observe que *isso não significa que seu aplicativo deve ser executado em um tipo de preço PremiumV2* , apenas que ele deve ser executado em um plano do serviço de aplicativo onde a opção PremiumV2 está disponível (o que implica que é uma unidade de escala mais recente em que esse recurso de integração VNet também está disponível).
 * A sub-rede de integração pode ser usada por apenas um plano do serviço de aplicativo.
 * O recurso não pode ser usado por aplicativos de plano isolado que estão em um Ambiente do Serviço de Aplicativo.
 * O recurso requer uma sub-rede não usada que seja de/27 com 32 endereços ou maior em uma VNet Azure Resource Manager.
@@ -66,7 +66,7 @@ A integração VNet regional permite que você use pontos de extremidade de serv
 1. configurar a integração VNet regional com seu aplicativo Web
 1. Vá para o serviço de destino e configure os pontos de extremidade de serviço em relação à sub-rede usada para integração
 
-### <a name="network-security-groups"></a>Grupos de segurança de rede
+### <a name="network-security-groups"></a>Grupos de Segurança de Rede
 
 Você pode usar grupos de segurança de rede para bloquear o tráfego de entrada e saída para recursos em uma VNet. Um aplicativo que usa a integração VNet regional pode usar um [grupo de segurança de rede][VNETnsg] para bloquear o tráfego de saída para recursos em sua VNet ou na Internet. Para bloquear o tráfego para endereços públicos, você deve ter a configuração de aplicativo WEBSITE_VNET_ROUTE_ALL definida como 1. As regras de entrada em um NSG não se aplicam ao seu aplicativo porque a integração VNet afeta apenas o tráfego de saída de seu aplicativo.
 
@@ -82,12 +82,17 @@ As rotas Border Gateway Protocol (BGP) também afetam o tráfego do aplicativo. 
 
 ### <a name="azure-dns-private-zones"></a>Zonas Privadas do DNS do Azure 
 
-Depois que o aplicativo se integra à sua VNet, ele usa o mesmo servidor DNS com o qual sua VNet está configurada. Por padrão, seu aplicativo não funcionará com Zonas Privadas do DNS do Azure. Para trabalhar com Zonas Privadas do DNS do Azure você precisa adicionar as seguintes configurações de aplicativo:
+Depois que o aplicativo se integra à sua VNet, ele usa o mesmo servidor DNS com o qual sua VNet está configurada. Por padrão, seu aplicativo não funcionará com Zonas Privadas do DNS do Azure. Para trabalhar com Zonas Privadas do DNS do Azure, você precisa adicionar as seguintes configurações de aplicativo:
 
-1. WEBSITE_DNS_SERVER com o valor 168.63.129.16 
+1. WEBSITE_DNS_SERVER com o valor 168.63.129.16
 1. WEBSITE_VNET_ROUTE_ALL com valor 1
 
-Essas configurações enviarão todas as suas chamadas de saída do seu aplicativo para sua VNet, além de habilitar seu aplicativo para usar zonas privadas do DNS do Azure.
+Essas configurações enviarão todas as chamadas de saída do seu aplicativo para sua VNet. Além disso, ele permitirá que o aplicativo use o DNS do Azure consultando a zona de DNS privado no nível de trabalho. Essa funcionalidade deve ser usada quando um aplicativo em execução estiver acessando uma zona de DNS privado.
+
+> [!NOTE]
+>A tentativa de adicionar um domínio personalizado a um aplicativo Web usando DNS privado zona não é possível com o Integração VNET. A validação de domínio personalizada é feita no nível do controlador, não no nível de trabalho, o que impede que os registros DNS sejam vistos. Para usar um domínio personalizado de uma zona de DNS privado, a validação precisaria ser ignorada usando um gateway de aplicativo ou ILB Ambiente do Serviço de Aplicativo.
+
+
 
 ### <a name="private-endpoints"></a>Pontos de extremidade privados
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340024"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372720"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ A auditoria também:
 - **Analise** relatórios. Encontrar eventos suspeitos, atividades incomuns e tendências.
 
 > [!IMPORTANT]
-> A auditoria do banco de dados SQL do Azure é otimizada para disponibilidade e desempenho. Durante uma atividade muito alta, o banco de dados SQL do Azure ou o Azure Synapse permite que as operações continuem e não registrem alguns eventos auditados.
+> A auditoria do banco de dados SQL do Azure e do Azure Synapse é otimizada para disponibilidade e desempenho. Durante uma atividade muito alta, ou alta carga de rede, o banco de dados SQL do Azure e o Azure Synapse permitem que as operações continuem e não possam registrar alguns eventos auditados.
 
 ### <a name="auditing-limitations"></a>Limitações da auditoria
 

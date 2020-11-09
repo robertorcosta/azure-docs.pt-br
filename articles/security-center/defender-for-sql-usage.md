@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: fa7d252246ed37160ba2a5cfcd90557df1375bc3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f83500e539ff5254db290d156dfcf50ea60de14
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461525"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372550"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure defender para SQL Servers em computadores 
 
@@ -30,7 +30,7 @@ Você receberá alertas quando ocorrerem atividades suspeitas no banco de dados 
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia|
+|Estado da versão:|Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preço:|O **Azure defender para SQL Servers em computadores** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
 |Versões do SQL protegidas:|SQL Server do Azure (todas as versões cobertas pelo suporte da Microsoft)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos|
@@ -53,7 +53,7 @@ Ambos são descritos abaixo.
 
 - **SQL Server local** – se o SQL Server estiver hospedado em um computador Windows local sem o Arc do Azure, você terá duas opções para conectá-lo ao Azure:
     
-    - **Implantar o arco do Azure** -você pode conectar qualquer computador Windows à central de segurança. No entanto, o Arc do Azure fornece uma integração mais profunda em *todo* o seu ambiente do Azure. Se você configurar o arco do Azure, verá a página **SQL Server – arco do Azure** no portal e seus alertas de segurança aparecerão em uma guia **segurança** dedicada nessa página. Portanto, a primeira e recomendada opção é [Configurar o arco do Azure no host](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) e seguir as instruções para **SQL Server no arco do Azure**, acima.
+    - **Implantar o arco do Azure** -você pode conectar qualquer computador Windows à central de segurança. No entanto, o Arc do Azure fornece uma integração mais profunda em *todo* o seu ambiente do Azure. Se você configurar o arco do Azure, verá a página **SQL Server – arco do Azure** no portal e seus alertas de segurança aparecerão em uma guia **segurança** dedicada nessa página. Portanto, a primeira e recomendada opção é [Configurar o arco do Azure no host](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) e seguir as instruções para **SQL Server no arco do Azure** , acima.
         
     - **Conectar o computador Windows sem o arco do Azure** – se você optar por conectar um SQL Server em execução em um computador Windows sem usar o Arc do Azure, siga as instruções em [conectar computadores Windows ao Azure monitor](../azure-monitor/platform/agent-windows.md).
 
@@ -62,9 +62,9 @@ Ambos são descritos abaixo.
 
 1. No menu da central de segurança, abra a página de **configurações de & de preços** .
 
-    - Se você estiver usando o **espaço de trabalho padrão da central de segurança do Azure** (chamado "defaultworkspace-[sua ID de assinatura]-[Região]"), selecione a **assinatura**relevante.
+    - Se você estiver usando o **espaço de trabalho padrão da central de segurança do Azure** (chamado "defaultworkspace-[sua ID de assinatura]-[Região]"), selecione a **assinatura** relevante.
 
-    - Se você estiver usando **um espaço de trabalho não padrão**, selecione o **espaço** de trabalho relevante (Insira o nome do espaço de trabalho no filtro, se necessário):
+    - Se você estiver usando **um espaço de trabalho não padrão** , selecione o **espaço** de trabalho relevante (Insira o nome do espaço de trabalho no filtro, se necessário):
 
         ![Localizando seu espaço de trabalho não padrão por título](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
@@ -97,7 +97,7 @@ Você pode exibir os resultados da avaliação de vulnerabilidade diretamente da
 
     A exibição detalhada para essa recomendação é exibida.
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="As descobertas de avaliação de vulnerabilidade em seus SQL Servers em computadores devem ser corrigidas (visualização)":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Exibição detalhada para a recomendação":::
 
 1. Para obter mais detalhes, faça uma busca detalhada:
 
@@ -105,7 +105,7 @@ Você pode exibir os resultados da avaliação de vulnerabilidade diretamente da
 
     * Para obter uma visão geral das vulnerabilidades agrupadas por um banco de dados SQL específico, selecione o banco de dados de interesse.
 
-    Em cada exibição, as verificações de segurança são classificadas por **severidade**. Clique em uma verificação de segurança específica para ver um painel de detalhes com uma **Descrição**, como **corrigi** -lo e outras informações relacionadas, como **impacto** ou **benchmark**.
+    Em cada exibição, as verificações de segurança são classificadas por **severidade**. Clique em uma verificação de segurança específica para ver um painel de detalhes com uma **Descrição** , como **corrigi** -lo e outras informações relacionadas, como **impacto** ou **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Alertas do Azure defender para SQL
 Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar máquinas do SQL. Esses eventos podem disparar alertas mostrados na [seção alertas para o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL data warehouse) da página de referência de alertas](alerts-reference.md#alerts-sql-db-and-warehouse).
