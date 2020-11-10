@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: local, Docker, contêiner, kubernetes
-ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 56d88b9223a80ea9981e8830cac44bac7c6edb3b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368841"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413030"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contêineres dos Serviços Cognitivos do Azure
 
@@ -58,7 +58,7 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 
 | Serviço | Tipo de preço com suporte | Contêiner | Descrição |
 |--|--|--|--|
-| [Detector de anomalias][ad-containers] | F0, S0 | **Condetector de anomalias** ( [imagem](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina.<br>[Solicitar acesso][request-access] |
+| [Detector de anomalias][ad-containers] | F0, S0 | **Condetector de anomalias** ( [imagem](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina.<br>[Solicitar acesso][request-access] |
 | [Pesquisa Visual Computacional][cv-containers] | F0, S1 | **Ler** OCR ( [imagem](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | O contêiner de OCR de leitura permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de arquivo JPEG, PNG, BMP, PDF e TIFF. Para obter mais informações, consulte a [documentação da API de leitura](./computer-vision/concept-recognizing-text.md).<br>[Solicitar acesso][request-access] |
 | [Detecção Facial][fa-containers] | F0, S0 | **Detecção Facial** | Detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pelo computador. Além de detectar, a Detecção Facial pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança, ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados. |
 | [Reconhecedor de formulário][fr-containers] | F0, S0 | **Reconhecimento de Formulários** | A compreensão de formulário aplica a tecnologia de aprendizado de máquina para identificar e extrair pares de chave-valor e tabelas de formulários. |
@@ -83,7 +83,7 @@ Além disso, alguns contêineres têm suporte em chaves de recurso de oferta de 
 * Visual Computacional
 * Face
 * LUIS
-* Análise de texto
+* Análise de Texto
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilidade de contêiner nos Serviços Cognitivos do Azure
 

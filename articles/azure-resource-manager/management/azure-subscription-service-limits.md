@@ -3,12 +3,12 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950237"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412911"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -21,7 +21,7 @@ Para saber mais sobre os preços do Azure, consulte [visão geral de preços do 
 > [!NOTE]
 > Alguns serviços têm limites ajustáveis.
 >
-> Quando um serviço não tem limites ajustáveis, as tabelas a seguir usam o **limite**de cabeçalho. Nesses casos, os limites padrão e máximo são os mesmos.
+> Quando um serviço não tem limites ajustáveis, as tabelas a seguir usam o **limite** de cabeçalho. Nesses casos, os limites padrão e máximo são os mesmos.
 >
 > Quando o limite pode ser ajustado, as tabelas incluem o **limite padrão** e os cabeçalhos de **limite máximo** . O limite pode ser gerado acima do limite padrão, mas não acima do limite máximo.
 >
@@ -96,7 +96,7 @@ Os tipos de preço determinam a capacidade e os limites de seu serviço Search. 
 
 * O serviço multilocatário **gratuito** , compartilhado com outros assinantes do Azure, destina-se a avaliação e projetos de desenvolvimento pequenos.
 * **Básico** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor, com até três réplicas para cargas de trabalho de consulta altamente disponíveis.
-* O **padrão**, que inclui a alta densidade S1, S2, S3 e S3, é para cargas de trabalho de produção maiores. Existem vários níveis na camada Standard para que você possa escolher uma configuração de recurso que melhor corresponda ao perfil de carga de trabalho.
+* O **padrão** , que inclui a alta densidade S1, S2, S3 e S3, é para cargas de trabalho de produção maiores. Existem vários níveis na camada Standard para que você possa escolher uma configuração de recurso que melhor corresponda ao perfil de carga de trabalho.
 
 **Limites por assinatura**
 
@@ -285,7 +285,11 @@ Para limites específicos para os serviços de mídia v2 (herdados), consulte [s
 
 ### <a name="virtual-network-gateway-limits"></a>Limites de gateway de rede virtual
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>Limites de gateway NAT
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>Limites de WAN virtual
 
@@ -434,7 +438,7 @@ Há limites por assinatura para implantar recursos usando Galerias de Imagens Co
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de máquina virtual e serviço de nuvem para o Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

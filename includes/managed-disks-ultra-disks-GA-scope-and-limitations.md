@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441204"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413132"
 ---
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
@@ -26,7 +26,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 
 |Regiões  |Opções de redundância  |
 |---------|---------|
-|Sul do Brasil     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
+|Brazil South     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Índia Central     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Leste da Ásia     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Centro-Oeste da Alemanha     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
@@ -34,6 +34,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 |Centro-Sul dos Estados Unidos    |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Governo dos EUA do Arizona     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Gov. dos EUA – Virgínia     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
+|Governo dos EUA do Texas     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Oeste dos EUA     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)        |
 |Austrália Central    |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Leste da Austrália     |Três zonas de disponibilidade         |

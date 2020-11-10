@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0adf548b009ad6fe0c85501b9777ff23723b3e24
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018485"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413404"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: arquivo de histórico de lançamento de versão
 
@@ -167,7 +167,7 @@ A atualização do Azure AD Connect falha se a Disponibilidade AlwaysOn do SQL f
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
 - A integração do Ping Federate no Azure AD Connect agora está disponível para disponibilidade geral. [Saiba mais sobre como federar o Azure AD com o Ping Federate](./plan-connect-user-signin.md#federation-with-pingfederate)
-- O Azure AD Connect agora cria o backup da confiança do AD do Azure no AD FS toda vez que uma atualização é feita e a armazena em um arquivo separado para facilitar a restauração, se necessário. [Saiba mais sobre a nova funcionalidade e o gerenciamento de confiança do Azure AD no Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- O Azure AD Connect agora cria o backup da confiança do AD do Azure no AD FS toda vez que uma atualização é feita e a armazena em um arquivo separado para facilitar a restauração, se necessário. [Saiba mais sobre a nova funcionalidade e o gerenciamento de confiança do Azure AD no Azure AD Connect](./how-to-connect-azure-ad-trust.md).
 - Novo conjunto de ferramentas de solução de problemas ajuda a solucionar problemas de alteração do endereço de e-mail primário e ocultação de conta da lista de endereços global
 - O Azure AD Connect foi atualizado para incluir o mais recente cliente nativo do SQL Server 2012
 - Quando você alternar entrada do usuário para a sincronização de Hash de senha ou autenticação de passagem na tarefa "Alterar entrada do usuário", a caixa de seleção de logon único contínuo é habilitada por padrão.
@@ -212,8 +212,8 @@ Novos recursos e aprimoramentos
 - A configuração de write-back do dispositivo agora é gerenciada exclusivamente dentro do Assistente Azure AD Connect.
 - Um novo Módulo do PowerShell chamado ADSyncTools.psm1 foi adicionado e pode ser usado para solucionar problemas de conectividade do SQL e vários outros utilitários de solução de problemas. Leia mais sobre o módulo ADSyncTools [aqui](tshoot-connect-tshoot-sql-connectivity.md). 
 - Foi adicionada uma nova tarefa “Configurar opções de dispositivo”. Você pode usar a tarefa para configurar as duas operações a seguir: 
-  - **Ingresso no Azure AD Híbrido**: Se seu ambiente tiver um espaço local do AD e você também quiser se beneficiar dos recursos fornecidos pelo Azure Active Directory, será possível implementar dispositivos adicionados ao Azure AD híbrido. Esses dispositivos são adicionados ao Active Directory local e ao Azure Active Directory.
-  - **Write-back de dispositivo**: o Write-back de dispositivo é usado para habilitar o Acesso Condicional baseado em dispositivos para os dispositivos protegidos do AD FS (2012 R2 ou superior)
+  - **Ingresso no Azure AD Híbrido** : Se seu ambiente tiver um espaço local do AD e você também quiser se beneficiar dos recursos fornecidos pelo Azure Active Directory, será possível implementar dispositivos adicionados ao Azure AD híbrido. Esses dispositivos são adicionados ao Active Directory local e ao Azure Active Directory.
+  - **Write-back de dispositivo** : o Write-back de dispositivo é usado para habilitar o Acesso Condicional baseado em dispositivos para os dispositivos protegidos do AD FS (2012 R2 ou superior)
 
     >[!NOTE] 
     > - A opção para habilitar o write-back de dispositivo em Personalizar opções de sincronização ficará esmaecida. 
@@ -425,27 +425,27 @@ Status: 19 de outubro de 2017
 #### <a name="fixed-issues"></a>Problemas corrigidos
 * Corrigido um problema com a tarefa *Alterar entrada do usuário* no assistente do Azure AD Connect:
 
-  * O problema ocorre quando você tem uma implantação existente do Azure AD Connect com a Sincronização de Senha **habilitada** e você está tentando definir o método de entrada do usuário como *Autenticação de Passagem*. Antes de a alteração ser aplicada, o assistente mostra incorretamente o prompt “*Desabilitar a Sincronização de Senha*”. No entanto, a Sincronização de Senha permanece habilitada depois que a alteração é aplicada. Com essa correção, o assistente não mostra mais o prompt.
+  * O problema ocorre quando você tem uma implantação existente do Azure AD Connect com a Sincronização de Senha **habilitada** e você está tentando definir o método de entrada do usuário como *Autenticação de Passagem*. Antes de a alteração ser aplicada, o assistente mostra incorretamente o prompt “ *Desabilitar a Sincronização de Senha* ”. No entanto, a Sincronização de Senha permanece habilitada depois que a alteração é aplicada. Com essa correção, o assistente não mostra mais o prompt.
 
   * Por design, o assistente não desabilita a Sincronização de Senha quando você atualiza o método de entrada do usuário usando a tarefa *Alterar a entrada do usuário*. Isso é para evitar a interrupção para os clientes que desejam manter a Sincronização de Senha, mesmo que estejam habilitando a Autenticação de Passagem ou a federação como seu método de entrada do usuário primário.
 
-  * Se desejar desabilitar a Sincronização de Senha depois de atualizar o método de entrada do usuário, você deverá executar a tarefa *Personalizar a Configuração da Sincronização* no assistente. Quando você navega até a página *Recursos opcionais*, desmarque a opção *Sincronização de Senha*.
+  * Se desejar desabilitar a Sincronização de Senha depois de atualizar o método de entrada do usuário, você deverá executar a tarefa *Personalizar a Configuração da Sincronização* no assistente. Quando você navega até a página *Recursos opcionais* , desmarque a opção *Sincronização de Senha*.
 
-  * Observe que o mesmo problema também ocorrerá se você tentar habilitar/desabilitar o Logon Único Contínuo. Especificamente, você tem uma implantação existente do Azure AD Connect com a Sincronização de Senha habilitada e o método de entrada do usuário já está configurado como *Autenticação de Passagem*. Usando a tarefa *Alterar entrada de usuário*, você tenta marcar/desmarcar a opção *Habilitar o Logon Único Contínuo* enquanto o método de entrada do usuário continua configurado como “Autenticação de Passagem”. Antes de a alteração ser aplicada, o assistente mostra incorretamente o prompt “*Desabilitar a Sincronização de Senha*”. No entanto, a Sincronização de Senha permanece habilitada depois que a alteração é aplicada. Com essa correção, o assistente não mostra mais o prompt.
+  * Observe que o mesmo problema também ocorrerá se você tentar habilitar/desabilitar o Logon Único Contínuo. Especificamente, você tem uma implantação existente do Azure AD Connect com a Sincronização de Senha habilitada e o método de entrada do usuário já está configurado como *Autenticação de Passagem*. Usando a tarefa *Alterar entrada de usuário* , você tenta marcar/desmarcar a opção *Habilitar o Logon Único Contínuo* enquanto o método de entrada do usuário continua configurado como “Autenticação de Passagem”. Antes de a alteração ser aplicada, o assistente mostra incorretamente o prompt “ *Desabilitar a Sincronização de Senha* ”. No entanto, a Sincronização de Senha permanece habilitada depois que a alteração é aplicada. Com essa correção, o assistente não mostra mais o prompt.
 
 * Corrigido um problema com a tarefa *Alterar entrada do usuário* no assistente do Azure AD Connect:
 
   * O problema ocorre quando você tem uma implantação existente do Azure AD Connect com a Sincronização de Senha **desabilitada** e você está tentando definir o método de entrada do usuário como *Autenticação de Passagem*. Quando a alteração é aplicada, o assistente habilita a Autenticação de Passagem e a Sincronização de Senha. Com essa correção, o assistente não habilita mais a Sincronização de Senha.
 
-  * Anteriormente, a Sincronização de Senha era um pré-requisito para habilitar a Autenticação de Passagem. Quando você define o método de entrada do usuário como *Autenticação de Passagem*, o assistente habilita a Autenticação de Passagem e a Sincronização de Senha. Recentemente, a Sincronização de Senha foi removida como um pré-requisito. Como parte do Azure AD Connect versão 1.1.557.0, foi feita uma alteração para o Azure AD Connect não habilitar a Sincronização de Senha ao definir o método de entrada do usuário como *Autenticação de Passagem*. No entanto, a alteração foi aplicada apenas na instalação do Azure AD Connect. Com essa correção, a mesma alteração também é aplicada à tarefa *Alterar entrada do usuário*.
+  * Anteriormente, a Sincronização de Senha era um pré-requisito para habilitar a Autenticação de Passagem. Quando você define o método de entrada do usuário como *Autenticação de Passagem* , o assistente habilita a Autenticação de Passagem e a Sincronização de Senha. Recentemente, a Sincronização de Senha foi removida como um pré-requisito. Como parte do Azure AD Connect versão 1.1.557.0, foi feita uma alteração para o Azure AD Connect não habilitar a Sincronização de Senha ao definir o método de entrada do usuário como *Autenticação de Passagem*. No entanto, a alteração foi aplicada apenas na instalação do Azure AD Connect. Com essa correção, a mesma alteração também é aplicada à tarefa *Alterar entrada do usuário*.
 
-  * Observe que o mesmo problema também ocorrerá se você tentar habilitar/desabilitar o Logon Único Contínuo. Especificamente, você tem uma implantação existente do Azure AD Connect com a Sincronização de Senha desabilitada e o método de entrada do usuário já está configurado como *Autenticação de Passagem*. Usando a tarefa *Alterar entrada de usuário*, você tenta marcar/desmarcar a opção *Habilitar o Logon Único Contínuo* enquanto o método de entrada do usuário continua configurado como “Autenticação de Passagem”. Quando a alteração é aplicada, o assistente habilita a Sincronização de Senha. Com essa correção, o assistente não habilita mais a Sincronização de Senha. 
+  * Observe que o mesmo problema também ocorrerá se você tentar habilitar/desabilitar o Logon Único Contínuo. Especificamente, você tem uma implantação existente do Azure AD Connect com a Sincronização de Senha desabilitada e o método de entrada do usuário já está configurado como *Autenticação de Passagem*. Usando a tarefa *Alterar entrada de usuário* , você tenta marcar/desmarcar a opção *Habilitar o Logon Único Contínuo* enquanto o método de entrada do usuário continua configurado como “Autenticação de Passagem”. Quando a alteração é aplicada, o assistente habilita a Sincronização de Senha. Com essa correção, o assistente não habilita mais a Sincronização de Senha. 
 
-* Corrigido um problema que causava a falha na atualização do Azure AD Connect com o erro “*Não é possível atualizar o Serviço de Sincronização*”. Além disso, o Serviço de Sincronização não pode mais iniciar com o erro de evento "*O serviço não pôde ser iniciado porque a versão do bando de dados é mais nova do que a versão dos binários instalados*". O problema ocorre quando o administrador executando a atualização não tem privilégios de administrador do sistema para o SQL Server que está sendo usado pelo Azure AD Connect. Com essa correção, o Azure AD Connect requer apenas que o administrador tenha o privilégio db_owner no banco de dados ADSync durante a atualização.
+* Corrigido um problema que causava a falha na atualização do Azure AD Connect com o erro “ *Não é possível atualizar o Serviço de Sincronização* ”. Além disso, o Serviço de Sincronização não pode mais iniciar com o erro de evento " *O serviço não pôde ser iniciado porque a versão do bando de dados é mais nova do que a versão dos binários instalados* ". O problema ocorre quando o administrador executando a atualização não tem privilégios de administrador do sistema para o SQL Server que está sendo usado pelo Azure AD Connect. Com essa correção, o Azure AD Connect requer apenas que o administrador tenha o privilégio db_owner no banco de dados ADSync durante a atualização.
 
 * Corrigido um problema de atualização do Azure AD Connect que afetava os clientes que habilitaram o [Logon Único Contínuo](./how-to-connect-sso.md). Após o Azure AD Connect ser atualizado, o Logon Único Contínuo aparece incorretamente como desabilitado no assistente do Azure AD Connect, embora o recurso permaneça habilitado e totalmente funcional. Com essa correção, o recurso agora aparece corretamente como habilitado no assistente.
 
-* Corrigido um problema que fazia com que o assistente do Azure AD Connect sempre mostrasse o prompt “*Configurar a Âncora de Origem*” na página *Pronto para Configurar*, mesmo se não tivesse sido feita nenhuma alteração relacionada à Âncora de Origem.
+* Corrigido um problema que fazia com que o assistente do Azure AD Connect sempre mostrasse o prompt “ *Configurar a Âncora de Origem* ” na página *Pronto para Configurar* , mesmo se não tivesse sido feita nenhuma alteração relacionada à Âncora de Origem.
 
 * Ao executar a atualização local manual do Azure AD Connect, o cliente deve fornecer as credenciais de Administrador Global do locatário do Azure AD correspondente. Anteriormente, a atualização podia continuar mesmo que as credenciais de Administrador Global pertencessem a um locatário do Azure AD diferente. Embora a atualização pareça ser concluída com êxito, algumas configurações não são mantidas corretamente com a atualização. Com essa alteração, o assistente impede que a atualização continue se as credenciais fornecidas não coincidem com o locatário do Azure AD.
 
@@ -480,7 +480,7 @@ Status: 5 de setembro de 2017
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>Problemas conhecidos
-* Há um problema conhecido que está causando a falha da atualização do Azure AD Connect com o erro “*Não é possível atualizar o Serviço de Sincronização*”. Além disso, o Serviço de Sincronização não pode mais iniciar com o erro de evento "*O serviço não pôde ser iniciado porque a versão do bando de dados é mais nova do que a versão dos binários instalados*". O problema ocorre quando o administrador executando a atualização não tem privilégios de administrador do sistema para o SQL Server que está sendo usado pelo Azure AD Connect. Permissões de DBO não são suficientes.
+* Há um problema conhecido que está causando a falha da atualização do Azure AD Connect com o erro “ *Não é possível atualizar o Serviço de Sincronização* ”. Além disso, o Serviço de Sincronização não pode mais iniciar com o erro de evento " *O serviço não pôde ser iniciado porque a versão do bando de dados é mais nova do que a versão dos binários instalados* ". O problema ocorre quando o administrador executando a atualização não tem privilégios de administrador do sistema para o SQL Server que está sendo usado pelo Azure AD Connect. Permissões de DBO não são suficientes.
 
 * Há um problema conhecido com a atualização do Azure AD Connect que está afetando os clientes que habilitaram o [Logon Único Contínuo](how-to-connect-sso.md). Após a atualização do Azure AD Connect, o recurso é exibido como desabilitado no assistente, mesmo que na realidade o recurso permaneça habilitado. Uma correção para esse problema será fornecida em futuras versões. Os clientes que se preocupam com esse problema de exibição podem corrigi-lo manualmente habilitando o Logon Único Contínuo no assistente.
 

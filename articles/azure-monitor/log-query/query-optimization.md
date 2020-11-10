@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203476"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411381"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
-Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, elas estão em alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
+Os logs de Azure Monitor usam o [Data Explorer do Azure (ADX)](/azure/data-explorer/) para armazenar dados de log e executar consultas para analisar esses dados. Ele cria, gerencia e mantém os clusters ADX para você e os otimiza para sua carga de trabalho de análise de log. Quando você executa uma consulta, ela é otimizada e roteada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Os logs de Azure Monitor e o Data Explorer do Azure usam muitos mecanismos de otimização de consulta automática. Embora as otimizações automáticas forneçam um aumento significativo, há alguns casos em que você pode melhorar drasticamente o desempenho da consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
 
 A maioria das técnicas é comum a consultas que são executadas diretamente no Azure Data Explorer e nos logs de Azure Monitor, embora haja várias considerações de logs de Azure Monitor exclusivas que são discutidas aqui. Para obter mais dicas de otimização de Data Explorer do Azure, consulte [práticas recomendadas de consulta](/azure/kusto/query/best-practices).
 
@@ -131,7 +131,7 @@ SecurityEvent
 
 Embora alguns comandos de agregação como [Max ()](/azure/kusto/query/max-aggfunction), [Sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)e [AVG ()](/azure/kusto/query/avg-aggfunction) tenham baixo impacto na CPU devido à sua lógica, outros são mais complexos e incluem heurísticas e estimativas que permitem que eles sejam executados com eficiência. Por exemplo, [DContar ()](/azure/kusto/query/dcount-aggfunction) usa o algoritmo HyperLogLog para fornecer estimativa de fechamento para contagem distinta de grandes conjuntos de dados sem contar realmente cada valor; as funções de percentil estão fazendo aproximações semelhantes usando o algoritmo percentil de classificação mais próximo. Vários dos comandos incluem parâmetros opcionais para reduzir o impacto. Por exemplo, a função [makeset ()](/azure/kusto/query/makeset-aggfunction) tem um parâmetro opcional para definir o tamanho máximo do conjunto, o que afeta significativamente a CPU e a memória.
 
-Os comandos [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) e [resume](/azure/kusto/query/summarizeoperator) podem causar alta utilização da CPU durante o processamento de um grande conjunto de dados. Sua complexidade está diretamente relacionada ao número de valores possíveis, conhecidos como *cardinalidade*, das colunas que estão usando como `by` em resumo ou como os atributos de junção. Para obter a explicação e a otimização de join e resume, consulte seus artigos de documentação e dicas de otimização.
+Os comandos [Join](/azure/kusto/query/joinoperator?pivots=azuremonitor) e [resume](/azure/kusto/query/summarizeoperator) podem causar alta utilização da CPU durante o processamento de um grande conjunto de dados. Sua complexidade está diretamente relacionada ao número de valores possíveis, conhecidos como *cardinalidade* , das colunas que estão usando como `by` em resumo ou como os atributos de junção. Para obter a explicação e a otimização de join e resume, consulte seus artigos de documentação e dicas de otimização.
 
 Por exemplo, as consultas a seguir produzem exatamente o mesmo resultado porque o **caminho** de causa é sempre um para um mapeado para **CounterName** e **objectname**. A segunda é mais eficiente, uma vez que a dimensão de agregação é menor:
 
@@ -342,7 +342,7 @@ Perf
 ) on Computer
 ```
 
-Um caso comum em que esse erro ocorre é quando [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) é usado para localizar a ocorrência mais recente. Por exemplo: 
+Um caso comum em que esse erro ocorre é quando [ARG_MAX ()](/azure/kusto/query/arg-max-aggfunction) é usado para localizar a ocorrência mais recente. Por exemplo:
 
 ```Kusto
 Perf

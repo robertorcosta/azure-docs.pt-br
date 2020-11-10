@@ -1,34 +1,38 @@
 ---
-title: Configurar o diagnóstico
+title: Habilitar e consultar logs de diagnóstico
 titleSuffix: Azure Digital Twins
-description: Consulte Como habilitar o registro em log com as configurações de diagnóstico.
+description: Consulte Como habilitar o registro em log com as configurações de diagnóstico e consultar os logs para exibição imediata.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 11/9/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091728"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411738"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
 
-O Azure digital gêmeos coleta [métricas](troubleshoot-metrics.md) para sua instância de serviço que fornecem informações sobre o estado de seus recursos. Você pode usar essas métricas para avaliar a integridade geral do serviço de gêmeos digital do Azure e os recursos conectados a ele. Essas estatísticas voltadas para o usuário ajudam a ver o que está acontecendo com o gêmeos digital do Azure e ajudam a executar a análise da causa raiz sobre problemas sem a necessidade de contatar o suporte do Azure.
+O Azure digital gêmeos pode coletar logs para sua instância de serviço para monitorar seu desempenho, acesso e outros dados. Você pode usar esses logs para ter uma ideia do que está acontecendo em sua instância de gêmeos digital do Azure e executar a análise da causa raiz sobre problemas sem precisar entrar em contato com o suporte do Azure.
 
-Este artigo mostra como ativar o log de **diagnóstico** para seus dados de métricas de sua instância de gêmeos digital do Azure. Você pode usar esses logs para ajudá-lo a solucionar problemas de serviço e definir configurações de diagnóstico para enviar métricas de gêmeos digitais do Azure para destinos diferentes. Você pode ler mais sobre essas configurações em [*criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes*](../azure-monitor/platform/diagnostic-settings.md).
+Este artigo mostra como [**definir as configurações de diagnóstico**](#turn-on-diagnostic-settings) no [portal do Azure](https://portal.azure.com) para começar a coletar logs de sua instância do gêmeos digital do Azure. Você também pode especificar onde os logs devem ser armazenados (como Log Analytics ou uma conta de armazenamento de sua escolha).
 
-## <a name="turn-on-diagnostic-settings-with-the-azure-portal"></a>Ativar as configurações de diagnóstico com o portal do Azure
+Este artigo também contém listas de todas as [categorias de log](#log-categories) e esquemas de [log](#log-schemas) que o Azure digital gêmeos coleta.
 
-Aqui está como habilitar as configurações de diagnóstico para sua instância do gêmeos digital do Azure:
+Depois de configurar os logs, você também pode [**consultar os logs**](#view-and-query-logs) para coletar rapidamente informações personalizadas.
+
+## <a name="turn-on-diagnostic-settings"></a>Ativar as configurações de diagnóstico 
+
+Ative as configurações de diagnóstico para começar a coletar logs em sua instância de gêmeos digital do Azure. Você também pode escolher o destino onde os logs exportados devem ser armazenados. Aqui está como habilitar as configurações de diagnóstico para sua instância do gêmeos digital do Azure.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e navegue até sua instância do gêmeos digital do Azure. Você pode encontrá-lo digitando seu nome na barra de pesquisa do Portal. 
 
-2. Selecione **configurações de diagnóstico** no menu e, em seguida, **Adicionar configuração de diagnóstico** .
+2. Selecione **configurações de diagnóstico** no menu e, em seguida, **Adicionar configuração de diagnóstico**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de tela mostrando a página de configurações de diagnóstico e o botão para adicionar":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de tela mostrando a página de configurações de diagnóstico e o botão para adicionar" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. Na página a seguir, preencha os seguintes valores:
      * **Nome da configuração de diagnóstico** : dê um nome às configurações de diagnóstico.
@@ -39,7 +43,7 @@ Aqui está como habilitar as configurações de diagnóstico para sua instância
         - QueryOperation
         - AllMetrics
         
-        Para obter mais detalhes sobre essas opções, consulte a seção [*detalhes da categoria*](#category-details) abaixo.
+        Para obter mais detalhes sobre essas categorias e as informações que elas contêm, consulte a seção [*categorias de log*](#log-categories) abaixo.
      * **Detalhes de destino** : escolha onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções abaixo:
         - Enviar para o Log Analytics
         - Arquivar em uma conta de armazenamento
@@ -49,13 +53,15 @@ Aqui está como habilitar as configurações de diagnóstico para sua instância
     
 4. Salve as novas configurações. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de tela mostrando a página de configurações de diagnóstico e o botão para adicionar":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de tela mostrando a página de configuração de diagnóstico em que o usuário preencheu um nome de configuração de diagnóstico e fez algumas seleções de caixa de seleção para detalhes de categoria e detalhes de destino. O botão salvar é realçado." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecem no destino configurado de volta na página **configurações de diagnóstico** da instância do. 
 
-## <a name="category-details"></a>Detalhes da categoria
+Para obter informações mais detalhadas sobre as configurações de diagnóstico e suas opções de instalação, você pode visitar [*criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes*](../azure-monitor/platform/diagnostic-settings.md).
 
-Aqui estão mais detalhes sobre as categorias de log que podem ser selecionadas em **detalhes da categoria** ao definir as configurações de diagnóstico.
+## <a name="log-categories"></a>Categorias de log
+
+Aqui estão mais detalhes sobre as categorias de logs que o Azure digital gêmeos coleta.
 
 | Categoria do log | Descrição |
 | --- | --- |
@@ -70,7 +76,7 @@ Cada categoria de log consiste em operações de gravação, leitura, exclusão 
 | --- | --- |
 | Gravar | PUT e PATCH |
 | Ler | GET |
-| Excluir | Delete (excluir) |
+| Excluir | DELETE |
 | Ação | POST |
 
 Aqui está uma lista abrangente das operações e das [chamadas da API REST do Azure digital gêmeos](/rest/api/azure-digitaltwins/) que são registradas em log em cada categoria. 
@@ -222,6 +228,34 @@ Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
   }
 }
 ```
+
+## <a name="view-and-query-logs"></a>Exibir e consultar logs
+
+Anteriormente neste artigo, você configurou os tipos de logs para armazenar e especificou seu local de armazenamento.
+
+Para solucionar o problema e gerar informações a partir desses logs, você pode gerar **consultas personalizadas**. Para começar, você também pode aproveitar algumas consultas de exemplo fornecidas pelo serviço, que abordam perguntas comuns que os clientes podem ter sobre sua instância.
+
+Veja como consultar os logs para sua instância.
+
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até sua instância do gêmeos digital do Azure. Você pode encontrá-lo digitando seu nome na barra de pesquisa do Portal. 
+
+2. Selecione **logs** no menu para abrir a página consulta de log. A página é aberta em uma janela chamada *consultas*.
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Captura de tela mostrando a página de logs para uma instância do gêmeos digital do Azure. Ele é sobreposto com uma janela de consultas mostrando consultas predefinidas nomeadas após diferentes opções de log, como latência da API do DigitalTwin e latência da API do modelo." lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    Essas são consultas de exemplo predefinidas escritas para vários logs. Você pode selecionar uma das consultas para carregá-la no editor de consultas e executá-la para ver esses logs para sua instância.
+
+    Você também pode fechar a janela *consultas* sem executar nada para ir diretamente para a página do editor de consultas, onde você pode escrever ou editar o código de consulta personalizado.
+
+3. Depois de sair da janela *consultas* , você verá a página principal do editor de consultas. Aqui você pode exibir e editar o texto das consultas de exemplo ou escrever suas próprias consultas do zero.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Captura de tela mostrando a página de logs para uma instância do gêmeos digital do Azure. A janela consultas não existe mais e, em vez disso, há uma lista de logs diferentes, um painel de edição mostrando o código de consulta editável e um painel que mostra o histórico de consultas." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    No painel esquerdo, 
+    - A guia *tabelas* mostra as diferentes [categorias de log](#log-categories) de gêmeos digitais do Azure que estão disponíveis para uso em suas consultas. 
+    - A guia *consultas* contém as consultas de exemplo que você pode carregar no editor.
+    - A guia *filtro* permite que você personalize uma exibição filtrada dos dados que a consulta retorna.
+
+Para obter informações mais detalhadas sobre consultas de log e como escrevê-las, você pode visitar [*visão geral das consultas de log no Azure monitor*](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

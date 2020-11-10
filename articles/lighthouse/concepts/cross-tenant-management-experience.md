@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460658"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413115"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -104,7 +104,6 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 [Azure Policy](../../governance/policy/index.yml):
 
-- Instantâneos de conformidade mostram detalhes para políticas atribuídas dentro de assinaturas delegadas
 - Criar e Editar definições de política em assinaturas delegadas
 - Atribuir definições de política definidas pelo cliente em assinaturas delegadas
 - Os clientes veem políticas criadas pelo provedor de serviços junto com políticas que eles mesmos criaram
@@ -157,7 +156,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 Solicitações de suporte:
 
-- [Abrir solicitações de suporte de **ajuda + suporte** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal do Azure para recursos delegados (selecionando o plano de suporte disponível para o escopo delegado)
+- [Abrir solicitações de suporte de **ajuda + suporte**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal do Azure para recursos delegados (selecionando o plano de suporte disponível para o escopo delegado)
 
 ## <a name="current-limitations"></a>Limitações atuais
 

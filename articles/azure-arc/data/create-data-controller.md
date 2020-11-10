@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372286"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413217"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados de arco do Azure
 
@@ -36,7 +36,8 @@ Atualmente, a lista de serviços e distribuições com suporte do kubernetes é 
 - Software livre, Kubernetes upstream normalmente implantado usando kubeadm
 
 > [!IMPORTANT]
-> * A versão mínima com suporte do kubernetes é v 1.14.
+> * A versão mínima com suporte do kubernetes é v 1.17.
+> * A versão mínima com suporte do OCP é 4,3.
 > * Consulte os [requisitos de conectividade](connectivity.md) para entender qual conectividade é necessária entre seu ambiente e o Azure.
 > * Consulte as [diretrizes de configuração de armazenamento](storage-configuration.md) para entender os detalhes de como configurar o armazenamento persistente.
 > * Se você estiver usando o serviço kubernetes do Azure, o tamanho da VM do nó de trabalho do cluster deverá ser pelo menos **Standard_D8s_v3** e usar **discos Premium.** O cluster não deve abranger várias zonas de disponibilidade. 
@@ -45,7 +46,7 @@ Atualmente, a lista de serviços e distribuições com suporte do kubernetes é 
 > [!NOTE]
 > Se você estiver usando a plataforma de contêiner do Red Hat OpenShift no Azure, é recomendável usar a versão mais recente disponível.
 
-Dependendo da opção escolhida, determinadas ferramentas serão _necessárias_, mas é recomendável [instalar todas as ferramentas de cliente](./install-client-tools.md) antes de começar a criar o controlador de dados de arco do Azure.
+Dependendo da opção escolhida, determinadas ferramentas serão _necessárias_ , mas é recomendável [instalar todas as ferramentas de cliente](./install-client-tools.md) antes de começar a criar o controlador de dados de arco do Azure.
 
 Independentemente da opção que você escolher, durante o processo de criação, será necessário fornecer as seguintes informações:
 

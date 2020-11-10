@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611170"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412996"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -40,9 +40,9 @@ O Firewall do Azure é compatível com regras e coleções de regras. Uma coleç
 
 Há três tipos de coleções de regras:
 
-* *Regras de aplicativo*: configuram os FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados por uma sub-rede.
-* *Regras de rede*: configuram regras que contenham os endereços de origem, protocolos, portas de destino e os endereços de destino.
-* *Regras de NAT*: configuram regras de DNAT para permitir conexões de entrada na Internet.
+* *Regras de aplicativo* : configuram os FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados por uma sub-rede.
+* *Regras de rede* : configuram regras que contenham os endereços de origem, protocolos, portas de destino e os endereços de destino.
+* *Regras de NAT* : configuram regras de DNAT para permitir conexões de entrada na Internet.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>O Firewall do Azure dá suporte à filtragem de tráfego de entrada?
 
@@ -139,11 +139,11 @@ Não. As regras DNAT adicionam implicitamente uma regra de rede correspondente p
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como os curingas funcionam em um FQDN de destino da regra de aplicativo?
 
-Os curingas atualmente só podem ser usados no lado esquerdo do FQDN. Por exemplo, ***. contoso.com** e ***contoso.com**.
+Os curingas atualmente só podem ser usados no lado esquerdo do FQDN. Por exemplo, * *_. contoso.com_* e * *_contoso.com_*.
 
-Se você configurar * **.contoso.com**, ele permitirá *anyvalue*.contoso.com, mas não contoso.com (o início do domínio). Para permitir o início do domínio, você deve configurá-lo explicitamente como um FQDN de destino.
+Se você configurar * *_. contoso.com_* , ele permitirá *anyvalue*. contoso.com, mas não contoso.com (o Apex do domínio). Para permitir o início do domínio, você deve configurá-lo explicitamente como um FQDN de destino.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>O que significa o *estado de provisionamento: Com falha*?
+## <a name="what-does-provisioning-state-failed-mean"></a>O que significa o *estado de provisionamento: Com falha* ?
 
 Sempre que uma alteração de configuração é aplicada, o Firewall do Azure tenta atualizar todas as suas instâncias de back-end subjacentes. Em casos raros, uma dessas instâncias de back-end pode falhar ao atualizar com a nova configuração e o processo de atualização será interrompido com um estado de provisionamento com falha. O Firewall do Azure ainda estará funcionando, mas a configuração aplicada poderá estar em um estado inconsistente, com algumas instâncias com a configuração anterior e outras com o conjunto de regras atualizado. Se isso acontecer, tente atualizar sua configuração mais uma vez até que a operação seja bem-sucedida e o firewall esteja em um estado de provisionamento *Com êxito*.
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Por que um ping TCP e ferramentas semelhantes conseguem se conectar a um FQDN de destino mesmo quando nenhuma regra no Firewall do Azure permite esse tráfego?
 
-Um ping de TCP não está realmente se conectando ao FQDN de destino. Isso acontece porque o proxy transparente do Firewall do Azure escuta na porta 80/443 do tráfego de saída. O ping de TCP estabelece uma conexão com o firewall, que então descarta o pacote e registra a conexão. Esse comportamento não tem nenhum impacto de segurança. No entanto, para evitar confusão, estamos investigando possíveis alterações nesse comportamento.
+Um ping de TCP não está realmente se conectando ao FQDN de destino. Isso acontece porque o proxy transparente do Firewall do Azure escuta na porta 80/443 do tráfego de saída. O ping TCP estabelece uma conexão com o firewall, que então descarta o pacote. Esse comportamento não tem nenhum impacto de segurança. No entanto, para evitar confusão, estamos investigando possíveis alterações nesse comportamento.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Há limites para o número de endereços IP aceitos nos grupos de IPs?
 

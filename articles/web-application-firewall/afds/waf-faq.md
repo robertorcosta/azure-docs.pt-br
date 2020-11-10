@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82837627"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413064"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes sobre o Firewall do aplicativo Web do Azure no serviço de porta frontal do Azure
 
@@ -64,7 +64,7 @@ Atualmente, as regras ModSec CRS 2.2.9, CRS 3,0 e CRS 3,1 têm suporte apenas co
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>A proteção contra DDoS está integrada à porta frontal? 
 
-Distribuído globalmente nas bordas de rede do Azure, a porta frontal do Azure pode absorver e isolar geograficamente ataques de volume grande. Você pode criar uma política de WAF personalizada para bloquear e classificar automaticamente os ataques http (s) que têm assinaturas conhecidas. Além disso, você pode habilitar a proteção contra DDoS Standard na VNet em que os back-ends são implantados. Os clientes padrão da proteção contra DDoS do Azure recebem benefícios adicionais, incluindo proteção de custo, garantia de SLA e acesso a especialistas da equipe de resposta rápida de DDoS para obter ajuda imediata durante um ataque.
+Distribuído globalmente nas bordas de rede do Azure, a porta frontal do Azure pode absorver e isolar geograficamente ataques de volume grande. Você pode criar uma política de WAF personalizada para bloquear e classificar automaticamente os ataques http (s) que têm assinaturas conhecidas. Além disso, você pode habilitar a proteção contra DDoS Standard na VNet em que os back-ends são implantados. Os clientes padrão da proteção contra DDoS do Azure recebem benefícios adicionais, incluindo proteção de custo, garantia de SLA e acesso a especialistas da equipe de resposta rápida de DDoS para obter ajuda imediata durante um ataque. Para obter mais informações, consulte [proteção contra DDoS na porta frontal](../../frontdoor/front-door-ddos.md).
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Por que as solicitações adicionais acima do limite configurado para minha regra de limite de taxa são passadas para o meu servidor back-end?
 

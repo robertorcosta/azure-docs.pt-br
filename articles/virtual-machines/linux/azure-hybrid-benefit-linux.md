@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962387"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413098"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Visualização: Benefício Híbrido do Azure – como ele se aplica ao Máquinas Virtuais do Linux
 
@@ -57,7 +57,7 @@ Nesta fase, você pode obter acesso ao benefício preenchendo o formulário [aqu
 1.    Registrar com o [programa de acesso à nuvem do Red Hat](https://aka.ms/rhel-cloud-access)
 1.    Habilite suas assinaturas do Azure para acesso à nuvem e habilite as assinaturas que contêm as VMs com as quais você deseja usar o benefício
 1.    Aplique o benefício às suas VMs existentes por meio do portal do Azure ou CLI do Azure
-1.    Registre suas VMs recebendo o benefício com uma fonte separada de atualizações
+1.    Opcional, registre suas VMs recebendo o benefício com uma fonte separada de atualizações (as VMs comutadas podem permanecer anexadas ao [RHUI](../workloads/redhat/redhat-rhui.md) ou registradas por meio do RHSM)
 
 ### <a name="suse-customers"></a>Clientes do SUSE
 
@@ -147,13 +147,14 @@ R: não é possível. A tentativa de inserir um tipo de licença que corresponde
 
 R: pode levar algum tempo para que o registro da assinatura do Red Hat Cloud Access se propague do Red Hat para o Azure. Se você ainda estiver vendo o erro após um dia útil, entre em contato com o suporte da Microsoft.
 
-## <a name="common-errors"></a>Erros comuns
-Esta seção contém uma lista de erros comuns e etapas para mitigação.
+## <a name="common-issues"></a>Problemas comuns
+Esta seção contém uma lista de problemas comuns que podem ser encontrados e as etapas de mitigação.
 
-| Erro do | Atenuação |
+| Erro | Atenuação |
 | ----- | ---------- |
 | "A assinatura não está registrada para a versão prévia do Linux do Benefício Híbrido do Azure. Para obter instruções passo a passo, consulte https://aka.ms/ahb-linux " | Preencha o formulário em https://aka.ms/ahb-linux-form para registrar-se para a versão prévia do Linux do benefício híbrido do Azure.
 | "A ação não pôde ser concluída porque nossos registros mostram que você não habilitou com êxito o acesso à nuvem Red Hat em sua assinatura do Azure...." | Para usar o benefício com VMs RHEL, você deve primeiro registrar suas assinaturas do Azure com acesso à nuvem Red Hat. Visite este link para saber mais sobre como registrar suas assinaturas do Azure para acesso à nuvem Red Hat
+|"A opção para Benefício Híbrido do Azure não aparece no portal" | Esse é um problema conhecido para VMs RHEL e SLES criadas a partir da Galeria de imagens compartilhadas, instantâneos ou imagens PAYG capturadas. Nesse caso, use as etapas da CLI descritas na seção "[habilitar e desabilitar o benefício no CLI do Azure](#enable-and-disable-the-benefit-in-the-azure-cli)". Para exibir o status de AHB, use o comando ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Próximas etapas
 * Comece com a versão prévia preenchendo o formulário [aqui](https://aka.ms/ahb-linux-form).
