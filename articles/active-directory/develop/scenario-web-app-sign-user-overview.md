@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38ed7fb2930463e6657422e851a73f2b3b011f35
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257054"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443578"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Aplicativo Web que conecta usuários
 
@@ -28,29 +28,25 @@ Saiba tudo o que você precisa para criar um aplicativo Web que usa a plataforma
 
 Se você quiser criar seu primeiro aplicativo Web portátil (ASP.NET Core) que conecte os usuários, siga este guia de início rápido:
 
-> [!div class="nextstepaction"]
-> [Início rápido: ASP.NET Core aplicativo Web que assina usuários](quickstart-v2-aspnet-core-webapp.md)
+[Início rápido: ASP.NET Core aplicativo Web que assina usuários](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Se você quiser entender como adicionar a entrada a um aplicativo Web ASP.NET existente, tente o início rápido a seguir:
 
-> [!div class="nextstepaction"]
-> [Início rápido: aplicativo Web ASP.NET que assina usuários](quickstart-v2-aspnet-webapp.md)
+[Início rápido: aplicativo Web ASP.NET que assina usuários](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
 Se você for um desenvolvedor de Java, tente o início rápido a seguir:
 
-> [!div class="nextstepaction"]
-> [Início Rápido: Adicionar uma entrada com a Microsoft a um aplicativo Web Java](quickstart-v2-java-webapp.md)
+[Início Rápido: Adicionar uma entrada com a Microsoft a um aplicativo Web Java](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
 Se você desenvolver com Python, experimente o início rápido a seguir:
 
-> [!div class="nextstepaction"]
-> [Início Rápido: Adicionar a opção Entrar com a conta da Microsoft a um aplicativo Web do Python](quickstart-v2-python-webapp.md)
+[Início Rápido: Adicionar a opção Entrar com a conta da Microsoft a um aplicativo Web do Python](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,22 +77,18 @@ Como uma segunda fase, você pode habilitar seu aplicativo para chamar APIs da W
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Registro do aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Registro do aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Registro do aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Registro do aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+Vá para o próximo artigo neste cenário, registro de [aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=python).
 
 ---

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: dabcf30488e45fbe6c7c5b9e5aa0c8bd57f28fd8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146255"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443493"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Disparar uma execução de um pipeline de Machine Learning de um aplicativo lógico
 
@@ -49,7 +49,7 @@ Depois que seu aplicativo lógico tiver sido provisionado, use estas etapas para
     > [!div class="mx-imgBorder"]
     > ![Modelo em branco](media/how-to-trigger-published-pipeline/blank-template.png)
 
-1. No designer, pesquise por **blob** . Selecione o gatilho **quando um blob é adicionado ou modificado (somente Propriedades)** e adicione esse gatilho ao seu aplicativo lógico.
+1. No designer, pesquise por **blob**. Selecione o gatilho **quando um blob é adicionado ou modificado (somente Propriedades)** e adicione esse gatilho ao seu aplicativo lógico.
     > [!div class="mx-imgBorder"]
     > ![Adicionar gatilho](media/how-to-trigger-published-pipeline/add-trigger.png)
 
@@ -96,7 +96,7 @@ Depois que seu aplicativo lógico tiver sido provisionado, use estas etapas para
 1. Selecione **salvar** e sua agenda agora está pronta.
 
 > [!IMPORTANT]
-> Se você estiver usando o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao seu pipeline, [defina as permissões para seu cenário de pipeline (treinamento ou pontuação)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
+> Se você estiver usando o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao seu pipeline, [defina as permissões para seu cenário de pipeline (treinamento ou pontuação)](how-to-assign-roles.md#common-scenarios).
 
 ## <a name="next-steps"></a>Próximas etapas
 

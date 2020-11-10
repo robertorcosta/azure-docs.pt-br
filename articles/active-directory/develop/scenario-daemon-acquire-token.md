@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119208"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443306"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicativo daemon que chama APIs da Web – adquirir um token
 
@@ -57,7 +57,7 @@ O escopo usado para credenciais de cliente sempre deve ser a ID de recurso segui
 
 > [!IMPORTANT]
 > Quando o MSAL solicita um token de acesso para um recurso que aceita um token de acesso da versão 1,0, o Azure AD analisa o público-alvo desejado do escopo solicitado, levando tudo antes da última barra e usando-o como o identificador de recurso.
-> Portanto, se, como o banco de dados SQL do Azure (**https: \/ /Database.Windows.net**), o recurso espera um público que termina com uma barra (para o banco de dados SQL do Azure `https://database.windows.net/` ), você precisará solicitar um escopo de `https://database.windows.net//.default` . (Observe a barra dupla.) Consulte também MSAL.NET Issue [#747: a barra à direita da URL do recurso é omitida, o que causou a falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Portanto, se, como o banco de dados SQL do Azure ( **https: \/ /Database.Windows.net** ), o recurso espera um público que termina com uma barra (para o banco de dados SQL do Azure `https://database.windows.net/` ), você precisará solicitar um escopo de `https://database.windows.net//.default` . (Observe a barra dupla.) Consulte também MSAL.NET Issue [#747: a barra à direita da URL do recurso é omitida, o que causou a falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
@@ -202,7 +202,7 @@ Para obter mais informações, consulte a documentação do protocolo: [platafor
 
 ## <a name="application-token-cache"></a>Cache de token de aplicativo
 
-No MSAL.NET, `AcquireTokenForClient` o usa o cache de token de aplicativo. (Todos os outros métodos AcquireToken*XX* usam o cache de token de usuário.) Não chame `AcquireTokenSilent` antes de chamar `AcquireTokenForClient` , porque `AcquireTokenSilent` o usa o cache de token de *usuário* . `AcquireTokenForClient` verifica o cache do token de *aplicativo* e o atualiza.
+No MSAL.NET, `AcquireTokenForClient` o usa o cache de token de aplicativo. (Todos os outros métodos AcquireToken *XX* usam o cache de token de usuário.) Não chame `AcquireTokenSilent` antes de chamar `AcquireTokenForClient` , porque `AcquireTokenSilent` o usa o cache de token de *usuário* . `AcquireTokenForClient` verifica o cache do token de *aplicativo* e o atualiza.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
@@ -233,17 +233,14 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – chamando uma API da Web](./scenario-daemon-call-api.md?tabs=dotnet)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – chamando uma API da Web](./scenario-daemon-call-api.md?tabs=python)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Aplicativo de daemon – chamando uma API da Web](./scenario-daemon-call-api.md?tabs=java)
+Vá para o próximo artigo neste cenário, [chamando uma API da Web](./scenario-daemon-call-api.md?tabs=java).
 
 ---

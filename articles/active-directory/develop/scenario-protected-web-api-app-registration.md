@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518267"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443935"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 
@@ -31,7 +31,7 @@ O ponto de extremidade da plataforma de identidade da Microsoft pode emitir toke
 
 A versão do token que sua API pode aceitar depende da seleção de **tipos de conta com suporte** ao criar o registro de aplicativo da API web no portal do Azure.
 
-- Se o valor de **tipos de conta com suporte** for **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão de token aceita deve ser v 2.0.
+- Se o valor de **tipos de conta com suporte** for **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** , a versão de token aceita deve ser v 2.0.
 - Caso contrário, a versão do token aceita pode ser v 1.0.
 
 Depois de criar o aplicativo, você pode determinar ou alterar a versão do token aceito seguindo estas etapas:
@@ -40,7 +40,7 @@ Depois de criar o aplicativo, você pode determinar ou alterar a versão do toke
 1. Localize a propriedade **accessTokenAcceptedVersion** no manifesto.
 1. O valor especifica para Azure Active Directory (AD do Azure) qual versão de token aceita pela API da Web.
     - Se o valor for 2, a API da Web aceitará tokens v 2.0.
-    - Se o valor for **NULL**, a API da Web aceitará tokens v 1.0.
+    - Se o valor for **NULL** , a API da Web aceitará tokens v 1.0.
 1. Se você alterou a versão do token, selecione **salvar**.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Durante o registro do aplicativo, você precisa definir esses parâmetros:
 - Um ou mais escopos
 - Uma ou mais funções de aplicativo
 
-Por padrão, o portal de registro de aplicativos recomenda que você use o URI de recurso `api://{clientId}` . Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo. O portal de registro de aplicativos garantirá que você use um [domínio de Publicador configurado](howto-configure-publisher-domain.md)
+Por padrão, o portal de registro de aplicativos recomenda que você use o URI de recurso `api://{clientId}` . Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo. O portal de registro de aplicativos garantirá que você use um [domínio de editor configurado](howto-configure-publisher-domain.md).
 
 Para aplicativos cliente, os escopos aparecem como *permissões delegadas e as* funções de aplicativo são exibidas como *permissões de aplicativo* para sua API Web.
 
@@ -132,7 +132,7 @@ A API da Web verifica a função do aplicativo. Essa função é uma maneira do 
 Para adicionar esse aumento de segurança:
 
 1. Vá para a página de **visão geral** do aplicativo para o registro do aplicativo.
-1. Em **aplicativo gerenciado no diretório local**, selecione o link com o nome do seu aplicativo. O rótulo dessa seleção pode ser truncado. Por exemplo, você pode ver o **aplicativo gerenciado no.** ..
+1. Em **aplicativo gerenciado no diretório local** , selecione o link com o nome do seu aplicativo. O rótulo dessa seleção pode ser truncado. Por exemplo, você pode ver o **aplicativo gerenciado no.** ..
 
    > [!NOTE]
    >
@@ -143,9 +143,9 @@ Para adicionar esse aumento de segurança:
 
    > [!IMPORTANT]
    >
-   > Se você definir a **atribuição de usuário necessária?** para **Sim**, o Azure ad verificará as atribuições de função de aplicativo de um cliente quando ele solicitar um token de acesso à API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará a mensagem de erro "invalid_client: AADSTS501051: \<application name\> o aplicativo não está atribuído a uma função para o \<web API\> ".
+   > Se você definir a **atribuição de usuário necessária?** para **Sim** , o Azure ad verificará as atribuições de função de aplicativo de um cliente quando ele solicitar um token de acesso à API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará a mensagem de erro "invalid_client: AADSTS501051: \<application name\> o aplicativo não está atribuído a uma função para o \<web API\> ".
    >
-   > Se você mantiver a **atribuição de usuário necessária?** definida como **não**, o Azure ad não verificará as atribuições de função de aplicativo quando um cliente solicitar um token de acesso para sua API Web. Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um token de acesso para a API apenas especificando seu público-alvo. Qualquer aplicativo pode acessar a API sem precisar solicitar permissões para ela.
+   > Se você mantiver a **atribuição de usuário necessária?** definida como **não** , o Azure ad não verificará as atribuições de função de aplicativo quando um cliente solicitar um token de acesso para sua API Web. Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um token de acesso para a API apenas especificando seu público-alvo. Qualquer aplicativo pode acessar a API sem precisar solicitar permissões para ela.
    >
    > Mas, conforme explicado na seção anterior, sua API Web sempre pode verificar se o aplicativo tem a função certa, que é autorizada pelo administrador de locatários. A API executa essa verificação Validando se o token de acesso tem uma declaração de funções e se o valor dessa declaração está correto. No exemplo JSON anterior, o valor é `access_as_application` .
 
@@ -153,5 +153,4 @@ Para adicionar esse aumento de segurança:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Configuração do código do aplicativo](scenario-protected-web-api-app-configuration.md)
+Vá para o próximo artigo neste cenário, configuração de [código do aplicativo](scenario-protected-web-api-app-configuration.md).

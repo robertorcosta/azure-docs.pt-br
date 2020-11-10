@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 815b1789c54d1ce505c16dc89e199d451ae9a588
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 846c47017ba2887c287dd080c44c46b372660d0e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396120"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443595"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Um aplicativo Web que chama APIs da Web: chamar uma API da Web
 
@@ -29,7 +29,7 @@ Chamar uma API Web protegida depende do idioma e da estrutura de sua escolha:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Ao usar *o Microsoft. Identity. Web*, você tem três opções de uso para chamar uma API:
+Ao usar *o Microsoft. Identity. Web* , você tem três opções de uso para chamar uma API:
 
 - [Opção 1: chamar Microsoft Graph com o SDK do Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
 - [Opção 2: chamar uma API da Web downstream com a classe auxiliar](#option-2-call-a-downstream-web-api-with-the-helper-class)
@@ -199,5 +199,4 @@ def graphcall():
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Mover para ambiente de produção](scenario-web-app-call-api-production.md)
+Vá para o próximo artigo neste cenário, [vá para produção](scenario-web-app-call-api-production.md).

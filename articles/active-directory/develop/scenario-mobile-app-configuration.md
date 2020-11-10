@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204211"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444054"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurar um aplicativo móvel que chama APIs da Web
 
@@ -148,9 +148,9 @@ Para obter mais informações, consulte [Considerações específicas de UWP com
 
 No Android e no iOS, os agentes habilitam:
 
-- **SSO (logon único)**: você pode usar o SSO para dispositivos que são registrados com o Azure Active Directory (Azure AD). Quando você usa o SSO, os usuários não precisam entrar em cada aplicativo.
-- **Identificação do dispositivo**: essa configuração habilita políticas de acesso condicional que estão relacionadas aos dispositivos do Azure AD. O processo de autenticação usa o certificado de dispositivo que foi criado quando o dispositivo foi ingressado no local de trabalho.
-- **Verificação da identificação do aplicativo**: quando um aplicativo chama o agente, ele passa sua URL de redirecionamento. Em seguida, o agente o verifica.
+- **SSO (logon único)** : você pode usar o SSO para dispositivos que são registrados com o Azure Active Directory (Azure AD). Quando você usa o SSO, os usuários não precisam entrar em cada aplicativo.
+- **Identificação do dispositivo** : essa configuração habilita políticas de acesso condicional que estão relacionadas aos dispositivos do Azure AD. O processo de autenticação usa o certificado de dispositivo que foi criado quando o dispositivo foi ingressado no local de trabalho.
+- **Verificação da identificação do aplicativo** : quando um aplicativo chama o agente, ele passa sua URL de redirecionamento. Em seguida, o agente o verifica.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Habilitar o agente no Xamarin
 
@@ -367,5 +367,4 @@ Para obter informações sobre como habilitar um agente no Android, consulte [au
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Adquirindo um token](scenario-mobile-acquire-token.md)
+Vá para o próximo artigo neste cenário, [adquirindo um token](scenario-mobile-acquire-token.md).

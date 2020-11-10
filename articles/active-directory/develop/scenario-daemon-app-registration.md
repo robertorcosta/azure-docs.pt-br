@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 508101ad615dd96559b1c68a61be7c08772545db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80885473"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443323"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicativo daemon que chama APIs Web-registro de aplicativo
 
@@ -35,14 +35,14 @@ No caso em que seu aplicativo cliente confidencial usa *apenas* o fluxo de crede
 
 ## <a name="api-permissions---app-permissions-and-admin-consent"></a>Permissões de API-permissões de aplicativo e consentimento de administrador
 
-Um aplicativo daemon pode solicitar permissões de aplicativo somente para APIs (permissões não delegadas). Na página **permissões de API** para o registro do aplicativo, depois de selecionar **Adicionar uma permissão** e escolher a família de API, escolha **permissões de aplicativo**e, em seguida, selecione suas permissões.
+Um aplicativo daemon pode solicitar permissões de aplicativo somente para APIs (permissões não delegadas). Na página **permissões de API** para o registro do aplicativo, depois de selecionar **Adicionar uma permissão** e escolher a família de API, escolha **permissões de aplicativo** e, em seguida, selecione suas permissões.
 
 ![Permissões do aplicativo e consentimento do administrador](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> A API da Web que você deseja chamar precisa definir *permissões de aplicativo (funções de aplicativo)*, permissões não delegadas. Para obter detalhes sobre como expor essa API, consulte [API Web protegida: registro de aplicativo – quando sua API Web é chamada por um aplicativo daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
+> A API da Web que você deseja chamar precisa definir *permissões de aplicativo (funções de aplicativo)* , permissões não delegadas. Para obter detalhes sobre como expor essa API, consulte [API Web protegida: registro de aplicativo – quando sua API Web é chamada por um aplicativo daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
-Os aplicativos daemon exigem que um administrador de locatário consentisse previamente o aplicativo que chama a API da Web. Os administradores de locatários fornecem esse consentimento na mesma página de **permissão de API** selecionando **conceder consentimento de administrador para *nossa organização* **
+Os aplicativos daemon exigem que um administrador de locatário consentisse previamente o aplicativo que chama a API da Web. Os administradores de locatários fornecem esse consentimento na mesma página de **permissão de API** selecionando **conceder consentimento de administrador para *nossa organização***
 
 Se você for um ISV criando um aplicativo multilocatário, leia a seção [implantação-caso de aplicativos de daemon multilocatário](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
@@ -50,5 +50,4 @@ Se você for um ISV criando um aplicativo multilocatário, leia a seção [impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Aplicativo daemon-configuração de código do aplicativo](./scenario-daemon-app-configuration.md)
+Vá para o próximo artigo neste cenário, configuração de [código do aplicativo](./scenario-daemon-app-configuration.md).

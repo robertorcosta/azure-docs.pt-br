@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: mathapli
+ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413098"
+ms.locfileid: "94443425"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Visualização: Benefício Híbrido do Azure – como ele se aplica ao Máquinas Virtuais do Linux
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Visualização pública: Benefício Híbrido do Azure – como ele se aplica ao Máquinas Virtuais do Linux
 
 ## <a name="overview"></a>Visão geral
 
@@ -45,30 +45,26 @@ As instâncias reservadas, os hosts dedicados e os benefícios híbridos do SQL 
 
 ## <a name="how-to-get-started"></a>Como começar
 
-O Benefício Híbrido do Azure está atualmente em uma fase de visualização para VMs do Linux. Depois de obter acesso à visualização, você poderá habilitar o benefício usando o portal do Azure ou o CLI do Azure.
+O Benefício Híbrido do Azure está atualmente em uma fase de visualização para VMs do Linux. Depois de obter acesso à visualização, você poderá habilitar o benefício usando CLI do Azure.
 
-### <a name="preview"></a>Versão Prévia
+### <a name="public-preview"></a>Visualização pública
 
-Nesta fase, você pode obter acesso ao benefício preenchendo o formulário [aqui](https://aka.ms/ahb-linux-form). Depois de preencher o formulário, suas assinaturas do Azure serão habilitadas para o benefício e você receberá uma confirmação da Microsoft dentro de três dias úteis.
+O Benefício Híbrido do Azure (para Linux) está na fase de visualização pública agora. Você pode usar as etapas a seguir para habilitar o benefício para distribuições do Red Hat e SUSE. 
 
 ### <a name="red-hat-customers"></a>Clientes do Red Hat
 
-1.    Preencha o formulário de solicitação de visualização acima
 1.    Registrar com o [programa de acesso à nuvem do Red Hat](https://aka.ms/rhel-cloud-access)
 1.    Habilite suas assinaturas do Azure para acesso à nuvem e habilite as assinaturas que contêm as VMs com as quais você deseja usar o benefício
-1.    Aplique o benefício às suas VMs existentes por meio do portal do Azure ou CLI do Azure
-1.    Opcional, registre suas VMs recebendo o benefício com uma fonte separada de atualizações (as VMs comutadas podem permanecer anexadas ao [RHUI](../workloads/redhat/redhat-rhui.md) ou registradas por meio do RHSM)
+1.    Aplique o benefício às VMs existentes por meio de CLI do Azure
+1.    Registre suas VMs recebendo o benefício com uma fonte separada de atualizações
+
 
 ### <a name="suse-customers"></a>Clientes do SUSE
 
-1.    Preencha o formulário de solicitação de visualização acima
 1.    Registre-se no programa de nuvem pública SUSE
-1.    Aplique o benefício às suas VMs existentes por meio do portal do Azure ou CLI do Azure
+1.    Aplique o benefício às VMs existentes por meio de CLI do Azure
 1.    Registre suas VMs recebendo o benefício com uma fonte separada de atualizações
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Habilitar e desabilitar o benefício no portal do Azure
-
-Você pode habilitar o benefício em VMs existentes visitando a folha **configuração** e seguindo as etapas ali. Você pode habilitar o benefício em novas VMs durante a experiência de criação da VM.
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Habilitar e desabilitar o benefício no CLI do Azure
 
@@ -109,12 +105,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>Verificar o status de AHB de uma VM
-Você pode exibir o status AHB de uma VM de três maneiras: fazendo check-in no portal, usando CLI do Azure ou usando o serviço de metadados de instância do Azure (Azure IMDS).
+Você pode exibir o status de AHB de uma VM de duas maneiras: usando CLI do Azure ou usando o serviço de metadados de instância do Azure (Azure IMDS).
 
-
-### <a name="portal"></a>Portal
-
-Exiba a folha configuração e verifique o status de licenciamento para ver se o AHB está habilitado para sua VM.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -152,9 +144,7 @@ Esta seção contém uma lista de problemas comuns que podem ser encontrados e a
 
 | Erro | Atenuação |
 | ----- | ---------- |
-| "A assinatura não está registrada para a versão prévia do Linux do Benefício Híbrido do Azure. Para obter instruções passo a passo, consulte https://aka.ms/ahb-linux " | Preencha o formulário em https://aka.ms/ahb-linux-form para registrar-se para a versão prévia do Linux do benefício híbrido do Azure.
 | "A ação não pôde ser concluída porque nossos registros mostram que você não habilitou com êxito o acesso à nuvem Red Hat em sua assinatura do Azure...." | Para usar o benefício com VMs RHEL, você deve primeiro registrar suas assinaturas do Azure com acesso à nuvem Red Hat. Visite este link para saber mais sobre como registrar suas assinaturas do Azure para acesso à nuvem Red Hat
-|"A opção para Benefício Híbrido do Azure não aparece no portal" | Esse é um problema conhecido para VMs RHEL e SLES criadas a partir da Galeria de imagens compartilhadas, instantâneos ou imagens PAYG capturadas. Nesse caso, use as etapas da CLI descritas na seção "[habilitar e desabilitar o benefício no CLI do Azure](#enable-and-disable-the-benefit-in-the-azure-cli)". Para exibir o status de AHB, use o comando ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Próximas etapas
-* Comece com a versão prévia preenchendo o formulário [aqui](https://aka.ms/ahb-linux-form).
+* Saiba como criar e atualizar VMs e adicionar tipos de licença (RHEL_BYOS, SLES_BYOS) para Benefício Híbrido do Azure usando [CLI do Azure aqui.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

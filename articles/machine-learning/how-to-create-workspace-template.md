@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305485"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442048"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -34,7 +34,7 @@ Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de
 
 * Alguns cenários exigem que você abra um tíquete de suporte. Esses cenários são:
 
-    * __Espaço de trabalho habilitado para link privado com uma chave gerenciada pelo cliente (CMK)__
+    * __Workspace habilitado para link privado com uma chave gerenciada pelo cliente__
     * __Registro de Contêiner do Azure para o workspace atrás da rede virtual__
 
     Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
@@ -170,7 +170,7 @@ O modelo de exemplo a seguir demonstra como criar um workspace com três configu
 > [!IMPORTANT]
 > Depois que um workspace tiver sido criado, você não poderá alterar as configurações de dados confidenciais, criptografia, ID do cofre de chaves e identificadores de chave. Para alterar esses valores, você precisa criar um workspace usando os novos valores.
 
-Para obter mais informações, confira [Criptografia em repouso](concept-enterprise-security.md#encryption-at-rest).
+Para obter mais informações, confira [Criptografia em repouso](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > Há alguns requisitos específicos que sua assinatura precisa atender antes de usar este modelo:
@@ -252,7 +252,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-Ao usar uma chave gerenciada pelo cliente, Azure Machine Learning cria um grupo de recursos secundário que contém a instância de Cosmos DB. Para obter mais informações, consulte [criptografia em repouso-Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+Ao usar uma chave gerenciada pelo cliente, Azure Machine Learning cria um grupo de recursos secundário que contém a instância de Cosmos DB. Para obter mais informações, consulte [criptografia em repouso-Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 Uma configuração adicional que você pode fornecer para seus dados é definir o parâmetro **confidential_data** como **true**. Fazendo isso, o faz o seguinte:
 
@@ -264,7 +264,7 @@ Uma configuração adicional que você pode fornecer para seus dados é definir 
     > [!IMPORTANT]
     > Depois que um workspace tiver sido criado, você não poderá alterar as configurações de dados confidenciais, criptografia, ID do cofre de chaves e identificadores de chave. Para alterar esses valores, você precisa criar um workspace usando os novos valores.
 
-  Para obter mais informações, consulte [criptografia em repouso](concept-enterprise-security.md#encryption-at-rest).
+  Para obter mais informações, consulte [criptografia em repouso](concept-data-encryption.md#encryption-at-rest).
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>Implantar espaço de trabalho por trás de uma rede virtual
 

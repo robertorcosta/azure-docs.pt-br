@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442727"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443085"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrar aplicativos móveis que chamam APIs da Web
 
@@ -44,7 +44,7 @@ Para obter mais informações, consulte [cenários e fluxos de autenticação co
 
 ### <a name="interactive-authentication"></a>Autenticação interativa
 
-Quando você cria um aplicativo móvel que usa a autenticação interativa, a etapa de registro mais crítica é o URI de redirecionamento. Você pode definir a autenticação interativa por meio da [configuração de plataforma na folha **autenticação** ](https://aka.ms/MobileAppReg).
+Quando você cria um aplicativo móvel que usa a autenticação interativa, a etapa de registro mais crítica é o URI de redirecionamento. Você pode definir a autenticação interativa por meio da [configuração de plataforma na folha **autenticação**](https://aka.ms/MobileAppReg).
 
 Essa experiência permitirá que seu aplicativo obtenha SSO (logon único) por meio de Microsoft Authenticator (e Portal da Empresa do Intune no Android). Ele também dará suporte a políticas de gerenciamento de dispositivos.
 
@@ -72,16 +72,16 @@ Quando você concluir as etapas, o URI de redirecionamento será computado para 
 
 Se preferir configurar manualmente o URI de redirecionamento, você poderá fazer isso por meio do manifesto do aplicativo. Este é o formato recomendado para o manifesto:
 
-- **Ios**: `msauth.<BUNDLE_ID>://auth`
+- **Ios** : `msauth.<BUNDLE_ID>://auth`
   - Por exemplo, digite `msauth.com.yourcompany.appName://auth`
-- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Você pode gerar o hash de assinatura do Android usando a chave de versão ou a chave de depuração por meio do comando keytool.
 
 ### <a name="username-password-authentication"></a>Nome de usuário-autenticação de senha
 
 Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para o ponto de extremidade da plataforma Microsoft Identity versão 2,0. Seu aplicativo não será chamado de volta em nenhum URI específico.
 
-No entanto, você precisa identificar seu aplicativo como um aplicativo cliente público. Para fazer isso, inicie na seção de **autenticação** do seu aplicativo. Na subseção **Configurações avançadas** , no tipo de **cliente padrão** parágrafo, para o aplicativo pergunta **tratar como um cliente público**, selecione **Sim**.
+No entanto, você precisa identificar seu aplicativo como um aplicativo cliente público. Para fazer isso, inicie na seção de **autenticação** do seu aplicativo. Na subseção **Configurações avançadas** , no tipo de **cliente padrão** parágrafo, para o aplicativo pergunta **tratar como um cliente público** , selecione **Sim**.
 
 ## <a name="api-permissions"></a>Permissões de API
 
@@ -91,5 +91,4 @@ Ao registrar estaticamente as permissões, você permite que os administradores 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Configuração do código](scenario-mobile-app-configuration.md)
+Vá para o próximo artigo neste cenário, configuração de [código do aplicativo](scenario-mobile-app-configuration.md).
